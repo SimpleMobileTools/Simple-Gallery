@@ -1,4 +1,5 @@
 <resources>
     <dimen name="activity_margin">16dp</dimen>
-    <dimen name="photo_size">150dp</dimen>
+    <dimen name="dir_tmb_size">150dp</dimen>
+    <dimen name="photo_tmb_size">100dp</dimen>
 </resources>

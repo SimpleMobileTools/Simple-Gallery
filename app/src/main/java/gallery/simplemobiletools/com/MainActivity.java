@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final GridView gridView = (GridView) findViewById(R.id.photo_grid);
+        final GridView gridView = (GridView) findViewById(R.id.directories_grid);
 
         dirs = new ArrayList<>(getDirectories().values());
         final DirectoryAdapter adapter = new DirectoryAdapter(this, dirs);
@@ -41,7 +41,8 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
         if (cursor != null && cursor.moveToFirst()) {
             final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
             do {
-                final File file = new File(cursor.getString(pathIndex));
+                final String path = cursor.getString(pathIndex);
+                final File file = new File(path);
                 final String fileDir = file.getParent().toLowerCase();
 
                 if (directories.containsKey(fileDir)) {
@@ -49,9 +50,8 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
                     final int newImageCnt = directory.getPhotoCnt() + 1;
                     directory.setPhotoCnt(newImageCnt);
                 } else {
-                    final String thumbnail = file.getAbsolutePath();
                     final String dirName = fileDir.substring(fileDir.lastIndexOf("/") + 1);
-                    directories.put(fileDir, new Directory(fileDir, thumbnail, dirName, 1));
+                    directories.put(fileDir, new Directory(fileDir, path, dirName, 1));
                 }
             } while (cursor.moveToNext());
             cursor.close();

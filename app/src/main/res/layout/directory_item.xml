@@ -2,13 +2,13 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/tmb_background">
 
     <gallery.simplemobiletools.com.MyImageView
         android:id="@+id/dir_thumbnail"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/white"/>
+        android:layout_height="match_parent"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -33,5 +33,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/dir_name"
             android:textColor="@android:color/white"/>
+
     </RelativeLayout>
 </RelativeLayout>
