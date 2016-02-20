@@ -3,9 +3,9 @@ package gallery.simplemobiletools.com;
 public class Directory {
     private final String path;
     private final String name;
-    private final int photoCnt;
+    private final String photoCnt;
 
-    public Directory(String path, String name, int photoCnt) {
+    public Directory(String path, String name, String photoCnt) {
         this.path = path;
         this.name = name;
         this.photoCnt = photoCnt;
@@ -19,7 +19,7 @@ public class Directory {
         return name;
     }
 
-    public int getPhotoCnt() {
+    public String getPhotoCnt() {
         return photoCnt;
     }
 }
