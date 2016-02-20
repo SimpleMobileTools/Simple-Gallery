@@ -5,15 +5,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
 public class DirectoryAdapter extends BaseAdapter {
+    private final Context context;
     private final List<Directory> dirs;
     private final LayoutInflater inflater;
 
     public DirectoryAdapter(Context context, List<Directory> dirs) {
+        this.context = context;
         this.dirs = dirs;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -32,6 +37,7 @@ public class DirectoryAdapter extends BaseAdapter {
         Directory dir = dirs.get(position);
         holder.dirName.setText(dir.getName());
         holder.photoCnt.setText(String.valueOf(dir.getPhotoCnt()));
+        Glide.with(context).load(dir.getThumbnail()).centerCrop().crossFade().into(holder.dirThumbnail);
 
         return view;
     }
@@ -54,10 +60,12 @@ public class DirectoryAdapter extends BaseAdapter {
     static class ViewHolder {
         TextView dirName;
         TextView photoCnt;
+        ImageView dirThumbnail;
 
         public ViewHolder(View view) {
             dirName = (TextView) view.findViewById(R.id.dir_name);
             photoCnt = (TextView) view.findViewById(R.id.photo_cnt);
+            dirThumbnail = (ImageView) view.findViewById(R.id.dir_thumbnail);
         }
     }
 }

@@ -10,9 +10,9 @@
         android:layout_height="wrap_content"
         android:background="@android:color/black"
         android:columnWidth="@dimen/photo_size"
-        android:horizontalSpacing="1dp"
+        android:horizontalSpacing="2dp"
         android:numColumns="auto_fit"
         android:stretchMode="columnWidth"
-        android:verticalSpacing="1dp"/>
+        android:verticalSpacing="2dp"/>
 
 </RelativeLayout>
