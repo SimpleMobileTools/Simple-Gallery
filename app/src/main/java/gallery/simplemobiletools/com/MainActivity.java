@@ -9,36 +9,24 @@ import android.widget.GridView;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class MainActivity extends AppCompatActivity {
-    private List<Directory> dirs;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        final Map<String, Integer> directories = getImages();
-        dirs = new ArrayList<>(directories.size());
-
-        for (Map.Entry<String, Integer> dir : directories.entrySet()) {
-            final String path = dir.getKey();
-            final String dirName = path.substring(path.lastIndexOf("/") + 1);
-            final String cnt = String.valueOf(dir.getValue());
-            dirs.add(new Directory(path, dirName, cnt));
-        }
-
         final GridView gridView = (GridView) findViewById(R.id.photo_grid);
-        DirectoryAdapter adapter = new DirectoryAdapter(this, dirs);
+
+        final List<Directory> dirs = new ArrayList<>(getDirectories().values());
+        final DirectoryAdapter adapter = new DirectoryAdapter(this, dirs);
         gridView.setAdapter(adapter);
     }
 
-    private Map<String, Integer> getImages() {
-        final Map<String, Integer> directories = new TreeMap<>();
+    private Map<String, Directory> getDirectories() {
+        final Map<String, Directory> directories = new TreeMap<>();
         final Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
         final Cursor cursor = getContentResolver().query(uri, null, null, null, null);
 
@@ -46,11 +34,16 @@ public class MainActivity extends AppCompatActivity {
             final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
             do {
                 final File file = new File(cursor.getString(pathIndex));
-                final String path = file.getParent().toLowerCase();
-                if (directories.containsKey(path)) {
-                    directories.put(path, directories.get(path) + 1);
+                final String fileDir = file.getParent().toLowerCase();
+
+                if (directories.containsKey(fileDir)) {
+                    final Directory directory = directories.get(fileDir);
+                    final int newImageCnt = directory.getPhotoCnt() + 1;
+                    directory.setPhotoCnt(newImageCnt);
                 } else {
-                    directories.put(path, 1);
+                    final String thumbnail = file.getAbsolutePath();
+                    final String dirName = fileDir.substring(fileDir.lastIndexOf("/") + 1);
+                    directories.put(fileDir, new Directory(thumbnail, dirName, 1));
                 }
             } while (cursor.moveToNext());
             cursor.close();

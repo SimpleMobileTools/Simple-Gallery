@@ -31,7 +31,7 @@ public class DirectoryAdapter extends BaseAdapter {
 
         Directory dir = dirs.get(position);
         holder.dirName.setText(dir.getName());
-        holder.photoCnt.setText(dir.getPhotoCnt());
+        holder.photoCnt.setText(String.valueOf(dir.getPhotoCnt()));
 
         return view;
     }
