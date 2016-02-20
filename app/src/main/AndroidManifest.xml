@@ -24,5 +24,10 @@
         <activity
             android:name=".PhotosActivity"
             android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".PhotoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
     </application>
 </manifest>

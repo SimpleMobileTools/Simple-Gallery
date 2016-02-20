@@ -1,5 +1,6 @@
 package gallery.simplemobiletools.com;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,12 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PhotosActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+    private List<String> photos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photos);
 
+        photos = new ArrayList<>();
         final GridView gridView = (GridView) findViewById(R.id.photos_grid);
         final PhotosAdapter adapter = new PhotosAdapter(this, getPhotos());
         gridView.setAdapter(adapter);
@@ -26,7 +29,6 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
     }
 
     private List<String> getPhotos() {
-        final List<String> photos = new ArrayList<>();
         final String path = getIntent().getStringExtra(Constants.DIRECTORY);
         final Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
         final String where = MediaStore.Images.Media.DATA + " like ? ";
@@ -46,6 +48,8 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+        final Intent intent = new Intent(this, PhotoActivity.class);
+        intent.putExtra(Constants.PHOTO, photos.get(position));
+        startActivity(intent);
     }
 }
