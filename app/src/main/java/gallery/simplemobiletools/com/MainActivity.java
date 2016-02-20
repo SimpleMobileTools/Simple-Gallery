@@ -27,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
 
         for (Map.Entry<String, Integer> dir : directories.entrySet()) {
             final String path = dir.getKey();
-            final String name = path.substring(path.lastIndexOf("/") + 1);
+            final String dirName = path.substring(path.lastIndexOf("/") + 1);
             final String cnt = String.valueOf(dir.getValue());
-            dirs.add(new Directory(path, name, cnt));
+            dirs.add(new Directory(path, dirName, cnt));
         }
 
         final GridView gridView = (GridView) findViewById(R.id.photo_grid);
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private Map<String, Integer> getImages() {
-        final Map<String, Integer> dirs = new TreeMap<>();
+        final Map<String, Integer> directories = new TreeMap<>();
         final Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
         final Cursor cursor = getContentResolver().query(uri, null, null, null, null);
 
@@ -47,15 +47,15 @@ public class MainActivity extends AppCompatActivity {
             do {
                 final File file = new File(cursor.getString(pathIndex));
                 final String path = file.getParent().toLowerCase();
-                if (dirs.containsKey(path)) {
-                    dirs.put(path, dirs.get(path) + 1);
+                if (directories.containsKey(path)) {
+                    directories.put(path, directories.get(path) + 1);
                 } else {
-                    dirs.put(path, 1);
+                    directories.put(path, 1);
                 }
             } while (cursor.moveToNext());
             cursor.close();
         }
 
-        return dirs;
+        return directories;
     }
 }
