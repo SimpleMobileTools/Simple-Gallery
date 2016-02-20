@@ -27,7 +27,7 @@ public class DirectoryAdapter extends BaseAdapter {
     public View getView(int position, View view, ViewGroup parent) {
         ViewHolder holder;
         if (view == null) {
-            view = inflater.inflate(R.layout.photo_item, parent, false);
+            view = inflater.inflate(R.layout.directory_item, parent, false);
             holder = new ViewHolder(view);
             view.setTag(holder);
         } else {

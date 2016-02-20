@@ -35,7 +35,8 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
     private Map<String, Directory> getDirectories() {
         final Map<String, Directory> directories = new TreeMap<>();
         final Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-        final Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+        final String[] columns = {MediaStore.Images.Media.DATA};
+        final Cursor cursor = getContentResolver().query(uri, columns, null, null, null);
 
         if (cursor != null && cursor.moveToFirst()) {
             final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
