@@ -20,5 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".PhotosActivity"
+            android:screenOrientation="portrait"/>
     </application>
 </manifest>
