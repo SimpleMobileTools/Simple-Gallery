@@ -1,4 +1,4 @@
-package gallery.simplemobiletools.com;
+package gallery.simplemobiletools.com.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,9 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
+
+import gallery.simplemobiletools.com.Directory;
+import gallery.simplemobiletools.com.R;
 
 public class DirectoryAdapter extends BaseAdapter {
     private final Context context;

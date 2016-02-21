@@ -1,4 +1,4 @@
-package gallery.simplemobiletools.com;
+package gallery.simplemobiletools.com.activities;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -12,6 +12,10 @@ import android.widget.GridView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import gallery.simplemobiletools.com.Constants;
+import gallery.simplemobiletools.com.R;
+import gallery.simplemobiletools.com.adapters.PhotosAdapter;
 
 public class PhotosActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private List<String> photos;

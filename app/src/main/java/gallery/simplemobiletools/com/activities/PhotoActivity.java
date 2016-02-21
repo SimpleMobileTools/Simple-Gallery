@@ -1,4 +1,4 @@
-package gallery.simplemobiletools.com;
+package gallery.simplemobiletools.com.activities;
 
 import android.database.Cursor;
 import android.net.Uri;
@@ -10,6 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
+import gallery.simplemobiletools.com.Constants;
+import gallery.simplemobiletools.com.R;
+import gallery.simplemobiletools.com.adapters.MyPagerAdapter;
 
 public class PhotoActivity extends AppCompatActivity {
     private int pos;
