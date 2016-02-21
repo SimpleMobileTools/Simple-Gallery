@@ -12,6 +12,7 @@ import android.widget.GridView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import gallery.simplemobiletools.com.Constants;
 import gallery.simplemobiletools.com.R;
@@ -40,11 +41,15 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
         final String[] columns = {MediaStore.Images.Media.DATA};
         final String order = MediaStore.Images.Media.DATE_MODIFIED + " DESC";
         final Cursor cursor = getContentResolver().query(uri, columns, where, args, order);
+        final String pattern = Pattern.quote(path) + "/[^/]*";
 
         if (cursor != null && cursor.moveToFirst()) {
             final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
             do {
-                photos.add(cursor.getString(pathIndex));
+                final String curPath = cursor.getString(pathIndex);
+                if (curPath.toLowerCase().matches(pattern)) {
+                    photos.add(cursor.getString(pathIndex));
+                }
             } while (cursor.moveToNext());
             cursor.close();
         }
