@@ -52,7 +52,7 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        final Intent intent = new Intent(this, PhotoActivity.class);
+        final Intent intent = new Intent(this, ViewPagerActivity.class);
         intent.putExtra(Constants.PHOTO, photos.get(position));
         startActivity(intent);
     }

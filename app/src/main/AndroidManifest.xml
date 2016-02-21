@@ -26,7 +26,7 @@
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name=".activities.PhotoActivity"
+            android:name=".activities.ViewPagerActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
     </application>

@@ -15,7 +15,7 @@ import gallery.simplemobiletools.com.Constants;
 import gallery.simplemobiletools.com.R;
 import gallery.simplemobiletools.com.adapters.MyPagerAdapter;
 
-public class PhotoActivity extends AppCompatActivity {
+public class ViewPagerActivity extends AppCompatActivity {
     private int pos;
 
     @Override
