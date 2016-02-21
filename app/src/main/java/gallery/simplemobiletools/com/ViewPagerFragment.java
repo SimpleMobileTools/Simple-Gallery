@@ -23,6 +23,7 @@ public class ViewPagerFragment extends Fragment {
         if (path != null) {
             final SubsamplingScaleImageView imageView = (SubsamplingScaleImageView) view.findViewById(R.id.photo);
             imageView.setImage(ImageSource.uri(path));
+            imageView.setMaxScale(5f);
         }
 
         return view;
