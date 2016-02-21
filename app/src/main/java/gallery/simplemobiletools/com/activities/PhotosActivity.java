@@ -38,7 +38,8 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
         final String where = MediaStore.Images.Media.DATA + " like ? ";
         final String[] args = new String[]{path + "%"};
         final String[] columns = {MediaStore.Images.Media.DATA};
-        final Cursor cursor = getContentResolver().query(uri, columns, where, args, null);
+        final String order = MediaStore.Images.Media.DATE_MODIFIED + " DESC";
+        final Cursor cursor = getContentResolver().query(uri, columns, where, args, order);
 
         if (cursor != null && cursor.moveToFirst()) {
             final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);

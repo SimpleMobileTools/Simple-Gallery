@@ -13,6 +13,7 @@ import android.widget.GridView;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -38,10 +39,11 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
     }
 
     private Map<String, Directory> getDirectories() {
-        final Map<String, Directory> directories = new TreeMap<>();
+        final Map<String, Directory> directories = new LinkedHashMap<>();
         final Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
         final String[] columns = {MediaStore.Images.Media.DATA};
-        final Cursor cursor = getContentResolver().query(uri, columns, null, null, null);
+        final String order = MediaStore.Images.Media.DATE_MODIFIED + " DESC";
+        final Cursor cursor = getContentResolver().query(uri, columns, null, null, order);
 
         if (cursor != null && cursor.moveToFirst()) {
             final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
