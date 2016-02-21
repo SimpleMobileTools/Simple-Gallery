@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import gallery.simplemobiletools.com.R;
+import uk.co.senab.photoview.PhotoViewAttacher;
 
 public class MyPagerAdapter extends PagerAdapter {
     private final Context context;
@@ -40,6 +41,7 @@ public class MyPagerAdapter extends PagerAdapter {
         final ImageView imageView = (ImageView) view.findViewById(R.id.photo);
         Glide.with(context).load(paths.get(position)).fitCenter().crossFade().into(imageView);
         container.addView(view);
+        new PhotoViewAttacher(imageView);
         return view;
     }
 
