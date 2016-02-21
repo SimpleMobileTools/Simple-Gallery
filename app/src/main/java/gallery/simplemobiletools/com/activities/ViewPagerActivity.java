@@ -4,7 +4,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import java.io.File;
@@ -12,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gallery.simplemobiletools.com.Constants;
+import gallery.simplemobiletools.com.MyViewPager;
 import gallery.simplemobiletools.com.R;
 import gallery.simplemobiletools.com.adapters.MyPagerAdapter;
 
@@ -24,7 +24,7 @@ public class ViewPagerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_photo);
 
         pos = 0;
-        final ViewPager pager = (ViewPager) findViewById(R.id.view_pager);
+        final MyViewPager pager = (MyViewPager) findViewById(R.id.view_pager);
         final MyPagerAdapter adapter = new MyPagerAdapter(this, getPhotos());
         pager.setAdapter(adapter);
         pager.setCurrentItem(pos);
