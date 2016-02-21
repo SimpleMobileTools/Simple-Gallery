@@ -26,7 +26,8 @@ public class ViewPagerActivity extends AppCompatActivity {
 
         pos = 0;
         final MyViewPager pager = (MyViewPager) findViewById(R.id.view_pager);
-        final MyPagerAdapter adapter = new MyPagerAdapter(this, getPhotos());
+        final MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager());
+        adapter.setPaths(getPhotos());
         pager.setAdapter(adapter);
         pager.setCurrentItem(pos);
     }

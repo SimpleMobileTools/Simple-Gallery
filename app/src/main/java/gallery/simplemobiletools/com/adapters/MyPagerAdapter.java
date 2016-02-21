@@ -1,22 +1,21 @@
 package gallery.simplemobiletools.com.adapters;
 
-import android.content.Context;
-import android.support.v4.view.PagerAdapter;
-import android.view.View;
-import android.view.ViewGroup;
-
-import com.bumptech.glide.Glide;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
 import java.util.List;
 
-import uk.co.senab.photoview.PhotoView;
+import gallery.simplemobiletools.com.ViewPagerFragment;
 
-public class MyPagerAdapter extends PagerAdapter {
-    private final Context context;
-    private final List<String> paths;
+public class MyPagerAdapter extends FragmentStatePagerAdapter {
+    private List<String> paths;
 
-    public MyPagerAdapter(Context context, List<String> paths) {
-        this.context = context;
+    public MyPagerAdapter(FragmentManager fm) {
+        super(fm);
+    }
+
+    public void setPaths(List<String> paths) {
         this.paths = paths;
     }
 
@@ -26,21 +25,9 @@ public class MyPagerAdapter extends PagerAdapter {
     }
 
     @Override
-    public boolean isViewFromObject(View view, Object object) {
-        return view == object;
-    }
-
-    @Override
-    public Object instantiateItem(ViewGroup container, int position) {
-        final PhotoView photoView = new PhotoView(context);
-        Glide.with(context).load(paths.get(position)).fitCenter().crossFade().into(photoView);
-        container.addView(photoView);
-        photoView.setMaximumScale(20f);
-        return photoView;
-    }
-
-    @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView((View) object);
+    public Fragment getItem(int position) {
+        final ViewPagerFragment fragment = new ViewPagerFragment();
+        fragment.setPath(paths.get(position));
+        return fragment;
     }
 }
