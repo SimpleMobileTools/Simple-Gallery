@@ -35,6 +35,7 @@ public class MyPagerAdapter extends PagerAdapter {
         final PhotoView photoView = new PhotoView(context);
         Glide.with(context).load(paths.get(position)).fitCenter().crossFade().into(photoView);
         container.addView(photoView);
+        photoView.setMaximumScale(20f);
         return photoView;
     }
 
