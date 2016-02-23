@@ -9,7 +9,9 @@ import android.view.ViewGroup;
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 
-public class ViewPagerFragment extends Fragment {
+import gallery.simplemobiletools.com.activities.ViewPagerActivity;
+
+public class ViewPagerFragment extends Fragment implements View.OnClickListener {
     private String path;
 
     public void setPath(String path) {
@@ -24,8 +26,14 @@ public class ViewPagerFragment extends Fragment {
             final SubsamplingScaleImageView imageView = (SubsamplingScaleImageView) view.findViewById(R.id.photo);
             imageView.setImage(ImageSource.uri(path));
             imageView.setMaxScale(5f);
+            imageView.setOnClickListener(this);
         }
 
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        ((ViewPagerActivity) getActivity()).photoClicked();
     }
 }
