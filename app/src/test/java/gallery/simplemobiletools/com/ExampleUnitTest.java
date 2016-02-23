@@ -1,4 +1,4 @@
-package gallery.simplemobiletools.com;
+package com.simplemobiletools.gallery;
 
 import org.junit.Test;
 

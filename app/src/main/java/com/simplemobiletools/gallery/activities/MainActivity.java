@@ -1,4 +1,4 @@
-package gallery.simplemobiletools.com.activities;
+package com.simplemobiletools.gallery.activities;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -16,12 +16,11 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 
-import gallery.simplemobiletools.com.Constants;
-import gallery.simplemobiletools.com.Directory;
-import gallery.simplemobiletools.com.R;
-import gallery.simplemobiletools.com.adapters.DirectoryAdapter;
+import com.simplemobiletools.gallery.Constants;
+import com.simplemobiletools.gallery.Directory;
+import com.simplemobiletools.gallery.R;
+import com.simplemobiletools.gallery.adapters.DirectoryAdapter;
 
 public class MainActivity extends AppCompatActivity implements OnItemClickListener {
     private List<Directory> dirs;

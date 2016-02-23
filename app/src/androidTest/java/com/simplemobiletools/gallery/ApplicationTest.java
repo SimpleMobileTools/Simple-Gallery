@@ -1,4 +1,4 @@
-package gallery.simplemobiletools.com;
+package com.simplemobiletools.gallery;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

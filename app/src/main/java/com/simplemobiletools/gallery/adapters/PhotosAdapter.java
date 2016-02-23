@@ -1,4 +1,4 @@
-package gallery.simplemobiletools.com.adapters;
+package com.simplemobiletools.gallery.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-import gallery.simplemobiletools.com.R;
+import com.simplemobiletools.gallery.R;
 
 public class PhotosAdapter extends BaseAdapter {
     private final Context context;

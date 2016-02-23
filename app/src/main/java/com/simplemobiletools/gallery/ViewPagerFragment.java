@@ -1,4 +1,4 @@
-package gallery.simplemobiletools.com;
+package com.simplemobiletools.gallery;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 
-import gallery.simplemobiletools.com.activities.ViewPagerActivity;
+import com.simplemobiletools.gallery.activities.ViewPagerActivity;
 
 public class ViewPagerFragment extends Fragment implements View.OnClickListener {
     private String path;

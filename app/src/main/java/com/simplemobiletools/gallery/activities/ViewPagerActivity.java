@@ -1,4 +1,4 @@
-package gallery.simplemobiletools.com.activities;
+package com.simplemobiletools.gallery.activities;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -16,10 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import gallery.simplemobiletools.com.Constants;
-import gallery.simplemobiletools.com.MyViewPager;
-import gallery.simplemobiletools.com.R;
-import gallery.simplemobiletools.com.adapters.MyPagerAdapter;
+import com.simplemobiletools.gallery.Constants;
+import com.simplemobiletools.gallery.MyViewPager;
+import com.simplemobiletools.gallery.R;
+import com.simplemobiletools.gallery.adapters.MyPagerAdapter;
 
 public class ViewPagerActivity extends AppCompatActivity {
     private int pos;

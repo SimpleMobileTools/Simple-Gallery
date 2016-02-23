@@ -1,4 +1,4 @@
-package gallery.simplemobiletools.com;
+package com.simplemobiletools.gallery;
 
 public class Directory {
     private final String path;

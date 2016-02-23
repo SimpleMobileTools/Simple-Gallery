@@ -1,4 +1,4 @@
-package gallery.simplemobiletools.com.adapters;
+package com.simplemobiletools.gallery.adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import java.util.List;
 
-import gallery.simplemobiletools.com.ViewPagerFragment;
+import com.simplemobiletools.gallery.ViewPagerFragment;
 
 public class MyPagerAdapter extends FragmentStatePagerAdapter {
     private List<String> paths;

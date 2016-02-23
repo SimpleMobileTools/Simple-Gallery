@@ -1,4 +1,4 @@
-package gallery.simplemobiletools.com;
+package com.simplemobiletools.gallery;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;

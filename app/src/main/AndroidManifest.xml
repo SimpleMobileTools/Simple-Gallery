@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
-    package="gallery.simplemobiletools.com"
+    package="com.simplemobiletools.gallery"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.MainActivity"
+            android:name="com.simplemobiletools.gallery.activities.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -22,11 +22,11 @@
         </activity>
 
         <activity
-            android:name=".activities.PhotosActivity"
+            android:name="com.simplemobiletools.gallery.activities.PhotosActivity"
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name=".activities.ViewPagerActivity"
+            android:name="com.simplemobiletools.gallery.activities.ViewPagerActivity"
             android:screenOrientation="portrait"/>
     </application>
 </manifest>
