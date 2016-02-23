@@ -1,5 +1,6 @@
 package gallery.simplemobiletools.com.activities;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -24,6 +25,8 @@ public class ViewPagerActivity extends AppCompatActivity {
     private int pos;
     private boolean isFullScreen;
     private ActionBar actionbar;
+    private List<String> photos;
+    private MyViewPager pager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +38,10 @@ public class ViewPagerActivity extends AppCompatActivity {
         isFullScreen = true;
         hideSystemUI();
 
-        final MyViewPager pager = (MyViewPager) findViewById(R.id.view_pager);
         final MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager());
-        adapter.setPaths(getPhotos());
+        pager = (MyViewPager) findViewById(R.id.view_pager);
+        photos = getPhotos();
+        adapter.setPaths(photos);
         pager.setAdapter(adapter);
         pager.setCurrentItem(pos);
 
@@ -61,10 +65,22 @@ public class ViewPagerActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_share:
+                shareImage();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void shareImage() {
+        final String shareTitle = getResources().getString(R.string.share_via);
+        final Intent sendIntent = new Intent();
+        final File file = new File(photos.get(pager.getCurrentItem()));
+        final Uri uri = Uri.fromFile(file);
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
+        sendIntent.setType("image/*");
+        startActivity(Intent.createChooser(sendIntent, shareTitle));
     }
 
     private List<String> getPhotos() {
