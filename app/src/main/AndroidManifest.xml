@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.simplemobiletools.gallery.activities.MainActivity"
+            android:name=".activities.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -22,11 +22,11 @@
         </activity>
 
         <activity
-            android:name="com.simplemobiletools.gallery.activities.PhotosActivity"
+            android:name=".activities.PhotosActivity"
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name="com.simplemobiletools.gallery.activities.ViewPagerActivity"
+            android:name=".activities.ViewPagerActivity"
             android:screenOrientation="portrait"/>
     </application>
 </manifest>
