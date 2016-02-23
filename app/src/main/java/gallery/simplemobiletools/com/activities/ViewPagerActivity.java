@@ -4,7 +4,10 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import java.io.File;
@@ -20,6 +23,7 @@ import gallery.simplemobiletools.com.adapters.MyPagerAdapter;
 public class ViewPagerActivity extends AppCompatActivity {
     private int pos;
     private boolean isFullScreen;
+    private ActionBar actionbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +31,7 @@ public class ViewPagerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_photo);
 
         pos = 0;
+        actionbar = getSupportActionBar();
         isFullScreen = true;
         hideSystemUI();
 
@@ -44,6 +49,22 @@ public class ViewPagerActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_share:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private List<String> getPhotos() {
@@ -87,6 +108,9 @@ public class ViewPagerActivity extends AppCompatActivity {
     }
 
     private void hideSystemUI() {
+        if (actionbar != null)
+            actionbar.hide();
+
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
                 View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
                 View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
@@ -96,6 +120,9 @@ public class ViewPagerActivity extends AppCompatActivity {
     }
 
     private void showSystemUI() {
+        if (actionbar != null)
+            actionbar.show();
+
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
                 View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
                 View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
