@@ -11,15 +11,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Pattern;
-
 import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.MyViewPager;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
 
 public class ViewPagerActivity extends AppCompatActivity {
     private int pos;
@@ -34,8 +34,8 @@ public class ViewPagerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_photo);
 
         pos = 0;
-        actionbar = getSupportActionBar();
         isFullScreen = true;
+        actionbar = getSupportActionBar();
         hideSystemUI();
 
         final MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager());

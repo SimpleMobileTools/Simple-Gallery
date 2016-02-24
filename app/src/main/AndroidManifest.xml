@@ -27,6 +27,7 @@
 
         <activity
             android:name=".activities.ViewPagerActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/FullScreenTheme"/>
     </application>
 </manifest>
