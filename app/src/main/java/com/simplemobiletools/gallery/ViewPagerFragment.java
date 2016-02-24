@@ -24,6 +24,7 @@ public class ViewPagerFragment extends Fragment implements View.OnClickListener 
 
         if (path != null) {
             final SubsamplingScaleImageView imageView = (SubsamplingScaleImageView) view.findViewById(R.id.photo);
+            imageView.setOrientation(SubsamplingScaleImageView.ORIENTATION_USE_EXIF);
             imageView.setImage(ImageSource.uri(path));
             imageView.setMaxScale(5f);
             imageView.setOnClickListener(this);
