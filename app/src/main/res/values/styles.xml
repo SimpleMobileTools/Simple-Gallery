@@ -12,7 +12,7 @@
         <item name="android:actionBarStyle">@style/MyFullScreenActionBar</item>
     </style>
 
-    <style name="MyFullScreenActionBar" parent="@android:style/Widget.Holo.ActionBar">
+    <style name="MyFullScreenActionBar" parent="Widget.AppCompat.Light.ActionBar">
         <item name="background">@color/actionbar_grey</item>
         <item name="android:background">@color/actionbar_grey</item>
     </style>

@@ -10,13 +10,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import com.simplemobiletools.gallery.Constants;
+import com.simplemobiletools.gallery.Helpers;
+import com.simplemobiletools.gallery.R;
+import com.simplemobiletools.gallery.adapters.PhotosAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
-
-import com.simplemobiletools.gallery.Constants;
-import com.simplemobiletools.gallery.R;
-import com.simplemobiletools.gallery.adapters.PhotosAdapter;
 
 public class PhotosActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private List<String> photos;
@@ -27,14 +28,17 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
         setContentView(R.layout.activity_photos);
 
         photos = new ArrayList<>();
+        final String path = getIntent().getStringExtra(Constants.DIRECTORY);
         final GridView gridView = (GridView) findViewById(R.id.photos_grid);
-        final PhotosAdapter adapter = new PhotosAdapter(this, getPhotos());
+        final PhotosAdapter adapter = new PhotosAdapter(this, getPhotos(path));
         gridView.setAdapter(adapter);
         gridView.setOnItemClickListener(this);
+
+        final String dirName = Helpers.getFilename(path);
+        setTitle(dirName);
     }
 
-    private List<String> getPhotos() {
-        final String path = getIntent().getStringExtra(Constants.DIRECTORY);
+    private List<String> getPhotos(final String path) {
         final Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
         final String where = MediaStore.Images.Media.DATA + " like ? ";
         final String[] args = new String[]{path + "%"};
@@ -47,7 +51,7 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
             final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
             do {
                 final String curPath = cursor.getString(pathIndex);
-                if (curPath.toLowerCase().matches(pattern)) {
+                if (curPath.matches(pattern)) {
                     photos.add(cursor.getString(pathIndex));
                 }
             } while (cursor.moveToNext());

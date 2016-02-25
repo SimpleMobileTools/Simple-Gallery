@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -12,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.simplemobiletools.gallery.Constants;
+import com.simplemobiletools.gallery.Helpers;
 import com.simplemobiletools.gallery.MyViewPager;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter;
@@ -21,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class ViewPagerActivity extends AppCompatActivity {
+public class ViewPagerActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
     private int pos;
     private boolean isFullScreen;
     private ActionBar actionbar;
@@ -38,12 +40,14 @@ public class ViewPagerActivity extends AppCompatActivity {
         actionbar = getSupportActionBar();
         hideSystemUI();
 
+        final String path = getIntent().getStringExtra(Constants.PHOTO);
         final MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager());
         pager = (MyViewPager) findViewById(R.id.view_pager);
-        photos = getPhotos();
+        photos = getPhotos(path);
         adapter.setPaths(photos);
         pager.setAdapter(adapter);
         pager.setCurrentItem(pos);
+        pager.addOnPageChangeListener(this);
 
         getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
             @Override
@@ -53,6 +57,8 @@ public class ViewPagerActivity extends AppCompatActivity {
                 }
             }
         });
+
+        updateActionbarTitle();
     }
 
     @Override
@@ -83,10 +89,9 @@ public class ViewPagerActivity extends AppCompatActivity {
         startActivity(Intent.createChooser(sendIntent, shareTitle));
     }
 
-    private List<String> getPhotos() {
+    private List<String> getPhotos(final String path) {
         final List<String> photos = new ArrayList<>();
-        final String path = getIntent().getStringExtra(Constants.PHOTO);
-        final String fileDir = new File(path).getParent().toLowerCase();
+        final String fileDir = new File(path).getParent();
         final Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
         final String where = MediaStore.Images.Media.DATA + " like ? ";
         final String[] args = new String[]{fileDir + "%"};
@@ -100,7 +105,7 @@ public class ViewPagerActivity extends AppCompatActivity {
             final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
             do {
                 final String curPath = cursor.getString(pathIndex);
-                if (curPath.toLowerCase().matches(pattern)) {
+                if (curPath.matches(pattern)) {
                     photos.add(curPath);
 
                     if (curPath.equals(path))
@@ -142,5 +147,24 @@ public class ViewPagerActivity extends AppCompatActivity {
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
                 View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
                 View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+    }
+
+    private void updateActionbarTitle() {
+        setTitle(Helpers.getFilename(photos.get(pager.getCurrentItem())));
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        updateActionbarTitle();
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
     }
 }

@@ -11,16 +11,17 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
+import com.simplemobiletools.gallery.Constants;
+import com.simplemobiletools.gallery.Directory;
+import com.simplemobiletools.gallery.Helpers;
+import com.simplemobiletools.gallery.R;
+import com.simplemobiletools.gallery.adapters.DirectoryAdapter;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
-import com.simplemobiletools.gallery.Constants;
-import com.simplemobiletools.gallery.Directory;
-import com.simplemobiletools.gallery.R;
-import com.simplemobiletools.gallery.adapters.DirectoryAdapter;
 
 public class MainActivity extends AppCompatActivity implements OnItemClickListener {
     private List<Directory> dirs;
@@ -49,14 +50,14 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
             do {
                 final String path = cursor.getString(pathIndex);
                 final File file = new File(path);
-                final String fileDir = file.getParent().toLowerCase();
+                final String fileDir = file.getParent();
 
                 if (directories.containsKey(fileDir)) {
                     final Directory directory = directories.get(fileDir);
                     final int newImageCnt = directory.getPhotoCnt() + 1;
                     directory.setPhotoCnt(newImageCnt);
                 } else {
-                    final String dirName = fileDir.substring(fileDir.lastIndexOf("/") + 1);
+                    final String dirName = Helpers.getFilename(fileDir);
                     directories.put(fileDir, new Directory(fileDir, path, dirName, 1));
                 }
             } while (cursor.moveToNext());
