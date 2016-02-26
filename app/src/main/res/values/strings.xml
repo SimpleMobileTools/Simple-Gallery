@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Simple Gallery</string>
     <string name="share_via">Share via</string>
+    <string name="no_permissions">Not much to do in a gallery without accessing your photos</string>
 </resources>
