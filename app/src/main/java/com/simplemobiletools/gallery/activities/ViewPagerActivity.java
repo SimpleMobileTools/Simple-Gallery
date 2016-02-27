@@ -110,9 +110,9 @@ public class ViewPagerActivity extends AppCompatActivity implements ViewPager.On
 
                     if (curPath.equals(path))
                         pos = i;
-                }
 
-                i++;
+                    i++;
+                }
             } while (cursor.moveToNext());
             cursor.close();
         }
