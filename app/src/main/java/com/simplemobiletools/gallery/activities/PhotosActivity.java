@@ -6,6 +6,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.view.ActionMode;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -19,8 +23,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class PhotosActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class PhotosActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener {
     private List<String> photos;
+    private int selectedItemsCnt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,7 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
         final PhotosAdapter adapter = new PhotosAdapter(this, getPhotos(path));
         gridView.setAdapter(adapter);
         gridView.setOnItemClickListener(this);
+        gridView.setMultiChoiceModeListener(this);
 
         final String dirName = Helpers.getFilename(path);
         setTitle(dirName);
@@ -65,5 +71,44 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
         final Intent intent = new Intent(this, ViewPagerActivity.class);
         intent.putExtra(Constants.PHOTO, photos.get(position));
         startActivity(intent);
+    }
+
+    @Override
+    public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
+        if (checked)
+            selectedItemsCnt++;
+        else
+            selectedItemsCnt--;
+
+        mode.setTitle(String.valueOf(selectedItemsCnt));
+        mode.invalidate();
+    }
+
+    @Override
+    public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+        final MenuInflater inflater = mode.getMenuInflater();
+        inflater.inflate(R.menu.cab, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+        return false;
+    }
+
+    @Override
+    public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.cab_remove:
+                mode.finish();
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    @Override
+    public void onDestroyActionMode(ActionMode mode) {
+        selectedItemsCnt = 0;
     }
 }

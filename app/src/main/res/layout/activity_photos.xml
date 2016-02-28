@@ -9,4 +9,5 @@
     android:horizontalSpacing="1dp"
     android:numColumns="auto_fit"
     android:stretchMode="columnWidth"
+    android:choiceMode="multipleChoiceModal"
     android:verticalSpacing="1dp"/>
