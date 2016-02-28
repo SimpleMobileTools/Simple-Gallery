@@ -55,6 +55,12 @@ public class PhotosAdapter extends BaseAdapter {
         return 0;
     }
 
+    public void updateItems(List<String> newPhotos) {
+        photos.clear();
+        photos.addAll(newPhotos);
+        notifyDataSetChanged();
+    }
+
     static class ViewHolder {
         ImageView photoThumbnail;
 

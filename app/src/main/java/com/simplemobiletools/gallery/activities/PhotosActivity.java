@@ -2,10 +2,12 @@ package com.simplemobiletools.gallery.activities;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.util.SparseBooleanArray;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,6 +21,7 @@ import com.simplemobiletools.gallery.Helpers;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.adapters.PhotosAdapter;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -27,6 +30,8 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
     private List<String> photos;
     private int selectedItemsCnt;
     private GridView gridView;
+    private String path;
+    private PhotosAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +39,8 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
         setContentView(R.layout.activity_photos);
 
         photos = new ArrayList<>();
-        final String path = getIntent().getStringExtra(Constants.DIRECTORY);
-        final PhotosAdapter adapter = new PhotosAdapter(this, getPhotos(path));
+        path = getIntent().getStringExtra(Constants.DIRECTORY);
+        adapter = new PhotosAdapter(this, getPhotos());
         gridView = (GridView) findViewById(R.id.photos_grid);
         gridView.setAdapter(adapter);
         gridView.setOnItemClickListener(this);
@@ -45,7 +50,7 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
         setTitle(dirName);
     }
 
-    private List<String> getPhotos(final String path) {
+    private List<String> getPhotos() {
         photos.clear();
         final Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
         final String where = MediaStore.Images.Media.DATA + " like ? ";
@@ -66,6 +71,19 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
             cursor.close();
         }
         return photos;
+    }
+
+    private void deleteSelectedItems() {
+        final SparseBooleanArray items = gridView.getCheckedItemPositions();
+        int cnt = items.size();
+        for (int i = 0; i < cnt; i++) {
+            final int id = items.keyAt(i);
+            new File(photos.get(id)).delete();
+        }
+
+        MediaScannerConnection.scanFile(this, new String[]{path}, null, null);
+        adapter.updateItems(getPhotos());
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -102,6 +120,7 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
     public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
         switch (item.getItemId()) {
             case R.id.cab_remove:
+                deleteSelectedItems();
                 mode.finish();
                 return true;
             default:
