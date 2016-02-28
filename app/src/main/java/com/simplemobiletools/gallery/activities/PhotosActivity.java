@@ -26,6 +26,7 @@ import java.util.regex.Pattern;
 public class PhotosActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener {
     private List<String> photos;
     private int selectedItemsCnt;
+    private GridView gridView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +35,8 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
 
         photos = new ArrayList<>();
         final String path = getIntent().getStringExtra(Constants.DIRECTORY);
-        final GridView gridView = (GridView) findViewById(R.id.photos_grid);
         final PhotosAdapter adapter = new PhotosAdapter(this, getPhotos(path));
+        gridView = (GridView) findViewById(R.id.photos_grid);
         gridView.setAdapter(adapter);
         gridView.setOnItemClickListener(this);
         gridView.setMultiChoiceModeListener(this);
@@ -45,6 +46,7 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
     }
 
     private List<String> getPhotos(final String path) {
+        photos.clear();
         final Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
         final String where = MediaStore.Images.Media.DATA + " like ? ";
         final String[] args = new String[]{path + "%"};

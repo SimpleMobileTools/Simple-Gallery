@@ -8,10 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.simplemobiletools.gallery.R;
 
 import java.util.List;
-
-import com.simplemobiletools.gallery.R;
 
 public class PhotosAdapter extends BaseAdapter {
     private final Context context;
@@ -36,7 +35,7 @@ public class PhotosAdapter extends BaseAdapter {
         }
 
         String path = photos.get(position);
-        Glide.with(context).load(path).centerCrop().crossFade().into(holder.photoThumbnail);
+        Glide.with(context).load(path).placeholder(R.color.tmb_background).centerCrop().crossFade().into(holder.photoThumbnail);
 
         return view;
     }

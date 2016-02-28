@@ -5,4 +5,6 @@
     <color name="colorAccent">#FF4081</color>
     <color name="tmb_background">#ff222222</color>
     <color name="actionbar_grey">#66000000</color>
+    <color name="pressed_item_foreground">#11000000</color>
+    <color name="activated_item_foreground">#44000000</color>
 </resources>
