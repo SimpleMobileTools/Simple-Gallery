@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.activities;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -29,6 +30,7 @@ public class ViewPagerActivity extends AppCompatActivity implements ViewPager.On
     private ActionBar actionbar;
     private List<String> photos;
     private MyViewPager pager;
+    private String path;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +42,10 @@ public class ViewPagerActivity extends AppCompatActivity implements ViewPager.On
         actionbar = getSupportActionBar();
         hideSystemUI();
 
-        final String path = getIntent().getStringExtra(Constants.PHOTO);
+        path = getIntent().getStringExtra(Constants.PHOTO);
         final MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager());
         pager = (MyViewPager) findViewById(R.id.view_pager);
-        photos = getPhotos(path);
+        photos = getPhotos();
         adapter.setPaths(photos);
         pager.setAdapter(adapter);
         pager.setCurrentItem(pos);
@@ -63,7 +65,7 @@ public class ViewPagerActivity extends AppCompatActivity implements ViewPager.On
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
+        getMenuInflater().inflate(R.menu.viewpager_menu, menu);
         return true;
     }
 
@@ -72,6 +74,9 @@ public class ViewPagerActivity extends AppCompatActivity implements ViewPager.On
         switch (item.getItemId()) {
             case R.id.menu_share:
                 shareImage();
+                return true;
+            case R.id.menu_remove:
+                deleteImage();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -89,7 +94,43 @@ public class ViewPagerActivity extends AppCompatActivity implements ViewPager.On
         startActivity(Intent.createChooser(sendIntent, shareTitle));
     }
 
-    private List<String> getPhotos(final String path) {
+    private void deleteImage() {
+        final String path = photos.get(pager.getCurrentItem());
+        final File file = new File(path);
+        file.delete();
+
+        MediaScannerConnection.scanFile(this, new String[]{path}, null, new MediaScannerConnection.OnScanCompletedListener() {
+            @Override
+            public void onScanCompleted(final String path, final Uri uri) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        reloadViewPager();
+                    }
+                });
+            }
+        });
+    }
+
+    private void reloadViewPager() {
+        final MyPagerAdapter adapter = (MyPagerAdapter) pager.getAdapter();
+        final int pos = pager.getCurrentItem();
+        photos = getPhotos();
+        if (photos.size() <= 0) {
+            finish();
+            return;
+        }
+
+        pager.setAdapter(null);
+        adapter.updateItems(photos);
+        pager.setAdapter(adapter);
+
+        final int newPos = Math.min(pos, adapter.getCount());
+        pager.setCurrentItem(newPos);
+        updateActionbarTitle();
+    }
+
+    private List<String> getPhotos() {
         final List<String> photos = new ArrayList<>();
         final String fileDir = new File(path).getParent();
         final Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
