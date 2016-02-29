@@ -24,13 +24,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class ViewPagerActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
+public class ViewPagerActivity extends AppCompatActivity
+        implements ViewPager.OnPageChangeListener, View.OnSystemUiVisibilityChangeListener, MediaScannerConnection.OnScanCompletedListener {
     private int pos;
     private boolean isFullScreen;
     private ActionBar actionbar;
     private List<String> photos;
     private MyViewPager pager;
     private String path;
+    private String directory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,23 +45,19 @@ public class ViewPagerActivity extends AppCompatActivity implements ViewPager.On
         hideSystemUI();
 
         path = getIntent().getStringExtra(Constants.PHOTO);
-        final MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager());
+        directory = new File(path).getParent();
         pager = (MyViewPager) findViewById(R.id.view_pager);
         photos = getPhotos();
+        if (isDirEmpty())
+            return;
+
+        final MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager());
         adapter.setPaths(photos);
         pager.setAdapter(adapter);
         pager.setCurrentItem(pos);
         pager.addOnPageChangeListener(this);
 
-        getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
-            @Override
-            public void onSystemUiVisibilityChange(int visibility) {
-                if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
-                    isFullScreen = false;
-                }
-            }
-        });
-
+        getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(this);
         updateActionbarTitle();
     }
 
@@ -95,31 +93,28 @@ public class ViewPagerActivity extends AppCompatActivity implements ViewPager.On
     }
 
     private void deleteImage() {
+        Helpers.showToast(this, R.string.deleting);
         final String path = photos.get(pager.getCurrentItem());
         final File file = new File(path);
         file.delete();
+        MediaScannerConnection.scanFile(this, new String[]{path}, null, this);
+    }
 
-        MediaScannerConnection.scanFile(this, new String[]{path}, null, new MediaScannerConnection.OnScanCompletedListener() {
-            @Override
-            public void onScanCompleted(final String path, final Uri uri) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        reloadViewPager();
-                    }
-                });
-            }
-        });
+    private boolean isDirEmpty() {
+        if (photos.size() <= 0) {
+            deleteDirectoryIfEmpty();
+            finish();
+            return true;
+        }
+        return false;
     }
 
     private void reloadViewPager() {
         final MyPagerAdapter adapter = (MyPagerAdapter) pager.getAdapter();
         final int pos = pager.getCurrentItem();
         photos = getPhotos();
-        if (photos.size() <= 0) {
-            finish();
+        if (isDirEmpty())
             return;
-        }
 
         pager.setAdapter(null);
         adapter.updateItems(photos);
@@ -130,16 +125,22 @@ public class ViewPagerActivity extends AppCompatActivity implements ViewPager.On
         updateActionbarTitle();
     }
 
+    private void deleteDirectoryIfEmpty() {
+        final File file = new File(directory);
+        if (file.isDirectory() && file.listFiles().length == 0) {
+            file.delete();
+        }
+    }
+
     private List<String> getPhotos() {
         final List<String> photos = new ArrayList<>();
-        final String fileDir = new File(path).getParent();
         final Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
         final String where = MediaStore.Images.Media.DATA + " like ? ";
-        final String[] args = new String[]{fileDir + "%"};
+        final String[] args = new String[]{directory + "%"};
         final String[] columns = {MediaStore.Images.Media.DATA};
         final String order = MediaStore.Images.Media.DATE_MODIFIED + " DESC";
         final Cursor cursor = getContentResolver().query(uri, columns, where, args, order);
-        final String pattern = Pattern.quote(fileDir) + "/[^/]*";
+        final String pattern = Pattern.quote(directory) + "/[^/]*";
 
         int i = 0;
         if (cursor != null && cursor.moveToFirst()) {
@@ -207,5 +208,22 @@ public class ViewPagerActivity extends AppCompatActivity implements ViewPager.On
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    @Override
+    public void onSystemUiVisibilityChange(int visibility) {
+        if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
+            isFullScreen = false;
+        }
+    }
+
+    @Override
+    public void onScanCompleted(String path, Uri uri) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                reloadViewPager();
+            }
+        });
     }
 }

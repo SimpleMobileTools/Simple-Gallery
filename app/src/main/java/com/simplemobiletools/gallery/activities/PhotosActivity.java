@@ -31,7 +31,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class PhotosActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener {
+public class PhotosActivity extends AppCompatActivity
+        implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, MediaScannerConnection.OnScanCompletedListener {
     private final int STORAGE_PERMISSION = 1;
     private List<String> photos;
     private int selectedItemsCnt;
@@ -75,6 +76,9 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
     private void initializeGallery() {
         path = getIntent().getStringExtra(Constants.DIRECTORY);
         photos = getPhotos();
+        if (isDirEmpty())
+            return;
+
         adapter = new PhotosAdapter(this, photos);
         gridView = (GridView) findViewById(R.id.photos_grid);
         gridView.setAdapter(adapter);
@@ -83,6 +87,13 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
 
         final String dirName = Helpers.getFilename(path);
         setTitle(dirName);
+    }
+
+    private void deleteDirectoryIfEmpty() {
+        final File file = new File(path);
+        if (file.isDirectory() && file.listFiles().length == 0) {
+            file.delete();
+        }
     }
 
     private List<String> getPhotos() {
@@ -108,7 +119,17 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
         return myPhotos;
     }
 
+    private boolean isDirEmpty() {
+        if (photos.size() <= 0) {
+            deleteDirectoryIfEmpty();
+            finish();
+            return true;
+        }
+        return false;
+    }
+
     private void deleteSelectedItems() {
+        Helpers.showToast(this, R.string.deleting);
         final SparseBooleanArray items = gridView.getCheckedItemPositions();
         int cnt = items.size();
         for (int i = 0; i < cnt; i++) {
@@ -117,18 +138,7 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
             file.delete();
         }
 
-        MediaScannerConnection.scanFile(this, new String[]{path}, null, new MediaScannerConnection.OnScanCompletedListener() {
-            @Override
-            public void onScanCompleted(final String path, final Uri uri) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        photos = getPhotos();
-                        adapter.updateItems(photos);
-                    }
-                });
-            }
-        });
+        MediaScannerConnection.scanFile(this, new String[]{path}, null, this);
     }
 
     @Override
@@ -176,5 +186,18 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
     @Override
     public void onDestroyActionMode(ActionMode mode) {
         selectedItemsCnt = 0;
+    }
+
+    @Override
+    public void onScanCompleted(String path, Uri uri) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                photos = getPhotos();
+                if (!isDirEmpty()) {
+                    adapter.updateItems(photos);
+                }
+            }
+        });
     }
 }

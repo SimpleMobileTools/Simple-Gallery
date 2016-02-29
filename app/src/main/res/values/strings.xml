@@ -3,4 +3,5 @@
     <string name="share_via">Share via</string>
     <string name="no_permissions">Not much to do in a gallery without accessing your photos</string>
     <string name="remove">Remove</string>
+    <string name="deleting">Deleting</string>
 </resources>
