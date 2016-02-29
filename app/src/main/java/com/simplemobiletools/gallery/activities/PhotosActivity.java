@@ -1,11 +1,15 @@
 package com.simplemobiletools.gallery.activities;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
@@ -15,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.Helpers;
@@ -27,6 +32,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class PhotosActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener {
+    private final int STORAGE_PERMISSION = 1;
     private List<String> photos;
     private int selectedItemsCnt;
     private GridView gridView;
@@ -37,7 +43,36 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photos);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        tryloadGallery();
+    }
+
+    private void tryloadGallery() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            initializeGallery();
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == STORAGE_PERMISSION) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                initializeGallery();
+            } else {
+                Toast.makeText(this, getResources().getString(R.string.no_permissions), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    private void initializeGallery() {
         path = getIntent().getStringExtra(Constants.DIRECTORY);
         photos = getPhotos();
         adapter = new PhotosAdapter(this, photos);
