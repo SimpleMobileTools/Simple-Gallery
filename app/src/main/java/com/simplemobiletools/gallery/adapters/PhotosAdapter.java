@@ -34,7 +34,7 @@ public class PhotosAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
 
-        String path = photos.get(position);
+        final String path = photos.get(position);
         Glide.with(context).load(path).placeholder(R.color.tmb_background).centerCrop().crossFade().into(holder.photoThumbnail);
 
         return view;

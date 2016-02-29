@@ -38,9 +38,9 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photos);
 
-        photos = new ArrayList<>();
         path = getIntent().getStringExtra(Constants.DIRECTORY);
-        adapter = new PhotosAdapter(this, getPhotos());
+        photos = getPhotos();
+        adapter = new PhotosAdapter(this, photos);
         gridView = (GridView) findViewById(R.id.photos_grid);
         gridView.setAdapter(adapter);
         gridView.setOnItemClickListener(this);
@@ -51,7 +51,7 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
     }
 
     private List<String> getPhotos() {
-        photos.clear();
+        List<String> myPhotos = new ArrayList<>();
         final Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
         final String where = MediaStore.Images.Media.DATA + " like ? ";
         final String[] args = new String[]{path + "%"};
@@ -65,12 +65,12 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
             do {
                 final String curPath = cursor.getString(pathIndex);
                 if (curPath.matches(pattern)) {
-                    photos.add(cursor.getString(pathIndex));
+                    myPhotos.add(cursor.getString(pathIndex));
                 }
             } while (cursor.moveToNext());
             cursor.close();
         }
-        return photos;
+        return myPhotos;
     }
 
     private void deleteSelectedItems() {
@@ -78,12 +78,22 @@ public class PhotosActivity extends AppCompatActivity implements AdapterView.OnI
         int cnt = items.size();
         for (int i = 0; i < cnt; i++) {
             final int id = items.keyAt(i);
-            new File(photos.get(id)).delete();
+            final File file = new File(photos.get(id));
+            file.delete();
         }
 
-        MediaScannerConnection.scanFile(this, new String[]{path}, null, null);
-        adapter.updateItems(getPhotos());
-        adapter.notifyDataSetChanged();
+        MediaScannerConnection.scanFile(this, new String[]{path}, null, new MediaScannerConnection.OnScanCompletedListener() {
+            @Override
+            public void onScanCompleted(final String path, final Uri uri) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        photos = getPhotos();
+                        adapter.updateItems(photos);
+                    }
+                });
+            }
+        });
     }
 
     @Override
