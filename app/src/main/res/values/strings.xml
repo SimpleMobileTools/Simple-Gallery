@@ -4,4 +4,10 @@
     <string name="no_permissions">Not much to do in a gallery without accessing your photos</string>
     <string name="remove">Remove</string>
     <string name="deleting">Deleting</string>
+    <string name="undo">Undo</string>
+
+    <plurals name="files_deleted">
+        <item quantity="one">1 file deleted</item>
+        <item quantity="other">%1$d files deleted</item>
+    </plurals>
 </resources>

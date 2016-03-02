@@ -4,10 +4,13 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +19,7 @@ import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -32,13 +36,17 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class PhotosActivity extends AppCompatActivity
-        implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, MediaScannerConnection.OnScanCompletedListener {
+        implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, MediaScannerConnection.OnScanCompletedListener,
+        GridView.OnTouchListener {
     private final int STORAGE_PERMISSION = 1;
     private List<String> photos;
     private int selectedItemsCnt;
     private GridView gridView;
     private String path;
     private PhotosAdapter adapter;
+    private Snackbar snackbar;
+    private boolean isSnackbarShown;
+    private List<String> toBeDeleted;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +82,7 @@ public class PhotosActivity extends AppCompatActivity
     }
 
     private void initializeGallery() {
+        toBeDeleted = new ArrayList<>();
         path = getIntent().getStringExtra(Constants.DIRECTORY);
         photos = getPhotos();
         if (isDirEmpty())
@@ -84,6 +93,8 @@ public class PhotosActivity extends AppCompatActivity
         gridView.setAdapter(adapter);
         gridView.setOnItemClickListener(this);
         gridView.setMultiChoiceModeListener(this);
+        gridView.setOnTouchListener(this);
+        isSnackbarShown = false;
 
         final String dirName = Helpers.getFilename(path);
         setTitle(dirName);
@@ -110,7 +121,7 @@ public class PhotosActivity extends AppCompatActivity
             final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
             do {
                 final String curPath = cursor.getString(pathIndex);
-                if (curPath.matches(pattern)) {
+                if (curPath.matches(pattern) && !toBeDeleted.contains(curPath)) {
                     myPhotos.add(cursor.getString(pathIndex));
                 }
             } while (cursor.moveToNext());
@@ -128,17 +139,54 @@ public class PhotosActivity extends AppCompatActivity
         return false;
     }
 
-    private void deleteSelectedItems() {
+    private void prepareForDeleting() {
         Helpers.showToast(this, R.string.deleting);
         final SparseBooleanArray items = gridView.getCheckedItemPositions();
         int cnt = items.size();
         for (int i = 0; i < cnt; i++) {
             final int id = items.keyAt(i);
-            final File file = new File(photos.get(id));
-            file.delete();
+            toBeDeleted.add(photos.get(id));
         }
 
+        notifyDeletion(toBeDeleted.size());
         MediaScannerConnection.scanFile(this, new String[]{path}, null, this);
+    }
+
+    private void notifyDeletion(int cnt) {
+        final CoordinatorLayout coordinator = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
+        final String msg = getResources().getQuantityString(R.plurals.files_deleted, cnt, cnt);
+        snackbar = Snackbar.make(coordinator, msg, Snackbar.LENGTH_INDEFINITE);
+        snackbar.setAction(getResources().getString(R.string.undo), undoDeletion);
+        snackbar.setActionTextColor(Color.WHITE);
+        snackbar.show();
+        isSnackbarShown = true;
+    }
+
+    private void deleteFiles() {
+        for (String delPath : toBeDeleted) {
+            final File file = new File(delPath);
+            if (file.exists())
+                file.delete();
+        }
+
+        MediaScannerConnection.scanFile(this, new String[]{path}, null, null);
+    }
+
+    private View.OnClickListener undoDeletion = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            snackbar.dismiss();
+            isSnackbarShown = false;
+            toBeDeleted.clear();
+            updateGridView();
+        }
+    };
+
+    private void updateGridView() {
+        photos = getPhotos();
+        if (!isDirEmpty()) {
+            adapter.updateItems(photos);
+        }
     }
 
     @Override
@@ -175,7 +223,7 @@ public class PhotosActivity extends AppCompatActivity
     public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
         switch (item.getItemId()) {
             case R.id.cab_remove:
-                deleteSelectedItems();
+                prepareForDeleting();
                 mode.finish();
                 return true;
             default:
@@ -193,11 +241,19 @@ public class PhotosActivity extends AppCompatActivity
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                photos = getPhotos();
-                if (!isDirEmpty()) {
-                    adapter.updateItems(photos);
-                }
+                updateGridView();
             }
         });
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        if (isSnackbarShown) {
+            deleteFiles();
+            snackbar.dismiss();
+            isSnackbarShown = false;
+        }
+
+        return false;
     }
 }
