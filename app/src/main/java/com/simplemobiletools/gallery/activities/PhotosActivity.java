@@ -214,7 +214,9 @@ public class PhotosActivity extends AppCompatActivity
         else
             selectedItemsCnt--;
 
-        mode.setTitle(String.valueOf(selectedItemsCnt));
+        if (selectedItemsCnt > 0)
+            mode.setTitle(String.valueOf(selectedItemsCnt));
+
         mode.invalidate();
     }
 
