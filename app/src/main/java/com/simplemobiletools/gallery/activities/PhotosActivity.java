@@ -60,6 +60,12 @@ public class PhotosActivity extends AppCompatActivity
         tryloadGallery();
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        deleteFiles();
+    }
+
     private void tryloadGallery() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             initializeGallery();
@@ -148,7 +154,6 @@ public class PhotosActivity extends AppCompatActivity
             toBeDeleted.add(photos.get(id));
         }
 
-        notifyDeletion(toBeDeleted.size());
         MediaScannerConnection.scanFile(this, new String[]{path}, null, this);
     }
 
@@ -163,6 +168,12 @@ public class PhotosActivity extends AppCompatActivity
     }
 
     private void deleteFiles() {
+        if (snackbar == null)
+            return;
+
+        snackbar.dismiss();
+        isSnackbarShown = false;
+
         for (String delPath : toBeDeleted) {
             final File file = new File(delPath);
             if (file.exists())
@@ -242,6 +253,7 @@ public class PhotosActivity extends AppCompatActivity
             @Override
             public void run() {
                 updateGridView();
+                notifyDeletion(toBeDeleted.size());
             }
         });
     }
@@ -250,8 +262,6 @@ public class PhotosActivity extends AppCompatActivity
     public boolean onTouch(View v, MotionEvent event) {
         if (isSnackbarShown) {
             deleteFiles();
-            snackbar.dismiss();
-            isSnackbarShown = false;
         }
 
         return false;
