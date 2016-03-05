@@ -2,17 +2,22 @@ package com.simplemobiletools.gallery.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -29,7 +34,8 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class ViewPagerActivity extends AppCompatActivity
-        implements ViewPager.OnPageChangeListener, View.OnSystemUiVisibilityChangeListener, MediaScannerConnection.OnScanCompletedListener {
+        implements ViewPager.OnPageChangeListener, View.OnSystemUiVisibilityChangeListener, MediaScannerConnection.OnScanCompletedListener,
+        ViewPager.OnTouchListener {
     private int pos;
     private boolean isFullScreen;
     private ActionBar actionbar;
@@ -37,6 +43,9 @@ public class ViewPagerActivity extends AppCompatActivity
     private MyViewPager pager;
     private String path;
     private String directory;
+    private Snackbar snackbar;
+    private boolean isSnackbarShown;
+    private String toBeDeleted;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +55,7 @@ public class ViewPagerActivity extends AppCompatActivity
         pos = 0;
         isFullScreen = true;
         actionbar = getSupportActionBar();
+        toBeDeleted = "";
         hideSystemUI();
 
         path = getIntent().getStringExtra(Constants.PHOTO);
@@ -60,6 +70,7 @@ public class ViewPagerActivity extends AppCompatActivity
         pager.setAdapter(adapter);
         pager.setCurrentItem(pos);
         pager.addOnPageChangeListener(this);
+        pager.setOnTouchListener(this);
 
         getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(this);
         updateActionbarTitle();
@@ -73,12 +84,13 @@ public class ViewPagerActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        deleteFile();
         switch (item.getItemId()) {
             case R.id.menu_share:
                 shareImage();
                 return true;
             case R.id.menu_remove:
-                deleteImage();
+                notifyDeletion();
                 return true;
             case R.id.menu_edit:
                 editImage();
@@ -99,14 +111,44 @@ public class ViewPagerActivity extends AppCompatActivity
         startActivity(Intent.createChooser(sendIntent, shareTitle));
     }
 
-    private void deleteImage() {
-        Helpers.showToast(this, R.string.deleting);
-        final File file = getCurrentFile();
+    private void notifyDeletion() {
+        final CoordinatorLayout coordinator = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
+        final Resources res = getResources();
+        snackbar = Snackbar.make(coordinator, res.getString(R.string.file_deleted), Snackbar.LENGTH_INDEFINITE);
+        snackbar.setAction(res.getString(R.string.undo), undoDeletion);
+        snackbar.setActionTextColor(Color.WHITE);
+        snackbar.show();
+        isSnackbarShown = true;
+        toBeDeleted = getCurrentFile().getAbsolutePath();
+        reloadViewPager();
+    }
+
+    private void deleteFile() {
+        if (toBeDeleted.isEmpty())
+            return;
+
+        if (snackbar == null)
+            return;
+
+        snackbar.dismiss();
+        isSnackbarShown = false;
+
+        final File file = new File(toBeDeleted);
         if (file.delete()) {
-            final String[] deletedPath = new String[]{file.getAbsolutePath()};
+            final String[] deletedPath = new String[]{toBeDeleted};
             MediaScannerConnection.scanFile(this, deletedPath, null, this);
         }
     }
+
+    private View.OnClickListener undoDeletion = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            snackbar.dismiss();
+            isSnackbarShown = false;
+            toBeDeleted = "";
+            reloadViewPager();
+        }
+    };
 
     private boolean isDirEmpty() {
         if (photos.size() <= 0) {
@@ -120,12 +162,12 @@ public class ViewPagerActivity extends AppCompatActivity
     private void editImage() {
         final File file = getCurrentFile();
         final String fullName = file.getName();
-        final int pos = fullName.lastIndexOf(".");
-        if (pos <= 0)
+        final int dotAt = fullName.lastIndexOf(".");
+        if (dotAt <= 0)
             return;
 
-        final String name = fullName.substring(0, pos);
-        final String extension = fullName.substring(pos + 1, fullName.length());
+        final String name = fullName.substring(0, dotAt);
+        final String extension = fullName.substring(dotAt + 1, fullName.length());
 
         final View renameFileView = getLayoutInflater().inflate(R.layout.rename_file, null);
         final EditText fileNameET = (EditText) renameFileView.findViewById(R.id.file_name);
@@ -163,7 +205,7 @@ public class ViewPagerActivity extends AppCompatActivity
 
     private void reloadViewPager() {
         final MyPagerAdapter adapter = (MyPagerAdapter) pager.getAdapter();
-        final int pos = pager.getCurrentItem();
+        final int curPos = pager.getCurrentItem();
         photos = getPhotos();
         if (isDirEmpty())
             return;
@@ -172,7 +214,7 @@ public class ViewPagerActivity extends AppCompatActivity
         adapter.updateItems(photos);
         pager.setAdapter(adapter);
 
-        final int newPos = Math.min(pos, adapter.getCount());
+        final int newPos = Math.min(curPos, adapter.getCount());
         pager.setCurrentItem(newPos);
         updateActionbarTitle();
     }
@@ -182,6 +224,9 @@ public class ViewPagerActivity extends AppCompatActivity
         if (file.isDirectory() && file.listFiles().length == 0) {
             file.delete();
         }
+
+        final String[] toBeDeleted = new String[]{directory};
+        MediaScannerConnection.scanFile(getApplicationContext(), toBeDeleted, null, null);
     }
 
     private List<String> getPhotos() {
@@ -200,7 +245,7 @@ public class ViewPagerActivity extends AppCompatActivity
             do {
                 final String curPath = cursor.getString(pathIndex);
 
-                if (curPath.matches(pattern)) {
+                if (curPath.matches(pattern) && !curPath.equals(toBeDeleted)) {
                     photos.add(curPath);
 
                     if (curPath.equals(path))
@@ -282,5 +327,20 @@ public class ViewPagerActivity extends AppCompatActivity
                 reloadViewPager();
             }
         });
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        if (isSnackbarShown) {
+            deleteFile();
+        }
+
+        return false;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        deleteFile();
     }
 }

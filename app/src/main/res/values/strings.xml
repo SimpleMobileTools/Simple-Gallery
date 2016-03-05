@@ -10,6 +10,7 @@
     <string name="rename_error">Could not rename the file</string>
     <string name="file_name">File name</string>
     <string name="extension">Extension</string>
+    <string name="file_deleted">File deleted</string>
 
     <plurals name="files_deleted">
         <item quantity="one">1 file deleted</item>

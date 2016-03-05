@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.activities;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.media.MediaScannerConnection;
@@ -162,9 +163,10 @@ public class PhotosActivity extends AppCompatActivity
 
     private void notifyDeletion(int cnt) {
         final CoordinatorLayout coordinator = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
-        final String msg = getResources().getQuantityString(R.plurals.files_deleted, cnt, cnt);
+        final Resources res = getResources();
+        final String msg = res.getQuantityString(R.plurals.files_deleted, cnt, cnt);
         snackbar = Snackbar.make(coordinator, msg, Snackbar.LENGTH_INDEFINITE);
-        snackbar.setAction(getResources().getString(R.string.undo), undoDeletion);
+        snackbar.setAction(res.getString(R.string.undo), undoDeletion);
         snackbar.setActionTextColor(Color.WHITE);
         snackbar.show();
         isSnackbarShown = true;
