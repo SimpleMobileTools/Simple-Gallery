@@ -149,12 +149,15 @@ public class PhotosActivity extends AppCompatActivity
         Helpers.showToast(this, R.string.deleting);
         final SparseBooleanArray items = gridView.getCheckedItemPositions();
         int cnt = items.size();
+        final String[] deletedPaths = new String[cnt];
         for (int i = 0; i < cnt; i++) {
             final int id = items.keyAt(i);
-            toBeDeleted.add(photos.get(id));
+            final String path = photos.get(id);
+            toBeDeleted.add(path);
+            deletedPaths[i] = path;
         }
 
-        MediaScannerConnection.scanFile(this, new String[]{path}, null, this);
+        MediaScannerConnection.scanFile(this, deletedPaths, null, this);
     }
 
     private void notifyDeletion(int cnt) {
