@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.media.MediaScannerConnection;
@@ -8,10 +9,13 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.Helpers;
@@ -76,6 +80,9 @@ public class ViewPagerActivity extends AppCompatActivity
             case R.id.menu_remove:
                 deleteImage();
                 return true;
+            case R.id.menu_edit:
+                editImage();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -84,7 +91,7 @@ public class ViewPagerActivity extends AppCompatActivity
     private void shareImage() {
         final String shareTitle = getResources().getString(R.string.share_via);
         final Intent sendIntent = new Intent();
-        final File file = new File(photos.get(pager.getCurrentItem()));
+        final File file = getCurrentFile();
         final Uri uri = Uri.fromFile(file);
         sendIntent.setAction(Intent.ACTION_SEND);
         sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
@@ -94,8 +101,7 @@ public class ViewPagerActivity extends AppCompatActivity
 
     private void deleteImage() {
         Helpers.showToast(this, R.string.deleting);
-        final String path = photos.get(pager.getCurrentItem());
-        final File file = new File(path);
+        final File file = getCurrentFile();
         file.delete();
         MediaScannerConnection.scanFile(this, new String[]{path}, null, this);
     }
@@ -107,6 +113,50 @@ public class ViewPagerActivity extends AppCompatActivity
             return true;
         }
         return false;
+    }
+
+    private void editImage() {
+        final File file = getCurrentFile();
+        final String fullName = file.getName();
+        final int pos = fullName.lastIndexOf(".");
+        if (pos <= 0)
+            return;
+
+        final String name = fullName.substring(0, pos);
+        final String extension = fullName.substring(pos + 1, fullName.length());
+
+        final View renameFileView = getLayoutInflater().inflate(R.layout.rename_file, null);
+        final EditText fileNameET = (EditText) renameFileView.findViewById(R.id.file_name);
+        fileNameET.setText(name);
+
+        final EditText extensionET = (EditText) renameFileView.findViewById(R.id.extension);
+        extensionET.setText(extension);
+
+        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle(getResources().getString(R.string.rename_file));
+        alertDialog.setView(renameFileView);
+
+        alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                final String fileName = fileNameET.getText().toString().trim();
+                final String extension = extensionET.getText().toString().trim();
+                final File newFile = new File(file.getParent(), fileName + "." + extension);
+
+                if (!fileName.isEmpty() && !extension.isEmpty() && file.renameTo(newFile)) {
+                    photos.set(pager.getCurrentItem(), newFile.getAbsolutePath());
+
+                    final String[] changedFiles = {file.getAbsolutePath(), newFile.getAbsolutePath()};
+                    MediaScannerConnection.scanFile(getApplicationContext(), changedFiles, null, null);
+                    updateActionbarTitle();
+                } else {
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.rename_error), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        alertDialog.setNegativeButton("Cancel", null);
+        alertDialog.show();
     }
 
     private void reloadViewPager() {
@@ -147,6 +197,7 @@ public class ViewPagerActivity extends AppCompatActivity
             final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
             do {
                 final String curPath = cursor.getString(pathIndex);
+
                 if (curPath.matches(pattern)) {
                     photos.add(curPath);
 
@@ -193,6 +244,10 @@ public class ViewPagerActivity extends AppCompatActivity
 
     private void updateActionbarTitle() {
         setTitle(Helpers.getFilename(photos.get(pager.getCurrentItem())));
+    }
+
+    private File getCurrentFile() {
+        return new File(photos.get(pager.getCurrentItem()));
     }
 
     @Override
