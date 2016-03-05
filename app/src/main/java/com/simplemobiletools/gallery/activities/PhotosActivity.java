@@ -183,7 +183,8 @@ public class PhotosActivity extends AppCompatActivity
                 file.delete();
         }
 
-        MediaScannerConnection.scanFile(this, new String[]{path}, null, null);
+        final String[] deletedPaths = toBeDeleted.toArray(new String[toBeDeleted.size()]);
+        MediaScannerConnection.scanFile(this, deletedPaths, null, null);
     }
 
     private View.OnClickListener undoDeletion = new View.OnClickListener() {

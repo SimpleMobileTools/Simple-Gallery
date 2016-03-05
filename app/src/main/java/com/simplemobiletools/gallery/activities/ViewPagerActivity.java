@@ -102,8 +102,10 @@ public class ViewPagerActivity extends AppCompatActivity
     private void deleteImage() {
         Helpers.showToast(this, R.string.deleting);
         final File file = getCurrentFile();
-        file.delete();
-        MediaScannerConnection.scanFile(this, new String[]{path}, null, this);
+        if (file.delete()) {
+            final String[] deletedPath = new String[]{file.getAbsolutePath()};
+            MediaScannerConnection.scanFile(this, deletedPath, null, this);
+        }
     }
 
     private boolean isDirEmpty() {
