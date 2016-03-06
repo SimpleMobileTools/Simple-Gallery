@@ -112,29 +112,30 @@ public class ViewPagerActivity extends AppCompatActivity
     }
 
     private void notifyDeletion() {
-        final CoordinatorLayout coordinator = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
-        final Resources res = getResources();
-        snackbar = Snackbar.make(coordinator, res.getString(R.string.file_deleted), Snackbar.LENGTH_INDEFINITE);
-        snackbar.setAction(res.getString(R.string.undo), undoDeletion);
-        snackbar.setActionTextColor(Color.WHITE);
-        snackbar.show();
-        isSnackbarShown = true;
         toBeDeleted = getCurrentFile().getAbsolutePath();
 
-        if (photos.size() == 1)
+        if (photos.size() <= 1) {
             deleteFile();
-        else
+        } else {
+            final CoordinatorLayout coordinator = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
+            final Resources res = getResources();
+            final String curFileName = getCurrentFile().getName() + " ";
+            snackbar = Snackbar.make(coordinator, curFileName + res.getString(R.string.file_deleted), Snackbar.LENGTH_INDEFINITE);
+            snackbar.setAction(res.getString(R.string.undo), undoDeletion);
+            snackbar.setActionTextColor(Color.WHITE);
+            snackbar.show();
+            isSnackbarShown = true;
             reloadViewPager();
+        }
     }
 
     private void deleteFile() {
         if (toBeDeleted.isEmpty())
             return;
 
-        if (snackbar == null)
-            return;
+        if (snackbar != null)
+            snackbar.dismiss();
 
-        snackbar.dismiss();
         isSnackbarShown = false;
 
         final File file = new File(toBeDeleted);

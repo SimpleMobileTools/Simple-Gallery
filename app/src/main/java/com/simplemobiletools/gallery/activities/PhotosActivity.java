@@ -150,33 +150,38 @@ public class PhotosActivity extends AppCompatActivity
         Helpers.showToast(this, R.string.deleting);
         final SparseBooleanArray items = gridView.getCheckedItemPositions();
         int cnt = items.size();
-        final String[] deletedPaths = new String[cnt];
         for (int i = 0; i < cnt; i++) {
             final int id = items.keyAt(i);
             final String path = photos.get(id);
             toBeDeleted.add(path);
-            deletedPaths[i] = path;
         }
 
-        MediaScannerConnection.scanFile(this, deletedPaths, null, this);
+        notifyDeletion(cnt);
     }
 
     private void notifyDeletion(int cnt) {
-        final CoordinatorLayout coordinator = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
-        final Resources res = getResources();
-        final String msg = res.getQuantityString(R.plurals.files_deleted, cnt, cnt);
-        snackbar = Snackbar.make(coordinator, msg, Snackbar.LENGTH_INDEFINITE);
-        snackbar.setAction(res.getString(R.string.undo), undoDeletion);
-        snackbar.setActionTextColor(Color.WHITE);
-        snackbar.show();
-        isSnackbarShown = true;
+        photos = getPhotos();
+
+        if (photos.isEmpty()) {
+            deleteFiles();
+        } else {
+            final CoordinatorLayout coordinator = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
+            final Resources res = getResources();
+            final String msg = res.getQuantityString(R.plurals.files_deleted, cnt, cnt);
+            snackbar = Snackbar.make(coordinator, msg, Snackbar.LENGTH_INDEFINITE);
+            snackbar.setAction(res.getString(R.string.undo), undoDeletion);
+            snackbar.setActionTextColor(Color.WHITE);
+            snackbar.show();
+            isSnackbarShown = true;
+            updateGridView();
+        }
     }
 
     private void deleteFiles() {
-        if (snackbar == null)
-            return;
+        if (snackbar != null) {
+            snackbar.dismiss();
+        }
 
-        snackbar.dismiss();
         isSnackbarShown = false;
 
         for (String delPath : toBeDeleted) {
@@ -186,7 +191,7 @@ public class PhotosActivity extends AppCompatActivity
         }
 
         final String[] deletedPaths = toBeDeleted.toArray(new String[toBeDeleted.size()]);
-        MediaScannerConnection.scanFile(this, deletedPaths, null, null);
+        MediaScannerConnection.scanFile(this, deletedPaths, null, this);
     }
 
     private View.OnClickListener undoDeletion = new View.OnClickListener() {
@@ -195,12 +200,12 @@ public class PhotosActivity extends AppCompatActivity
             snackbar.dismiss();
             isSnackbarShown = false;
             toBeDeleted.clear();
+            photos = getPhotos();
             updateGridView();
         }
     };
 
     private void updateGridView() {
-        photos = getPhotos();
         if (!isDirEmpty()) {
             adapter.updateItems(photos);
         }
@@ -260,8 +265,8 @@ public class PhotosActivity extends AppCompatActivity
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                updateGridView();
-                notifyDeletion(toBeDeleted.size());
+                if (photos.isEmpty())
+                    finish();
             }
         });
     }
