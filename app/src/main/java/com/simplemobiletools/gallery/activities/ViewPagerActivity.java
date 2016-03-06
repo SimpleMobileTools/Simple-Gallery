@@ -120,7 +120,11 @@ public class ViewPagerActivity extends AppCompatActivity
         snackbar.show();
         isSnackbarShown = true;
         toBeDeleted = getCurrentFile().getAbsolutePath();
-        reloadViewPager();
+
+        if (photos.size() == 1)
+            deleteFile();
+        else
+            reloadViewPager();
     }
 
     private void deleteFile() {
