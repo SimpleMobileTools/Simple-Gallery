@@ -44,7 +44,6 @@ public class PhotosActivity extends AppCompatActivity
     private int selectedItemsCnt;
     private GridView gridView;
     private String path;
-    private PhotosAdapter adapter;
     private Snackbar snackbar;
     private boolean isSnackbarShown;
     private List<String> toBeDeleted;
@@ -95,7 +94,7 @@ public class PhotosActivity extends AppCompatActivity
         if (isDirEmpty())
             return;
 
-        adapter = new PhotosAdapter(this, photos);
+        final PhotosAdapter adapter = new PhotosAdapter(this, photos);
         gridView = (GridView) findViewById(R.id.photos_grid);
         gridView.setAdapter(adapter);
         gridView.setOnItemClickListener(this);
@@ -207,6 +206,7 @@ public class PhotosActivity extends AppCompatActivity
 
     private void updateGridView() {
         if (!isDirEmpty()) {
+            final PhotosAdapter adapter = (PhotosAdapter) gridView.getAdapter();
             adapter.updateItems(photos);
         }
     }
@@ -234,7 +234,7 @@ public class PhotosActivity extends AppCompatActivity
     @Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
         final MenuInflater inflater = mode.getMenuInflater();
-        inflater.inflate(R.menu.cab, menu);
+        inflater.inflate(R.menu.photos_menu, menu);
         return true;
     }
 

@@ -9,11 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-
-import java.util.List;
-
 import com.simplemobiletools.gallery.Directory;
 import com.simplemobiletools.gallery.R;
+
+import java.util.List;
 
 public class DirectoryAdapter extends BaseAdapter {
     private final Context context;
@@ -40,7 +39,7 @@ public class DirectoryAdapter extends BaseAdapter {
         Directory dir = dirs.get(position);
         holder.dirName.setText(dir.getName());
         holder.photoCnt.setText(String.valueOf(dir.getPhotoCnt()));
-        Glide.with(context).load(dir.getThumbnail()).centerCrop().crossFade().into(holder.dirThumbnail);
+        Glide.with(context).load(dir.getThumbnail()).placeholder(R.color.tmb_background).centerCrop().crossFade().into(holder.dirThumbnail);
 
         return view;
     }

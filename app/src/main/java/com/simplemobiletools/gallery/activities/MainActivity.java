@@ -4,15 +4,19 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.ActionMode;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -28,9 +32,12 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity implements OnItemClickListener {
+public class MainActivity extends AppCompatActivity
+        implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, MediaScannerConnection.OnScanCompletedListener {
     private final int STORAGE_PERMISSION = 1;
     private List<Directory> dirs;
+    private GridView gridView;
+    private int selectedItemsCnt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,9 +76,10 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
         dirs = new ArrayList<>(getDirectories().values());
         final DirectoryAdapter adapter = new DirectoryAdapter(this, dirs);
 
-        final GridView gridView = (GridView) findViewById(R.id.directories_grid);
+        gridView = (GridView) findViewById(R.id.directories_grid);
         gridView.setAdapter(adapter);
         gridView.setOnItemClickListener(this);
+        gridView.setMultiChoiceModeListener(this);
     }
 
     private Map<String, Directory> getDirectories() {
@@ -108,5 +116,45 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
         final Intent intent = new Intent(this, PhotosActivity.class);
         intent.putExtra(Constants.DIRECTORY, dirs.get(position).getPath());
         startActivity(intent);
+    }
+
+    @Override
+    public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
+        if (checked)
+            selectedItemsCnt++;
+        else
+            selectedItemsCnt--;
+
+        if (selectedItemsCnt > 0)
+            mode.setTitle(String.valueOf(selectedItemsCnt));
+
+        mode.invalidate();
+    }
+
+    @Override
+    public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+        final MenuInflater inflater = mode.getMenuInflater();
+        inflater.inflate(R.menu.directories_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+        return false;
+    }
+
+    @Override
+    public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+        return false;
+    }
+
+    @Override
+    public void onDestroyActionMode(ActionMode mode) {
+        selectedItemsCnt = 0;
+    }
+
+    @Override
+    public void onScanCompleted(String path, Uri uri) {
+
     }
 }

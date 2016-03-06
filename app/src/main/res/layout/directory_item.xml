@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<com.simplemobiletools.gallery.MyRelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/tmb_background">
+    android:foreground="@drawable/selector">
 
     <com.simplemobiletools.gallery.MyImageView
         android:id="@+id/dir_thumbnail"
@@ -35,4 +35,4 @@
             android:textColor="@android:color/white"/>
 
     </RelativeLayout>
-</RelativeLayout>
+</com.simplemobiletools.gallery.MyRelativeLayout>
