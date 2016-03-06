@@ -114,7 +114,7 @@ public class PhotosActivity extends AppCompatActivity
     }
 
     private List<String> getPhotos() {
-        List<String> myPhotos = new ArrayList<>();
+        final List<String> myPhotos = new ArrayList<>();
         final Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
         final String where = MediaStore.Images.Media.DATA + " like ? ";
         final String[] args = new String[]{path + "%"};
@@ -177,6 +177,9 @@ public class PhotosActivity extends AppCompatActivity
     }
 
     private void deleteFiles() {
+        if (toBeDeleted.isEmpty())
+            return;
+
         if (snackbar != null) {
             snackbar.dismiss();
         }

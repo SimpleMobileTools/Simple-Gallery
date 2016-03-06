@@ -36,7 +36,7 @@ public class DirectoryAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
 
-        Directory dir = dirs.get(position);
+        final Directory dir = dirs.get(position);
         holder.dirName.setText(dir.getName());
         holder.photoCnt.setText(String.valueOf(dir.getPhotoCnt()));
         Glide.with(context).load(dir.getThumbnail()).placeholder(R.color.tmb_background).centerCrop().crossFade().into(holder.dirThumbnail);
@@ -57,6 +57,12 @@ public class DirectoryAdapter extends BaseAdapter {
     @Override
     public long getItemId(int position) {
         return 0;
+    }
+
+    public void updateItems(List<Directory> newDirs) {
+        dirs.clear();
+        dirs.addAll(newDirs);
+        notifyDataSetChanged();
     }
 
     static class ViewHolder {

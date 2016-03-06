@@ -12,6 +12,11 @@
     <string name="extension">Extension</string>
     <string name="file_deleted">deleted</string>
 
+    <plurals name="folders_deleted">
+        <item quantity="one">1 folder deleted</item>
+        <item quantity="other">%1$d folders deleted</item>
+    </plurals>
+
     <plurals name="files_deleted">
         <item quantity="one">1 file deleted</item>
         <item quantity="other">%1$d files deleted</item>

@@ -3,18 +3,24 @@ package com.simplemobiletools.gallery.activities;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.SparseBooleanArray;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -33,11 +39,14 @@ import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity
-        implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, MediaScannerConnection.OnScanCompletedListener {
+        implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener {
     private final int STORAGE_PERMISSION = 1;
     private List<Directory> dirs;
     private GridView gridView;
     private int selectedItemsCnt;
+    private Snackbar snackbar;
+    private boolean isSnackbarShown;
+    private List<String> toBeDeleted;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +58,12 @@ public class MainActivity extends AppCompatActivity
     protected void onResume() {
         super.onResume();
         tryloadGallery();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        deleteDirs();
     }
 
     private void tryloadGallery() {
@@ -73,6 +88,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void initializeGallery() {
+        toBeDeleted = new ArrayList<>();
         dirs = new ArrayList<>(getDirectories().values());
         final DirectoryAdapter adapter = new DirectoryAdapter(this, dirs);
 
@@ -80,6 +96,7 @@ public class MainActivity extends AppCompatActivity
         gridView.setAdapter(adapter);
         gridView.setOnItemClickListener(this);
         gridView.setMultiChoiceModeListener(this);
+        gridView.setOnTouchListener(this);
     }
 
     private Map<String, Directory> getDirectories() {
@@ -100,7 +117,7 @@ public class MainActivity extends AppCompatActivity
                     final Directory directory = directories.get(fileDir);
                     final int newImageCnt = directory.getPhotoCnt() + 1;
                     directory.setPhotoCnt(newImageCnt);
-                } else {
+                } else if (!toBeDeleted.contains(fileDir)) {
                     final String dirName = Helpers.getFilename(fileDir);
                     directories.put(fileDir, new Directory(fileDir, path, dirName, 1));
                 }
@@ -109,6 +126,73 @@ public class MainActivity extends AppCompatActivity
         }
 
         return directories;
+    }
+
+    private void prepareForDeleting() {
+        Helpers.showToast(this, R.string.deleting);
+        final SparseBooleanArray items = gridView.getCheckedItemPositions();
+        int cnt = items.size();
+        for (int i = 0; i < cnt; i++) {
+            final int id = items.keyAt(i);
+            final String path = dirs.get(id).getPath();
+            toBeDeleted.add(path);
+        }
+
+        notifyDeletion(cnt);
+    }
+
+    private void notifyDeletion(int cnt) {
+        dirs = new ArrayList<>(getDirectories().values());
+
+        final CoordinatorLayout coordinator = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
+        final Resources res = getResources();
+        final String msg = res.getQuantityString(R.plurals.folders_deleted, cnt, cnt);
+        snackbar = Snackbar.make(coordinator, msg, Snackbar.LENGTH_INDEFINITE);
+        snackbar.setAction(res.getString(R.string.undo), undoDeletion);
+        snackbar.setActionTextColor(Color.WHITE);
+        snackbar.show();
+        isSnackbarShown = true;
+        updateGridView();
+    }
+
+    private void deleteDirs() {
+        if (toBeDeleted.isEmpty())
+            return;
+
+        if (snackbar != null) {
+            snackbar.dismiss();
+        }
+
+        isSnackbarShown = false;
+
+        final List<String> updatedFiles = new ArrayList<>();
+        for (String delPath : toBeDeleted) {
+            final File dir = new File(delPath);
+            final File[] files = dir.listFiles();
+            for (File f : files) {
+                updatedFiles.add(f.getAbsolutePath());
+                f.delete();
+            }
+        }
+
+        final String[] deletedPaths = updatedFiles.toArray(new String[updatedFiles.size()]);
+        MediaScannerConnection.scanFile(this, deletedPaths, null, null);
+    }
+
+    private View.OnClickListener undoDeletion = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            snackbar.dismiss();
+            isSnackbarShown = false;
+            toBeDeleted.clear();
+            dirs = new ArrayList<>(getDirectories().values());
+            updateGridView();
+        }
+    };
+
+    private void updateGridView() {
+        final DirectoryAdapter adapter = (DirectoryAdapter) gridView.getAdapter();
+        adapter.updateItems(dirs);
     }
 
     @Override
@@ -145,7 +229,14 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-        return false;
+        switch (item.getItemId()) {
+            case R.id.cab_remove:
+                prepareForDeleting();
+                mode.finish();
+                return true;
+            default:
+                return false;
+        }
     }
 
     @Override
@@ -154,7 +245,11 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onScanCompleted(String path, Uri uri) {
+    public boolean onTouch(View v, MotionEvent event) {
+        if (isSnackbarShown) {
+            deleteDirs();
+        }
 
+        return false;
     }
 }
