@@ -173,10 +173,13 @@ public class MainActivity extends AppCompatActivity
                 updatedFiles.add(f.getAbsolutePath());
                 f.delete();
             }
+            updatedFiles.add(dir.getAbsolutePath());
+            dir.delete();
         }
 
         final String[] deletedPaths = updatedFiles.toArray(new String[updatedFiles.size()]);
         MediaScannerConnection.scanFile(this, deletedPaths, null, null);
+        toBeDeleted.clear();
     }
 
     private View.OnClickListener undoDeletion = new View.OnClickListener() {

@@ -143,6 +143,7 @@ public class ViewPagerActivity extends AppCompatActivity
             final String[] deletedPath = new String[]{toBeDeleted};
             MediaScannerConnection.scanFile(this, deletedPath, null, this);
         }
+        toBeDeleted = "";
     }
 
     private View.OnClickListener undoDeletion = new View.OnClickListener() {
