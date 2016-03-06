@@ -265,6 +265,7 @@ public class ViewPagerActivity extends AppCompatActivity
     }
 
     public void photoClicked() {
+        deleteFile();
         isFullScreen = !isFullScreen;
         if (isFullScreen) {
             hideSystemUI();
