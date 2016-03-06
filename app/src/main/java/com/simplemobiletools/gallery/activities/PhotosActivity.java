@@ -149,13 +149,17 @@ public class PhotosActivity extends AppCompatActivity
         Helpers.showToast(this, R.string.deleting);
         final SparseBooleanArray items = gridView.getCheckedItemPositions();
         int cnt = items.size();
+        int deletedCnt = 0;
         for (int i = 0; i < cnt; i++) {
-            final int id = items.keyAt(i);
-            final String path = photos.get(id);
-            toBeDeleted.add(path);
+            if (items.valueAt(i)) {
+                final int id = items.keyAt(i);
+                final String path = photos.get(id);
+                toBeDeleted.add(path);
+                deletedCnt++;
+            }
         }
 
-        notifyDeletion(cnt);
+        notifyDeletion(deletedCnt);
     }
 
     private void notifyDeletion(int cnt) {

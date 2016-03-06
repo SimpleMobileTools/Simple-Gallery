@@ -132,13 +132,17 @@ public class MainActivity extends AppCompatActivity
         Helpers.showToast(this, R.string.deleting);
         final SparseBooleanArray items = gridView.getCheckedItemPositions();
         int cnt = items.size();
+        int deletedCnt = 0;
         for (int i = 0; i < cnt; i++) {
-            final int id = items.keyAt(i);
-            final String path = dirs.get(id).getPath();
-            toBeDeleted.add(path);
+            if (items.valueAt(i)) {
+                final int id = items.keyAt(i);
+                final String path = dirs.get(id).getPath();
+                toBeDeleted.add(path);
+                deletedCnt++;
+            }
         }
 
-        notifyDeletion(cnt);
+        notifyDeletion(deletedCnt);
     }
 
     private void notifyDeletion(int cnt) {
@@ -168,13 +172,15 @@ public class MainActivity extends AppCompatActivity
         final List<String> updatedFiles = new ArrayList<>();
         for (String delPath : toBeDeleted) {
             final File dir = new File(delPath);
-            final File[] files = dir.listFiles();
-            for (File f : files) {
-                updatedFiles.add(f.getAbsolutePath());
-                f.delete();
+            if (dir.exists()) {
+                final File[] files = dir.listFiles();
+                for (File f : files) {
+                    updatedFiles.add(f.getAbsolutePath());
+                    f.delete();
+                }
+                updatedFiles.add(dir.getAbsolutePath());
+                dir.delete();
             }
-            updatedFiles.add(dir.getAbsolutePath());
-            dir.delete();
         }
 
         final String[] deletedPaths = updatedFiles.toArray(new String[updatedFiles.size()]);
