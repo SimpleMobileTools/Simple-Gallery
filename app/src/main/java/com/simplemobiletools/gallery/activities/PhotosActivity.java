@@ -27,8 +27,8 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.simplemobiletools.gallery.Constants;
-import com.simplemobiletools.gallery.Helpers;
 import com.simplemobiletools.gallery.R;
+import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.adapters.PhotosAdapter;
 
 import java.io.File;
@@ -102,7 +102,7 @@ public class PhotosActivity extends AppCompatActivity
         gridView.setOnTouchListener(this);
         isSnackbarShown = false;
 
-        final String dirName = Helpers.getFilename(path);
+        final String dirName = Utils.getFilename(path);
         setTitle(dirName);
     }
 
@@ -146,7 +146,7 @@ public class PhotosActivity extends AppCompatActivity
     }
 
     private void prepareForDeleting() {
-        Helpers.showToast(this, R.string.deleting);
+        Utils.showToast(this, R.string.deleting);
         final SparseBooleanArray items = gridView.getCheckedItemPositions();
         int cnt = items.size();
         int deletedCnt = 0;

@@ -5,5 +5,5 @@
         android:id="@+id/cab_remove"
         android:icon="@android:drawable/ic_menu_delete"
         android:title="@string/remove"
-        app:showAsAction="always"/>
+        app:showAsAction="ifRoom"/>
 </menu>

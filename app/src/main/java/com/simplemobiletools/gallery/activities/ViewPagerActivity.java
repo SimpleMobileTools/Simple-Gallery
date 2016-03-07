@@ -23,7 +23,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.simplemobiletools.gallery.Constants;
-import com.simplemobiletools.gallery.Helpers;
+import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.MyViewPager;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter;
@@ -200,7 +200,7 @@ public class ViewPagerActivity extends AppCompatActivity
                     MediaScannerConnection.scanFile(getApplicationContext(), changedFiles, null, null);
                     updateActionbarTitle();
                 } else {
-                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.rename_error), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.rename_file_error), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -297,7 +297,7 @@ public class ViewPagerActivity extends AppCompatActivity
     }
 
     private void updateActionbarTitle() {
-        setTitle(Helpers.getFilename(photos.get(pager.getCurrentItem())));
+        setTitle(Utils.getFilename(photos.get(pager.getCurrentItem())));
     }
 
     private File getCurrentFile() {

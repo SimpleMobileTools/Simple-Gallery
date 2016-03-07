@@ -3,7 +3,7 @@ package com.simplemobiletools.gallery;
 import android.content.Context;
 import android.widget.Toast;
 
-public class Helpers {
+public class Utils {
     public static String getFilename(final String path) {
         return path.substring(path.lastIndexOf("/") + 1);
     }

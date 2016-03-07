@@ -7,8 +7,12 @@
     <string name="edit">Edit</string>
     <string name="undo">Undo</string>
     <string name="rename_file">Rename file</string>
-    <string name="rename_error">Could not rename the file</string>
+    <string name="rename_folder">Rename folder</string>
+    <string name="rename_file_error">Could not rename the file</string>
+    <string name="rename_folder_error">Could not rename the folder</string>
+    <string name="rename_folder_ok">Folder renamed successfully</string>
     <string name="file_name">File name</string>
+    <string name="folder_name">Folder name</string>
     <string name="extension">Extension</string>
     <string name="file_deleted">deleted</string>
 

@@ -3,13 +3,13 @@
     android:id="@+id/coordinator_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
 
     <GridView
         android:id="@+id/photos_grid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/black"
         android:choiceMode="multipleChoiceModal"
         android:columnWidth="@dimen/photo_tmb_size"
         android:horizontalSpacing="1dp"
