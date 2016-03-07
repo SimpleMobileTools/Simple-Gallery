@@ -1,6 +1,5 @@
 package com.simplemobiletools.gallery.activities;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
@@ -20,12 +19,11 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.simplemobiletools.gallery.Constants;
-import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.MyViewPager;
 import com.simplemobiletools.gallery.R;
+import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter;
 
 import java.io.File;
@@ -182,31 +180,39 @@ public class ViewPagerActivity extends AppCompatActivity
         final EditText extensionET = (EditText) renameFileView.findViewById(R.id.extension);
         extensionET.setText(extension);
 
-        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        alertDialog.setTitle(getResources().getString(R.string.rename_file));
-        alertDialog.setView(renameFileView);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getResources().getString(R.string.rename_file));
+        builder.setView(renameFileView);
 
-        alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("OK", null);
+        builder.setNegativeButton("Cancel", null);
+
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
+            public void onClick(View v) {
                 final String fileName = fileNameET.getText().toString().trim();
                 final String extension = extensionET.getText().toString().trim();
-                final File newFile = new File(file.getParent(), fileName + "." + extension);
 
-                if (!fileName.isEmpty() && !extension.isEmpty() && file.renameTo(newFile)) {
-                    photos.set(pager.getCurrentItem(), newFile.getAbsolutePath());
+                if (!fileName.isEmpty() && !extension.isEmpty()) {
+                    final File newFile = new File(file.getParent(), fileName + "." + extension);
 
-                    final String[] changedFiles = {file.getAbsolutePath(), newFile.getAbsolutePath()};
-                    MediaScannerConnection.scanFile(getApplicationContext(), changedFiles, null, null);
-                    updateActionbarTitle();
+                    if (file.renameTo(newFile)) {
+                        photos.set(pager.getCurrentItem(), newFile.getAbsolutePath());
+
+                        final String[] changedFiles = {file.getAbsolutePath(), newFile.getAbsolutePath()};
+                        MediaScannerConnection.scanFile(getApplicationContext(), changedFiles, null, null);
+                        updateActionbarTitle();
+                        alertDialog.dismiss();
+                    } else {
+                        Utils.showToast(getApplicationContext(), R.string.rename_file_error);
+                    }
                 } else {
-                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.rename_file_error), Toast.LENGTH_SHORT).show();
+                    Utils.showToast(getApplicationContext(), R.string.rename_file_error);
                 }
             }
         });
-
-        alertDialog.setNegativeButton("Cancel", null);
-        alertDialog.show();
     }
 
     private void reloadViewPager() {
