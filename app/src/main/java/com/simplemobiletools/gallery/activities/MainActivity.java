@@ -208,54 +208,57 @@ public class MainActivity extends AppCompatActivity
         adapter.updateItems(dirs);
     }
 
-    private void renameDirectory() {
+    private void editDirectory() {
         final SparseBooleanArray items = gridView.getCheckedItemPositions();
         final int cnt = items.size();
         for (int i = 0; i < cnt; i++) {
             if (items.valueAt(i)) {
                 final int id = items.keyAt(i);
                 final String path = dirs.get(id).getPath();
-                final File dir = new File(path);
-
-                final View renameFileView = getLayoutInflater().inflate(R.layout.rename_directory, null);
-                final EditText dirNameET = (EditText) renameFileView.findViewById(R.id.directory_name);
-                dirNameET.setText(dir.getName());
-
-                final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle(getResources().getString(R.string.rename_folder));
-                builder.setView(renameFileView);
-
-                builder.setPositiveButton("OK", null);
-                builder.setNegativeButton("Cancel", null);
-
-                final AlertDialog alertDialog = builder.create();
-                alertDialog.show();
-                alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        final String newDirName = dirNameET.getText().toString().trim();
-
-                        if (!newDirName.isEmpty()) {
-                            final File newDir = new File(dir.getParent(), newDirName);
-
-                            if (dir.renameTo(newDir)) {
-                                Utils.showToast(getApplicationContext(), R.string.rename_folder_ok);
-                                alertDialog.dismiss();
-                                actionMode.finish();
-                                final String[] newDirPath = new String[]{newDir.getAbsolutePath()};
-                                MediaScannerConnection.scanFile(getApplicationContext(), newDirPath, null, MainActivity.this);
-                            } else {
-                                Utils.showToast(getApplicationContext(), R.string.rename_folder_error);
-                            }
-                        } else {
-                            Utils.showToast(getApplicationContext(), R.string.rename_folder_error);
-                        }
-                    }
-                });
-
+                renameDir(path);
                 break;
             }
         }
+    }
+
+    private void renameDir(final String path) {
+        final File dir = new File(path);
+
+        final View renameFileView = getLayoutInflater().inflate(R.layout.rename_directory, null);
+        final EditText dirNameET = (EditText) renameFileView.findViewById(R.id.directory_name);
+        dirNameET.setText(dir.getName());
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getResources().getString(R.string.rename_folder));
+        builder.setView(renameFileView);
+
+        builder.setPositiveButton("OK", null);
+        builder.setNegativeButton("Cancel", null);
+
+        final AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String newDirName = dirNameET.getText().toString().trim();
+
+                if (!newDirName.isEmpty()) {
+                    final File newDir = new File(dir.getParent(), newDirName);
+
+                    if (dir.renameTo(newDir)) {
+                        Utils.showToast(getApplicationContext(), R.string.rename_folder_ok);
+                        alertDialog.dismiss();
+                        actionMode.finish();
+                        final String[] newDirPath = new String[]{newDir.getAbsolutePath()};
+                        MediaScannerConnection.scanFile(getApplicationContext(), newDirPath, null, MainActivity.this);
+                    } else {
+                        Utils.showToast(getApplicationContext(), R.string.rename_folder_error);
+                    }
+                } else {
+                    Utils.showToast(getApplicationContext(), R.string.rename_folder_error);
+                }
+            }
+        });
     }
 
     @Override
@@ -297,7 +300,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
         switch (item.getItemId()) {
             case R.id.cab_edit:
-                renameDirectory();
+                editDirectory();
                 return true;
             case R.id.cab_remove:
                 prepareForDeleting();
