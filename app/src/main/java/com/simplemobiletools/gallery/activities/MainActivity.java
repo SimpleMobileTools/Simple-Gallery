@@ -270,13 +270,15 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
-        if (checked)
+        if (checked) {
             selectedItemsCnt++;
-        else
+        } else {
             selectedItemsCnt--;
+        }
 
-        if (selectedItemsCnt > 0)
+        if (selectedItemsCnt > 0) {
             mode.setTitle(String.valueOf(selectedItemsCnt));
+        }
 
         mode.invalidate();
     }
