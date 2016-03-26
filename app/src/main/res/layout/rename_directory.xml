@@ -14,6 +14,7 @@
         android:id="@+id/directory_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/activity_margin"/>
+        android:layout_marginBottom="@dimen/activity_margin"
+        android:singleLine="true"/>
 
 </LinearLayout>
