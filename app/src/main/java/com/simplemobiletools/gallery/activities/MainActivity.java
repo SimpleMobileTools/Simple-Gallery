@@ -242,18 +242,19 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v) {
                 final String newDirName = dirNameET.getText().toString().trim();
 
-                if (!newDirName.isEmpty()) {
-                    final File newDir = new File(dir.getParent(), newDirName);
+                if (newDirName.isEmpty()) {
+                    Utils.showToast(getApplicationContext(), R.string.rename_folder_empty);
+                    return;
+                }
 
-                    if (dir.renameTo(newDir)) {
-                        Utils.showToast(getApplicationContext(), R.string.rename_folder_ok);
-                        alertDialog.dismiss();
-                        actionMode.finish();
-                        final String[] newDirPath = new String[]{newDir.getAbsolutePath()};
-                        MediaScannerConnection.scanFile(getApplicationContext(), newDirPath, null, MainActivity.this);
-                    } else {
-                        Utils.showToast(getApplicationContext(), R.string.rename_folder_error);
-                    }
+                final File newDir = new File(dir.getParent(), newDirName);
+
+                if (dir.renameTo(newDir)) {
+                    Utils.showToast(getApplicationContext(), R.string.rename_folder_ok);
+                    alertDialog.dismiss();
+                    actionMode.finish();
+                    final String[] newDirPath = new String[]{newDir.getAbsolutePath()};
+                    MediaScannerConnection.scanFile(getApplicationContext(), newDirPath, null, MainActivity.this);
                 } else {
                     Utils.showToast(getApplicationContext(), R.string.rename_folder_error);
                 }

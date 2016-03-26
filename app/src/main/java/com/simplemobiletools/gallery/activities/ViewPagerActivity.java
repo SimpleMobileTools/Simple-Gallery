@@ -195,19 +195,20 @@ public class ViewPagerActivity extends AppCompatActivity
                 final String fileName = fileNameET.getText().toString().trim();
                 final String extension = extensionET.getText().toString().trim();
 
-                if (!fileName.isEmpty() && !extension.isEmpty()) {
-                    final File newFile = new File(file.getParent(), fileName + "." + extension);
+                if (fileName.isEmpty() || extension.isEmpty()) {
+                    Utils.showToast(getApplicationContext(), R.string.rename_file_empty);
+                    return;
+                }
 
-                    if (file.renameTo(newFile)) {
-                        photos.set(pager.getCurrentItem(), newFile.getAbsolutePath());
+                final File newFile = new File(file.getParent(), fileName + "." + extension);
 
-                        final String[] changedFiles = {file.getAbsolutePath(), newFile.getAbsolutePath()};
-                        MediaScannerConnection.scanFile(getApplicationContext(), changedFiles, null, null);
-                        updateActionbarTitle();
-                        alertDialog.dismiss();
-                    } else {
-                        Utils.showToast(getApplicationContext(), R.string.rename_file_error);
-                    }
+                if (file.renameTo(newFile)) {
+                    photos.set(pager.getCurrentItem(), newFile.getAbsolutePath());
+
+                    final String[] changedFiles = {file.getAbsolutePath(), newFile.getAbsolutePath()};
+                    MediaScannerConnection.scanFile(getApplicationContext(), changedFiles, null, null);
+                    updateActionbarTitle();
+                    alertDialog.dismiss();
                 } else {
                     Utils.showToast(getApplicationContext(), R.string.rename_file_error);
                 }
