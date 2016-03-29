@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void deleteDirs() {
-        if (toBeDeleted.isEmpty())
+        if (toBeDeleted == null || toBeDeleted.isEmpty())
             return;
 
         if (snackbar != null) {
