@@ -57,6 +57,7 @@ public class ViewPagerActivity extends AppCompatActivity
         hideSystemUI();
 
         path = getIntent().getStringExtra(Constants.PHOTO);
+        MediaScannerConnection.scanFile(this, new String[]{path}, null, this);
         directory = new File(path).getParent();
         pager = (MyViewPager) findViewById(R.id.view_pager);
         photos = getPhotos();
