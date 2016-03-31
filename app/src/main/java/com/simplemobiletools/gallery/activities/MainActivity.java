@@ -248,13 +248,16 @@ public class MainActivity extends AppCompatActivity
                 }
 
                 final File newDir = new File(dir.getParent(), newDirName);
-
                 if (dir.renameTo(newDir)) {
                     Utils.showToast(getApplicationContext(), R.string.rename_folder_ok);
                     alertDialog.dismiss();
                     actionMode.finish();
-                    final String[] newDirPath = new String[]{newDir.getAbsolutePath()};
-                    MediaScannerConnection.scanFile(getApplicationContext(), newDirPath, null, MainActivity.this);
+                    final List<String> updatedFiles = new ArrayList<>();
+                    updatedFiles.add(dir.getAbsolutePath());
+                    updatedFiles.add(newDir.getAbsolutePath());
+
+                    final String[] changedFiles = updatedFiles.toArray(new String[updatedFiles.size()]);
+                    MediaScannerConnection.scanFile(getApplicationContext(), changedFiles, null, MainActivity.this);
                 } else {
                     Utils.showToast(getApplicationContext(), R.string.rename_folder_error);
                 }
@@ -329,13 +332,26 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onScanCompleted(String path, Uri uri) {
+    public void onScanCompleted(final String path, final Uri uri) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                dirs = new ArrayList<>(getDirectories().values());
-                updateGridView();
-                gridView.requestLayout();
+                final File dir = new File(path);
+                if (dir.isDirectory()) {
+                    final List<String> updatedFiles = new ArrayList<>();
+
+                    final File[] files = dir.listFiles();
+                    for (File f : files) {
+                        updatedFiles.add(f.getAbsolutePath());
+                    }
+
+                    final String[] changedFiles = updatedFiles.toArray(new String[updatedFiles.size()]);
+                    MediaScannerConnection.scanFile(getApplicationContext(), changedFiles, null, null);
+
+                    dirs = new ArrayList<>(getDirectories().values());
+                    updateGridView();
+                    gridView.requestLayout();
+                }
             }
         });
     }
