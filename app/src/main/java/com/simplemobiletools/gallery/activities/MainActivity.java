@@ -334,27 +334,28 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onScanCompleted(final String path, final Uri uri) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                final File dir = new File(path);
-                if (dir.isDirectory()) {
-                    final List<String> updatedFiles = new ArrayList<>();
+        final File dir = new File(path);
+        if (dir.isDirectory()) {
+            final List<String> updatedFiles = new ArrayList<>();
 
-                    final File[] files = dir.listFiles();
-                    for (File f : files) {
-                        updatedFiles.add(f.getAbsolutePath());
-                    }
+            final File[] files = dir.listFiles();
+            for (File f : files) {
+                updatedFiles.add(f.getAbsolutePath());
+            }
 
-                    final String[] changedFiles = updatedFiles.toArray(new String[updatedFiles.size()]);
-                    MediaScannerConnection.scanFile(getApplicationContext(), changedFiles, null, null);
+            final String[] changedFiles = updatedFiles.toArray(new String[updatedFiles.size()]);
+            MediaScannerConnection.scanFile(getApplicationContext(), changedFiles, null, null);
 
-                    Utils.showToast(getApplicationContext(), R.string.rename_folder_ok);
-                    dirs = new ArrayList<>(getDirectories().values());
+            dirs = new ArrayList<>(getDirectories().values());
+
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
                     updateGridView();
                     gridView.requestLayout();
+                    Utils.showToast(getApplicationContext(), R.string.rename_folder_ok);
                 }
-            }
-        });
+            });
+        }
     }
 }
