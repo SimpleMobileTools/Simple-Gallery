@@ -247,15 +247,16 @@ public class MainActivity extends AppCompatActivity
                     return;
                 }
 
+                final List<String> updatedFiles = new ArrayList<>();
+                updatedFiles.add(dir.getAbsolutePath());
+
                 final File newDir = new File(dir.getParent(), newDirName);
                 if (dir.renameTo(newDir)) {
-                    Utils.showToast(getApplicationContext(), R.string.rename_folder_ok);
+                    Utils.showToast(getApplicationContext(), R.string.renaming_folder);
                     alertDialog.dismiss();
                     actionMode.finish();
-                    final List<String> updatedFiles = new ArrayList<>();
-                    updatedFiles.add(dir.getAbsolutePath());
-                    updatedFiles.add(newDir.getAbsolutePath());
 
+                    updatedFiles.add(newDir.getAbsolutePath());
                     final String[] changedFiles = updatedFiles.toArray(new String[updatedFiles.size()]);
                     MediaScannerConnection.scanFile(getApplicationContext(), changedFiles, null, MainActivity.this);
                 } else {
@@ -348,6 +349,7 @@ public class MainActivity extends AppCompatActivity
                     final String[] changedFiles = updatedFiles.toArray(new String[updatedFiles.size()]);
                     MediaScannerConnection.scanFile(getApplicationContext(), changedFiles, null, null);
 
+                    Utils.showToast(getApplicationContext(), R.string.rename_folder_ok);
                     dirs = new ArrayList<>(getDirectories().values());
                     updateGridView();
                     gridView.requestLayout();
