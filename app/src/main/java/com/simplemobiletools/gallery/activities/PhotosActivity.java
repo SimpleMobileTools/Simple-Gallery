@@ -270,13 +270,9 @@ public class PhotosActivity extends AppCompatActivity
 
     @Override
     public void onScanCompleted(String path, Uri uri) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                if (photos.isEmpty())
-                    finish();
-            }
-        });
+        if (photos.isEmpty()) {
+            finish();
+        }
     }
 
     @Override
