@@ -6,11 +6,13 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="FullScreenTheme" parent="AppTheme">
+    <style name="FullScreenTheme.Base" parent="AppTheme">
         <item name="android:windowContentOverlay">@null</item>
         <item name="actionBarStyle">@style/MyFullScreenActionBar</item>
         <item name="android:actionBarStyle">@style/MyFullScreenActionBar</item>
     </style>
+
+    <style name="FullScreenTheme" parent="FullScreenTheme.Base"/>
 
     <style name="MyFullScreenActionBar" parent="Widget.AppCompat.Light.ActionBar">
         <item name="background">@color/actionbar_grey</item>
