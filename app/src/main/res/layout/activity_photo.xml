@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    android:id="@+id/coordinator_layout"
+<RelativeLayout
+    android:id="@+id/photo_holder"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
 
-    <LinearLayout
+    <com.simplemobiletools.gallery.MyViewPager
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/black">
+        android:layout_height="match_parent"/>
 
-        <com.simplemobiletools.gallery.MyViewPager
-            android:id="@+id/view_pager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+    <ImageView
+        android:id="@+id/undo_delete"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:padding="@dimen/undo_padding"
+        android:src="@mipmap/ic_launcher"
+        android:visibility="gone"/>
 
-    </LinearLayout>
-</android.support.design.widget.CoordinatorLayout>
+</RelativeLayout>

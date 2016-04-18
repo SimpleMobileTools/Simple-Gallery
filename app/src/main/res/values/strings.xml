@@ -17,7 +17,7 @@
     <string name="file_name">File name</string>
     <string name="folder_name">Folder name</string>
     <string name="extension">Extension</string>
-    <string name="file_deleted">deleted</string>
+    <string name="file_deleted">File deleted</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 folder deleted</item>

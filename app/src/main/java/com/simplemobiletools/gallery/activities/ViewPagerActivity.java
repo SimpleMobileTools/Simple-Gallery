@@ -3,13 +3,11 @@ package com.simplemobiletools.gallery.activities;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
-import android.graphics.Color;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
@@ -19,6 +17,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 
 import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.MyViewPager;
@@ -41,9 +40,9 @@ public class ViewPagerActivity extends AppCompatActivity
     private MyViewPager pager;
     private String path;
     private String directory;
-    private Snackbar snackbar;
-    private boolean isSnackbarShown;
+    private boolean isUndoShown;
     private String toBeDeleted;
+    private View undoBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +56,10 @@ public class ViewPagerActivity extends AppCompatActivity
         hideSystemUI();
 
         path = getIntent().getStringExtra(Constants.PHOTO);
-        MediaScannerConnection.scanFile(this, new String[]{path}, null, this);
+        MediaScannerConnection.scanFile(this, new String[]{path}, null, null);
+        undoBtn = findViewById(R.id.undo_delete);
+        undoBtn.setOnClickListener(undoDeletion);
+        addUndoBottomMargin();
         directory = new File(path).getParent();
         pager = (MyViewPager) findViewById(R.id.view_pager);
         photos = getPhotos();
@@ -116,14 +118,9 @@ public class ViewPagerActivity extends AppCompatActivity
         if (photos.size() <= 1) {
             deleteFile();
         } else {
-            final CoordinatorLayout coordinator = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
-            final Resources res = getResources();
-            final String curFileName = getCurrentFile().getName() + " ";
-            snackbar = Snackbar.make(coordinator, curFileName + res.getString(R.string.file_deleted), Snackbar.LENGTH_INDEFINITE);
-            snackbar.setAction(res.getString(R.string.undo), undoDeletion);
-            snackbar.setActionTextColor(Color.WHITE);
-            snackbar.show();
-            isSnackbarShown = true;
+            Utils.showToast(this, R.string.file_deleted);
+            undoBtn.setVisibility(View.VISIBLE);
+            isUndoShown = true;
             reloadViewPager();
         }
     }
@@ -132,10 +129,7 @@ public class ViewPagerActivity extends AppCompatActivity
         if (toBeDeleted.isEmpty())
             return;
 
-        if (snackbar != null)
-            snackbar.dismiss();
-
-        isSnackbarShown = false;
+        isUndoShown = false;
 
         final File file = new File(toBeDeleted);
         if (file.delete()) {
@@ -143,14 +137,15 @@ public class ViewPagerActivity extends AppCompatActivity
             MediaScannerConnection.scanFile(this, deletedPath, null, this);
         }
         toBeDeleted = "";
+        undoBtn.setVisibility(View.GONE);
     }
 
     private View.OnClickListener undoDeletion = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            snackbar.dismiss();
-            isSnackbarShown = false;
+            isUndoShown = false;
             toBeDeleted = "";
+            undoBtn.setVisibility(View.GONE);
             reloadViewPager();
         }
     };
@@ -258,12 +253,12 @@ public class ViewPagerActivity extends AppCompatActivity
             final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
             do {
                 final String curPath = cursor.getString(pathIndex);
-
                 if (curPath.matches(pattern) && !curPath.equals(toBeDeleted)) {
                     photos.add(curPath);
 
-                    if (curPath.equals(path))
+                    if (curPath.equals(path)) {
                         pos = i;
+                    }
 
                     i++;
                 }
@@ -312,6 +307,17 @@ public class ViewPagerActivity extends AppCompatActivity
         return new File(photos.get(pager.getCurrentItem()));
     }
 
+    private void addUndoBottomMargin() {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            final Resources resources = getResources();
+            int id = resources.getIdentifier("navigation_bar_height", "dimen", "android");
+            if (id > 0) {
+                RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) undoBtn.getLayoutParams();
+                params.setMargins(params.leftMargin, params.topMargin, params.rightMargin, resources.getDimensionPixelSize(id));
+            }
+        }
+    }
+
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -339,14 +345,15 @@ public class ViewPagerActivity extends AppCompatActivity
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                reloadViewPager();
+                if (photos.size() <= 1)
+                    reloadViewPager();
             }
         });
     }
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        if (isSnackbarShown) {
+        if (isUndoShown) {
             deleteFile();
         }
 
