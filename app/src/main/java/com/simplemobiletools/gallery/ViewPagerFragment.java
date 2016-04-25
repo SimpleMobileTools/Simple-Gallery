@@ -21,7 +21,8 @@ public class ViewPagerFragment extends Fragment implements View.OnClickListener 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.pager_item, container, false);
-        if (savedInstanceState != null) {
+
+        if (path == null && savedInstanceState != null) {
             path = savedInstanceState.getString(PATH);
         }
 
