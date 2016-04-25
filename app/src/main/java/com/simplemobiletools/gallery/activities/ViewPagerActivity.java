@@ -304,7 +304,7 @@ public class ViewPagerActivity extends AppCompatActivity
     }
 
     private File getCurrentFile() {
-        return new File(photos.get(pager.getCurrentItem()));
+        return new File(photos.get(pos));
     }
 
     private void addUndoBottomMargin() {
@@ -326,6 +326,7 @@ public class ViewPagerActivity extends AppCompatActivity
     @Override
     public void onPageSelected(int position) {
         updateActionbarTitle();
+        pos = position;
     }
 
     @Override
