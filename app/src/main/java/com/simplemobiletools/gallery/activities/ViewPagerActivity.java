@@ -1,6 +1,7 @@
 package com.simplemobiletools.gallery.activities;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.media.MediaScannerConnection;
@@ -59,7 +60,7 @@ public class ViewPagerActivity extends AppCompatActivity
         MediaScannerConnection.scanFile(this, new String[]{path}, null, null);
         undoBtn = findViewById(R.id.undo_delete);
         undoBtn.setOnClickListener(undoDeletion);
-        addUndoBottomMargin();
+        addUndoMargin();
         directory = new File(path).getParent();
         pager = (MyViewPager) findViewById(R.id.view_pager);
         photos = getPhotos();
@@ -306,13 +307,23 @@ public class ViewPagerActivity extends AppCompatActivity
         return new File(photos.get(pos));
     }
 
-    private void addUndoBottomMargin() {
+    private void addUndoMargin() {
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             final Resources resources = getResources();
             int id = resources.getIdentifier("navigation_bar_height", "dimen", "android");
             if (id > 0) {
-                RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) undoBtn.getLayoutParams();
-                params.setMargins(params.leftMargin, params.topMargin, params.rightMargin, resources.getDimensionPixelSize(id));
+                final RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) undoBtn.getLayoutParams();
+                final int navbarHeight = resources.getDimensionPixelSize(id);
+                int rightMargin = params.rightMargin;
+                int bottomMargin = params.bottomMargin;
+
+                if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+                    bottomMargin = navbarHeight;
+                } else {
+                    rightMargin = navbarHeight;
+                }
+
+                params.setMargins(params.leftMargin, params.topMargin, rightMargin, bottomMargin);
             }
         }
     }
