@@ -39,7 +39,7 @@ import java.util.regex.Pattern;
 public class PhotosActivity extends AppCompatActivity
         implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, MediaScannerConnection.OnScanCompletedListener,
         GridView.OnTouchListener {
-    private final int STORAGE_PERMISSION = 1;
+    private static final int STORAGE_PERMISSION = 1;
     private List<String> photos;
     private int selectedItemsCnt;
     private GridView gridView;
