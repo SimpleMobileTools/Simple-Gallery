@@ -11,11 +11,8 @@ import java.util.List;
 public class MyPagerAdapter extends FragmentStatePagerAdapter {
     private List<String> paths;
 
-    public MyPagerAdapter(FragmentManager fm) {
+    public MyPagerAdapter(FragmentManager fm, List<String> paths) {
         super(fm);
-    }
-
-    public void setPaths(List<String> paths) {
         this.paths = paths;
     }
 

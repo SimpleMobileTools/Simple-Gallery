@@ -66,8 +66,7 @@ public class ViewPagerActivity extends AppCompatActivity
         if (isDirEmpty())
             return;
 
-        final MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager());
-        adapter.setPaths(photos);
+        final MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager(), photos);
         pager.setAdapter(adapter);
         pager.setCurrentItem(pos);
         pager.addOnPageChangeListener(this);
