@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
-
 import com.simplemobiletools.gallery.activities.ViewPagerActivity;
 
 public class ViewPagerFragment extends Fragment implements View.OnClickListener {
+    private static final String PATH = "path";
     private String path;
 
     public void setPath(String path) {
@@ -21,6 +21,9 @@ public class ViewPagerFragment extends Fragment implements View.OnClickListener 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.pager_item, container, false);
+        if (savedInstanceState != null) {
+            path = savedInstanceState.getString(PATH);
+        }
 
         if (path != null) {
             final SubsamplingScaleImageView imageView = (SubsamplingScaleImageView) view.findViewById(R.id.photo);
@@ -31,6 +34,12 @@ public class ViewPagerFragment extends Fragment implements View.OnClickListener 
         }
 
         return view;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(PATH, path);
     }
 
     @Override

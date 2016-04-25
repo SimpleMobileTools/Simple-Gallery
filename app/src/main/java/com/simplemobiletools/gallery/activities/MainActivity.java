@@ -43,7 +43,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity
         implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener,
         MediaScannerConnection.OnScanCompletedListener {
-    private final int STORAGE_PERMISSION = 1;
+    private static final int STORAGE_PERMISSION = 1;
     private List<Directory> dirs;
     private GridView gridView;
     private int selectedItemsCnt;

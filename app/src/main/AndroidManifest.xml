@@ -12,8 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.MainActivity"
-            android:screenOrientation="portrait">
+            android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -22,12 +21,10 @@
         </activity>
 
         <activity
-            android:name=".activities.PhotosActivity"
-            android:screenOrientation="portrait"/>
+            android:name=".activities.PhotosActivity"/>
 
         <activity
             android:name=".activities.ViewPagerActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/FullScreenTheme"/>
     </application>
 </manifest>
