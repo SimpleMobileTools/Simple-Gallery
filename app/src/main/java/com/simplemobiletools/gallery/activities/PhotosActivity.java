@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
@@ -47,6 +48,7 @@ public class PhotosActivity extends AppCompatActivity
     private Snackbar snackbar;
     private boolean isSnackbarShown;
     private List<String> toBeDeleted;
+    private Parcelable state;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,12 +60,16 @@ public class PhotosActivity extends AppCompatActivity
     protected void onResume() {
         super.onResume();
         tryloadGallery();
+        if (state != null && gridView != null)
+            gridView.onRestoreInstanceState(state);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         deleteFiles();
+        if (gridView != null)
+            state = gridView.onSaveInstanceState();
     }
 
     private void tryloadGallery() {
