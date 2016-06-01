@@ -264,7 +264,7 @@ public class PhotosActivity extends AppCompatActivity
     @Override
     public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.cab_remove:
+            case R.id.cab_delete:
                 prepareForDeleting();
                 mode.finish();
                 return true;

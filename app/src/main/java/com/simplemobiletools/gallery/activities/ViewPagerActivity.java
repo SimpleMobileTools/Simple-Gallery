@@ -102,7 +102,7 @@ public class ViewPagerActivity extends AppCompatActivity
             case R.id.menu_share:
                 shareImage();
                 return true;
-            case R.id.menu_remove:
+            case R.id.menu_delete:
                 notifyDeletion();
                 return true;
             case R.id.menu_edit:

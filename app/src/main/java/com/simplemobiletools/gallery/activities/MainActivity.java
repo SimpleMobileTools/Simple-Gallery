@@ -332,7 +332,7 @@ public class MainActivity extends AppCompatActivity
             case R.id.cab_edit:
                 editDirectory();
                 return true;
-            case R.id.cab_remove:
+            case R.id.cab_delete:
                 prepareForDeleting();
                 mode.finish();
                 return true;

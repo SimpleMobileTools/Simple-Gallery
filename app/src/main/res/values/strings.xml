@@ -2,10 +2,11 @@
     <string name="app_name">Simple Gallery</string>
     <string name="share_via">Share via</string>
     <string name="no_permissions">Not much to do in a gallery without accessing your photos</string>
-    <string name="remove">Remove</string>
+    <string name="delete">Delete</string>
     <string name="deleting">Deleting</string>
     <string name="edit">Edit</string>
     <string name="undo">Undo</string>
+    <string name="share">Share</string>
     <string name="rename_file">Rename file</string>
     <string name="rename_folder">Rename folder</string>
     <string name="rename_file_error">Could not rename the file</string>

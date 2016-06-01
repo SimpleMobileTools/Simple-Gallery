@@ -18,7 +18,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:padding="@dimen/undo_padding"
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/undo"
         android:visibility="gone"/>
 
 </RelativeLayout>
