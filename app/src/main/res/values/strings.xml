@@ -28,4 +28,13 @@
         <item quantity="one">1 file deleted</item>
         <item quantity="other">%1$d files deleted</item>
     </plurals>
+
+    <!-- About -->
+    <string name="about">About</string>
+    <string name="website">For more simple apps please visit:\nhttp://simplemobiletools.com</string>
+    <string name="email_label">You can send your feedback and new app suggestions at:</string>
+    <string name="email">hello@simplemobiletools.com</string>
+    <string name="license">License</string>
+    <string name="version">v %1$s</string>
+    <string name="copyright">Copyright © Simple Mobile Tools %1$d</string>
 </resources>

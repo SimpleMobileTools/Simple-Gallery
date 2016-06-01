@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/about_holder"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/activity_margin">
+
+    <TextView
+        android:id="@+id/about_website"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:text="@string/website"/>
+
+    <TextView
+        android:id="@+id/about_email_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/about_website"
+        android:layout_marginTop="@dimen/activity_margin"
+        android:text="@string/email_label"/>
+
+    <TextView
+        android:id="@+id/about_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/about_email_label"
+        android:text="@string/email"/>
+
+    <TextView
+        android:id="@+id/about_license"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/about_email"
+        android:layout_marginTop="@dimen/activity_margin"
+        android:text="@string/license"/>
+
+    <TextView
+        android:id="@+id/about_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/about_copyright"
+        android:gravity="center_horizontal"
+        android:text="v 1.0"/>
+
+    <TextView
+        android:id="@+id/about_copyright"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:text="Copyright © Simple Mobile Tools 2000"/>
+
+</RelativeLayout>
