@@ -37,13 +37,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class PhotosActivity extends AppCompatActivity
         implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, MediaScannerConnection.OnScanCompletedListener,
         GridView.OnTouchListener {
+    @BindView(R.id.photos_grid) GridView gridView;
+
     private static final int STORAGE_PERMISSION = 1;
     private List<String> photos;
     private int selectedItemsCnt;
-    private GridView gridView;
     private String path;
     private Snackbar snackbar;
     private boolean isSnackbarShown;
@@ -54,6 +58,7 @@ public class PhotosActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photos);
+        ButterKnife.bind(this);
     }
 
     @Override
@@ -101,7 +106,6 @@ public class PhotosActivity extends AppCompatActivity
             return;
 
         final PhotosAdapter adapter = new PhotosAdapter(this, photos);
-        gridView = (GridView) findViewById(R.id.photos_grid);
         gridView.setAdapter(adapter);
         gridView.setOnItemClickListener(this);
         gridView.setMultiChoiceModeListener(this);

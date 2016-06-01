@@ -31,24 +31,30 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class ViewPagerActivity extends AppCompatActivity
         implements ViewPager.OnPageChangeListener, View.OnSystemUiVisibilityChangeListener, MediaScannerConnection.OnScanCompletedListener,
         ViewPager.OnTouchListener {
+    @BindView(R.id.undo_delete) View undoBtn;
+    @BindView(R.id.view_pager) MyViewPager pager;
+
     private int pos;
     private boolean isFullScreen;
     private ActionBar actionbar;
     private List<String> photos;
-    private MyViewPager pager;
     private String path;
     private String directory;
     private boolean isUndoShown;
     private String toBeDeleted;
-    private View undoBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo);
+        ButterKnife.bind(this);
 
         pos = 0;
         isFullScreen = true;
@@ -58,11 +64,8 @@ public class ViewPagerActivity extends AppCompatActivity
 
         path = getIntent().getStringExtra(Constants.PHOTO);
         MediaScannerConnection.scanFile(this, new String[]{path}, null, null);
-        undoBtn = findViewById(R.id.undo_delete);
-        undoBtn.setOnClickListener(undoDeletion);
         addUndoMargin();
         directory = new File(path).getParent();
-        pager = (MyViewPager) findViewById(R.id.view_pager);
         photos = getPhotos();
         if (isDirEmpty())
             return;
@@ -76,6 +79,14 @@ public class ViewPagerActivity extends AppCompatActivity
 
         getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(this);
         updateActionbarTitle();
+    }
+
+    @OnClick(R.id.undo_delete)
+    public void undoDeletion() {
+        isUndoShown = false;
+        toBeDeleted = "";
+        undoBtn.setVisibility(View.GONE);
+        reloadViewPager();
     }
 
     @Override
@@ -140,16 +151,6 @@ public class ViewPagerActivity extends AppCompatActivity
         toBeDeleted = "";
         undoBtn.setVisibility(View.GONE);
     }
-
-    private View.OnClickListener undoDeletion = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            isUndoShown = false;
-            toBeDeleted = "";
-            undoBtn.setVisibility(View.GONE);
-            reloadViewPager();
-        }
-    };
 
     private boolean isDirEmpty() {
         if (photos.size() <= 0) {

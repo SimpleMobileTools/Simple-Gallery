@@ -40,12 +40,16 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity
         implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener,
         MediaScannerConnection.OnScanCompletedListener {
+    @BindView(R.id.directories_grid) GridView gridView;
+
     private static final int STORAGE_PERMISSION = 1;
     private List<Directory> dirs;
-    private GridView gridView;
     private int selectedItemsCnt;
     private Snackbar snackbar;
     private boolean isSnackbarShown;
@@ -56,6 +60,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
     }
 
     @Override
@@ -115,7 +120,6 @@ public class MainActivity extends AppCompatActivity
         dirs = new ArrayList<>(getDirectories().values());
         final DirectoryAdapter adapter = new DirectoryAdapter(this, dirs);
 
-        gridView = (GridView) findViewById(R.id.directories_grid);
         gridView.setAdapter(adapter);
         gridView.setOnItemClickListener(this);
         gridView.setMultiChoiceModeListener(this);

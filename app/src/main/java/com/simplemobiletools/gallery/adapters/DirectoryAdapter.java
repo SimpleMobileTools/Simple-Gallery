@@ -14,6 +14,9 @@ import com.simplemobiletools.gallery.R;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class DirectoryAdapter extends BaseAdapter {
     private final Context context;
     private final List<Directory> dirs;
@@ -66,14 +69,12 @@ public class DirectoryAdapter extends BaseAdapter {
     }
 
     static class ViewHolder {
-        TextView dirName;
-        TextView photoCnt;
-        ImageView dirThumbnail;
+        @BindView(R.id.dir_name) TextView dirName;
+        @BindView(R.id.photo_cnt) TextView photoCnt;
+        @BindView(R.id.dir_thumbnail) ImageView dirThumbnail;
 
         public ViewHolder(View view) {
-            dirName = (TextView) view.findViewById(R.id.dir_name);
-            photoCnt = (TextView) view.findViewById(R.id.photo_cnt);
-            dirThumbnail = (ImageView) view.findViewById(R.id.dir_thumbnail);
+            ButterKnife.bind(this, view);
         }
     }
 }
