@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
 
 android {
     compileSdkVersion 23
@@ -32,7 +33,9 @@ dependencies {
     compile 'com.android.support:design:23.3.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.davemorrissey.labs:subsampling-scale-image-view:3.4.1'
-    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.jakewharton:butterknife:8.0.1'
+
+    apt 'com.jakewharton:butterknife-compiler:8.0.1'
 }
 
 def Properties props = new Properties()
