@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:id="@+id/license_holder"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/license"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_margin">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/notice"/>
+
+        <TextView
+            android:id="@+id/license_butterknife_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/activity_margin"
+            android:text="@string/butterknife_title"
+            android:textColor="@color/colorPrimary"/>
+
+        <TextView
+            android:id="@+id/license_butterknife_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/butterknife_text"/>
+
+        <TextView
+            android:id="@+id/license_subsampling_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/activity_margin"
+            android:text="@string/subsampling_title"
+            android:textColor="@color/colorPrimary"/>
+
+        <TextView
+            android:id="@+id/license_subsampling_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subsampling_text"/>
+
+        <TextView
+            android:id="@+id/license_glide_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/activity_margin"
+            android:text="@string/glide_title"
+            android:textColor="@color/colorPrimary"/>
+
+        <TextView
+            android:id="@+id/license_glide_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/glide_text"/>
+
+    </LinearLayout>
+</ScrollView>

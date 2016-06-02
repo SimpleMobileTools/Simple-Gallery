@@ -31,5 +31,10 @@
             android:name=".activities.AboutActivity"
             android:label="@string/about"
             android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".activities.LicenseActivity"
+            android:label="@string/third_party_licences"
+            android:screenOrientation="portrait"/>
     </application>
 </manifest>

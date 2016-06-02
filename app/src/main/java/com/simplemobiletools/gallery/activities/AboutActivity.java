@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.activities;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class AboutActivity extends AppCompatActivity {
     @BindView(R.id.about_copyright) TextView copyright;
@@ -51,5 +53,11 @@ public class AboutActivity extends AppCompatActivity {
         final int year = Calendar.getInstance().get(Calendar.YEAR);
         final String copyrightText = String.format(res.getString(R.string.copyright), year);
         copyright.setText(copyrightText);
+    }
+
+    @OnClick(R.id.about_license)
+    public void licenseClicked() {
+        final Intent intent = new Intent(getApplicationContext(), LicenseActivity.class);
+        startActivity(intent);
     }
 }
