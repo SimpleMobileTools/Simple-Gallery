@@ -49,6 +49,7 @@ public class ViewPagerActivity extends AppCompatActivity
     private String directory;
     private boolean isUndoShown;
     private String toBeDeleted;
+    private String beingDeleted;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,7 @@ public class ViewPagerActivity extends AppCompatActivity
         isFullScreen = true;
         actionbar = getSupportActionBar();
         toBeDeleted = "";
+        beingDeleted = "";
         hideSystemUI();
 
         path = getIntent().getStringExtra(Constants.PHOTO);
@@ -85,6 +87,7 @@ public class ViewPagerActivity extends AppCompatActivity
     public void undoDeletion() {
         isUndoShown = false;
         toBeDeleted = "";
+        beingDeleted = "";
         undoBtn.setVisibility(View.GONE);
         reloadViewPager();
     }
@@ -142,9 +145,11 @@ public class ViewPagerActivity extends AppCompatActivity
             return;
 
         isUndoShown = false;
+        beingDeleted = "";
 
         final File file = new File(toBeDeleted);
         if (file.delete()) {
+            beingDeleted = toBeDeleted;
             final String[] deletedPath = new String[]{toBeDeleted};
             MediaScannerConnection.scanFile(this, deletedPath, null, this);
         }
@@ -255,7 +260,7 @@ public class ViewPagerActivity extends AppCompatActivity
             final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
             do {
                 final String curPath = cursor.getString(pathIndex);
-                if (curPath.matches(pattern) && !curPath.equals(toBeDeleted)) {
+                if (curPath.matches(pattern) && !curPath.equals(toBeDeleted) && !curPath.equals(beingDeleted)) {
                     photos.add(curPath);
 
                     if (curPath.equals(path)) {
@@ -355,6 +360,7 @@ public class ViewPagerActivity extends AppCompatActivity
 
     @Override
     public void onScanCompleted(String path, Uri uri) {
+        beingDeleted = "";
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
