@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ffff6f00</color>
-    <color name="colorPrimaryDark">#ffe46300</color>
+    <color name="colorPrimary">#fff68630</color>
+    <color name="colorPrimaryDark">#ffe27725</color>
     <color name="colorAccent">@color/colorPrimary</color>
-    <color name="pressed_item_foreground">#44ff6f00</color>
+    <color name="pressed_item_foreground">#33ff6f00</color>
     <color name="activated_item_foreground">#99ff6f00</color>
     <color name="tmb_background">#ff222222</color>
     <color name="actionbar_grey">#66000000</color>
