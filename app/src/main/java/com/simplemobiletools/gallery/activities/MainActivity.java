@@ -288,6 +288,11 @@ public class MainActivity extends AppCompatActivity
                     alertDialog.dismiss();
                     actionMode.finish();
 
+                    final File[] files = newDir.listFiles();
+                    for (File f : files) {
+                        updatedFiles.add(f.getAbsolutePath());
+                    }
+
                     updatedFiles.add(newDir.getAbsolutePath());
                     final String[] changedFiles = updatedFiles.toArray(new String[updatedFiles.size()]);
                     MediaScannerConnection.scanFile(getApplicationContext(), changedFiles, null, MainActivity.this);
@@ -368,16 +373,6 @@ public class MainActivity extends AppCompatActivity
     public void onScanCompleted(final String path, final Uri uri) {
         final File dir = new File(path);
         if (dir.isDirectory()) {
-            final List<String> updatedFiles = new ArrayList<>();
-
-            final File[] files = dir.listFiles();
-            for (File f : files) {
-                updatedFiles.add(f.getAbsolutePath());
-            }
-
-            final String[] changedFiles = updatedFiles.toArray(new String[updatedFiles.size()]);
-            MediaScannerConnection.scanFile(getApplicationContext(), changedFiles, null, null);
-
             dirs = new ArrayList<>(getDirectories().values());
 
             runOnUiThread(new Runnable() {
