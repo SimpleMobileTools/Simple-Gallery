@@ -132,6 +132,7 @@ public class MainActivity extends AppCompatActivity
         final String[] columns = {MediaStore.Images.Media.DATA};
         final String order = MediaStore.Images.Media.DATE_MODIFIED + " DESC";
         final Cursor cursor = getContentResolver().query(uri, columns, null, null, order);
+        final List<String> invalidFiles = new ArrayList<>();
 
         if (cursor != null && cursor.moveToFirst()) {
             final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
@@ -139,6 +140,11 @@ public class MainActivity extends AppCompatActivity
                 final String path = cursor.getString(pathIndex);
                 final File file = new File(path);
                 final String fileDir = file.getParent();
+
+                if (!file.exists()) {
+                    invalidFiles.add(file.getAbsolutePath());
+                    continue;
+                }
 
                 if (directories.containsKey(fileDir)) {
                     final Directory directory = directories.get(fileDir);
@@ -151,6 +157,9 @@ public class MainActivity extends AppCompatActivity
             } while (cursor.moveToNext());
             cursor.close();
         }
+
+        final String[] invalids = invalidFiles.toArray(new String[invalidFiles.size()]);
+        MediaScannerConnection.scanFile(getApplicationContext(), invalids, null, null);
 
         return directories;
     }

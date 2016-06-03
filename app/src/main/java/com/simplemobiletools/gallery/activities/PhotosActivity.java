@@ -138,7 +138,10 @@ public class PhotosActivity extends AppCompatActivity
             do {
                 final String curPath = cursor.getString(pathIndex);
                 if (curPath.matches(pattern) && !toBeDeleted.contains(curPath)) {
-                    myPhotos.add(cursor.getString(pathIndex));
+                    final File file = new File(curPath);
+                    if (file.exists()) {
+                        myPhotos.add(cursor.getString(pathIndex));
+                    }
                 }
             } while (cursor.moveToNext());
             cursor.close();
