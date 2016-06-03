@@ -1,6 +1,10 @@
 # Simple-Gallery
 Gallery for viewing/deleting photos.
 
+<img alt="App image" src="screenshots/app.png" width="250">
+<img alt="App image" src="screenshots/app_2.png" width="250">
+<img alt="App image" src="screenshots/app_3.png" width="250">
+
 License
 -------
     Copyright 2016 SimpleMobileTools
