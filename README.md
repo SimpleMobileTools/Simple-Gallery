@@ -1,5 +1,11 @@
 # Simple-Gallery
-Gallery for viewing/deleting photos.
+<img alt="Logo" src="app/src/main/res/mipmap-xxxhdpi/launcher.png" width="80">
+
+A gallery for viewing photos.
+
+Albums are sorted by the modified time of the last item in them from the latest to oldest. Photos can be previewed in multiple columns depending on the size of the display and portrait/landscape mode. They can be renamed, shared or deleted. 
+
+Does not support videos yet.
 
 <img alt="App image" src="screenshots/app.png" width="250">
 <img alt="App image" src="screenshots/app_2.png" width="250">
