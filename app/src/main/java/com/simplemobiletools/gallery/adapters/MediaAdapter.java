@@ -26,16 +26,21 @@ public class MediaAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
+        final Media medium = media.get(position);
         ViewHolder holder;
         if (view == null) {
-            view = inflater.inflate(R.layout.medium_item, parent, false);
+            int layout = R.layout.photo_item;
+            if (medium.getIsVideo()) {
+                layout = R.layout.video_item;
+            }
+            view = inflater.inflate(layout, parent, false);
             holder = new ViewHolder(view);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
         }
 
-        final String path = media.get(position).getPath();
+        final String path = medium.getPath();
         Glide.with(context).load(path).placeholder(R.color.tmb_background).centerCrop().crossFade().into(holder.photoThumbnail);
 
         return view;
