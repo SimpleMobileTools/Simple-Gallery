@@ -126,6 +126,7 @@ public class MediaActivity extends AppCompatActivity
 
     private List<Media> getMedia() {
         final List<Media> myMedia = new ArrayList<>();
+        final List<String> invalidFiles = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
             Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
             if (i == 1) {
@@ -146,12 +147,18 @@ public class MediaActivity extends AppCompatActivity
                         final File file = new File(curPath);
                         if (file.exists()) {
                             myMedia.add(new Media(cursor.getString(pathIndex), (i == 1)));
+                        } else {
+                            invalidFiles.add(file.getAbsolutePath());
                         }
                     }
                 } while (cursor.moveToNext());
                 cursor.close();
             }
         }
+
+        final String[] invalids = invalidFiles.toArray(new String[invalidFiles.size()]);
+        MediaScannerConnection.scanFile(getApplicationContext(), invalids, null, null);
+
         return myMedia;
     }
 
