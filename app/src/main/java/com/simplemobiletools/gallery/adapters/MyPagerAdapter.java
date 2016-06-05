@@ -4,14 +4,15 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.simplemobiletools.gallery.Media;
 import com.simplemobiletools.gallery.ViewPagerFragment;
 
 import java.util.List;
 
 public class MyPagerAdapter extends FragmentStatePagerAdapter {
-    private List<String> paths;
+    private List<Media> paths;
 
-    public MyPagerAdapter(FragmentManager fm, List<String> paths) {
+    public MyPagerAdapter(FragmentManager fm, List<Media> paths) {
         super(fm);
         this.paths = paths;
     }
@@ -24,11 +25,11 @@ public class MyPagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
         final ViewPagerFragment fragment = new ViewPagerFragment();
-        fragment.setPath(paths.get(position));
+        fragment.setPath(paths.get(position).getPath());
         return fragment;
     }
 
-    public void updateItems(List<String> newPaths) {
+    public void updateItems(List<Media> newPaths) {
         paths.clear();
         paths.addAll(newPaths);
         notifyDataSetChanged();

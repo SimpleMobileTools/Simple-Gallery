@@ -7,11 +7,11 @@
     android:background="@android:color/black">
 
     <GridView
-        android:id="@+id/photos_grid"
+        android:id="@+id/media_grid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:choiceMode="multipleChoiceModal"
-        android:columnWidth="@dimen/photo_tmb_size"
+        android:columnWidth="@dimen/medium_tmb_size"
         android:horizontalSpacing="1dp"
         android:numColumns="auto_fit"
         android:stretchMode="columnWidth"

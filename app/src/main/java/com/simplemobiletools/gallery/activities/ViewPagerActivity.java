@@ -21,6 +21,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 
 import com.simplemobiletools.gallery.Constants;
+import com.simplemobiletools.gallery.Media;
 import com.simplemobiletools.gallery.MyViewPager;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
@@ -44,7 +45,7 @@ public class ViewPagerActivity extends AppCompatActivity
     private int pos;
     private boolean isFullScreen;
     private ActionBar actionbar;
-    private List<String> photos;
+    private List<Media> media;
     private String path;
     private String directory;
     private boolean isUndoShown;
@@ -54,7 +55,7 @@ public class ViewPagerActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_photo);
+        setContentView(R.layout.activity_medium);
         ButterKnife.bind(this);
 
         pos = 0;
@@ -64,15 +65,15 @@ public class ViewPagerActivity extends AppCompatActivity
         beingDeleted = "";
         hideSystemUI();
 
-        path = getIntent().getStringExtra(Constants.PHOTO);
+        path = getIntent().getStringExtra(Constants.MEDIUM);
         MediaScannerConnection.scanFile(this, new String[]{path}, null, null);
         addUndoMargin();
         directory = new File(path).getParent();
-        photos = getPhotos();
+        media = getMedia();
         if (isDirEmpty())
             return;
 
-        final MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager(), photos);
+        final MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager(), media);
         pager.setAdapter(adapter);
         pager.setCurrentItem(pos);
         pager.addOnPageChangeListener(this);
@@ -103,20 +104,20 @@ public class ViewPagerActivity extends AppCompatActivity
         deleteFile();
         switch (item.getItemId()) {
             case R.id.menu_share:
-                shareImage();
+                shareMedium();
                 return true;
             case R.id.menu_delete:
                 notifyDeletion();
                 return true;
             case R.id.menu_edit:
-                editImage();
+                editMedium();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    private void shareImage() {
+    private void shareMedium() {
         final String shareTitle = getResources().getString(R.string.share_via);
         final Intent sendIntent = new Intent();
         final File file = getCurrentFile();
@@ -130,7 +131,7 @@ public class ViewPagerActivity extends AppCompatActivity
     private void notifyDeletion() {
         toBeDeleted = getCurrentFile().getAbsolutePath();
 
-        if (photos.size() <= 1) {
+        if (media.size() <= 1) {
             deleteFile();
         } else {
             Utils.showToast(this, R.string.file_deleted);
@@ -158,7 +159,7 @@ public class ViewPagerActivity extends AppCompatActivity
     }
 
     private boolean isDirEmpty() {
-        if (photos.size() <= 0) {
+        if (media.size() <= 0) {
             deleteDirectoryIfEmpty();
             finish();
             return true;
@@ -166,7 +167,7 @@ public class ViewPagerActivity extends AppCompatActivity
         return false;
     }
 
-    private void editImage() {
+    private void editMedium() {
         final File file = getCurrentFile();
         final String fullName = file.getName();
         final int dotAt = fullName.lastIndexOf(".");
@@ -206,7 +207,8 @@ public class ViewPagerActivity extends AppCompatActivity
                 final File newFile = new File(file.getParent(), fileName + "." + extension);
 
                 if (file.renameTo(newFile)) {
-                    photos.set(pager.getCurrentItem(), newFile.getAbsolutePath());
+                    final int currItem = pager.getCurrentItem();
+                    media.set(currItem, new Media(newFile.getAbsolutePath(), media.get(currItem).getIsVideo()));
 
                     final String[] changedFiles = {file.getAbsolutePath(), newFile.getAbsolutePath()};
                     MediaScannerConnection.scanFile(getApplicationContext(), changedFiles, null, null);
@@ -222,12 +224,12 @@ public class ViewPagerActivity extends AppCompatActivity
     private void reloadViewPager() {
         final MyPagerAdapter adapter = (MyPagerAdapter) pager.getAdapter();
         final int curPos = pager.getCurrentItem();
-        photos = getPhotos();
+        media = getMedia();
         if (isDirEmpty())
             return;
 
         pager.setAdapter(null);
-        adapter.updateItems(photos);
+        adapter.updateItems(media);
         pager.setAdapter(adapter);
 
         final int newPos = Math.min(curPos, adapter.getCount());
@@ -245,34 +247,39 @@ public class ViewPagerActivity extends AppCompatActivity
         MediaScannerConnection.scanFile(getApplicationContext(), toBeDeleted, null, null);
     }
 
-    private List<String> getPhotos() {
-        final List<String> photos = new ArrayList<>();
-        final Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-        final String where = MediaStore.Images.Media.DATA + " like ? ";
-        final String[] args = new String[]{directory + "%"};
-        final String[] columns = {MediaStore.Images.Media.DATA};
-        final String order = MediaStore.Images.Media.DATE_MODIFIED + " DESC";
-        final Cursor cursor = getContentResolver().query(uri, columns, where, args, order);
-        final String pattern = Pattern.quote(directory) + "/[^/]*";
+    private List<Media> getMedia() {
+        final List<Media> media = new ArrayList<>();
+        for (int i = 0; i < 2; i++) {
+            Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+            if (i == 1) {
+                uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
+            }
+            final String where = MediaStore.Images.Media.DATA + " like ? ";
+            final String[] args = new String[]{directory + "%"};
+            final String[] columns = {MediaStore.Images.Media.DATA};
+            final String order = MediaStore.Images.Media.DATE_MODIFIED + " DESC";
+            final Cursor cursor = getContentResolver().query(uri, columns, where, args, order);
+            final String pattern = Pattern.quote(directory) + "/[^/]*";
 
-        int i = 0;
-        if (cursor != null && cursor.moveToFirst()) {
-            final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
-            do {
-                final String curPath = cursor.getString(pathIndex);
-                if (curPath.matches(pattern) && !curPath.equals(toBeDeleted) && !curPath.equals(beingDeleted)) {
-                    photos.add(curPath);
+            int j = 0;
+            if (cursor != null && cursor.moveToFirst()) {
+                final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
+                do {
+                    final String curPath = cursor.getString(pathIndex);
+                    if (curPath.matches(pattern) && !curPath.equals(toBeDeleted) && !curPath.equals(beingDeleted)) {
+                        media.add(new Media(curPath, j == 1));
 
-                    if (curPath.equals(path)) {
-                        pos = i;
+                        if (curPath.equals(path)) {
+                            pos = j;
+                        }
+
+                        j++;
                     }
-
-                    i++;
-                }
-            } while (cursor.moveToNext());
-            cursor.close();
+                } while (cursor.moveToNext());
+                cursor.close();
+            }
         }
-        return photos;
+        return media;
     }
 
     public void photoClicked() {
@@ -307,11 +314,11 @@ public class ViewPagerActivity extends AppCompatActivity
     }
 
     private void updateActionbarTitle() {
-        setTitle(Utils.getFilename(photos.get(pager.getCurrentItem())));
+        setTitle(Utils.getFilename(media.get(pager.getCurrentItem()).getPath()));
     }
 
     private File getCurrentFile() {
-        return new File(photos.get(pos));
+        return new File(media.get(pos).getPath());
     }
 
     private void addUndoMargin() {
@@ -364,7 +371,7 @@ public class ViewPagerActivity extends AppCompatActivity
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if (photos.size() <= 1)
+                if (media.size() <= 1)
                     reloadViewPager();
             }
         });

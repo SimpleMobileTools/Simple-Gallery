@@ -8,18 +8,19 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.simplemobiletools.gallery.Media;
 import com.simplemobiletools.gallery.R;
 
 import java.util.List;
 
-public class PhotosAdapter extends BaseAdapter {
+public class MediaAdapter extends BaseAdapter {
     private final Context context;
-    private final List<String> photos;
+    private final List<Media> media;
     private final LayoutInflater inflater;
 
-    public PhotosAdapter(Context context, List<String> photos) {
+    public MediaAdapter(Context context, List<Media> media) {
         this.context = context;
-        this.photos = photos;
+        this.media = media;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -27,14 +28,14 @@ public class PhotosAdapter extends BaseAdapter {
     public View getView(int position, View view, ViewGroup parent) {
         ViewHolder holder;
         if (view == null) {
-            view = inflater.inflate(R.layout.photo_item, parent, false);
+            view = inflater.inflate(R.layout.medium_item, parent, false);
             holder = new ViewHolder(view);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
         }
 
-        final String path = photos.get(position);
+        final String path = media.get(position).getPath();
         Glide.with(context).load(path).placeholder(R.color.tmb_background).centerCrop().crossFade().into(holder.photoThumbnail);
 
         return view;
@@ -42,12 +43,12 @@ public class PhotosAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return photos.size();
+        return media.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return photos.get(position);
+        return media.get(position);
     }
 
     @Override
@@ -55,9 +56,9 @@ public class PhotosAdapter extends BaseAdapter {
         return 0;
     }
 
-    public void updateItems(List<String> newPhotos) {
-        photos.clear();
-        photos.addAll(newPhotos);
+    public void updateItems(List<Media> newPhotos) {
+        media.clear();
+        media.addAll(newPhotos);
         notifyDataSetChanged();
     }
 
@@ -65,7 +66,7 @@ public class PhotosAdapter extends BaseAdapter {
         ImageView photoThumbnail;
 
         public ViewHolder(View view) {
-            photoThumbnail = (ImageView) view.findViewById(R.id.photo_thumbnail);
+            photoThumbnail = (ImageView) view.findViewById(R.id.medium_thumbnail);
         }
     }
 }

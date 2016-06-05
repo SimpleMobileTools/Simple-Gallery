@@ -28,9 +28,10 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.simplemobiletools.gallery.Constants;
+import com.simplemobiletools.gallery.Media;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
-import com.simplemobiletools.gallery.adapters.PhotosAdapter;
+import com.simplemobiletools.gallery.adapters.MediaAdapter;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -40,13 +41,13 @@ import java.util.regex.Pattern;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PhotosActivity extends AppCompatActivity
+public class MediaActivity extends AppCompatActivity
         implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, MediaScannerConnection.OnScanCompletedListener,
         GridView.OnTouchListener {
-    @BindView(R.id.photos_grid) GridView gridView;
+    @BindView(R.id.media_grid) GridView gridView;
 
     private static final int STORAGE_PERMISSION = 1;
-    private List<String> photos;
+    private List<Media> media;
     private int selectedItemsCnt;
     private String path;
     private Snackbar snackbar;
@@ -57,7 +58,7 @@ public class PhotosActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_photos);
+        setContentView(R.layout.activity_media);
         ButterKnife.bind(this);
     }
 
@@ -101,11 +102,11 @@ public class PhotosActivity extends AppCompatActivity
     private void initializeGallery() {
         toBeDeleted = new ArrayList<>();
         path = getIntent().getStringExtra(Constants.DIRECTORY);
-        photos = getPhotos();
+        media = getMedia();
         if (isDirEmpty())
             return;
 
-        final PhotosAdapter adapter = new PhotosAdapter(this, photos);
+        final MediaAdapter adapter = new MediaAdapter(this, media);
         gridView.setAdapter(adapter);
         gridView.setOnItemClickListener(this);
         gridView.setMultiChoiceModeListener(this);
@@ -123,34 +124,39 @@ public class PhotosActivity extends AppCompatActivity
         }
     }
 
-    private List<String> getPhotos() {
-        final List<String> myPhotos = new ArrayList<>();
-        final Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-        final String where = MediaStore.Images.Media.DATA + " like ? ";
-        final String[] args = new String[]{path + "%"};
-        final String[] columns = {MediaStore.Images.Media.DATA};
-        final String order = MediaStore.Images.Media.DATE_MODIFIED + " DESC";
-        final Cursor cursor = getContentResolver().query(uri, columns, where, args, order);
-        final String pattern = Pattern.quote(path) + "/[^/]*";
+    private List<Media> getMedia() {
+        final List<Media> myMedia = new ArrayList<>();
+        for (int i = 0; i < 2; i++) {
+            Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+            if (i == 1) {
+                uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
+            }
+            final String where = MediaStore.Images.Media.DATA + " like ? ";
+            final String[] args = new String[]{path + "%"};
+            final String[] columns = {MediaStore.Images.Media.DATA};
+            final String order = MediaStore.Images.Media.DATE_MODIFIED + " DESC";
+            final Cursor cursor = getContentResolver().query(uri, columns, where, args, order);
+            final String pattern = Pattern.quote(path) + "/[^/]*";
 
-        if (cursor != null && cursor.moveToFirst()) {
-            final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
-            do {
-                final String curPath = cursor.getString(pathIndex);
-                if (curPath.matches(pattern) && !toBeDeleted.contains(curPath)) {
-                    final File file = new File(curPath);
-                    if (file.exists()) {
-                        myPhotos.add(cursor.getString(pathIndex));
+            if (cursor != null && cursor.moveToFirst()) {
+                final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
+                do {
+                    final String curPath = cursor.getString(pathIndex);
+                    if (curPath.matches(pattern) && !toBeDeleted.contains(curPath)) {
+                        final File file = new File(curPath);
+                        if (file.exists()) {
+                            myMedia.add(new Media(cursor.getString(pathIndex), (i == 1)));
+                        }
                     }
-                }
-            } while (cursor.moveToNext());
-            cursor.close();
+                } while (cursor.moveToNext());
+                cursor.close();
+            }
         }
-        return myPhotos;
+        return myMedia;
     }
 
     private boolean isDirEmpty() {
-        if (photos.size() <= 0) {
+        if (media.size() <= 0) {
             deleteDirectoryIfEmpty();
             finish();
             return true;
@@ -166,7 +172,7 @@ public class PhotosActivity extends AppCompatActivity
         for (int i = 0; i < cnt; i++) {
             if (items.valueAt(i)) {
                 final int id = items.keyAt(i);
-                final String path = photos.get(id);
+                final String path = media.get(id).getPath();
                 toBeDeleted.add(path);
                 deletedCnt++;
             }
@@ -176,9 +182,9 @@ public class PhotosActivity extends AppCompatActivity
     }
 
     private void notifyDeletion(int cnt) {
-        photos = getPhotos();
+        media = getMedia();
 
-        if (photos.isEmpty()) {
+        if (media.isEmpty()) {
             deleteFiles();
         } else {
             final CoordinatorLayout coordinator = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
@@ -220,22 +226,22 @@ public class PhotosActivity extends AppCompatActivity
             snackbar.dismiss();
             isSnackbarShown = false;
             toBeDeleted.clear();
-            photos = getPhotos();
+            media = getMedia();
             updateGridView();
         }
     };
 
     private void updateGridView() {
         if (!isDirEmpty()) {
-            final PhotosAdapter adapter = (PhotosAdapter) gridView.getAdapter();
-            adapter.updateItems(photos);
+            final MediaAdapter adapter = (MediaAdapter) gridView.getAdapter();
+            adapter.updateItems(media);
         }
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         final Intent intent = new Intent(this, ViewPagerActivity.class);
-        intent.putExtra(Constants.PHOTO, photos.get(position));
+        intent.putExtra(Constants.MEDIUM, media.get(position).getPath());
         startActivity(intent);
     }
 
@@ -255,7 +261,7 @@ public class PhotosActivity extends AppCompatActivity
     @Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
         final MenuInflater inflater = mode.getMenuInflater();
-        inflater.inflate(R.menu.photos_menu, menu);
+        inflater.inflate(R.menu.media_menu, menu);
         return true;
     }
 
@@ -283,7 +289,7 @@ public class PhotosActivity extends AppCompatActivity
 
     @Override
     public void onScanCompleted(String path, Uri uri) {
-        if (photos.isEmpty()) {
+        if (media.isEmpty()) {
             finish();
         }
     }

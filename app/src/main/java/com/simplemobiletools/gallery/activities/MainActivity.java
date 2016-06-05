@@ -152,8 +152,8 @@ public class MainActivity extends AppCompatActivity
 
                     if (directories.containsKey(fileDir)) {
                         final Directory directory = directories.get(fileDir);
-                        final int newImageCnt = directory.getPhotoCnt() + 1;
-                        directory.setPhotoCnt(newImageCnt);
+                        final int newImageCnt = directory.getMediaCnt() + 1;
+                        directory.setMediaCnt(newImageCnt);
                     } else if (!toBeDeleted.contains(fileDir)) {
                         final String dirName = Utils.getFilename(fileDir);
                         directories.put(fileDir, new Directory(fileDir, path, dirName, 1));
@@ -310,7 +310,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        final Intent intent = new Intent(this, PhotosActivity.class);
+        final Intent intent = new Intent(this, MediaActivity.class);
         intent.putExtra(Constants.DIRECTORY, dirs.get(position).getPath());
         startActivity(intent);
     }

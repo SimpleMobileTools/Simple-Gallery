@@ -21,7 +21,7 @@
         </activity>
 
         <activity
-            android:name=".activities.PhotosActivity"/>
+            android:name=".activities.MediaActivity"/>
 
         <activity
             android:name=".activities.ViewPagerActivity"

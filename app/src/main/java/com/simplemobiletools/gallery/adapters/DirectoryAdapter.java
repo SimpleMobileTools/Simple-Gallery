@@ -41,7 +41,7 @@ public class DirectoryAdapter extends BaseAdapter {
 
         final Directory dir = dirs.get(position);
         holder.dirName.setText(dir.getName());
-        holder.photoCnt.setText(String.valueOf(dir.getPhotoCnt()));
+        holder.photoCnt.setText(String.valueOf(dir.getMediaCnt()));
         Glide.with(context).load(dir.getThumbnail()).placeholder(R.color.tmb_background).centerCrop().crossFade().into(holder.dirThumbnail);
 
         return view;
