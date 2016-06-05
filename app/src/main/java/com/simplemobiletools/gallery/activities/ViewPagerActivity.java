@@ -249,6 +249,7 @@ public class ViewPagerActivity extends AppCompatActivity
 
     private List<Media> getMedia() {
         final List<Media> media = new ArrayList<>();
+        int j = 0;
         for (int i = 0; i < 2; i++) {
             Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
             if (i == 1) {
@@ -261,7 +262,6 @@ public class ViewPagerActivity extends AppCompatActivity
             final Cursor cursor = getContentResolver().query(uri, columns, where, args, order);
             final String pattern = Pattern.quote(directory) + "/[^/]*";
 
-            int j = 0;
             if (cursor != null && cursor.moveToFirst()) {
                 final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
                 do {
