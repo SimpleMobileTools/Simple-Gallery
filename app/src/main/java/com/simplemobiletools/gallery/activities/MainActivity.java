@@ -128,34 +128,39 @@ public class MainActivity extends AppCompatActivity
 
     private Map<String, Directory> getDirectories() {
         final Map<String, Directory> directories = new LinkedHashMap<>();
-        final Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-        final String[] columns = {MediaStore.Images.Media.DATA};
-        final String order = MediaStore.Images.Media.DATE_MODIFIED + " DESC";
-        final Cursor cursor = getContentResolver().query(uri, columns, null, null, order);
         final List<String> invalidFiles = new ArrayList<>();
+        for (int i = 0; i < 2; i++) {
+            Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+            if (i == 1) {
+                uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
+            }
+            final String[] columns = {MediaStore.Images.Media.DATA};
+            final String order = MediaStore.Images.Media.DATE_MODIFIED + " DESC";
+            final Cursor cursor = getContentResolver().query(uri, columns, null, null, order);
 
-        if (cursor != null && cursor.moveToFirst()) {
-            final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
-            do {
-                final String path = cursor.getString(pathIndex);
-                final File file = new File(path);
-                final String fileDir = file.getParent();
+            if (cursor != null && cursor.moveToFirst()) {
+                final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
+                do {
+                    final String path = cursor.getString(pathIndex);
+                    final File file = new File(path);
+                    final String fileDir = file.getParent();
 
-                if (!file.exists()) {
-                    invalidFiles.add(file.getAbsolutePath());
-                    continue;
-                }
+                    if (!file.exists()) {
+                        invalidFiles.add(file.getAbsolutePath());
+                        continue;
+                    }
 
-                if (directories.containsKey(fileDir)) {
-                    final Directory directory = directories.get(fileDir);
-                    final int newImageCnt = directory.getPhotoCnt() + 1;
-                    directory.setPhotoCnt(newImageCnt);
-                } else if (!toBeDeleted.contains(fileDir)) {
-                    final String dirName = Utils.getFilename(fileDir);
-                    directories.put(fileDir, new Directory(fileDir, path, dirName, 1));
-                }
-            } while (cursor.moveToNext());
-            cursor.close();
+                    if (directories.containsKey(fileDir)) {
+                        final Directory directory = directories.get(fileDir);
+                        final int newImageCnt = directory.getPhotoCnt() + 1;
+                        directory.setPhotoCnt(newImageCnt);
+                    } else if (!toBeDeleted.contains(fileDir)) {
+                        final String dirName = Utils.getFilename(fileDir);
+                        directories.put(fileDir, new Directory(fileDir, path, dirName, 1));
+                    }
+                } while (cursor.moveToNext());
+                cursor.close();
+            }
         }
 
         final String[] invalids = invalidFiles.toArray(new String[invalidFiles.size()]);
