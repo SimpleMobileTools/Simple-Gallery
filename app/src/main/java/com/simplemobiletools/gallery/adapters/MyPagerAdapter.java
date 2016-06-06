@@ -10,28 +10,28 @@ import com.simplemobiletools.gallery.ViewPagerFragment;
 import java.util.List;
 
 public class MyPagerAdapter extends FragmentStatePagerAdapter {
-    private List<Media> paths;
+    private List<Media> media;
 
-    public MyPagerAdapter(FragmentManager fm, List<Media> paths) {
+    public MyPagerAdapter(FragmentManager fm, List<Media> media) {
         super(fm);
-        this.paths = paths;
+        this.media = media;
     }
 
     @Override
     public int getCount() {
-        return paths.size();
+        return media.size();
     }
 
     @Override
     public Fragment getItem(int position) {
         final ViewPagerFragment fragment = new ViewPagerFragment();
-        fragment.setPath(paths.get(position).getPath());
+        fragment.setMedium(media.get(position));
         return fragment;
     }
 
     public void updateItems(List<Media> newPaths) {
-        paths.clear();
-        paths.addAll(newPaths);
+        media.clear();
+        media.addAll(newPaths);
         notifyDataSetChanged();
     }
 }

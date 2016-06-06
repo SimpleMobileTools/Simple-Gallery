@@ -11,25 +11,25 @@ import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import com.simplemobiletools.gallery.activities.ViewPagerActivity;
 
 public class ViewPagerFragment extends Fragment implements View.OnClickListener {
-    private static final String PATH = "path";
-    private String path;
+    private static final String MEDIUM = "medium";
+    private Media medium;
 
-    public void setPath(String path) {
-        this.path = path;
+    public void setMedium(Media medium) {
+        this.medium = medium;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.pager_item, container, false);
 
-        if (path == null && savedInstanceState != null) {
-            path = savedInstanceState.getString(PATH);
+        if (medium == null && savedInstanceState != null) {
+            medium = (Media) savedInstanceState.getSerializable(MEDIUM);
         }
 
-        if (path != null) {
+        if (medium != null) {
             final SubsamplingScaleImageView imageView = (SubsamplingScaleImageView) view.findViewById(R.id.photo);
             imageView.setOrientation(SubsamplingScaleImageView.ORIENTATION_USE_EXIF);
-            imageView.setImage(ImageSource.uri(path));
+            imageView.setImage(ImageSource.uri(medium.getPath()));
             imageView.setMaxScale(5f);
             imageView.setOnClickListener(this);
         }
@@ -40,7 +40,7 @@ public class ViewPagerFragment extends Fragment implements View.OnClickListener 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString(PATH, path);
+        outState.putSerializable(MEDIUM, medium);
     }
 
     @Override

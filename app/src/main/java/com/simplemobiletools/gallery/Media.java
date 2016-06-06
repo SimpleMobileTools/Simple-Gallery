@@ -1,6 +1,9 @@
 package com.simplemobiletools.gallery;
 
-public class Media {
+import java.io.Serializable;
+
+public class Media implements Serializable {
+    private static final long serialVersionUID = -6543139465975455L;
     private final String path;
     private final boolean isVideo;
 
