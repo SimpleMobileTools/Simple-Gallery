@@ -25,13 +25,17 @@ public class MyPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
+        if (fragment != null) {
+            fragment.fragmentHidden();
+        }
         fragment = new ViewPagerFragment();
         fragment.setMedium(media.get(position));
         return fragment;
     }
 
     public void itemDragged() {
-        fragment.itemDragged();
+        if (fragment != null)
+            fragment.itemDragged();
     }
 
     public void updateItems(List<Media> newPaths) {

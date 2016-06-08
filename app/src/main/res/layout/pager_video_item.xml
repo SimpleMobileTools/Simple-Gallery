@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:id="@+id/video_holder"
                 xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="wrap_content"
-                android:layout_height="100dp">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
     <SurfaceView
         android:id="@+id/video_surface"
@@ -18,5 +18,41 @@
         android:layout_centerInParent="true"
         android:background="@android:color/transparent"
         android:src="@mipmap/play_outline_big"/>
+
+    <RelativeLayout
+        android:id="@+id/video_time_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/actionbar_grey"
+        android:padding="@dimen/timer_padding">
+
+        <TextView
+            android:id="@+id/video_curr_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="00:00"
+            android:textColor="@android:color/white"/>
+
+        <SeekBar
+            android:id="@+id/video_seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/video_curr_time"
+            android:layout_marginLeft="@dimen/activity_margin"
+            android:layout_marginRight="@dimen/activity_margin"
+            android:layout_toLeftOf="@+id/video_duration"
+            android:layout_toRightOf="@+id/video_curr_time"/>
+
+        <TextView
+            android:id="@+id/video_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="01:10"
+            android:textColor="@android:color/white"/>
+
+    </RelativeLayout>
 
 </RelativeLayout>

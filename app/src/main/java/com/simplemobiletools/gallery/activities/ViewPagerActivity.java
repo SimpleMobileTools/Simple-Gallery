@@ -6,7 +6,6 @@ import android.content.res.Resources;
 import android.database.Cursor;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.view.ViewPager;
@@ -322,24 +321,19 @@ public class ViewPagerActivity extends AppCompatActivity
     }
 
     private void addUndoMargin() {
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            final Resources resources = getResources();
-            int id = resources.getIdentifier("navigation_bar_height", "dimen", "android");
-            if (id > 0) {
-                final RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) undoBtn.getLayoutParams();
-                final int navbarHeight = resources.getDimensionPixelSize(id);
-                int rightMargin = params.rightMargin;
-                int bottomMargin = params.bottomMargin;
+        final Resources res = getResources();
+        final int height = Utils.getNavBarHeight(res);
+        final RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) undoBtn.getLayoutParams();
+        int rightMargin = params.rightMargin;
+        int bottomMargin = params.bottomMargin;
 
-                if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-                    bottomMargin = navbarHeight;
-                } else {
-                    rightMargin = navbarHeight;
-                }
-
-                params.setMargins(params.leftMargin, params.topMargin, rightMargin, bottomMargin);
-            }
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            bottomMargin = height;
+        } else {
+            rightMargin = height;
         }
+
+        params.setMargins(params.leftMargin, params.topMargin, rightMargin, bottomMargin);
     }
 
     @Override
@@ -374,8 +368,9 @@ public class ViewPagerActivity extends AppCompatActivity
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if (media.size() <= 1)
+                if (media.size() <= 1) {
                     reloadViewPager();
+                }
             }
         });
     }

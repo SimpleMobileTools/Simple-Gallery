@@ -1,9 +1,12 @@
 package com.simplemobiletools.gallery;
 
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,22 +15,33 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import com.simplemobiletools.gallery.activities.ViewPagerActivity;
 
 import java.io.IOException;
+import java.util.Locale;
 
 public class ViewPagerFragment extends Fragment
-        implements View.OnClickListener, SurfaceHolder.Callback, MediaPlayer.OnCompletionListener, MediaPlayer.OnVideoSizeChangedListener {
+        implements View.OnClickListener, SurfaceHolder.Callback, MediaPlayer.OnCompletionListener, MediaPlayer.OnVideoSizeChangedListener,
+        SeekBar.OnSeekBarChangeListener {
     private static final String TAG = ViewPagerFragment.class.getSimpleName();
     private static final String MEDIUM = "medium";
-    private Media medium;
-    private static SurfaceHolder surfaceHolder;
-    private static ImageView playOutline;
-    private static boolean isPlaying;
     private static MediaPlayer mediaPlayer;
+    private SurfaceHolder surfaceHolder;
+
+    private ImageView playOutline;
+    private TextView currTimeView;
+    private TextView durationView;
+    private Handler timerHandler;
+    private SeekBar seekBar;
+    private Media medium;
+    private boolean isPlaying;
+    private boolean isDragged;
 
     public void setMedium(Media medium) {
         this.medium = medium;
@@ -72,10 +86,60 @@ public class ViewPagerFragment extends Fragment
         surfaceView.setOnClickListener(this);
         surfaceHolder = surfaceView.getHolder();
         surfaceHolder.addCallback(this);
+
+        initTimeHolder(view);
     }
 
     public void itemDragged() {
         pauseVideo();
+    }
+
+    public void fragmentHidden() {
+        cleanup();
+    }
+
+    private void initTimeHolder(View view) {
+        RelativeLayout timeHolder = (RelativeLayout) view.findViewById(R.id.video_time_holder);
+        final Resources res = getResources();
+        final int height = Utils.getNavBarHeight(res);
+        final int left = timeHolder.getPaddingLeft();
+        final int top = timeHolder.getPaddingTop();
+        final int right = timeHolder.getPaddingRight();
+        final int bottom = timeHolder.getPaddingBottom();
+
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            timeHolder.setPadding(left, top, right, bottom + height);
+        } else {
+            timeHolder.setPadding(left, top, right + height, bottom);
+        }
+
+        currTimeView = (TextView) view.findViewById(R.id.video_curr_time);
+        durationView = (TextView) view.findViewById(R.id.video_duration);
+        seekBar = (SeekBar) view.findViewById(R.id.video_seekbar);
+        seekBar.setOnSeekBarChangeListener(this);
+    }
+
+    private void setupTimeHolder() {
+        final int duration = mediaPlayer.getDuration() / 1000;
+        seekBar.setMax(duration);
+        durationView.setText(getTimeString(duration));
+        timerHandler = new Handler();
+        setupTimer();
+    }
+
+    private void setupTimer() {
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (mediaPlayer != null && !isDragged && isPlaying) {
+                    int currPos = mediaPlayer.getCurrentPosition() / 1000;
+                    seekBar.setProgress(currPos);
+                    currTimeView.setText(getTimeString(currPos));
+                }
+
+                timerHandler.postDelayed(this, 1000);
+            }
+        });
     }
 
     @Override
@@ -105,15 +169,18 @@ public class ViewPagerFragment extends Fragment
         if (getActivity() == null)
             return;
 
-        if (mediaPlayer == null)
-            initMediaPlayer();
-
         isPlaying = !isPlaying;
         if (isPlaying) {
-            mediaPlayer.start();
+            if (mediaPlayer != null) {
+                mediaPlayer.start();
+            }
+
             playOutline.setImageDrawable(null);
         } else {
-            mediaPlayer.pause();
+            if (mediaPlayer != null) {
+                mediaPlayer.pause();
+            }
+
             playOutline.setImageDrawable(getResources().getDrawable(R.mipmap.play_outline_big));
         }
     }
@@ -133,6 +200,10 @@ public class ViewPagerFragment extends Fragment
             mediaPlayer.prepare();
             mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
             addPreviewImage();
+            setupTimeHolder();
+
+            seekBar.setProgress(0);
+            currTimeView.setText(getTimeString(0));
         } catch (IOException e) {
             Log.e(TAG, "init media player " + e.getMessage());
         }
@@ -146,16 +217,25 @@ public class ViewPagerFragment extends Fragment
     @Override
     public void onPause() {
         super.onPause();
-        releaseMediaPlayer();
+        cleanup();
     }
 
-    private void releaseMediaPlayer() {
+    private void cleanup() {
         pauseVideo();
+
+        if (currTimeView != null)
+            currTimeView.setText(getTimeString(0));
 
         if (mediaPlayer != null) {
             mediaPlayer.release();
             mediaPlayer = null;
         }
+
+        if (seekBar != null)
+            seekBar.setProgress(0);
+
+        if (timerHandler != null)
+            timerHandler.removeCallbacksAndMessages(null);
     }
 
     @Override
@@ -176,5 +256,50 @@ public class ViewPagerFragment extends Fragment
     @Override
     public void onVideoSizeChanged(MediaPlayer mp, int width, int height) {
         surfaceHolder.setFixedSize(width, height);
+    }
+
+    private String getTimeString(int duration) {
+        final StringBuilder sb = new StringBuilder(8);
+        final int hours = duration / (60 * 60);
+        final int minutes = (duration % (60 * 60)) / 60;
+        final int seconds = ((duration % (60 * 60)) % 60);
+
+        if (mediaPlayer != null && mediaPlayer.getDuration() > 3600000) {
+            sb.append(String.format(Locale.getDefault(), "%02d", hours)).append(":");
+        }
+
+        sb.append(String.format(Locale.getDefault(), "%02d", minutes));
+        sb.append(":").append(String.format(Locale.getDefault(), "%02d", seconds));
+
+        return sb.toString();
+    }
+
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        if (mediaPlayer != null && fromUser) {
+            mediaPlayer.seekTo(progress * 1000);
+            seekBar.setProgress(progress);
+            currTimeView.setText(getTimeString(progress));
+        }
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+        if (mediaPlayer == null)
+            initMediaPlayer();
+
+        mediaPlayer.pause();
+        isDragged = true;
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+        if (!isPlaying) {
+            togglePlayPause();
+        } else {
+            mediaPlayer.start();
+        }
+
+        isDragged = false;
     }
 }

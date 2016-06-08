@@ -5,4 +5,5 @@
     <dimen name="play_outline_size">40dp</dimen>
     <dimen name="play_outline_size_big">160dp</dimen>
     <dimen name="undo_padding">8dp</dimen>
+    <dimen name="timer_padding">24dp</dimen>
 </resources>
