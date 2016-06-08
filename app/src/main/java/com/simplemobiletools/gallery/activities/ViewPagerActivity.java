@@ -248,7 +248,7 @@ public class ViewPagerActivity extends AppCompatActivity
     }
 
     private List<Media> getMedia() {
-        final List<Media> media = new ArrayList<>();
+        final List<Media> myMedia = new ArrayList<>();
         int j = 0;
         for (int i = 0; i < 2; i++) {
             Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
@@ -267,7 +267,7 @@ public class ViewPagerActivity extends AppCompatActivity
                 do {
                     final String curPath = cursor.getString(pathIndex);
                     if (curPath.matches(pattern) && !curPath.equals(toBeDeleted) && !curPath.equals(beingDeleted)) {
-                        media.add(new Media(curPath, j == 1));
+                        myMedia.add(new Media(curPath, i == 1));
 
                         if (curPath.equals(path)) {
                             pos = j;
@@ -279,7 +279,7 @@ public class ViewPagerActivity extends AppCompatActivity
                 cursor.close();
             }
         }
-        return media;
+        return myMedia;
     }
 
     public void photoClicked() {
@@ -355,7 +355,10 @@ public class ViewPagerActivity extends AppCompatActivity
 
     @Override
     public void onPageScrollStateChanged(int state) {
-
+        if (state == ViewPager.SCROLL_STATE_DRAGGING) {
+            final MyPagerAdapter adapter = (MyPagerAdapter) pager.getAdapter();
+            adapter.itemDragged();
+        }
     }
 
     @Override

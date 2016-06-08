@@ -146,7 +146,7 @@ public class MediaActivity extends AppCompatActivity
                     if (curPath.matches(pattern) && !toBeDeleted.contains(curPath)) {
                         final File file = new File(curPath);
                         if (file.exists()) {
-                            myMedia.add(new Media(cursor.getString(pathIndex), (i == 1)));
+                            myMedia.add(new Media(curPath, (i == 1)));
                         } else {
                             invalidFiles.add(file.getAbsolutePath());
                         }

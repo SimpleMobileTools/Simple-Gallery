@@ -11,6 +11,7 @@ import java.util.List;
 
 public class MyPagerAdapter extends FragmentStatePagerAdapter {
     private List<Media> media;
+    private ViewPagerFragment fragment;
 
     public MyPagerAdapter(FragmentManager fm, List<Media> media) {
         super(fm);
@@ -24,9 +25,13 @@ public class MyPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        final ViewPagerFragment fragment = new ViewPagerFragment();
+        fragment = new ViewPagerFragment();
         fragment.setMedium(media.get(position));
         return fragment;
+    }
+
+    public void itemDragged() {
+        fragment.itemDragged();
     }
 
     public void updateItems(List<Media> newPaths) {
