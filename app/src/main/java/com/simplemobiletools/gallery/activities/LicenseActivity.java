@@ -28,11 +28,6 @@ public class LicenseActivity extends AppCompatActivity {
         openUrl(R.string.subsampling_url);
     }
 
-    @OnClick(R.id.license_exoplayer_title)
-    public void exoplayerClicked() {
-        openUrl(R.string.exoplayer_url);
-    }
-
     private void openUrl(int id) {
         final String url = getResources().getString(id);
         final Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
