@@ -26,7 +26,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/actionbar_grey"
-        android:padding="@dimen/timer_padding">
+        android:paddingBottom="@dimen/activity_margin"
+        android:paddingLeft="@dimen/timer_padding"
+        android:paddingRight="@dimen/timer_padding"
+        android:paddingTop="@dimen/activity_margin">
 
         <TextView
             android:id="@+id/video_curr_time"
@@ -40,7 +43,6 @@
             android:id="@+id/video_seekbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/video_curr_time"
             android:layout_marginLeft="@dimen/activity_margin"
             android:layout_marginRight="@dimen/activity_margin"
             android:layout_toLeftOf="@+id/video_duration"
