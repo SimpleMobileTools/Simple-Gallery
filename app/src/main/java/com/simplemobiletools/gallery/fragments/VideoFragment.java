@@ -34,7 +34,7 @@ public class VideoFragment extends ViewPagerFragment
         implements View.OnClickListener, SurfaceHolder.Callback, MediaPlayer.OnCompletionListener, MediaPlayer.OnVideoSizeChangedListener,
         SeekBar.OnSeekBarChangeListener {
     private static final String TAG = VideoFragment.class.getSimpleName();
-    private static final String MEDIUM = "medium";
+    private static final String PROGRESS = "progress";
     private MediaPlayer mediaPlayer;
     private SurfaceView surfaceView;
     private SurfaceHolder surfaceHolder;
@@ -56,8 +56,9 @@ public class VideoFragment extends ViewPagerFragment
         final View view = inflater.inflate(R.layout.pager_video_item, container, false);
 
         medium = (Medium) getArguments().getSerializable(Constants.MEDIUM);
-        if (medium == null)
-            return view;
+        if (savedInstanceState != null) {
+            currTime = savedInstanceState.getInt(PROGRESS);
+        }
 
         isFullscreen = (getActivity().getWindow().getDecorView().getSystemUiVisibility() & View.SYSTEM_UI_FLAG_FULLSCREEN) ==
                 View.SYSTEM_UI_FLAG_FULLSCREEN;
@@ -144,7 +145,7 @@ public class VideoFragment extends ViewPagerFragment
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putSerializable(MEDIUM, medium);
+        outState.putInt(PROGRESS, currTime);
     }
 
     @Override
@@ -242,7 +243,9 @@ public class VideoFragment extends ViewPagerFragment
     @Override
     public void onDestroy() {
         super.onDestroy();
-        cleanup();
+        if (getActivity() != null && !getActivity().isChangingConfigurations()) {
+            cleanup();
+        }
     }
 
     private void cleanup() {
