@@ -119,11 +119,15 @@ public class ViewPagerActivity extends AppCompatActivity
     private void shareMedium() {
         final String shareTitle = getResources().getString(R.string.share_via);
         final Intent sendIntent = new Intent();
+        final Medium medium = getCurrentMedium();
         final File file = getCurrentFile();
         final Uri uri = Uri.fromFile(file);
         sendIntent.setAction(Intent.ACTION_SEND);
         sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
-        sendIntent.setType("image/*");
+        if (medium.getIsVideo())
+            sendIntent.setType("video/*");
+        else
+            sendIntent.setType("image/*");
         startActivity(Intent.createChooser(sendIntent, shareTitle));
     }
 
@@ -316,8 +320,12 @@ public class ViewPagerActivity extends AppCompatActivity
         setTitle(Utils.getFilename(media.get(pager.getCurrentItem()).getPath()));
     }
 
+    private Medium getCurrentMedium() {
+        return media.get(pos);
+    }
+
     private File getCurrentFile() {
-        return new File(media.get(pos).getPath());
+        return new File(getCurrentMedium().getPath());
     }
 
     private void addUndoMargin() {
