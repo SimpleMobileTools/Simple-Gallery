@@ -1,4 +1,4 @@
-package com.simplemobiletools.gallery;
+package com.simplemobiletools.gallery.models;
 
 import java.io.Serializable;
 

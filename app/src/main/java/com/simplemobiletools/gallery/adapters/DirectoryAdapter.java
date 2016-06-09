@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.simplemobiletools.gallery.Directory;
+import com.simplemobiletools.gallery.models.Directory;
 import com.simplemobiletools.gallery.R;
 
 import java.util.List;

@@ -6,10 +6,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.simplemobiletools.gallery.Constants;
-import com.simplemobiletools.gallery.Medium;
-import com.simplemobiletools.gallery.PhotoFragment;
-import com.simplemobiletools.gallery.VideoFragment;
-import com.simplemobiletools.gallery.ViewPagerFragment;
+import com.simplemobiletools.gallery.models.Medium;
+import com.simplemobiletools.gallery.fragments.PhotoFragment;
+import com.simplemobiletools.gallery.fragments.VideoFragment;
+import com.simplemobiletools.gallery.fragments.ViewPagerFragment;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.simplemobiletools.gallery;
+package com.simplemobiletools.gallery.fragments;
 
 import android.support.v4.app.Fragment;
 

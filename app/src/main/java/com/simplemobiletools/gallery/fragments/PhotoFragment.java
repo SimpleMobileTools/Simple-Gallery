@@ -1,4 +1,4 @@
-package com.simplemobiletools.gallery;
+package com.simplemobiletools.gallery.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
+import com.simplemobiletools.gallery.Constants;
+import com.simplemobiletools.gallery.models.Medium;
+import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.activities.ViewPagerActivity;
 
 public class PhotoFragment extends ViewPagerFragment implements View.OnClickListener {

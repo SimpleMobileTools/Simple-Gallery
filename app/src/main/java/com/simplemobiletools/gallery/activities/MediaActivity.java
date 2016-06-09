@@ -28,7 +28,7 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.simplemobiletools.gallery.Constants;
-import com.simplemobiletools.gallery.Medium;
+import com.simplemobiletools.gallery.models.Medium;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.adapters.MediaAdapter;

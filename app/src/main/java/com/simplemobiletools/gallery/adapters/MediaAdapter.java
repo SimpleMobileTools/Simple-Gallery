@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.simplemobiletools.gallery.Medium;
+import com.simplemobiletools.gallery.models.Medium;
 import com.simplemobiletools.gallery.R;
 
 import java.util.List;

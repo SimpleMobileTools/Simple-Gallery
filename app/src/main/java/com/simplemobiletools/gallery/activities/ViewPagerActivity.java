@@ -20,7 +20,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 
 import com.simplemobiletools.gallery.Constants;
-import com.simplemobiletools.gallery.Medium;
+import com.simplemobiletools.gallery.models.Medium;
 import com.simplemobiletools.gallery.MyViewPager;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
@@ -43,11 +43,11 @@ public class ViewPagerActivity extends AppCompatActivity
 
     private int pos;
     private boolean isFullScreen;
+    private boolean isUndoShown;
     private ActionBar actionbar;
     private List<Medium> media;
     private String path;
     private String directory;
-    private boolean isUndoShown;
     private String toBeDeleted;
     private String beingDeleted;
 

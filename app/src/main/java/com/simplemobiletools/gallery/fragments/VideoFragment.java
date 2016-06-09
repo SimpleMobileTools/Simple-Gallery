@@ -1,4 +1,4 @@
-package com.simplemobiletools.gallery;
+package com.simplemobiletools.gallery.fragments;
 
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -18,7 +18,11 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.simplemobiletools.gallery.Constants;
+import com.simplemobiletools.gallery.R;
+import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.activities.ViewPagerActivity;
+import com.simplemobiletools.gallery.models.Medium;
 
 import java.io.IOException;
 import java.util.Locale;

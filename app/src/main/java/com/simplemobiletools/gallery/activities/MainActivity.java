@@ -30,7 +30,7 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.simplemobiletools.gallery.Constants;
-import com.simplemobiletools.gallery.Directory;
+import com.simplemobiletools.gallery.models.Directory;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter;
