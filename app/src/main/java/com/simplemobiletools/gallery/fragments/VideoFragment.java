@@ -15,8 +15,9 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -44,8 +45,10 @@ public class VideoFragment extends ViewPagerFragment
     private Handler timerHandler;
     private SeekBar seekBar;
     private Medium medium;
+    private View timeHolder;
     private boolean isPlaying;
     private boolean isDragged;
+    private boolean isFullscreen;
     private int currTime;
 
     @Override
@@ -56,6 +59,8 @@ public class VideoFragment extends ViewPagerFragment
         if (medium == null)
             return view;
 
+        isFullscreen = (getActivity().getWindow().getDecorView().getSystemUiVisibility() & View.SYSTEM_UI_FLAG_FULLSCREEN) ==
+                View.SYSTEM_UI_FLAG_FULLSCREEN;
         setupPlayer(view);
         view.setOnClickListener(this);
 
@@ -82,7 +87,7 @@ public class VideoFragment extends ViewPagerFragment
     }
 
     private void initTimeHolder(View view) {
-        RelativeLayout timeHolder = (RelativeLayout) view.findViewById(R.id.video_time_holder);
+        timeHolder = view.findViewById(R.id.video_time_holder);
         final Resources res = getResources();
         final int height = Utils.getNavBarHeight(res);
         final int left = timeHolder.getPaddingLeft();
@@ -100,6 +105,9 @@ public class VideoFragment extends ViewPagerFragment
         durationView = (TextView) view.findViewById(R.id.video_duration);
         seekBar = (SeekBar) view.findViewById(R.id.video_seekbar);
         seekBar.setOnSeekBarChangeListener(this);
+
+        if (isFullscreen)
+            timeHolder.setVisibility(View.INVISIBLE);
     }
 
     private void setupTimeHolder() {
@@ -138,8 +146,20 @@ public class VideoFragment extends ViewPagerFragment
                 togglePlayPause();
                 break;
             default:
-                ((ViewPagerActivity) getActivity()).fragmentClicked();
+                toggleFullscreen();
+                break;
         }
+    }
+
+    private void toggleFullscreen() {
+        isFullscreen = ((ViewPagerActivity) getActivity()).fragmentClicked();
+        int anim = R.anim.fade_in;
+        if (isFullscreen) {
+            anim = R.anim.fade_out;
+        }
+
+        final Animation animation = AnimationUtils.loadAnimation(getContext(), anim);
+        timeHolder.startAnimation(animation);
     }
 
     private void pauseVideo() {

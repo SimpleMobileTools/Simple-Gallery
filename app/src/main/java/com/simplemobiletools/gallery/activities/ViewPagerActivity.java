@@ -281,7 +281,7 @@ public class ViewPagerActivity extends AppCompatActivity
         return myMedia;
     }
 
-    public void fragmentClicked() {
+    public boolean fragmentClicked() {
         deleteFile();
         isFullScreen = !isFullScreen;
         if (isFullScreen) {
@@ -289,6 +289,7 @@ public class ViewPagerActivity extends AppCompatActivity
         } else {
             showSystemUI();
         }
+        return isFullScreen;
     }
 
     private void hideSystemUI() {
