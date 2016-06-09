@@ -7,7 +7,9 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -33,6 +35,7 @@ public class VideoFragment extends ViewPagerFragment
     private static final String TAG = VideoFragment.class.getSimpleName();
     private static final String MEDIUM = "medium";
     private MediaPlayer mediaPlayer;
+    private SurfaceView surfaceView;
     private SurfaceHolder surfaceHolder;
 
     private ImageView playOutline;
@@ -43,6 +46,7 @@ public class VideoFragment extends ViewPagerFragment
     private Medium medium;
     private boolean isPlaying;
     private boolean isDragged;
+    private int currTime;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -65,7 +69,7 @@ public class VideoFragment extends ViewPagerFragment
         playOutline = (ImageView) view.findViewById(R.id.video_play_outline);
         playOutline.setOnClickListener(this);
 
-        final SurfaceView surfaceView = (SurfaceView) view.findViewById(R.id.video_surface);
+        surfaceView = (SurfaceView) view.findViewById(R.id.video_surface);
         surfaceView.setOnClickListener(this);
         surfaceHolder = surfaceView.getHolder();
         surfaceHolder.addCallback(this);
@@ -111,9 +115,9 @@ public class VideoFragment extends ViewPagerFragment
             @Override
             public void run() {
                 if (mediaPlayer != null && !isDragged && isPlaying) {
-                    int currPos = mediaPlayer.getCurrentPosition() / 1000;
-                    seekBar.setProgress(currPos);
-                    currTimeView.setText(getTimeString(currPos));
+                    currTime = mediaPlayer.getCurrentPosition() / 1000;
+                    seekBar.setProgress(currTime);
+                    currTimeView.setText(getTimeString(currTime));
                 }
 
                 timerHandler.postDelayed(this, 1000);
@@ -180,12 +184,16 @@ public class VideoFragment extends ViewPagerFragment
             mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
             addPreviewImage();
             setupTimeHolder();
-
-            seekBar.setProgress(0);
-            currTimeView.setText(getTimeString(0));
+            setProgress(currTime);
         } catch (IOException e) {
             Log.e(TAG, "init media player " + e.getMessage());
         }
+    }
+
+    private void setProgress(int seconds) {
+        mediaPlayer.seekTo(seconds * 1000);
+        seekBar.setProgress(seconds);
+        currTimeView.setText(getTimeString(seconds));
     }
 
     private void addPreviewImage() {
@@ -196,6 +204,12 @@ public class VideoFragment extends ViewPagerFragment
     @Override
     public void onPause() {
         super.onPause();
+        pauseVideo();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
         cleanup();
     }
 
@@ -234,7 +248,36 @@ public class VideoFragment extends ViewPagerFragment
 
     @Override
     public void onVideoSizeChanged(MediaPlayer mp, int width, int height) {
-        surfaceHolder.setFixedSize(width, height);
+        setVideoSize(width, height);
+    }
+
+    private void setVideoSize(int videoWidth, int videoHeight) {
+        final float videoProportion = (float) videoWidth / (float) videoHeight;
+        final Display display = getActivity().getWindowManager().getDefaultDisplay();
+        int screenWidth;
+        int screenHeight;
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            final DisplayMetrics realMetrics = new DisplayMetrics();
+            display.getRealMetrics(realMetrics);
+            screenWidth = realMetrics.widthPixels;
+            screenHeight = realMetrics.heightPixels;
+        } else {
+            screenWidth = display.getWidth();
+            screenHeight = display.getHeight();
+        }
+
+        final float screenProportion = (float) screenWidth / (float) screenHeight;
+
+        final android.view.ViewGroup.LayoutParams lp = surfaceView.getLayoutParams();
+        if (videoProportion > screenProportion) {
+            lp.width = screenWidth;
+            lp.height = (int) ((float) screenWidth / videoProportion);
+        } else {
+            lp.width = (int) (videoProportion * (float) screenHeight);
+            lp.height = screenHeight;
+        }
+        surfaceView.setLayoutParams(lp);
     }
 
     private String getTimeString(int duration) {
@@ -256,9 +299,7 @@ public class VideoFragment extends ViewPagerFragment
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         if (mediaPlayer != null && fromUser) {
-            mediaPlayer.seekTo(progress * 1000);
-            seekBar.setProgress(progress);
-            currTimeView.setText(getTimeString(progress));
+            setProgress(progress);
         }
     }
 
