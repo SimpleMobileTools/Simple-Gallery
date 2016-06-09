@@ -28,7 +28,7 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.simplemobiletools.gallery.Constants;
-import com.simplemobiletools.gallery.Media;
+import com.simplemobiletools.gallery.Medium;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.adapters.MediaAdapter;
@@ -47,7 +47,7 @@ public class MediaActivity extends AppCompatActivity
     @BindView(R.id.media_grid) GridView gridView;
 
     private static final int STORAGE_PERMISSION = 1;
-    private List<Media> media;
+    private List<Medium> media;
     private int selectedItemsCnt;
     private String path;
     private Snackbar snackbar;
@@ -124,8 +124,8 @@ public class MediaActivity extends AppCompatActivity
         }
     }
 
-    private List<Media> getMedia() {
-        final List<Media> myMedia = new ArrayList<>();
+    private List<Medium> getMedia() {
+        final List<Medium> myMedia = new ArrayList<>();
         final List<String> invalidFiles = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
             Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
@@ -146,7 +146,7 @@ public class MediaActivity extends AppCompatActivity
                     if (curPath.matches(pattern) && !toBeDeleted.contains(curPath)) {
                         final File file = new File(curPath);
                         if (file.exists()) {
-                            myMedia.add(new Media(curPath, (i == 1)));
+                            myMedia.add(new Medium(curPath, (i == 1)));
                         } else {
                             invalidFiles.add(file.getAbsolutePath());
                         }

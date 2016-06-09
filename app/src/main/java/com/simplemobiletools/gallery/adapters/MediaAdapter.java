@@ -8,17 +8,17 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.simplemobiletools.gallery.Media;
+import com.simplemobiletools.gallery.Medium;
 import com.simplemobiletools.gallery.R;
 
 import java.util.List;
 
 public class MediaAdapter extends BaseAdapter {
     private final Context context;
-    private final List<Media> media;
+    private final List<Medium> media;
     private final LayoutInflater inflater;
 
-    public MediaAdapter(Context context, List<Media> media) {
+    public MediaAdapter(Context context, List<Medium> media) {
         this.context = context;
         this.media = media;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -26,7 +26,7 @@ public class MediaAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
-        final Media medium = media.get(position);
+        final Medium medium = media.get(position);
         ViewHolder holder;
         if (view == null) {
             int layout = R.layout.photo_item;
@@ -61,7 +61,7 @@ public class MediaAdapter extends BaseAdapter {
         return 0;
     }
 
-    public void updateItems(List<Media> newPhotos) {
+    public void updateItems(List<Medium> newPhotos) {
         media.clear();
         media.addAll(newPhotos);
         notifyDataSetChanged();

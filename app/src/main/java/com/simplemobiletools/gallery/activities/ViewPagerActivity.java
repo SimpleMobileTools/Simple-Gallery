@@ -20,7 +20,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 
 import com.simplemobiletools.gallery.Constants;
-import com.simplemobiletools.gallery.Media;
+import com.simplemobiletools.gallery.Medium;
 import com.simplemobiletools.gallery.MyViewPager;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
@@ -44,7 +44,7 @@ public class ViewPagerActivity extends AppCompatActivity
     private int pos;
     private boolean isFullScreen;
     private ActionBar actionbar;
-    private List<Media> media;
+    private List<Medium> media;
     private String path;
     private String directory;
     private boolean isUndoShown;
@@ -207,7 +207,7 @@ public class ViewPagerActivity extends AppCompatActivity
 
                 if (file.renameTo(newFile)) {
                     final int currItem = pager.getCurrentItem();
-                    media.set(currItem, new Media(newFile.getAbsolutePath(), media.get(currItem).getIsVideo()));
+                    media.set(currItem, new Medium(newFile.getAbsolutePath(), media.get(currItem).getIsVideo()));
 
                     final String[] changedFiles = {file.getAbsolutePath(), newFile.getAbsolutePath()};
                     MediaScannerConnection.scanFile(getApplicationContext(), changedFiles, null, null);
@@ -246,8 +246,8 @@ public class ViewPagerActivity extends AppCompatActivity
         MediaScannerConnection.scanFile(getApplicationContext(), toBeDeleted, null, null);
     }
 
-    private List<Media> getMedia() {
-        final List<Media> myMedia = new ArrayList<>();
+    private List<Medium> getMedia() {
+        final List<Medium> myMedia = new ArrayList<>();
         int j = 0;
         for (int i = 0; i < 2; i++) {
             Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
@@ -266,7 +266,7 @@ public class ViewPagerActivity extends AppCompatActivity
                 do {
                     final String curPath = cursor.getString(pathIndex);
                     if (curPath.matches(pattern) && !curPath.equals(toBeDeleted) && !curPath.equals(beingDeleted)) {
-                        myMedia.add(new Media(curPath, i == 1));
+                        myMedia.add(new Medium(curPath, i == 1));
 
                         if (curPath.equals(path)) {
                             pos = j;
@@ -281,7 +281,7 @@ public class ViewPagerActivity extends AppCompatActivity
         return myMedia;
     }
 
-    public void photoClicked() {
+    public void fragmentClicked() {
         deleteFile();
         isFullScreen = !isFullScreen;
         if (isFullScreen) {
