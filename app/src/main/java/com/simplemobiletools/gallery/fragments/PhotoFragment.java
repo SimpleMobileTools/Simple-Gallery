@@ -45,4 +45,9 @@ public class PhotoFragment extends ViewPagerFragment implements View.OnClickList
     public void itemDragged() {
 
     }
+
+    @Override
+    public void systemUiVisibilityChanged(boolean toFullscreen) {
+
+    }
 }

@@ -54,6 +54,15 @@ public class MyPagerAdapter extends FragmentStatePagerAdapter {
         }
     }
 
+    public void updateUiVisibility(boolean isFullscreen, int pos) {
+        for (int i = -1; i <= 1; i++) {
+            ViewPagerFragment fragment = fragments.get(pos + i);
+            if (fragment != null) {
+                fragment.systemUiVisibilityChanged(isFullscreen);
+            }
+        }
+    }
+
     public void updateItems(List<Medium> newPaths) {
         media.clear();
         media.addAll(newPaths);

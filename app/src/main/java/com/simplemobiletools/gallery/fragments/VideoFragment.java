@@ -86,6 +86,14 @@ public class VideoFragment extends ViewPagerFragment
         pauseVideo();
     }
 
+    @Override
+    public void systemUiVisibilityChanged(boolean toFullscreen) {
+        if (isFullscreen != toFullscreen) {
+            isFullscreen = toFullscreen;
+            checkFullscreen();
+        }
+    }
+
     private void initTimeHolder(View view) {
         timeHolder = view.findViewById(R.id.video_time_holder);
         final Resources res = getResources();
@@ -146,16 +154,20 @@ public class VideoFragment extends ViewPagerFragment
                 togglePlayPause();
                 break;
             default:
-                toggleFullscreen();
+                isFullscreen = !isFullscreen;
+                checkFullscreen();
+                ((ViewPagerActivity) getActivity()).fragmentClicked();
                 break;
         }
     }
 
-    private void toggleFullscreen() {
-        isFullscreen = ((ViewPagerActivity) getActivity()).fragmentClicked();
+    private void checkFullscreen() {
         int anim = R.anim.fade_in;
         if (isFullscreen) {
             anim = R.anim.fade_out;
+            seekBar.setOnSeekBarChangeListener(null);
+        } else {
+            seekBar.setOnSeekBarChangeListener(this);
         }
 
         final Animation animation = AnimationUtils.loadAnimation(getContext(), anim);
