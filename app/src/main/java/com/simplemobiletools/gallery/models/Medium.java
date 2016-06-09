@@ -19,4 +19,11 @@ public class Medium implements Serializable {
     public boolean getIsVideo() {
         return isVideo;
     }
+
+    @Override
+    public String toString() {
+        return "Medium {" +
+                "isVideo=" + getIsVideo() +
+                ", path=" + getPath() + "}";
+    }
 }

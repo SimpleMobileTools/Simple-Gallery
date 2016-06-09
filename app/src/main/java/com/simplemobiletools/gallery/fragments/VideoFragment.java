@@ -47,7 +47,6 @@ public class VideoFragment extends ViewPagerFragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.pager_video_item, container, false);
-        ;
 
         medium = (Medium) getArguments().getSerializable(Constants.MEDIUM);
         if (medium == null)

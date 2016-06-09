@@ -20,11 +20,11 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 
 import com.simplemobiletools.gallery.Constants;
-import com.simplemobiletools.gallery.models.Medium;
 import com.simplemobiletools.gallery.MyViewPager;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter;
+import com.simplemobiletools.gallery.models.Medium;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -77,7 +77,7 @@ public class ViewPagerActivity extends AppCompatActivity
         pager.setCurrentItem(pos);
         pager.addOnPageChangeListener(this);
         pager.setOnTouchListener(this);
-        pager.setPageTransformer(true, new DepthPageTransformer());
+        //pager.setPageTransformer(true, new DepthPageTransformer());
 
         getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(this);
         updateActionbarTitle();
@@ -351,7 +351,7 @@ public class ViewPagerActivity extends AppCompatActivity
     public void onPageScrollStateChanged(int state) {
         if (state == ViewPager.SCROLL_STATE_DRAGGING) {
             final MyPagerAdapter adapter = (MyPagerAdapter) pager.getAdapter();
-            adapter.itemDragged();
+            adapter.itemDragged(pos);
         }
     }
 
