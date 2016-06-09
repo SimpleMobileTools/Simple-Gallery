@@ -77,10 +77,6 @@ public class VideoFragment extends ViewPagerFragment
         pauseVideo();
     }
 
-    public void fragmentHidden() {
-        cleanup();
-    }
-
     private void initTimeHolder(View view) {
         RelativeLayout timeHolder = (RelativeLayout) view.findViewById(R.id.video_time_holder);
         final Resources res = getResources();

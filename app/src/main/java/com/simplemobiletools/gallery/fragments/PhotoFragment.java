@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import com.simplemobiletools.gallery.Constants;
-import com.simplemobiletools.gallery.models.Medium;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.activities.ViewPagerActivity;
+import com.simplemobiletools.gallery.models.Medium;
 
 public class PhotoFragment extends ViewPagerFragment implements View.OnClickListener {
 
@@ -43,11 +43,6 @@ public class PhotoFragment extends ViewPagerFragment implements View.OnClickList
 
     @Override
     public void itemDragged() {
-
-    }
-
-    @Override
-    public void fragmentHidden() {
 
     }
 }

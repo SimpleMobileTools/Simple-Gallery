@@ -33,10 +33,6 @@ public class MyPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        if (fragment != null) {
-            fragment.fragmentHidden();
-        }
-
         final Medium medium = media.get(position);
         final Bundle bundle = new Bundle();
         bundle.putSerializable(Constants.MEDIUM, medium);
