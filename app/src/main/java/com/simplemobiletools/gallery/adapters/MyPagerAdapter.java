@@ -17,7 +17,6 @@ import java.util.Map;
 
 public class MyPagerAdapter extends FragmentStatePagerAdapter {
     private List<Medium> media;
-    private ViewPagerFragment fragment;
     private Map<Integer, ViewPagerFragment> fragments;
 
     public MyPagerAdapter(FragmentManager fm, List<Medium> media) {
@@ -36,6 +35,7 @@ public class MyPagerAdapter extends FragmentStatePagerAdapter {
         final Medium medium = media.get(position);
         final Bundle bundle = new Bundle();
         bundle.putSerializable(Constants.MEDIUM, medium);
+        ViewPagerFragment fragment;
 
         if (medium.getIsVideo()) {
             fragment = new VideoFragment();
