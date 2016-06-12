@@ -278,6 +278,10 @@ public class VideoFragment extends ViewPagerFragment
 
     @Override
     public void onCompletion(MediaPlayer mp) {
+        seekBar.setProgress(seekBar.getMax());
+        final int duration = mediaPlayer.getDuration() / 1000;
+        currTimeView.setText(getTimeString(duration));
+
         pauseVideo();
     }
 
