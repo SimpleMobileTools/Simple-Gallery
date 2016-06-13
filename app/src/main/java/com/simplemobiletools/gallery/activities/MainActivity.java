@@ -26,7 +26,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.R;
@@ -115,7 +114,7 @@ public class MainActivity extends AppCompatActivity
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 initializeGallery();
             } else {
-                Toast.makeText(this, getResources().getString(R.string.no_permissions), Toast.LENGTH_SHORT).show();
+                Utils.showToast(getApplicationContext(), R.string.no_permissions);
                 finish();
             }
         }
