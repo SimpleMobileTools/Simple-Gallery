@@ -1,7 +1,10 @@
 package com.simplemobiletools.gallery;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.support.v4.content.ContextCompat;
 import android.widget.Toast;
 
 public class Utils {
@@ -20,5 +23,9 @@ public class Utils {
         }
 
         return 0;
+    }
+
+    public static boolean hasStoragePermission(Context cxt) {
+        return ContextCompat.checkSelfPermission(cxt, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
     }
 }

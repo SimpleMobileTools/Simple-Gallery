@@ -14,7 +14,6 @@ import android.provider.MediaStore;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.SparseBooleanArray;
@@ -30,10 +29,10 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.simplemobiletools.gallery.Constants;
-import com.simplemobiletools.gallery.models.Directory;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter;
+import com.simplemobiletools.gallery.models.Directory;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -101,7 +100,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void tryloadGallery() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+        if (Utils.hasStoragePermission(getApplicationContext())) {
             initializeGallery();
         } else {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION);

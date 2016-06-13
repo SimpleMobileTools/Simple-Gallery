@@ -1,8 +1,6 @@
 package com.simplemobiletools.gallery.activities;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -13,8 +11,6 @@ import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
@@ -25,13 +21,12 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import com.simplemobiletools.gallery.Constants;
-import com.simplemobiletools.gallery.models.Medium;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.adapters.MediaAdapter;
+import com.simplemobiletools.gallery.models.Medium;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -46,7 +41,6 @@ public class MediaActivity extends AppCompatActivity
         GridView.OnTouchListener {
     @BindView(R.id.media_grid) GridView gridView;
 
-    private static final int STORAGE_PERMISSION = 1;
     private List<Medium> media;
     private int selectedItemsCnt;
     private String path;
@@ -79,23 +73,10 @@ public class MediaActivity extends AppCompatActivity
     }
 
     private void tryloadGallery() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+        if (Utils.hasStoragePermission(getApplicationContext())) {
             initializeGallery();
         } else {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION);
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        if (requestCode == STORAGE_PERMISSION) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                initializeGallery();
-            } else {
-                Toast.makeText(this, getResources().getString(R.string.no_permissions), Toast.LENGTH_SHORT).show();
-            }
+            finish();
         }
     }
 
@@ -207,7 +188,7 @@ public class MediaActivity extends AppCompatActivity
     }
 
     private void deleteFiles() {
-        if (toBeDeleted.isEmpty())
+        if (toBeDeleted == null || toBeDeleted.isEmpty())
             return;
 
         if (snackbar != null) {
@@ -254,10 +235,11 @@ public class MediaActivity extends AppCompatActivity
 
     @Override
     public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
-        if (checked)
+        if (checked) {
             selectedItemsCnt++;
-        else
+        } else {
             selectedItemsCnt--;
+        }
 
         if (selectedItemsCnt > 0)
             mode.setTitle(String.valueOf(selectedItemsCnt));

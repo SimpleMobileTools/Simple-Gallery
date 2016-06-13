@@ -57,6 +57,11 @@ public class ViewPagerActivity extends AppCompatActivity
         setContentView(R.layout.activity_medium);
         ButterKnife.bind(this);
 
+        if (!Utils.hasStoragePermission(getApplicationContext())) {
+            finish();
+            return;
+        }
+
         pos = 0;
         isFullScreen = true;
         actionbar = getSupportActionBar();
@@ -81,6 +86,14 @@ public class ViewPagerActivity extends AppCompatActivity
 
         getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(this);
         updateActionbarTitle();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (!Utils.hasStoragePermission(getApplicationContext())) {
+            finish();
+        }
     }
 
     @OnClick(R.id.undo_delete)
