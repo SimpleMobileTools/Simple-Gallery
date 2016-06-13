@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity
                 initializeGallery();
             } else {
                 Toast.makeText(this, getResources().getString(R.string.no_permissions), Toast.LENGTH_SHORT).show();
+                finish();
             }
         }
     }
