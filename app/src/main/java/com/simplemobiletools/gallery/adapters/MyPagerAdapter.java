@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.simplemobiletools.gallery.Constants;
+import com.simplemobiletools.gallery.activities.ViewPagerActivity;
 import com.simplemobiletools.gallery.fragments.PhotoFragment;
 import com.simplemobiletools.gallery.fragments.VideoFragment;
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment;
@@ -18,9 +19,11 @@ import java.util.Map;
 public class MyPagerAdapter extends FragmentStatePagerAdapter {
     private List<Medium> media;
     private Map<Integer, ViewPagerFragment> fragments;
+    private ViewPagerActivity activity;
 
-    public MyPagerAdapter(FragmentManager fm, List<Medium> media) {
+    public MyPagerAdapter(ViewPagerActivity act, FragmentManager fm, List<Medium> media) {
         super(fm);
+        this.activity = act;
         this.media = media;
         fragments = new HashMap<>();
     }
@@ -45,6 +48,7 @@ public class MyPagerAdapter extends FragmentStatePagerAdapter {
 
         fragments.put(position, fragment);
         fragment.setArguments(bundle);
+        fragment.setListener(activity);
         return fragment;
     }
 

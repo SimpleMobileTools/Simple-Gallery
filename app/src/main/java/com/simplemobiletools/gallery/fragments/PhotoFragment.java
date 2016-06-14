@@ -9,7 +9,6 @@ import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.R;
-import com.simplemobiletools.gallery.activities.ViewPagerActivity;
 import com.simplemobiletools.gallery.models.Medium;
 
 public class PhotoFragment extends ViewPagerFragment implements View.OnClickListener {
@@ -38,7 +37,7 @@ public class PhotoFragment extends ViewPagerFragment implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        ((ViewPagerActivity) getActivity()).fragmentClicked();
+        listener.fragmentClicked();
     }
 
     @Override

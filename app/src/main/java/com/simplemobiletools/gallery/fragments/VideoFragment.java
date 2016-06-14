@@ -24,7 +24,6 @@ import android.widget.TextView;
 import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
-import com.simplemobiletools.gallery.activities.ViewPagerActivity;
 import com.simplemobiletools.gallery.models.Medium;
 
 import java.io.IOException;
@@ -157,7 +156,7 @@ public class VideoFragment extends ViewPagerFragment
             default:
                 isFullscreen = !isFullscreen;
                 checkFullscreen();
-                ((ViewPagerActivity) getActivity()).fragmentClicked();
+                listener.fragmentClicked();
                 break;
         }
     }

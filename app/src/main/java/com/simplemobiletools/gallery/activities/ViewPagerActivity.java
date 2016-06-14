@@ -24,6 +24,7 @@ import com.simplemobiletools.gallery.MyViewPager;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter;
+import com.simplemobiletools.gallery.fragments.ViewPagerFragment;
 import com.simplemobiletools.gallery.models.Medium;
 
 import java.io.File;
@@ -36,7 +37,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class ViewPagerActivity extends AppCompatActivity
-        implements ViewPager.OnPageChangeListener, View.OnSystemUiVisibilityChangeListener, ViewPager.OnTouchListener {
+        implements ViewPager.OnPageChangeListener, View.OnSystemUiVisibilityChangeListener, ViewPager.OnTouchListener,
+        ViewPagerFragment.FragmentClickListener {
     @BindView(R.id.undo_delete) View undoBtn;
     @BindView(R.id.view_pager) MyViewPager pager;
 
@@ -76,7 +78,7 @@ public class ViewPagerActivity extends AppCompatActivity
         if (isDirEmpty())
             return;
 
-        final MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager(), media);
+        final MyPagerAdapter adapter = new MyPagerAdapter(this, getSupportFragmentManager(), media);
         pager.setAdapter(adapter);
         pager.setCurrentItem(pos);
         pager.addOnPageChangeListener(this);
@@ -301,6 +303,7 @@ public class ViewPagerActivity extends AppCompatActivity
         return myMedia;
     }
 
+    @Override
     public void fragmentClicked() {
         deleteFile();
         isFullScreen = !isFullScreen;
