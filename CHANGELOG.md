@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+Version 1.3 *(2016-06-14)*
+----------------------------
+
+ * Offer opening any device photos and videos with the app
+
 Version 1.2 *(2016-06-13)*
 ----------------------------
 
