@@ -11,11 +11,11 @@ import android.view.MenuItem;
 import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
-import com.simplemobiletools.gallery.fragments.PhotoFragment;
+import com.simplemobiletools.gallery.fragments.VideoFragment;
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment;
 import com.simplemobiletools.gallery.models.Medium;
 
-public class PhotoActivity extends AppCompatActivity implements ViewPagerFragment.FragmentClickListener {
+public class VideoActivity extends AppCompatActivity implements ViewPagerFragment.FragmentClickListener {
     private ActionBar actionbar;
     private boolean isFullScreen;
     private Uri uri;
@@ -34,9 +34,9 @@ public class PhotoActivity extends AppCompatActivity implements ViewPagerFragmen
         hideSystemUI();
 
         final Bundle bundle = new Bundle();
-        final Medium medium = new Medium(uri.toString(), false);
+        final Medium medium = new Medium(uri.toString(), true);
         bundle.putSerializable(Constants.MEDIUM, medium);
-        final ViewPagerFragment fragment = new PhotoFragment();
+        final ViewPagerFragment fragment = new VideoFragment();
         fragment.setListener(this);
         fragment.setArguments(bundle);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder, fragment).commit();
@@ -66,7 +66,7 @@ public class PhotoActivity extends AppCompatActivity implements ViewPagerFragmen
         final Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
         sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
-        sendIntent.setType("image/*");
+        sendIntent.setType("video/*");
         startActivity(Intent.createChooser(sendIntent, shareTitle));
     }
 
