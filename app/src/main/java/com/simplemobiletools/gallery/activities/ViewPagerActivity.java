@@ -36,8 +36,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class ViewPagerActivity extends AppCompatActivity
-        implements ViewPager.OnPageChangeListener, View.OnSystemUiVisibilityChangeListener, MediaScannerConnection.OnScanCompletedListener,
-        ViewPager.OnTouchListener {
+        implements ViewPager.OnPageChangeListener, View.OnSystemUiVisibilityChangeListener, ViewPager.OnTouchListener {
     @BindView(R.id.undo_delete) View undoBtn;
     @BindView(R.id.view_pager) MyViewPager pager;
 
@@ -167,7 +166,12 @@ public class ViewPagerActivity extends AppCompatActivity
         if (file.delete()) {
             beingDeleted = toBeDeleted;
             final String[] deletedPath = new String[]{toBeDeleted};
-            MediaScannerConnection.scanFile(this, deletedPath, null, this);
+            MediaScannerConnection.scanFile(this, deletedPath, null, new MediaScannerConnection.OnScanCompletedListener() {
+                @Override
+                public void onScanCompleted(String path, Uri uri) {
+                    scanCompleted();
+                }
+            });
         }
         toBeDeleted = "";
         undoBtn.setVisibility(View.GONE);
@@ -385,13 +389,12 @@ public class ViewPagerActivity extends AppCompatActivity
         adapter.updateUiVisibility(isFullScreen, pos);
     }
 
-    @Override
-    public void onScanCompleted(String path, Uri uri) {
+    private void scanCompleted() {
         beingDeleted = "";
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if (media.size() <= 1) {
+                if (media != null && media.size() <= 1) {
                     reloadViewPager();
                 }
             }

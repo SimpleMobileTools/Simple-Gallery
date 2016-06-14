@@ -43,8 +43,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity
-        implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener,
-        MediaScannerConnection.OnScanCompletedListener {
+        implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener {
     @BindView(R.id.directories_grid) GridView gridView;
 
     private static final int STORAGE_PERMISSION = 1;
@@ -305,7 +304,13 @@ public class MainActivity extends AppCompatActivity
 
                     updatedFiles.add(newDir.getAbsolutePath());
                     final String[] changedFiles = updatedFiles.toArray(new String[updatedFiles.size()]);
-                    MediaScannerConnection.scanFile(getApplicationContext(), changedFiles, null, MainActivity.this);
+                    MediaScannerConnection
+                            .scanFile(getApplicationContext(), changedFiles, null, new MediaScannerConnection.OnScanCompletedListener() {
+                                @Override
+                                public void onScanCompleted(String path, Uri uri) {
+                                    scanCompleted(path);
+                                }
+                            });
                 } else {
                     Utils.showToast(getApplicationContext(), R.string.rename_folder_error);
                 }
@@ -379,8 +384,7 @@ public class MainActivity extends AppCompatActivity
         return false;
     }
 
-    @Override
-    public void onScanCompleted(final String path, final Uri uri) {
+    private void scanCompleted(final String path) {
         final File dir = new File(path);
         if (dir.isDirectory()) {
             dirs = new ArrayList<>(getDirectories().values());

@@ -37,8 +37,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MediaActivity extends AppCompatActivity
-        implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, MediaScannerConnection.OnScanCompletedListener,
-        GridView.OnTouchListener {
+        implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener {
     @BindView(R.id.media_grid) GridView gridView;
 
     private List<Medium> media;
@@ -204,7 +203,14 @@ public class MediaActivity extends AppCompatActivity
         }
 
         final String[] deletedPaths = toBeDeleted.toArray(new String[toBeDeleted.size()]);
-        MediaScannerConnection.scanFile(this, deletedPaths, null, this);
+        MediaScannerConnection.scanFile(this, deletedPaths, null, new MediaScannerConnection.OnScanCompletedListener() {
+            @Override
+            public void onScanCompleted(String path, Uri uri) {
+                if (media != null && media.isEmpty()) {
+                    finish();
+                }
+            }
+        });
         toBeDeleted.clear();
     }
 
@@ -274,13 +280,6 @@ public class MediaActivity extends AppCompatActivity
     @Override
     public void onDestroyActionMode(ActionMode mode) {
         selectedItemsCnt = 0;
-    }
-
-    @Override
-    public void onScanCompleted(String path, Uri uri) {
-        if (media.isEmpty()) {
-            finish();
-        }
     }
 
     @Override
