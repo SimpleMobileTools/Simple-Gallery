@@ -156,6 +156,9 @@ public class VideoFragment extends ViewPagerFragment
             default:
                 isFullscreen = !isFullscreen;
                 checkFullscreen();
+
+                if (listener == null)
+                    listener = (FragmentClickListener) getActivity();
                 listener.fragmentClicked();
                 break;
         }
