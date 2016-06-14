@@ -337,6 +337,8 @@ public class ViewPagerActivity extends AppCompatActivity
     }
 
     private Medium getCurrentMedium() {
+        if (pos >= media.size())
+            pos = media.size() - 1;
         return media.get(pos);
     }
 
