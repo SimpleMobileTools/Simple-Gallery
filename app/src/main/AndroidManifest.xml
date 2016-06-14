@@ -36,5 +36,19 @@
             android:name=".activities.LicenseActivity"
             android:label="@string/third_party_licences"
             android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".activities.PhotoActivity"
+            android:theme="@style/FullScreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+        </activity>
+
     </application>
 </manifest>
