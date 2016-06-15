@@ -47,12 +47,14 @@ public class MediaActivity extends AppCompatActivity
     private boolean isSnackbarShown;
     private List<String> toBeDeleted;
     private Parcelable state;
+    private boolean isImagePickIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_media);
         ButterKnife.bind(this);
+        isImagePickIntent = getIntent().getBooleanExtra(Constants.PICK_IMAGE_INTENT, false);
     }
 
     @Override
@@ -110,6 +112,9 @@ public class MediaActivity extends AppCompatActivity
         for (int i = 0; i < 2; i++) {
             Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
             if (i == 1) {
+                if (isImagePickIntent)
+                    continue;
+
                 uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
             }
             final String where = MediaStore.Images.Media.DATA + " like ? ";
@@ -234,7 +239,7 @@ public class MediaActivity extends AppCompatActivity
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        if (getIntent().getBooleanExtra(Constants.PICK_INTENT, false)) {
+        if (isImagePickIntent) {
             final Intent result = new Intent();
             result.setData(Uri.parse(media.get(position).getPath()));
             setResult(RESULT_OK, result);

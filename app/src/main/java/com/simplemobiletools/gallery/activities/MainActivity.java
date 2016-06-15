@@ -55,12 +55,14 @@ public class MainActivity extends AppCompatActivity
     private List<String> toBeDeleted;
     private ActionMode actionMode;
     private Parcelable state;
+    private boolean isImagePickIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        isImagePickIntent = isImagePickIntent(getIntent());
     }
 
     @Override
@@ -137,6 +139,9 @@ public class MainActivity extends AppCompatActivity
         for (int i = 0; i < 2; i++) {
             Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
             if (i == 1) {
+                if (isImagePickIntent)
+                    continue;
+
                 uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
             }
             final String[] columns = {MediaStore.Images.Media.DATA};
@@ -319,8 +324,9 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
-    private boolean isPickIntent(Intent intent) {
-        return intent != null && intent.getAction() != null && intent.getAction().equals(Intent.ACTION_PICK);
+    private boolean isImagePickIntent(Intent intent) {
+        return intent != null && intent.getAction() != null && intent.getAction().equals(Intent.ACTION_PICK) &&
+                intent.getData().equals(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
     }
 
     @Override
@@ -338,7 +344,7 @@ public class MainActivity extends AppCompatActivity
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         final Intent intent = new Intent(this, MediaActivity.class);
         intent.putExtra(Constants.DIRECTORY, dirs.get(position).getPath());
-        intent.putExtra(Constants.PICK_INTENT, isPickIntent(getIntent()));
+        intent.putExtra(Constants.PICK_IMAGE_INTENT, isImagePickIntent);
         startActivityForResult(intent, PICK_IMAGE);
     }
 
