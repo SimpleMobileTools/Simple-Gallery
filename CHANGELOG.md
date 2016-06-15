@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+Version 1.4 *(2016-06-15)*
+----------------------------
+
+ * Allow using the app as an image/video chooser
+
 Version 1.3 *(2016-06-14)*
 ----------------------------
 
