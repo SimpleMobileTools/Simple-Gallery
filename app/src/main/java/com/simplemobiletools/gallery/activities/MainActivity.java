@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity
     @BindView(R.id.directories_grid) GridView gridView;
 
     private static final int STORAGE_PERMISSION = 1;
+    private static final int PICK_IMAGE = 2;
     private List<Directory> dirs;
     private int selectedItemsCnt;
     private Snackbar snackbar;
@@ -318,11 +319,27 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
+    private boolean isPickIntent(Intent intent) {
+        return intent != null && intent.getAction() != null && intent.getAction().equals(Intent.ACTION_PICK);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null) {
+            final Intent result = new Intent();
+            result.setData(data.getData());
+            setResult(RESULT_OK, result);
+            finish();
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         final Intent intent = new Intent(this, MediaActivity.class);
         intent.putExtra(Constants.DIRECTORY, dirs.get(position).getPath());
-        startActivity(intent);
+        intent.putExtra(Constants.PICK_INTENT, isPickIntent(getIntent()));
+        startActivityForResult(intent, PICK_IMAGE);
     }
 
     @Override

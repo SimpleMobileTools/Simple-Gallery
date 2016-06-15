@@ -234,9 +234,16 @@ public class MediaActivity extends AppCompatActivity
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        final Intent intent = new Intent(this, ViewPagerActivity.class);
-        intent.putExtra(Constants.MEDIUM, media.get(position).getPath());
-        startActivity(intent);
+        if (getIntent().getBooleanExtra(Constants.PICK_INTENT, false)) {
+            final Intent result = new Intent();
+            result.setData(Uri.parse(media.get(position).getPath()));
+            setResult(RESULT_OK, result);
+            finish();
+        } else {
+            final Intent intent = new Intent(this, ViewPagerActivity.class);
+            intent.putExtra(Constants.MEDIUM, media.get(position).getPath());
+            startActivity(intent);
+        }
     }
 
     @Override
