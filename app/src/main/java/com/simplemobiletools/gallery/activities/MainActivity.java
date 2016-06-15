@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity
     @BindView(R.id.directories_grid) GridView gridView;
 
     private static final int STORAGE_PERMISSION = 1;
-    private static final int PICK_IMAGE = 2;
+    private static final int PICK_MEDIA = 2;
     private List<Directory> dirs;
     private int selectedItemsCnt;
     private Snackbar snackbar;
@@ -55,14 +55,16 @@ public class MainActivity extends AppCompatActivity
     private List<String> toBeDeleted;
     private ActionMode actionMode;
     private Parcelable state;
-    private boolean isImagePickIntent;
+    private boolean isPickImageIntent;
+    private boolean isPickVideoIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        isImagePickIntent = isImagePickIntent(getIntent());
+        isPickImageIntent = isPickImageIntent(getIntent());
+        isPickVideoIntent = isPickVideoIntent(getIntent());
     }
 
     @Override
@@ -137,9 +139,12 @@ public class MainActivity extends AppCompatActivity
         final Map<String, Directory> directories = new LinkedHashMap<>();
         final List<String> invalidFiles = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
+            if (isPickVideoIntent && i == 0)
+                continue;
+
             Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
             if (i == 1) {
-                if (isImagePickIntent)
+                if (isPickImageIntent)
                     continue;
 
                 uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
@@ -324,14 +329,21 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
-    private boolean isImagePickIntent(Intent intent) {
-        return intent != null && intent.getAction() != null && intent.getAction().equals(Intent.ACTION_PICK) &&
-                intent.getData().equals(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+    private boolean isPickImageIntent(Intent intent) {
+        return isPickIntent(intent) && intent.getData().equals(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+    }
+
+    private boolean isPickVideoIntent(Intent intent) {
+        return isPickIntent(intent) && intent.getData().equals(MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
+    }
+
+    private boolean isPickIntent(Intent intent) {
+        return intent != null && intent.getAction() != null && intent.getAction().equals(Intent.ACTION_PICK) && intent.getData() != null;
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null) {
+        if (requestCode == PICK_MEDIA && resultCode == RESULT_OK && data != null) {
             final Intent result = new Intent();
             result.setData(data.getData());
             setResult(RESULT_OK, result);
@@ -344,8 +356,9 @@ public class MainActivity extends AppCompatActivity
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         final Intent intent = new Intent(this, MediaActivity.class);
         intent.putExtra(Constants.DIRECTORY, dirs.get(position).getPath());
-        intent.putExtra(Constants.PICK_IMAGE_INTENT, isImagePickIntent);
-        startActivityForResult(intent, PICK_IMAGE);
+        intent.putExtra(Constants.PICK_IMAGE_INTENT, isPickImageIntent);
+        intent.putExtra(Constants.PICK_VIDEO_INTENT, isPickVideoIntent);
+        startActivityForResult(intent, PICK_MEDIA);
     }
 
     @Override

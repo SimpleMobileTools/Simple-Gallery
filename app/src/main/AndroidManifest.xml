@@ -24,6 +24,12 @@
                 <category android:name="android.intent.category.DEFAULT"/>
                 <data android:mimeType="vnd.android.cursor.dir/image"/>
             </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.PICK"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="vnd.android.cursor.dir/video"/>
+            </intent-filter>
         </activity>
 
         <activity

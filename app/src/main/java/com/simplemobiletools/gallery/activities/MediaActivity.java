@@ -47,14 +47,16 @@ public class MediaActivity extends AppCompatActivity
     private boolean isSnackbarShown;
     private List<String> toBeDeleted;
     private Parcelable state;
-    private boolean isImagePickIntent;
+    private boolean isPickImageIntent;
+    private boolean isPickVideoIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_media);
         ButterKnife.bind(this);
-        isImagePickIntent = getIntent().getBooleanExtra(Constants.PICK_IMAGE_INTENT, false);
+        isPickImageIntent = getIntent().getBooleanExtra(Constants.PICK_IMAGE_INTENT, false);
+        isPickVideoIntent = getIntent().getBooleanExtra(Constants.PICK_VIDEO_INTENT, false);
     }
 
     @Override
@@ -110,9 +112,12 @@ public class MediaActivity extends AppCompatActivity
         final List<Medium> myMedia = new ArrayList<>();
         final List<String> invalidFiles = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
+            if (isPickVideoIntent && i == 0)
+                continue;
+
             Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
             if (i == 1) {
-                if (isImagePickIntent)
+                if (isPickImageIntent)
                     continue;
 
                 uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
@@ -239,7 +244,7 @@ public class MediaActivity extends AppCompatActivity
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        if (isImagePickIntent) {
+        if (isPickImageIntent || isPickVideoIntent) {
             final Intent result = new Intent();
             result.setData(Uri.parse(media.get(position).getPath()));
             setResult(RESULT_OK, result);
