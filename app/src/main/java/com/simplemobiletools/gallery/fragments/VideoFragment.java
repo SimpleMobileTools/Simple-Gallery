@@ -4,6 +4,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnPreparedListener;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -31,7 +32,7 @@ import java.util.Locale;
 
 public class VideoFragment extends ViewPagerFragment
         implements View.OnClickListener, SurfaceHolder.Callback, MediaPlayer.OnCompletionListener, MediaPlayer.OnVideoSizeChangedListener,
-        SeekBar.OnSeekBarChangeListener {
+        SeekBar.OnSeekBarChangeListener, OnPreparedListener {
     private static final String TAG = VideoFragment.class.getSimpleName();
     private static final String PROGRESS = "progress";
     private MediaPlayer mediaPlayer;
@@ -49,6 +50,7 @@ public class VideoFragment extends ViewPagerFragment
     private boolean isDragged;
     private boolean isFullscreen;
     private int currTime;
+    private int duration;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -119,7 +121,6 @@ public class VideoFragment extends ViewPagerFragment
     }
 
     private void setupTimeHolder() {
-        final int duration = mediaPlayer.getDuration() / 1000;
         seekBar.setMax(duration);
         durationView.setText(getTimeString(duration));
         timerHandler = new Handler();
@@ -209,17 +210,18 @@ public class VideoFragment extends ViewPagerFragment
     }
 
     private void initMediaPlayer() {
+        if (mediaPlayer != null)
+            return;
+
         try {
             mediaPlayer = new MediaPlayer();
             mediaPlayer.setDataSource(getContext(), Uri.parse(medium.getPath()));
             mediaPlayer.setDisplay(surfaceHolder);
             mediaPlayer.setOnCompletionListener(this);
             mediaPlayer.setOnVideoSizeChangedListener(this);
-            mediaPlayer.prepare();
+            mediaPlayer.setOnPreparedListener(this);
             mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-            addPreviewImage();
-            setupTimeHolder();
-            setProgress(currTime);
+            mediaPlayer.prepareAsync();
         } catch (IOException e) {
             Log.e(TAG, "init media player " + e.getMessage());
         }
@@ -281,9 +283,7 @@ public class VideoFragment extends ViewPagerFragment
     @Override
     public void onCompletion(MediaPlayer mp) {
         seekBar.setProgress(seekBar.getMax());
-        final int duration = mediaPlayer.getDuration() / 1000;
         currTimeView.setText(getTimeString(duration));
-
         pauseVideo();
     }
 
@@ -293,6 +293,9 @@ public class VideoFragment extends ViewPagerFragment
     }
 
     private void setVideoSize(int videoWidth, int videoHeight) {
+        if (getActivity() == null)
+            return;
+
         final float videoProportion = (float) videoWidth / (float) videoHeight;
         final Display display = getActivity().getWindowManager().getDefaultDisplay();
         int screenWidth;
@@ -327,7 +330,7 @@ public class VideoFragment extends ViewPagerFragment
         final int minutes = (duration % (60 * 60)) / 60;
         final int seconds = ((duration % (60 * 60)) % 60);
 
-        if (mediaPlayer != null && mediaPlayer.getDuration() > 3600000) {
+        if (duration > 3600) {
             sb.append(String.format(Locale.getDefault(), "%02d", hours)).append(":");
         }
 
@@ -362,5 +365,13 @@ public class VideoFragment extends ViewPagerFragment
         }
 
         isDragged = false;
+    }
+
+    @Override
+    public void onPrepared(MediaPlayer mp) {
+        duration = mp.getDuration() / 1000;
+        addPreviewImage();
+        setupTimeHolder();
+        setProgress(currTime);
     }
 }
