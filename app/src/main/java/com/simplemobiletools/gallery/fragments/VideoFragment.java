@@ -105,10 +105,12 @@ public class VideoFragment extends ViewPagerFragment
         final int right = timeHolder.getPaddingRight();
         final int bottom = timeHolder.getPaddingBottom();
 
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            timeHolder.setPadding(left, top, right, bottom + height);
-        } else {
-            timeHolder.setPadding(left, top, right + height, bottom);
+        if (Utils.hasNavBar(res)) {
+            if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+                timeHolder.setPadding(left, top, right, bottom + height);
+            } else {
+                timeHolder.setPadding(left, top, right + height, bottom);
+            }
         }
 
         currTimeView = (TextView) view.findViewById(R.id.video_curr_time);

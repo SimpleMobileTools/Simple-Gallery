@@ -28,6 +28,11 @@ public class Utils {
         return 0;
     }
 
+    public static boolean hasNavBar(Resources res) {
+        int id = res.getIdentifier("config_showNavigationBar", "bool", "android");
+        return id > 0 && res.getBoolean(id);
+    }
+
     public static boolean hasStoragePermission(Context cxt) {
         return ContextCompat.checkSelfPermission(cxt, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
     }
