@@ -6,10 +6,12 @@ public class Medium implements Serializable {
     private static final long serialVersionUID = -6543139465975455L;
     private final String path;
     private final boolean isVideo;
+    private final int timestamp;
 
-    public Medium(String path, boolean isVideo) {
+    public Medium(String path, boolean isVideo, int timestamp) {
         this.path = path;
         this.isVideo = isVideo;
+        this.timestamp = timestamp;
     }
 
     public String getPath() {
@@ -20,10 +22,15 @@ public class Medium implements Serializable {
         return isVideo;
     }
 
+    public int getTimestamp() {
+        return timestamp;
+    }
+
     @Override
     public String toString() {
         return "Medium {" +
                 "isVideo=" + getIsVideo() +
+                ", timestamp=" + getTimestamp() +
                 ", path=" + getPath() + "}";
     }
 }

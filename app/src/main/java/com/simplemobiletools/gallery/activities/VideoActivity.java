@@ -34,7 +34,7 @@ public class VideoActivity extends AppCompatActivity implements ViewPagerFragmen
         hideSystemUI();
 
         final Bundle bundle = new Bundle();
-        final Medium medium = new Medium(uri.toString(), true);
+        final Medium medium = new Medium(uri.toString(), true, 0);
         bundle.putSerializable(Constants.MEDIUM, medium);
         final ViewPagerFragment fragment = new VideoFragment();
         fragment.setListener(this);

@@ -229,7 +229,7 @@ public class ViewPagerActivity extends AppCompatActivity
 
                 if (file.renameTo(newFile)) {
                     final int currItem = pager.getCurrentItem();
-                    media.set(currItem, new Medium(newFile.getAbsolutePath(), media.get(currItem).getIsVideo()));
+                    media.set(currItem, new Medium(newFile.getAbsolutePath(), media.get(currItem).getIsVideo(), 0));
 
                     final String[] changedFiles = {file.getAbsolutePath(), newFile.getAbsolutePath()};
                     MediaScannerConnection.scanFile(getApplicationContext(), changedFiles, null, null);
@@ -288,7 +288,7 @@ public class ViewPagerActivity extends AppCompatActivity
                 do {
                     final String curPath = cursor.getString(pathIndex);
                     if (curPath.matches(pattern) && !curPath.equals(toBeDeleted) && !curPath.equals(beingDeleted)) {
-                        myMedia.add(new Medium(curPath, i == 1));
+                        myMedia.add(new Medium(curPath, i == 1, 0));
 
                         if (curPath.equals(path)) {
                             pos = j;

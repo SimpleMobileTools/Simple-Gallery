@@ -34,7 +34,7 @@ public class PhotoActivity extends AppCompatActivity implements ViewPagerFragmen
         hideSystemUI();
 
         final Bundle bundle = new Bundle();
-        final Medium medium = new Medium(uri.toString(), false);
+        final Medium medium = new Medium(uri.toString(), false, 0);
         bundle.putSerializable(Constants.MEDIUM, medium);
         final ViewPagerFragment fragment = new PhotoFragment();
         fragment.setListener(this);
