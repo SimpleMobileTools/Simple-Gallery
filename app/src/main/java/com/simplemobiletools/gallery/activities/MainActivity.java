@@ -45,33 +45,34 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity
         implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener {
-    @BindView(R.id.directories_grid) GridView gridView;
+    @BindView(R.id.directories_grid) GridView mGridView;
 
     private static final int STORAGE_PERMISSION = 1;
     private static final int PICK_MEDIA = 2;
-    private List<Directory> dirs;
-    private int selectedItemsCnt;
-    private Snackbar snackbar;
-    private boolean isSnackbarShown;
-    private List<String> toBeDeleted;
-    private ActionMode actionMode;
-    private Parcelable state;
-    private boolean isPickImageIntent;
-    private boolean isPickVideoIntent;
+
+    private static List<Directory> mDirs;
+    private static Snackbar mSnackbar;
+    private static List<String> mToBeDeleted;
+    private static ActionMode mActionMode;
+    private static Parcelable mState;
+
+    private static boolean mIsSnackbarShown;
+    private static boolean mIsPickImageIntent;
+    private static boolean mIsPickVideoIntent;
+    private static int mSelectedItemsCnt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        isPickImageIntent = isPickImageIntent(getIntent());
-        isPickVideoIntent = isPickVideoIntent(getIntent());
+        mIsPickImageIntent = isPickImageIntent(getIntent());
+        mIsPickVideoIntent = isPickVideoIntent(getIntent());
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
+        getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
@@ -91,16 +92,16 @@ public class MainActivity extends AppCompatActivity
     protected void onResume() {
         super.onResume();
         tryloadGallery();
-        if (state != null && gridView != null)
-            gridView.onRestoreInstanceState(state);
+        if (mState != null && mGridView != null)
+            mGridView.onRestoreInstanceState(mState);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         deleteDirs();
-        if (gridView != null)
-            state = gridView.onSaveInstanceState();
+        if (mGridView != null)
+            mState = mGridView.onSaveInstanceState();
     }
 
     private void tryloadGallery() {
@@ -126,26 +127,26 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void initializeGallery() {
-        toBeDeleted = new ArrayList<>();
-        dirs = getDirectories();
-        final DirectoryAdapter adapter = new DirectoryAdapter(this, dirs);
+        mToBeDeleted = new ArrayList<>();
+        mDirs = getDirectories();
 
-        gridView.setAdapter(adapter);
-        gridView.setOnItemClickListener(this);
-        gridView.setMultiChoiceModeListener(this);
-        gridView.setOnTouchListener(this);
+        final DirectoryAdapter adapter = new DirectoryAdapter(this, mDirs);
+        mGridView.setAdapter(adapter);
+        mGridView.setOnItemClickListener(this);
+        mGridView.setMultiChoiceModeListener(this);
+        mGridView.setOnTouchListener(this);
     }
 
     private List<Directory> getDirectories() {
         final Map<String, Directory> directories = new LinkedHashMap<>();
         final List<String> invalidFiles = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
-            if (isPickVideoIntent && i == 0)
+            if (mIsPickVideoIntent && i == 0)
                 continue;
 
             Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
             if (i == 1) {
-                if (isPickImageIntent)
+                if (mIsPickImageIntent)
                     continue;
 
                 uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
@@ -172,7 +173,7 @@ public class MainActivity extends AppCompatActivity
                         final Directory directory = directories.get(fileDir);
                         final int newImageCnt = directory.getMediaCnt() + 1;
                         directory.setMediaCnt(newImageCnt);
-                    } else if (!toBeDeleted.contains(fileDir)) {
+                    } else if (!mToBeDeleted.contains(fileDir)) {
                         final String dirName = Utils.getFilename(fileDir);
                         directories.put(fileDir, new Directory(fileDir, path, dirName, 1, timestamp));
                     }
@@ -192,14 +193,14 @@ public class MainActivity extends AppCompatActivity
 
     private void prepareForDeleting() {
         Utils.showToast(this, R.string.deleting);
-        final SparseBooleanArray items = gridView.getCheckedItemPositions();
-        int cnt = items.size();
+        final SparseBooleanArray items = mGridView.getCheckedItemPositions();
+        final int cnt = items.size();
         int deletedCnt = 0;
         for (int i = 0; i < cnt; i++) {
             if (items.valueAt(i)) {
                 final int id = items.keyAt(i);
-                final String path = dirs.get(id).getPath();
-                toBeDeleted.add(path);
+                final String path = mDirs.get(id).getPath();
+                mToBeDeleted.add(path);
                 deletedCnt++;
             }
         }
@@ -208,31 +209,31 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void notifyDeletion(int cnt) {
-        dirs = getDirectories();
+        mDirs = getDirectories();
 
         final CoordinatorLayout coordinator = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
         final Resources res = getResources();
         final String msg = res.getQuantityString(R.plurals.folders_deleted, cnt, cnt);
-        snackbar = Snackbar.make(coordinator, msg, Snackbar.LENGTH_INDEFINITE);
-        snackbar.setAction(res.getString(R.string.undo), undoDeletion);
-        snackbar.setActionTextColor(Color.WHITE);
-        snackbar.show();
-        isSnackbarShown = true;
+        mSnackbar = Snackbar.make(coordinator, msg, Snackbar.LENGTH_INDEFINITE);
+        mSnackbar.setAction(res.getString(R.string.undo), undoDeletion);
+        mSnackbar.setActionTextColor(Color.WHITE);
+        mSnackbar.show();
+        mIsSnackbarShown = true;
         updateGridView();
     }
 
     private void deleteDirs() {
-        if (toBeDeleted == null || toBeDeleted.isEmpty())
+        if (mToBeDeleted == null || mToBeDeleted.isEmpty())
             return;
 
-        if (snackbar != null) {
-            snackbar.dismiss();
+        if (mSnackbar != null) {
+            mSnackbar.dismiss();
         }
 
-        isSnackbarShown = false;
+        mIsSnackbarShown = false;
 
         final List<String> updatedFiles = new ArrayList<>();
-        for (String delPath : toBeDeleted) {
+        for (String delPath : mToBeDeleted) {
             final File dir = new File(delPath);
             if (dir.exists()) {
                 final File[] files = dir.listFiles();
@@ -247,32 +248,32 @@ public class MainActivity extends AppCompatActivity
 
         final String[] deletedPaths = updatedFiles.toArray(new String[updatedFiles.size()]);
         MediaScannerConnection.scanFile(this, deletedPaths, null, null);
-        toBeDeleted.clear();
+        mToBeDeleted.clear();
     }
 
     private View.OnClickListener undoDeletion = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            snackbar.dismiss();
-            isSnackbarShown = false;
-            toBeDeleted.clear();
-            dirs = getDirectories();
+            mSnackbar.dismiss();
+            mIsSnackbarShown = false;
+            mToBeDeleted.clear();
+            mDirs = getDirectories();
             updateGridView();
         }
     };
 
     private void updateGridView() {
-        final DirectoryAdapter adapter = (DirectoryAdapter) gridView.getAdapter();
-        adapter.updateItems(dirs);
+        final DirectoryAdapter adapter = (DirectoryAdapter) mGridView.getAdapter();
+        adapter.updateItems(mDirs);
     }
 
     private void editDirectory() {
-        final SparseBooleanArray items = gridView.getCheckedItemPositions();
+        final SparseBooleanArray items = mGridView.getCheckedItemPositions();
         final int cnt = items.size();
         for (int i = 0; i < cnt; i++) {
             if (items.valueAt(i)) {
                 final int id = items.keyAt(i);
-                final String path = dirs.get(id).getPath();
+                final String path = mDirs.get(id).getPath();
                 renameDir(path);
                 break;
             }
@@ -312,7 +313,7 @@ public class MainActivity extends AppCompatActivity
                 if (dir.renameTo(newDir)) {
                     Utils.showToast(getApplicationContext(), R.string.renaming_folder);
                     alertDialog.dismiss();
-                    actionMode.finish();
+                    mActionMode.finish();
 
                     final File[] files = newDir.listFiles();
                     for (File f : files) {
@@ -361,22 +362,22 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         final Intent intent = new Intent(this, MediaActivity.class);
-        intent.putExtra(Constants.DIRECTORY, dirs.get(position).getPath());
-        intent.putExtra(Constants.PICK_IMAGE_INTENT, isPickImageIntent);
-        intent.putExtra(Constants.PICK_VIDEO_INTENT, isPickVideoIntent);
+        intent.putExtra(Constants.DIRECTORY, mDirs.get(position).getPath());
+        intent.putExtra(Constants.PICK_IMAGE_INTENT, mIsPickImageIntent);
+        intent.putExtra(Constants.PICK_VIDEO_INTENT, mIsPickVideoIntent);
         startActivityForResult(intent, PICK_MEDIA);
     }
 
     @Override
     public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
         if (checked) {
-            selectedItemsCnt++;
+            mSelectedItemsCnt++;
         } else {
-            selectedItemsCnt--;
+            mSelectedItemsCnt--;
         }
 
-        if (selectedItemsCnt > 0) {
-            mode.setTitle(String.valueOf(selectedItemsCnt));
+        if (mSelectedItemsCnt > 0) {
+            mode.setTitle(String.valueOf(mSelectedItemsCnt));
         }
 
         mode.invalidate();
@@ -386,14 +387,14 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
         final MenuInflater inflater = mode.getMenuInflater();
         inflater.inflate(R.menu.directories_menu, menu);
-        actionMode = mode;
+        mActionMode = mode;
         return true;
     }
 
     @Override
     public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
         final MenuItem menuItem = menu.findItem(R.id.cab_edit);
-        menuItem.setVisible(selectedItemsCnt == 1);
+        menuItem.setVisible(mSelectedItemsCnt == 1);
         return true;
     }
 
@@ -414,12 +415,12 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onDestroyActionMode(ActionMode mode) {
-        selectedItemsCnt = 0;
+        mSelectedItemsCnt = 0;
     }
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        if (isSnackbarShown) {
+        if (mIsSnackbarShown) {
             deleteDirs();
         }
 
@@ -429,13 +430,13 @@ public class MainActivity extends AppCompatActivity
     private void scanCompleted(final String path) {
         final File dir = new File(path);
         if (dir.isDirectory()) {
-            dirs = getDirectories();
+            mDirs = getDirectories();
 
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     updateGridView();
-                    gridView.requestLayout();
+                    mGridView.requestLayout();
                     Utils.showToast(getApplicationContext(), R.string.rename_folder_ok);
                 }
             });

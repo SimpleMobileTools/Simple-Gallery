@@ -37,10 +37,10 @@ public class PhotoFragment extends ViewPagerFragment implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        if (listener == null)
-            listener = (FragmentClickListener) getActivity();
+        if (mListener == null)
+            mListener = (FragmentClickListener) getActivity();
 
-        listener.fragmentClicked();
+        mListener.fragmentClicked();
     }
 
     @Override

@@ -39,41 +39,42 @@ import butterknife.ButterKnife;
 
 public class MediaActivity extends AppCompatActivity
         implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener {
-    @BindView(R.id.media_grid) GridView gridView;
+    @BindView(R.id.media_grid) GridView mGridView;
 
-    private List<Medium> media;
-    private int selectedItemsCnt;
-    private String path;
-    private Snackbar snackbar;
-    private boolean isSnackbarShown;
-    private List<String> toBeDeleted;
-    private Parcelable state;
-    private boolean isPickImageIntent;
-    private boolean isPickVideoIntent;
+    private static List<Medium> mMedia;
+    private static String mPath;
+    private static Snackbar mSnackbar;
+    private static List<String> mToBeDeleted;
+    private static Parcelable mState;
+
+    private static boolean mIsSnackbarShown;
+    private static boolean mIsPickImageIntent;
+    private static boolean mIsPickVideoIntent;
+    private static int mSelectedItemsCnt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_media);
         ButterKnife.bind(this);
-        isPickImageIntent = getIntent().getBooleanExtra(Constants.PICK_IMAGE_INTENT, false);
-        isPickVideoIntent = getIntent().getBooleanExtra(Constants.PICK_VIDEO_INTENT, false);
+        mIsPickImageIntent = getIntent().getBooleanExtra(Constants.PICK_IMAGE_INTENT, false);
+        mIsPickVideoIntent = getIntent().getBooleanExtra(Constants.PICK_VIDEO_INTENT, false);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         tryloadGallery();
-        if (state != null && gridView != null)
-            gridView.onRestoreInstanceState(state);
+        if (mState != null && mGridView != null)
+            mGridView.onRestoreInstanceState(mState);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         deleteFiles();
-        if (gridView != null)
-            state = gridView.onSaveInstanceState();
+        if (mGridView != null)
+            mState = mGridView.onSaveInstanceState();
     }
 
     private void tryloadGallery() {
@@ -85,60 +86,60 @@ public class MediaActivity extends AppCompatActivity
     }
 
     private void initializeGallery() {
-        toBeDeleted = new ArrayList<>();
-        path = getIntent().getStringExtra(Constants.DIRECTORY);
-        media = getMedia();
+        mToBeDeleted = new ArrayList<>();
+        mPath = getIntent().getStringExtra(Constants.DIRECTORY);
+        mMedia = getMedia();
         if (isDirEmpty())
             return;
 
-        final MediaAdapter adapter = new MediaAdapter(this, media);
-        gridView.setAdapter(adapter);
-        gridView.setOnItemClickListener(this);
-        gridView.setMultiChoiceModeListener(this);
-        gridView.setOnTouchListener(this);
-        isSnackbarShown = false;
+        final MediaAdapter adapter = new MediaAdapter(this, mMedia);
+        mGridView.setAdapter(adapter);
+        mGridView.setOnItemClickListener(this);
+        mGridView.setMultiChoiceModeListener(this);
+        mGridView.setOnTouchListener(this);
+        mIsSnackbarShown = false;
 
-        final String dirName = Utils.getFilename(path);
+        final String dirName = Utils.getFilename(mPath);
         setTitle(dirName);
     }
 
     private void deleteDirectoryIfEmpty() {
-        final File file = new File(path);
+        final File file = new File(mPath);
         if (file.isDirectory() && file.listFiles().length == 0) {
             file.delete();
         }
     }
 
     private List<Medium> getMedia() {
-        final List<Medium> myMedia = new ArrayList<>();
+        final List<Medium> media = new ArrayList<>();
         final List<String> invalidFiles = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
-            if (isPickVideoIntent && i == 0)
+            if (mIsPickVideoIntent && i == 0)
                 continue;
 
             Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
             if (i == 1) {
-                if (isPickImageIntent)
+                if (mIsPickImageIntent)
                     continue;
 
                 uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
             }
             final String where = MediaStore.Images.Media.DATA + " like ? ";
-            final String[] args = new String[]{path + "%"};
+            final String[] args = new String[]{mPath + "%"};
             final String[] columns = {MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_TAKEN};
             final Cursor cursor = getContentResolver().query(uri, columns, where, args, null);
-            final String pattern = Pattern.quote(path) + "/[^/]*";
+            final String pattern = Pattern.quote(mPath) + "/[^/]*";
 
             if (cursor != null && cursor.moveToFirst()) {
                 final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
                 do {
                     final String curPath = cursor.getString(pathIndex);
-                    if (curPath.matches(pattern) && !toBeDeleted.contains(curPath)) {
+                    if (curPath.matches(pattern) && !mToBeDeleted.contains(curPath)) {
                         final File file = new File(curPath);
                         if (file.exists()) {
                             final int dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_TAKEN);
                             final long timestamp = cursor.getLong(dateIndex);
-                            myMedia.add(new Medium(curPath, (i == 1), timestamp));
+                            media.add(new Medium(curPath, (i == 1), timestamp));
                         } else {
                             invalidFiles.add(file.getAbsolutePath());
                         }
@@ -148,16 +149,16 @@ public class MediaActivity extends AppCompatActivity
             }
         }
 
-        Collections.sort(myMedia);
+        Collections.sort(media);
 
         final String[] invalids = invalidFiles.toArray(new String[invalidFiles.size()]);
         MediaScannerConnection.scanFile(getApplicationContext(), invalids, null, null);
 
-        return myMedia;
+        return media;
     }
 
     private boolean isDirEmpty() {
-        if (media.size() <= 0) {
+        if (mMedia.size() <= 0) {
             deleteDirectoryIfEmpty();
             finish();
             return true;
@@ -167,14 +168,14 @@ public class MediaActivity extends AppCompatActivity
 
     private void prepareForDeleting() {
         Utils.showToast(this, R.string.deleting);
-        final SparseBooleanArray items = gridView.getCheckedItemPositions();
-        int cnt = items.size();
+        final SparseBooleanArray items = mGridView.getCheckedItemPositions();
+        final int cnt = items.size();
         int deletedCnt = 0;
         for (int i = 0; i < cnt; i++) {
             if (items.valueAt(i)) {
                 final int id = items.keyAt(i);
-                final String path = media.get(id).getPath();
-                toBeDeleted.add(path);
+                final String path = mMedia.get(id).getPath();
+                mToBeDeleted.add(path);
                 deletedCnt++;
             }
         }
@@ -183,79 +184,79 @@ public class MediaActivity extends AppCompatActivity
     }
 
     private void notifyDeletion(int cnt) {
-        media = getMedia();
+        mMedia = getMedia();
 
-        if (media.isEmpty()) {
+        if (mMedia.isEmpty()) {
             deleteFiles();
         } else {
             final CoordinatorLayout coordinator = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
             final Resources res = getResources();
             final String msg = res.getQuantityString(R.plurals.files_deleted, cnt, cnt);
-            snackbar = Snackbar.make(coordinator, msg, Snackbar.LENGTH_INDEFINITE);
-            snackbar.setAction(res.getString(R.string.undo), undoDeletion);
-            snackbar.setActionTextColor(Color.WHITE);
-            snackbar.show();
-            isSnackbarShown = true;
+            mSnackbar = Snackbar.make(coordinator, msg, Snackbar.LENGTH_INDEFINITE);
+            mSnackbar.setAction(res.getString(R.string.undo), undoDeletion);
+            mSnackbar.setActionTextColor(Color.WHITE);
+            mSnackbar.show();
+            mIsSnackbarShown = true;
             updateGridView();
         }
     }
 
     private void deleteFiles() {
-        if (toBeDeleted == null || toBeDeleted.isEmpty())
+        if (mToBeDeleted == null || mToBeDeleted.isEmpty())
             return;
 
-        if (snackbar != null) {
-            snackbar.dismiss();
+        if (mSnackbar != null) {
+            mSnackbar.dismiss();
         }
 
-        isSnackbarShown = false;
+        mIsSnackbarShown = false;
 
-        for (String delPath : toBeDeleted) {
+        for (String delPath : mToBeDeleted) {
             final File file = new File(delPath);
             if (file.exists())
                 file.delete();
         }
 
-        final String[] deletedPaths = toBeDeleted.toArray(new String[toBeDeleted.size()]);
+        final String[] deletedPaths = mToBeDeleted.toArray(new String[mToBeDeleted.size()]);
         MediaScannerConnection.scanFile(this, deletedPaths, null, new MediaScannerConnection.OnScanCompletedListener() {
             @Override
             public void onScanCompleted(String path, Uri uri) {
-                if (media != null && media.isEmpty()) {
+                if (mMedia != null && mMedia.isEmpty()) {
                     finish();
                 }
             }
         });
-        toBeDeleted.clear();
+        mToBeDeleted.clear();
     }
 
     private View.OnClickListener undoDeletion = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            snackbar.dismiss();
-            isSnackbarShown = false;
-            toBeDeleted.clear();
-            media = getMedia();
+            mSnackbar.dismiss();
+            mIsSnackbarShown = false;
+            mToBeDeleted.clear();
+            mMedia = getMedia();
             updateGridView();
         }
     };
 
     private void updateGridView() {
         if (!isDirEmpty()) {
-            final MediaAdapter adapter = (MediaAdapter) gridView.getAdapter();
-            adapter.updateItems(media);
+            final MediaAdapter adapter = (MediaAdapter) mGridView.getAdapter();
+            adapter.updateItems(mMedia);
         }
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        if (isPickImageIntent || isPickVideoIntent) {
+        if (mIsPickImageIntent || mIsPickVideoIntent) {
             final Intent result = new Intent();
-            result.setData(Uri.parse(media.get(position).getPath()));
+            result.setData(Uri.parse(mMedia.get(position).getPath()));
             setResult(RESULT_OK, result);
             finish();
         } else {
             final Intent intent = new Intent(this, ViewPagerActivity.class);
-            intent.putExtra(Constants.MEDIUM, media.get(position).getPath());
+            intent.putExtra(Constants.MEDIUM, mMedia.get(position).getPath());
             startActivity(intent);
         }
     }
@@ -263,13 +264,13 @@ public class MediaActivity extends AppCompatActivity
     @Override
     public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
         if (checked) {
-            selectedItemsCnt++;
+            mSelectedItemsCnt++;
         } else {
-            selectedItemsCnt--;
+            mSelectedItemsCnt--;
         }
 
-        if (selectedItemsCnt > 0)
-            mode.setTitle(String.valueOf(selectedItemsCnt));
+        if (mSelectedItemsCnt > 0)
+            mode.setTitle(String.valueOf(mSelectedItemsCnt));
 
         mode.invalidate();
     }
@@ -300,12 +301,12 @@ public class MediaActivity extends AppCompatActivity
 
     @Override
     public void onDestroyActionMode(ActionMode mode) {
-        selectedItemsCnt = 0;
+        mSelectedItemsCnt = 0;
     }
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        if (isSnackbarShown) {
+        if (mIsSnackbarShown) {
             deleteFiles();
         }
 

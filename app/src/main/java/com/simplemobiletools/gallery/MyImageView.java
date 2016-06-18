@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 
 public class MyImageView extends ImageView {
+
     public MyImageView(Context context) {
         super(context);
     }

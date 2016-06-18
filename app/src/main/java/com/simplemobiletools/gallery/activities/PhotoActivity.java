@@ -16,32 +16,33 @@ import com.simplemobiletools.gallery.fragments.ViewPagerFragment;
 import com.simplemobiletools.gallery.models.Medium;
 
 public class PhotoActivity extends AppCompatActivity implements ViewPagerFragment.FragmentClickListener {
-    private ActionBar actionbar;
-    private boolean isFullScreen;
-    private Uri uri;
+    private static ActionBar mActionbar;
+    private static Uri mUri;
+
+    private static boolean mIsFullScreen;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_holder);
 
-        uri = getIntent().getData();
-        if (uri == null)
+        mUri = getIntent().getData();
+        if (mUri == null)
             return;
 
-        actionbar = getSupportActionBar();
-        isFullScreen = true;
+        mActionbar = getSupportActionBar();
+        mIsFullScreen = true;
         hideSystemUI();
 
         final Bundle bundle = new Bundle();
-        final Medium medium = new Medium(uri.toString(), false, 0);
+        final Medium medium = new Medium(mUri.toString(), false, 0);
         bundle.putSerializable(Constants.MEDIUM, medium);
         final ViewPagerFragment fragment = new PhotoFragment();
         fragment.setListener(this);
         fragment.setArguments(bundle);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder, fragment).commit();
         hideSystemUI();
-        setTitle(Utils.getFilename(uri.toString()));
+        setTitle(Utils.getFilename(mUri.toString()));
     }
 
     @Override
@@ -65,15 +66,15 @@ public class PhotoActivity extends AppCompatActivity implements ViewPagerFragmen
         final String shareTitle = getResources().getString(R.string.share_via);
         final Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
+        sendIntent.putExtra(Intent.EXTRA_STREAM, mUri);
         sendIntent.setType("image/*");
         startActivity(Intent.createChooser(sendIntent, shareTitle));
     }
 
     @Override
     public void fragmentClicked() {
-        isFullScreen = !isFullScreen;
-        if (isFullScreen) {
+        mIsFullScreen = !mIsFullScreen;
+        if (mIsFullScreen) {
             hideSystemUI();
         } else {
             showSystemUI();
@@ -81,10 +82,10 @@ public class PhotoActivity extends AppCompatActivity implements ViewPagerFragmen
     }
 
     private void hideSystemUI() {
-        Utils.hideSystemUI(actionbar, getWindow());
+        Utils.hideSystemUI(mActionbar, getWindow());
     }
 
     private void showSystemUI() {
-        Utils.showSystemUI(actionbar, getWindow());
+        Utils.showSystemUI(mActionbar, getWindow());
     }
 }

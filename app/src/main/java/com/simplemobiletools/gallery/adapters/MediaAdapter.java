@@ -17,22 +17,22 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MediaAdapter extends BaseAdapter {
-    private final Context context;
-    private final List<Medium> media;
-    private final LayoutInflater inflater;
+    private final Context mContext;
+    private final List<Medium> mMedia;
+    private final LayoutInflater mInflater;
 
     public MediaAdapter(Context context, List<Medium> media) {
-        this.context = context;
-        this.media = media;
-        this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.mContext = context;
+        this.mMedia = media;
+        this.mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
-        final Medium medium = media.get(position);
+        final Medium medium = mMedia.get(position);
         ViewHolder holder;
         if (view == null) {
-            view = inflater.inflate(R.layout.video_item, parent, false);
+            view = mInflater.inflate(R.layout.video_item, parent, false);
             holder = new ViewHolder(view);
             view.setTag(holder);
         } else {
@@ -46,19 +46,19 @@ public class MediaAdapter extends BaseAdapter {
         }
 
         final String path = medium.getPath();
-        Glide.with(context).load(path).placeholder(R.color.tmb_background).centerCrop().crossFade().into(holder.photoThumbnail);
+        Glide.with(mContext).load(path).placeholder(R.color.tmb_background).centerCrop().crossFade().into(holder.photoThumbnail);
 
         return view;
     }
 
     @Override
     public int getCount() {
-        return media.size();
+        return mMedia.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return media.get(position);
+        return mMedia.get(position);
     }
 
     @Override
@@ -67,14 +67,14 @@ public class MediaAdapter extends BaseAdapter {
     }
 
     public void updateItems(List<Medium> newPhotos) {
-        media.clear();
-        media.addAll(newPhotos);
+        mMedia.clear();
+        mMedia.addAll(newPhotos);
         notifyDataSetChanged();
     }
 
     static class ViewHolder {
         @BindView(R.id.medium_thumbnail) ImageView photoThumbnail;
-        @BindView(R.id.play_outline) ImageView playOutline;
+        @BindView(R.id.play_outline) View playOutline;
 
         public ViewHolder(View view) {
             ButterKnife.bind(this, view);

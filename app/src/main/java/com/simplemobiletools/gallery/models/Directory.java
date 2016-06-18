@@ -49,4 +49,14 @@ public class Directory implements Comparable {
         }
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return "Directory {" +
+                "path=" + getPath() +
+                ", thumbnail=" + getThumbnail() +
+                ", name=" + getName() +
+                ", timestamp=" + getTimestamp() +
+                ", mediaCnt=" + getMediaCnt() + "}";
+    }
 }

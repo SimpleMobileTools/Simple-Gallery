@@ -35,33 +35,34 @@ public class VideoFragment extends ViewPagerFragment
         SeekBar.OnSeekBarChangeListener, OnPreparedListener {
     private static final String TAG = VideoFragment.class.getSimpleName();
     private static final String PROGRESS = "progress";
-    private MediaPlayer mediaPlayer;
-    private SurfaceView surfaceView;
-    private SurfaceHolder surfaceHolder;
 
-    private ImageView playOutline;
-    private TextView currTimeView;
-    private TextView durationView;
-    private Handler timerHandler;
-    private SeekBar seekBar;
-    private Medium medium;
-    private View timeHolder;
-    private boolean isPlaying;
-    private boolean isDragged;
-    private boolean isFullscreen;
-    private int currTime;
-    private int duration;
+    private MediaPlayer mMediaPlayer;
+    private SurfaceView mSurfaceView;
+    private SurfaceHolder mSurfaceHolder;
+    private ImageView mPlayOutline;
+    private TextView mCurrTimeView;
+    private TextView mDurationView;
+    private Handler mTimerHandler;
+    private SeekBar mSeekBar;
+    private Medium mMedium;
+    private View mTimeHolder;
+
+    private boolean mIsPlaying;
+    private boolean mIsDragged;
+    private boolean mIsFullscreen;
+    private int mCurrTime;
+    private int mDuration;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.pager_video_item, container, false);
 
-        medium = (Medium) getArguments().getSerializable(Constants.MEDIUM);
+        mMedium = (Medium) getArguments().getSerializable(Constants.MEDIUM);
         if (savedInstanceState != null) {
-            currTime = savedInstanceState.getInt(PROGRESS);
+            mCurrTime = savedInstanceState.getInt(PROGRESS);
         }
 
-        isFullscreen = (getActivity().getWindow().getDecorView().getSystemUiVisibility() & View.SYSTEM_UI_FLAG_FULLSCREEN) ==
+        mIsFullscreen = (getActivity().getWindow().getDecorView().getSystemUiVisibility() & View.SYSTEM_UI_FLAG_FULLSCREEN) ==
                 View.SYSTEM_UI_FLAG_FULLSCREEN;
         setupPlayer(view);
         view.setOnClickListener(this);
@@ -73,13 +74,13 @@ public class VideoFragment extends ViewPagerFragment
         if (getActivity() == null)
             return;
 
-        playOutline = (ImageView) view.findViewById(R.id.video_play_outline);
-        playOutline.setOnClickListener(this);
+        mPlayOutline = (ImageView) view.findViewById(R.id.video_play_outline);
+        mPlayOutline.setOnClickListener(this);
 
-        surfaceView = (SurfaceView) view.findViewById(R.id.video_surface);
-        surfaceView.setOnClickListener(this);
-        surfaceHolder = surfaceView.getHolder();
-        surfaceHolder.addCallback(this);
+        mSurfaceView = (SurfaceView) view.findViewById(R.id.video_surface);
+        mSurfaceView.setOnClickListener(this);
+        mSurfaceHolder = mSurfaceView.getHolder();
+        mSurfaceHolder.addCallback(this);
 
         initTimeHolder(view);
     }
@@ -90,42 +91,42 @@ public class VideoFragment extends ViewPagerFragment
 
     @Override
     public void systemUiVisibilityChanged(boolean toFullscreen) {
-        if (isFullscreen != toFullscreen) {
-            isFullscreen = toFullscreen;
+        if (mIsFullscreen != toFullscreen) {
+            mIsFullscreen = toFullscreen;
             checkFullscreen();
         }
     }
 
     private void initTimeHolder(View view) {
-        timeHolder = view.findViewById(R.id.video_time_holder);
+        mTimeHolder = view.findViewById(R.id.video_time_holder);
         final Resources res = getResources();
         final int height = Utils.getNavBarHeight(res);
-        final int left = timeHolder.getPaddingLeft();
-        final int top = timeHolder.getPaddingTop();
-        final int right = timeHolder.getPaddingRight();
-        final int bottom = timeHolder.getPaddingBottom();
+        final int left = mTimeHolder.getPaddingLeft();
+        final int top = mTimeHolder.getPaddingTop();
+        final int right = mTimeHolder.getPaddingRight();
+        final int bottom = mTimeHolder.getPaddingBottom();
 
         if (Utils.hasNavBar(res)) {
             if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-                timeHolder.setPadding(left, top, right, bottom + height);
+                mTimeHolder.setPadding(left, top, right, bottom + height);
             } else {
-                timeHolder.setPadding(left, top, right + height, bottom);
+                mTimeHolder.setPadding(left, top, right + height, bottom);
             }
         }
 
-        currTimeView = (TextView) view.findViewById(R.id.video_curr_time);
-        durationView = (TextView) view.findViewById(R.id.video_duration);
-        seekBar = (SeekBar) view.findViewById(R.id.video_seekbar);
-        seekBar.setOnSeekBarChangeListener(this);
+        mCurrTimeView = (TextView) view.findViewById(R.id.video_curr_time);
+        mDurationView = (TextView) view.findViewById(R.id.video_duration);
+        mSeekBar = (SeekBar) view.findViewById(R.id.video_seekbar);
+        mSeekBar.setOnSeekBarChangeListener(this);
 
-        if (isFullscreen)
-            timeHolder.setVisibility(View.INVISIBLE);
+        if (mIsFullscreen)
+            mTimeHolder.setVisibility(View.INVISIBLE);
     }
 
     private void setupTimeHolder() {
-        seekBar.setMax(duration);
-        durationView.setText(getTimeString(duration));
-        timerHandler = new Handler();
+        mSeekBar.setMax(mDuration);
+        mDurationView.setText(getTimeString(mDuration));
+        mTimerHandler = new Handler();
         setupTimer();
     }
 
@@ -133,13 +134,13 @@ public class VideoFragment extends ViewPagerFragment
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if (mediaPlayer != null && !isDragged && isPlaying) {
-                    currTime = mediaPlayer.getCurrentPosition() / 1000;
-                    seekBar.setProgress(currTime);
-                    currTimeView.setText(getTimeString(currTime));
+                if (mMediaPlayer != null && !mIsDragged && mIsPlaying) {
+                    mCurrTime = mMediaPlayer.getCurrentPosition() / 1000;
+                    mSeekBar.setProgress(mCurrTime);
+                    mCurrTimeView.setText(getTimeString(mCurrTime));
                 }
 
-                timerHandler.postDelayed(this, 1000);
+                mTimerHandler.postDelayed(this, 1000);
             }
         });
     }
@@ -147,7 +148,7 @@ public class VideoFragment extends ViewPagerFragment
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(PROGRESS, currTime);
+        outState.putInt(PROGRESS, mCurrTime);
     }
 
     @Override
@@ -157,31 +158,31 @@ public class VideoFragment extends ViewPagerFragment
                 togglePlayPause();
                 break;
             default:
-                isFullscreen = !isFullscreen;
+                mIsFullscreen = !mIsFullscreen;
                 checkFullscreen();
 
-                if (listener == null)
-                    listener = (FragmentClickListener) getActivity();
-                listener.fragmentClicked();
+                if (mListener == null)
+                    mListener = (FragmentClickListener) getActivity();
+                mListener.fragmentClicked();
                 break;
         }
     }
 
     private void checkFullscreen() {
         int anim = R.anim.fade_in;
-        if (isFullscreen) {
+        if (mIsFullscreen) {
             anim = R.anim.fade_out;
-            seekBar.setOnSeekBarChangeListener(null);
+            mSeekBar.setOnSeekBarChangeListener(null);
         } else {
-            seekBar.setOnSeekBarChangeListener(this);
+            mSeekBar.setOnSeekBarChangeListener(this);
         }
 
         final Animation animation = AnimationUtils.loadAnimation(getContext(), anim);
-        timeHolder.startAnimation(animation);
+        mTimeHolder.startAnimation(animation);
     }
 
     private void pauseVideo() {
-        if (isPlaying) {
+        if (mIsPlaying) {
             togglePlayPause();
         }
     }
@@ -190,19 +191,19 @@ public class VideoFragment extends ViewPagerFragment
         if (getActivity() == null)
             return;
 
-        isPlaying = !isPlaying;
-        if (isPlaying) {
-            if (mediaPlayer != null) {
-                mediaPlayer.start();
+        mIsPlaying = !mIsPlaying;
+        if (mIsPlaying) {
+            if (mMediaPlayer != null) {
+                mMediaPlayer.start();
             }
 
-            playOutline.setImageDrawable(null);
+            mPlayOutline.setImageDrawable(null);
         } else {
-            if (mediaPlayer != null) {
-                mediaPlayer.pause();
+            if (mMediaPlayer != null) {
+                mMediaPlayer.pause();
             }
 
-            playOutline.setImageDrawable(getResources().getDrawable(R.mipmap.play_outline_big));
+            mPlayOutline.setImageDrawable(getResources().getDrawable(R.mipmap.play_outline_big));
         }
     }
 
@@ -212,32 +213,32 @@ public class VideoFragment extends ViewPagerFragment
     }
 
     private void initMediaPlayer() {
-        if (mediaPlayer != null)
+        if (mMediaPlayer != null)
             return;
 
         try {
-            mediaPlayer = new MediaPlayer();
-            mediaPlayer.setDataSource(getContext(), Uri.parse(medium.getPath()));
-            mediaPlayer.setDisplay(surfaceHolder);
-            mediaPlayer.setOnCompletionListener(this);
-            mediaPlayer.setOnVideoSizeChangedListener(this);
-            mediaPlayer.setOnPreparedListener(this);
-            mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-            mediaPlayer.prepareAsync();
+            mMediaPlayer = new MediaPlayer();
+            mMediaPlayer.setDataSource(getContext(), Uri.parse(mMedium.getPath()));
+            mMediaPlayer.setDisplay(mSurfaceHolder);
+            mMediaPlayer.setOnCompletionListener(this);
+            mMediaPlayer.setOnVideoSizeChangedListener(this);
+            mMediaPlayer.setOnPreparedListener(this);
+            mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+            mMediaPlayer.prepareAsync();
         } catch (IOException e) {
             Log.e(TAG, "init media player " + e.getMessage());
         }
     }
 
     private void setProgress(int seconds) {
-        mediaPlayer.seekTo(seconds * 1000);
-        seekBar.setProgress(seconds);
-        currTimeView.setText(getTimeString(seconds));
+        mMediaPlayer.seekTo(seconds * 1000);
+        mSeekBar.setProgress(seconds);
+        mCurrTimeView.setText(getTimeString(seconds));
     }
 
     private void addPreviewImage() {
-        mediaPlayer.start();
-        mediaPlayer.pause();
+        mMediaPlayer.start();
+        mMediaPlayer.pause();
     }
 
     @Override
@@ -257,19 +258,19 @@ public class VideoFragment extends ViewPagerFragment
     private void cleanup() {
         pauseVideo();
 
-        if (currTimeView != null)
-            currTimeView.setText(getTimeString(0));
+        if (mCurrTimeView != null)
+            mCurrTimeView.setText(getTimeString(0));
 
-        if (mediaPlayer != null) {
-            mediaPlayer.release();
-            mediaPlayer = null;
+        if (mMediaPlayer != null) {
+            mMediaPlayer.release();
+            mMediaPlayer = null;
         }
 
-        if (seekBar != null)
-            seekBar.setProgress(0);
+        if (mSeekBar != null)
+            mSeekBar.setProgress(0);
 
-        if (timerHandler != null)
-            timerHandler.removeCallbacksAndMessages(null);
+        if (mTimerHandler != null)
+            mTimerHandler.removeCallbacksAndMessages(null);
     }
 
     @Override
@@ -284,8 +285,8 @@ public class VideoFragment extends ViewPagerFragment
 
     @Override
     public void onCompletion(MediaPlayer mp) {
-        seekBar.setProgress(seekBar.getMax());
-        currTimeView.setText(getTimeString(duration));
+        mSeekBar.setProgress(mSeekBar.getMax());
+        mCurrTimeView.setText(getTimeString(mDuration));
         pauseVideo();
     }
 
@@ -315,7 +316,7 @@ public class VideoFragment extends ViewPagerFragment
 
         final float screenProportion = (float) screenWidth / (float) screenHeight;
 
-        final android.view.ViewGroup.LayoutParams lp = surfaceView.getLayoutParams();
+        final android.view.ViewGroup.LayoutParams lp = mSurfaceView.getLayoutParams();
         if (videoProportion > screenProportion) {
             lp.width = screenWidth;
             lp.height = (int) ((float) screenWidth / videoProportion);
@@ -323,7 +324,7 @@ public class VideoFragment extends ViewPagerFragment
             lp.width = (int) (videoProportion * (float) screenHeight);
             lp.height = screenHeight;
         }
-        surfaceView.setLayoutParams(lp);
+        mSurfaceView.setLayoutParams(lp);
     }
 
     private String getTimeString(int duration) {
@@ -344,36 +345,36 @@ public class VideoFragment extends ViewPagerFragment
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        if (mediaPlayer != null && fromUser) {
+        if (mMediaPlayer != null && fromUser) {
             setProgress(progress);
         }
     }
 
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
-        if (mediaPlayer == null)
+        if (mMediaPlayer == null)
             initMediaPlayer();
 
-        mediaPlayer.pause();
-        isDragged = true;
+        mMediaPlayer.pause();
+        mIsDragged = true;
     }
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
-        if (!isPlaying) {
+        if (!mIsPlaying) {
             togglePlayPause();
         } else {
-            mediaPlayer.start();
+            mMediaPlayer.start();
         }
 
-        isDragged = false;
+        mIsDragged = false;
     }
 
     @Override
     public void onPrepared(MediaPlayer mp) {
-        duration = mp.getDuration() / 1000;
+        mDuration = mp.getDuration() / 1000;
         addPreviewImage();
         setupTimeHolder();
-        setProgress(currTime);
+        setProgress(mCurrTime);
     }
 }

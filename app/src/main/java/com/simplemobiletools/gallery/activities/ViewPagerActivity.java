@@ -40,18 +40,19 @@ import butterknife.OnClick;
 public class ViewPagerActivity extends AppCompatActivity
         implements ViewPager.OnPageChangeListener, View.OnSystemUiVisibilityChangeListener, ViewPager.OnTouchListener,
         ViewPagerFragment.FragmentClickListener {
-    @BindView(R.id.undo_delete) View undoBtn;
-    @BindView(R.id.view_pager) MyViewPager pager;
+    @BindView(R.id.undo_delete) View mUndoBtn;
+    @BindView(R.id.view_pager) MyViewPager mPager;
 
-    private int pos;
-    private boolean isFullScreen;
-    private boolean isUndoShown;
-    private ActionBar actionbar;
-    private List<Medium> media;
-    private String path;
-    private String directory;
-    private String toBeDeleted;
-    private String beingDeleted;
+    private static ActionBar mActionbar;
+    private static List<Medium> mMedia;
+    private static String mPath;
+    private static String mDirectory;
+    private static String mToBeDeleted;
+    private static String mBeingDeleted;
+
+    private static boolean mIsFullScreen;
+    private static boolean mIsUndoShown;
+    private static int mPos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,26 +65,26 @@ public class ViewPagerActivity extends AppCompatActivity
             return;
         }
 
-        pos = 0;
-        isFullScreen = true;
-        actionbar = getSupportActionBar();
-        toBeDeleted = "";
-        beingDeleted = "";
+        mPos = 0;
+        mIsFullScreen = true;
+        mActionbar = getSupportActionBar();
+        mToBeDeleted = "";
+        mBeingDeleted = "";
         hideSystemUI();
 
-        path = getIntent().getStringExtra(Constants.MEDIUM);
-        MediaScannerConnection.scanFile(this, new String[]{path}, null, null);
+        mPath = getIntent().getStringExtra(Constants.MEDIUM);
+        MediaScannerConnection.scanFile(this, new String[]{mPath}, null, null);
         addUndoMargin();
-        directory = new File(path).getParent();
-        media = getMedia();
+        mDirectory = new File(mPath).getParent();
+        mMedia = getMedia();
         if (isDirEmpty())
             return;
 
-        final MyPagerAdapter adapter = new MyPagerAdapter(this, getSupportFragmentManager(), media);
-        pager.setAdapter(adapter);
-        pager.setCurrentItem(pos);
-        pager.addOnPageChangeListener(this);
-        pager.setOnTouchListener(this);
+        final MyPagerAdapter adapter = new MyPagerAdapter(this, getSupportFragmentManager(), mMedia);
+        mPager.setAdapter(adapter);
+        mPager.setCurrentItem(mPos);
+        mPager.addOnPageChangeListener(this);
+        mPager.setOnTouchListener(this);
 
         getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(this);
         updateActionbarTitle();
@@ -99,10 +100,10 @@ public class ViewPagerActivity extends AppCompatActivity
 
     @OnClick(R.id.undo_delete)
     public void undoDeletion() {
-        isUndoShown = false;
-        toBeDeleted = "";
-        beingDeleted = "";
-        undoBtn.setVisibility(View.GONE);
+        mIsUndoShown = false;
+        mToBeDeleted = "";
+        mBeingDeleted = "";
+        mUndoBtn.setVisibility(View.GONE);
         reloadViewPager();
     }
 
@@ -138,37 +139,38 @@ public class ViewPagerActivity extends AppCompatActivity
         final Uri uri = Uri.fromFile(file);
         sendIntent.setAction(Intent.ACTION_SEND);
         sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
-        if (medium.getIsVideo())
+        if (medium.getIsVideo()) {
             sendIntent.setType("video/*");
-        else
+        } else {
             sendIntent.setType("image/*");
+        }
         startActivity(Intent.createChooser(sendIntent, shareTitle));
     }
 
     private void notifyDeletion() {
-        toBeDeleted = getCurrentFile().getAbsolutePath();
+        mToBeDeleted = getCurrentFile().getAbsolutePath();
 
-        if (media.size() <= 1) {
+        if (mMedia.size() <= 1) {
             deleteFile();
         } else {
             Utils.showToast(this, R.string.file_deleted);
-            undoBtn.setVisibility(View.VISIBLE);
-            isUndoShown = true;
+            mUndoBtn.setVisibility(View.VISIBLE);
+            mIsUndoShown = true;
             reloadViewPager();
         }
     }
 
     private void deleteFile() {
-        if (toBeDeleted.isEmpty())
+        if (mToBeDeleted.isEmpty())
             return;
 
-        isUndoShown = false;
-        beingDeleted = "";
+        mIsUndoShown = false;
+        mBeingDeleted = "";
 
-        final File file = new File(toBeDeleted);
+        final File file = new File(mToBeDeleted);
         if (file.delete()) {
-            beingDeleted = toBeDeleted;
-            final String[] deletedPath = new String[]{toBeDeleted};
+            mBeingDeleted = mToBeDeleted;
+            final String[] deletedPath = new String[]{mToBeDeleted};
             MediaScannerConnection.scanFile(this, deletedPath, null, new MediaScannerConnection.OnScanCompletedListener() {
                 @Override
                 public void onScanCompleted(String path, Uri uri) {
@@ -176,12 +178,12 @@ public class ViewPagerActivity extends AppCompatActivity
                 }
             });
         }
-        toBeDeleted = "";
-        undoBtn.setVisibility(View.GONE);
+        mToBeDeleted = "";
+        mUndoBtn.setVisibility(View.GONE);
     }
 
     private boolean isDirEmpty() {
-        if (media.size() <= 0) {
+        if (mMedia.size() <= 0) {
             deleteDirectoryIfEmpty();
             finish();
             return true;
@@ -229,8 +231,8 @@ public class ViewPagerActivity extends AppCompatActivity
                 final File newFile = new File(file.getParent(), fileName + "." + extension);
 
                 if (file.renameTo(newFile)) {
-                    final int currItem = pager.getCurrentItem();
-                    media.set(currItem, new Medium(newFile.getAbsolutePath(), media.get(currItem).getIsVideo(), 0));
+                    final int currItem = mPager.getCurrentItem();
+                    mMedia.set(currItem, new Medium(newFile.getAbsolutePath(), mMedia.get(currItem).getIsVideo(), 0));
 
                     final String[] changedFiles = {file.getAbsolutePath(), newFile.getAbsolutePath()};
                     MediaScannerConnection.scanFile(getApplicationContext(), changedFiles, null, null);
@@ -244,75 +246,75 @@ public class ViewPagerActivity extends AppCompatActivity
     }
 
     private void reloadViewPager() {
-        final MyPagerAdapter adapter = (MyPagerAdapter) pager.getAdapter();
-        final int curPos = pager.getCurrentItem();
-        media = getMedia();
+        final MyPagerAdapter adapter = (MyPagerAdapter) mPager.getAdapter();
+        final int curPos = mPager.getCurrentItem();
+        mMedia = getMedia();
         if (isDirEmpty())
             return;
 
-        pager.setAdapter(null);
-        adapter.updateItems(media);
-        pager.setAdapter(adapter);
+        mPager.setAdapter(null);
+        adapter.updateItems(mMedia);
+        mPager.setAdapter(adapter);
 
         final int newPos = Math.min(curPos, adapter.getCount());
-        pager.setCurrentItem(newPos);
+        mPager.setCurrentItem(newPos);
         updateActionbarTitle();
     }
 
     private void deleteDirectoryIfEmpty() {
-        final File file = new File(directory);
+        final File file = new File(mDirectory);
         if (file.isDirectory() && file.listFiles().length == 0) {
             file.delete();
         }
 
-        final String[] toBeDeleted = new String[]{directory};
+        final String[] toBeDeleted = new String[]{mDirectory};
         MediaScannerConnection.scanFile(getApplicationContext(), toBeDeleted, null, null);
     }
 
     private List<Medium> getMedia() {
-        final List<Medium> myMedia = new ArrayList<>();
+        final List<Medium> media = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
             Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
             if (i == 1) {
                 uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
             }
             final String where = MediaStore.Images.Media.DATA + " like ? ";
-            final String[] args = new String[]{directory + "%"};
+            final String[] args = new String[]{mDirectory + "%"};
             final String[] columns = {MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_TAKEN};
             final Cursor cursor = getContentResolver().query(uri, columns, where, args, null);
-            final String pattern = Pattern.quote(directory) + "/[^/]*";
+            final String pattern = Pattern.quote(mDirectory) + "/[^/]*";
 
             if (cursor != null && cursor.moveToFirst()) {
                 final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
                 do {
                     final String curPath = cursor.getString(pathIndex);
-                    if (curPath.matches(pattern) && !curPath.equals(toBeDeleted) && !curPath.equals(beingDeleted)) {
+                    if (curPath.matches(pattern) && !curPath.equals(mToBeDeleted) && !curPath.equals(mBeingDeleted)) {
                         final int dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_TAKEN);
                         final long timestamp = cursor.getLong(dateIndex);
-                        myMedia.add(new Medium(curPath, i == 1, timestamp));
+                        media.add(new Medium(curPath, i == 1, timestamp));
                     }
                 } while (cursor.moveToNext());
                 cursor.close();
             }
         }
 
-        Collections.sort(myMedia);
+        Collections.sort(media);
         int j = 0;
-        for (Medium medium : myMedia) {
-            if (medium.getPath().equals(path)) {
-                pos = j;
+        for (Medium medium : media) {
+            if (medium.getPath().equals(mPath)) {
+                mPos = j;
                 break;
             }
             j++;
         }
-        return myMedia;
+        return media;
     }
 
     @Override
     public void fragmentClicked() {
         deleteFile();
-        isFullScreen = !isFullScreen;
-        if (isFullScreen) {
+        mIsFullScreen = !mIsFullScreen;
+        if (mIsFullScreen) {
             hideSystemUI();
         } else {
             showSystemUI();
@@ -320,21 +322,21 @@ public class ViewPagerActivity extends AppCompatActivity
     }
 
     private void hideSystemUI() {
-        Utils.hideSystemUI(actionbar, getWindow());
+        Utils.hideSystemUI(mActionbar, getWindow());
     }
 
     private void showSystemUI() {
-        Utils.showSystemUI(actionbar, getWindow());
+        Utils.showSystemUI(mActionbar, getWindow());
     }
 
     private void updateActionbarTitle() {
-        setTitle(Utils.getFilename(media.get(pager.getCurrentItem()).getPath()));
+        setTitle(Utils.getFilename(mMedia.get(mPager.getCurrentItem()).getPath()));
     }
 
     private Medium getCurrentMedium() {
-        if (pos >= media.size())
-            pos = media.size() - 1;
-        return media.get(pos);
+        if (mPos >= mMedia.size())
+            mPos = mMedia.size() - 1;
+        return mMedia.get(mPos);
     }
 
     private File getCurrentFile() {
@@ -343,7 +345,7 @@ public class ViewPagerActivity extends AppCompatActivity
 
     private void addUndoMargin() {
         final Resources res = getResources();
-        final RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) undoBtn.getLayoutParams();
+        final RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) mUndoBtn.getLayoutParams();
         final int topMargin = Utils.getStatusBarHeight(res) + Utils.getActionBarHeight(getApplicationContext(), res);
         int rightMargin = params.rightMargin;
 
@@ -362,33 +364,33 @@ public class ViewPagerActivity extends AppCompatActivity
     @Override
     public void onPageSelected(int position) {
         updateActionbarTitle();
-        pos = position;
+        mPos = position;
     }
 
     @Override
     public void onPageScrollStateChanged(int state) {
         if (state == ViewPager.SCROLL_STATE_DRAGGING) {
-            final MyPagerAdapter adapter = (MyPagerAdapter) pager.getAdapter();
-            adapter.itemDragged(pos);
+            final MyPagerAdapter adapter = (MyPagerAdapter) mPager.getAdapter();
+            adapter.itemDragged(mPos);
         }
     }
 
     @Override
     public void onSystemUiVisibilityChange(int visibility) {
         if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
-            isFullScreen = false;
+            mIsFullScreen = false;
         }
 
-        final MyPagerAdapter adapter = (MyPagerAdapter) pager.getAdapter();
-        adapter.updateUiVisibility(isFullScreen, pos);
+        final MyPagerAdapter adapter = (MyPagerAdapter) mPager.getAdapter();
+        adapter.updateUiVisibility(mIsFullScreen, mPos);
     }
 
     private void scanCompleted() {
-        beingDeleted = "";
+        mBeingDeleted = "";
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if (media != null && media.size() <= 1) {
+                if (mMedia != null && mMedia.size() <= 1) {
                     reloadViewPager();
                 }
             }
@@ -397,7 +399,7 @@ public class ViewPagerActivity extends AppCompatActivity
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        if (isUndoShown) {
+        if (mIsUndoShown) {
             deleteFile();
         }
 

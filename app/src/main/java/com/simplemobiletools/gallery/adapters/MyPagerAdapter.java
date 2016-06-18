@@ -17,25 +17,25 @@ import java.util.List;
 import java.util.Map;
 
 public class MyPagerAdapter extends FragmentStatePagerAdapter {
-    private List<Medium> media;
-    private Map<Integer, ViewPagerFragment> fragments;
-    private ViewPagerActivity activity;
+    private final List<Medium> mMedia;
+    private final Map<Integer, ViewPagerFragment> mFragments;
+    private final ViewPagerActivity mActivity;
 
     public MyPagerAdapter(ViewPagerActivity act, FragmentManager fm, List<Medium> media) {
         super(fm);
-        this.activity = act;
-        this.media = media;
-        fragments = new HashMap<>();
+        this.mActivity = act;
+        this.mMedia = media;
+        mFragments = new HashMap<>();
     }
 
     @Override
     public int getCount() {
-        return media.size();
+        return mMedia.size();
     }
 
     @Override
     public Fragment getItem(int position) {
-        final Medium medium = media.get(position);
+        final Medium medium = mMedia.get(position);
         final Bundle bundle = new Bundle();
         bundle.putSerializable(Constants.MEDIUM, medium);
         ViewPagerFragment fragment;
@@ -46,21 +46,21 @@ public class MyPagerAdapter extends FragmentStatePagerAdapter {
             fragment = new PhotoFragment();
         }
 
-        fragments.put(position, fragment);
+        mFragments.put(position, fragment);
         fragment.setArguments(bundle);
-        fragment.setListener(activity);
+        fragment.setListener(mActivity);
         return fragment;
     }
 
     public void itemDragged(int pos) {
-        if (fragments.get(pos) != null) {
-            fragments.get(pos).itemDragged();
+        if (mFragments.get(pos) != null) {
+            mFragments.get(pos).itemDragged();
         }
     }
 
     public void updateUiVisibility(boolean isFullscreen, int pos) {
         for (int i = -1; i <= 1; i++) {
-            ViewPagerFragment fragment = fragments.get(pos + i);
+            final ViewPagerFragment fragment = mFragments.get(pos + i);
             if (fragment != null) {
                 fragment.systemUiVisibilityChanged(isFullscreen);
             }
@@ -68,8 +68,8 @@ public class MyPagerAdapter extends FragmentStatePagerAdapter {
     }
 
     public void updateItems(List<Medium> newPaths) {
-        media.clear();
-        media.addAll(newPaths);
+        mMedia.clear();
+        mMedia.addAll(newPaths);
         notifyDataSetChanged();
     }
 }
