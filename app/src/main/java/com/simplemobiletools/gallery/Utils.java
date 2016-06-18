@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.Window;
 import android.widget.Toast;
@@ -19,12 +20,28 @@ public class Utils {
         Toast.makeText(context, context.getResources().getString(resId), Toast.LENGTH_SHORT).show();
     }
 
+    public static int getActionBarHeight(Context context, Resources res) {
+        final TypedValue tv = new TypedValue();
+        int height = 0;
+        if (context.getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
+            height = TypedValue.complexToDimensionPixelSize(tv.data, res.getDisplayMetrics());
+        }
+        return height;
+    }
+
+    public static int getStatusBarHeight(Resources res) {
+        int id = res.getIdentifier("status_bar_height", "dimen", "android");
+        if (id > 0) {
+            return res.getDimensionPixelSize(id);
+        }
+        return 0;
+    }
+
     public static int getNavBarHeight(Resources res) {
         int id = res.getIdentifier("navigation_bar_height", "dimen", "android");
         if (id > 0) {
             return res.getDimensionPixelSize(id);
         }
-
         return 0;
     }
 

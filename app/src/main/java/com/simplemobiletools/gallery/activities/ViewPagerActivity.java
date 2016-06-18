@@ -343,18 +343,15 @@ public class ViewPagerActivity extends AppCompatActivity
 
     private void addUndoMargin() {
         final Resources res = getResources();
-        final int height = Utils.getNavBarHeight(res);
         final RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) undoBtn.getLayoutParams();
+        final int topMargin = Utils.getStatusBarHeight(res) + Utils.getActionBarHeight(getApplicationContext(), res);
         int rightMargin = params.rightMargin;
-        int bottomMargin = params.bottomMargin;
 
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            bottomMargin = height;
-        } else {
-            rightMargin = height;
+        if (getResources().getConfiguration().orientation != Configuration.ORIENTATION_PORTRAIT) {
+            rightMargin += Utils.getNavBarHeight(res);
         }
 
-        params.setMargins(params.leftMargin, params.topMargin, rightMargin, bottomMargin);
+        params.setMargins(params.leftMargin, topMargin, rightMargin, params.bottomMargin);
     }
 
     @Override

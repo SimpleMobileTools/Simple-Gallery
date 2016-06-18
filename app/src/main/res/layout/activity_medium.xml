@@ -13,10 +13,10 @@
 
     <ImageView
         android:id="@+id/undo_delete"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_alignParentBottom="true"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
         android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
         android:padding="@dimen/undo_padding"
         android:src="@mipmap/undo"
         android:visibility="gone"/>
