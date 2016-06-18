@@ -132,13 +132,13 @@ public class MediaActivity extends AppCompatActivity
 
             if (cursor != null && cursor.moveToFirst()) {
                 final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
-                final int dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_TAKEN);
                 do {
                     final String curPath = cursor.getString(pathIndex);
                     if (curPath.matches(pattern) && !toBeDeleted.contains(curPath)) {
                         final File file = new File(curPath);
                         if (file.exists()) {
-                            final int timestamp = cursor.getInt(dateIndex);
+                            final int dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_TAKEN);
+                            final long timestamp = cursor.getLong(dateIndex);
                             myMedia.add(new Medium(curPath, (i == 1), timestamp));
                         } else {
                             invalidFiles.add(file.getAbsolutePath());

@@ -35,6 +35,7 @@ import com.simplemobiletools.gallery.models.Directory;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -126,7 +127,7 @@ public class MainActivity extends AppCompatActivity
 
     private void initializeGallery() {
         toBeDeleted = new ArrayList<>();
-        dirs = new ArrayList<>(getDirectories().values());
+        dirs = getDirectories();
         final DirectoryAdapter adapter = new DirectoryAdapter(this, dirs);
 
         gridView.setAdapter(adapter);
@@ -135,7 +136,7 @@ public class MainActivity extends AppCompatActivity
         gridView.setOnTouchListener(this);
     }
 
-    private Map<String, Directory> getDirectories() {
+    private List<Directory> getDirectories() {
         final Map<String, Directory> directories = new LinkedHashMap<>();
         final List<String> invalidFiles = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
@@ -149,7 +150,7 @@ public class MainActivity extends AppCompatActivity
 
                 uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
             }
-            final String[] columns = {MediaStore.Images.Media.DATA};
+            final String[] columns = {MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_TAKEN};
             final String order = MediaStore.Images.Media.DATE_MODIFIED + " DESC";
             final Cursor cursor = getContentResolver().query(uri, columns, null, null, order);
 
@@ -165,23 +166,28 @@ public class MainActivity extends AppCompatActivity
                         continue;
                     }
 
+                    final int dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_TAKEN);
+                    final long timestamp = cursor.getLong(dateIndex);
                     if (directories.containsKey(fileDir)) {
                         final Directory directory = directories.get(fileDir);
                         final int newImageCnt = directory.getMediaCnt() + 1;
                         directory.setMediaCnt(newImageCnt);
                     } else if (!toBeDeleted.contains(fileDir)) {
                         final String dirName = Utils.getFilename(fileDir);
-                        directories.put(fileDir, new Directory(fileDir, path, dirName, 1));
+                        directories.put(fileDir, new Directory(fileDir, path, dirName, 1, timestamp));
                     }
                 } while (cursor.moveToNext());
                 cursor.close();
             }
         }
 
+        final List<Directory> dirs = new ArrayList<>(directories.values());
+        Collections.sort(dirs);
+
         final String[] invalids = invalidFiles.toArray(new String[invalidFiles.size()]);
         MediaScannerConnection.scanFile(getApplicationContext(), invalids, null, null);
 
-        return directories;
+        return dirs;
     }
 
     private void prepareForDeleting() {
@@ -202,7 +208,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void notifyDeletion(int cnt) {
-        dirs = new ArrayList<>(getDirectories().values());
+        dirs = getDirectories();
 
         final CoordinatorLayout coordinator = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
         final Resources res = getResources();
@@ -250,7 +256,7 @@ public class MainActivity extends AppCompatActivity
             snackbar.dismiss();
             isSnackbarShown = false;
             toBeDeleted.clear();
-            dirs = new ArrayList<>(getDirectories().values());
+            dirs = getDirectories();
             updateGridView();
         }
     };
@@ -423,7 +429,7 @@ public class MainActivity extends AppCompatActivity
     private void scanCompleted(final String path) {
         final File dir = new File(path);
         if (dir.isDirectory()) {
-            dirs = new ArrayList<>(getDirectories().values());
+            dirs = getDirectories();
 
             runOnUiThread(new Runnable() {
                 @Override

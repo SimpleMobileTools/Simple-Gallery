@@ -6,9 +6,9 @@ public class Medium implements Serializable, Comparable {
     private static final long serialVersionUID = -6543139465975455L;
     private final String path;
     private final boolean isVideo;
-    private final int timestamp;
+    private final long timestamp;
 
-    public Medium(String path, boolean isVideo, int timestamp) {
+    public Medium(String path, boolean isVideo, long timestamp) {
         this.path = path;
         this.isVideo = isVideo;
         this.timestamp = timestamp;
@@ -22,13 +22,13 @@ public class Medium implements Serializable, Comparable {
         return isVideo;
     }
 
-    public int getTimestamp() {
+    public long getTimestamp() {
         return timestamp;
     }
 
     @Override
     public int compareTo(Object object) {
-        Medium medium = (Medium) object;
+        final Medium medium = (Medium) object;
         if (this.timestamp < medium.getTimestamp()) {
             return 1;
         } else if (this.timestamp > medium.getTimestamp()) {
