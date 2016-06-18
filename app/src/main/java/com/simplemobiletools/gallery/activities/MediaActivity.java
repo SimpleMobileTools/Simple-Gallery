@@ -30,6 +30,7 @@ import com.simplemobiletools.gallery.models.Medium;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -147,6 +148,8 @@ public class MediaActivity extends AppCompatActivity
                 cursor.close();
             }
         }
+
+        Collections.sort(myMedia);
 
         final String[] invalids = invalidFiles.toArray(new String[invalidFiles.size()]);
         MediaScannerConnection.scanFile(getApplicationContext(), invalids, null, null);
