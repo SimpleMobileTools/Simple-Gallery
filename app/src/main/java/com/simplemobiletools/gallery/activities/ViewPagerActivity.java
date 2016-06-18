@@ -29,6 +29,7 @@ import com.simplemobiletools.gallery.models.Medium;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -270,7 +271,6 @@ public class ViewPagerActivity extends AppCompatActivity
 
     private List<Medium> getMedia() {
         final List<Medium> myMedia = new ArrayList<>();
-        int j = 0;
         for (int i = 0; i < 2; i++) {
             Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
             if (i == 1) {
@@ -278,9 +278,8 @@ public class ViewPagerActivity extends AppCompatActivity
             }
             final String where = MediaStore.Images.Media.DATA + " like ? ";
             final String[] args = new String[]{directory + "%"};
-            final String[] columns = {MediaStore.Images.Media.DATA};
-            final String order = MediaStore.Images.Media.DATE_MODIFIED + " DESC";
-            final Cursor cursor = getContentResolver().query(uri, columns, where, args, order);
+            final String[] columns = {MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_TAKEN};
+            final Cursor cursor = getContentResolver().query(uri, columns, where, args, null);
             final String pattern = Pattern.quote(directory) + "/[^/]*";
 
             if (cursor != null && cursor.moveToFirst()) {
@@ -288,17 +287,23 @@ public class ViewPagerActivity extends AppCompatActivity
                 do {
                     final String curPath = cursor.getString(pathIndex);
                     if (curPath.matches(pattern) && !curPath.equals(toBeDeleted) && !curPath.equals(beingDeleted)) {
-                        myMedia.add(new Medium(curPath, i == 1, 0));
-
-                        if (curPath.equals(path)) {
-                            pos = j;
-                        }
-
-                        j++;
+                        final int dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_TAKEN);
+                        final long timestamp = cursor.getLong(dateIndex);
+                        myMedia.add(new Medium(curPath, i == 1, timestamp));
                     }
                 } while (cursor.moveToNext());
                 cursor.close();
             }
+        }
+
+        Collections.sort(myMedia);
+        int j = 0;
+        for (Medium medium : myMedia) {
+            if (medium.getPath().equals(path)) {
+                pos = j;
+                break;
+            }
+            j++;
         }
         return myMedia;
     }

@@ -126,8 +126,7 @@ public class MediaActivity extends AppCompatActivity
             final String where = MediaStore.Images.Media.DATA + " like ? ";
             final String[] args = new String[]{path + "%"};
             final String[] columns = {MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_TAKEN};
-            final String order = MediaStore.Images.Media.DATE_MODIFIED + " DESC";
-            final Cursor cursor = getContentResolver().query(uri, columns, where, args, order);
+            final Cursor cursor = getContentResolver().query(uri, columns, where, args, null);
             final String pattern = Pattern.quote(path) + "/[^/]*";
 
             if (cursor != null && cursor.moveToFirst()) {
