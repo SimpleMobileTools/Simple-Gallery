@@ -8,10 +8,13 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.simplemobiletools.gallery.models.Medium;
 import com.simplemobiletools.gallery.R;
+import com.simplemobiletools.gallery.models.Medium;
 
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class MediaAdapter extends BaseAdapter {
     private final Context context;
@@ -29,15 +32,17 @@ public class MediaAdapter extends BaseAdapter {
         final Medium medium = media.get(position);
         ViewHolder holder;
         if (view == null) {
-            int layout = R.layout.photo_item;
-            if (medium.getIsVideo()) {
-                layout = R.layout.video_item;
-            }
-            view = inflater.inflate(layout, parent, false);
+            view = inflater.inflate(R.layout.video_item, parent, false);
             holder = new ViewHolder(view);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
+        }
+
+        if (medium.getIsVideo()) {
+            holder.playOutline.setVisibility(View.VISIBLE);
+        } else {
+            holder.playOutline.setVisibility(View.GONE);
         }
 
         final String path = medium.getPath();
@@ -68,10 +73,11 @@ public class MediaAdapter extends BaseAdapter {
     }
 
     static class ViewHolder {
-        ImageView photoThumbnail;
+        @BindView(R.id.medium_thumbnail) ImageView photoThumbnail;
+        @BindView(R.id.play_outline) ImageView playOutline;
 
         public ViewHolder(View view) {
-            photoThumbnail = (ImageView) view.findViewById(R.id.medium_thumbnail);
+            ButterKnife.bind(this, view);
         }
     }
 }
