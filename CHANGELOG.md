@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+Version 1.5 *(2016-06-18)*
+----------------------------
+
+ * Sort the items only by timestamp, not by type
+
 Version 1.4 *(2016-06-15)*
 ----------------------------
 
