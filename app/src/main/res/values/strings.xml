@@ -32,10 +32,11 @@
 
     <!-- About -->
     <string name="about">About</string>
-    <string name="website">For more simple apps or source codes please visit:\nhttp://simplemobiletools.com</string>
-    <string name="email_label">You can send your feedback or new app suggestions at:</string>
+    <string name="website">More simple apps and source code at:\nhttp://simplemobiletools.com</string>
+    <string name="email_label">Send your feedback or suggestions at:</string>
     <string name="email">hello@simplemobiletools.com</string>
     <string name="third_party_licences_underlined"><u>Third party licences</u></string>
+    <string name="follow_us">Follow us at:</string>
     <string name="version">v %1$s</string>
     <string name="copyright">Copyright © Simple Mobile Tools %1$d</string>
 

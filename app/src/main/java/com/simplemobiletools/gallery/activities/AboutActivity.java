@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.activities;
 
 import android.content.Intent;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
@@ -60,5 +61,16 @@ public class AboutActivity extends AppCompatActivity {
     public void licenseClicked() {
         final Intent intent = new Intent(getApplicationContext(), LicenseActivity.class);
         startActivity(intent);
+    }
+
+    @OnClick(R.id.about_facebook)
+    public void facebookClicked() {
+        String link = "https://www.facebook.com/simplemobiletools";
+        try {
+            getPackageManager().getPackageInfo("com.facebook.katana", 0);
+            link = "fb://page/150270895341774";
+        } catch (Exception ignored) {
+        }
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(link)));
     }
 }
