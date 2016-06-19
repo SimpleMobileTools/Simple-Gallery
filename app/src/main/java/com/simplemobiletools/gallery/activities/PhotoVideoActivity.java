@@ -40,10 +40,13 @@ public class PhotoVideoActivity extends AppCompatActivity implements ViewPagerFr
         final Bundle bundle = new Bundle();
         final Medium medium = new Medium(mUri.toString(), mIsVideo, 0);
         bundle.putSerializable(Constants.MEDIUM, medium);
-        final ViewPagerFragment fragment = (mIsVideo ? new VideoFragment() : new PhotoFragment());
-        fragment.setListener(this);
-        fragment.setArguments(bundle);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder, fragment).commit();
+
+        if (savedInstanceState == null) {
+            final ViewPagerFragment fragment = (mIsVideo ? new VideoFragment() : new PhotoFragment());
+            fragment.setListener(this);
+            fragment.setArguments(bundle);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder, fragment).commit();
+        }
         hideSystemUI();
         setTitle(Utils.getFilename(mUri.toString()));
     }
