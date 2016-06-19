@@ -26,16 +26,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/actionbar_grey"
-        android:paddingBottom="@dimen/activity_margin"
         android:paddingLeft="@dimen/timer_padding"
-        android:paddingRight="@dimen/timer_padding"
-        android:paddingTop="@dimen/activity_margin">
+        android:paddingRight="@dimen/timer_padding">
 
         <TextView
             android:id="@+id/video_curr_time"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@+id/video_seekbar"
             android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/video_seekbar"
+            android:gravity="center_vertical"
             android:text="00:00"
             android:textColor="@android:color/white"/>
 
@@ -46,16 +47,20 @@
             android:layout_marginLeft="@dimen/activity_margin"
             android:layout_marginRight="@dimen/activity_margin"
             android:layout_toLeftOf="@+id/video_duration"
-            android:layout_toRightOf="@+id/video_curr_time"/>
+            android:layout_toRightOf="@+id/video_curr_time"
+            android:paddingBottom="@dimen/activity_margin"
+            android:paddingTop="@dimen/activity_margin"/>
 
         <TextView
             android:id="@+id/video_duration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/video_seekbar"
             android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/video_seekbar"
+            android:gravity="center_vertical"
             android:text="00:00"
             android:textColor="@android:color/white"/>
 
     </RelativeLayout>
-
 </RelativeLayout>
