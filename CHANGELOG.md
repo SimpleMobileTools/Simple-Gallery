@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+Version 1.6 *(2016-06-19)*
+----------------------------
+
+ * Add a Facebook page link to the About section
+
 Version 1.5 *(2016-06-18)*
 ----------------------------
 
