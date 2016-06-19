@@ -50,6 +50,9 @@
             android:screenOrientation="portrait"/>
 
         <activity
+            android:name=".activities.PhotoVideoActivity"/>
+
+        <activity
             android:name=".activities.PhotoActivity"
             android:theme="@style/FullScreenTheme">
             <intent-filter>
