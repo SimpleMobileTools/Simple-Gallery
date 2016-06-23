@@ -24,9 +24,9 @@ public class LicenseActivity extends AppCompatActivity {
         openUrl(R.string.butterknife_url);
     }
 
-    @OnClick(R.id.license_subsampling_title)
-    public void subsamplingClicked() {
-        openUrl(R.string.subsampling_url);
+    @OnClick(R.id.license_photoview_title)
+    public void photoViewClicked() {
+        openUrl(R.string.photoview_url);
     }
 
     private void openUrl(int id) {

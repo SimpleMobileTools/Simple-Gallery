@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
+<uk.co.senab.photoview.PhotoView
     android:id="@+id/photo_view"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"

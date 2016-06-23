@@ -32,18 +32,18 @@
             android:text="@string/butterknife_text"/>
 
         <TextView
-            android:id="@+id/license_subsampling_title"
+            android:id="@+id/license_photoview_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/activity_margin"
-            android:text="@string/subsampling_title"
+            android:text="@string/photoview_title"
             android:textColor="@color/colorPrimary"/>
 
         <TextView
-            android:id="@+id/license_subsampling_text"
+            android:id="@+id/license_photoview_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/subsampling_text"/>
+            android:text="@string/photoview_text"/>
 
         <TextView
             android:id="@+id/license_glide_title"
