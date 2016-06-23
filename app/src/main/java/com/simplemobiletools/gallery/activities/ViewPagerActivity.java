@@ -18,6 +18,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.MyViewPager;
@@ -207,6 +208,9 @@ public class ViewPagerActivity extends AppCompatActivity
 
         final EditText extensionET = (EditText) renameFileView.findViewById(R.id.extension);
         extensionET.setText(extension);
+
+        final TextView filePath = (TextView) renameFileView.findViewById(R.id.file_path);
+        filePath.setText(file.getParent() + "/");
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getResources().getString(R.string.rename_file));
