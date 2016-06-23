@@ -1,6 +1,13 @@
 Change Log
 ==========
 
+Version 1.7 *(2016-06-23)*
+----------------------------
+
+ * Increased the video seekbar height for easier interaction
+ * Made loading of images in detail screen faster
+ * Added file/directory path at the Edit dialog
+
 Version 1.6 *(2016-06-19)*
 ----------------------------
 
