@@ -15,8 +15,6 @@
     <string name="rename_folder_empty">Folder name must not be empty</string>
     <string name="rename_folder_ok">Folder renamed successfully</string>
     <string name="renaming_folder">Renaming folder</string>
-    <string name="file_name">File name</string>
-    <string name="folder_name">Folder name</string>
     <string name="extension">Extension</string>
     <string name="file_deleted">File deleted</string>
 

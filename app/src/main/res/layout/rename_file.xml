@@ -9,14 +9,7 @@
     <TextView
         android:id="@+id/file_path"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/activity_margin"/>
-
-    <TextView
-        android:id="@+id/file_name_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/file_name"/>
+        android:layout_height="wrap_content"/>
 
     <EditText
         android:id="@+id/file_name"

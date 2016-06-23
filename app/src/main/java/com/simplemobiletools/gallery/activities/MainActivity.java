@@ -26,6 +26,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.R;
@@ -283,13 +284,16 @@ public class MainActivity extends AppCompatActivity
     private void renameDir(final String path) {
         final File dir = new File(path);
 
-        final View renameFileView = getLayoutInflater().inflate(R.layout.rename_directory, null);
-        final EditText dirNameET = (EditText) renameFileView.findViewById(R.id.directory_name);
+        final View renameDirView = getLayoutInflater().inflate(R.layout.rename_directory, null);
+        final EditText dirNameET = (EditText) renameDirView.findViewById(R.id.directory_name);
         dirNameET.setText(dir.getName());
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getResources().getString(R.string.rename_folder));
-        builder.setView(renameFileView);
+        builder.setView(renameDirView);
+
+        final TextView dirPath = (TextView) renameDirView.findViewById(R.id.directory_path);
+        dirPath.setText(dir.getParent() + "/");
 
         builder.setPositiveButton("OK", null);
         builder.setNegativeButton("Cancel", null);
