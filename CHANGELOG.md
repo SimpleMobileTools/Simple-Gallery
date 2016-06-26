@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+Version 1.8 *(2016-06---)*
+----------------------------
+
+ * Allow setting Wallpaper with the app
+
 Version 1.7 *(2016-06-23)*
 ----------------------------
 
