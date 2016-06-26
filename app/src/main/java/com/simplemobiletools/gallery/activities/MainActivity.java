@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity
 
     private static final int STORAGE_PERMISSION = 1;
     private static final int PICK_MEDIA = 2;
+    private static final int PICK_WALLPAPER = 3;
 
     private static List<Directory> mDirs;
     private static Snackbar mSnackbar;
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity
     private static boolean mIsSnackbarShown;
     private static boolean mIsPickImageIntent;
     private static boolean mIsPickVideoIntent;
+    private static boolean mIsSetWallpaperIntent;
     private static int mSelectedItemsCnt;
 
     @Override
@@ -67,12 +69,18 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        mIsPickImageIntent = isPickImageIntent(getIntent());
-        mIsPickVideoIntent = isPickVideoIntent(getIntent());
+
+        final Intent intent = getIntent();
+        mIsPickImageIntent = isPickImageIntent(intent);
+        mIsPickVideoIntent = isPickVideoIntent(intent);
+        mIsSetWallpaperIntent = isSetWallpaperIntent(intent);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        if (mIsSetWallpaperIntent)
+            return false;
+
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
@@ -352,13 +360,22 @@ public class MainActivity extends AppCompatActivity
         return intent != null && intent.getAction() != null && intent.getAction().equals(Intent.ACTION_PICK) && intent.getData() != null;
     }
 
+    private boolean isSetWallpaperIntent(Intent intent) {
+        return intent != null && intent.getAction() != null && intent.getAction().equals(Intent.ACTION_SET_WALLPAPER);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == PICK_MEDIA && resultCode == RESULT_OK && data != null) {
-            final Intent result = new Intent();
-            result.setData(data.getData());
-            setResult(RESULT_OK, result);
-            finish();
+        if (resultCode == RESULT_OK) {
+            if (requestCode == PICK_MEDIA && data != null) {
+                final Intent result = new Intent();
+                result.setData(data.getData());
+                setResult(RESULT_OK, result);
+                finish();
+            } else if (requestCode == PICK_WALLPAPER) {
+                setResult(RESULT_OK);
+                finish();
+            }
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
@@ -367,9 +384,15 @@ public class MainActivity extends AppCompatActivity
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         final Intent intent = new Intent(this, MediaActivity.class);
         intent.putExtra(Constants.DIRECTORY, mDirs.get(position).getPath());
-        intent.putExtra(Constants.PICK_IMAGE_INTENT, mIsPickImageIntent);
-        intent.putExtra(Constants.PICK_VIDEO_INTENT, mIsPickVideoIntent);
-        startActivityForResult(intent, PICK_MEDIA);
+
+        if (mIsSetWallpaperIntent) {
+            intent.putExtra(Constants.SET_WALLPAPER_INTENT, true);
+            startActivityForResult(intent, PICK_WALLPAPER);
+        } else {
+            intent.putExtra(Constants.PICK_IMAGE_INTENT, mIsPickImageIntent);
+            intent.putExtra(Constants.PICK_VIDEO_INTENT, mIsPickVideoIntent);
+            startActivityForResult(intent, PICK_MEDIA);
+        }
     }
 
     @Override

@@ -1,8 +1,10 @@
 package com.simplemobiletools.gallery.activities;
 
+import android.app.WallpaperManager;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
@@ -12,6 +14,7 @@ import android.provider.MediaStore;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
 import android.view.Menu;
@@ -22,6 +25,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
@@ -29,6 +35,7 @@ import com.simplemobiletools.gallery.adapters.MediaAdapter;
 import com.simplemobiletools.gallery.models.Medium;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -39,6 +46,7 @@ import butterknife.ButterKnife;
 
 public class MediaActivity extends AppCompatActivity
         implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener {
+    private static final String TAG = MediaActivity.class.getSimpleName();
     @BindView(R.id.media_grid) GridView mGridView;
 
     private static List<Medium> mMedia;
@@ -247,16 +255,44 @@ public class MediaActivity extends AppCompatActivity
         }
     }
 
+    private boolean isSetWallpaperIntent() {
+        return getIntent().getBooleanExtra(Constants.SET_WALLPAPER_INTENT, false);
+    }
+
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        if (mIsPickImageIntent || mIsPickVideoIntent) {
+        final String curItemPath = mMedia.get(position).getPath();
+        if (isSetWallpaperIntent()) {
+            Utils.showToast(this, R.string.setting_wallpaper);
+
+            final int wantedWidth = getWallpaperDesiredMinimumWidth();
+            final int wantedHeight = getWallpaperDesiredMinimumHeight();
+            final float ratio = (float) wantedWidth / wantedHeight;
+            Glide.with(this)
+                    .load(new File(curItemPath))
+                    .asBitmap()
+                    .override((int) (wantedWidth * ratio), wantedHeight)
+                    .fitCenter()
+                    .into(new SimpleTarget<Bitmap>() {
+                        @Override
+                        public void onResourceReady(Bitmap bitmap, GlideAnimation anim) {
+                            try {
+                                WallpaperManager.getInstance(getApplicationContext()).setBitmap(bitmap);
+                                setResult(RESULT_OK);
+                            } catch (IOException e) {
+                                Log.e(TAG, "item click " + e.getMessage());
+                            }
+                            finish();
+                        }
+                    });
+        } else if (mIsPickImageIntent || mIsPickVideoIntent) {
             final Intent result = new Intent();
-            result.setData(Uri.parse(mMedia.get(position).getPath()));
+            result.setData(Uri.parse(curItemPath));
             setResult(RESULT_OK, result);
             finish();
         } else {
             final Intent intent = new Intent(this, ViewPagerActivity.class);
-            intent.putExtra(Constants.MEDIUM, mMedia.get(position).getPath());
+            intent.putExtra(Constants.MEDIUM, curItemPath);
             startActivity(intent);
         }
     }
