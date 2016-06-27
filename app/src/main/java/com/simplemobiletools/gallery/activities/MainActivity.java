@@ -373,11 +373,13 @@ public class MainActivity extends AppCompatActivity
     }
 
     private boolean isGetImageContentIntent(Intent intent) {
-        return isGetContentIntent(intent) && intent.getType().startsWith("image/");
+        return isGetContentIntent(intent) &&
+                (intent.getType().startsWith("image/") || intent.getType().equals(MediaStore.Images.Media.CONTENT_TYPE));
     }
 
     private boolean isGetVideoContentIntent(Intent intent) {
-        return isGetContentIntent(intent) && intent.getType().startsWith("video/");
+        return isGetContentIntent(intent) &&
+                (intent.getType().startsWith("video/") || intent.getType().equals(MediaStore.Video.Media.CONTENT_TYPE));
     }
 
     private boolean isSetWallpaperIntent(Intent intent) {
