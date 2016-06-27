@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity
         mIsGetImageContentIntent = isGetImageContentIntent(intent);
         mIsGetVideoContentIntent = isGetVideoContentIntent(intent);
         mIsSetWallpaperIntent = isSetWallpaperIntent(intent);
+
         mIsThirdPartyIntent = mIsPickImageIntent || mIsPickVideoIntent || mIsGetImageContentIntent || mIsGetVideoContentIntent ||
                 mIsSetWallpaperIntent;
     }
@@ -356,20 +357,20 @@ public class MainActivity extends AppCompatActivity
     }
 
     private boolean isPickImageIntent(Intent intent) {
-        return isPickIntent(intent) && intent.getData().equals(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        return isPickIntent(intent) && (hasImageContentData(intent) || isImageType(intent));
     }
 
     private boolean isPickVideoIntent(Intent intent) {
-        return isPickIntent(intent) && intent.getData().equals(MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
+        return isPickIntent(intent) && (hasVideoContentData(intent) || isVideoType(intent));
     }
 
     private boolean isPickIntent(Intent intent) {
-        return intent != null && intent.getAction() != null && intent.getAction().equals(Intent.ACTION_PICK) && intent.getData() != null;
+        return intent != null && intent.getAction() != null && intent.getAction().equals(Intent.ACTION_PICK);
     }
 
     private boolean isGetContentIntent(Intent intent) {
         return intent != null && intent.getAction() != null && intent.getAction().equals(Intent.ACTION_GET_CONTENT) &&
-                !intent.getType().isEmpty();
+                intent.getType() != null;
     }
 
     private boolean isGetImageContentIntent(Intent intent) {
@@ -386,19 +387,40 @@ public class MainActivity extends AppCompatActivity
         return intent != null && intent.getAction() != null && intent.getAction().equals(Intent.ACTION_SET_WALLPAPER);
     }
 
+    private boolean hasImageContentData(Intent intent) {
+        final Uri data = intent.getData();
+        return data != null && data.equals(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+    }
+
+    private boolean hasVideoContentData(Intent intent) {
+        final Uri data = intent.getData();
+        return data != null && data.equals(MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
+    }
+
+    private boolean isImageType(Intent intent) {
+        final String type = intent.getType();
+        return type != null && (type.startsWith("image/") || type.equals(MediaStore.Images.Media.CONTENT_TYPE));
+    }
+
+    private boolean isVideoType(Intent intent) {
+        final String type = intent.getType();
+        return type != null && (type.startsWith("video/") || type.equals(MediaStore.Video.Media.CONTENT_TYPE));
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
             if (requestCode == PICK_MEDIA && data != null) {
                 final Intent result = new Intent();
+                final String path = data.getData().getPath();
+                final Uri uri = Uri.fromFile(new File(path));
                 if (mIsGetImageContentIntent || mIsGetVideoContentIntent) {
-                    final String path = data.getData().getPath();
-                    final Uri uri = Uri.fromFile(new File(path));
                     final String type = Utils.getMimeType(path);
                     result.setDataAndTypeAndNormalize(uri, type);
                     result.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-                } else {
-                    result.setData(data.getData());
+                } else if (mIsPickImageIntent || mIsPickVideoIntent) {
+                    result.setData(uri);
+                    result.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 }
 
                 setResult(RESULT_OK, result);
