@@ -1,10 +1,11 @@
 Change Log
 ==========
 
-Version 1.8 *(2016-06---)*
+Version 1.8 *(2016-06-27)*
 ----------------------------
 
  * Allow setting Wallpaper with the app
+ * Add Google Plus link in About section
 
 Version 1.7 *(2016-06-23)*
 ----------------------------
