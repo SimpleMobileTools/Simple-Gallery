@@ -55,6 +55,15 @@
         android:layout_below="@+id/about_follow_us"
         android:src="@mipmap/facebook"/>
 
+    <ImageView
+        android:id="@+id/about_gplus"
+        android:layout_width="@dimen/social_logo"
+        android:layout_height="@dimen/social_logo"
+        android:layout_below="@+id/about_follow_us"
+        android:layout_marginLeft="@dimen/social_padding"
+        android:layout_toRightOf="@+id/about_facebook"
+        android:src="@mipmap/gplus"/>
+
     <TextView
         android:id="@+id/about_version"
         android:layout_width="match_parent"

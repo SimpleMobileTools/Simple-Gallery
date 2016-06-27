@@ -73,4 +73,10 @@ public class AboutActivity extends AppCompatActivity {
         }
         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(link)));
     }
+
+    @OnClick(R.id.about_gplus)
+    public void googlePlusClicked() {
+        final String link = "https://plus.google.com/communities/104880861558693868382";
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(link)));
+    }
 }
