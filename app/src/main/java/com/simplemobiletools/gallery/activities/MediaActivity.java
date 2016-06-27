@@ -56,8 +56,8 @@ public class MediaActivity extends AppCompatActivity
     private static Parcelable mState;
 
     private static boolean mIsSnackbarShown;
-    private static boolean mIsPickImageIntent;
-    private static boolean mIsPickVideoIntent;
+    private static boolean mIsGetImageIntent;
+    private static boolean mIsGetVideoIntent;
     private static int mSelectedItemsCnt;
 
     @Override
@@ -65,8 +65,8 @@ public class MediaActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_media);
         ButterKnife.bind(this);
-        mIsPickImageIntent = getIntent().getBooleanExtra(Constants.PICK_IMAGE_INTENT, false);
-        mIsPickVideoIntent = getIntent().getBooleanExtra(Constants.PICK_VIDEO_INTENT, false);
+        mIsGetImageIntent = getIntent().getBooleanExtra(Constants.GET_IMAGE_INTENT, false);
+        mIsGetVideoIntent = getIntent().getBooleanExtra(Constants.GET_VIDEO_INTENT, false);
     }
 
     @Override
@@ -122,12 +122,12 @@ public class MediaActivity extends AppCompatActivity
         final List<Medium> media = new ArrayList<>();
         final List<String> invalidFiles = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
-            if (mIsPickVideoIntent && i == 0)
+            if (mIsGetVideoIntent && i == 0)
                 continue;
 
             Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
             if (i == 1) {
-                if (mIsPickImageIntent)
+                if (mIsGetImageIntent)
                     continue;
 
                 uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
@@ -285,7 +285,7 @@ public class MediaActivity extends AppCompatActivity
                             finish();
                         }
                     });
-        } else if (mIsPickImageIntent || mIsPickVideoIntent) {
+        } else if (mIsGetImageIntent || mIsGetVideoIntent) {
             final Intent result = new Intent();
             result.setData(Uri.parse(curItemPath));
             setResult(RESULT_OK, result);

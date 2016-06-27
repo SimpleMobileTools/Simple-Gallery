@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBar;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.Window;
+import android.webkit.MimeTypeMap;
 import android.widget.Toast;
 
 public class Utils {
@@ -52,6 +53,14 @@ public class Utils {
 
     public static boolean hasStoragePermission(Context cxt) {
         return ContextCompat.checkSelfPermission(cxt, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    public static String getMimeType(String url) {
+        final String extension = MimeTypeMap.getFileExtensionFromUrl(url);
+        if (extension != null) {
+            return MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
+        }
+        return "";
     }
 
     public static void showSystemUI(ActionBar actionbar, Window window) {

@@ -61,7 +61,10 @@ public class MainActivity extends AppCompatActivity
     private static boolean mIsSnackbarShown;
     private static boolean mIsPickImageIntent;
     private static boolean mIsPickVideoIntent;
+    private static boolean mIsGetImageContentIntent;
+    private static boolean mIsGetVideoContentIntent;
     private static boolean mIsSetWallpaperIntent;
+    private static boolean mIsThirdPartyIntent;
     private static int mSelectedItemsCnt;
 
     @Override
@@ -73,12 +76,16 @@ public class MainActivity extends AppCompatActivity
         final Intent intent = getIntent();
         mIsPickImageIntent = isPickImageIntent(intent);
         mIsPickVideoIntent = isPickVideoIntent(intent);
+        mIsGetImageContentIntent = isGetImageContentIntent(intent);
+        mIsGetVideoContentIntent = isGetVideoContentIntent(intent);
         mIsSetWallpaperIntent = isSetWallpaperIntent(intent);
+        mIsThirdPartyIntent = mIsPickImageIntent || mIsPickVideoIntent || mIsGetImageContentIntent || mIsGetVideoContentIntent ||
+                mIsSetWallpaperIntent;
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        if (mIsSetWallpaperIntent)
+        if (mIsThirdPartyIntent)
             return false;
 
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -150,12 +157,12 @@ public class MainActivity extends AppCompatActivity
         final Map<String, Directory> directories = new LinkedHashMap<>();
         final List<String> invalidFiles = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
-            if (mIsPickVideoIntent && i == 0)
+            if ((mIsPickVideoIntent || mIsGetVideoContentIntent) && i == 0)
                 continue;
 
             Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
             if (i == 1) {
-                if (mIsPickImageIntent)
+                if (mIsPickImageIntent || mIsGetImageContentIntent)
                     continue;
 
                 uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
@@ -360,6 +367,19 @@ public class MainActivity extends AppCompatActivity
         return intent != null && intent.getAction() != null && intent.getAction().equals(Intent.ACTION_PICK) && intent.getData() != null;
     }
 
+    private boolean isGetContentIntent(Intent intent) {
+        return intent != null && intent.getAction() != null && intent.getAction().equals(Intent.ACTION_GET_CONTENT) &&
+                !intent.getType().isEmpty();
+    }
+
+    private boolean isGetImageContentIntent(Intent intent) {
+        return isGetContentIntent(intent) && intent.getType().startsWith("image/");
+    }
+
+    private boolean isGetVideoContentIntent(Intent intent) {
+        return isGetContentIntent(intent) && intent.getType().startsWith("video/");
+    }
+
     private boolean isSetWallpaperIntent(Intent intent) {
         return intent != null && intent.getAction() != null && intent.getAction().equals(Intent.ACTION_SET_WALLPAPER);
     }
@@ -369,7 +389,16 @@ public class MainActivity extends AppCompatActivity
         if (resultCode == RESULT_OK) {
             if (requestCode == PICK_MEDIA && data != null) {
                 final Intent result = new Intent();
-                result.setData(data.getData());
+                if (mIsGetImageContentIntent || mIsGetVideoContentIntent) {
+                    final String path = data.getData().getPath();
+                    final Uri uri = Uri.fromFile(new File(path));
+                    final String type = Utils.getMimeType(path);
+                    result.setDataAndTypeAndNormalize(uri, type);
+                    result.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                } else {
+                    result.setData(data.getData());
+                }
+
                 setResult(RESULT_OK, result);
                 finish();
             } else if (requestCode == PICK_WALLPAPER) {
@@ -389,8 +418,8 @@ public class MainActivity extends AppCompatActivity
             intent.putExtra(Constants.SET_WALLPAPER_INTENT, true);
             startActivityForResult(intent, PICK_WALLPAPER);
         } else {
-            intent.putExtra(Constants.PICK_IMAGE_INTENT, mIsPickImageIntent);
-            intent.putExtra(Constants.PICK_VIDEO_INTENT, mIsPickVideoIntent);
+            intent.putExtra(Constants.GET_IMAGE_INTENT, mIsPickImageIntent || mIsGetImageContentIntent);
+            intent.putExtra(Constants.GET_VIDEO_INTENT, mIsPickVideoIntent || mIsGetVideoContentIntent);
             startActivityForResult(intent, PICK_MEDIA);
         }
     }
