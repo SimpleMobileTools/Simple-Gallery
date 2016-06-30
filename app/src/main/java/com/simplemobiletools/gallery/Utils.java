@@ -1,13 +1,20 @@
 package com.simplemobiletools.gallery;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
+import android.view.Display;
+import android.view.KeyCharacterMap;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.Window;
 import android.webkit.MimeTypeMap;
 import android.widget.Toast;
@@ -46,9 +53,28 @@ public class Utils {
         return 0;
     }
 
-    public static boolean hasNavBar(Resources res) {
-        int id = res.getIdentifier("config_showNavigationBar", "bool", "android");
-        return id > 0 && res.getBoolean(id);
+    public static boolean hasNavBar(Activity act) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            Display display = act.getWindowManager().getDefaultDisplay();
+
+            DisplayMetrics realDisplayMetrics = new DisplayMetrics();
+            display.getRealMetrics(realDisplayMetrics);
+
+            int realHeight = realDisplayMetrics.heightPixels;
+            int realWidth = realDisplayMetrics.widthPixels;
+
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            display.getMetrics(displayMetrics);
+
+            int displayHeight = displayMetrics.heightPixels;
+            int displayWidth = displayMetrics.widthPixels;
+
+            return (realWidth - displayWidth) > 0 || (realHeight - displayHeight) > 0;
+        } else {
+            boolean hasMenuKey = ViewConfiguration.get(act).hasPermanentMenuKey();
+            boolean hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK);
+            return !hasMenuKey && !hasBackKey;
+        }
     }
 
     public static boolean hasStoragePermission(Context cxt) {

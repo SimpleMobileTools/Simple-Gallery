@@ -13,8 +13,8 @@
 
     <ImageView
         android:id="@+id/undo_delete"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+        android:layout_width="@dimen/undo_size"
+        android:layout_height="@dimen/undo_size"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:padding="@dimen/undo_padding"

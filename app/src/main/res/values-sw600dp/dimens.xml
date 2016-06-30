@@ -1,0 +1,14 @@
+<resources>
+    <dimen name="dir_tmb_size">200dp</dimen>
+    <dimen name="medium_tmb_size">150dp</dimen>
+    <dimen name="play_outline_size">60dp</dimen>
+    <dimen name="play_outline_size_big">240dp</dimen>
+    <dimen name="undo_padding">16dp</dimen>
+    <dimen name="timer_padding">32dp</dimen>
+    <dimen name="social_padding">12dp</dimen>
+    <dimen name="social_logo">50dp</dimen>
+    <dimen name="tmb_shadow_height">60dp</dimen>
+    <dimen name="undo_size">64dp</dimen>
+
+    <dimen name="normal_text_size">18sp</dimen>
+</resources>

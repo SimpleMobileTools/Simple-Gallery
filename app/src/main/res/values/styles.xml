@@ -5,6 +5,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="actionBarStyle">@style/AppTheme.ActionBarStyle</item>
+        <item name="android:textSize">@dimen/normal_text_size</item>
     </style>
 
     <style name="FullScreenTheme.Base" parent="AppTheme">
