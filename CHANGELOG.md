@@ -1,5 +1,11 @@
-Change Log
+Changelog
 ==========
+
+Version 1.9 *(2016-07-01)*
+----------------------------
+
+ * Adjust everything properly if used on a tablet
+ * Show a Rate us button to returning users
 
 Version 1.8 *(2016-06-27)*
 ----------------------------
