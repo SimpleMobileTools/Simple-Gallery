@@ -1,6 +1,6 @@
 <resources>
-    <dimen name="dir_tmb_size">200dp</dimen>
-    <dimen name="medium_tmb_size">150dp</dimen>
+    <dimen name="dir_tmb_size">150dp</dimen>
+    <dimen name="medium_tmb_size">120dp</dimen>
     <dimen name="play_outline_size">60dp</dimen>
     <dimen name="play_outline_size_big">240dp</dimen>
     <dimen name="undo_padding">16dp</dimen>
