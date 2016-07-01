@@ -29,10 +29,20 @@
         android:text="@string/email"/>
 
     <TextView
-        android:id="@+id/about_license"
+        android:id="@+id/about_rate_us"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/about_email"
+        android:layout_marginTop="@dimen/activity_margin"
+        android:paddingTop="@dimen/activity_margin"
+        android:text="@string/rate_us_underlined"
+        android:textColor="@color/colorPrimary"/>
+
+    <TextView
+        android:id="@+id/about_license"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/about_rate_us"
         android:layout_marginTop="@dimen/activity_margin"
         android:paddingBottom="@dimen/activity_margin"
         android:paddingTop="@dimen/activity_margin"

@@ -28,6 +28,7 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import com.simplemobiletools.gallery.Config;
 import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
@@ -119,6 +120,12 @@ public class MainActivity extends AppCompatActivity
         deleteDirs();
         if (mGridView != null)
             mState = mGridView.onSaveInstanceState();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Config.newInstance(getApplicationContext()).setIsFirstRun(false);
     }
 
     private void tryloadGallery() {
