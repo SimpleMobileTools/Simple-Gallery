@@ -88,6 +88,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:gravity="center_horizontal"
-        android:text="Copyright © Simple Mobile Tools 2000"/>
+        android:text="Copyright © Simple Mobile Tools 2016"/>
 
 </RelativeLayout>
