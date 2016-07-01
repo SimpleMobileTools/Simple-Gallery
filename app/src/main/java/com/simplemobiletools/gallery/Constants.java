@@ -8,6 +8,6 @@ public class Constants {
     public static final String SET_WALLPAPER_INTENT = "set_wallpaper_intent";
 
     // shared preferences
-    public static final String PREFS_KEY = "gallery";
+    public static final String PREFS_KEY = "Gallery";
     public static final String IS_FIRST_RUN = "is_first_run";
 }
