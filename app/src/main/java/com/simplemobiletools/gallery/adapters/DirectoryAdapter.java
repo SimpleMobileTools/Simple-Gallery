@@ -23,20 +23,20 @@ public class DirectoryAdapter extends BaseAdapter {
     private final LayoutInflater mInflater;
 
     public DirectoryAdapter(Context context, List<Directory> dirs) {
-        this.mContext = context;
-        this.mDirs = dirs;
-        this.mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        mContext = context;
+        mDirs = dirs;
+        mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
-    public View getView(int position, View view, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
-        if (view == null) {
-            view = mInflater.inflate(R.layout.directory_item, parent, false);
-            holder = new ViewHolder(view);
-            view.setTag(holder);
+        if (convertView == null) {
+            convertView = mInflater.inflate(R.layout.directory_item, parent, false);
+            holder = new ViewHolder(convertView);
+            convertView.setTag(holder);
         } else {
-            holder = (ViewHolder) view.getTag();
+            holder = (ViewHolder) convertView.getTag();
         }
 
         final Directory dir = mDirs.get(position);
@@ -45,7 +45,7 @@ public class DirectoryAdapter extends BaseAdapter {
         Glide.with(mContext).load(dir.getThumbnail()).placeholder(R.color.tmb_background).centerCrop().crossFade()
                 .into(holder.dirThumbnail);
 
-        return view;
+        return convertView;
     }
 
     @Override

@@ -23,8 +23,8 @@ public class MyPagerAdapter extends FragmentStatePagerAdapter {
 
     public MyPagerAdapter(ViewPagerActivity act, FragmentManager fm, List<Medium> media) {
         super(fm);
-        this.mActivity = act;
-        this.mMedia = media;
+        mActivity = act;
+        mMedia = media;
         mFragments = new HashMap<>();
     }
 

@@ -22,21 +22,21 @@ public class MediaAdapter extends BaseAdapter {
     private final LayoutInflater mInflater;
 
     public MediaAdapter(Context context, List<Medium> media) {
-        this.mContext = context;
-        this.mMedia = media;
-        this.mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        mContext = context;
+        mMedia = media;
+        mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
-    public View getView(int position, View view, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
         final Medium medium = mMedia.get(position);
         ViewHolder holder;
-        if (view == null) {
-            view = mInflater.inflate(R.layout.video_item, parent, false);
-            holder = new ViewHolder(view);
-            view.setTag(holder);
+        if (convertView == null) {
+            convertView = mInflater.inflate(R.layout.video_item, parent, false);
+            holder = new ViewHolder(convertView);
+            convertView.setTag(holder);
         } else {
-            holder = (ViewHolder) view.getTag();
+            holder = (ViewHolder) convertView.getTag();
         }
 
         if (medium.getIsVideo()) {
@@ -48,7 +48,7 @@ public class MediaAdapter extends BaseAdapter {
         final String path = medium.getPath();
         Glide.with(mContext).load(path).placeholder(R.color.tmb_background).centerCrop().crossFade().into(holder.photoThumbnail);
 
-        return view;
+        return convertView;
     }
 
     @Override
