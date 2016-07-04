@@ -30,20 +30,20 @@ public class DirectoryAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
+        ViewHolder viewHolder;
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.directory_item, parent, false);
-            holder = new ViewHolder(convertView);
-            convertView.setTag(holder);
+            viewHolder = new ViewHolder(convertView);
+            convertView.setTag(viewHolder);
         } else {
-            holder = (ViewHolder) convertView.getTag();
+            viewHolder = (ViewHolder) convertView.getTag();
         }
 
         final Directory dir = mDirs.get(position);
-        holder.dirName.setText(dir.getName());
-        holder.photoCnt.setText(String.valueOf(dir.getMediaCnt()));
+        viewHolder.dirName.setText(dir.getName());
+        viewHolder.photoCnt.setText(String.valueOf(dir.getMediaCnt()));
         Glide.with(mContext).load(dir.getThumbnail()).placeholder(R.color.tmb_background).centerCrop().crossFade()
-                .into(holder.dirThumbnail);
+                .into(viewHolder.dirThumbnail);
 
         return convertView;
     }

@@ -30,23 +30,23 @@ public class MediaAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         final Medium medium = mMedia.get(position);
-        ViewHolder holder;
+        ViewHolder viewHolder;
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.video_item, parent, false);
-            holder = new ViewHolder(convertView);
-            convertView.setTag(holder);
+            viewHolder = new ViewHolder(convertView);
+            convertView.setTag(viewHolder);
         } else {
-            holder = (ViewHolder) convertView.getTag();
+            viewHolder = (ViewHolder) convertView.getTag();
         }
 
         if (medium.getIsVideo()) {
-            holder.playOutline.setVisibility(View.VISIBLE);
+            viewHolder.playOutline.setVisibility(View.VISIBLE);
         } else {
-            holder.playOutline.setVisibility(View.GONE);
+            viewHolder.playOutline.setVisibility(View.GONE);
         }
 
         final String path = medium.getPath();
-        Glide.with(mContext).load(path).placeholder(R.color.tmb_background).centerCrop().crossFade().into(holder.photoThumbnail);
+        Glide.with(mContext).load(path).placeholder(R.color.tmb_background).centerCrop().crossFade().into(viewHolder.photoThumbnail);
 
         return convertView;
     }
