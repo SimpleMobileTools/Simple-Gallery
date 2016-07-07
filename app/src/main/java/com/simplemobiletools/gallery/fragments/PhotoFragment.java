@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.animation.ViewPropertyAnimation;
 import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.R;
@@ -26,7 +27,11 @@ public class PhotoFragment extends ViewPagerFragment implements PhotoViewAttache
             return view;
 
         final PhotoView photoView = (PhotoView) view.findViewById(R.id.photo_view);
-        Glide.with(getContext()).load(medium.getPath()).asBitmap().thumbnail(0.2f).animate(fadeInAnimator).into(photoView);
+        if (medium.isGif()) {
+            Glide.with(getContext()).load(medium.getPath()).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).into(photoView);
+        } else {
+            Glide.with(getContext()).load(medium.getPath()).asBitmap().thumbnail(0.2f).animate(fadeInAnimator).into(photoView);
+        }
         new PhotoViewAttacher(photoView).setOnPhotoTapListener(this);
 
         return view;

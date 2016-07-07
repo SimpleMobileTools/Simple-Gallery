@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.models.Directory;
 
@@ -42,8 +43,13 @@ public class DirectoryAdapter extends BaseAdapter {
         final Directory dir = mDirs.get(position);
         viewHolder.dirName.setText(dir.getName());
         viewHolder.photoCnt.setText(String.valueOf(dir.getMediaCnt()));
-        Glide.with(mContext).load(dir.getThumbnail()).placeholder(R.color.tmb_background).centerCrop().crossFade()
-                .into(viewHolder.dirThumbnail);
+        final String tmb = dir.getThumbnail();
+        if (tmb.endsWith(".gif")) {
+            Glide.with(mContext).load(tmb).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).placeholder(R.color.tmb_background)
+                    .centerCrop().crossFade().into(viewHolder.dirThumbnail);
+        } else {
+            Glide.with(mContext).load(tmb).placeholder(R.color.tmb_background).centerCrop().crossFade().into(viewHolder.dirThumbnail);
+        }
 
         return convertView;
     }

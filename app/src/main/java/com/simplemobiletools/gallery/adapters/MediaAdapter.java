@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.models.Medium;
 
@@ -46,7 +47,11 @@ public class MediaAdapter extends BaseAdapter {
         }
 
         final String path = medium.getPath();
-        Glide.with(mContext).load(path).placeholder(R.color.tmb_background).centerCrop().crossFade().into(viewHolder.photoThumbnail);
+        if (medium.isGif()) {
+            Glide.with(mContext).load(path).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).into(viewHolder.photoThumbnail);
+        } else {
+            Glide.with(mContext).load(path).placeholder(R.color.tmb_background).centerCrop().crossFade().into(viewHolder.photoThumbnail);
+        }
 
         return convertView;
     }
