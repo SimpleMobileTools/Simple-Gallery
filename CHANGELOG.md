@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 1.13 *(2016-07-09)*
+----------------------------
+
+ * Add a Camera button to the main screen
+ * Offer the app at opening photos from some more third party apps
+
 Version 1.12 *(2016-07-07)*
 ----------------------------
 
