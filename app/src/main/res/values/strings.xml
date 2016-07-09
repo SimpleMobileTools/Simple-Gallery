@@ -19,6 +19,7 @@
     <string name="file_deleted">File deleted</string>
     <string name="setting_wallpaper">Setting wallpaper</string>
     <string name="open_camera">Open camera</string>
+    <string name="unknown_error">An unknown error occurred</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 folder deleted</item>

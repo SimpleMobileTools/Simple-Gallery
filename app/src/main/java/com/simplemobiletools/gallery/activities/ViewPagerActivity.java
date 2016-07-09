@@ -66,6 +66,30 @@ public class ViewPagerActivity extends AppCompatActivity
             return;
         }
 
+        final Uri uri = getIntent().getData();
+        if (uri != null) {
+            Cursor cursor = null;
+            try {
+                final String[] proj = {MediaStore.Images.Media.DATA};
+                cursor = getContentResolver().query(uri, proj, null, null, null);
+                final int dataIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+                cursor.moveToFirst();
+                mPath = cursor.getString(dataIndex);
+            } finally {
+                if (cursor != null) {
+                    cursor.close();
+                }
+            }
+        } else {
+            mPath = getIntent().getStringExtra(Constants.MEDIUM);
+        }
+
+        if (mPath == null || mPath.isEmpty()) {
+            Utils.showToast(getApplicationContext(), R.string.unknown_error);
+            finish();
+            return;
+        }
+
         mPos = 0;
         mIsFullScreen = true;
         mActionbar = getSupportActionBar();
@@ -73,7 +97,6 @@ public class ViewPagerActivity extends AppCompatActivity
         mBeingDeleted = "";
         hideSystemUI();
 
-        mPath = getIntent().getStringExtra(Constants.MEDIUM);
         MediaScannerConnection.scanFile(this, new String[]{mPath}, null, null);
         addUndoMargin();
         mDirectory = new File(mPath).getParent();
