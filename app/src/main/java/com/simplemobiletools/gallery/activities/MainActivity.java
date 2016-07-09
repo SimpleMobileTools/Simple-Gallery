@@ -90,17 +90,23 @@ public class MainActivity extends AppCompatActivity
         if (mIsThirdPartyIntent)
             return false;
 
-        getMenuInflater().inflate(R.menu.menu, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.about:
+            case R.id.camera: {
+                final Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivity(intent);
+                return true;
+            }
+            case R.id.about: {
                 final Intent intent = new Intent(getApplicationContext(), AboutActivity.class);
                 startActivity(intent);
                 return true;
+            }
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -473,7 +479,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
         final MenuInflater inflater = mode.getMenuInflater();
-        inflater.inflate(R.menu.directories_menu, menu);
+        inflater.inflate(R.menu.directories_cab, menu);
         mActionMode = mode;
         return true;
     }
