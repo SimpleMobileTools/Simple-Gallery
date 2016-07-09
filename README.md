@@ -6,6 +6,7 @@ A gallery for viewing photos and videos.
 Albums are sorted by the modified time of the last item in them from the latest to oldest. Photos are zoomable, they can be previewed in multiple columns depending on the size of the display and portrait/landscape mode. They can be renamed, shared or deleted.
 
 <a href='https://play.google.com/store/apps/details?id=com.simplemobiletools.gallery'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' height=60/></a>
+<a href="https://f-droid.org/app/com.simplemobiletools.gallery"><img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="60"></a>
 
 <img alt="App image" src="screenshots/app.jpg" width="250">
 <img alt="App image" src="screenshots/app_2.jpg" width="250">
