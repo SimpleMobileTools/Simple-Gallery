@@ -23,7 +23,6 @@ import butterknife.OnClick;
 
 public class AboutActivity extends AppCompatActivity {
     @BindView(R.id.about_copyright) TextView mCopyright;
-    @BindView(R.id.about_version) TextView mVersion;
     @BindView(R.id.about_email) TextView mEmailTV;
     @BindView(R.id.about_rate_us) View mRateUs;
 
@@ -37,7 +36,6 @@ public class AboutActivity extends AppCompatActivity {
         mRes = getResources();
 
         setupEmail();
-        setupVersion();
         setupCopyright();
         setupRateUs();
     }
@@ -50,15 +48,10 @@ public class AboutActivity extends AppCompatActivity {
         mEmailTV.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
-    private void setupVersion() {
-        final String versionName = BuildConfig.VERSION_NAME;
-        final String versionText = String.format(mRes.getString(R.string.version), versionName);
-        mVersion.setText(versionText);
-    }
-
     private void setupCopyright() {
+        final String versionName = BuildConfig.VERSION_NAME;
         final int year = Calendar.getInstance().get(Calendar.YEAR);
-        final String copyrightText = String.format(mRes.getString(R.string.copyright), year);
+        final String copyrightText = String.format(mRes.getString(R.string.copyright), versionName, year);
         mCopyright.setText(copyrightText);
     }
 

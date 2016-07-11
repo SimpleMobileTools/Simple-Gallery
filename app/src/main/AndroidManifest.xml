@@ -68,13 +68,11 @@
 
         <activity
             android:name=".activities.AboutActivity"
-            android:label="@string/about"
-            android:screenOrientation="portrait"/>
+            android:label="@string/about"/>
 
         <activity
             android:name=".activities.LicenseActivity"
-            android:label="@string/third_party_licences"
-            android:screenOrientation="portrait"/>
+            android:label="@string/third_party_licences"/>
 
         <activity
             android:name=".activities.PhotoVideoActivity"/>
