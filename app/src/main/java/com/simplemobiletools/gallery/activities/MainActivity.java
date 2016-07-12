@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.camera: {
-                final Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                final Intent intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
                 startActivity(intent);
                 return true;
             }
