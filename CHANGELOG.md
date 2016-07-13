@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 1.14 *(2016-07-13)*
+----------------------------
+
+ * Correct some interactions with third party apps
+
 Version 1.13 *(2016-07-09)*
 ----------------------------
 
