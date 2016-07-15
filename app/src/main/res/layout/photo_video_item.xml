@@ -3,13 +3,9 @@
     android:id="@+id/media_item_holder"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:foreground="@drawable/selector">
+    android:layout_height="match_parent">
 
-    <com.simplemobiletools.gallery.MyImageView
-        android:id="@+id/medium_thumbnail"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+    <include layout="@layout/photo_video_tmb"/>
 
     <ImageView
         android:id="@+id/play_outline"

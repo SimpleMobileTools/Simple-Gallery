@@ -33,7 +33,7 @@ public class MediaAdapter extends BaseAdapter {
         final Medium medium = mMedia.get(position);
         ViewHolder viewHolder;
         if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.video_item, parent, false);
+            convertView = mInflater.inflate(R.layout.photo_video_item, parent, false);
             viewHolder = new ViewHolder(convertView);
             convertView.setTag(viewHolder);
         } else {

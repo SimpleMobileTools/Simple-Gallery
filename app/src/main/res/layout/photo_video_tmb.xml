@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge>
+
+    <FrameLayout
+        android:id="@+id/medium_thumbnail_holder"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foreground="@drawable/selector">
+
+        <com.simplemobiletools.gallery.MyImageView
+            android:id="@+id/medium_thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </FrameLayout>
+</merge>
