@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 1.15 *(2016-07-15)*
+----------------------------
+
+ * Use the proper action at clicking the Camera
+ * Remove a bug with duplidate listing of the app at opening images
+ * Add Italian and Japanese translations
+ * Properly highlight the selected items at delete
+
 Version 1.14 *(2016-07-13)*
 ----------------------------
 
