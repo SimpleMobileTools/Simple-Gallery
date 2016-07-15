@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">シンプル ギャラリー</string>
+    <string name="share_via">共有...</string>
+    <string name="no_permissions">ストレージにアクセスしないとギャラリーでできることはほとんどありません</string>
+    <string name="delete">削除</string>
+    <string name="deleting">削除中</string>
+    <string name="edit">編集</string>
+    <string name="undo">元に戻す</string>
+    <string name="share">共有</string>
+    <string name="rename_file">ファイルの名前を変更</string>
+    <string name="rename_folder">フォルダーの名前を変更</string>
+    <string name="rename_file_error">ファイルの名前を変更できませんでした</string>
+    <string name="rename_file_empty">ファイル名は空にできません</string>
+    <string name="rename_folder_error">フォルダーの名前を変更できませんでした</string>
+    <string name="rename_folder_empty">フォルダー名は空にできません</string>
+    <string name="rename_folder_ok">フォルダーの名前を正常に変更しました</string>
+    <string name="renaming_folder">フォルダーの名前を変更中</string>
+    <string name="extension">拡張</string>
+    <string name="file_deleted">ファイルを削除しました</string>
+    <string name="setting_wallpaper">壁紙の設定</string>
+    <string name="open_camera">カメラを開く</string>
+    <string name="unknown_error">不明なエラーが発生しました</string>
+
+    <plurals name="folders_deleted">
+        <item quantity="one">1 フォルダーを削除しました</item>
+        <item quantity="other">%1$d フォルダーを削除しました</item>
+    </plurals>
+
+    <plurals name="files_deleted">
+        <item quantity="one">1 ファイルを削除しました</item>
+        <item quantity="other">%1$d ファイルを削除しました</item>
+    </plurals>
+
+    <!-- About -->
+    <string name="about">アプリについて</string>
+    <string name="website">もっとシンプルなアプリとソースコードは:\nhttp://simplemobiletools.com</string>
+    <string name="email_label">ご意見やご提案をお送りください:</string>
+    <string name="email">hello@simplemobiletools.com</string>
+    <string name="third_party_licences_underlined"><u>サードパーティー ライセンス</u></string>
+    <string name="rate_us_underlined"><u>Play ストアで評価してください</u></string>
+    <string name="follow_us">フォローしてください:</string>
+    <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>
+
+    <!--License-->
+    <string name="notice">このアプリは、私の人生を容易にするために、次のサードパーティのライブラリーを使用しています。 ありがとうございます。</string>
+    <string name="third_party_licences">サードパーティー ライセンス</string>
+    <string name="butterknife_title"><u>Butter Knife (ビュー インジェクター)</u></string>
+    <string name="butterknife_text">Copyright 2013 Jake Wharton\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="butterknife_url">https://github.com/JakeWharton/butterknife</string>
+    <string name="photoview_title"><u>PhotoView (ズーム可能イメージビュー)</u></string>
+    <string name="photoview_text">Copyright 2011,2012 Chris Banes\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="photoview_url">https://github.com/chrisbanes/PhotoView</string>
+    <string name="glide_title"><u>Glide (イメージ ローディングとキャッシング)</u></string>
+    <string name="glide_text">Copyright 2014 Google, Inc. All rights reserved.\n\nRedistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n\n1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\n\n2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.\n\nTHIS SOFTWARE IS PROVIDED BY GOOGLE, INC. ``AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL GOOGLE, INC. OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
+    <string name="glide_url">https://github.com/bumptech/glide</string>
+
+</resources>
