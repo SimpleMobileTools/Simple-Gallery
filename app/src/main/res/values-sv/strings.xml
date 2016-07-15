@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Simple Gallery</string>
+    <string name="share_via">Share via</string>
+    <string name="no_permissions">Not much to do in a gallery without accessing your storage</string>
+    <string name="delete">Delete</string>
+    <string name="deleting">Deleting</string>
+    <string name="edit">Edit</string>
+    <string name="undo">Undo</string>
+    <string name="share">Share</string>
+    <string name="rename_file">Rename file</string>
+    <string name="rename_folder">Rename folder</string>
+    <string name="rename_file_error">Could not rename the file</string>
+    <string name="rename_file_empty">File name must not be empty</string>
+    <string name="rename_folder_error">Could not rename the folder</string>
+    <string name="rename_folder_empty">Folder name must not be empty</string>
+    <string name="rename_folder_ok">Folder renamed successfully</string>
+    <string name="renaming_folder">Renaming folder</string>
+    <string name="extension">Extension</string>
+    <string name="file_deleted">File deleted</string>
+    <string name="setting_wallpaper">Setting wallpaper</string>
+    <string name="open_camera">Open camera</string>
+    <string name="unknown_error">An unknown error occurred</string>
+
+    <plurals name="folders_deleted">
+        <item quantity="one">1 folder deleted</item>
+        <item quantity="other">%1$d folders deleted</item>
+    </plurals>
+
+    <plurals name="files_deleted">
+        <item quantity="one">1 file deleted</item>
+        <item quantity="other">%1$d files deleted</item>
+    </plurals>
+
+    <!-- About -->
+    <string name="about">About</string>
+    <string name="website">More simple apps and source code at:\nhttp://simplemobiletools.com</string>
+    <string name="email_label">Send your feedback or suggestions to:</string>
+    <string name="email" translatable="false">hello@simplemobiletools.com</string>
+    <string name="third_party_licences_underlined"><u>Third party licences</u></string>
+    <string name="rate_us_underlined"><u>Rate us in the Play Store</u></string>
+    <string name="follow_us">Follow us:</string>
+    <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>
+
+    <!--License-->
+    <string name="notice">This app uses the following third party libraries to make my life easier. Thank you.</string>
+    <string name="third_party_licences">Third party licences</string>
+    <string name="butterknife_title"><u>Butter Knife (view injector)</u></string>
+    <string name="butterknife_text" translatable="false">Copyright 2013 Jake Wharton\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="butterknife_url" translatable="false">https://github.com/JakeWharton/butterknife</string>
+    <string name="photoview_title"><u>PhotoView (zoomable imageviews)</u></string>
+    <string name="photoview_text" translatable="false">Copyright 2011,2012 Chris Banes\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="photoview_url" translatable="false">https://github.com/chrisbanes/PhotoView</string>
+    <string name="glide_title"><u>Glide (image loading and caching)</u></string>
+    <string name="glide_text" translatable="false">Copyright 2014 Google, Inc. All rights reserved.\n\nRedistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n\n1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\n\n2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.\n\nTHIS SOFTWARE IS PROVIDED BY GOOGLE, INC. ``AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL GOOGLE, INC. OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
+    <string name="glide_url" translatable="false">https://github.com/bumptech/glide</string>
+
+</resources>
