@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Simple Gallery</string>
     <string name="share_via">Condividi via</string>
-    <string name="no_permissions">Non c'è molto da fare in una galleria senza l'accesso all'archiviazione</string>
+    <string name="no_permissions">Non c\'è molto da fare in una galleria senza l\'accesso all\'archiviazione</string>
     <string name="delete">Elimina</string>
     <string name="deleting">Eliminazione</string>
     <string name="edit">Modifica</string>
@@ -35,7 +35,6 @@
     <string name="about">Informazioni</string>
     <string name="website">Altre semplici app e codici sorgenti in:\nhttp://simplemobiletools.com</string>
     <string name="email_label">Invia la tua opinione o i tuoi suggerimenti a:</string>
-    <string name="email">hello@simplemobiletools.com</string>
     <string name="third_party_licences_underlined"><u>Licenze di terze parti</u></string>
     <string name="rate_us_underlined"><u>Dacci un voto sul Play Store</u></string>
     <string name="follow_us">Seguici:</string>
@@ -45,13 +44,7 @@
     <string name="notice">Questa app usa le seguenti librerie di terze parti per semplificarmi la vita. Grazie.</string>
     <string name="third_party_licences">Licenze di terze parti</string>
     <string name="butterknife_title"><u>Butter Knife (view injector)</u></string>
-    <string name="butterknife_text">Copyright 2013 Jake Wharton\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
-    <string name="butterknife_url">https://github.com/JakeWharton/butterknife</string>
     <string name="photoview_title"><u>PhotoView (zoomable imageviews)</u></string>
-    <string name="photoview_text">Copyright 2011,2012 Chris Banes\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
-    <string name="photoview_url">https://github.com/chrisbanes/PhotoView</string>
     <string name="glide_title"><u>Glide (image loading and caching)</u></string>
-    <string name="glide_text">Copyright 2014 Google, Inc. All rights reserved.\n\nRedistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n\n1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\n\n2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.\n\nTHIS SOFTWARE IS PROVIDED BY GOOGLE, INC. ``AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL GOOGLE, INC. OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
-    <string name="glide_url">https://github.com/bumptech/glide</string>
 
 </resources>
