@@ -1,49 +1,49 @@
 <resources>
     <string name="app_name">Simple Gallery</string>
-    <string name="share_via">Share via</string>
-    <string name="no_permissions">Not much to do in a gallery without accessing your storage</string>
-    <string name="delete">Delete</string>
-    <string name="deleting">Deleting</string>
-    <string name="edit">Edit</string>
+    <string name="share_via">Dela via</string>
+    <string name="no_permissions">Inte mycket att göra i ett galleri om jag inte kommer åt lagringsutrymmet</string>
+    <string name="delete">Ta bort</string>
+    <string name="deleting">Tar bort</string>
+    <string name="edit">Redigera</string>
     <string name="undo">Undo</string>
-    <string name="share">Share</string>
-    <string name="rename_file">Rename file</string>
-    <string name="rename_folder">Rename folder</string>
-    <string name="rename_file_error">Could not rename the file</string>
-    <string name="rename_file_empty">File name must not be empty</string>
-    <string name="rename_folder_error">Could not rename the folder</string>
-    <string name="rename_folder_empty">Folder name must not be empty</string>
-    <string name="rename_folder_ok">Folder renamed successfully</string>
-    <string name="renaming_folder">Renaming folder</string>
-    <string name="extension">Extension</string>
-    <string name="file_deleted">File deleted</string>
-    <string name="setting_wallpaper">Setting wallpaper</string>
-    <string name="open_camera">Open camera</string>
-    <string name="unknown_error">An unknown error occurred</string>
+    <string name="share">Dela</string>
+    <string name="rename_file">Döp om fil</string>
+    <string name="rename_folder">Döp om mapp</string>
+    <string name="rename_file_error">Det gick inte att döpa om filen</string>
+    <string name="rename_file_empty">Du måste ange ett filnamn</string>
+    <string name="rename_folder_error">Det gick inte att döpa om mappen</string>
+    <string name="rename_folder_empty">Du måste ange ett mappnamn</string>
+    <string name="rename_folder_ok">Mappen döptes om</string>
+    <string name="renaming_folder">Döper om mappen</string>
+    <string name="extension">Filändelse</string>
+    <string name="file_deleted">Fil borttagen</string>
+    <string name="setting_wallpaper">Inställningar för bakgrundsbild</string>
+    <string name="open_camera">Starta kameran</string>
+    <string name="unknown_error">Ett okänt fel har uppstått</string>
 
     <plurals name="folders_deleted">
-        <item quantity="one">1 folder deleted</item>
-        <item quantity="other">%1$d folders deleted</item>
+        <item quantity="one">1 mapp borttagen</item>
+        <item quantity="other">%1$d mappar borttagna</item>
     </plurals>
 
     <plurals name="files_deleted">
-        <item quantity="one">1 file deleted</item>
-        <item quantity="other">%1$d files deleted</item>
+        <item quantity="one">1 fil borttagen</item>
+        <item quantity="other">%1$d filer borttagna</item>
     </plurals>
 
     <!-- About -->
-    <string name="about">About</string>
-    <string name="website">More simple apps and source code at:\nhttp://simplemobiletools.com</string>
-    <string name="email_label">Send your feedback or suggestions to:</string>
-    <string name="email" translatable="false">hello@simplemobiletools.com</string>
-    <string name="third_party_licences_underlined"><u>Third party licences</u></string>
-    <string name="rate_us_underlined"><u>Rate us in the Play Store</u></string>
-    <string name="follow_us">Follow us:</string>
+    <string name="about">Om</string>
+    <string name="website">Fler enkla appar och källkod här:\nhttp://simplemobiletools.com</string>
+    <string name="email_label">Skicka feedback och förslag till:</string>
+    <string name="email">hello@simplemobiletools.com</string>
+    <string name="third_party_licences_underlined"><u>Tredjepartslicenser</u></string>
+    <string name="rate_us_underlined"><u>Betygsätt oss i Play Butiken</u></string>
+    <string name="follow_us">Följ oss:</string>
     <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>
 
     <!--License-->
-    <string name="notice">This app uses the following third party libraries to make my life easier. Thank you.</string>
-    <string name="third_party_licences">Third party licences</string>
+    <string name="notice">Denna app använder följande tredjepartsbibliotek för att göra mitt liv enklare. Tack.</string>
+    <string name="third_party_licences">Tredjepartslicenser</string>
     <string name="butterknife_title"><u>Butter Knife (view injector)</u></string>
     <string name="butterknife_text" translatable="false">Copyright 2013 Jake Wharton\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
     <string name="butterknife_url" translatable="false">https://github.com/JakeWharton/butterknife</string>
