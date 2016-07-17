@@ -46,5 +46,4 @@
     <string name="butterknife_title"><u>Butter Knife (ビュー インジェクター)</u></string>
     <string name="photoview_title"><u>PhotoView (ズーム可能イメージビュー)</u></string>
     <string name="glide_title"><u>Glide (イメージ ローディングとキャッシング)</u></string>
-
 </resources>

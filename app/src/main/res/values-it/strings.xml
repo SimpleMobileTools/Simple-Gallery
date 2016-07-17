@@ -46,5 +46,4 @@
     <string name="butterknife_title"><u>Butter Knife (view injector)</u></string>
     <string name="photoview_title"><u>PhotoView (zoomable imageviews)</u></string>
     <string name="glide_title"><u>Glide (image loading and caching)</u></string>
-
 </resources>
