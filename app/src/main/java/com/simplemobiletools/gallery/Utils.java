@@ -3,8 +3,10 @@ package com.simplemobiletools.gallery;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
@@ -18,6 +20,10 @@ import android.view.ViewConfiguration;
 import android.view.Window;
 import android.webkit.MimeTypeMap;
 import android.widget.Toast;
+
+import com.simplemobiletools.gallery.models.Medium;
+
+import java.io.File;
 
 public class Utils {
     public static String getFilename(final String path) {
@@ -87,6 +93,21 @@ public class Utils {
             return MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
         }
         return "";
+    }
+
+    public static void shareMedium(Medium medium, Activity activity) {
+        final String shareTitle = activity.getResources().getString(R.string.share_via);
+        final Intent intent = new Intent();
+        final File file = new File(medium.getPath());
+        final Uri uri = Uri.fromFile(file);
+        intent.setAction(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_STREAM, uri);
+        if (medium.getIsVideo()) {
+            intent.setType("video/*");
+        } else {
+            intent.setType("image/*");
+        }
+        activity.startActivity(Intent.createChooser(intent, shareTitle));
     }
 
     public static void showSystemUI(ActionBar actionbar, Window window) {

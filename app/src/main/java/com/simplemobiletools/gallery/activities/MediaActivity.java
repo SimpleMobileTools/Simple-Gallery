@@ -183,6 +183,43 @@ public class MediaActivity extends SimpleActivity
         return false;
     }
 
+    private void shareMedia() {
+        final List<Medium> selectedMedia = getSelectedMedia();
+        if (selectedMedia.size() <= 1) {
+            Utils.shareMedium(selectedMedia.get(0), this);
+        } else {
+            shareMedia(selectedMedia);
+        }
+    }
+
+    private void shareMedia(List<Medium> media) {
+        final String shareTitle = getResources().getString(R.string.share_via);
+        final Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_SEND_MULTIPLE);
+        intent.setType("image/* video/*");
+        final ArrayList<Uri> uris = new ArrayList<>(media.size());
+        for (Medium medium : media) {
+            final File file = new File(medium.getPath());
+            uris.add(Uri.fromFile(file));
+        }
+
+        intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
+        startActivity(Intent.createChooser(intent, shareTitle));
+    }
+
+    private List<Medium> getSelectedMedia() {
+        final List<Medium> media = new ArrayList<>();
+        final SparseBooleanArray items = mGridView.getCheckedItemPositions();
+        final int cnt = items.size();
+        for (int i = 0; i < cnt; i++) {
+            if (items.valueAt(i)) {
+                final int id = items.keyAt(i);
+                media.add(mMedia.get(id));
+            }
+        }
+        return media;
+    }
+
     private void prepareForDeleting() {
         Utils.showToast(this, R.string.deleting);
         final SparseBooleanArray items = mGridView.getCheckedItemPositions();
@@ -277,12 +314,12 @@ public class MediaActivity extends SimpleActivity
             final int wantedWidth = getWallpaperDesiredMinimumWidth();
             final int wantedHeight = getWallpaperDesiredMinimumHeight();
             final float ratio = (float) wantedWidth / wantedHeight;
-            Glide.with(this)
-                    .load(new File(curItemPath))
-                    .asBitmap()
-                    .override((int) (wantedWidth * ratio), wantedHeight)
-                    .fitCenter()
-                    .into(new SimpleTarget<Bitmap>() {
+            Glide.with(this).
+                    load(new File(curItemPath)).
+                    asBitmap().
+                    override((int) (wantedWidth * ratio), wantedHeight).
+                    fitCenter().
+                    into(new SimpleTarget<Bitmap>() {
                         @Override
                         public void onResourceReady(Bitmap bitmap, GlideAnimation anim) {
                             try {
@@ -335,6 +372,9 @@ public class MediaActivity extends SimpleActivity
     @Override
     public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.cab_share:
+                shareMedia();
+                return true;
             case R.id.cab_delete:
                 prepareForDeleting();
                 mode.finish();

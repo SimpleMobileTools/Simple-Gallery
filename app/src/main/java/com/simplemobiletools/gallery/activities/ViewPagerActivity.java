@@ -1,6 +1,5 @@
 package com.simplemobiletools.gallery.activities;
 
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
@@ -155,19 +154,8 @@ public class ViewPagerActivity extends SimpleActivity
     }
 
     private void shareMedium() {
-        final String shareTitle = getResources().getString(R.string.share_via);
-        final Intent sendIntent = new Intent();
         final Medium medium = getCurrentMedium();
-        final File file = getCurrentFile();
-        final Uri uri = Uri.fromFile(file);
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_STREAM, uri);
-        if (medium.getIsVideo()) {
-            sendIntent.setType("video/*");
-        } else {
-            sendIntent.setType("image/*");
-        }
-        startActivity(Intent.createChooser(sendIntent, shareTitle));
+        Utils.shareMedium(medium, this);
     }
 
     private void notifyDeletion() {
