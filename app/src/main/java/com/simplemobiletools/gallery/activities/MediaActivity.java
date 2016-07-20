@@ -79,16 +79,20 @@ public class MediaActivity extends SimpleActivity
     protected void onResume() {
         super.onResume();
         tryloadGallery();
-        if (mState != null && mGridView != null)
+        if (mState != null && mGridView != null) {
             mGridView.onRestoreInstanceState(mState);
+        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         deleteFiles();
-        if (mGridView != null)
+        if (mGridView != null && isChangingConfigurations()) {
             mState = mGridView.onSaveInstanceState();
+        } else {
+            mState = null;
+        }
     }
 
     private void tryloadGallery() {
