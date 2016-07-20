@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+    android:id="@+id/dir_holder"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:foreground="@drawable/selector">
-
-        <com.simplemobiletools.gallery.MyImageView
-            android:id="@+id/dir_thumbnail"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-    </FrameLayout>
+    <include layout="@layout/directory_tmb"/>
 
     <RelativeLayout
+        android:id="@+id/dir_shadow_holder"
         android:layout_width="match_parent"
         android:layout_height="@dimen/tmb_shadow_height"
         android:layout_alignParentBottom="true"
