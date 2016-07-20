@@ -1,5 +1,7 @@
 <resources>
     <dimen name="activity_margin">16dp</dimen>
+    <dimen name="small_padding">4dp</dimen>
+    <dimen name="medium_padding">8dp</dimen>
     <dimen name="dir_tmb_size">150dp</dimen>
     <dimen name="medium_tmb_size">100dp</dimen>
     <dimen name="play_outline_size">40dp</dimen>

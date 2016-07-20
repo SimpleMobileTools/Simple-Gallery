@@ -12,24 +12,24 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/tmb_shadow_height"
         android:layout_alignParentBottom="true"
-        android:background="#55000000"
-        android:paddingBottom="4dp"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
-        android:paddingTop="4dp">
+        android:background="@color/actionbar_grey"
+        android:paddingBottom="@dimen/small_padding"
+        android:paddingLeft="@dimen/medium_padding"
+        android:paddingRight="@dimen/medium_padding"
+        android:paddingTop="@dimen/small_padding">
 
         <TextView
             android:id="@+id/dir_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="4dp"
+            android:paddingBottom="@dimen/small_padding"
             android:textColor="@android:color/white"/>
 
         <TextView
             android:id="@+id/photo_cnt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/dir_name"
+            android:layout_below="@+id/dir_name"
             android:textColor="@android:color/white"/>
 
     </RelativeLayout>
