@@ -13,6 +13,7 @@ import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
@@ -44,9 +45,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MediaActivity extends SimpleActivity
-        implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener {
+        implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener,
+        SwipeRefreshLayout.OnRefreshListener {
     private static final String TAG = MediaActivity.class.getSimpleName();
     @BindView(R.id.media_grid) GridView mGridView;
+    @BindView(R.id.media_holder) SwipeRefreshLayout mSwipeRefreshLayout;
 
     private static List<Medium> mMedia;
     private static String mPath;
@@ -66,6 +69,10 @@ public class MediaActivity extends SimpleActivity
         ButterKnife.bind(this);
         mIsGetImageIntent = getIntent().getBooleanExtra(Constants.GET_IMAGE_INTENT, false);
         mIsGetVideoIntent = getIntent().getBooleanExtra(Constants.GET_VIDEO_INTENT, false);
+        mToBeDeleted = new ArrayList<>();
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+        mPath = getIntent().getStringExtra(Constants.DIRECTORY);
+        mMedia = new ArrayList<>();
     }
 
     @Override
@@ -93,9 +100,12 @@ public class MediaActivity extends SimpleActivity
     }
 
     private void initializeGallery() {
-        mToBeDeleted = new ArrayList<>();
-        mPath = getIntent().getStringExtra(Constants.DIRECTORY);
-        mMedia = getMedia();
+        final List<Medium> newMedia = getMedia();
+        if (newMedia.toString().equals(mMedia.toString())) {
+            return;
+        }
+
+        mMedia = newMedia;
         if (isDirEmpty())
             return;
 
@@ -346,5 +356,11 @@ public class MediaActivity extends SimpleActivity
         }
 
         return false;
+    }
+
+    @Override
+    public void onRefresh() {
+        initializeGallery();
+        mSwipeRefreshLayout.setRefreshing(false);
     }
 }
