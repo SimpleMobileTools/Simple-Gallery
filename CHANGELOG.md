@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 1.16 *(2016-07-20)*
+----------------------------
+
+ * Added a dark theme
+ * Allow sharing multiple items at once
+ * Implement Pull to refresh
+ * Added Swedish translation
+
 Version 1.15 *(2016-07-15)*
 ----------------------------
 
