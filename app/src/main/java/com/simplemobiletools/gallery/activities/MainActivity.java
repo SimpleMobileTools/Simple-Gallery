@@ -14,6 +14,7 @@ import android.provider.MediaStore;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
@@ -45,8 +46,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends SimpleActivity
-        implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener {
+        implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener,
+        SwipeRefreshLayout.OnRefreshListener {
     @BindView(R.id.directories_grid) GridView mGridView;
+    @BindView(R.id.directories_holder) SwipeRefreshLayout mSwipeRefreshLayout;
 
     private static final int STORAGE_PERMISSION = 1;
     private static final int PICK_MEDIA = 2;
@@ -79,9 +82,12 @@ public class MainActivity extends SimpleActivity
         mIsGetImageContentIntent = isGetImageContentIntent(intent);
         mIsGetVideoContentIntent = isGetVideoContentIntent(intent);
         mIsSetWallpaperIntent = isSetWallpaperIntent(intent);
-
         mIsThirdPartyIntent = mIsPickImageIntent || mIsPickVideoIntent || mIsGetImageContentIntent || mIsGetVideoContentIntent ||
                 mIsSetWallpaperIntent;
+
+        mToBeDeleted = new ArrayList<>();
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+        mDirs = new ArrayList<>();
     }
 
     @Override
@@ -155,8 +161,11 @@ public class MainActivity extends SimpleActivity
     }
 
     private void initializeGallery() {
-        mToBeDeleted = new ArrayList<>();
-        mDirs = getDirectories();
+        final List<Directory> newDirs = getDirectories();
+        if (newDirs.toString().equals(mDirs.toString())) {
+            return;
+        }
+        mDirs = newDirs;
 
         final DirectoryAdapter adapter = new DirectoryAdapter(this, mDirs);
         mGridView.setAdapter(adapter);
@@ -532,5 +541,11 @@ public class MainActivity extends SimpleActivity
                 }
             });
         }
+    }
+
+    @Override
+    public void onRefresh() {
+        initializeGallery();
+        mSwipeRefreshLayout.setRefreshing(false);
     }
 }
