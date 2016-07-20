@@ -40,6 +40,10 @@
     <string name="follow_us">フォローしてください:</string>
     <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>
 
+    <!-- Settings -->
+    <string name="settings">設定</string>
+    <string name="dark_theme">ダークテーマ</string>
+
     <!--License-->
     <string name="notice">このアプリは、私の人生を容易にするために、次のサードパーティのライブラリーを使用しています。 ありがとうございます。</string>
     <string name="third_party_licences">サードパーティー ライセンス</string>

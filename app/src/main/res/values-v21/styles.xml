@@ -4,4 +4,8 @@
         <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
+    <style name="FullScreenTheme.Dark" parent="FullScreenTheme.Base.Dark">
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
 </resources>

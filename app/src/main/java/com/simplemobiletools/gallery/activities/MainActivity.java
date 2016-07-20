@@ -15,7 +15,6 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
 import android.view.Menu;
@@ -45,7 +44,7 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends SimpleActivity
         implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener {
     @BindView(R.id.directories_grid) GridView mGridView;
 
@@ -97,16 +96,15 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.camera: {
-                final Intent intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
-                startActivity(intent);
+            case R.id.camera:
+                startActivity(new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA));
                 return true;
-            }
-            case R.id.about: {
-                final Intent intent = new Intent(getApplicationContext(), AboutActivity.class);
-                startActivity(intent);
+            case R.id.settings:
+                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
                 return true;
-            }
+            case R.id.about:
+                startActivity(new Intent(getApplicationContext(), AboutActivity.class));
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

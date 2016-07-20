@@ -21,4 +21,12 @@ public class Config {
     public void setIsFirstRun(boolean firstRun) {
         mPrefs.edit().putBoolean(Constants.IS_FIRST_RUN, firstRun).apply();
     }
+
+    public boolean getIsDarkTheme() {
+        return mPrefs.getBoolean(Constants.IS_DARK_THEME, false);
+    }
+
+    public void setIsDarkTheme(boolean isDarkTheme) {
+        mPrefs.edit().putBoolean(Constants.IS_DARK_THEME, isDarkTheme).apply();
+    }
 }

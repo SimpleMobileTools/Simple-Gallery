@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -16,7 +15,7 @@ import com.simplemobiletools.gallery.fragments.VideoFragment;
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment;
 import com.simplemobiletools.gallery.models.Medium;
 
-public class PhotoVideoActivity extends AppCompatActivity implements ViewPagerFragment.FragmentClickListener {
+public class PhotoVideoActivity extends SimpleActivity implements ViewPagerFragment.FragmentClickListener {
     private static ActionBar mActionbar;
     private static Uri mUri;
 

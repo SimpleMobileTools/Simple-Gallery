@@ -13,7 +13,6 @@ import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
@@ -44,7 +43,7 @@ import java.util.regex.Pattern;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MediaActivity extends AppCompatActivity
+public class MediaActivity extends SimpleActivity
         implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener {
     private static final String TAG = MediaActivity.class.getSimpleName();
     @BindView(R.id.media_grid) GridView mGridView;

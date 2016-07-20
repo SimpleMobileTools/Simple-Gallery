@@ -40,6 +40,10 @@
     <string name="follow_us">Seguici:</string>
     <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>
 
+    <!-- Settings -->
+    <string name="settings">Impostazioni</string>
+    <string name="dark_theme">Tema scuro</string>
+
     <!--License-->
     <string name="notice">Questa app usa le seguenti librerie di terze parti per semplificarmi la vita. Grazie.</string>
     <string name="third_party_licences">Licenze di terze parti</string>

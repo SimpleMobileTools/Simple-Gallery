@@ -7,6 +7,10 @@
         android:title="@string/open_camera"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/settings"
+        android:title="@string/settings"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/about"
         android:title="@string/about"
         app:showAsAction="never"/>

@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
@@ -21,7 +20,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class AboutActivity extends AppCompatActivity {
+public class AboutActivity extends SimpleActivity {
     @BindView(R.id.about_copyright) TextView mCopyright;
     @BindView(R.id.about_email) TextView mEmailTV;
     @BindView(R.id.about_rate_us) View mRateUs;

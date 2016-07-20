@@ -49,10 +49,12 @@
         </activity>
 
         <activity
-            android:name=".activities.MediaActivity"/>
+            android:name=".activities.MediaActivity"
+            android:parentActivityName=".activities.MainActivity"/>
 
         <activity
             android:name=".activities.ViewPagerActivity"
+            android:parentActivityName=".activities.MediaActivity"
             android:theme="@style/FullScreenTheme">
 
             <intent-filter>
@@ -68,11 +70,19 @@
 
         <activity
             android:name=".activities.AboutActivity"
-            android:label="@string/about"/>
+            android:label="@string/about"
+            android:parentActivityName=".activities.MainActivity"/>
 
         <activity
             android:name=".activities.LicenseActivity"
-            android:label="@string/third_party_licences"/>
+            android:label="@string/third_party_licences"
+            android:parentActivityName=".activities.AboutActivity"/>
+
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:allowTaskReparenting="true"
+            android:label="@string/settings"
+            android:parentActivityName=".activities.MainActivity"/>
 
         <activity
             android:name=".activities.PhotoVideoActivity"/>
