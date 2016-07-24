@@ -33,6 +33,7 @@ import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter;
+import com.simplemobiletools.gallery.dialogs.ChangeSorting;
 import com.simplemobiletools.gallery.models.Directory;
 
 import java.io.File;
@@ -47,7 +48,7 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends SimpleActivity
         implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener,
-        SwipeRefreshLayout.OnRefreshListener {
+        SwipeRefreshLayout.OnRefreshListener, ChangeSorting.ChangeDialogListener {
     @BindView(R.id.directories_grid) GridView mGridView;
     @BindView(R.id.directories_holder) SwipeRefreshLayout mSwipeRefreshLayout;
 
@@ -103,6 +104,7 @@ public class MainActivity extends SimpleActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.sort:
+                showSortingDialog();
                 return true;
             case R.id.camera:
                 startActivity(new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA));
@@ -223,12 +225,17 @@ public class MainActivity extends SimpleActivity
         }
 
         final List<Directory> dirs = new ArrayList<>(directories.values());
+        Directory.mSorting = mConfig.getSorting();
         Collections.sort(dirs);
 
         final String[] invalids = invalidFiles.toArray(new String[invalidFiles.size()]);
         MediaScannerConnection.scanFile(getApplicationContext(), invalids, null, null);
 
         return dirs;
+    }
+
+    private void showSortingDialog() {
+        new ChangeSorting(this);
     }
 
     private void prepareForDeleting() {
@@ -550,5 +557,10 @@ public class MainActivity extends SimpleActivity
     public void onRefresh() {
         initializeGallery();
         mSwipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void dialogClosed() {
+        initializeGallery();
     }
 }

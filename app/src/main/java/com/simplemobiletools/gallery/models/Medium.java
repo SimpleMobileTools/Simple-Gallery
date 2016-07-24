@@ -10,7 +10,7 @@ public class Medium implements Serializable, Comparable {
     private final boolean mIsVideo;
     private final long mTimestamp;
     private final long mSize;
-    public static int mOrder;
+    public static int mSorting;
 
     public Medium(String path, boolean isVideo, long timestamp, long size) {
         mPath = path;
@@ -43,15 +43,15 @@ public class Medium implements Serializable, Comparable {
     public int compareTo(Object object) {
         final Medium medium = (Medium) object;
         int res;
-        if ((mOrder & Constants.SORT_BY_NAME) == Constants.SORT_BY_NAME) {
+        if ((mSorting & Constants.SORT_BY_NAME) != 0) {
             res = mPath.compareTo(medium.getPath());
-        } else if ((mOrder & Constants.SORT_BY_DATE) == Constants.SORT_BY_DATE) {
+        } else if ((mSorting & Constants.SORT_BY_DATE) != 0) {
             res = (mTimestamp > medium.getTimestamp()) ? 1 : -1;
         } else {
             res = (mSize > medium.getSize()) ? 1 : -1;
         }
 
-        if ((mOrder & Constants.SORT_DESCENDING) == Constants.SORT_DESCENDING) {
+        if ((mSorting & Constants.SORT_DESCENDING) != 0) {
             res *= -1;
         }
         return res;

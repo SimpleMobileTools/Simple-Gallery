@@ -1,12 +1,15 @@
 package com.simplemobiletools.gallery.models;
 
+import com.simplemobiletools.gallery.Constants;
+
 public class Directory implements Comparable {
     private final String mPath;
     private final String mThumbnail;
     private final String mName;
     private final long mTimestamp;
     private int mMediaCnt;
-    private long mBytes;
+    private long mSize;
+    public static int mSorting;
 
     public Directory(String path, String thumbnail, String name, int mediaCnt, long timestamp, long size) {
         mPath = path;
@@ -14,7 +17,7 @@ public class Directory implements Comparable {
         mName = name;
         mMediaCnt = mediaCnt;
         mTimestamp = timestamp;
-        mBytes = size;
+        mSize = size;
     }
 
     public String getPath() {
@@ -42,22 +45,29 @@ public class Directory implements Comparable {
     }
 
     public long getSize() {
-        return mBytes;
+        return mSize;
     }
 
     public void addSize(long bytes) {
-        mBytes += bytes;
+        mSize += bytes;
     }
 
     @Override
     public int compareTo(Object object) {
         final Directory directory = (Directory) object;
-        if (mTimestamp < directory.getTimestamp()) {
-            return 1;
-        } else if (mTimestamp > directory.getTimestamp()) {
-            return -1;
+        int res;
+        if ((mSorting & Constants.SORT_BY_NAME) != 0) {
+            res = mPath.compareTo(directory.getPath());
+        } else if ((mSorting & Constants.SORT_BY_DATE) != 0) {
+            res = (mTimestamp > directory.getTimestamp()) ? 1 : -1;
+        } else {
+            res = (mSize > directory.getSize()) ? 1 : -1;
         }
-        return 0;
+
+        if ((mSorting & Constants.SORT_DESCENDING) != 0) {
+            res *= -1;
+        }
+        return res;
     }
 
     @Override
