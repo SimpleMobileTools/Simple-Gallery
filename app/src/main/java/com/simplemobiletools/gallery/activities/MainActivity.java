@@ -193,7 +193,7 @@ public class MainActivity extends SimpleActivity
                 uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
             }
             final String[] columns = {MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_TAKEN};
-            final String order = MediaStore.Images.Media.DATE_MODIFIED + " DESC";
+            final String order = getSortOrder();
             final Cursor cursor = getContentResolver().query(uri, columns, null, null, order);
 
             if (cursor != null && cursor.moveToFirst()) {
@@ -232,6 +232,20 @@ public class MainActivity extends SimpleActivity
         MediaScannerConnection.scanFile(getApplicationContext(), invalids, null, null);
 
         return dirs;
+    }
+
+    // sort the files at querying too, just to get the correct thumbnail
+    private String getSortOrder() {
+        final int sorting = mConfig.getSorting();
+        String sortBy = MediaStore.Images.Media.DATE_TAKEN;
+        if ((sorting & Constants.SORT_BY_NAME) != 0) {
+            sortBy = MediaStore.Images.Media.DATA;
+        }
+
+        if ((sorting & Constants.SORT_DESCENDING) != 0) {
+            sortBy += " DESC";
+        }
+        return sortBy;
     }
 
     private void showSortingDialog() {
