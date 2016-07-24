@@ -8,18 +8,18 @@
         <item name="android:textSize">@dimen/normal_text_size</item>
     </style>
 
-    <style name="FullScreenTheme.Base" parent="AppTheme">
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="actionBarStyle">@style/MyFullScreenActionBar</item>
-        <item name="android:actionBarStyle">@style/MyFullScreenActionBar</item>
-    </style>
-
     <style name="AppTheme.Dark" parent="Theme.AppCompat">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="actionBarStyle">@style/AppTheme.ActionBarStyle</item>
         <item name="android:textSize">@dimen/normal_text_size</item>
+    </style>
+
+    <style name="FullScreenTheme.Base" parent="AppTheme">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="actionBarStyle">@style/MyFullScreenActionBar</item>
+        <item name="android:actionBarStyle">@style/MyFullScreenActionBar</item>
     </style>
 
     <style name="FullScreenTheme.Base.Dark" parent="AppTheme.Dark">

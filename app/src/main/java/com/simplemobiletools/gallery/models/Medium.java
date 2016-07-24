@@ -1,5 +1,7 @@
 package com.simplemobiletools.gallery.models;
 
+import com.simplemobiletools.gallery.Constants;
+
 import java.io.Serializable;
 
 public class Medium implements Serializable, Comparable {
@@ -7,11 +9,14 @@ public class Medium implements Serializable, Comparable {
     private final String mPath;
     private final boolean mIsVideo;
     private final long mTimestamp;
+    private final long mSize;
+    public static int mOrder;
 
-    public Medium(String path, boolean isVideo, long timestamp) {
+    public Medium(String path, boolean isVideo, long timestamp, long size) {
         mPath = path;
         mIsVideo = isVideo;
         mTimestamp = timestamp;
+        mSize = size;
     }
 
     public String getPath() {
@@ -26,6 +31,10 @@ public class Medium implements Serializable, Comparable {
         return mTimestamp;
     }
 
+    public long getSize() {
+        return mSize;
+    }
+
     public boolean isGif() {
         return getPath().endsWith(".gif");
     }
@@ -33,12 +42,19 @@ public class Medium implements Serializable, Comparable {
     @Override
     public int compareTo(Object object) {
         final Medium medium = (Medium) object;
-        if (mTimestamp < medium.getTimestamp()) {
-            return 1;
-        } else if (mTimestamp > medium.getTimestamp()) {
-            return -1;
+        int res;
+        if ((mOrder & Constants.SORT_BY_NAME) == Constants.SORT_BY_NAME) {
+            res = mPath.compareTo(medium.getPath());
+        } else if ((mOrder & Constants.SORT_BY_DATE) == Constants.SORT_BY_DATE) {
+            res = (mTimestamp > medium.getTimestamp()) ? 1 : -1;
+        } else {
+            res = (mSize > medium.getSize()) ? 1 : -1;
         }
-        return 0;
+
+        if ((mOrder & Constants.SORT_DESCENDING) == Constants.SORT_DESCENDING) {
+            res *= -1;
+        }
+        return res;
     }
 
     @Override

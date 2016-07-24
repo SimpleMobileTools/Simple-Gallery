@@ -70,9 +70,11 @@ public class ViewPagerActivity extends SimpleActivity
             try {
                 final String[] proj = {MediaStore.Images.Media.DATA};
                 cursor = getContentResolver().query(uri, proj, null, null, null);
-                final int dataIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-                cursor.moveToFirst();
-                mPath = cursor.getString(dataIndex);
+                if (cursor != null) {
+                    final int dataIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+                    cursor.moveToFirst();
+                    mPath = cursor.getString(dataIndex);
+                }
             } finally {
                 if (cursor != null) {
                     cursor.close();
@@ -226,8 +228,8 @@ public class ViewPagerActivity extends SimpleActivity
         builder.setTitle(getResources().getString(R.string.rename_file));
         builder.setView(renameFileView);
 
-        builder.setPositiveButton("OK", null);
-        builder.setNegativeButton("Cancel", null);
+        builder.setPositiveButton(android.R.string.ok, null);
+        builder.setNegativeButton(android.R.string.cancel, null);
 
         final AlertDialog alertDialog = builder.create();
         alertDialog.show();
@@ -246,7 +248,7 @@ public class ViewPagerActivity extends SimpleActivity
 
                 if (file.renameTo(newFile)) {
                     final int currItem = mPager.getCurrentItem();
-                    mMedia.set(currItem, new Medium(newFile.getAbsolutePath(), mMedia.get(currItem).getIsVideo(), 0));
+                    mMedia.set(currItem, new Medium(newFile.getAbsolutePath(), mMedia.get(currItem).getIsVideo(), 0, file.length()));
 
                     final String[] changedFiles = {file.getAbsolutePath(), newFile.getAbsolutePath()};
                     MediaScannerConnection.scanFile(getApplicationContext(), changedFiles, null, null);
@@ -294,7 +296,7 @@ public class ViewPagerActivity extends SimpleActivity
             }
             final String where = MediaStore.Images.Media.DATA + " like ? ";
             final String[] args = new String[]{mDirectory + "%"};
-            final String[] columns = {MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_TAKEN};
+            final String[] columns = {MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_TAKEN, MediaStore.Images.Media.SIZE};
             final Cursor cursor = getContentResolver().query(uri, columns, where, args, null);
             final String pattern = Pattern.quote(mDirectory) + "/[^/]*";
 
@@ -305,13 +307,17 @@ public class ViewPagerActivity extends SimpleActivity
                     if (curPath.matches(pattern) && !curPath.equals(mToBeDeleted) && !curPath.equals(mBeingDeleted)) {
                         final int dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_TAKEN);
                         final long timestamp = cursor.getLong(dateIndex);
-                        media.add(new Medium(curPath, i == 1, timestamp));
+
+                        final int sizeIndex = cursor.getColumnIndex(MediaStore.Images.Media.SIZE);
+                        final long size = cursor.getLong(sizeIndex);
+                        media.add(new Medium(curPath, i == 1, timestamp, size));
                     }
                 } while (cursor.moveToNext());
                 cursor.close();
             }
         }
 
+        Medium.mOrder = mConfig.getSorting();
         Collections.sort(media);
         int j = 0;
         for (Medium medium : media) {

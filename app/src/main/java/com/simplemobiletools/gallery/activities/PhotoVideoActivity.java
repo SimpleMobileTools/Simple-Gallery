@@ -15,6 +15,8 @@ import com.simplemobiletools.gallery.fragments.VideoFragment;
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment;
 import com.simplemobiletools.gallery.models.Medium;
 
+import java.io.File;
+
 public class PhotoVideoActivity extends SimpleActivity implements ViewPagerFragment.FragmentClickListener {
     private static ActionBar mActionbar;
     private static Uri mUri;
@@ -37,7 +39,8 @@ public class PhotoVideoActivity extends SimpleActivity implements ViewPagerFragm
         hideSystemUI();
 
         final Bundle bundle = new Bundle();
-        final Medium medium = new Medium(mUri.toString(), mIsVideo, 0);
+        final File file = new File(mUri.toString());
+        final Medium medium = new Medium(mUri.toString(), mIsVideo, 0, file.length());
         bundle.putSerializable(Constants.MEDIUM, medium);
 
         if (savedInstanceState == null) {

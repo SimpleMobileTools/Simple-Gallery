@@ -1,6 +1,7 @@
 package com.simplemobiletools.gallery.activities;
 
 import android.app.WallpaperManager;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
@@ -14,6 +15,7 @@ import android.provider.MediaStore;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
@@ -24,6 +26,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
@@ -134,10 +138,61 @@ public class MediaActivity extends SimpleActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.sort:
+                showSortingDialog();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void showSortingDialog() {
+        final View sortingView = getLayoutInflater().inflate(R.layout.change_sorting, null);
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getResources().getString(R.string.sort_by));
+        builder.setView(sortingView);
+
+        final int currSorting = mConfig.getSorting();
+        final RadioGroup sortingRadio = (RadioGroup) sortingView.findViewById(R.id.dialog_radio_sorting);
+        RadioButton sortBtn = (RadioButton) sortingRadio.findViewById(R.id.dialog_radio_name);
+        if ((currSorting & Constants.SORT_BY_DATE) != 0) {
+            sortBtn = (RadioButton) sortingRadio.findViewById(R.id.dialog_radio_date);
+        } else if ((currSorting & Constants.SORT_BY_SIZE) != 0) {
+            sortBtn = (RadioButton) sortingRadio.findViewById(R.id.dialog_radio_size);
+        }
+        sortBtn.setChecked(true);
+
+        final RadioGroup orderRadio = (RadioGroup) sortingView.findViewById(R.id.dialog_radio_order);
+        RadioButton orderBtn = (RadioButton) orderRadio.findViewById(R.id.dialog_radio_ascending);
+        if ((currSorting & Constants.SORT_DESCENDING) != 0) {
+            orderBtn = (RadioButton) orderRadio.findViewById(R.id.dialog_radio_descending);
+        }
+        orderBtn.setChecked(true);
+
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                int sorting = Constants.SORT_BY_NAME;
+                switch (sortingRadio.getCheckedRadioButtonId()) {
+                    case R.id.dialog_radio_date:
+                        sorting = Constants.SORT_BY_DATE;
+                        break;
+                    case R.id.dialog_radio_size:
+                        sorting = Constants.SORT_BY_SIZE;
+                        break;
+                    default:
+                        break;
+                }
+
+                if (orderRadio.getCheckedRadioButtonId() == R.id.dialog_radio_descending) {
+                    sorting |= Constants.SORT_DESCENDING;
+                }
+                mConfig.setSorting(sorting);
+                initializeGallery();
+            }
+        });
+        builder.setNegativeButton(android.R.string.cancel, null);
+        builder.show();
     }
 
     private void deleteDirectoryIfEmpty() {
@@ -176,7 +231,7 @@ public class MediaActivity extends SimpleActivity
                         if (file.exists()) {
                             final int dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_TAKEN);
                             final long timestamp = cursor.getLong(dateIndex);
-                            media.add(new Medium(curPath, (i == 1), timestamp));
+                            media.add(new Medium(curPath, (i == 1), timestamp, file.length()));
                         } else {
                             invalidFiles.add(file.getAbsolutePath());
                         }
@@ -186,6 +241,7 @@ public class MediaActivity extends SimpleActivity
             }
         }
 
+        Medium.mOrder = mConfig.getSorting();
         Collections.sort(media);
 
         final String[] invalids = invalidFiles.toArray(new String[invalidFiles.size()]);
