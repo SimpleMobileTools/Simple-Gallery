@@ -80,7 +80,6 @@
 
         <activity
             android:name=".activities.SettingsActivity"
-            android:allowTaskReparenting="true"
             android:label="@string/settings"
             android:parentActivityName=".activities.MainActivity"/>
 
