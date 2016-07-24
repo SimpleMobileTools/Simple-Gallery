@@ -124,6 +124,22 @@ public class MediaActivity extends SimpleActivity
         setTitle(dirName);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_media, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.sort:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     private void deleteDirectoryIfEmpty() {
         final File file = new File(mPath);
         if (file.isDirectory() && file.listFiles().length == 0) {
@@ -364,7 +380,7 @@ public class MediaActivity extends SimpleActivity
     @Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
         final MenuInflater inflater = mode.getMenuInflater();
-        inflater.inflate(R.menu.media_menu, menu);
+        inflater.inflate(R.menu.cab_media, menu);
         return true;
     }
 

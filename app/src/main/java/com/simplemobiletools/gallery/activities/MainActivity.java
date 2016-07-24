@@ -102,6 +102,8 @@ public class MainActivity extends SimpleActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.sort:
+                return true;
             case R.id.camera:
                 startActivity(new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA));
                 return true;

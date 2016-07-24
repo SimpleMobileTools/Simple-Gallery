@@ -2,6 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/sort"
+        android:icon="@mipmap/sort"
+        android:title="@string/sort_by"
+        app:showAsAction="ifRoom"/>
+    <item
         android:id="@+id/camera"
         android:icon="@mipmap/camera"
         android:title="@string/open_camera"
