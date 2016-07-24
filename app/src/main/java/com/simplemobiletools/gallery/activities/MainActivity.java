@@ -210,9 +210,10 @@ public class MainActivity extends SimpleActivity
                         final Directory directory = directories.get(fileDir);
                         final int newImageCnt = directory.getMediaCnt() + 1;
                         directory.setMediaCnt(newImageCnt);
+                        directory.addSize(file.length());
                     } else if (!mToBeDeleted.contains(fileDir)) {
                         final String dirName = Utils.getFilename(fileDir);
-                        directories.put(fileDir, new Directory(fileDir, path, dirName, 1, timestamp));
+                        directories.put(fileDir, new Directory(fileDir, path, dirName, 1, timestamp, file.length()));
                     }
                 } while (cursor.moveToNext());
                 cursor.close();

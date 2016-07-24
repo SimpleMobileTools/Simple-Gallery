@@ -1,50 +1,60 @@
 package com.simplemobiletools.gallery.models;
 
 public class Directory implements Comparable {
-    private final String path;
-    private final String thumbnail;
-    private final String name;
-    private final long timestamp;
-    private int mediaCnt;
+    private final String mPath;
+    private final String mThumbnail;
+    private final String mName;
+    private final long mTimestamp;
+    private int mMediaCnt;
+    private long mBytes;
 
-    public Directory(String path, String thumbnail, String name, int mediaCnt, long timestamp) {
-        this.path = path;
-        this.thumbnail = thumbnail;
-        this.name = name;
-        this.mediaCnt = mediaCnt;
-        this.timestamp = timestamp;
+    public Directory(String path, String thumbnail, String name, int mediaCnt, long timestamp, long size) {
+        mPath = path;
+        mThumbnail = thumbnail;
+        mName = name;
+        mMediaCnt = mediaCnt;
+        mTimestamp = timestamp;
+        mBytes = size;
     }
 
     public String getPath() {
-        return path;
+        return mPath;
     }
 
     public String getThumbnail() {
-        return thumbnail;
+        return mThumbnail;
     }
 
     public String getName() {
-        return name;
+        return mName;
     }
 
     public int getMediaCnt() {
-        return mediaCnt;
+        return mMediaCnt;
     }
 
     public void setMediaCnt(int cnt) {
-        mediaCnt = cnt;
+        mMediaCnt = cnt;
     }
 
     public long getTimestamp() {
-        return timestamp;
+        return mTimestamp;
+    }
+
+    public long getSize() {
+        return mBytes;
+    }
+
+    public void addSize(long bytes) {
+        mBytes += bytes;
     }
 
     @Override
     public int compareTo(Object object) {
         final Directory directory = (Directory) object;
-        if (this.timestamp < directory.getTimestamp()) {
+        if (mTimestamp < directory.getTimestamp()) {
             return 1;
-        } else if (this.timestamp > directory.getTimestamp()) {
+        } else if (mTimestamp > directory.getTimestamp()) {
             return -1;
         }
         return 0;

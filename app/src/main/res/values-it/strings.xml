@@ -20,6 +20,12 @@
     <string name="setting_wallpaper">Impostazione sfondo</string>
     <string name="open_camera">Apri fotocamera</string>
     <string name="unknown_error">Riscontrato un errore sconosciuto</string>
+    <string name="sort_by">Sort by</string>
+    <string name="name">Name</string>
+    <string name="size">Size</string>
+    <string name="date">Date</string>
+    <string name="ascending">Ascending</string>
+    <string name="descending">Descending</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 cartella eliminata</item>

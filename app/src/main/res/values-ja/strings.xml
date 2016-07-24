@@ -20,6 +20,12 @@
     <string name="setting_wallpaper">壁紙の設定</string>
     <string name="open_camera">カメラを開く</string>
     <string name="unknown_error">不明なエラーが発生しました</string>
+    <string name="sort_by">Sort by</string>
+    <string name="name">Name</string>
+    <string name="size">Size</string>
+    <string name="date">Date</string>
+    <string name="ascending">Ascending</string>
+    <string name="descending">Descending</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 フォルダーを削除しました</item>

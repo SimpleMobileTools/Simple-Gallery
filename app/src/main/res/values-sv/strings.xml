@@ -20,6 +20,12 @@
     <string name="setting_wallpaper">Inställningar för bakgrundsbild</string>
     <string name="open_camera">Starta kameran</string>
     <string name="unknown_error">Ett okänt fel har uppstått</string>
+    <string name="sort_by">Sort by</string>
+    <string name="name">Name</string>
+    <string name="size">Size</string>
+    <string name="date">Date</string>
+    <string name="ascending">Ascending</string>
+    <string name="descending">Descending</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 mapp borttagen</item>
