@@ -33,7 +33,7 @@ dependencies {
     compile 'com.android.support:design:23.4.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.jakewharton:butterknife:8.0.1'
-    compile 'com.github.chrisbanes:PhotoView:1.2.6'
+    compile 'com.davemorrissey.labs:subsampling-scale-image-view:3.5.0'
 
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
 }
