@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 1.17 *(2016-07-24)*
+----------------------------
+
+ * Allow sorting the items
+ * Make the fullscreen photos properly zoomable
+
 Version 1.16 *(2016-07-20)*
 ----------------------------
 
