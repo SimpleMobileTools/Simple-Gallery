@@ -14,6 +14,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="actionBarStyle">@style/AppTheme.ActionBarStyle</item>
         <item name="android:textSize">@dimen/normal_text_size</item>
+        <item name="android:windowBackground">@android:color/black</item>
     </style>
 
     <style name="FullScreenTheme.Base" parent="AppTheme">
@@ -26,6 +27,7 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="actionBarStyle">@style/MyFullScreenActionBar</item>
         <item name="android:actionBarStyle">@style/MyFullScreenActionBar</item>
+        <item name="android:windowBackground">@android:color/black</item>
     </style>
 
     <style name="FullScreenTheme" parent="FullScreenTheme.Base"/>
