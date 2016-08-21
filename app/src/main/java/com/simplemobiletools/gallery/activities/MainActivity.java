@@ -355,8 +355,8 @@ public class MainActivity extends SimpleActivity
         final TextView dirPath = (TextView) renameDirView.findViewById(R.id.directory_path);
         dirPath.setText(dir.getParent() + "/");
 
-        builder.setPositiveButton(android.R.string.ok, null);
-        builder.setNegativeButton(android.R.string.cancel, null);
+        builder.setPositiveButton(R.string.ok, null);
+        builder.setNegativeButton(R.string.cancel, null);
 
         final AlertDialog alertDialog = builder.create();
         alertDialog.show();

@@ -26,6 +26,8 @@
     <string name="date">Date</string>
     <string name="ascending">Ascending</string>
     <string name="descending">Descending</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 フォルダーを削除しました</item>

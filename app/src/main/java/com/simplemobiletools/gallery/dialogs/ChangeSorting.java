@@ -32,8 +32,8 @@ public class ChangeSorting extends AlertDialog.Builder implements DialogInterfac
         setupSortRadio();
         setupOrderRadio();
 
-        builder.setPositiveButton(android.R.string.ok, this);
-        builder.setNegativeButton(android.R.string.cancel, null);
+        builder.setPositiveButton(R.string.ok, this);
+        builder.setNegativeButton(R.string.cancel, null);
         builder.show();
     }
 

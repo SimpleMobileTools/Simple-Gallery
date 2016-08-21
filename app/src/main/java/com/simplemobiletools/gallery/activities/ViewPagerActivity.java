@@ -228,8 +228,8 @@ public class ViewPagerActivity extends SimpleActivity
         builder.setTitle(getResources().getString(R.string.rename_file));
         builder.setView(renameFileView);
 
-        builder.setPositiveButton(android.R.string.ok, null);
-        builder.setNegativeButton(android.R.string.cancel, null);
+        builder.setPositiveButton(R.string.ok, null);
+        builder.setNegativeButton(R.string.cancel, null);
 
         final AlertDialog alertDialog = builder.create();
         alertDialog.show();
