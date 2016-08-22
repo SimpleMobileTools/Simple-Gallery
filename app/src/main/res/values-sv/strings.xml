@@ -44,6 +44,9 @@
     <string name="website">Fler enkla appar och källkod här:\nhttp://simplemobiletools.com</string>
     <string name="email_label">Skicka feedback och förslag till:</string>
     <string name="third_party_licences_underlined"><u>Tredjepartslicenser</u></string>
+    <string name="invite_friends_underlined"><u>Invite friends</u></string>
+    <string name="share_text">Hey, come check out %1$s at %2$s</string>
+    <string name="invite_via">Invite via</string>
     <string name="rate_us_underlined"><u>Betygsätt oss i Play Butiken</u></string>
     <string name="follow_us">Följ oss:</string>
     <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>

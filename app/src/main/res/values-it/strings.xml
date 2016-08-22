@@ -44,6 +44,9 @@
     <string name="website">Altre semplici app e codici sorgenti in:\nhttp://simplemobiletools.com</string>
     <string name="email_label">Invia la tua opinione o i tuoi suggerimenti a:</string>
     <string name="third_party_licences_underlined"><u>Licenze di terze parti</u></string>
+    <string name="invite_friends_underlined"><u>Invite friends</u></string>
+    <string name="share_text">Hey, come check out %1$s at %2$s</string>
+    <string name="invite_via">Invite via</string>
     <string name="rate_us_underlined"><u>Dacci un voto sul Play Store</u></string>
     <string name="follow_us">Seguici:</string>
     <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>

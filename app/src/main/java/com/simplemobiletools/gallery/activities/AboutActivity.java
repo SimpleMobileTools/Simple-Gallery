@@ -60,13 +60,24 @@ public class AboutActivity extends SimpleActivity {
         }
     }
 
+    @OnClick(R.id.about_invite)
+    public void inviteFriend() {
+        final Intent intent = new Intent();
+        final String text = String.format(getString(R.string.share_text), getString(R.string.app_name), getStoreUrl());
+        intent.setAction(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
+        intent.putExtra(Intent.EXTRA_TEXT, text);
+        intent.setType("text/plain");
+        startActivity(Intent.createChooser(intent, getString(R.string.invite_via)));
+    }
+
     @OnClick(R.id.about_rate_us)
     public void rateUsClicked() {
         final Uri uri = Uri.parse("market://details?id=" + getPackageName());
         try {
             startActivity(new Intent(Intent.ACTION_VIEW, uri));
         } catch (ActivityNotFoundException ignored) {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + getPackageName())));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getStoreUrl())));
         }
     }
 
@@ -91,5 +102,9 @@ public class AboutActivity extends SimpleActivity {
     public void googlePlusClicked() {
         final String link = "https://plus.google.com/communities/104880861558693868382";
         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(link)));
+    }
+
+    private String getStoreUrl() {
+        return "https://play.google.com/store/apps/details?id=" + getPackageName();
     }
 }

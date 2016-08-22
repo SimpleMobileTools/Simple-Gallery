@@ -38,10 +38,20 @@
             android:text="@string/email"/>
 
         <TextView
-            android:id="@+id/about_rate_us"
+            android:id="@+id/about_invite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/about_email"
+            android:paddingBottom="@dimen/activity_margin"
+            android:paddingTop="@dimen/activity_margin"
+            android:text="@string/invite_friends_underlined"
+            android:textColor="@color/colorPrimary"/>
+
+        <TextView
+            android:id="@+id/about_rate_us"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/about_invite"
             android:paddingBottom="@dimen/activity_margin"
             android:paddingTop="@dimen/activity_margin"
             android:text="@string/rate_us_underlined"
