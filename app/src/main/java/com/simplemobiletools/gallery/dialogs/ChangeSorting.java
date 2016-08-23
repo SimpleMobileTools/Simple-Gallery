@@ -15,11 +15,14 @@ public class ChangeSorting extends AlertDialog.Builder implements DialogInterfac
     private static Config mConfig;
     private static ChangeDialogListener mListener;
     private static View mHolder;
-    private static int mCurrSorting;
 
-    public ChangeSorting(Activity act) {
+    private static int mCurrSorting;
+    private static boolean mIsDirectorySorting;
+
+    public ChangeSorting(Activity act, boolean isDirectorySorting) {
         super(act.getApplicationContext());
 
+        mIsDirectorySorting = isDirectorySorting;
         mListener = (ChangeDialogListener) act;
         mConfig = Config.newInstance(getContext());
         mHolder = act.getLayoutInflater().inflate(R.layout.change_sorting, null);
@@ -28,7 +31,7 @@ public class ChangeSorting extends AlertDialog.Builder implements DialogInterfac
         builder.setTitle(act.getResources().getString(R.string.sort_by));
         builder.setView(mHolder);
 
-        mCurrSorting = mConfig.getSorting();
+        mCurrSorting = (mIsDirectorySorting ? mConfig.getDirectorySorting() : mConfig.getSorting());
         setupSortRadio();
         setupOrderRadio();
 
@@ -78,10 +81,16 @@ public class ChangeSorting extends AlertDialog.Builder implements DialogInterfac
             sorting |= Constants.SORT_DESCENDING;
         }
 
-        if (mConfig.getSorting() != sorting) {
-            mConfig.setSorting(sorting);
-            mListener.dialogClosed();
+        if (mIsDirectorySorting) {
+            if (mConfig.getDirectorySorting() != sorting) {
+                mConfig.setDirectorySorting(sorting);
+            }
+        } else {
+            if (mConfig.getSorting() != sorting) {
+                mConfig.setSorting(sorting);
+            }
         }
+        mListener.dialogClosed();
     }
 
     public interface ChangeDialogListener {

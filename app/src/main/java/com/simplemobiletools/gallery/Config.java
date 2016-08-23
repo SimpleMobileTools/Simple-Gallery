@@ -37,4 +37,12 @@ public class Config {
     public void setSorting(int order) {
         mPrefs.edit().putInt(Constants.SORT_ORDER, order).apply();
     }
+
+    public int getDirectorySorting() {
+        return mPrefs.getInt(Constants.DIRECTORY_SORT_ORDER, Constants.SORT_BY_NAME);
+    }
+
+    public void setDirectorySorting(int order) {
+        mPrefs.edit().putInt(Constants.DIRECTORY_SORT_ORDER, order).apply();
+    }
 }

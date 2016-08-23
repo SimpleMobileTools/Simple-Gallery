@@ -143,7 +143,7 @@ public class MediaActivity extends SimpleActivity
     }
 
     private void showSortingDialog() {
-        new ChangeSorting(this);
+        new ChangeSorting(this, false);
     }
 
     private void deleteDirectoryIfEmpty() {

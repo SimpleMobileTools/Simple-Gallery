@@ -225,7 +225,7 @@ public class MainActivity extends SimpleActivity
         }
 
         final List<Directory> dirs = new ArrayList<>(directories.values());
-        Directory.mSorting = mConfig.getSorting();
+        Directory.mSorting = mConfig.getDirectorySorting();
         Collections.sort(dirs);
 
         final String[] invalids = invalidFiles.toArray(new String[invalidFiles.size()]);
@@ -236,7 +236,7 @@ public class MainActivity extends SimpleActivity
 
     // sort the files at querying too, just to get the correct thumbnail
     private String getSortOrder() {
-        final int sorting = mConfig.getSorting();
+        final int sorting = mConfig.getDirectorySorting();
         String sortBy = MediaStore.Images.Media.DATE_TAKEN;
         if ((sorting & Constants.SORT_BY_NAME) != 0) {
             sortBy = MediaStore.Images.Media.DATA;
@@ -249,7 +249,7 @@ public class MainActivity extends SimpleActivity
     }
 
     private void showSortingDialog() {
-        new ChangeSorting(this);
+        new ChangeSorting(this, true);
     }
 
     private void prepareForDeleting() {
