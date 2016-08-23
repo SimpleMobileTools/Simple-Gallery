@@ -30,6 +30,14 @@ public class Config {
         mPrefs.edit().putBoolean(Constants.IS_DARK_THEME, isDarkTheme).apply();
     }
 
+    public boolean getIsSameSorting() {
+        return mPrefs.getBoolean(Constants.IS_SAME_SORTING, true);
+    }
+
+    public void setIsSameSorting(boolean isSameSorting) {
+        mPrefs.edit().putBoolean(Constants.IS_SAME_SORTING, isSameSorting).apply();
+    }
+
     public int getSorting() {
         return mPrefs.getInt(Constants.SORT_ORDER, Constants.SORT_BY_DATE | Constants.SORT_DESCENDING);
     }

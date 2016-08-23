@@ -11,6 +11,7 @@ public class Constants {
     public static final String PREFS_KEY = "Gallery";
     public static final String IS_FIRST_RUN = "is_first_run";
     public static final String IS_DARK_THEME = "is_dark_theme";
+    public static final String IS_SAME_SORTING = "is_same_sorting";
     public static final String SORT_ORDER = "sort_order";
     public static final String DIRECTORY_SORT_ORDER = "directory_sort_order";
 

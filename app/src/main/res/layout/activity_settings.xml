@@ -36,5 +36,31 @@
                 android:clickable="false"/>
 
         </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/settings_same_sorting_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settings_padding"
+            android:background="?android:attr/selectableItemBackground"
+            android:padding="@dimen/activity_margin">
+
+            <TextView
+                android:id="@+id/settings_same_sorting_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingLeft="@dimen/settings_padding"
+                android:text="@string/same_sorting"/>
+
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/settings_same_sorting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@null"
+                android:clickable="false"/>
+
+        </RelativeLayout>
     </LinearLayout>
 </ScrollView>
