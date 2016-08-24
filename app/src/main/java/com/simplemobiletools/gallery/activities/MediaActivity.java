@@ -112,6 +112,8 @@ public class MediaActivity extends SimpleActivity
             return;
         }
 
+        rescanDirectory();
+
         mMedia = newMedia;
         if (isDirEmpty())
             return;
@@ -141,6 +143,19 @@ public class MediaActivity extends SimpleActivity
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void rescanDirectory() {
+        final File file = new File(mPath);
+        if (file.isDirectory()) {
+            final File[] files = file.listFiles();
+            final String[] paths = new String[files.length];
+            final int cnt = file.listFiles().length;
+            for (int i = 0; i < cnt; i++) {
+                paths[i] = files[i].getPath();
+            }
+            MediaScannerConnection.scanFile(getApplicationContext(), paths, null, null);
         }
     }
 
