@@ -29,6 +29,7 @@
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="set_as_wallpaper">Set as Wallpaper</string>
+    <string name="set_as_wallpaper_failed">Setting as Wallpaper failed</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 folder deleted</item>

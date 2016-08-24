@@ -1,8 +1,11 @@
 package com.simplemobiletools.gallery.activities;
 
+import android.app.WallpaperManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
@@ -27,6 +30,7 @@ import com.simplemobiletools.gallery.fragments.ViewPagerFragment;
 import com.simplemobiletools.gallery.models.Medium;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -143,6 +147,7 @@ public class ViewPagerActivity extends SimpleActivity
         deleteFile();
         switch (item.getItemId()) {
             case R.id.menu_set_as_wallpaper:
+                setAsWallpaper();
                 return true;
             case R.id.menu_share:
                 shareMedium();
@@ -155,6 +160,16 @@ public class ViewPagerActivity extends SimpleActivity
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void setAsWallpaper() {
+        final Bitmap bitmap = BitmapFactory.decodeFile(getCurrentFile().getAbsolutePath());
+        final WallpaperManager wallpaperManager = WallpaperManager.getInstance(getApplicationContext());
+        try {
+            wallpaperManager.setBitmap(bitmap);
+        } catch (IOException e) {
+            Utils.showToast(getApplicationContext(), R.string.set_as_wallpaper_failed);
         }
     }
 
