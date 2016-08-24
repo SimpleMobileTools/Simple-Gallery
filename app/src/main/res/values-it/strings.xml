@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name">Galleria</string>
+    <string name="share_via">Condividi via</string>
+    <string name="no_permissions">Non c\'è molto da fare in una galleria senza l\'accesso all\'archiviazione</string>
+    <string name="delete">Elimina</string>
+    <string name="deleting">Eliminazione</string>
+    <string name="edit">Modifica</string>
+    <string name="undo">Annulla</string>
+    <string name="share">Condividi</string>
+    <string name="rename_file">Rinomina file</string>
+    <string name="rename_folder">Rinomina cartella</string>
+    <string name="rename_file_error">Impossibile rinominare il file</string>
+    <string name="rename_file_empty">Il nome del file non deve essere vuoto</string>
+    <string name="rename_folder_error">Impossibile rinominare la cartella</string>
+    <string name="rename_folder_empty">Il nome della cartella non deve essere vuoto</string>
+    <string name="rename_folder_ok">Cartella rinominata correttamente</string>
+    <string name="renaming_folder">Rinominazione cartella</string>
+    <string name="extension">Estensione</string>
+    <string name="file_deleted">File eliminato</string>
+    <string name="setting_wallpaper">Impostazione sfondo</string>
+    <string name="open_camera">Apri fotocamera</string>
+    <string name="unknown_error">Riscontrato un errore sconosciuto</string>
+    <string name="sort_by">Sort by</string>
+    <string name="name">Name</string>
+    <string name="size">Size</string>
+    <string name="date">Date</string>
+    <string name="ascending">Ascending</string>
+    <string name="descending">Descending</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
+    <plurals name="folders_deleted">
+        <item quantity="one">1 cartella eliminata</item>
+        <item quantity="other">%1$d cartelle eliminate</item>
+    </plurals>
+
+    <plurals name="files_deleted">
+        <item quantity="one">1 file eliminato</item>
+        <item quantity="other">%1$d file eliminati</item>
+    </plurals>
+
+    <!-- About -->
+    <string name="about">Informazioni</string>
+    <string name="website">Altre semplici app e codici sorgenti in:\nhttp://simplemobiletools.com</string>
+    <string name="email_label">Invia la tua opinione o i tuoi suggerimenti a:</string>
+    <string name="third_party_licences_underlined"><u>Licenze di terze parti</u></string>
+    <string name="invite_friends_underlined"><u>Invite friends</u></string>
+    <string name="share_text">Hey, come check out %1$s at %2$s</string>
+    <string name="invite_via">Invite via</string>
+    <string name="rate_us_underlined"><u>Dacci un voto sul Play Store</u></string>
+    <string name="follow_us">Seguici:</string>
+    <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>
+
+    <!-- Settings -->
+    <string name="settings">Impostazioni</string>
+    <string name="dark_theme">Tema scuro</string>
+
+    <!--License-->
+    <string name="notice">Questa app usa le seguenti librerie di terze parti per semplificarmi la vita. Grazie.</string>
+    <string name="third_party_licences">Licenze di terze parti</string>
+    <string name="butterknife_title"><u>Butter Knife (view injector)</u></string>
+    <string name="photoview_title"><u>PhotoView (zoomable imageviews)</u></string>
+    <string name="glide_title"><u>Glide (image loading and caching)</u></string>
+</resources>
