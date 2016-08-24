@@ -28,6 +28,7 @@
     <string name="descending">Descending</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="set_as_wallpaper">Set as Wallpaper</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 cartella eliminata</item>

@@ -134,6 +134,7 @@ public class ViewPagerActivity extends SimpleActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.viewpager_menu, menu);
+        menu.findItem(R.id.menu_set_as_wallpaper).setVisible(getCurrentMedium().isImage());
         return true;
     }
 
@@ -141,6 +142,8 @@ public class ViewPagerActivity extends SimpleActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         deleteFile();
         switch (item.getItemId()) {
+            case R.id.menu_set_as_wallpaper:
+                return true;
             case R.id.menu_share:
                 shareMedium();
                 return true;
@@ -385,6 +388,7 @@ public class ViewPagerActivity extends SimpleActivity
     public void onPageSelected(int position) {
         updateActionbarTitle();
         mPos = position;
+        supportInvalidateOptionsMenu();
     }
 
     @Override

@@ -39,6 +39,10 @@ public class Medium implements Serializable, Comparable {
         return getPath().endsWith(".gif");
     }
 
+    public boolean isImage() {
+        return !isGif() && !getIsVideo();
+    }
+
     @Override
     public int compareTo(Object object) {
         final Medium medium = (Medium) object;
