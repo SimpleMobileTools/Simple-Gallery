@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name">Galleri</string>
+    <string name="share_via">Dela via</string>
+    <string name="no_permissions">Inte mycket att göra i ett galleri om jag inte kommer åt lagringsutrymmet</string>
+    <string name="delete">Ta bort</string>
+    <string name="deleting">Tar bort</string>
+    <string name="edit">Redigera</string>
+    <string name="undo">Ångra</string>
+    <string name="share">Dela</string>
+    <string name="rename_file">Döp om fil</string>
+    <string name="rename_folder">Döp om mapp</string>
+    <string name="rename_file_error">Det gick inte att döpa om filen</string>
+    <string name="rename_file_empty">Du måste ange ett filnamn</string>
+    <string name="rename_folder_error">Det gick inte att döpa om mappen</string>
+    <string name="rename_folder_empty">Du måste ange ett mappnamn</string>
+    <string name="rename_folder_ok">Mappen döptes om</string>
+    <string name="renaming_folder">Döper om mappen</string>
+    <string name="extension">Filändelse</string>
+    <string name="file_deleted">Fil borttagen</string>
+    <string name="setting_wallpaper">Inställningar för bakgrundsbild</string>
+    <string name="open_camera">Starta kameran</string>
+    <string name="unknown_error">Ett okänt fel har uppstått</string>
+    <string name="sort_by">Sort by</string>
+    <string name="name">Name</string>
+    <string name="size">Size</string>
+    <string name="date">Date</string>
+    <string name="ascending">Ascending</string>
+    <string name="descending">Descending</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
+    <plurals name="folders_deleted">
+        <item quantity="one">1 mapp borttagen</item>
+        <item quantity="other">%1$d mappar borttagna</item>
+    </plurals>
+
+    <plurals name="files_deleted">
+        <item quantity="one">1 fil borttagen</item>
+        <item quantity="other">%1$d filer borttagna</item>
+    </plurals>
+
+    <!-- About -->
+    <string name="about">Om</string>
+    <string name="website">Fler enkla appar och källkod här:\nhttp://simplemobiletools.com</string>
+    <string name="email_label">Skicka feedback och förslag till:</string>
+    <string name="third_party_licences_underlined"><u>Tredjepartslicenser</u></string>
+    <string name="invite_friends_underlined"><u>Invite friends</u></string>
+    <string name="share_text">Hey, come check out %1$s at %2$s</string>
+    <string name="invite_via">Invite via</string>
+    <string name="rate_us_underlined"><u>Betygsätt oss i Play Butiken</u></string>
+    <string name="follow_us">Följ oss:</string>
+    <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>
+
+    <!-- Settings -->
+    <string name="settings">Inställningar</string>
+    <string name="dark_theme">Mörkt tema</string>
+
+    <!--License-->
+    <string name="notice">Denna app använder följande tredjepartsbibliotek för att göra mitt liv enklare. Tack.</string>
+    <string name="third_party_licences">Tredjepartslicenser</string>
+    <string name="butterknife_title"><u>Butter Knife (view injector)</u></string>
+    <string name="photoview_title"><u>PhotoView (zoomable imageviews)</u></string>
+    <string name="glide_title"><u>Glide (image loading and caching)</u></string>
+</resources>
