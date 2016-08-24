@@ -67,6 +67,7 @@ public class MainActivity extends SimpleActivity
     private static boolean mIsPickVideoIntent;
     private static boolean mIsGetImageContentIntent;
     private static boolean mIsGetVideoContentIntent;
+    private static boolean mIsGetAnyContentIntent;
     private static boolean mIsSetWallpaperIntent;
     private static boolean mIsThirdPartyIntent;
     private static int mSelectedItemsCnt;
@@ -82,9 +83,10 @@ public class MainActivity extends SimpleActivity
         mIsPickVideoIntent = isPickVideoIntent(intent);
         mIsGetImageContentIntent = isGetImageContentIntent(intent);
         mIsGetVideoContentIntent = isGetVideoContentIntent(intent);
+        mIsGetAnyContentIntent = isGetAnyContentIntent(intent);
         mIsSetWallpaperIntent = isSetWallpaperIntent(intent);
         mIsThirdPartyIntent = mIsPickImageIntent || mIsPickVideoIntent || mIsGetImageContentIntent || mIsGetVideoContentIntent ||
-                mIsSetWallpaperIntent;
+                mIsGetAnyContentIntent || mIsSetWallpaperIntent;
 
         mToBeDeleted = new ArrayList<>();
         mSwipeRefreshLayout.setOnRefreshListener(this);
@@ -427,6 +429,10 @@ public class MainActivity extends SimpleActivity
                 (intent.getType().startsWith("video/") || intent.getType().equals(MediaStore.Video.Media.CONTENT_TYPE));
     }
 
+    private boolean isGetAnyContentIntent(Intent intent) {
+        return isGetContentIntent(intent) && intent.getType().equals("*/*");
+    }
+
     private boolean isSetWallpaperIntent(Intent intent) {
         return intent != null && intent.getAction() != null && intent.getAction().equals(Intent.ACTION_SET_WALLPAPER);
     }
@@ -458,7 +464,7 @@ public class MainActivity extends SimpleActivity
                 final Intent result = new Intent();
                 final String path = data.getData().getPath();
                 final Uri uri = Uri.fromFile(new File(path));
-                if (mIsGetImageContentIntent || mIsGetVideoContentIntent) {
+                if (mIsGetImageContentIntent || mIsGetVideoContentIntent || mIsGetAnyContentIntent) {
                     final String type = Utils.getMimeType(path);
                     result.setDataAndTypeAndNormalize(uri, type);
                     result.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
@@ -488,6 +494,7 @@ public class MainActivity extends SimpleActivity
         } else {
             intent.putExtra(Constants.GET_IMAGE_INTENT, mIsPickImageIntent || mIsGetImageContentIntent);
             intent.putExtra(Constants.GET_VIDEO_INTENT, mIsPickVideoIntent || mIsGetVideoContentIntent);
+            intent.putExtra(Constants.GET_ANY_INTENT, mIsGetAnyContentIntent);
             startActivityForResult(intent, PICK_MEDIA);
         }
     }

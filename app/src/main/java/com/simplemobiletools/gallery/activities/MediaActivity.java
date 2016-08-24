@@ -61,6 +61,7 @@ public class MediaActivity extends SimpleActivity
     private static boolean mIsSnackbarShown;
     private static boolean mIsGetImageIntent;
     private static boolean mIsGetVideoIntent;
+    private static boolean mIsGetAnyIntent;
     private static int mSelectedItemsCnt;
 
     @Override
@@ -70,6 +71,7 @@ public class MediaActivity extends SimpleActivity
         ButterKnife.bind(this);
         mIsGetImageIntent = getIntent().getBooleanExtra(Constants.GET_IMAGE_INTENT, false);
         mIsGetVideoIntent = getIntent().getBooleanExtra(Constants.GET_VIDEO_INTENT, false);
+        mIsGetAnyIntent = getIntent().getBooleanExtra(Constants.GET_ANY_INTENT, false);
         mToBeDeleted = new ArrayList<>();
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mPath = getIntent().getStringExtra(Constants.DIRECTORY);
@@ -358,7 +360,7 @@ public class MediaActivity extends SimpleActivity
                             finish();
                         }
                     });
-        } else if (mIsGetImageIntent || mIsGetVideoIntent) {
+        } else if (mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent) {
             final Intent result = new Intent();
             result.setData(Uri.parse(curItemPath));
             setResult(RESULT_OK, result);
