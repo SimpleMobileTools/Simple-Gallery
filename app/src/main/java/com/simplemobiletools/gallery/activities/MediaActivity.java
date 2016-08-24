@@ -112,8 +112,6 @@ public class MediaActivity extends SimpleActivity
             return;
         }
 
-        rescanDirectory();
-
         mMedia = newMedia;
         if (isDirEmpty())
             return;
@@ -444,6 +442,7 @@ public class MediaActivity extends SimpleActivity
 
     @Override
     public void onRefresh() {
+        rescanDirectory();
         initializeGallery();
         mSwipeRefreshLayout.setRefreshing(false);
     }
