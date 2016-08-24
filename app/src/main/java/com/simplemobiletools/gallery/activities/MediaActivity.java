@@ -28,11 +28,11 @@ import android.widget.GridView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
-import com.simplemobiletools.gallery.dialogs.ChangeSorting;
 import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.adapters.MediaAdapter;
+import com.simplemobiletools.gallery.dialogs.ChangeSorting;
 import com.simplemobiletools.gallery.models.Medium;
 
 import java.io.File;
@@ -144,17 +144,17 @@ public class MediaActivity extends SimpleActivity
         }
     }
 
-    private void rescanDirectory() {
-        final File file = new File(mPath);
-        if (file.isDirectory()) {
-            final File[] files = file.listFiles();
-            final String[] paths = new String[files.length];
-            final int cnt = file.listFiles().length;
-            for (int i = 0; i < cnt; i++) {
-                paths[i] = files[i].getPath();
+    private void rescanDirectory(File dir) {
+        final File[] files = dir.listFiles();
+        final String[] paths = new String[files.length];
+        final int cnt = dir.listFiles().length;
+        for (int i = 0; i < cnt; i++) {
+            paths[i] = files[i].getPath();
+            if (files[i].isDirectory()) {
+                rescanDirectory(files[i]);
             }
-            MediaScannerConnection.scanFile(getApplicationContext(), paths, null, null);
         }
+        MediaScannerConnection.scanFile(getApplicationContext(), paths, null, null);
     }
 
     private void showSortingDialog() {
@@ -442,7 +442,10 @@ public class MediaActivity extends SimpleActivity
 
     @Override
     public void onRefresh() {
-        rescanDirectory();
+        final File dir = new File(mPath);
+        if (dir.isDirectory()) {
+            rescanDirectory(dir);
+        }
         initializeGallery();
         mSwipeRefreshLayout.setRefreshing(false);
     }
