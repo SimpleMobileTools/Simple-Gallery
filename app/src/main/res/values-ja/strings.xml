@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">シンプル ギャラリー</string>
+    <string name="app_launcher_name">Gallery</string>
     <string name="share_via">共有...</string>
     <string name="no_permissions">ストレージにアクセスしないとギャラリーでできることはほとんどありません</string>
     <string name="delete">削除</string>
@@ -29,6 +30,7 @@
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="set_as_wallpaper">Set as Wallpaper</string>
+    <string name="set_as_wallpaper_failed">Setting as Wallpaper failed</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 フォルダーを削除しました</item>

@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Simple Gallery</string>
+    <string name="app_launcher_name">Gallery</string>
     <string name="share_via">Dela via</string>
     <string name="no_permissions">Inte mycket att göra i ett galleri om jag inte kommer åt lagringsutrymmet</string>
     <string name="delete">Ta bort</string>
@@ -29,6 +30,7 @@
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="set_as_wallpaper">Set as Wallpaper</string>
+    <string name="set_as_wallpaper_failed">Setting as Wallpaper failed</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 mapp borttagen</item>
