@@ -138,7 +138,8 @@ public class ViewPagerActivity extends SimpleActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.viewpager_menu, menu);
-        menu.findItem(R.id.menu_set_as_wallpaper).setVisible(getCurrentMedium().isImage());
+        //menu.findItem(R.id.menu_set_as_wallpaper).setVisible(getCurrentMedium().isImage());
+        menu.findItem(R.id.menu_set_as_wallpaper).setVisible(false);
         return true;
     }
 
