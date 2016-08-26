@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 1.19 *(2016-08-26)*
+----------------------------
+
+ * Add an Invite friends button
+ * Allow different sorting for images and albums
+ * Allow using the app at attachment picker at email clients
+ * Rescan all files in current folder at Pull to refresh
+ * Update app icon and launcher name
+
 Version 1.18 *(2016-07-26)*
 ----------------------------
 
