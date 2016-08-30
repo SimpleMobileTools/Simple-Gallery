@@ -1,0 +1,75 @@
+<resources>
+    <string name="app_name">Simple Gallery</string>
+    <string name="app_launcher_name">Gallery</string>
+    <string name="share_via">Compartir vía</string>
+    <string name="no_permissions">No hay mucho que hacer en una galería sin acceso al almacenamiento</string>
+    <string name="delete">Eliminar</string>
+    <string name="deleting">Eliminando</string>
+    <string name="edit">Editar</string>
+    <string name="undo">Deshacer</string>
+    <string name="share">Compartir</string>
+    <string name="rename_file">Renombrar archivo</string>
+    <string name="rename_folder">Renombrar carpeta</string>
+    <string name="rename_file_error">No se pudo renombrar el archivo</string>
+    <string name="rename_file_empty">El nombre de archivo no puede estar vacío</string>
+    <string name="rename_folder_error">No se pudo renombrar la carpeta</string>
+    <string name="rename_folder_empty">El nombre de carpeta no puede estar vacío</string>
+    <string name="rename_folder_ok">Carpeta renombrada correctamente</string>
+    <string name="renaming_folder">Renombrando carpeta</string>
+    <string name="extension">Extensión</string>
+    <string name="file_deleted">Archivo eliminado</string>
+    <string name="setting_wallpaper">Estableciendo fondo de pantalla</string>
+    <string name="open_camera">Abrir cámara</string>
+    <string name="unknown_error">Ocurrió un error desconocido</string>
+    <string name="sort_by">Ordenar por</string>
+    <string name="name">Nombre</string>
+    <string name="size">Tamaño</string>
+    <string name="date">Fecha</string>
+    <string name="ascending">Ascendente</string>
+    <string name="descending">Descendente</string>
+    <string name="ok">Aceptar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="set_as_wallpaper">Establecer como fondo de pantalla</string>
+    <string name="set_as_wallpaper_failed">Error al establecer fondo de pantalla</string>
+
+    <plurals name="folders_deleted">
+        <item quantity="one">1 carpeta eliminada</item>
+        <item quantity="other">%1$d carpetas eliminadas</item>
+    </plurals>
+
+    <plurals name="files_deleted">
+        <item quantity="one">1 archivo eliminado</item>
+        <item quantity="other">%1$d archivos eliminados</item>
+    </plurals>
+
+    <!-- About -->
+    <string name="about">Acerca de</string>
+    <string name="website">Más aplicaciones sencillas y código fuente en:\nhttp://simplemobiletools.com</string>
+    <string name="email_label">Envía tus comentarios o sugerencias a:</string>
+    <string name="email" translatable="false">hello@simplemobiletools.com</string>
+    <string name="third_party_licences_underlined"><u>Licencias de terceros</u></string>
+    <string name="invite_friends_underlined"><u>Invitar a amigos</u></string>
+    <string name="share_text">Hola, ven y mira %1$s en %2$s</string>
+    <string name="invite_via">Invitar vía</string>
+    <string name="rate_us_underlined"><u>Vótanos en Play Store</u></string>
+    <string name="follow_us">Síguenos:</string>
+    <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>
+
+    <!-- Settings -->
+    <string name="settings">Ajustes</string>
+    <string name="dark_theme">Tema oscuro</string>
+    <string name="same_sorting">Ordenar del mismo modo los archivos y las carpetas</string>
+
+    <!--License-->
+    <string name="notice">Esta aplicación usa las siguientes bibliotecas de terceros que hacen mi vida más fácil. Gracias.</string>
+    <string name="third_party_licences">Licencias de terceros</string>
+    <string name="butterknife_title"><u>Butter Knife (view injector)</u></string>
+    <string name="butterknife_text" translatable="false">Copyright 2013 Jake Wharton\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="butterknife_url" translatable="false">https://github.com/JakeWharton/butterknife</string>
+    <string name="photoview_title"><u>PhotoView (zoomable imageviews)</u></string>
+    <string name="photoview_text" translatable="false">Copyright 2011,2012 Chris Banes\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="photoview_url" translatable="false">https://github.com/chrisbanes/PhotoView</string>
+    <string name="glide_title"><u>Glide (image loading and caching)</u></string>
+    <string name="glide_text" translatable="false">Copyright 2014 Google, Inc. All rights reserved.\n\nRedistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n\n1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\n\n2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.\n\nTHIS SOFTWARE IS PROVIDED BY GOOGLE, INC. ``AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL GOOGLE, INC. OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
+    <string name="glide_url" translatable="false">https://github.com/bumptech/glide</string>
+</resources>
