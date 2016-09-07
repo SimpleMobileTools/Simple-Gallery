@@ -3,7 +3,7 @@
 
 A gallery for viewing photos and videos.
 
-A simple tool useable for viewing photos and videos. Items can be sorted by date, size, name both ascending or descending, photos can be zoomed in. Media files are shown in multiple columns, depending on the size of the display. They can be renamed, shared or deleted.
+A simple tool usable for viewing photos and videos. Items can be sorted by date, size, name both ascending or descending, photos can be zoomed in. Media files are shown in multiple columns, depending on the size of the display. They can be renamed, shared or deleted.
 
 The Gallery is also offered for third party usage for previewing images / videos, adding attachments at email clients etc. It's perfect for everyday usage.
 
