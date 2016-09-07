@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Simple Gallery</string>
+    <string name="app_launcher_name">Gallery</string>
+    <string name="share_via">Teilen via</string>
+    <string name="no_permissions">Ohne Zugriff auf deinen Speicher gibt es hier nicht viel zu tun</string>
+    <string name="delete">Löschen</string>
+    <string name="deleting">Lösche</string>
+    <string name="edit">Bearbeiten</string>
+    <string name="undo">Rückgängig</string>
+    <string name="share">Teilen</string>
+    <string name="rename_file">Datei umbenennen</string>
+    <string name="rename_folder">Ordner umbenennen</string>
+    <string name="rename_file_error">Konnte die Datei nicht umbenennen</string>
+    <string name="rename_file_empty">Dateiname darf nicht leer sein</string>
+    <string name="rename_folder_error">Konnte den Ordner nicht umbenennen</string>
+    <string name="rename_folder_empty">Ordnername darf nicht leer sein</string>
+    <string name="rename_folder_ok">Ordner erfolgreich umbenannt</string>
+    <string name="renaming_folder">Benenne Ordner um</string>
+    <string name="extension">Dateiendung</string>
+    <string name="file_deleted">Datei gelöscht</string>
+    <string name="setting_wallpaper">Setze Hintergrundbild</string>
+    <string name="open_camera">Kamera öffnen</string>
+    <string name="unknown_error">Ein unbekannter Fehler ist aufgetreten</string>
+    <string name="sort_by">Sortieren nach</string>
+    <string name="name">Name</string>
+    <string name="size">Größe</string>
+    <string name="date">Datum</string>
+    <string name="ascending">Aufsteigend</string>
+    <string name="descending">Absteigend</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="set_as_wallpaper">Als Hintergrundbild setzen</string>
+    <string name="set_as_wallpaper_failed">Setzen des Hintergrundbildes fehlgeschlagen</string>
+
+    <plurals name="folders_deleted">
+        <item quantity="one">1 Ordner gelöscht</item>
+        <item quantity="other">%1$d Ordner gelöscht</item>
+    </plurals>
+
+    <plurals name="files_deleted">
+        <item quantity="one">1 Datei gelöscht</item>
+        <item quantity="other">%1$d Dateien gelöscht</item>
+    </plurals>
+
+    <!-- About -->
+    <string name="about">Über</string>
+    <string name="website">Weitere einfache Apps und Quellcode findest du auf:\nhttp://simplemobiletools.com</string>
+    <string name="email_label">Sende Vorschläge und Feedback an:</string>
+    <string name="third_party_licences_underlined"><u>Drittanbieterlizenzen</u></string>
+    <string name="invite_friends_underlined"><u>Lade Freunde ein</u></string>
+    <string name="share_text">Hey, wirf mal einen Blick auf %1$s bei %2$s</string>
+    <string name="invite_via">Einladen via</string>
+    <string name="rate_us_underlined"><u>Bewerte uns im Play Store</u></string>
+    <string name="follow_us">Folge uns:</string>
+    <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>
+
+    <!-- Settings -->
+    <string name="settings">Einstellungen</string>
+    <string name="dark_theme">Dunkles Thema</string>
+    <string name="same_sorting">Selbe Sortierung für Dateien und Ordner</string>
+
+    <!--License-->
+    <string name="notice">Diese App nutzt die folgenden Drittanbieterbilbiotheken, die mein Leben einfacher machen. Danke.</string>
+    <string name="third_party_licences">Drittanbieterlizenzen</string>
+    <string name="butterknife_title"><u>Butter Knife (view injector)</u></string>
+    <string name="photoview_title"><u>PhotoView (zoomable imageviews)</u></string>
+    <string name="glide_title"><u>Glide (image loading and caching)</u></string>
+</resources>
