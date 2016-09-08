@@ -48,7 +48,7 @@
     <string name="email_label">Sende Vorschläge und Feedback an:</string>
     <string name="third_party_licences_underlined"><u>Drittanbieterlizenzen</u></string>
     <string name="invite_friends_underlined"><u>Lade Freunde ein</u></string>
-    <string name="share_text">Hey, wirf mal einen Blick auf %1$s bei %2$s</string>
+    <string name="share_text">Hey, wirf mal einen Blick auf %1$s: %2$s</string>
     <string name="invite_via">Einladen via</string>
     <string name="rate_us_underlined"><u>Bewerte uns im Play Store</u></string>
     <string name="follow_us">Folge uns:</string>
