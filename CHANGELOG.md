@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 1.21 *(2016-09-25)*
+----------------------------
+
+ * Prevent screen turning off at playing video
+ * Fix marking selected items on Android 5
+ * Fill the inside of Play button with transparent grey for bettervisibility
+
 Version 1.20 *(2016-09-07)*
 ----------------------------
 
