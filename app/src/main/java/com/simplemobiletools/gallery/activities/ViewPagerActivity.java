@@ -164,6 +164,13 @@ public class ViewPagerActivity extends SimpleActivity
         }
     }
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        final MyPagerAdapter adapter = (MyPagerAdapter) mPager.getAdapter();
+        adapter.confChanged(mPos);
+    }
+
     private void setAsWallpaper() {
         final Bitmap bitmap = BitmapFactory.decodeFile(getCurrentFile().getAbsolutePath());
         final WallpaperManager wallpaperManager = WallpaperManager.getInstance(getApplicationContext());

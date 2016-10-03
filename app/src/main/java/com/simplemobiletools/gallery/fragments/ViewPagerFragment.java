@@ -13,6 +13,8 @@ public abstract class ViewPagerFragment extends Fragment {
 
     public abstract void systemUiVisibilityChanged(boolean toFullscreen);
 
+    public abstract void confChanged();
+
     public interface FragmentClickListener {
         void fragmentClicked();
     }

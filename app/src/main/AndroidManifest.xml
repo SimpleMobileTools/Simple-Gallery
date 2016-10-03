@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
-    package="com.simplemobiletools.gallery"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.simplemobiletools.gallery">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.SET_WALLPAPER"/>
@@ -54,6 +54,7 @@
 
         <activity
             android:name=".activities.ViewPagerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:parentActivityName=".activities.MediaActivity"
             android:theme="@style/FullScreenTheme">
 
@@ -101,6 +102,7 @@
 
         <activity
             android:name=".activities.VideoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/FullScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>

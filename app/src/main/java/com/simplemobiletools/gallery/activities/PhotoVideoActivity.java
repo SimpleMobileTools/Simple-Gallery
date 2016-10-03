@@ -1,6 +1,7 @@
 package com.simplemobiletools.gallery.activities;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -20,6 +21,7 @@ import java.io.File;
 public class PhotoVideoActivity extends SimpleActivity implements ViewPagerFragment.FragmentClickListener {
     private static ActionBar mActionbar;
     private static Uri mUri;
+    private static ViewPagerFragment mFragment;
 
     private static boolean mIsFullScreen;
 
@@ -44,13 +46,19 @@ public class PhotoVideoActivity extends SimpleActivity implements ViewPagerFragm
         bundle.putSerializable(Constants.MEDIUM, medium);
 
         if (savedInstanceState == null) {
-            final ViewPagerFragment fragment = (mIsVideo ? new VideoFragment() : new PhotoFragment());
-            fragment.setListener(this);
-            fragment.setArguments(bundle);
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder, fragment).commit();
+            mFragment = (mIsVideo ? new VideoFragment() : new PhotoFragment());
+            mFragment.setListener(this);
+            mFragment.setArguments(bundle);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder, mFragment).commit();
         }
         hideSystemUI();
         setTitle(Utils.getFilename(mUri.toString()));
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        mFragment.confChanged();
     }
 
     @Override

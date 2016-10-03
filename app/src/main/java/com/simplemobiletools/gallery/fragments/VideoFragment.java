@@ -47,6 +47,7 @@ public class VideoFragment extends ViewPagerFragment
     private SeekBar mSeekBar;
     private Medium mMedium;
     private View mTimeHolder;
+    private View mView;
 
     private boolean mIsPlaying;
     private boolean mIsDragged;
@@ -56,7 +57,7 @@ public class VideoFragment extends ViewPagerFragment
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.pager_video_item, container, false);
+        mView = inflater.inflate(R.layout.pager_video_item, container, false);
 
         mMedium = (Medium) getArguments().getSerializable(Constants.MEDIUM);
         if (savedInstanceState != null) {
@@ -65,25 +66,25 @@ public class VideoFragment extends ViewPagerFragment
 
         mIsFullscreen = (getActivity().getWindow().getDecorView().getSystemUiVisibility() & View.SYSTEM_UI_FLAG_FULLSCREEN) ==
                 View.SYSTEM_UI_FLAG_FULLSCREEN;
-        setupPlayer(view);
-        view.setOnClickListener(this);
+        setupPlayer();
+        mView.setOnClickListener(this);
 
-        return view;
+        return mView;
     }
 
-    private void setupPlayer(View view) {
+    private void setupPlayer() {
         if (getActivity() == null)
             return;
 
-        mPlayOutline = (ImageView) view.findViewById(R.id.video_play_outline);
+        mPlayOutline = (ImageView) mView.findViewById(R.id.video_play_outline);
         mPlayOutline.setOnClickListener(this);
 
-        mSurfaceView = (SurfaceView) view.findViewById(R.id.video_surface);
+        mSurfaceView = (SurfaceView) mView.findViewById(R.id.video_surface);
         mSurfaceView.setOnClickListener(this);
         mSurfaceHolder = mSurfaceView.getHolder();
         mSurfaceHolder.addCallback(this);
 
-        initTimeHolder(view);
+        initTimeHolder();
     }
 
     public void itemDragged() {
@@ -98,14 +99,20 @@ public class VideoFragment extends ViewPagerFragment
         }
     }
 
-    private void initTimeHolder(View view) {
-        mTimeHolder = view.findViewById(R.id.video_time_holder);
+    @Override
+    public void confChanged() {
+        setVideoSize();
+        initTimeHolder();
+    }
+
+    private void initTimeHolder() {
+        mTimeHolder = mView.findViewById(R.id.video_time_holder);
         final Resources res = getResources();
         final int height = Utils.getNavBarHeight(res);
         final int left = mTimeHolder.getPaddingLeft();
         final int top = mTimeHolder.getPaddingTop();
-        int right = mTimeHolder.getPaddingRight();
-        int bottom = mTimeHolder.getPaddingBottom();
+        int right = (int) getResources().getDimension(R.dimen.timer_padding);
+        int bottom = 0;
 
         if (Utils.hasNavBar(getActivity())) {
             if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
@@ -116,9 +123,9 @@ public class VideoFragment extends ViewPagerFragment
             mTimeHolder.setPadding(left, top, right, bottom);
         }
 
-        mCurrTimeView = (TextView) view.findViewById(R.id.video_curr_time);
-        mDurationView = (TextView) view.findViewById(R.id.video_duration);
-        mSeekBar = (SeekBar) view.findViewById(R.id.video_seekbar);
+        mCurrTimeView = (TextView) mView.findViewById(R.id.video_curr_time);
+        mDurationView = (TextView) mView.findViewById(R.id.video_duration);
+        mSeekBar = (SeekBar) mView.findViewById(R.id.video_seekbar);
         mSeekBar.setOnSeekBarChangeListener(this);
 
         if (mIsFullscreen)
@@ -296,14 +303,14 @@ public class VideoFragment extends ViewPagerFragment
 
     @Override
     public void onVideoSizeChanged(MediaPlayer mp, int width, int height) {
-        setVideoSize(width, height);
+        setVideoSize();
     }
 
-    private void setVideoSize(int videoWidth, int videoHeight) {
+    private void setVideoSize() {
         if (getActivity() == null)
             return;
 
-        final float videoProportion = (float) videoWidth / (float) videoHeight;
+        final float videoProportion = (float) mMediaPlayer.getVideoWidth() / (float) mMediaPlayer.getVideoHeight();
         final Display display = getActivity().getWindowManager().getDefaultDisplay();
         int screenWidth;
         int screenHeight;
