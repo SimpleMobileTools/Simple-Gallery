@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 1.22 *(2016-10-03)*
+----------------------------
+
+ * Fix some glitches at video playback at orientation change
+
 Version 1.21 *(2016-09-25)*
 ----------------------------
 
