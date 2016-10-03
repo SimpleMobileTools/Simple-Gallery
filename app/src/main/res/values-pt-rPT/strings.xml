@@ -59,7 +59,7 @@
     <string name="dark_theme">Tema escuro</string>
     <string name="same_sorting">A mesma ordenação para ficheiros e pastas</string>
 
-    <!--License-->
+    <!-- License -->
     <string name="notice">Esta aplicação usa as seguintes bibliotecas de terceiros para facilitar a minha vida. Obrigado.</string>
     <string name="third_party_licences">Licenças de terceiros</string>
     <string name="butterknife_title"><u>Butter Knife (injetor de \"views\")</u></string>

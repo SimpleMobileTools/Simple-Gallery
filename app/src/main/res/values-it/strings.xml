@@ -59,7 +59,7 @@
     <string name="dark_theme">Tema scuro</string>
     <string name="same_sorting">Same sorting for files and folders</string>
 
-    <!--License-->
+    <!-- License -->
     <string name="notice">Questa app usa le seguenti librerie di terze parti per semplificarmi la vita. Grazie.</string>
     <string name="third_party_licences">Licenze di terze parti</string>
     <string name="butterknife_title"><u>Butter Knife (view injector)</u></string>
