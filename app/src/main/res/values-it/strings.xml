@@ -5,7 +5,7 @@
     <string name="no_permissions">Non c\'è molto da fare in una galleria senza l\'accesso all\'archiviazione</string>
     <string name="delete">Elimina</string>
     <string name="deleting">Eliminazione</string>
-    <string name="edit">Modifica</string>
+    <string name="rename">Rename</string>
     <string name="undo">Annulla</string>
     <string name="share">Condividi</string>
     <string name="rename_file">Rinomina file</string>

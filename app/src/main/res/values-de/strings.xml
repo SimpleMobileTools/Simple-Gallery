@@ -5,7 +5,7 @@
     <string name="no_permissions">Ohne Zugriff auf deinen Speicher gibt es hier nicht viel zu tun</string>
     <string name="delete">Löschen</string>
     <string name="deleting">Lösche</string>
-    <string name="edit">Bearbeiten</string>
+    <string name="rename">Rename</string>
     <string name="undo">Rückgängig</string>
     <string name="share">Teilen</string>
     <string name="rename_file">Datei umbenennen</string>

@@ -5,7 +5,7 @@
     <string name="no_permissions">É necessário o acesso ao armazenamento para a galeria ter utilidade</string>
     <string name="delete">Eliminar</string>
     <string name="deleting">A eliminar</string>
-    <string name="edit">Editar</string>
+    <string name="rename">Rename</string>
     <string name="undo">Desfazer</string>
     <string name="share">Partilhar</string>
     <string name="rename_file">Renomear ficheiro</string>

@@ -156,7 +156,7 @@ public class ViewPagerActivity extends SimpleActivity
             case R.id.menu_delete:
                 notifyDeletion();
                 return true;
-            case R.id.menu_edit:
+            case R.id.menu_rename:
                 editMedium();
                 return true;
             default:

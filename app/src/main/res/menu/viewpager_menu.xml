@@ -6,9 +6,9 @@
         android:title="@string/set_as_wallpaper"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/menu_edit"
-        android:icon="@mipmap/edit"
-        android:title="@string/edit"
+        android:id="@+id/menu_rename"
+        android:icon="@mipmap/rename"
+        android:title="@string/rename"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_delete"

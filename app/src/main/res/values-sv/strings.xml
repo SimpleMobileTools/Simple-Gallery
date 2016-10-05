@@ -5,7 +5,7 @@
     <string name="no_permissions">Inte mycket att göra i ett galleri om jag inte kommer åt lagringsutrymmet</string>
     <string name="delete">Ta bort</string>
     <string name="deleting">Tar bort</string>
-    <string name="edit">Redigera</string>
+    <string name="rename">Rename</string>
     <string name="undo">Ångra</string>
     <string name="share">Dela</string>
     <string name="rename_file">Döp om fil</string>
