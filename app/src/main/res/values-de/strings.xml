@@ -32,6 +32,7 @@
     <string name="set_as_wallpaper">Als Hintergrundbild setzen</string>
     <string name="set_as_wallpaper_failed">Setzen des Hintergrundbildes fehlgeschlagen</string>
     <string name="editor">Editor</string>
+    <string name="save">Save</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 Ordner gelöscht</item>
