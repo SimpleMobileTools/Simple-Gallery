@@ -118,7 +118,7 @@
             android:name=".activities.EditActivity"
             android:label="@string/editor">
             <intent-filter>
-                <action android:name="action_nextgen_edit"/>
+                <action android:name="android.intent.action.EDIT"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
 
