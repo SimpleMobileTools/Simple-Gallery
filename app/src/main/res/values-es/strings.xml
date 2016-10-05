@@ -48,6 +48,7 @@
     <string name="save">Save</string>
     <string name="rotate">Rotate</string>
     <string name="image_croping_failed">Image croping failed:</string>
+    <string name="invalid_image_path">Invalid image path</string>
 
     <!-- About -->
     <string name="about">Acerca de</string>

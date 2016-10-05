@@ -13,9 +13,16 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit)
 
+        if (intent.data == null) {
+            toast(R.string.invalid_image_path)
+            finish()
+            return
+        }
+
         crop_image_view.apply {
             guidelines = CropImageView.Guidelines.OFF
             setOnCropImageCompleteListener(this@EditActivity)
+            setImageUriAsync(intent.data)
         }
     }
 
