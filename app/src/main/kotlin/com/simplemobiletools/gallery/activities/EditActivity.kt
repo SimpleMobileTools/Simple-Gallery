@@ -28,6 +28,7 @@ class EditActivity : SimpleActivity() {
                 return true
             }
             R.id.rotate -> {
+                crop_image_view.rotateImage(90)
                 return true
             }
         }
