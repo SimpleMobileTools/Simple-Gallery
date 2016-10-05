@@ -6,6 +6,16 @@
         android:title="@string/set_as_wallpaper"
         app:showAsAction="never"/>
     <item
+        android:id="@+id/menu_crop_rotate"
+        android:icon="@mipmap/crop_rotate"
+        android:title="@string/crop_rotate"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/menu_share"
+        android:icon="@mipmap/share"
+        android:title="@string/share"
+        app:showAsAction="ifRoom"/>
+    <item
         android:id="@+id/menu_rename"
         android:icon="@mipmap/rename"
         android:title="@string/rename"
@@ -14,10 +24,5 @@
         android:id="@+id/menu_delete"
         android:icon="@mipmap/delete"
         android:title="@string/delete"
-        app:showAsAction="ifRoom"/>
-    <item
-        android:id="@+id/menu_share"
-        android:icon="@mipmap/share"
-        android:title="@string/share"
         app:showAsAction="ifRoom"/>
 </menu>

@@ -6,6 +6,7 @@
     <string name="delete">Delete</string>
     <string name="deleting">Deleting</string>
     <string name="rename">Rename</string>
+    <string name="crop_rotate">Crop / rotate</string>
     <string name="undo">Undo</string>
     <string name="share">Share</string>
     <string name="rename_file">Rename file</string>

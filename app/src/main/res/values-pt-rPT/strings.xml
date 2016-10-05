@@ -6,6 +6,7 @@
     <string name="delete">Eliminar</string>
     <string name="deleting">A eliminar</string>
     <string name="rename">Rename</string>
+    <string name="crop_rotate">Crop / rotate</string>
     <string name="undo">Desfazer</string>
     <string name="share">Partilhar</string>
     <string name="rename_file">Renomear ficheiro</string>
