@@ -31,9 +31,6 @@
     <string name="cancel">Cancel</string>
     <string name="set_as_wallpaper">Set as Wallpaper</string>
     <string name="set_as_wallpaper_failed">Setting as Wallpaper failed</string>
-    <string name="editor">Editor</string>
-    <string name="save">Save</string>
-    <string name="rotate">Rotate</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 folder deleted</item>
@@ -44,6 +41,12 @@
         <item quantity="one">1 file deleted</item>
         <item quantity="other">%1$d files deleted</item>
     </plurals>
+
+    <!-- Editor -->
+    <string name="editor">Editor</string>
+    <string name="save">Save</string>
+    <string name="rotate">Rotate</string>
+    <string name="image_croping_failed">Image croping failed:</string>
 
     <!-- About -->
     <string name="about">About</string>

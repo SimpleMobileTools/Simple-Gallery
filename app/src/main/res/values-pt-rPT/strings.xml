@@ -31,9 +31,6 @@
     <string name="cancel">Cancelar</string>
     <string name="set_as_wallpaper">Definir como fundo de ecrã</string>
     <string name="set_as_wallpaper_failed">Falha ao definir como fundo de ecrã</string>
-    <string name="editor">Editor</string>
-    <string name="save">Save</string>
-    <string name="rotate">Rotate</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 pasta eliminada</item>
@@ -44,6 +41,12 @@
         <item quantity="one">1 ficheiro eliminado</item>
         <item quantity="other">%1$d ficheiros eliminados</item>
     </plurals>
+
+    <!-- Editor -->
+    <string name="editor">Editor</string>
+    <string name="save">Save</string>
+    <string name="rotate">Rotate</string>
+    <string name="image_croping_failed">Image croping failed:</string>
 
     <!-- About -->
     <string name="about">Sobre</string>
