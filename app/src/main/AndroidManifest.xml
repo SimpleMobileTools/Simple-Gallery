@@ -114,5 +114,15 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".activities.EditActivity">
+            <intent-filter>
+                <action android:name="action_nextgen_edit"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+        </activity>
     </application>
 </manifest>
