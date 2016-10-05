@@ -31,6 +31,7 @@
     <string name="cancel">Cancelar</string>
     <string name="set_as_wallpaper">Establecer como fondo de pantalla</string>
     <string name="set_as_wallpaper_failed">Error al establecer fondo de pantalla</string>
+    <string name="editor">Editor</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 carpeta eliminada</item>
