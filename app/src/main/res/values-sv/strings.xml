@@ -33,6 +33,7 @@
     <string name="set_as_wallpaper_failed">Setting as Wallpaper failed</string>
     <string name="editor">Editor</string>
     <string name="save">Save</string>
+    <string name="rotate">Rotate</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 mapp borttagen</item>

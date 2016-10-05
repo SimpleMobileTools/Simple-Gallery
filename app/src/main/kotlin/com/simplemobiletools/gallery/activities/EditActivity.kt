@@ -27,6 +27,9 @@ class EditActivity : SimpleActivity() {
             R.id.save -> {
                 return true
             }
+            R.id.rotate -> {
+                return true
+            }
         }
         return super.onOptionsItemSelected(item)
     }
