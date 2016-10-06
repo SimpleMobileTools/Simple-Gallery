@@ -29,7 +29,6 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             return
         }
 
-        Log.e("DEBUG", "uri $TAG ${intent.data}")
         crop_image_view.apply {
             guidelines = CropImageView.Guidelines.OFF
             setOnCropImageCompleteListener(this@EditActivity)
