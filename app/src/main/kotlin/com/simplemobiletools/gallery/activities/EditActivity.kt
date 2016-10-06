@@ -84,7 +84,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun getCompressionFormat(file: File): Bitmap.CompressFormat {
-        return when (file.extension) {
+        return when (file.extension.toLowerCase()) {
             "png" -> Bitmap.CompressFormat.PNG
             "webp" -> Bitmap.CompressFormat.WEBP
             else -> Bitmap.CompressFormat.JPEG
