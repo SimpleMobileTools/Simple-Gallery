@@ -1,6 +1,7 @@
 package com.simplemobiletools.gallery.activities;
 
 import android.app.WallpaperManager;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
@@ -46,6 +47,7 @@ public class ViewPagerActivity extends SimpleActivity
     @BindView(R.id.undo_delete) View mUndoBtn;
     @BindView(R.id.view_pager) MyViewPager mPager;
 
+    private static final int EDIT_IMAGE = 1;
     private static ActionBar mActionbar;
     private static List<Medium> mMedia;
     private static String mPath;
@@ -161,6 +163,7 @@ public class ViewPagerActivity extends SimpleActivity
                 editMedium();
                 return true;
             case R.id.menu_crop_rotate:
+                openEditor();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -172,6 +175,12 @@ public class ViewPagerActivity extends SimpleActivity
         super.onConfigurationChanged(newConfig);
         final MyPagerAdapter adapter = (MyPagerAdapter) mPager.getAdapter();
         adapter.confChanged(mPos);
+    }
+
+    private void openEditor() {
+        final Intent intent = new Intent(getApplicationContext(), EditActivity.class);
+        intent.setData(Uri.fromFile(getCurrentFile()));
+        startActivityForResult(intent, EDIT_IMAGE);
     }
 
     private void setAsWallpaper() {
