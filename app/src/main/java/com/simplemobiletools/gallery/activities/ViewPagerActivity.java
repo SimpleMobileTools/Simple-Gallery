@@ -189,8 +189,6 @@ public class ViewPagerActivity extends SimpleActivity
             if (resultCode == RESULT_OK && data != null) {
                 final MyPagerAdapter adapter = (MyPagerAdapter) mPager.getAdapter();
                 adapter.updateItems(mPos);
-            } else {
-                Utils.showToast(getApplicationContext(), R.string.image_editing_failed);
             }
         }
         super.onActivityResult(requestCode, resultCode, data);

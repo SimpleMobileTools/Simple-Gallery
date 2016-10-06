@@ -66,6 +66,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 setResult(Activity.RESULT_OK, intent)
             } catch (e: Exception) {
                 Log.e(TAG, "Crop compressing failed $e")
+                toast(R.string.image_editing_failed)
             } finally {
                 try {
                     out?.close()
