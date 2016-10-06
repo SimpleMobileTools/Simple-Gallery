@@ -100,7 +100,7 @@ public class VideoFragment extends ViewPagerFragment
     }
 
     @Override
-    public void confChanged() {
+    public void updateItem() {
         setVideoSize();
         initTimeHolder();
     }

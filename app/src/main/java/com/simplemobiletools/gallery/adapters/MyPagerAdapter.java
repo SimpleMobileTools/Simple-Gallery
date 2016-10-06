@@ -67,11 +67,11 @@ public class MyPagerAdapter extends FragmentStatePagerAdapter {
         }
     }
 
-    public void confChanged(int pos) {
+    public void updateItems(int pos) {
         for (int i = -1; i <= 1; i++) {
             final ViewPagerFragment fragment = mFragments.get(pos + i);
             if (fragment != null) {
-                fragment.confChanged();
+                fragment.updateItem();
             }
         }
     }

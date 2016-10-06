@@ -58,7 +58,7 @@ public class PhotoVideoActivity extends SimpleActivity implements ViewPagerFragm
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        mFragment.confChanged();
+        mFragment.updateItem();
     }
 
     @Override

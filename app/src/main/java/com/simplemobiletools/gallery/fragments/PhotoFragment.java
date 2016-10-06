@@ -15,33 +15,33 @@ import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.models.Medium;
 
 public class PhotoFragment extends ViewPagerFragment implements View.OnClickListener {
-    private View mView;
     private SubsamplingScaleImageView mSubsamplingView;
+    private Medium mMedium;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.pager_photo_item, container, false);
+        final View view = inflater.inflate(R.layout.pager_photo_item, container, false);
 
-        final Medium medium = (Medium) getArguments().getSerializable(Constants.MEDIUM);
-        if (medium == null)
-            return mView;
+        mMedium = (Medium) getArguments().getSerializable(Constants.MEDIUM);
+        if (mMedium == null)
+            return view;
 
-        mSubsamplingView = (SubsamplingScaleImageView) mView.findViewById(R.id.photo_view);
-        if (medium.isGif()) {
+        mSubsamplingView = (SubsamplingScaleImageView) view.findViewById(R.id.photo_view);
+        if (mMedium.isGif()) {
             mSubsamplingView.setVisibility(View.GONE);
-            final ImageView imageView = (ImageView) mView.findViewById(R.id.gif_view);
+            final ImageView imageView = (ImageView) view.findViewById(R.id.gif_view);
             imageView.setVisibility(View.VISIBLE);
-            Glide.with(getContext()).load(medium.getPath()).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).into(imageView);
+            Glide.with(getContext()).load(mMedium.getPath()).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).into(imageView);
             imageView.setOnClickListener(this);
         } else {
             mSubsamplingView.setOrientation(SubsamplingScaleImageView.ORIENTATION_USE_EXIF);
-            mSubsamplingView.setImage(ImageSource.uri(medium.getPath()));
+            mSubsamplingView.setImage(ImageSource.uri(mMedium.getPath()));
             mSubsamplingView.setMaxScale(4f);
             mSubsamplingView.setMinimumTileDpi(200);
             mSubsamplingView.setOnClickListener(this);
         }
 
-        return mView;
+        return view;
     }
 
     @Override
@@ -55,8 +55,8 @@ public class PhotoFragment extends ViewPagerFragment implements View.OnClickList
     }
 
     @Override
-    public void confChanged() {
-
+    public void updateItem() {
+        mSubsamplingView.setImage(ImageSource.uri(mMedium.getPath()));
     }
 
     @Override

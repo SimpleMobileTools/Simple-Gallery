@@ -75,7 +75,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 }
             }
 
-            MediaScannerConnection.scanFile(applicationContext, arrayOf(path), null, { s: String, uri: Uri ->
+            MediaScannerConnection.scanFile(applicationContext, arrayOf(path), null, { path: String, uri: Uri ->
                 finish()
             })
         } else {

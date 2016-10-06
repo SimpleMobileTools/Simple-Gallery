@@ -174,7 +174,7 @@ public class ViewPagerActivity extends SimpleActivity
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         final MyPagerAdapter adapter = (MyPagerAdapter) mPager.getAdapter();
-        adapter.confChanged(mPos);
+        adapter.updateItems(mPos);
     }
 
     private void openEditor() {
@@ -187,7 +187,8 @@ public class ViewPagerActivity extends SimpleActivity
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == EDIT_IMAGE) {
             if (resultCode == RESULT_OK && data != null) {
-
+                final MyPagerAdapter adapter = (MyPagerAdapter) mPager.getAdapter();
+                adapter.updateItems(mPos);
             } else {
                 Utils.showToast(getApplicationContext(), R.string.image_editing_failed);
             }
