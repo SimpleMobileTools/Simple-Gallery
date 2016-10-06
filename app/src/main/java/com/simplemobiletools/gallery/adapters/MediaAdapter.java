@@ -50,7 +50,8 @@ public class MediaAdapter extends BaseAdapter {
         if (medium.isGif()) {
             Glide.with(mContext).load(path).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).into(viewHolder.photoThumbnail);
         } else {
-            Glide.with(mContext).load(path).placeholder(R.color.tmb_background).centerCrop().crossFade().into(viewHolder.photoThumbnail);
+            Glide.with(mContext).load(path).diskCacheStrategy(DiskCacheStrategy.NONE).placeholder(R.color.tmb_background)
+                    .centerCrop().crossFade().into(viewHolder.photoThumbnail);
         }
 
         return convertView;

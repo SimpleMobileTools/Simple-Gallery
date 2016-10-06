@@ -48,7 +48,8 @@ public class DirectoryAdapter extends BaseAdapter {
             Glide.with(mContext).load(tmb).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).placeholder(R.color.tmb_background)
                     .centerCrop().crossFade().into(viewHolder.dirThumbnail);
         } else {
-            Glide.with(mContext).load(tmb).placeholder(R.color.tmb_background).centerCrop().crossFade().into(viewHolder.dirThumbnail);
+            Glide.with(mContext).load(tmb).diskCacheStrategy(DiskCacheStrategy.NONE).placeholder(R.color.tmb_background)
+                    .centerCrop().crossFade().into(viewHolder.dirThumbnail);
         }
 
         return convertView;
