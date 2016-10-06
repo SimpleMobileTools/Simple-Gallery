@@ -28,6 +28,16 @@ public class LicenseActivity extends SimpleActivity {
         openUrl(R.string.photoview_url);
     }
 
+    @OnClick(R.id.license_glide_title)
+    public void glideClicked() {
+        openUrl(R.string.glide_url);
+    }
+
+    @OnClick(R.id.license_cropper_title)
+    public void cropperClicked() {
+        openUrl(R.string.cropper_url);
+    }
+
     private void openUrl(int id) {
         final String url = getResources().getString(id);
         final Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));

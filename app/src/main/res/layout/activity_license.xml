@@ -59,5 +59,19 @@
             android:layout_height="wrap_content"
             android:text="@string/glide_text"/>
 
+        <TextView
+            android:id="@+id/license_cropper_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/activity_margin"
+            android:text="@string/cropper_title"
+            android:textColor="@color/colorPrimary"/>
+
+        <TextView
+            android:id="@+id/license_cropper_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cropper_text"/>
+
     </LinearLayout>
 </ScrollView>
