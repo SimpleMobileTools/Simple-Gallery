@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.signature.StringSignature;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.models.Medium;
 
@@ -47,11 +48,12 @@ public class MediaAdapter extends BaseAdapter {
         }
 
         final String path = medium.getPath();
+        final StringSignature timestampSignature = new StringSignature(String.valueOf(medium.getTimestamp()));
         if (medium.isGif()) {
-            Glide.with(mContext).load(path).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).into(viewHolder.photoThumbnail);
+            Glide.with(mContext).load(path).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature).into(viewHolder.photoThumbnail);
         } else {
-            Glide.with(mContext).load(path).diskCacheStrategy(DiskCacheStrategy.NONE).placeholder(R.color.tmb_background)
-                    .centerCrop().crossFade().into(viewHolder.photoThumbnail);
+            Glide.with(mContext).load(path).diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)
+                    .placeholder(R.color.tmb_background).centerCrop().crossFade().into(viewHolder.photoThumbnail);
         }
 
         return convertView;

@@ -62,7 +62,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             var out: FileOutputStream? = null
             try {
                 out = FileOutputStream(file)
-                result.bitmap.compress(getFileExtension(file), 100, out)
+                result.bitmap.compress(getCompressionFormat(file), 100, out)
                 setResult(Activity.RESULT_OK, intent)
             } catch (e: Exception) {
                 Log.e(TAG, "Crop compressing failed $e")
@@ -83,7 +83,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
     }
 
-    private fun getFileExtension(file: File): Bitmap.CompressFormat {
+    private fun getCompressionFormat(file: File): Bitmap.CompressFormat {
         return when (file.extension) {
             "png" -> Bitmap.CompressFormat.PNG
             "webp" -> Bitmap.CompressFormat.WEBP
