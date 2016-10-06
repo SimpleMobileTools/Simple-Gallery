@@ -183,6 +183,18 @@ public class ViewPagerActivity extends SimpleActivity
         startActivityForResult(intent, EDIT_IMAGE);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == EDIT_IMAGE) {
+            if (resultCode == RESULT_OK && data != null) {
+
+            } else {
+                Utils.showToast(getApplicationContext(), R.string.image_editing_failed);
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
     private void setAsWallpaper() {
         final Bitmap bitmap = BitmapFactory.decodeFile(getCurrentFile().getAbsolutePath());
         final WallpaperManager wallpaperManager = WallpaperManager.getInstance(getApplicationContext());
