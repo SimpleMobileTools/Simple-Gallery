@@ -178,9 +178,15 @@ public class ViewPagerActivity extends SimpleActivity
     }
 
     private void openEditor() {
-        final Intent intent = new Intent(getApplicationContext(), EditActivity.class);
-        intent.setData(Uri.fromFile(getCurrentFile()));
-        startActivityForResult(intent, EDIT_IMAGE);
+        final Intent intent = new Intent(Intent.ACTION_EDIT);
+        intent.setDataAndType(Uri.fromFile(getCurrentFile()), "image/*");
+        final Intent chooser = Intent.createChooser(intent, getString(R.string.edit_image_with));
+
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(chooser, EDIT_IMAGE);
+        } else {
+            Utils.showToast(getApplicationContext(), R.string.no_editor_found);
+        }
     }
 
     @Override
