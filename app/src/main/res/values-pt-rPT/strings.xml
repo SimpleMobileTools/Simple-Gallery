@@ -30,8 +30,6 @@
     <string name="descending">Descendente</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancelar</string>
-    <string name="set_as_wallpaper">Definir como fundo de ecrã</string>
-    <string name="set_as_wallpaper_failed">Falha ao definir como fundo de ecrã</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 pasta eliminada</item>
@@ -56,6 +54,9 @@
     <string name="error_saving_file">Could not overwrite the source file</string>
 
     <!-- Set wallpaper -->
+    <string name="wallpaper">Wallpaper</string>
+    <string name="set_as_wallpaper">Definir como fundo de ecrã</string>
+    <string name="set_as_wallpaper_failed">Falha ao definir como fundo de ecrã</string>
     <string name="set_as_wallpaper_with">Set as wallpaper with:</string>
     <string name="no_wallpaper_setter_found">No app capable of it has been found</string>
     <string name="wallpaper_changed_successfully">Wallpaper changed successfully</string>

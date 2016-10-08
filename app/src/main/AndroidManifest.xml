@@ -41,11 +41,6 @@
                 <data android:mimeType="vnd.android.cursor.dir/image"/>
                 <data android:mimeType="vnd.android.cursor.dir/video"/>
             </intent-filter>
-
-            <intent-filter>
-                <action android:name="android.intent.action.SET_WALLPAPER"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
         </activity>
 
         <activity
@@ -123,6 +118,24 @@
                 <category android:name="android.intent.category.DEFAULT"/>
 
                 <data android:mimeType="image/*"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activities.SetWallpaperActivity"
+            android:label="@string/wallpaper">
+            <intent-filter>
+                <action android:name="android.intent.action.ATTACH_DATA"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.SET_WALLPAPER"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
     </application>
