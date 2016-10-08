@@ -6,9 +6,9 @@
         android:title="@string/set_as_wallpaper"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/menu_crop_rotate"
-        android:icon="@mipmap/crop_rotate"
-        android:title="@string/crop_rotate"
+        android:id="@+id/menu_edit"
+        android:icon="@mipmap/edit"
+        android:title="@string/edit"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_share"

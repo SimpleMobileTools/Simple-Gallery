@@ -138,7 +138,7 @@ public class ViewPagerActivity extends SimpleActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.viewpager_menu, menu);
         menu.findItem(R.id.menu_set_as_wallpaper).setVisible(getCurrentMedium().isImage());
-        menu.findItem(R.id.menu_crop_rotate).setVisible(getCurrentMedium().isImage());
+        menu.findItem(R.id.menu_edit).setVisible(getCurrentMedium().isImage());
         return true;
     }
 
@@ -158,7 +158,7 @@ public class ViewPagerActivity extends SimpleActivity
             case R.id.menu_rename:
                 editMedium();
                 return true;
-            case R.id.menu_crop_rotate:
+            case R.id.menu_edit:
                 openEditor();
                 return true;
             default:
