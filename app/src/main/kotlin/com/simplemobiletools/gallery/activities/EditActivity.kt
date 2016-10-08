@@ -69,13 +69,19 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             if (uri.scheme == "file") {
                 saveBitmapToFile(result.bitmap, uri.path)
             } else if (uri.scheme == "content") {
-                saveBitmapToFile(result.bitmap, convertMediaUriToPath(uri))
+                val newPath = convertMediaUriToPath(uri) ?: ""
+                if (!newPath.isEmpty()) {
+                    saveBitmapToFile(result.bitmap, newPath)
+                } else {
+                    toast(R.string.image_editing_failed)
+                    finish()
+                }
             } else {
                 toast(R.string.unknown_file_location)
                 finish()
             }
         } else {
-            toast("${getString(R.string.image_editing_failed)} ${result.error.message}")
+            toast("${getString(R.string.image_editing_failed)}: ${result.error.message}")
         }
     }
 
@@ -118,7 +124,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
     }
 
-    private fun convertMediaUriToPath(uri: Uri): String {
+    private fun convertMediaUriToPath(uri: Uri): String? {
         val proj = arrayOf(MediaStore.Images.Media.DATA)
         val cursor = contentResolver.query(uri, proj, null, null, null)
         val index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
