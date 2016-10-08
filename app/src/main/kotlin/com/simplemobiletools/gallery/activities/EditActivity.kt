@@ -18,6 +18,7 @@ import java.io.IOException
 
 class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener {
     val TAG: String = EditActivity::class.java.simpleName
+    lateinit var uri: Uri
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +26,13 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
         if (intent.data == null) {
             toast(R.string.invalid_image_path)
+            finish()
+            return
+        }
+
+        uri = intent.data
+        if (uri.scheme != "file" && uri.scheme != "content") {
+            toast(R.string.unknown_file_location)
             finish()
             return
         }
@@ -57,27 +65,36 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     override fun onCropImageComplete(view: CropImageView, result: CropImageView.CropResult) {
         if (result.error == null) {
-            val path = intent.data.path
-            val file = File(path)
-            var out: FileOutputStream? = null
-            try {
-                out = FileOutputStream(file)
-                result.bitmap.compress(getCompressionFormat(file), 100, out)
-                setResult(Activity.RESULT_OK, intent)
-            } catch (e: Exception) {
-                Log.e(TAG, "Crop compressing failed $e")
-                toast(R.string.image_editing_failed)
-            } finally {
+            if (uri.scheme == "file") {
+                val path = uri.path
+                val file = File(path)
+                var out: FileOutputStream? = null
                 try {
-                    out?.close()
-                } catch (e: IOException) {
-                    Log.e(TAG, "FileOutputStream closing failed $e")
+                    out = FileOutputStream(file)
+                    result.bitmap.compress(getCompressionFormat(file), 100, out)
+                    setResult(Activity.RESULT_OK, intent)
+                } catch (e: Exception) {
+                    Log.e(TAG, "Crop compressing failed $e")
+                    toast(R.string.image_editing_failed)
+                    finish()
+                } finally {
+                    try {
+                        out?.close()
+                    } catch (e: IOException) {
+                        Log.e(TAG, "FileOutputStream closing failed $e")
+                    }
                 }
-            }
 
-            MediaScannerConnection.scanFile(applicationContext, arrayOf(path), null, { path: String, uri: Uri ->
+                MediaScannerConnection.scanFile(applicationContext, arrayOf(path), null, { path: String, uri: Uri ->
+                    setResult(Activity.RESULT_OK, intent)
+                    finish()
+                })
+            } else if (uri.scheme == "content") {
+
+            } else {
+                toast(R.string.unknown_file_location)
                 finish()
-            })
+            }
         } else {
             toast("${getString(R.string.image_croping_failed)} ${result.error.message}")
         }

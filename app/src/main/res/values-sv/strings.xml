@@ -52,6 +52,7 @@
     <string name="image_editing_failed">Image editing failed</string>
     <string name="edit_image_with">Edit image with:</string>
     <string name="no_editor_found">No image editor found</string>
+    <string name="unknown_file_location">Unknown file location</string>
 
     <!-- About -->
     <string name="about">Om</string>
