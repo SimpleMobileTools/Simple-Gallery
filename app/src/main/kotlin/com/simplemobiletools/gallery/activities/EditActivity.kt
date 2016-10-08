@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.media.MediaScannerConnection
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -66,31 +67,9 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     override fun onCropImageComplete(view: CropImageView, result: CropImageView.CropResult) {
         if (result.error == null) {
             if (uri.scheme == "file") {
-                val path = uri.path
-                val file = File(path)
-                var out: FileOutputStream? = null
-                try {
-                    out = FileOutputStream(file)
-                    result.bitmap.compress(getCompressionFormat(file), 100, out)
-                    setResult(Activity.RESULT_OK, intent)
-                } catch (e: Exception) {
-                    Log.e(TAG, "Crop compressing failed $e")
-                    toast(R.string.image_editing_failed)
-                    finish()
-                } finally {
-                    try {
-                        out?.close()
-                    } catch (e: IOException) {
-                        Log.e(TAG, "FileOutputStream closing failed $e")
-                    }
-                }
-
-                MediaScannerConnection.scanFile(applicationContext, arrayOf(path), null, { path: String, uri: Uri ->
-                    setResult(Activity.RESULT_OK, intent)
-                    finish()
-                })
+                saveBitmapToFile(result.bitmap, uri.path)
             } else if (uri.scheme == "content") {
-
+                saveBitmapToFile(result.bitmap, convertMediaUriToPath(uri))
             } else {
                 toast(R.string.unknown_file_location)
                 finish()
@@ -100,11 +79,52 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
     }
 
+    private fun saveBitmapToFile(bitmap: Bitmap, path: String) {
+        val file = File(path)
+        if (!file.exists()) {
+            toast(R.string.error_saving_file)
+            finish()
+            return
+        }
+
+        var out: FileOutputStream? = null
+        try {
+            out = FileOutputStream(file)
+            bitmap.compress(getCompressionFormat(file), 100, out)
+            setResult(Activity.RESULT_OK, intent)
+        } catch (e: Exception) {
+            Log.e(TAG, "Crop compressing failed $e")
+            toast(R.string.image_editing_failed)
+            finish()
+        } finally {
+            try {
+                out?.close()
+            } catch (e: IOException) {
+                Log.e(TAG, "FileOutputStream closing failed $e")
+            }
+        }
+
+        MediaScannerConnection.scanFile(applicationContext, arrayOf(path), null, { path: String, uri: Uri ->
+            setResult(Activity.RESULT_OK, intent)
+            finish()
+        })
+    }
+
     private fun getCompressionFormat(file: File): Bitmap.CompressFormat {
         return when (file.extension.toLowerCase()) {
             "png" -> Bitmap.CompressFormat.PNG
             "webp" -> Bitmap.CompressFormat.WEBP
             else -> Bitmap.CompressFormat.JPEG
         }
+    }
+
+    private fun convertMediaUriToPath(uri: Uri): String {
+        val proj = arrayOf(MediaStore.Images.Media.DATA)
+        val cursor = contentResolver.query(uri, proj, null, null, null)
+        val index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+        cursor.moveToFirst()
+        val path = cursor.getString(index)
+        cursor.close()
+        return path
     }
 }
