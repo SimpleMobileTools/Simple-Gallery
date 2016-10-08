@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.activities
 
 import android.app.Activity
 import android.app.WallpaperManager
+import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
@@ -13,6 +14,8 @@ import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_edit.*
 
 class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener {
+    private val PICK_IMAGE = 1
+
     lateinit var uri: Uri
     lateinit var wallpaperManager: WallpaperManager
 
@@ -21,11 +24,17 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
         setContentView(R.layout.activity_set_wallpaper)
 
         if (intent.data == null) {
-            toast(R.string.invalid_image_path)
-            finish()
+            val pickIntent = Intent(applicationContext, MainActivity::class.java)
+            pickIntent.action = Intent.ACTION_PICK
+            pickIntent.type = "image/*"
+            startActivityForResult(pickIntent, PICK_IMAGE)
             return
         }
 
+        handleImage(intent)
+    }
+
+    private fun handleImage(intent: Intent) {
         uri = intent.data
         if (uri.scheme != "file" && uri.scheme != "content") {
             toast(R.string.unknown_file_location)
@@ -76,5 +85,12 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
         } else {
             toast("${getString(R.string.image_editing_failed)}: ${result.error.message}")
         }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == PICK_IMAGE && resultCode == Activity.RESULT_OK && data != null) {
+            handleImage(data)
+        }
+        super.onActivityResult(requestCode, resultCode, data)
     }
 }
