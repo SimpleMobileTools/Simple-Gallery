@@ -45,7 +45,6 @@
     <string name="editor">Editor</string>
     <string name="save">Save</string>
     <string name="rotate">Rotate</string>
-    <string name="image_croping_failed">Image croping failed:</string>
     <string name="invalid_image_path">Invalid image path</string>
     <string name="image_editing_failed">Image editing failed</string>
     <string name="edit_image_with">Edit image with:</string>

@@ -75,7 +75,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 finish()
             }
         } else {
-            toast("${getString(R.string.image_croping_failed)} ${result.error.message}")
+            toast("${getString(R.string.image_editing_failed)} ${result.error.message}")
         }
     }
 

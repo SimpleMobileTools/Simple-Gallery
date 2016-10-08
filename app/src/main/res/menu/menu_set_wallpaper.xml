@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/rotate"
+        android:icon="@mipmap/rotate"
+        android:title="@string/rotate"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/save"
+        android:icon="@mipmap/check"
+        android:title="@string/save"
+        app:showAsAction="ifRoom"/>
+</menu>
