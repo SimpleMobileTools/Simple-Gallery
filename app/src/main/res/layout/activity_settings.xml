@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-    android:id="@+id/settings_scrollview"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/settings_scrollview"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -25,12 +25,14 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:paddingLeft="@dimen/settings_padding"
+                android:paddingStart="@dimen/settings_padding"
                 android:text="@string/dark_theme"/>
 
             <android.support.v7.widget.SwitchCompat
                 android:id="@+id/settings_dark_theme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:background="@null"
                 android:clickable="false"/>
@@ -51,12 +53,14 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:paddingLeft="@dimen/settings_padding"
+                android:paddingStart="@dimen/settings_padding"
                 android:text="@string/same_sorting"/>
 
             <android.support.v7.widget.SwitchCompat
                 android:id="@+id/settings_same_sorting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:background="@null"
                 android:clickable="false"/>
