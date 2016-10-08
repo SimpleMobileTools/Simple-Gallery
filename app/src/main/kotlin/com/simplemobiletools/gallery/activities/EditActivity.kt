@@ -96,7 +96,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         var out: FileOutputStream? = null
         try {
             out = FileOutputStream(file)
-            bitmap.compress(getCompressionFormat(file), 100, out)
+            bitmap.compress(getCompressionFormat(file), 90, out)
             setResult(Activity.RESULT_OK, intent)
         } catch (e: Exception) {
             Log.e(TAG, "Crop compressing failed $e")
