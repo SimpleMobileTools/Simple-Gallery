@@ -19,7 +19,6 @@
     <string name="renaming_folder">フォルダーの名前を変更中</string>
     <string name="extension">拡張</string>
     <string name="file_deleted">ファイルを削除しました</string>
-    <string name="setting_wallpaper">壁紙の設定</string>
     <string name="open_camera">カメラを開く</string>
     <string name="unknown_error">不明なエラーが発生しました</string>
     <string name="sort_by">Sort by</string>
@@ -58,7 +57,8 @@
     <string name="set_as_wallpaper_failed">Setting as Wallpaper failed</string>
     <string name="set_as_wallpaper_with">Set as wallpaper with:</string>
     <string name="no_wallpaper_setter_found">No app capable of it has been found</string>
-    <string name="wallpaper_changed_successfully">Wallpaper changed successfully</string>
+    <string name="setting_wallpaper">壁紙の設定&#8230;</string>
+    <string name="wallpaper_set_successfully">Wallpaper set successfully</string>
 
     <!-- About -->
     <string name="about">アプリについて</string>

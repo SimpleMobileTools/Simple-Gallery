@@ -63,13 +63,16 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
 
     override fun onCropImageComplete(view: CropImageView?, result: CropImageView.CropResult) {
         if (result.error == null) {
-            val bitmap = result.bitmap
-            val wantedHeight = wallpaperManager.desiredMinimumHeight
-            val ratio = wantedHeight / bitmap.height.toFloat()
-            val wantedWidth = (bitmap.width * ratio).toInt()
-            wallpaperManager.setBitmap(Bitmap.createScaledBitmap(bitmap, wantedWidth, wantedHeight, false))
-            setResult(Activity.RESULT_OK)
-            finish()
+            toast(R.string.setting_wallpaper)
+            Thread({
+                val bitmap = result.bitmap
+                val wantedHeight = wallpaperManager.desiredMinimumHeight
+                val ratio = wantedHeight / bitmap.height.toFloat()
+                val wantedWidth = (bitmap.width * ratio).toInt()
+                wallpaperManager.setBitmap(Bitmap.createScaledBitmap(bitmap, wantedWidth, wantedHeight, false))
+                setResult(Activity.RESULT_OK)
+                finish()
+            }).start()
         } else {
             toast("${getString(R.string.image_editing_failed)}: ${result.error.message}")
         }

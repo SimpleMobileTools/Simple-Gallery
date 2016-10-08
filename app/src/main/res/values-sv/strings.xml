@@ -19,7 +19,6 @@
     <string name="renaming_folder">Döper om mappen</string>
     <string name="extension">Filändelse</string>
     <string name="file_deleted">Fil borttagen</string>
-    <string name="setting_wallpaper">Inställningar för bakgrundsbild</string>
     <string name="open_camera">Starta kameran</string>
     <string name="unknown_error">Ett okänt fel har uppstått</string>
     <string name="sort_by">Sort by</string>
@@ -58,7 +57,8 @@
     <string name="set_as_wallpaper_failed">Setting as Wallpaper failed</string>
     <string name="set_as_wallpaper_with">Set as wallpaper with:</string>
     <string name="no_wallpaper_setter_found">No app capable of it has been found</string>
-    <string name="wallpaper_changed_successfully">Wallpaper changed successfully</string>
+    <string name="setting_wallpaper">Inställningar för bakgrundsbild&#8230;</string>
+    <string name="wallpaper_set_successfully">Wallpaper set successfully</string>
 
     <!-- About -->
     <string name="about">Om</string>

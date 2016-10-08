@@ -19,7 +19,6 @@
     <string name="renaming_folder">Rinominazione cartella</string>
     <string name="extension">Estensione</string>
     <string name="file_deleted">File eliminato</string>
-    <string name="setting_wallpaper">Impostazione sfondo</string>
     <string name="open_camera">Apri fotocamera</string>
     <string name="unknown_error">Riscontrato un errore sconosciuto</string>
     <string name="sort_by">Sort by</string>
@@ -58,7 +57,8 @@
     <string name="set_as_wallpaper_failed">Setting as Wallpaper failed</string>
     <string name="set_as_wallpaper_with">Set as wallpaper with:</string>
     <string name="no_wallpaper_setter_found">No app capable of it has been found</string>
-    <string name="wallpaper_changed_successfully">Wallpaper changed successfully</string>
+    <string name="setting_wallpaper">Impostazione sfondo&#8230;</string>
+    <string name="wallpaper_set_successfully">Wallpaper set successfully</string>
 
     <!-- About -->
     <string name="about">Informazioni</string>

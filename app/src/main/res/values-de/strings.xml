@@ -19,7 +19,6 @@
     <string name="renaming_folder">Benenne Ordner um</string>
     <string name="extension">Dateiendung</string>
     <string name="file_deleted">Datei gelöscht</string>
-    <string name="setting_wallpaper">Setze Hintergrundbild</string>
     <string name="open_camera">Kamera öffnen</string>
     <string name="unknown_error">Ein unbekannter Fehler ist aufgetreten</string>
     <string name="sort_by">Sortieren nach</string>
@@ -58,7 +57,8 @@
     <string name="set_as_wallpaper_failed">Setzen des Hintergrundbildes fehlgeschlagen</string>
     <string name="set_as_wallpaper_with">Set as wallpaper with:</string>
     <string name="no_wallpaper_setter_found">No app capable of it has been found</string>
-    <string name="wallpaper_changed_successfully">Wallpaper changed successfully</string>
+    <string name="setting_wallpaper">Setze Hintergrundbild&#8230;</string>
+    <string name="wallpaper_set_successfully">Wallpaper set successfully</string>
 
     <!-- About -->
     <string name="about">Über</string>

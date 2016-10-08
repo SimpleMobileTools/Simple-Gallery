@@ -19,7 +19,6 @@
     <string name="renaming_folder">A renomear pasta</string>
     <string name="extension">Extensão</string>
     <string name="file_deleted">Ficheiro eliminado</string>
-    <string name="setting_wallpaper">A definir como fundo de ecrã</string>
     <string name="open_camera">Abrir câmara</string>
     <string name="unknown_error">Ocorreu um erro desconhecido</string>
     <string name="sort_by">Ordenar por</string>
@@ -58,7 +57,8 @@
     <string name="set_as_wallpaper_failed">Falha ao definir como fundo de ecrã</string>
     <string name="set_as_wallpaper_with">Set as wallpaper with:</string>
     <string name="no_wallpaper_setter_found">No app capable of it has been found</string>
-    <string name="wallpaper_changed_successfully">Wallpaper changed successfully</string>
+    <string name="setting_wallpaper">A definir como fundo de ecrã&#8230;</string>
+    <string name="wallpaper_set_successfully">Wallpaper set successfully</string>
 
     <!-- About -->
     <string name="about">Sobre</string>

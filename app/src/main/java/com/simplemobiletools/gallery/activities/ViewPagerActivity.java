@@ -206,7 +206,7 @@ public class ViewPagerActivity extends SimpleActivity
             }
         } else if (requestCode == SET_WALLPAPER) {
             if (resultCode == RESULT_OK) {
-                Utils.showToast(getApplicationContext(), R.string.wallpaper_changed_successfully);
+                Utils.showToast(getApplicationContext(), R.string.wallpaper_set_successfully);
             }
         }
         super.onActivityResult(requestCode, resultCode, data);

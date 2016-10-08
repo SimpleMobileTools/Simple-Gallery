@@ -19,7 +19,6 @@
     <string name="renaming_folder">Renaming folder</string>
     <string name="extension">Extension</string>
     <string name="file_deleted">File deleted</string>
-    <string name="setting_wallpaper">Setting wallpaper</string>
     <string name="open_camera">Open camera</string>
     <string name="unknown_error">An unknown error occurred</string>
     <string name="sort_by">Sort by</string>
@@ -58,7 +57,8 @@
     <string name="set_as_wallpaper_failed">Setting as Wallpaper failed</string>
     <string name="set_as_wallpaper_with">Set as wallpaper with:</string>
     <string name="no_wallpaper_setter_found">No app capable of it has been found</string>
-    <string name="wallpaper_changed_successfully">Wallpaper changed successfully</string>
+    <string name="setting_wallpaper">Setting wallpaper&#8230;</string>
+    <string name="wallpaper_set_successfully">Wallpaper set successfully</string>
 
     <!-- About -->
     <string name="about">About</string>
