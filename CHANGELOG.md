@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 1.23 *(2016-10-08)*
+----------------------------
+
+ * Add a Crop / rotate function to images
+ * Allow opening images and videos with third party apps
+ * Allow setting images as Wallpaper directly from the app
+ * Improve the support of Right to Left layouts
+
 Version 1.22 *(2016-10-03)*
 ----------------------------
 
