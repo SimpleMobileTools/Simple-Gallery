@@ -1,12 +1,9 @@
 package com.simplemobiletools.gallery.activities;
 
-import android.app.WallpaperManager;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
@@ -31,7 +28,6 @@ import com.simplemobiletools.gallery.fragments.ViewPagerFragment;
 import com.simplemobiletools.gallery.models.Medium;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -48,6 +44,7 @@ public class ViewPagerActivity extends SimpleActivity
     @BindView(R.id.view_pager) MyViewPager mPager;
 
     private static final int EDIT_IMAGE = 1;
+    private static final int SET_WALLPAPER = 2;
     private static ActionBar mActionbar;
     private static List<Medium> mMedia;
     private static String mPath;
@@ -140,8 +137,7 @@ public class ViewPagerActivity extends SimpleActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.viewpager_menu, menu);
-        //menu.findItem(R.id.menu_set_as_wallpaper).setVisible(getCurrentMedium().isImage());
-        menu.findItem(R.id.menu_set_as_wallpaper).setVisible(false);
+        menu.findItem(R.id.menu_set_as_wallpaper).setVisible(getCurrentMedium().isImage());
         menu.findItem(R.id.menu_crop_rotate).setVisible(getCurrentMedium().isImage());
         return true;
     }
@@ -189,6 +185,18 @@ public class ViewPagerActivity extends SimpleActivity
         }
     }
 
+    private void setAsWallpaper() {
+        final Intent intent = new Intent(Intent.ACTION_ATTACH_DATA);
+        intent.setDataAndType(Uri.fromFile(getCurrentFile()), "image/jpeg");
+        final Intent chooser = Intent.createChooser(intent, getString(R.string.set_as_wallpaper_with));
+
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(chooser, SET_WALLPAPER);
+        } else {
+            Utils.showToast(getApplicationContext(), R.string.no_wallpaper_setter_found);
+        }
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == EDIT_IMAGE) {
@@ -196,18 +204,12 @@ public class ViewPagerActivity extends SimpleActivity
                 final MyPagerAdapter adapter = (MyPagerAdapter) mPager.getAdapter();
                 adapter.updateItems(mPos);
             }
+        } else if (requestCode == SET_WALLPAPER) {
+            if (resultCode == RESULT_OK) {
+                Utils.showToast(getApplicationContext(), R.string.wallpaper_changed_successfully);
+            }
         }
         super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    private void setAsWallpaper() {
-        final Bitmap bitmap = BitmapFactory.decodeFile(getCurrentFile().getAbsolutePath());
-        final WallpaperManager wallpaperManager = WallpaperManager.getInstance(getApplicationContext());
-        try {
-            wallpaperManager.setBitmap(bitmap);
-        } catch (IOException e) {
-            Utils.showToast(getApplicationContext(), R.string.set_as_wallpaper_failed);
-        }
     }
 
     private void shareMedium() {

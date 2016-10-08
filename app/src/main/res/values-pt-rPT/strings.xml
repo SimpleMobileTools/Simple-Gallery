@@ -55,6 +55,11 @@
     <string name="unknown_file_location">Unknown file location</string>
     <string name="error_saving_file">Could not overwrite the source file</string>
 
+    <!-- Set wallpaper -->
+    <string name="set_as_wallpaper_with">Set as wallpaper with:</string>
+    <string name="no_wallpaper_setter_found">No app capable of it has been found</string>
+    <string name="wallpaper_changed_successfully">Wallpaper changed successfully</string>
+
     <!-- About -->
     <string name="about">Sobre</string>
     <string name="website">Mais aplicações simples e código de fonte em:\nhttp://simplemobiletools.com</string>
