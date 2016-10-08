@@ -149,6 +149,9 @@ public class ViewPagerActivity extends SimpleActivity
             case R.id.menu_set_as_wallpaper:
                 setAsWallpaper();
                 return true;
+            case R.id.menu_open_with:
+                openWith();
+                return true;
             case R.id.menu_share:
                 shareMedium();
                 return true;
@@ -194,6 +197,18 @@ public class ViewPagerActivity extends SimpleActivity
             startActivityForResult(chooser, SET_WALLPAPER);
         } else {
             Utils.showToast(getApplicationContext(), R.string.no_wallpaper_setter_found);
+        }
+    }
+
+    private void openWith() {
+        final Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(Uri.fromFile(getCurrentFile()), Utils.getMimeType(getCurrentMedium()));
+        final Intent chooser = Intent.createChooser(intent, getString(R.string.open_with));
+
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(chooser);
+        } else {
+            Utils.showToast(getApplicationContext(), R.string.no_app_found);
         }
     }
 

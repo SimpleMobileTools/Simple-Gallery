@@ -29,6 +29,8 @@
     <string name="descending">Descendente</string>
     <string name="ok">Aceptar</string>
     <string name="cancel">Cancelar</string>
+    <string name="open_with">Open with</string>
+    <string name="no_app_found">No valid app found</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 carpeta eliminada</item>

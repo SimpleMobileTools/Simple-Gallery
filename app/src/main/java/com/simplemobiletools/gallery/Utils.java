@@ -102,12 +102,15 @@ public class Utils {
         final Uri uri = Uri.fromFile(file);
         intent.setAction(Intent.ACTION_SEND);
         intent.putExtra(Intent.EXTRA_STREAM, uri);
-        if (medium.getIsVideo()) {
-            intent.setType("video/*");
-        } else {
-            intent.setType("image/*");
-        }
+        intent.setType(getMimeType(medium));
         activity.startActivity(Intent.createChooser(intent, shareTitle));
+    }
+
+    public static String getMimeType(Medium medium) {
+        if (medium.getIsVideo())
+            return "video/*";
+        else
+            return "image/*";
     }
 
     public static void showSystemUI(ActionBar actionbar, Window window) {

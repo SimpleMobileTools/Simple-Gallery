@@ -6,6 +6,10 @@
         android:title="@string/set_as_wallpaper"
         app:showAsAction="never"/>
     <item
+        android:id="@+id/menu_open_with"
+        android:title="@string/open_with"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/menu_edit"
         android:icon="@mipmap/edit"
         android:title="@string/edit"
