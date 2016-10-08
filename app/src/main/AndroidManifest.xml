@@ -123,7 +123,7 @@
 
         <activity
             android:name=".activities.SetWallpaperActivity"
-            android:label="@string/wallpaper">
+            android:label="@string/simple_wallpaper">
             <intent-filter>
                 <action android:name="android.intent.action.ATTACH_DATA"/>
 

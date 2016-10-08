@@ -52,7 +52,7 @@
     <string name="error_saving_file">Could not overwrite the source file</string>
 
     <!-- Set wallpaper -->
-    <string name="wallpaper">Wallpaper</string>
+    <string name="simple_wallpaper">Simple Wallpaper</string>
     <string name="set_as_wallpaper">Establecer como fondo de pantalla</string>
     <string name="set_as_wallpaper_failed">Error al establecer fondo de pantalla</string>
     <string name="set_as_wallpaper_with">Set as wallpaper with:</string>
