@@ -85,4 +85,5 @@
     <string name="butterknife_title"><u>Butter Knife (injetor de \"views\")</u></string>
     <string name="photoview_title"><u>PhotoView (\"imageviews\" ampliáveis)</u></string>
     <string name="glide_title"><u>Glide (carregamento e cache de imagens)</u></string>
+    <string name="cropper_title"><u>Android Image Cropper</u></string>
 </resources>
