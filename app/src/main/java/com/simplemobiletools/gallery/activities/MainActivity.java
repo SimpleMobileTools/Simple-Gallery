@@ -37,6 +37,7 @@ import com.simplemobiletools.gallery.dialogs.ChangeSorting;
 import com.simplemobiletools.gallery.models.Directory;
 
 import java.io.File;
+import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
@@ -227,6 +228,7 @@ public class MainActivity extends SimpleActivity
         }
 
         final List<Directory> dirs = new ArrayList<>(directories.values());
+        removeNoMediaDirs(dirs);
         Directory.mSorting = mConfig.getDirectorySorting();
         Collections.sort(dirs);
 
@@ -234,6 +236,26 @@ public class MainActivity extends SimpleActivity
         MediaScannerConnection.scanFile(getApplicationContext(), invalids, null, null);
 
         return dirs;
+    }
+
+    private void removeNoMediaDirs(List<Directory> dirs) {
+        final List<Directory> ignoreDirs = new ArrayList<>();
+        for (final Directory d : dirs) {
+            final File dir = new File(d.getPath());
+            if (dir.exists() && dir.isDirectory()) {
+                final String[] res = dir.list(new FilenameFilter() {
+                    @Override
+                    public boolean accept(File file, String filename) {
+                        return filename.equals(".nomedia");
+                    }
+                });
+
+                if (res.length > 0)
+                    ignoreDirs.add(d);
+            }
+        }
+
+        dirs.removeAll(ignoreDirs);
     }
 
     // sort the files at querying too, just to get the correct thumbnail
