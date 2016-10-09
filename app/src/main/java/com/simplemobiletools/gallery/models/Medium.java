@@ -6,17 +6,21 @@ import java.io.Serializable;
 
 public class Medium implements Serializable, Comparable {
     private static final long serialVersionUID = -6543139465975455L;
-    private final String mPath;
     private final boolean mIsVideo;
     private final long mTimestamp;
     private final long mSize;
     public static int mSorting;
+    private String mPath;
 
     public Medium(String path, boolean isVideo, long timestamp, long size) {
         mPath = path;
         mIsVideo = isVideo;
         mTimestamp = timestamp;
         mSize = size;
+    }
+
+    public void setPath(String path) {
+        mPath = path;
     }
 
     public String getPath() {
@@ -66,6 +70,7 @@ public class Medium implements Serializable, Comparable {
         return "Medium {" +
                 "isVideo=" + getIsVideo() +
                 ", timestamp=" + getTimestamp() +
+                ", size=" + getSize() +
                 ", path=" + getPath() + "}";
     }
 }

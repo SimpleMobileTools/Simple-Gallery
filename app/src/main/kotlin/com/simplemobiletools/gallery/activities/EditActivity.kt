@@ -5,11 +5,11 @@ import android.graphics.Bitmap
 import android.media.MediaScannerConnection
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.Utils
 import com.simplemobiletools.gallery.extensions.toast
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_edit.*
@@ -69,7 +69,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             if (uri.scheme == "file") {
                 saveBitmapToFile(result.bitmap, uri.path)
             } else if (uri.scheme == "content") {
-                val newPath = convertMediaUriToPath(uri) ?: ""
+                val newPath = Utils.getRealPathFromURI(applicationContext, uri) ?: ""
                 if (!newPath.isEmpty()) {
                     saveBitmapToFile(result.bitmap, newPath)
                 } else {
@@ -122,15 +122,5 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             "webp" -> Bitmap.CompressFormat.WEBP
             else -> Bitmap.CompressFormat.JPEG
         }
-    }
-
-    private fun convertMediaUriToPath(uri: Uri): String? {
-        val proj = arrayOf(MediaStore.Images.Media.DATA)
-        val cursor = contentResolver.query(uri, proj, null, null, null)
-        val index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
-        cursor.moveToFirst()
-        val path = cursor.getString(index)
-        cursor.close()
-        return path
     }
 }

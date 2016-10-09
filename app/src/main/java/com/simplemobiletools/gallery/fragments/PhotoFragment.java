@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.fragments;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.R;
+import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.models.Medium;
 
 public class PhotoFragment extends ViewPagerFragment implements View.OnClickListener {
@@ -23,6 +25,9 @@ public class PhotoFragment extends ViewPagerFragment implements View.OnClickList
         final View view = inflater.inflate(R.layout.pager_photo_item, container, false);
 
         mMedium = (Medium) getArguments().getSerializable(Constants.MEDIUM);
+        if (mMedium.getPath().startsWith("content://"))
+            mMedium.setPath(Utils.getRealPathFromURI(getContext(), Uri.parse(mMedium.getPath())));
+
         if (mMedium == null)
             return view;
 
