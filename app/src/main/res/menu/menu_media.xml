@@ -10,5 +10,8 @@
         android:id="@+id/hide_folder"
         android:title="@string/hide_folder"
         app:showAsAction="never"/>
-
+    <item
+        android:id="@+id/unhide_folder"
+        android:title="@string/unhide_folder"
+        app:showAsAction="never"/>
 </menu>

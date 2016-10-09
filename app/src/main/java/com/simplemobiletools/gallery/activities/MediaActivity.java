@@ -130,6 +130,11 @@ public class MediaActivity extends SimpleActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_media, menu);
+
+        final boolean isFolderHidden = mConfig.getIsFolderHidden(mPath);
+        menu.findItem(R.id.hide_folder).setVisible(!isFolderHidden);
+        menu.findItem(R.id.unhide_folder).setVisible(isFolderHidden);
+
         return true;
     }
 
@@ -141,6 +146,9 @@ public class MediaActivity extends SimpleActivity
                 return true;
             case R.id.hide_folder:
                 hideDirectory();
+                return true;
+            case R.id.unhide_folder:
+                unhideDirectory();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -166,7 +174,14 @@ public class MediaActivity extends SimpleActivity
 
     private void hideDirectory() {
         mConfig.addHiddenDirectory(mPath);
-        finish();
+
+        if (!mConfig.getShowHiddenFolders())
+            finish();
+    }
+
+    private void unhideDirectory() {
+        mConfig.removeHiddenDirectory(mPath);
+        invalidateOptionsMenu();
     }
 
     private void deleteDirectoryIfEmpty() {

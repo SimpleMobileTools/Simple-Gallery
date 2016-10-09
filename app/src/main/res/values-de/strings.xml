@@ -32,6 +32,7 @@
     <string name="open_with">Open with</string>
     <string name="no_app_found">No valid app found</string>
     <string name="hide_folder">Hide folder</string>
+    <string name="unhide_folder">Unhide folder</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 Ordner gelöscht</item>
