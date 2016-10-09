@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 1.24 *(2016-10-09)*
+----------------------------
+
+ * Ignore folders containing a .nomedia file
+ * Allow hiding folders
+ * Misc bugfixes
+
 Version 1.23 *(2016-10-08)*
 ----------------------------
 
