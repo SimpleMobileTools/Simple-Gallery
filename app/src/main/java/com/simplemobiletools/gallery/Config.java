@@ -77,9 +77,21 @@ public class Config {
         mPrefs.edit().putStringSet(Constants.HIDDEN_FOLDERS, hiddenFolders).apply();
     }
 
+    public void addHiddenDirectories(Set<String> paths) {
+        final Set<String> hiddenFolders = getHiddenFolders();
+        hiddenFolders.addAll(paths);
+        mPrefs.edit().putStringSet(Constants.HIDDEN_FOLDERS, hiddenFolders).apply();
+    }
+
     public void removeHiddenDirectory(String path) {
         final Set<String> hiddenFolders = getHiddenFolders();
         hiddenFolders.remove(path);
+        mPrefs.edit().putStringSet(Constants.HIDDEN_FOLDERS, hiddenFolders).apply();
+    }
+
+    public void removeHiddenDirectories(Set<String> paths) {
+        final Set<String> hiddenFolders = getHiddenFolders();
+        hiddenFolders.removeAll(paths);
         mPrefs.edit().putStringSet(Constants.HIDDEN_FOLDERS, hiddenFolders).apply();
     }
 

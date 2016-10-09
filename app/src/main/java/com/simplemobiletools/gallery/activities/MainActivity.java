@@ -40,6 +40,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -629,11 +630,26 @@ public class MainActivity extends SimpleActivity
     }
 
     private void hideFolders() {
+        mConfig.addHiddenDirectories(getSelectedPaths());
         initializeGallery();
     }
 
     private void unhideFolders() {
+        mConfig.removeHiddenDirectories(getSelectedPaths());
         initializeGallery();
+    }
+
+    private Set<String> getSelectedPaths() {
+        final SparseBooleanArray items = mGridView.getCheckedItemPositions();
+        final Set<String> selectedPaths = new HashSet<>();
+        final int cnt = items.size();
+        for (int i = 0; i < cnt; i++) {
+            if (items.valueAt(i)) {
+                final int id = items.keyAt(i);
+                selectedPaths.add(mDirs.get(id).getPath());
+            }
+        }
+        return selectedPaths;
     }
 
     private void scanCompleted(final String path) {
