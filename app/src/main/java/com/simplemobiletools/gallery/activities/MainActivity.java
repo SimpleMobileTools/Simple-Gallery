@@ -569,8 +569,25 @@ public class MainActivity extends SimpleActivity
 
     @Override
     public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-        final MenuItem menuItem = menu.findItem(R.id.cab_edit);
-        menuItem.setVisible(mSelectedItemsCnt == 1);
+        menu.findItem(R.id.cab_edit).setVisible(mSelectedItemsCnt == 1);
+
+        int hiddenCnt = 0;
+        int unhiddenCnt = 0;
+        final SparseBooleanArray items = mGridView.getCheckedItemPositions();
+        final int cnt = items.size();
+        for (int i = 0; i < cnt; i++) {
+            if (items.valueAt(i)) {
+                final int id = items.keyAt(i);
+                if (mConfig.getIsFolderHidden(mDirs.get(id).getPath()))
+                    hiddenCnt++;
+                else
+                    unhiddenCnt++;
+            }
+        }
+
+        menu.findItem(R.id.cab_hide).setVisible(unhiddenCnt > 0);
+        menu.findItem(R.id.cab_unhide).setVisible(hiddenCnt > 0);
+
         return true;
     }
 
@@ -586,9 +603,11 @@ public class MainActivity extends SimpleActivity
                 return true;
             case R.id.cab_hide:
                 hideFolders();
+                mode.finish();
                 return true;
             case R.id.cab_unhide:
                 unhideFolders();
+                mode.finish();
                 return true;
             default:
                 return false;
@@ -610,11 +629,11 @@ public class MainActivity extends SimpleActivity
     }
 
     private void hideFolders() {
-
+        initializeGallery();
     }
 
     private void unhideFolders() {
-
+        initializeGallery();
     }
 
     private void scanCompleted(final String path) {
