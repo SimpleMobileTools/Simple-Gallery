@@ -584,6 +584,12 @@ public class MainActivity extends SimpleActivity
                 prepareForDeleting();
                 mode.finish();
                 return true;
+            case R.id.cab_hide:
+                hideFolders();
+                return true;
+            case R.id.cab_unhide:
+                unhideFolders();
+                return true;
             default:
                 return false;
         }
@@ -601,6 +607,14 @@ public class MainActivity extends SimpleActivity
         }
 
         return false;
+    }
+
+    private void hideFolders() {
+
+    }
+
+    private void unhideFolders() {
+
     }
 
     private void scanCompleted(final String path) {

@@ -7,6 +7,16 @@
         android:title="@string/rename"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/cab_hide"
+        android:icon="@mipmap/hide"
+        android:title="@string/hide_folder"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/cab_unhide"
+        android:icon="@mipmap/unhide"
+        android:title="@string/unhide_folder"
+        app:showAsAction="ifRoom"/>
+    <item
         android:id="@+id/cab_delete"
         android:icon="@mipmap/delete"
         android:title="@string/delete"
