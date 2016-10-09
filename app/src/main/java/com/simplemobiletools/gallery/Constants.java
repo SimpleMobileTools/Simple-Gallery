@@ -15,7 +15,8 @@ public class Constants {
     public static final String IS_SAME_SORTING = "is_same_sorting";
     public static final String SORT_ORDER = "sort_order";
     public static final String DIRECTORY_SORT_ORDER = "directory_sort_order";
-    public static final String HIDDEN_FOLDERS = "hidden_foldersy";
+    public static final String HIDDEN_FOLDERS = "hidden_folders";
+    public static final String SHOW_HIDDEN_FOLDERS = "show_hidden_folders";
 
     // sorting
     public static final int SORT_BY_NAME = 1;

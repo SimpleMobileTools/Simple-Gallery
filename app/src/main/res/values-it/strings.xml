@@ -79,6 +79,7 @@
     <string name="settings">Impostazioni</string>
     <string name="dark_theme">Tema scuro</string>
     <string name="same_sorting">Same sorting for files and folders</string>
+    <string name="show_hidden_folders">Show hidden folders</string>
 
     <!-- License -->
     <string name="notice">Questa app usa le seguenti librerie di terze parti per semplificarmi la vita. Grazie.</string>

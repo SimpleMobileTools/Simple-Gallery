@@ -63,6 +63,14 @@ public class Config {
         mPrefs.edit().putInt(Constants.DIRECTORY_SORT_ORDER, order).apply();
     }
 
+    public boolean getShowHiddenFolders() {
+        return mPrefs.getBoolean(Constants.SHOW_HIDDEN_FOLDERS, false);
+    }
+
+    public void setShowHiddenFolders(boolean showHiddenFolders) {
+        mPrefs.edit().putBoolean(Constants.SHOW_HIDDEN_FOLDERS, showHiddenFolders).apply();
+    }
+
     public void addHiddenDirectory(String path) {
         final Set<String> hiddenFolders = getHiddenFolders();
         hiddenFolders.add(path);

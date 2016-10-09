@@ -79,6 +79,7 @@
     <string name="settings">Ajustes</string>
     <string name="dark_theme">Tema oscuro</string>
     <string name="same_sorting">Ordenar del mismo modo los archivos y las carpetas</string>
+    <string name="show_hidden_folders">Show hidden folders</string>
 
     <!-- License -->
     <string name="notice">Esta aplicación usa las siguientes bibliotecas de terceros que hacen mi vida más fácil. Gracias.</string>

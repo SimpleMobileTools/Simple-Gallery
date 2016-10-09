@@ -79,6 +79,7 @@
     <string name="settings">Einstellungen</string>
     <string name="dark_theme">Dunkles Thema</string>
     <string name="same_sorting">Selbe Sortierung für Dateien und Ordner</string>
+    <string name="show_hidden_folders">Show hidden folders</string>
 
     <!-- License -->
     <string name="notice">Diese App nutzt die folgenden Drittanbieterbilbiotheken, die mein Leben einfacher machen. Danke.</string>

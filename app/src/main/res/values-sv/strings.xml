@@ -79,6 +79,7 @@
     <string name="settings">Inställningar</string>
     <string name="dark_theme">Mörkt tema</string>
     <string name="same_sorting">Same sorting for files and folders</string>
+    <string name="show_hidden_folders">Show hidden folders</string>
 
     <!-- License -->
     <string name="notice">Denna app använder följande tredjepartsbibliotek för att göra mitt liv enklare. Tack.</string>

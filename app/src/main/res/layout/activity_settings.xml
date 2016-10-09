@@ -66,5 +66,33 @@
                 android:clickable="false"/>
 
         </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/settings_show_hidden_folders_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/settings_padding"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/activity_margin">
+
+            <TextView
+                android:id="@+id/settings_show_hidden_folders_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingLeft="@dimen/settings_padding"
+                android:paddingStart="@dimen/settings_padding"
+                android:text="@string/show_hidden_folders"/>
+
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/settings_show_hidden_folders"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="@null"
+                android:clickable="false"/>
+
+        </RelativeLayout>
     </LinearLayout>
 </ScrollView>
