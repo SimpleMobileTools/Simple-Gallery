@@ -218,11 +218,6 @@ public class VideoFragment extends ViewPagerFragment
         }
     }
 
-    @Override
-    public void surfaceCreated(SurfaceHolder holder) {
-        initMediaPlayer();
-    }
-
     private void initMediaPlayer() {
         if (mMediaPlayer != null)
             return;
@@ -285,13 +280,21 @@ public class VideoFragment extends ViewPagerFragment
     }
 
     @Override
+    public void surfaceCreated(SurfaceHolder holder) {
+        initMediaPlayer();
+    }
+
+    @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
 
     }
 
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
-
+        if (mMediaPlayer != null) {
+            mMediaPlayer.release();
+            mMediaPlayer = null;
+        }
     }
 
     @Override
