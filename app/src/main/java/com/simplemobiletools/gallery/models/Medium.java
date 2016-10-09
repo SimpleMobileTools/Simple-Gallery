@@ -36,7 +36,7 @@ public class Medium implements Serializable, Comparable {
     }
 
     public boolean isGif() {
-        return getPath().endsWith(".gif");
+        return getPath().toLowerCase().endsWith(".gif");
     }
 
     public boolean isImage() {
