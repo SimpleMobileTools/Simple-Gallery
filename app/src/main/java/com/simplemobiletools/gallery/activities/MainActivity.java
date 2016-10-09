@@ -203,9 +203,9 @@ public class MainActivity extends SimpleActivity
             if (cursor != null && cursor.moveToFirst()) {
                 final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
                 do {
-                    final String path = cursor.getString(pathIndex);
-                    final File file = new File(path);
-                    final String fileDir = file.getParent();
+                    final String fullPath = cursor.getString(pathIndex);
+                    final File file = new File(fullPath);
+                    final String parentDir = file.getParent();
 
                     if (!file.exists()) {
                         invalidFiles.add(file.getAbsolutePath());
@@ -214,14 +214,18 @@ public class MainActivity extends SimpleActivity
 
                     final int dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_TAKEN);
                     final long timestamp = cursor.getLong(dateIndex);
-                    if (directories.containsKey(fileDir)) {
-                        final Directory directory = directories.get(fileDir);
+                    if (directories.containsKey(parentDir)) {
+                        final Directory directory = directories.get(parentDir);
                         final int newImageCnt = directory.getMediaCnt() + 1;
                         directory.setMediaCnt(newImageCnt);
                         directory.addSize(file.length());
-                    } else if (!mToBeDeleted.contains(fileDir)) {
-                        final String dirName = Utils.getFilename(fileDir);
-                        directories.put(fileDir, new Directory(fileDir, path, dirName, 1, timestamp, file.length()));
+                    } else if (!mToBeDeleted.contains(parentDir)) {
+                        String dirName = Utils.getFilename(parentDir);
+                        if (mConfig.getIsFolderHidden(parentDir)) {
+                            dirName += " " + getResources().getString(R.string.hidden);
+                        }
+
+                        directories.put(parentDir, new Directory(parentDir, fullPath, dirName, 1, timestamp, file.length()));
                     }
                 } while (cursor.moveToNext());
                 cursor.close();
