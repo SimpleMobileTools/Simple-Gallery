@@ -50,7 +50,7 @@ public class DirectoryAdapter extends BaseAdapter {
             Glide.with(mContext).load(tmb).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)
                     .placeholder(R.color.tmb_background).centerCrop().crossFade().into(viewHolder.dirThumbnail);
         } else {
-            Glide.with(mContext).load(tmb).diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)
+            Glide.with(mContext).load(tmb).diskCacheStrategy(DiskCacheStrategy.RESULT).signature(timestampSignature)
                     .placeholder(R.color.tmb_background).centerCrop().crossFade().into(viewHolder.dirThumbnail);
         }
 
