@@ -3,6 +3,9 @@ package com.simplemobiletools.gallery;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Config {
     private SharedPreferences mPrefs;
 
@@ -10,7 +13,7 @@ public class Config {
         return new Config(context);
     }
 
-    public Config(Context context) {
+    private Config(Context context) {
         mPrefs = context.getSharedPreferences(Constants.PREFS_KEY, Context.MODE_PRIVATE);
     }
 
@@ -58,5 +61,15 @@ public class Config {
 
     public void setDirectorySorting(int order) {
         mPrefs.edit().putInt(Constants.DIRECTORY_SORT_ORDER, order).apply();
+    }
+
+    public void addHiddenDirectory(String path) {
+        final Set<String> hiddenFolders = getHiddenFolders();
+        hiddenFolders.add(path);
+        mPrefs.edit().putStringSet(Constants.HIDDEN_FOLDERS, hiddenFolders).apply();
+    }
+
+    public Set<String> getHiddenFolders() {
+        return mPrefs.getStringSet(Constants.HIDDEN_FOLDERS, new HashSet<String>());
     }
 }

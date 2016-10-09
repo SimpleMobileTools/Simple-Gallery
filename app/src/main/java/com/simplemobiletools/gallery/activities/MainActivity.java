@@ -43,6 +43,7 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -228,7 +229,7 @@ public class MainActivity extends SimpleActivity
         }
 
         final List<Directory> dirs = new ArrayList<>(directories.values());
-        removeNoMediaDirs(dirs);
+        filderDirectories(dirs);
         Directory.mSorting = mConfig.getDirectorySorting();
         Collections.sort(dirs);
 
@@ -238,7 +239,23 @@ public class MainActivity extends SimpleActivity
         return dirs;
     }
 
-    private void removeNoMediaDirs(List<Directory> dirs) {
+    private void filderDirectories(List<Directory> dirs) {
+        removeHiddenFolders(dirs);
+        removeNoMediaFolders(dirs);
+    }
+
+    private void removeHiddenFolders(List<Directory> dirs) {
+        final Set<String> hiddenDirs = mConfig.getHiddenFolders();
+        final List<Directory> ignoreDirs = new ArrayList<>();
+        for (Directory d : dirs) {
+            if (hiddenDirs.contains(d.getPath()))
+                ignoreDirs.add(d);
+        }
+
+        dirs.removeAll(ignoreDirs);
+    }
+
+    private void removeNoMediaFolders(List<Directory> dirs) {
         final List<Directory> ignoreDirs = new ArrayList<>();
         for (final Directory d : dirs) {
             final File dir = new File(d.getPath());

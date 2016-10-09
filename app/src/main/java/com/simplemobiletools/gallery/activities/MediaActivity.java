@@ -139,6 +139,9 @@ public class MediaActivity extends SimpleActivity
             case R.id.sort:
                 showSortingDialog();
                 return true;
+            case R.id.hide_folder:
+                hideDirectory();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -159,6 +162,10 @@ public class MediaActivity extends SimpleActivity
 
     private void showSortingDialog() {
         new ChangeSorting(this, false);
+    }
+
+    private void hideDirectory() {
+        mConfig.addHiddenDirectory(mPath);
     }
 
     private void deleteDirectoryIfEmpty() {
