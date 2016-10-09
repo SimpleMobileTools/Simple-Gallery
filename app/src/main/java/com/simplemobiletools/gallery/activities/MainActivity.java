@@ -16,6 +16,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
 import android.view.Menu;
@@ -229,7 +230,7 @@ public class MainActivity extends SimpleActivity
         }
 
         final List<Directory> dirs = new ArrayList<>(directories.values());
-        filderDirectories(dirs);
+        filterDirectories(dirs);
         Directory.mSorting = mConfig.getDirectorySorting();
         Collections.sort(dirs);
 
@@ -239,8 +240,10 @@ public class MainActivity extends SimpleActivity
         return dirs;
     }
 
-    private void filderDirectories(List<Directory> dirs) {
-        removeHiddenFolders(dirs);
+    private void filterDirectories(List<Directory> dirs) {
+        if (!mConfig.getShowHiddenFolders())
+            removeHiddenFolders(dirs);
+
         removeNoMediaFolders(dirs);
     }
 

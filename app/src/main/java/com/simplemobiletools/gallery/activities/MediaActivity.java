@@ -166,6 +166,7 @@ public class MediaActivity extends SimpleActivity
 
     private void hideDirectory() {
         mConfig.addHiddenDirectory(mPath);
+        finish();
     }
 
     private void deleteDirectoryIfEmpty() {
