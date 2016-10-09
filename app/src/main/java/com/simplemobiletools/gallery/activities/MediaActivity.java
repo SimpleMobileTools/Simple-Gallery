@@ -177,6 +177,8 @@ public class MediaActivity extends SimpleActivity
 
         if (!mConfig.getShowHiddenFolders())
             finish();
+        else
+            invalidateOptionsMenu();
     }
 
     private void unhideDirectory() {
