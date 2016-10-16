@@ -100,7 +100,7 @@ public class ViewPagerActivity extends SimpleActivity
         mBeingDeleted = "";
         hideSystemUI();
 
-        MediaScannerConnection.scanFile(this, new String[]{mPath}, null, null);
+        MediaScannerConnection.scanFile(getApplicationContext(), new String[]{mPath}, null, null);
         addUndoMargin();
         mDirectory = new File(mPath).getParent();
         mMedia = getMedia();
@@ -256,7 +256,7 @@ public class ViewPagerActivity extends SimpleActivity
         if (file.delete()) {
             mBeingDeleted = mToBeDeleted;
             final String[] deletedPath = new String[]{mToBeDeleted};
-            MediaScannerConnection.scanFile(this, deletedPath, null, new MediaScannerConnection.OnScanCompletedListener() {
+            MediaScannerConnection.scanFile(getApplicationContext(), deletedPath, null, new MediaScannerConnection.OnScanCompletedListener() {
                 @Override
                 public void onScanCompleted(String path, Uri uri) {
                     scanCompleted();

@@ -356,7 +356,7 @@ public class MainActivity extends SimpleActivity
         }
 
         final String[] deletedPaths = updatedFiles.toArray(new String[updatedFiles.size()]);
-        MediaScannerConnection.scanFile(this, deletedPaths, null, null);
+        MediaScannerConnection.scanFile(getApplicationContext(), deletedPaths, null, null);
         mToBeDeleted.clear();
     }
 

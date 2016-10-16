@@ -339,7 +339,7 @@ public class MediaActivity extends SimpleActivity
         }
 
         final String[] deletedPaths = mToBeDeleted.toArray(new String[mToBeDeleted.size()]);
-        MediaScannerConnection.scanFile(this, deletedPaths, null, new MediaScannerConnection.OnScanCompletedListener() {
+        MediaScannerConnection.scanFile(getApplicationContext(), deletedPaths, null, new MediaScannerConnection.OnScanCompletedListener() {
             @Override
             public void onScanCompleted(String path, Uri uri) {
                 if (mMedia != null && mMedia.isEmpty()) {
