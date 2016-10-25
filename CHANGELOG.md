@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 1.25 *(2016-10-25)*
+----------------------------
+
+ * Change the light themes window backgrounds to white
+ * Change the default theme to dark
+ * Add an option for autoplaying videos
+ * Misc performance improvements
+
 Version 1.24 *(2016-10-09)*
 ----------------------------
 
