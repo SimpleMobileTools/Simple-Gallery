@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">Simple Gallery</string>
-    <string name="app_launcher_name">Gallery</string>
+    <string name="app_name">Schlichte Galerie</string>
+    <string name="app_launcher_name">Galerie</string>
     <string name="share_via">Teilen via</string>
     <string name="no_permissions">Ohne Zugriff auf deinen Speicher gibt es hier nicht viel zu tun</string>
     <string name="delete">Löschen</string>
     <string name="deleting">Lösche</string>
-    <string name="rename">Rename</string>
-    <string name="edit">Edit</string>
+    <string name="rename">Umbenennen</string>
+    <string name="edit">Bearbeiten</string>
     <string name="undo">Rückgängig</string>
     <string name="share">Teilen</string>
     <string name="rename_file">Datei umbenennen</string>
@@ -29,11 +29,11 @@
     <string name="descending">Absteigend</string>
     <string name="ok">OK</string>
     <string name="cancel">Abbrechen</string>
-    <string name="open_with">Open with</string>
-    <string name="no_app_found">No valid app found</string>
-    <string name="hide_folder">Hide folder</string>
-    <string name="unhide_folder">Unhide folder</string>
-    <string name="hidden">(hidden)</string>
+    <string name="open_with">Öffnen mit</string>
+    <string name="no_app_found">Keine zulässige App gefunden</string>
+    <string name="hide_folder">Ordner verstecken</string>
+    <string name="unhide_folder">Ordner sichtbar machen</string>
+    <string name="hidden">(versteckt)</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 Ordner gelöscht</item>
@@ -47,23 +47,23 @@
 
     <!-- Editor -->
     <string name="editor">Editor</string>
-    <string name="save">Save</string>
-    <string name="rotate">Rotate</string>
-    <string name="invalid_image_path">Invalid image path</string>
-    <string name="image_editing_failed">Image editing failed</string>
-    <string name="edit_image_with">Edit image with:</string>
-    <string name="no_editor_found">No image editor found</string>
-    <string name="unknown_file_location">Unknown file location</string>
-    <string name="error_saving_file">Could not overwrite the source file</string>
+    <string name="save">Speichern</string>
+    <string name="rotate">Drehen</string>
+    <string name="invalid_image_path">Ungültiger Dateipfad</string>
+    <string name="image_editing_failed">Bildbearbeitung fehlgeschlagen</string>
+    <string name="edit_image_with">Bearbeite Bild mit:</string>
+    <string name="no_editor_found">Kein Bildeditor gefunden</string>
+    <string name="unknown_file_location">Unbekannter Dateiort</string>
+    <string name="error_saving_file">Konnte Quelldatei nicht überschreiben</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
-    <string name="set_as_wallpaper">Als Hintergrundbild setzen</string>
+    <string name="set_as_wallpaper">Als Hintergrundbild festlegen</string>
     <string name="set_as_wallpaper_failed">Setzen des Hintergrundbildes fehlgeschlagen</string>
-    <string name="set_as_wallpaper_with">Set as wallpaper with:</string>
-    <string name="no_wallpaper_setter_found">No app capable of it has been found</string>
+    <string name="set_as_wallpaper_with">Als Hintergrundbild festlegen mit:</string>
+    <string name="no_wallpaper_setter_found">Keine passende App gefunden</string>
     <string name="setting_wallpaper">Setze Hintergrundbild&#8230;</string>
-    <string name="wallpaper_set_successfully">Wallpaper set successfully</string>
+    <string name="wallpaper_set_successfully">Hintergrundbild erfolgreich festgelegt</string>
 
     <!-- About -->
     <string name="about">Über</string>
@@ -79,15 +79,15 @@
 
     <!-- Settings -->
     <string name="settings">Einstellungen</string>
-    <string name="dark_theme">Dunkles Thema</string>
+    <string name="dark_theme">Dunkles Design</string>
     <string name="same_sorting">Selbe Sortierung für Dateien und Ordner</string>
-    <string name="show_hidden_folders">Show hidden folders</string>
+    <string name="show_hidden_folders">Zeige versteckte Ordner</string>
 
     <!-- License -->
     <string name="notice">Diese App nutzt die folgenden Drittanbieterbilbiotheken, die mein Leben einfacher machen. Danke.</string>
     <string name="third_party_licences">Drittanbieterlizenzen</string>
-    <string name="butterknife_title"><u>Butter Knife (view injector)</u></string>
-    <string name="photoview_title"><u>PhotoView (zoomable imageviews)</u></string>
-    <string name="glide_title"><u>Glide (image loading and caching)</u></string>
+    <string name="butterknife_title"><u>Butter Knife (View Injector)</u></string>
+    <string name="photoview_title"><u>PhotoView (Zoomable Imageviews)</u></string>
+    <string name="glide_title"><u>Glide (Bilder laden und zwischenspeichern)</u></string>
     <string name="cropper_title"><u>Android Image Cropper</u></string>
 </resources>
