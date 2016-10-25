@@ -26,7 +26,7 @@ public class Config {
     }
 
     public boolean getIsDarkTheme() {
-        return mPrefs.getBoolean(Constants.IS_DARK_THEME, false);
+        return mPrefs.getBoolean(Constants.IS_DARK_THEME, true);
     }
 
     public void setIsDarkTheme(boolean isDarkTheme) {
