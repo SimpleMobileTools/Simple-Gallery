@@ -476,7 +476,7 @@ public class MediaActivity extends SimpleActivity
     }
 
     @Override
-    public void dialogClosed() {
+    public void sortingDialogClosed() {
         initializeGallery();
     }
 }

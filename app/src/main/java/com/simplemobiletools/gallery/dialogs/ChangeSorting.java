@@ -90,10 +90,10 @@ public class ChangeSorting extends AlertDialog.Builder implements DialogInterfac
                 mConfig.setSorting(sorting);
             }
         }
-        mListener.dialogClosed();
+        mListener.sortingDialogClosed();
     }
 
     public interface ChangeDialogListener {
-        void dialogClosed();
+        void sortingDialogClosed();
     }
 }

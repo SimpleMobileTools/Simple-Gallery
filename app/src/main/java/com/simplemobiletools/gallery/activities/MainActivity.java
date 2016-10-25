@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
-import android.database.Cursor;
 import android.graphics.Color;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
@@ -16,6 +15,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
 import android.view.Menu;
@@ -33,17 +33,16 @@ import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter;
+import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask;
 import com.simplemobiletools.gallery.dialogs.ChangeSorting;
 import com.simplemobiletools.gallery.models.Directory;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.File;
-import java.io.FilenameFilter;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import butterknife.BindView;
@@ -51,7 +50,7 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends SimpleActivity
         implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener,
-        SwipeRefreshLayout.OnRefreshListener, ChangeSorting.ChangeDialogListener {
+        SwipeRefreshLayout.OnRefreshListener, ChangeSorting.ChangeDialogListener, GetDirectoriesAsynctask.GetDirectoriesListener {
     @BindView(R.id.directories_grid) GridView mGridView;
     @BindView(R.id.directories_holder) SwipeRefreshLayout mSwipeRefreshLayout;
 
@@ -73,6 +72,7 @@ public class MainActivity extends SimpleActivity
     private static boolean mIsGetAnyContentIntent;
     private static boolean mIsSetWallpaperIntent;
     private static boolean mIsThirdPartyIntent;
+    private static boolean mIsGettingDirs;
     private static int mSelectedItemsCnt;
 
     @Override
@@ -149,7 +149,7 @@ public class MainActivity extends SimpleActivity
 
     private void tryloadGallery() {
         if (Utils.hasStoragePermission(getApplicationContext())) {
-            initializeGallery();
+            getDirectories();
         } else {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION);
         }
@@ -161,7 +161,7 @@ public class MainActivity extends SimpleActivity
 
         if (requestCode == STORAGE_PERMISSION) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                initializeGallery();
+                getDirectories();
             } else {
                 Utils.showToast(getApplicationContext(), R.string.no_permissions);
                 finish();
@@ -169,131 +169,13 @@ public class MainActivity extends SimpleActivity
         }
     }
 
-    private void initializeGallery() {
-        final List<Directory> newDirs = getDirectories();
-        if (newDirs.toString().equals(mDirs.toString())) {
+    private void getDirectories() {
+        if (mIsGettingDirs)
             return;
-        }
-        mDirs = newDirs;
 
-        final DirectoryAdapter adapter = new DirectoryAdapter(this, mDirs);
-        mGridView.setAdapter(adapter);
-        mGridView.setOnItemClickListener(this);
-        mGridView.setMultiChoiceModeListener(this);
-        mGridView.setOnTouchListener(this);
-    }
-
-    private List<Directory> getDirectories() {
-        final Map<String, Directory> directories = new LinkedHashMap<>();
-        final List<String> invalidFiles = new ArrayList<>();
-        for (int i = 0; i < 2; i++) {
-            if ((mIsPickVideoIntent || mIsGetVideoContentIntent) && i == 0)
-                continue;
-
-            Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-            if (i == 1) {
-                if (mIsPickImageIntent || mIsGetImageContentIntent)
-                    continue;
-
-                uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
-            }
-            final String[] columns = {MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_TAKEN};
-            final String order = getSortOrder();
-            final Cursor cursor = getContentResolver().query(uri, columns, null, null, order);
-
-            if (cursor != null && cursor.moveToFirst()) {
-                final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
-                do {
-                    final String fullPath = cursor.getString(pathIndex);
-                    final File file = new File(fullPath);
-                    final String parentDir = file.getParent();
-
-                    if (!file.exists()) {
-                        invalidFiles.add(file.getAbsolutePath());
-                        continue;
-                    }
-
-                    final int dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_TAKEN);
-                    final long timestamp = cursor.getLong(dateIndex);
-                    if (directories.containsKey(parentDir)) {
-                        final Directory directory = directories.get(parentDir);
-                        final int newImageCnt = directory.getMediaCnt() + 1;
-                        directory.setMediaCnt(newImageCnt);
-                        directory.addSize(file.length());
-                    } else if (!mToBeDeleted.contains(parentDir)) {
-                        String dirName = Utils.getFilename(parentDir);
-                        if (mConfig.getIsFolderHidden(parentDir)) {
-                            dirName += " " + getResources().getString(R.string.hidden);
-                        }
-
-                        directories.put(parentDir, new Directory(parentDir, fullPath, dirName, 1, timestamp, file.length()));
-                    }
-                } while (cursor.moveToNext());
-                cursor.close();
-            }
-        }
-
-        final List<Directory> dirs = new ArrayList<>(directories.values());
-        filterDirectories(dirs);
-        Directory.mSorting = mConfig.getDirectorySorting();
-        Collections.sort(dirs);
-
-        final String[] invalids = invalidFiles.toArray(new String[invalidFiles.size()]);
-        MediaScannerConnection.scanFile(getApplicationContext(), invalids, null, null);
-
-        return dirs;
-    }
-
-    private void filterDirectories(List<Directory> dirs) {
-        if (!mConfig.getShowHiddenFolders())
-            removeHiddenFolders(dirs);
-
-        removeNoMediaFolders(dirs);
-    }
-
-    private void removeHiddenFolders(List<Directory> dirs) {
-        final Set<String> hiddenDirs = mConfig.getHiddenFolders();
-        final List<Directory> ignoreDirs = new ArrayList<>();
-        for (Directory d : dirs) {
-            if (hiddenDirs.contains(d.getPath()))
-                ignoreDirs.add(d);
-        }
-
-        dirs.removeAll(ignoreDirs);
-    }
-
-    private void removeNoMediaFolders(List<Directory> dirs) {
-        final List<Directory> ignoreDirs = new ArrayList<>();
-        for (final Directory d : dirs) {
-            final File dir = new File(d.getPath());
-            if (dir.exists() && dir.isDirectory()) {
-                final String[] res = dir.list(new FilenameFilter() {
-                    @Override
-                    public boolean accept(File file, String filename) {
-                        return filename.equals(".nomedia");
-                    }
-                });
-
-                if (res.length > 0)
-                    ignoreDirs.add(d);
-            }
-        }
-
-        dirs.removeAll(ignoreDirs);
-    }
-
-    // sort the files at querying too, just to get the correct thumbnail
-    private String getSortOrder() {
-        final int sorting = mConfig.getDirectorySorting();
-        String sortBy = MediaStore.Images.Media.DATE_TAKEN;
-        if ((sorting & Constants.SORT_BY_NAME) != 0) {
-            sortBy = MediaStore.Images.Media.DATA;
-        }
-
-        if ((sorting & Constants.SORT_DESCENDING) != 0) {
-            sortBy += " DESC";
-        }
-        return sortBy;
+        mIsGettingDirs = true;
+        new GetDirectoriesAsynctask(getApplicationContext(), mIsPickVideoIntent || mIsGetVideoContentIntent, mIsPickImageIntent || mIsGetImageContentIntent,
+                mToBeDeleted, this).execute();
     }
 
     private void showSortingDialog() {
@@ -318,7 +200,7 @@ public class MainActivity extends SimpleActivity
     }
 
     private void notifyDeletion(int cnt) {
-        mDirs = getDirectories();
+        getDirectories();
 
         final CoordinatorLayout coordinator = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
         final Resources res = getResources();
@@ -328,7 +210,6 @@ public class MainActivity extends SimpleActivity
         mSnackbar.setActionTextColor(Color.WHITE);
         mSnackbar.show();
         mIsSnackbarShown = true;
-        updateGridView();
     }
 
     private void deleteDirs() {
@@ -366,8 +247,7 @@ public class MainActivity extends SimpleActivity
             mSnackbar.dismiss();
             mIsSnackbarShown = false;
             mToBeDeleted.clear();
-            mDirs = getDirectories();
-            updateGridView();
+            getDirectories();
         }
     };
 
@@ -631,12 +511,12 @@ public class MainActivity extends SimpleActivity
 
     private void hideFolders() {
         mConfig.addHiddenDirectories(getSelectedPaths());
-        initializeGallery();
+        getDirectories();
     }
 
     private void unhideFolders() {
         mConfig.removeHiddenDirectories(getSelectedPaths());
-        initializeGallery();
+        getDirectories();
     }
 
     private Set<String> getSelectedPaths() {
@@ -655,13 +535,11 @@ public class MainActivity extends SimpleActivity
     private void scanCompleted(final String path) {
         final File dir = new File(path);
         if (dir.isDirectory()) {
-            mDirs = getDirectories();
+            getDirectories();
 
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    updateGridView();
-                    mGridView.requestLayout();
                     Utils.showToast(getApplicationContext(), R.string.rename_folder_ok);
                 }
             });
@@ -670,12 +548,27 @@ public class MainActivity extends SimpleActivity
 
     @Override
     public void onRefresh() {
-        initializeGallery();
+        getDirectories();
         mSwipeRefreshLayout.setRefreshing(false);
     }
 
     @Override
-    public void dialogClosed() {
-        initializeGallery();
+    public void sortingDialogClosed() {
+        getDirectories();
+    }
+
+    @Override
+    public void gotDirectories(@NotNull ArrayList<Directory> dirs) {
+        mIsGettingDirs = false;
+        if (dirs.toString().equals(mDirs.toString())) {
+            return;
+        }
+        mDirs = dirs;
+
+        final DirectoryAdapter adapter = new DirectoryAdapter(this, mDirs);
+        mGridView.setAdapter(adapter);
+        mGridView.setOnItemClickListener(this);
+        mGridView.setMultiChoiceModeListener(this);
+        mGridView.setOnTouchListener(this);
     }
 }
