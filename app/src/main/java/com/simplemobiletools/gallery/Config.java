@@ -102,4 +102,12 @@ public class Config {
     public boolean getIsFolderHidden(String path) {
         return getHiddenFolders().contains(path);
     }
+
+    public boolean getAutoplayVideos() {
+        return mPrefs.getBoolean(Constants.AUTOPLAY_VIDEOS, false);
+    }
+
+    public void setAutoplayVideos(boolean autoplay) {
+        mPrefs.edit().putBoolean(Constants.AUTOPLAY_VIDEOS, autoplay).apply();
+    }
 }

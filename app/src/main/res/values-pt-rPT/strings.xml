@@ -82,6 +82,7 @@
     <string name="dark_theme">Tema escuro</string>
     <string name="same_sorting">A mesma ordenação para ficheiros e pastas</string>
     <string name="show_hidden_folders">Show hidden folders</string>
+    <string name="autoplay_videos">Start videos automatically</string>
 
     <!-- License -->
     <string name="notice">Esta aplicação usa as seguintes bibliotecas de terceiros para facilitar a minha vida. Obrigado.</string>

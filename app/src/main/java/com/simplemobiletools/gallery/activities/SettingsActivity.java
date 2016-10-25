@@ -15,6 +15,7 @@ public class SettingsActivity extends SimpleActivity {
     @BindView(R.id.settings_dark_theme) SwitchCompat mDarkThemeSwitch;
     @BindView(R.id.settings_same_sorting) SwitchCompat mSameSortingSwitch;
     @BindView(R.id.settings_show_hidden_folders) SwitchCompat mShowHiddenFoldersSwitch;
+    @BindView(R.id.settings_autoplay_videos) SwitchCompat mAutoplayVideosSwitch;
 
     private static Config mConfig;
 
@@ -28,6 +29,7 @@ public class SettingsActivity extends SimpleActivity {
         setupDarkTheme();
         setupSameSorting();
         setupShowHiddenFolders();
+        setupAutoplayVideos();
     }
 
     private void setupDarkTheme() {
@@ -40,6 +42,10 @@ public class SettingsActivity extends SimpleActivity {
 
     private void setupShowHiddenFolders() {
         mShowHiddenFoldersSwitch.setChecked(mConfig.getShowHiddenFolders());
+    }
+
+    private void setupAutoplayVideos() {
+        mAutoplayVideosSwitch.setChecked(mConfig.getAutoplayVideos());
     }
 
     @OnClick(R.id.settings_dark_theme_holder)
@@ -59,6 +65,12 @@ public class SettingsActivity extends SimpleActivity {
     public void handleShowHiddenFolders() {
         mShowHiddenFoldersSwitch.setChecked(!mShowHiddenFoldersSwitch.isChecked());
         mConfig.setShowHiddenFolders(mShowHiddenFoldersSwitch.isChecked());
+    }
+
+    @OnClick(R.id.settings_autoplay_videos_holder)
+    public void handleAutoplayVideos() {
+        mAutoplayVideosSwitch.setChecked(!mAutoplayVideosSwitch.isChecked());
+        mConfig.setAutoplayVideos(mAutoplayVideosSwitch.isChecked());
     }
 
     private void restartActivity() {
