@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.simplemobiletools.gallery.Config;
 import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
@@ -52,6 +53,7 @@ public class VideoFragment extends ViewPagerFragment
     private boolean mIsPlaying;
     private boolean mIsDragged;
     private boolean mIsFullscreen;
+    private boolean mIsFragmentVisible;
     private int mCurrTime;
     private int mDuration;
 
@@ -85,6 +87,17 @@ public class VideoFragment extends ViewPagerFragment
         mSurfaceHolder.addCallback(this);
 
         initTimeHolder();
+    }
+
+    @Override
+    public void setMenuVisibility(boolean menuVisible) {
+        super.setMenuVisibility(menuVisible);
+        mIsFragmentVisible = menuVisible;
+        if (menuVisible) {
+            if (getContext() != null && Config.newInstance(getContext()).getAutoplayVideos()) {
+                playVideo();
+            }
+        }
     }
 
     public void itemDragged() {
@@ -255,6 +268,7 @@ public class VideoFragment extends ViewPagerFragment
     public void onPause() {
         super.onPause();
         pauseVideo();
+        mIsFragmentVisible = false;
     }
 
     @Override
@@ -394,5 +408,8 @@ public class VideoFragment extends ViewPagerFragment
         addPreviewImage();
         setupTimeHolder();
         setProgress(mCurrTime);
+
+        if (mIsFragmentVisible)
+            playVideo();
     }
 }
