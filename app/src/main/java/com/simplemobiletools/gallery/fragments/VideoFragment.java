@@ -190,32 +190,36 @@ public class VideoFragment extends ViewPagerFragment
         mTimeHolder.startAnimation(animation);
     }
 
-    private void pauseVideo() {
-        if (mIsPlaying) {
-            togglePlayPause();
-        }
-    }
-
     private void togglePlayPause() {
-        if (getActivity() == null)
+        if (getActivity() == null || !isAdded())
             return;
 
         mIsPlaying = !mIsPlaying;
         if (mIsPlaying) {
-            if (mMediaPlayer != null) {
-                mMediaPlayer.start();
-            }
-
-            mPlayOutline.setImageDrawable(null);
-            getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            playVideo();
         } else {
-            if (mMediaPlayer != null) {
-                mMediaPlayer.pause();
-            }
-
-            mPlayOutline.setImageDrawable(getResources().getDrawable(R.mipmap.play_outline_big));
-            getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+            pauseVideo();
         }
+    }
+
+    private void playVideo() {
+        mIsPlaying = true;
+        if (mMediaPlayer != null) {
+            mMediaPlayer.start();
+        }
+
+        mPlayOutline.setImageDrawable(null);
+        getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+    }
+
+    private void pauseVideo() {
+        mIsPlaying = false;
+        if (mMediaPlayer != null) {
+            mMediaPlayer.pause();
+        }
+
+        mPlayOutline.setImageDrawable(getResources().getDrawable(R.mipmap.play_outline_big));
+        getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
     private void initMediaPlayer() {
