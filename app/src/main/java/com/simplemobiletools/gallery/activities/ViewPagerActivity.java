@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog;
 import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.MyViewPager;
 import com.simplemobiletools.gallery.R;
@@ -164,6 +165,9 @@ public class ViewPagerActivity extends SimpleActivity
             case R.id.menu_edit:
                 openEditor();
                 return true;
+            case R.id.menu_properties:
+                showProperties();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -210,6 +214,10 @@ public class ViewPagerActivity extends SimpleActivity
         } else {
             Utils.showToast(getApplicationContext(), R.string.no_app_found);
         }
+    }
+
+    private void showProperties() {
+        new PropertiesDialog(this, getCurrentFile().getAbsolutePath(), false);
     }
 
     @Override
