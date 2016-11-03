@@ -27,6 +27,7 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog;
 import com.simplemobiletools.gallery.Config;
 import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.R;
@@ -250,9 +251,22 @@ public class MainActivity extends SimpleActivity
         }
     };
 
-    private void updateGridView() {
-        final DirectoryAdapter adapter = (DirectoryAdapter) mGridView.getAdapter();
-        adapter.updateItems(mDirs);
+    private void showProperties() {
+        final SparseBooleanArray items = mGridView.getCheckedItemPositions();
+        if (items.size() == 1) {
+            new PropertiesDialog(this, (String) getSelectedPaths().toArray()[0], false);
+        } else {
+            final List<String> paths = new ArrayList<>(items.size());
+            final int cnt = items.size();
+            for (int i = 0; i < cnt; i++) {
+                if (items.valueAt(i)) {
+                    final int id = items.keyAt(i);
+                    paths.add(mDirs.get(id).getPath());
+                }
+            }
+
+            new PropertiesDialog(this, paths, false);
+        }
     }
 
     private void editDirectory() {
@@ -380,10 +394,6 @@ public class MainActivity extends SimpleActivity
     private boolean isVideoType(Intent intent) {
         final String type = intent.getType();
         return type != null && (type.startsWith("video/") || type.equals(MediaStore.Video.Media.CONTENT_TYPE));
-    }
-
-    private void showProperties() {
-
     }
 
     @Override
