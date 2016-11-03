@@ -28,6 +28,7 @@ import android.widget.GridView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
+import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog;
 import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
@@ -368,6 +369,19 @@ public class MediaActivity extends SimpleActivity
         }
     }
 
+    private void showProperties() {
+        final List<Medium> selectedMedia = getSelectedMedia();
+        if (selectedMedia.size() == 1) {
+            new PropertiesDialog(this, selectedMedia.get(0).getPath(), false);
+        } else {
+            final List<String> paths = new ArrayList<>(selectedMedia.size());
+            for (Medium medium : selectedMedia) {
+                paths.add(medium.getPath());
+            }
+            new PropertiesDialog(this, paths, false);
+        }
+    }
+
     private boolean isSetWallpaperIntent() {
         return getIntent().getBooleanExtra(Constants.SET_WALLPAPER_INTENT, false);
     }
@@ -439,6 +453,9 @@ public class MediaActivity extends SimpleActivity
     @Override
     public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.cab_properties:
+                showProperties();
+                return true;
             case R.id.cab_share:
                 shareMedia();
                 return true;
