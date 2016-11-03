@@ -9,6 +9,7 @@
     <string name="edit">Edit</string>
     <string name="undo">Annulla</string>
     <string name="share">Condividi</string>
+    <string name="properties">Proprietà</string>
     <string name="rename_file">Rinomina file</string>
     <string name="rename_folder">Rinomina cartella</string>
     <string name="rename_file_error">Impossibile rinominare il file</string>

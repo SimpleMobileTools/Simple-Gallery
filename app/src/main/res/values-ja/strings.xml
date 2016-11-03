@@ -9,6 +9,7 @@
     <string name="edit">Edit</string>
     <string name="undo">元に戻す</string>
     <string name="share">共有</string>
+    <string name="properties">Properties</string>
     <string name="rename_file">ファイルの名前を変更</string>
     <string name="rename_folder">フォルダーの名前を変更</string>
     <string name="rename_file_error">ファイルの名前を変更できませんでした</string>

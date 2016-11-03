@@ -9,6 +9,7 @@
     <string name="edit">Edit</string>
     <string name="undo">Desfazer</string>
     <string name="share">Partilhar</string>
+    <string name="properties">Propriedades</string>
     <string name="rename_file">Renomear ficheiro</string>
     <string name="rename_folder">Renomear pasta</string>
     <string name="rename_file_error">Não foi possível renomear o ficheiro</string>

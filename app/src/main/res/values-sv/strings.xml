@@ -9,6 +9,7 @@
     <string name="edit">Edit</string>
     <string name="undo">Ångra</string>
     <string name="share">Dela</string>
+    <string name="properties">Properties</string>
     <string name="rename_file">Döp om fil</string>
     <string name="rename_folder">Döp om mapp</string>
     <string name="rename_file_error">Det gick inte att döpa om filen</string>

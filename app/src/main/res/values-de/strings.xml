@@ -9,6 +9,7 @@
     <string name="edit">Bearbeiten</string>
     <string name="undo">Rückgängig</string>
     <string name="share">Teilen</string>
+    <string name="properties">Eigenschaften</string>
     <string name="rename_file">Datei umbenennen</string>
     <string name="rename_folder">Ordner umbenennen</string>
     <string name="rename_file_error">Konnte die Datei nicht umbenennen</string>
