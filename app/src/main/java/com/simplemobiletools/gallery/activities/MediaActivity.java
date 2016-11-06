@@ -13,6 +13,7 @@ import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
+import android.support.v4.provider.DocumentFile;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.util.SparseBooleanArray;
@@ -335,23 +336,38 @@ public class MediaActivity extends SimpleActivity
         }
 
         mIsSnackbarShown = false;
+        boolean wereFilesDeleted = false;
 
         for (String delPath : mToBeDeleted) {
             final File file = new File(delPath);
-            if (file.exists())
-                file.delete();
-        }
+            if (file.exists()) {
+                if (Utils.Companion.needsStupidWritePermissions(this, delPath)) {
+                    if (Utils.Companion.isShowingWritePermissions(this, file))
+                        return;
 
-        final String[] deletedPaths = mToBeDeleted.toArray(new String[mToBeDeleted.size()]);
-        MediaScannerConnection.scanFile(getApplicationContext(), deletedPaths, null, new MediaScannerConnection.OnScanCompletedListener() {
-            @Override
-            public void onScanCompleted(String path, Uri uri) {
-                if (mMedia != null && mMedia.isEmpty()) {
-                    finish();
+                    final DocumentFile document = Utils.Companion.getFileDocument(this, delPath);
+                    if (document.delete()) {
+                        wereFilesDeleted = true;
+                    }
+                } else {
+                    if (file.delete())
+                        wereFilesDeleted = true;
                 }
             }
-        });
-        mToBeDeleted.clear();
+        }
+
+        if (wereFilesDeleted) {
+            final String[] deletedPaths = mToBeDeleted.toArray(new String[mToBeDeleted.size()]);
+            MediaScannerConnection.scanFile(getApplicationContext(), deletedPaths, null, new MediaScannerConnection.OnScanCompletedListener() {
+                @Override
+                public void onScanCompleted(String path, Uri uri) {
+                    if (mMedia != null && mMedia.isEmpty()) {
+                        finish();
+                    }
+                }
+            });
+            mToBeDeleted.clear();
+        }
     }
 
     private View.OnClickListener undoDeletion = new View.OnClickListener() {

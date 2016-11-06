@@ -1,13 +1,10 @@
 package com.simplemobiletools.gallery.dialogs
 
 import android.app.Activity
-import android.content.Intent
 import android.media.MediaScannerConnection
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.WindowManager
-import com.simplemobiletools.gallery.Config
-import com.simplemobiletools.gallery.Constants
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.Utils
 import com.simplemobiletools.gallery.extensions.toast
@@ -53,15 +50,9 @@ class RenameItemDialog(val activity: Activity, val file: File, val listener: OnR
                 val newFile = File(file.parent, "$fileName.$extension")
 
                 if (Utils.needsStupidWritePermissions(context, file.absolutePath)) {
-                    if (!file.canWrite() && Config.newInstance(context).treeUri.isEmpty()) {
-                        WritePermissionDialog(activity, object : WritePermissionDialog.OnWritePermissionListener {
-                            override fun onConfirmed() {
-                                val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
-                                activity.startActivityForResult(intent, Constants.OPEN_DOCUMENT_TREE)
-                            }
-                        })
+                    if (Utils.isShowingWritePermissions(activity, file))
                         return@setOnClickListener
-                    }
+
                     val document = Utils.Companion.getFileDocument(context, file.absolutePath)
                     if (document.canWrite())
                         document.renameTo(newFile.name)

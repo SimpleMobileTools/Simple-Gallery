@@ -1,7 +1,6 @@
 package com.simplemobiletools.gallery.activities
 
 import android.app.Activity
-import android.content.Intent
 import android.graphics.Bitmap
 import android.media.MediaScannerConnection
 import android.net.Uri
@@ -9,11 +8,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import com.simplemobiletools.gallery.Config
-import com.simplemobiletools.gallery.Constants
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.Utils
-import com.simplemobiletools.gallery.dialogs.WritePermissionDialog
 import com.simplemobiletools.gallery.extensions.toast
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_edit.*
@@ -101,15 +97,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         var out: OutputStream? = null
         try {
             if (Utils.needsStupidWritePermissions(this, path)) {
-                if (!file.canWrite() && Config.newInstance(this).treeUri.isEmpty()) {
-                    WritePermissionDialog(this, object : WritePermissionDialog.OnWritePermissionListener {
-                        override fun onConfirmed() {
-                            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
-                            startActivityForResult(intent, Constants.OPEN_DOCUMENT_TREE)
-                        }
-                    })
+                if (Utils.isShowingWritePermissions(this, file))
                     return
-                }
 
                 val document = Utils.getFileDocument(this, path)
                 out = contentResolver.openOutputStream(document.uri)

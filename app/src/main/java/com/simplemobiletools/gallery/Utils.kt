@@ -20,6 +20,7 @@ import android.view.*
 import android.webkit.MimeTypeMap
 import android.widget.Toast
 import com.simplemobiletools.filepicker.extensions.getSDCardPath
+import com.simplemobiletools.gallery.dialogs.WritePermissionDialog
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 
@@ -166,6 +167,20 @@ class Utils {
 
             val takeFlags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
             context.contentResolver.takePersistableUriPermission(treeUri, takeFlags)
+        }
+
+        fun isShowingWritePermissions(activity: Activity, file: File): Boolean {
+            return if (needsStupidWritePermissions(activity, file.absolutePath) && !file.canWrite() && Config.newInstance(activity).treeUri.isEmpty()) {
+                WritePermissionDialog(activity, object : WritePermissionDialog.OnWritePermissionListener {
+                    override fun onConfirmed() {
+                        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
+                        activity.startActivityForResult(intent, Constants.OPEN_DOCUMENT_TREE)
+                    }
+                })
+                true
+            } else {
+                false
+            }
         }
     }
 }

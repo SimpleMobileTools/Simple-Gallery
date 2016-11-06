@@ -6,10 +6,8 @@ import android.content.res.Resources;
 import android.database.Cursor;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.annotation.RequiresApi;
 import android.support.v4.provider.DocumentFile;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
@@ -20,14 +18,12 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog;
-import com.simplemobiletools.gallery.Config;
 import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.MyViewPager;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter;
 import com.simplemobiletools.gallery.dialogs.RenameItemDialog;
-import com.simplemobiletools.gallery.dialogs.WritePermissionDialog;
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment;
 import com.simplemobiletools.gallery.models.Medium;
 
@@ -268,16 +264,7 @@ public class ViewPagerActivity extends SimpleActivity
 
         final File file = new File(mToBeDeleted);
         if (Utils.Companion.needsStupidWritePermissions(this, mToBeDeleted)) {
-            if (Config.newInstance(this).getTreeUri().isEmpty()) {
-                new WritePermissionDialog(this, new WritePermissionDialog.OnWritePermissionListener() {
-                    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-                    @Override
-                    public void onConfirmed() {
-                        final Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
-                        startActivityForResult(intent, Constants.OPEN_DOCUMENT_TREE);
-                    }
-                });
-            } else {
+            if (!Utils.Companion.isShowingWritePermissions(this, file)) {
                 final DocumentFile document = Utils.Companion.getFileDocument(this, mToBeDeleted);
                 if (document.canWrite()) {
                     mWasFileDeleted = document.delete();
