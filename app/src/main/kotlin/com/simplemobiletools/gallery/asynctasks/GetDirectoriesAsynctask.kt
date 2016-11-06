@@ -90,10 +90,6 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         listener?.gotDirectories(dirs)
     }
 
-    interface GetDirectoriesListener {
-        fun gotDirectories(dirs: ArrayList<Directory>)
-    }
-
     // sort the files at querying too, just to get the correct thumbnail
     private fun getSortOrder(): String {
         val sorting = mConfig.directorySorting
@@ -139,5 +135,9 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         }
 
         dirs.removeAll(ignoreDirs)
+    }
+
+    interface GetDirectoriesListener {
+        fun gotDirectories(dirs: ArrayList<Directory>)
     }
 }
