@@ -23,7 +23,7 @@ import com.simplemobiletools.gallery.MyViewPager;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter;
-import com.simplemobiletools.gallery.dialogs.RenameItemDialog;
+import com.simplemobiletools.gallery.dialogs.RenameFileDialog;
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment;
 import com.simplemobiletools.gallery.models.Medium;
 
@@ -301,7 +301,7 @@ public class ViewPagerActivity extends SimpleActivity
     }
 
     private void editMedium() {
-        new RenameItemDialog(this, getCurrentFile(), new RenameItemDialog.OnRenameItemListener() {
+        new RenameFileDialog(this, getCurrentFile(), new RenameFileDialog.OnRenameItemListener() {
             @Override
             public void onRenameSuccess(@NotNull File newFile) {
                 mMedia.get(mPager.getCurrentItem()).setPath(newFile.getAbsolutePath());

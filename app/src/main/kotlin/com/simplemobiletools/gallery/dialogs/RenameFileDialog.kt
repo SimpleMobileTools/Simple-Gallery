@@ -12,7 +12,7 @@ import com.simplemobiletools.gallery.extensions.value
 import kotlinx.android.synthetic.main.rename_file.view.*
 import java.io.File
 
-class RenameItemDialog(val activity: Activity, val file: File, val listener: OnRenameItemListener) {
+class RenameFileDialog(val activity: Activity, val file: File, val listener: OnRenameItemListener) {
 
     init {
         val context = activity
