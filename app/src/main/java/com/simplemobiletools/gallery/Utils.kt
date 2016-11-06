@@ -1,6 +1,7 @@
 package com.simplemobiletools.gallery
 
 import android.Manifest
+import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -125,7 +126,7 @@ class Utils {
                     View.SYSTEM_UI_FLAG_IMMERSIVE
         }
 
-        fun getRealPathFromURI(context: Context, uri: Uri): String {
+        fun getRealPathFromURI(context: Context, uri: Uri): String? {
             var cursor: Cursor? = null
             try {
                 val projection = arrayOf(MediaStore.Images.Media.DATA)
@@ -156,6 +157,15 @@ class Utils {
                     document = currDocument
             }
             return document
+        }
+
+        @TargetApi(Build.VERSION_CODES.KITKAT)
+        fun saveTreeUri(context: Context, resultData: Intent) {
+            val treeUri = resultData.data
+            Config.newInstance(context).treeUri = treeUri.toString()
+
+            val takeFlags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+            context.contentResolver.takePersistableUriPermission(treeUri, takeFlags)
         }
     }
 }
