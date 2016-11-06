@@ -26,4 +26,7 @@ public class Constants {
     public static final int SORT_BY_SIZE = 4;
 
     public static final int SORT_DESCENDING = 1024;
+
+    // global intents
+    public static final int OPEN_DOCUMENT_TREE = 1000;
 }

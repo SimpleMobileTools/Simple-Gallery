@@ -19,13 +19,13 @@
         android:singleLine="true"/>
 
     <TextView
-        android:id="@+id/extension_label"
+        android:id="@+id/file_extension_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/extension"/>
 
     <EditText
-        android:id="@+id/extension"
+        android:id="@+id/file_extension"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/activity_margin"
