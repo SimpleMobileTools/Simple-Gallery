@@ -196,6 +196,12 @@ public class MainActivity extends SimpleActivity
             }
         }
 
+        for (String path : mToBeDeleted) {
+            if (Utils.Companion.isShowingWritePermissions(this, new File(path))) {
+                return;
+            }
+        }
+
         notifyDeletion(deletedCnt);
     }
 

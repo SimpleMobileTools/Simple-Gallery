@@ -242,8 +242,10 @@ public class ViewPagerActivity extends SimpleActivity
     }
 
     private void notifyDeletion() {
-        mToBeDeleted = getCurrentFile().getAbsolutePath();
+        if (Utils.Companion.isShowingWritePermissions(this, new File(mPath)))
+            return;
 
+        mToBeDeleted = getCurrentFile().getAbsolutePath();
         if (mMedia.size() <= 1) {
             deleteFile();
         } else {

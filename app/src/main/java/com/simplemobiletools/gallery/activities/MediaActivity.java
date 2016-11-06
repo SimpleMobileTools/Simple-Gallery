@@ -293,6 +293,9 @@ public class MediaActivity extends SimpleActivity
     }
 
     private void prepareForDeleting() {
+        if (Utils.Companion.isShowingWritePermissions(this, new File(mPath)))
+            return;
+
         Utils.Companion.showToast(this, R.string.deleting);
         final SparseBooleanArray items = mGridView.getCheckedItemPositions();
         final int cnt = items.size();
