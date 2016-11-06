@@ -1,7 +1,5 @@
 package com.simplemobiletools.gallery.activities;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -238,19 +236,8 @@ public class ViewPagerActivity extends SimpleActivity
             if (resultCode == RESULT_OK) {
                 Utils.Companion.showToast(getApplicationContext(), R.string.wallpaper_set_successfully);
             }
-        } else if (requestCode == Constants.OPEN_DOCUMENT_TREE && resultCode == Activity.RESULT_OK && data != null) {
-            saveTreeUri(data);
         }
         super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    @TargetApi(Build.VERSION_CODES.KITKAT)
-    private void saveTreeUri(Intent resultData) {
-        Uri treeUri = resultData.getData();
-        getConfig().setTreeUri(resultData.getData().toString());
-
-        int takeFlags = Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION;
-        getContentResolver().takePersistableUriPermission(treeUri, takeFlags);
     }
 
     private void shareMedium() {

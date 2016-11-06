@@ -137,13 +137,6 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         })
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
-        super.onActivityResult(requestCode, resultCode, resultData)
-        if (requestCode == Constants.OPEN_DOCUMENT_TREE && resultCode == Activity.RESULT_OK && resultData != null) {
-            Utils.saveTreeUri(this, resultData)
-        }
-    }
-
     private fun getCompressionFormat(file: File): Bitmap.CompressFormat {
         return when (file.extension.toLowerCase()) {
             "png" -> Bitmap.CompressFormat.PNG
