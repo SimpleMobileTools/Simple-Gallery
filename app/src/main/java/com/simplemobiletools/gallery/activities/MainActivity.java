@@ -148,7 +148,7 @@ public class MainActivity extends SimpleActivity
     }
 
     private void tryloadGallery() {
-        if (Utils.hasStoragePermission(getApplicationContext())) {
+        if (Utils.Companion.hasStoragePermission(getApplicationContext())) {
             getDirectories();
         } else {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION);
@@ -163,7 +163,7 @@ public class MainActivity extends SimpleActivity
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getDirectories();
             } else {
-                Utils.showToast(getApplicationContext(), R.string.no_permissions);
+                Utils.Companion.showToast(getApplicationContext(), R.string.no_permissions);
                 finish();
             }
         }
@@ -183,7 +183,7 @@ public class MainActivity extends SimpleActivity
     }
 
     private void prepareForDeleting() {
-        Utils.showToast(this, R.string.deleting);
+        Utils.Companion.showToast(this, R.string.deleting);
         final SparseBooleanArray items = mGridView.getCheckedItemPositions();
         final int cnt = items.size();
         int deletedCnt = 0;
@@ -307,7 +307,7 @@ public class MainActivity extends SimpleActivity
                 final String newDirName = dirNameET.getText().toString().trim();
 
                 if (newDirName.isEmpty()) {
-                    Utils.showToast(getApplicationContext(), R.string.rename_folder_empty);
+                    Utils.Companion.showToast(getApplicationContext(), R.string.rename_folder_empty);
                     return;
                 }
 
@@ -316,7 +316,7 @@ public class MainActivity extends SimpleActivity
 
                 final File newDir = new File(dir.getParent(), newDirName);
                 if (dir.renameTo(newDir)) {
-                    Utils.showToast(getApplicationContext(), R.string.renaming_folder);
+                    Utils.Companion.showToast(getApplicationContext(), R.string.renaming_folder);
                     alertDialog.dismiss();
                     mActionMode.finish();
 
@@ -335,7 +335,7 @@ public class MainActivity extends SimpleActivity
                                 }
                             });
                 } else {
-                    Utils.showToast(getApplicationContext(), R.string.rename_folder_error);
+                    Utils.Companion.showToast(getApplicationContext(), R.string.rename_folder_error);
                 }
             }
         });
@@ -404,7 +404,7 @@ public class MainActivity extends SimpleActivity
                 final String path = data.getData().getPath();
                 final Uri uri = Uri.fromFile(new File(path));
                 if (mIsGetImageContentIntent || mIsGetVideoContentIntent || mIsGetAnyContentIntent) {
-                    final String type = Utils.getMimeType(path);
+                    final String type = Utils.Companion.getMimeType(path);
                     result.setDataAndTypeAndNormalize(uri, type);
                     result.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
                 } else if (mIsPickImageIntent || mIsPickVideoIntent) {
@@ -556,7 +556,7 @@ public class MainActivity extends SimpleActivity
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    Utils.showToast(getApplicationContext(), R.string.rename_folder_ok);
+                    Utils.Companion.showToast(getApplicationContext(), R.string.rename_folder_ok);
                 }
             });
         }

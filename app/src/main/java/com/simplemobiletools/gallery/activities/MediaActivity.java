@@ -100,7 +100,7 @@ public class MediaActivity extends SimpleActivity
     }
 
     private void tryloadGallery() {
-        if (Utils.hasStoragePermission(getApplicationContext())) {
+        if (Utils.Companion.hasStoragePermission(getApplicationContext())) {
             initializeGallery();
         } else {
             finish();
@@ -124,7 +124,7 @@ public class MediaActivity extends SimpleActivity
         mGridView.setOnTouchListener(this);
         mIsSnackbarShown = false;
 
-        final String dirName = Utils.getFilename(mPath);
+        final String dirName = Utils.Companion.getFilename(mPath);
         setTitle(dirName);
     }
 
@@ -257,7 +257,7 @@ public class MediaActivity extends SimpleActivity
     private void shareMedia() {
         final List<Medium> selectedMedia = getSelectedMedia();
         if (selectedMedia.size() <= 1) {
-            Utils.shareMedium(selectedMedia.get(0), this);
+            Utils.Companion.shareMedium(selectedMedia.get(0), this);
         } else {
             shareMedia(selectedMedia);
         }
@@ -292,7 +292,7 @@ public class MediaActivity extends SimpleActivity
     }
 
     private void prepareForDeleting() {
-        Utils.showToast(this, R.string.deleting);
+        Utils.Companion.showToast(this, R.string.deleting);
         final SparseBooleanArray items = mGridView.getCheckedItemPositions();
         final int cnt = items.size();
         int deletedCnt = 0;
@@ -393,7 +393,7 @@ public class MediaActivity extends SimpleActivity
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         final String curItemPath = mMedia.get(position).getPath();
         if (isSetWallpaperIntent()) {
-            Utils.showToast(this, R.string.setting_wallpaper);
+            Utils.Companion.showToast(this, R.string.setting_wallpaper);
 
             final int wantedWidth = getWallpaperDesiredMinimumWidth();
             final int wantedHeight = getWallpaperDesiredMinimumHeight();

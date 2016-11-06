@@ -121,13 +121,13 @@ public class VideoFragment extends ViewPagerFragment
     private void initTimeHolder() {
         mTimeHolder = mView.findViewById(R.id.video_time_holder);
         final Resources res = getResources();
-        final int height = Utils.getNavBarHeight(res);
+        final int height = Utils.Companion.getNavBarHeight(res);
         final int left = mTimeHolder.getPaddingLeft();
         final int top = mTimeHolder.getPaddingTop();
         int right = (int) getResources().getDimension(R.dimen.timer_padding);
         int bottom = 0;
 
-        if (Utils.hasNavBar(getActivity())) {
+        if (Utils.Companion.hasNavBar(getActivity())) {
             if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
                 bottom += height;
             } else {

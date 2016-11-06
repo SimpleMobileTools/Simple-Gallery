@@ -63,7 +63,7 @@ public class ViewPagerActivity extends SimpleActivity
         setContentView(R.layout.activity_medium);
         ButterKnife.bind(this);
 
-        if (!Utils.hasStoragePermission(getApplicationContext())) {
+        if (!Utils.Companion.hasStoragePermission(getApplicationContext())) {
             finish();
             return;
         }
@@ -89,7 +89,7 @@ public class ViewPagerActivity extends SimpleActivity
         }
 
         if (mPath == null || mPath.isEmpty()) {
-            Utils.showToast(getApplicationContext(), R.string.unknown_error);
+            Utils.Companion.showToast(getApplicationContext(), R.string.unknown_error);
             finish();
             return;
         }
@@ -121,7 +121,7 @@ public class ViewPagerActivity extends SimpleActivity
     @Override
     protected void onResume() {
         super.onResume();
-        if (!Utils.hasStoragePermission(getApplicationContext())) {
+        if (!Utils.Companion.hasStoragePermission(getApplicationContext())) {
             finish();
         }
     }
@@ -188,7 +188,7 @@ public class ViewPagerActivity extends SimpleActivity
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(chooser, EDIT_IMAGE);
         } else {
-            Utils.showToast(getApplicationContext(), R.string.no_editor_found);
+            Utils.Companion.showToast(getApplicationContext(), R.string.no_editor_found);
         }
     }
 
@@ -200,19 +200,19 @@ public class ViewPagerActivity extends SimpleActivity
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(chooser, SET_WALLPAPER);
         } else {
-            Utils.showToast(getApplicationContext(), R.string.no_wallpaper_setter_found);
+            Utils.Companion.showToast(getApplicationContext(), R.string.no_wallpaper_setter_found);
         }
     }
 
     private void openWith() {
         final Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setDataAndType(Uri.fromFile(getCurrentFile()), Utils.getMimeType(getCurrentMedium()));
+        intent.setDataAndType(Uri.fromFile(getCurrentFile()), Utils.Companion.getMimeType(getCurrentMedium()));
         final Intent chooser = Intent.createChooser(intent, getString(R.string.open_with));
 
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(chooser);
         } else {
-            Utils.showToast(getApplicationContext(), R.string.no_app_found);
+            Utils.Companion.showToast(getApplicationContext(), R.string.no_app_found);
         }
     }
 
@@ -229,7 +229,7 @@ public class ViewPagerActivity extends SimpleActivity
             }
         } else if (requestCode == SET_WALLPAPER) {
             if (resultCode == RESULT_OK) {
-                Utils.showToast(getApplicationContext(), R.string.wallpaper_set_successfully);
+                Utils.Companion.showToast(getApplicationContext(), R.string.wallpaper_set_successfully);
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
@@ -237,7 +237,7 @@ public class ViewPagerActivity extends SimpleActivity
 
     private void shareMedium() {
         final Medium medium = getCurrentMedium();
-        Utils.shareMedium(medium, this);
+        Utils.Companion.shareMedium(medium, this);
     }
 
     private void notifyDeletion() {
@@ -246,7 +246,7 @@ public class ViewPagerActivity extends SimpleActivity
         if (mMedia.size() <= 1) {
             deleteFile();
         } else {
-            Utils.showToast(this, R.string.file_deleted);
+            Utils.Companion.showToast(this, R.string.file_deleted);
             mUndoBtn.setVisibility(View.VISIBLE);
             mIsUndoShown = true;
             reloadViewPager();
@@ -320,7 +320,7 @@ public class ViewPagerActivity extends SimpleActivity
                 final String extension = extensionET.getText().toString().trim();
 
                 if (fileName.isEmpty() || extension.isEmpty()) {
-                    Utils.showToast(getApplicationContext(), R.string.rename_file_empty);
+                    Utils.Companion.showToast(getApplicationContext(), R.string.rename_file_empty);
                     return;
                 }
 
@@ -335,7 +335,7 @@ public class ViewPagerActivity extends SimpleActivity
                     updateActionbarTitle();
                     alertDialog.dismiss();
                 } else {
-                    Utils.showToast(getApplicationContext(), R.string.rename_file_error);
+                    Utils.Companion.showToast(getApplicationContext(), R.string.rename_file_error);
                 }
             }
         });
@@ -425,15 +425,15 @@ public class ViewPagerActivity extends SimpleActivity
     }
 
     private void hideSystemUI() {
-        Utils.hideSystemUI(mActionbar, getWindow());
+        Utils.Companion.hideSystemUI(mActionbar, getWindow());
     }
 
     private void showSystemUI() {
-        Utils.showSystemUI(mActionbar, getWindow());
+        Utils.Companion.showSystemUI(mActionbar, getWindow());
     }
 
     private void updateActionbarTitle() {
-        setTitle(Utils.getFilename(mMedia.get(mPager.getCurrentItem()).getPath()));
+        setTitle(Utils.Companion.getFilename(mMedia.get(mPager.getCurrentItem()).getPath()));
     }
 
     private Medium getCurrentMedium() {
@@ -449,11 +449,11 @@ public class ViewPagerActivity extends SimpleActivity
     private void addUndoMargin() {
         final Resources res = getResources();
         final RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) mUndoBtn.getLayoutParams();
-        final int topMargin = Utils.getStatusBarHeight(res) + Utils.getActionBarHeight(getApplicationContext(), res);
+        final int topMargin = Utils.Companion.getStatusBarHeight(res) + Utils.Companion.getActionBarHeight(getApplicationContext(), res);
         int rightMargin = params.rightMargin;
 
         if (getResources().getConfiguration().orientation != Configuration.ORIENTATION_PORTRAIT) {
-            rightMargin += Utils.getNavBarHeight(res);
+            rightMargin += Utils.Companion.getNavBarHeight(res);
         }
 
         params.setMargins(params.leftMargin, topMargin, rightMargin, params.bottomMargin);

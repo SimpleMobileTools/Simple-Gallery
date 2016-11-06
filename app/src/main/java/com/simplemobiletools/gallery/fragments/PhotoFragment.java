@@ -26,7 +26,7 @@ public class PhotoFragment extends ViewPagerFragment implements View.OnClickList
 
         mMedium = (Medium) getArguments().getSerializable(Constants.MEDIUM);
         if (mMedium.getPath().startsWith("content://"))
-            mMedium.setPath(Utils.getRealPathFromURI(getContext(), Uri.parse(mMedium.getPath())));
+            mMedium.setPath(Utils.Companion.getRealPathFromURI(getContext(), Uri.parse(mMedium.getPath())));
 
         if (mMedium == null)
             return view;

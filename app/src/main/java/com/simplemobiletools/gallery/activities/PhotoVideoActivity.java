@@ -52,7 +52,7 @@ public class PhotoVideoActivity extends SimpleActivity implements ViewPagerFragm
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder, mFragment).commit();
         }
         hideSystemUI();
-        setTitle(Utils.getFilename(mUri.toString()));
+        setTitle(Utils.Companion.getFilename(mUri.toString()));
     }
 
     @Override
@@ -98,10 +98,10 @@ public class PhotoVideoActivity extends SimpleActivity implements ViewPagerFragm
     }
 
     private void hideSystemUI() {
-        Utils.hideSystemUI(mActionbar, getWindow());
+        Utils.Companion.hideSystemUI(mActionbar, getWindow());
     }
 
     private void showSystemUI() {
-        Utils.showSystemUI(mActionbar, getWindow());
+        Utils.Companion.showSystemUI(mActionbar, getWindow());
     }
 }
