@@ -86,7 +86,7 @@ public class Utils {
     }
 
     public static boolean hasStoragePermission(Context cxt) {
-        return ContextCompat.checkSelfPermission(cxt, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
+        return ContextCompat.checkSelfPermission(cxt, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
     }
 
     public static String getMimeType(String url) {

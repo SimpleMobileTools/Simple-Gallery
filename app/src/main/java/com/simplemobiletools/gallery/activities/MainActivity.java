@@ -151,7 +151,7 @@ public class MainActivity extends SimpleActivity
         if (Utils.hasStoragePermission(getApplicationContext())) {
             getDirectories();
         } else {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION);
         }
     }
 
