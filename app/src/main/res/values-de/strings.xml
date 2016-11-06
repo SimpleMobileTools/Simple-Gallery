@@ -85,7 +85,7 @@
     <string name="dark_theme">Dunkles Design</string>
     <string name="same_sorting">Selbe Sortierung für Dateien und Ordner</string>
     <string name="show_hidden_folders">Zeige versteckte Ordner</string>
-    <string name="autoplay_videos">Start videos automatically</string>
+    <string name="autoplay_videos">Play videos automatically</string>
 
     <!-- License -->
     <string name="notice">Diese App nutzt die folgenden Drittanbieterbilbiotheken, die mein Leben einfacher machen. Danke.</string>
