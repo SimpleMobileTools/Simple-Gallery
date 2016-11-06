@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 1.27 *(2016-11-06)*
+----------------------------
+
+ * Add a "Save as" option to the editor
+ * Fix file operations on SD card
+ * Do not delete folders recursively, just the direct children
+ * Many other small improvements
+
 Version 1.26 *(2016-11-03)*
 ----------------------------
 
