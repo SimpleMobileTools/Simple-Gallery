@@ -218,6 +218,9 @@ public class MediaActivity extends SimpleActivity
                 final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
                 do {
                     final String curPath = cursor.getString(pathIndex);
+                    if (curPath == null)
+                        continue;
+
                     if (curPath.matches(pattern) && !mToBeDeleted.contains(curPath)) {
                         final File file = new File(curPath);
                         if (file.exists()) {

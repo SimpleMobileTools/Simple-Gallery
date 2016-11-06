@@ -384,6 +384,9 @@ public class ViewPagerActivity extends SimpleActivity
                 final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
                 do {
                     final String curPath = cursor.getString(pathIndex);
+                    if (curPath == null)
+                        continue;
+
                     if (curPath.matches(pattern) && !curPath.equals(mToBeDeleted) && !curPath.equals(mBeingDeleted)) {
                         final int dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_TAKEN);
                         final long timestamp = cursor.getLong(dateIndex);
