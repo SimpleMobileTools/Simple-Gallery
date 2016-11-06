@@ -247,7 +247,7 @@ public class ViewPagerActivity extends SimpleActivity
     @TargetApi(Build.VERSION_CODES.KITKAT)
     private void saveTreeUri(Intent resultData) {
         Uri treeUri = resultData.getData();
-        mConfig.setTreeUri(resultData.getData().toString());
+        getConfig().setTreeUri(resultData.getData().toString());
 
         int takeFlags = Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION;
         getContentResolver().takePersistableUriPermission(treeUri, takeFlags);
@@ -393,7 +393,7 @@ public class ViewPagerActivity extends SimpleActivity
             }
         }
 
-        Medium.mSorting = mConfig.getSorting();
+        Medium.mSorting = getConfig().getSorting();
         Collections.sort(media);
         int j = 0;
         for (Medium medium : media) {

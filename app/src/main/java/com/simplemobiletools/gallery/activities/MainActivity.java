@@ -472,7 +472,7 @@ public class MainActivity extends SimpleActivity
         for (int i = 0; i < cnt; i++) {
             if (items.valueAt(i)) {
                 final int id = items.keyAt(i);
-                if (mConfig.getIsFolderHidden(mDirs.get(id).getPath()))
+                if (getConfig().getIsFolderHidden(mDirs.get(id).getPath()))
                     hiddenCnt++;
                 else
                     unhiddenCnt++;
@@ -526,12 +526,12 @@ public class MainActivity extends SimpleActivity
     }
 
     private void hideFolders() {
-        mConfig.addHiddenDirectories(getSelectedPaths());
+        getConfig().addHiddenDirectories(getSelectedPaths());
         getDirectories();
     }
 
     private void unhideFolders() {
-        mConfig.removeHiddenDirectories(getSelectedPaths());
+        getConfig().removeHiddenDirectories(getSelectedPaths());
         getDirectories();
     }
 

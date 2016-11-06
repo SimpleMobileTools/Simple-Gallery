@@ -132,7 +132,7 @@ public class MediaActivity extends SimpleActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_media, menu);
 
-        final boolean isFolderHidden = mConfig.getIsFolderHidden(mPath);
+        final boolean isFolderHidden = getConfig().getIsFolderHidden(mPath);
         menu.findItem(R.id.hide_folder).setVisible(!isFolderHidden);
         menu.findItem(R.id.unhide_folder).setVisible(isFolderHidden);
 
@@ -174,16 +174,16 @@ public class MediaActivity extends SimpleActivity
     }
 
     private void hideDirectory() {
-        mConfig.addHiddenDirectory(mPath);
+        getConfig().addHiddenDirectory(mPath);
 
-        if (!mConfig.getShowHiddenFolders())
+        if (!getConfig().getShowHiddenFolders())
             finish();
         else
             invalidateOptionsMenu();
     }
 
     private void unhideDirectory() {
-        mConfig.removeHiddenDirectory(mPath);
+        getConfig().removeHiddenDirectory(mPath);
         invalidateOptionsMenu();
     }
 
@@ -236,7 +236,7 @@ public class MediaActivity extends SimpleActivity
             }
         }
 
-        Medium.mSorting = mConfig.getSorting();
+        Medium.mSorting = getConfig().getSorting();
         Collections.sort(media);
 
         final String[] invalids = invalidFiles.toArray(new String[invalidFiles.size()]);
