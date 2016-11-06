@@ -11,4 +11,8 @@
         android:icon="@mipmap/check"
         android:title="@string/save"
         app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/save_as"
+        android:title="@string/save_as"
+        app:showAsAction="never"/>
 </menu>

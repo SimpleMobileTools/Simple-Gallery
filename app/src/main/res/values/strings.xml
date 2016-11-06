@@ -37,6 +37,7 @@
     <string name="hidden">(hidden)</string>
     <string name="confirm_storage_access_title">Confirm external storage access</string>
     <string name="confirm_storage_access_text">Please choose the root folder of the SD card to grant write access on the next screen</string>
+    <string name="save_as">Save as</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 folder deleted</item>
