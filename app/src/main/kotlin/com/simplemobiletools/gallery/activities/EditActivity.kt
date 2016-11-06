@@ -10,6 +10,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.Utils
+import com.simplemobiletools.gallery.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.extensions.toast
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_edit.*
@@ -20,6 +21,8 @@ import java.io.OutputStream
 
 class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener {
     val TAG: String = EditActivity::class.java.simpleName
+
+    var overrideOriginal = false
     lateinit var uri: Uri
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,6 +57,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.save -> {
+                overrideOriginal = true
                 crop_image_view.getCroppedImageAsync()
                 true
             }
@@ -70,17 +74,38 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun saveAs() {
-
+        overrideOriginal = false
+        crop_image_view.getCroppedImageAsync()
     }
 
     override fun onCropImageComplete(view: CropImageView, result: CropImageView.CropResult) {
         if (result.error == null) {
             if (uri.scheme == "file") {
-                saveBitmapToFile(result.bitmap, uri.path)
+                if (overrideOriginal)
+                    saveBitmapToFile(result.bitmap, uri.path)
+                else {
+                    SaveAsDialog(this, uri.path, object : SaveAsDialog.OnSaveAsListener {
+                        override fun onSaveAsSuccess(filename: String) {
+                            val parent = File(uri.path).parent
+                            val path = File(parent, filename).absolutePath
+                            saveBitmapToFile(result.bitmap, path)
+                        }
+                    })
+                }
             } else if (uri.scheme == "content") {
                 val newPath = Utils.getRealPathFromURI(applicationContext, uri) ?: ""
                 if (!newPath.isEmpty()) {
-                    saveBitmapToFile(result.bitmap, newPath)
+                    if (overrideOriginal) {
+                        saveBitmapToFile(result.bitmap, newPath)
+                    } else {
+                        SaveAsDialog(this, newPath, object : SaveAsDialog.OnSaveAsListener {
+                            override fun onSaveAsSuccess(filename: String) {
+                                val parent = File(uri.path).parent
+                                val path = File(parent, filename).absolutePath
+                                saveBitmapToFile(result.bitmap, path)
+                            }
+                        })
+                    }
                 } else {
                     toast(R.string.image_editing_failed)
                     finish()
@@ -96,7 +121,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     private fun saveBitmapToFile(bitmap: Bitmap, path: String) {
         val file = File(path)
-        if (!file.exists()) {
+        if (overrideOriginal && !file.exists()) {
             toast(R.string.error_saving_file)
             finish()
             return
@@ -108,7 +133,10 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 if (Utils.isShowingWritePermissions(this, file))
                     return
 
-                val document = Utils.getFileDocument(this, path)
+                var document = Utils.getFileDocument(this, path)
+                if (!file.exists()) {
+                    document = document.createFile("", file.name)
+                }
                 out = contentResolver.openOutputStream(document.uri)
             } else {
                 out = FileOutputStream(file)
@@ -117,7 +145,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             bitmap.compress(getCompressionFormat(file), 90, out)
             setResult(Activity.RESULT_OK, intent)
         } catch (e: Exception) {
-            Log.e(TAG, "Crop compressing failed $e")
+            Log.e(TAG, "Crop compressing failed $path $e")
             toast(R.string.image_editing_failed)
             finish()
         } finally {
@@ -130,7 +158,12 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
         MediaScannerConnection.scanFile(applicationContext, arrayOf(path), null, { path: String, uri: Uri ->
             setResult(Activity.RESULT_OK, intent)
-            finish()
+            runOnUiThread {
+                toast(R.string.file_saved)
+            }
+
+            if (overrideOriginal)
+                finish()
         })
     }
 

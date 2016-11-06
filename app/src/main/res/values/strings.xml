@@ -13,11 +13,12 @@
     <string name="rename_file">Rename file</string>
     <string name="rename_folder">Rename folder</string>
     <string name="rename_file_error">Could not rename the file</string>
-    <string name="rename_file_empty">File name must not be empty</string>
     <string name="rename_folder_error">Could not rename the folder</string>
     <string name="rename_folder_empty">Folder name must not be empty</string>
     <string name="rename_folder_ok">Folder renamed successfully</string>
     <string name="renaming_folder">Renaming folder</string>
+    <string name="filename_cannot_be_empty">Filename cannot be empty</string>
+    <string name="filename_invalid_characters">Filename contains invalid characters</string>
     <string name="extension">Extension</string>
     <string name="file_deleted">File deleted</string>
     <string name="open_camera">Open camera</string>
@@ -38,6 +39,7 @@
     <string name="confirm_storage_access_title">Confirm external storage access</string>
     <string name="confirm_storage_access_text">Please choose the root folder of the SD card to grant write access on the next screen</string>
     <string name="save_as">Save as</string>
+    <string name="file_saved">File saved successfully</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 folder deleted</item>

@@ -43,7 +43,7 @@ class RenameFileDialog(val activity: Activity, val file: File, val listener: OnR
                 val extension = view.file_extension.value
 
                 if (fileName.isEmpty() || extension.isEmpty()) {
-                    context.toast(R.string.rename_file_empty)
+                    context.toast(R.string.filename_cannot_be_empty)
                     return@setOnClickListener
                 }
 
