@@ -14,7 +14,6 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AlertDialog;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
 import android.view.Menu;
@@ -23,9 +22,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.TextView;
 
 import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog;
 import com.simplemobiletools.gallery.Config;
@@ -35,6 +32,7 @@ import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter;
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask;
 import com.simplemobiletools.gallery.dialogs.ChangeSorting;
+import com.simplemobiletools.gallery.dialogs.RenameDirectoryDialog;
 import com.simplemobiletools.gallery.models.Directory;
 
 import org.jetbrains.annotations.NotNull;
@@ -290,59 +288,16 @@ public class MainActivity extends SimpleActivity
 
     private void renameDir(final String path) {
         final File dir = new File(path);
-
-        final View renameDirView = getLayoutInflater().inflate(R.layout.rename_directory, null);
-        final EditText dirNameET = (EditText) renameDirView.findViewById(R.id.directory_name);
-        dirNameET.setText(dir.getName());
-
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(getResources().getString(R.string.rename_folder));
-        builder.setView(renameDirView);
-
-        final TextView dirPath = (TextView) renameDirView.findViewById(R.id.directory_path);
-        dirPath.setText(dir.getParent() + "/");
-
-        builder.setPositiveButton(R.string.ok, null);
-        builder.setNegativeButton(R.string.cancel, null);
-
-        final AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
+        new RenameDirectoryDialog(this, dir, new RenameDirectoryDialog.OnRenameDirListener() {
             @Override
-            public void onClick(View v) {
-                final String newDirName = dirNameET.getText().toString().trim();
-
-                if (newDirName.isEmpty()) {
-                    Utils.Companion.showToast(getApplicationContext(), R.string.rename_folder_empty);
-                    return;
-                }
-
-                final List<String> updatedFiles = new ArrayList<>();
-                updatedFiles.add(dir.getAbsolutePath());
-
-                final File newDir = new File(dir.getParent(), newDirName);
-                if (dir.renameTo(newDir)) {
-                    Utils.Companion.showToast(getApplicationContext(), R.string.renaming_folder);
-                    alertDialog.dismiss();
-                    mActionMode.finish();
-
-                    final File[] files = newDir.listFiles();
-                    for (File f : files) {
-                        updatedFiles.add(f.getAbsolutePath());
+            public void onRenameDirSuccess(@NotNull String[] changedFiles) {
+                mActionMode.finish();
+                MediaScannerConnection.scanFile(getApplicationContext(), changedFiles, null, new MediaScannerConnection.OnScanCompletedListener() {
+                    @Override
+                    public void onScanCompleted(String path, Uri uri) {
+                        scanCompleted(path);
                     }
-
-                    updatedFiles.add(newDir.getAbsolutePath());
-                    final String[] changedFiles = updatedFiles.toArray(new String[updatedFiles.size()]);
-                    MediaScannerConnection
-                            .scanFile(getApplicationContext(), changedFiles, null, new MediaScannerConnection.OnScanCompletedListener() {
-                                @Override
-                                public void onScanCompleted(String path, Uri uri) {
-                                    scanCompleted(path);
-                                }
-                            });
-                } else {
-                    Utils.Companion.showToast(getApplicationContext(), R.string.rename_folder_error);
-                }
+                });
             }
         });
     }

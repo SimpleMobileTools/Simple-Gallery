@@ -301,9 +301,9 @@ public class ViewPagerActivity extends SimpleActivity
     }
 
     private void editMedium() {
-        new RenameFileDialog(this, getCurrentFile(), new RenameFileDialog.OnRenameItemListener() {
+        new RenameFileDialog(this, getCurrentFile(), new RenameFileDialog.OnRenameFileListener() {
             @Override
-            public void onRenameSuccess(@NotNull File newFile) {
+            public void onRenameFileSuccess(@NotNull File newFile) {
                 mMedia.get(mPager.getCurrentItem()).setPath(newFile.getAbsolutePath());
                 updateActionbarTitle();
             }
