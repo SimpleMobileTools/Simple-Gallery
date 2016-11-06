@@ -18,6 +18,7 @@ public class Constants {
     public static final String HIDDEN_FOLDERS = "hidden_folders";
     public static final String SHOW_HIDDEN_FOLDERS = "show_hidden_folders";
     public static final String AUTOPLAY_VIDEOS = "autoplay_videos";
+    public static final String TREE_URI = "tree_uri";
 
     // sorting
     public static final int SORT_BY_NAME = 1;

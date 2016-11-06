@@ -110,4 +110,12 @@ public class Config {
     public void setAutoplayVideos(boolean autoplay) {
         mPrefs.edit().putBoolean(Constants.AUTOPLAY_VIDEOS, autoplay).apply();
     }
+
+    public String getTreeUri() {
+        return mPrefs.getString(Constants.TREE_URI, "");
+    }
+
+    public void setTreeUri(String uri) {
+        mPrefs.edit().putString(Constants.TREE_URI, uri).apply();
+    }
 }
