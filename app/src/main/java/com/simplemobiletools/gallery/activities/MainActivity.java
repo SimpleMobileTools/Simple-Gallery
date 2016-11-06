@@ -13,6 +13,7 @@ import android.provider.MediaStore;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.provider.DocumentFile;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
@@ -232,17 +233,29 @@ public class MainActivity extends SimpleActivity
             if (dir.exists()) {
                 final File[] files = dir.listFiles();
                 for (File f : files) {
-                    updatedFiles.add(f.getAbsolutePath());
-                    f.delete();
+                    if (f.isFile()) {
+                        updatedFiles.add(f.getAbsolutePath());
+                        deleteItem(f);
+                    }
                 }
                 updatedFiles.add(dir.getAbsolutePath());
-                dir.delete();
+                if (dir.listFiles().length == 0)
+                    deleteItem(dir);
             }
         }
 
         final String[] deletedPaths = updatedFiles.toArray(new String[updatedFiles.size()]);
         MediaScannerConnection.scanFile(getApplicationContext(), deletedPaths, null, null);
         mToBeDeleted.clear();
+    }
+
+    private void deleteItem(File file) {
+        if (Utils.Companion.needsStupidWritePermissions(this, file.getAbsolutePath())) {
+            final DocumentFile document = Utils.Companion.getFileDocument(this, file.getAbsolutePath());
+            document.delete();
+        } else {
+            file.delete();
+        }
     }
 
     private View.OnClickListener undoDeletion = new View.OnClickListener() {
