@@ -2,8 +2,10 @@ package com.simplemobiletools.gallery.activities;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -52,7 +54,21 @@ public class PhotoVideoActivity extends SimpleActivity implements ViewPagerFragm
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder, mFragment).commit();
         }
         hideSystemUI();
-        setTitle(Utils.Companion.getFilename(mUri.toString()));
+
+        if (mUri.getScheme().equals("content")) {
+            String[] proj = { MediaStore.Images.Media.TITLE };
+            Cursor cursor = getContentResolver().query(mUri, proj, null, null, null);
+            if (cursor != null && cursor.getCount() != 0) {
+                int columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.TITLE);
+                cursor.moveToFirst();
+                setTitle(cursor.getString(columnIndex));
+            }
+            if (cursor != null) {
+                cursor.close();
+            }
+        } else {
+            setTitle(Utils.Companion.getFilename(mUri.toString()));
+        }
     }
 
     @Override
