@@ -45,7 +45,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
             if (cursor != null && cursor.moveToFirst()) {
                 val pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA)
                 do {
-                    val fullPath = cursor.getString(pathIndex)
+                    val fullPath: String = cursor.getString(pathIndex) ?: continue
                     val file = File(fullPath)
                     val parentDir = file.parent
 
