@@ -11,12 +11,14 @@ import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
 import android.support.v4.content.ContextCompat
+import android.support.v4.provider.DocumentFile
 import android.support.v7.app.ActionBar
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.*
 import android.webkit.MimeTypeMap
 import android.widget.Toast
+import com.simplemobiletools.filepicker.extensions.getSDCardPath
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 
@@ -134,6 +136,26 @@ class Utils {
             } finally {
                 cursor?.close()
             }
+        }
+
+        fun needsStupidWritePermissions(context: Context, path: String) = isPathOnSD(context, path) && isKitkat()
+
+        fun isPathOnSD(context: Context, path: String): Boolean {
+            return path.startsWith(context.getSDCardPath())
+        }
+
+        fun isKitkat() = Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT
+
+        fun getFileDocument(context: Context, path: String): DocumentFile {
+            val relativePath = path.substring(context.getSDCardPath().length + 1)
+            var document = DocumentFile.fromTreeUri(context, Uri.parse(Config.newInstance(context).treeUri))
+            val parts = relativePath.split("/")
+            for (part in parts) {
+                val currDocument = document.findFile(part)
+                if (currDocument != null)
+                    document = currDocument
+            }
+            return document
         }
     }
 }

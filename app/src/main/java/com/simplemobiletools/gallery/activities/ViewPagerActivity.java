@@ -1,13 +1,17 @@
 package com.simplemobiletools.gallery.activities;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.v4.provider.DocumentFile;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
@@ -25,6 +29,7 @@ import com.simplemobiletools.gallery.MyViewPager;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter;
+import com.simplemobiletools.gallery.dialogs.WritePermissionDialog;
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment;
 import com.simplemobiletools.gallery.models.Medium;
 
@@ -46,6 +51,7 @@ public class ViewPagerActivity extends SimpleActivity
 
     private static final int EDIT_IMAGE = 1;
     private static final int SET_WALLPAPER = 2;
+    private static final int OPEN_DOCUMENT_TREE = 3;
     private static ActionBar mActionbar;
     private static List<Medium> mMedia;
     private static String mPath;
@@ -231,8 +237,19 @@ public class ViewPagerActivity extends SimpleActivity
             if (resultCode == RESULT_OK) {
                 Utils.Companion.showToast(getApplicationContext(), R.string.wallpaper_set_successfully);
             }
+        } else if (requestCode == OPEN_DOCUMENT_TREE && resultCode == Activity.RESULT_OK && data != null) {
+            saveTreeUri(data);
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    private void saveTreeUri(Intent resultData) {
+        Uri treeUri = resultData.getData();
+        mConfig.setTreeUri(resultData.getData().toString());
+
+        int takeFlags = Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION;
+        getContentResolver().takePersistableUriPermission(treeUri, takeFlags);
     }
 
     private void shareMedium() {
@@ -326,19 +343,39 @@ public class ViewPagerActivity extends SimpleActivity
 
                 final File newFile = new File(file.getParent(), fileName + "." + extension);
 
-                if (file.renameTo(newFile)) {
+                if (Utils.Companion.needsStupidWritePermissions(getApplicationContext(), file.getAbsolutePath())) {
+                    if (!file.canWrite() && mConfig.getTreeUri().isEmpty()) {
+                        new WritePermissionDialog(ViewPagerActivity.this, new WritePermissionDialog.OnWritePermissionListener() {
+                            @Override
+                            public void onConfirmed() {
+                                final Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
+                                startActivityForResult(intent, OPEN_DOCUMENT_TREE);
+                            }
+                        });
+                        return;
+                    }
+                    final DocumentFile document = Utils.Companion.getFileDocument(getApplicationContext(), file.getAbsolutePath());
+                    if (document.canWrite())
+                        document.renameTo(newFile.getName());
+                    sendSuccess(file, newFile);
+                    alertDialog.dismiss();
+                } else if (file.renameTo(newFile)) {
                     final int currItem = mPager.getCurrentItem();
                     mMedia.set(currItem, new Medium(newFile.getAbsolutePath(), mMedia.get(currItem).getIsVideo(), 0, file.length()));
-
-                    final String[] changedFiles = {file.getAbsolutePath(), newFile.getAbsolutePath()};
-                    MediaScannerConnection.scanFile(getApplicationContext(), changedFiles, null, null);
-                    updateActionbarTitle();
+                    sendSuccess(file, newFile);
                     alertDialog.dismiss();
                 } else {
                     Utils.Companion.showToast(getApplicationContext(), R.string.rename_file_error);
                 }
             }
         });
+    }
+
+    private void sendSuccess(File currFile, File newFile) {
+        final String[] changedFiles = {currFile.getAbsolutePath(), newFile.getAbsolutePath()};
+        MediaScannerConnection.scanFile(getApplicationContext(), changedFiles, null, null);
+        mMedia.get(mPager.getCurrentItem()).setPath(newFile.getAbsolutePath());
+        updateActionbarTitle();
     }
 
     private void reloadViewPager() {
