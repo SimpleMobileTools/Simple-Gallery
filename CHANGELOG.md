@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 1.28 *(2016-11-07)*
+----------------------------
+
+ * Couple file operation fixes on devices without SD card
+ * Set the default folder sorting by Date, descending
+ * Couple Spanish string corrections
+
 Version 1.27 *(2016-11-06)*
 ----------------------------
 
