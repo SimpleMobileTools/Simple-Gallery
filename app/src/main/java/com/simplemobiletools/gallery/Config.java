@@ -56,7 +56,7 @@ public class Config {
     }
 
     public int getDirectorySorting() {
-        return mPrefs.getInt(Constants.DIRECTORY_SORT_ORDER, Constants.SORT_BY_NAME);
+        return mPrefs.getInt(Constants.DIRECTORY_SORT_ORDER, Constants.SORT_BY_DATE | Constants.SORT_DESCENDING);
     }
 
     public void setDirectorySorting(int order) {
