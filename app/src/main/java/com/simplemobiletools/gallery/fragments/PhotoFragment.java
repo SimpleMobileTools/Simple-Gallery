@@ -39,6 +39,7 @@ public class PhotoFragment extends ViewPagerFragment implements View.OnClickList
             Glide.with(getContext()).load(mMedium.getPath()).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).into(imageView);
             imageView.setOnClickListener(this);
         } else {
+            mSubsamplingView.setDoubleTapZoomScale(1.2f);
             mSubsamplingView.setOrientation(SubsamplingScaleImageView.ORIENTATION_USE_EXIF);
             mSubsamplingView.setImage(ImageSource.uri(mMedium.getPath()));
             mSubsamplingView.setMaxScale(4f);
