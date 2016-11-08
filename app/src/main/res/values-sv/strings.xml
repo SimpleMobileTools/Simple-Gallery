@@ -40,6 +40,20 @@
     <string name="confirm_storage_access_text">Please choose the root folder of the SD card to grant write access on the next screen</string>
     <string name="save_as">Save as</string>
     <string name="file_saved">File saved successfully</string>
+    <string name="copy">Kopiera</string>
+    <string name="move">Flytta</string>
+    <string name="copy_move">Copy/Move to</string>
+    <string name="copy_item">Kopiera objekt</string>
+    <string name="copy_items">Kopiera objekt</string>
+    <string name="source">Källa</string>
+    <string name="destination">Mål</string>
+    <string name="select_destination">Välj mål</string>
+    <string name="invalid_destination">Det gick inte att skriva till målet</string>
+    <string name="please_select_destination">Please select a destination</string>
+    <string name="source_and_destination_same">Source and destination cannot be the same</string>
+    <string name="copy_failed">Kunde inte kopiera filen</string>
+    <string name="copying">Kopierar</string>
+    <string name="already_exists">A file with that name already exists</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 mapp borttagen</item>

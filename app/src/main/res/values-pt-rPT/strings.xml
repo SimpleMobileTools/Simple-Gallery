@@ -40,6 +40,20 @@
     <string name="confirm_storage_access_text">Please choose the root folder of the SD card to grant write access on the next screen</string>
     <string name="save_as">Save as</string>
     <string name="file_saved">File saved successfully</string>
+    <string name="copy">Copiar</string>
+    <string name="move">Mover</string>
+    <string name="copy_move">Copiar/Mover</string>
+    <string name="copy_item">Copiar item</string>
+    <string name="copy_items">Copiar itens</string>
+    <string name="source">Origem</string>
+    <string name="destination">Destino</string>
+    <string name="select_destination">Selecionar destino</string>
+    <string name="invalid_destination">Não foi possível escrever no destino selecionado</string>
+    <string name="please_select_destination">Por favor selecione um destino</string>
+    <string name="source_and_destination_same">Source and destination cannot be the same</string>
+    <string name="copy_failed">Não foi possível copiar os ficheiros</string>
+    <string name="copying">A copiar</string>
+    <string name="already_exists">A file with that name already exists</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 pasta eliminada</item>

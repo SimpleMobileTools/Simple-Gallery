@@ -7,6 +7,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.Utils
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
+import com.simplemobiletools.gallery.extensions.toast
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
@@ -27,7 +28,7 @@ class PickAlbumActivity : SimpleActivity(), AdapterView.OnItemClickListener, Get
         if (Utils.hasStoragePermission(applicationContext)) {
             getDirectories()
         } else {
-            Utils.showToast(applicationContext, R.string.no_permissions)
+            toast(R.string.no_permissions)
         }
     }
 

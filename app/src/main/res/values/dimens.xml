@@ -14,5 +14,6 @@
     <dimen name="undo_size">56dp</dimen>
     <dimen name="settings_padding">8dp</dimen>
 
+    <dimen name="details_text_size">12sp</dimen>
     <dimen name="normal_text_size">14sp</dimen>
 </resources>

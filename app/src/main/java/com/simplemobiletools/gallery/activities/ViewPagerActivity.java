@@ -151,6 +151,9 @@ public class ViewPagerActivity extends SimpleActivity
             case R.id.menu_set_as_wallpaper:
                 setAsWallpaper();
                 return true;
+            case R.id.menu_copy:
+                displayCopyDialog();
+                return true;
             case R.id.menu_open_with:
                 openWith();
                 return true;
@@ -179,6 +182,10 @@ public class ViewPagerActivity extends SimpleActivity
         super.onConfigurationChanged(newConfig);
         final MyPagerAdapter adapter = (MyPagerAdapter) mPager.getAdapter();
         adapter.updateItems(mPos);
+    }
+
+    private void displayCopyDialog() {
+
     }
 
     private void openEditor() {

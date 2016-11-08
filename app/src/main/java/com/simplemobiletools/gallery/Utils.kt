@@ -21,6 +21,7 @@ import android.webkit.MimeTypeMap
 import android.widget.Toast
 import com.simplemobiletools.filepicker.extensions.getSDCardPath
 import com.simplemobiletools.gallery.dialogs.WritePermissionDialog
+import com.simplemobiletools.gallery.extensions.scanFile
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 
@@ -181,6 +182,10 @@ class Utils {
             } else {
                 false
             }
+        }
+
+        fun scanFiles(context: Context, paths: Array<String>) {
+            context.scanFile(paths)
         }
     }
 }

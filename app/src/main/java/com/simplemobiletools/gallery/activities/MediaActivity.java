@@ -167,7 +167,8 @@ public class MediaActivity extends SimpleActivity
                 rescanDirectory(files[i]);
             }
         }
-        MediaScannerConnection.scanFile(getApplicationContext(), paths, null, null);
+
+        Utils.Companion.scanFiles(getApplicationContext(), paths);
     }
 
     private void showSortingDialog() {
