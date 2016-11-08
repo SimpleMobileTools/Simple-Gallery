@@ -409,7 +409,7 @@ public class VideoFragment extends ViewPagerFragment
         setupTimeHolder();
         setProgress(mCurrTime);
 
-        if (mIsFragmentVisible)
+        if (mIsFragmentVisible && Config.newInstance(getContext()).getAutoplayVideos())
             playVideo();
     }
 }
