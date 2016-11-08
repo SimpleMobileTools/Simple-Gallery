@@ -48,6 +48,10 @@
             android:parentActivityName=".activities.MainActivity"/>
 
         <activity
+            android:name=".activities.PickAlbumActivity"
+            android:parentActivityName=".activities.MainActivity"/>
+
+        <activity
             android:name=".activities.ViewPagerActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:parentActivityName=".activities.MediaActivity"

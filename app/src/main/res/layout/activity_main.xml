@@ -14,7 +14,6 @@
             android:id="@+id/directories_grid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:choiceMode="multipleChoiceModal"
             android:columnWidth="@dimen/dir_tmb_size"
             android:horizontalSpacing="1dp"
             android:numColumns="auto_fit"

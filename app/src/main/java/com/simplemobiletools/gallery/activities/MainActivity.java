@@ -560,5 +560,6 @@ public class MainActivity extends SimpleActivity
         mGridView.setOnItemClickListener(this);
         mGridView.setMultiChoiceModeListener(this);
         mGridView.setOnTouchListener(this);
+        mGridView.setChoiceMode(GridView.CHOICE_MODE_MULTIPLE_MODAL);
     }
 }
