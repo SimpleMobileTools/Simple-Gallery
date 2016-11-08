@@ -5,6 +5,8 @@ import android.support.v4.util.Pair
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.WindowManager
+import com.simplemobiletools.filepicker.extensions.getBasePath
+import com.simplemobiletools.filepicker.extensions.getHumanReadablePath
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.Utils
 import com.simplemobiletools.gallery.asynctasks.CopyTask
@@ -15,12 +17,17 @@ import kotlinx.android.synthetic.main.copy_item.view.*
 import java.io.File
 import java.util.*
 
-class CopyDialog(val activity: Activity, val files: List<File>, val path: String, val copyListener: CopyTask.CopyListener, val listener: OnCopyListener) {
+class CopyDialog(val activity: Activity, val files: List<File>, val copyListener: CopyTask.CopyListener, val listener: OnCopyListener) {
 
     init {
         val context = activity
         val view = LayoutInflater.from(context).inflate(R.layout.copy_item, null)
-        view.source.text = "${path.trimEnd('/')}/"
+        val path = files[0].parent.trimEnd('/')
+
+        val basePath = path.getBasePath(context)
+        val humanPath = path.replaceFirst(basePath, activity.getHumanReadablePath(basePath))
+
+        view.source.text = humanPath
 
         view.destination.setOnClickListener {
 

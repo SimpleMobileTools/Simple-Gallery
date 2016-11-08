@@ -23,6 +23,8 @@ import com.simplemobiletools.gallery.MyViewPager;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter;
+import com.simplemobiletools.gallery.asynctasks.CopyTask;
+import com.simplemobiletools.gallery.dialogs.CopyDialog;
 import com.simplemobiletools.gallery.dialogs.RenameFileDialog;
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment;
 import com.simplemobiletools.gallery.models.Medium;
@@ -41,7 +43,7 @@ import butterknife.OnClick;
 
 public class ViewPagerActivity extends SimpleActivity
         implements ViewPager.OnPageChangeListener, View.OnSystemUiVisibilityChangeListener, ViewPager.OnTouchListener,
-        ViewPagerFragment.FragmentClickListener {
+        ViewPagerFragment.FragmentClickListener, CopyTask.CopyListener {
     @BindView(R.id.undo_delete) View mUndoBtn;
     @BindView(R.id.view_pager) MyViewPager mPager;
 
@@ -185,7 +187,16 @@ public class ViewPagerActivity extends SimpleActivity
     }
 
     private void displayCopyDialog() {
+        final File file = getCurrentFile();
+        final List<File> files = new ArrayList<>();
+        files.add(file);
 
+        new CopyDialog(this, files, this, new CopyDialog.OnCopyListener() {
+            @Override
+            public void onSuccess() {
+
+            }
+        });
     }
 
     private void openEditor() {
@@ -490,5 +501,15 @@ public class ViewPagerActivity extends SimpleActivity
     protected void onPause() {
         super.onPause();
         deleteFile();
+    }
+
+    @Override
+    public void copySucceeded(@NotNull File destinationDir) {
+
+    }
+
+    @Override
+    public void copyFailed() {
+
     }
 }
