@@ -5,8 +5,7 @@ import android.support.v4.util.Pair
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.WindowManager
-import com.simplemobiletools.filepicker.extensions.getBasePath
-import com.simplemobiletools.filepicker.extensions.getHumanReadablePath
+import com.simplemobiletools.filepicker.extensions.humanizePath
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.Utils
 import com.simplemobiletools.gallery.asynctasks.CopyTask
@@ -24,13 +23,14 @@ class CopyDialog(val activity: Activity, val files: List<File>, val copyListener
         val view = LayoutInflater.from(context).inflate(R.layout.copy_item, null)
         val path = files[0].parent.trimEnd('/')
 
-        val basePath = path.getBasePath(context)
-        val humanPath = path.replaceFirst(basePath, activity.getHumanReadablePath(basePath))
-
-        view.source.text = humanPath
+        view.source.text = context.humanizePath(path)
 
         view.destination.setOnClickListener {
-
+            PickAlbumDialog(activity, object : PickAlbumDialog.OnPickAlbumListener {
+                override fun onSuccess(path: String) {
+                    view.destination.text = path
+                }
+            })
         }
 
         AlertDialog.Builder(context)

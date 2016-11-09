@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/directories_grid"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:columnWidth="@dimen/dir_tmb_size"
+    android:horizontalSpacing="1dp"
+    android:numColumns="auto_fit"
+    android:paddingTop="@dimen/activity_margin"
+    android:stretchMode="columnWidth"
+    android:verticalSpacing="1dp"/>
