@@ -5,6 +5,7 @@ import android.os.AsyncTask
 import android.support.v4.util.Pair
 import android.util.Log
 import com.simplemobiletools.gallery.Utils
+import com.simplemobiletools.gallery.extensions.scanFile
 import java.io.*
 import java.lang.ref.WeakReference
 
@@ -87,6 +88,8 @@ class CopyTask(listener: CopyTask.CopyDoneListener, val context: Context) : Asyn
             out = FileOutputStream(destination)
         }
 
+        val paths = arrayOf(destination.absolutePath)
+        context.scanFile(paths)
         copyStream(inputStream, out)
     }
 

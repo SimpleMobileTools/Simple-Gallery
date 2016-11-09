@@ -592,7 +592,7 @@ public class MainActivity extends SimpleActivity
 
     @Override
     public void copySucceeded(@NotNull File destinationDir) {
-
+        getDirectories();
     }
 
     @Override

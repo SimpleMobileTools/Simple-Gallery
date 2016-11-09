@@ -11,7 +11,6 @@ import com.simplemobiletools.gallery.Utils
 import com.simplemobiletools.gallery.asynctasks.CopyTask
 import com.simplemobiletools.gallery.extensions.scanFile
 import com.simplemobiletools.gallery.extensions.toast
-import com.simplemobiletools.gallery.extensions.value
 import kotlinx.android.synthetic.main.copy_item.view.*
 import java.io.File
 import java.util.*
@@ -21,10 +20,10 @@ class CopyDialog(val activity: Activity, val files: List<File>, val copyListener
     init {
         val context = activity
         val view = LayoutInflater.from(context).inflate(R.layout.copy_item, null)
-        val path = files[0].parent.trimEnd('/')
+        val sourcePath = files[0].parent.trimEnd('/')
         var destinationPath = ""
 
-        view.source.text = context.humanizePath(path)
+        view.source.text = context.humanizePath(sourcePath)
 
         view.destination.setOnClickListener {
             PickAlbumDialog(activity, object : PickAlbumDialog.OnPickAlbumListener {
@@ -78,7 +77,7 @@ class CopyDialog(val activity: Activity, val files: List<File>, val copyListener
                     CopyTask(copyListener, context).execute(pair)
                     dismiss()
                 } else {
-                    if (Utils.isPathOnSD(context, view.source.value) && Utils.isPathOnSD(context, destinationPath)) {
+                    if (Utils.isPathOnSD(context, sourcePath) && Utils.isPathOnSD(context, destinationPath)) {
                         val paths = ArrayList<String>()
                         for (f in files) {
                             val destination = File(destinationDir, f.name)
