@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 1.29 *(2016-11-09)*
+----------------------------
+
+ * Adding an initial implementation of the Copy feature
+ * Sort items by date_modified instead of date_taken
+ * Make "Save as" the only saving option in the editor
+ * Autoplay videos only if selected so
+
 Version 1.28 *(2016-11-07)*
 ----------------------------
 
