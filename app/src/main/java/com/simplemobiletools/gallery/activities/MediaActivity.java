@@ -216,7 +216,7 @@ public class MediaActivity extends SimpleActivity
             }
             final String where = MediaStore.Images.Media.DATA + " like ? ";
             final String[] args = new String[]{mPath + "%"};
-            final String[] columns = {MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_TAKEN};
+            final String[] columns = {MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_MODIFIED};
             final Cursor cursor = getContentResolver().query(uri, columns, where, args, null);
             final String pattern = Pattern.quote(mPath) + "/[^/]*";
 
@@ -230,7 +230,7 @@ public class MediaActivity extends SimpleActivity
                     if (curPath.matches(pattern) && !mToBeDeleted.contains(curPath)) {
                         final File file = new File(curPath);
                         if (file.exists()) {
-                            final int dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_TAKEN);
+                            final int dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_MODIFIED);
                             final long timestamp = cursor.getLong(dateIndex);
                             media.add(new Medium(curPath, (i == 1), timestamp, file.length()));
                         } else {

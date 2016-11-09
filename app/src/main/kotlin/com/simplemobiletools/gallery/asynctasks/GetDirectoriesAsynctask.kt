@@ -38,7 +38,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
 
                 uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
             }
-            val columns = arrayOf(MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_TAKEN)
+            val columns = arrayOf(MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_MODIFIED)
             val order = getSortOrder()
             val cursor = context.contentResolver.query(uri, columns, null, null, order)
 
@@ -54,7 +54,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                         continue
                     }
 
-                    val dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_TAKEN)
+                    val dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_MODIFIED)
                     val timestamp = cursor.getLong(dateIndex)
                     if (directories.containsKey(parentDir)) {
                         val directory: Directory = directories[parentDir]!!
@@ -93,7 +93,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
     // sort the files at querying too, just to get the correct thumbnail
     private fun getSortOrder(): String {
         val sorting = mConfig.directorySorting
-        var sortBy = MediaStore.Images.Media.DATE_TAKEN
+        var sortBy = MediaStore.Images.Media.DATE_MODIFIED
         if (sorting and Constants.SORT_BY_NAME != 0) {
             sortBy = MediaStore.Images.Media.DATA
         }

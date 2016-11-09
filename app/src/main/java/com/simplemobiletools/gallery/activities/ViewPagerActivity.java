@@ -363,7 +363,7 @@ public class ViewPagerActivity extends SimpleActivity
             }
             final String where = MediaStore.Images.Media.DATA + " like ? ";
             final String[] args = new String[]{mDirectory + "%"};
-            final String[] columns = {MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_TAKEN, MediaStore.Images.Media.SIZE};
+            final String[] columns = {MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_MODIFIED, MediaStore.Images.Media.SIZE};
             final Cursor cursor = getContentResolver().query(uri, columns, where, args, null);
             final String pattern = Pattern.quote(mDirectory) + "/[^/]*";
 
@@ -375,7 +375,7 @@ public class ViewPagerActivity extends SimpleActivity
                         continue;
 
                     if (curPath.matches(pattern) && !curPath.equals(mToBeDeleted) && !curPath.equals(mBeingDeleted)) {
-                        final int dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_TAKEN);
+                        final int dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_MODIFIED);
                         final long timestamp = cursor.getLong(dateIndex);
 
                         final int sizeIndex = cursor.getColumnIndex(MediaStore.Images.Media.SIZE);
