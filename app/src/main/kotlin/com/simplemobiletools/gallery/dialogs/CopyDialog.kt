@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.copy_item.view.*
 import java.io.File
 import java.util.*
 
-class CopyDialog(val activity: Activity, val files: List<File>, val copyListener: CopyTask.CopyListener, val listener: OnCopyListener) {
+class CopyDialog(val activity: Activity, val files: List<File>, val copyListener: CopyTask.CopyDoneListener, val listener: OnCopyListener) {
 
     init {
         val context = activity
@@ -49,7 +49,7 @@ class CopyDialog(val activity: Activity, val files: List<File>, val copyListener
                     return@setOnClickListener
                 }
 
-                if (view.source.text.trimEnd('/') == destinationPath.trimEnd('/')) {
+                if (view.source.text.trimEnd('/') == view.destination.text.trimEnd('/')) {
                     context.toast(R.string.source_and_destination_same)
                     return@setOnClickListener
                 }

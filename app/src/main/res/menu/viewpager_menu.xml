@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/menu_set_as_wallpaper"
-        android:title="@string/set_as_wallpaper"
-        app:showAsAction="never"/>
-    <item
         android:id="@+id/menu_copy"
         android:title="@string/copy_move"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_set_as_wallpaper"
+        android:title="@string/set_as_wallpaper"
         app:showAsAction="never"/>
     <item
         android:id="@+id/menu_open_with"

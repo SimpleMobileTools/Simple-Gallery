@@ -34,8 +34,12 @@ import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.adapters.MediaAdapter;
+import com.simplemobiletools.gallery.asynctasks.CopyTask;
 import com.simplemobiletools.gallery.dialogs.ChangeSorting;
+import com.simplemobiletools.gallery.dialogs.CopyDialog;
 import com.simplemobiletools.gallery.models.Medium;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
@@ -49,7 +53,7 @@ import butterknife.ButterKnife;
 
 public class MediaActivity extends SimpleActivity
         implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener,
-        SwipeRefreshLayout.OnRefreshListener, ChangeSorting.ChangeDialogListener {
+        SwipeRefreshLayout.OnRefreshListener, ChangeSorting.ChangeDialogListener, CopyTask.CopyDoneListener {
     private static final String TAG = MediaActivity.class.getSimpleName();
     @BindView(R.id.media_grid) GridView mGridView;
     @BindView(R.id.media_holder) SwipeRefreshLayout mSwipeRefreshLayout;
@@ -409,6 +413,29 @@ public class MediaActivity extends SimpleActivity
         return getIntent().getBooleanExtra(Constants.SET_WALLPAPER_INTENT, false);
     }
 
+    private void displayCopyDialog() {
+        if (Utils.Companion.isShowingWritePermissions(this, new File(mPath)))
+            return;
+
+        final List<File> files = new ArrayList<>();
+
+        final SparseBooleanArray items = mGridView.getCheckedItemPositions();
+        final int cnt = items.size();
+        for (int i = 0; i < cnt; i++) {
+            if (items.valueAt(i)) {
+                final int id = items.keyAt(i);
+                files.add(new File(mMedia.get(id).getPath()));
+            }
+        }
+
+        new CopyDialog(this, files, this, new CopyDialog.OnCopyListener() {
+            @Override
+            public void onSuccess() {
+
+            }
+        });
+    }
+
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         final String curItemPath = mMedia.get(position).getPath();
@@ -486,6 +513,9 @@ public class MediaActivity extends SimpleActivity
                 prepareForDeleting();
                 mode.finish();
                 return true;
+            case R.id.cab_copy:
+                displayCopyDialog();
+                return true;
             default:
                 return false;
         }
@@ -518,5 +548,15 @@ public class MediaActivity extends SimpleActivity
     @Override
     public void sortingDialogClosed() {
         initializeGallery();
+    }
+
+    @Override
+    public void copySucceeded(@NotNull File destinationDir) {
+
+    }
+
+    @Override
+    public void copyFailed() {
+
     }
 }

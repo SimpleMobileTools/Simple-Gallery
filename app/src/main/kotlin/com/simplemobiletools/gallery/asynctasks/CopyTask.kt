@@ -8,9 +8,9 @@ import com.simplemobiletools.gallery.Utils
 import java.io.*
 import java.lang.ref.WeakReference
 
-class CopyTask(listener: CopyTask.CopyListener, val context: Context) : AsyncTask<Pair<List<File>, File>, Void, Boolean>() {
+class CopyTask(listener: CopyTask.CopyDoneListener, val context: Context) : AsyncTask<Pair<List<File>, File>, Void, Boolean>() {
     private val TAG = CopyTask::class.java.simpleName
-    private var mListener: WeakReference<CopyListener>? = null
+    private var mListener: WeakReference<CopyDoneListener>? = null
     private var destinationDir: File? = null
 
     init {
@@ -111,7 +111,7 @@ class CopyTask(listener: CopyTask.CopyListener, val context: Context) : AsyncTas
         }
     }
 
-    interface CopyListener {
+    interface CopyDoneListener {
         fun copySucceeded(destinationDir: File)
 
         fun copyFailed()
