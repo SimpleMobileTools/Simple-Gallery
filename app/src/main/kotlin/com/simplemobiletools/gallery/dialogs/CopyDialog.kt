@@ -28,7 +28,7 @@ class CopyDialog(val activity: Activity, val files: List<File>, val copyListener
         view.destination.setOnClickListener {
             PickAlbumDialog(activity, object : PickAlbumDialog.OnPickAlbumListener {
                 override fun onSuccess(path: String) {
-                    view.destination.text = path
+                    view.destination.text = context.humanizePath(path)
                 }
             })
         }
