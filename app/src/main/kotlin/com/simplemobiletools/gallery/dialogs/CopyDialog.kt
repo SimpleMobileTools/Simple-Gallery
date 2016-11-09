@@ -9,11 +9,9 @@ import com.simplemobiletools.filepicker.extensions.humanizePath
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.Utils
 import com.simplemobiletools.gallery.asynctasks.CopyTask
-import com.simplemobiletools.gallery.extensions.scanFile
 import com.simplemobiletools.gallery.extensions.toast
 import kotlinx.android.synthetic.main.copy_item.view.*
 import java.io.File
-import java.util.*
 
 class CopyDialog(val activity: Activity, val files: List<File>, val copyListener: CopyTask.CopyDoneListener, val listener: OnCopyListener) {
 
@@ -71,12 +69,12 @@ class CopyDialog(val activity: Activity, val files: List<File>, val copyListener
                     return@setOnClickListener
                 }
 
-                if (view.dialog_radio_group.checkedRadioButtonId == R.id.dialog_radio_copy) {
+                //if (view.dialog_radio_group.checkedRadioButtonId == R.id.dialog_radio_copy) {
                     context.toast(R.string.copying)
                     val pair = Pair<List<File>, File>(files, destinationDir)
                     CopyTask(copyListener, context).execute(pair)
                     dismiss()
-                } else {
+                /*} else {
                     if (Utils.isPathOnSD(context, sourcePath) && Utils.isPathOnSD(context, destinationPath)) {
                         val paths = ArrayList<String>()
                         for (f in files) {
@@ -94,7 +92,7 @@ class CopyDialog(val activity: Activity, val files: List<File>, val copyListener
                         CopyTask(copyListener, context).execute(pair)
                         dismiss()
                     }
-                }
+                }*/
             })
         }
     }

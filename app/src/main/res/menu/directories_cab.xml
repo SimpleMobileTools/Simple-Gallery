@@ -23,7 +23,7 @@
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_copy"
-        android:title="@string/copy_move"
+        android:title="@string/copy"
         app:showAsAction="never"/>
     <item
         android:id="@+id/cab_delete"
