@@ -22,7 +22,6 @@ import java.io.OutputStream
 class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener {
     val TAG: String = EditActivity::class.java.simpleName
 
-    var overrideOriginal = false
     lateinit var uri: Uri
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,8 +55,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.save -> {
-                overrideOriginal = true
+            R.id.save_as -> {
                 crop_image_view.getCroppedImageAsync()
                 true
             }
@@ -65,47 +63,30 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 crop_image_view.rotateImage(90)
                 true
             }
-            R.id.save_as -> {
-                saveAs()
-                true
-            }
             else -> super.onOptionsItemSelected(item)
         }
-    }
-
-    private fun saveAs() {
-        overrideOriginal = false
-        crop_image_view.getCroppedImageAsync()
     }
 
     override fun onCropImageComplete(view: CropImageView, result: CropImageView.CropResult) {
         if (result.error == null) {
             if (uri.scheme == "file") {
-                if (overrideOriginal)
-                    saveBitmapToFile(result.bitmap, uri.path)
-                else {
-                    SaveAsDialog(this, uri.path, object : SaveAsDialog.OnSaveAsListener {
+                SaveAsDialog(this, uri.path, object : SaveAsDialog.OnSaveAsListener {
+                    override fun onSaveAsSuccess(filename: String) {
+                        val parent = File(uri.path).parent
+                        val path = File(parent, filename).absolutePath
+                        saveBitmapToFile(result.bitmap, path)
+                    }
+                })
+            } else if (uri.scheme == "content") {
+                val newPath = Utils.getRealPathFromURI(applicationContext, uri) ?: ""
+                if (!newPath.isEmpty()) {
+                    SaveAsDialog(this, newPath, object : SaveAsDialog.OnSaveAsListener {
                         override fun onSaveAsSuccess(filename: String) {
                             val parent = File(uri.path).parent
                             val path = File(parent, filename).absolutePath
                             saveBitmapToFile(result.bitmap, path)
                         }
                     })
-                }
-            } else if (uri.scheme == "content") {
-                val newPath = Utils.getRealPathFromURI(applicationContext, uri) ?: ""
-                if (!newPath.isEmpty()) {
-                    if (overrideOriginal) {
-                        saveBitmapToFile(result.bitmap, newPath)
-                    } else {
-                        SaveAsDialog(this, newPath, object : SaveAsDialog.OnSaveAsListener {
-                            override fun onSaveAsSuccess(filename: String) {
-                                val parent = File(uri.path).parent
-                                val path = File(parent, filename).absolutePath
-                                saveBitmapToFile(result.bitmap, path)
-                            }
-                        })
-                    }
                 } else {
                     toast(R.string.image_editing_failed)
                     finish()
@@ -121,11 +102,6 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     private fun saveBitmapToFile(bitmap: Bitmap, path: String) {
         val file = File(path)
-        if (overrideOriginal && !file.exists()) {
-            toast(R.string.error_saving_file)
-            finish()
-            return
-        }
 
         var out: OutputStream? = null
         try {
@@ -162,8 +138,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 toast(R.string.file_saved)
             }
 
-            if (overrideOriginal)
-                finish()
+            finish()
         })
     }
 

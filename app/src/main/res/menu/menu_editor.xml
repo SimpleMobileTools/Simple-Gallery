@@ -7,12 +7,8 @@
         android:title="@string/rotate"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/save"
-        android:icon="@mipmap/check"
-        android:title="@string/save"
-        app:showAsAction="ifRoom"/>
-    <item
         android:id="@+id/save_as"
+        android:icon="@mipmap/check"
         android:title="@string/save_as"
-        app:showAsAction="never"/>
+        app:showAsAction="ifRoom"/>
 </menu>
