@@ -150,6 +150,9 @@ public class MediaActivity extends SimpleActivity
             case R.id.sort:
                 showSortingDialog();
                 return true;
+            case R.id.toggle_filename:
+                toggleFilenameVisibility();
+                return true;
             case R.id.hide_folder:
                 hideDirectory();
                 return true;
@@ -159,6 +162,10 @@ public class MediaActivity extends SimpleActivity
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void toggleFilenameVisibility() {
+
     }
 
     private void rescanDirectory(File dir) {

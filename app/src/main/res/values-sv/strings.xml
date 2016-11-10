@@ -105,6 +105,7 @@
     <string name="same_sorting">Same sorting for files and folders</string>
     <string name="show_hidden_folders">Show hidden folders</string>
     <string name="autoplay_videos">Play videos automatically</string>
+    <string name="toggle_filename">Toggle filename visibility</string>
 
     <!-- License -->
     <string name="notice">Denna app använder följande tredjepartsbibliotek för att göra mitt liv enklare. Tack.</string>
