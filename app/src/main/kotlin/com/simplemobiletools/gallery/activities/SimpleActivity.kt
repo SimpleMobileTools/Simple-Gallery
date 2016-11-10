@@ -11,13 +11,13 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.Utils
 
 open class SimpleActivity : AppCompatActivity() {
-    lateinit var config: Config
+    lateinit var mConfig: Config
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        config = Config.newInstance(applicationContext)
-        var theme = if (config.isDarkTheme) R.style.AppTheme_Dark else R.style.AppTheme
+        mConfig = Config.newInstance(applicationContext)
+        var theme = if (mConfig.isDarkTheme) R.style.AppTheme_Dark else R.style.AppTheme
         if (this is ViewPagerActivity || this is PhotoActivity || this is VideoActivity) {
-            theme = if (config.isDarkTheme) R.style.FullScreenTheme_Dark else R.style.FullScreenTheme
+            theme = if (mConfig.isDarkTheme) R.style.FullScreenTheme_Dark else R.style.FullScreenTheme
         }
         setTheme(theme)
         super.onCreate(savedInstanceState)

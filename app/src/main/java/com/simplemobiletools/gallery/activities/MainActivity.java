@@ -26,7 +26,6 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog;
-import com.simplemobiletools.gallery.Config;
 import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
@@ -147,7 +146,7 @@ public class MainActivity extends SimpleActivity
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Config.newInstance(getApplicationContext()).setIsFirstRun(false);
+        mConfig.setIsFirstRun(false);
     }
 
     private void tryloadGallery() {
@@ -472,7 +471,7 @@ public class MainActivity extends SimpleActivity
         for (int i = 0; i < cnt; i++) {
             if (items.valueAt(i)) {
                 final int id = items.keyAt(i);
-                if (getConfig().getIsFolderHidden(mDirs.get(id).getPath()))
+                if (mConfig.getIsFolderHidden(mDirs.get(id).getPath()))
                     hiddenCnt++;
                 else
                     unhiddenCnt++;
@@ -529,12 +528,12 @@ public class MainActivity extends SimpleActivity
     }
 
     private void hideFolders() {
-        getConfig().addHiddenDirectories(getSelectedPaths());
+        mConfig.addHiddenDirectories(getSelectedPaths());
         getDirectories();
     }
 
     private void unhideFolders() {
-        getConfig().removeHiddenDirectories(getSelectedPaths());
+        mConfig.removeHiddenDirectories(getSelectedPaths());
         getDirectories();
     }
 

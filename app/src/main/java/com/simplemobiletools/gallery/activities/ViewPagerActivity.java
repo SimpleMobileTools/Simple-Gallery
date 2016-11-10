@@ -387,7 +387,7 @@ public class ViewPagerActivity extends SimpleActivity
             }
         }
 
-        Medium.mSorting = getConfig().getSorting();
+        Medium.mSorting = mConfig.getSorting();
         Collections.sort(media);
         int j = 0;
         for (Medium medium : media) {
