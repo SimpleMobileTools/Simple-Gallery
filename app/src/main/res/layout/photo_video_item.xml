@@ -16,4 +16,17 @@
         android:src="@mipmap/play_outline"
         android:visibility="gone"/>
 
+    <TextView
+        android:id="@+id/file_name"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/gradient_background"
+        android:gravity="bottom"
+        android:paddingBottom="@dimen/small_padding"
+        android:paddingLeft="@dimen/small_padding"
+        android:paddingRight="@dimen/small_padding"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/details_text_size"/>
+
 </RelativeLayout>

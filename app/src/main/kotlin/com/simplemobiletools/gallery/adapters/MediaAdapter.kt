@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
+import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.signature.StringSignature
@@ -35,6 +36,7 @@ class MediaAdapter(private val mContext: Context, private val mMedia: MutableLis
 
         viewHolder.playOutline.visibility = if (medium.isVideo) View.VISIBLE else View.GONE
 
+        viewHolder.fileName.text = medium.name
         val path = medium.path
         val timestampSignature = StringSignature(medium.timestamp.toString())
         if (medium.isGif) {
@@ -68,5 +70,6 @@ class MediaAdapter(private val mContext: Context, private val mMedia: MutableLis
     internal class ViewHolder(view: View) {
         val photoThumbnail: ImageView = view.medium_thumbnail
         val playOutline: View = view.play_outline
+        val fileName: TextView = view.file_name
     }
 }

@@ -380,7 +380,7 @@ public class ViewPagerActivity extends SimpleActivity
 
                         final int sizeIndex = cursor.getColumnIndex(MediaStore.Images.Media.SIZE);
                         final long size = cursor.getLong(sizeIndex);
-                        media.add(new Medium(curPath, i == 1, timestamp, size));
+                        media.add(new Medium("", curPath, i == 1, timestamp, size));
                     }
                 } while (cursor.moveToNext());
                 cursor.close();

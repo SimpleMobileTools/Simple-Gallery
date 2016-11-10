@@ -232,7 +232,7 @@ public class MediaActivity extends SimpleActivity
                         if (file.exists()) {
                             final int dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_MODIFIED);
                             final long timestamp = cursor.getLong(dateIndex);
-                            media.add(new Medium(curPath, (i == 1), timestamp, file.length()));
+                            media.add(new Medium(file.getName(), curPath, (i == 1), timestamp, file.length()));
                         } else {
                             invalidFiles.add(file.getAbsolutePath());
                         }

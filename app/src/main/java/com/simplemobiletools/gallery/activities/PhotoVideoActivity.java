@@ -44,7 +44,7 @@ public class PhotoVideoActivity extends SimpleActivity implements ViewPagerFragm
 
         final Bundle bundle = new Bundle();
         final File file = new File(mUri.toString());
-        final Medium medium = new Medium(mUri.toString(), mIsVideo, 0, file.length());
+        final Medium medium = new Medium(file.getName(), mUri.toString(), mIsVideo, 0, file.length());
         bundle.putSerializable(Constants.MEDIUM, medium);
 
         if (savedInstanceState == null) {
