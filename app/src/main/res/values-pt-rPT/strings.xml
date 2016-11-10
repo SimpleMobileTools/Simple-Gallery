@@ -3,10 +3,10 @@
     <string name="app_launcher_name">Galeria</string>
     <string name="share_via">Partilhar via</string>
     <string name="no_permissions">É necessário o acesso ao armazenamento para a galeria ter utilidade</string>
-    <string name="delete">Eliminar</string>
-    <string name="deleting">A eliminar</string>
-    <string name="rename">Rename</string>
-    <string name="edit">Edit</string>
+    <string name="delete">Apagar</string>
+    <string name="deleting">A apagar</string>
+    <string name="rename">Renomear</string>
+    <string name="edit">Editar</string>
     <string name="undo">Desfazer</string>
     <string name="share">Partilhar</string>
     <string name="properties">Propriedades</string>
@@ -14,13 +14,13 @@
     <string name="rename_folder">Renomear pasta</string>
     <string name="rename_file_error">Não foi possível renomear o ficheiro</string>
     <string name="rename_folder_error">Não foi possível renomear a pasta</string>
-    <string name="rename_folder_empty">O nome da pasta não pode ficar em branco</string>
+    <string name="rename_folder_empty">O nome da pasta não pode estar vazio</string>
     <string name="rename_folder_ok">A pasta foi renomeada com sucesso</string>
     <string name="renaming_folder">A renomear pasta</string>
-    <string name="filename_cannot_be_empty">O nome do ficheiro não pode ficar em branco</string>
-    <string name="filename_invalid_characters">Filename contains invalid characters</string>
+    <string name="filename_cannot_be_empty">O nome do ficheiro não pode estar vazio</string>
+    <string name="filename_invalid_characters">O nome do ficheiro contém caracteres inválidos</string>
     <string name="extension">Extensão</string>
-    <string name="file_deleted">Ficheiro eliminado</string>
+    <string name="file_deleted">Ficheiro apagado</string>
     <string name="open_camera">Abrir câmara</string>
     <string name="unknown_error">Ocorreu um erro desconhecido</string>
     <string name="sort_by">Ordenar por</string>
@@ -31,84 +31,93 @@
     <string name="descending">Descendente</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancelar</string>
-    <string name="open_with">Open with</string>
-    <string name="no_app_found">No valid app found</string>
-    <string name="hide_folder">Hide folder</string>
-    <string name="unhide_folder">Unhide folder</string>
-    <string name="hidden">(hidden)</string>
-    <string name="confirm_storage_access_title">Confirm external storage access</string>
-    <string name="confirm_storage_access_text">Please choose the root folder of the SD card to grant write access on the next screen</string>
-    <string name="save_as">Save as</string>
-    <string name="file_saved">File saved successfully</string>
+    <string name="open_with">Abrir com</string>
+    <string name="no_app_found">Nenhuma aplicação encontrada</string>
+    <string name="hide_folder">Ocultar pasta</string>
+    <string name="unhide_folder">Mostrar pasta</string>
+    <string name="hidden">(oculta)</string>
+    <string name="confirm_storage_access_title">Confirmção de acesso ao armazenamento externo</string>
+    <string name="confirm_storage_access_text">Por favor escolha a pasta raiz do cartão SD para conceder o acesso de escrita no próximo ecrã</string>
+    <string name="save_as">Guardar como</string>
+    <string name="file_saved">Ficheiro guardado com sucesso</string>
     <string name="copy">Copiar</string>
     <string name="move">Mover</string>
-    <string name="copy_move">Copiar/Mover</string>
+    <string name="copy_move">Copiar/mover para</string>
     <string name="copy_item">Copiar item</string>
     <string name="copy_items">Copiar itens</string>
     <string name="source">Origem</string>
     <string name="destination">Destino</string>
-    <string name="select_destination">Selecionar destino</string>
+    <string name="select_destination">Selecione o destino</string>
     <string name="invalid_destination">Não foi possível escrever no destino selecionado</string>
     <string name="please_select_destination">Por favor selecione um destino</string>
-    <string name="source_and_destination_same">Source and destination cannot be the same</string>
+    <string name="source_and_destination_same">A origem e o destino não podem ser iguais</string>
     <string name="copy_failed">Não foi possível copiar os ficheiros</string>
     <string name="copying">A copiar</string>
-    <string name="already_exists">A file with that name already exists</string>
+    <string name="already_exists">Já existe um ficheiro com este nome</string>
 
     <plurals name="folders_deleted">
-        <item quantity="one">1 pasta eliminada</item>
-        <item quantity="other">%1$d pastas eliminadas</item>
+        <item quantity="one">1 pasta apagada</item>
+        <item quantity="other">%1$d pastas apagadas</item>
     </plurals>
 
     <plurals name="files_deleted">
-        <item quantity="one">1 ficheiro eliminado</item>
-        <item quantity="other">%1$d ficheiros eliminados</item>
+        <item quantity="one">1 ficheiro apagado</item>
+        <item quantity="other">%1$d ficheiros apagadas</item>
     </plurals>
 
     <!-- Editor -->
     <string name="editor">Editor</string>
-    <string name="save">Save</string>
-    <string name="rotate">Rotate</string>
-    <string name="invalid_image_path">Invalid image path</string>
-    <string name="image_editing_failed">Image editing failed</string>
-    <string name="edit_image_with">Edit image with:</string>
-    <string name="no_editor_found">No image editor found</string>
-    <string name="unknown_file_location">Unknown file location</string>
-    <string name="error_saving_file">Could not overwrite the source file</string>
+    <string name="save">Guardar</string>
+    <string name="rotate">Rodar</string>
+    <string name="invalid_image_path">Caminho inválido</string>
+    <string name="image_editing_failed">Falha de edição de imagem</string>
+    <string name="edit_image_with">Editar imagem com:</string>
+    <string name="no_editor_found">Editor não encontrado</string>
+    <string name="unknown_file_location">Localização desconhecida</string>
+    <string name="error_saving_file">Não foi possível substituir o ficheiro original</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
-    <string name="set_as_wallpaper">Definir como fundo de ecrã</string>
+    <string name="set_as_wallpaper">Definir como fundo do ecrã</string>
     <string name="set_as_wallpaper_failed">Falha ao definir como fundo de ecrã</string>
-    <string name="set_as_wallpaper_with">Set as wallpaper with:</string>
-    <string name="no_wallpaper_setter_found">No app capable of it has been found</string>
+    <string name="set_as_wallpaper_with">Definir como fundo com:</string>
+    <string name="no_wallpaper_setter_found">Aplicação não encontrada</string>
     <string name="setting_wallpaper">A definir como fundo de ecrã&#8230;</string>
-    <string name="wallpaper_set_successfully">Wallpaper set successfully</string>
+    <string name="wallpaper_set_successfully">Fundo definido com sucesso</string>
 
     <!-- About -->
-    <string name="about">Sobre</string>
-    <string name="website">Mais aplicações simples e código de fonte em:\nhttp://simplemobiletools.com</string>
+    <string name="about">Acerca</string>
+    <string name="website">Mais aplicações Simple e código fonte em:\nhttp://simplemobiletools.com</string>
     <string name="email_label">Envie os seus comentários ou sugestões para:</string>
+	<string name="email" translatable="false">hello@simplemobiletools.com</string>
     <string name="third_party_licences_underlined"><u>Licenças de terceiros</u></string>
     <string name="invite_friends_underlined"><u>Convidar amigos</u></string>
-    <string name="share_text">Olá, experimente %1$s em %2$s</string>
+    <string name="share_text">Olá, experimenta %1$s em %2$s</string>
     <string name="invite_via">Convidar via</string>
-    <string name="rate_us_underlined"><u>Classifique-nos na Play Store</u></string>
+    <string name="rate_us_underlined"><u>Avalie-nos na Play Store</u></string>
     <string name="follow_us">Siga-nos:</string>
-    <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>
+    <string name="copyright">V %1$s\nCopyright © Simple Mobile Tools %2$d</string>
 
     <!-- Settings -->
     <string name="settings">Definições</string>
     <string name="dark_theme">Tema escuro</string>
-    <string name="same_sorting">A mesma ordenação para ficheiros e pastas</string>
-    <string name="show_hidden_folders">Show hidden folders</string>
-    <string name="autoplay_videos">Play videos automatically</string>
+    <string name="same_sorting">Mesma ordenação para ficheiros e pastas</string>
+    <string name="show_hidden_folders">Mostrar pastas ocultas</string>
+    <string name="autoplay_videos">Reproduzir vídeos automaticamente</string>
 
     <!-- License -->
     <string name="notice">Esta aplicação usa as seguintes bibliotecas de terceiros para facilitar a minha vida. Obrigado.</string>
     <string name="third_party_licences">Licenças de terceiros</string>
-    <string name="butterknife_title"><u>Butter Knife (injetor de \"views\")</u></string>
-    <string name="photoview_title"><u>PhotoView (\"imageviews\" ampliáveis)</u></string>
+    <string name="butterknife_title"><u>Butter Knife (injetor de vistas)</u></string>
+    <string name="butterknife_text" translatable="false">Copyright 2013 Jake Wharton\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="butterknife_url" translatable="false">https://github.com/JakeWharton/butterknife</string>
+    <string name="photoview_title"><u>PhotoView (ampliação de imagens)</u></string>
+    <string name="photoview_text" translatable="false">Copyright 2011,2012 Chris Banes\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="photoview_url" translatable="false">https://github.com/chrisbanes/PhotoView</string>
     <string name="glide_title"><u>Glide (carregamento e cache de imagens)</u></string>
+    <string name="glide_text" translatable="false">Copyright 2014 Google, Inc. All rights reserved.\n\nRedistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n\n1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\n\n2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.\n\nTHIS SOFTWARE IS PROVIDED BY GOOGLE, INC. ``AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL GOOGLE, INC. OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
+    <string name="glide_url" translatable="false">https://github.com/bumptech/glide</string>
     <string name="cropper_title"><u>Android Image Cropper</u></string>
+    <string name="cropper_text" translatable="false">Copyright 2016, Arthur Teplitzki, 2013, Edmodo, Inc.\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this work except in compliance with the License. You may obtain a copy of the License in the LICENSE file, or at:\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</string>
+    <string name="cropper_url" translatable="false">https://github.com/ArthurHub/Android-Image-Cropper</string>
 </resources>
