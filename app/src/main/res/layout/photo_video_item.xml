@@ -11,8 +11,8 @@
         android:id="@+id/play_outline"
         android:layout_width="@dimen/play_outline_size"
         android:layout_height="@dimen/play_outline_size"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
         android:src="@mipmap/play_outline"
         android:visibility="gone"/>
 
