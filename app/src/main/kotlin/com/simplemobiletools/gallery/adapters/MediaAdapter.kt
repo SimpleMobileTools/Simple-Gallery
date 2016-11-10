@@ -10,21 +10,25 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.signature.StringSignature
+import com.simplemobiletools.gallery.Config
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.extensions.beVisibleIf
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.photo_video_item.view.*
 import kotlinx.android.synthetic.main.photo_video_tmb.view.*
 
-class MediaAdapter(private val mContext: Context, private val mMedia: MutableList<Medium>) : BaseAdapter() {
+class MediaAdapter(private val context: Context, private val media: MutableList<Medium>) : BaseAdapter() {
     private val mInflater: LayoutInflater
+    var displayFilenames = false
 
     init {
-        mInflater = mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        mInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        displayFilenames = Config.newInstance(context).displayFileNames
     }
 
     override fun getView(position: Int, view: View?, parent: ViewGroup): View {
         var convertView = view
-        val medium = mMedia[position]
+        val medium = media[position]
         val viewHolder: ViewHolder
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.photo_video_item, parent, false)
@@ -36,25 +40,32 @@ class MediaAdapter(private val mContext: Context, private val mMedia: MutableLis
 
         viewHolder.playOutline.visibility = if (medium.isVideo) View.VISIBLE else View.GONE
 
-        viewHolder.fileName.text = medium.name
+        viewHolder.fileName.beVisibleIf(displayFilenames)
+        if (displayFilenames)
+            viewHolder.fileName.text = medium.name
         val path = medium.path
         val timestampSignature = StringSignature(medium.timestamp.toString())
         if (medium.isGif) {
-            Glide.with(mContext).load(path).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature).into(viewHolder.photoThumbnail)
+            Glide.with(context).load(path).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature).into(viewHolder.photoThumbnail)
         } else {
-            Glide.with(mContext).load(path).diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)
+            Glide.with(context).load(path).diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)
                     .placeholder(R.color.tmb_background).centerCrop().crossFade().into(viewHolder.photoThumbnail)
         }
 
         return convertView
     }
 
+    fun updateDisplayFilenames(display: Boolean) {
+        displayFilenames = display
+        notifyDataSetChanged()
+    }
+
     override fun getCount(): Int {
-        return mMedia.size
+        return media.size
     }
 
     override fun getItem(position: Int): Any {
-        return mMedia[position]
+        return media[position]
     }
 
     override fun getItemId(position: Int): Long {
@@ -62,8 +73,8 @@ class MediaAdapter(private val mContext: Context, private val mMedia: MutableLis
     }
 
     fun updateItems(newPhotos: List<Medium>) {
-        mMedia.clear()
-        mMedia.addAll(newPhotos)
+        media.clear()
+        media.addAll(newPhotos)
         notifyDataSetChanged()
     }
 

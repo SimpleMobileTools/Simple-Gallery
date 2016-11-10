@@ -165,7 +165,8 @@ public class MediaActivity extends SimpleActivity
     }
 
     private void toggleFilenameVisibility() {
-
+        mConfig.setDisplayFileNames(!mConfig.getDisplayFileNames());
+        ((MediaAdapter)mGridView.getAdapter()).updateDisplayFilenames(mConfig.getDisplayFileNames());
     }
 
     private void rescanDirectory(File dir) {
