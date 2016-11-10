@@ -19,10 +19,12 @@
     <TextView
         android:id="@+id/file_name"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@drawable/gradient_background"
         android:gravity="bottom"
+        android:maxLines="3"
+        android:minHeight="@dimen/play_outline_size"
         android:paddingBottom="@dimen/small_padding"
         android:paddingLeft="@dimen/small_padding"
         android:paddingRight="@dimen/small_padding"
