@@ -255,7 +255,7 @@ public class MainActivity extends SimpleActivity
 
     private void deleteItem(File file) {
         if (Utils.Companion.needsStupidWritePermissions(this, file.getAbsolutePath())) {
-            if (!Utils.Companion.isShowingWritePermissions(this, new File(file.getAbsolutePath()))) {
+            if (!Utils.Companion.isShowingWritePermissions(this, file)) {
                 final DocumentFile document = Utils.Companion.getFileDocument(this, file.getAbsolutePath());
                 document.delete();
             }
