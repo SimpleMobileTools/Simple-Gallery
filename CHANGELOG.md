@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 1.30 *(2016-11-10)*
+----------------------------
+
+ * Some improvements to the Copy function
+ * Allow displaying filenames at the thumbnail view
+ * Changing the bottom shadow to gradient
+
 Version 1.29 *(2016-11-09)*
 ----------------------------
 
