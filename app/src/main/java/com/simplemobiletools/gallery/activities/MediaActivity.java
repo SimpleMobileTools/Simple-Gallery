@@ -414,9 +414,6 @@ public class MediaActivity extends SimpleActivity
     }
 
     private void displayCopyDialog() {
-        if (Utils.Companion.isShowingWritePermissions(this, new File(mPath)))
-            return;
-
         final List<File> files = new ArrayList<>();
 
         final SparseBooleanArray items = mGridView.getCheckedItemPositions();

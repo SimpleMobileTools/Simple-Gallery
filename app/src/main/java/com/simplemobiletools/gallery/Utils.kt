@@ -171,8 +171,7 @@ class Utils {
         }
 
         fun isShowingWritePermissions(activity: Activity, file: File): Boolean {
-            return if ((needsStupidWritePermissions(activity, file.absolutePath) && !file.canWrite()) ||
-                    (isKitkat() && Config.newInstance(activity).treeUri.isEmpty())) {
+            return if ((needsStupidWritePermissions(activity, file.absolutePath) && Config.newInstance(activity).treeUri.isEmpty())) {
                 WritePermissionDialog(activity, object : WritePermissionDialog.OnWritePermissionListener {
                     override fun onConfirmed() {
                         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
