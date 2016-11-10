@@ -118,4 +118,12 @@ public class Config {
     public void setTreeUri(String uri) {
         mPrefs.edit().putString(Constants.TREE_URI, uri).apply();
     }
+
+    public boolean getDisplayFileNames() {
+        return mPrefs.getBoolean(Constants.DISPLAY_FILE_NAMES, false);
+    }
+
+    public void setDisplayFileNames(boolean display) {
+        mPrefs.edit().putBoolean(Constants.DISPLAY_FILE_NAMES, display).apply();
+    }
 }
