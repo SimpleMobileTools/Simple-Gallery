@@ -505,11 +505,11 @@ public class ViewPagerActivity extends SimpleActivity
 
     @Override
     public void copySucceeded(@NotNull File destinationDir) {
-
+        Utils.Companion.showToast(getApplicationContext(), R.string.copying_success);
     }
 
     @Override
     public void copyFailed() {
-
+        Utils.Companion.showToast(getApplicationContext(), R.string.copying_failed);
     }
 }

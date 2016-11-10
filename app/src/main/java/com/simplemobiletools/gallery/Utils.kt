@@ -18,10 +18,10 @@ import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.*
 import android.webkit.MimeTypeMap
-import android.widget.Toast
 import com.simplemobiletools.filepicker.extensions.getSDCardPath
 import com.simplemobiletools.gallery.dialogs.WritePermissionDialog
 import com.simplemobiletools.gallery.extensions.scanFile
+import com.simplemobiletools.gallery.extensions.toast
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 
@@ -32,7 +32,7 @@ class Utils {
         }
 
         fun showToast(context: Context, resId: Int) {
-            Toast.makeText(context, context.resources.getString(resId), Toast.LENGTH_SHORT).show()
+            context.toast(resId)
         }
 
         fun getActionBarHeight(context: Context, res: Resources): Int {
