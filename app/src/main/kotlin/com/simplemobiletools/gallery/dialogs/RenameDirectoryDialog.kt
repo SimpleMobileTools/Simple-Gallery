@@ -4,6 +4,7 @@ import android.app.Activity
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.WindowManager
+import com.simplemobiletools.filepicker.extensions.humanizePath
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.Utils
 import com.simplemobiletools.gallery.extensions.toast
@@ -19,7 +20,7 @@ class RenameDirectoryDialog(val activity: Activity, val dir: File, val listener:
         val view = LayoutInflater.from(context).inflate(R.layout.rename_directory, null)
 
         view.directory_name.setText(dir.name)
-        view.directory_path.text = "${dir.parent}/"
+        view.directory_path.text = "${context.humanizePath(dir.parent)}/"
 
         AlertDialog.Builder(context)
                 .setTitle(context.resources.getString(R.string.rename_folder))

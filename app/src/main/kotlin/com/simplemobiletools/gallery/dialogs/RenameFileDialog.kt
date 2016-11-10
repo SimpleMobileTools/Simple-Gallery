@@ -5,6 +5,7 @@ import android.media.MediaScannerConnection
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.WindowManager
+import com.simplemobiletools.filepicker.extensions.humanizePath
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.Utils
 import com.simplemobiletools.gallery.extensions.toast
@@ -28,7 +29,7 @@ class RenameFileDialog(val activity: Activity, val file: File, val listener: OnR
         }
 
         view.file_name.setText(name)
-        view.file_path.text = "${file.parent}/"
+        view.file_path.text = "${context.humanizePath(file.parent)}/"
 
         AlertDialog.Builder(context)
                 .setTitle(context.resources.getString(R.string.rename_file))
