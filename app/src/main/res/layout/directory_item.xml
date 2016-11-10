@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:id="@+id/dir_holder"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dir_holder"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/tmb_shadow_height"
         android:layout_alignParentBottom="true"
-        android:background="@color/actionbar_grey"
+        android:background="@drawable/gradient_background"
+        android:gravity="bottom"
         android:paddingBottom="@dimen/small_padding"
         android:paddingLeft="@dimen/medium_padding"
         android:paddingRight="@dimen/medium_padding"
