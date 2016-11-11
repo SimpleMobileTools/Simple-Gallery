@@ -8,10 +8,12 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import com.simplemobiletools.filepicker.extensions.getFileDocument
+import com.simplemobiletools.filepicker.extensions.needsStupidWritePermissions
+import com.simplemobiletools.filepicker.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.Utils
 import com.simplemobiletools.gallery.dialogs.SaveAsDialog
-import com.simplemobiletools.gallery.extensions.toast
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_edit.*
 import java.io.File
@@ -96,7 +98,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 finish()
             }
         } else {
-            toast("${getString(R.string.image_editing_failed)}: ${result.error.message}")
+            //toast("${getString(R.string.image_editing_failed)}: ${result.error.message}")
         }
     }
 
@@ -105,11 +107,11 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
         var out: OutputStream? = null
         try {
-            if (Utils.needsStupidWritePermissions(this, path)) {
+            if (needsStupidWritePermissions(path)) {
                 if (Utils.isShowingWritePermissions(this, file))
                     return
 
-                var document = Utils.getFileDocument(this, path)
+                var document = getFileDocument(path, mConfig.treeUri)
                 if (!file.exists()) {
                     document = document.createFile("", file.name)
                 }

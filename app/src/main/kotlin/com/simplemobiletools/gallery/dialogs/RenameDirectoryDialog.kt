@@ -4,10 +4,13 @@ import android.app.Activity
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.WindowManager
+import com.simplemobiletools.filepicker.extensions.getFileDocument
 import com.simplemobiletools.filepicker.extensions.humanizePath
+import com.simplemobiletools.filepicker.extensions.needsStupidWritePermissions
+import com.simplemobiletools.filepicker.extensions.toast
+import com.simplemobiletools.gallery.Config
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.Utils
-import com.simplemobiletools.gallery.extensions.toast
 import com.simplemobiletools.gallery.extensions.value
 import kotlinx.android.synthetic.main.rename_directory.view.*
 import java.io.File
@@ -42,11 +45,11 @@ class RenameDirectoryDialog(val activity: Activity, val dir: File, val listener:
                 updatedFiles.add(dir.absolutePath)
                 val newDir = File(dir.parent, newDirName)
 
-                if (Utils.needsStupidWritePermissions(context, dir.absolutePath)) {
+                if (context.needsStupidWritePermissions(dir.absolutePath)) {
                     if (Utils.isShowingWritePermissions(activity, dir))
                         return@setOnClickListener
 
-                    val document = Utils.Companion.getFileDocument(context, dir.absolutePath)
+                    val document = context.getFileDocument(dir.absolutePath, Config.newInstance(context).treeUri)
                     if (document.canWrite())
                         document.renameTo(newDirName)
                     sendSuccess(updatedFiles, newDir)

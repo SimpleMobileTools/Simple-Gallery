@@ -4,8 +4,10 @@ import android.content.Context
 import android.os.AsyncTask
 import android.support.v4.util.Pair
 import android.util.Log
-import com.simplemobiletools.gallery.Utils
-import com.simplemobiletools.gallery.extensions.scanFile
+import com.simplemobiletools.filepicker.extensions.getFileDocument
+import com.simplemobiletools.filepicker.extensions.needsStupidWritePermissions
+import com.simplemobiletools.filepicker.extensions.rescanItem
+import com.simplemobiletools.gallery.Config
 import java.io.*
 import java.lang.ref.WeakReference
 
@@ -13,9 +15,11 @@ class CopyTask(listener: CopyTask.CopyDoneListener, val context: Context) : Asyn
     private val TAG = CopyTask::class.java.simpleName
     private var mListener: WeakReference<CopyDoneListener>? = null
     private var destinationDir: File? = null
+    private var mConfig: Config
 
     init {
         mListener = WeakReference(listener)
+        mConfig = Config.newInstance(context)
     }
 
     override fun doInBackground(vararg params: Pair<List<File>, File>): Boolean? {
@@ -44,8 +48,8 @@ class CopyTask(listener: CopyTask.CopyDoneListener, val context: Context) : Asyn
 
     private fun copyDirectory(source: File, destination: File) {
         if (!destination.exists()) {
-            if (Utils.needsStupidWritePermissions(context, destination.absolutePath)) {
-                val document = Utils.getFileDocument(context, destination.absolutePath)
+            if (context.needsStupidWritePermissions(destination.absolutePath)) {
+                val document = context.getFileDocument(destination.absolutePath, mConfig.treeUri)
                 document.createDirectory(destination.name)
             } else if (!destination.mkdirs()) {
                 throw IOException("Could not create dir " + destination.absolutePath)
@@ -55,11 +59,11 @@ class CopyTask(listener: CopyTask.CopyDoneListener, val context: Context) : Asyn
         val children = source.list()
         for (child in children) {
             val newFile = File(source, child)
-            if (Utils.needsStupidWritePermissions(context, destination.absolutePath)) {
+            if (context.needsStupidWritePermissions(destination.absolutePath)) {
                 if (newFile.isDirectory) {
                     copyDirectory(newFile, File(destination, child))
                 } else {
-                    var document = Utils.getFileDocument(context, destination.absolutePath)
+                    var document = context.getFileDocument(destination.absolutePath, mConfig.treeUri)
                     document = document.createFile("", child)
 
                     val inputStream = FileInputStream(newFile)
@@ -80,16 +84,15 @@ class CopyTask(listener: CopyTask.CopyDoneListener, val context: Context) : Asyn
 
         val inputStream = FileInputStream(source)
         val out: OutputStream?
-        if (Utils.needsStupidWritePermissions(context, destination.absolutePath)) {
-            var document = Utils.getFileDocument(context, destination.absolutePath)
+        if (context.needsStupidWritePermissions(destination.absolutePath)) {
+            var document = context.getFileDocument(destination.absolutePath, mConfig.treeUri)
             document = document.createFile("", destination.name)
             out = context.contentResolver.openOutputStream(document.uri)
         } else {
             out = FileOutputStream(destination)
         }
 
-        val paths = arrayOf(destination.absolutePath)
-        context.scanFile(paths)
+        context.rescanItem(destination)
         copyStream(inputStream, out)
     }
 

@@ -5,10 +5,13 @@ import android.media.MediaScannerConnection
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.WindowManager
+import com.simplemobiletools.filepicker.extensions.getFileDocument
 import com.simplemobiletools.filepicker.extensions.humanizePath
+import com.simplemobiletools.filepicker.extensions.needsStupidWritePermissions
+import com.simplemobiletools.filepicker.extensions.toast
+import com.simplemobiletools.gallery.Config
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.Utils
-import com.simplemobiletools.gallery.extensions.toast
 import com.simplemobiletools.gallery.extensions.value
 import kotlinx.android.synthetic.main.rename_file.view.*
 import java.io.File
@@ -50,11 +53,11 @@ class RenameFileDialog(val activity: Activity, val file: File, val listener: OnR
 
                 val newFile = File(file.parent, "$fileName.$extension")
 
-                if (Utils.needsStupidWritePermissions(context, file.absolutePath)) {
+                if (context.needsStupidWritePermissions(file.absolutePath)) {
                     if (Utils.isShowingWritePermissions(activity, file))
                         return@setOnClickListener
 
-                    val document = Utils.Companion.getFileDocument(context, file.absolutePath)
+                    val document = context.getFileDocument(file.absolutePath, Config.newInstance(context).treeUri)
                     if (document.canWrite())
                         document.renameTo(newFile.name)
                     sendSuccess(file, newFile)

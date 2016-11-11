@@ -6,10 +6,10 @@ import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.WindowManager
 import com.simplemobiletools.filepicker.extensions.humanizePath
+import com.simplemobiletools.filepicker.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.Utils
 import com.simplemobiletools.gallery.asynctasks.CopyTask
-import com.simplemobiletools.gallery.extensions.toast
 import kotlinx.android.synthetic.main.copy_item.view.*
 import java.io.File
 

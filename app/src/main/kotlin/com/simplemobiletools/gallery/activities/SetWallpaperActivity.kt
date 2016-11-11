@@ -8,8 +8,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.simplemobiletools.filepicker.extensions.toast
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.extensions.toast
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_edit.*
 
@@ -83,7 +83,7 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
                 finish()
             }).start()
         } else {
-            toast("${getString(R.string.image_editing_failed)}: ${result.error.message}")
+            //toast("${getString(R.string.image_editing_failed)}: ${result.error.message}")
         }
     }
 

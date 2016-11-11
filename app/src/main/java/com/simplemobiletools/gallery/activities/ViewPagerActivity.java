@@ -285,7 +285,7 @@ public class ViewPagerActivity extends SimpleActivity
         final File file = new File(mToBeDeleted);
         if (Utils.Companion.needsStupidWritePermissions(this, mToBeDeleted)) {
             if (!Utils.Companion.isShowingWritePermissions(this, file)) {
-                final DocumentFile document = Utils.Companion.getFileDocument(this, mToBeDeleted);
+                final DocumentFile document = Utils.Companion.getFileDocument(this, mToBeDeleted, mConfig.getTreeUri());
                 if (document.canWrite()) {
                     mWasFileDeleted = document.delete();
                 }

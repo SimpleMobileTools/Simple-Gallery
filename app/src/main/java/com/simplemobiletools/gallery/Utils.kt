@@ -1,27 +1,25 @@
 package com.simplemobiletools.gallery
 
-import android.Manifest
 import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.database.Cursor
 import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
-import android.support.v4.content.ContextCompat
-import android.support.v4.provider.DocumentFile
 import android.support.v7.app.ActionBar
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.*
 import android.webkit.MimeTypeMap
-import com.simplemobiletools.filepicker.extensions.getSDCardPath
+import com.simplemobiletools.filepicker.extensions.getFileDocument
+import com.simplemobiletools.filepicker.extensions.hasStoragePermission
+import com.simplemobiletools.filepicker.extensions.needsStupidWritePermissions
+import com.simplemobiletools.filepicker.extensions.toast
 import com.simplemobiletools.gallery.dialogs.WritePermissionDialog
 import com.simplemobiletools.gallery.extensions.scanFile
-import com.simplemobiletools.gallery.extensions.toast
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 
@@ -84,9 +82,7 @@ class Utils {
             }
         }
 
-        fun hasStoragePermission(cxt: Context): Boolean {
-            return ContextCompat.checkSelfPermission(cxt, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
-        }
+        fun hasStoragePermission(context: Context) = context.hasStoragePermission()
 
         fun getMimeType(url: String): String {
             val extension = MimeTypeMap.getFileExtensionFromUrl(url)
@@ -141,25 +137,9 @@ class Utils {
             }
         }
 
-        fun needsStupidWritePermissions(context: Context, path: String) = isPathOnSD(context, path) && isKitkat() && !context.getSDCardPath().isEmpty()
+        fun needsStupidWritePermissions(context: Context, path: String) = context.needsStupidWritePermissions(path)
 
-        fun isPathOnSD(context: Context, path: String): Boolean {
-            return path.startsWith(context.getSDCardPath())
-        }
-
-        fun isKitkat() = Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT
-
-        fun getFileDocument(context: Context, path: String): DocumentFile {
-            val relativePath = path.substring(context.getSDCardPath().length + 1)
-            var document = DocumentFile.fromTreeUri(context, Uri.parse(Config.newInstance(context).treeUri))
-            val parts = relativePath.split("/")
-            for (part in parts) {
-                val currDocument = document.findFile(part)
-                if (currDocument != null)
-                    document = currDocument
-            }
-            return document
-        }
+        fun getFileDocument(context: Context, path: String, treeUri: String) = context.getFileDocument(path, treeUri)
 
         @TargetApi(Build.VERSION_CODES.KITKAT)
         fun saveTreeUri(context: Context, resultData: Intent) {

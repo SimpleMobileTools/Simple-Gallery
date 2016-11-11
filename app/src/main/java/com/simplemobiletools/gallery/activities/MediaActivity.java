@@ -361,7 +361,7 @@ public class MediaActivity extends SimpleActivity
                     if (Utils.Companion.isShowingWritePermissions(this, file))
                         return;
 
-                    final DocumentFile document = Utils.Companion.getFileDocument(this, delPath);
+                    final DocumentFile document = Utils.Companion.getFileDocument(this, delPath, mConfig.getTreeUri());
                     if (document.delete()) {
                         wereFilesDeleted = true;
                     }
