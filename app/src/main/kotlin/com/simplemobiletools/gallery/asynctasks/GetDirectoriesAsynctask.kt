@@ -1,9 +1,9 @@
 package com.simplemobiletools.gallery.asynctasks
 
 import android.content.Context
-import android.media.MediaScannerConnection
 import android.os.AsyncTask
 import android.provider.MediaStore
+import com.simplemobiletools.filepicker.extensions.rescanFiles
 import com.simplemobiletools.gallery.Config
 import com.simplemobiletools.gallery.Constants
 import com.simplemobiletools.gallery.R
@@ -80,7 +80,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         Collections.sort<Directory>(dirs)
 
         val invalids = invalidFiles.toTypedArray()
-        MediaScannerConnection.scanFile(context, invalids, null, null)
+        context.rescanFiles(invalids)
         return dirs
     }
 

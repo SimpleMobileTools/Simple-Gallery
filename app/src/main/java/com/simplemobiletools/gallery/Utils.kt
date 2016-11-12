@@ -1,6 +1,5 @@
 package com.simplemobiletools.gallery
 
-import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -135,15 +134,6 @@ class Utils {
         fun needsStupidWritePermissions(context: Context, path: String) = context.needsStupidWritePermissions(path)
 
         fun getFileDocument(context: Context, path: String, treeUri: String) = context.getFileDocument(path, treeUri)
-
-        @TargetApi(Build.VERSION_CODES.KITKAT)
-        fun saveTreeUri(context: Context, resultData: Intent) {
-            val treeUri = resultData.data
-            Config.newInstance(context).treeUri = treeUri.toString()
-
-            val takeFlags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
-            context.contentResolver.takePersistableUriPermission(treeUri, takeFlags)
-        }
 
         fun scanFiles(context: Context, paths: Array<String>) = context.rescanFiles(paths)
     }

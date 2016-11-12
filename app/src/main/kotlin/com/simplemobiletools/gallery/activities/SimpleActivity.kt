@@ -1,7 +1,9 @@
 package com.simplemobiletools.gallery.activities
 
+import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
@@ -9,7 +11,6 @@ import com.simplemobiletools.filepicker.extensions.isShowingWritePermissions
 import com.simplemobiletools.gallery.Config
 import com.simplemobiletools.gallery.Constants
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.Utils
 import java.io.File
 
 open class SimpleActivity : AppCompatActivity() {
@@ -38,8 +39,17 @@ open class SimpleActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
         super.onActivityResult(requestCode, resultCode, resultData)
         if (requestCode == Constants.OPEN_DOCUMENT_TREE && resultCode == Activity.RESULT_OK && resultData != null) {
-            Utils.saveTreeUri(this, resultData)
+            saveTreeUri(resultData)
         }
+    }
+
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    fun saveTreeUri(resultData: Intent) {
+        val treeUri = resultData.data
+        mConfig.treeUri = treeUri.toString()
+
+        val takeFlags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+        contentResolver.takePersistableUriPermission(treeUri, takeFlags)
     }
 
     fun isShowingPermDialog(file: File) = isShowingWritePermissions(file, mConfig.treeUri, Constants.OPEN_DOCUMENT_TREE)

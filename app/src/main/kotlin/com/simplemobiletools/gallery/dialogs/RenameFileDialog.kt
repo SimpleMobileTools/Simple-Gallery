@@ -1,6 +1,5 @@
 package com.simplemobiletools.gallery.dialogs
 
-import android.media.MediaScannerConnection
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.WindowManager
@@ -69,7 +68,7 @@ class RenameFileDialog(val activity: SimpleActivity, val file: File, val listene
 
     private fun sendSuccess(currFile: File, newFile: File) {
         val changedFiles = arrayOf(currFile.absolutePath, newFile.absolutePath)
-        MediaScannerConnection.scanFile(activity.applicationContext, changedFiles, null, null)
+        activity.rescanFiles(changedFiles)
         listener.onRenameFileSuccess(newFile)
     }
 
