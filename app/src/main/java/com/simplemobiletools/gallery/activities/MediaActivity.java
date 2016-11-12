@@ -29,17 +29,15 @@ import android.widget.GridView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
+import com.simplemobiletools.filepicker.asynctasks.CopyMoveTask;
 import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog;
 import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.adapters.MediaAdapter;
-import com.simplemobiletools.gallery.asynctasks.CopyTask;
 import com.simplemobiletools.gallery.dialogs.ChangeSorting;
 import com.simplemobiletools.gallery.dialogs.CopyDialog;
 import com.simplemobiletools.gallery.models.Medium;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
@@ -53,7 +51,7 @@ import butterknife.ButterKnife;
 
 public class MediaActivity extends SimpleActivity
         implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener,
-        SwipeRefreshLayout.OnRefreshListener, ChangeSorting.ChangeDialogListener, CopyTask.CopyDoneListener {
+        SwipeRefreshLayout.OnRefreshListener, ChangeSorting.ChangeDialogListener, CopyMoveTask.CopyListener {
     private static final String TAG = MediaActivity.class.getSimpleName();
     @BindView(R.id.media_grid) GridView mGridView;
     @BindView(R.id.media_holder) SwipeRefreshLayout mSwipeRefreshLayout;
@@ -406,7 +404,7 @@ public class MediaActivity extends SimpleActivity
     }
 
     private void displayCopyDialog() {
-        final List<File> files = new ArrayList<>();
+        final ArrayList<File> files = new ArrayList<>();
 
         final SparseBooleanArray items = mGridView.getCheckedItemPositions();
         final int cnt = items.size();
@@ -417,12 +415,7 @@ public class MediaActivity extends SimpleActivity
             }
         }
 
-        new CopyDialog(this, files, this, new CopyDialog.OnCopyListener() {
-            @Override
-            public void onSuccess() {
-
-            }
-        });
+        new CopyDialog(this, files, this);
     }
 
     @Override
@@ -540,8 +533,8 @@ public class MediaActivity extends SimpleActivity
     }
 
     @Override
-    public void copySucceeded(@NotNull File destinationDir) {
-        Utils.Companion.showToast(getApplicationContext(), R.string.copying_success);
+    public void copySucceeded(boolean deleted) {
+        Utils.Companion.showToast(getApplicationContext(), deleted ? R.string.moving_success : R.string.copying_success);
     }
 
     @Override

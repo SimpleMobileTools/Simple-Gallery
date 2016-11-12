@@ -25,12 +25,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
+import com.simplemobiletools.filepicker.asynctasks.CopyMoveTask;
 import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog;
 import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter;
-import com.simplemobiletools.gallery.asynctasks.CopyTask;
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask;
 import com.simplemobiletools.gallery.dialogs.ChangeSorting;
 import com.simplemobiletools.gallery.dialogs.CopyDialog;
@@ -52,7 +52,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends SimpleActivity
         implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener,
         SwipeRefreshLayout.OnRefreshListener, ChangeSorting.ChangeDialogListener, GetDirectoriesAsynctask.GetDirectoriesListener,
-        CopyTask.CopyDoneListener {
+        CopyMoveTask.CopyListener {
     @BindView(R.id.directories_grid) GridView mGridView;
     @BindView(R.id.directories_holder) SwipeRefreshLayout mSwipeRefreshLayout;
 
@@ -320,7 +320,7 @@ public class MainActivity extends SimpleActivity
     }
 
     private void displayCopyDialog() {
-        final List<File> files = new ArrayList<>();
+        final ArrayList<File> files = new ArrayList<>();
         final SparseBooleanArray items = mGridView.getCheckedItemPositions();
         final int cnt = items.size();
         for (int i = 0; i < cnt; i++) {
@@ -331,12 +331,7 @@ public class MainActivity extends SimpleActivity
             }
         }
 
-        new CopyDialog(this, files, this, new CopyDialog.OnCopyListener() {
-            @Override
-            public void onSuccess() {
-
-            }
-        });
+        new CopyDialog(this, files, this);
     }
 
     private boolean isPickImageIntent(Intent intent) {
@@ -591,9 +586,9 @@ public class MainActivity extends SimpleActivity
     }
 
     @Override
-    public void copySucceeded(@NotNull File destinationDir) {
+    public void copySucceeded(boolean deleted) {
         getDirectories();
-        Utils.Companion.showToast(getApplicationContext(), R.string.copying_success);
+        Utils.Companion.showToast(getApplicationContext(), deleted ? R.string.moving_success : R.string.copying_success);
     }
 
     @Override

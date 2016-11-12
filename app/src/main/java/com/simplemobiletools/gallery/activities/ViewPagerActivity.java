@@ -17,13 +17,13 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import com.simplemobiletools.filepicker.asynctasks.CopyMoveTask;
 import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog;
 import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.MyViewPager;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter;
-import com.simplemobiletools.gallery.asynctasks.CopyTask;
 import com.simplemobiletools.gallery.dialogs.CopyDialog;
 import com.simplemobiletools.gallery.dialogs.RenameFileDialog;
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment;
@@ -43,7 +43,7 @@ import butterknife.OnClick;
 
 public class ViewPagerActivity extends SimpleActivity
         implements ViewPager.OnPageChangeListener, View.OnSystemUiVisibilityChangeListener, ViewPager.OnTouchListener,
-        ViewPagerFragment.FragmentClickListener, CopyTask.CopyDoneListener {
+        ViewPagerFragment.FragmentClickListener, CopyMoveTask.CopyListener {
     @BindView(R.id.undo_delete) View mUndoBtn;
     @BindView(R.id.view_pager) MyViewPager mPager;
 
@@ -188,15 +188,9 @@ public class ViewPagerActivity extends SimpleActivity
 
     private void displayCopyDialog() {
         final File file = getCurrentFile();
-        final List<File> files = new ArrayList<>();
+        final ArrayList<File> files = new ArrayList<>();
         files.add(file);
-
-        new CopyDialog(this, files, this, new CopyDialog.OnCopyListener() {
-            @Override
-            public void onSuccess() {
-
-            }
-        });
+        new CopyDialog(this, files, this);
     }
 
     private void openEditor() {
@@ -503,8 +497,8 @@ public class ViewPagerActivity extends SimpleActivity
     }
 
     @Override
-    public void copySucceeded(@NotNull File destinationDir) {
-        Utils.Companion.showToast(getApplicationContext(), R.string.copying_success);
+    public void copySucceeded(boolean deleted) {
+        Utils.Companion.showToast(getApplicationContext(), deleted ? R.string.moving_success : R.string.copying_success);
     }
 
     @Override
