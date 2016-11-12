@@ -235,7 +235,7 @@ public class MainActivity extends SimpleActivity
             if (dir.exists()) {
                 final File[] files = dir.listFiles();
                 for (File file : files) {
-                    if (file.isFile()) {
+                    if (file.isFile() && Utils.Companion.isPhotoVideo(file)) {
                         updatedFiles.add(file);
                         deleteItem(file);
                     }
