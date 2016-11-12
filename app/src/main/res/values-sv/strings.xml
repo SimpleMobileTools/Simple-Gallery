@@ -52,7 +52,7 @@
     <string name="copy_failed">Kunde inte kopiera filen</string>
     <string name="copying">Kopierar&#8230;</string>
     <string name="copying_success">Files copied successfully</string>
-    <string name="copying_failed">An error occurred</string>
+    <string name="copy_move_failed">An error occurred</string>
     <string name="moving">Moving&#8230;</string>
     <string name="moving_success">Files moved successfully</string>
     <string name="already_exists">A file with that name already exists</string>

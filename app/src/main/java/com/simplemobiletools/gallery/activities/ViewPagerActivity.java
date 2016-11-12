@@ -205,7 +205,7 @@ public class ViewPagerActivity extends SimpleActivity
 
             @Override
             public void copyFailed() {
-                Utils.Companion.showToast(getApplicationContext(), R.string.copying_failed);
+                Utils.Companion.showToast(getApplicationContext(), R.string.copy_move_failed);
             }
         });
     }
