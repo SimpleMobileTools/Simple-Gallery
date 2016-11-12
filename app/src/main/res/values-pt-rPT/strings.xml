@@ -36,8 +36,6 @@
     <string name="hide_folder">Ocultar pasta</string>
     <string name="unhide_folder">Mostrar pasta</string>
     <string name="hidden">(oculta)</string>
-    <string name="confirm_storage_access_title">Confirmção de acesso ao armazenamento externo</string>
-    <string name="confirm_storage_access_text">Por favor escolha a pasta raiz do cartão SD para conceder o acesso de escrita no próximo ecrã</string>
     <string name="save_as">Guardar como</string>
     <string name="file_saved">Ficheiro guardado com sucesso</string>
     <string name="copy">Copiar</string>
