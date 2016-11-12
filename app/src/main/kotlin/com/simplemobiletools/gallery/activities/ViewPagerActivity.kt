@@ -177,14 +177,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         files.add(getCurrentFile())
         CopyDialog(this, files, object : CopyMoveTask.CopyMoveListener {
             override fun copySucceeded(deleted: Boolean, copiedAll: Boolean) {
-                val msgId: Int
                 if (deleted) {
                     reloadViewPager()
-                    msgId = if (copiedAll) R.string.moving_success else R.string.moving_success_partial
+                    toast(if (copiedAll) R.string.moving_success else R.string.moving_success_partial)
                 } else {
-                    msgId = if (copiedAll) R.string.copying_success else R.string.copying_success_partial
+                    toast(if (copiedAll) R.string.copying_success else R.string.copying_success_partial)
                 }
-                toast(msgId)
             }
 
             override fun copyFailed() {
