@@ -87,14 +87,14 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
         if (requestCode == PICK_IMAGE) {
-            if (resultCode == Activity.RESULT_OK && data != null) {
-                handleImage(data)
+            if (resultCode == Activity.RESULT_OK && resultData != null) {
+                handleImage(resultData)
             } else {
                 finish()
             }
         }
-        super.onActivityResult(requestCode, resultCode, data)
+        super.onActivityResult(requestCode, resultCode, resultData)
     }
 }

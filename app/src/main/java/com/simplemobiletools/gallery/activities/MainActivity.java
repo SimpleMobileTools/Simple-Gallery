@@ -406,11 +406,11 @@ public class MainActivity extends SimpleActivity
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent resultData) {
         if (resultCode == RESULT_OK) {
-            if (requestCode == PICK_MEDIA && data != null) {
+            if (requestCode == PICK_MEDIA && resultData != null) {
                 final Intent result = new Intent();
-                final String path = data.getData().getPath();
+                final String path = resultData.getData().getPath();
                 final Uri uri = Uri.fromFile(new File(path));
                 if (mIsGetImageContentIntent || mIsGetVideoContentIntent || mIsGetAnyContentIntent) {
                     final String type = Utils.Companion.getMimeType(path);
@@ -428,7 +428,7 @@ public class MainActivity extends SimpleActivity
                 finish();
             }
         }
-        super.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, resultData);
     }
 
     @Override
