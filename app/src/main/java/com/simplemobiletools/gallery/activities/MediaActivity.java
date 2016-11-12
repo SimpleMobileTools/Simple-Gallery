@@ -212,24 +212,26 @@ public class MediaActivity extends SimpleActivity
             final Cursor cursor = getContentResolver().query(uri, columns, where, args, null);
             final String pattern = Pattern.quote(mPath) + "/[^/]*";
 
-            if (cursor != null && cursor.moveToFirst()) {
-                final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
-                do {
-                    final String curPath = cursor.getString(pathIndex);
-                    if (curPath == null)
-                        continue;
+            if (cursor != null) {
+                if (cursor.moveToFirst()) {
+                    final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
+                    do {
+                        final String curPath = cursor.getString(pathIndex);
+                        if (curPath == null)
+                            continue;
 
-                    if (curPath.matches(pattern) && !mToBeDeleted.contains(curPath)) {
-                        final File file = new File(curPath);
-                        if (file.exists()) {
-                            final int dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_MODIFIED);
-                            final long timestamp = cursor.getLong(dateIndex);
-                            media.add(new Medium(file.getName(), curPath, (i == 1), timestamp, file.length()));
-                        } else {
-                            invalidFiles.add(file);
+                        if (curPath.matches(pattern) && !mToBeDeleted.contains(curPath)) {
+                            final File file = new File(curPath);
+                            if (file.exists()) {
+                                final int dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_MODIFIED);
+                                final long timestamp = cursor.getLong(dateIndex);
+                                media.add(new Medium(file.getName(), curPath, (i == 1), timestamp, file.length()));
+                            } else {
+                                invalidFiles.add(file);
+                            }
                         }
-                    }
-                } while (cursor.moveToNext());
+                    } while (cursor.moveToNext());
+                }
                 cursor.close();
             }
         }

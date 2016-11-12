@@ -361,6 +361,7 @@ public class ViewPagerActivity extends SimpleActivity
 
     private List<Medium> getMedia() {
         final List<Medium> media = new ArrayList<>();
+        final ArrayList<File> invalidFiles = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
             Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
             if (i == 1) {
@@ -372,26 +373,35 @@ public class ViewPagerActivity extends SimpleActivity
             final Cursor cursor = getContentResolver().query(uri, columns, where, args, null);
             final String pattern = Pattern.quote(mDirectory) + "/[^/]*";
 
-            if (cursor != null && cursor.moveToFirst()) {
-                final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
-                do {
-                    final String curPath = cursor.getString(pathIndex);
-                    if (curPath == null)
-                        continue;
+            if (cursor != null) {
+                if (cursor.moveToFirst()) {
+                    final int pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
+                    do {
+                        final String curPath = cursor.getString(pathIndex);
+                        if (curPath == null)
+                            continue;
 
-                    if (curPath.matches(pattern) && !curPath.equals(mToBeDeleted) && !curPath.equals(mBeingDeleted)) {
-                        final int dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_MODIFIED);
-                        final long timestamp = cursor.getLong(dateIndex);
+                        final File file = new File(curPath);
+                        if (!file.exists()) {
+                            invalidFiles.add(file);
+                            continue;
+                        }
 
-                        final int sizeIndex = cursor.getColumnIndex(MediaStore.Images.Media.SIZE);
-                        final long size = cursor.getLong(sizeIndex);
-                        media.add(new Medium("", curPath, i == 1, timestamp, size));
-                    }
-                } while (cursor.moveToNext());
+                        if (curPath.matches(pattern) && !curPath.equals(mToBeDeleted) && !curPath.equals(mBeingDeleted)) {
+                            final int dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_MODIFIED);
+                            final long timestamp = cursor.getLong(dateIndex);
+
+                            final int sizeIndex = cursor.getColumnIndex(MediaStore.Images.Media.SIZE);
+                            final long size = cursor.getLong(sizeIndex);
+                            media.add(new Medium(file.getName(), curPath, i == 1, timestamp, size));
+                        }
+                    } while (cursor.moveToNext());
+                }
                 cursor.close();
             }
         }
 
+        Utils.Companion.scanFiles(getApplicationContext(), invalidFiles);
         Medium.Companion.setSorting(mConfig.getSorting());
         Collections.sort(media);
         int j = 0;
