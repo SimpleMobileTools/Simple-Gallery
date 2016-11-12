@@ -51,8 +51,8 @@
     <string name="source_and_destination_same">A origem e o destino não podem ser iguais</string>
     <string name="copy_failed">Não foi possível copiar os ficheiros</string>
     <string name="copying">A copiar&#8230;</string>
-    <string name="copying_success">Files copied successfully</string>
-    <string name="copy_move_failed">An error occurred</string>
+    <string name="copying_success">Ficheiros copiados com sucesso</string>
+    <string name="copy_move_failed">Ocorreu um erro ao copiar</string>
     <string name="moving">Moving&#8230;</string>
     <string name="moving_success">Files moved successfully</string>
     <string name="already_exists">Já existe um ficheiro com este nome</string>
