@@ -89,13 +89,13 @@ class CopyDialog(val activity: SimpleActivity, val files: ArrayList<File>, val c
                         updatedFiles.addAll(files)
                         for (file in files) {
                             val destination = File(destinationDir, file.name)
-                            file.renameTo(destination)
-                            updatedFiles.add(destination)
+                            if (file.renameTo(destination))
+                                updatedFiles.add(destination)
                         }
 
                         context.scanFiles(updatedFiles) {}
                         dismiss()
-                        copyMoveListener.copySucceeded(true)
+                        copyMoveListener.copySucceeded(true, files.size * 2 == updatedFiles.size)
                     }
                 }
             })

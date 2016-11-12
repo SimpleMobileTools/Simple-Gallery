@@ -192,10 +192,15 @@ public class ViewPagerActivity extends SimpleActivity
         files.add(file);
         new CopyDialog(this, files, new CopyMoveTask.CopyMoveListener() {
             @Override
-            public void copySucceeded(boolean deleted) {
-                if (deleted)
+            public void copySucceeded(boolean deleted, boolean copiedAll) {
+                int msgId;
+                if (deleted) {
                     reloadViewPager();
-                Utils.Companion.showToast(getApplicationContext(), deleted ? R.string.moving_success : R.string.copying_success);
+                    msgId = copiedAll ? R.string.moving_success : R.string.moving_success_partial;
+                } else {
+                    msgId = copiedAll? R.string.copying_success : R.string.copying_success_partial;
+                }
+                Utils.Companion.showToast(getApplicationContext(), msgId);
             }
 
             @Override

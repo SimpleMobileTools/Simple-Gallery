@@ -56,6 +56,8 @@
     <string name="moving">Moving&#8230;</string>
     <string name="moving_success">Files moved successfully</string>
     <string name="already_exists">A file with that name already exists</string>
+    <string name="moving_success_partial">Some files could not be moved</string>
+    <string name="copying_success_partial">Some files could not be copied</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 carpeta eliminada</item>
