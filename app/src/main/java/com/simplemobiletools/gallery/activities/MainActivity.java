@@ -52,7 +52,7 @@ import butterknife.ButterKnife;
 public class MainActivity extends SimpleActivity
         implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener,
         SwipeRefreshLayout.OnRefreshListener, ChangeSorting.ChangeDialogListener, GetDirectoriesAsynctask.GetDirectoriesListener,
-        CopyMoveTask.CopyListener {
+        CopyMoveTask.CopyMoveListener {
     @BindView(R.id.directories_grid) GridView mGridView;
     @BindView(R.id.directories_holder) SwipeRefreshLayout mSwipeRefreshLayout;
 

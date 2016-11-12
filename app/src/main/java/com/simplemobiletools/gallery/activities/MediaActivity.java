@@ -51,7 +51,7 @@ import butterknife.ButterKnife;
 
 public class MediaActivity extends SimpleActivity
         implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener,
-        SwipeRefreshLayout.OnRefreshListener, ChangeSorting.ChangeDialogListener, CopyMoveTask.CopyListener {
+        SwipeRefreshLayout.OnRefreshListener, ChangeSorting.ChangeDialogListener, CopyMoveTask.CopyMoveListener {
     private static final String TAG = MediaActivity.class.getSimpleName();
     @BindView(R.id.media_grid) GridView mGridView;
     @BindView(R.id.media_holder) SwipeRefreshLayout mSwipeRefreshLayout;

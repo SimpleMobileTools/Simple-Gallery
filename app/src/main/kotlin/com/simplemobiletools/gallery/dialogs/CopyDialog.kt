@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.dialog_copy_move.view.*
 import java.io.File
 import java.util.*
 
-class CopyDialog(val activity: SimpleActivity, val files: ArrayList<File>, val copyMoveListener: CopyMoveTask.CopyListener) {
+class CopyDialog(val activity: SimpleActivity, val files: ArrayList<File>, val copyMoveListener: CopyMoveTask.CopyMoveListener) {
 
     init {
         val context = activity
@@ -76,13 +76,13 @@ class CopyDialog(val activity: SimpleActivity, val files: ArrayList<File>, val c
                 if (view.dialog_radio_group.checkedRadioButtonId == R.id.dialog_radio_copy) {
                     context.toast(R.string.copying)
                     val pair = Pair<ArrayList<File>, File>(files, destinationDir)
-                    CopyMoveTask(context, false, config.treeUri, copyMoveListener).execute(pair)
+                    CopyMoveTask(context, false, config.treeUri, true, copyMoveListener).execute(pair)
                     dismiss()
                 } else {
                     if (context.isPathOnSD(sourcePath) || context.isPathOnSD(destinationPath)) {
                         context.toast(R.string.moving)
                         val pair = Pair<ArrayList<File>, File>(files, destinationDir)
-                        CopyMoveTask(context, true, config.treeUri, copyMoveListener).execute(pair)
+                        CopyMoveTask(context, true, config.treeUri, true, copyMoveListener).execute(pair)
                         dismiss()
                     } else {
                         val updatedFiles = ArrayList<File>(files.size * 2)

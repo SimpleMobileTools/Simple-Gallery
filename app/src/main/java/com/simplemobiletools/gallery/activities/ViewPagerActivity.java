@@ -43,7 +43,7 @@ import butterknife.OnClick;
 
 public class ViewPagerActivity extends SimpleActivity
         implements ViewPager.OnPageChangeListener, View.OnSystemUiVisibilityChangeListener, ViewPager.OnTouchListener,
-        ViewPagerFragment.FragmentClickListener, CopyMoveTask.CopyListener {
+        ViewPagerFragment.FragmentClickListener, CopyMoveTask.CopyMoveListener {
     @BindView(R.id.undo_delete) View mUndoBtn;
     @BindView(R.id.view_pager) MyViewPager mPager;
 
