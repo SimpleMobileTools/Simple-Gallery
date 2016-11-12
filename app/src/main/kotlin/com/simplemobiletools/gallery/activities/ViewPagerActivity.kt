@@ -8,7 +8,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v4.view.ViewPager
-import android.support.v7.app.ActionBar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -30,7 +29,6 @@ import java.util.*
 import java.util.regex.Pattern
 
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View.OnSystemUiVisibilityChangeListener, ViewPagerFragment.FragmentClickListener {
-    private var mActionbar: ActionBar? = null
     private var mMedia: MutableList<Medium>? = null
     private var mPath = ""
     private var mDirectory = ""
@@ -81,10 +79,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         mPos = 0
         mIsFullScreen = true
-        mActionbar = supportActionBar
         mToBeDeleted = ""
         mBeingDeleted = ""
-        hideSystemUI()
+        hideUI()
 
         scanPath(mPath) {}
         addUndoMargin()
@@ -393,15 +390,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         deleteFile()
         mIsFullScreen = !mIsFullScreen
         if (mIsFullScreen) {
-            hideSystemUI()
+            hideUI()
         } else {
-            showSystemUI()
+            showUI()
         }
     }
-
-    private fun hideSystemUI() = Utils.hideSystemUI(mActionbar, window)
-
-    private fun showSystemUI() = Utils.showSystemUI(mActionbar, window)
 
     private fun updateActionbarTitle() {
         title = mMedia!![view_pager.currentItem].path.getFilenameFromPath()

@@ -11,6 +11,8 @@ import com.simplemobiletools.filepicker.extensions.isShowingWritePermissions
 import com.simplemobiletools.gallery.Config
 import com.simplemobiletools.gallery.Constants
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.extensions.hideSystemUI
+import com.simplemobiletools.gallery.extensions.showSystemUI
 import java.io.File
 
 open class SimpleActivity : AppCompatActivity() {
@@ -53,4 +55,8 @@ open class SimpleActivity : AppCompatActivity() {
     }
 
     fun isShowingPermDialog(file: File) = isShowingWritePermissions(file, mConfig.treeUri, Constants.OPEN_DOCUMENT_TREE)
+
+    fun hideUI() = hideSystemUI(supportActionBar, window)
+
+    fun showUI() = showSystemUI(supportActionBar, window)
 }

@@ -8,10 +8,11 @@ import android.database.Cursor
 import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
-import android.support.v7.app.ActionBar
 import android.util.DisplayMetrics
 import android.util.TypedValue
-import android.view.*
+import android.view.KeyCharacterMap
+import android.view.KeyEvent
+import android.view.ViewConfiguration
 import android.webkit.MimeTypeMap
 import com.simplemobiletools.filepicker.extensions.*
 import com.simplemobiletools.gallery.models.Medium
@@ -94,25 +95,6 @@ class Utils {
             intent.putExtra(Intent.EXTRA_STREAM, uri)
             intent.type = medium.getMimeType()
             activity.startActivity(Intent.createChooser(intent, shareTitle))
-        }
-
-        fun showSystemUI(actionbar: ActionBar?, window: Window) {
-            actionbar?.show()
-
-            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
-                    View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
-                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-        }
-
-        fun hideSystemUI(actionbar: ActionBar?, window: Window) {
-            actionbar?.hide()
-
-            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
-                    View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
-                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
-                    View.SYSTEM_UI_FLAG_LOW_PROFILE or
-                    View.SYSTEM_UI_FLAG_FULLSCREEN or
-                    View.SYSTEM_UI_FLAG_IMMERSIVE
         }
 
         fun getRealPathFromURI(context: Context, uri: Uri): String? {

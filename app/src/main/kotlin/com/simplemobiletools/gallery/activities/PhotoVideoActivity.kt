@@ -5,13 +5,11 @@ import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.support.v7.app.ActionBar
 import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.filepicker.extensions.getFilenameFromPath
 import com.simplemobiletools.gallery.Constants
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.Utils
 import com.simplemobiletools.gallery.fragments.PhotoFragment
 import com.simplemobiletools.gallery.fragments.VideoFragment
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment
@@ -20,10 +18,8 @@ import java.io.File
 
 open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClickListener {
     companion object {
-        private var mActionbar: ActionBar? = null
         private var mUri: Uri? = null
         private var mFragment: ViewPagerFragment? = null
-
         private var mIsFullScreen = false
         var mIsVideo = false
     }
@@ -34,9 +30,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
 
         mUri = intent.data ?: return
 
-        mActionbar = supportActionBar
         mIsFullScreen = true
-        hideSystemUI()
 
         val bundle = Bundle()
         val file = File(mUri!!.toString())
@@ -49,7 +43,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
             mFragment!!.arguments = bundle
             supportFragmentManager.beginTransaction().replace(R.id.fragment_holder, mFragment).commit()
         }
-        hideSystemUI()
+        hideUI()
 
         if (mUri!!.scheme == "content") {
             val proj = arrayOf(MediaStore.Images.Media.TITLE)
@@ -98,17 +92,9 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
     override fun fragmentClicked() {
         mIsFullScreen = !mIsFullScreen
         if (mIsFullScreen) {
-            hideSystemUI()
+            hideUI()
         } else {
-            showSystemUI()
+            showUI()
         }
-    }
-
-    private fun hideSystemUI() {
-        Utils.hideSystemUI(mActionbar, window)
-    }
-
-    private fun showSystemUI() {
-        Utils.showSystemUI(mActionbar, window)
     }
 }
