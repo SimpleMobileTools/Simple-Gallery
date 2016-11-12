@@ -50,9 +50,11 @@
     <string name="please_select_destination">Por favor selecione um destino</string>
     <string name="source_and_destination_same">A origem e o destino não podem ser iguais</string>
     <string name="copy_failed">Não foi possível copiar os ficheiros</string>
-    <string name="copying">A copiar</string>
+    <string name="copying">A copiar&#8230;</string>
     <string name="copying_success">Files copied successfully</string>
-    <string name="copying_failed">An error occurred during the copy</string>
+    <string name="copying_failed">An error occurred</string>
+    <string name="moving">Moving&#8230;</string>
+    <string name="moving_success">Files moved successfully</string>
     <string name="already_exists">Já existe um ficheiro com este nome</string>
 
     <plurals name="folders_deleted">

@@ -7,33 +7,51 @@ import android.util.Log
 import com.simplemobiletools.filepicker.extensions.getFileDocument
 import com.simplemobiletools.filepicker.extensions.needsStupidWritePermissions
 import com.simplemobiletools.filepicker.extensions.scanFile
+import com.simplemobiletools.filepicker.extensions.scanFiles
 import com.simplemobiletools.gallery.Config
 import java.io.*
 import java.lang.ref.WeakReference
+import java.util.*
 
-class CopyTask(listener: CopyTask.CopyDoneListener, val context: Context) : AsyncTask<Pair<List<File>, File>, Void, Boolean>() {
+class CopyTask(listener: CopyTask.CopyListener, val context: Context, val deleteAfterCopy: Boolean) : AsyncTask<Pair<ArrayList<File>, File>, Void, Boolean>() {
     private val TAG = CopyTask::class.java.simpleName
-    private var mListener: WeakReference<CopyDoneListener>? = null
-    private var destinationDir: File? = null
+    private var mListener: WeakReference<CopyListener>? = null
+    private var mMovedFiles: ArrayList<File>
     private var mConfig: Config
 
     init {
         mListener = WeakReference(listener)
+        mMovedFiles = arrayListOf()
         mConfig = Config.newInstance(context)
     }
 
-    override fun doInBackground(vararg params: Pair<List<File>, File>): Boolean? {
+    override fun doInBackground(vararg params: Pair<ArrayList<File>, File>): Boolean? {
         val pair = params[0]
         val files = pair.first
         for (file in files) {
             try {
-                destinationDir = File(pair.second, file.name)
-                copy(file, destinationDir!!)
+                val curFile = File(pair.second, file.name)
+                if (curFile.exists())
+                    continue
+
+                copy(file, curFile)
             } catch (e: Exception) {
-                Log.e(TAG, "copy " + e)
+                Log.e(TAG, "copy $e")
                 return false
             }
         }
+
+        if (deleteAfterCopy) {
+            for (file in mMovedFiles) {
+                if (context.needsStupidWritePermissions(file.absolutePath)) {
+                    context.getFileDocument(file.absolutePath, mConfig.treeUri)
+                } else {
+                    file.delete()
+                }
+            }
+        }
+        context.scanFiles(files) {}
+        context.scanFiles(mMovedFiles) {}
         return true
     }
 
@@ -52,7 +70,7 @@ class CopyTask(listener: CopyTask.CopyDoneListener, val context: Context) : Asyn
                 val document = context.getFileDocument(destination.absolutePath, mConfig.treeUri)
                 document.createDirectory(destination.name)
             } else if (!destination.mkdirs()) {
-                throw IOException("Could not create dir " + destination.absolutePath)
+                throw IOException("Could not create dir ${destination.absolutePath}")
             }
         }
 
@@ -70,6 +88,7 @@ class CopyTask(listener: CopyTask.CopyDoneListener, val context: Context) : Asyn
                     val out = context.contentResolver.openOutputStream(document.uri)
                     copyStream(inputStream, out)
                     context.scanFile(destination) {}
+                    mMovedFiles.add(source)
                 }
             } else {
                 copy(newFile, File(destination, child))
@@ -80,7 +99,7 @@ class CopyTask(listener: CopyTask.CopyDoneListener, val context: Context) : Asyn
     private fun copyFile(source: File, destination: File) {
         val directory = destination.parentFile
         if (!directory.exists() && !directory.mkdirs()) {
-            throw IOException("Could not create dir " + directory.absolutePath)
+            throw IOException("Could not create dir ${directory.absolutePath}")
         }
 
         val inputStream = FileInputStream(source)
@@ -88,6 +107,7 @@ class CopyTask(listener: CopyTask.CopyDoneListener, val context: Context) : Asyn
         if (context.needsStupidWritePermissions(destination.absolutePath)) {
             var document = context.getFileDocument(destination.absolutePath, mConfig.treeUri)
             document = document.createFile("", destination.name)
+
             out = context.contentResolver.openOutputStream(document.uri)
         } else {
             out = FileOutputStream(destination)
@@ -95,6 +115,7 @@ class CopyTask(listener: CopyTask.CopyDoneListener, val context: Context) : Asyn
 
         copyStream(inputStream, out)
         context.scanFile(destination) {}
+        mMovedFiles.add(source)
     }
 
     private fun copyStream(inputStream: InputStream, out: OutputStream?) {
@@ -112,14 +133,14 @@ class CopyTask(listener: CopyTask.CopyDoneListener, val context: Context) : Asyn
         val listener = mListener?.get() ?: return
 
         if (success) {
-            listener.copySucceeded(destinationDir!!)
+            listener.copySucceeded(deleteAfterCopy)
         } else {
             listener.copyFailed()
         }
     }
 
-    interface CopyDoneListener {
-        fun copySucceeded(destinationDir: File)
+    interface CopyListener {
+        fun copySucceeded(deleted: Boolean)
 
         fun copyFailed()
     }
