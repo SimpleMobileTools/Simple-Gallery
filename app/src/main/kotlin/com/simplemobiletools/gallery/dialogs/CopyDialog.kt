@@ -94,7 +94,6 @@ class CopyDialog(val activity: SimpleActivity, val files: ArrayList<File>, val c
                         }
 
                         context.scanFiles(updatedFiles) {}
-                        context.toast(R.string.moving_success)
                         dismiss()
                         copyMoveListener.copySucceeded(true)
                     }

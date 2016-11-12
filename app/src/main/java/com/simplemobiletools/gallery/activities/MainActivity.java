@@ -51,8 +51,7 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends SimpleActivity
         implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener,
-        SwipeRefreshLayout.OnRefreshListener, ChangeSorting.ChangeDialogListener, GetDirectoriesAsynctask.GetDirectoriesListener,
-        CopyMoveTask.CopyMoveListener {
+        SwipeRefreshLayout.OnRefreshListener, ChangeSorting.ChangeDialogListener, GetDirectoriesAsynctask.GetDirectoriesListener {
     @BindView(R.id.directories_grid) GridView mGridView;
     @BindView(R.id.directories_holder) SwipeRefreshLayout mSwipeRefreshLayout;
 
@@ -331,7 +330,19 @@ public class MainActivity extends SimpleActivity
             }
         }
 
-        new CopyDialog(this, files, this);
+        new CopyDialog(this, files, new CopyMoveTask.CopyMoveListener() {
+            @Override
+            public void copySucceeded(boolean deleted) {
+                if (deleted)
+                    getDirectories();
+                Utils.Companion.showToast(getApplicationContext(), deleted ? R.string.moving_success : R.string.copying_success);
+            }
+
+            @Override
+            public void copyFailed() {
+                Utils.Companion.showToast(getApplicationContext(), R.string.copying_failed);
+            }
+        });
     }
 
     private boolean isPickImageIntent(Intent intent) {
@@ -583,16 +594,5 @@ public class MainActivity extends SimpleActivity
         mGridView.setMultiChoiceModeListener(this);
         mGridView.setOnTouchListener(this);
         mGridView.setChoiceMode(GridView.CHOICE_MODE_MULTIPLE_MODAL);
-    }
-
-    @Override
-    public void copySucceeded(boolean deleted) {
-        getDirectories();
-        Utils.Companion.showToast(getApplicationContext(), deleted ? R.string.moving_success : R.string.copying_success);
-    }
-
-    @Override
-    public void copyFailed() {
-        Utils.Companion.showToast(getApplicationContext(), R.string.copying_failed);
     }
 }

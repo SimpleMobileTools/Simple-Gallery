@@ -51,7 +51,7 @@ import butterknife.ButterKnife;
 
 public class MediaActivity extends SimpleActivity
         implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener,
-        SwipeRefreshLayout.OnRefreshListener, ChangeSorting.ChangeDialogListener, CopyMoveTask.CopyMoveListener {
+        SwipeRefreshLayout.OnRefreshListener, ChangeSorting.ChangeDialogListener {
     private static final String TAG = MediaActivity.class.getSimpleName();
     @BindView(R.id.media_grid) GridView mGridView;
     @BindView(R.id.media_holder) SwipeRefreshLayout mSwipeRefreshLayout;
@@ -415,7 +415,19 @@ public class MediaActivity extends SimpleActivity
             }
         }
 
-        new CopyDialog(this, files, this);
+        new CopyDialog(this, files, new CopyMoveTask.CopyMoveListener() {
+            @Override
+            public void copySucceeded(boolean deleted) {
+                if (deleted)
+                    refreshDir();
+                Utils.Companion.showToast(getApplicationContext(), deleted ? R.string.moving_success : R.string.copying_success);
+            }
+
+            @Override
+            public void copyFailed() {
+                Utils.Companion.showToast(getApplicationContext(), R.string.copying_failed);
+            }
+        });
     }
 
     @Override
@@ -519,6 +531,10 @@ public class MediaActivity extends SimpleActivity
 
     @Override
     public void onRefresh() {
+        refreshDir();
+    }
+
+    private void refreshDir() {
         final File dir = new File(mPath);
         if (dir.isDirectory()) {
             Utils.Companion.scanPath(getApplicationContext(), mPath);
@@ -530,15 +546,5 @@ public class MediaActivity extends SimpleActivity
     @Override
     public void sortingDialogClosed() {
         initializeGallery();
-    }
-
-    @Override
-    public void copySucceeded(boolean deleted) {
-        Utils.Companion.showToast(getApplicationContext(), deleted ? R.string.moving_success : R.string.copying_success);
-    }
-
-    @Override
-    public void copyFailed() {
-        Utils.Companion.showToast(getApplicationContext(), R.string.copying_failed);
     }
 }

@@ -43,7 +43,7 @@ import butterknife.OnClick;
 
 public class ViewPagerActivity extends SimpleActivity
         implements ViewPager.OnPageChangeListener, View.OnSystemUiVisibilityChangeListener, ViewPager.OnTouchListener,
-        ViewPagerFragment.FragmentClickListener, CopyMoveTask.CopyMoveListener {
+        ViewPagerFragment.FragmentClickListener {
     @BindView(R.id.undo_delete) View mUndoBtn;
     @BindView(R.id.view_pager) MyViewPager mPager;
 
@@ -190,7 +190,19 @@ public class ViewPagerActivity extends SimpleActivity
         final File file = getCurrentFile();
         final ArrayList<File> files = new ArrayList<>();
         files.add(file);
-        new CopyDialog(this, files, this);
+        new CopyDialog(this, files, new CopyMoveTask.CopyMoveListener() {
+            @Override
+            public void copySucceeded(boolean deleted) {
+                if (deleted)
+                    reloadViewPager();
+                Utils.Companion.showToast(getApplicationContext(), deleted ? R.string.moving_success : R.string.copying_success);
+            }
+
+            @Override
+            public void copyFailed() {
+                Utils.Companion.showToast(getApplicationContext(), R.string.copying_failed);
+            }
+        });
     }
 
     private void openEditor() {
@@ -494,15 +506,5 @@ public class ViewPagerActivity extends SimpleActivity
     protected void onPause() {
         super.onPause();
         deleteFile();
-    }
-
-    @Override
-    public void copySucceeded(boolean deleted) {
-        Utils.Companion.showToast(getApplicationContext(), deleted ? R.string.moving_success : R.string.copying_success);
-    }
-
-    @Override
-    public void copyFailed() {
-        Utils.Companion.showToast(getApplicationContext(), R.string.copying_failed);
     }
 }
