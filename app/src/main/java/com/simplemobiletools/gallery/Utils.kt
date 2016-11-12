@@ -18,7 +18,6 @@ import com.simplemobiletools.filepicker.extensions.getFileDocument
 import com.simplemobiletools.filepicker.extensions.hasStoragePermission
 import com.simplemobiletools.filepicker.extensions.needsStupidWritePermissions
 import com.simplemobiletools.filepicker.extensions.toast
-import com.simplemobiletools.gallery.dialogs.WritePermissionDialog
 import com.simplemobiletools.gallery.extensions.scanFile
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
@@ -150,22 +149,6 @@ class Utils {
             context.contentResolver.takePersistableUriPermission(treeUri, takeFlags)
         }
 
-        fun isShowingWritePermissions(activity: Activity, file: File): Boolean {
-            return if ((needsStupidWritePermissions(activity, file.absolutePath) && Config.newInstance(activity).treeUri.isEmpty())) {
-                WritePermissionDialog(activity, object : WritePermissionDialog.OnWritePermissionListener {
-                    override fun onConfirmed() {
-                        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
-                        activity.startActivityForResult(intent, Constants.OPEN_DOCUMENT_TREE)
-                    }
-                })
-                true
-            } else {
-                false
-            }
-        }
-
-        fun scanFiles(context: Context, paths: Array<String>) {
-            context.scanFile(paths)
-        }
+        fun scanFiles(context: Context, paths: Array<String>) = context.scanFile(paths)
     }
 }

@@ -5,10 +5,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import com.simplemobiletools.filepicker.extensions.isShowingWritePermissions
 import com.simplemobiletools.gallery.Config
 import com.simplemobiletools.gallery.Constants
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.Utils
+import java.io.File
 
 open class SimpleActivity : AppCompatActivity() {
     lateinit var mConfig: Config
@@ -39,4 +41,6 @@ open class SimpleActivity : AppCompatActivity() {
             Utils.saveTreeUri(this, resultData)
         }
     }
+
+    fun isShowingPermDialog(file: File) = isShowingWritePermissions(file, mConfig.treeUri, Constants.OPEN_DOCUMENT_TREE)
 }

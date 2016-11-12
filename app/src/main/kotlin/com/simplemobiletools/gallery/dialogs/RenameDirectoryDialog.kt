@@ -1,6 +1,5 @@
 package com.simplemobiletools.gallery.dialogs
 
-import android.app.Activity
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.WindowManager
@@ -10,13 +9,13 @@ import com.simplemobiletools.filepicker.extensions.needsStupidWritePermissions
 import com.simplemobiletools.filepicker.extensions.toast
 import com.simplemobiletools.gallery.Config
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.Utils
+import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.extensions.value
 import kotlinx.android.synthetic.main.rename_directory.view.*
 import java.io.File
 import java.util.*
 
-class RenameDirectoryDialog(val activity: Activity, val dir: File, val listener: OnRenameDirListener) {
+class RenameDirectoryDialog(val activity: SimpleActivity, val dir: File, val listener: OnRenameDirListener) {
     val context = activity
 
     init {
@@ -46,7 +45,7 @@ class RenameDirectoryDialog(val activity: Activity, val dir: File, val listener:
                 val newDir = File(dir.parent, newDirName)
 
                 if (context.needsStupidWritePermissions(dir.absolutePath)) {
-                    if (Utils.isShowingWritePermissions(activity, dir))
+                    if (activity.isShowingPermDialog(dir))
                         return@setOnClickListener
 
                     val document = context.getFileDocument(dir.absolutePath, Config.newInstance(context).treeUri)

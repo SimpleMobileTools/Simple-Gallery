@@ -6,7 +6,7 @@ import android.support.v4.util.Pair
 import android.util.Log
 import com.simplemobiletools.filepicker.extensions.getFileDocument
 import com.simplemobiletools.filepicker.extensions.needsStupidWritePermissions
-import com.simplemobiletools.filepicker.extensions.rescanItem
+import com.simplemobiletools.filepicker.extensions.rescanFile
 import com.simplemobiletools.gallery.Config
 import java.io.*
 import java.lang.ref.WeakReference
@@ -92,7 +92,7 @@ class CopyTask(listener: CopyTask.CopyDoneListener, val context: Context) : Asyn
             out = FileOutputStream(destination)
         }
 
-        context.rescanItem(destination)
+        context.rescanFile(destination)
         copyStream(inputStream, out)
     }
 

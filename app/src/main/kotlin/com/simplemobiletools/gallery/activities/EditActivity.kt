@@ -98,7 +98,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 finish()
             }
         } else {
-            //toast("${getString(R.string.image_editing_failed)}: ${result.error.message}")
+            toast("${getString(R.string.image_editing_failed)}: ${result.error.message}")
         }
     }
 
@@ -108,7 +108,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         var out: OutputStream? = null
         try {
             if (needsStupidWritePermissions(path)) {
-                if (Utils.isShowingWritePermissions(this, file))
+                if (isShowingPermDialog(file))
                     return
 
                 var document = getFileDocument(path, mConfig.treeUri)

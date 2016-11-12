@@ -260,7 +260,7 @@ public class ViewPagerActivity extends SimpleActivity
     }
 
     private void notifyDeletion() {
-        if (Utils.Companion.isShowingWritePermissions(this, new File(mPath)))
+        if (isShowingPermDialog(new File(mPath)))
             return;
 
         mToBeDeleted = getCurrentFile().getAbsolutePath();
@@ -284,7 +284,7 @@ public class ViewPagerActivity extends SimpleActivity
 
         final File file = new File(mToBeDeleted);
         if (Utils.Companion.needsStupidWritePermissions(this, mToBeDeleted)) {
-            if (!Utils.Companion.isShowingWritePermissions(this, file)) {
+            if (!isShowingPermDialog(file)) {
                 final DocumentFile document = Utils.Companion.getFileDocument(this, mToBeDeleted, mConfig.getTreeUri());
                 if (document.canWrite()) {
                     mWasFileDeleted = document.delete();

@@ -83,7 +83,7 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
                 finish()
             }).start()
         } else {
-            //toast("${getString(R.string.image_editing_failed)}: ${result.error.message}")
+            toast("${getString(R.string.image_editing_failed)}: ${result.error.message}")
         }
     }
 

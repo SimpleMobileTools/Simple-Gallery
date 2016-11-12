@@ -1,6 +1,5 @@
 package com.simplemobiletools.gallery.dialogs
 
-import android.app.Activity
 import android.media.MediaScannerConnection
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
@@ -11,12 +10,12 @@ import com.simplemobiletools.filepicker.extensions.needsStupidWritePermissions
 import com.simplemobiletools.filepicker.extensions.toast
 import com.simplemobiletools.gallery.Config
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.Utils
+import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.extensions.value
 import kotlinx.android.synthetic.main.rename_file.view.*
 import java.io.File
 
-class RenameFileDialog(val activity: Activity, val file: File, val listener: OnRenameFileListener) {
+class RenameFileDialog(val activity: SimpleActivity, val file: File, val listener: OnRenameFileListener) {
 
     init {
         val context = activity
@@ -54,7 +53,7 @@ class RenameFileDialog(val activity: Activity, val file: File, val listener: OnR
                 val newFile = File(file.parent, "$fileName.$extension")
 
                 if (context.needsStupidWritePermissions(file.absolutePath)) {
-                    if (Utils.isShowingWritePermissions(activity, file))
+                    if (activity.isShowingPermDialog(file))
                         return@setOnClickListener
 
                     val document = context.getFileDocument(file.absolutePath, Config.newInstance(context).treeUri)

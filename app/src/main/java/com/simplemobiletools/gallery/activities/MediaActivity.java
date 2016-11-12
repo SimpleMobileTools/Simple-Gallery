@@ -306,7 +306,7 @@ public class MediaActivity extends SimpleActivity
     }
 
     private void prepareForDeleting() {
-        if (Utils.Companion.isShowingWritePermissions(this, new File(mPath)))
+        if (isShowingPermDialog(new File(mPath)))
             return;
 
         Utils.Companion.showToast(this, R.string.deleting);
@@ -358,7 +358,7 @@ public class MediaActivity extends SimpleActivity
             final File file = new File(delPath);
             if (file.exists()) {
                 if (Utils.Companion.needsStupidWritePermissions(this, delPath)) {
-                    if (Utils.Companion.isShowingWritePermissions(this, file))
+                    if (isShowingPermDialog(file))
                         return;
 
                     final DocumentFile document = Utils.Companion.getFileDocument(this, delPath, mConfig.getTreeUri());

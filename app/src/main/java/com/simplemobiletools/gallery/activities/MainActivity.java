@@ -199,7 +199,7 @@ public class MainActivity extends SimpleActivity
         }
 
         for (String path : mToBeDeleted) {
-            if (Utils.Companion.isShowingWritePermissions(this, new File(path))) {
+            if (isShowingPermDialog(new File(path))) {
                 return;
             }
         }
@@ -254,7 +254,7 @@ public class MainActivity extends SimpleActivity
 
     private void deleteItem(File file) {
         if (Utils.Companion.needsStupidWritePermissions(this, file.getAbsolutePath())) {
-            if (!Utils.Companion.isShowingWritePermissions(this, file)) {
+            if (!isShowingPermDialog(file)) {
                 final DocumentFile document = Utils.Companion.getFileDocument(this, file.getAbsolutePath(), mConfig.getTreeUri());
                 document.delete();
             }
