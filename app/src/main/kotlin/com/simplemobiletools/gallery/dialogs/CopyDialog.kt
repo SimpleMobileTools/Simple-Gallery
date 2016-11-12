@@ -6,21 +6,19 @@ import android.view.LayoutInflater
 import android.view.WindowManager
 import com.simplemobiletools.filepicker.extensions.humanizePath
 import com.simplemobiletools.filepicker.extensions.toast
-import com.simplemobiletools.gallery.Config
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.asynctasks.CopyTask
-import kotlinx.android.synthetic.main.copy_item.view.*
+import kotlinx.android.synthetic.main.dialog_copy_move.view.*
 import java.io.File
 
 class CopyDialog(val activity: SimpleActivity, val files: List<File>, val copyListener: CopyTask.CopyDoneListener, val listener: OnCopyListener) {
 
     init {
         val context = activity
-        val view = LayoutInflater.from(context).inflate(R.layout.copy_item, null)
+        val view = LayoutInflater.from(context).inflate(R.layout.dialog_copy_move, null)
         val sourcePath = files[0].parent.trimEnd('/')
         var destinationPath = ""
-        val config = Config.newInstance(context)
 
         view.source.text = context.humanizePath(sourcePath)
 
@@ -70,30 +68,14 @@ class CopyDialog(val activity: SimpleActivity, val files: List<File>, val copyLi
                     return@setOnClickListener
                 }
 
-                //if (view.dialog_radio_group.checkedRadioButtonId == R.id.dialog_radio_copy) {
-                context.toast(R.string.copying)
-                val pair = Pair<List<File>, File>(files, destinationDir)
-                CopyTask(copyListener, context).execute(pair)
-                dismiss()
-                /*} else {
-                    if (Utils.isPathOnSD(context, sourcePath) && Utils.isPathOnSD(context, destinationPath)) {
-                        val paths = ArrayList<String>()
-                        for (f in files) {
-                            val destination = File(destinationDir, f.name)
-                            f.renameTo(destination)
-                            paths.add(destination.absolutePath)
-                        }
+                if (view.dialog_radio_group.checkedRadioButtonId == R.id.dialog_radio_copy) {
+                    context.toast(R.string.copying)
+                    val pair = Pair<List<File>, File>(files, destinationDir)
+                    CopyTask(copyListener, context).execute(pair)
+                    dismiss()
+                } else {
 
-                        context.scanFile(paths.toTypedArray())
-
-                        dismiss()
-                        listener.onSuccess()
-                    } else {
-                        val pair = Pair<List<File>, File>(files, destinationDir)
-                        CopyTask(copyListener, context).execute(pair)
-                        dismiss()
-                    }
-                }*/
+                }
             })
         }
     }

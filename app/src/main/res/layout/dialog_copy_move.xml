@@ -23,8 +23,7 @@
         android:layout_marginBottom="@dimen/activity_margin"
         android:layout_marginLeft="@dimen/activity_margin"
         android:paddingRight="@dimen/small_padding"
-        android:paddingTop="@dimen/small_padding"
-        android:text="source"/>
+        android:paddingTop="@dimen/small_padding"/>
 
     <TextView
         android:id="@+id/destination_label"
@@ -44,7 +43,7 @@
         android:paddingTop="@dimen/small_padding"
         android:text="@string/select_destination"/>
 
-    <!--<RadioGroup
+    <RadioGroup
         android:id="@+id/dialog_radio_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,5 +61,5 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/move"/>
-    </RadioGroup>-->
+    </RadioGroup>
 </LinearLayout>

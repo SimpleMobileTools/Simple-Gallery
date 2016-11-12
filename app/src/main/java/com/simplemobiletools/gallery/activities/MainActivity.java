@@ -454,7 +454,7 @@ public class MainActivity extends SimpleActivity
     @Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
         final MenuInflater inflater = mode.getMenuInflater();
-        inflater.inflate(R.menu.directories_cab, menu);
+        inflater.inflate(R.menu.cab_directories, menu);
         mActionMode = mode;
         return true;
     }
@@ -504,7 +504,7 @@ public class MainActivity extends SimpleActivity
                 unhideFolders();
                 mode.finish();
                 return true;
-            case R.id.cab_copy:
+            case R.id.cab_copy_move:
                 displayCopyDialog();
                 return true;
             default:

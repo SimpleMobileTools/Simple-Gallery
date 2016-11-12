@@ -40,7 +40,7 @@
     <string name="file_saved">Archivo guardado con éxito</string>
     <string name="copy">Copy</string>
     <string name="move">Move</string>
-    <string name="copy_move">Copy/Move to</string>
+    <string name="copy_move">Copy/Move</string>
     <string name="copy_item">Copy item</string>
     <string name="copy_items">Copy items</string>
     <string name="source">Source</string>

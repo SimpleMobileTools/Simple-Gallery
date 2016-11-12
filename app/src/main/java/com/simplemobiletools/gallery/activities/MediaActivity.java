@@ -502,7 +502,7 @@ public class MediaActivity extends SimpleActivity
                 prepareForDeleting();
                 mode.finish();
                 return true;
-            case R.id.cab_copy:
+            case R.id.cab_copy_move:
                 displayCopyDialog();
                 return true;
             default:

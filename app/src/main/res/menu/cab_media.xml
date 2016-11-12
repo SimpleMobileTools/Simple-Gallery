@@ -17,7 +17,7 @@
         android:title="@string/delete"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/cab_copy"
-        android:title="@string/copy"
+        android:id="@+id/cab_copy_move"
+        android:title="@string/copy_move"
         app:showAsAction="never"/>
 </menu>

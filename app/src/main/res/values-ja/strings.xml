@@ -40,7 +40,7 @@
     <string name="file_saved">File saved successfully</string>
     <string name="copy">コピー</string>
     <string name="move">移動</string>
-    <string name="copy_move">Copy/Move to</string>
+    <string name="copy_move">Copy/Move</string>
     <string name="copy_item">アイテムをコピー</string>
     <string name="copy_items">アイテムをコピー</string>
     <string name="source">元</string>

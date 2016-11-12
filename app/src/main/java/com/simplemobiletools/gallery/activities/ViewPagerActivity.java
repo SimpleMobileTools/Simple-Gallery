@@ -153,7 +153,7 @@ public class ViewPagerActivity extends SimpleActivity
             case R.id.menu_set_as_wallpaper:
                 setAsWallpaper();
                 return true;
-            case R.id.menu_copy:
+            case R.id.menu_copy_move:
                 displayCopyDialog();
                 return true;
             case R.id.menu_open_with:
