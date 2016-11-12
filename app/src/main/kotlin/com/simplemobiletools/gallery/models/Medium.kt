@@ -11,6 +11,8 @@ class Medium(val name: String, var path: String, val isVideo: Boolean, val times
     val isImage: Boolean
         get() = !isGif && !isVideo
 
+    fun getMimeType() = if (isVideo) "video/*" else "image/*"
+
     override fun compareTo(other: Medium): Int {
         var res: Int
         if (sorting and Constants.SORT_BY_NAME != 0) {

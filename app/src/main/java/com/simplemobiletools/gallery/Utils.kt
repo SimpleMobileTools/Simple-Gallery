@@ -20,9 +20,7 @@ import java.util.*
 
 class Utils {
     companion object {
-        fun getFilename(path: String): String {
-            return path.substring(path.lastIndexOf("/") + 1)
-        }
+        fun getFilename(path: String) = path.substring(path.lastIndexOf("/") + 1)
 
         fun showToast(context: Context, resId: Int) {
             context.toast(resId)
@@ -94,11 +92,9 @@ class Utils {
             val uri = Uri.fromFile(file)
             intent.action = Intent.ACTION_SEND
             intent.putExtra(Intent.EXTRA_STREAM, uri)
-            intent.type = getMimeType(medium)
+            intent.type = medium.getMimeType()
             activity.startActivity(Intent.createChooser(intent, shareTitle))
         }
-
-        fun getMimeType(medium: Medium) = if (medium.isVideo) "video/*" else "image/*"
 
         fun showSystemUI(actionbar: ActionBar?, window: Window) {
             actionbar?.show()
