@@ -14,11 +14,7 @@ import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.*
 import android.webkit.MimeTypeMap
-import com.simplemobiletools.filepicker.extensions.getFileDocument
-import com.simplemobiletools.filepicker.extensions.hasStoragePermission
-import com.simplemobiletools.filepicker.extensions.needsStupidWritePermissions
-import com.simplemobiletools.filepicker.extensions.toast
-import com.simplemobiletools.gallery.extensions.scanFile
+import com.simplemobiletools.filepicker.extensions.*
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 
@@ -149,6 +145,6 @@ class Utils {
             context.contentResolver.takePersistableUriPermission(treeUri, takeFlags)
         }
 
-        fun scanFiles(context: Context, paths: Array<String>) = context.scanFile(paths)
+        fun scanFiles(context: Context, paths: Array<String>) = context.rescanFiles(paths)
     }
 }

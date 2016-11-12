@@ -5,10 +5,10 @@ import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.WindowManager
 import com.simplemobiletools.filepicker.extensions.getFilenameFromPath
+import com.simplemobiletools.filepicker.extensions.isAValidFilename
 import com.simplemobiletools.filepicker.extensions.toast
+import com.simplemobiletools.filepicker.extensions.value
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.extensions.isNameValid
-import com.simplemobiletools.gallery.extensions.value
 import kotlinx.android.synthetic.main.rename_file.view.*
 
 class SaveAsDialog(val activity: Activity, val path: String, val listener: OnSaveAsListener) {
@@ -34,7 +34,7 @@ class SaveAsDialog(val activity: Activity, val path: String, val listener: OnSav
                     return@setOnClickListener
                 }
 
-                if (!filename.isNameValid()) {
+                if (!filename.isAValidFilename()) {
                     context.toast(R.string.filename_invalid_characters)
                     return@setOnClickListener
                 }

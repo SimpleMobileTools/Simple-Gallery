@@ -3,14 +3,10 @@ package com.simplemobiletools.gallery.dialogs
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.WindowManager
-import com.simplemobiletools.filepicker.extensions.getFileDocument
-import com.simplemobiletools.filepicker.extensions.humanizePath
-import com.simplemobiletools.filepicker.extensions.needsStupidWritePermissions
-import com.simplemobiletools.filepicker.extensions.toast
+import com.simplemobiletools.filepicker.extensions.*
 import com.simplemobiletools.gallery.Config
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
-import com.simplemobiletools.gallery.extensions.value
 import kotlinx.android.synthetic.main.rename_directory.view.*
 import java.io.File
 import java.util.*
