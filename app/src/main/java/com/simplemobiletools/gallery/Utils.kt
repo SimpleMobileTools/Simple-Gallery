@@ -16,6 +16,7 @@ import android.webkit.MimeTypeMap
 import com.simplemobiletools.filepicker.extensions.*
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
+import java.util.*
 
 class Utils {
     companion object {
@@ -135,6 +136,8 @@ class Utils {
 
         fun getFileDocument(context: Context, path: String, treeUri: String) = context.getFileDocument(path, treeUri)
 
-        fun scanFiles(context: Context, paths: Array<String>) = context.rescanFiles(paths)
+        fun scanPath(context: Context, path: String) = context.scanPath(path) {}
+
+        fun scanFiles(context: Context, files: ArrayList<File>) = context.scanFiles(files) {}
     }
 }

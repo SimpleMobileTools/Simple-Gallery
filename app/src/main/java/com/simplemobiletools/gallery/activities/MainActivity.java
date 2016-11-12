@@ -230,25 +230,24 @@ public class MainActivity extends SimpleActivity
 
         mIsSnackbarShown = false;
 
-        final List<String> updatedFiles = new ArrayList<>();
+        final ArrayList<File> updatedFiles = new ArrayList<>();
         for (String delPath : mToBeDeleted) {
             final File dir = new File(delPath);
             if (dir.exists()) {
                 final File[] files = dir.listFiles();
-                for (File f : files) {
-                    if (f.isFile()) {
-                        updatedFiles.add(f.getAbsolutePath());
-                        deleteItem(f);
+                for (File file : files) {
+                    if (file.isFile()) {
+                        updatedFiles.add(file);
+                        deleteItem(file);
                     }
                 }
-                updatedFiles.add(dir.getAbsolutePath());
+                updatedFiles.add(dir);
                 if (dir.listFiles().length == 0)
                     deleteItem(dir);
             }
         }
 
-        final String[] deletedPaths = updatedFiles.toArray(new String[updatedFiles.size()]);
-        MediaScannerConnection.scanFile(getApplicationContext(), deletedPaths, null, null);
+        Utils.Companion.scanFiles(getApplicationContext(), updatedFiles);
         mToBeDeleted.clear();
     }
 

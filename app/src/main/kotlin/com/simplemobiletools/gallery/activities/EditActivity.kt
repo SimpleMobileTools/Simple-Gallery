@@ -2,7 +2,6 @@ package com.simplemobiletools.gallery.activities
 
 import android.app.Activity
 import android.graphics.Bitmap
-import android.media.MediaScannerConnection
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +9,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.filepicker.extensions.getFileDocument
 import com.simplemobiletools.filepicker.extensions.needsStupidWritePermissions
+import com.simplemobiletools.filepicker.extensions.scanPath
 import com.simplemobiletools.filepicker.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.Utils
@@ -134,14 +134,14 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             }
         }
 
-        MediaScannerConnection.scanFile(applicationContext, arrayOf(path), null, { path: String, uri: Uri ->
+        scanPath(path) {
             setResult(Activity.RESULT_OK, intent)
             runOnUiThread {
                 toast(R.string.file_saved)
             }
 
             finish()
-        })
+        }
     }
 
     private fun getCompressionFormat(file: File): Bitmap.CompressFormat {

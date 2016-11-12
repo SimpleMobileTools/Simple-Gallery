@@ -3,7 +3,7 @@ package com.simplemobiletools.gallery.asynctasks
 import android.content.Context
 import android.os.AsyncTask
 import android.provider.MediaStore
-import com.simplemobiletools.filepicker.extensions.rescanFiles
+import com.simplemobiletools.filepicker.extensions.scanFiles
 import com.simplemobiletools.gallery.Config
 import com.simplemobiletools.gallery.Constants
 import com.simplemobiletools.gallery.R
@@ -26,7 +26,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
 
     override fun doInBackground(vararg params: Void): ArrayList<Directory> {
         val directories = LinkedHashMap<String, Directory>()
-        val invalidFiles = ArrayList<String>()
+        val invalidFiles = ArrayList<File>()
         for (i in 0..1) {
             if ((isPickVideo) && i == 0)
                 continue
@@ -42,34 +42,37 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
             val order = getSortOrder()
             val cursor = context.contentResolver.query(uri, columns, null, null, order)
 
-            if (cursor != null && cursor.moveToFirst()) {
-                val pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA)
-                do {
-                    val fullPath: String = cursor.getString(pathIndex) ?: continue
-                    val file = File(fullPath)
-                    val parentDir = file.parent
+            if (cursor != null) {
+                if (cursor.moveToFirst()) {
 
-                    if (!file.exists()) {
-                        invalidFiles.add(file.absolutePath)
-                        continue
-                    }
+                    val pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA)
+                    do {
+                        val fullPath: String = cursor.getString(pathIndex) ?: continue
+                        val file = File(fullPath)
+                        val parentDir = file.parent
 
-                    val dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_MODIFIED)
-                    val timestamp = cursor.getLong(dateIndex)
-                    if (directories.containsKey(parentDir)) {
-                        val directory: Directory = directories[parentDir]!!
-                        val newImageCnt = directory.mediaCnt + 1
-                        directory.mediaCnt = newImageCnt
-                        directory.addSize(file.length())
-                    } else if (!mToBeDeleted.contains(parentDir)) {
-                        var dirName = Utils.getFilename(parentDir)
-                        if (mConfig.getIsFolderHidden(parentDir)) {
-                            dirName += " ${context.resources.getString(R.string.hidden)}"
+                        if (!file.exists()) {
+                            invalidFiles.add(file)
+                            continue
                         }
 
-                        directories.put(parentDir, Directory(parentDir, fullPath, dirName, 1, timestamp, file.length()))
-                    }
-                } while (cursor.moveToNext())
+                        val dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_MODIFIED)
+                        val timestamp = cursor.getLong(dateIndex)
+                        if (directories.containsKey(parentDir)) {
+                            val directory: Directory = directories[parentDir]!!
+                            val newImageCnt = directory.mediaCnt + 1
+                            directory.mediaCnt = newImageCnt
+                            directory.addSize(file.length())
+                        } else if (!mToBeDeleted.contains(parentDir)) {
+                            var dirName = Utils.getFilename(parentDir)
+                            if (mConfig.getIsFolderHidden(parentDir)) {
+                                dirName += " ${context.resources.getString(R.string.hidden)}"
+                            }
+
+                            directories.put(parentDir, Directory(parentDir, fullPath, dirName, 1, timestamp, file.length()))
+                        }
+                    } while (cursor.moveToNext())
+                }
                 cursor.close()
             }
         }
@@ -79,8 +82,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         Directory.mSorting = mConfig.directorySorting
         Collections.sort<Directory>(dirs)
 
-        val invalids = invalidFiles.toTypedArray()
-        context.rescanFiles(invalids)
+        context.scanFiles(invalidFiles) {}
         return dirs
     }
 

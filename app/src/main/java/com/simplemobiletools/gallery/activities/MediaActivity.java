@@ -169,20 +169,6 @@ public class MediaActivity extends SimpleActivity
         ((MediaAdapter)mGridView.getAdapter()).updateDisplayFilenames(mConfig.getDisplayFileNames());
     }
 
-    private void rescanDirectory(File dir) {
-        final File[] files = dir.listFiles();
-        final String[] paths = new String[files.length];
-        final int cnt = dir.listFiles().length;
-        for (int i = 0; i < cnt; i++) {
-            paths[i] = files[i].getPath();
-            if (files[i].isDirectory()) {
-                rescanDirectory(files[i]);
-            }
-        }
-
-        Utils.Companion.scanFiles(getApplicationContext(), paths);
-    }
-
     private void showSortingDialog() {
         new ChangeSorting(this, false);
     }
@@ -210,7 +196,7 @@ public class MediaActivity extends SimpleActivity
 
     private List<Medium> getMedia() {
         final List<Medium> media = new ArrayList<>();
-        final List<String> invalidFiles = new ArrayList<>();
+        final ArrayList<File> invalidFiles = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
             if (mIsGetVideoIntent && i == 0)
                 continue;
@@ -242,7 +228,7 @@ public class MediaActivity extends SimpleActivity
                             final long timestamp = cursor.getLong(dateIndex);
                             media.add(new Medium(file.getName(), curPath, (i == 1), timestamp, file.length()));
                         } else {
-                            invalidFiles.add(file.getAbsolutePath());
+                            invalidFiles.add(file);
                         }
                     }
                 } while (cursor.moveToNext());
@@ -252,9 +238,7 @@ public class MediaActivity extends SimpleActivity
 
         Medium.mSorting = mConfig.getSorting();
         Collections.sort(media);
-
-        final String[] invalids = invalidFiles.toArray(new String[invalidFiles.size()]);
-        MediaScannerConnection.scanFile(getApplicationContext(), invalids, null, null);
+        Utils.Companion.scanFiles(getApplicationContext(), invalidFiles);
 
         return media;
     }
@@ -544,7 +528,7 @@ public class MediaActivity extends SimpleActivity
     public void onRefresh() {
         final File dir = new File(mPath);
         if (dir.isDirectory()) {
-            rescanDirectory(dir);
+            Utils.Companion.scanPath(getApplicationContext(), mPath);
         }
         initializeGallery();
         mSwipeRefreshLayout.setRefreshing(false);

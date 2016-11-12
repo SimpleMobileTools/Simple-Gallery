@@ -67,8 +67,8 @@ class RenameFileDialog(val activity: SimpleActivity, val file: File, val listene
     }
 
     private fun sendSuccess(currFile: File, newFile: File) {
-        val changedFiles = arrayOf(currFile.absolutePath, newFile.absolutePath)
-        activity.rescanFiles(changedFiles)
+        val changedFiles = arrayListOf(currFile, newFile)
+        activity.scanFiles(changedFiles) {}
         listener.onRenameFileSuccess(newFile)
     }
 

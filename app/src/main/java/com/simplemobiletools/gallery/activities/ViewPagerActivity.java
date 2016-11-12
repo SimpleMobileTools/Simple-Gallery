@@ -104,7 +104,7 @@ public class ViewPagerActivity extends SimpleActivity
         mBeingDeleted = "";
         hideSystemUI();
 
-        MediaScannerConnection.scanFile(getApplicationContext(), new String[]{mPath}, null, null);
+        Utils.Companion.scanPath(getApplicationContext(), mPath);
         addUndoMargin();
         mDirectory = new File(mPath).getParent();
         mMedia = getMedia();
@@ -350,8 +350,7 @@ public class ViewPagerActivity extends SimpleActivity
             file.delete();
         }
 
-        final String[] toBeDeleted = new String[]{mDirectory};
-        MediaScannerConnection.scanFile(getApplicationContext(), toBeDeleted, null, null);
+        Utils.Companion.scanPath(getApplicationContext(), mDirectory);
     }
 
     private List<Medium> getMedia() {

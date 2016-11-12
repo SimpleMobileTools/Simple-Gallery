@@ -6,7 +6,7 @@ import android.support.v4.util.Pair
 import android.util.Log
 import com.simplemobiletools.filepicker.extensions.getFileDocument
 import com.simplemobiletools.filepicker.extensions.needsStupidWritePermissions
-import com.simplemobiletools.filepicker.extensions.rescanFile
+import com.simplemobiletools.filepicker.extensions.scanFile
 import com.simplemobiletools.gallery.Config
 import java.io.*
 import java.lang.ref.WeakReference
@@ -69,6 +69,7 @@ class CopyTask(listener: CopyTask.CopyDoneListener, val context: Context) : Asyn
                     val inputStream = FileInputStream(newFile)
                     val out = context.contentResolver.openOutputStream(document.uri)
                     copyStream(inputStream, out)
+                    context.scanFile(destination) {}
                 }
             } else {
                 copy(newFile, File(destination, child))
@@ -92,8 +93,8 @@ class CopyTask(listener: CopyTask.CopyDoneListener, val context: Context) : Asyn
             out = FileOutputStream(destination)
         }
 
-        context.rescanFile(destination)
         copyStream(inputStream, out)
+        context.scanFile(destination) {}
     }
 
     private fun copyStream(inputStream: InputStream, out: OutputStream?) {
