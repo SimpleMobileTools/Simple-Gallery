@@ -9,25 +9,23 @@ class Directory(val path: String, val thumbnail: String, val name: String, var m
 
     override fun compareTo(other: Directory): Int {
         var res: Int
-        if (mSorting and Constants.SORT_BY_NAME != 0) {
+        if (sorting and Constants.SORT_BY_NAME != 0) {
             res = path.compareTo(other.path)
-        } else if (mSorting and Constants.SORT_BY_DATE != 0) {
+        } else if (sorting and Constants.SORT_BY_DATE != 0) {
             res = if (timestamp > other.timestamp) 1 else -1
         } else {
             res = if (size > other.size) 1 else -1
         }
 
-        if (mSorting and Constants.SORT_DESCENDING != 0) {
+        if (sorting and Constants.SORT_DESCENDING != 0) {
             res *= -1
         }
         return res
     }
 
-    override fun toString(): String {
-        return "Directory {path=$path, thumbnail=$thumbnail, name=$name, timestamp=$timestamp, mediaCnt=$mediaCnt}"
-    }
+    override fun toString() = "Directory {path=$path, thumbnail=$thumbnail, name=$name, mediaCnt=$mediaCnt, timestamp=$timestamp, size $size}"
 
     companion object {
-        var mSorting: Int = 0
+        var sorting: Int = 0
     }
 }

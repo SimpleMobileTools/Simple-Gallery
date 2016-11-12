@@ -234,7 +234,7 @@ public class MediaActivity extends SimpleActivity
             }
         }
 
-        Medium.mSorting = mConfig.getSorting();
+        Medium.Companion.setSorting(mConfig.getSorting());
         Collections.sort(media);
         Utils.Companion.scanFiles(getApplicationContext(), invalidFiles);
 
