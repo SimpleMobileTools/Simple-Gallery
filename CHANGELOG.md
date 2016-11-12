@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 1.31 *(2016-11-12)*
+----------------------------
+
+ * Add a Move function
+ * Many small improvements, mostly related to Copy/Move
+
 Version 1.30 *(2016-11-10)*
 ----------------------------
 
