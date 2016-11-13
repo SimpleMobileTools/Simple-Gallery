@@ -15,8 +15,8 @@
     <string name="rename_file_error">Não foi possível renomear o ficheiro</string>
     <string name="rename_folder_error">Não foi possível renomear a pasta</string>
     <string name="rename_folder_empty">O nome da pasta não pode estar vazio</string>
-    <string name="rename_folder_exists">A folder with that name already exists</string>
-    <string name="rename_folder_root">Cannot rename the root folder of a storage</string>
+    <string name="rename_folder_exists">Já existe uma pasta com este nome</string>
+    <string name="rename_folder_root">Não pode renomear a pasta raiz de um armazenamento</string>
     <string name="rename_folder_ok">A pasta foi renomeada com sucesso</string>
     <string name="renaming_folder">A renomear pasta</string>
     <string name="filename_cannot_be_empty">O nome do ficheiro não pode estar vazio</string>
@@ -68,7 +68,7 @@
 
     <plurals name="files_deleted">
         <item quantity="one">1 ficheiro apagado</item>
-        <item quantity="other">%1$d ficheiros apagadas</item>
+        <item quantity="other">%1$d ficheiros apagados</item>
     </plurals>
 
     <!-- Editor -->
@@ -118,6 +118,6 @@
     <string name="photoview_title"><u>PhotoView (ampliação de imagens)</u></string>
     <string name="glide_title"><u>Glide (carregamento e cache de imagens)</u></string>
     <string name="cropper_title"><u>Android Image Cropper</u></string>
-    <string name="filepicker_title"><u>Simple File Picker (diálogo de selecção de ficheiros)</u></string>
+    <string name="filepicker_title"><u>Simple File Picker (diálogo de seleção de ficheiros)</u></string>
     <string name="fileproperties_title"><u>Simple File Properties (diálogo de propriedades)</u></string>
 </resources>
