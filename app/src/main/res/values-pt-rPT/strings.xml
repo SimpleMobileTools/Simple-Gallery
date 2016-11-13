@@ -55,11 +55,11 @@
     <string name="copying">A copiar&#8230;</string>
     <string name="copying_success">Ficheiros copiados com sucesso</string>
     <string name="copy_move_failed">Ocorreu um erro ao copiar</string>
-    <string name="moving">Moving&#8230;</string>
-    <string name="moving_success">Files moved successfully</string>
+    <string name="moving">A mover&#8230;</string>
+    <string name="moving_success">Ficheiros movidos com sucesso</string>
     <string name="already_exists">Já existe um ficheiro com este nome</string>
-    <string name="moving_success_partial">Some files could not be moved</string>
-    <string name="copying_success_partial">Some files could not be copied</string>
+    <string name="moving_success_partial">Alguns ficheiros não foram movidos</string>
+    <string name="copying_success_partial">Alguns ficheiros não foram copiados</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 pasta apagada</item>
@@ -109,7 +109,7 @@
     <string name="same_sorting">Mesma ordenação para ficheiros e pastas</string>
     <string name="show_hidden_folders">Mostrar pastas ocultas</string>
     <string name="autoplay_videos">Reproduzir vídeos automaticamente</string>
-    <string name="toggle_filename">Toggle filename visibility</string>
+    <string name="toggle_filename">Mostrar/ocultar nome do ficheiro</string>
 
     <!-- License -->
     <string name="notice">Esta aplicação usa as seguintes bibliotecas de terceiros para facilitar a minha vida. Obrigado.</string>
@@ -118,6 +118,6 @@
     <string name="photoview_title"><u>PhotoView (ampliação de imagens)</u></string>
     <string name="glide_title"><u>Glide (carregamento e cache de imagens)</u></string>
     <string name="cropper_title"><u>Android Image Cropper</u></string>
-    <string name="filepicker_title"><u>Simple File Picker (filepicker dialog)</u></string>
-    <string name="fileproperties_title"><u>Simple File Properties (properties dialog)</u></string>
+    <string name="filepicker_title"><u>Simple File Picker (diálogo de selecção de ficheiros)</u></string>
+    <string name="fileproperties_title"><u>Simple File Properties (diálogo de propriedades)</u></string>
 </resources>
