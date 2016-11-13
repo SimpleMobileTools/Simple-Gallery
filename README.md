@@ -3,7 +3,7 @@
 
 A gallery for viewing photos and videos.
 
-A simple tool usable for viewing  photos and videos. Items can be sorted by date, size, name both ascending or descending, photos can be zoomed in. Media files are shown in multiple columns, depending on the size of the display. They can be renamed, shared or deleted. Images can also be cropped, rotated or set as Wallpaper directly from the app.
+A simple tool usable for viewing  photos and videos. Items can be sorted by date, size, name both ascending or descending, photos can be zoomed in. Media files are shown in multiple columns, depending on the size of the display. They can be renamed, shared, deleted, copied, moved. Images can also be cropped, rotated or set as Wallpaper directly from the app.
 
 The Gallery is also offered for third party usage for previewing images / videos, adding attachments at email clients etc. It's perfect for everyday usage.
 
@@ -16,7 +16,7 @@ This app is just one piece of a bigger series of apps. You can find the rest of 
 
 <img alt="App image" src="screenshots/app.jpg" width="250">
 <img alt="App image" src="screenshots/app_2.jpg" width="250">
-<img alt="App image" src="screenshots/app_3.jpg" width="250">
+<img alt="App image" src="screenshots/app_5.jpg" width="250">
 
 License
 -------
