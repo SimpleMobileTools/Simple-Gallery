@@ -15,6 +15,8 @@ class LicenseActivity : SimpleActivity() {
         license_photoview_title.setOnClickListener { openUrl(R.string.photoview_url) }
         license_glide_title.setOnClickListener { openUrl(R.string.glide_url) }
         license_cropper_title.setOnClickListener { openUrl(R.string.cropper_url) }
+        license_filepicker_title.setOnClickListener { openUrl(R.string.filepicker_url) }
+        license_fileproperties_title.setOnClickListener { openUrl(R.string.fileproperties_url) }
     }
 
     private fun openUrl(id: Int) {

@@ -117,4 +117,6 @@
     <string name="photoview_title"><u>PhotoView (zoomable imageviews)</u></string>
     <string name="glide_title"><u>Glide (image loading and caching)</u></string>
     <string name="cropper_title"><u>Android Image Cropper</u></string>
+    <string name="filepicker_title"><u>Simple File Picker (filepicker dialog)</u></string>
+    <string name="fileproperties_title"><u>Simple File Properties (properties dialog)</u></string>
 </resources>
