@@ -21,11 +21,12 @@ import java.util.*
 
 class Utils {
     companion object {
-        fun getFilename(path: String) = path.substring(path.lastIndexOf("/") + 1)
-
-        fun showToast(context: Context, resId: Int) {
-            context.toast(resId)
+        fun getFilename(context: Context, path: String): String {
+            val humanized = context.humanizePath(path)
+            return humanized.substring(humanized.lastIndexOf("/") + 1)
         }
+
+        fun showToast(context: Context, resId: Int) = context.toast(resId)
 
         fun getActionBarHeight(context: Context, res: Resources): Int {
             val tv = TypedValue()

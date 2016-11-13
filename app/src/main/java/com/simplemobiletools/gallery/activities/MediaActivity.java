@@ -127,7 +127,7 @@ public class MediaActivity extends SimpleActivity
         mGridView.setOnTouchListener(this);
         mIsSnackbarShown = false;
 
-        final String dirName = Utils.Companion.getFilename(mPath);
+        final String dirName = Utils.Companion.getFilename(this, mPath);
         setTitle(dirName);
     }
 
