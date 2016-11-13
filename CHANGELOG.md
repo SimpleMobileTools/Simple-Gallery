@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 1.32 *(2016-11-13)*
+----------------------------
+
+ * Added Chinese translation
+ * Couple small bugfixes
+
 Version 1.31 *(2016-11-12)*
 ----------------------------
 
