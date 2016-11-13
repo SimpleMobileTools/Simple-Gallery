@@ -16,6 +16,7 @@
     <string name="rename_folder_error">Impossibile rinominare la cartella</string>
     <string name="rename_folder_empty">Il nome della cartella non deve essere vuoto</string>
     <string name="rename_folder_exists">A folder with that name already exists</string>
+    <string name="rename_folder_root">Cannot rename the root folder of a storage</string>
     <string name="rename_folder_ok">Cartella rinominata correttamente</string>
     <string name="renaming_folder">Rinominazione cartella</string>
     <string name="filename_cannot_be_empty">Il nome del file non deve essere vuoto</string>

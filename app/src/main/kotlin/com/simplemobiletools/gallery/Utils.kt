@@ -111,6 +111,11 @@ class Utils {
             }
         }
 
+        fun isAStorageRootFolder(context: Context, path: String): Boolean {
+            val trimmed = path.trimEnd('/')
+            return trimmed.isEmpty() || trimmed == context.getInternalStoragePath() || trimmed == context.getSDCardPath()
+        }
+
         fun isPhotoVideo(file: File) = file.isPhotoVideo()
 
         fun needsStupidWritePermissions(context: Context, path: String) = context.needsStupidWritePermissions(path)

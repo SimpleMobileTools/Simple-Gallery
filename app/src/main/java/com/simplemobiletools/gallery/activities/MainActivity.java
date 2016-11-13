@@ -304,6 +304,11 @@ public class MainActivity extends SimpleActivity
 
     private void renameDir(final String path) {
         final File dir = new File(path);
+        if (Utils.Companion.isAStorageRootFolder(this, path)) {
+            Utils.Companion.showToast(this, R.string.rename_folder_root);
+            return;
+        }
+
         new RenameDirectoryDialog(this, dir, new RenameDirectoryDialog.OnRenameDirListener() {
             @Override
             public void onRenameDirSuccess(@NotNull String[] changedFiles) {

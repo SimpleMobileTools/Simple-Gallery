@@ -16,6 +16,7 @@
     <string name="rename_folder_error">Não foi possível renomear a pasta</string>
     <string name="rename_folder_empty">O nome da pasta não pode estar vazio</string>
     <string name="rename_folder_exists">A folder with that name already exists</string>
+    <string name="rename_folder_root">Cannot rename the root folder of a storage</string>
     <string name="rename_folder_ok">A pasta foi renomeada com sucesso</string>
     <string name="renaming_folder">A renomear pasta</string>
     <string name="filename_cannot_be_empty">O nome do ficheiro não pode estar vazio</string>
