@@ -87,13 +87,14 @@ class Utils {
 
         fun shareMedium(medium: Medium, activity: Activity) {
             val shareTitle = activity.resources.getString(R.string.share_via)
-            val intent = Intent()
             val file = File(medium.path)
             val uri = Uri.fromFile(file)
-            intent.action = Intent.ACTION_SEND
-            intent.putExtra(Intent.EXTRA_STREAM, uri)
-            intent.type = medium.getMimeType()
-            activity.startActivity(Intent.createChooser(intent, shareTitle))
+            Intent().apply {
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_STREAM, uri)
+                type = medium.getMimeType()
+                activity.startActivity(Intent.createChooser(this, shareTitle))
+            }
         }
 
         fun isAStorageRootFolder(context: Context, path: String) = context.isAStorageRootFolder(path)

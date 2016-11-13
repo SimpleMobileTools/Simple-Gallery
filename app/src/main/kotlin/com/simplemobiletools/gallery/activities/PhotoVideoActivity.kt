@@ -17,10 +17,11 @@ import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 
 open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClickListener {
+    private var mIsFullScreen = true
+    lateinit var mUri: Uri
+    lateinit var mFragment: ViewPagerFragment
+
     companion object {
-        private var mUri: Uri? = null
-        private var mFragment: ViewPagerFragment? = null
-        private var mIsFullScreen = false
         var mIsVideo = false
     }
 
@@ -30,24 +31,22 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
 
         mUri = intent.data ?: return
 
-        mIsFullScreen = true
-
         val bundle = Bundle()
-        val file = File(mUri!!.toString())
-        val medium = Medium(file.name, mUri!!.toString(), mIsVideo, 0, file.length())
+        val file = File(mUri.toString())
+        val medium = Medium(file.name, mUri.toString(), mIsVideo, 0, file.length())
         bundle.putSerializable(Constants.MEDIUM, medium)
 
         if (savedInstanceState == null) {
             mFragment = if (mIsVideo) VideoFragment() else PhotoFragment()
-            mFragment!!.listener = this
-            mFragment!!.arguments = bundle
+            mFragment.listener = this
+            mFragment.arguments = bundle
             supportFragmentManager.beginTransaction().replace(R.id.fragment_holder, mFragment).commit()
         }
         hideUI()
 
-        if (mUri!!.scheme == "content") {
+        if (mUri.scheme == "content") {
             val proj = arrayOf(MediaStore.Images.Media.TITLE)
-            val cursor = contentResolver.query(mUri!!, proj, null, null, null)
+            val cursor = contentResolver.query(mUri, proj, null, null, null)
             if (cursor != null && cursor.count != 0) {
                 val columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.TITLE)
                 cursor.moveToFirst()
@@ -55,13 +54,13 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
             }
             cursor?.close()
         } else {
-            title = mUri!!.toString().getFilenameFromPath()
+            title = mUri.toString().getFilenameFromPath()
         }
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        mFragment!!.updateItem()
+        mFragment.updateItem()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
