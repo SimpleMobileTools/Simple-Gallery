@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         android:foreground="@drawable/selector">
 
-        <com.simplemobiletools.gallery.MyImageView
+        <com.simplemobiletools.gallery.views.MyImageView
             android:id="@+id/dir_thumbnail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
