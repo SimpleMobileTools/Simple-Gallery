@@ -145,7 +145,7 @@ public class MainActivity extends SimpleActivity
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mConfig.setIsFirstRun(false);
+        mConfig.setFirstRun(false);
     }
 
     private void tryloadGallery() {
@@ -338,7 +338,7 @@ public class MainActivity extends SimpleActivity
                     getDirectories();
                     msgId = copiedAll ? R.string.moving_success : R.string.moving_success_partial;
                 } else {
-                    msgId = copiedAll? R.string.copying_success : R.string.copying_success_partial;
+                    msgId = copiedAll ? R.string.copying_success : R.string.copying_success_partial;
                 }
                 Utils.Companion.showToast(getApplicationContext(), msgId);
             }

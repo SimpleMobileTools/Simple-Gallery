@@ -24,7 +24,7 @@ public class ChangeSorting extends AlertDialog.Builder implements DialogInterfac
 
         mIsDirectorySorting = isDirectorySorting;
         mListener = (ChangeDialogListener) act;
-        mConfig = Config.newInstance(getContext());
+        mConfig = Config.Companion.newInstance(getContext());
         mHolder = act.getLayoutInflater().inflate(R.layout.change_sorting, null);
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(act);

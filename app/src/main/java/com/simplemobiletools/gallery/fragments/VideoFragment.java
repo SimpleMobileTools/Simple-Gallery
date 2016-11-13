@@ -94,7 +94,7 @@ public class VideoFragment extends ViewPagerFragment
         super.setMenuVisibility(menuVisible);
         mIsFragmentVisible = menuVisible;
         if (menuVisible) {
-            if (getContext() != null && Config.newInstance(getContext()).getAutoplayVideos()) {
+            if (getContext() != null && Config.Companion.newInstance(getContext()).getAutoplayVideos()) {
                 playVideo();
             }
         }
@@ -409,7 +409,7 @@ public class VideoFragment extends ViewPagerFragment
         setupTimeHolder();
         setProgress(mCurrTime);
 
-        if (mIsFragmentVisible && Config.newInstance(getContext()).getAutoplayVideos())
+        if (mIsFragmentVisible && Config.Companion.newInstance(getContext()).getAutoplayVideos())
             playVideo();
     }
 }
