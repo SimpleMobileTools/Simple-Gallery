@@ -32,7 +32,7 @@ import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter;
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask;
-import com.simplemobiletools.gallery.dialogs.ChangeSorting;
+import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog;
 import com.simplemobiletools.gallery.dialogs.CopyDialog;
 import com.simplemobiletools.gallery.dialogs.RenameDirectoryDialog;
 import com.simplemobiletools.gallery.models.Directory;
@@ -51,7 +51,7 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends SimpleActivity
         implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener,
-        SwipeRefreshLayout.OnRefreshListener, ChangeSorting.ChangeDialogListener, GetDirectoriesAsynctask.GetDirectoriesListener {
+        SwipeRefreshLayout.OnRefreshListener, GetDirectoriesAsynctask.GetDirectoriesListener {
     @BindView(R.id.directories_grid) GridView mGridView;
     @BindView(R.id.directories_holder) SwipeRefreshLayout mSwipeRefreshLayout;
 
@@ -180,7 +180,12 @@ public class MainActivity extends SimpleActivity
     }
 
     private void showSortingDialog() {
-        new ChangeSorting(this, true);
+        new ChangeSortingDialog(this, true, new ChangeSortingDialog.OnChangeSortingListener() {
+            @Override
+            public void sortingChanged() {
+                getDirectories();
+            }
+        });
     }
 
     private void prepareForDeleting() {
@@ -583,11 +588,6 @@ public class MainActivity extends SimpleActivity
     public void onRefresh() {
         getDirectories();
         mSwipeRefreshLayout.setRefreshing(false);
-    }
-
-    @Override
-    public void sortingDialogClosed() {
-        getDirectories();
     }
 
     @Override

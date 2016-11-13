@@ -35,7 +35,7 @@ import com.simplemobiletools.gallery.Constants;
 import com.simplemobiletools.gallery.R;
 import com.simplemobiletools.gallery.Utils;
 import com.simplemobiletools.gallery.adapters.MediaAdapter;
-import com.simplemobiletools.gallery.dialogs.ChangeSorting;
+import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog;
 import com.simplemobiletools.gallery.dialogs.CopyDialog;
 import com.simplemobiletools.gallery.models.Medium;
 
@@ -51,7 +51,7 @@ import butterknife.ButterKnife;
 
 public class MediaActivity extends SimpleActivity
         implements AdapterView.OnItemClickListener, GridView.MultiChoiceModeListener, GridView.OnTouchListener,
-        SwipeRefreshLayout.OnRefreshListener, ChangeSorting.ChangeDialogListener {
+        SwipeRefreshLayout.OnRefreshListener {
     private static final String TAG = MediaActivity.class.getSimpleName();
     @BindView(R.id.media_grid) GridView mGridView;
     @BindView(R.id.media_holder) SwipeRefreshLayout mSwipeRefreshLayout;
@@ -168,7 +168,12 @@ public class MediaActivity extends SimpleActivity
     }
 
     private void showSortingDialog() {
-        new ChangeSorting(this, false);
+        new ChangeSortingDialog(this, false, new ChangeSortingDialog.OnChangeSortingListener() {
+            @Override
+            public void sortingChanged() {
+                initializeGallery();
+            }
+        });
     }
 
     private void hideDirectory() {
@@ -548,10 +553,5 @@ public class MediaActivity extends SimpleActivity
         }
         initializeGallery();
         mSwipeRefreshLayout.setRefreshing(false);
-    }
-
-    @Override
-    public void sortingDialogClosed() {
-        initializeGallery();
     }
 }
