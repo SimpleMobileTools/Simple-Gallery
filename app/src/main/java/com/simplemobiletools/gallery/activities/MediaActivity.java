@@ -73,12 +73,12 @@ public class MediaActivity extends SimpleActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_media);
         ButterKnife.bind(this);
-        mIsGetImageIntent = getIntent().getBooleanExtra(Constants.GET_IMAGE_INTENT, false);
-        mIsGetVideoIntent = getIntent().getBooleanExtra(Constants.GET_VIDEO_INTENT, false);
-        mIsGetAnyIntent = getIntent().getBooleanExtra(Constants.GET_ANY_INTENT, false);
+        mIsGetImageIntent = getIntent().getBooleanExtra(Constants.INSTANCE.getGET_IMAGE_INTENT(), false);
+        mIsGetVideoIntent = getIntent().getBooleanExtra(Constants.INSTANCE.getGET_VIDEO_INTENT(), false);
+        mIsGetAnyIntent = getIntent().getBooleanExtra(Constants.INSTANCE.getGET_ANY_INTENT(), false);
         mToBeDeleted = new ArrayList<>();
         mSwipeRefreshLayout.setOnRefreshListener(this);
-        mPath = getIntent().getStringExtra(Constants.DIRECTORY);
+        mPath = getIntent().getStringExtra(Constants.INSTANCE.getDIRECTORY());
         mMedia = new ArrayList<>();
     }
 
@@ -407,7 +407,7 @@ public class MediaActivity extends SimpleActivity
     }
 
     private boolean isSetWallpaperIntent() {
-        return getIntent().getBooleanExtra(Constants.SET_WALLPAPER_INTENT, false);
+        return getIntent().getBooleanExtra(Constants.INSTANCE.getSET_WALLPAPER_INTENT(), false);
     }
 
     private void displayCopyDialog() {
@@ -475,7 +475,7 @@ public class MediaActivity extends SimpleActivity
             finish();
         } else {
             final Intent intent = new Intent(this, ViewPagerActivity.class);
-            intent.putExtra(Constants.MEDIUM, curItemPath);
+            intent.putExtra(Constants.INSTANCE.getMEDIUM(), curItemPath);
             startActivity(intent);
         }
     }

@@ -4,10 +4,7 @@ import android.content.Context
 import android.os.AsyncTask
 import android.provider.MediaStore
 import com.simplemobiletools.filepicker.extensions.scanFiles
-import com.simplemobiletools.gallery.Config
-import com.simplemobiletools.gallery.Constants
-import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.Utils
+import com.simplemobiletools.gallery.*
 import com.simplemobiletools.gallery.models.Directory
 import java.io.File
 import java.lang.ref.WeakReference
@@ -95,11 +92,11 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
     private fun getSortOrder(): String {
         val sorting = mConfig.directorySorting
         var sortBy = MediaStore.Images.Media.DATE_MODIFIED
-        if (sorting and Constants.SORT_BY_NAME != 0) {
+        if (sorting and SORT_BY_NAME != 0) {
             sortBy = MediaStore.Images.Media.DATA
         }
 
-        if (sorting and Constants.SORT_DESCENDING != 0) {
+        if (sorting and SORT_DESCENDING != 0) {
             sortBy += " DESC"
         }
         return sortBy

@@ -5,9 +5,7 @@ import android.content.DialogInterface
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
-import com.simplemobiletools.gallery.Config
-import com.simplemobiletools.gallery.Constants
-import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.*
 import kotlinx.android.synthetic.main.dialog_change_sorting.view.*
 
 class ChangeSortingDialog(val activity: Activity, val isDirectorySorting: Boolean, val listener: OnChangeSortingListener) : DialogInterface.OnClickListener {
@@ -39,9 +37,9 @@ class ChangeSortingDialog(val activity: Activity, val isDirectorySorting: Boolea
         val sortingRadio = view.dialog_radio_sorting
         var sortBtn = sortingRadio.dialog_radio_name
 
-        if (currSorting and Constants.SORT_BY_DATE != 0) {
+        if (currSorting and SORT_BY_DATE != 0) {
             sortBtn = sortingRadio.dialog_radio_date
-        } else if (currSorting and Constants.SORT_BY_SIZE != 0) {
+        } else if (currSorting and SORT_BY_SIZE != 0) {
             sortBtn = sortingRadio.dialog_radio_size
         }
         sortBtn.isChecked = true
@@ -51,7 +49,7 @@ class ChangeSortingDialog(val activity: Activity, val isDirectorySorting: Boolea
         val orderRadio = view.dialog_radio_order
         var orderBtn = orderRadio.dialog_radio_ascending
 
-        if (currSorting and Constants.SORT_DESCENDING != 0) {
+        if (currSorting and SORT_DESCENDING != 0) {
             orderBtn = orderRadio.dialog_radio_descending
         }
         orderBtn.isChecked = true
@@ -60,13 +58,13 @@ class ChangeSortingDialog(val activity: Activity, val isDirectorySorting: Boolea
     override fun onClick(dialog: DialogInterface, which: Int) {
         val sortingRadio = view.dialog_radio_sorting
         var sorting = when (sortingRadio.checkedRadioButtonId) {
-            R.id.dialog_radio_name -> Constants.SORT_BY_NAME
-            R.id.dialog_radio_date -> Constants.SORT_BY_DATE
-            else -> Constants.SORT_BY_SIZE
+            R.id.dialog_radio_name -> SORT_BY_NAME
+            R.id.dialog_radio_date -> SORT_BY_DATE
+            else -> SORT_BY_SIZE
         }
 
         if (view.dialog_radio_order.checkedRadioButtonId == R.id.dialog_radio_descending) {
-            sorting = sorting or Constants.SORT_DESCENDING
+            sorting = sorting or SORT_DESCENDING
         }
 
         if (isDirectorySorting) {

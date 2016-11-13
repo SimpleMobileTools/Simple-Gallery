@@ -444,15 +444,15 @@ public class MainActivity extends SimpleActivity
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         final Intent intent = new Intent(this, MediaActivity.class);
-        intent.putExtra(Constants.DIRECTORY, mDirs.get(position).getPath());
+        intent.putExtra(Constants.INSTANCE.getDIRECTORY(), mDirs.get(position).getPath());
 
         if (mIsSetWallpaperIntent) {
-            intent.putExtra(Constants.SET_WALLPAPER_INTENT, true);
+            intent.putExtra(Constants.INSTANCE.getSET_WALLPAPER_INTENT(), true);
             startActivityForResult(intent, PICK_WALLPAPER);
         } else {
-            intent.putExtra(Constants.GET_IMAGE_INTENT, mIsPickImageIntent || mIsGetImageContentIntent);
-            intent.putExtra(Constants.GET_VIDEO_INTENT, mIsPickVideoIntent || mIsGetVideoContentIntent);
-            intent.putExtra(Constants.GET_ANY_INTENT, mIsGetAnyContentIntent);
+            intent.putExtra(Constants.INSTANCE.getGET_IMAGE_INTENT(), mIsPickImageIntent || mIsGetImageContentIntent);
+            intent.putExtra(Constants.INSTANCE.getGET_VIDEO_INTENT(), mIsPickVideoIntent || mIsGetVideoContentIntent);
+            intent.putExtra(Constants.INSTANCE.getGET_ANY_INTENT(), mIsGetAnyContentIntent);
             startActivityForResult(intent, PICK_MEDIA);
         }
     }

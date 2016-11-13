@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.simplemobiletools.filepicker.extensions.isShowingWritePermissions
 import com.simplemobiletools.gallery.Config
-import com.simplemobiletools.gallery.Constants
+import com.simplemobiletools.gallery.OPEN_DOCUMENT_TREE
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.hideSystemUI
 import com.simplemobiletools.gallery.extensions.showSystemUI
@@ -40,7 +40,7 @@ open class SimpleActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
         super.onActivityResult(requestCode, resultCode, resultData)
-        if (requestCode == Constants.OPEN_DOCUMENT_TREE && resultCode == Activity.RESULT_OK && resultData != null) {
+        if (requestCode == OPEN_DOCUMENT_TREE && resultCode == Activity.RESULT_OK && resultData != null) {
             saveTreeUri(resultData)
         }
     }
@@ -54,7 +54,7 @@ open class SimpleActivity : AppCompatActivity() {
         contentResolver.takePersistableUriPermission(treeUri, takeFlags)
     }
 
-    fun isShowingPermDialog(file: File) = isShowingWritePermissions(file, mConfig.treeUri, Constants.OPEN_DOCUMENT_TREE)
+    fun isShowingPermDialog(file: File) = isShowingWritePermissions(file, mConfig.treeUri, OPEN_DOCUMENT_TREE)
 
     fun hideUI() = hideSystemUI(supportActionBar, window)
 
