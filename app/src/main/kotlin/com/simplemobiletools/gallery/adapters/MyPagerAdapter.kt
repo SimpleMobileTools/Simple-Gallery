@@ -37,7 +37,7 @@ class MyPagerAdapter(val activity: ViewPagerActivity, fm: FragmentManager, val m
 
         mFragments.put(position, fragment)
         fragment.arguments = bundle
-        fragment.setListener(activity)
+        fragment.listener = activity
         return fragment
     }
 

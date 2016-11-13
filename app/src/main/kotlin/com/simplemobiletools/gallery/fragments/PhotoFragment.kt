@@ -63,9 +63,9 @@ class PhotoFragment : ViewPagerFragment(), View.OnClickListener {
     }
 
     private fun photoClicked() {
-        if (mListener == null)
-            mListener = activity as ViewPagerFragment.FragmentClickListener
+        if (listener == null)
+            listener = activity as ViewPagerFragment.FragmentClickListener
 
-        mListener.fragmentClicked()
+        listener.fragmentClicked()
     }
 }

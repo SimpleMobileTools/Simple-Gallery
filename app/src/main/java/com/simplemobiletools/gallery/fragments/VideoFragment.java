@@ -183,9 +183,9 @@ public class VideoFragment extends ViewPagerFragment
                 mIsFullscreen = !mIsFullscreen;
                 checkFullscreen();
 
-                if (mListener == null)
-                    mListener = (FragmentClickListener) getActivity();
-                mListener.fragmentClicked();
+                if (getListener() == null)
+                    setListener((FragmentClickListener) getActivity());
+                getListener().fragmentClicked();
                 break;
         }
     }
