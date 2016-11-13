@@ -40,6 +40,11 @@ class RenameDirectoryDialog(val activity: SimpleActivity, val dir: File, val lis
                 updatedFiles.add(dir.absolutePath)
                 val newDir = File(dir.parent, newDirName)
 
+                if (newDir.exists()) {
+                    context.toast(R.string.rename_folder_exists)
+                    return@setOnClickListener
+                }
+
                 if (context.needsStupidWritePermissions(dir.absolutePath)) {
                     if (activity.isShowingPermDialog(dir))
                         return@setOnClickListener

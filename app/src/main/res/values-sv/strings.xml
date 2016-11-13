@@ -15,6 +15,7 @@
     <string name="rename_file_error">Det gick inte att döpa om filen</string>
     <string name="rename_folder_error">Det gick inte att döpa om mappen</string>
     <string name="rename_folder_empty">Du måste ange ett mappnamn</string>
+    <string name="rename_folder_exists">A folder with that name already exists</string>
     <string name="rename_folder_ok">Mappen döptes om</string>
     <string name="renaming_folder">Döper om mappen</string>
     <string name="filename_cannot_be_empty">Du måste ange ett filnamn</string>

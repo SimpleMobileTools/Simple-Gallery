@@ -15,6 +15,7 @@
     <string name="rename_file_error">ファイルの名前を変更できませんでした</string>
     <string name="rename_folder_error">フォルダーの名前を変更できませんでした</string>
     <string name="rename_folder_empty">フォルダー名は空にできません</string>
+    <string name="rename_folder_exists">A folder with that name already exists</string>
     <string name="rename_folder_ok">フォルダーの名前を正常に変更しました</string>
     <string name="renaming_folder">フォルダーの名前を変更中</string>
     <string name="filename_cannot_be_empty">ファイル名は空にできません</string>

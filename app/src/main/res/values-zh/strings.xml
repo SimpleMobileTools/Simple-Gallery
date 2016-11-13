@@ -15,6 +15,7 @@
     <string name="rename_file_error">文件不能重命名</string>
     <string name="rename_folder">重命名文件夹</string>
     <string name="rename_folder_empty">文件夹名不能为空</string>
+    <string name="rename_folder_exists">A folder with that name already exists</string>
     <string name="rename_folder_error">文件夹不能重命名</string>
     <string name="rename_folder_ok">文件夹重命名成功</string>
     <string name="renaming_folder">重命名中..</string>

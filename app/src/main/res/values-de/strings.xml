@@ -15,6 +15,7 @@
     <string name="rename_file_error">Konnte die Datei nicht umbenennen</string>
     <string name="rename_folder_error">Konnte den Ordner nicht umbenennen</string>
     <string name="rename_folder_empty">Ordnername darf nicht leer sein</string>
+    <string name="rename_folder_exists">A folder with that name already exists</string>
     <string name="rename_folder_ok">Ordner erfolgreich umbenannt</string>
     <string name="renaming_folder">Benenne Ordner um</string>
     <string name="filename_cannot_be_empty">Dateiname darf nicht leer sein</string>
