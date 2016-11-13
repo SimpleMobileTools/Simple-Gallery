@@ -12,8 +12,8 @@ import com.simplemobiletools.filepicker.extensions.needsStupidWritePermissions
 import com.simplemobiletools.filepicker.extensions.scanPath
 import com.simplemobiletools.filepicker.extensions.toast
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.Utils
 import com.simplemobiletools.gallery.dialogs.SaveAsDialog
+import com.simplemobiletools.gallery.extensions.getRealPathFromURI
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_edit.*
 import java.io.File
@@ -80,7 +80,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     }
                 })
             } else if (uri.scheme == "content") {
-                val newPath = Utils.getRealPathFromURI(applicationContext, uri) ?: ""
+                val newPath = applicationContext.getRealPathFromURI(uri) ?: ""
                 if (!newPath.isEmpty()) {
                     SaveAsDialog(this, newPath, object : SaveAsDialog.OnSaveAsListener {
                         override fun onSaveAsSuccess(filename: String) {
