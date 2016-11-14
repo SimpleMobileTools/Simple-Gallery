@@ -82,7 +82,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         mIsFullScreen = true
         mToBeDeleted = ""
         mBeingDeleted = ""
-        hideUI()
+        hideSystemUI()
 
         scanPath(mPath) {}
         addUndoMargin()
@@ -401,9 +401,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         deleteFile()
         mIsFullScreen = !mIsFullScreen
         if (mIsFullScreen) {
-            hideUI()
+            hideSystemUI()
         } else {
-            showUI()
+            showSystemUI()
         }
     }
 

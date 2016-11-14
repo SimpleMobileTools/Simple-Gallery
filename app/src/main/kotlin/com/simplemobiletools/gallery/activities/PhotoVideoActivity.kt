@@ -42,7 +42,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
             mFragment.arguments = bundle
             supportFragmentManager.beginTransaction().replace(R.id.fragment_holder, mFragment).commit()
         }
-        hideUI()
+        hideSystemUI()
 
         if (mUri.scheme == "content") {
             val proj = arrayOf(MediaStore.Images.Media.TITLE)
@@ -91,9 +91,9 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
     override fun fragmentClicked() {
         mIsFullScreen = !mIsFullScreen
         if (mIsFullScreen) {
-            hideUI()
+            hideSystemUI()
         } else {
-            showUI()
+            showSystemUI()
         }
     }
 }

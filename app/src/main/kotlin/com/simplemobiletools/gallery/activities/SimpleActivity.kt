@@ -7,12 +7,11 @@ import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import android.view.View
 import com.simplemobiletools.filepicker.extensions.isShowingWritePermissions
 import com.simplemobiletools.gallery.Config
 import com.simplemobiletools.gallery.OPEN_DOCUMENT_TREE
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.extensions.hideSystemUI
-import com.simplemobiletools.gallery.extensions.showSystemUI
 import java.io.File
 
 open class SimpleActivity : AppCompatActivity() {
@@ -56,7 +55,20 @@ open class SimpleActivity : AppCompatActivity() {
 
     fun isShowingPermDialog(file: File) = isShowingWritePermissions(file, mConfig.treeUri, OPEN_DOCUMENT_TREE)
 
-    fun hideUI() = hideSystemUI(supportActionBar, window)
+    fun showSystemUI() {
+        supportActionBar?.show()
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
+                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+    }
 
-    fun showUI() = showSystemUI(supportActionBar, window)
+    fun hideSystemUI() {
+        supportActionBar?.hide()
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
+                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                View.SYSTEM_UI_FLAG_LOW_PROFILE or
+                View.SYSTEM_UI_FLAG_FULLSCREEN or
+                View.SYSTEM_UI_FLAG_IMMERSIVE
+    }
 }
