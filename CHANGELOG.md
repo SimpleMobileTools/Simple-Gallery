@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 1.34 *(2016-11-14)*
+----------------------------
+
+ * Improve the wallpaper quality in some cases
+
 Version 1.33 *(2016-11-13)*
 ----------------------------
 
