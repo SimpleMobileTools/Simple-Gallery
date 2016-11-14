@@ -8,9 +8,7 @@ class Config private constructor(context: Context) {
     private val mPrefs: SharedPreferences
 
     companion object {
-        fun newInstance(context: Context): Config {
-            return Config(context)
-        }
+        fun newInstance(context: Context) = Config(context)
     }
 
     init {
