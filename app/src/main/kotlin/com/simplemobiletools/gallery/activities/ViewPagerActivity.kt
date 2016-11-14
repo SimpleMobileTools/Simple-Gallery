@@ -203,10 +203,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun getMimeType(url: String): String? {
         val extension = MimeTypeMap.getFileExtensionFromUrl(url)
-        if (extension != null) {
-            return MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension)
+        return if (extension != null) {
+            MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension)
+        } else {
+            "image/jpeg"
         }
-        return null
     }
 
     private fun setAsWallpaper() {
