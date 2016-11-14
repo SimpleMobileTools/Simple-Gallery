@@ -78,7 +78,7 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
                 val wantedHeight = wallpaperManager.desiredMinimumHeight
                 val ratio = wantedHeight / bitmap.height.toFloat()
                 val wantedWidth = (bitmap.width * ratio).toInt()
-                wallpaperManager.setBitmap(Bitmap.createScaledBitmap(bitmap, wantedWidth, wantedHeight, false))
+                wallpaperManager.setBitmap(Bitmap.createScaledBitmap(bitmap, wantedWidth, wantedHeight, true))
                 setResult(Activity.RESULT_OK)
                 finish()
             }).start()

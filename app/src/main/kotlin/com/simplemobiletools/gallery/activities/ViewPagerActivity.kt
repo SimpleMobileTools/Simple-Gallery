@@ -11,6 +11,7 @@ import android.support.v4.view.ViewPager
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.webkit.MimeTypeMap
 import android.widget.RelativeLayout
 import com.simplemobiletools.filepicker.asynctasks.CopyMoveTask
 import com.simplemobiletools.filepicker.extensions.*
@@ -200,9 +201,18 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
+    private fun getMimeType(url: String): String? {
+        val extension = MimeTypeMap.getFileExtensionFromUrl(url)
+        if (extension != null) {
+            return MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension)
+        }
+        return null
+    }
+
     private fun setAsWallpaper() {
         val intent = Intent(Intent.ACTION_ATTACH_DATA)
-        intent.setDataAndType(Uri.fromFile(getCurrentFile()), "image/jpeg")
+        val uri = Uri.fromFile(getCurrentFile())
+        intent.setDataAndType(uri, getMimeType(uri.toString()))
         val chooser = Intent.createChooser(intent, getString(R.string.set_as_wallpaper_with))
 
         if (intent.resolveActivity(packageManager) != null) {
