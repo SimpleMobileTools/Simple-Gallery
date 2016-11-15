@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 1.35 *(2016-11-15)*
+----------------------------
+
+ * Some stability and performance fixes
+
 Version 1.34 *(2016-11-14)*
 ----------------------------
 
