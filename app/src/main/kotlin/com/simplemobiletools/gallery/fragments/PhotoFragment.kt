@@ -40,7 +40,7 @@ class PhotoFragment : ViewPagerFragment(), View.OnClickListener {
                 orientation = SubsamplingScaleImageView.ORIENTATION_USE_EXIF
                 setImage(ImageSource.uri(medium.path))
                 maxScale = 4f
-                setMinimumTileDpi(200)
+                setMinimumTileDpi(100)
                 setOnClickListener(this@PhotoFragment)
             }
         }
