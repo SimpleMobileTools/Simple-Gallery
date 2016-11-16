@@ -72,11 +72,10 @@ class RenameDirectoryDialog(val activity: SimpleActivity, val dir: File, val lis
         }
 
         updatedFiles.add(newDir.absolutePath)
-        val changedFiles = updatedFiles.toTypedArray()
-        listener.onRenameDirSuccess(changedFiles)
+        listener.onRenameDirSuccess(updatedFiles)
     }
 
     interface OnRenameDirListener {
-        fun onRenameDirSuccess(changedFiles: Array<String>)
+        fun onRenameDirSuccess(changedPaths: ArrayList<String>)
     }
 }

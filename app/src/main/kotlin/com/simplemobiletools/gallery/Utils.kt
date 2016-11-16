@@ -97,10 +97,6 @@ class Utils {
             }
         }
 
-        fun isAStorageRootFolder(context: Context, path: String) = context.isAStorageRootFolder(path)
-
-        fun isPhotoVideo(file: File) = file.isPhotoVideo()
-
         fun needsStupidWritePermissions(context: Context, path: String) = context.needsStupidWritePermissions(path)
 
         fun getFileDocument(context: Context, path: String, treeUri: String) = context.getFileDocument(path, treeUri)
