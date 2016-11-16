@@ -16,7 +16,6 @@ import android.view.ActionMode
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.AdapterView
 import com.simplemobiletools.filepicker.extensions.*
 import com.simplemobiletools.gallery.Constants
 import com.simplemobiletools.gallery.R
@@ -30,7 +29,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 import java.util.*
 
-class MainActivity : SimpleActivity(), AdapterView.OnItemClickListener, SwipeRefreshLayout.OnRefreshListener, GetDirectoriesAsynctask.GetDirectoriesListener {
+class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, GetDirectoriesAsynctask.GetDirectoriesListener {
     companion object {
         private val STORAGE_PERMISSION = 1
         private val PICK_MEDIA = 2
@@ -366,9 +365,9 @@ class MainActivity : SimpleActivity(), AdapterView.OnItemClickListener, SwipeRef
         super.onActivityResult(requestCode, resultCode, resultData)
     }
 
-    override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+    fun itemClicked(path: String) {
         Intent(this, MediaActivity::class.java).apply {
-            putExtra(Constants.DIRECTORY, mDirs[position].path)
+            putExtra(Constants.DIRECTORY, path)
 
             if (mIsSetWallpaperIntent) {
                 putExtra(Constants.SET_WALLPAPER_INTENT, true)
@@ -518,7 +517,7 @@ class MainActivity : SimpleActivity(), AdapterView.OnItemClickListener, SwipeRef
         mDirs = dirs
 
         val adapter = DirectoryAdapter(this, mDirs) {
-
+            itemClicked(it.path)
         }
         directories_grid.adapter = adapter
     }
