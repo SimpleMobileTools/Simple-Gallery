@@ -7,7 +7,6 @@ import android.content.pm.PackageManager
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
-import android.os.Parcelable
 import android.provider.MediaStore
 import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityCompat
@@ -39,7 +38,6 @@ class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, Get
         private var mSnackbar: Snackbar? = null
         lateinit var mToBeDeleted: MutableList<String>
         private var mActionMode: ActionMode? = null
-        private var mState: Parcelable? = null
 
         private var mIsSnackbarShown = false
         private var mIsPickImageIntent = false
@@ -104,14 +102,11 @@ class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, Get
     override fun onResume() {
         super.onResume()
         tryloadGallery()
-        /*if (mState != null)
-            directories_grid.onRestoreInstanceState(mState)*/
     }
 
     override fun onPause() {
         super.onPause()
         deleteDirs()
-        //mState = directories_grid.onSaveInstanceState()
     }
 
     override fun onDestroy() {
