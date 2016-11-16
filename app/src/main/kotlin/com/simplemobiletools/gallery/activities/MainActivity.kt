@@ -17,17 +17,13 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
-import android.widget.GridView
-import com.simplemobiletools.filepicker.asynctasks.CopyMoveTask
 import com.simplemobiletools.filepicker.extensions.*
-import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog
 import com.simplemobiletools.gallery.Constants
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.Utils
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
 import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
-import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.dialogs.RenameDirectoryDialog
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.activity_main.*
@@ -109,14 +105,14 @@ class MainActivity : SimpleActivity(), AdapterView.OnItemClickListener, SwipeRef
     override fun onResume() {
         super.onResume()
         tryloadGallery()
-        if (mState != null)
-            directories_grid.onRestoreInstanceState(mState)
+        /*if (mState != null)
+            directories_grid.onRestoreInstanceState(mState)*/
     }
 
     override fun onPause() {
         super.onPause()
         deleteDirs()
-        mState = directories_grid.onSaveInstanceState()
+        //mState = directories_grid.onSaveInstanceState()
     }
 
     override fun onDestroy() {
@@ -164,7 +160,7 @@ class MainActivity : SimpleActivity(), AdapterView.OnItemClickListener, SwipeRef
 
     private fun prepareForDeleting() {
         toast(R.string.deleting)
-        val items = directories_grid.checkedItemPositions
+        /*val items = directories_grid.checkedItemPositions
         val cnt = items.size()
         var deletedCnt = 0
         for (i in 0..cnt - 1) {
@@ -182,7 +178,7 @@ class MainActivity : SimpleActivity(), AdapterView.OnItemClickListener, SwipeRef
             }
         }
 
-        notifyDeletion(deletedCnt)
+        notifyDeletion(deletedCnt)*/
     }
 
     private fun notifyDeletion(cnt: Int) {
@@ -245,7 +241,7 @@ class MainActivity : SimpleActivity(), AdapterView.OnItemClickListener, SwipeRef
     }
 
     private fun showProperties() {
-        val items = directories_grid.checkedItemPositions
+        /*val items = directories_grid.checkedItemPositions
         if (items.size() == 1) {
             PropertiesDialog(this, selectedPaths.toTypedArray()[0], false)
         } else {
@@ -259,11 +255,11 @@ class MainActivity : SimpleActivity(), AdapterView.OnItemClickListener, SwipeRef
             }
 
             PropertiesDialog(this, paths, false)
-        }
+        }*/
     }
 
     private fun editDirectory() {
-        val items = directories_grid.checkedItemPositions
+        /*val items = directories_grid.checkedItemPositions
         val cnt = items.size()
         for (i in 0..cnt - 1) {
             if (items.valueAt(i)) {
@@ -272,7 +268,7 @@ class MainActivity : SimpleActivity(), AdapterView.OnItemClickListener, SwipeRef
                 renameDir(path)
                 break
             }
-        }
+        }*/
     }
 
     private fun renameDir(path: String) {
@@ -292,7 +288,7 @@ class MainActivity : SimpleActivity(), AdapterView.OnItemClickListener, SwipeRef
 
     private fun displayCopyDialog() {
         val files = ArrayList<File>()
-        val items = directories_grid.checkedItemPositions
+        /*val items = directories_grid.checkedItemPositions
         val cnt = items.size()
         for (i in 0..cnt - 1) {
             if (items.valueAt(i)) {
@@ -315,7 +311,7 @@ class MainActivity : SimpleActivity(), AdapterView.OnItemClickListener, SwipeRef
             override fun copyFailed() {
                 toast(R.string.copy_move_failed)
             }
-        })
+        })*/
     }
 
     private fun isPickImageIntent(intent: Intent) = isPickIntent(intent) && (hasImageContentData(intent) || isImageType(intent))
@@ -487,7 +483,8 @@ class MainActivity : SimpleActivity(), AdapterView.OnItemClickListener, SwipeRef
 
     private val selectedPaths: Set<String>
         get() {
-            val items = directories_grid.checkedItemPositions
+            return HashSet<String>()
+            /*val items = directories_grid.checkedItemPositions
             val selectedPaths = HashSet<String>()
             val cnt = items.size()
             for (i in 0..cnt - 1) {
@@ -496,7 +493,7 @@ class MainActivity : SimpleActivity(), AdapterView.OnItemClickListener, SwipeRef
                     selectedPaths.add(mDirs[id].path)
                 }
             }
-            return selectedPaths
+            return selectedPaths*/
         }
 
     private fun scanCompleted(path: String) {
@@ -520,13 +517,9 @@ class MainActivity : SimpleActivity(), AdapterView.OnItemClickListener, SwipeRef
         }
         mDirs = dirs
 
-        val adapter = DirectoryAdapter(this, mDirs)
-        directories_grid.apply {
-            this@apply.adapter = adapter
-            onItemClickListener = this@MainActivity
-            //setMultiChoiceModeListener(this)
-            //setOnTouchListener(this)
-            choiceMode = GridView.CHOICE_MODE_MULTIPLE_MODAL
+        val adapter = DirectoryAdapter(this, mDirs) {
+
         }
+        directories_grid.adapter = adapter
     }
 }
