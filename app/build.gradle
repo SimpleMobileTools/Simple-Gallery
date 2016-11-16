@@ -46,6 +46,7 @@ dependencies {
     compile 'com.booking:rtlviewpager:1.0.1'
     compile 'com.simplemobiletools:fileproperties:1.0.4@aar'
     compile 'com.simplemobiletools:filepicker:1.4.2@aar'
+    compile 'com.bignerdranch.android:recyclerview-multiselect:0.2'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
