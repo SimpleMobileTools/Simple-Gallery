@@ -45,7 +45,15 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         override fun onActionItemClicked(mode: ActionMode?, item: MenuItem): Boolean {
             return when (item.itemId) {
                 R.id.cab_edit -> {
-                    editDirectory()
+                    editDir()
+                    true
+                }
+                R.id.cab_hide -> {
+                    hideDirs()
+                    true
+                }
+                R.id.cab_unhide -> {
+                    unhideDir()
                     true
                 }
                 else -> false
@@ -85,7 +93,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         }
     }
 
-    private fun editDirectory() {
+    private fun editDir() {
         val path = dirs[multiSelector.selectedPositions[0]].path
         val dir = File(path)
         if (activity.isAStorageRootFolder(dir.absolutePath)) {
@@ -104,6 +112,25 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                 }
             }
         })
+    }
+
+    private fun hideDirs() {
+        config.addHiddenDirectories(getSelectedPaths())
+        listener?.refreshItems()
+        actMode?.finish()
+    }
+
+    private fun unhideDir() {
+        config.removeHiddenDirectories(getSelectedPaths())
+        listener?.refreshItems()
+        actMode?.finish()
+    }
+
+    private fun getSelectedPaths(): HashSet<String> {
+        val positions = multiSelector.selectedPositions
+        val paths = HashSet<String>()
+        positions.forEach { paths.add(dirs[it].path) }
+        return paths
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

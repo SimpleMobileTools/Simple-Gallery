@@ -351,72 +351,14 @@ class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, Get
         }
     }
 
-    /*override fun onItemCheckedStateChanged(mode: ActionMode, position: Int, id: Long, checked: Boolean) {
-        if (checked) {
-            mSelectedItemsCnt++
-        } else {
-            mSelectedItemsCnt--
-        }
-
-        if (mSelectedItemsCnt > 0) {
-            mode.title = mSelectedItemsCnt.toString()
-        }
-
-        mode.invalidate()
-    }
-
-    override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-        val inflater = mode.menuInflater
-        inflater.inflate(R.menu.cab_directories, menu)
-        mActionMode = mode
-        return true
-    }
-
-    override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
-        menu.findItem(R.id.cab_edit).isVisible = mSelectedItemsCnt == 1
-
-        var hiddenCnt = 0
-        var unhiddenCnt = 0
-        val items = directories_grid.checkedItemPositions
-        val cnt = items.size()
-        for (i in 0..cnt - 1) {
-            if (items.valueAt(i)) {
-                val id = items.keyAt(i)
-                if (mConfig.getIsFolderHidden(mDirs[id].path))
-                    hiddenCnt++
-                else
-                    unhiddenCnt++
-            }
-        }
-
-        menu.findItem(R.id.cab_hide).isVisible = unhiddenCnt > 0
-        menu.findItem(R.id.cab_unhide).isVisible = hiddenCnt > 0
-
-        return true
-    }
-
-    override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
+    /*override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.cab_properties -> {
                 showProperties()
                 true
             }
-            R.id.cab_edit -> {
-                editDirectory()
-                true
-            }
             R.id.cab_delete -> {
                 prepareForDeleting()
-                mode.finish()
-                true
-            }
-            R.id.cab_hide -> {
-                hideFolders()
-                mode.finish()
-                true
-            }
-            R.id.cab_unhide -> {
-                unhideFolders()
                 mode.finish()
                 true
             }
@@ -428,10 +370,6 @@ class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, Get
         }
     }
 
-    override fun onDestroyActionMode(mode: ActionMode) {
-        mSelectedItemsCnt = 0
-    }
-
     override fun onTouch(v: View, event: MotionEvent): Boolean {
         if (mIsSnackbarShown) {
             deleteDirs()
@@ -439,31 +377,6 @@ class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, Get
 
         return false
     }*/
-
-    private fun hideFolders() {
-        mConfig.addHiddenDirectories(selectedPaths)
-        getDirectories()
-    }
-
-    private fun unhideFolders() {
-        mConfig.removeHiddenDirectories(selectedPaths)
-        getDirectories()
-    }
-
-    private val selectedPaths: Set<String>
-        get() {
-            return HashSet<String>()
-            /*val items = directories_grid.checkedItemPositions
-            val selectedPaths = HashSet<String>()
-            val cnt = items.size()
-            for (i in 0..cnt - 1) {
-                if (items.valueAt(i)) {
-                    val id = items.keyAt(i)
-                    selectedPaths.add(mDirs[id].path)
-                }
-            }
-            return selectedPaths*/
-        }
 
     override fun onRefresh() {
         getDirectories()
