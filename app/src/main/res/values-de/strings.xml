@@ -116,7 +116,7 @@
     <string name="notice">Diese App nutzt die folgenden Drittanbieterbilbiotheken, die mein Leben einfacher machen. Danke.</string>
     <string name="third_party_licences">Drittanbieterlizenzen</string>
     <string name="butterknife_title"><u>Butter Knife (View Injector)</u></string>
-    <string name="photoview_title"><u>PhotoView (Zoomable Imageviews)</u></string>
+    <string name="subsampling_title"><u>Subsampling Scale Image View (zoomable imageviews)</u></string>
     <string name="glide_title"><u>Glide (Bilder laden und zwischenspeichern)</u></string>
     <string name="cropper_title"><u>Android Image Cropper</u></string>
     <string name="filepicker_title"><u>Simple File Picker (filepicker dialog)</u></string>

@@ -12,7 +12,7 @@ class LicenseActivity : SimpleActivity() {
         setContentView(R.layout.activity_license)
 
         license_butterknife_title.setOnClickListener { openUrl(R.string.butterknife_url) }
-        license_photoview_title.setOnClickListener { openUrl(R.string.photoview_url) }
+        license_subsampling_title.setOnClickListener { openUrl(R.string.subsampling_url) }
         license_glide_title.setOnClickListener { openUrl(R.string.glide_url) }
         license_cropper_title.setOnClickListener { openUrl(R.string.cropper_url) }
         license_filepicker_title.setOnClickListener { openUrl(R.string.filepicker_url) }
