@@ -24,6 +24,7 @@
             android:id="@+id/dir_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_above="@+id/photo_cnt"
             android:paddingBottom="@dimen/small_padding"
             android:textColor="@android:color/white"/>
 
@@ -31,7 +32,7 @@
             android:id="@+id/photo_cnt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/dir_name"
+            android:layout_alignParentBottom="true"
             android:textColor="@android:color/white"/>
 
     </RelativeLayout>
