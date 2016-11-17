@@ -13,6 +13,7 @@ import com.bumptech.glide.signature.StringSignature
 import com.simplemobiletools.filepicker.extensions.isAStorageRootFolder
 import com.simplemobiletools.filepicker.extensions.scanPaths
 import com.simplemobiletools.filepicker.extensions.toast
+import com.simplemobiletools.gallery.Config
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.RenameDirectoryDialog
@@ -27,6 +28,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
     val multiSelector = MultiSelector()
     val views = ArrayList<View>()
+    val config = Config.newInstance(activity)
 
     companion object {
         var actMode: ActionMode? = null
@@ -57,9 +59,23 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             return true
         }
 
-        override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu?): Boolean {
-            val menuItem = menu?.findItem(R.id.cab_edit)
-            menuItem?.isVisible = multiSelector.selectedPositions.size <= 1
+        override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu): Boolean {
+            val menuItem = menu.findItem(R.id.cab_edit)
+            menuItem.isVisible = multiSelector.selectedPositions.size <= 1
+
+            var hiddenCnt = 0
+            var unhiddenCnt = 0
+            val positions = multiSelector.selectedPositions
+            for (i in positions) {
+                val path = dirs[i].path
+                if (config.getIsFolderHidden(path))
+                    hiddenCnt++
+                else
+                    unhiddenCnt++
+            }
+
+            menu.findItem(R.id.cab_hide).isVisible = unhiddenCnt > 0
+            menu.findItem(R.id.cab_unhide).isVisible = hiddenCnt > 0
             return true
         }
 
@@ -123,6 +139,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                     multiSelector.setSelected(this, true)
                     actMode?.title = multiSelector.selectedPositions.size.toString()
                     toggleItemSelection(itemView, true)
+                    actMode?.invalidate()
                 }
                 true
             }
