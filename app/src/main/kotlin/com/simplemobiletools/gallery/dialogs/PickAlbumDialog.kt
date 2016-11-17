@@ -1,20 +1,24 @@
 package com.simplemobiletools.gallery.dialogs
 
 import android.support.v7.app.AlertDialog
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
 import com.simplemobiletools.gallery.models.Directory
+import kotlinx.android.synthetic.main.dialog_album_picker.view.*
 import java.util.*
 
 class PickAlbumDialog(val activity: SimpleActivity, val listener: OnPickAlbumListener) : GetDirectoriesAsynctask.GetDirectoriesListener {
     val context = activity.applicationContext
     var dialog: AlertDialog
+    var directoriesGrid: RecyclerView
 
     init {
         val view = LayoutInflater.from(context).inflate(R.layout.dialog_album_picker, null)
+        directoriesGrid = view.directories_grid
 
         dialog = AlertDialog.Builder(activity)
                 .setTitle(context.resources.getString(R.string.select_destination))
@@ -24,15 +28,15 @@ class PickAlbumDialog(val activity: SimpleActivity, val listener: OnPickAlbumLis
                 .create()
 
         dialog.show()
-
         GetDirectoriesAsynctask(context, false, false, ArrayList<String>(), this).execute()
     }
 
     override fun gotDirectories(dirs: ArrayList<Directory>) {
-        DirectoryAdapter(activity, dirs, null) {
+        val adapter = DirectoryAdapter(activity, dirs, null) {
             listener.onSuccess(it.path)
             dialog.dismiss()
         }
+        directoriesGrid.adapter = adapter
     }
 
     interface OnPickAlbumListener {
