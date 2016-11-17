@@ -178,7 +178,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     private fun prepareForDeleting() {
         val selections = multiSelector.selectedPositions
         val paths = ArrayList<String>()
-        selections.forEach { paths.add(dirs[it].path) }
+        selections.forEach { paths.add(dirs[it].path.toLowerCase()) }
         listener?.prepareForDeleting(paths)
     }
 
