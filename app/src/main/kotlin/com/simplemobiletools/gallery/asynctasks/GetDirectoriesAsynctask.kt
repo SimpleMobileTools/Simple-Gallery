@@ -111,12 +111,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
 
     private fun removeHiddenFolders(dirs: MutableList<Directory>) {
         val hiddenDirs = mConfig.hiddenFolders
-        val ignoreDirs = ArrayList<Directory>()
-        for (dir in dirs) {
-            if (hiddenDirs.contains(dir.path))
-                ignoreDirs.add(dir)
-        }
-
+        val ignoreDirs = dirs.filter { hiddenDirs.contains(it.path) }
         dirs.removeAll(ignoreDirs)
     }
 
