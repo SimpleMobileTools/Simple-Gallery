@@ -126,8 +126,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
             val dir = File(d.path)
             if (dir.exists() && dir.isDirectory) {
                 val res = dir.list { file, filename -> filename == ".nomedia" }
-
-                if (res != null && res.size > 0)
+                if (res?.isNotEmpty() == true)
                     ignoreDirs.add(d)
             }
         }
