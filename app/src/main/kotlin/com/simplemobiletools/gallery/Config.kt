@@ -40,35 +40,34 @@ class Config private constructor(context: Context) {
         set(showHiddenFolders) = mPrefs.edit().putBoolean(SHOW_HIDDEN_FOLDERS, showHiddenFolders).apply()
 
     fun addHiddenDirectory(path: String) {
-        val hiddenFolders = hiddenFolders
-        hiddenFolders.add(path)
-        mPrefs.edit().putStringSet(HIDDEN_FOLDERS, hiddenFolders).apply()
+        val currHiddenFolders = HashSet<String>(hiddenFolders)
+        currHiddenFolders.add(path)
+        hiddenFolders = currHiddenFolders
     }
 
     fun addHiddenDirectories(paths: Set<String>) {
-        val hiddenFolders = hiddenFolders
-        hiddenFolders.addAll(paths)
-        mPrefs.edit().putStringSet(HIDDEN_FOLDERS, hiddenFolders).apply()
+        val currHiddenFolders = HashSet<String>(hiddenFolders)
+        currHiddenFolders.addAll(paths)
+        hiddenFolders = currHiddenFolders
     }
 
     fun removeHiddenDirectory(path: String) {
-        val hiddenFolders = hiddenFolders
-        hiddenFolders.remove(path)
-        mPrefs.edit().putStringSet(HIDDEN_FOLDERS, hiddenFolders).apply()
+        val currHiddenFolders = HashSet<String>(hiddenFolders)
+        currHiddenFolders.remove(path)
+        hiddenFolders = currHiddenFolders
     }
 
     fun removeHiddenDirectories(paths: Set<String>) {
-        val hiddenFolders = hiddenFolders
-        hiddenFolders.removeAll(paths)
-        mPrefs.edit().putStringSet(HIDDEN_FOLDERS, hiddenFolders).apply()
+        val currHiddenFolders = HashSet<String>(hiddenFolders)
+        currHiddenFolders.removeAll(paths)
+        hiddenFolders = currHiddenFolders
     }
 
-    val hiddenFolders: MutableSet<String>
+    fun getIsFolderHidden(path: String) = hiddenFolders.contains(path)
+
+    var hiddenFolders: MutableSet<String>
         get() = mPrefs.getStringSet(HIDDEN_FOLDERS, HashSet<String>())
-
-    fun getIsFolderHidden(path: String): Boolean {
-        return hiddenFolders.contains(path)
-    }
+        set(hiddenFolders) = mPrefs.edit().remove(HIDDEN_FOLDERS).putStringSet(HIDDEN_FOLDERS, hiddenFolders).apply()
 
     var autoplayVideos: Boolean
         get() = mPrefs.getBoolean(AUTOPLAY_VIDEOS, false)
