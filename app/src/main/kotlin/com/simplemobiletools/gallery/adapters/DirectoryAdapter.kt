@@ -59,7 +59,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
         override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu?): Boolean {
             val menuItem = menu?.findItem(R.id.cab_edit)
-            menuItem?.isVisible = multiSelector.selectedPositions.size == 1
+            menuItem?.isVisible = multiSelector.selectedPositions.size <= 1
             return true
         }
 
