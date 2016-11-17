@@ -19,9 +19,7 @@ class MyPagerAdapter(val activity: ViewPagerActivity, fm: FragmentManager, val m
         mFragments = SparseArray<ViewPagerFragment>()
     }
 
-    override fun getCount(): Int {
-        return media.size
-    }
+    override fun getCount() = media.size
 
     override fun getItem(position: Int): Fragment {
         val medium = media[position]
@@ -46,17 +44,13 @@ class MyPagerAdapter(val activity: ViewPagerActivity, fm: FragmentManager, val m
     }
 
     fun updateUiVisibility(isFullscreen: Boolean, pos: Int) {
-        for (i in -1..1) {
-            val fragment = mFragments[pos + i]
-            fragment?.systemUiVisibilityChanged(isFullscreen)
-        }
+        (-1..1).map { mFragments[pos + it] }
+                .forEach { it?.systemUiVisibilityChanged(isFullscreen) }
     }
 
     fun updateItems(pos: Int) {
-        for (i in -1..1) {
-            val fragment = mFragments[pos + i]
-            fragment?.updateItem()
-        }
+        (-1..1).map { mFragments[pos + it] }
+                .forEach { it?.updateItem() }
     }
 
     fun updateItems(newPaths: List<Medium>) {

@@ -60,17 +60,11 @@ class MediaAdapter(private val context: Context, private val media: MutableList<
         notifyDataSetChanged()
     }
 
-    override fun getCount(): Int {
-        return media.size
-    }
+    override fun getCount() = media.size
 
-    override fun getItem(position: Int): Any {
-        return media[position]
-    }
+    override fun getItem(position: Int) = media[position]
 
-    override fun getItemId(position: Int): Long {
-        return 0
-    }
+    override fun getItemId(position: Int) = 0L
 
     fun updateItems(newPhotos: List<Medium>) {
         media.clear()
