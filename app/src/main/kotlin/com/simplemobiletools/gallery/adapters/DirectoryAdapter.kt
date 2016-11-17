@@ -161,11 +161,11 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         CopyDialog(activity, files, object : CopyMoveTask.CopyMoveListener {
             override fun copySucceeded(deleted: Boolean, copiedAll: Boolean) {
                 if (deleted) {
-                    listener?.refreshItems()
                     activity.toast(if (copiedAll) R.string.moving_success else R.string.moving_success_partial)
                 } else {
                     activity.toast(if (copiedAll) R.string.copying_success else R.string.copying_success_partial)
                 }
+                listener?.refreshItems()
                 actMode?.finish()
             }
 
