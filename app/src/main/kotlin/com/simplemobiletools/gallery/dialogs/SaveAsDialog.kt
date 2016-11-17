@@ -14,12 +14,11 @@ import kotlinx.android.synthetic.main.rename_file.view.*
 class SaveAsDialog(val activity: Activity, val path: String, val listener: OnSaveAsListener) {
 
     init {
-        val context = activity
-        val view = LayoutInflater.from(context).inflate(R.layout.dialog_save_as, null)
+        val view = LayoutInflater.from(activity).inflate(R.layout.dialog_save_as, null)
         view.file_name.setText(path.getFilenameFromPath())
 
-        AlertDialog.Builder(context)
-                .setTitle(context.resources.getString(R.string.save_as))
+        AlertDialog.Builder(activity)
+                .setTitle(activity.resources.getString(R.string.save_as))
                 .setView(view)
                 .setPositiveButton(R.string.ok, null)
                 .setNegativeButton(R.string.cancel, null)

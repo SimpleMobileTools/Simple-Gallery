@@ -60,6 +60,7 @@
     <string name="already_exists">Já existe um ficheiro com este nome</string>
     <string name="moving_success_partial">Alguns ficheiros não foram movidos</string>
     <string name="copying_success_partial">Alguns ficheiros não foram copiados</string>
+    <string name="invalid_name">O nome contém caracteres inválidos</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 pasta apagada</item>

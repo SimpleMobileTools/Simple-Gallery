@@ -19,24 +19,23 @@ import java.util.*
 class CopyDialog(val activity: SimpleActivity, val files: ArrayList<File>, val copyMoveListener: CopyMoveTask.CopyMoveListener) {
 
     init {
-        val context = activity
-        val view = LayoutInflater.from(context).inflate(R.layout.dialog_copy_move, null)
+        val view = LayoutInflater.from(activity).inflate(R.layout.dialog_copy_move, null)
         val sourcePath = files[0].parent.trimEnd('/')
         var destinationPath = ""
 
-        view.source.text = context.humanizePath(sourcePath)
+        view.source.text = activity.humanizePath(sourcePath)
 
         view.destination.setOnClickListener {
             PickAlbumDialog(activity, object : PickAlbumDialog.OnPickAlbumListener {
                 override fun onSuccess(path: String) {
                     destinationPath = path
-                    view.destination.text = context.humanizePath(path)
+                    view.destination.text = activity.humanizePath(path)
                 }
             })
         }
 
-        AlertDialog.Builder(context)
-                .setTitle(context.resources.getString(if (files.size == 1) R.string.copy_item else R.string.copy_items))
+        AlertDialog.Builder(activity)
+                .setTitle(activity.resources.getString(if (files.size == 1) R.string.copy_item else R.string.copy_items))
                 .setView(view)
                 .setPositiveButton(R.string.ok, null)
                 .setNegativeButton(R.string.cancel, null)

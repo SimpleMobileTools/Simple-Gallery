@@ -61,6 +61,7 @@
     <string name="already_exists">相同的文件名已经存在</string>
     <string name="moving_success_partial">相同文件不能移动</string>
     <string name="copying_success_partial">相同文件不能复制</string>
+    <string name="invalid_name">The name contains invalid characters</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 folder deleted</item>

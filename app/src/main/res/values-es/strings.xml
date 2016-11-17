@@ -60,6 +60,7 @@
     <string name="already_exists">A file with that name already exists</string>
     <string name="moving_success_partial">Some files could not be moved</string>
     <string name="copying_success_partial">Some files could not be copied</string>
+    <string name="invalid_name">The name contains invalid characters</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 carpeta eliminada</item>

@@ -12,23 +12,22 @@ import kotlinx.android.synthetic.main.dialog_album_picker.view.*
 import java.util.*
 
 class PickAlbumDialog(val activity: SimpleActivity, val listener: OnPickAlbumListener) : GetDirectoriesAsynctask.GetDirectoriesListener {
-    val context = activity.applicationContext
     var dialog: AlertDialog
     var directoriesGrid: RecyclerView
 
     init {
-        val view = LayoutInflater.from(context).inflate(R.layout.dialog_album_picker, null)
+        val view = LayoutInflater.from(activity).inflate(R.layout.dialog_album_picker, null)
         directoriesGrid = view.directories_grid
 
         dialog = AlertDialog.Builder(activity)
-                .setTitle(context.resources.getString(R.string.select_destination))
+                .setTitle(activity.resources.getString(R.string.select_destination))
                 .setView(view)
                 .setPositiveButton(R.string.ok, null)
                 .setNegativeButton(R.string.cancel, null)
                 .create()
 
         dialog.show()
-        GetDirectoriesAsynctask(context, false, false, ArrayList<String>(), this).execute()
+        GetDirectoriesAsynctask(activity, false, false, ArrayList<String>(), this).execute()
     }
 
     override fun gotDirectories(dirs: ArrayList<Directory>) {

@@ -13,8 +13,7 @@ import java.io.File
 class RenameFileDialog(val activity: SimpleActivity, val file: File, val listener: OnRenameFileListener) {
 
     init {
-        val context = activity
-        val view = LayoutInflater.from(context).inflate(R.layout.rename_file, null)
+        val view = LayoutInflater.from(activity).inflate(R.layout.rename_file, null)
         val fullName = file.name
         val dotAt = fullName.lastIndexOf(".")
         var name = fullName
@@ -26,10 +25,10 @@ class RenameFileDialog(val activity: SimpleActivity, val file: File, val listene
         }
 
         view.file_name.setText(name)
-        view.file_path.text = "${context.humanizePath(file.parent)}/"
+        view.file_path.text = "${activity.humanizePath(file.parent)}/"
 
-        AlertDialog.Builder(context)
-                .setTitle(context.resources.getString(R.string.rename_file))
+        AlertDialog.Builder(activity)
+                .setTitle(activity.resources.getString(R.string.rename_file))
                 .setView(view)
                 .setPositiveButton(R.string.ok, null)
                 .setNegativeButton(R.string.cancel, null)
@@ -42,6 +41,11 @@ class RenameFileDialog(val activity: SimpleActivity, val file: File, val listene
 
                 if (fileName.isEmpty() || extension.isEmpty()) {
                     context.toast(R.string.filename_cannot_be_empty)
+                    return@setOnClickListener
+                }
+
+                if (!fileName.isAValidFilename()) {
+                    context.toast(R.string.invalid_name)
                     return@setOnClickListener
                 }
 

@@ -12,16 +12,14 @@ import java.io.File
 import java.util.*
 
 class RenameDirectoryDialog(val activity: SimpleActivity, val dir: File, val listener: OnRenameDirListener) {
-    val context = activity
-
     init {
-        val view = LayoutInflater.from(context).inflate(R.layout.rename_directory, null)
+        val view = LayoutInflater.from(activity).inflate(R.layout.rename_directory, null)
 
         view.directory_name.setText(dir.name)
-        view.directory_path.text = "${context.humanizePath(dir.parent)}/"
+        view.directory_path.text = "${activity.humanizePath(dir.parent)}/"
 
-        AlertDialog.Builder(context)
-                .setTitle(context.resources.getString(R.string.rename_folder))
+        AlertDialog.Builder(activity)
+                .setTitle(activity.resources.getString(R.string.rename_folder))
                 .setView(view)
                 .setPositiveButton(R.string.ok, null)
                 .setNegativeButton(R.string.cancel, null)
@@ -30,9 +28,13 @@ class RenameDirectoryDialog(val activity: SimpleActivity, val dir: File, val lis
             show()
             getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener({
                 val newDirName = view.directory_name.value
-
                 if (newDirName.isEmpty()) {
                     context.toast(R.string.rename_folder_empty)
+                    return@setOnClickListener
+                }
+
+                if (!newDirName.isAValidFilename()) {
+                    context.toast(R.string.invalid_name)
                     return@setOnClickListener
                 }
 
@@ -65,7 +67,7 @@ class RenameDirectoryDialog(val activity: SimpleActivity, val dir: File, val lis
     }
 
     private fun sendSuccess(updatedFiles: ArrayList<String>, newDir: File) {
-        context.toast(R.string.renaming_folder)
+        activity.toast(R.string.renaming_folder)
         val files = newDir.listFiles()
         files.mapTo(updatedFiles) { it.absolutePath }
 
