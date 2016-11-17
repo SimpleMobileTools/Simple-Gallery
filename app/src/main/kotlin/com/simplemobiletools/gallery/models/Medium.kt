@@ -17,7 +17,7 @@ class Medium(val name: String, var path: String, val isVideo: Boolean, val times
     override fun compareTo(other: Medium): Int {
         var res: Int
         if (sorting and SORT_BY_NAME != 0) {
-            res = path.compareTo(other.path)
+            res = name.toLowerCase().compareTo(other.name.toLowerCase())
         } else if (sorting and SORT_BY_DATE != 0) {
             res = if (timestamp > other.timestamp) 1 else -1
         } else {

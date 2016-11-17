@@ -385,7 +385,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         scanFiles(invalidFiles) {}
         Medium.sorting = mConfig.sorting
-        Collections.sort(media)
+        media.sort()
         var j = 0
         for (medium in media) {
             if (medium.path == mPath) {

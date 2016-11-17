@@ -12,7 +12,7 @@ class Directory(val path: String, val thumbnail: String, val name: String, var m
     override fun compareTo(other: Directory): Int {
         var res: Int
         if (sorting and SORT_BY_NAME != 0) {
-            res = path.compareTo(other.path)
+            res = name.toLowerCase().compareTo(other.name.toLowerCase())
         } else if (sorting and SORT_BY_DATE != 0) {
             res = if (timestamp > other.timestamp) 1 else -1
         } else {
