@@ -233,38 +233,6 @@ class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, Get
         getDirectories()
     }
 
-    override fun refreshItems() {
-        getDirectories()
-    }
-
-    private fun displayCopyDialog() {
-        val files = ArrayList<File>()
-        /*val items = directories_grid.checkedItemPositions
-        val cnt = items.size()
-        for (i in 0..cnt - 1) {
-            if (items.valueAt(i)) {
-                val id = items.keyAt(i)
-                val dir = File(mDirs[id].path)
-                files.addAll(dir.listFiles())
-            }
-        }
-
-        CopyDialog(this, files, object : CopyMoveTask.CopyMoveListener {
-            override fun copySucceeded(deleted: Boolean, copiedAll: Boolean) {
-                if (deleted) {
-                    getDirectories()
-                    toast(if (copiedAll) R.string.moving_success else R.string.moving_success_partial)
-                } else {
-                    toast(if (copiedAll) R.string.copying_success else R.string.copying_success_partial)
-                }
-            }
-
-            override fun copyFailed() {
-                toast(R.string.copy_move_failed)
-            }
-        })*/
-    }
-
     private fun isPickImageIntent(intent: Intent) = isPickIntent(intent) && (hasImageContentData(intent) || isImageType(intent))
 
     private fun isPickVideoIntent(intent: Intent) = isPickIntent(intent) && (hasVideoContentData(intent) || isVideoType(intent))
@@ -340,10 +308,6 @@ class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, Get
                 mode.finish()
                 true
             }
-            R.id.cab_copy_move -> {
-                displayCopyDialog()
-                true
-            }
             else -> false
         }
     }
@@ -372,5 +336,9 @@ class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, Get
             itemClicked(it.path)
         }
         directories_grid.adapter = adapter
+    }
+
+    override fun refreshItems() {
+        getDirectories()
     }
 }

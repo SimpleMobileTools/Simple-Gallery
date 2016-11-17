@@ -10,6 +10,7 @@ import com.bignerdranch.android.multiselector.SwappingHolder
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.signature.StringSignature
+import com.simplemobiletools.filepicker.asynctasks.CopyMoveTask
 import com.simplemobiletools.filepicker.extensions.isAStorageRootFolder
 import com.simplemobiletools.filepicker.extensions.scanPaths
 import com.simplemobiletools.filepicker.extensions.toast
@@ -17,6 +18,7 @@ import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog
 import com.simplemobiletools.gallery.Config
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
+import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.dialogs.RenameDirectoryDialog
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.directory_item.view.*
@@ -43,7 +45,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     }
 
     val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
-        override fun onActionItemClicked(mode: ActionMode?, item: MenuItem): Boolean {
+        override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
             return when (item.itemId) {
                 R.id.cab_properties -> {
                     showProperties()
@@ -55,10 +57,16 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                 }
                 R.id.cab_hide -> {
                     hideDirs()
+                    mode.finish()
                     true
                 }
                 R.id.cab_unhide -> {
                     unhideDir()
+                    mode.finish()
+                    true
+                }
+                R.id.cab_copy_move -> {
+                    displayCopyDialog()
                     true
                 }
                 else -> false
@@ -133,13 +141,33 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     private fun hideDirs() {
         config.addHiddenDirectories(getSelectedPaths())
         listener?.refreshItems()
-        actMode?.finish()
     }
 
     private fun unhideDir() {
         config.removeHiddenDirectories(getSelectedPaths())
         listener?.refreshItems()
-        actMode?.finish()
+    }
+
+    private fun displayCopyDialog() {
+        val files = ArrayList<File>()
+        val positions = multiSelector.selectedPositions
+        positions.forEach { files.add(File(dirs[it].path)) }
+
+        CopyDialog(activity, files, object : CopyMoveTask.CopyMoveListener {
+            override fun copySucceeded(deleted: Boolean, copiedAll: Boolean) {
+                if (deleted) {
+                    listener?.refreshItems()
+                    activity.toast(if (copiedAll) R.string.moving_success else R.string.moving_success_partial)
+                } else {
+                    activity.toast(if (copiedAll) R.string.copying_success else R.string.copying_success_partial)
+                }
+                actMode?.finish()
+            }
+
+            override fun copyFailed() {
+                activity.toast(R.string.copy_move_failed)
+            }
+        })
     }
 
     private fun getSelectedPaths(): HashSet<String> {
