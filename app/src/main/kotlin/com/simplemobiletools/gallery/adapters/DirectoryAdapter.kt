@@ -33,9 +33,9 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
         fun toggleItemSelection(itemView: View, select: Boolean) {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
-                itemView.dir_frame.isSelected = select
+                itemView.dir_frame.isActivated = select
             else
-                itemView.dir_thumbnail.isSelected = select
+                itemView.dir_thumbnail.isActivated = select
         }
     }
 
