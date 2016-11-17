@@ -233,24 +233,6 @@ class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, Get
         getDirectories()
     }
 
-    private fun showProperties() {
-        /*val items = directories_grid.checkedItemPositions
-        if (items.size() == 1) {
-            PropertiesDialog(this, selectedPaths.toTypedArray()[0], false)
-        } else {
-            val paths = ArrayList<String>(items.size())
-            val cnt = items.size()
-            for (i in 0..cnt - 1) {
-                if (items.valueAt(i)) {
-                    val id = items.keyAt(i)
-                    paths.add(mDirs[id].path)
-                }
-            }
-
-            PropertiesDialog(this, paths, false)
-        }*/
-    }
-
     override fun refreshItems() {
         getDirectories()
     }
@@ -353,10 +335,6 @@ class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, Get
 
     /*override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.cab_properties -> {
-                showProperties()
-                true
-            }
             R.id.cab_delete -> {
                 prepareForDeleting()
                 mode.finish()
