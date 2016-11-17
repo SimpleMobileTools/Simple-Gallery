@@ -11,9 +11,9 @@ import android.provider.MediaStore
 import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityCompat
 import android.support.v4.widget.SwipeRefreshLayout
-import android.view.ActionMode
 import android.view.Menu
 import android.view.MenuItem
+import android.view.MotionEvent
 import android.view.View
 import com.simplemobiletools.filepicker.extensions.*
 import com.simplemobiletools.gallery.Constants
@@ -27,16 +27,15 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 import java.util.*
 
-class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, GetDirectoriesAsynctask.GetDirectoriesListener, DirectoryAdapter.DirOperationsListener {
+class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, GetDirectoriesAsynctask.GetDirectoriesListener, View.OnTouchListener, DirectoryAdapter.DirOperationsListener {
     companion object {
         private val STORAGE_PERMISSION = 1
         private val PICK_MEDIA = 2
         private val PICK_WALLPAPER = 3
 
-        lateinit var mDirs: MutableList<Directory>
         private var mSnackbar: Snackbar? = null
+        lateinit var mDirs: MutableList<Directory>
         lateinit var mToBeDeleted: MutableList<String>
-        private var mActionMode: ActionMode? = null
 
         private var mIsSnackbarShown = false
         private var mIsPickImageIntent = false
@@ -47,7 +46,6 @@ class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, Get
         private var mIsSetWallpaperIntent = false
         private var mIsThirdPartyIntent = false
         private var mIsGettingDirs = false
-        private var mSelectedItemsCnt = 0
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -125,7 +123,7 @@ class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, Get
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
         if (requestCode == STORAGE_PERMISSION) {
-            if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getDirectories()
             } else {
                 toast(R.string.no_permissions)
@@ -151,27 +149,15 @@ class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, Get
         })
     }
 
-    private fun prepareForDeleting() {
+    override fun prepareForDeleting(paths: ArrayList<String>) {
         toast(R.string.deleting)
-        /*val items = directories_grid.checkedItemPositions
-        val cnt = items.size()
-        var deletedCnt = 0
-        for (i in 0..cnt - 1) {
-            if (items.valueAt(i)) {
-                val id = items.keyAt(i)
-                val path = mDirs[id].path
-                mToBeDeleted.add(path)
-                deletedCnt++
-            }
-        }
+        mToBeDeleted = paths
+        val deletedCnt = mToBeDeleted.size
 
-        for (path in mToBeDeleted) {
-            if (isShowingPermDialog(File(path))) {
-                return
-            }
-        }
+        if (isShowingPermDialog(File(mToBeDeleted[0])))
+            return
 
-        notifyDeletion(deletedCnt)*/
+        notifyDeletion(deletedCnt)
     }
 
     private fun notifyDeletion(cnt: Int) {
@@ -200,10 +186,10 @@ class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, Get
             val dir = File(delPath)
             if (dir.exists()) {
                 val files = dir.listFiles()
-                for (file in files) {
-                    if (file.isFile && file.isPhotoVideo()) {
-                        updatedFiles.add(file)
-                        deleteItem(file)
+                files.forEach {
+                    if (it.isFile && it.isPhotoVideo()) {
+                        updatedFiles.add(it)
+                        deleteItem(it)
                     }
                 }
                 updatedFiles.add(dir)
@@ -301,25 +287,6 @@ class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, Get
         }
     }
 
-    /*override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.cab_delete -> {
-                prepareForDeleting()
-                mode.finish()
-                true
-            }
-            else -> false
-        }
-    }
-
-    override fun onTouch(v: View, event: MotionEvent): Boolean {
-        if (mIsSnackbarShown) {
-            deleteDirs()
-        }
-
-        return false
-    }*/
-
     override fun onRefresh() {
         getDirectories()
         directories_holder.isRefreshing = false
@@ -336,9 +303,18 @@ class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, Get
             itemClicked(it.path)
         }
         directories_grid.adapter = adapter
+        directories_grid.setOnTouchListener(this)
     }
 
     override fun refreshItems() {
         getDirectories()
+    }
+
+    override fun onTouch(v: View, event: MotionEvent): Boolean {
+        if (mIsSnackbarShown && event.action == MotionEvent.ACTION_MOVE) {
+            deleteDirs()
+        }
+
+        return false
     }
 }

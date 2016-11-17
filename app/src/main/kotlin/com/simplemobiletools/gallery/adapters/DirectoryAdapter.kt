@@ -69,6 +69,11 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                     displayCopyDialog()
                     true
                 }
+                R.id.cab_delete -> {
+                    prepareForDeleting()
+                    mode.finish()
+                    true
+                }
                 else -> false
             }
         }
@@ -170,6 +175,13 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         })
     }
 
+    private fun prepareForDeleting() {
+        val selections = multiSelector.selectedPositions
+        val paths = ArrayList<String>()
+        selections.forEach { paths.add(dirs[it].path) }
+        listener?.prepareForDeleting(paths)
+    }
+
     private fun getSelectedPaths(): HashSet<String> {
         val positions = multiSelector.selectedPositions
         val paths = HashSet<String>()
@@ -238,5 +250,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
     interface DirOperationsListener {
         fun refreshItems()
+
+        fun prepareForDeleting(paths: ArrayList<String>)
     }
 }
