@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-    android:id="@+id/about_scrollview"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/about_scrollview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/activity_margin"
         android:paddingLeft="@dimen/activity_margin"
+        android:paddingRight="@dimen/activity_margin"
         android:paddingTop="@dimen/activity_margin">
 
         <TextView
@@ -89,6 +90,8 @@
             android:layout_height="@dimen/social_logo"
             android:layout_below="@+id/about_follow_us"
             android:layout_marginLeft="@dimen/social_padding"
+            android:layout_marginRight="@dimen/social_padding"
+            android:layout_toEndOf="@+id/about_facebook"
             android:layout_toRightOf="@+id/about_facebook"
             android:src="@mipmap/gplus"/>
 
