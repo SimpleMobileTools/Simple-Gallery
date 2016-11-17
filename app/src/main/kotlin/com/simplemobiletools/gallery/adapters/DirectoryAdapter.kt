@@ -13,6 +13,7 @@ import com.bumptech.glide.signature.StringSignature
 import com.simplemobiletools.filepicker.extensions.isAStorageRootFolder
 import com.simplemobiletools.filepicker.extensions.scanPaths
 import com.simplemobiletools.filepicker.extensions.toast
+import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog
 import com.simplemobiletools.gallery.Config
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
@@ -44,6 +45,10 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
         override fun onActionItemClicked(mode: ActionMode?, item: MenuItem): Boolean {
             return when (item.itemId) {
+                R.id.cab_properties -> {
+                    showProperties()
+                    true
+                }
                 R.id.cab_edit -> {
                     editDir()
                     true
@@ -90,6 +95,17 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         override fun onDestroyActionMode(actionMode: ActionMode?) {
             super.onDestroyActionMode(actionMode)
             views.forEach { toggleItemSelection(it, false) }
+        }
+    }
+
+    private fun showProperties() {
+        val selections = multiSelector.selectedPositions
+        if (selections.size <= 1) {
+            PropertiesDialog(activity, dirs[selections[0]].path, config.showHiddenFolders)
+        } else {
+            val paths = ArrayList<String>()
+            selections.forEach { paths.add(dirs[it].path) }
+            PropertiesDialog(activity, paths, config.showHiddenFolders)
         }
     }
 
