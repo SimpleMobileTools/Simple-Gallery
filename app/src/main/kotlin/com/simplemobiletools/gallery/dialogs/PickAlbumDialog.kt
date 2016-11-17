@@ -1,15 +1,15 @@
 package com.simplemobiletools.gallery.dialogs
 
-import android.app.Activity
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
 import com.simplemobiletools.gallery.models.Directory
 import java.util.*
 
-class PickAlbumDialog(val activity: Activity, val listener: OnPickAlbumListener) : GetDirectoriesAsynctask.GetDirectoriesListener {
+class PickAlbumDialog(val activity: SimpleActivity, val listener: OnPickAlbumListener) : GetDirectoriesAsynctask.GetDirectoriesListener {
     val context = activity.applicationContext
     var dialog: AlertDialog
 
@@ -29,7 +29,7 @@ class PickAlbumDialog(val activity: Activity, val listener: OnPickAlbumListener)
     }
 
     override fun gotDirectories(dirs: ArrayList<Directory>) {
-        DirectoryAdapter(context, dirs) {
+        DirectoryAdapter(activity, dirs) {
             listener.onSuccess(it.path)
             dialog.dismiss()
         }
