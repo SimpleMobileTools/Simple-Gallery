@@ -47,7 +47,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                         val file = File(fullPath)
                         val parentDir = file.parent
 
-                        if (!file.exists()) {
+                        if (!file.exists() || file.length() == 0L) {
                             invalidFiles.add(file)
                             continue
                         }
