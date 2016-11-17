@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 1.36 *(2016-11-17)*
+----------------------------
+
+ * Do not be so strict at limiting characters at file names
+ * Fix setting folders as un/hidden
+ * A lot more smaller fixes
+
 Version 1.35 *(2016-11-15)*
 ----------------------------
 
