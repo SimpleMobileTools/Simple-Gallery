@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.adapters
 
+import android.os.Build
 import android.support.v7.view.ActionMode
 import android.support.v7.widget.RecyclerView
 import android.view.*
@@ -24,6 +25,13 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
     companion object {
         var actMode: ActionMode? = null
+
+        fun toggleItemSelection(itemView: View, select: Boolean) {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
+                itemView.dir_frame.isSelected = select
+            else
+                itemView.dir_thumbnail.isSelected = select
+        }
     }
 
     val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
@@ -51,7 +59,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
         override fun onDestroyActionMode(actionMode: ActionMode?) {
             super.onDestroyActionMode(actionMode)
-            views.forEach { it.dir_thumbnail.isSelected = false }
+            views.forEach { toggleItemSelection(it, false) }
         }
     }
 
@@ -87,7 +95,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                     activity.startSupportActionMode(multiSelectorCallback)
                     multiSelector.setSelected(this, true)
                     actMode?.title = multiSelector.selectedPositions.size.toString()
-                    itemView.dir_thumbnail.isSelected = true
+                    toggleItemSelection(itemView, true)
                 }
                 true
             }
@@ -98,7 +106,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             if (multiSelector.isSelectable) {
                 val isSelected = multiSelector.selectedPositions.contains(layoutPosition)
                 multiSelector.setSelected(this, !isSelected)
-                itemView.dir_thumbnail.isSelected = !isSelected
+                toggleItemSelection(itemView, !isSelected)
 
                 val selectedCnt = multiSelector.selectedPositions.size
                 if (selectedCnt == 0) {
