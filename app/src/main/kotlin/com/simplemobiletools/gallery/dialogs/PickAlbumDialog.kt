@@ -29,7 +29,7 @@ class PickAlbumDialog(val activity: SimpleActivity, val listener: OnPickAlbumLis
     }
 
     override fun gotDirectories(dirs: ArrayList<Directory>) {
-        DirectoryAdapter(activity, dirs) {
+        DirectoryAdapter(activity, dirs, null) {
             listener.onSuccess(it.path)
             dialog.dismiss()
         }

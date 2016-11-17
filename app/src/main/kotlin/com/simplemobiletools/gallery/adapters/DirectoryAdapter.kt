@@ -10,14 +10,19 @@ import com.bignerdranch.android.multiselector.SwappingHolder
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.signature.StringSignature
+import com.simplemobiletools.filepicker.extensions.isAStorageRootFolder
+import com.simplemobiletools.filepicker.extensions.scanPaths
+import com.simplemobiletools.filepicker.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
+import com.simplemobiletools.gallery.dialogs.RenameDirectoryDialog
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.directory_item.view.*
 import kotlinx.android.synthetic.main.directory_tmb.view.*
+import java.io.File
 import java.util.*
 
-class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Directory>, val itemClick: (Directory) -> Unit) :
+class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Directory>, val listener: DirOperationsListener?, val itemClick: (Directory) -> Unit) :
         RecyclerView.Adapter<DirectoryAdapter.ViewHolder>() {
 
     val multiSelector = MultiSelector()
@@ -38,6 +43,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         override fun onActionItemClicked(mode: ActionMode?, item: MenuItem): Boolean {
             return when (item.itemId) {
                 R.id.cab_edit -> {
+                    editDirectory()
                     true
                 }
                 else -> false
@@ -61,6 +67,27 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             super.onDestroyActionMode(actionMode)
             views.forEach { toggleItemSelection(it, false) }
         }
+    }
+
+    private fun editDirectory() {
+        val path = dirs[multiSelector.selectedPositions[0]].path
+        val dir = File(path)
+        if (activity.isAStorageRootFolder(dir.absolutePath)) {
+            activity.toast(R.string.rename_folder_root)
+            return
+        }
+
+        RenameDirectoryDialog(activity, dir, object : RenameDirectoryDialog.OnRenameDirListener {
+            override fun onRenameDirSuccess(changedPaths: ArrayList<String>) {
+                activity.scanPaths(changedPaths) {
+                    activity.runOnUiThread {
+                        actMode?.finish()
+                        listener?.refreshItems()
+                        activity.toast(R.string.rename_folder_ok)
+                    }
+                }
+            }
+        })
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -119,5 +146,9 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                 itemClick(directory)
             }
         }
+    }
+
+    interface DirOperationsListener {
+        fun refreshItems()
     }
 }

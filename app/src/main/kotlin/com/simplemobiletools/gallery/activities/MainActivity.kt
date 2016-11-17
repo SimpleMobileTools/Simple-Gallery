@@ -22,13 +22,12 @@ import com.simplemobiletools.gallery.Utils
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
 import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
-import com.simplemobiletools.gallery.dialogs.RenameDirectoryDialog
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 import java.util.*
 
-class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, GetDirectoriesAsynctask.GetDirectoriesListener {
+class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, GetDirectoriesAsynctask.GetDirectoriesListener, DirectoryAdapter.DirOperationsListener {
     companion object {
         private val STORAGE_PERMISSION = 1
         private val PICK_MEDIA = 2
@@ -208,7 +207,7 @@ class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, Get
                     }
                 }
                 updatedFiles.add(dir)
-                if (dir.listFiles().size == 0)
+                if (dir.listFiles().isEmpty())
                     deleteItem(dir)
             }
         }
@@ -252,32 +251,8 @@ class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, Get
         }*/
     }
 
-    private fun editDirectory() {
-        /*val items = directories_grid.checkedItemPositions
-        val cnt = items.size()
-        for (i in 0..cnt - 1) {
-            if (items.valueAt(i)) {
-                val id = items.keyAt(i)
-                val path = mDirs[id].path
-                renameDir(path)
-                break
-            }
-        }*/
-    }
-
-    private fun renameDir(path: String) {
-        val dir = File(path)
-        if (isAStorageRootFolder(path)) {
-            toast(R.string.rename_folder_root)
-            return
-        }
-
-        RenameDirectoryDialog(this, dir, object : RenameDirectoryDialog.OnRenameDirListener {
-            override fun onRenameDirSuccess(changedPaths: ArrayList<String>) {
-                mActionMode!!.finish()
-                applicationContext.scanPaths(changedPaths) { scanCompleted(path) }
-            }
-        })
+    override fun refreshItems() {
+        getDirectories()
     }
 
     private fun displayCopyDialog() {
@@ -490,15 +465,6 @@ class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, Get
             return selectedPaths*/
         }
 
-    private fun scanCompleted(path: String) {
-        val dir = File(path)
-        if (dir.isDirectory) {
-            getDirectories()
-
-            runOnUiThread { toast(R.string.rename_folder_ok) }
-        }
-    }
-
     override fun onRefresh() {
         getDirectories()
         directories_holder.isRefreshing = false
@@ -511,7 +477,7 @@ class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, Get
         }
         mDirs = dirs
 
-        val adapter = DirectoryAdapter(this, mDirs) {
+        val adapter = DirectoryAdapter(this, mDirs, this) {
             itemClicked(it.path)
         }
         directories_grid.adapter = adapter
