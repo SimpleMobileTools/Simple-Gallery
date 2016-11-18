@@ -161,7 +161,11 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
             else -> {
                 mIsFullscreen = !mIsFullscreen
                 checkFullscreen()
-                listener.fragmentClicked()
+
+                if (listener == null)
+                    listener = activity as ViewPagerFragment.FragmentClickListener
+
+                listener?.fragmentClicked()
             }
         }
     }

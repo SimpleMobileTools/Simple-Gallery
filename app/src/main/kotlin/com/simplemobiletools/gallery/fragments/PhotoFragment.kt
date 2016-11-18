@@ -66,6 +66,6 @@ class PhotoFragment : ViewPagerFragment(), View.OnClickListener {
         if (listener == null)
             listener = activity as ViewPagerFragment.FragmentClickListener
 
-        listener.fragmentClicked()
+        listener?.fragmentClicked()
     }
 }
