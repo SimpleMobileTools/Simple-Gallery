@@ -15,6 +15,8 @@ import com.simplemobiletools.gallery.Config
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.extensions.beVisibleIf
+import com.simplemobiletools.gallery.extensions.shareMedia
+import com.simplemobiletools.gallery.extensions.shareMedium
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.photo_video_item.view.*
 import kotlinx.android.synthetic.main.photo_video_tmb.view.*
@@ -45,6 +47,10 @@ class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>,
                     showProperties()
                     true
                 }
+                R.id.cab_share -> {
+                    shareMedia()
+                    return true
+                }
                 else -> false
             }
         }
@@ -73,6 +79,24 @@ class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>,
             selections.forEach { paths.add(media[it].path) }
             PropertiesDialog(activity, paths, config.showHiddenFolders)
         }
+    }
+
+    private fun shareMedia() {
+        val selections = multiSelector.selectedPositions
+        if (selections.size <= 1) {
+            activity.shareMedium(getSelectedMedia()[0])
+        } else {
+            activity.shareMedia(getSelectedMedia())
+        }
+    }
+
+    private fun getSelectedMedia(): List<Medium> {
+        val selections = multiSelector.selectedPositions
+        val cnt = selections.size
+        val selectedMedia = (0..cnt - 1)
+                .map { media[selections[it]] }
+
+        return selectedMedia
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

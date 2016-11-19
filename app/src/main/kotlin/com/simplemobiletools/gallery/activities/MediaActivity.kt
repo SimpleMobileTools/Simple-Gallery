@@ -231,40 +231,7 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
             false
     }
 
-    private fun shareMedia() {
-        /*val selectedMedia = getSelectedMedia()
-        if (selectedMedia.size <= 1) {
-            shareMedium(selectedMedia[0])
-        } else {
-            shareMedia(selectedMedia)
-        }*/
-    }
-
-    private fun shareMedia(media: List<Medium>) {
-        val shareTitle = resources.getString(R.string.share_via)
-        Intent().apply {
-            action = Intent.ACTION_SEND_MULTIPLE
-            type = "image/* video/*"
-            val uris = ArrayList<Uri>(media.size)
-            media.map { File(it.path) }
-                    .mapTo(uris) { Uri.fromFile(it) }
-
-            putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris)
-            startActivity(Intent.createChooser(this, shareTitle))
-        }
-    }
-
-    /*private fun getSelectedMedia(): List<Medium> {
-        val items = media_grid.checkedItemPositions
-        val cnt = items.size()
-        val media = (0..cnt - 1)
-                .filter { items.valueAt(it) }
-                .map { mMedia[items.keyAt(it)] }
-
-        return media
-    }
-
-    private fun prepareForDeleting() {
+    /*private fun prepareForDeleting() {
         if (isShowingPermDialog(File(mPath)))
             return
 
@@ -423,10 +390,6 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
 
     /*override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.cab_share -> {
-                shareMedia()
-                return true
-            }
             R.id.cab_delete -> {
                 prepareForDeleting()
                 mode.finish()
