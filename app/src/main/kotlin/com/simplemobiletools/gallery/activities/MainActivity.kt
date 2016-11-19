@@ -34,8 +34,8 @@ class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, Get
         private val PICK_WALLPAPER = 3
 
         private var mSnackbar: Snackbar? = null
-        lateinit var mDirs: MutableList<Directory>
-        lateinit var mToBeDeleted: MutableList<String>
+        lateinit var mDirs: ArrayList<Directory>
+        lateinit var mToBeDeleted: ArrayList<String>
 
         private var mIsSnackbarShown = false
         private var mIsPickImageIntent = false
@@ -311,7 +311,7 @@ class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, Get
     }
 
     override fun onTouch(v: View, event: MotionEvent): Boolean {
-        if (mIsSnackbarShown && event.action == MotionEvent.ACTION_MOVE) {
+        if (mIsSnackbarShown) {
             deleteDirs()
         }
 

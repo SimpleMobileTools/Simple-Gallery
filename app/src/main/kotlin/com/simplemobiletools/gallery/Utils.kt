@@ -2,9 +2,7 @@ package com.simplemobiletools.gallery
 
 import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.content.res.Resources
-import android.net.Uri
 import android.os.Build
 import android.util.DisplayMetrics
 import android.util.TypedValue
@@ -12,20 +10,9 @@ import android.view.KeyCharacterMap
 import android.view.KeyEvent
 import android.view.ViewConfiguration
 import android.webkit.MimeTypeMap
-import com.simplemobiletools.filepicker.extensions.*
-import com.simplemobiletools.gallery.models.Medium
-import java.io.File
-import java.util.*
 
 class Utils {
     companion object {
-        fun getFilename(context: Context, path: String): String {
-            val humanized = context.humanizePath(path)
-            return humanized.substring(humanized.lastIndexOf("/") + 1)
-        }
-
-        fun showToast(context: Context, resId: Int) = context.toast(resId)
-
         fun getActionBarHeight(context: Context, res: Resources): Int {
             val tv = TypedValue()
             var height = 0
@@ -75,8 +62,6 @@ class Utils {
             }
         }
 
-        fun hasStoragePermission(context: Context) = context.hasStoragePermission()
-
         fun getMimeType(url: String): String {
             val extension = MimeTypeMap.getFileExtensionFromUrl(url)
             return if (extension != null) {
@@ -84,25 +69,5 @@ class Utils {
             } else
                 ""
         }
-
-        fun shareMedium(medium: Medium, activity: Activity) {
-            val shareTitle = activity.resources.getString(R.string.share_via)
-            val file = File(medium.path)
-            val uri = Uri.fromFile(file)
-            Intent().apply {
-                action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_STREAM, uri)
-                type = medium.getMimeType()
-                activity.startActivity(Intent.createChooser(this, shareTitle))
-            }
-        }
-
-        fun needsStupidWritePermissions(context: Context, path: String) = context.needsStupidWritePermissions(path)
-
-        fun getFileDocument(context: Context, path: String, treeUri: String) = context.getFileDocument(path, treeUri)
-
-        fun scanPath(context: Context, path: String) = context.scanPath(path) {}
-
-        fun scanFiles(context: Context, files: ArrayList<File>) = context.scanFiles(files) {}
     }
 }

@@ -3,32 +3,33 @@ package com.simplemobiletools.gallery.activities
 import android.app.Activity
 import android.app.WallpaperManager
 import android.content.Intent
+import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.Color
-import android.media.MediaScannerConnection
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.support.design.widget.CoordinatorLayout
 import android.support.design.widget.Snackbar
 import android.support.v4.widget.SwipeRefreshLayout
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.MotionEvent
 import android.view.View
 import android.widget.AdapterView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.animation.GlideAnimation
 import com.bumptech.glide.request.target.SimpleTarget
 import com.simplemobiletools.filepicker.asynctasks.CopyMoveTask
-import com.simplemobiletools.filepicker.extensions.scanPath
+import com.simplemobiletools.filepicker.extensions.*
 import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog
 import com.simplemobiletools.gallery.Constants
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.Utils
 import com.simplemobiletools.gallery.adapters.MediaAdapter
 import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
 import com.simplemobiletools.gallery.dialogs.CopyDialog
+import com.simplemobiletools.gallery.extensions.getHumanizedFilename
+import com.simplemobiletools.gallery.extensions.shareMedium
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_media.*
 import java.io.File
@@ -36,29 +37,30 @@ import java.io.IOException
 import java.util.*
 import java.util.regex.Pattern
 
-class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener/*, GridView.MultiChoiceModeListener, GridView.OnTouchListener*/, SwipeRefreshLayout.OnRefreshListener {
+class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.OnTouchListener, SwipeRefreshLayout.OnRefreshListener {
     companion object {
         private val TAG = MediaActivity::class.java.simpleName
 
         private var mSnackbar: Snackbar? = null
 
-        lateinit var mToBeDeleted: MutableList<String>
-        lateinit var mMedia: MutableList<Medium>
+        lateinit var mToBeDeleted: ArrayList<String>
+        lateinit var mMedia: ArrayList<Medium>
 
         private var mPath = ""
         private var mIsSnackbarShown = false
         private var mIsGetImageIntent = false
         private var mIsGetVideoIntent = false
         private var mIsGetAnyIntent = false
-        private var mSelectedItemsCnt = 0
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_media)
-        mIsGetImageIntent = intent.getBooleanExtra(Constants.GET_IMAGE_INTENT, false)
-        mIsGetVideoIntent = intent.getBooleanExtra(Constants.GET_VIDEO_INTENT, false)
-        mIsGetAnyIntent = intent.getBooleanExtra(Constants.GET_ANY_INTENT, false)
+        intent.apply {
+            mIsGetImageIntent = getBooleanExtra(Constants.GET_IMAGE_INTENT, false)
+            mIsGetVideoIntent = getBooleanExtra(Constants.GET_VIDEO_INTENT, false)
+            mIsGetAnyIntent = getBooleanExtra(Constants.GET_ANY_INTENT, false)
+        }
 
         media_holder.setOnRefreshListener(this)
         mPath = intent.getStringExtra(Constants.DIRECTORY)
@@ -77,7 +79,7 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener/*, GridV
     }
 
     private fun tryloadGallery() {
-        if (Utils.hasStoragePermission(applicationContext)) {
+        if (hasStoragePermission()) {
             initializeGallery()
         } else {
             finish()
@@ -91,17 +93,16 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener/*, GridV
         }
 
         mMedia = newMedia
-        if (isDirEmpty)
+        if (isDirEmpty())
             return
 
         val adapter = MediaAdapter(this, mMedia)
         media_grid.adapter = adapter
         media_grid.onItemClickListener = this
-        /*mGridView!!.setMultiChoiceModeListener(this)
-        mGridView!!.setOnTouchListener(this)*/
+        media_grid.setOnTouchListener(this)
         mIsSnackbarShown = false
 
-        val dirName = Utils.getFilename(this, mPath)
+        val dirName = getHumanizedFilename(mPath)
         title = dirName
     }
 
@@ -111,7 +112,6 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener/*, GridV
         val isFolderHidden = mConfig.getIsFolderHidden(mPath)
         menu.findItem(R.id.hide_folder).isVisible = !isFolderHidden
         menu.findItem(R.id.unhide_folder).isVisible = isFolderHidden
-
         return true
     }
 
@@ -171,7 +171,7 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener/*, GridV
         }
     }
 
-    private fun getMedia(): MutableList<Medium> {
+    private fun getMedia(): ArrayList<Medium> {
         val media = ArrayList<Medium>()
         val invalidFiles = ArrayList<File>()
         for (i in 0..1) {
@@ -185,14 +185,16 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener/*, GridV
 
                 uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
             }
-            val where = "${MediaStore.Images.Media.DATA} like ? "
+            val where = "${MediaStore.Images.Media.DATA} LIKE ? "
             val args = arrayOf("$mPath%")
             val columns = arrayOf(MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_MODIFIED)
-            val cursor = contentResolver.query(uri, columns, where, args, null)
             val pattern = "${Pattern.quote(mPath)}/[^/]*"
+            var cursor: Cursor? = null
 
-            if (cursor != null) {
-                if (cursor.moveToFirst()) {
+            try {
+                cursor = contentResolver.query(uri, columns, where, args, null)
+
+                if (cursor != null && cursor.moveToFirst()) {
                     val pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA)
                     do {
                         val curPath = cursor.getString(pathIndex) ?: continue
@@ -209,31 +211,30 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener/*, GridV
                         }
                     } while (cursor.moveToNext())
                 }
-                cursor.close()
+            } finally {
+                cursor?.close()
             }
         }
 
         Medium.sorting = mConfig.sorting
-        Collections.sort(media)
-        Utils.scanFiles(applicationContext, invalidFiles)
-
+        media.sort()
+        scanFiles(invalidFiles) {}
         return media
     }
 
-    private val isDirEmpty: Boolean
-        get() {
-            if (mMedia.size <= 0) {
-                deleteDirectoryIfEmpty()
-                finish()
-                return true
-            }
-            return false
-        }
+    private fun isDirEmpty(): Boolean {
+        return if (mMedia.size <= 0) {
+            deleteDirectoryIfEmpty()
+            finish()
+            true
+        } else
+            false
+    }
 
     private fun shareMedia() {
-        val selectedMedia = selectedMedia
+        val selectedMedia = getSelectedMedia()
         if (selectedMedia.size <= 1) {
-            Utils.shareMedium(selectedMedia[0], this)
+            shareMedium(selectedMedia[0])
         } else {
             shareMedia(selectedMedia)
         }
@@ -241,38 +242,33 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener/*, GridV
 
     private fun shareMedia(media: List<Medium>) {
         val shareTitle = resources.getString(R.string.share_via)
-        val intent = Intent()
-        intent.action = Intent.ACTION_SEND_MULTIPLE
-        intent.type = "image/* video/*"
-        val uris = ArrayList<Uri>(media.size)
-        for (medium in media) {
-            val file = File(medium.path)
-            uris.add(Uri.fromFile(file))
-        }
+        Intent().apply {
+            action = Intent.ACTION_SEND_MULTIPLE
+            type = "image/* video/*"
+            val uris = ArrayList<Uri>(media.size)
+            media.map { File(it.path) }
+                    .mapTo(uris) { Uri.fromFile(it) }
 
-        intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris)
-        startActivity(Intent.createChooser(intent, shareTitle))
+            putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris)
+            startActivity(Intent.createChooser(this, shareTitle))
+        }
     }
 
-    private val selectedMedia: List<Medium>
-        get() {
-            val media = ArrayList<Medium>()
-            val items = media_grid.checkedItemPositions
-            val cnt = items.size()
-            for (i in 0..cnt - 1) {
-                if (items.valueAt(i)) {
-                    val id = items.keyAt(i)
-                    media.add(mMedia[id])
-                }
-            }
-            return media
-        }
+    private fun getSelectedMedia(): List<Medium> {
+        val items = media_grid.checkedItemPositions
+        val cnt = items.size()
+        val media = (0..cnt - 1)
+                .filter { items.valueAt(it) }
+                .map { mMedia[items.keyAt(it)] }
+
+        return media
+    }
 
     private fun prepareForDeleting() {
         if (isShowingPermDialog(File(mPath)))
             return
 
-        Utils.showToast(this, R.string.deleting)
+        toast(R.string.deleting)
         val items = media_grid.checkedItemPositions
         val cnt = items.size()
         var deletedCnt = 0
@@ -294,10 +290,9 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener/*, GridV
         if (mMedia.isEmpty()) {
             deleteFiles()
         } else {
-            val coordinator = findViewById(R.id.coordinator_layout) as CoordinatorLayout
             val res = resources
             val msg = res.getQuantityString(R.plurals.files_deleted, cnt, cnt)
-            mSnackbar = Snackbar.make(coordinator, msg, Snackbar.LENGTH_INDEFINITE)
+            mSnackbar = Snackbar.make(coordinator_layout, msg, Snackbar.LENGTH_INDEFINITE)
             mSnackbar!!.apply {
                 setAction(res.getString(R.string.undo), undoDeletion)
                 setActionTextColor(Color.WHITE)
@@ -322,12 +317,11 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener/*, GridV
         for (delPath in mToBeDeleted) {
             val file = File(delPath)
             if (file.exists()) {
-                if (Utils.needsStupidWritePermissions(this, delPath)) {
+                if (needsStupidWritePermissions(delPath)) {
                     if (isShowingPermDialog(file))
                         return
 
-                    val document = Utils.getFileDocument(this, delPath, mConfig.treeUri)
-                    if (document.delete()) {
+                    if (getFileDocument(delPath, mConfig.treeUri).delete()) {
                         wereFilesDeleted = true
                     }
                 } else {
@@ -338,8 +332,7 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener/*, GridV
         }
 
         if (wereFilesDeleted) {
-            val deletedPaths = mToBeDeleted.toTypedArray()
-            MediaScannerConnection.scanFile(applicationContext, deletedPaths, null) { path, uri ->
+            scanPaths(mToBeDeleted) {
                 if (mMedia.isEmpty()) {
                     finish()
                 }
@@ -357,87 +350,85 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener/*, GridV
     }
 
     private fun updateGridView() {
-        if (!isDirEmpty) {
-            val adapter = media_grid.adapter as MediaAdapter
-            adapter.updateItems(mMedia)
+        if (!isDirEmpty()) {
+            (media_grid.adapter as MediaAdapter).updateItems(mMedia)
         }
     }
 
     private fun showProperties() {
-        val selectedMedia = selectedMedia
+        val selectedMedia = getSelectedMedia()
         if (selectedMedia.size == 1) {
             PropertiesDialog(this, selectedMedia[0].path, false)
         } else {
             val paths = ArrayList<String>(selectedMedia.size)
-            for (medium in selectedMedia) {
-                paths.add(medium.path)
-            }
+            selectedMedia.mapTo(paths) { it.path }
             PropertiesDialog(this, paths, false)
         }
     }
 
-    private val isSetWallpaperIntent: Boolean
-        get() = intent.getBooleanExtra(Constants.SET_WALLPAPER_INTENT, false)
+    private fun isSetWallpaperIntent() = intent.getBooleanExtra(Constants.SET_WALLPAPER_INTENT, false)
 
     private fun displayCopyDialog() {
-        val files = ArrayList<File>()
 
         val items = media_grid.checkedItemPositions
         val cnt = items.size()
-        for (i in 0..cnt - 1) {
-            if (items.valueAt(i)) {
-                val id = items.keyAt(i)
-                files.add(File(mMedia[id].path))
-            }
-        }
+        val files = (0..cnt - 1)
+                .filter { items.valueAt(it) }
+                .map { items.keyAt(it) }
+                .mapTo(ArrayList<File>()) { File(mMedia[it].path) }
 
         CopyDialog(this, files, object : CopyMoveTask.CopyMoveListener {
             override fun copySucceeded(deleted: Boolean, copiedAll: Boolean) {
-                val msgId: Int
                 if (deleted) {
                     refreshDir()
-                    msgId = if (copiedAll) R.string.moving_success else R.string.moving_success_partial
+                    toast(if (copiedAll) R.string.moving_success else R.string.moving_success_partial)
                 } else {
-                    msgId = if (copiedAll) R.string.copying_success else R.string.copying_success_partial
+                    toast(if (copiedAll) R.string.copying_success else R.string.copying_success_partial)
                 }
-                Utils.showToast(applicationContext, msgId)
             }
 
             override fun copyFailed() {
-                Utils.showToast(applicationContext, R.string.copy_move_failed)
+                toast(R.string.copy_move_failed)
             }
         })
     }
 
     override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
         val curItemPath = mMedia[position].path
-        if (isSetWallpaperIntent) {
-            Utils.showToast(this, R.string.setting_wallpaper)
+        if (isSetWallpaperIntent()) {
+            toast(R.string.setting_wallpaper)
 
             val wantedWidth = wallpaperDesiredMinimumWidth
             val wantedHeight = wallpaperDesiredMinimumHeight
             val ratio = wantedWidth.toFloat() / wantedHeight
-            Glide.with(this).load(File(curItemPath)).asBitmap().override((wantedWidth * ratio).toInt(), wantedHeight).fitCenter().into(object : SimpleTarget<Bitmap>() {
-                override fun onResourceReady(bitmap: Bitmap?, glideAnimation: GlideAnimation<in Bitmap>?) {
-                    try {
-                        WallpaperManager.getInstance(applicationContext).setBitmap(bitmap)
-                        setResult(Activity.RESULT_OK)
-                    } catch (e: IOException) {
-                        Log.e(TAG, "item click " + e.message)
-                    }
+            Glide.with(this)
+                    .load(File(curItemPath))
+                    .asBitmap()
+                    .override((wantedWidth * ratio).toInt(), wantedHeight)
+                    .fitCenter()
+                    .into(object : SimpleTarget<Bitmap>() {
+                        override fun onResourceReady(bitmap: Bitmap?, glideAnimation: GlideAnimation<in Bitmap>?) {
+                            try {
+                                WallpaperManager.getInstance(applicationContext).setBitmap(bitmap)
+                                setResult(Activity.RESULT_OK)
+                            } catch (e: IOException) {
+                                Log.e(TAG, "item click " + e.message)
+                            }
 
-                    finish()
-                }
-            })
+                            finish()
+                        }
+                    })
         } else if (mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent) {
-            val result = Intent()
-            result.data = Uri.parse(curItemPath)
-            setResult(Activity.RESULT_OK, result)
+            Intent().apply {
+                data = Uri.parse(curItemPath)
+                setResult(Activity.RESULT_OK, this)
+            }
             finish()
         } else {
-            val intent = Intent(this, ViewPagerActivity::class.java)
-            intent.putExtra(Constants.MEDIUM, curItemPath)
-            startActivity(intent)
+            Intent(this, ViewPagerActivity::class.java).apply {
+                putExtra(Constants.MEDIUM, curItemPath)
+                startActivity(this)
+            }
         }
     }
 
@@ -489,7 +480,7 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener/*, GridV
 
     override fun onDestroyActionMode(mode: ActionMode) {
         mSelectedItemsCnt = 0
-    }
+    }*/
 
     override fun onTouch(v: View, event: MotionEvent): Boolean {
         if (mIsSnackbarShown) {
@@ -497,7 +488,7 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener/*, GridV
         }
 
         return false
-    }*/
+    }
 
     override fun onRefresh() {
         refreshDir()

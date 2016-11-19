@@ -4,6 +4,7 @@ import android.content.Context
 import android.database.Cursor
 import android.net.Uri
 import android.provider.MediaStore
+import com.simplemobiletools.filepicker.extensions.humanizePath
 
 fun Context.getRealPathFromURI(uri: Uri): String? {
     var cursor: Cursor? = null
@@ -18,4 +19,9 @@ fun Context.getRealPathFromURI(uri: Uri): String? {
     } finally {
         cursor?.close()
     }
+}
+
+fun Context.getHumanizedFilename(path: String): String {
+    val humanized = humanizePath(path)
+    return humanized.substring(humanized.lastIndexOf("/") + 1)
 }

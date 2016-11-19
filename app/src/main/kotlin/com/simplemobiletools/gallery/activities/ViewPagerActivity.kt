@@ -23,6 +23,7 @@ import com.simplemobiletools.gallery.Utils
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter
 import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.dialogs.RenameFileDialog
+import com.simplemobiletools.gallery.extensions.shareMedium
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_medium.*
@@ -142,7 +143,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 true
             }
             R.id.menu_share -> {
-                shareMedium()
+                shareMedium(getCurrentMedium())
                 true
             }
             R.id.menu_delete -> {
@@ -252,10 +253,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         }
         super.onActivityResult(requestCode, resultCode, resultData)
-    }
-
-    private fun shareMedium() {
-        Utils.shareMedium(getCurrentMedium(), this)
     }
 
     private fun askConfirmDelete() {
