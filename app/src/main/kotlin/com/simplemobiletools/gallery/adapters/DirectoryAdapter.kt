@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.signature.StringSignature
 import com.simplemobiletools.filepicker.asynctasks.CopyMoveTask
+import com.simplemobiletools.filepicker.dialogs.ConfirmationDialog
 import com.simplemobiletools.filepicker.extensions.isAStorageRootFolder
 import com.simplemobiletools.filepicker.extensions.scanPaths
 import com.simplemobiletools.filepicker.extensions.toast
@@ -70,8 +71,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                     true
                 }
                 R.id.cab_delete -> {
-                    prepareForDeleting()
-                    mode.finish()
+                    askConfirmDelete()
                     true
                 }
                 else -> false
@@ -171,6 +171,15 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
             override fun copyFailed() {
                 activity.toast(R.string.copy_move_failed)
+            }
+        })
+    }
+
+    private fun askConfirmDelete() {
+        ConfirmationDialog(activity, listener = object : ConfirmationDialog.OnConfirmedListener {
+            override fun onConfirmed() {
+                actMode?.finish()
+                prepareForDeleting()
             }
         })
     }

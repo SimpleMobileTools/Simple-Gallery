@@ -14,6 +14,7 @@ import android.view.View
 import android.webkit.MimeTypeMap
 import android.widget.RelativeLayout
 import com.simplemobiletools.filepicker.asynctasks.CopyMoveTask
+import com.simplemobiletools.filepicker.dialogs.ConfirmationDialog
 import com.simplemobiletools.filepicker.extensions.*
 import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog
 import com.simplemobiletools.gallery.Constants
@@ -145,7 +146,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 true
             }
             R.id.menu_delete -> {
-                notifyDeletion()
+                askConfirmDelete()
                 true
             }
             R.id.menu_rename -> {
@@ -255,6 +256,14 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun shareMedium() {
         Utils.shareMedium(getCurrentMedium(), this)
+    }
+
+    private fun askConfirmDelete() {
+        ConfirmationDialog(this, listener = object : ConfirmationDialog.OnConfirmedListener {
+            override fun onConfirmed() {
+                notifyDeletion()
+            }
+        })
     }
 
     private fun notifyDeletion() {
