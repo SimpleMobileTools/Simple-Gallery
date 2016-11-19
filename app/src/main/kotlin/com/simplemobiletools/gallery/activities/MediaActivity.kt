@@ -3,12 +3,10 @@ package com.simplemobiletools.gallery.activities
 import android.app.Activity
 import android.app.WallpaperManager
 import android.content.Intent
-import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.support.design.widget.Snackbar
 import android.util.Log
 import android.view.Menu
@@ -22,6 +20,7 @@ import com.simplemobiletools.filepicker.extensions.*
 import com.simplemobiletools.gallery.Constants
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.MediaAdapter
+import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
 import com.simplemobiletools.gallery.extensions.getHumanizedFilename
 import com.simplemobiletools.gallery.models.Medium
@@ -29,7 +28,6 @@ import kotlinx.android.synthetic.main.activity_media.*
 import java.io.File
 import java.io.IOException
 import java.util.*
-import java.util.regex.Pattern
 
 class MediaActivity : SimpleActivity(), View.OnTouchListener, MediaAdapter.MediaOperationsListener {
     companion object {
@@ -45,6 +43,7 @@ class MediaActivity : SimpleActivity(), View.OnTouchListener, MediaAdapter.Media
         private var mIsGetImageIntent = false
         private var mIsGetVideoIntent = false
         private var mIsGetAnyIntent = false
+        private var mIsGettingMedia = false
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,7 +55,7 @@ class MediaActivity : SimpleActivity(), View.OnTouchListener, MediaAdapter.Media
             mIsGetAnyIntent = getBooleanExtra(Constants.GET_ANY_INTENT, false)
         }
 
-        media_holder.setOnRefreshListener({ refreshDir() })
+        media_holder.setOnRefreshListener({ getMedia() })
         mPath = intent.getStringExtra(Constants.DIRECTORY)
         mToBeDeleted = ArrayList<String>()
         mMedia = ArrayList<Medium>()
@@ -74,19 +73,15 @@ class MediaActivity : SimpleActivity(), View.OnTouchListener, MediaAdapter.Media
 
     private fun tryloadGallery() {
         if (hasStoragePermission()) {
-            initializeGallery()
+            val dirName = getHumanizedFilename(mPath)
+            title = dirName
+            getMedia()
         } else {
             finish()
         }
     }
 
     private fun initializeGallery() {
-        val newMedia = getMedia()
-        if (newMedia.toString() == mMedia.toString()) {
-            return
-        }
-
-        mMedia = newMedia
         if (isDirEmpty())
             return
 
@@ -97,9 +92,6 @@ class MediaActivity : SimpleActivity(), View.OnTouchListener, MediaAdapter.Media
         media_grid.adapter = adapter
         media_grid.setOnTouchListener(this)
         mIsSnackbarShown = false
-
-        val dirName = getHumanizedFilename(mPath)
-        title = dirName
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -141,7 +133,7 @@ class MediaActivity : SimpleActivity(), View.OnTouchListener, MediaAdapter.Media
     private fun showSortingDialog() {
         ChangeSortingDialog(this, false, object : ChangeSortingDialog.OnChangeSortingListener {
             override fun sortingChanged() {
-                initializeGallery()
+                getMedia()
             }
         })
     }
@@ -167,55 +159,23 @@ class MediaActivity : SimpleActivity(), View.OnTouchListener, MediaAdapter.Media
         }
     }
 
-    private fun getMedia(): ArrayList<Medium> {
-        val media = ArrayList<Medium>()
-        val invalidFiles = ArrayList<File>()
-        for (i in 0..1) {
-            if (mIsGetVideoIntent && i == 0)
-                continue
+    private fun getMedia() {
+        if (mIsGettingMedia)
+            return
 
-            var uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-            if (i == 1) {
-                if (mIsGetImageIntent)
-                    continue
-
-                uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
-            }
-            val where = "${MediaStore.Images.Media.DATA} LIKE ? "
-            val args = arrayOf("$mPath%")
-            val columns = arrayOf(MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_MODIFIED)
-            val pattern = "${Pattern.quote(mPath)}/[^/]*"
-            var cursor: Cursor? = null
-
-            try {
-                cursor = contentResolver.query(uri, columns, where, args, null)
-
-                if (cursor != null && cursor.moveToFirst()) {
-                    val pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA)
-                    do {
-                        val curPath = cursor.getString(pathIndex) ?: continue
-
-                        if (curPath.matches(pattern.toRegex()) && !mToBeDeleted.contains(curPath.toLowerCase())) {
-                            val file = File(curPath)
-                            if (file.exists()) {
-                                val dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_MODIFIED)
-                                val timestamp = cursor.getLong(dateIndex)
-                                media.add(Medium(file.name, curPath, i == 1, timestamp, file.length()))
-                            } else {
-                                invalidFiles.add(file)
-                            }
-                        }
-                    } while (cursor.moveToNext())
+        mIsGettingMedia = true
+        GetMediaAsynctask(applicationContext, mPath, mIsGetVideoIntent, mIsGetImageIntent, mToBeDeleted, object : GetMediaAsynctask.GetMediaListener {
+            override fun gotMedia(media: ArrayList<Medium>) {
+                mIsGettingMedia = false
+                media_holder.isRefreshing = false
+                if (media.toString() == mMedia.toString()) {
+                    return
                 }
-            } finally {
-                cursor?.close()
-            }
-        }
 
-        Medium.sorting = mConfig.sorting
-        media.sort()
-        scanFiles(invalidFiles) {}
-        return media
+                mMedia = media
+                initializeGallery()
+            }
+        }).execute()
     }
 
     private fun isDirEmpty(): Boolean {
@@ -239,7 +199,7 @@ class MediaActivity : SimpleActivity(), View.OnTouchListener, MediaAdapter.Media
     }
 
     private fun notifyDeletion(cnt: Int) {
-        mMedia = getMedia()
+        getMedia()
 
         if (mMedia.isEmpty()) {
             deleteFiles()
@@ -299,14 +259,12 @@ class MediaActivity : SimpleActivity(), View.OnTouchListener, MediaAdapter.Media
         mSnackbar!!.dismiss()
         mIsSnackbarShown = false
         mToBeDeleted.clear()
-        mMedia = getMedia()
         updateMediaView()
     }
 
     private fun updateMediaView() {
         if (!isDirEmpty()) {
-            (media_grid.adapter as MediaAdapter).updateMedia(mMedia)
-            initializeGallery()
+            getMedia()
         }
     }
 
@@ -359,15 +317,6 @@ class MediaActivity : SimpleActivity(), View.OnTouchListener, MediaAdapter.Media
     }
 
     override fun refreshItems() {
-        refreshDir()
-    }
-
-    private fun refreshDir() {
-        val dir = File(mPath)
-        if (dir.isDirectory) {
-            scanPath(mPath) {}
-        }
-        initializeGallery()
-        media_holder.isRefreshing = false
+        getMedia()
     }
 }

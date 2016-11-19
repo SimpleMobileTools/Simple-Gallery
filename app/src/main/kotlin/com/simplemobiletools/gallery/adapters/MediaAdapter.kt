@@ -27,7 +27,7 @@ import kotlinx.android.synthetic.main.photo_video_tmb.view.*
 import java.io.File
 import java.util.*
 
-class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>, val listener: MediaOperationsListener?, val itemClick: (Medium) -> Unit) :
+class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>, val listener: MediaOperationsListener?, val itemClick: (Medium) -> Unit) :
         RecyclerView.Adapter<MediaAdapter.ViewHolder>() {
     val multiSelector = MultiSelector()
     val views = ArrayList<View>()
@@ -159,11 +159,6 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
     fun updateDisplayFilenames(display: Boolean) {
         displayFilenames = display
-        notifyDataSetChanged()
-    }
-
-    fun updateMedia(media: MutableList<Medium>) {
-        this.media = media
         notifyDataSetChanged()
     }
 
