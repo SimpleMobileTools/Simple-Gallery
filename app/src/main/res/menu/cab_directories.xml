@@ -23,8 +23,9 @@
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_copy_move"
+        android:icon="@mipmap/copy"
         android:title="@string/copy_move"
-        app:showAsAction="never"/>
+        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_delete"
         android:icon="@mipmap/delete"
