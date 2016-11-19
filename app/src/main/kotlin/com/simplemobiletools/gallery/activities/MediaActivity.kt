@@ -5,7 +5,6 @@ import android.app.WallpaperManager
 import android.content.Intent
 import android.database.Cursor
 import android.graphics.Bitmap
-import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -20,16 +19,15 @@ import android.widget.AdapterView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.animation.GlideAnimation
 import com.bumptech.glide.request.target.SimpleTarget
-import com.simplemobiletools.filepicker.asynctasks.CopyMoveTask
-import com.simplemobiletools.filepicker.extensions.*
-import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog
+import com.simplemobiletools.filepicker.extensions.hasStoragePermission
+import com.simplemobiletools.filepicker.extensions.scanFiles
+import com.simplemobiletools.filepicker.extensions.scanPath
+import com.simplemobiletools.filepicker.extensions.toast
 import com.simplemobiletools.gallery.Constants
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.MediaAdapter
 import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
-import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.extensions.getHumanizedFilename
-import com.simplemobiletools.gallery.extensions.shareMedium
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_media.*
 import java.io.File
@@ -37,7 +35,7 @@ import java.io.IOException
 import java.util.*
 import java.util.regex.Pattern
 
-class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.OnTouchListener, SwipeRefreshLayout.OnRefreshListener {
+class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.OnTouchListener, SwipeRefreshLayout.OnRefreshListener, MediaAdapter.MediaOperationsListener {
     companion object {
         private val TAG = MediaActivity::class.java.simpleName
 
@@ -75,7 +73,7 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
 
     override fun onPause() {
         super.onPause()
-        deleteFiles()
+        //deleteFiles()
     }
 
     private fun tryloadGallery() {
@@ -96,9 +94,11 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
         if (isDirEmpty())
             return
 
-        val adapter = MediaAdapter(this, mMedia)
+        val adapter = MediaAdapter(this, mMedia, this) {
+
+        }
+
         media_grid.adapter = adapter
-        media_grid.onItemClickListener = this
         media_grid.setOnTouchListener(this)
         mIsSnackbarShown = false
 
@@ -232,12 +232,12 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
     }
 
     private fun shareMedia() {
-        val selectedMedia = getSelectedMedia()
+        /*val selectedMedia = getSelectedMedia()
         if (selectedMedia.size <= 1) {
             shareMedium(selectedMedia[0])
         } else {
             shareMedia(selectedMedia)
-        }
+        }*/
     }
 
     private fun shareMedia(media: List<Medium>) {
@@ -254,7 +254,7 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
         }
     }
 
-    private fun getSelectedMedia(): List<Medium> {
+    /*private fun getSelectedMedia(): List<Medium> {
         val items = media_grid.checkedItemPositions
         val cnt = items.size()
         val media = (0..cnt - 1)
@@ -347,30 +347,30 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
         mToBeDeleted.clear()
         mMedia = getMedia()
         updateGridView()
-    }
+    }*/
 
     private fun updateGridView() {
         if (!isDirEmpty()) {
-            (media_grid.adapter as MediaAdapter).updateItems(mMedia)
+            //(media_grid.adapter as MediaAdapter).updateItems(mMedia)
         }
     }
 
     private fun showProperties() {
-        val selectedMedia = getSelectedMedia()
+        /*val selectedMedia = getSelectedMedia()
         if (selectedMedia.size == 1) {
             PropertiesDialog(this, selectedMedia[0].path, false)
         } else {
             val paths = ArrayList<String>(selectedMedia.size)
             selectedMedia.mapTo(paths) { it.path }
             PropertiesDialog(this, paths, false)
-        }
+        }*/
     }
 
     private fun isSetWallpaperIntent() = intent.getBooleanExtra(Constants.SET_WALLPAPER_INTENT, false)
 
     private fun displayCopyDialog() {
 
-        val items = media_grid.checkedItemPositions
+        /*val items = media_grid.checkedItemPositions
         val cnt = items.size()
         val files = (0..cnt - 1)
                 .filter { items.valueAt(it) }
@@ -390,7 +390,7 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
             override fun copyFailed() {
                 toast(R.string.copy_move_failed)
             }
-        })
+        })*/
     }
 
     override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
@@ -484,7 +484,7 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
 
     override fun onTouch(v: View, event: MotionEvent): Boolean {
         if (mIsSnackbarShown) {
-            deleteFiles()
+            //deleteFiles()
         }
 
         return false

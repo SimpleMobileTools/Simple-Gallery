@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/coordinator_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -10,16 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <GridView
+        <android.support.v7.widget.RecyclerView
             android:id="@+id/media_grid"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:choiceMode="multipleChoiceModal"
-            android:columnWidth="@dimen/medium_tmb_size"
-            android:horizontalSpacing="1dp"
-            android:numColumns="auto_fit"
-            android:stretchMode="columnWidth"
-            android:verticalSpacing="1dp"/>
+            app:layoutManager="android.support.v7.widget.GridLayoutManager"
+            app:spanCount="@integer/photo_columns"/>
 
     </android.support.v4.widget.SwipeRefreshLayout>
 </android.support.design.widget.CoordinatorLayout>

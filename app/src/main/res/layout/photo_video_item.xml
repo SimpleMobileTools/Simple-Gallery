@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/media_item_holder"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:padding="1px">
 
     <include layout="@layout/photo_video_tmb"/>
 
@@ -11,9 +12,9 @@
         android:id="@+id/play_outline"
         android:layout_width="@dimen/play_outline_size"
         android:layout_height="@dimen/play_outline_size"
-        android:layout_margin="@dimen/tiny_margin"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
+        android:layout_margin="@dimen/tiny_margin"
         android:src="@mipmap/play_outline"
         android:visibility="gone"/>
 
