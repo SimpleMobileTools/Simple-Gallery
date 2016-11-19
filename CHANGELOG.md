@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 1.38 *(2016-11-19)*
+----------------------------
+
+ * Added a confirmation dialog before deleting anything
+ * Allow deleting only photos and videos with the app
+ * Added more responsive directory/photo column counts
+ * Some performance improvements and bugfixes
+
 Version 1.37 *(2016-11-17)*
 ----------------------------
 
