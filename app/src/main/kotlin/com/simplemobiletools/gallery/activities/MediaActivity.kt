@@ -314,30 +314,6 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
 
     private fun isSetWallpaperIntent() = intent.getBooleanExtra(Constants.SET_WALLPAPER_INTENT, false)
 
-    private fun displayCopyDialog() {
-        /*val items = media_grid.checkedItemPositions
-        val cnt = items.size()
-        val files = (0..cnt - 1)
-                .filter { items.valueAt(it) }
-                .map { items.keyAt(it) }
-                .mapTo(ArrayList<File>()) { File(mMedia[it].path) }
-
-        CopyDialog(this, files, object : CopyMoveTask.CopyMoveListener {
-            override fun copySucceeded(deleted: Boolean, copiedAll: Boolean) {
-                if (deleted) {
-                    refreshDir()
-                    toast(if (copiedAll) R.string.moving_success else R.string.moving_success_partial)
-                } else {
-                    toast(if (copiedAll) R.string.copying_success else R.string.copying_success_partial)
-                }
-            }
-
-            override fun copyFailed() {
-                toast(R.string.copy_move_failed)
-            }
-        })*/
-    }
-
     override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
         val curItemPath = mMedia[position].path
         if (isSetWallpaperIntent()) {
@@ -377,22 +353,16 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
         }
     }
 
-    /*override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.cab_copy_move -> {
-                displayCopyDialog()
-                return true
-            }
-            else -> return false
-        }
-    }*/
-
     override fun onTouch(v: View, event: MotionEvent): Boolean {
         if (mIsSnackbarShown) {
             deleteFiles()
         }
 
         return false
+    }
+
+    override fun refreshItems() {
+        refreshDir()
     }
 
     override fun onRefresh() {

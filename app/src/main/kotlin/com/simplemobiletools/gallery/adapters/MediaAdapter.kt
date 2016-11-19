@@ -10,17 +10,21 @@ import com.bignerdranch.android.multiselector.SwappingHolder
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.signature.StringSignature
+import com.simplemobiletools.filepicker.asynctasks.CopyMoveTask
 import com.simplemobiletools.filepicker.dialogs.ConfirmationDialog
+import com.simplemobiletools.filepicker.extensions.toast
 import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog
 import com.simplemobiletools.gallery.Config
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
+import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.extensions.beVisibleIf
 import com.simplemobiletools.gallery.extensions.shareMedia
 import com.simplemobiletools.gallery.extensions.shareMedium
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.photo_video_item.view.*
 import kotlinx.android.synthetic.main.photo_video_tmb.view.*
+import java.io.File
 import java.util.*
 
 class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>, val listener: MediaOperationsListener?, val itemClick: (Medium) -> Unit) :
@@ -50,6 +54,10 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 }
                 R.id.cab_share -> {
                     shareMedia()
+                    return true
+                }
+                R.id.cab_copy_move -> {
+                    displayCopyDialog()
                     return true
                 }
                 R.id.cab_delete -> {
@@ -93,6 +101,28 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         } else {
             activity.shareMedia(getSelectedMedia())
         }
+    }
+
+    private fun displayCopyDialog() {
+        val files = ArrayList<File>()
+        val positions = multiSelector.selectedPositions
+        positions.forEach { files.add(File(media[it].path)) }
+
+        CopyDialog(activity, files, object : CopyMoveTask.CopyMoveListener {
+            override fun copySucceeded(deleted: Boolean, copiedAll: Boolean) {
+                if (deleted) {
+                    activity.toast(if (copiedAll) R.string.moving_success else R.string.moving_success_partial)
+                } else {
+                    activity.toast(if (copiedAll) R.string.copying_success else R.string.copying_success_partial)
+                }
+                listener?.refreshItems()
+                actMode?.finish()
+            }
+
+            override fun copyFailed() {
+                activity.toast(R.string.copy_move_failed)
+            }
+        })
     }
 
     private fun askConfirmDelete() {
@@ -189,6 +219,8 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     }
 
     interface MediaOperationsListener {
+        fun refreshItems()
+
         fun prepareForDeleting(paths: ArrayList<String>)
     }
 }
