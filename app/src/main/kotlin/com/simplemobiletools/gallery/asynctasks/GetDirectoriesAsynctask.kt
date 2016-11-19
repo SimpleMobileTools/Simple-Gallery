@@ -65,7 +65,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                             val newImageCnt = directory.mediaCnt + 1
                             directory.mediaCnt = newImageCnt
                             directory.addSize(file.length())
-                        } else if (!mToBeDeleted.contains(parentDir.toLowerCase())) {
+                        } else if (!mToBeDeleted.contains(parentDir)) {
                             var dirName = context.getHumanizedFilename(parentDir)
                             if (mConfig.getIsFolderHidden(parentDir)) {
                                 dirName += " ${context.resources.getString(R.string.hidden)}"

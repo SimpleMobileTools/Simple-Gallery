@@ -204,7 +204,11 @@ class MainActivity : SimpleActivity(), GetDirectoriesAsynctask.GetDirectoriesLis
     private fun deleteItem(file: File) {
         if (needsStupidWritePermissions(file.absolutePath)) {
             if (!isShowingPermDialog(file)) {
-                getFileDocument(file.absolutePath, mConfig.treeUri).delete()
+                val document = getFileDocument(file.absolutePath, mConfig.treeUri)
+
+                // double check we have the uri to the proper file path, not some parent folder
+                if (document.uri.toString().endsWith(file.absolutePath.getFilenameFromPath()))
+                    document.delete()
             }
         } else {
             file.delete()

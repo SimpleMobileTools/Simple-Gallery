@@ -231,12 +231,17 @@ class MediaActivity : SimpleActivity(), View.OnTouchListener, MediaAdapter.Media
         for (delPath in mToBeDeleted) {
             val file = File(delPath)
             if (file.exists() && file.isPhotoVideo()) {
-                if (needsStupidWritePermissions(delPath)) {
+                if (needsStupidWritePermissions(file.absolutePath)) {
                     if (isShowingPermDialog(file))
                         return
 
-                    if (getFileDocument(delPath, mConfig.treeUri).delete()) {
-                        wereFilesDeleted = true
+                    val document = getFileDocument(file.absolutePath, mConfig.treeUri)
+
+                    // double check we have the uri to the proper file path, not some parent folder
+                    if (document.uri.toString().endsWith(file.absolutePath.getFilenameFromPath())) {
+                        if (document.delete()) {
+                            wereFilesDeleted = true
+                        }
                     }
                 } else {
                     if (file.delete())
@@ -251,8 +256,8 @@ class MediaActivity : SimpleActivity(), View.OnTouchListener, MediaAdapter.Media
                     finish()
                 }
             }
-            mToBeDeleted.clear()
         }
+        mToBeDeleted.clear()
     }
 
     private val undoDeletion = View.OnClickListener {

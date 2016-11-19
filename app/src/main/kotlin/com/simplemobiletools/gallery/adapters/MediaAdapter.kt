@@ -137,7 +137,7 @@ class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>,
     private fun prepareForDeleting() {
         val selections = multiSelector.selectedPositions
         val paths = ArrayList<String>(selections.size)
-        selections.forEach { paths.add(media[it].path.toLowerCase()) }
+        selections.forEach { paths.add(media[it].path) }
         listener?.prepareForDeleting(paths)
     }
 

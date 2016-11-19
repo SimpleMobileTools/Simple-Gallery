@@ -51,7 +51,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
                     do {
                         val curPath = cursor.getString(pathIndex) ?: continue
 
-                        if (curPath.matches(pattern.toRegex()) && !mToBeDeleted.contains(curPath.toLowerCase())) {
+                        if (curPath.matches(pattern.toRegex()) && !mToBeDeleted.contains(curPath)) {
                             val file = File(curPath)
                             if (file.exists()) {
                                 val dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_MODIFIED)
