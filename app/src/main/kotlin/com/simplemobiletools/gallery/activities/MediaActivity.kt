@@ -230,7 +230,7 @@ class MediaActivity : SimpleActivity(), View.OnTouchListener, MediaAdapter.Media
 
         for (delPath in mToBeDeleted) {
             val file = File(delPath)
-            if (file.exists()) {
+            if (file.exists() && file.isPhotoVideo()) {
                 if (needsStupidWritePermissions(delPath)) {
                     if (isShowingPermDialog(file))
                         return

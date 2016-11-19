@@ -184,7 +184,7 @@ class MainActivity : SimpleActivity(), GetDirectoriesAsynctask.GetDirectoriesLis
         for (delPath in mToBeDeleted) {
             val dir = File(delPath)
             if (dir.exists()) {
-                val files = dir.listFiles()
+                val files = dir.listFiles().filter(File::isPhotoVideo)
                 files.forEach {
                     if (it.isFile && it.isPhotoVideo()) {
                         updatedFiles.add(it)
