@@ -6,4 +6,4 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:layoutManager="android.support.v7.widget.GridLayoutManager"
-    app:spanCount="@integer/columns"/>
+    app:spanCount="@integer/directory_columns"/>
