@@ -115,7 +115,6 @@
     <!-- License -->
     <string name="notice">Esta aplicación usa las siguientes bibliotecas de terceros que hacen mi vida más fácil. Gracias.</string>
     <string name="third_party_licences">Licencias de terceros</string>
-    <string name="butterknife_title"><u>Butter Knife (view injector)</u></string>
     <string name="subsampling_title"><u>Subsampling Scale Image View (zoomable imageviews)</u></string>
     <string name="glide_title"><u>Glide (image loading and caching)</u></string>
     <string name="cropper_title"><u>Android Image Cropper</u></string>

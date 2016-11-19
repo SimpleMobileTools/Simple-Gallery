@@ -116,7 +116,6 @@
     <!-- License -->
     <string name="notice">This app uses the following third party libraries to make my life easier. Thank you.</string>
     <string name="third_party_licences">开放源代码</string>
-    <string name="butterknife_title"><u>Butter Knife (view injector)</u></string>
     <string name="subsampling_title"><u>Subsampling Scale Image View (zoomable imageviews)</u></string>
     <string name="glide_title"><u>Glide (image loading and caching)</u></string>
     <string name="cropper_title"><u>Android Image Cropper</u></string>

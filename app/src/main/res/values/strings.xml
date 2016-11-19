@@ -116,9 +116,6 @@
     <!-- License -->
     <string name="notice">This app uses the following third party libraries to make my life easier. Thank you.</string>
     <string name="third_party_licences">Third party licences</string>
-    <string name="butterknife_title"><u>Butter Knife (view injector)</u></string>
-    <string name="butterknife_text" translatable="false">Copyright 2013 Jake Wharton\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
-    <string name="butterknife_url" translatable="false">https://github.com/JakeWharton/butterknife</string>
     <string name="subsampling_title"><u>Subsampling Scale Image View (zoomable imageviews)</u></string>
     <string name="subsampling_text" translatable="false">Copyright 2016 David Morrissey\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
     <string name="subsampling_url" translatable="false">https://github.com/davemorrissey/subsampling-scale-image-view</string>
