@@ -193,7 +193,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
     private fun getSelectedPaths(): HashSet<String> {
         val positions = multiSelector.selectedPositions
-        val paths = HashSet<String>()
+        val paths = HashSet<String>(positions.size)
         positions.forEach { paths.add(dirs[it].path) }
         return paths
     }

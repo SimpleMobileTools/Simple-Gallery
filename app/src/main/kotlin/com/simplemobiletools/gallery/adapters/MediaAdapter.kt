@@ -112,11 +112,9 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     }
 
     private fun getSelectedMedia(): List<Medium> {
-        val selections = multiSelector.selectedPositions
-        val cnt = selections.size
-        val selectedMedia = (0..cnt - 1)
-                .map { media[selections[it]] }
-
+        val positions = multiSelector.selectedPositions
+        val selectedMedia = ArrayList<Medium>(positions.size)
+        positions.forEach { selectedMedia.add(media[it]) }
         return selectedMedia
     }
 
