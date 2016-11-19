@@ -10,6 +10,7 @@ import com.bignerdranch.android.multiselector.SwappingHolder
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.signature.StringSignature
+import com.simplemobiletools.filepicker.dialogs.ConfirmationDialog
 import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog
 import com.simplemobiletools.gallery.Config
 import com.simplemobiletools.gallery.R
@@ -22,7 +23,7 @@ import kotlinx.android.synthetic.main.photo_video_item.view.*
 import kotlinx.android.synthetic.main.photo_video_tmb.view.*
 import java.util.*
 
-class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>, val listener: MediaOperationsListener?, val itemClick: (Medium) -> Unit) :
+class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>, val listener: MediaOperationsListener?, val itemClick: (Medium) -> Unit) :
         RecyclerView.Adapter<MediaAdapter.ViewHolder>() {
     val multiSelector = MultiSelector()
     val views = ArrayList<View>()
@@ -50,6 +51,10 @@ class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>,
                 R.id.cab_share -> {
                     shareMedia()
                     return true
+                }
+                R.id.cab_delete -> {
+                    askConfirmDelete()
+                    true
                 }
                 else -> false
             }
@@ -90,6 +95,22 @@ class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>,
         }
     }
 
+    private fun askConfirmDelete() {
+        ConfirmationDialog(activity, listener = object : ConfirmationDialog.OnConfirmedListener {
+            override fun onConfirmed() {
+                actMode?.finish()
+                prepareForDeleting()
+            }
+        })
+    }
+
+    private fun prepareForDeleting() {
+        val selections = multiSelector.selectedPositions
+        val paths = ArrayList<String>(selections.size)
+        selections.forEach { paths.add(media[it].path.toLowerCase()) }
+        listener?.prepareForDeleting(paths)
+    }
+
     private fun getSelectedMedia(): List<Medium> {
         val selections = multiSelector.selectedPositions
         val cnt = selections.size
@@ -110,6 +131,11 @@ class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>,
 
     fun updateDisplayFilenames(display: Boolean) {
         displayFilenames = display
+        notifyDataSetChanged()
+    }
+
+    fun updateMedia(media: MutableList<Medium>) {
+        this.media = media
         notifyDataSetChanged()
     }
 
@@ -165,6 +191,6 @@ class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>,
     }
 
     interface MediaOperationsListener {
-
+        fun prepareForDeleting(paths: ArrayList<String>)
     }
 }

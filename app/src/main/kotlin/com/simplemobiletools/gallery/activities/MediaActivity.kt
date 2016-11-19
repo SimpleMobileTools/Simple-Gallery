@@ -5,6 +5,7 @@ import android.app.WallpaperManager
 import android.content.Intent
 import android.database.Cursor
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -19,10 +20,7 @@ import android.widget.AdapterView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.animation.GlideAnimation
 import com.bumptech.glide.request.target.SimpleTarget
-import com.simplemobiletools.filepicker.extensions.hasStoragePermission
-import com.simplemobiletools.filepicker.extensions.scanFiles
-import com.simplemobiletools.filepicker.extensions.scanPath
-import com.simplemobiletools.filepicker.extensions.toast
+import com.simplemobiletools.filepicker.extensions.*
 import com.simplemobiletools.gallery.Constants
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.MediaAdapter
@@ -73,7 +71,7 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
 
     override fun onPause() {
         super.onPause()
-        //deleteFiles()
+        deleteFiles()
     }
 
     private fun tryloadGallery() {
@@ -199,7 +197,7 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
                     do {
                         val curPath = cursor.getString(pathIndex) ?: continue
 
-                        if (curPath.matches(pattern.toRegex()) && !mToBeDeleted.contains(curPath)) {
+                        if (curPath.matches(pattern.toRegex()) && !mToBeDeleted.contains(curPath.toLowerCase())) {
                             val file = File(curPath)
                             if (file.exists()) {
                                 val dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_MODIFIED)
@@ -231,22 +229,13 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
             false
     }
 
-    /*private fun prepareForDeleting() {
-        if (isShowingPermDialog(File(mPath)))
-            return
-
+    override fun prepareForDeleting(paths: ArrayList<String>) {
         toast(R.string.deleting)
-        val items = media_grid.checkedItemPositions
-        val cnt = items.size()
-        var deletedCnt = 0
-        for (i in 0..cnt - 1) {
-            if (items.valueAt(i)) {
-                val id = items.keyAt(i)
-                val path = mMedia[id].path
-                mToBeDeleted.add(path)
-                deletedCnt++
-            }
-        }
+        mToBeDeleted = paths
+        val deletedCnt = mToBeDeleted.size
+
+        if (isShowingPermDialog(File(mToBeDeleted[0])))
+            return
 
         notifyDeletion(deletedCnt)
     }
@@ -266,7 +255,7 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
                 show()
             }
             mIsSnackbarShown = true
-            updateGridView()
+            updateMediaView()
         }
     }
 
@@ -313,19 +302,19 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
         mIsSnackbarShown = false
         mToBeDeleted.clear()
         mMedia = getMedia()
-        updateGridView()
-    }*/
+        updateMediaView()
+    }
 
-    private fun updateGridView() {
+    private fun updateMediaView() {
         if (!isDirEmpty()) {
-            //(media_grid.adapter as MediaAdapter).updateItems(mMedia)
+            (media_grid.adapter as MediaAdapter).updateMedia(mMedia)
+            initializeGallery()
         }
     }
 
     private fun isSetWallpaperIntent() = intent.getBooleanExtra(Constants.SET_WALLPAPER_INTENT, false)
 
     private fun displayCopyDialog() {
-
         /*val items = media_grid.checkedItemPositions
         val cnt = items.size()
         val files = (0..cnt - 1)
@@ -390,11 +379,6 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
 
     /*override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.cab_delete -> {
-                prepareForDeleting()
-                mode.finish()
-                return true
-            }
             R.id.cab_copy_move -> {
                 displayCopyDialog()
                 return true
@@ -405,7 +389,7 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
 
     override fun onTouch(v: View, event: MotionEvent): Boolean {
         if (mIsSnackbarShown) {
-            //deleteFiles()
+            deleteFiles()
         }
 
         return false
