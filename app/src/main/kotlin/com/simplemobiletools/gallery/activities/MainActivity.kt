@@ -10,7 +10,6 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityCompat
-import android.support.v4.widget.SwipeRefreshLayout
 import android.view.Menu
 import android.view.MenuItem
 import android.view.MotionEvent
@@ -27,7 +26,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 import java.util.*
 
-class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, GetDirectoriesAsynctask.GetDirectoriesListener, View.OnTouchListener, DirectoryAdapter.DirOperationsListener {
+class MainActivity : SimpleActivity(), GetDirectoriesAsynctask.GetDirectoriesListener, View.OnTouchListener, DirectoryAdapter.DirOperationsListener {
     companion object {
         private val STORAGE_PERMISSION = 1
         private val PICK_MEDIA = 2
@@ -62,7 +61,7 @@ class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, Get
                 mIsGetAnyContentIntent || mIsSetWallpaperIntent
 
         mToBeDeleted = ArrayList<String>()
-        directories_holder.setOnRefreshListener(this)
+        directories_holder.setOnRefreshListener({ getDirectories() })
         mDirs = ArrayList<Directory>()
     }
 
@@ -287,12 +286,8 @@ class MainActivity : SimpleActivity(), SwipeRefreshLayout.OnRefreshListener, Get
         }
     }
 
-    override fun onRefresh() {
-        getDirectories()
-        directories_holder.isRefreshing = false
-    }
-
     override fun gotDirectories(dirs: ArrayList<Directory>) {
+        directories_holder.isRefreshing = false
         mIsGettingDirs = false
         if (dirs.toString() == mDirs.toString()) {
             return

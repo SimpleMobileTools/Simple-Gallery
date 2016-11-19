@@ -10,7 +10,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.support.design.widget.Snackbar
-import android.support.v4.widget.SwipeRefreshLayout
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -32,7 +31,7 @@ import java.io.IOException
 import java.util.*
 import java.util.regex.Pattern
 
-class MediaActivity : SimpleActivity(), View.OnTouchListener, SwipeRefreshLayout.OnRefreshListener, MediaAdapter.MediaOperationsListener {
+class MediaActivity : SimpleActivity(), View.OnTouchListener, MediaAdapter.MediaOperationsListener {
     companion object {
         private val TAG = MediaActivity::class.java.simpleName
 
@@ -57,7 +56,7 @@ class MediaActivity : SimpleActivity(), View.OnTouchListener, SwipeRefreshLayout
             mIsGetAnyIntent = getBooleanExtra(Constants.GET_ANY_INTENT, false)
         }
 
-        media_holder.setOnRefreshListener(this)
+        media_holder.setOnRefreshListener({ refreshDir() })
         mPath = intent.getStringExtra(Constants.DIRECTORY)
         mToBeDeleted = ArrayList<String>()
         mMedia = ArrayList<Medium>()
@@ -360,10 +359,6 @@ class MediaActivity : SimpleActivity(), View.OnTouchListener, SwipeRefreshLayout
     }
 
     override fun refreshItems() {
-        refreshDir()
-    }
-
-    override fun onRefresh() {
         refreshDir()
     }
 
