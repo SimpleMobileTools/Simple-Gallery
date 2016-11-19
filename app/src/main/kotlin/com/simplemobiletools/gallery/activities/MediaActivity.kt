@@ -16,7 +16,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.MotionEvent
 import android.view.View
-import android.widget.AdapterView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.animation.GlideAnimation
 import com.bumptech.glide.request.target.SimpleTarget
@@ -33,7 +32,7 @@ import java.io.IOException
 import java.util.*
 import java.util.regex.Pattern
 
-class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.OnTouchListener, SwipeRefreshLayout.OnRefreshListener, MediaAdapter.MediaOperationsListener {
+class MediaActivity : SimpleActivity(), View.OnTouchListener, SwipeRefreshLayout.OnRefreshListener, MediaAdapter.MediaOperationsListener {
     companion object {
         private val TAG = MediaActivity::class.java.simpleName
 
@@ -93,7 +92,7 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
             return
 
         val adapter = MediaAdapter(this, mMedia, this) {
-
+            itemClicked(it.path)
         }
 
         media_grid.adapter = adapter
@@ -314,8 +313,7 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
 
     private fun isSetWallpaperIntent() = intent.getBooleanExtra(Constants.SET_WALLPAPER_INTENT, false)
 
-    override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-        val curItemPath = mMedia[position].path
+    fun itemClicked(path: String) {
         if (isSetWallpaperIntent()) {
             toast(R.string.setting_wallpaper)
 
@@ -323,7 +321,7 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
             val wantedHeight = wallpaperDesiredMinimumHeight
             val ratio = wantedWidth.toFloat() / wantedHeight
             Glide.with(this)
-                    .load(File(curItemPath))
+                    .load(File(path))
                     .asBitmap()
                     .override((wantedWidth * ratio).toInt(), wantedHeight)
                     .fitCenter()
@@ -341,13 +339,13 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
                     })
         } else if (mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent) {
             Intent().apply {
-                data = Uri.parse(curItemPath)
+                data = Uri.parse(path)
                 setResult(Activity.RESULT_OK, this)
             }
             finish()
         } else {
             Intent(this, ViewPagerActivity::class.java).apply {
-                putExtra(Constants.MEDIUM, curItemPath)
+                putExtra(Constants.MEDIUM, path)
                 startActivity(this)
             }
         }
