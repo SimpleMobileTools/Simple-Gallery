@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.photo_video_item.view.*
 import kotlinx.android.synthetic.main.photo_video_tmb.view.*
 import java.util.*
 
-class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>, val listener: MediaAdapter.MediaOperationsListener?, val itemClick: (Medium) -> Unit) :
+class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>, val listener: MediaOperationsListener?, val itemClick: (Medium) -> Unit) :
         RecyclerView.Adapter<MediaAdapter.ViewHolder>() {
     val multiSelector = MultiSelector()
     val views = ArrayList<View>()
@@ -44,30 +44,26 @@ class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>,
 
         override fun onCreateActionMode(actionMode: ActionMode?, menu: Menu?): Boolean {
             super.onCreateActionMode(actionMode, menu)
-            DirectoryAdapter.actMode = actionMode
+            actMode = actionMode
             activity.menuInflater.inflate(R.menu.cab_media, menu)
             return true
         }
 
-        override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu): Boolean {
-            val menuItem = menu.findItem(R.id.cab_edit)
-            menuItem.isVisible = multiSelector.selectedPositions.size <= 1
-            return true
-        }
+        override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu) = true
 
         override fun onDestroyActionMode(actionMode: ActionMode?) {
             super.onDestroyActionMode(actionMode)
-            views.forEach { MediaAdapter.toggleItemSelection(it, false) }
+            views.forEach { toggleItemSelection(it, false) }
         }
     }
 
-    override fun onBindViewHolder(holder: MediaAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         views.add(holder.bindView(activity, multiSelectorMode, multiSelector, media[position]))
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): MediaAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent?.context).inflate(R.layout.photo_video_item, parent, false)
-        return MediaAdapter.ViewHolder(view, itemClick)
+        return ViewHolder(view, itemClick)
     }
 
     fun updateDisplayFilenames(display: Boolean) {
@@ -93,13 +89,33 @@ class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>,
             }
 
             itemView.setOnClickListener { viewClicked(multiSelector, medium) }
+            itemView.setOnLongClickListener {
+                if (!multiSelector.isSelectable) {
+                    activity.startSupportActionMode(multiSelectorCallback)
+                    multiSelector.setSelected(this, true)
+                    actMode?.title = multiSelector.selectedPositions.size.toString()
+                    toggleItemSelection(itemView, true)
+                    actMode?.invalidate()
+                }
+                true
+            }
 
             return itemView
         }
 
         fun viewClicked(multiSelector: MultiSelector, medium: Medium) {
             if (multiSelector.isSelectable) {
+                val isSelected = multiSelector.selectedPositions.contains(layoutPosition)
+                multiSelector.setSelected(this, !isSelected)
+                toggleItemSelection(itemView, !isSelected)
 
+                val selectedCnt = multiSelector.selectedPositions.size
+                if (selectedCnt == 0) {
+                    actMode?.finish()
+                } else {
+                    actMode?.title = selectedCnt.toString()
+                }
+                actMode?.invalidate()
             } else {
                 itemClick(medium)
             }
