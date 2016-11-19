@@ -1,10 +1,15 @@
 package com.simplemobiletools.gallery.asynctasks
 
 import android.content.Context
+import android.database.Cursor
 import android.os.AsyncTask
 import android.provider.MediaStore
 import com.simplemobiletools.filepicker.extensions.scanFiles
-import com.simplemobiletools.gallery.*
+import com.simplemobiletools.gallery.Config
+import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.SORT_BY_NAME
+import com.simplemobiletools.gallery.SORT_DESCENDING
+import com.simplemobiletools.gallery.extensions.getHumanizedFilename
 import com.simplemobiletools.gallery.models.Directory
 import java.io.File
 import java.lang.ref.WeakReference
@@ -37,10 +42,11 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
             }
             val columns = arrayOf(MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_MODIFIED)
             val order = getSortOrder()
-            val cursor = context.contentResolver.query(uri, columns, null, null, order)
+            var cursor: Cursor? = null
 
-            if (cursor != null) {
-                if (cursor.moveToFirst()) {
+            try {
+                cursor = context.contentResolver.query(uri, columns, null, null, order)
+                if (cursor != null && cursor.moveToFirst()) {
                     val pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA)
                     do {
                         val fullPath: String = cursor.getString(pathIndex) ?: continue
@@ -60,7 +66,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                             directory.mediaCnt = newImageCnt
                             directory.addSize(file.length())
                         } else if (!mToBeDeleted.contains(parentDir.toLowerCase())) {
-                            var dirName = Utils.getFilename(context, parentDir)
+                            var dirName = context.getHumanizedFilename(parentDir)
                             if (mConfig.getIsFolderHidden(parentDir)) {
                                 dirName += " ${context.resources.getString(R.string.hidden)}"
                             }
@@ -69,7 +75,8 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                         }
                     } while (cursor.moveToNext())
                 }
-                cursor.close()
+            } finally {
+                cursor?.close()
             }
         }
 
