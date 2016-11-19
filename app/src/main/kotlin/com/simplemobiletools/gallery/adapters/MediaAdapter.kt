@@ -10,6 +10,7 @@ import com.bignerdranch.android.multiselector.SwappingHolder
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.signature.StringSignature
+import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog
 import com.simplemobiletools.gallery.Config
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
@@ -39,7 +40,13 @@ class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>,
 
     val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
         override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
-            return false
+            return when (item.itemId) {
+                R.id.cab_properties -> {
+                    showProperties()
+                    true
+                }
+                else -> false
+            }
         }
 
         override fun onCreateActionMode(actionMode: ActionMode?, menu: Menu?): Boolean {
@@ -54,6 +61,17 @@ class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>,
         override fun onDestroyActionMode(actionMode: ActionMode?) {
             super.onDestroyActionMode(actionMode)
             views.forEach { toggleItemSelection(it, false) }
+        }
+    }
+
+    private fun showProperties() {
+        val selections = multiSelector.selectedPositions
+        if (selections.size <= 1) {
+            PropertiesDialog(activity, media[selections[0]].path, config.showHiddenFolders)
+        } else {
+            val paths = ArrayList<String>()
+            selections.forEach { paths.add(media[it].path) }
+            PropertiesDialog(activity, paths, config.showHiddenFolders)
         }
     }
 

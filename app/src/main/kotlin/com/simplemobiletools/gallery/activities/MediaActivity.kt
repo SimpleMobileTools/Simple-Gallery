@@ -355,17 +355,6 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
         }
     }
 
-    private fun showProperties() {
-        /*val selectedMedia = getSelectedMedia()
-        if (selectedMedia.size == 1) {
-            PropertiesDialog(this, selectedMedia[0].path, false)
-        } else {
-            val paths = ArrayList<String>(selectedMedia.size)
-            selectedMedia.mapTo(paths) { it.path }
-            PropertiesDialog(this, paths, false)
-        }*/
-    }
-
     private fun isSetWallpaperIntent() = intent.getBooleanExtra(Constants.SET_WALLPAPER_INTENT, false)
 
     private fun displayCopyDialog() {
@@ -412,7 +401,7 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
                                 WallpaperManager.getInstance(applicationContext).setBitmap(bitmap)
                                 setResult(Activity.RESULT_OK)
                             } catch (e: IOException) {
-                                Log.e(TAG, "item click " + e.message)
+                                Log.e(TAG, "item click $e")
                             }
 
                             finish()
@@ -432,35 +421,8 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
         }
     }
 
-    /*override fun onItemCheckedStateChanged(mode: ActionMode, position: Int, id: Long, checked: Boolean) {
-        if (checked) {
-            mSelectedItemsCnt++
-        } else {
-            mSelectedItemsCnt--
-        }
-
-        if (mSelectedItemsCnt > 0)
-            mode.title = mSelectedItemsCnt.toString()
-
-        mode.invalidate()
-    }
-
-    override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-        val inflater = mode.menuInflater
-        inflater.inflate(R.menu.cab_media, menu)
-        return true
-    }
-
-    override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
-        return false
-    }
-
-    override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
+    /*override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.cab_properties -> {
-                showProperties()
-                return true
-            }
             R.id.cab_share -> {
                 shareMedia()
                 return true
@@ -476,10 +438,6 @@ class MediaActivity : SimpleActivity(), AdapterView.OnItemClickListener, View.On
             }
             else -> return false
         }
-    }
-
-    override fun onDestroyActionMode(mode: ActionMode) {
-        mSelectedItemsCnt = 0
     }*/
 
     override fun onTouch(v: View, event: MotionEvent): Boolean {
