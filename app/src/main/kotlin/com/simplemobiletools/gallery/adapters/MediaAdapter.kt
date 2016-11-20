@@ -39,9 +39,9 @@ class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>,
 
         fun toggleItemSelection(itemView: View, select: Boolean) {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
-                itemView.medium_thumbnail_holder.isActivated = select
+                itemView.medium_thumbnail_holder.isSelected = select
             else
-                itemView.medium_thumbnail.isActivated = select
+                itemView.medium_thumbnail.isSelected = select
         }
     }
 
@@ -148,21 +148,21 @@ class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>,
         return selectedMedia
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        views.add(holder.bindView(activity, multiSelectorMode, multiSelector, media[position]))
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent?.context).inflate(R.layout.photo_video_item, parent, false)
         return ViewHolder(view, itemClick)
     }
 
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        views.add(holder.bindView(activity, multiSelectorMode, multiSelector, media[position]))
+    }
+
+    override fun getItemCount() = media.size
+
     fun updateDisplayFilenames(display: Boolean) {
         displayFilenames = display
         notifyDataSetChanged()
     }
-
-    override fun getItemCount() = media.size
 
     class ViewHolder(view: View, val itemClick: (Medium) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
         fun bindView(activity: SimpleActivity, multiSelectorCallback: ModalMultiSelectorCallback, multiSelector: MultiSelector, medium: Medium): View {

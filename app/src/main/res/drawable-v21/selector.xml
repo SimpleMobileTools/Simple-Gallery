@@ -4,7 +4,7 @@
         <selector>
             <item
                 android:drawable="@color/activated_item_foreground"
-                android:state_activated="true"/>
+                android:state_selected="true"/>
         </selector>
     </item>
     <item>
