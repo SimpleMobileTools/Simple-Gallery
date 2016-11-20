@@ -115,6 +115,7 @@
     <!-- License -->
     <string name="notice">Diese App nutzt die folgenden Drittanbieterbilbiotheken, die mein Leben einfacher machen. Danke.</string>
     <string name="third_party_licences">Drittanbieterlizenzen</string>
+    <string name="kotlin_title"><u>Kotlin (Programmiersprache)</u></string>
     <string name="subsampling_title"><u>Subsampling Scale Image View (zoomable imageviews)</u></string>
     <string name="glide_title"><u>Glide (Bilder laden und zwischenspeichern)</u></string>
     <string name="cropper_title"><u>Android Image Cropper (image crop and rotate)</u></string>

@@ -115,6 +115,7 @@
     <!-- License -->
     <string name="notice">このアプリは、私の人生を容易にするために、次のサードパーティのライブラリーを使用しています。 ありがとうございます。</string>
     <string name="third_party_licences">サードパーティー ライセンス</string>
+    <string name="kotlin_title"><u>Kotlin (プログラミング言語)</u></string>
     <string name="subsampling_title"><u>Subsampling Scale Image View (ズーム可能イメージビュー)</u></string>
     <string name="glide_title"><u>Glide (イメージ ローディングとキャッシング)</u></string>
     <string name="cropper_title"><u>Android Image Cropper (image crop and rotate)</u></string>
