@@ -74,6 +74,20 @@
             android:text="@string/multiselect_text"/>
 
         <TextView
+            android:id="@+id/license_rtl_viewpager_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/activity_margin"
+            android:text="@string/rtl_viewpager_title"
+            android:textColor="@color/colorPrimary"/>
+
+        <TextView
+            android:id="@+id/license_rtl_viewpager_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rtl_viewpager_text"/>
+
+        <TextView
             android:id="@+id/license_filepicker_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -119,6 +119,7 @@
     <string name="glide_title"><u>Glide (image loading and caching)</u></string>
     <string name="cropper_title"><u>Android Image Cropper (image crop and rotate)</u></string>
     <string name="multiselect_title"><u>RecyclerView MultiSelect (selecting multiple list items)</u></string>
+    <string name="rtl_viewpager_title"><u>RtlViewPager (for swiping images right to left)</u></string>
     <string name="filepicker_title"><u>Simple File Picker (filepicker dialog)</u></string>
     <string name="fileproperties_title"><u>Simple File Properties (properties dialog)</u></string>
 </resources>
