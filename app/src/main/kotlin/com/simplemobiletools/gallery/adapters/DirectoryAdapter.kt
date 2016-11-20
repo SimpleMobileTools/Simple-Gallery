@@ -217,10 +217,10 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             val tmb = directory.thumbnail
             val timestampSignature = StringSignature(directory.timestamp.toString())
             if (tmb.endsWith(".gif")) {
-                Glide.with(activity.applicationContext).load(tmb).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)
+                Glide.with(activity).load(tmb).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)
                         .placeholder(R.color.tmb_background).centerCrop().crossFade().into(itemView.dir_thumbnail)
             } else {
-                Glide.with(activity.applicationContext).load(tmb).diskCacheStrategy(DiskCacheStrategy.RESULT).signature(timestampSignature)
+                Glide.with(activity).load(tmb).diskCacheStrategy(DiskCacheStrategy.RESULT).signature(timestampSignature)
                         .placeholder(R.color.tmb_background).centerCrop().crossFade().into(itemView.dir_thumbnail)
             }
 
