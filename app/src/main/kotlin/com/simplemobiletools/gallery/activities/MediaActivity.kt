@@ -11,7 +11,6 @@ import android.support.design.widget.Snackbar
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.MotionEvent
 import android.view.View
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.animation.GlideAnimation
@@ -29,7 +28,7 @@ import java.io.File
 import java.io.IOException
 import java.util.*
 
-class MediaActivity : SimpleActivity(), View.OnTouchListener, MediaAdapter.MediaOperationsListener {
+class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     companion object {
         private val TAG = MediaActivity::class.java.simpleName
 
@@ -39,7 +38,6 @@ class MediaActivity : SimpleActivity(), View.OnTouchListener, MediaAdapter.Media
         lateinit var mMedia: ArrayList<Medium>
 
         private var mPath = ""
-        private var mIsSnackbarShown = false
         private var mIsGetImageIntent = false
         private var mIsGetVideoIntent = false
         private var mIsGetAnyIntent = false
@@ -90,8 +88,7 @@ class MediaActivity : SimpleActivity(), View.OnTouchListener, MediaAdapter.Media
         }
 
         media_grid.adapter = adapter
-        media_grid.setOnTouchListener(this)
-        mIsSnackbarShown = false
+        media_grid.setOnTouchListener { view, motionEvent -> checkDelete(); false }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -212,7 +209,6 @@ class MediaActivity : SimpleActivity(), View.OnTouchListener, MediaAdapter.Media
                 setActionTextColor(Color.WHITE)
                 show()
             }
-            mIsSnackbarShown = true
             updateMediaView()
         }
     }
@@ -221,11 +217,7 @@ class MediaActivity : SimpleActivity(), View.OnTouchListener, MediaAdapter.Media
         if (mToBeDeleted.isEmpty())
             return
 
-        if (mSnackbar != null) {
-            mSnackbar!!.dismiss()
-        }
-
-        mIsSnackbarShown = false
+        mSnackbar?.dismiss()
         var wereFilesDeleted = false
 
         for (delPath in mToBeDeleted) {
@@ -262,7 +254,6 @@ class MediaActivity : SimpleActivity(), View.OnTouchListener, MediaAdapter.Media
 
     private val undoDeletion = View.OnClickListener {
         mSnackbar!!.dismiss()
-        mIsSnackbarShown = false
         mToBeDeleted.clear()
         updateMediaView()
     }
@@ -313,12 +304,10 @@ class MediaActivity : SimpleActivity(), View.OnTouchListener, MediaAdapter.Media
         }
     }
 
-    override fun onTouch(v: View, event: MotionEvent): Boolean {
-        if (mIsSnackbarShown) {
+    fun checkDelete() {
+        if (mSnackbar?.isShown == true) {
             deleteFiles()
         }
-
-        return false
     }
 
     override fun refreshItems() {

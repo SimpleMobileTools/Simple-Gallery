@@ -12,7 +12,6 @@ import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityCompat
 import android.view.Menu
 import android.view.MenuItem
-import android.view.MotionEvent
 import android.view.View
 import com.simplemobiletools.filepicker.extensions.*
 import com.simplemobiletools.gallery.Constants
@@ -26,7 +25,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 import java.util.*
 
-class MainActivity : SimpleActivity(), GetDirectoriesAsynctask.GetDirectoriesListener, View.OnTouchListener, DirectoryAdapter.DirOperationsListener {
+class MainActivity : SimpleActivity(), GetDirectoriesAsynctask.GetDirectoriesListener, DirectoryAdapter.DirOperationsListener {
     companion object {
         private val STORAGE_PERMISSION = 1
         private val PICK_MEDIA = 2
@@ -36,7 +35,6 @@ class MainActivity : SimpleActivity(), GetDirectoriesAsynctask.GetDirectoriesLis
         lateinit var mDirs: ArrayList<Directory>
         lateinit var mToBeDeleted: ArrayList<String>
 
-        private var mIsSnackbarShown = false
         private var mIsPickImageIntent = false
         private var mIsPickVideoIntent = false
         private var mIsGetImageContentIntent = false
@@ -170,7 +168,6 @@ class MainActivity : SimpleActivity(), GetDirectoriesAsynctask.GetDirectoriesLis
             setActionTextColor(Color.WHITE)
             show()
         }
-        mIsSnackbarShown = true
     }
 
     private fun deleteDirs() {
@@ -178,7 +175,6 @@ class MainActivity : SimpleActivity(), GetDirectoriesAsynctask.GetDirectoriesLis
             return
 
         mSnackbar?.dismiss()
-        mIsSnackbarShown = false
 
         val updatedFiles = ArrayList<File>()
         for (delPath in mToBeDeleted) {
@@ -217,7 +213,6 @@ class MainActivity : SimpleActivity(), GetDirectoriesAsynctask.GetDirectoriesLis
 
     private val undoDeletion = View.OnClickListener {
         mSnackbar!!.dismiss()
-        mIsSnackbarShown = false
         mToBeDeleted.clear()
         getDirectories()
     }
@@ -302,18 +297,16 @@ class MainActivity : SimpleActivity(), GetDirectoriesAsynctask.GetDirectoriesLis
             itemClicked(it.path)
         }
         directories_grid.adapter = adapter
-        directories_grid.setOnTouchListener(this)
+        directories_grid.setOnTouchListener { view, motionEvent -> checkDelete(); false }
     }
 
     override fun refreshItems() {
         getDirectories()
     }
 
-    override fun onTouch(v: View, event: MotionEvent): Boolean {
-        if (mIsSnackbarShown) {
+    fun checkDelete() {
+        if (mSnackbar?.isShown == true) {
             deleteDirs()
         }
-
-        return false
     }
 }
