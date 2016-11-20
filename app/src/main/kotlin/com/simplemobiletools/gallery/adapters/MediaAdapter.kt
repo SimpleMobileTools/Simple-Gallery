@@ -36,12 +36,21 @@ class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>,
     companion object {
         var actMode: ActionMode? = null
         var displayFilenames = false
+        val markedItems = HashSet<Int>()
 
-        fun toggleItemSelection(itemView: View, select: Boolean) {
+        fun toggleItemSelection(itemView: View, select: Boolean, pos: Int = -1) {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
                 itemView.medium_thumbnail_holder.isSelected = select
             else
                 itemView.medium_thumbnail.isSelected = select
+
+            if (pos == -1)
+                return
+
+            if (select)
+                markedItems.add(pos)
+            else
+                markedItems.remove(pos)
         }
     }
 
@@ -80,6 +89,7 @@ class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>,
         override fun onDestroyActionMode(actionMode: ActionMode?) {
             super.onDestroyActionMode(actionMode)
             views.forEach { toggleItemSelection(it, false) }
+            markedItems.clear()
         }
     }
 
@@ -154,7 +164,7 @@ class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>,
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        views.add(holder.bindView(activity, multiSelectorMode, multiSelector, media[position]))
+        views.add(holder.bindView(activity, multiSelectorMode, multiSelector, media[position], position))
     }
 
     override fun getItemCount() = media.size
@@ -165,10 +175,11 @@ class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>,
     }
 
     class ViewHolder(view: View, val itemClick: (Medium) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
-        fun bindView(activity: SimpleActivity, multiSelectorCallback: ModalMultiSelectorCallback, multiSelector: MultiSelector, medium: Medium): View {
+        fun bindView(activity: SimpleActivity, multiSelectorCallback: ModalMultiSelectorCallback, multiSelector: MultiSelector, medium: Medium, pos: Int): View {
             itemView.play_outline.visibility = if (medium.isVideo) View.VISIBLE else View.GONE
             itemView.file_name.beVisibleIf(displayFilenames)
             itemView.file_name.text = medium.name
+            toggleItemSelection(itemView, markedItems.contains(pos), pos)
 
             val path = medium.path
             val timestampSignature = StringSignature(medium.timestamp.toString())
@@ -179,13 +190,13 @@ class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>,
                         .placeholder(R.color.tmb_background).centerCrop().crossFade().into(itemView.medium_thumbnail)
             }
 
-            itemView.setOnClickListener { viewClicked(multiSelector, medium) }
+            itemView.setOnClickListener { viewClicked(multiSelector, medium, pos) }
             itemView.setOnLongClickListener {
                 if (!multiSelector.isSelectable) {
                     activity.startSupportActionMode(multiSelectorCallback)
                     multiSelector.setSelected(this, true)
                     actMode?.title = multiSelector.selectedPositions.size.toString()
-                    toggleItemSelection(itemView, true)
+                    toggleItemSelection(itemView, true, pos)
                     actMode?.invalidate()
                 }
                 true
@@ -194,11 +205,11 @@ class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>,
             return itemView
         }
 
-        fun viewClicked(multiSelector: MultiSelector, medium: Medium) {
+        fun viewClicked(multiSelector: MultiSelector, medium: Medium, pos: Int) {
             if (multiSelector.isSelectable) {
                 val isSelected = multiSelector.selectedPositions.contains(layoutPosition)
                 multiSelector.setSelected(this, !isSelected)
-                toggleItemSelection(itemView, !isSelected)
+                toggleItemSelection(itemView, !isSelected, pos)
 
                 val selectedCnt = multiSelector.selectedPositions.size
                 if (selectedCnt == 0) {

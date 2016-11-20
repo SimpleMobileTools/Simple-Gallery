@@ -36,12 +36,21 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
     companion object {
         var actMode: ActionMode? = null
+        val markedItems = HashSet<Int>()
 
-        fun toggleItemSelection(itemView: View, select: Boolean) {
+        fun toggleItemSelection(itemView: View, select: Boolean, pos: Int = -1) {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
                 itemView.dir_frame.isSelected = select
             else
                 itemView.dir_thumbnail.isSelected = select
+
+            if (pos == -1)
+                return
+
+            if (select)
+                markedItems.add(pos)
+            else
+                markedItems.remove(pos)
         }
     }
 
@@ -108,6 +117,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         override fun onDestroyActionMode(actionMode: ActionMode?) {
             super.onDestroyActionMode(actionMode)
             views.forEach { toggleItemSelection(it, false) }
+            markedItems.clear()
         }
     }
 
@@ -198,21 +208,22 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         return paths
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        views.add(holder.bindView(activity, multiSelectorMode, multiSelector, dirs[position]))
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent?.context).inflate(R.layout.directory_item, parent, false)
         return ViewHolder(view, itemClick)
     }
 
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        views.add(holder.bindView(activity, multiSelectorMode, multiSelector, dirs[position], position))
+    }
+
     override fun getItemCount() = dirs.size
 
     class ViewHolder(view: View, val itemClick: (Directory) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
-        fun bindView(activity: SimpleActivity, multiSelectorCallback: ModalMultiSelectorCallback, multiSelector: MultiSelector, directory: Directory): View {
+        fun bindView(activity: SimpleActivity, multiSelectorCallback: ModalMultiSelectorCallback, multiSelector: MultiSelector, directory: Directory, pos: Int): View {
             itemView.dir_name.text = directory.name
             itemView.photo_cnt.text = directory.mediaCnt.toString()
+            toggleItemSelection(itemView, markedItems.contains(pos), pos)
 
             val tmb = directory.thumbnail
             val timestampSignature = StringSignature(directory.timestamp.toString())
@@ -224,13 +235,13 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                         .placeholder(R.color.tmb_background).centerCrop().crossFade().into(itemView.dir_thumbnail)
             }
 
-            itemView.setOnClickListener { viewClicked(multiSelector, directory) }
+            itemView.setOnClickListener { viewClicked(multiSelector, directory, pos) }
             itemView.setOnLongClickListener {
                 if (!multiSelector.isSelectable) {
                     activity.startSupportActionMode(multiSelectorCallback)
                     multiSelector.setSelected(this, true)
                     actMode?.title = multiSelector.selectedPositions.size.toString()
-                    toggleItemSelection(itemView, true)
+                    toggleItemSelection(itemView, true, pos)
                     actMode?.invalidate()
                 }
                 true
@@ -238,11 +249,11 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             return itemView
         }
 
-        fun viewClicked(multiSelector: MultiSelector, directory: Directory) {
+        fun viewClicked(multiSelector: MultiSelector, directory: Directory, pos: Int) {
             if (multiSelector.isSelectable) {
                 val isSelected = multiSelector.selectedPositions.contains(layoutPosition)
                 multiSelector.setSelected(this, !isSelected)
-                toggleItemSelection(itemView, !isSelected)
+                toggleItemSelection(itemView, !isSelected, pos)
 
                 val selectedCnt = multiSelector.selectedPositions.size
                 if (selectedCnt == 0) {
