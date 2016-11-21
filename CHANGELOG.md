@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 1.41 *(2016-11-21)*
+----------------------------
+
+ * Cache thumbnails for better performance
+ * Some crashfixes
+
 Version 1.40 *(2016-11-20)*
 ----------------------------
 
