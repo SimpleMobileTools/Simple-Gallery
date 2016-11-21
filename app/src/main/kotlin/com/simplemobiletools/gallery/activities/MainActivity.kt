@@ -250,7 +250,7 @@ class MainActivity : SimpleActivity(), GetDirectoriesAsynctask.GetDirectoriesLis
                     val path = resultData.data.path
                     val uri = Uri.fromFile(File(path))
                     if (mIsGetImageContentIntent || mIsGetVideoContentIntent || mIsGetAnyContentIntent) {
-                        val type = Utils.getMimeType(path)
+                        val type = Utils.getMimeType(path) ?: ""
                         setDataAndTypeAndNormalize(uri, type)
                         flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
                     } else if (mIsPickImageIntent || mIsPickVideoIntent) {
