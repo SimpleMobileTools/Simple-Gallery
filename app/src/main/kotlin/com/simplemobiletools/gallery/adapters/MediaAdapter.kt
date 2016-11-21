@@ -186,7 +186,7 @@ class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>,
             if (medium.isGif) {
                 Glide.with(activity).load(path).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature).into(itemView.medium_thumbnail)
             } else {
-                Glide.with(activity).load(path).diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)
+                Glide.with(activity).load(path).diskCacheStrategy(DiskCacheStrategy.RESULT).signature(timestampSignature)
                         .placeholder(R.color.tmb_background).centerCrop().crossFade().into(itemView.medium_thumbnail)
             }
 
