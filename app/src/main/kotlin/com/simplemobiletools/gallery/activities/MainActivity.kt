@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 import java.util.*
 
-class MainActivity : SimpleActivity(), GetDirectoriesAsynctask.GetDirectoriesListener, DirectoryAdapter.DirOperationsListener {
+class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     companion object {
         private val STORAGE_PERMISSION = 1
         private val PICK_MEDIA = 2
@@ -134,16 +134,15 @@ class MainActivity : SimpleActivity(), GetDirectoriesAsynctask.GetDirectoriesLis
             return
 
         mIsGettingDirs = true
-        GetDirectoriesAsynctask(applicationContext, mIsPickVideoIntent || mIsGetVideoContentIntent, mIsPickImageIntent || mIsGetImageContentIntent,
-                mToBeDeleted, this).execute()
+        GetDirectoriesAsynctask(applicationContext, mIsPickVideoIntent || mIsGetVideoContentIntent, mIsPickImageIntent || mIsGetImageContentIntent, mToBeDeleted) {
+            gotDirectories(it)
+        }.execute()
     }
 
     private fun showSortingDialog() {
-        ChangeSortingDialog(this, true, object : ChangeSortingDialog.OnChangeSortingListener {
-            override fun sortingChanged() {
-                getDirectories()
-            }
-        })
+        ChangeSortingDialog(this, true) {
+            getDirectories()
+        }
     }
 
     override fun prepareForDeleting(paths: ArrayList<String>) {
@@ -285,7 +284,7 @@ class MainActivity : SimpleActivity(), GetDirectoriesAsynctask.GetDirectoriesLis
         }
     }
 
-    override fun gotDirectories(dirs: ArrayList<Directory>) {
+    fun gotDirectories(dirs: ArrayList<Directory>) {
         directories_holder.isRefreshing = false
         mIsGettingDirs = false
         if (dirs.toString() == mDirs.toString()) {

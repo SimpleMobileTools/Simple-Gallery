@@ -140,17 +140,15 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             return
         }
 
-        RenameDirectoryDialog(activity, dir, object : RenameDirectoryDialog.OnRenameDirListener {
-            override fun onRenameDirSuccess(changedPaths: ArrayList<String>) {
-                activity.scanPaths(changedPaths) {
-                    activity.runOnUiThread {
-                        actMode?.finish()
-                        listener?.refreshItems()
-                        activity.toast(R.string.rename_folder_ok)
-                    }
+        RenameDirectoryDialog(activity, dir) {
+            activity.scanPaths(it) {
+                activity.runOnUiThread {
+                    actMode?.finish()
+                    listener?.refreshItems()
+                    activity.toast(R.string.rename_folder_ok)
                 }
             }
-        })
+        }
     }
 
     private fun hideDirs() {

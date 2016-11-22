@@ -12,18 +12,15 @@ import com.simplemobiletools.gallery.SORT_DESCENDING
 import com.simplemobiletools.gallery.extensions.getHumanizedFilename
 import com.simplemobiletools.gallery.models.Directory
 import java.io.File
-import java.lang.ref.WeakReference
 import java.util.*
 
 class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, val isPickImage: Boolean,
-                              val mToBeDeleted: List<String>, val listener: GetDirectoriesListener) : AsyncTask<Void, Void, ArrayList<Directory>>() {
+                              val mToBeDeleted: List<String>, val callback: (dirs: ArrayList<Directory>) -> Unit) : AsyncTask<Void, Void, ArrayList<Directory>>() {
     lateinit var mConfig: Config
-    lateinit var mListener: WeakReference<GetDirectoriesListener>
 
     override fun onPreExecute() {
         super.onPreExecute()
         mConfig = Config.newInstance(context)
-        mListener = WeakReference(listener)
     }
 
     override fun doInBackground(vararg params: Void): ArrayList<Directory> {
@@ -91,8 +88,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
 
     override fun onPostExecute(dirs: ArrayList<Directory>) {
         super.onPostExecute(dirs)
-        val listener = mListener.get()
-        listener?.gotDirectories(dirs)
+        callback.invoke(dirs)
     }
 
     // sort the files at querying too, just to get the correct thumbnail
@@ -134,9 +130,5 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         }
 
         dirs.removeAll(ignoreDirs)
-    }
-
-    interface GetDirectoriesListener {
-        fun gotDirectories(dirs: ArrayList<Directory>)
     }
 }

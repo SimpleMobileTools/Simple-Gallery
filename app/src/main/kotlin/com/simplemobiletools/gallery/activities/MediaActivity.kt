@@ -128,11 +128,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun showSortingDialog() {
-        ChangeSortingDialog(this, false, object : ChangeSortingDialog.OnChangeSortingListener {
-            override fun sortingChanged() {
-                getMedia()
-            }
-        })
+        ChangeSortingDialog(this, false) {
+            getMedia()
+        }
     }
 
     private fun hideDirectory() {
@@ -161,18 +159,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             return
 
         mIsGettingMedia = true
-        GetMediaAsynctask(applicationContext, mPath, mIsGetVideoIntent, mIsGetImageIntent, mToBeDeleted, object : GetMediaAsynctask.GetMediaListener {
-            override fun gotMedia(media: ArrayList<Medium>) {
-                mIsGettingMedia = false
-                media_holder.isRefreshing = false
-                if (media.toString() == mMedia.toString()) {
-                    return
-                }
-
-                mMedia = media
-                initializeGallery()
-            }
-        }).execute()
+        GetMediaAsynctask(applicationContext, mPath, mIsGetVideoIntent, mIsGetImageIntent, mToBeDeleted) {
+            gotMedia(it)
+        }.execute()
     }
 
     private fun isDirEmpty(): Boolean {
@@ -302,6 +291,17 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                 startActivity(this)
             }
         }
+    }
+
+    fun gotMedia(media: ArrayList<Medium>) {
+        mIsGettingMedia = false
+        media_holder.isRefreshing = false
+        if (media.toString() == mMedia.toString()) {
+            return
+        }
+
+        mMedia = media
+        initializeGallery()
     }
 
     fun checkDelete() {

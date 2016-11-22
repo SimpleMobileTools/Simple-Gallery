@@ -11,7 +11,7 @@ import com.simplemobiletools.filepicker.extensions.value
 import com.simplemobiletools.gallery.R
 import kotlinx.android.synthetic.main.rename_file.view.*
 
-class SaveAsDialog(val activity: Activity, val path: String, val listener: OnSaveAsListener) {
+class SaveAsDialog(val activity: Activity, val path: String, val callback: (filename: String) -> Unit) {
 
     init {
         val view = LayoutInflater.from(activity).inflate(R.layout.dialog_save_as, null)
@@ -38,13 +38,9 @@ class SaveAsDialog(val activity: Activity, val path: String, val listener: OnSav
                     return@setOnClickListener
                 }
 
-                listener.onSaveAsSuccess(filename)
+                callback.invoke(filename)
                 dismiss()
             })
         }
-    }
-
-    interface OnSaveAsListener {
-        fun onSaveAsSuccess(filename: String)
     }
 }

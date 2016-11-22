@@ -315,12 +315,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun editMedium() {
-        RenameFileDialog(this, getCurrentFile(), object : RenameFileDialog.OnRenameFileListener {
-            override fun onRenameFileSuccess(newFile: File) {
-                mMedia!![view_pager.currentItem].path = newFile.absolutePath
-                updateActionbarTitle()
-            }
-        })
+        RenameFileDialog(this, getCurrentFile()) {
+            mMedia!![view_pager.currentItem].path = it.absolutePath
+            updateActionbarTitle()
+        }
     }
 
     private fun reloadViewPager() {

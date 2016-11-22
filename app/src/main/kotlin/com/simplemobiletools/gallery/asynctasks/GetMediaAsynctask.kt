@@ -8,19 +8,16 @@ import com.simplemobiletools.filepicker.extensions.scanFiles
 import com.simplemobiletools.gallery.Config
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
-import java.lang.ref.WeakReference
 import java.util.*
 import java.util.regex.Pattern
 
 class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo: Boolean, val isPickImage: Boolean,
-                        val mToBeDeleted: List<String>, val listener: GetMediaListener) : AsyncTask<Void, Void, ArrayList<Medium>>() {
+                        val mToBeDeleted: List<String>, val callback: (media: ArrayList<Medium>) -> Unit) : AsyncTask<Void, Void, ArrayList<Medium>>() {
     lateinit var mConfig: Config
-    lateinit var mListener: WeakReference<GetMediaListener>
 
     override fun onPreExecute() {
         super.onPreExecute()
         mConfig = Config.newInstance(context)
-        mListener = WeakReference(listener)
     }
 
     override fun doInBackground(vararg params: Void): ArrayList<Medium> {
@@ -76,11 +73,6 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
 
     override fun onPostExecute(media: ArrayList<Medium>) {
         super.onPostExecute(media)
-        val listener = mListener.get()
-        listener?.gotMedia(media)
-    }
-
-    interface GetMediaListener {
-        fun gotMedia(media: ArrayList<Medium>)
+        callback.invoke(media)
     }
 }

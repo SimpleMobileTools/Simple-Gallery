@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.rename_directory.view.*
 import java.io.File
 import java.util.*
 
-class RenameDirectoryDialog(val activity: SimpleActivity, val dir: File, val listener: OnRenameDirListener) {
+class RenameDirectoryDialog(val activity: SimpleActivity, val dir: File, val callback: (changedPaths: ArrayList<String>) -> Unit) {
     init {
         val view = LayoutInflater.from(activity).inflate(R.layout.rename_directory, null)
 
@@ -72,10 +72,6 @@ class RenameDirectoryDialog(val activity: SimpleActivity, val dir: File, val lis
         files.mapTo(updatedFiles) { it.absolutePath }
 
         updatedFiles.add(newDir.absolutePath)
-        listener.onRenameDirSuccess(updatedFiles)
-    }
-
-    interface OnRenameDirListener {
-        fun onRenameDirSuccess(changedPaths: ArrayList<String>)
+        callback.invoke(updatedFiles)
     }
 }

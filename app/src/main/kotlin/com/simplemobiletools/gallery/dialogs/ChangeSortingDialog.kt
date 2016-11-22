@@ -8,7 +8,7 @@ import android.view.View
 import com.simplemobiletools.gallery.*
 import kotlinx.android.synthetic.main.dialog_change_sorting.view.*
 
-class ChangeSortingDialog(val activity: Activity, val isDirectorySorting: Boolean, val listener: OnChangeSortingListener) : DialogInterface.OnClickListener {
+class ChangeSortingDialog(val activity: Activity, val isDirectorySorting: Boolean, val callback: () -> Unit) : DialogInterface.OnClickListener {
     companion object {
         private var currSorting = 0
 
@@ -76,10 +76,6 @@ class ChangeSortingDialog(val activity: Activity, val isDirectorySorting: Boolea
                 config.sorting = sorting
             }
         }
-        listener.sortingChanged()
-    }
-
-    interface OnChangeSortingListener {
-        fun sortingChanged()
+        callback.invoke()
     }
 }

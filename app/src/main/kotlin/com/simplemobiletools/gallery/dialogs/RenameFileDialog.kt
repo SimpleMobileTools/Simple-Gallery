@@ -10,7 +10,7 @@ import com.simplemobiletools.gallery.activities.SimpleActivity
 import kotlinx.android.synthetic.main.rename_file.view.*
 import java.io.File
 
-class RenameFileDialog(val activity: SimpleActivity, val file: File, val listener: OnRenameFileListener) {
+class RenameFileDialog(val activity: SimpleActivity, val file: File, val callback: (newFile: File) -> Unit) {
 
     init {
         val view = LayoutInflater.from(activity).inflate(R.layout.rename_file, null)
@@ -73,10 +73,6 @@ class RenameFileDialog(val activity: SimpleActivity, val file: File, val listene
     private fun sendSuccess(currFile: File, newFile: File) {
         val changedFiles = arrayListOf(currFile, newFile)
         activity.scanFiles(changedFiles) {}
-        listener.onRenameFileSuccess(newFile)
-    }
-
-    interface OnRenameFileListener {
-        fun onRenameFileSuccess(newFile: File)
+        callback.invoke(newFile)
     }
 }
