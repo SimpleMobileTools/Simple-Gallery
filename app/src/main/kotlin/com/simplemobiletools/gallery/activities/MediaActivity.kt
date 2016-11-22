@@ -222,7 +222,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         for (delPath in mToBeDeleted) {
             val file = File(delPath)
-            if (file.exists() && file.isPhotoVideo()) {
+            if (file.exists() && file.isImageVideoGif()) {
                 if (needsStupidWritePermissions(file.absolutePath)) {
                     if (isShowingPermDialog(file))
                         return

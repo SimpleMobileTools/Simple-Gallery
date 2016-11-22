@@ -256,11 +256,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun askConfirmDelete() {
-        ConfirmationDialog(this, listener = object : ConfirmationDialog.OnConfirmedListener {
-            override fun onConfirmed() {
-                notifyDeletion()
-            }
-        })
+        ConfirmationDialog(this) {
+            notifyDeletion()
+        }
     }
 
     private fun notifyDeletion() {

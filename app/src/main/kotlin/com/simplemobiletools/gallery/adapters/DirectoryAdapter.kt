@@ -186,12 +186,10 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     }
 
     private fun askConfirmDelete() {
-        ConfirmationDialog(activity, listener = object : ConfirmationDialog.OnConfirmedListener {
-            override fun onConfirmed() {
-                actMode?.finish()
-                prepareForDeleting()
-            }
-        })
+        ConfirmationDialog(activity) {
+            actMode?.finish()
+            prepareForDeleting()
+        }
     }
 
     private fun prepareForDeleting() {

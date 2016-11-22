@@ -182,7 +182,7 @@ class MainActivity : SimpleActivity(), GetDirectoriesAsynctask.GetDirectoriesLis
             if (dir.exists()) {
                 val files = dir.listFiles()
                 files.forEach {
-                    if (it.isFile && it.isPhotoVideo()) {
+                    if (it.isFile && it.isImageVideoGif()) {
                         updatedFiles.add(it)
                         deleteItem(it)
                     }
