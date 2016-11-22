@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 1.42 *(2016-11-22)*
+----------------------------
+
+ * Fully hide the navigation bar in fullscreen mode
+ * Fix marking selected items on Android 5
+ * Misc smaller improvements
+
 Version 1.41 *(2016-11-21)*
 ----------------------------
 
