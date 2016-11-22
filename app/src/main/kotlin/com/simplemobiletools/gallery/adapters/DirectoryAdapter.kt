@@ -39,7 +39,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         val markedItems = HashSet<Int>()
 
         fun toggleItemSelection(itemView: View, select: Boolean, pos: Int = -1) {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
                 itemView.dir_frame.isSelected = select
             else
                 itemView.dir_thumbnail.isSelected = select

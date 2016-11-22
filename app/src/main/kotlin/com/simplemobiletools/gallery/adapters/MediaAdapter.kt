@@ -39,7 +39,7 @@ class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>,
         val markedItems = HashSet<Int>()
 
         fun toggleItemSelection(itemView: View, select: Boolean, pos: Int = -1) {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP)
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
                 itemView.medium_thumbnail_holder.isSelected = select
             else
                 itemView.medium_thumbnail.isSelected = select
