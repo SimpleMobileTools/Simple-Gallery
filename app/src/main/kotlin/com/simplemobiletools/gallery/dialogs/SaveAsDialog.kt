@@ -1,7 +1,7 @@
 package com.simplemobiletools.gallery.dialogs
 
 import android.app.Activity
-import android.support.v7.app.AlertDialog
+import android.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.WindowManager
 import com.simplemobiletools.filepicker.extensions.getFilenameFromPath

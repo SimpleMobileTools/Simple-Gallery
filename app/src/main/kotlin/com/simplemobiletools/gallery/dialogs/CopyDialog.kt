@@ -1,7 +1,7 @@
 package com.simplemobiletools.gallery.dialogs
 
+import android.app.AlertDialog
 import android.support.v4.util.Pair
-import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.WindowManager
 import com.simplemobiletools.filepicker.asynctasks.CopyMoveTask
