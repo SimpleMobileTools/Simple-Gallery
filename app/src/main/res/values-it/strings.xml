@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Simple Gallery</string>
-    <string name="app_launcher_name">Gallery</string>
+    <string name="app_launcher_name">Galleria</string>
     <string name="share_via">Condividi via</string>
     <string name="no_permissions">Non c\'è molto da fare in una galleria senza l\'accesso all\'archiviazione</string>
     <string name="delete">Elimina</string>
     <string name="deleting">Eliminazione</string>
-    <string name="rename">Rename</string>
-    <string name="edit">Edit</string>
+    <string name="rename">Rinomina</string>
+    <string name="edit">Modifica</string>
     <string name="undo">Annulla</string>
     <string name="share">Condividi</string>
     <string name="properties">Proprietà</string>
@@ -15,31 +15,31 @@
     <string name="rename_file_error">Impossibile rinominare il file</string>
     <string name="rename_folder_error">Impossibile rinominare la cartella</string>
     <string name="rename_folder_empty">Il nome della cartella non deve essere vuoto</string>
-    <string name="rename_folder_exists">A folder with that name already exists</string>
-    <string name="rename_folder_root">Cannot rename the root folder of a storage</string>
+    <string name="rename_folder_exists">Esiste già una cartella con questo nome</string>
+    <string name="rename_folder_root">Non è possibile rinominare la cartella principale</string>
     <string name="rename_folder_ok">Cartella rinominata correttamente</string>
     <string name="renaming_folder">Rinominazione cartella</string>
     <string name="filename_cannot_be_empty">Il nome del file non deve essere vuoto</string>
-    <string name="filename_invalid_characters">Filename contains invalid characters</string>
+    <string name="filename_invalid_characters">Il nome contiene caratteri non validi</string>
     <string name="extension">Estensione</string>
     <string name="file_deleted">File eliminato</string>
     <string name="open_camera">Apri fotocamera</string>
     <string name="unknown_error">Riscontrato un errore sconosciuto</string>
-    <string name="sort_by">Sort by</string>
-    <string name="name">Name</string>
-    <string name="size">Size</string>
-    <string name="date">Date</string>
-    <string name="ascending">Ascending</string>
-    <string name="descending">Descending</string>
+    <string name="sort_by">Ordina per</string>
+    <string name="name">Nome</string>
+    <string name="size">Dimensione</string>
+    <string name="date">Data</string>
+    <string name="ascending">Ascendente</string>
+    <string name="descending">Discendente</string>
     <string name="ok">OK</string>
-    <string name="cancel">Cancel</string>
-    <string name="open_with">Open with</string>
-    <string name="no_app_found">No valid app found</string>
-    <string name="hide_folder">Hide folder</string>
-    <string name="unhide_folder">Unhide folder</string>
-    <string name="hidden">(hidden)</string>
-    <string name="save_as">Save as</string>
-    <string name="file_saved">File saved successfully</string>
+    <string name="cancel">Annulla</string>
+    <string name="open_with">Apri con</string>
+    <string name="no_app_found">Nessun app valida trovata</string>
+    <string name="hide_folder">Nascondi cartella</string>
+    <string name="unhide_folder">Mostra cartella nascosta</string>
+    <string name="hidden">(nascosta)</string>
+    <string name="save_as">Salva come </string>
+    <string name="file_saved">File salvato correttamente</string>
     <string name="copy">Copia</string>
     <string name="move">Sposta</string>
     <string name="copy_move">Copia/Sposta</string>
@@ -50,16 +50,16 @@
     <string name="select_destination">Seleziona destinazione</string>
     <string name="invalid_destination">Impossibile scrivere nella destinazione selezionata</string>
     <string name="please_select_destination">Seleziona una destinazione</string>
-    <string name="source_and_destination_same">Source and destination cannot be the same</string>
+    <string name="source_and_destination_same">Sorgente e destinazione non possono essere uguali</string>
     <string name="copy_failed">Impossibile copiare i file</string>
     <string name="copying">Copia in corso&#8230;</string>
-    <string name="copying_success">Files copied successfully</string>
-    <string name="copy_move_failed">An error occurred</string>
-    <string name="moving">Moving&#8230;</string>
-    <string name="moving_success">Files moved successfully</string>
-    <string name="already_exists">A file with that name already exists</string>
-    <string name="moving_success_partial">Some files could not be moved</string>
-    <string name="copying_success_partial">Some files could not be copied</string>
+    <string name="copying_success">File copiati correttamente</string>
+    <string name="copy_move_failed">Si è verificato un errore</string>
+    <string name="moving">Spostando&#8230;</string>
+    <string name="moving_success">File spostati correttamente</string>
+    <string name="already_exists">Esiste già un file con questo nome</string>
+    <string name="moving_success_partial">Alcuni file non possono essere spostati</string>
+    <string name="copying_success_partial">Alcuni file non possono essere copiati</string>
     <string name="invalid_name">Il nome contiene caratteri non validi</string>
 
     <plurals name="folders_deleted">
@@ -74,32 +74,32 @@
 
     <!-- Editor -->
     <string name="editor">Editor</string>
-    <string name="save">Save</string>
-    <string name="rotate">Rotate</string>
-    <string name="invalid_image_path">Invalid image path</string>
-    <string name="image_editing_failed">Image editing failed</string>
-    <string name="edit_image_with">Edit image with:</string>
-    <string name="no_editor_found">No image editor found</string>
-    <string name="unknown_file_location">Unknown file location</string>
-    <string name="error_saving_file">Could not overwrite the source file</string>
+    <string name="save">Salva</string>
+    <string name="rotate">Ruota</string>
+    <string name="invalid_image_path">Percorso immagine non valido</string>
+    <string name="image_editing_failed">Modifica immagine non riuscita</string>
+    <string name="edit_image_with">Modifica immagine con:</string>
+    <string name="no_editor_found">Editor immagine non trovato</string>
+    <string name="unknown_file_location">Posizione file sconosciuta</string>
+    <string name="error_saving_file">Impossibile sovrascrivere il file sorgente</string>
 
     <!-- Set wallpaper -->
-    <string name="simple_wallpaper">Simple Wallpaper</string>
-    <string name="set_as_wallpaper">Set as Wallpaper</string>
-    <string name="set_as_wallpaper_failed">Setting as Wallpaper failed</string>
-    <string name="set_as_wallpaper_with">Set as wallpaper with:</string>
-    <string name="no_wallpaper_setter_found">No app capable of it has been found</string>
+    <string name="simple_wallpaper">Sfondo Semplice</string>
+    <string name="set_as_wallpaper">Imposta come sfondo</string>
+    <string name="set_as_wallpaper_failed">Impostazione sfondo non riuscito</string>
+    <string name="set_as_wallpaper_with">Imposta come sfondo con:</string>
+    <string name="no_wallpaper_setter_found">Non sono disponibili app compatibili</string>
     <string name="setting_wallpaper">Impostazione sfondo&#8230;</string>
-    <string name="wallpaper_set_successfully">Wallpaper set successfully</string>
+    <string name="wallpaper_set_successfully">Sfondo impostato correttamente</string>
 
     <!-- About -->
     <string name="about">Informazioni</string>
     <string name="website">Altre semplici app e codici sorgenti in:\nhttp://simplemobiletools.com</string>
     <string name="email_label">Invia la tua opinione o i tuoi suggerimenti a:</string>
     <string name="third_party_licences_underlined"><u>Licenze di terze parti</u></string>
-    <string name="invite_friends_underlined"><u>Invite friends</u></string>
-    <string name="share_text">Hey, come check out %1$s at %2$s</string>
-    <string name="invite_via">Invite via</string>
+    <string name="invite_friends_underlined"><u>Invita amico</u></string>
+    <string name="share_text">Ciao, controlla %1$s su %2$s</string>
+    <string name="invite_via">Invita con</string>
     <string name="rate_us_underlined"><u>Dacci un voto sul Play Store</u></string>
     <string name="follow_us">Seguici:</string>
     <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>
@@ -107,10 +107,10 @@
     <!-- Settings -->
     <string name="settings">Impostazioni</string>
     <string name="dark_theme">Tema scuro</string>
-    <string name="same_sorting">Same sorting for files and folders</string>
-    <string name="show_hidden_folders">Show hidden folders</string>
-    <string name="autoplay_videos">Play videos automatically</string>
-    <string name="toggle_filename">Toggle filename visibility</string>
+    <string name="same_sorting">Stesso ordinamento per file e cartelle</string>
+    <string name="show_hidden_folders">Mostra cartelle nascoste</string>
+    <string name="autoplay_videos">Riproduci video automaticamente</string>
+    <string name="toggle_filename">Visibilità nome del file</string>
 
     <!-- License -->
     <string name="notice">Questa app usa le seguenti librerie di terze parti per semplificarmi la vita. Grazie.</string>
