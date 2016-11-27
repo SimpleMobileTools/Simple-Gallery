@@ -10,10 +10,7 @@
         android:id="@+id/about_holder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/activity_margin"
-        android:paddingLeft="@dimen/activity_margin"
-        android:paddingRight="@dimen/activity_margin"
-        android:paddingTop="@dimen/activity_margin">
+        android:padding="@dimen/activity_margin">
 
         <TextView
             android:id="@+id/about_website"
