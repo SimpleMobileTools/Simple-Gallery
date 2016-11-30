@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">"Simple Gallery "</string>
+    <string name="app_launcher_name">"Simple Gallery "</string>
+    <string name="share_via">Отправить по</string>
+    <string name="no_permissions">нет никаких разрешений</string>
+    <string name="delete">Удалить</string>
+    <string name="deleting">Удаление</string>
+    <string name="rename">Переименовывать</string>
+    <string name="edit">Редактировать</string>
+    <string name="undo">Открывать</string>
+    <string name="share">Поделиться</string>
+    <string name="properties">Свойства</string>
+    <string name="rename_file">Переименуйте файл</string>
+    <string name="rename_folder">Переименовать папку</string>
+    <string name="rename_file_error">Невозможно переименовать файл</string>
+    <string name="rename_folder_error">Невозможно переименовать папку</string>
+    <string name="rename_folder_empty">Имя папки не должно быть пустым</string>
+    <string name="rename_folder_exists">Папка с таким именем уже существует</string>
+    <string name="rename_folder_root">Невозможно переименовать корневую папку хранения</string>
+    <string name="rename_folder_ok">Папка переименована успешно</string>
+    <string name="renaming_folder">Переименование папки</string>
+    <string name="filename_cannot_be_empty">Имя файла не может быть пустым</string>
+    <string name="filename_invalid_characters">Имя файла содержит недопустимые символы</string>
+    <string name="extension">Расширение</string>
+    <string name="file_deleted">Файл удален</string>
+    <string name="open_camera">Открыть камеру</string>
+    <string name="unknown_error">Произошла неизвестная ошибка</string>
+    <string name="sort_by">Сортировать по</string>
+    <string name="name">Имя</string>
+    <string name="size">Размер</string>
+    <string name="date">Дата</string>
+    <string name="ascending">По возрастанию</string>
+    <string name="descending">По убыванию</string>
+    <string name="ok">ОК</string>
+    <string name="cancel">Отмена</string>
+    <string name="open_with">Открыть в</string>
+    <string name="no_app_found">Приложение не найдено</string>
+    <string name="hide_folder">Скрыть папку</string>
+    <string name="unhide_folder">Unhide папки</string>
+    <string name="hidden">(Скрытый)</string>
+    <string name="save_as">Сохранить как</string>
+    <string name="file_saved">Файл успешно сохранен</string>
+    <string name="copy">Копия</string>
+    <string name="move">Переместить</string>
+    <string name="copy_move">Копировать / Переместить</string>
+    <string name="copy_item">Копировать элемент</string>
+    <string name="copy_items">Копирование объектов</string>
+    <string name="source">Источник</string>
+    <string name="destination">Путь</string>
+    <string name="select_destination">Выберите путь назначения</string>
+    <string name="invalid_destination">Не удалось записать в выбранное место</string>
+    <string name="please_select_destination">Пожалуйста, выберите путь назначения</string>
+    <string name="source_and_destination_same">Источник и адресат не может быть такой же,</string>
+    <string name="copy_failed">Не удалось скопировать файлы</string>
+    <string name="copying">Копирование ...</string>
+    <string name="copying_success">Файлы скопированные успешно</string>
+    <string name="copy_move_failed">Произошла ошибка</string>
+    <string name="moving">Перемещение ...</string>
+    <string name="moving_success">Файлы успешно перемещены</string>
+    <string name="already_exists">Файл с таким именем уже существует</string>
+    <string name="moving_success_partial">Некоторые файлы не могут быть перемещены</string>
+    <string name="copying_success_partial">Некоторые файлы не могут быть скопированы</string>
+    <string name="invalid_name">Имя содержит недопустимые символы</string>
+
+    <plurals name="folders_deleted">
+        <item quantity="one">1 folder deleted</item>
+        <item quantity="other">%1$d folders deleted</item>
+    </plurals>
+
+    <plurals name="files_deleted">
+        <item quantity="one">1 file deleted</item>
+        <item quantity="other">%1$d files deleted</item>
+    </plurals>
+
+    <!-- Editor -->
+    <string name="editor">Редактор</string>
+    <string name="save">Сохранить</string>
+    <string name="rotate">Поворот</string>
+    <string name="invalid_image_path">Недопустимый путь изображения</string>
+    <string name="image_editing_failed">Редактирование изображения не удалось</string>
+    <string name="edit_image_with">Редактирование изображений в:</string>
+    <string name="no_editor_found">Ни один редактор изображений не найден</string>
+    <string name="unknown_file_location">Неизвестное местоположение файла</string>
+    <string name="error_saving_file">Не удалось переписать исходный файл</string>
+
+    <!-- Set wallpaper -->
+    <string name="simple_wallpaper">Простые обои</string>
+    <string name="set_as_wallpaper">Установить в качестве обоев</string>
+    <string name="set_as_wallpaper_failed">Установить не удалось</string>
+    <string name="set_as_wallpaper_with">Установить в качестве обоев в:</string>
+    <string name="no_wallpaper_setter_found">Приложение не найдено</string>
+    <string name="setting_wallpaper">Установка обоев ...</string>
+    <string name="wallpaper_set_successfully">Обои успешно установлены</string>
+
+    <!-- About -->
+    <string name="about">О программе</string>
+    <string name="website">"Более простые приложения и исходный код по адресу:\nhttp://simplemobiletools.com"</string>
+    <string name="email_label">Отправьте отзывы или предложения:</string>
+    <string name="third_party_licences_underlined">&lt;U&gt; лицензии сторонних &lt;/ U&gt;</string>
+    <string name="invite_friends_underlined">&lt;И&gt; Пригласить друзей &lt;/ U&gt;</string>
+    <string name="share_text">поделиться текстом %1$s at %2$s</string>
+    <string name="invite_via">Приглашение через</string>
+    <string name="rate_us_underlined">&lt;И&gt; Оцените нас в магазине Play &lt;/ U&gt;</string>
+    <string name="follow_us">Подписывайтесь на нас:</string>
+    <string name="copyright">v %1$s Copyright © Simple Mobile Tools %2$d</string>
+
+    <!-- Settings -->
+    <string name="settings">Настройки</string>
+    <string name="dark_theme">Темная тема</string>
+    <string name="same_sorting">Сортировка файлов и папок</string>
+    <string name="show_hidden_folders">Показать скрытые папки</string>
+    <string name="autoplay_videos">Воспроизведение видео автоматически</string>
+    <string name="toggle_filename">Переключить видимость файла</string>
+
+    <!-- License -->
+    <string name="notice">"Это приложение использует следующие библиотеки сторонних производителей, чтобы сделать  вашу жизнь проще. Спасибо."</string>
+    <string name="third_party_licences">Лицензии третьих сторон</string>
+    <string name="kotlin_title"><u>Kotlin (programming language)</u></string>
+    <string name="subsampling_title"><u>Подвыборка Scale Image View (вид масштабируемые изображения)</u></string>
+    <string name="glide_title"><u>Glide (загрузка изображения и кэширование)</u></string>
+    <string name="cropper_title"><u>Android Изображение Кроппер</u></string>
+    <string name="multiselect_title"><u>RecyclerView MultiSelect (selecting multiple list items)</u></string>
+    <string name="rtl_viewpager_title"><u>RtlViewPager (for swiping images right to left)</u></string>
+    <string name="filepicker_title"><u>Простой Выбор файла (диалог filepicker)</u></string>
+    <string name="fileproperties_title"><u>Простые свойства файла (диалоговое окно свойств)</u></string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <string name="app_short_description">A gallery for viewing photos and videos without ads.</string>
+    <string name="app_long_description">
+        A simple tool usable for viewing photos and videos. Items can be sorted by date, size, name both ascending or descending, photos can be zoomed in. Media files are shown in multiple columns, depending on the size of the display. They can be renamed, shared, deleted, copied, moved. Images can also be cropped, rotated or set as Wallpaper directly from the app.
+
+
+        The Gallery is also offered for third party usage for previewing images / videos, adding attachments at email clients etc. It\'s perfect for everyday usage.
+
+        Contains no ads or unnecessary permissions. It is fully opensource, provides a Dark theme too.
+
+        This app is just one piece of a bigger series of apps. You can find the rest of them at http://www.simplemobiletools.com
+    </string>
+</resources>
