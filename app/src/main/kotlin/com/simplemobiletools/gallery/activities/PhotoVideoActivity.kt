@@ -17,7 +17,7 @@ import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 
 open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClickListener {
-    private var mIsFullScreen = true
+    private var mIsFullScreen = false
     lateinit var mUri: Uri
     lateinit var mFragment: ViewPagerFragment
 
@@ -42,7 +42,6 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
             mFragment.arguments = bundle
             supportFragmentManager.beginTransaction().replace(R.id.fragment_holder, mFragment).commit()
         }
-        hideSystemUI()
 
         if (mUri.scheme == "content") {
             val proj = arrayOf(MediaStore.Images.Media.TITLE)

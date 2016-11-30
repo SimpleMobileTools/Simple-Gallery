@@ -81,10 +81,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         mPos = 0
-        mIsFullScreen = true
+        mIsFullScreen = false
         mToBeDeleted = ""
         mBeingDeleted = ""
-        hideSystemUI()
 
         scanPath(mPath) {}
         addUndoMargin()
