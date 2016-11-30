@@ -33,7 +33,7 @@ class Medium(val name: String, var path: String, val isVideo: Boolean, val times
     override fun toString() = "Medium {name=$name, path=$path, isVideo=$isVideo, timestamp=$timestamp, size=$size}"
 
     companion object {
-        private val serialVersionUID = -6543139465975455L
+        private val serialVersionUID = -6553149466975455L
         var sorting: Int = 0
     }
 }
