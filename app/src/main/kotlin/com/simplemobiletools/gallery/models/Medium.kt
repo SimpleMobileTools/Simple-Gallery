@@ -19,9 +19,19 @@ class Medium(val name: String, var path: String, val isVideo: Boolean, val times
         if (sorting and SORT_BY_NAME != 0) {
             res = name.toLowerCase().compareTo(other.name.toLowerCase())
         } else if (sorting and SORT_BY_DATE != 0) {
-            res = if (timestamp > other.timestamp) 1 else -1
+            res = if (timestamp == other.timestamp)
+                0
+            else if (timestamp > other.timestamp)
+                1
+            else
+                -1
         } else {
-            res = if (size > other.size) 1 else -1
+            res = if (size == other.size)
+                0
+            else if (size > other.size)
+                1
+            else
+                -1
         }
 
         if (sorting and SORT_DESCENDING != 0) {
