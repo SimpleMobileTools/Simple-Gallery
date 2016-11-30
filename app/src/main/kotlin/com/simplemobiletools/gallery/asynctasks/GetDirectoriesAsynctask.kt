@@ -77,12 +77,11 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
             }
         }
 
+        context.scanFiles(invalidFiles) {}
         val dirs = ArrayList(directories.values)
         filterDirectories(dirs)
         Directory.sorting = mConfig.directorySorting
         dirs.sort()
-
-        context.scanFiles(invalidFiles) {}
         return dirs
     }
 
