@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 1.43 *(2016-11-30)*
+----------------------------
+
+ * Added Russian translation, updated some others
+ * Attempt to fix deleting images in some cases
+ * Do not initially hide the system UI at opening fullscreen photo/video
+
 Version 1.42 *(2016-11-22)*
 ----------------------------
 
