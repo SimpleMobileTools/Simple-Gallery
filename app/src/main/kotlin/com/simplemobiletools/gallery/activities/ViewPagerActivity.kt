@@ -295,6 +295,14 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             mWasFileDeleted = file.delete()
         }
 
+        if (!mWasFileDeleted) {
+            try {
+                mWasFileDeleted = file.delete()
+            } catch (ignored: Exception) {
+
+            }
+        }
+
         if (mWasFileDeleted) {
             mBeingDeleted = mToBeDeleted
             scanPath(mToBeDeleted) { scanCompleted() }

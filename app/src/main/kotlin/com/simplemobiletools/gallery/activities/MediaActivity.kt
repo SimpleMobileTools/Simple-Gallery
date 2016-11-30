@@ -228,6 +228,13 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                     if (file.delete())
                         wereFilesDeleted = true
                 }
+
+                if (file.exists()) {
+                    try {
+                        file.delete()
+                    } catch (ignored: Exception) {
+                    }
+                }
             }
         }
 
