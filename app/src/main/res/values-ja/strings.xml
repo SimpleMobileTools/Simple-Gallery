@@ -1,48 +1,48 @@
-<resources>
+﻿<resources>
     <string name="app_name">シンプル ギャラリー</string>
-    <string name="app_launcher_name">Gallery</string>
+    <string name="app_launcher_name">ギャラリー</string>
     <string name="share_via">共有...</string>
     <string name="no_permissions">ストレージにアクセスしないとギャラリーでできることはほとんどありません</string>
     <string name="delete">削除</string>
     <string name="deleting">削除中</string>
-    <string name="rename">Rename</string>
-    <string name="edit">Edit</string>
+    <string name="rename">名前の変更</string>
+    <string name="edit">編集</string>
     <string name="undo">元に戻す</string>
     <string name="share">共有</string>
-    <string name="properties">Properties</string>
+    <string name="properties">プロパティ</string>
     <string name="rename_file">ファイルの名前を変更</string>
     <string name="rename_folder">フォルダーの名前を変更</string>
     <string name="rename_file_error">ファイルの名前を変更できませんでした</string>
     <string name="rename_folder_error">フォルダーの名前を変更できませんでした</string>
     <string name="rename_folder_empty">フォルダー名は空にできません</string>
-    <string name="rename_folder_exists">A folder with that name already exists</string>
-    <string name="rename_folder_root">Cannot rename the root folder of a storage</string>
+    <string name="rename_folder_exists">その名前のフォルダーは既に存在します</string>
+    <string name="rename_folder_root">ストレージのルートフォルダーの名前を変更できません</string>
     <string name="rename_folder_ok">フォルダーの名前を正常に変更しました</string>
     <string name="renaming_folder">フォルダーの名前を変更中</string>
     <string name="filename_cannot_be_empty">ファイル名は空にできません</string>
-    <string name="filename_invalid_characters">Filename contains invalid characters</string>
+    <string name="filename_invalid_characters">ファイル名に無効な文字が含まれています</string>
     <string name="extension">拡張</string>
     <string name="file_deleted">ファイルを削除しました</string>
     <string name="open_camera">カメラを開く</string>
     <string name="unknown_error">不明なエラーが発生しました</string>
-    <string name="sort_by">Sort by</string>
-    <string name="name">Name</string>
-    <string name="size">Size</string>
-    <string name="date">Date</string>
-    <string name="ascending">Ascending</string>
-    <string name="descending">Descending</string>
+    <string name="sort_by">並び替え</string>
+    <string name="name">名前</string>
+    <string name="size">サイズ</string>
+    <string name="date">日付</string>
+    <string name="ascending">昇順</string>
+    <string name="descending">降順</string>
     <string name="ok">OK</string>
-    <string name="cancel">Cancel</string>
-    <string name="open_with">Open with</string>
-    <string name="no_app_found">No valid app found</string>
-    <string name="hide_folder">Hide folder</string>
-    <string name="unhide_folder">Unhide folder</string>
-    <string name="hidden">(hidden)</string>
-    <string name="save_as">Save as</string>
-    <string name="file_saved">File saved successfully</string>
+    <string name="cancel">キャンセル</string>
+    <string name="open_with">...で開く</string>
+    <string name="no_app_found">有効なアプリが見つかりません</string>
+    <string name="hide_folder">フォルダーを非表示</string>
+    <string name="unhide_folder">フォルダーを表示</string>
+    <string name="hidden">(非表示)</string>
+    <string name="save_as">名前を付けて保存</string>
+    <string name="file_saved">ファイルを正常に保存しました</string>
     <string name="copy">コピー</string>
     <string name="move">移動</string>
-    <string name="copy_move">Copy/Move</string>
+    <string name="copy_move">コピー/移動</string>
     <string name="copy_item">アイテムをコピー</string>
     <string name="copy_items">アイテムをコピー</string>
     <string name="source">元</string>
@@ -50,16 +50,16 @@
     <string name="select_destination">宛先を選択</string>
     <string name="invalid_destination">選択した宛先に書き込みできませんでした</string>
     <string name="please_select_destination">宛先を選択してください</string>
-    <string name="source_and_destination_same">Source and destination cannot be the same</string>
+    <string name="source_and_destination_same">元と先を同じにすることはできません</string>
     <string name="copy_failed">ファイルをコピーできませんでした</string>
     <string name="copying">コピー中&#8230;</string>
-    <string name="copying_success">Files copied successfully</string>
-    <string name="copy_move_failed">An error occurred</string>
-    <string name="moving">Moving&#8230;</string>
-    <string name="moving_success">Files moved successfully</string>
-    <string name="already_exists">A file with that name already exists</string>
-    <string name="moving_success_partial">Some files could not be moved</string>
-    <string name="copying_success_partial">Some files could not be copied</string>
+    <string name="copying_success">ファイルを正常にコピーしました</string>
+    <string name="copy_move_failed">エラーが発生しました</string>
+    <string name="moving">移動中&#8230;</string>
+    <string name="moving_success">ファイルを正常に移動しました</string>
+    <string name="already_exists">その名前のファイルは既に存在します</string>
+    <string name="moving_success_partial">一部のファイルが移動できませんでした</string>
+    <string name="copying_success_partial">一部のファイルがコピーできませんでした</string>
     <string name="invalid_name">名前に無効な文字が含まれています</string>
 
     <plurals name="folders_deleted">
@@ -73,33 +73,33 @@
     </plurals>
 
     <!-- Editor -->
-    <string name="editor">Editor</string>
-    <string name="save">Save</string>
-    <string name="rotate">Rotate</string>
-    <string name="invalid_image_path">Invalid image path</string>
-    <string name="image_editing_failed">Image editing failed</string>
-    <string name="edit_image_with">Edit image with:</string>
-    <string name="no_editor_found">No image editor found</string>
-    <string name="unknown_file_location">Unknown file location</string>
-    <string name="error_saving_file">Could not overwrite the source file</string>
+    <string name="editor">エディター</string>
+    <string name="save">保存</string>
+    <string name="rotate">回転</string>
+    <string name="invalid_image_path">無効な画像パス</string>
+    <string name="image_editing_failed">画像の編集に失敗しました</string>
+    <string name="edit_image_with">画像を編集:</string>
+    <string name="no_editor_found">画像エディターが見つかりません</string>
+    <string name="unknown_file_location">ファイルの場所が不明です</string>
+    <string name="error_saving_file">元のファイルを上書きできません</string>
 
     <!-- Set wallpaper -->
-    <string name="simple_wallpaper">Simple Wallpaper</string>
-    <string name="set_as_wallpaper">Set as Wallpaper</string>
-    <string name="set_as_wallpaper_failed">Setting as Wallpaper failed</string>
-    <string name="set_as_wallpaper_with">Set as wallpaper with:</string>
-    <string name="no_wallpaper_setter_found">No app capable of it has been found</string>
+    <string name="simple_wallpaper">シンプル壁紙</string>
+    <string name="set_as_wallpaper">壁紙として設定</string>
+    <string name="set_as_wallpaper_failed">壁紙としての設定に失敗しました</string>
+    <string name="set_as_wallpaper_with">壁紙として設定:</string>
+    <string name="no_wallpaper_setter_found">対応できるアプリが見つかりません</string>
     <string name="setting_wallpaper">壁紙の設定&#8230;</string>
-    <string name="wallpaper_set_successfully">Wallpaper set successfully</string>
+    <string name="wallpaper_set_successfully">壁紙を正常に設定しました</string>
 
     <!-- About -->
     <string name="about">アプリについて</string>
     <string name="website">もっとシンプルなアプリとソースコードは:\nhttp://simplemobiletools.com</string>
     <string name="email_label">ご意見やご提案をお送りください:</string>
     <string name="third_party_licences_underlined"><u>サードパーティー ライセンス</u></string>
-    <string name="invite_friends_underlined"><u>Invite friends</u></string>
-    <string name="share_text">Hey, come check out %1$s at %2$s</string>
-    <string name="invite_via">Invite via</string>
+    <string name="invite_friends_underlined"><u>友達を招待</u></string>
+    <string name="share_text">%2$s で %1$s を確認してください</string>
+    <string name="invite_via">招待...</string>
     <string name="rate_us_underlined"><u>Play ストアで評価してください</u></string>
     <string name="follow_us">フォローしてください:</string>
     <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>
@@ -107,33 +107,33 @@
     <!-- Settings -->
     <string name="settings">設定</string>
     <string name="dark_theme">ダークテーマ</string>
-    <string name="same_sorting">Same sorting for files and folders</string>
-    <string name="show_hidden_folders">Show hidden folders</string>
-    <string name="autoplay_videos">Play videos automatically</string>
-    <string name="toggle_filename">Toggle filename visibility</string>
+    <string name="same_sorting">ファイルとフォルダーを同じに並べ替え</string>
+    <string name="show_hidden_folders">非表示フォルダーを表示</string>
+    <string name="autoplay_videos">自動的にビデオを再生</string>
+    <string name="toggle_filename">ファイル名の表示を切り替え</string>
 
     <!-- License -->
-    <string name="notice">このアプリは、私の人生を容易にするために、次のサードパーティのライブラリーを使用しています。 ありがとうございます。</string>
+    <string name="notice">このアプリは、私の暮らしにゆとりを持たせるために、次のサードパーティのライブラリーを使用しています。 ありがとうございます。</string>
     <string name="third_party_licences">サードパーティー ライセンス</string>
     <string name="kotlin_title"><u>Kotlin (プログラミング言語)</u></string>
-    <string name="subsampling_title"><u>Subsampling Scale Image View (ズーム可能イメージビュー)</u></string>
-    <string name="glide_title"><u>Glide (イメージ ローディングとキャッシング)</u></string>
-    <string name="cropper_title"><u>Android Image Cropper (image crop and rotate)</u></string>
-    <string name="multiselect_title"><u>RecyclerView MultiSelect (selecting multiple list items)</u></string>
-    <string name="rtl_viewpager_title"><u>RtlViewPager (for swiping images right to left)</u></string>
-    <string name="filepicker_title"><u>Simple File Picker (filepicker dialog)</u></string>
-    <string name="fileproperties_title"><u>Simple File Properties (properties dialog)</u></string>
+    <string name="subsampling_title"><u>Subsampling Scale Image View (ズーム可能画像ビュー)</u></string>
+    <string name="glide_title"><u>Glide (画像ローディングとキャッシング)</u></string>
+    <string name="cropper_title"><u>Android Image Cropper (画像のトリミングと回転)</u></string>
+    <string name="multiselect_title"><u>RecyclerView MultiSelect (複数選択リストアイテム)</u></string>
+    <string name="rtl_viewpager_title"><u>RtlViewPager (右から左への画像スワイプ用)</u></string>
+    <string name="filepicker_title"><u>Simple File Picker (ファイルピッカー ダイアログ)</u></string>
+    <string name="fileproperties_title"><u>Simple File Properties (プロパティ ダイアログ)</u></string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
-    <string name="app_short_description">A gallery for viewing photos and videos without ads.</string>
+    <string name="app_short_description">写真やビデオを見るためのギャラリー。広告はありません。</string>
     <string name="app_long_description">
-        A simple tool usable for viewing photos and videos. Items can be sorted by date, size, name both ascending or descending, photos can be zoomed in. Media files are shown in multiple columns, depending on the size of the display. They can be renamed, shared, deleted, copied, moved. Images can also be cropped, rotated or set as Wallpaper directly from the app.
+        写真やビデオを見るためのシンプルなツール。 日付、サイズ、名前で、昇順または降順にアイテムを並べ替えることができ、写真は拡大表示できます。 メディアファイルは、ディスプレイのサイズに応じて複数の列に表示されます。 名前の変更、共有、削除、コピー、移動が可能です。 画像をトリミング、回転、または壁紙としてアプリから直接設定することもできます。
 
 
-        The Gallery is also offered for third party usage for previewing images / videos, adding attachments at email clients etc. It\'s perfect for everyday usage.
+        ギャラリーは、画像やビデオのプレビュー、メールクライアントで添付ファイルの追加など、サードパーティの用途にも提供されます。 毎日の使用には完璧です。
 
-        Contains no ads or unnecessary permissions. It is fully opensource, provides a Dark theme too.
+        広告や不要なアクセス許可は含まれていません。 完全にオープンソースで、ダークテーマも提供しています。
 
-        This app is just one piece of a bigger series of apps. You can find the rest of them at http://www.simplemobiletools.com
+        このアプリは、大きな一連のアプリの一つです。 他のアプリは http://www.simplemobiletools.com で見つけることができます
     </string>
 </resources>
