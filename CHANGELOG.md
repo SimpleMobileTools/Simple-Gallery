@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 1.44 *(2016-12-01)*
+----------------------------
+
+ * Added an extra check to avoid unintentional folder deleting from SD cads
+ * Fix some crashes at sorting albums on the main screen
+
 Version 1.43 *(2016-11-30)*
 ----------------------------
 
