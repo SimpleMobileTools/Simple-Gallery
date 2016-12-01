@@ -121,8 +121,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.viewpager_menu, menu)
-        menu.findItem(R.id.menu_set_as_wallpaper).isVisible = getCurrentMedium().isImage
-        menu.findItem(R.id.menu_edit).isVisible = getCurrentMedium().isImage
+        menu.findItem(R.id.menu_set_as_wallpaper).isVisible = getCurrentMedium().isImage()
+        menu.findItem(R.id.menu_edit).isVisible = getCurrentMedium().isImage()
         return true
     }
 

@@ -27,7 +27,7 @@ class PhotoFragment : ViewPagerFragment(), View.OnClickListener {
             medium.path = context.getRealPathFromURI(Uri.parse(medium.path)) ?: ""
 
         subsamplingView = view.photo_view
-        if (medium.isGif) {
+        if (medium.isGif()) {
             subsamplingView.visibility = View.GONE
             view.gif_view.apply {
                 visibility = View.VISIBLE

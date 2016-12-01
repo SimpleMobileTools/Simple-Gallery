@@ -6,11 +6,14 @@ import com.simplemobiletools.gallery.SORT_DESCENDING
 import java.io.Serializable
 
 class Medium(val name: String, var path: String, val isVideo: Boolean, val timestamp: Long, val size: Long) : Serializable, Comparable<Medium> {
-    val isGif: Boolean
-        get() = path.toLowerCase().endsWith(".gif")
+    companion object {
+        private val serialVersionUID = -6553149466975455L
+        var sorting: Int = 0
+    }
 
-    val isImage: Boolean
-        get() = !isGif && !isVideo
+    fun isGif() = path.toLowerCase().endsWith(".gif")
+
+    fun isImage() = !isGif() && !isVideo
 
     fun getMimeType() = if (isVideo) "video/*" else "image/*"
 
@@ -41,9 +44,4 @@ class Medium(val name: String, var path: String, val isVideo: Boolean, val times
     }
 
     override fun toString() = "Medium {name=$name, path=$path, isVideo=$isVideo, timestamp=$timestamp, size=$size}"
-
-    companion object {
-        private val serialVersionUID = -6553149466975455L
-        var sorting: Int = 0
-    }
 }
