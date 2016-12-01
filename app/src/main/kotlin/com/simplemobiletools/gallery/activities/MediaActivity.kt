@@ -219,7 +219,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                     val document = getFileDocument(file.absolutePath, mConfig.treeUri)
 
                     // double check we have the uri to the proper file path, not some parent folder
-                    if (document.uri.toString().endsWith(file.absolutePath.getFilenameFromPath())) {
+                    if (document.uri.toString().endsWith(file.absolutePath.getFilenameFromPath()) && !document.isDirectory) {
                         if (document.delete()) {
                             wereFilesDeleted = true
                         }

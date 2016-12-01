@@ -287,9 +287,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (needsStupidWritePermissions(mToBeDeleted)) {
             if (!isShowingPermDialog(file)) {
                 val document = getFileDocument(mToBeDeleted, mConfig.treeUri)
-                if (document.canWrite()) {
+                if (document.uri.toString().endsWith(file.absolutePath.getFilenameFromPath()) && !document.isDirectory)
                     mWasFileDeleted = document.delete()
-                }
             }
         } else {
             mWasFileDeleted = file.delete()
