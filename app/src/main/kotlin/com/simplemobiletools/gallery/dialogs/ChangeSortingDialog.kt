@@ -68,13 +68,9 @@ class ChangeSortingDialog(val activity: Activity, val isDirectorySorting: Boolea
         }
 
         if (isDirectorySorting) {
-            if (config.directorySorting != sorting) {
-                config.directorySorting = sorting
-            }
+            config.directorySorting = sorting
         } else {
-            if (config.sorting != sorting) {
-                config.sorting = sorting
-            }
+            config.sorting = sorting
         }
         callback.invoke()
     }
