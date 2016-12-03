@@ -1,69 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:id="@+id/dialog_holder"
-              xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical"
-              android:paddingLeft="@dimen/activity_margin"
-              android:paddingRight="@dimen/activity_margin"
-              android:paddingTop="@dimen/activity_margin">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sorting_dialog_scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <RadioGroup
-        android:id="@+id/dialog_radio_sorting"
+    <LinearLayout
+        android:id="@+id/sorting_dialog_holder"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_margin"
+        android:paddingRight="@dimen/activity_margin"
+        android:paddingTop="@dimen/activity_margin">
 
-        <RadioButton
-            android:id="@+id/dialog_radio_name"
+        <RadioGroup
+            android:id="@+id/sorting_dialog_radio_sorting"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/medium_padding"
-            android:paddingTop="@dimen/medium_padding"
-            android:text="@string/name"/>
+            android:layout_height="wrap_content">
 
-        <RadioButton
-            android:id="@+id/dialog_radio_date"
+            <RadioButton
+                android:id="@+id/sorting_dialog_radio_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/medium_padding"
+                android:paddingTop="@dimen/medium_padding"
+                android:text="@string/name"/>
+
+            <RadioButton
+                android:id="@+id/sorting_dialog_radio_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/medium_padding"
+                android:paddingTop="@dimen/medium_padding"
+                android:text="@string/date"/>
+
+            <RadioButton
+                android:id="@+id/sorting_dialog_radio_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/medium_padding"
+                android:paddingTop="@dimen/medium_padding"
+                android:text="@string/size"/>
+        </RadioGroup>
+
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/medium_padding"
-            android:paddingTop="@dimen/medium_padding"
-            android:text="@string/date"/>
+            android:layout_height="1px"
+            android:layout_marginBottom="@dimen/medium_padding"
+            android:layout_marginTop="@dimen/medium_padding"
+            android:background="@color/light_grey"/>
 
-        <RadioButton
-            android:id="@+id/dialog_radio_size"
+        <RadioGroup
+            android:id="@+id/sorting_dialog_radio_order"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/medium_padding"
-            android:paddingTop="@dimen/medium_padding"
-            android:text="@string/size"/>
-    </RadioGroup>
+            android:layout_height="wrap_content">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginBottom="@dimen/medium_padding"
-        android:layout_marginTop="@dimen/medium_padding"
-        android:background="@color/light_grey"/>
+            <RadioButton
+                android:id="@+id/sorting_dialog_radio_ascending"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/medium_padding"
+                android:paddingTop="@dimen/medium_padding"
+                android:text="@string/ascending"/>
 
-    <RadioGroup
-        android:id="@+id/dialog_radio_order"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <RadioButton
-            android:id="@+id/dialog_radio_ascending"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/medium_padding"
-            android:paddingTop="@dimen/medium_padding"
-            android:text="@string/ascending"/>
-
-        <RadioButton
-            android:id="@+id/dialog_radio_descending"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/medium_padding"
-            android:paddingTop="@dimen/medium_padding"
-            android:text="@string/descending"/>
-    </RadioGroup>
-</LinearLayout>
+            <RadioButton
+                android:id="@+id/sorting_dialog_radio_descending"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/medium_padding"
+                android:paddingTop="@dimen/medium_padding"
+                android:text="@string/descending"/>
+        </RadioGroup>
+    </LinearLayout>
+</ScrollView>
