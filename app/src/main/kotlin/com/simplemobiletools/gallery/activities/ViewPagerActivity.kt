@@ -257,6 +257,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
             updateActionbarTitle()
             updatePagerItems()
+            invalidateOptionsMenu()
         }.execute()
     }
 
