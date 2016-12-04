@@ -225,7 +225,7 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
                 prepareAsync()
             }
         } catch (e: IOException) {
-            Log.e(TAG, "init media player failed " + e)
+            Log.e(TAG, "init media player failed $e")
         }
     }
 
@@ -306,15 +306,16 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
 
         val screenProportion = screenWidth.toFloat() / screenHeight.toFloat()
 
-        val lp = mSurfaceView!!.layoutParams
-        if (videoProportion > screenProportion) {
-            lp.width = screenWidth
-            lp.height = (screenWidth.toFloat() / videoProportion).toInt()
-        } else {
-            lp.width = (videoProportion * screenHeight.toFloat()).toInt()
-            lp.height = screenHeight
+        mSurfaceView!!.layoutParams.apply {
+            if (videoProportion > screenProportion) {
+                width = screenWidth
+                height = (screenWidth.toFloat() / videoProportion).toInt()
+            } else {
+                width = (videoProportion * screenHeight.toFloat()).toInt()
+                height = screenHeight
+            }
+            mSurfaceView!!.layoutParams = this
         }
-        mSurfaceView!!.layoutParams = lp
     }
 
     private fun getTimeString(duration: Int): String {
