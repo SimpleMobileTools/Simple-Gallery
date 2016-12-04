@@ -1,4 +1,4 @@
-package com.simplemobiletools.gallery
+package com.simplemobiletools.gallery.helpers
 
 import android.content.Context
 import android.content.SharedPreferences

@@ -5,7 +5,7 @@ import android.database.Cursor
 import android.os.AsyncTask
 import android.provider.MediaStore
 import com.simplemobiletools.filepicker.extensions.scanFiles
-import com.simplemobiletools.gallery.Config
+import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 import java.util.*

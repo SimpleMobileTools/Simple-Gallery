@@ -9,8 +9,8 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.view.View
 import com.simplemobiletools.filepicker.extensions.isShowingWritePermissions
-import com.simplemobiletools.gallery.Config
-import com.simplemobiletools.gallery.OPEN_DOCUMENT_TREE
+import com.simplemobiletools.gallery.helpers.Config
+import com.simplemobiletools.gallery.helpers.OPEN_DOCUMENT_TREE
 import com.simplemobiletools.gallery.R
 import java.io.File
 

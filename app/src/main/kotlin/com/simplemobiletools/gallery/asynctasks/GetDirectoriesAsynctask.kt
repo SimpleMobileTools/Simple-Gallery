@@ -5,10 +5,10 @@ import android.database.Cursor
 import android.os.AsyncTask
 import android.provider.MediaStore
 import com.simplemobiletools.filepicker.extensions.scanFiles
-import com.simplemobiletools.gallery.Config
+import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.SORT_BY_NAME
-import com.simplemobiletools.gallery.SORT_DESCENDING
+import com.simplemobiletools.gallery.helpers.SORT_BY_NAME
+import com.simplemobiletools.gallery.helpers.SORT_DESCENDING
 import com.simplemobiletools.gallery.extensions.getHumanizedFilename
 import com.simplemobiletools.gallery.models.Directory
 import java.io.File

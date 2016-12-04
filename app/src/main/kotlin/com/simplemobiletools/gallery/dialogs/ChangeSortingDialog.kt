@@ -6,6 +6,7 @@ import android.content.DialogInterface
 import android.view.LayoutInflater
 import android.view.View
 import com.simplemobiletools.gallery.*
+import com.simplemobiletools.gallery.helpers.*
 import kotlinx.android.synthetic.main.dialog_change_sorting.view.*
 
 class ChangeSortingDialog(val activity: Activity, val isDirectorySorting: Boolean, val callback: () -> Unit) : DialogInterface.OnClickListener {

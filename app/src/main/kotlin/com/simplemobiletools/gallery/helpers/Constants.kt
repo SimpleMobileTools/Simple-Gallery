@@ -1,4 +1,4 @@
-package com.simplemobiletools.gallery
+package com.simplemobiletools.gallery.helpers
 
 // shared preferences
 val PREFS_KEY = "Gallery"

@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
-import com.simplemobiletools.gallery.MEDIUM
+import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.openWith
 import com.simplemobiletools.gallery.extensions.setAsWallpaper

@@ -1,8 +1,8 @@
 package com.simplemobiletools.gallery.models
 
-import com.simplemobiletools.gallery.SORT_BY_DATE
-import com.simplemobiletools.gallery.SORT_BY_NAME
-import com.simplemobiletools.gallery.SORT_DESCENDING
+import com.simplemobiletools.gallery.helpers.SORT_BY_DATE
+import com.simplemobiletools.gallery.helpers.SORT_BY_NAME
+import com.simplemobiletools.gallery.helpers.SORT_DESCENDING
 
 class Directory(val path: String, val thumbnail: String, val name: String, var mediaCnt: Int, val timestamp: Long, var size: Long) : Comparable<Directory> {
     companion object {

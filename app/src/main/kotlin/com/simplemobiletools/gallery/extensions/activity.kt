@@ -10,7 +10,7 @@ import android.view.KeyEvent
 import android.view.ViewConfiguration
 import com.simplemobiletools.filepicker.extensions.toast
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.REQUEST_SET_WALLPAPER
+import com.simplemobiletools.gallery.helpers.REQUEST_SET_WALLPAPER
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 import java.util.*

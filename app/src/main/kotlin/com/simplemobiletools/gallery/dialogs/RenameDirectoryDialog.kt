@@ -4,7 +4,7 @@ import android.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.WindowManager
 import com.simplemobiletools.filepicker.extensions.*
-import com.simplemobiletools.gallery.Config
+import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import kotlinx.android.synthetic.main.rename_directory.view.*

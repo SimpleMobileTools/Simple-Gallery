@@ -16,10 +16,10 @@ import com.simplemobiletools.filepicker.asynctasks.CopyMoveTask
 import com.simplemobiletools.filepicker.dialogs.ConfirmationDialog
 import com.simplemobiletools.filepicker.extensions.*
 import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog
-import com.simplemobiletools.gallery.MEDIUM
+import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.REQUEST_EDIT_IMAGE
-import com.simplemobiletools.gallery.REQUEST_SET_WALLPAPER
+import com.simplemobiletools.gallery.helpers.REQUEST_EDIT_IMAGE
+import com.simplemobiletools.gallery.helpers.REQUEST_SET_WALLPAPER
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter
 import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.dialogs.RenameFileDialog

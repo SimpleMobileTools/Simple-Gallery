@@ -1,8 +1,8 @@
 package com.simplemobiletools.gallery.models
 
-import com.simplemobiletools.gallery.SORT_BY_DATE
-import com.simplemobiletools.gallery.SORT_BY_NAME
-import com.simplemobiletools.gallery.SORT_DESCENDING
+import com.simplemobiletools.gallery.helpers.SORT_BY_DATE
+import com.simplemobiletools.gallery.helpers.SORT_BY_NAME
+import com.simplemobiletools.gallery.helpers.SORT_DESCENDING
 import java.io.Serializable
 
 class Medium(val name: String, var path: String, val isVideo: Boolean, val timestamp: Long, val size: Long) : Serializable, Comparable<Medium> {

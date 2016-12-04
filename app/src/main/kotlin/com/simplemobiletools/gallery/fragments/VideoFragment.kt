@@ -13,11 +13,11 @@ import android.view.*
 import android.view.animation.AnimationUtils
 import android.widget.SeekBar
 import android.widget.TextView
-import com.simplemobiletools.gallery.Config
-import com.simplemobiletools.gallery.MEDIUM
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.getNavBarHeight
 import com.simplemobiletools.gallery.extensions.hasNavBar
+import com.simplemobiletools.gallery.helpers.Config
+import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.pager_video_item.view.*
 import java.io.IOException
