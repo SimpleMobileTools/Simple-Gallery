@@ -20,6 +20,7 @@ import com.simplemobiletools.gallery.*
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter
 import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.dialogs.RenameFileDialog
+import com.simplemobiletools.gallery.extensions.openWith
 import com.simplemobiletools.gallery.extensions.setAsWallpaper
 import com.simplemobiletools.gallery.extensions.shareMedium
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment
@@ -131,7 +132,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 true
             }
             R.id.menu_open_with -> {
-                openWith()
+                openWith(getCurrentFile())
                 true
             }
             R.id.menu_share -> {
@@ -192,18 +193,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             startActivityForResult(chooser, REQUEST_EDIT_IMAGE)
         } else {
             toast(R.string.no_editor_found)
-        }
-    }
-
-    private fun openWith() {
-        val intent = Intent(Intent.ACTION_VIEW)
-        intent.setDataAndType(Uri.fromFile(getCurrentFile()), getCurrentMedium().getMimeType())
-        val chooser = Intent.createChooser(intent, getString(R.string.open_with))
-
-        if (intent.resolveActivity(packageManager) != null) {
-            startActivity(chooser)
-        } else {
-            toast(R.string.no_app_found)
         }
     }
 

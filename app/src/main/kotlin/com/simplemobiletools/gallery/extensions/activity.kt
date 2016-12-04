@@ -40,9 +40,7 @@ fun Activity.shareMedia(media: List<Medium>) {
 fun Activity.setAsWallpaper(file: File) {
     val intent = Intent(Intent.ACTION_ATTACH_DATA)
     val uri = Uri.fromFile(file)
-    var mimeType = getMimeType(uri.toString())
-    if (mimeType.isEmpty()) mimeType = "image/jpeg"
-    intent.setDataAndType(uri, mimeType)
+    intent.setDataAndType(uri, getImageMimeType(uri))
     val chooser = Intent.createChooser(intent, getString(R.string.set_as_wallpaper_with))
 
     if (intent.resolveActivity(packageManager) != null) {
@@ -50,4 +48,25 @@ fun Activity.setAsWallpaper(file: File) {
     } else {
         toast(R.string.no_wallpaper_setter_found)
     }
+}
+
+fun Activity.openWith(file: File) {
+    val intent = Intent(Intent.ACTION_VIEW)
+    val uri = Uri.fromFile(file)
+    intent.setDataAndType(uri, getImageMimeType(uri))
+    val chooser = Intent.createChooser(intent, getString(R.string.open_with))
+
+    if (intent.resolveActivity(packageManager) != null) {
+        startActivity(chooser)
+    } else {
+        toast(R.string.no_app_found)
+    }
+}
+
+fun getImageMimeType(uri: Uri): String {
+    val mimeType = getMimeType(uri.toString())
+    return if (mimeType.isNotEmpty())
+        mimeType
+    else
+        "image/jpeg"
 }
