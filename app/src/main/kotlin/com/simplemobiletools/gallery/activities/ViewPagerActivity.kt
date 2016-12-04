@@ -10,7 +10,6 @@ import android.support.v4.view.ViewPager
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.RelativeLayout
 import com.simplemobiletools.filepicker.asynctasks.CopyMoveTask
 import com.simplemobiletools.filepicker.dialogs.ConfirmationDialog
 import com.simplemobiletools.filepicker.extensions.*
@@ -33,11 +32,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mMedia: MutableList<Medium>? = null
     private var mPath = ""
     private var mDirectory = ""
-    private var mToBeDeleted = ""
-    private var mBeingDeleted = ""
 
     private var mIsFullScreen = false
-    private var mIsUndoShown = false
     private var mPos = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -75,11 +71,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         mPos = 0
         mIsFullScreen = false
-        mToBeDeleted = ""
-        mBeingDeleted = ""
 
         scanPath(mPath) {}
-        addUndoMargin()
         mDirectory = File(mPath).parent
         mMedia = getMedia()
         if (isDirEmpty())
@@ -88,7 +81,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         updatePagerItems()
         window.decorView.setOnSystemUiVisibilityChangeListener(this)
         updateActionbarTitle()
-        undo_delete.setOnClickListener { undoDeletion() }
     }
 
     override fun onResume() {
@@ -96,14 +88,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (!hasStoragePermission()) {
             finish()
         }
-    }
-
-    fun undoDeletion() {
-        mIsUndoShown = false
-        mToBeDeleted = ""
-        mBeingDeleted = ""
-        undo_delete.visibility = View.GONE
-        reloadViewPager()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -206,59 +190,35 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun askConfirmDelete() {
         ConfirmationDialog(this) {
-            notifyDeletion()
-        }
-    }
-
-    private fun notifyDeletion() {
-        if (isShowingPermDialog(File(mPath)))
-            return
-
-        mToBeDeleted = getCurrentFile().absolutePath
-        if (mMedia!!.size <= 1) {
             deleteFile()
-        } else {
-            toast(R.string.file_deleted)
-            undo_delete.visibility = View.VISIBLE
-            mIsUndoShown = true
-            reloadViewPager()
         }
     }
 
     private fun deleteFile() {
-        if (mToBeDeleted.isEmpty())
+        val file = File(mPath)
+        if (isShowingPermDialog(file))
             return
 
-        mIsUndoShown = false
-        mBeingDeleted = ""
-        var mWasFileDeleted = false
-
-        val file = File(mToBeDeleted)
-        if (needsStupidWritePermissions(mToBeDeleted)) {
+        if (needsStupidWritePermissions(mPath)) {
             if (!isShowingPermDialog(file)) {
-                val document = getFileDocument(mToBeDeleted, mConfig.treeUri)
+                val document = getFileDocument(mPath, mConfig.treeUri)
                 if (document.uri.toString().endsWith(file.absolutePath.getFilenameFromPath()) && !document.isDirectory)
-                    mWasFileDeleted = document.delete()
+                    document.delete()
             }
         } else {
-            mWasFileDeleted = file.delete()
+            file.delete()
         }
 
-        if (!mWasFileDeleted) {
-            try {
-                mWasFileDeleted = file.delete()
-            } catch (ignored: Exception) {
+        try {
+            if (file.exists())
+                file.delete()
+        } catch (ignored: Exception) {
 
-            }
         }
 
-        if (mWasFileDeleted) {
-            mBeingDeleted = mToBeDeleted
-            scanPath(mToBeDeleted) { scanCompleted() }
+        scanFile(file) {
+            reloadViewPager()
         }
-
-        mToBeDeleted = ""
-        undo_delete.visibility = View.GONE
     }
 
     private fun isDirEmpty(): Boolean {
@@ -323,23 +283,21 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     val pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA)
                     do {
                         val curPath = cursor.getString(pathIndex) ?: continue
-                        if (curPath != mToBeDeleted && curPath != mBeingDeleted) {
-                            val file = File(curPath)
-                            val size = cursor.getLongValue(MediaStore.Images.Media.SIZE)
+                        val file = File(curPath)
+                        val size = cursor.getLongValue(MediaStore.Images.Media.SIZE)
 
-                            if (size == 0L) {
-                                invalidFiles.add(file)
-                                continue
-                            }
-
-                            // exclude images of subdirectories
-                            if (file.parent != mDirectory)
-                                continue
-
-                            val name = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME)
-                            val timestamp = cursor.getLongValue(MediaStore.Images.Media.DATE_MODIFIED)
-                            media.add(Medium(name, curPath, i == 1, timestamp, size))
+                        if (size == 0L) {
+                            invalidFiles.add(file)
+                            continue
                         }
+
+                        // exclude images of subdirectories
+                        if (file.parent != mDirectory)
+                            continue
+
+                        val name = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME)
+                        val timestamp = cursor.getLongValue(MediaStore.Images.Media.DATE_MODIFIED)
+                        media.add(Medium(name, curPath, i == 1, timestamp, size))
                     } while (cursor.moveToNext())
                 }
             } finally {
@@ -383,19 +341,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun getCurrentFile() = File(getCurrentMedium().path)
 
-    private fun addUndoMargin() {
-        val res = resources
-        val params = undo_delete.layoutParams as RelativeLayout.LayoutParams
-        val topMargin = res.getStatusBarHeight() + res.getActionBarHeight(applicationContext)
-        var rightMargin = params.rightMargin
-
-        if (res.configuration.orientation != Configuration.ORIENTATION_PORTRAIT) {
-            rightMargin += res.getNavBarHeight()
-        }
-
-        params.setMargins(params.leftMargin, topMargin, rightMargin, params.bottomMargin)
-    }
-
     override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
 
     }
@@ -423,16 +368,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun scanCompleted() {
-        mBeingDeleted = ""
         runOnUiThread {
             if (mMedia != null && mMedia!!.size <= 1) {
                 reloadViewPager()
             }
         }
-    }
-
-    override fun onPause() {
-        super.onPause()
-        deleteFile()
     }
 }
