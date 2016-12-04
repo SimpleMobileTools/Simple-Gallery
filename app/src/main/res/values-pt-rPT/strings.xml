@@ -76,6 +76,7 @@
     <string name="editor">Editor</string>
     <string name="save">Guardar</string>
     <string name="rotate">Rodar</string>
+    <string name="path">Path</string>
     <string name="invalid_image_path">Caminho inválido</string>
     <string name="image_editing_failed">Falha de edição de imagem</string>
     <string name="edit_image_with">Editar imagem com:</string>

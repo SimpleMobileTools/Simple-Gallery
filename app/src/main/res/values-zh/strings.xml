@@ -77,6 +77,7 @@
     <string name="editor">编辑器</string>
     <string name="save">保存</string>
     <string name="rotate">旋转</string>
+    <string name="path">Path</string>
     <string name="invalid_image_path">错误图片路径</string>
     <string name="image_editing_failed">图像编辑失败</string>
     <string name="edit_image_with">编辑方式:</string>

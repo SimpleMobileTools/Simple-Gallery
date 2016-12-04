@@ -4,17 +4,17 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.WindowManager
-import com.simplemobiletools.filepicker.extensions.getFilenameFromPath
-import com.simplemobiletools.filepicker.extensions.isAValidFilename
-import com.simplemobiletools.filepicker.extensions.toast
-import com.simplemobiletools.filepicker.extensions.value
+import com.simplemobiletools.filepicker.extensions.*
 import com.simplemobiletools.gallery.R
 import kotlinx.android.synthetic.main.rename_file.view.*
+import java.io.File
 
 class SaveAsDialog(val activity: Activity, val path: String, val callback: (filename: String) -> Unit) {
 
     init {
         val view = LayoutInflater.from(activity).inflate(R.layout.dialog_save_as, null)
+        val realPath = File(path).parent.trimEnd('/')
+        view.file_path.text = activity.humanizePath(realPath)
         view.file_name.setText(path.getFilenameFromPath())
 
         AlertDialog.Builder(activity)

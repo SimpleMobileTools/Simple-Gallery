@@ -76,6 +76,7 @@
     <string name="editor">Editor</string>
     <string name="save">Salva</string>
     <string name="rotate">Ruota</string>
+    <string name="path">Path</string>
     <string name="invalid_image_path">Percorso immagine non valido</string>
     <string name="image_editing_failed">Modifica immagine non riuscita</string>
     <string name="edit_image_with">Modifica immagine con:</string>

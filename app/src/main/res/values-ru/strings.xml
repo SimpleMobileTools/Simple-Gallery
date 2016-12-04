@@ -77,6 +77,7 @@
     <string name="editor">Редактор</string>
     <string name="save">Сохранить</string>
     <string name="rotate">Поворот</string>
+    <string name="path">Path</string>
     <string name="invalid_image_path">Недопустимый путь изображения</string>
     <string name="image_editing_failed">Редактирование изображения не удалось</string>
     <string name="edit_image_with">Редактирование изображений в:</string>
