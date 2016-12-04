@@ -76,6 +76,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         mPos = 0
         mIsFullScreen = false
         mMedia = ArrayList<Medium>()
+        showSystemUI()
 
         mDirectory = File(mPath).parent
         title = mPath.getFilenameFromPath()
@@ -308,11 +309,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     override fun onSystemUiVisibilityChange(visibility: Int) {
-        if (visibility and View.SYSTEM_UI_FLAG_FULLSCREEN == 0) {
-            mIsFullScreen = false
-        }
+        view_pager.adapter?.apply {
+            if (visibility and View.SYSTEM_UI_FLAG_FULLSCREEN == 0) {
+                mIsFullScreen = false
+                showSystemUI()
+            }
 
-        val adapter = view_pager.adapter as MyPagerAdapter
-        adapter.updateUiVisibility(mIsFullScreen, mPos)
+            (this as MyPagerAdapter).updateUiVisibility(mIsFullScreen, mPos)
+        }
     }
 }
