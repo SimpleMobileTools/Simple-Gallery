@@ -4,12 +4,13 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
+import android.support.v4.view.PagerAdapter
 import android.util.SparseArray
-import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.fragments.PhotoFragment
 import com.simplemobiletools.gallery.fragments.VideoFragment
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment
+import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 
 class MyPagerAdapter(val activity: ViewPagerActivity, fm: FragmentManager, val media: MutableList<Medium>) : FragmentStatePagerAdapter(fm) {
@@ -38,6 +39,8 @@ class MyPagerAdapter(val activity: ViewPagerActivity, fm: FragmentManager, val m
         fragment.listener = activity
         return fragment
     }
+
+    override fun getItemPosition(item: Any?) = PagerAdapter.POSITION_NONE
 
     fun itemDragged(pos: Int) {
         mFragments[pos]?.itemDragged()

@@ -98,7 +98,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        deleteFile()
         return when (item.itemId) {
             R.id.menu_set_as_wallpaper -> {
                 setAsWallpaper(getCurrentFile())
@@ -195,7 +194,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun deleteFile() {
-        val file = File(mPath)
+        val file = File(mMedia!![mPos].path)
         if (isShowingPermDialog(file))
             return
 
@@ -241,16 +240,18 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val adapter = view_pager.adapter as MyPagerAdapter
         val curPos = view_pager.currentItem
         mMedia = getMedia()
+
         if (isDirEmpty())
             return
 
-        view_pager.adapter = null
-        adapter.updateItems(mMedia!!)
-        view_pager.adapter = adapter
+        runOnUiThread {
+            adapter.updateItems(mMedia!!)
 
-        val newPos = Math.min(curPos, adapter.count)
-        view_pager.currentItem = newPos
-        updateActionbarTitle()
+            val newPos = Math.min(curPos, adapter.count)
+            view_pager.currentItem = newPos
+            updateActionbarTitle()
+            mPos = newPos
+        }
     }
 
     private fun deleteDirectoryIfEmpty() {
@@ -320,7 +321,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     override fun fragmentClicked() {
-        deleteFile()
         mIsFullScreen = !mIsFullScreen
         if (mIsFullScreen) {
             hideSystemUI()
@@ -365,13 +365,5 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         val adapter = view_pager.adapter as MyPagerAdapter
         adapter.updateUiVisibility(mIsFullScreen, mPos)
-    }
-
-    private fun scanCompleted() {
-        runOnUiThread {
-            if (mMedia != null && mMedia!!.size <= 1) {
-                reloadViewPager()
-            }
-        }
     }
 }
