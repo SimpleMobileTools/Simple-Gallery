@@ -1,6 +1,16 @@
 Changelog
 ==========
 
+Version 1.45 *(2016-12-04)*
+----------------------------
+
+ * Display pngs in higher quality
+ * Allow swiping between images when app is open from another app
+ * Allow changing the save path in the editor
+ * Remove the Undo function when deleting from the fullscreen viewpager
+ * Hugely improved the performance of loading albums and images
+ * Many small bugfixes and improvements
+
 Version 1.44 *(2016-12-01)*
 ----------------------------
 
