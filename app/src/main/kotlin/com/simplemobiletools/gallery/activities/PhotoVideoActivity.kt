@@ -72,6 +72,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.photo_video_menu, menu)
+        menu.findItem(R.id.menu_set_as_wallpaper).isVisible = mMedium.isImage()
         return true
     }
 
