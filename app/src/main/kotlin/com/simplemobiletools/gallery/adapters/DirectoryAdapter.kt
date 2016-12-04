@@ -8,6 +8,7 @@ import com.bignerdranch.android.multiselector.ModalMultiSelectorCallback
 import com.bignerdranch.android.multiselector.MultiSelector
 import com.bignerdranch.android.multiselector.SwappingHolder
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.signature.StringSignature
 import com.simplemobiletools.filepicker.asynctasks.CopyMoveTask
@@ -16,11 +17,11 @@ import com.simplemobiletools.filepicker.extensions.isAStorageRootFolder
 import com.simplemobiletools.filepicker.extensions.scanPaths
 import com.simplemobiletools.filepicker.extensions.toast
 import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog
-import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.dialogs.RenameDirectoryDialog
+import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.directory_item.view.*
 import kotlinx.android.synthetic.main.directory_tmb.view.*
@@ -223,9 +224,12 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
             val tmb = directory.thumbnail
             val timestampSignature = StringSignature(directory.timestamp.toString())
-            if (tmb.endsWith(".gif")) {
+            if (tmb.toLowerCase().endsWith(".gif")) {
                 Glide.with(activity).load(tmb).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)
                         .placeholder(R.color.tmb_background).centerCrop().crossFade().into(itemView.dir_thumbnail)
+            } else if (tmb.toLowerCase().endsWith(".png")) {
+                Glide.with(activity).load(tmb).asBitmap().format(DecodeFormat.PREFER_ARGB_8888).diskCacheStrategy(DiskCacheStrategy.RESULT)
+                        .signature(timestampSignature).placeholder(R.color.tmb_background).centerCrop().into(itemView.dir_thumbnail)
             } else {
                 Glide.with(activity).load(tmb).diskCacheStrategy(DiskCacheStrategy.RESULT).signature(timestampSignature)
                         .placeholder(R.color.tmb_background).centerCrop().crossFade().into(itemView.dir_thumbnail)

@@ -13,6 +13,8 @@ class Medium(val name: String, var path: String, val isVideo: Boolean, val times
 
     fun isGif() = path.toLowerCase().endsWith(".gif")
 
+    fun isPng() = path.toLowerCase().endsWith(".png")
+
     fun isImage() = !isGif() && !isVideo
 
     fun getMimeType() = if (isVideo) "video/*" else "image/*"

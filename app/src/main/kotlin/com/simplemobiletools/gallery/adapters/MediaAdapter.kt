@@ -8,6 +8,7 @@ import com.bignerdranch.android.multiselector.ModalMultiSelectorCallback
 import com.bignerdranch.android.multiselector.MultiSelector
 import com.bignerdranch.android.multiselector.SwappingHolder
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.signature.StringSignature
 import com.simplemobiletools.filepicker.asynctasks.CopyMoveTask
@@ -188,6 +189,9 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             val timestampSignature = StringSignature(medium.timestamp.toString())
             if (medium.isGif()) {
                 Glide.with(activity).load(path).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature).into(itemView.medium_thumbnail)
+            } else if (medium.isPng()) {
+                Glide.with(activity).load(path).asBitmap().format(DecodeFormat.PREFER_ARGB_8888).diskCacheStrategy(DiskCacheStrategy.RESULT)
+                        .signature(timestampSignature).placeholder(R.color.tmb_background).centerCrop().into(itemView.medium_thumbnail)
             } else {
                 Glide.with(activity).load(path).diskCacheStrategy(DiskCacheStrategy.RESULT).signature(timestampSignature)
                         .placeholder(R.color.tmb_background).centerCrop().crossFade().into(itemView.medium_thumbnail)
