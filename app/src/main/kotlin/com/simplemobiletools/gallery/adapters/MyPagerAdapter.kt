@@ -55,10 +55,4 @@ class MyPagerAdapter(val activity: ViewPagerActivity, fm: FragmentManager, val m
         (-1..1).map { mFragments[pos + it] }
                 .forEach { it?.updateItem() }
     }
-
-    fun updateItems(newPaths: List<Medium>) {
-        media.clear()
-        media.addAll(newPaths)
-        notifyDataSetChanged()
-    }
 }

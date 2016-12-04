@@ -237,20 +237,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun reloadViewPager() {
-        val adapter = view_pager.adapter as MyPagerAdapter
-        val curPos = view_pager.currentItem
         mMedia = getMedia()
-
         if (isDirEmpty())
             return
 
         runOnUiThread {
-            adapter.updateItems(mMedia!!)
-
-            val newPos = Math.min(curPos, adapter.count)
-            view_pager.currentItem = newPos
-            updateActionbarTitle()
-            mPos = newPos
+            updatePagerItems()
         }
     }
 
