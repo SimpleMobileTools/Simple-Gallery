@@ -25,6 +25,7 @@ class RenameDirectoryDialog(val activity: SimpleActivity, val dir: File, val cal
                 .setNegativeButton(R.string.cancel, null)
                 .create().apply {
             window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
+            setCanceledOnTouchOutside(true)
             show()
             getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener({
                 val newDirName = view.directory_name.value

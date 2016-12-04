@@ -34,6 +34,7 @@ class RenameFileDialog(val activity: SimpleActivity, val file: File, val callbac
                 .setNegativeButton(R.string.cancel, null)
                 .create().apply {
             window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
+            setCanceledOnTouchOutside(true)
             show()
             getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener({
                 val fileName = view.file_name.value

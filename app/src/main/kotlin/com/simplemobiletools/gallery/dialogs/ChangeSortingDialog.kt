@@ -20,13 +20,15 @@ class ChangeSortingDialog(val activity: Activity, val isDirectorySorting: Boolea
         config = Config.newInstance(activity)
         view = LayoutInflater.from(activity).inflate(R.layout.dialog_change_sorting, null)
 
-        AlertDialog.Builder(activity)
+        val dialog = AlertDialog.Builder(activity)
                 .setTitle(activity.resources.getString(R.string.sort_by))
                 .setView(view)
                 .setPositiveButton(R.string.ok, this)
                 .setNegativeButton(R.string.cancel, null)
                 .create()
-                .show()
+
+        dialog.setCanceledOnTouchOutside(true)
+        dialog.show()
 
         currSorting = if (isDirectorySorting) config.directorySorting else config.sorting
         setupSortRadio()

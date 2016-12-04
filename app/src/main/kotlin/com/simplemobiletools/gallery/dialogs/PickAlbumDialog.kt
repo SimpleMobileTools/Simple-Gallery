@@ -25,6 +25,7 @@ class PickAlbumDialog(val activity: SimpleActivity, val callback: (path: String)
                 .setNegativeButton(R.string.cancel, null)
                 .create()
 
+        dialog.setCanceledOnTouchOutside(true)
         dialog.show()
         GetDirectoriesAsynctask(activity, false, false, ArrayList<String>()) {
             val adapter = DirectoryAdapter(activity, it, null) {

@@ -24,6 +24,7 @@ class SaveAsDialog(val activity: Activity, val path: String, val callback: (file
                 .setNegativeButton(R.string.cancel, null)
                 .create().apply {
             window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
+            setCanceledOnTouchOutside(true)
             show()
             getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener({
                 val filename = view.file_name.value
