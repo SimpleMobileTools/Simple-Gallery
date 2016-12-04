@@ -73,17 +73,13 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         if (result.error == null) {
             if (uri.scheme == "file") {
                 SaveAsDialog(this, uri.path) {
-                    val parent = File(uri.path).parent
-                    val path = File(parent, it).absolutePath
-                    saveBitmapToFile(result.bitmap, path)
+                    saveBitmapToFile(result.bitmap, it)
                 }
             } else if (uri.scheme == "content") {
                 val newPath = applicationContext.getRealPathFromURI(uri) ?: ""
                 if (!newPath.isEmpty()) {
                     SaveAsDialog(this, newPath) {
-                        val parent = File(uri.path).parent
-                        val path = File(parent, it).absolutePath
-                        saveBitmapToFile(result.bitmap, path)
+                        saveBitmapToFile(result.bitmap, it)
                     }
                 } else {
                     toast(R.string.image_editing_failed)
