@@ -3,7 +3,6 @@ package com.simplemobiletools.gallery.extensions
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
-import com.simplemobiletools.filepicker.extensions.getMimeType
 import com.simplemobiletools.filepicker.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.REQUEST_SET_WALLPAPER
@@ -40,7 +39,7 @@ fun Activity.shareMedia(media: List<Medium>) {
 fun Activity.setAsWallpaper(file: File) {
     val intent = Intent(Intent.ACTION_ATTACH_DATA)
     val uri = Uri.fromFile(file)
-    intent.setDataAndType(uri, getImageMimeType(uri))
+    intent.setDataAndType(uri, uri.getImageMimeType())
     val chooser = Intent.createChooser(intent, getString(R.string.set_as_wallpaper_with))
 
     if (intent.resolveActivity(packageManager) != null) {
@@ -53,7 +52,7 @@ fun Activity.setAsWallpaper(file: File) {
 fun Activity.openWith(file: File) {
     val intent = Intent(Intent.ACTION_VIEW)
     val uri = Uri.fromFile(file)
-    intent.setDataAndType(uri, getImageMimeType(uri))
+    intent.setDataAndType(uri, uri.getImageMimeType())
     val chooser = Intent.createChooser(intent, getString(R.string.open_with))
 
     if (intent.resolveActivity(packageManager) != null) {
@@ -61,12 +60,4 @@ fun Activity.openWith(file: File) {
     } else {
         toast(R.string.no_app_found)
     }
-}
-
-fun getImageMimeType(uri: Uri): String {
-    val mimeType = getMimeType(uri.toString())
-    return if (mimeType.isNotEmpty())
-        mimeType
-    else
-        "image/jpeg"
 }

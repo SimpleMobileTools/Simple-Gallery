@@ -9,6 +9,9 @@ import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.gallery.MEDIUM
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.extensions.openWith
+import com.simplemobiletools.gallery.extensions.setAsWallpaper
+import com.simplemobiletools.gallery.extensions.shareMedium
 import com.simplemobiletools.gallery.fragments.PhotoFragment
 import com.simplemobiletools.gallery.fragments.VideoFragment
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment
@@ -19,6 +22,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
     private var mIsFullScreen = false
     lateinit var mUri: Uri
     lateinit var mFragment: ViewPagerFragment
+    lateinit var mMedium: Medium
 
     companion object {
         var mIsVideo = false
@@ -41,8 +45,8 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
 
         val bundle = Bundle()
         val file = File(mUri.toString())
-        val medium = Medium(file.name, mUri.toString(), mIsVideo, 0, file.length())
-        bundle.putSerializable(MEDIUM, medium)
+        mMedium = Medium(file.name, mUri.toString(), mIsVideo, 0, file.length())
+        bundle.putSerializable(MEDIUM, mMedium)
 
         if (savedInstanceState == null) {
             mFragment = if (mIsVideo) VideoFragment() else PhotoFragment()
@@ -73,21 +77,19 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.menu_set_as_wallpaper -> {
+                setAsWallpaper(File(mMedium.path))
+                true
+            }
+            R.id.menu_open_with -> {
+                openWith(File(mMedium.path))
+                true
+            }
             R.id.menu_share -> {
-                shareMedium()
+                shareMedium(mMedium)
                 true
             }
             else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-    private fun shareMedium() {
-        val shareTitle = resources.getString(R.string.share_via)
-        Intent().apply {
-            action = Intent.ACTION_SEND
-            putExtra(Intent.EXTRA_STREAM, mUri)
-            type = if (mIsVideo) "video/*" else "image/*"
-            startActivity(Intent.createChooser(this, shareTitle))
         }
     }
 

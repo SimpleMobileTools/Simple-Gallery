@@ -6,4 +6,13 @@
         android:icon="@mipmap/share"
         android:title="@string/share"
         app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/menu_edit"
+        android:icon="@mipmap/edit"
+        android:title="@string/edit"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/menu_open_with"
+        android:title="@string/open_with"
+        app:showAsAction="never"/>
 </menu>
