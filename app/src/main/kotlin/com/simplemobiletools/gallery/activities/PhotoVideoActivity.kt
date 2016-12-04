@@ -8,10 +8,7 @@ import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.extensions.openEditor
-import com.simplemobiletools.gallery.extensions.openWith
-import com.simplemobiletools.gallery.extensions.setAsWallpaper
-import com.simplemobiletools.gallery.extensions.shareMedium
+import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.fragments.PhotoFragment
 import com.simplemobiletools.gallery.fragments.VideoFragment
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment
@@ -20,10 +17,11 @@ import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 
 open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClickListener {
+    private var mMedium: Medium? = null
     private var mIsFullScreen = false
+
     lateinit var mUri: Uri
     lateinit var mFragment: ViewPagerFragment
-    lateinit var mMedium: Medium
 
     companion object {
         var mIsVideo = false
@@ -36,12 +34,16 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
         mUri = intent.data ?: return
 
         if (mUri.scheme == "file") {
-            Intent(this, ViewPagerActivity::class.java).apply {
-                putExtra(MEDIUM, mUri.path)
-                startActivity(this)
-            }
+            sendViewPagerIntent(mUri.path)
             finish()
             return
+        } else {
+            val path = applicationContext.getRealPathFromURI(mUri) ?: ""
+            if (path.isNotEmpty()) {
+                sendViewPagerIntent(path)
+                finish()
+                return
+            }
         }
 
         val bundle = Bundle()
@@ -66,6 +68,13 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
         cursor?.close()
     }
 
+    private fun sendViewPagerIntent(path: String) {
+        Intent(this, ViewPagerActivity::class.java).apply {
+            putExtra(MEDIUM, path)
+            startActivity(this)
+        }
+    }
+
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         mFragment.updateItem()
@@ -74,8 +83,8 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.photo_video_menu, menu)
 
-        menu.findItem(R.id.menu_set_as_wallpaper).isVisible = mMedium.isImage()
-        menu.findItem(R.id.menu_edit).isVisible = mMedium.isImage()
+        menu.findItem(R.id.menu_set_as_wallpaper).isVisible = mMedium?.isImage() == true
+        menu.findItem(R.id.menu_edit).isVisible = mMedium?.isImage() == true
 
         return true
     }
@@ -83,19 +92,19 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_set_as_wallpaper -> {
-                setAsWallpaper(File(mMedium.path))
+                setAsWallpaper(File(mMedium!!.path))
                 true
             }
             R.id.menu_open_with -> {
-                openWith(File(mMedium.path))
+                openWith(File(mMedium!!.path))
                 true
             }
             R.id.menu_share -> {
-                shareMedium(mMedium)
+                shareMedium(mMedium!!)
                 true
             }
             R.id.menu_edit -> {
-                openEditor(File(mMedium.path))
+                openEditor(File(mMedium!!.path))
                 true
             }
             else -> super.onOptionsItemSelected(item)
