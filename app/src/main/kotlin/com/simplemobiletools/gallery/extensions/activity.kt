@@ -3,6 +3,11 @@ package com.simplemobiletools.gallery.extensions
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
+import android.util.DisplayMetrics
+import android.view.KeyCharacterMap
+import android.view.KeyEvent
+import android.view.ViewConfiguration
 import com.simplemobiletools.filepicker.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.REQUEST_SET_WALLPAPER
@@ -59,5 +64,29 @@ fun Activity.openWith(file: File) {
         startActivity(chooser)
     } else {
         toast(R.string.no_app_found)
+    }
+}
+
+fun Activity.hasNavBar(): Boolean {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        val display = windowManager.defaultDisplay
+
+        val realDisplayMetrics = DisplayMetrics()
+        display.getRealMetrics(realDisplayMetrics)
+
+        val realHeight = realDisplayMetrics.heightPixels
+        val realWidth = realDisplayMetrics.widthPixels
+
+        val displayMetrics = DisplayMetrics()
+        display.getMetrics(displayMetrics)
+
+        val displayHeight = displayMetrics.heightPixels
+        val displayWidth = displayMetrics.widthPixels
+
+        realWidth - displayWidth > 0 || realHeight - displayHeight > 0
+    } else {
+        val hasMenuKey = ViewConfiguration.get(this).hasPermanentMenuKey()
+        val hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK)
+        !hasMenuKey && !hasBackKey
     }
 }
