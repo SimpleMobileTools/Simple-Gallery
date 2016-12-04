@@ -16,13 +16,14 @@ import com.simplemobiletools.filepicker.asynctasks.CopyMoveTask
 import com.simplemobiletools.filepicker.dialogs.ConfirmationDialog
 import com.simplemobiletools.filepicker.extensions.*
 import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog
-import com.simplemobiletools.gallery.*
+import com.simplemobiletools.gallery.MEDIUM
+import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.REQUEST_EDIT_IMAGE
+import com.simplemobiletools.gallery.REQUEST_SET_WALLPAPER
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter
 import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.dialogs.RenameFileDialog
-import com.simplemobiletools.gallery.extensions.openWith
-import com.simplemobiletools.gallery.extensions.setAsWallpaper
-import com.simplemobiletools.gallery.extensions.shareMedium
+import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_medium.*
@@ -390,11 +391,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun addUndoMargin() {
         val res = resources
         val params = undo_delete.layoutParams as RelativeLayout.LayoutParams
-        val topMargin = Utils.getStatusBarHeight(res) + Utils.getActionBarHeight(applicationContext, res)
+        val topMargin = res.getStatusBarHeight() + res.getActionBarHeight(applicationContext)
         var rightMargin = params.rightMargin
 
         if (res.configuration.orientation != Configuration.ORIENTATION_PORTRAIT) {
-            rightMargin += Utils.getNavBarHeight(res)
+            rightMargin += res.getNavBarHeight()
         }
 
         params.setMargins(params.leftMargin, topMargin, rightMargin, params.bottomMargin)

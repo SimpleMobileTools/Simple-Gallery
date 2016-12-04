@@ -16,7 +16,7 @@ import android.widget.TextView
 import com.simplemobiletools.gallery.Config
 import com.simplemobiletools.gallery.MEDIUM
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.Utils
+import com.simplemobiletools.gallery.extensions.getNavBarHeight
 import com.simplemobiletools.gallery.extensions.hasNavBar
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.pager_video_item.view.*
@@ -107,7 +107,7 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
     private fun initTimeHolder() {
         mTimeHolder = mView.video_time_holder
         val res = resources
-        val height = Utils.getNavBarHeight(res)
+        val height = res.getNavBarHeight()
         val left = mTimeHolder!!.paddingLeft
         val top = mTimeHolder!!.paddingTop
         var right = res.getDimension(R.dimen.timer_padding).toInt()
