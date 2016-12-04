@@ -16,7 +16,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.animation.GlideAnimation
 import com.bumptech.glide.request.target.SimpleTarget
 import com.simplemobiletools.filepicker.extensions.*
-import com.simplemobiletools.gallery.*
+import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.MediaAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
@@ -87,7 +87,12 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             itemClicked(it.path)
         }
 
-        media_grid.adapter = adapter
+        val currAdapter = media_grid.adapter
+        if (currAdapter != null) {
+            (currAdapter as MediaAdapter).updateMedia(mMedia)
+        } else {
+            media_grid.adapter = adapter
+        }
         media_grid.setOnTouchListener { view, motionEvent -> checkDelete(); false }
     }
 

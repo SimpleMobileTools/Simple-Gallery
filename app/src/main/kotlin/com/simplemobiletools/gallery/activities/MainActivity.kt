@@ -14,7 +14,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import com.simplemobiletools.filepicker.extensions.*
-import com.simplemobiletools.gallery.*
+import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
 import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
@@ -302,6 +302,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         val adapter = DirectoryAdapter(this, mDirs, this) {
             itemClicked(it.path)
         }
+
         directories_grid.adapter = adapter
         directories_grid.setOnTouchListener { view, motionEvent -> checkDelete(); false }
     }

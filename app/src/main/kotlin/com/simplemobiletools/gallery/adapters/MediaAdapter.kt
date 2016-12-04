@@ -14,20 +14,20 @@ import com.simplemobiletools.filepicker.asynctasks.CopyMoveTask
 import com.simplemobiletools.filepicker.dialogs.ConfirmationDialog
 import com.simplemobiletools.filepicker.extensions.toast
 import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog
-import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.extensions.beVisibleIf
 import com.simplemobiletools.gallery.extensions.shareMedia
 import com.simplemobiletools.gallery.extensions.shareMedium
+import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.photo_video_item.view.*
 import kotlinx.android.synthetic.main.photo_video_tmb.view.*
 import java.io.File
 import java.util.*
 
-class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>, val listener: MediaOperationsListener?, val itemClick: (Medium) -> Unit) :
+class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>, val listener: MediaOperationsListener?, val itemClick: (Medium) -> Unit) :
         RecyclerView.Adapter<MediaAdapter.ViewHolder>() {
     val multiSelector = MultiSelector()
     val views = ArrayList<View>()
@@ -166,6 +166,11 @@ class MediaAdapter(val activity: SimpleActivity, val media: MutableList<Medium>,
     }
 
     override fun getItemCount() = media.size
+
+    fun updateMedia(newMedia: ArrayList<Medium>) {
+        media = newMedia
+        notifyDataSetChanged()
+    }
 
     fun updateDisplayFilenames(display: Boolean) {
         displayFilenames = display
