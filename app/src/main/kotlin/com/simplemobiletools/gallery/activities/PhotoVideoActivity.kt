@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
-import com.simplemobiletools.filepicker.extensions.getFilenameFromPath
 import com.simplemobiletools.gallery.Constants
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.fragments.PhotoFragment
@@ -31,6 +30,15 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
 
         mUri = intent.data ?: return
 
+        if (mUri.scheme == "file") {
+            Intent(this, ViewPagerActivity::class.java).apply {
+                putExtra(Constants.MEDIUM, mUri.path)
+                startActivity(this)
+            }
+            finish()
+            return
+        }
+
         val bundle = Bundle()
         val file = File(mUri.toString())
         val medium = Medium(file.name, mUri.toString(), mIsVideo, 0, file.length())
@@ -43,18 +51,14 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
             supportFragmentManager.beginTransaction().replace(R.id.fragment_holder, mFragment).commit()
         }
 
-        if (mUri.scheme == "content") {
-            val proj = arrayOf(MediaStore.Images.Media.TITLE)
-            val cursor = contentResolver.query(mUri, proj, null, null, null)
-            if (cursor != null && cursor.count != 0) {
-                val columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.TITLE)
-                cursor.moveToFirst()
-                title = cursor.getString(columnIndex)
-            }
-            cursor?.close()
-        } else {
-            title = mUri.toString().getFilenameFromPath()
+        val proj = arrayOf(MediaStore.Images.Media.TITLE)
+        val cursor = contentResolver.query(mUri, proj, null, null, null)
+        if (cursor != null && cursor.count != 0) {
+            val columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.TITLE)
+            cursor.moveToFirst()
+            title = cursor.getString(columnIndex)
         }
+        cursor?.close()
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
