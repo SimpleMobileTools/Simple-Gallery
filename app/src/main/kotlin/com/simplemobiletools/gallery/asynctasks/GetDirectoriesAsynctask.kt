@@ -50,18 +50,19 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                     do {
                         val fullPath = cursor.getString(pathIndex) ?: continue
                         val file = File(fullPath)
-                        val parentDir = file.parent
+                        val size = cursor.getLongValue(MediaStore.Images.Media.SIZE)
 
-                        if (!file.exists() || file.length() == 0L) {
+                        if (size == 0L) {
                             invalidFiles.add(file)
                             continue
                         }
 
+                        val parentDir = file.parent
                         if (directories.containsKey(parentDir)) {
                             val directory: Directory = directories[parentDir]!!
                             val newImageCnt = directory.mediaCnt + 1
                             directory.mediaCnt = newImageCnt
-                            directory.addSize(file.length())
+                            directory.addSize(size)
                         } else if (!mToBeDeleted.contains(parentDir)) {
                             var dirName = context.getHumanizedFilename(parentDir)
                             if (mConfig.getIsFolderHidden(parentDir)) {
@@ -69,7 +70,6 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                             }
 
                             val timestamp = cursor.getLongValue(MediaStore.Images.Media.DATE_MODIFIED)
-                            val size = cursor.getLongValue(MediaStore.Images.Media.SIZE)
                             directories.put(parentDir, Directory(parentDir, fullPath, dirName, 1, timestamp, size))
                         }
                     } while (cursor.moveToNext())

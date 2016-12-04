@@ -49,17 +49,20 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
                         val curPath = cursor.getString(pathIndex) ?: continue
                         if (!mToBeDeleted.contains(curPath)) {
                             val file = File(curPath)
-                            if (file.exists()) {
-                                if (file.parent != mPath)
-                                    continue
+                            val size = cursor.getLongValue(MediaStore.Images.Media.SIZE)
 
-                                val name = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME)
-                                val timestamp = cursor.getLongValue(MediaStore.Images.Media.DATE_MODIFIED)
-                                val size = cursor.getLongValue(MediaStore.Images.Media.SIZE)
-                                media.add(Medium(name, curPath, i == 1, timestamp, size))
-                            } else {
+                            if (size == 0L) {
                                 invalidFiles.add(file)
+                                continue
                             }
+
+                            // exclude images of subdirectories
+                            if (file.parent != mPath)
+                                continue
+
+                            val name = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME)
+                            val timestamp = cursor.getLongValue(MediaStore.Images.Media.DATE_MODIFIED)
+                            media.add(Medium(name, curPath, i == 1, timestamp, size))
                         }
                     } while (cursor.moveToNext())
                 }

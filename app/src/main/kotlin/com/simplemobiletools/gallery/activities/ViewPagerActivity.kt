@@ -325,17 +325,20 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                         val curPath = cursor.getString(pathIndex) ?: continue
                         if (curPath != mToBeDeleted && curPath != mBeingDeleted) {
                             val file = File(curPath)
-                            if (file.exists()) {
-                                if (file.parent != mDirectory)
-                                    continue
+                            val size = cursor.getLongValue(MediaStore.Images.Media.SIZE)
 
-                                val name = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME)
-                                val timestamp = cursor.getLongValue(MediaStore.Images.Media.DATE_MODIFIED)
-                                val size = cursor.getLongValue(MediaStore.Images.Media.SIZE)
-                                media.add(Medium(name, curPath, i == 1, timestamp, size))
-                            } else {
+                            if (size == 0L) {
                                 invalidFiles.add(file)
+                                continue
                             }
+
+                            // exclude images of subdirectories
+                            if (file.parent != mDirectory)
+                                continue
+
+                            val name = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME)
+                            val timestamp = cursor.getLongValue(MediaStore.Images.Media.DATE_MODIFIED)
+                            media.add(Medium(name, curPath, i == 1, timestamp, size))
                         }
                     } while (cursor.moveToNext())
                 }
