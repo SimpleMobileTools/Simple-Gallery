@@ -149,7 +149,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 true
             }
             R.id.menu_edit -> {
-                openEditor()
+                openEditor(getCurrentFile())
                 true
             }
             R.id.menu_properties -> {
@@ -183,18 +183,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 toast(R.string.copy_move_failed)
             }
         })
-    }
-
-    private fun openEditor() {
-        val intent = Intent(Intent.ACTION_EDIT)
-        intent.setDataAndType(Uri.fromFile(getCurrentFile()), "image/*")
-        val chooser = Intent.createChooser(intent, getString(R.string.edit_image_with))
-
-        if (intent.resolveActivity(packageManager) != null) {
-            startActivityForResult(chooser, REQUEST_EDIT_IMAGE)
-        } else {
-            toast(R.string.no_editor_found)
-        }
     }
 
     private fun showProperties() {

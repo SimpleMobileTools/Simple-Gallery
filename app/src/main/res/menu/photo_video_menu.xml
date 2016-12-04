@@ -7,6 +7,11 @@
         android:title="@string/share"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/menu_edit"
+        android:icon="@mipmap/edit"
+        android:title="@string/edit"
+        app:showAsAction="ifRoom"/>
+    <item
         android:id="@+id/menu_set_as_wallpaper"
         android:title="@string/set_as_wallpaper"
         app:showAsAction="never"/>

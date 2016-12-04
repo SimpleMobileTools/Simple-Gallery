@@ -7,14 +7,15 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
-import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.extensions.openEditor
 import com.simplemobiletools.gallery.extensions.openWith
 import com.simplemobiletools.gallery.extensions.setAsWallpaper
 import com.simplemobiletools.gallery.extensions.shareMedium
 import com.simplemobiletools.gallery.fragments.PhotoFragment
 import com.simplemobiletools.gallery.fragments.VideoFragment
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment
+import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 
@@ -72,7 +73,10 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.photo_video_menu, menu)
+
         menu.findItem(R.id.menu_set_as_wallpaper).isVisible = mMedium.isImage()
+        menu.findItem(R.id.menu_edit).isVisible = mMedium.isImage()
+
         return true
     }
 
@@ -88,6 +92,10 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
             }
             R.id.menu_share -> {
                 shareMedium(mMedium)
+                true
+            }
+            R.id.menu_edit -> {
+                openEditor(File(mMedium.path))
                 true
             }
             else -> super.onOptionsItemSelected(item)

@@ -10,6 +10,7 @@ import android.view.KeyEvent
 import android.view.ViewConfiguration
 import com.simplemobiletools.filepicker.extensions.toast
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.helpers.REQUEST_EDIT_IMAGE
 import com.simplemobiletools.gallery.helpers.REQUEST_SET_WALLPAPER
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
@@ -64,6 +65,18 @@ fun Activity.openWith(file: File) {
         startActivity(chooser)
     } else {
         toast(R.string.no_app_found)
+    }
+}
+
+fun Activity.openEditor(file: File) {
+    val intent = Intent(Intent.ACTION_EDIT)
+    intent.setDataAndType(Uri.fromFile(file), "image/*")
+    val chooser = Intent.createChooser(intent, getString(R.string.edit_image_with))
+
+    if (intent.resolveActivity(packageManager) != null) {
+        startActivityForResult(chooser, REQUEST_EDIT_IMAGE)
+    } else {
+        toast(R.string.no_editor_found)
     }
 }
 
