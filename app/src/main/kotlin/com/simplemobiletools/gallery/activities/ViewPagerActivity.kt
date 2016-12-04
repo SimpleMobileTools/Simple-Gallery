@@ -16,9 +16,13 @@ import com.simplemobiletools.filepicker.extensions.*
 import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter
+import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.dialogs.RenameFileDialog
-import com.simplemobiletools.gallery.extensions.*
+import com.simplemobiletools.gallery.extensions.openEditor
+import com.simplemobiletools.gallery.extensions.openWith
+import com.simplemobiletools.gallery.extensions.setAsWallpaper
+import com.simplemobiletools.gallery.extensions.shareMedium
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.helpers.REQUEST_EDIT_IMAGE
@@ -29,7 +33,7 @@ import java.io.File
 import java.util.*
 
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View.OnSystemUiVisibilityChangeListener, ViewPagerFragment.FragmentClickListener {
-    private var mMedia: MutableList<Medium>? = null
+    lateinit var mMedia: ArrayList<Medium>
     private var mPath = ""
     private var mDirectory = ""
 
@@ -71,16 +75,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         mPos = 0
         mIsFullScreen = false
+        mMedia = ArrayList<Medium>()
 
-        scanPath(mPath) {}
         mDirectory = File(mPath).parent
-        mMedia = getMedia()
-        if (isDirEmpty())
-            return
-
-        updatePagerItems()
+        title = mPath.getFilenameFromPath()
         window.decorView.setOnSystemUiVisibilityChangeListener(this)
-        updateActionbarTitle()
+        reloadViewPager()
+        scanPath(mPath) {}
     }
 
     override fun onResume() {
@@ -92,8 +93,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.viewpager_menu, menu)
-        menu.findItem(R.id.menu_set_as_wallpaper).isVisible = getCurrentMedium().isImage()
-        menu.findItem(R.id.menu_edit).isVisible = getCurrentMedium().isImage()
+
+        menu.findItem(R.id.menu_set_as_wallpaper).isVisible = getCurrentMedium()?.isImage() == true
+        menu.findItem(R.id.menu_edit).isVisible = getCurrentMedium()?.isImage() == true
+
         return true
     }
 
@@ -112,7 +115,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 true
             }
             R.id.menu_share -> {
-                shareMedium(getCurrentMedium())
+                shareMedium(getCurrentMedium()!!)
                 true
             }
             R.id.menu_delete -> {
@@ -142,7 +145,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun updatePagerItems() {
-        val pagerAdapter = MyPagerAdapter(this, supportFragmentManager, mMedia!!)
+        val pagerAdapter = MyPagerAdapter(this, supportFragmentManager, mMedia)
         view_pager.apply {
             adapter = pagerAdapter
             currentItem = mPos
@@ -194,7 +197,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun deleteFile() {
-        val file = File(mMedia!![mPos].path)
+        val file = File(mMedia[mPos].path)
         if (isShowingPermDialog(file))
             return
 
@@ -221,7 +224,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun isDirEmpty(): Boolean {
-        return if (mMedia!!.size <= 0) {
+        return if (mMedia.size <= 0) {
             deleteDirectoryIfEmpty()
             finish()
             true
@@ -231,19 +234,29 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun editMedium() {
         RenameFileDialog(this, getCurrentFile()) {
-            mMedia!![view_pager.currentItem].path = it.absolutePath
+            mMedia[view_pager.currentItem].path = it.absolutePath
             updateActionbarTitle()
         }
     }
 
     private fun reloadViewPager() {
-        mMedia = getMedia()
-        if (isDirEmpty())
-            return
+        GetMediaAsynctask(applicationContext, mDirectory, false, false, MediaActivity.mToBeDeleted) {
+            mMedia = it
+            if (isDirEmpty())
+                return@GetMediaAsynctask
 
-        runOnUiThread {
+            var j = 0
+            for (medium in it) {
+                if (medium.path == mPath) {
+                    mPos = j
+                    break
+                }
+                j++
+            }
+
+            updateActionbarTitle()
             updatePagerItems()
-        }
+        }.execute()
     }
 
     private fun deleteDirectoryIfEmpty() {
@@ -253,63 +266,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         scanPath(mDirectory) {}
-    }
-
-    private fun getMedia(): MutableList<Medium> {
-        val media = ArrayList<Medium>()
-        val invalidFiles = ArrayList<File>()
-        for (i in 0..1) {
-            var uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-            if (i == 1) {
-                uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
-            }
-
-            val where = "${MediaStore.Images.Media.DATA} LIKE ? "
-            val args = arrayOf("$mDirectory%")
-            val columns = arrayOf(MediaStore.Images.Media.DATA, MediaStore.Images.Media.DISPLAY_NAME, MediaStore.Images.Media.DATE_MODIFIED, MediaStore.Images.Media.SIZE)
-            var cursor: Cursor? = null
-
-            try {
-                cursor = contentResolver.query(uri, columns, where, args, null)
-
-                if (cursor?.moveToFirst() == true) {
-                    val pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA)
-                    do {
-                        val curPath = cursor.getString(pathIndex) ?: continue
-                        val file = File(curPath)
-                        val size = cursor.getLongValue(MediaStore.Images.Media.SIZE)
-
-                        if (size == 0L) {
-                            invalidFiles.add(file)
-                            continue
-                        }
-
-                        // exclude images of subdirectories
-                        if (file.parent != mDirectory)
-                            continue
-
-                        val name = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME)
-                        val timestamp = cursor.getLongValue(MediaStore.Images.Media.DATE_MODIFIED)
-                        media.add(Medium(name, curPath, i == 1, timestamp, size))
-                    } while (cursor.moveToNext())
-                }
-            } finally {
-                cursor?.close()
-            }
-        }
-
-        scanFiles(invalidFiles) {}
-        Medium.sorting = mConfig.sorting
-        media.sort()
-        var j = 0
-        for (medium in media) {
-            if (medium.path == mPath) {
-                mPos = j
-                break
-            }
-            j++
-        }
-        return media
     }
 
     override fun fragmentClicked() {
@@ -322,24 +278,25 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun updateActionbarTitle() {
-        title = mMedia!![view_pager.currentItem].path.getFilenameFromPath()
+        title = mMedia[mPos].path.getFilenameFromPath()
     }
 
-    private fun getCurrentMedium(): Medium {
-        if (mPos >= mMedia!!.size)
-            mPos = mMedia!!.size - 1
-        return mMedia!![mPos]
+    private fun getCurrentMedium(): Medium? {
+        return if (mMedia.isEmpty())
+            null
+        else
+            mMedia[Math.min(mPos, mMedia.size - 1)]
     }
 
-    private fun getCurrentFile() = File(getCurrentMedium().path)
+    private fun getCurrentFile() = File(getCurrentMedium()!!.path)
 
     override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
 
     }
 
     override fun onPageSelected(position: Int) {
-        updateActionbarTitle()
         mPos = position
+        updateActionbarTitle()
         supportInvalidateOptionsMenu()
     }
 

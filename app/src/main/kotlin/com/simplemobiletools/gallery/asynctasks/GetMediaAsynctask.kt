@@ -12,8 +12,9 @@ import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 import java.util.*
 
-class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo: Boolean, val isPickImage: Boolean,
-                        val mToBeDeleted: List<String>, val callback: (media: ArrayList<Medium>) -> Unit) : AsyncTask<Void, Void, ArrayList<Medium>>() {
+class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo: Boolean = false, val isPickImage: Boolean = false,
+                        val mToBeDeleted: List<String> = ArrayList<String>(), val callback: (media: ArrayList<Medium>) -> Unit) :
+        AsyncTask<Void, Void, ArrayList<Medium>>() {
     lateinit var mConfig: Config
 
     override fun onPreExecute() {
