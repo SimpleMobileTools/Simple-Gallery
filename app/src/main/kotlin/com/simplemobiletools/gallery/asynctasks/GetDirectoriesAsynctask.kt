@@ -5,11 +5,12 @@ import android.database.Cursor
 import android.os.AsyncTask
 import android.provider.MediaStore
 import com.simplemobiletools.filepicker.extensions.scanFiles
-import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.extensions.getHumanizedFilename
+import com.simplemobiletools.gallery.extensions.getLongValue
+import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.helpers.SORT_BY_NAME
 import com.simplemobiletools.gallery.helpers.SORT_DESCENDING
-import com.simplemobiletools.gallery.extensions.getHumanizedFilename
 import com.simplemobiletools.gallery.models.Directory
 import java.io.File
 import java.util.*
@@ -37,16 +38,17 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
 
                 uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
             }
-            val columns = arrayOf(MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_MODIFIED)
+            val columns = arrayOf(MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_MODIFIED, MediaStore.Images.Media.SIZE)
             val order = getSortOrder()
             var cursor: Cursor? = null
 
             try {
                 cursor = context.contentResolver.query(uri, columns, null, null, order)
-                if (cursor != null && cursor.moveToFirst()) {
+
+                if (cursor?.moveToFirst() == true) {
                     val pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA)
                     do {
-                        val fullPath: String = cursor.getString(pathIndex) ?: continue
+                        val fullPath = cursor.getString(pathIndex) ?: continue
                         val file = File(fullPath)
                         val parentDir = file.parent
 
@@ -55,8 +57,6 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                             continue
                         }
 
-                        val dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_MODIFIED)
-                        val timestamp = cursor.getLong(dateIndex)
                         if (directories.containsKey(parentDir)) {
                             val directory: Directory = directories[parentDir]!!
                             val newImageCnt = directory.mediaCnt + 1
@@ -68,7 +68,9 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                                 dirName += " ${context.resources.getString(R.string.hidden)}"
                             }
 
-                            directories.put(parentDir, Directory(parentDir, fullPath, dirName, 1, timestamp, file.length()))
+                            val timestamp = cursor.getLongValue(MediaStore.Images.Media.DATE_MODIFIED)
+                            val size = cursor.getLongValue(MediaStore.Images.Media.SIZE)
+                            directories.put(parentDir, Directory(parentDir, fullPath, dirName, 1, timestamp, size))
                         }
                     } while (cursor.moveToNext())
                 }

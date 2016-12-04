@@ -28,7 +28,6 @@ import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_medium.*
 import java.io.File
 import java.util.*
-import java.util.regex.Pattern
 
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View.OnSystemUiVisibilityChangeListener, ViewPagerFragment.FragmentClickListener {
     private var mMedia: MutableList<Medium>? = null
@@ -86,13 +85,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (isDirEmpty())
             return
 
-        val pagerAdapter = MyPagerAdapter(this, supportFragmentManager, mMedia!!)
-        view_pager.apply {
-            adapter = pagerAdapter
-            currentItem = mPos
-            addOnPageChangeListener(this@ViewPagerActivity)
-        }
-
+        updatePagerItems()
         window.decorView.setOnSystemUiVisibilityChangeListener(this)
         updateActionbarTitle()
         undo_delete.setOnClickListener { undoDeletion() }
@@ -163,6 +156,15 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         super.onConfigurationChanged(newConfig)
         val adapter = view_pager.adapter as MyPagerAdapter
         adapter.updateItems(mPos)
+    }
+
+    private fun updatePagerItems() {
+        val pagerAdapter = MyPagerAdapter(this, supportFragmentManager, mMedia!!)
+        view_pager.apply {
+            adapter = pagerAdapter
+            currentItem = mPos
+            addOnPageChangeListener(this@ViewPagerActivity)
+        }
     }
 
     private fun displayCopyDialog() {
@@ -311,32 +313,35 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
             val where = "${MediaStore.Images.Media.DATA} LIKE ? "
             val args = arrayOf("$mDirectory%")
-            val columns = arrayOf(MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_MODIFIED, MediaStore.Images.Media.SIZE)
-            val cursor = contentResolver.query(uri, columns, where, args, null)
-            val pattern = "${Pattern.quote(mDirectory)}/[^/]*"
+            val columns = arrayOf(MediaStore.Images.Media.DATA, MediaStore.Images.Media.DISPLAY_NAME, MediaStore.Images.Media.DATE_MODIFIED, MediaStore.Images.Media.SIZE)
+            var cursor: Cursor? = null
 
-            if (cursor?.moveToFirst() == true) {
-                val pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA)
-                do {
-                    val curPath = cursor.getString(pathIndex) ?: continue
+            try {
+                cursor = contentResolver.query(uri, columns, where, args, null)
 
-                    val file = File(curPath)
-                    if (!file.exists()) {
-                        invalidFiles.add(file)
-                        continue
-                    }
+                if (cursor?.moveToFirst() == true) {
+                    val pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA)
+                    do {
+                        val curPath = cursor.getString(pathIndex) ?: continue
+                        if (curPath != mToBeDeleted && curPath != mBeingDeleted) {
+                            val file = File(curPath)
+                            if (file.exists()) {
+                                if (file.parent != mDirectory)
+                                    continue
 
-                    if (curPath.matches(pattern.toRegex()) && curPath != mToBeDeleted && curPath != mBeingDeleted) {
-                        val dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_MODIFIED)
-                        val timestamp = cursor.getLong(dateIndex)
-
-                        val sizeIndex = cursor.getColumnIndex(MediaStore.Images.Media.SIZE)
-                        val size = cursor.getLong(sizeIndex)
-                        media.add(Medium(file.name, curPath, i == 1, timestamp, size))
-                    }
-                } while (cursor.moveToNext())
+                                val name = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME)
+                                val timestamp = cursor.getLongValue(MediaStore.Images.Media.DATE_MODIFIED)
+                                val size = cursor.getLongValue(MediaStore.Images.Media.SIZE)
+                                media.add(Medium(name, curPath, i == 1, timestamp, size))
+                            } else {
+                                invalidFiles.add(file)
+                            }
+                        }
+                    } while (cursor.moveToNext())
+                }
+            } finally {
+                cursor?.close()
             }
-            cursor?.close()
         }
 
         scanFiles(invalidFiles) {}

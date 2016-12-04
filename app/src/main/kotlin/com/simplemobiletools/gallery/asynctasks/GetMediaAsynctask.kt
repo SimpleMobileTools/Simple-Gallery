@@ -5,11 +5,12 @@ import android.database.Cursor
 import android.os.AsyncTask
 import android.provider.MediaStore
 import com.simplemobiletools.filepicker.extensions.scanFiles
+import com.simplemobiletools.gallery.extensions.getLongValue
+import com.simplemobiletools.gallery.extensions.getStringValue
 import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 import java.util.*
-import java.util.regex.Pattern
 
 class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo: Boolean, val isPickImage: Boolean,
                         val mToBeDeleted: List<String>, val callback: (media: ArrayList<Medium>) -> Unit) : AsyncTask<Void, Void, ArrayList<Medium>>() {
@@ -36,24 +37,26 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
             }
             val where = "${MediaStore.Images.Media.DATA} LIKE ?"
             val args = arrayOf("$mPath%")
-            val columns = arrayOf(MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_MODIFIED)
-            val pattern = "${Pattern.quote(mPath)}/[^/]*"
+            val columns = arrayOf(MediaStore.Images.Media.DATA, MediaStore.Images.Media.DISPLAY_NAME, MediaStore.Images.Media.DATE_MODIFIED, MediaStore.Images.Media.SIZE)
             var cursor: Cursor? = null
 
             try {
                 cursor = context.contentResolver.query(uri, columns, where, args, null)
 
-                if (cursor != null && cursor.moveToFirst()) {
+                if (cursor?.moveToFirst() == true) {
                     val pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA)
                     do {
                         val curPath = cursor.getString(pathIndex) ?: continue
-
-                        if (curPath.matches(pattern.toRegex()) && !mToBeDeleted.contains(curPath)) {
+                        if (!mToBeDeleted.contains(curPath)) {
                             val file = File(curPath)
                             if (file.exists()) {
-                                val dateIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_MODIFIED)
-                                val timestamp = cursor.getLong(dateIndex)
-                                media.add(Medium(file.name, curPath, i == 1, timestamp, file.length()))
+                                if (file.parent != mPath)
+                                    continue
+
+                                val name = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME)
+                                val timestamp = cursor.getLongValue(MediaStore.Images.Media.DATE_MODIFIED)
+                                val size = cursor.getLongValue(MediaStore.Images.Media.SIZE)
+                                media.add(Medium(name, curPath, i == 1, timestamp, size))
                             } else {
                                 invalidFiles.add(file)
                             }
