@@ -14,9 +14,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import com.simplemobiletools.filepicker.extensions.*
-import com.simplemobiletools.gallery.Constants
-import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.Utils
+import com.simplemobiletools.gallery.*
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
 import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
@@ -277,15 +275,15 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     fun itemClicked(path: String) {
         Intent(this, MediaActivity::class.java).apply {
-            putExtra(Constants.DIRECTORY, path)
+            putExtra(DIRECTORY, path)
 
             if (mIsSetWallpaperIntent) {
-                putExtra(Constants.SET_WALLPAPER_INTENT, true)
+                putExtra(SET_WALLPAPER_INTENT, true)
                 startActivityForResult(this, PICK_WALLPAPER)
             } else {
-                putExtra(Constants.GET_IMAGE_INTENT, mIsPickImageIntent || mIsGetImageContentIntent)
-                putExtra(Constants.GET_VIDEO_INTENT, mIsPickVideoIntent || mIsGetVideoContentIntent)
-                putExtra(Constants.GET_ANY_INTENT, mIsGetAnyContentIntent)
+                putExtra(GET_IMAGE_INTENT, mIsPickImageIntent || mIsGetImageContentIntent)
+                putExtra(GET_VIDEO_INTENT, mIsPickVideoIntent || mIsGetVideoContentIntent)
+                putExtra(GET_ANY_INTENT, mIsGetAnyContentIntent)
                 startActivityForResult(this, PICK_MEDIA)
             }
         }

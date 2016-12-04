@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.util.SparseArray
-import com.simplemobiletools.gallery.Constants
+import com.simplemobiletools.gallery.MEDIUM
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.fragments.PhotoFragment
 import com.simplemobiletools.gallery.fragments.VideoFragment
@@ -24,7 +24,7 @@ class MyPagerAdapter(val activity: ViewPagerActivity, fm: FragmentManager, val m
     override fun getItem(position: Int): Fragment {
         val medium = media[position]
         val bundle = Bundle()
-        bundle.putSerializable(Constants.MEDIUM, medium)
+        bundle.putSerializable(MEDIUM, medium)
         val fragment: ViewPagerFragment
 
         if (medium.isVideo) {

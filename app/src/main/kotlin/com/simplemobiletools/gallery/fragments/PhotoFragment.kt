@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.davemorrissey.labs.subscaleview.ImageSource
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
-import com.simplemobiletools.gallery.Constants
+import com.simplemobiletools.gallery.MEDIUM
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.getRealPathFromURI
 import com.simplemobiletools.gallery.models.Medium
@@ -22,7 +22,7 @@ class PhotoFragment : ViewPagerFragment(), View.OnClickListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val view = inflater.inflate(R.layout.pager_photo_item, container, false)
 
-        medium = arguments.getSerializable(Constants.MEDIUM) as Medium
+        medium = arguments.getSerializable(MEDIUM) as Medium
         if (medium.path.startsWith("content://"))
             medium.path = context.getRealPathFromURI(Uri.parse(medium.path)) ?: ""
 

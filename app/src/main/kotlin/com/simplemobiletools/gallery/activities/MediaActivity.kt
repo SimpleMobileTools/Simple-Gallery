@@ -16,8 +16,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.animation.GlideAnimation
 import com.bumptech.glide.request.target.SimpleTarget
 import com.simplemobiletools.filepicker.extensions.*
-import com.simplemobiletools.gallery.Constants
-import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.*
 import com.simplemobiletools.gallery.adapters.MediaAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
@@ -48,13 +47,13 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_media)
         intent.apply {
-            mIsGetImageIntent = getBooleanExtra(Constants.GET_IMAGE_INTENT, false)
-            mIsGetVideoIntent = getBooleanExtra(Constants.GET_VIDEO_INTENT, false)
-            mIsGetAnyIntent = getBooleanExtra(Constants.GET_ANY_INTENT, false)
+            mIsGetImageIntent = getBooleanExtra(GET_IMAGE_INTENT, false)
+            mIsGetVideoIntent = getBooleanExtra(GET_VIDEO_INTENT, false)
+            mIsGetAnyIntent = getBooleanExtra(GET_ANY_INTENT, false)
         }
 
         media_holder.setOnRefreshListener({ getMedia() })
-        mPath = intent.getStringExtra(Constants.DIRECTORY)
+        mPath = intent.getStringExtra(DIRECTORY)
         mToBeDeleted = ArrayList<String>()
         mMedia = ArrayList<Medium>()
     }
@@ -260,7 +259,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
     }
 
-    private fun isSetWallpaperIntent() = intent.getBooleanExtra(Constants.SET_WALLPAPER_INTENT, false)
+    private fun isSetWallpaperIntent() = intent.getBooleanExtra(SET_WALLPAPER_INTENT, false)
 
     fun itemClicked(path: String) {
         if (isSetWallpaperIntent()) {
@@ -294,7 +293,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             finish()
         } else {
             Intent(this, ViewPagerActivity::class.java).apply {
-                putExtra(Constants.MEDIUM, path)
+                putExtra(MEDIUM, path)
                 startActivity(this)
             }
         }

@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
-import com.simplemobiletools.gallery.Constants
+import com.simplemobiletools.gallery.MEDIUM
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.fragments.PhotoFragment
 import com.simplemobiletools.gallery.fragments.VideoFragment
@@ -32,7 +32,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
 
         if (mUri.scheme == "file") {
             Intent(this, ViewPagerActivity::class.java).apply {
-                putExtra(Constants.MEDIUM, mUri.path)
+                putExtra(MEDIUM, mUri.path)
                 startActivity(this)
             }
             finish()
@@ -42,7 +42,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
         val bundle = Bundle()
         val file = File(mUri.toString())
         val medium = Medium(file.name, mUri.toString(), mIsVideo, 0, file.length())
-        bundle.putSerializable(Constants.MEDIUM, medium)
+        bundle.putSerializable(MEDIUM, medium)
 
         if (savedInstanceState == null) {
             mFragment = if (mIsVideo) VideoFragment() else PhotoFragment()

@@ -64,7 +64,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 cursor?.close()
             }
         } else {
-            mPath = intent.getStringExtra(Constants.MEDIUM)
+            mPath = intent.getStringExtra(MEDIUM)
         }
 
         if (mPath.isEmpty()) {

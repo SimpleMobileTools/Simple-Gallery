@@ -14,7 +14,7 @@ import android.view.animation.AnimationUtils
 import android.widget.SeekBar
 import android.widget.TextView
 import com.simplemobiletools.gallery.Config
-import com.simplemobiletools.gallery.Constants
+import com.simplemobiletools.gallery.MEDIUM
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.Utils
 import com.simplemobiletools.gallery.models.Medium
@@ -51,7 +51,7 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mView = inflater.inflate(R.layout.pager_video_item, container, false)
 
-        mMedium = arguments.getSerializable(Constants.MEDIUM) as Medium
+        mMedium = arguments.getSerializable(MEDIUM) as Medium
         if (savedInstanceState != null) {
             mCurrTime = savedInstanceState.getInt(PROGRESS)
         }

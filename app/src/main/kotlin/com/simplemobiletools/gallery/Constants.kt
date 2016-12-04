@@ -23,14 +23,12 @@ val SORT_DESCENDING = 1024
 // global intents
 val OPEN_DOCUMENT_TREE = 1000
 
-object Constants {
-    val DIRECTORY = "directory"
-    val MEDIUM = "medium"
-    val GET_IMAGE_INTENT = "get_image_intent"
-    val GET_VIDEO_INTENT = "get_video_intent"
-    val GET_ANY_INTENT = "get_any_intent"
-    val SET_WALLPAPER_INTENT = "set_wallpaper_intent"
-}
+val DIRECTORY = "directory"
+val MEDIUM = "medium"
+val GET_IMAGE_INTENT = "get_image_intent"
+val GET_VIDEO_INTENT = "get_video_intent"
+val GET_ANY_INTENT = "get_any_intent"
+val SET_WALLPAPER_INTENT = "set_wallpaper_intent"
 
 val REQUEST_EDIT_IMAGE = 1
 val REQUEST_SET_WALLPAPER = 2
