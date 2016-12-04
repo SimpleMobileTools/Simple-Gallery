@@ -11,18 +11,16 @@ import android.support.v4.view.ViewPager
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.webkit.MimeTypeMap
 import android.widget.RelativeLayout
 import com.simplemobiletools.filepicker.asynctasks.CopyMoveTask
 import com.simplemobiletools.filepicker.dialogs.ConfirmationDialog
 import com.simplemobiletools.filepicker.extensions.*
 import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog
-import com.simplemobiletools.gallery.Constants
-import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.Utils
+import com.simplemobiletools.gallery.*
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter
 import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.dialogs.RenameFileDialog
+import com.simplemobiletools.gallery.extensions.setAsWallpaper
 import com.simplemobiletools.gallery.extensions.shareMedium
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.models.Medium
@@ -41,11 +39,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mIsFullScreen = false
     private var mIsUndoShown = false
     private var mPos = 0
-
-    companion object {
-        private val EDIT_IMAGE = 1
-        private val SET_WALLPAPER = 2
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -130,7 +123,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         deleteFile()
         return when (item.itemId) {
             R.id.menu_set_as_wallpaper -> {
-                setAsWallpaper()
+                setAsWallpaper(getCurrentFile())
                 true
             }
             R.id.menu_copy_move -> {
@@ -196,31 +189,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val chooser = Intent.createChooser(intent, getString(R.string.edit_image_with))
 
         if (intent.resolveActivity(packageManager) != null) {
-            startActivityForResult(chooser, EDIT_IMAGE)
+            startActivityForResult(chooser, REQUEST_EDIT_IMAGE)
         } else {
             toast(R.string.no_editor_found)
-        }
-    }
-
-    private fun getMimeType(url: String): String? {
-        val extension = MimeTypeMap.getFileExtensionFromUrl(url)
-        return if (extension != null) {
-            MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension)
-        } else {
-            "image/jpeg"
-        }
-    }
-
-    private fun setAsWallpaper() {
-        val intent = Intent(Intent.ACTION_ATTACH_DATA)
-        val uri = Uri.fromFile(getCurrentFile())
-        intent.setDataAndType(uri, getMimeType(uri.toString()))
-        val chooser = Intent.createChooser(intent, getString(R.string.set_as_wallpaper_with))
-
-        if (intent.resolveActivity(packageManager) != null) {
-            startActivityForResult(chooser, SET_WALLPAPER)
-        } else {
-            toast(R.string.no_wallpaper_setter_found)
         }
     }
 
@@ -241,12 +212,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
-        if (requestCode == EDIT_IMAGE) {
+        if (requestCode == REQUEST_EDIT_IMAGE) {
             if (resultCode == Activity.RESULT_OK && resultData != null) {
                 val adapter = view_pager.adapter as MyPagerAdapter
                 adapter.updateItems(mPos)
             }
-        } else if (requestCode == SET_WALLPAPER) {
+        } else if (requestCode == REQUEST_SET_WALLPAPER) {
             if (resultCode == Activity.RESULT_OK) {
                 toast(R.string.wallpaper_set_successfully)
             }

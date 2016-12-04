@@ -31,3 +31,6 @@ object Constants {
     val GET_ANY_INTENT = "get_any_intent"
     val SET_WALLPAPER_INTENT = "set_wallpaper_intent"
 }
+
+val REQUEST_EDIT_IMAGE = 1
+val REQUEST_SET_WALLPAPER = 2
