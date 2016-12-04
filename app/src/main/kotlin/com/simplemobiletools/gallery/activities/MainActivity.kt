@@ -18,6 +18,7 @@ import com.simplemobiletools.gallery.*
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
 import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
+import com.simplemobiletools.gallery.extensions.getImageMimeType
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
@@ -254,7 +255,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                     val path = resultData.data.path
                     val uri = Uri.fromFile(File(path))
                     if (mIsGetImageContentIntent || mIsGetVideoContentIntent || mIsGetAnyContentIntent) {
-                        val type = Utils.getMimeType(path) ?: ""
+                        val type = uri.getImageMimeType()
                         setDataAndTypeAndNormalize(uri, type)
                         flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
                     } else if (mIsPickImageIntent || mIsPickVideoIntent) {

@@ -9,7 +9,6 @@ import android.util.TypedValue
 import android.view.KeyCharacterMap
 import android.view.KeyEvent
 import android.view.ViewConfiguration
-import android.webkit.MimeTypeMap
 
 class Utils {
     companion object {
@@ -60,14 +59,6 @@ class Utils {
                 val hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK)
                 !hasMenuKey && !hasBackKey
             }
-        }
-
-        fun getMimeType(url: String): String? {
-            val extension = MimeTypeMap.getFileExtensionFromUrl(url)
-            return if (extension != null) {
-                MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension)
-            } else
-                ""
         }
     }
 }
