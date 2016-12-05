@@ -101,7 +101,7 @@
     <string name="third_party_licences_underlined"><U>Лицензии третьих сторон</U></string>
     <string name="invite_friends_underlined"><U>Отправить другу</U></string>
     <string name="share_text">поделиться текстом %1$s at %2$s</string>
-    <string nam="invite_via">Отправить с помощью</string>
+    <string name="invite_via">Отправить с помощью</string>
     <string name="rate_us_underlined"><U>Оцените нас в Google Play</U></string>
     <string name="follow_us">Подписывайтесь на нас:</string>
     <string name="copyright">v %1$s Copyright © Simple Mobile Tools %2$d</string>
