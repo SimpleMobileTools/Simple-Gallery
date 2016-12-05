@@ -10,18 +10,6 @@
     <string name="undo">Rückgängig</string>
     <string name="share">Teilen</string>
     <string name="properties">Eigenschaften</string>
-    <string name="rename_file">Datei umbenennen</string>
-    <string name="rename_folder">Ordner umbenennen</string>
-    <string name="rename_file_error">Konnte die Datei nicht umbenennen</string>
-    <string name="rename_folder_error">Konnte den Ordner nicht umbenennen</string>
-    <string name="rename_folder_empty">Ordnername darf nicht leer sein</string>
-    <string name="rename_folder_exists">A folder with that name already exists</string>
-    <string name="rename_folder_root">Cannot rename the root folder of a storage</string>
-    <string name="rename_folder_ok">Ordner erfolgreich umbenannt</string>
-    <string name="renaming_folder">Benenne Ordner um</string>
-    <string name="filename_cannot_be_empty">Dateiname darf nicht leer sein</string>
-    <string name="filename_invalid_characters">Filename contains invalid characters</string>
-    <string name="extension">Dateiendung</string>
     <string name="file_deleted">Datei gelöscht</string>
     <string name="open_camera">Kamera öffnen</string>
     <string name="unknown_error">Ein unbekannter Fehler ist aufgetreten</string>
@@ -67,6 +55,20 @@
         <item quantity="one">1 Datei gelöscht</item>
         <item quantity="other">%1$d Dateien gelöscht</item>
     </plurals>
+
+    <!-- Renaming -->
+    <string name="rename_file">Datei umbenennen</string>
+    <string name="rename_folder">Ordner umbenennen</string>
+    <string name="rename_file_error">Konnte die Datei nicht umbenennen</string>
+    <string name="rename_folder_error">Konnte den Ordner nicht umbenennen</string>
+    <string name="rename_folder_empty">Ordnername darf nicht leer sein</string>
+    <string name="rename_folder_exists">A folder with that name already exists</string>
+    <string name="rename_folder_root">Cannot rename the root folder of a storage</string>
+    <string name="rename_folder_ok">Ordner erfolgreich umbenannt</string>
+    <string name="renaming_folder">Benenne Ordner um</string>
+    <string name="filename_cannot_be_empty">Dateiname darf nicht leer sein</string>
+    <string name="filename_invalid_characters">Filename contains invalid characters</string>
+    <string name="extension">Dateiendung</string>
 
     <!-- Sorting -->
     <string name="sort_by">Sortieren nach</string>

@@ -10,18 +10,6 @@
     <string name="undo">Desfazer</string>
     <string name="share">Partilhar</string>
     <string name="properties">Propriedades</string>
-    <string name="rename_file">Renomear ficheiro</string>
-    <string name="rename_folder">Renomear pasta</string>
-    <string name="rename_file_error">Não foi possível renomear o ficheiro</string>
-    <string name="rename_folder_error">Não foi possível renomear a pasta</string>
-    <string name="rename_folder_empty">O nome da pasta não pode estar vazio</string>
-    <string name="rename_folder_exists">Já existe uma pasta com este nome</string>
-    <string name="rename_folder_root">Não pode renomear a pasta raiz de um armazenamento</string>
-    <string name="rename_folder_ok">A pasta foi renomeada com sucesso</string>
-    <string name="renaming_folder">A renomear pasta</string>
-    <string name="filename_cannot_be_empty">O nome do ficheiro não pode estar vazio</string>
-    <string name="filename_invalid_characters">O nome do ficheiro contém caracteres inválidos</string>
-    <string name="extension">Extensão</string>
     <string name="file_deleted">Ficheiro apagado</string>
     <string name="open_camera">Abrir câmara</string>
     <string name="unknown_error">Ocorreu um erro desconhecido</string>
@@ -67,6 +55,20 @@
         <item quantity="one">1 ficheiro apagado</item>
         <item quantity="other">%1$d ficheiros apagados</item>
     </plurals>
+
+    <!-- Renaming -->
+    <string name="rename_file">Renomear ficheiro</string>
+    <string name="rename_folder">Renomear pasta</string>
+    <string name="rename_file_error">Não foi possível renomear o ficheiro</string>
+    <string name="rename_folder_error">Não foi possível renomear a pasta</string>
+    <string name="rename_folder_empty">O nome da pasta não pode estar vazio</string>
+    <string name="rename_folder_exists">Já existe uma pasta com este nome</string>
+    <string name="rename_folder_root">Não pode renomear a pasta raiz de um armazenamento</string>
+    <string name="rename_folder_ok">A pasta foi renomeada com sucesso</string>
+    <string name="renaming_folder">A renomear pasta</string>
+    <string name="filename_cannot_be_empty">O nome do ficheiro não pode estar vazio</string>
+    <string name="filename_invalid_characters">O nome do ficheiro contém caracteres inválidos</string>
+    <string name="extension">Extensão</string>
 
     <!-- Sorting -->
     <string name="sort_by">Ordenar por</string>

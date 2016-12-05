@@ -11,18 +11,6 @@
     <string name="undo">撤销</string>
     <string name="share">分享</string>
     <string name="properties">信息</string>
-    <string name="rename_file">重命名文件</string>
-    <string name="rename_file_error">文件不能重命名</string>
-    <string name="rename_folder">重命名文件夹</string>
-    <string name="rename_folder_empty">文件夹名不能为空</string>
-    <string name="rename_folder_exists">A folder with that name already exists</string>
-    <string name="rename_folder_root">Cannot rename the root folder of a storage</string>
-    <string name="rename_folder_error">文件夹不能重命名</string>
-    <string name="rename_folder_ok">文件夹重命名成功</string>
-    <string name="renaming_folder">重命名中..</string>
-    <string name="filename_cannot_be_empty">文件名不能为空</string>
-    <string name="filename_invalid_characters">文件名包含非法字符</string>
-    <string name="extension">扩展名</string>
     <string name="file_deleted">文件删除成功</string>
     <string name="open_camera">打开相机</string>
     <string name="unknown_error">未知错误</string>
@@ -68,6 +56,20 @@
         <item quantity="one">1 file deleted</item>
         <item quantity="other">%1$d files deleted</item>
     </plurals>
+
+    <!-- Renaming -->
+    <string name="rename_file">重命名文件</string>
+    <string name="rename_file_error">文件不能重命名</string>
+    <string name="rename_folder">重命名文件夹</string>
+    <string name="rename_folder_empty">文件夹名不能为空</string>
+    <string name="rename_folder_exists">A folder with that name already exists</string>
+    <string name="rename_folder_root">Cannot rename the root folder of a storage</string>
+    <string name="rename_folder_error">文件夹不能重命名</string>
+    <string name="rename_folder_ok">文件夹重命名成功</string>
+    <string name="renaming_folder">重命名中..</string>
+    <string name="filename_cannot_be_empty">文件名不能为空</string>
+    <string name="filename_invalid_characters">文件名包含非法字符</string>
+    <string name="extension">扩展名</string>
 
     <!-- Sorting -->
     <string name="sort_by">排序方式</string>

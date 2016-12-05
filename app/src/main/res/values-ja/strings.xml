@@ -10,18 +10,6 @@
     <string name="undo">元に戻す</string>
     <string name="share">共有</string>
     <string name="properties">プロパティ</string>
-    <string name="rename_file">ファイルの名前を変更</string>
-    <string name="rename_folder">フォルダーの名前を変更</string>
-    <string name="rename_file_error">ファイルの名前を変更できませんでした</string>
-    <string name="rename_folder_error">フォルダーの名前を変更できませんでした</string>
-    <string name="rename_folder_empty">フォルダー名は空にできません</string>
-    <string name="rename_folder_exists">その名前のフォルダーは既に存在します</string>
-    <string name="rename_folder_root">ストレージのルートフォルダーの名前を変更できません</string>
-    <string name="rename_folder_ok">フォルダーの名前を正常に変更しました</string>
-    <string name="renaming_folder">フォルダーの名前を変更中</string>
-    <string name="filename_cannot_be_empty">ファイル名は空にできません</string>
-    <string name="filename_invalid_characters">ファイル名に無効な文字が含まれています</string>
-    <string name="extension">拡張</string>
     <string name="file_deleted">ファイルを削除しました</string>
     <string name="open_camera">カメラを開く</string>
     <string name="unknown_error">不明なエラーが発生しました</string>
@@ -67,6 +55,20 @@
         <item quantity="one">1 ファイルを削除しました</item>
         <item quantity="other">%1$d ファイルを削除しました</item>
     </plurals>
+
+    <!-- Renaming -->
+    <string name="rename_file">ファイルの名前を変更</string>
+    <string name="rename_folder">フォルダーの名前を変更</string>
+    <string name="rename_file_error">ファイルの名前を変更できませんでした</string>
+    <string name="rename_folder_error">フォルダーの名前を変更できませんでした</string>
+    <string name="rename_folder_empty">フォルダー名は空にできません</string>
+    <string name="rename_folder_exists">その名前のフォルダーは既に存在します</string>
+    <string name="rename_folder_root">ストレージのルートフォルダーの名前を変更できません</string>
+    <string name="rename_folder_ok">フォルダーの名前を正常に変更しました</string>
+    <string name="renaming_folder">フォルダーの名前を変更中</string>
+    <string name="filename_cannot_be_empty">ファイル名は空にできません</string>
+    <string name="filename_invalid_characters">ファイル名に無効な文字が含まれています</string>
+    <string name="extension">拡張</string>
 
     <!-- Sorting -->
     <string name="sort_by">並び替え</string>

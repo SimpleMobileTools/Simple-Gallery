@@ -10,18 +10,6 @@
     <string name="undo">Annulla</string>
     <string name="share">Condividi</string>
     <string name="properties">Proprietà</string>
-    <string name="rename_file">Rinomina file</string>
-    <string name="rename_folder">Rinomina cartella</string>
-    <string name="rename_file_error">Impossibile rinominare il file</string>
-    <string name="rename_folder_error">Impossibile rinominare la cartella</string>
-    <string name="rename_folder_empty">Il nome della cartella non deve essere vuoto</string>
-    <string name="rename_folder_exists">Esiste già una cartella con questo nome</string>
-    <string name="rename_folder_root">Non è possibile rinominare la cartella principale</string>
-    <string name="rename_folder_ok">Cartella rinominata correttamente</string>
-    <string name="renaming_folder">Rinominazione cartella</string>
-    <string name="filename_cannot_be_empty">Il nome del file non deve essere vuoto</string>
-    <string name="filename_invalid_characters">Il nome contiene caratteri non validi</string>
-    <string name="extension">Estensione</string>
     <string name="file_deleted">File eliminato</string>
     <string name="open_camera">Apri fotocamera</string>
     <string name="unknown_error">Riscontrato un errore sconosciuto</string>
@@ -67,6 +55,20 @@
         <item quantity="one">1 file eliminato</item>
         <item quantity="other">%1$d file eliminati</item>
     </plurals>
+
+    <!-- Renaming -->
+    <string name="rename_file">Rinomina file</string>
+    <string name="rename_folder">Rinomina cartella</string>
+    <string name="rename_file_error">Impossibile rinominare il file</string>
+    <string name="rename_folder_error">Impossibile rinominare la cartella</string>
+    <string name="rename_folder_empty">Il nome della cartella non deve essere vuoto</string>
+    <string name="rename_folder_exists">Esiste già una cartella con questo nome</string>
+    <string name="rename_folder_root">Non è possibile rinominare la cartella principale</string>
+    <string name="rename_folder_ok">Cartella rinominata correttamente</string>
+    <string name="renaming_folder">Rinominazione cartella</string>
+    <string name="filename_cannot_be_empty">Il nome del file non deve essere vuoto</string>
+    <string name="filename_invalid_characters">Il nome contiene caratteri non validi</string>
+    <string name="extension">Estensione</string>
 
     <!-- Sorting -->
     <string name="sort_by">Ordina per</string>

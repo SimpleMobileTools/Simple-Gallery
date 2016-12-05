@@ -10,18 +10,6 @@
     <string name="undo">Ångra</string>
     <string name="share">Dela</string>
     <string name="properties">Properties</string>
-    <string name="rename_file">Döp om fil</string>
-    <string name="rename_folder">Döp om mapp</string>
-    <string name="rename_file_error">Det gick inte att döpa om filen</string>
-    <string name="rename_folder_error">Det gick inte att döpa om mappen</string>
-    <string name="rename_folder_empty">Du måste ange ett mappnamn</string>
-    <string name="rename_folder_exists">A folder with that name already exists</string>
-    <string name="rename_folder_root">Cannot rename the root folder of a storage</string>
-    <string name="rename_folder_ok">Mappen döptes om</string>
-    <string name="renaming_folder">Döper om mappen</string>
-    <string name="filename_cannot_be_empty">Du måste ange ett filnamn</string>
-    <string name="filename_invalid_characters">Filename contains invalid characters</string>
-    <string name="extension">Filändelse</string>
     <string name="file_deleted">Fil borttagen</string>
     <string name="open_camera">Starta kameran</string>
     <string name="unknown_error">Ett okänt fel har uppstått</string>
@@ -67,6 +55,20 @@
         <item quantity="one">1 fil borttagen</item>
         <item quantity="other">%1$d filer borttagna</item>
     </plurals>
+
+    <!-- Renaming -->
+    <string name="rename_file">Döp om fil</string>
+    <string name="rename_folder">Döp om mapp</string>
+    <string name="rename_file_error">Det gick inte att döpa om filen</string>
+    <string name="rename_folder_error">Det gick inte att döpa om mappen</string>
+    <string name="rename_folder_empty">Du måste ange ett mappnamn</string>
+    <string name="rename_folder_exists">A folder with that name already exists</string>
+    <string name="rename_folder_root">Cannot rename the root folder of a storage</string>
+    <string name="rename_folder_ok">Mappen döptes om</string>
+    <string name="renaming_folder">Döper om mappen</string>
+    <string name="filename_cannot_be_empty">Du måste ange ett filnamn</string>
+    <string name="filename_invalid_characters">Filename contains invalid characters</string>
+    <string name="extension">Filändelse</string>
 
     <!-- Sorting -->
     <string name="sort_by">Sort by</string>

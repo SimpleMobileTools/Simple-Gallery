@@ -11,18 +11,6 @@
     <string name="undo">Отменить</string>
     <string name="share">Поделиться</string>
     <string name="properties">Свойства</string>
-    <string name="rename_file">Изменение имени файла</string>
-    <string name="rename_folder">Переименовать папку</string>
-    <string name="rename_file_error">Невозможно переименовать файл</string>
-    <string name="rename_folder_error">Невозможно переименовать папку</string>
-    <string name="rename_folder_empty">Имя папки не должно быть пустым</string>
-    <string name="rename_folder_exists">Папка с таким именем уже существует</string>
-    <string name="rename_folder_root">Невозможно переименовать корневую папку хранения</string>
-    <string name="rename_folder_ok">Папка переименована успешно</string>
-    <string name="renaming_folder">Изменение имени папки</string>
-    <string name="filename_cannot_be_empty">Имя файла не может быть пустым</string>
-    <string name="filename_invalid_characters">Имя файла содержит недопустимые символы</string>
-    <string name="extension">Расширение</string>
     <string name="file_deleted">Файл удален</string>
     <string name="open_camera">Открыть камеру</string>
     <string name="unknown_error">Произошла неизвестная ошибка</string>
@@ -68,6 +56,20 @@
         <item quantity="one">1 файл удалён</item>
         <item quantity="other">Файлов удалено: %1$d</item>
     </plurals>
+
+    <!-- Renaming -->
+    <string name="rename_file">Изменение имени файла</string>
+    <string name="rename_folder">Переименовать папку</string>
+    <string name="rename_file_error">Невозможно переименовать файл</string>
+    <string name="rename_folder_error">Невозможно переименовать папку</string>
+    <string name="rename_folder_empty">Имя папки не должно быть пустым</string>
+    <string name="rename_folder_exists">Папка с таким именем уже существует</string>
+    <string name="rename_folder_root">Невозможно переименовать корневую папку хранения</string>
+    <string name="rename_folder_ok">Папка переименована успешно</string>
+    <string name="renaming_folder">Изменение имени папки</string>
+    <string name="filename_cannot_be_empty">Имя файла не может быть пустым</string>
+    <string name="filename_invalid_characters">Имя файла содержит недопустимые символы</string>
+    <string name="extension">Расширение</string>
 
     <!-- Sorting -->
     <string name="sort_by">Сортировать по</string>

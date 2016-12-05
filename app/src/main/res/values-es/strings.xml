@@ -10,18 +10,6 @@
     <string name="undo">Deshacer</string>
     <string name="share">Compartir</string>
     <string name="properties">Propiedades</string>
-    <string name="rename_file">Renombrar archivo</string>
-    <string name="rename_folder">Renombrar carpeta</string>
-    <string name="rename_file_error">No se pudo renombrar el archivo</string>
-    <string name="rename_folder_error">No se pudo renombrar la carpeta</string>
-    <string name="rename_folder_empty">El nombre de carpeta no puede estar vacío</string>
-    <string name="rename_folder_exists">A folder with that name already exists</string>
-    <string name="rename_folder_root">Cannot rename the root folder of a storage</string>
-    <string name="rename_folder_ok">Carpeta renombrada correctamente</string>
-    <string name="renaming_folder">Renombrando carpeta</string>
-    <string name="filename_cannot_be_empty">El nombre de archivo no puede estar vacío</string>
-    <string name="filename_invalid_characters">Filename contains invalid characters</string>
-    <string name="extension">Extensión</string>
     <string name="file_deleted">Archivo eliminado</string>
     <string name="open_camera">Abrir cámara</string>
     <string name="unknown_error">Ocurrió un error desconocido</string>
@@ -67,6 +55,20 @@
         <item quantity="one">1 archivo eliminado</item>
         <item quantity="other">%1$d archivos eliminados</item>
     </plurals>
+
+    <!-- Renaming -->
+    <string name="rename_file">Renombrar archivo</string>
+    <string name="rename_folder">Renombrar carpeta</string>
+    <string name="rename_file_error">No se pudo renombrar el archivo</string>
+    <string name="rename_folder_error">No se pudo renombrar la carpeta</string>
+    <string name="rename_folder_empty">El nombre de carpeta no puede estar vacío</string>
+    <string name="rename_folder_exists">A folder with that name already exists</string>
+    <string name="rename_folder_root">Cannot rename the root folder of a storage</string>
+    <string name="rename_folder_ok">Carpeta renombrada correctamente</string>
+    <string name="renaming_folder">Renombrando carpeta</string>
+    <string name="filename_cannot_be_empty">El nombre de archivo no puede estar vacío</string>
+    <string name="filename_invalid_characters">Filename contains invalid characters</string>
+    <string name="extension">Extensión</string>
 
     <!-- Sorting -->
     <string name="sort_by">Ordenar por</string>
