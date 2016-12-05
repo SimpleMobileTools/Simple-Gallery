@@ -35,6 +35,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     val multiSelector = MultiSelector()
     val views = ArrayList<View>()
     val config = Config.newInstance(activity)
+    var pinnedFolders = config.pinnedFolders
 
     companion object {
         var actMode: ActionMode? = null
@@ -174,11 +175,17 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     }
 
     private fun pinFolder() {
-
+        config.addPinnedFolders(getSelectedPaths())
+        pinnedFolders = config.pinnedFolders
+        listener?.refreshItems()
+        notifyDataSetChanged()
     }
 
     private fun unpinFolder() {
-
+        config.removePinnedFolders(getSelectedPaths())
+        pinnedFolders = config.pinnedFolders
+        listener?.refreshItems()
+        notifyDataSetChanged()
     }
 
     private fun displayCopyDialog() {
@@ -233,15 +240,18 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        views.add(holder.bindView(activity, multiSelectorMode, multiSelector, dirs[position], position))
+        val dir = dirs[position]
+        views.add(holder.bindView(activity, multiSelectorMode, multiSelector, dir, position, pinnedFolders.contains(dir.path)))
     }
 
     override fun getItemCount() = dirs.size
 
     class ViewHolder(view: View, val itemClick: (Directory) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
-        fun bindView(activity: SimpleActivity, multiSelectorCallback: ModalMultiSelectorCallback, multiSelector: MultiSelector, directory: Directory, pos: Int): View {
+        fun bindView(activity: SimpleActivity, multiSelectorCallback: ModalMultiSelectorCallback, multiSelector: MultiSelector, directory: Directory, pos: Int, isPinned: Boolean)
+                : View {
             itemView.dir_name.text = directory.name
             itemView.photo_cnt.text = directory.mediaCnt.toString()
+            itemView.dir_pin.visibility = if (isPinned) View.VISIBLE else View.GONE
             toggleItemSelection(itemView, markedItems.contains(pos), pos)
 
             val tmb = directory.thumbnail
