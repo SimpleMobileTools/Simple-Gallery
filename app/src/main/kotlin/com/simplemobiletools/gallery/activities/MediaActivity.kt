@@ -34,8 +34,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         private var mSnackbar: Snackbar? = null
 
-        lateinit var mToBeDeleted: ArrayList<String>
-        lateinit var mMedia: ArrayList<Medium>
+        private var mToBeDeleted = ArrayList<String>()
+        private var mMedia = ArrayList<Medium>()
 
         private var mPath = ""
         private var mIsGetImageIntent = false
@@ -55,7 +55,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         media_holder.setOnRefreshListener({ getMedia() })
         mPath = intent.getStringExtra(DIRECTORY)
-        mToBeDeleted = ArrayList<String>()
         mMedia = ArrayList<Medium>()
     }
 

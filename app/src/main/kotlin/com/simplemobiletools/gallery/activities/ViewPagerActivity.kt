@@ -239,7 +239,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun reloadViewPager() {
-        GetMediaAsynctask(applicationContext, mDirectory, false, false, MediaActivity.mToBeDeleted) {
+        GetMediaAsynctask(applicationContext, mDirectory, false, false, ArrayList<String>()) {
             mMedia = it
             if (isDirEmpty())
                 return@GetMediaAsynctask
