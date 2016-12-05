@@ -46,9 +46,8 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
                 cursor = context.contentResolver.query(uri, columns, where, args, null)
 
                 if (cursor?.moveToFirst() == true) {
-                    val pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA)
                     do {
-                        val curPath = cursor.getString(pathIndex) ?: continue
+                        val curPath = cursor.getStringValue(MediaStore.Images.Media.DATA) ?: continue
                         if (!mToBeDeleted.contains(curPath)) {
                             val file = File(curPath)
                             val size = cursor.getLongValue(MediaStore.Images.Media.SIZE)

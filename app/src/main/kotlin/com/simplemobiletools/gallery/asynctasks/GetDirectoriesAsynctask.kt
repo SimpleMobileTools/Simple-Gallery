@@ -8,6 +8,7 @@ import com.simplemobiletools.filepicker.extensions.scanFiles
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.getHumanizedFilename
 import com.simplemobiletools.gallery.extensions.getLongValue
+import com.simplemobiletools.gallery.extensions.getStringValue
 import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.helpers.SORT_BY_NAME
 import com.simplemobiletools.gallery.helpers.SORT_DESCENDING
@@ -46,9 +47,8 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                 cursor = context.contentResolver.query(uri, columns, null, null, order)
 
                 if (cursor?.moveToFirst() == true) {
-                    val pathIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATA)
                     do {
-                        val fullPath = cursor.getString(pathIndex) ?: continue
+                        val fullPath = cursor.getStringValue(MediaStore.Images.Media.DATA) ?: continue
                         val file = File(fullPath)
                         val size = cursor.getLongValue(MediaStore.Images.Media.SIZE)
 
