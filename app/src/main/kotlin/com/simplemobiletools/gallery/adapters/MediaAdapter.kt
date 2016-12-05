@@ -186,7 +186,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             toggleItemSelection(itemView, markedItems.contains(pos), pos)
 
             val path = medium.path
-            val timestampSignature = StringSignature(medium.timestamp.toString())
+            val timestampSignature = StringSignature(medium.date_modified.toString())
             if (medium.isGif()) {
                 Glide.with(activity).load(path).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature).into(itemView.medium_thumbnail)
             } else if (medium.isPng()) {

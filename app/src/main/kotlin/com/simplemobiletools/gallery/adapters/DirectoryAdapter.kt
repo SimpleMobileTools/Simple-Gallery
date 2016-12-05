@@ -275,7 +275,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             toggleItemSelection(itemView, markedItems.contains(pos), pos)
 
             val tmb = directory.thumbnail
-            val timestampSignature = StringSignature(directory.timestamp.toString())
+            val timestampSignature = StringSignature(directory.date_modified.toString())
             if (tmb.toLowerCase().endsWith(".gif")) {
                 Glide.with(activity).load(tmb).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)
                         .placeholder(R.color.tmb_background).centerCrop().crossFade().into(itemView.dir_thumbnail)

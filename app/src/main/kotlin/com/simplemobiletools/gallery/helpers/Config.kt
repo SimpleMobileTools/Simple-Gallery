@@ -28,11 +28,11 @@ class Config private constructor(context: Context) {
         set(isSameSorting) = mPrefs.edit().putBoolean(IS_SAME_SORTING, isSameSorting).apply()
 
     var sorting: Int
-        get() = if (isSameSorting) directorySorting else mPrefs.getInt(SORT_ORDER, SORT_BY_DATE or SORT_DESCENDING)
+        get() = if (isSameSorting) directorySorting else mPrefs.getInt(SORT_ORDER, SORT_BY_DATE_MODIFIED or SORT_DESCENDING)
         set(order) = if (isSameSorting) directorySorting = order else mPrefs.edit().putInt(SORT_ORDER, order).apply()
 
     var directorySorting: Int
-        get() = mPrefs.getInt(DIRECTORY_SORT_ORDER, SORT_BY_DATE or SORT_DESCENDING)
+        get() = mPrefs.getInt(DIRECTORY_SORT_ORDER, SORT_BY_DATE_MODIFIED or SORT_DESCENDING)
         set(order) = mPrefs.edit().putInt(DIRECTORY_SORT_ORDER, order).apply()
 
     var showHiddenFolders: Boolean

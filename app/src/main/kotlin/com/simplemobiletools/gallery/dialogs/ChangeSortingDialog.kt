@@ -40,7 +40,7 @@ class ChangeSortingDialog(val activity: Activity, val isDirectorySorting: Boolea
         val sortingRadio = view.sorting_dialog_radio_sorting
         var sortBtn = sortingRadio.sorting_dialog_radio_name
 
-        if (currSorting and SORT_BY_DATE != 0) {
+        if (currSorting and SORT_BY_DATE_MODIFIED != 0) {
             sortBtn = sortingRadio.sorting_dialog_radio_date
         } else if (currSorting and SORT_BY_SIZE != 0) {
             sortBtn = sortingRadio.sorting_dialog_radio_size
@@ -62,7 +62,7 @@ class ChangeSortingDialog(val activity: Activity, val isDirectorySorting: Boolea
         val sortingRadio = view.sorting_dialog_radio_sorting
         var sorting = when (sortingRadio.checkedRadioButtonId) {
             R.id.sorting_dialog_radio_name -> SORT_BY_NAME
-            R.id.sorting_dialog_radio_date -> SORT_BY_DATE
+            R.id.sorting_dialog_radio_date -> SORT_BY_DATE_MODIFIED
             else -> SORT_BY_SIZE
         }
 
