@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 1.46 *(2016-12-05)*
+----------------------------
+
+ * Allow pinning folders at the top
+ * Add a new sorting option, by Date Taken
+ * Fix a couple issues related to copy/move/delete
+ * Misc bugfixes
+ * Misc new bugs
+
 Version 1.45 *(2016-12-04)*
 ----------------------------
 
