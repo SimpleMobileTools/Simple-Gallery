@@ -114,16 +114,19 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             var hiddenCnt = 0
             var unhiddenCnt = 0
             val positions = multiSelector.selectedPositions
-            for (i in positions) {
-                val path = dirs[i].path
-                if (config.getIsFolderHidden(path))
-                    hiddenCnt++
-                else
-                    unhiddenCnt++
-            }
+            positions.map { dirs[it].path }
+                    .forEach {
+                        if (config.getIsFolderHidden(it))
+                            hiddenCnt++
+                        else
+                            unhiddenCnt++
+                    }
 
             menu.findItem(R.id.cab_hide).isVisible = unhiddenCnt > 0
             menu.findItem(R.id.cab_unhide).isVisible = hiddenCnt > 0
+
+
+
             return true
         }
 
