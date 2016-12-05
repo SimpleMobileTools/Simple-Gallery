@@ -28,7 +28,8 @@
     <string name="sort_by">並び替え</string>
     <string name="name">名前</string>
     <string name="size">サイズ</string>
-    <string name="date">日付</string>
+    <string name="last_modified">Last modified</string>
+    <string name="date_taken">Date taken</string>
     <string name="ascending">昇順</string>
     <string name="descending">降順</string>
     <string name="ok">OK</string>

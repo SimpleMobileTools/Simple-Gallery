@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="@dimen/medium_padding"
                 android:paddingTop="@dimen/medium_padding"
-                android:text="@string/date"/>
+                android:text="@string/last_modified"/>
 
             <RadioButton
                 android:id="@+id/sorting_dialog_radio_size"

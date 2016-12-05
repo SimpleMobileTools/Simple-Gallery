@@ -29,7 +29,8 @@
     <string name="sort_by">Сортировать по</string>
     <string name="name">Имя</string>
     <string name="size">Размер</string>
-    <string name="date">Дата</string>
+    <string name="last_modified">Last modified</string>
+    <string name="date_taken">Date taken</string>
     <string name="ascending">По возрастанию</string>
     <string name="descending">По убыванию</string>
     <string name="ok">ОК</string>

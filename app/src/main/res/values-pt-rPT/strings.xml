@@ -28,7 +28,8 @@
     <string name="sort_by">Ordenar por</string>
     <string name="name">Nome</string>
     <string name="size">Tamanho</string>
-    <string name="date">Data</string>
+    <string name="last_modified">Last modified</string>
+    <string name="date_taken">Date taken</string>
     <string name="ascending">Ascendente</string>
     <string name="descending">Descendente</string>
     <string name="ok">OK</string>
