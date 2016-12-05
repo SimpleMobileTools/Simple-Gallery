@@ -80,20 +80,15 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         }
 
         context.scanFiles(invalidFiles) {}
-        var dirs = ArrayList(directories.values)
+        val dirs = ArrayList(directories.values)
         filterDirectories(dirs)
         Directory.sorting = mConfig.directorySorting
         dirs.sort()
 
-        dirs = movePinnedToFront(dirs)
-
-        return dirs
+        return movePinnedToFront(dirs)
     }
 
     private fun movePinnedToFront(dirs: ArrayList<Directory>): ArrayList<Directory> {
-        if (dirs.isEmpty())
-            return dirs
-
         val foundFolders = ArrayList<Directory>()
         val pinnedFolders = mConfig.pinnedFolders
 

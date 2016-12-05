@@ -108,24 +108,12 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         }
 
         override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu): Boolean {
-            val menuItem = menu.findItem(R.id.cab_edit)
-            menuItem.isVisible = multiSelector.selectedPositions.size <= 1
-
-            var hiddenCnt = 0
-            var unhiddenCnt = 0
             val positions = multiSelector.selectedPositions
-            positions.map { dirs[it].path }
-                    .forEach {
-                        if (config.getIsFolderHidden(it))
-                            hiddenCnt++
-                        else
-                            unhiddenCnt++
-                    }
+            val menuItem = menu.findItem(R.id.cab_edit)
+            menuItem.isVisible = positions.size <= 1
 
-            menu.findItem(R.id.cab_hide).isVisible = unhiddenCnt > 0
-            menu.findItem(R.id.cab_unhide).isVisible = hiddenCnt > 0
-
-
+            checkHideBtnVisibility(menu, positions)
+            checkPinBtnVisibility(menu, positions)
 
             return true
         }
@@ -134,6 +122,35 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             super.onDestroyActionMode(actionMode)
             views.forEach { toggleItemSelection(it, false) }
             markedItems.clear()
+        }
+
+        fun checkHideBtnVisibility(menu: Menu, positions: List<Int>) {
+            var hiddenCnt = 0
+            var unhiddenCnt = 0
+            positions.map { dirs[it].path }.forEach {
+                if (config.getIsFolderHidden(it))
+                    hiddenCnt++
+                else
+                    unhiddenCnt++
+            }
+
+            menu.findItem(R.id.cab_hide).isVisible = unhiddenCnt > 0
+            menu.findItem(R.id.cab_unhide).isVisible = hiddenCnt > 0
+        }
+
+        fun checkPinBtnVisibility(menu: Menu, positions: List<Int>) {
+            val pinnedFolders = config.pinnedFolders
+            var pinnedCnt = 0
+            var unpinnedCnt = 0
+            positions.map { dirs[it].path }.forEach {
+                if (pinnedFolders.contains(it))
+                    pinnedCnt++
+                else
+                    unpinnedCnt++
+            }
+
+            menu.findItem(R.id.cab_pin).isVisible = unpinnedCnt > 0
+            menu.findItem(R.id.cab_unpin).isVisible = pinnedCnt > 0
         }
     }
 
