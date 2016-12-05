@@ -22,8 +22,8 @@
     <string name="hidden">(oculta)</string>
     <string name="save_as">Guardar como</string>
     <string name="file_saved">Ficheiro guardado com sucesso</string>
-    <string name="pin_folder">Pin folder</string>
-    <string name="unpin_folder">Unpin folder</string>
+    <string name="pin_folder">Fixar pasta</string>
+    <string name="unpin_folder">Desafixar pasta</string>
     <string name="copy">Copiar</string>
     <string name="move">Mover</string>
     <string name="copy_move">Copiar/mover para</string>
@@ -74,8 +74,8 @@
     <string name="sort_by">Ordenar por</string>
     <string name="name">Nome</string>
     <string name="size">Tamanho</string>
-    <string name="last_modified">Last modified</string>
-    <string name="date_taken">Date taken</string>
+    <string name="last_modified">Data de modificação</string>
+    <string name="date_taken">Data de obtenção</string>
     <string name="ascending">Ascendente</string>
     <string name="descending">Descendente</string>
 
@@ -83,9 +83,9 @@
     <string name="editor">Editor</string>
     <string name="save">Guardar</string>
     <string name="rotate">Rodar</string>
-    <string name="path">Path</string>
+    <string name="path">Caminho</string>
     <string name="invalid_image_path">Caminho inválido</string>
-    <string name="image_editing_failed">Falha de edição de imagem</string>
+    <string name="image_editing_failed">Falha na edição da imagem</string>
     <string name="edit_image_with">Editar imagem com:</string>
     <string name="no_editor_found">Editor não encontrado</string>
     <string name="unknown_file_location">Localização desconhecida</string>
