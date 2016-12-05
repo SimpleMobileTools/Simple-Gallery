@@ -41,6 +41,8 @@
     <string name="hidden">(隐藏)</string>
     <string name="save_as">保存</string>
     <string name="file_saved">文件保存成功</string>
+    <string name="pin_folder">Pin folder</string>
+    <string name="unpin_folder">Unpin folder</string>
     <string name="copy">复制</string>
     <string name="move">移动</string>
     <string name="copy_move">复制/移动</string>

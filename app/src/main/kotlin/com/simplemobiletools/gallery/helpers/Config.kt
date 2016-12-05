@@ -39,6 +39,10 @@ class Config private constructor(context: Context) {
         get() = mPrefs.getBoolean(SHOW_HIDDEN_FOLDERS, false)
         set(showHiddenFolders) = mPrefs.edit().putBoolean(SHOW_HIDDEN_FOLDERS, showHiddenFolders).apply()
 
+    var pinnedFolders: Set<String>
+        get() = mPrefs.getStringSet(PINNED_FOLDERS, HashSet<String>())
+        set(pinnedFolders) = mPrefs.edit().putStringSet(PINNED_FOLDERS, pinnedFolders).apply()
+
     fun addHiddenDirectory(path: String) {
         val currHiddenFolders = HashSet<String>(hiddenFolders)
         currHiddenFolders.add(path)

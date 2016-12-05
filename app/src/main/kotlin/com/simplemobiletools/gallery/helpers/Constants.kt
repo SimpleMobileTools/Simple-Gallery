@@ -12,6 +12,7 @@ val SHOW_HIDDEN_FOLDERS = "show_hidden_folders"
 val AUTOPLAY_VIDEOS = "autoplay_videos"
 val TREE_URI = "tree_uri"
 val DISPLAY_FILE_NAMES = "display_file_names"
+val PINNED_FOLDERS = "pinned_folders"
 
 // sorting
 val SORT_BY_NAME = 1

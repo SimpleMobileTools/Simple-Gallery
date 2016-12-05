@@ -7,6 +7,16 @@
         android:title="@string/properties"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/cab_pin"
+        android:icon="@mipmap/pin"
+        android:title="@string/pin_folder"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/cab_unpin"
+        android:icon="@mipmap/unpin"
+        android:title="@string/unpin_folder"
+        app:showAsAction="ifRoom"/>
+    <item
         android:id="@+id/cab_edit"
         android:icon="@mipmap/rename"
         android:title="@string/rename"

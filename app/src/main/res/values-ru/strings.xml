@@ -41,6 +41,8 @@
     <string name="hidden">(Скрытый)</string>
     <string name="save_as">Сохранить как</string>
     <string name="file_saved">Файл успешно сохранен</string>
+    <string name="pin_folder">Pin folder</string>
+    <string name="unpin_folder">Unpin folder</string>
     <string name="copy">Копировать</string>
     <string name="move">Переместить</string>
     <string name="copy_move">Копировать / Переместить</string>

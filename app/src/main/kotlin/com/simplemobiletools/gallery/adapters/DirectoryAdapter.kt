@@ -67,6 +67,16 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                     editDir()
                     true
                 }
+                R.id.cab_pin -> {
+                    pinFolder()
+                    mode.finish()
+                    true
+                }
+                R.id.cab_unpin -> {
+                    unpinFolder()
+                    mode.finish()
+                    true
+                }
                 R.id.cab_hide -> {
                     hideDirs()
                     mode.finish()
@@ -161,6 +171,14 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     private fun unhideDir() {
         config.removeHiddenDirectories(getSelectedPaths())
         listener?.refreshItems()
+    }
+
+    private fun pinFolder() {
+
+    }
+
+    private fun unpinFolder() {
+
     }
 
     private fun displayCopyDialog() {
