@@ -25,13 +25,6 @@
     <string name="file_deleted">Ficheiro apagado</string>
     <string name="open_camera">Abrir câmara</string>
     <string name="unknown_error">Ocorreu um erro desconhecido</string>
-    <string name="sort_by">Ordenar por</string>
-    <string name="name">Nome</string>
-    <string name="size">Tamanho</string>
-    <string name="last_modified">Last modified</string>
-    <string name="date_taken">Date taken</string>
-    <string name="ascending">Ascendente</string>
-    <string name="descending">Descendente</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancelar</string>
     <string name="open_with">Abrir com</string>
@@ -74,6 +67,15 @@
         <item quantity="one">1 ficheiro apagado</item>
         <item quantity="other">%1$d ficheiros apagados</item>
     </plurals>
+
+    <!-- Sorting -->
+    <string name="sort_by">Ordenar por</string>
+    <string name="name">Nome</string>
+    <string name="size">Tamanho</string>
+    <string name="last_modified">Last modified</string>
+    <string name="date_taken">Date taken</string>
+    <string name="ascending">Ascendente</string>
+    <string name="descending">Descendente</string>
 
     <!-- Editor -->
     <string name="editor">Editor</string>

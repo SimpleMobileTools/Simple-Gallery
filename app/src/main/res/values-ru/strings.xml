@@ -26,13 +26,6 @@
     <string name="file_deleted">Файл удален</string>
     <string name="open_camera">Открыть камеру</string>
     <string name="unknown_error">Произошла неизвестная ошибка</string>
-    <string name="sort_by">Сортировать по</string>
-    <string name="name">Имя</string>
-    <string name="size">Размер</string>
-    <string name="last_modified">Last modified</string>
-    <string name="date_taken">Date taken</string>
-    <string name="ascending">По возрастанию</string>
-    <string name="descending">По убыванию</string>
     <string name="ok">ОК</string>
     <string name="cancel">Отмена</string>
     <string name="open_with">Открыть в</string>
@@ -75,6 +68,15 @@
         <item quantity="one">1 файл удалён</item>
         <item quantity="other">Файлов удалено: %1$d</item>
     </plurals>
+
+    <!-- Sorting -->
+    <string name="sort_by">Сортировать по</string>
+    <string name="name">Имя</string>
+    <string name="size">Размер</string>
+    <string name="last_modified">Last modified</string>
+    <string name="date_taken">Date taken</string>
+    <string name="ascending">По возрастанию</string>
+    <string name="descending">По убыванию</string>
 
     <!-- Editor -->
     <string name="editor">Редактор</string>

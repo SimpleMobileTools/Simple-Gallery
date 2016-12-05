@@ -25,13 +25,6 @@
     <string name="file_deleted">File eliminato</string>
     <string name="open_camera">Apri fotocamera</string>
     <string name="unknown_error">Riscontrato un errore sconosciuto</string>
-    <string name="sort_by">Ordina per</string>
-    <string name="name">Nome</string>
-    <string name="size">Dimensione</string>
-    <string name="last_modified">Last modified</string>
-    <string name="date_taken">Date taken</string>
-    <string name="ascending">Ascendente</string>
-    <string name="descending">Discendente</string>
     <string name="ok">OK</string>
     <string name="cancel">Annulla</string>
     <string name="open_with">Apri con</string>
@@ -74,6 +67,15 @@
         <item quantity="one">1 file eliminato</item>
         <item quantity="other">%1$d file eliminati</item>
     </plurals>
+
+    <!-- Sorting -->
+    <string name="sort_by">Ordina per</string>
+    <string name="name">Nome</string>
+    <string name="size">Dimensione</string>
+    <string name="last_modified">Last modified</string>
+    <string name="date_taken">Date taken</string>
+    <string name="ascending">Ascendente</string>
+    <string name="descending">Discendente</string>
 
     <!-- Editor -->
     <string name="editor">Editor</string>

@@ -25,13 +25,6 @@
     <string name="file_deleted">ファイルを削除しました</string>
     <string name="open_camera">カメラを開く</string>
     <string name="unknown_error">不明なエラーが発生しました</string>
-    <string name="sort_by">並び替え</string>
-    <string name="name">名前</string>
-    <string name="size">サイズ</string>
-    <string name="last_modified">Last modified</string>
-    <string name="date_taken">Date taken</string>
-    <string name="ascending">昇順</string>
-    <string name="descending">降順</string>
     <string name="ok">OK</string>
     <string name="cancel">キャンセル</string>
     <string name="open_with">...で開く</string>
@@ -74,6 +67,15 @@
         <item quantity="one">1 ファイルを削除しました</item>
         <item quantity="other">%1$d ファイルを削除しました</item>
     </plurals>
+
+    <!-- Sorting -->
+    <string name="sort_by">並び替え</string>
+    <string name="name">名前</string>
+    <string name="size">サイズ</string>
+    <string name="last_modified">Last modified</string>
+    <string name="date_taken">Date taken</string>
+    <string name="ascending">昇順</string>
+    <string name="descending">降順</string>
 
     <!-- Editor -->
     <string name="editor">エディター</string>

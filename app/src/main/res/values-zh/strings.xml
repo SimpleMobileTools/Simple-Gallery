@@ -26,13 +26,6 @@
     <string name="file_deleted">文件删除成功</string>
     <string name="open_camera">打开相机</string>
     <string name="unknown_error">未知错误</string>
-    <string name="sort_by">排序方式</string>
-    <string name="name">名称</string>
-    <string name="size">大小</string>
-    <string name="last_modified">Last modified</string>
-    <string name="date_taken">Date taken</string>
-    <string name="ascending">递增</string>
-    <string name="descending">递减</string>
     <string name="ok">确认</string>
     <string name="cancel">取消</string>
     <string name="open_with">打开方式</string>
@@ -75,6 +68,15 @@
         <item quantity="one">1 file deleted</item>
         <item quantity="other">%1$d files deleted</item>
     </plurals>
+
+    <!-- Sorting -->
+    <string name="sort_by">排序方式</string>
+    <string name="name">名称</string>
+    <string name="size">大小</string>
+    <string name="last_modified">Last modified</string>
+    <string name="date_taken">Date taken</string>
+    <string name="ascending">递增</string>
+    <string name="descending">递减</string>
 
     <!-- Editor -->
     <string name="editor">编辑器</string>

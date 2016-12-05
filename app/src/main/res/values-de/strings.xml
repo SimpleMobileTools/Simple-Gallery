@@ -25,13 +25,6 @@
     <string name="file_deleted">Datei gelöscht</string>
     <string name="open_camera">Kamera öffnen</string>
     <string name="unknown_error">Ein unbekannter Fehler ist aufgetreten</string>
-    <string name="sort_by">Sortieren nach</string>
-    <string name="name">Name</string>
-    <string name="size">Größe</string>
-    <string name="last_modified">Last modified</string>
-    <string name="date_taken">Date taken</string>
-    <string name="ascending">Aufsteigend</string>
-    <string name="descending">Absteigend</string>
     <string name="ok">OK</string>
     <string name="cancel">Abbrechen</string>
     <string name="open_with">Öffnen mit</string>
@@ -74,6 +67,15 @@
         <item quantity="one">1 Datei gelöscht</item>
         <item quantity="other">%1$d Dateien gelöscht</item>
     </plurals>
+
+    <!-- Sorting -->
+    <string name="sort_by">Sortieren nach</string>
+    <string name="name">Name</string>
+    <string name="size">Größe</string>
+    <string name="last_modified">Last modified</string>
+    <string name="date_taken">Date taken</string>
+    <string name="ascending">Aufsteigend</string>
+    <string name="descending">Absteigend</string>
 
     <!-- Editor -->
     <string name="editor">Editor</string>
