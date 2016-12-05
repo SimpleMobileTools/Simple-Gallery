@@ -116,11 +116,11 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                 true
             }
             R.id.hide_folder -> {
-                hideDirectory()
+                hideFolder()
                 true
             }
             R.id.unhide_folder -> {
-                unhideDirectory()
+                unhideFolder()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -138,8 +138,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
     }
 
-    private fun hideDirectory() {
-        mConfig.addHiddenDirectory(mPath)
+    private fun hideFolder() {
+        mConfig.addHiddenFolder(mPath)
 
         if (!mConfig.showHiddenFolders)
             finish()
@@ -147,8 +147,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             invalidateOptionsMenu()
     }
 
-    private fun unhideDirectory() {
-        mConfig.removeHiddenDirectory(mPath)
+    private fun unhideFolder() {
+        mConfig.removeHiddenFolder(mPath)
         invalidateOptionsMenu()
     }
 

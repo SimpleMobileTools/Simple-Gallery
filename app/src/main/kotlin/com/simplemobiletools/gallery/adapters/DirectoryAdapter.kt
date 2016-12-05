@@ -78,12 +78,12 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                     true
                 }
                 R.id.cab_hide -> {
-                    hideDirs()
+                    hideFolders()
                     mode.finish()
                     true
                 }
                 R.id.cab_unhide -> {
-                    unhideDir()
+                    unhideFolders()
                     mode.finish()
                     true
                 }
@@ -163,13 +163,13 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         }
     }
 
-    private fun hideDirs() {
-        config.addHiddenDirectories(getSelectedPaths())
+    private fun hideFolders() {
+        config.addHiddenFolders(getSelectedPaths())
         listener?.refreshItems()
     }
 
-    private fun unhideDir() {
-        config.removeHiddenDirectories(getSelectedPaths())
+    private fun unhideFolders() {
+        config.removeHiddenFolders(getSelectedPaths())
         listener?.refreshItems()
     }
 

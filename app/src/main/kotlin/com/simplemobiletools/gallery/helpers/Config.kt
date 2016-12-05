@@ -43,25 +43,33 @@ class Config private constructor(context: Context) {
         get() = mPrefs.getStringSet(PINNED_FOLDERS, HashSet<String>())
         set(pinnedFolders) = mPrefs.edit().putStringSet(PINNED_FOLDERS, pinnedFolders).apply()
 
-    fun addHiddenDirectory(path: String) {
-        val currHiddenFolders = HashSet<String>(hiddenFolders)
-        currHiddenFolders.add(path)
-        hiddenFolders = currHiddenFolders
+    fun addPinnedFolders(paths: Set<String>) {
+        val currPinnedFolders = HashSet<String>(pinnedFolders)
+        currPinnedFolders.addAll(paths)
+        pinnedFolders = currPinnedFolders
     }
 
-    fun addHiddenDirectories(paths: Set<String>) {
+    fun removePinnedFolders(paths: Set<String>) {
+        val currPinnedFolders = HashSet<String>(pinnedFolders)
+        currPinnedFolders.removeAll(paths)
+        pinnedFolders = currPinnedFolders
+    }
+
+    fun addHiddenFolder(path: String) {
+        addHiddenFolders(HashSet<String>(Arrays.asList(path)))
+    }
+
+    fun addHiddenFolders(paths: Set<String>) {
         val currHiddenFolders = HashSet<String>(hiddenFolders)
         currHiddenFolders.addAll(paths)
         hiddenFolders = currHiddenFolders
     }
 
-    fun removeHiddenDirectory(path: String) {
-        val currHiddenFolders = HashSet<String>(hiddenFolders)
-        currHiddenFolders.remove(path)
-        hiddenFolders = currHiddenFolders
+    fun removeHiddenFolder(path: String) {
+        removeHiddenFolders(HashSet<String>(Arrays.asList(path)))
     }
 
-    fun removeHiddenDirectories(paths: Set<String>) {
+    fun removeHiddenFolders(paths: Set<String>) {
         val currHiddenFolders = HashSet<String>(hiddenFolders)
         currHiddenFolders.removeAll(paths)
         hiddenFolders = currHiddenFolders
