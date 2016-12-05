@@ -14,6 +14,7 @@ import com.bumptech.glide.signature.StringSignature
 import com.simplemobiletools.filepicker.asynctasks.CopyMoveTask
 import com.simplemobiletools.filepicker.dialogs.ConfirmationDialog
 import com.simplemobiletools.filepicker.extensions.isAStorageRootFolder
+import com.simplemobiletools.filepicker.extensions.isImageVideoGif
 import com.simplemobiletools.filepicker.extensions.scanPaths
 import com.simplemobiletools.filepicker.extensions.toast
 import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog
@@ -165,7 +166,10 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     private fun displayCopyDialog() {
         val files = ArrayList<File>()
         val positions = multiSelector.selectedPositions
-        positions.forEach { files.add(File(dirs[it].path)) }
+        positions.forEach {
+            val dir = File(dirs[it].path)
+            files.addAll(dir.listFiles().filter { it.isFile && it.isImageVideoGif() })
+        }
 
         CopyDialog(activity, files, object : CopyMoveTask.CopyMoveListener {
             override fun copySucceeded(deleted: Boolean, copiedAll: Boolean) {

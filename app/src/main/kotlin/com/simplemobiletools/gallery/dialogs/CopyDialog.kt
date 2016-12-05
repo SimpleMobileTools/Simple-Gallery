@@ -9,9 +9,9 @@ import com.simplemobiletools.filepicker.extensions.humanizePath
 import com.simplemobiletools.filepicker.extensions.isPathOnSD
 import com.simplemobiletools.filepicker.extensions.scanFiles
 import com.simplemobiletools.filepicker.extensions.toast
-import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
+import com.simplemobiletools.gallery.helpers.Config
 import kotlinx.android.synthetic.main.dialog_copy_move.view.*
 import java.io.File
 import java.util.*
