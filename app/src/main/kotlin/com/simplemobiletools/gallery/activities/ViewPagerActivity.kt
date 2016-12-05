@@ -38,7 +38,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mDirectory = ""
 
     private var mIsFullScreen = false
-    private var mPos = 0
+    private var mPos = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,8 +73,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
-        mPos = 0
-        mIsFullScreen = false
         mMedia = ArrayList<Medium>()
         showSystemUI()
 
@@ -246,19 +244,28 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             if (isDirEmpty())
                 return@GetMediaAsynctask
 
-            var j = 0
-            for (medium in it) {
-                if (medium.path == mPath) {
-                    mPos = j
-                    break
-                }
-                j++
+            if (mPos == -1) {
+                mPos = getProperPosition()
+            } else {
+                mPos = Math.min(mPos, mMedia.size - 1)
             }
 
             updateActionbarTitle()
             updatePagerItems()
             invalidateOptionsMenu()
         }.execute()
+    }
+
+    private fun getProperPosition(): Int {
+        mPos = 0
+        var i = 0
+        for (medium in mMedia) {
+            if (medium.path == mPath) {
+                return i
+            }
+            i++
+        }
+        return mPos
     }
 
     private fun deleteDirectoryIfEmpty() {
