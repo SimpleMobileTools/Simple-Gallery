@@ -61,7 +61,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
                             if (file.parent != mPath)
                                 continue
 
-                            val name = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME)
+                            val name = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME) ?: ""
                             val dateModified = cursor.getLongValue(MediaStore.Images.Media.DATE_MODIFIED)
                             val dateTaken = cursor.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
                             media.add(Medium(name, curPath, i == 1, dateModified, dateTaken, size))
