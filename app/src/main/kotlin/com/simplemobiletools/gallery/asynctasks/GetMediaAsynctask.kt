@@ -38,7 +38,8 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
             }
             val where = "${MediaStore.Images.Media.DATA} LIKE ?"
             val args = arrayOf("$mPath%")
-            val columns = arrayOf(MediaStore.Images.Media.DATA, MediaStore.Images.Media.DISPLAY_NAME, MediaStore.Images.Media.DATE_MODIFIED, MediaStore.Images.Media.SIZE)
+            val columns = arrayOf(MediaStore.Images.Media.DATA, MediaStore.Images.Media.DISPLAY_NAME, MediaStore.Images.Media.DATE_MODIFIED,
+                    MediaStore.Images.Media.DATE_TAKEN, MediaStore.Images.Media.SIZE)
             var cursor: Cursor? = null
 
             try {
@@ -62,8 +63,9 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
                                 continue
 
                             val name = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME)
-                            val timestamp = cursor.getLongValue(MediaStore.Images.Media.DATE_MODIFIED)
-                            media.add(Medium(name, curPath, i == 1, timestamp, size))
+                            val dateModified = cursor.getLongValue(MediaStore.Images.Media.DATE_MODIFIED)
+                            val dateTaken = cursor.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
+                            media.add(Medium(name, curPath, i == 1, dateModified, dateTaken, size))
                         }
                     } while (cursor.moveToNext())
                 }

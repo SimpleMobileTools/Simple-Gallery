@@ -18,6 +18,7 @@ val PINNED_FOLDERS = "pinned_folders"
 val SORT_BY_NAME = 1
 val SORT_BY_DATE_MODIFIED = 2
 val SORT_BY_SIZE = 4
+val SORT_BY_DATE_TAKEN = 8
 
 val SORT_DESCENDING = 1024
 

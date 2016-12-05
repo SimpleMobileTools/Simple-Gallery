@@ -5,7 +5,7 @@ import com.simplemobiletools.gallery.helpers.SORT_BY_NAME
 import com.simplemobiletools.gallery.helpers.SORT_DESCENDING
 import java.io.Serializable
 
-class Medium(val name: String, var path: String, val isVideo: Boolean, val date_modified: Long, val size: Long) : Serializable, Comparable<Medium> {
+class Medium(val name: String, var path: String, val isVideo: Boolean, val date_modified: Long, val date_taken: Long, val size: Long) : Serializable, Comparable<Medium> {
     companion object {
         private val serialVersionUID = -6553149466975455L
         var sorting: Int = 0
@@ -45,5 +45,5 @@ class Medium(val name: String, var path: String, val isVideo: Boolean, val date_
         return res
     }
 
-    override fun toString() = "Medium {name=$name, path=$path, isVideo=$isVideo, date_modified=$date_modified, size=$size}"
+    override fun toString() = "Medium {name=$name, path=$path, isVideo=$isVideo, date_modified=$date_modified, date_taken=$date_taken, size=$size}"
 }

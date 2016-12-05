@@ -38,7 +38,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
 
                 uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
             }
-            val columns = arrayOf(MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_MODIFIED, MediaStore.Images.Media.SIZE)
+            val columns = arrayOf(MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_MODIFIED, MediaStore.Images.Media.DATE_TAKEN, MediaStore.Images.Media.SIZE)
             val order = getSortOrder()
             var cursor: Cursor? = null
 
@@ -69,8 +69,9 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                                 dirName += " ${context.resources.getString(R.string.hidden)}"
                             }
 
-                            val timestamp = cursor.getLongValue(MediaStore.Images.Media.DATE_MODIFIED)
-                            directories.put(parentDir, Directory(parentDir, fullPath, dirName, 1, timestamp, size))
+                            val dateModified = cursor.getLongValue(MediaStore.Images.Media.DATE_MODIFIED)
+                            val dateTaken = cursor.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
+                            directories.put(parentDir, Directory(parentDir, fullPath, dirName, 1, dateModified, dateTaken, size))
                         }
                     } while (cursor.moveToNext())
                 }
