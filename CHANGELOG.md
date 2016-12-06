@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 1.47 *(2016-12-06)*
+----------------------------
+
+ * Add image resizing to the editor
+ * Allow displaying all photos and videos together
+ * Many small improvements
+
 Version 1.46 *(2016-12-05)*
 ----------------------------
 
