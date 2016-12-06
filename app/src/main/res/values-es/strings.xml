@@ -48,6 +48,7 @@
     <string name="invalid_name">The name contains invalid characters</string>
     <string name="show_all">Show all media files</string>
     <string name="all_media">All media</string>
+    <string name="folder_view">Switch to folder view</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 carpeta eliminada</item>
