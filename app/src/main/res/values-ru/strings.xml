@@ -33,7 +33,7 @@
     <string name="source">Путь источника</string>
     <string name="destination">Путь назначения</string>
     <string name="select_destination">Выберите путь назначения</string>
-    <string name="other_folder">Other folder</string>
+    <string name="other_folder">Другая папка</string>
     <string name="invalid_destination">Не удалось записать в выбранное место</string>
     <string name="please_select_destination">Пожалуйста, выберите путь назначения</string>
     <string name="source_and_destination_same">Исходный и конечный пути не могут совпадать</string>
@@ -47,9 +47,9 @@
     <string name="moving_success_partial">Некоторые файлы не могут быть перемещены</string>
     <string name="copying_success_partial">Некоторые файлы не могут быть скопированы</string>
     <string name="invalid_name">Имя содержит недопустимые символы</string>
-    <string name="show_all">Show all media files</string>
-    <string name="all_media">All media</string>
-    <string name="folder_view">Switch to folder view</string>
+    <string name="show_all">Отобразить все медиафайлы</string>
+    <string name="all_media">Все медиафайлы</string>
+    <string name="folder_view">Переключиться к виду с папками</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 папка удалена</item>
@@ -62,11 +62,11 @@
     </plurals>
 
     <!-- Resizing -->
-    <string name="resize">Resize</string>
-    <string name="resize_and_save">Resize selection and save</string>
-    <string name="width">Width</string>
-    <string name="height">Height</string>
-    <string name="keep_aspect_ratio">Keep aspect ratio</string>
+    <string name="resize">Изменить размер</string>
+    <string name="resize_final_image">Изменить размер конечного изображения</string>
+    <string name="width">Ширина</string>
+    <string name="height">Высота</string>
+    <string name="keep_aspect_ratio">Сохранить соотношение сторон</string>
 
     <!-- Renaming -->
     <string name="rename_file">Изменение имени файла</string>
