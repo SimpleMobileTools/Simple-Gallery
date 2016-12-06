@@ -17,7 +17,7 @@
         android:title="@string/unpin_folder"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/cab_edit"
+        android:id="@+id/cab_rename"
         android:icon="@mipmap/rename"
         android:title="@string/rename"
         app:showAsAction="ifRoom"/>

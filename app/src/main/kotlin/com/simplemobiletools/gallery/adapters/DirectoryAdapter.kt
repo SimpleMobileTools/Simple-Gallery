@@ -64,7 +64,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                     showProperties()
                     true
                 }
-                R.id.cab_edit -> {
+                R.id.cab_rename -> {
                     editDir()
                     true
                 }
@@ -109,7 +109,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
         override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu): Boolean {
             val positions = multiSelector.selectedPositions
-            val menuItem = menu.findItem(R.id.cab_edit)
+            val menuItem = menu.findItem(R.id.cab_rename)
             menuItem.isVisible = positions.size <= 1
 
             checkHideBtnVisibility(menu, positions)
