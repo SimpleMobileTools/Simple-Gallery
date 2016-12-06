@@ -180,8 +180,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
         if (requestCode == REQUEST_EDIT_IMAGE) {
             if (resultCode == Activity.RESULT_OK && resultData != null) {
-                val adapter = view_pager.adapter as MyPagerAdapter
-                adapter.updateItems(mPos)
+                mPos = -1
+                reloadViewPager()
             }
         } else if (requestCode == REQUEST_SET_WALLPAPER) {
             if (resultCode == Activity.RESULT_OK) {
