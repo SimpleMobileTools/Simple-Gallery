@@ -18,6 +18,7 @@ import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.CopyDialog
+import com.simplemobiletools.gallery.dialogs.RenameFileDialog
 import com.simplemobiletools.gallery.extensions.beVisibleIf
 import com.simplemobiletools.gallery.extensions.shareMedia
 import com.simplemobiletools.gallery.extensions.shareMedium
@@ -62,6 +63,10 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                     showProperties()
                     true
                 }
+                R.id.cab_rename -> {
+                    renameFile()
+                    true
+                }
                 R.id.cab_share -> {
                     shareMedia()
                     return true
@@ -85,7 +90,11 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             return true
         }
 
-        override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu) = true
+        override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu): Boolean {
+            menu.findItem(R.id.cab_rename).isVisible = multiSelector.selectedPositions.size <= 1
+
+            return true
+        }
 
         override fun onDestroyActionMode(actionMode: ActionMode?) {
             super.onDestroyActionMode(actionMode)
@@ -102,6 +111,15 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             val paths = ArrayList<String>()
             selections.forEach { paths.add(media[it].path) }
             PropertiesDialog(activity, paths, config.showHiddenFolders)
+        }
+    }
+
+    private fun renameFile() {
+        RenameFileDialog(activity, File(media[multiSelector.selectedPositions[0]].path)) {
+            listener?.refreshItems()
+            activity.runOnUiThread {
+                actMode?.finish()
+            }
         }
     }
 

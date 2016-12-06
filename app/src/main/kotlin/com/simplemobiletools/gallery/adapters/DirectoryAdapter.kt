@@ -65,7 +65,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                     true
                 }
                 R.id.cab_rename -> {
-                    editDir()
+                    renameDir()
                     true
                 }
                 R.id.cab_pin -> {
@@ -109,8 +109,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
         override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu): Boolean {
             val positions = multiSelector.selectedPositions
-            val menuItem = menu.findItem(R.id.cab_rename)
-            menuItem.isVisible = positions.size <= 1
+            menu.findItem(R.id.cab_rename).isVisible = positions.size <= 1
 
             checkHideBtnVisibility(menu, positions)
             checkPinBtnVisibility(menu, positions)
@@ -165,7 +164,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         }
     }
 
-    private fun editDir() {
+    private fun renameDir() {
         val path = dirs[multiSelector.selectedPositions[0]].path
         val dir = File(path)
         if (activity.isAStorageRootFolder(dir.absolutePath)) {
