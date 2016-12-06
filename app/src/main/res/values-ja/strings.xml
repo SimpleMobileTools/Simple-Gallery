@@ -81,6 +81,7 @@
     <string name="filename_cannot_be_empty">ファイル名は空にできません</string>
     <string name="filename_invalid_characters">ファイル名に無効な文字が含まれています</string>
     <string name="extension">拡張</string>
+    <string name="extension_cannot_be_empty">Extension cannot be empty</string>
 
     <!-- Sorting -->
     <string name="sort_by">並び替え</string>

@@ -81,6 +81,7 @@
     <string name="filename_cannot_be_empty">Du måste ange ett filnamn</string>
     <string name="filename_invalid_characters">Filename contains invalid characters</string>
     <string name="extension">Filändelse</string>
+    <string name="extension_cannot_be_empty">Extension cannot be empty</string>
 
     <!-- Sorting -->
     <string name="sort_by">Sort by</string>

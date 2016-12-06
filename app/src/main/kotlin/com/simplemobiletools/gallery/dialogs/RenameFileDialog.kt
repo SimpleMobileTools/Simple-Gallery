@@ -37,20 +37,24 @@ class RenameFileDialog(val activity: SimpleActivity, val file: File, val callbac
             setCanceledOnTouchOutside(true)
             show()
             getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener({
-                val fileName = view.file_name.value
+                val filename = view.file_name.value
                 val extension = view.file_extension.value
 
-                if (fileName.isEmpty() || extension.isEmpty()) {
+                if (filename.isEmpty()) {
                     context.toast(R.string.filename_cannot_be_empty)
                     return@setOnClickListener
                 }
 
-                if (!fileName.isAValidFilename()) {
-                    context.toast(R.string.invalid_name)
+                if (extension.isEmpty()) {
+                    context.toast(R.string.extension_cannot_be_empty)
                     return@setOnClickListener
                 }
 
-                val newFile = File(file.parent, "$fileName.$extension")
+                val newFile = File(file.parent, "$filename.$extension")
+                if (!newFile.name.isAValidFilename()) {
+                    context.toast(R.string.invalid_name)
+                    return@setOnClickListener
+                }
 
                 if (context.needsStupidWritePermissions(file.absolutePath)) {
                     if (activity.isShowingPermDialog(file))
