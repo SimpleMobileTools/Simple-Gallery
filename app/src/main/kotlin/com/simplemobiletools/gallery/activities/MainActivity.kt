@@ -81,6 +81,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 startActivity(Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA))
                 true
             }
+            R.id.show_all -> {
+                showAllMedia()
+                true
+            }
             R.id.settings -> {
                 startActivity(Intent(applicationContext, SettingsActivity::class.java))
                 true
@@ -142,6 +146,14 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun showSortingDialog() {
         ChangeSortingDialog(this, true) {
             getDirectories()
+        }
+    }
+
+    private fun showAllMedia() {
+        Intent(this, MediaActivity::class.java).apply {
+            putExtra(DIRECTORY, "/")
+            putExtra(SHOW_ALL, true)
+            startActivity(this)
         }
     }
 

@@ -47,6 +47,8 @@
     <string name="moving_success_partial">相同文件不能移动</string>
     <string name="copying_success_partial">相同文件不能复制</string>
     <string name="invalid_name">The name contains invalid characters</string>
+    <string name="show_all">Show all media files</string>
+    <string name="all_media">All media</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 folder deleted</item>

@@ -42,6 +42,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         private var mIsGetVideoIntent = false
         private var mIsGetAnyIntent = false
         private var mIsGettingMedia = false
+        private var mShowAll = false
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,6 +57,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         media_holder.setOnRefreshListener({ getMedia() })
         mPath = intent.getStringExtra(DIRECTORY)
         mMedia = ArrayList<Medium>()
+        mShowAll = intent.getBooleanExtra(SHOW_ALL, false)
     }
 
     override fun onResume() {
@@ -71,7 +73,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun tryloadGallery() {
         if (hasStoragePermission()) {
             val dirName = getHumanizedFilename(mPath)
-            title = dirName
+            title = if (mShowAll) resources.getString(R.string.all_media) else dirName
             getMedia()
         } else {
             finish()
@@ -99,8 +101,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         menuInflater.inflate(R.menu.menu_media, menu)
 
         val isFolderHidden = mConfig.getIsFolderHidden(mPath)
-        menu.findItem(R.id.hide_folder).isVisible = !isFolderHidden
-        menu.findItem(R.id.unhide_folder).isVisible = isFolderHidden
+        menu.findItem(R.id.hide_folder).isVisible = !isFolderHidden && !mShowAll
+        menu.findItem(R.id.unhide_folder).isVisible = isFolderHidden && !mShowAll
         return true
     }
 
@@ -128,7 +130,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun toggleFilenameVisibility() {
         mConfig.displayFileNames = !mConfig.displayFileNames
-        (media_grid.adapter as MediaAdapter).updateDisplayFilenames(mConfig.displayFileNames)
+        if (media_grid.adapter != null)
+            (media_grid.adapter as MediaAdapter).updateDisplayFilenames(mConfig.displayFileNames)
     }
 
     private fun showSortingDialog() {

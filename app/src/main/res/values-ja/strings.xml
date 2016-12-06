@@ -46,6 +46,8 @@
     <string name="moving_success_partial">一部のファイルが移動できませんでした</string>
     <string name="copying_success_partial">一部のファイルがコピーできませんでした</string>
     <string name="invalid_name">名前に無効な文字が含まれています</string>
+    <string name="show_all">Show all media files</string>
+    <string name="all_media">All media</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 フォルダーを削除しました</item>

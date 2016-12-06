@@ -47,6 +47,8 @@
     <string name="moving_success_partial">Некоторые файлы не могут быть перемещены</string>
     <string name="copying_success_partial">Некоторые файлы не могут быть скопированы</string>
     <string name="invalid_name">Имя содержит недопустимые символы</string>
+    <string name="show_all">Show all media files</string>
+    <string name="all_media">All media</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 папка удалена</item>

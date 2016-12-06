@@ -26,6 +26,7 @@ val SORT_DESCENDING = 1024
 val OPEN_DOCUMENT_TREE = 1000
 
 val DIRECTORY = "directory"
+val SHOW_ALL = "show_all"
 val MEDIUM = "medium"
 val GET_IMAGE_INTENT = "get_image_intent"
 val GET_VIDEO_INTENT = "get_video_intent"

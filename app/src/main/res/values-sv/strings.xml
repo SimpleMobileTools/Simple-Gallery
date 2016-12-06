@@ -46,6 +46,8 @@
     <string name="moving_success_partial">Some files could not be moved</string>
     <string name="copying_success_partial">Some files could not be copied</string>
     <string name="invalid_name">Namnet innehåller ogiltiga tecken</string>
+    <string name="show_all">Show all media files</string>
+    <string name="all_media">All media</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 mapp borttagen</item>
