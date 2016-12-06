@@ -20,6 +20,7 @@ import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.dialogs.RenameFileDialog
 import com.simplemobiletools.gallery.extensions.beVisibleIf
+import com.simplemobiletools.gallery.extensions.openEditor
 import com.simplemobiletools.gallery.extensions.shareMedia
 import com.simplemobiletools.gallery.extensions.shareMedium
 import com.simplemobiletools.gallery.helpers.Config
@@ -67,13 +68,17 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                     renameFile()
                     true
                 }
+                R.id.cab_edit -> {
+                    editFile()
+                    true
+                }
                 R.id.cab_share -> {
                     shareMedia()
-                    return true
+                    true
                 }
                 R.id.cab_copy_move -> {
                     displayCopyDialog()
-                    return true
+                    true
                 }
                 R.id.cab_delete -> {
                     askConfirmDelete()
@@ -92,6 +97,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
         override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu): Boolean {
             menu.findItem(R.id.cab_rename).isVisible = multiSelector.selectedPositions.size <= 1
+            menu.findItem(R.id.cab_edit).isVisible = multiSelector.selectedPositions.size <= 1
 
             return true
         }
@@ -115,12 +121,17 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     }
 
     private fun renameFile() {
-        RenameFileDialog(activity, File(media[multiSelector.selectedPositions[0]].path)) {
+        RenameFileDialog(activity, getCurrentFile()) {
             listener?.refreshItems()
             activity.runOnUiThread {
                 actMode?.finish()
             }
         }
+    }
+
+    private fun editFile() {
+        activity.openEditor(getCurrentFile())
+        actMode?.finish()
     }
 
     private fun shareMedia() {
@@ -160,6 +171,8 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             prepareForDeleting()
         }
     }
+
+    private fun getCurrentFile() = File(media[multiSelector.selectedPositions[0]].path)
 
     private fun prepareForDeleting() {
         val selections = multiSelector.selectedPositions
