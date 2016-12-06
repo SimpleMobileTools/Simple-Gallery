@@ -13,7 +13,7 @@ import java.io.File
 import java.util.*
 
 class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo: Boolean = false, val isPickImage: Boolean = false,
-                        val mToBeDeleted: List<String> = ArrayList<String>(), val callback: (media: ArrayList<Medium>) -> Unit) :
+                        val mToBeDeleted: List<String> = ArrayList<String>(), val showAll: Boolean, val callback: (media: ArrayList<Medium>) -> Unit) :
         AsyncTask<Void, Void, ArrayList<Medium>>() {
     lateinit var mConfig: Config
 
@@ -37,7 +37,8 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
                 uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
             }
             val where = "${MediaStore.Images.Media.DATA} LIKE ?"
-            val args = arrayOf("$mPath%")
+            val checkPath = if (showAll) "%" else "$mPath%"
+            val args = arrayOf(checkPath)
             val columns = arrayOf(MediaStore.Images.Media.DATA, MediaStore.Images.Media.DISPLAY_NAME, MediaStore.Images.Media.DATE_MODIFIED,
                     MediaStore.Images.Media.DATE_TAKEN, MediaStore.Images.Media.SIZE)
             var cursor: Cursor? = null
@@ -58,7 +59,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
                             }
 
                             // exclude images of subdirectories
-                            if (file.parent != mPath)
+                            if (!showAll && file.parent != mPath)
                                 continue
 
                             val name = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME) ?: ""
