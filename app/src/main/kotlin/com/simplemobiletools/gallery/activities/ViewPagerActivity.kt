@@ -27,6 +27,7 @@ import com.simplemobiletools.gallery.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.helpers.REQUEST_EDIT_IMAGE
 import com.simplemobiletools.gallery.helpers.REQUEST_SET_WALLPAPER
+import com.simplemobiletools.gallery.helpers.SHOW_ALL
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_medium.*
 import java.io.File
@@ -39,6 +40,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private var mIsFullScreen = false
     private var mPos = -1
+    private var mShowAll = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,6 +67,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         } else {
             mPath = intent.getStringExtra(MEDIUM)
+            mShowAll = intent.getBooleanExtra(SHOW_ALL, false)
         }
 
         if (mPath.isEmpty()) {
@@ -239,7 +242,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun reloadViewPager() {
-        GetMediaAsynctask(applicationContext, mDirectory, false, false, ArrayList<String>(), false) {
+        GetMediaAsynctask(applicationContext, mDirectory, false, false, ArrayList<String>(), mShowAll) {
             mMedia = it
             if (isDirEmpty())
                 return@GetMediaAsynctask

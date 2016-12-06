@@ -302,6 +302,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         } else {
             Intent(this, ViewPagerActivity::class.java).apply {
                 putExtra(MEDIUM, path)
+                putExtra(SHOW_ALL, mShowAll)
                 startActivity(this)
             }
         }
