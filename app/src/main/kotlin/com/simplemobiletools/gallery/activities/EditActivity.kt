@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.activities
 
 import android.app.Activity
 import android.graphics.Bitmap
+import android.graphics.Point
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +13,7 @@ import com.simplemobiletools.filepicker.extensions.needsStupidWritePermissions
 import com.simplemobiletools.filepicker.extensions.scanPath
 import com.simplemobiletools.filepicker.extensions.toast
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.dialogs.ResizeDialog
 import com.simplemobiletools.gallery.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.extensions.getRealPathFromURI
 import com.theartofdev.edmodo.cropper.CropImageView
@@ -74,7 +76,11 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun resizeImage() {
+        val rect = crop_image_view.cropRect
+        val croppedSize = Point(rect.width(), rect.height())
+        ResizeDialog(this, croppedSize) {
 
+        }
     }
 
     override fun onCropImageComplete(view: CropImageView, result: CropImageView.CropResult) {
