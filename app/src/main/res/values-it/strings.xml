@@ -66,6 +66,7 @@
     <string name="width">Width</string>
     <string name="height">Height</string>
     <string name="keep_aspect_ratio">Keep aspect ratio</string>
+    <string name="invalid_values">Please enter a valid resolution</string>
 
     <!-- Renaming -->
     <string name="rename_file">Rinomina file</string>

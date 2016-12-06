@@ -7,6 +7,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.WindowManager
 import android.widget.EditText
+import com.simplemobiletools.filepicker.extensions.toast
 import com.simplemobiletools.filepicker.extensions.value
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
@@ -77,8 +78,16 @@ class ResizeDialog(val activity: SimpleActivity, val size: Point, val callback: 
             setCanceledOnTouchOutside(true)
             show()
             getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener({
+                val width = getViewValue(widthView)
+                val height = getViewValue(heightView)
+                if (width <= 0 || height <= 0) {
+                    activity.toast(R.string.invalid_values)
+                    return@setOnClickListener
+                }
+
                 val newSize = Point(getViewValue(widthView), getViewValue(heightView))
                 callback.invoke(newSize)
+                dismiss()
             })
         }
     }

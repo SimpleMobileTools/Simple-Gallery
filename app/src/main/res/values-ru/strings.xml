@@ -67,6 +67,7 @@
     <string name="width">Ширина</string>
     <string name="height">Высота</string>
     <string name="keep_aspect_ratio">Сохранить соотношение сторон</string>
+    <string name="invalid_values">Please enter a valid resolution</string>
 
     <!-- Renaming -->
     <string name="rename_file">Изменение имени файла</string>
