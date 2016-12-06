@@ -32,6 +32,7 @@
     <string name="source">Quelle</string>
     <string name="destination">Ziel</string>
     <string name="select_destination">Ziel auswählen</string>
+    <string name="other_folder">Other folder</string>
     <string name="invalid_destination">Konnte nicht an ausgewähltes Ziel schreiben</string>
     <string name="please_select_destination">Bitte wähle ein Ziel</string>
     <string name="source_and_destination_same">Source and destination cannot be the same</string>

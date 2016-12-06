@@ -32,6 +32,7 @@
     <string name="source">Fonte</string>
     <string name="destination">Destinazione</string>
     <string name="select_destination">Seleziona destinazione</string>
+    <string name="other_folder">Other folder</string>
     <string name="invalid_destination">Impossibile scrivere nella destinazione selezionata</string>
     <string name="please_select_destination">Seleziona una destinazione</string>
     <string name="source_and_destination_same">Sorgente e destinazione non possono essere uguali</string>

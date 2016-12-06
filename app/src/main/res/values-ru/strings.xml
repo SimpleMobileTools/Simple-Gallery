@@ -33,6 +33,7 @@
     <string name="source">Путь источника</string>
     <string name="destination">Путь назначения</string>
     <string name="select_destination">Выберите путь назначения</string>
+    <string name="other_folder">Other folder</string>
     <string name="invalid_destination">Не удалось записать в выбранное место</string>
     <string name="please_select_destination">Пожалуйста, выберите путь назначения</string>
     <string name="source_and_destination_same">Исходный и конечный пути не могут совпадать</string>

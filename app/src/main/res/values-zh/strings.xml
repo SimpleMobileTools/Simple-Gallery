@@ -33,6 +33,7 @@
     <string name="source">原路径</string>
     <string name="destination">目标</string>
     <string name="select_destination">选择目标</string>
+    <string name="other_folder">Other folder</string>
     <string name="invalid_destination">不能写入选中目标</string>
     <string name="please_select_destination">请选择先目标</string>
     <string name="source_and_destination_same">原路径和目标不能相同</string>

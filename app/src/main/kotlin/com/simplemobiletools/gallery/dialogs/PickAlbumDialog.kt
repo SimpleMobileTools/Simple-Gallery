@@ -1,12 +1,15 @@
 package com.simplemobiletools.gallery.dialogs
 
 import android.app.AlertDialog
+import android.os.Environment
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
+import com.simplemobiletools.filepicker.dialogs.FilePickerDialog
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
+import com.simplemobiletools.gallery.helpers.Config
 import kotlinx.android.synthetic.main.dialog_album_picker.view.*
 import java.util.*
 
@@ -21,8 +24,8 @@ class PickAlbumDialog(val activity: SimpleActivity, val callback: (path: String)
         dialog = AlertDialog.Builder(activity)
                 .setTitle(activity.resources.getString(R.string.select_destination))
                 .setView(view)
+                .setNeutralButton(R.string.other_folder, { dialogInterface, i -> showOtherFolder() })
                 .setPositiveButton(R.string.ok, null)
-                .setNegativeButton(R.string.cancel, null)
                 .create()
 
         dialog.setCanceledOnTouchOutside(true)
@@ -34,5 +37,18 @@ class PickAlbumDialog(val activity: SimpleActivity, val callback: (path: String)
             }
             directoriesGrid.adapter = adapter
         }.execute()
+    }
+
+    fun showOtherFolder() {
+        val initialPath = Environment.getExternalStorageDirectory().toString()
+        val showHidden = Config.newInstance(activity).showHiddenFolders
+        FilePickerDialog(activity, initialPath, false, showHidden, object : FilePickerDialog.OnFilePickerListener {
+            override fun onSuccess(pickedPath: String) {
+                callback.invoke(pickedPath)
+            }
+
+            override fun onFail(error: FilePickerDialog.FilePickerResult) {
+            }
+        })
     }
 }

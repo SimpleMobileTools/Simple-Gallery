@@ -32,6 +32,7 @@
     <string name="source">元</string>
     <string name="destination">先</string>
     <string name="select_destination">宛先を選択</string>
+    <string name="other_folder">Other folder</string>
     <string name="invalid_destination">選択した宛先に書き込みできませんでした</string>
     <string name="please_select_destination">宛先を選択してください</string>
     <string name="source_and_destination_same">元と先を同じにすることはできません</string>
