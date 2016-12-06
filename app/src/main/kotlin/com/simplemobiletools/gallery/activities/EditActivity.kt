@@ -65,8 +65,16 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 crop_image_view.rotateImage(90)
                 true
             }
+            R.id.resize -> {
+                resizeImage()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun resizeImage() {
+
     }
 
     override fun onCropImageComplete(view: CropImageView, result: CropImageView.CropResult) {

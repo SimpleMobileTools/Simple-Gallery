@@ -60,6 +60,13 @@
         <item quantity="other">%1$d Dateien gelöscht</item>
     </plurals>
 
+    <!-- Resizing -->
+    <string name="resize">Resize</string>
+    <string name="resize_final_image">Resize final image</string>
+    <string name="width">Width</string>
+    <string name="height">Height</string>
+    <string name="keep_aspect_ratio">Keep aspect ratio</string>
+
     <!-- Renaming -->
     <string name="rename_file">Datei umbenennen</string>
     <string name="rename_folder">Ordner umbenennen</string>

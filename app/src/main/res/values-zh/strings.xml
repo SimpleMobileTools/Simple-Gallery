@@ -61,6 +61,13 @@
         <item quantity="other">%1$d files deleted</item>
     </plurals>
 
+    <!-- Resizing -->
+    <string name="resize">Resize</string>
+    <string name="resize_final_image">Resize final image</string>
+    <string name="width">Width</string>
+    <string name="height">Height</string>
+    <string name="keep_aspect_ratio">Keep aspect ratio</string>
+
     <!-- Renaming -->
     <string name="rename_file">重命名文件</string>
     <string name="rename_file_error">文件不能重命名</string>

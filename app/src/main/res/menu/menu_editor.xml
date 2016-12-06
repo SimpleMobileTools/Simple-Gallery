@@ -2,13 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/save_as"
+        android:icon="@mipmap/check"
+        android:title="@string/save_as"
+        app:showAsAction="always"/>
+    <item
         android:id="@+id/rotate"
         android:icon="@mipmap/rotate"
         android:title="@string/rotate"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/save_as"
-        android:icon="@mipmap/check"
-        android:title="@string/save_as"
+        android:id="@+id/resize"
+        android:icon="@mipmap/resize"
+        android:title="@string/resize"
         app:showAsAction="ifRoom"/>
 </menu>

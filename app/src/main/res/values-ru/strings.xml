@@ -61,6 +61,13 @@
         <item quantity="other">Файлов удалено: %1$d</item>
     </plurals>
 
+    <!-- Resizing -->
+    <string name="resize">Resize</string>
+    <string name="resize_final_image">Resize final image</string>
+    <string name="width">Width</string>
+    <string name="height">Height</string>
+    <string name="keep_aspect_ratio">Keep aspect ratio</string>
+
     <!-- Renaming -->
     <string name="rename_file">Изменение имени файла</string>
     <string name="rename_folder">Переименовать папку</string>
