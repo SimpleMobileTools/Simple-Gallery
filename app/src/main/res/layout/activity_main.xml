@@ -15,6 +15,7 @@
             android:id="@+id/directories_grid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:scrollbars="vertical"
             app:layoutManager="android.support.v7.widget.GridLayoutManager"
             app:spanCount="@integer/directory_columns"/>
 
