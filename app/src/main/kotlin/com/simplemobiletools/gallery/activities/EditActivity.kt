@@ -27,6 +27,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     val TAG: String = EditActivity::class.java.simpleName
 
     lateinit var uri: Uri
+    var resizeWidth = 0
+    var resizeHeight = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,7 +79,9 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     private fun resizeImage() {
         ResizeDialog(this, getAreaSize()) {
-
+            resizeWidth = it.x
+            resizeHeight = it.y
+            crop_image_view.getCroppedImageAsync()
         }
     }
 
@@ -134,7 +138,12 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 out = FileOutputStream(file)
             }
 
-            bitmap.compress(getCompressionFormat(file), 90, out)
+            if (resizeWidth > 0 && resizeHeight > 0) {
+                val resized = Bitmap.createScaledBitmap(bitmap, resizeWidth, resizeHeight, false)
+                resized.compress(getCompressionFormat(file), 90, out)
+            } else {
+                bitmap.compress(getCompressionFormat(file), 90, out)
+            }
             setResult(Activity.RESULT_OK, intent)
         } catch (e: Exception) {
             Log.e(TAG, "Crop compressing failed $path $e")
