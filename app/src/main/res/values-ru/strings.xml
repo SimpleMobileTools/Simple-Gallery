@@ -63,7 +63,7 @@
 
     <!-- Resizing -->
     <string name="resize">Изменить размер</string>
-    <string name="resize_final_image">Изменить размер конечного изображения</string>
+    <string name="resize_and_save">Изменить выбранное и сохранить</string>
     <string name="width">Ширина</string>
     <string name="height">Высота</string>
     <string name="keep_aspect_ratio">Сохранить соотношение сторон</string>
