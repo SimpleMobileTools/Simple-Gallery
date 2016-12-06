@@ -34,7 +34,7 @@ import java.io.File
 import java.util.*
 
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View.OnSystemUiVisibilityChangeListener, ViewPagerFragment.FragmentClickListener {
-    lateinit var mMedia: ArrayList<Medium>
+    private var mMedia = ArrayList<Medium>()
     private var mPath = ""
     private var mDirectory = ""
 
