@@ -124,7 +124,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 true
             }
             R.id.menu_rename -> {
-                editMedium()
+                renameFile()
                 true
             }
             R.id.menu_edit -> {
@@ -233,9 +233,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             false
     }
 
-    private fun editMedium() {
+    private fun renameFile() {
         RenameFileDialog(this, getCurrentFile()) {
-            mMedia[view_pager.currentItem].path = it.absolutePath
+            mMedia[mPos].path = it.absolutePath
             updateActionbarTitle()
         }
     }
@@ -289,7 +289,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun updateActionbarTitle() {
-        title = mMedia[mPos].path.getFilenameFromPath()
+        runOnUiThread {
+            title = mMedia[mPos].path.getFilenameFromPath()
+        }
     }
 
     private fun getCurrentMedium(): Medium? {
