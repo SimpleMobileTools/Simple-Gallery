@@ -19,12 +19,12 @@
     <string name="open_with">Открыть в</string>
     <string name="no_app_found">Приложение не найдено</string>
     <string name="hide_folder">Скрыть папку</string>
-    <string name="unhide_folder">Показать скрытые папки</string>
+    <string name="unhide_folder">Сделать папку видимой</string>
     <string name="hidden">(Скрытый)</string>
     <string name="save_as">Сохранить как</string>
     <string name="file_saved">Файл успешно сохранен</string>
-    <string name="pin_folder">Pin folder</string>
-    <string name="unpin_folder">Unpin folder</string>
+    <string name="pin_folder">Закрепить папку</string>
+    <string name="unpin_folder">Открепить папку</string>
     <string name="copy">Копировать</string>
     <string name="move">Переместить</string>
     <string name="copy_move">Копировать / Переместить</string>
@@ -75,8 +75,8 @@
     <string name="sort_by">Сортировать по</string>
     <string name="name">Имя</string>
     <string name="size">Размер</string>
-    <string name="last_modified">Last modified</string>
-    <string name="date_taken">Date taken</string>
+    <string name="last_modified">Время изменения</string>
+    <string name="date_taken">Время создания</string>
     <string name="ascending">По возрастанию</string>
     <string name="descending">По убыванию</string>
 
@@ -105,11 +105,11 @@
     <string name="about">О программе</string>
     <string name="website">"Больше простых приложений и исходный код по адресу:\nhttp://simplemobiletools.com"</string>
     <string name="email_label">Отправить отзывы или предложения:</string>
-    <string name="third_party_licences_underlined"><U>Лицензии третьих сторон</U></string>
-    <string name="invite_friends_underlined"><U>Предложить другу</U></string>
+    <string name="third_party_licences_underlined"><u>Лицензии третьих сторон</u></string>
+    <string name="invite_friends_underlined"><u>Предложить другу</u></string>
     <string name="share_text">Попробуй %1$s по ссылке %2$s</string>
     <string name="invite_via">Предложить с помощью</string>
-    <string name="rate_us_underlined"><U>Оцените нас в Google Play</U></string>
+    <string name="rate_us_underlined"><u>Оцените нас в Google Play</u></string>
     <string name="follow_us">Подписывайтесь на нас:</string>
     <string name="copyright">v %1$s Copyright © Simple Mobile Tools %2$d</string>
 
