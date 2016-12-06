@@ -7,7 +7,7 @@
         android:title="@string/sort_by"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/camera"
+        android:id="@+id/open_camera"
         android:icon="@mipmap/camera"
         android:title="@string/open_camera"
         app:showAsAction="ifRoom"/>

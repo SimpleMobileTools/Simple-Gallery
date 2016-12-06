@@ -107,6 +107,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         menu.findItem(R.id.unhide_folder).isVisible = isFolderHidden && !mShowAll
 
         menu.findItem(R.id.folder_view).isVisible = mShowAll
+        menu.findItem(R.id.open_camera).isVisible = mShowAll
+        menu.findItem(R.id.settings).isVisible = mShowAll
+        menu.findItem(R.id.about).isVisible = mShowAll
 
         return true
     }
@@ -121,6 +124,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                 toggleFilenameVisibility()
                 true
             }
+            R.id.open_camera -> {
+                launchCamera()
+                true
+            }
             R.id.folder_view -> {
                 switchToFolderView()
                 true
@@ -131,6 +138,14 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             }
             R.id.unhide_folder -> {
                 unhideFolder()
+                true
+            }
+            R.id.settings -> {
+                launchSettings()
+                true
+            }
+            R.id.about -> {
+                launchAbout()
                 true
             }
             else -> super.onOptionsItemSelected(item)

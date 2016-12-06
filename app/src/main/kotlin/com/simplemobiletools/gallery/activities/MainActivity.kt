@@ -77,7 +77,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 showSortingDialog()
                 true
             }
-            R.id.camera -> {
+            R.id.open_camera -> {
                 launchCamera()
                 true
             }
