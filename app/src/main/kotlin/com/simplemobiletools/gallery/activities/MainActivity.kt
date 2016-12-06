@@ -78,7 +78,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 true
             }
             R.id.camera -> {
-                startActivity(Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA))
+                launchCamera()
                 true
             }
             R.id.show_all -> {
@@ -86,11 +86,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 true
             }
             R.id.settings -> {
-                startActivity(Intent(applicationContext, SettingsActivity::class.java))
+                launchSettings()
                 true
             }
             R.id.about -> {
-                startActivity(Intent(applicationContext, AboutActivity::class.java))
+                launchAbout()
                 true
             }
             else -> super.onOptionsItemSelected(item)

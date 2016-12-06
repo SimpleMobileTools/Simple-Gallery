@@ -5,13 +5,14 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.view.View
 import com.simplemobiletools.filepicker.extensions.isShowingWritePermissions
+import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.helpers.OPEN_DOCUMENT_TREE
-import com.simplemobiletools.gallery.R
 import java.io.File
 
 open class SimpleActivity : AppCompatActivity() {
@@ -51,6 +52,18 @@ open class SimpleActivity : AppCompatActivity() {
 
         val takeFlags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
         contentResolver.takePersistableUriPermission(treeUri, takeFlags)
+    }
+
+    fun launchCamera() {
+        startActivity(Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA))
+    }
+
+    fun launchSettings() {
+        startActivity(Intent(applicationContext, SettingsActivity::class.java))
+    }
+
+    fun launchAbout() {
+        startActivity(Intent(applicationContext, AboutActivity::class.java))
     }
 
     fun isShowingPermDialog(file: File) = isShowingWritePermissions(file, mConfig.treeUri, OPEN_DOCUMENT_TREE)
