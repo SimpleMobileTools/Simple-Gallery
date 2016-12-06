@@ -27,7 +27,6 @@ import com.simplemobiletools.gallery.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.helpers.REQUEST_EDIT_IMAGE
 import com.simplemobiletools.gallery.helpers.REQUEST_SET_WALLPAPER
-import com.simplemobiletools.gallery.helpers.SHOW_ALL
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_medium.*
 import java.io.File
@@ -67,7 +66,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         } else {
             mPath = intent.getStringExtra(MEDIUM)
-            mShowAll = intent.getBooleanExtra(SHOW_ALL, false)
+            mShowAll = mConfig.showAll
         }
 
         if (mPath.isEmpty()) {

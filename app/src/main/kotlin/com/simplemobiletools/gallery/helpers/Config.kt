@@ -43,6 +43,10 @@ class Config private constructor(context: Context) {
         get() = mPrefs.getStringSet(PINNED_FOLDERS, HashSet<String>())
         set(pinnedFolders) = mPrefs.edit().putStringSet(PINNED_FOLDERS, pinnedFolders).apply()
 
+    var showAll: Boolean
+        get() = mPrefs.getBoolean(SHOW_ALL, false)
+        set(showAll) = mPrefs.edit().putBoolean(SHOW_ALL, showAll).apply()
+
     fun addPinnedFolders(paths: Set<String>) {
         val currPinnedFolders = HashSet<String>(pinnedFolders)
         currPinnedFolders.addAll(paths)

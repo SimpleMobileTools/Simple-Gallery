@@ -13,6 +13,7 @@ val AUTOPLAY_VIDEOS = "autoplay_videos"
 val TREE_URI = "tree_uri"
 val DISPLAY_FILE_NAMES = "display_file_names"
 val PINNED_FOLDERS = "pinned_folders"
+val SHOW_ALL = "show_all"
 
 // sorting
 val SORT_BY_NAME = 1
@@ -26,7 +27,6 @@ val SORT_DESCENDING = 1024
 val OPEN_DOCUMENT_TREE = 1000
 
 val DIRECTORY = "directory"
-val SHOW_ALL = "show_all"
 val MEDIUM = "medium"
 val GET_IMAGE_INTENT = "get_image_intent"
 val GET_VIDEO_INTENT = "get_video_intent"

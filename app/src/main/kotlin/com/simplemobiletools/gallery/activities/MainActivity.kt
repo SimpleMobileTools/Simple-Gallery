@@ -114,7 +114,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun tryloadGallery() {
         if (hasStoragePermission()) {
-            getDirectories()
+            if (mConfig.showAll)
+                showAllMedia()
+            else
+                getDirectories()
         } else {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), STORAGE_PERMISSION)
         }
@@ -150,11 +153,12 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun showAllMedia() {
+        mConfig.showAll = true
         Intent(this, MediaActivity::class.java).apply {
             putExtra(DIRECTORY, "/")
-            putExtra(SHOW_ALL, true)
             startActivity(this)
         }
+        finish()
     }
 
     override fun prepareForDeleting(paths: ArrayList<String>) {

@@ -57,7 +57,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         media_holder.setOnRefreshListener({ getMedia() })
         mPath = intent.getStringExtra(DIRECTORY)
         mMedia = ArrayList<Medium>()
-        mShowAll = intent.getBooleanExtra(SHOW_ALL, false)
+        mShowAll = mConfig.showAll
+        if (mShowAll)
+            supportActionBar?.setDisplayHomeAsUpEnabled(false)
     }
 
     override fun onResume() {
@@ -103,6 +105,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         val isFolderHidden = mConfig.getIsFolderHidden(mPath)
         menu.findItem(R.id.hide_folder).isVisible = !isFolderHidden && !mShowAll
         menu.findItem(R.id.unhide_folder).isVisible = isFolderHidden && !mShowAll
+
+        menu.findItem(R.id.folder_view).isVisible = mShowAll
+
         return true
     }
 
@@ -114,6 +119,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             }
             R.id.toggle_filename -> {
                 toggleFilenameVisibility()
+                true
+            }
+            R.id.folder_view -> {
+                switchToFolderView()
                 true
             }
             R.id.hide_folder -> {
@@ -138,6 +147,12 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         ChangeSortingDialog(this, false) {
             getMedia()
         }
+    }
+
+    private fun switchToFolderView() {
+        mConfig.showAll = false
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
     }
 
     private fun hideFolder() {
