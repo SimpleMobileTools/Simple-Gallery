@@ -76,10 +76,18 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun resizeImage() {
-        val rect = crop_image_view.cropRect
-        val croppedSize = Point(rect.width(), rect.height())
-        ResizeDialog(this, croppedSize) {
+        ResizeDialog(this, getAreaSize()) {
 
+        }
+    }
+
+    private fun getAreaSize(): Point {
+        val rect = crop_image_view.cropRect
+        val rotation = crop_image_view.rotatedDegrees
+        return if (rotation == 0 || rotation == 180) {
+            Point(rect.width(), rect.height())
+        } else {
+            Point(rect.height(), rect.width())
         }
     }
 
