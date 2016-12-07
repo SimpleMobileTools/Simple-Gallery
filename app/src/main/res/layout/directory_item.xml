@@ -36,14 +36,16 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/photo_cnt"
             android:paddingBottom="@dimen/small_padding"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/normal_text_size"/>
 
         <TextView
             android:id="@+id/photo_cnt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/normal_text_size"/>
 
     </RelativeLayout>
 </RelativeLayout>
