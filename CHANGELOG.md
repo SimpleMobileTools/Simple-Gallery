@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 1.48 *(2016-12-07)*
+----------------------------
+
+ * Couple fixes related to file operations
+
 Version 1.47 *(2016-12-06)*
 ----------------------------
 
