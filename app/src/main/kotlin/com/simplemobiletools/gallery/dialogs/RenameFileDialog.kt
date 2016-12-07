@@ -1,6 +1,8 @@
 package com.simplemobiletools.gallery.dialogs
 
 import android.app.AlertDialog
+import android.content.ContentValues
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.WindowManager
 import com.simplemobiletools.filepicker.extensions.*
@@ -75,10 +77,19 @@ class RenameFileDialog(val activity: SimpleActivity, val file: File, val callbac
         }
     }
 
-    private fun sendSuccess(currFile: File, newFile: File) {
-        val changedFiles = arrayListOf(currFile, newFile)
-        activity.scanFiles(changedFiles) {
+    private fun sendSuccess(oldFile: File, newFile: File) {
+        val values = ContentValues()
+        values.put(MediaStore.MediaColumns.DATA, newFile.absolutePath)
+        val updated = activity.contentResolver.update(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values,
+                "${MediaStore.MediaColumns.DATA} = '${oldFile.absolutePath}'", null) == 1
+
+        if (updated) {
             callback.invoke(newFile)
+        } else {
+            val changedFiles = arrayListOf(oldFile, newFile)
+            activity.scanFiles(changedFiles) {
+                callback.invoke(newFile)
+            }
         }
     }
 }
