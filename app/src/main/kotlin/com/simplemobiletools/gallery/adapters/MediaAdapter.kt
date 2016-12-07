@@ -168,17 +168,17 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     private fun askConfirmDelete() {
         ConfirmationDialog(activity) {
             actMode?.finish()
-            prepareForDeleting()
+            deleteFiles()
         }
     }
 
     private fun getCurrentFile() = File(media[multiSelector.selectedPositions[0]].path)
 
-    private fun prepareForDeleting() {
+    private fun deleteFiles() {
         val selections = multiSelector.selectedPositions
-        val paths = ArrayList<String>(selections.size)
-        selections.forEach { paths.add(media[it].path) }
-        listener?.prepareForDeleting(paths)
+        val files = ArrayList<File>(selections.size)
+        selections.forEach { files.add(File(media[it].path)) }
+        listener?.deleteFiles(files)
     }
 
     private fun getSelectedMedia(): List<Medium> {
@@ -265,6 +265,6 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     interface MediaOperationsListener {
         fun refreshItems()
 
-        fun prepareForDeleting(paths: ArrayList<String>)
+        fun deleteFiles(files: ArrayList<File>)
     }
 }

@@ -213,13 +213,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             file.delete()
         }
 
-        try {
-            if (file.exists())
-                file.delete()
-        } catch (ignored: Exception) {
-
-        }
-
         val values = ContentValues()
         values.put(MediaStore.MediaColumns.DATA, file.absolutePath)
         val uri = if (file.isImageSlow()) MediaStore.Images.Media.EXTERNAL_CONTENT_URI else MediaStore.Video.Media.EXTERNAL_CONTENT_URI
@@ -251,7 +244,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun reloadViewPager() {
-        GetMediaAsynctask(applicationContext, mDirectory, false, false, ArrayList<String>(), mShowAll) {
+        GetMediaAsynctask(applicationContext, mDirectory, false, false, mShowAll) {
             mMedia = it
             if (isDirEmpty())
                 return@GetMediaAsynctask

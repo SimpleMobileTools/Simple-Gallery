@@ -13,7 +13,7 @@ import java.io.File
 import java.util.*
 
 class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo: Boolean = false, val isPickImage: Boolean = false,
-                        val mToBeDeleted: List<String> = ArrayList<String>(), val showAll: Boolean, val callback: (media: ArrayList<Medium>) -> Unit) :
+                        val showAll: Boolean, val callback: (media: ArrayList<Medium>) -> Unit) :
         AsyncTask<Void, Void, ArrayList<Medium>>() {
     lateinit var mConfig: Config
 
@@ -49,24 +49,22 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
                 if (cursor?.moveToFirst() == true) {
                     do {
                         val curPath = cursor.getStringValue(MediaStore.Images.Media.DATA) ?: continue
-                        if (!mToBeDeleted.contains(curPath)) {
-                            val file = File(curPath)
-                            val size = cursor.getLongValue(MediaStore.Images.Media.SIZE)
+                        val file = File(curPath)
+                        val size = cursor.getLongValue(MediaStore.Images.Media.SIZE)
 
-                            if (size == 0L) {
-                                invalidFiles.add(file)
-                                continue
-                            }
-
-                            // exclude images of subdirectories
-                            if (!showAll && file.parent != mPath)
-                                continue
-
-                            val name = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME) ?: ""
-                            val dateModified = cursor.getLongValue(MediaStore.Images.Media.DATE_MODIFIED)
-                            val dateTaken = cursor.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
-                            media.add(Medium(name, curPath, i == 1, dateModified, dateTaken, size))
+                        if (size == 0L) {
+                            invalidFiles.add(file)
+                            continue
                         }
+
+                        // exclude images of subdirectories
+                        if (!showAll && file.parent != mPath)
+                            continue
+
+                        val name = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME) ?: ""
+                        val dateModified = cursor.getLongValue(MediaStore.Images.Media.DATE_MODIFIED)
+                        val dateTaken = cursor.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
+                        media.add(Medium(name, curPath, i == 1, dateModified, dateTaken, size))
                     } while (cursor.moveToNext())
                 }
             } finally {

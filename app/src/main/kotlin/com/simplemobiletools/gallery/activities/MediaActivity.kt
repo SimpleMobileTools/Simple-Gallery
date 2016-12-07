@@ -4,14 +4,11 @@ import android.app.Activity
 import android.app.WallpaperManager
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.animation.GlideAnimation
 import com.bumptech.glide.request.target.SimpleTarget
@@ -32,9 +29,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     companion object {
         private val TAG = MediaActivity::class.java.simpleName
 
-        private var mSnackbar: Snackbar? = null
-
-        private var mToBeDeleted = ArrayList<String>()
         private var mMedia = ArrayList<Medium>()
 
         private var mPath = ""
@@ -67,11 +61,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         tryloadGallery()
     }
 
-    override fun onPause() {
-        super.onPause()
-        deleteFiles()
-    }
-
     private fun tryloadGallery() {
         if (hasStoragePermission()) {
             val dirName = getHumanizedFilename(mPath)
@@ -96,7 +85,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         } else {
             media_grid.adapter = adapter
         }
-        media_grid.setOnTouchListener { view, motionEvent -> checkDelete(); false }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -196,7 +184,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             return
 
         mIsGettingMedia = true
-        GetMediaAsynctask(applicationContext, mPath, mIsGetVideoIntent, mIsGetImageIntent, mToBeDeleted, mShowAll) {
+        GetMediaAsynctask(applicationContext, mPath, mIsGetVideoIntent, mIsGetImageIntent, mShowAll) {
             gotMedia(it)
         }.execute()
     }
@@ -210,44 +198,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             false
     }
 
-    override fun prepareForDeleting(paths: ArrayList<String>) {
-        toast(R.string.deleting)
-        mToBeDeleted = paths
-        val deletedCnt = mToBeDeleted.size
-
-        if (isShowingPermDialog(File(mToBeDeleted[0])))
-            return
-
-        notifyDeletion(deletedCnt)
-    }
-
-    private fun notifyDeletion(cnt: Int) {
-        getMedia()
-
-        if (mMedia.isEmpty()) {
-            deleteFiles()
-        } else {
-            val res = resources
-            val msg = res.getQuantityString(R.plurals.files_deleted, cnt, cnt)
-            mSnackbar = Snackbar.make(coordinator_layout, msg, Snackbar.LENGTH_INDEFINITE)
-            mSnackbar!!.apply {
-                setAction(res.getString(R.string.undo), undoDeletion)
-                setActionTextColor(Color.WHITE)
-                show()
-            }
-            updateMediaView()
-        }
-    }
-
-    private fun deleteFiles() {
-        if (mToBeDeleted.isEmpty())
-            return
-
-        mSnackbar?.dismiss()
-        var wereFilesDeleted = false
-
-        for (delPath in mToBeDeleted) {
-            val file = File(delPath)
+    override fun deleteFiles(files: ArrayList<File>) {
+        for (file in files) {
             if (file.exists() && file.isImageVideoGif()) {
                 if (needsStupidWritePermissions(file.absolutePath)) {
                     if (isShowingPermDialog(file))
@@ -257,38 +209,20 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
                     // double check we have the uri to the proper file path, not some parent folder
                     if (document.uri.toString().endsWith(file.absolutePath.getFilenameFromPath()) && !document.isDirectory) {
-                        if (document.delete()) {
-                            wereFilesDeleted = true
-                        }
+                        document.delete()
                     }
                 } else {
-                    if (file.delete())
-                        wereFilesDeleted = true
-                }
-
-                if (file.exists()) {
-                    try {
-                        file.delete()
-                    } catch (ignored: Exception) {
-                    }
+                    file.delete()
                 }
             }
         }
 
-        if (wereFilesDeleted) {
-            scanPaths(mToBeDeleted) {
-                if (mMedia.isEmpty()) {
-                    finish()
-                }
+        scanFiles(files) {
+            if (mMedia.isEmpty()) {
+                finish()
             }
+            updateMediaView()
         }
-        mToBeDeleted.clear()
-    }
-
-    private val undoDeletion = View.OnClickListener {
-        mSnackbar!!.dismiss()
-        mToBeDeleted.clear()
-        updateMediaView()
     }
 
     private fun updateMediaView() {
@@ -347,12 +281,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         mMedia = media
         initializeGallery()
-    }
-
-    fun checkDelete() {
-        if (mSnackbar?.isShown == true) {
-            deleteFiles()
-        }
     }
 
     override fun refreshItems() {

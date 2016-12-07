@@ -56,11 +56,6 @@
         <item quantity="other">Папок удалено: %1$d</item>
     </plurals>
 
-    <plurals name="files_deleted">
-        <item quantity="one">1 файл удалён</item>
-        <item quantity="other">Файлов удалено: %1$d</item>
-    </plurals>
-
     <!-- Resizing -->
     <string name="resize">Изменить размер</string>
     <string name="resize_and_save">Изменить выбранное и сохранить</string>

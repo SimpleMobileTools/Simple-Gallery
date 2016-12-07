@@ -224,13 +224,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         } else {
             file.delete()
         }
-
-        if (file.exists()) {
-            try {
-                file.delete()
-            } catch (ignored: Exception) {
-            }
-        }
     }
 
     private val undoDeletion = View.OnClickListener {

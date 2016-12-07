@@ -55,11 +55,6 @@
         <item quantity="other">%1$d folders deleted</item>
     </plurals>
 
-    <plurals name="files_deleted">
-        <item quantity="one">1 file deleted</item>
-        <item quantity="other">%1$d files deleted</item>
-    </plurals>
-
     <!-- Resizing -->
     <string name="resize">Resize</string>
     <string name="resize_and_save">Resize selection and save</string>

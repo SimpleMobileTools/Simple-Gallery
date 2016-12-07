@@ -55,11 +55,6 @@
         <item quantity="other">%1$d mappar borttagna</item>
     </plurals>
 
-    <plurals name="files_deleted">
-        <item quantity="one">1 fil borttagen</item>
-        <item quantity="other">%1$d filer borttagna</item>
-    </plurals>
-
     <!-- Resizing -->
     <string name="resize">Resize</string>
     <string name="resize_and_save">Resize selection and save</string>
