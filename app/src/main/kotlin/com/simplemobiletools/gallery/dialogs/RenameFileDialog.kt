@@ -80,8 +80,8 @@ class RenameFileDialog(val activity: SimpleActivity, val file: File, val callbac
     private fun sendSuccess(oldFile: File, newFile: File) {
         val values = ContentValues()
         values.put(MediaStore.MediaColumns.DATA, newFile.absolutePath)
-        val updated = activity.contentResolver.update(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values,
-                "${MediaStore.MediaColumns.DATA} = '${oldFile.absolutePath}'", null) == 1
+        val uri = if (oldFile.isImageSlow()) MediaStore.Images.Media.EXTERNAL_CONTENT_URI else MediaStore.Video.Media.EXTERNAL_CONTENT_URI
+        val updated = activity.contentResolver.update(uri, values, "${MediaStore.MediaColumns.DATA} = '${oldFile.absolutePath}'", null) == 1
 
         if (updated) {
             callback.invoke(newFile)
