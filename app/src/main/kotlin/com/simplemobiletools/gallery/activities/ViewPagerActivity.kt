@@ -212,9 +212,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             file.delete()
         }
 
-        val deleted = deleteFromMediaStore(file)
-
-        if (deleted) {
+        if (deleteFromMediaStore(file)) {
             reloadViewPager()
         } else {
             scanFile(file) {
