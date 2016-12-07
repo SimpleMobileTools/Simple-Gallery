@@ -46,9 +46,9 @@
     <string name="moving_success_partial">Alguns ficheiros não foram movidos</string>
     <string name="copying_success_partial">Alguns ficheiros não foram copiados</string>
     <string name="invalid_name">O nome contém caracteres inválidos</string>
-    <string name="show_all">Show all media files</string>
-    <string name="all_media">All media</string>
-    <string name="folder_view">Switch to folder view</string>
+    <string name="show_all">Mostrar todos os ficheiros multimédia</string>
+    <string name="all_media">Multimédia</string>
+    <string name="folder_view">Alternar para a vista de pastas</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 pasta apagada</item>
@@ -56,12 +56,12 @@
     </plurals>
 
     <!-- Resizing -->
-    <string name="resize">Resize</string>
-    <string name="resize_and_save">Resize selection and save</string>
-    <string name="width">Width</string>
-    <string name="height">Height</string>
-    <string name="keep_aspect_ratio">Keep aspect ratio</string>
-    <string name="invalid_values">Please enter a valid resolution</string>
+    <string name="resize">Redimensionar</string>
+    <string name="resize_and_save">Redimensionar seleção e guardar</string>
+    <string name="width">Largura</string>
+    <string name="height">Altura</string>
+    <string name="keep_aspect_ratio">Manter rácio de tamanho</string>
+    <string name="invalid_values">Digite uma resolução válida</string>
 
     <!-- Renaming -->
     <string name="rename_file">Renomear ficheiro</string>
@@ -76,7 +76,7 @@
     <string name="filename_cannot_be_empty">O nome do ficheiro não pode estar vazio</string>
     <string name="filename_invalid_characters">O nome do ficheiro contém caracteres inválidos</string>
     <string name="extension">Extensão</string>
-    <string name="extension_cannot_be_empty">Extension cannot be empty</string>
+    <string name="extension_cannot_be_empty">A extensão não pode estar vazia</string>
 
     <!-- Sorting -->
     <string name="sort_by">Ordenar por</string>
