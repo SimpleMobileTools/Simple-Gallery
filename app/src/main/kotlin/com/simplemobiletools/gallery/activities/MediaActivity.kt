@@ -199,23 +199,22 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     override fun deleteFiles(files: ArrayList<File>) {
-        for (file in files) {
-            if (file.exists() && file.isImageVideoGif()) {
-                if (needsStupidWritePermissions(file.absolutePath)) {
-                    if (isShowingPermDialog(file))
-                        return
+        files.filter { it.exists() && it.isImageVideoGif() }
+                .forEach {
+                    if (needsStupidWritePermissions(it.absolutePath)) {
+                        if (isShowingPermDialog(it))
+                            return
 
-                    val document = getFileDocument(file.absolutePath, mConfig.treeUri)
+                        val document = getFileDocument(it.absolutePath, mConfig.treeUri)
 
-                    // double check we have the uri to the proper file path, not some parent folder
-                    if (document.uri.toString().endsWith(file.absolutePath.getFilenameFromPath()) && !document.isDirectory) {
-                        document.delete()
+                        // double check we have the uri to the proper file path, not some parent folder
+                        if (document.uri.toString().endsWith(it.absolutePath.getFilenameFromPath()) && !document.isDirectory) {
+                            document.delete()
+                        }
+                    } else {
+                        it.delete()
                     }
-                } else {
-                    file.delete()
                 }
-            }
-        }
 
         scanFiles(files) {
             if (mMedia.isEmpty()) {
