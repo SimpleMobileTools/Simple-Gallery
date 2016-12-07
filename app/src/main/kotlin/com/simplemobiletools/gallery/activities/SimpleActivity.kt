@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.activities
 
 import android.annotation.TargetApi
 import android.app.Activity
+import android.content.ContentValues
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -9,6 +10,7 @@ import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.view.View
+import com.simplemobiletools.filepicker.extensions.isImageSlow
 import com.simplemobiletools.filepicker.extensions.isShowingWritePermissions
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.helpers.Config
@@ -67,6 +69,13 @@ open class SimpleActivity : AppCompatActivity() {
     }
 
     fun isShowingPermDialog(file: File) = isShowingWritePermissions(file, mConfig.treeUri, OPEN_DOCUMENT_TREE)
+
+    fun deleteFromMediaStore(file: File): Boolean {
+        val values = ContentValues()
+        values.put(MediaStore.MediaColumns.DATA, file.absolutePath)
+        val uri = if (file.isImageSlow()) MediaStore.Images.Media.EXTERNAL_CONTENT_URI else MediaStore.Video.Media.EXTERNAL_CONTENT_URI
+        return contentResolver.delete(uri, "${MediaStore.MediaColumns.DATA} = '${file.absolutePath}'", null) == 1
+    }
 
     fun showSystemUI() {
         supportActionBar?.show()
