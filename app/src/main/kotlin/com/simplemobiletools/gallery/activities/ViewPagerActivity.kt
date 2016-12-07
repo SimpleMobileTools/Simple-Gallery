@@ -1,6 +1,7 @@
 package com.simplemobiletools.gallery.activities
 
 import android.app.Activity
+import android.content.ContentValues
 import android.content.Intent
 import android.content.res.Configuration
 import android.database.Cursor
@@ -219,8 +220,17 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         }
 
-        scanFile(file) {
+        val values = ContentValues()
+        values.put(MediaStore.MediaColumns.DATA, file.absolutePath)
+        val uri = if (file.isImageSlow()) MediaStore.Images.Media.EXTERNAL_CONTENT_URI else MediaStore.Video.Media.EXTERNAL_CONTENT_URI
+        val updated = contentResolver.delete(uri, "${MediaStore.MediaColumns.DATA} = '${file.absolutePath}'", null) == 1
+
+        if (updated) {
             reloadViewPager()
+        } else {
+            scanFile(file) {
+                reloadViewPager()
+            }
         }
     }
 
