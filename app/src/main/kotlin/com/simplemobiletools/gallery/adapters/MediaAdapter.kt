@@ -84,10 +84,6 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                     selectAll()
                     true
                 }
-                R.id.cab_deselect_all -> {
-                    deselectAll()
-                    true
-                }
                 R.id.cab_delete -> {
                     askConfirmDelete()
                     true
@@ -174,10 +170,6 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     }
 
     fun selectAll() {
-
-    }
-
-    fun deselectAll() {
 
     }
 

@@ -51,7 +51,6 @@
     <string name="all_media">Все медиафайлы</string>
     <string name="folder_view">Переключиться к виду с папками</string>
     <string name="select_all">Select all</string>
-    <string name="deselect_all">Deselect all</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 папка удалена</item>
