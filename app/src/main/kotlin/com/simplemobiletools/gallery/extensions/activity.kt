@@ -8,6 +8,7 @@ import android.util.DisplayMetrics
 import android.view.KeyCharacterMap
 import android.view.KeyEvent
 import android.view.ViewConfiguration
+import com.simplemobiletools.filepicker.extensions.getMimeType
 import com.simplemobiletools.filepicker.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.helpers.REQUEST_EDIT_IMAGE
@@ -45,7 +46,7 @@ fun Activity.shareMedia(media: List<Medium>) {
 fun Activity.setAsWallpaper(file: File) {
     val intent = Intent(Intent.ACTION_ATTACH_DATA)
     val uri = Uri.fromFile(file)
-    intent.setDataAndType(uri, uri.getImageMimeType())
+    intent.setDataAndType(uri, file.getMimeType("image/jpeg"))
     val chooser = Intent.createChooser(intent, getString(R.string.set_as_wallpaper_with))
 
     if (intent.resolveActivity(packageManager) != null) {
@@ -58,7 +59,7 @@ fun Activity.setAsWallpaper(file: File) {
 fun Activity.openWith(file: File) {
     val intent = Intent(Intent.ACTION_VIEW)
     val uri = Uri.fromFile(file)
-    intent.setDataAndType(uri, uri.getImageMimeType())
+    intent.setDataAndType(uri, file.getMimeType("image/jpeg"))
     val chooser = Intent.createChooser(intent, getString(R.string.open_with))
 
     if (intent.resolveActivity(packageManager) != null) {
