@@ -59,8 +59,7 @@ class CopyDialog(val activity: SimpleActivity, val files: ArrayList<File>, val c
                 }
 
                 if (files.size == 1) {
-                    val newFile = File(files[0].path)
-                    if (File(destinationPath, newFile.name).exists()) {
+                    if (File(destinationPath, files[0].name).exists()) {
                         context.toast(R.string.already_exists)
                         return@setOnClickListener
                     }
@@ -78,6 +77,10 @@ class CopyDialog(val activity: SimpleActivity, val files: ArrayList<File>, val c
                     dismiss()
                 } else {
                     if (context.isPathOnSD(sourcePath) || context.isPathOnSD(destinationPath)) {
+                        if (activity.isShowingPermDialog(files[0])) {
+                            return@setOnClickListener
+                        }
+
                         context.toast(R.string.moving)
                         val pair = Pair<ArrayList<File>, File>(files, destinationDir)
                         CopyMoveTask(context, true, config.treeUri, true, copyMoveListener).execute(pair)
