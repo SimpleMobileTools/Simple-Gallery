@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 1.49 *(2016-12-08)*
+----------------------------
+
+ * More fixes related to copy/move/delete
+ * Add a Select All button at selecting media
+ * Some visual swag
+
 Version 1.48 *(2016-12-07)*
 ----------------------------
 
