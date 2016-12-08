@@ -172,8 +172,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun notifyDeletion(cnt: Int) {
-        getDirectories()
-
         val res = resources
         val msg = res.getQuantityString(R.plurals.folders_deleted, cnt, cnt)
         mSnackbar = Snackbar.make(coordinator_layout, msg, Snackbar.LENGTH_INDEFINITE)

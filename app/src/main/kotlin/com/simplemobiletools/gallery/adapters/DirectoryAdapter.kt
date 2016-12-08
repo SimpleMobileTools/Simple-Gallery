@@ -242,7 +242,17 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     private fun prepareForDeleting() {
         val selections = multiSelector.selectedPositions
         val paths = ArrayList<String>(selections.size)
-        selections.forEach { paths.add(dirs[it].path) }
+        val removeDirs = ArrayList<Directory>(selections.size)
+
+        selections.reverse()
+        selections.forEach {
+            val directory = dirs[it]
+            paths.add(directory.path)
+            removeDirs.add(directory)
+            notifyItemRemoved(it)
+        }
+
+        dirs.removeAll(removeDirs)
         listener?.prepareForDeleting(paths)
     }
 
