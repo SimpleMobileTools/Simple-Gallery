@@ -102,7 +102,6 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu): Boolean {
             menu.findItem(R.id.cab_rename).isVisible = multiSelector.selectedPositions.size <= 1
             menu.findItem(R.id.cab_edit).isVisible = multiSelector.selectedPositions.size <= 1
-
             return true
         }
 
@@ -170,7 +169,14 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     }
 
     fun selectAll() {
-
+        val cnt = media.size
+        for (i in 0..cnt - 1) {
+            markedItems.add(i)
+            multiSelector.setSelected(i, 0, true)
+            notifyItemChanged(i)
+        }
+        actMode?.title = cnt.toString()
+        actMode?.invalidate()
     }
 
     private fun askConfirmDelete() {
