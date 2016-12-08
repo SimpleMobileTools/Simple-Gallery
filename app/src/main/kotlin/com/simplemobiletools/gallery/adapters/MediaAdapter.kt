@@ -191,7 +191,17 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     private fun deleteFiles() {
         val selections = multiSelector.selectedPositions
         val files = ArrayList<File>(selections.size)
-        selections.forEach { files.add(File(media[it].path)) }
+        val removeMedia = ArrayList<Medium>(selections.size)
+
+        selections.reverse()
+        selections.forEach {
+            val medium = media[it]
+            files.add(File(medium.path))
+            removeMedia.add(medium)
+            notifyItemRemoved(it)
+        }
+
+        media.removeAll(removeMedia)
         listener?.deleteFiles(files)
     }
 

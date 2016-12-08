@@ -199,7 +199,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     override fun deleteFiles(files: ArrayList<File>) {
-        var deletedCnt = 0
         files.filter { it.exists() && it.isImageVideoGif() }
                 .forEach {
                     if (needsStupidWritePermissions(it.absolutePath)) {
@@ -216,26 +215,11 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                         it.delete()
                     }
 
-                    if (deleteFromMediaStore(it))
-                        deletedCnt++
+                    deleteFromMediaStore(it)
                 }
 
-        if (deletedCnt == files.size) {
-            updateMediaView()
-        } else {
-            scanFiles(files) {
-                updateMediaView()
-            }
-        }
-    }
-
-    private fun updateMediaView() {
         if (mMedia.isEmpty()) {
             finish()
-        }
-
-        if (!isDirEmpty()) {
-            getMedia()
         }
     }
 
