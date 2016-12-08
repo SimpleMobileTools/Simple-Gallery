@@ -80,6 +80,14 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                     displayCopyDialog()
                     true
                 }
+                R.id.cab_select_all -> {
+                    selectAll()
+                    true
+                }
+                R.id.cab_deselect_all -> {
+                    deselectAll()
+                    true
+                }
                 R.id.cab_delete -> {
                     askConfirmDelete()
                     true
@@ -163,6 +171,14 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 activity.toast(R.string.copy_move_failed)
             }
         })
+    }
+
+    fun selectAll() {
+
+    }
+
+    fun deselectAll() {
+
     }
 
     private fun askConfirmDelete() {

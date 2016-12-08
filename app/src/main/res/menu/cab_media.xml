@@ -27,6 +27,15 @@
         android:title="@string/edit"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/cab_select_all"
+        android:icon="@mipmap/select_all"
+        android:title="@string/select_all"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/cab_deselect_all"
+        android:title="@string/deselect_all"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/cab_delete"
         android:icon="@mipmap/delete"
         android:title="@string/delete"

@@ -49,6 +49,8 @@
     <string name="show_all">Show all media files</string>
     <string name="all_media">All media</string>
     <string name="folder_view">Switch to folder view</string>
+    <string name="select_all">Select all</string>
+    <string name="deselect_all">Deselect all</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 フォルダーを削除しました</item>
