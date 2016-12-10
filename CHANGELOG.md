@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 1.50 *(2016-12-10)*
+----------------------------
+
+ * Allow displaying images or videos only
+ * Misc updates
+
 Version 1.49 *(2016-12-08)*
 ----------------------------
 
