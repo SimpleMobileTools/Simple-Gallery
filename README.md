@@ -11,8 +11,8 @@ Contains no ads or unnecessary permissions. It is fully opensource, provides a D
 
 This app is just one piece of a bigger series of apps. You can find the rest of them at http://www.simplemobiletools.com
 
-<a href='https://play.google.com/store/apps/details?id=com.simplemobiletools.gallery'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' height=60/></a>
-<a href="https://f-droid.org/app/com.simplemobiletools.gallery"><img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="60"></a>
+<a href='https://play.google.com/store/apps/details?id=com.simplemobiletools.gallery'><img src='http://simplemobiletools.github.io/assets/public/google-play.png' alt='Get it on Google Play' height=45/></a>
+<a href='https://f-droid.org/app/com.simplemobiletools.gallery'><img src='http://simplemobiletools.github.io/assets/public/f-droid.png' alt='Get it on F-Droid' height=45 ></a>
 
 <img alt="App image" src="screenshots/app.jpg" width="250">
 <img alt="App image" src="screenshots/app_2.jpg" width="250">
