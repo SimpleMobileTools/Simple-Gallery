@@ -48,7 +48,7 @@
     <string name="copying_success_partial">Некоторые файлы не могут быть скопированы</string>
     <string name="invalid_name">Имя содержит недопустимые символы</string>
     <string name="show_all">Отобразить все медиафайлы</string>
-    <string name="all_media">Все медиафайлы</string>
+    <string name="all_folders">Все медиафайлы</string>
     <string name="folder_view">Переключиться к виду с папками</string>
     <string name="select_all">Выделить все</string>
 

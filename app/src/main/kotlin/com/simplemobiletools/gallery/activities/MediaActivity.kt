@@ -64,7 +64,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun tryloadGallery() {
         if (hasStoragePermission()) {
             val dirName = getHumanizedFilename(mPath)
-            title = if (mShowAll) resources.getString(R.string.all_media) else dirName
+            title = if (mShowAll) resources.getString(R.string.all_folders) else dirName
             getMedia()
         } else {
             finish()
