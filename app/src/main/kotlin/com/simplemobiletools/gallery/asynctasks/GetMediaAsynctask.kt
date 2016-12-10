@@ -8,6 +8,8 @@ import com.simplemobiletools.filepicker.extensions.scanFiles
 import com.simplemobiletools.gallery.extensions.getLongValue
 import com.simplemobiletools.gallery.extensions.getStringValue
 import com.simplemobiletools.gallery.helpers.Config
+import com.simplemobiletools.gallery.helpers.IMAGES
+import com.simplemobiletools.gallery.helpers.VIDEOS
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 import java.util.*
@@ -25,13 +27,14 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
     override fun doInBackground(vararg params: Void): ArrayList<Medium> {
         val media = ArrayList<Medium>()
         val invalidFiles = ArrayList<File>()
+        val showMedia = mConfig.showMedia
         for (i in 0..1) {
-            if (isPickVideo && i == 0)
+            if (i == 0 && (isPickVideo || showMedia == VIDEOS))
                 continue
 
             var uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
             if (i == 1) {
-                if (isPickImage)
+                if (isPickImage || showMedia == IMAGES)
                     continue
 
                 uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI

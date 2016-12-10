@@ -9,9 +9,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.getHumanizedFilename
 import com.simplemobiletools.gallery.extensions.getLongValue
 import com.simplemobiletools.gallery.extensions.getStringValue
-import com.simplemobiletools.gallery.helpers.Config
-import com.simplemobiletools.gallery.helpers.SORT_BY_NAME
-import com.simplemobiletools.gallery.helpers.SORT_DESCENDING
+import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Directory
 import java.io.File
 import java.util.*
@@ -28,13 +26,14 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
     override fun doInBackground(vararg params: Void): ArrayList<Directory> {
         val directories = LinkedHashMap<String, Directory>()
         val invalidFiles = ArrayList<File>()
+        val showMedia = mConfig.showMedia
         for (i in 0..1) {
-            if ((isPickVideo) && i == 0)
+            if (i == 0 && (isPickVideo || showMedia == VIDEOS))
                 continue
 
             var uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
             if (i == 1) {
-                if (isPickImage)
+                if (isPickImage || showMedia == IMAGES)
                     continue
 
                 uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
