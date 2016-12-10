@@ -130,6 +130,10 @@
     <string name="show_hidden_folders">Mostrar carpetas ocultas</string>
     <string name="autoplay_videos">Reproducir vídeos automáticamente</string>
     <string name="toggle_filename">Toggle filename visibility</string>
+    <string name="show_media">Show media</string>
+    <string name="images">Images only</string>
+    <string name="videos">Videos only</string>
+    <string name="images_and_videos">Images and videos</string>
 
     <!-- License -->
     <string name="notice">Esta aplicación usa las siguientes bibliotecas de terceros que hacen mi vida más fácil. Gracias.</string>

@@ -130,6 +130,10 @@
     <string name="show_hidden_folders">Zeige versteckte Ordner</string>
     <string name="autoplay_videos">Play videos automatically</string>
     <string name="toggle_filename">Toggle filename visibility</string>
+    <string name="show_media">Show media</string>
+    <string name="images">Images only</string>
+    <string name="videos">Videos only</string>
+    <string name="images_and_videos">Images and videos</string>
 
     <!-- License -->
     <string name="notice">Diese App nutzt die folgenden Drittanbieterbilbiotheken, die mein Leben einfacher machen. Danke.</string>

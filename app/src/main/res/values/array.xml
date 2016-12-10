@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="show_media_items" translatable="false">
+        <item>@string/images_and_videos</item>
+        <item>@string/images</item>
+        <item>@string/videos</item>
+    </string-array>
+</resources>

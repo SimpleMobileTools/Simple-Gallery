@@ -130,6 +130,10 @@
     <string name="show_hidden_folders">非表示フォルダーを表示</string>
     <string name="autoplay_videos">自動的にビデオを再生</string>
     <string name="toggle_filename">ファイル名の表示を切り替え</string>
+    <string name="show_media">Show media</string>
+    <string name="images">Images only</string>
+    <string name="videos">Videos only</string>
+    <string name="images_and_videos">Images and videos</string>
 
     <!-- License -->
     <string name="notice">このアプリは、私の暮らしにゆとりを持たせるために、次のサードパーティのライブラリーを使用しています。 ありがとうございます。</string>

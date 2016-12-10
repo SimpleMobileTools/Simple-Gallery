@@ -13,7 +13,8 @@ val AUTOPLAY_VIDEOS = "autoplay_videos"
 val TREE_URI = "tree_uri"
 val DISPLAY_FILE_NAMES = "display_file_names"
 val PINNED_FOLDERS = "pinned_folders"
-val SHOW_ALL = "show_all"
+val SHOW_ALL = "show_all"   // display images and videos from all folders together
+val SHOW_MEDIA = "show_media"
 
 // sorting
 val SORT_BY_NAME = 1
@@ -35,3 +36,8 @@ val SET_WALLPAPER_INTENT = "set_wallpaper_intent"
 
 val REQUEST_EDIT_IMAGE = 1
 val REQUEST_SET_WALLPAPER = 2
+
+// show media
+val IMAGES_AND_VIDEOS = 0
+val IMAGES = 1
+val VIDEOS = 2

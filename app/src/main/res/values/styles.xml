@@ -6,6 +6,9 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="actionBarStyle">@style/AppTheme.ActionBarStyle</item>
         <item name="android:textSize">@dimen/normal_text_size</item>
+        <item name="android:spinnerItemStyle">@style/SpinnerItem</item>
+        <item name="spinnerDropDownItemStyle">@style/SpinnerItem.DropDownItem</item>
+        <item name="android:spinnerDropDownItemStyle">@style/SpinnerItem.DropDownItem</item>
     </style>
 
     <style name="AppTheme.Dark" parent="Theme.AppCompat">
@@ -15,6 +18,9 @@
         <item name="actionBarStyle">@style/AppTheme.ActionBarStyle</item>
         <item name="android:textSize">@dimen/normal_text_size</item>
         <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:spinnerItemStyle">@style/SpinnerItem</item>
+        <item name="spinnerDropDownItemStyle">@style/SpinnerItem.DropDownItem</item>
+        <item name="android:spinnerDropDownItemStyle">@style/SpinnerItem.DropDownItem</item>
     </style>
 
     <style name="FullScreenTheme.Base" parent="AppTheme">
@@ -48,6 +54,20 @@
     <style name="AppTheme.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textSize">20sp</item>
+    </style>
+
+
+    <style name="SpinnerItem" parent="@android:style/Widget.TextView">
+        <item name="android:paddingRight">@dimen/activity_margin</item>
+        <item name="android:gravity">end</item>
+    </style>
+
+    <style name="SpinnerItem.DropDownItem" parent="@android:style/Widget.TextView">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingTop">@dimen/settings_padding</item>
+        <item name="android:paddingBottom">@dimen/settings_padding</item>
+        <item name="android:paddingLeft">@dimen/activity_margin</item>
+        <item name="android:paddingRight">@dimen/activity_margin</item>
     </style>
 
 </resources>

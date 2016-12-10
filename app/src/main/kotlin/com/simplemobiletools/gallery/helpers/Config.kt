@@ -96,4 +96,8 @@ class Config private constructor(context: Context) {
     var displayFileNames: Boolean
         get() = mPrefs.getBoolean(DISPLAY_FILE_NAMES, false)
         set(display) = mPrefs.edit().putBoolean(DISPLAY_FILE_NAMES, display).apply()
+
+    var showMedia: Int
+        get() = mPrefs.getInt(SHOW_MEDIA, IMAGES_AND_VIDEOS)
+        set(showMedia) = mPrefs.edit().putInt(SHOW_MEDIA, showMedia).apply()
 }

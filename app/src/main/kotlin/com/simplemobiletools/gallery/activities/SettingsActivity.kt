@@ -2,6 +2,8 @@ package com.simplemobiletools.gallery.activities
 
 import android.os.Bundle
 import android.support.v4.app.TaskStackBuilder
+import android.view.View
+import android.widget.AdapterView
 import com.simplemobiletools.gallery.R
 import kotlinx.android.synthetic.main.activity_settings.*
 
@@ -14,6 +16,7 @@ class SettingsActivity : SimpleActivity() {
         setupSameSorting()
         setupShowHiddenFolders()
         setupAutoplayVideos()
+        setupShowMedia()
     }
 
     private fun setupDarkTheme() {
@@ -45,6 +48,18 @@ class SettingsActivity : SimpleActivity() {
         settings_autoplay_videos_holder.setOnClickListener {
             settings_autoplay_videos.toggle()
             mConfig.autoplayVideos = settings_autoplay_videos.isChecked
+        }
+    }
+
+    private fun setupShowMedia() {
+        settings_show_media.setSelection(mConfig.showMedia)
+        settings_show_media.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                mConfig.showMedia = settings_show_media.selectedItemPosition
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
         }
     }
 

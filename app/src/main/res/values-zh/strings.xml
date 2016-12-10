@@ -131,6 +131,10 @@
     <string name="show_hidden_folders">显示所有</string>
     <string name="autoplay_videos">自动播放</string>
     <string name="toggle_filename">显示文件名</string>
+    <string name="show_media">Show media</string>
+    <string name="images">Images only</string>
+    <string name="videos">Videos only</string>
+    <string name="images_and_videos">Images and videos</string>
 
     <!-- License -->
     <string name="notice">This app uses the following third party libraries to make my life easier. Thank you.</string>
