@@ -112,16 +112,16 @@
 
     <!-- About -->
     <string name="about">О приложении</string>
-    <string name="website">"Больше простых приложений и исходный код по адресу:\nhttp://simplemobiletools.com"</string>
+    <string name="website">Исходный код можно найти по адресу:\nhttp://simplemobiletools.com</string>
     <string name="email_label">Отправить отзывы или предложения:</string>
-    <string name="more_apps_underlined"><u>More apps</u></string>
+    <string name="more_apps_underlined"><u>Больше простых приложений</u></string>
     <string name="third_party_licences_underlined"><u>Лицензии третьих сторон</u></string>
     <string name="invite_friends_underlined"><u>Предложить другу</u></string>
     <string name="share_text">Попробуй %1$s по ссылке %2$s</string>
     <string name="invite_via">Предложить с помощью</string>
-    <string name="rate_us_underlined"><u>Оцените нас в Google Play</u></string>
-    <string name="donate_underlined"><u>Donate</u></string>
-    <string name="follow_us">Подписывайтесь на нас:</string>
+    <string name="rate_us_underlined"><u>Оценить нас в Google Play</u></string>
+    <string name="donate_underlined"><u>Поддержать разработчика</u></string>
+    <string name="follow_us">Подписаться на нас:</string>
     <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>
 
     <!-- Settings -->
@@ -133,7 +133,7 @@
     <string name="toggle_filename">Переключить отображение имени файла</string>
 
     <!-- License -->
-    <string name="notice">"Это приложение использует следующие библиотеки сторонних производителей, чтобы облегчить мой труд. Спасибо."</string>
+    <string name="notice">Это приложение использует следующие библиотеки сторонних разработчиков, чтобы облегчить мой труд. Спасибо.</string>
     <string name="third_party_licences">Лицензии третьих сторон</string>
     <string name="kotlin_title"><u>Kotlin (язык программирования)</u></string>
     <string name="subsampling_title"><u>Subsampling Scale Image View (возможность масштабирования изображений)</u></string>
