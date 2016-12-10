@@ -18,12 +18,14 @@ class AboutActivity : SimpleActivity() {
         setContentView(R.layout.activity_about)
 
         setupEmail()
-        setupCopyright()
+        setupMoreApps()
         setupRateUs()
         setupInvite()
         setupLicense()
+        setupDonate()
         setupFacebook()
         setupGPlus()
+        setupCopyright()
     }
 
     private fun setupEmail() {
@@ -32,6 +34,12 @@ class AboutActivity : SimpleActivity() {
         val href = "<a href=\"mailto:$email?subject=$appName\">$email</a>"
         about_email.text = Html.fromHtml(href)
         about_email.movementMethod = LinkMovementMethod.getInstance()
+    }
+
+    private fun setupMoreApps() {
+        about_more_apps.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/dev?id=9070296388022589266")))
+        }
     }
 
     private fun setupCopyright() {
@@ -73,6 +81,12 @@ class AboutActivity : SimpleActivity() {
         about_license.setOnClickListener {
             val intent = Intent(applicationContext, LicenseActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+    fun setupDonate() {
+        about_donate.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://simplemobiletools.github.io/donate")))
         }
     }
 
