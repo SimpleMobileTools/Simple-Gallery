@@ -113,11 +113,13 @@
     <string name="about">Über</string>
     <string name="website">Weitere einfache Apps und Quellcode findest du auf:\nhttp://simplemobiletools.com</string>
     <string name="email_label">Sende Vorschläge und Feedback an:</string>
+    <string name="more_apps_underlined"><u>More apps</u></string>
     <string name="third_party_licences_underlined"><u>Drittanbieterlizenzen</u></string>
     <string name="invite_friends_underlined"><u>Lade Freunde ein</u></string>
     <string name="share_text">Hey, wirf mal einen Blick auf %1$s: %2$s</string>
     <string name="invite_via">Einladen via</string>
     <string name="rate_us_underlined"><u>Bewerte uns im Play Store</u></string>
+    <string name="donate_underlined"><u>Donate</u></string>
     <string name="follow_us">Folge uns:</string>
     <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>
 
@@ -142,6 +144,7 @@
     <string name="fileproperties_title"><u>Simple File Properties (properties dialog)</u></string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">A gallery for viewing photos and videos without ads.</string>
     <string name="app_long_description">
         A simple tool usable for viewing photos and videos. Items can be sorted by date, size, name both ascending or descending, photos can be zoomed in. Media files are shown in multiple columns, depending on the size of the display. They can be renamed, shared, deleted, copied, moved. Images can also be cropped, rotated or set as Wallpaper directly from the app.

@@ -113,11 +113,13 @@
     <string name="about">アプリについて</string>
     <string name="website">もっとシンプルなアプリとソースコードは:\nhttp://simplemobiletools.com</string>
     <string name="email_label">ご意見やご提案をお送りください:</string>
+    <string name="more_apps_underlined"><u>More apps</u></string>
     <string name="third_party_licences_underlined"><u>サードパーティー ライセンス</u></string>
     <string name="invite_friends_underlined"><u>友達を招待</u></string>
     <string name="share_text">%2$s で %1$s を確認してください</string>
     <string name="invite_via">招待...</string>
     <string name="rate_us_underlined"><u>Play ストアで評価してください</u></string>
+    <string name="donate_underlined"><u>Donate</u></string>
     <string name="follow_us">フォローしてください:</string>
     <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>
 
@@ -142,6 +144,7 @@
     <string name="fileproperties_title"><u>Simple File Properties (プロパティ ダイアログ)</u></string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">写真やビデオを見るためのギャラリー。広告はありません。</string>
     <string name="app_long_description">
         写真やビデオを見るためのシンプルなツール。 日付、サイズ、名前で、昇順または降順にアイテムを並べ替えることができ、写真は拡大表示できます。 メディアファイルは、ディスプレイのサイズに応じて複数の列に表示されます。 名前の変更、共有、削除、コピー、移動が可能です。 画像をトリミング、回転、または壁紙としてアプリから直接設定することもできます。
