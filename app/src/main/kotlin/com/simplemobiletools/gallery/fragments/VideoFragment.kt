@@ -289,6 +289,9 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
         if (activity == null)
             return
 
+        if (mMediaPlayer == null)
+            initMediaPlayer()
+
         val videoProportion = mMediaPlayer!!.videoWidth.toFloat() / mMediaPlayer!!.videoHeight.toFloat()
         val display = activity.windowManager.defaultDisplay
         val screenWidth: Int
