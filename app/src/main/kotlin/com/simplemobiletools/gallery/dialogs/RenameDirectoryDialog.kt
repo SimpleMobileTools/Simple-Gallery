@@ -69,7 +69,7 @@ class RenameDirectoryDialog(val activity: SimpleActivity, val dir: File, val cal
 
     private fun sendSuccess(updatedFiles: ArrayList<String>, newDir: File) {
         activity.toast(R.string.renaming_folder)
-        val files = if (newDir.isDirectory) newDir.listFiles() else arrayOf()
+        val files = if (newDir.isDirectory) newDir.listFiles() else arrayOf<File>()
         files.mapTo(updatedFiles) { it.absolutePath }
 
         updatedFiles.add(newDir.absolutePath)
