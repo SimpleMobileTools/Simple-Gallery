@@ -50,7 +50,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             mIsGetAnyIntent = getBooleanExtra(GET_ANY_INTENT, false)
         }
 
-        handleZooming()
         media_holder.setOnRefreshListener({ getMedia() })
         mPath = intent.getStringExtra(DIRECTORY)
         mMedia = ArrayList<Medium>()
@@ -69,6 +68,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             val dirName = getHumanizedFilename(mPath)
             title = if (mShowAll) resources.getString(R.string.all_folders) else dirName
             getMedia()
+            handleZooming()
         } else {
             finish()
         }
@@ -203,17 +203,18 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun handleZooming() {
         val layoutManager = media_grid.layoutManager as GridLayoutManager
+        layoutManager.spanCount = mConfig.mediaColumnCnt
         MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.ZoomListener {
             override fun zoomIn() {
                 if (layoutManager.spanCount > 1) {
-                    layoutManager.spanCount--
+                    mConfig.mediaColumnCnt = --layoutManager.spanCount
                     MediaAdapter.actMode?.finish()
                 }
             }
 
             override fun zoomOut() {
                 if (layoutManager.spanCount < 10) {
-                    layoutManager.spanCount++
+                    mConfig.mediaColumnCnt = ++layoutManager.spanCount
                     MediaAdapter.actMode?.finish()
                 }
             }

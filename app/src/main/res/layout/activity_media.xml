@@ -12,6 +12,6 @@
         android:layout_height="match_parent"
         android:scrollbars="vertical"
         app:layoutManager="android.support.v7.widget.GridLayoutManager"
-        app:spanCount="@integer/photo_columns"/>
+        app:spanCount="@integer/media_columns"/>
 
 </android.support.v4.widget.SwipeRefreshLayout>

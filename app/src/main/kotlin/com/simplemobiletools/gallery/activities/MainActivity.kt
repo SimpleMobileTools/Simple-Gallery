@@ -62,7 +62,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mToBeDeleted = ArrayList<String>()
         directories_holder.setOnRefreshListener({ getDirectories() })
         mDirs = ArrayList<Directory>()
-        handleZooming()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -120,6 +119,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 showAllMedia()
             else
                 getDirectories()
+            handleZooming()
         } else {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), STORAGE_PERMISSION)
         }
@@ -234,17 +234,18 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun handleZooming() {
         val layoutManager = directories_grid.layoutManager as GridLayoutManager
+        layoutManager.spanCount = mConfig.dirColumnCnt
         MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.ZoomListener {
             override fun zoomIn() {
                 if (layoutManager.spanCount > 1) {
-                    layoutManager.spanCount--
+                    mConfig.dirColumnCnt = --layoutManager.spanCount
                     DirectoryAdapter.actMode?.finish()
                 }
             }
 
             override fun zoomOut() {
                 if (layoutManager.spanCount < 10) {
-                    layoutManager.spanCount++
+                    mConfig.dirColumnCnt = ++layoutManager.spanCount
                     DirectoryAdapter.actMode?.finish()
                 }
             }

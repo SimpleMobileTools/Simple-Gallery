@@ -1,4 +1,4 @@
 <resources>
     <integer name="directory_columns">3</integer>
-    <integer name="photo_columns">5</integer>
+    <integer name="media_columns">5</integer>
 </resources>

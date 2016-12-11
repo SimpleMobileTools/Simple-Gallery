@@ -2,9 +2,10 @@ package com.simplemobiletools.gallery.helpers
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.simplemobiletools.gallery.R
 import java.util.*
 
-class Config private constructor(context: Context) {
+class Config private constructor(val context: Context) {
     private val mPrefs: SharedPreferences
 
     companion object {
@@ -100,4 +101,12 @@ class Config private constructor(context: Context) {
     var showMedia: Int
         get() = mPrefs.getInt(SHOW_MEDIA, IMAGES_AND_VIDEOS)
         set(showMedia) = mPrefs.edit().putInt(SHOW_MEDIA, showMedia).apply()
+
+    var dirColumnCnt: Int
+        get() = mPrefs.getInt(DIR_COLUMN_CNT, context.resources.getInteger(R.integer.directory_columns))
+        set(dirColumnCnt) = mPrefs.edit().putInt(DIR_COLUMN_CNT, dirColumnCnt).apply()
+
+    var mediaColumnCnt: Int
+        get() = mPrefs.getInt(MEDIA_COLUMN_CNT, context.resources.getInteger(R.integer.media_columns))
+        set(mediaColumnCnt) = mPrefs.edit().putInt(MEDIA_COLUMN_CNT, mediaColumnCnt).apply()
 }
