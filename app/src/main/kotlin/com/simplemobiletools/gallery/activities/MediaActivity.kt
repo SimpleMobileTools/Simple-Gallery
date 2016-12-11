@@ -50,29 +50,13 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             mIsGetAnyIntent = getBooleanExtra(GET_ANY_INTENT, false)
         }
 
+        handleZooming()
         media_holder.setOnRefreshListener({ getMedia() })
         mPath = intent.getStringExtra(DIRECTORY)
         mMedia = ArrayList<Medium>()
         mShowAll = mConfig.showAll
         if (mShowAll)
             supportActionBar?.setDisplayHomeAsUpEnabled(false)
-
-        val layoutManager = media_grid.layoutManager as GridLayoutManager
-        MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.ZoomListener {
-            override fun zoomIn() {
-                if (layoutManager.spanCount > 1) {
-                    layoutManager.spanCount--
-                    MediaAdapter.actMode?.finish()
-                }
-            }
-
-            override fun zoomOut() {
-                if (layoutManager.spanCount < 10) {
-                    layoutManager.spanCount++
-                    MediaAdapter.actMode?.finish()
-                }
-            }
-        }
     }
 
     override fun onResume() {
@@ -215,6 +199,25 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             true
         } else
             false
+    }
+
+    private fun handleZooming() {
+        val layoutManager = media_grid.layoutManager as GridLayoutManager
+        MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.ZoomListener {
+            override fun zoomIn() {
+                if (layoutManager.spanCount > 1) {
+                    layoutManager.spanCount--
+                    MediaAdapter.actMode?.finish()
+                }
+            }
+
+            override fun zoomOut() {
+                if (layoutManager.spanCount < 10) {
+                    layoutManager.spanCount++
+                    MediaAdapter.actMode?.finish()
+                }
+            }
+        }
     }
 
     override fun deleteFiles(files: ArrayList<File>) {
