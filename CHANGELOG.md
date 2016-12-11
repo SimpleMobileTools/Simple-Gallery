@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 1.51 *(2016-12-11)*
+----------------------------
+
+ * Allow changing the column count by pinching
+
 Version 1.50 *(2016-12-10)*
 ----------------------------
 
