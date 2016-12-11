@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityCompat
+import android.support.v7.widget.GridLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -20,6 +21,7 @@ import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
 import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Directory
+import com.simplemobiletools.gallery.views.MyScalableRecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 import java.util.*
@@ -60,6 +62,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mToBeDeleted = ArrayList<String>()
         directories_holder.setOnRefreshListener({ getDirectories() })
         mDirs = ArrayList<Directory>()
+        handleZooming()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -227,6 +230,25 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mSnackbar!!.dismiss()
         mToBeDeleted.clear()
         getDirectories()
+    }
+
+    private fun handleZooming() {
+        val layoutManager = directories_grid.layoutManager as GridLayoutManager
+        MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.ZoomListener {
+            override fun zoomIn() {
+                if (layoutManager.spanCount > 1) {
+                    layoutManager.spanCount--
+                    DirectoryAdapter.actMode?.finish()
+                }
+            }
+
+            override fun zoomOut() {
+                if (layoutManager.spanCount < 10) {
+                    layoutManager.spanCount++
+                    DirectoryAdapter.actMode?.finish()
+                }
+            }
+        }
     }
 
     private fun isPickImageIntent(intent: Intent) = isPickIntent(intent) && (hasImageContentData(intent) || isImageType(intent))
