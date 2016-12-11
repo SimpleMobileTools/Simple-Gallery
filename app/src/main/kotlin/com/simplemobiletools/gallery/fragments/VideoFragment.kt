@@ -289,9 +289,7 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
         if (activity == null)
             return
 
-        if (mMediaPlayer == null)
-            initMediaPlayer()
-
+        initMediaPlayer()
         val videoProportion = mMediaPlayer!!.videoWidth.toFloat() / mMediaPlayer!!.videoHeight.toFloat()
         val display = activity.windowManager.defaultDisplay
         val screenWidth: Int
@@ -344,9 +342,7 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
     }
 
     override fun onStartTrackingTouch(seekBar: SeekBar) {
-        if (mMediaPlayer == null)
-            initMediaPlayer()
-
+        initMediaPlayer()
         mMediaPlayer!!.pause()
         mIsDragged = true
     }
