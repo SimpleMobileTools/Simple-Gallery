@@ -32,7 +32,7 @@
     <string name="source">Origem</string>
     <string name="destination">Destino</string>
     <string name="select_destination">Selecione o destino</string>
-    <string name="other_folder">Other folder</string>
+    <string name="other_folder">Outra pasta</string>
     <string name="invalid_destination">Não foi possível escrever no destino selecionado</string>
     <string name="please_select_destination">Por favor selecione um destino</string>
     <string name="source_and_destination_same">A origem e o destino não podem ser iguais</string>
@@ -46,8 +46,8 @@
     <string name="moving_success_partial">Alguns ficheiros não foram movidos</string>
     <string name="copying_success_partial">Alguns ficheiros não foram copiados</string>
     <string name="invalid_name">O nome contém caracteres inválidos</string>
-    <string name="show_all">Mostrar todos os ficheiros multimédia</string>
-    <string name="all_folders">Multimédia</string>
+    <string name="show_all">Mostrar conteúdo de todas as pastas</string>
+    <string name="all_folders">Todas as pastas</string>
     <string name="folder_view">Alternar para a vista de pastas</string>
     <string name="select_all">Selecionar tudo</string>
 
@@ -113,13 +113,13 @@
     <string name="about">Acerca</string>
     <string name="website">Mais aplicações Simple e código fonte em:\nhttp://simplemobiletools.com</string>
     <string name="email_label">Envie os seus comentários ou sugestões para:</string>
-    <string name="more_apps_underlined"><u>More apps</u></string>
+    <string name="more_apps_underlined"><u>Mais aplicações</u></string>
     <string name="third_party_licences_underlined"><u>Licenças de terceiros</u></string>
     <string name="invite_friends_underlined"><u>Convidar amigos</u></string>
     <string name="share_text">Olá, experimenta %1$s em %2$s</string>
     <string name="invite_via">Convidar via</string>
     <string name="rate_us_underlined"><u>Avalie-nos na Play Store</u></string>
-    <string name="donate_underlined"><u>Donate</u></string>
+    <string name="donate_underlined"><u>Donativos</u></string>
     <string name="follow_us">Siga-nos:</string>
     <string name="copyright">V %1$s\nCopyright © Simple Mobile Tools %2$d</string>
 
@@ -130,10 +130,10 @@
     <string name="show_hidden_folders">Mostrar pastas ocultas</string>
     <string name="autoplay_videos">Reproduzir vídeos automaticamente</string>
     <string name="toggle_filename">Mostrar/ocultar nome do ficheiro</string>
-    <string name="show_media">Show media</string>
-    <string name="images">Images only</string>
-    <string name="videos">Videos only</string>
-    <string name="images_and_videos">Images and videos</string>
+    <string name="show_media">Mostrar multimédia</string>
+    <string name="images">Apenas imagens</string>
+    <string name="videos">Apenas vídeos</string>
+    <string name="images_and_videos">Imagens e vídeos</string>
 
     <!-- License -->
     <string name="notice">Esta aplicação usa as seguintes bibliotecas de terceiros para facilitar a minha vida. Obrigado.</string>
