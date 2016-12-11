@@ -177,4 +177,11 @@
 
         This app is just one piece of a bigger series of apps. You can find the rest of them at http://www.simplemobiletools.com
     </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/library/src/main/res
+        https://github.com/SimpleMobileTools/Simple-File-Picker/tree/master/library/src/main/res
+        https://github.com/SimpleMobileTools/Simple-File-Properties/tree/master/library/src/main/res
+    -->
 </resources>
