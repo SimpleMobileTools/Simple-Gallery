@@ -6,6 +6,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
+import android.support.v7.widget.GridLayoutManager
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -20,6 +21,7 @@ import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
 import com.simplemobiletools.gallery.extensions.getHumanizedFilename
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
+import com.simplemobiletools.gallery.views.MyScalableRecyclerView
 import kotlinx.android.synthetic.main.activity_media.*
 import java.io.File
 import java.io.IOException
@@ -54,6 +56,23 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         mShowAll = mConfig.showAll
         if (mShowAll)
             supportActionBar?.setDisplayHomeAsUpEnabled(false)
+
+        val layoutManager = media_grid.layoutManager as GridLayoutManager
+        MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.ZoomListener {
+            override fun zoomIn() {
+                if (layoutManager.spanCount > 1) {
+                    layoutManager.spanCount--
+                    MediaAdapter.actMode?.finish()
+                }
+            }
+
+            override fun zoomOut() {
+                if (layoutManager.spanCount < 10) {
+                    layoutManager.spanCount++
+                    MediaAdapter.actMode?.finish()
+                }
+            }
+        }
     }
 
     override fun onResume() {
