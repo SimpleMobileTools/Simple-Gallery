@@ -9,9 +9,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.davemorrissey.labs.subscaleview.ImageSource
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
-import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.getRealPathFromURI
+import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.pager_photo_item.view.*
 
@@ -32,7 +32,7 @@ class PhotoFragment : ViewPagerFragment(), View.OnClickListener {
             view.gif_view.apply {
                 visibility = View.VISIBLE
                 Glide.with(context).load(medium.path).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).into(this)
-                this.setOnClickListener(this@PhotoFragment)
+                setOnClickListener(this@PhotoFragment)
             }
         } else {
             subsamplingView.apply {
