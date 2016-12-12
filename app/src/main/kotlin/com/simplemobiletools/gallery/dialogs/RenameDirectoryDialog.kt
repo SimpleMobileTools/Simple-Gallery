@@ -19,7 +19,7 @@ class RenameDirectoryDialog(val activity: SimpleActivity, val dir: File, val cal
         view.directory_path.text = "${activity.humanizePath(dir.parent)}/"
 
         AlertDialog.Builder(activity)
-                .setTitle(activity.resources.getString(R.string.rename_folder))
+                .setTitle(R.string.rename_folder)
                 .setView(view)
                 .setPositiveButton(R.string.ok, null)
                 .setNegativeButton(R.string.cancel, null)

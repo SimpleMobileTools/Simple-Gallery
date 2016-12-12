@@ -28,7 +28,7 @@ class RenameFileDialog(val activity: SimpleActivity, val file: File, val callbac
         view.file_path.text = "${activity.humanizePath(file.parent)}/"
 
         AlertDialog.Builder(activity)
-                .setTitle(activity.resources.getString(R.string.rename_file))
+                .setTitle(R.string.rename_file)
                 .setView(view)
                 .setPositiveButton(R.string.ok, null)
                 .setNegativeButton(R.string.cancel, null)

@@ -33,7 +33,7 @@ class CopyDialog(val activity: SimpleActivity, val files: ArrayList<File>, val c
         }
 
         AlertDialog.Builder(activity)
-                .setTitle(activity.resources.getString(if (files.size == 1) R.string.copy_item else R.string.copy_items))
+                .setTitle(if (files.size == 1) R.string.copy_item else R.string.copy_items)
                 .setView(view)
                 .setPositiveButton(R.string.ok, null)
                 .setNegativeButton(R.string.cancel, null)

@@ -22,7 +22,7 @@ class PickAlbumDialog(val activity: SimpleActivity, val callback: (path: String)
         directoriesGrid = view.directories_grid
 
         dialog = AlertDialog.Builder(activity)
-                .setTitle(activity.resources.getString(R.string.select_destination))
+                .setTitle(R.string.select_destination)
                 .setView(view)
                 .setNeutralButton(R.string.other_folder, { dialogInterface, i -> showOtherFolder() })
                 .setPositiveButton(R.string.ok, null)
