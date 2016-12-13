@@ -21,6 +21,7 @@
     <string name="show_all">Show all folders content</string>
     <string name="all_folders">All media</string>
     <string name="folder_view">Switch to folder view</string>
+    <string name="other_folder">Other folder</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 carpeta eliminada</item>

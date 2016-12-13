@@ -21,6 +21,7 @@
     <string name="show_all">Отобразить все медиафайлы</string>
     <string name="all_folders">Все медиафайлы</string>
     <string name="folder_view">Переключиться к виду с папками</string>
+    <string name="other_folder">Другая папка</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 папка удалена</item>

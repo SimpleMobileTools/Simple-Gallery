@@ -21,6 +21,7 @@
     <string name="show_all">Mostrar conteúdo de todas as pastas</string>
     <string name="all_folders">Todas as pastas</string>
     <string name="folder_view">Alternar para a vista de pastas</string>
+    <string name="other_folder">Outra pasta</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 pasta apagada</item>
