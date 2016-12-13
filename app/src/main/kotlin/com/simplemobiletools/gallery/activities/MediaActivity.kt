@@ -19,6 +19,9 @@ import com.simplemobiletools.gallery.adapters.MediaAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
 import com.simplemobiletools.gallery.extensions.getHumanizedFilename
+import com.simplemobiletools.gallery.extensions.launchAbout
+import com.simplemobiletools.gallery.extensions.launchCamera
+import com.simplemobiletools.gallery.extensions.launchSettings
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
 import com.simplemobiletools.gallery.views.MyScalableRecyclerView
@@ -53,7 +56,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         media_holder.setOnRefreshListener({ getMedia() })
         mPath = intent.getStringExtra(DIRECTORY)
         mMedia = ArrayList<Medium>()
-        mShowAll = mConfig.showAll
+        mShowAll = config.showAll
         if (mShowAll)
             supportActionBar?.setDisplayHomeAsUpEnabled(false)
     }
@@ -93,14 +96,16 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_media, menu)
 
-        val isFolderHidden = mConfig.getIsFolderHidden(mPath)
-        menu.findItem(R.id.hide_folder).isVisible = !isFolderHidden && !mShowAll
-        menu.findItem(R.id.unhide_folder).isVisible = isFolderHidden && !mShowAll
+        val isFolderHidden = config.getIsFolderHidden(mPath)
+        menu.apply {
+            findItem(R.id.hide_folder).isVisible = !isFolderHidden && !mShowAll
+            findItem(R.id.unhide_folder).isVisible = isFolderHidden && !mShowAll
 
-        menu.findItem(R.id.folder_view).isVisible = mShowAll
-        menu.findItem(R.id.open_camera).isVisible = mShowAll
-        menu.findItem(R.id.settings).isVisible = mShowAll
-        menu.findItem(R.id.about).isVisible = mShowAll
+            findItem(R.id.folder_view).isVisible = mShowAll
+            findItem(R.id.open_camera).isVisible = mShowAll
+            findItem(R.id.settings).isVisible = mShowAll
+            findItem(R.id.about).isVisible = mShowAll
+        }
 
         return true
     }
@@ -144,9 +149,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun toggleFilenameVisibility() {
-        mConfig.displayFileNames = !mConfig.displayFileNames
+        config.displayFileNames = !config.displayFileNames
         if (media_grid.adapter != null)
-            (media_grid.adapter as MediaAdapter).updateDisplayFilenames(mConfig.displayFileNames)
+            (media_grid.adapter as MediaAdapter).updateDisplayFilenames(config.displayFileNames)
     }
 
     private fun showSortingDialog() {
@@ -156,22 +161,22 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun switchToFolderView() {
-        mConfig.showAll = false
+        config.showAll = false
         startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
 
     private fun hideFolder() {
-        mConfig.addHiddenFolder(mPath)
+        config.addHiddenFolder(mPath)
 
-        if (!mConfig.showHiddenFolders)
+        if (!config.showHiddenFolders)
             finish()
         else
             invalidateOptionsMenu()
     }
 
     private fun unhideFolder() {
-        mConfig.removeHiddenFolder(mPath)
+        config.removeHiddenFolder(mPath)
         invalidateOptionsMenu()
     }
 
@@ -203,18 +208,18 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun handleZooming() {
         val layoutManager = media_grid.layoutManager as GridLayoutManager
-        layoutManager.spanCount = mConfig.mediaColumnCnt
+        layoutManager.spanCount = config.mediaColumnCnt
         MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.ZoomListener {
             override fun zoomIn() {
                 if (layoutManager.spanCount > 1) {
-                    mConfig.mediaColumnCnt = --layoutManager.spanCount
+                    config.mediaColumnCnt = --layoutManager.spanCount
                     MediaAdapter.actMode?.finish()
                 }
             }
 
             override fun zoomOut() {
                 if (layoutManager.spanCount < 10) {
-                    mConfig.mediaColumnCnt = ++layoutManager.spanCount
+                    config.mediaColumnCnt = ++layoutManager.spanCount
                     MediaAdapter.actMode?.finish()
                 }
             }
@@ -228,7 +233,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                         if (isShowingPermDialog(it))
                             return
 
-                        val document = getFileDocument(it.absolutePath, mConfig.treeUri)
+                        val document = getFileDocument(it.absolutePath, config.treeUri)
 
                         // double check we have the uri to the proper file path, not some parent folder
                         if (document.uri.toString().endsWith(it.absolutePath.getFilenameFromPath()) && !document.isDirectory) {

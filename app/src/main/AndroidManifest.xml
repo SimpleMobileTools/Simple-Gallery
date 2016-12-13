@@ -66,14 +66,14 @@
         </activity>
 
         <activity
-            android:name=".activities.AboutActivity"
+            android:name="com.simplemobiletools.commons.activities.AboutActivity"
             android:label="@string/about"
             android:parentActivityName=".activities.MainActivity"/>
 
         <activity
             android:name=".activities.LicenseActivity"
             android:label="@string/third_party_licences"
-            android:parentActivityName=".activities.AboutActivity"/>
+            android:parentActivityName="com.simplemobiletools.commons.activities.AboutActivity"/>
 
         <activity
             android:name=".activities.SettingsActivity"

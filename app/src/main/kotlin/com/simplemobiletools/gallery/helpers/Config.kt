@@ -2,10 +2,11 @@ package com.simplemobiletools.gallery.helpers
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.simplemobiletools.commons.helpers.BaseConfig
 import com.simplemobiletools.gallery.R
 import java.util.*
 
-class Config private constructor(val context: Context) {
+class Config(val context: Context) : BaseConfig(context) {
     private val mPrefs: SharedPreferences
 
     companion object {
@@ -15,14 +16,6 @@ class Config private constructor(val context: Context) {
     init {
         mPrefs = context.getSharedPreferences(PREFS_KEY, Context.MODE_PRIVATE)
     }
-
-    var isFirstRun: Boolean
-        get() = mPrefs.getBoolean(IS_FIRST_RUN, true)
-        set(isFirstRun) = mPrefs.edit().putBoolean(IS_FIRST_RUN, isFirstRun).apply()
-
-    var isDarkTheme: Boolean
-        get() = mPrefs.getBoolean(IS_DARK_THEME, true)
-        set(isDarkTheme) = mPrefs.edit().putBoolean(IS_DARK_THEME, isDarkTheme).apply()
 
     var isSameSorting: Boolean
         get() = mPrefs.getBoolean(IS_SAME_SORTING, true)
@@ -89,10 +82,6 @@ class Config private constructor(val context: Context) {
     var autoplayVideos: Boolean
         get() = mPrefs.getBoolean(AUTOPLAY_VIDEOS, false)
         set(autoplay) = mPrefs.edit().putBoolean(AUTOPLAY_VIDEOS, autoplay).apply()
-
-    var treeUri: String
-        get() = mPrefs.getString(TREE_URI, "")
-        set(uri) = mPrefs.edit().putString(TREE_URI, uri).apply()
 
     var displayFileNames: Boolean
         get() = mPrefs.getBoolean(DISPLAY_FILE_NAMES, false)

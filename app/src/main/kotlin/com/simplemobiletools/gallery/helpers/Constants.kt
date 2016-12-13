@@ -2,15 +2,12 @@ package com.simplemobiletools.gallery.helpers
 
 // shared preferences
 val PREFS_KEY = "Gallery"
-val IS_FIRST_RUN = "is_first_run"
-val IS_DARK_THEME = "is_dark_theme"
 val IS_SAME_SORTING = "is_same_sorting"
 val SORT_ORDER = "sort_order"
 val DIRECTORY_SORT_ORDER = "directory_sort_order"
 val HIDDEN_FOLDERS = "hidden_folders"
 val SHOW_HIDDEN_FOLDERS = "show_hidden_folders"
 val AUTOPLAY_VIDEOS = "autoplay_videos"
-val TREE_URI = "tree_uri"
 val DISPLAY_FILE_NAMES = "display_file_names"
 val PINNED_FOLDERS = "pinned_folders"
 val DIR_COLUMN_CNT = "dir_column_cnt"
@@ -23,11 +20,8 @@ val SORT_BY_NAME = 1
 val SORT_BY_DATE_MODIFIED = 2
 val SORT_BY_SIZE = 4
 val SORT_BY_DATE_TAKEN = 8
-
 val SORT_DESCENDING = 1024
 
-// global intents
-val OPEN_DOCUMENT_TREE = 1000
 
 val DIRECTORY = "directory"
 val MEDIUM = "medium"

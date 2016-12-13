@@ -1,10 +1,13 @@
 package com.simplemobiletools.gallery.extensions
 
 import android.content.Context
+import android.content.Intent
 import android.database.Cursor
 import android.net.Uri
 import android.provider.MediaStore
+import com.simplemobiletools.commons.activities.AboutActivity
 import com.simplemobiletools.filepicker.extensions.humanizePath
+import com.simplemobiletools.gallery.activities.SettingsActivity
 
 fun Context.getRealPathFromURI(uri: Uri): String? {
     var cursor: Cursor? = null
@@ -24,4 +27,16 @@ fun Context.getRealPathFromURI(uri: Uri): String? {
 fun Context.getHumanizedFilename(path: String): String {
     val humanized = humanizePath(path)
     return humanized.substring(humanized.lastIndexOf("/") + 1)
+}
+
+fun Context.launchCamera() {
+    startActivity(Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA))
+}
+
+fun Context.launchSettings() {
+    startActivity(Intent(this, SettingsActivity::class.java))
+}
+
+fun Context.launchAbout() {
+    startActivity(Intent(this, AboutActivity::class.java))
 }

@@ -19,10 +19,7 @@ import com.simplemobiletools.gallery.adapters.MyPagerAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.dialogs.RenameFileDialog
-import com.simplemobiletools.gallery.extensions.openEditor
-import com.simplemobiletools.gallery.extensions.openWith
-import com.simplemobiletools.gallery.extensions.setAsWallpaper
-import com.simplemobiletools.gallery.extensions.shareMedium
+import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.helpers.REQUEST_EDIT_IMAGE
@@ -66,7 +63,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         } else {
             mPath = intent.getStringExtra(MEDIUM)
-            mShowAll = mConfig.showAll
+            mShowAll = config.showAll
         }
 
         if (mPath.isEmpty()) {
@@ -204,7 +201,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         if (needsStupidWritePermissions(mPath)) {
             if (!isShowingPermDialog(file)) {
-                val document = getFileDocument(mPath, mConfig.treeUri)
+                val document = getFileDocument(mPath, config.treeUri)
                 if (document.uri.toString().endsWith(file.absolutePath.getFilenameFromPath()) && !document.isDirectory)
                     document.delete()
             }

@@ -19,6 +19,9 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
 import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
+import com.simplemobiletools.gallery.extensions.launchAbout
+import com.simplemobiletools.gallery.extensions.launchCamera
+import com.simplemobiletools.gallery.extensions.launchSettings
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.views.MyScalableRecyclerView
@@ -110,12 +113,12 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     override fun onDestroy() {
         super.onDestroy()
-        mConfig.isFirstRun = false
+        config.isFirstRun = false
     }
 
     private fun tryloadGallery() {
         if (hasStoragePermission()) {
-            if (mConfig.showAll)
+            if (config.showAll)
                 showAllMedia()
             else
                 getDirectories()
@@ -155,7 +158,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun showAllMedia() {
-        mConfig.showAll = true
+        config.showAll = true
         Intent(this, MediaActivity::class.java).apply {
             putExtra(DIRECTORY, "/")
             startActivity(this)
@@ -215,7 +218,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun deleteItem(file: File) {
         if (needsStupidWritePermissions(file.absolutePath)) {
             if (!isShowingPermDialog(file)) {
-                val document = getFileDocument(file.absolutePath, mConfig.treeUri)
+                val document = getFileDocument(file.absolutePath, config.treeUri)
 
                 // double check we have the uri to the proper file path, not some parent folder
                 if (document.uri.toString().endsWith(file.absolutePath.getFilenameFromPath()) && !document.isDirectory)
@@ -234,18 +237,18 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun handleZooming() {
         val layoutManager = directories_grid.layoutManager as GridLayoutManager
-        layoutManager.spanCount = mConfig.dirColumnCnt
+        layoutManager.spanCount = config.dirColumnCnt
         MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.ZoomListener {
             override fun zoomIn() {
                 if (layoutManager.spanCount > 1) {
-                    mConfig.dirColumnCnt = --layoutManager.spanCount
+                    config.dirColumnCnt = --layoutManager.spanCount
                     DirectoryAdapter.actMode?.finish()
                 }
             }
 
             override fun zoomOut() {
                 if (layoutManager.spanCount < 10) {
-                    mConfig.dirColumnCnt = ++layoutManager.spanCount
+                    config.dirColumnCnt = ++layoutManager.spanCount
                     DirectoryAdapter.actMode?.finish()
                 }
             }

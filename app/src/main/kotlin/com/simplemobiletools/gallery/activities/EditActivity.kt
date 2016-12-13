@@ -129,7 +129,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 if (isShowingPermDialog(file))
                     return
 
-                var document = getFileDocument(path, mConfig.treeUri)
+                var document = getFileDocument(path, config.treeUri)
                 if (!file.exists()) {
                     document = document.createFile("", file.name)
                 }
