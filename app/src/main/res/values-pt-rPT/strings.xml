@@ -85,9 +85,9 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Uma galeria para ver fotografias e vídeos.</string>
+    <string name="app_short_description">Uma aplicação para ver fotografias e vídeos.</string>
     <string name="app_long_description">
-        Pode organizar os itens por data, tamanho, nome e ampliar as fotografias. Os ficheiros multimédia são mostrados em colunas e a sua exibição está dependente do tamanho do ecrã. Pode renomear, partilhar, apagar, copiar e mover as fotografias. Também pode recortar, rodar e definir as imagens como fundo do ecrã a partir da aplicação.
+        Uma ferramenta simples para ver fotos e vídeos. Pode organizar os itens por data, tamanho, nome e ampliar as fotografias. Os ficheiros multimédia são mostrados em colunas e a sua exibição está dependente do tamanho do ecrã, podendo alterar o número de colunas através de gestos. Pode renomear, partilhar, apagar, copiar e mover as fotografias. Também pode recortar, rodar e definir as imagens como fundo do ecrã a partir da aplicação.
 
 
         Também pode ser utilizada para pré-visualizar imagens e vídeos ou para adicionar como anexos ao e-mail, entre outros. É perfeita para a utilização diária.
@@ -98,7 +98,7 @@
     </string>
 
     <!--
-        Haven't found some strings? There's more at
+        Não encontrou todas as cadeias a traduzir? Existem mais algumas em:
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/library/src/main/res
         https://github.com/SimpleMobileTools/Simple-File-Picker/tree/master/library/src/main/res
         https://github.com/SimpleMobileTools/Simple-File-Properties/tree/master/library/src/main/res
