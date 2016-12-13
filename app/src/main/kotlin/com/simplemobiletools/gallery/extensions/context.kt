@@ -5,7 +5,6 @@ import android.content.Intent
 import android.database.Cursor
 import android.net.Uri
 import android.provider.MediaStore
-import com.simplemobiletools.commons.activities.AboutActivity
 import com.simplemobiletools.filepicker.extensions.humanizePath
 import com.simplemobiletools.gallery.activities.SettingsActivity
 
@@ -35,8 +34,4 @@ fun Context.launchCamera() {
 
 fun Context.launchSettings() {
     startActivity(Intent(this, SettingsActivity::class.java))
-}
-
-fun Context.launchAbout() {
-    startActivity(Intent(this, AboutActivity::class.java))
 }

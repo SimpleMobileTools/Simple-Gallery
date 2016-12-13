@@ -71,7 +71,7 @@
             android:parentActivityName=".activities.MainActivity"/>
 
         <activity
-            android:name=".activities.LicenseActivity"
+            android:name="com.simplemobiletools.commons.activities.LicenseActivity"
             android:label="@string/third_party_licences"
             android:parentActivityName="com.simplemobiletools.commons.activities.AboutActivity"/>
 

@@ -10,9 +10,11 @@ import android.view.KeyCharacterMap
 import android.view.KeyEvent
 import android.view.View
 import android.view.ViewConfiguration
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.filepicker.extensions.getMimeType
 import com.simplemobiletools.filepicker.extensions.toast
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.helpers.REQUEST_EDIT_IMAGE
 import com.simplemobiletools.gallery.helpers.REQUEST_SET_WALLPAPER
 import com.simplemobiletools.gallery.models.Medium
@@ -105,6 +107,11 @@ fun Activity.hasNavBar(): Boolean {
         val hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK)
         !hasMenuKey && !hasBackKey
     }
+}
+
+fun SimpleActivity.launchAbout() {
+    startAboutActivity(R.string.app_name, LICENSE_KOTLIN or LICENSE_SUBSAMPLING or LICENSE_GLIDE or LICENSE_CROPPER or
+            LICENSE_MULTISELECT or LICENSE_RTL or LICENSE_FILEPICKER or LICENSE_FILEPROPERTIES)
 }
 
 fun AppCompatActivity.showSystemUI() {
