@@ -1,21 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">相册</string>
     <string name="app_launcher_name">相册</string>
     <string name="share_via">分享到</string>
     <string name="no_permissions">需要访问储存权限</string>
-    <string name="delete">删除</string>
     <string name="deleting">删除中</string>
-    <string name="rename">重命名</string>
     <string name="edit">编辑</string>
     <string name="undo">撤销</string>
-    <string name="share">分享</string>
-    <string name="properties">信息</string>
     <string name="file_deleted">文件删除成功</string>
     <string name="open_camera">打开相机</string>
     <string name="unknown_error">未知错误</string>
-    <string name="ok">确认</string>
-    <string name="cancel">取消</string>
     <string name="open_with">打开方式</string>
     <string name="no_app_found">没有可用的软件</string>
     <string name="hide_folder">隐藏文件夹</string>
@@ -25,30 +18,9 @@
     <string name="file_saved">文件保存成功</string>
     <string name="pin_folder">Pin folder</string>
     <string name="unpin_folder">Unpin folder</string>
-    <string name="copy">复制</string>
-    <string name="move">移动</string>
-    <string name="copy_move">复制 / 移动</string>
-    <string name="source">原路径</string>
-    <string name="destination">目标</string>
-    <string name="select_destination">选择目标</string>
-    <string name="other_folder">Other folder</string>
-    <string name="invalid_destination">不能写入选中目标</string>
-    <string name="please_select_destination">请选择先目标</string>
-    <string name="source_and_destination_same">原路径和目标不能相同</string>
-    <string name="copy_failed">不能复制文件</string>
-    <string name="copying">正在复制&#8230;</string>
-    <string name="copying_success">复制成功</string>
-    <string name="copy_move_failed">操作失败</string>
-    <string name="moving">移动中&#8230;</string>
-    <string name="moving_success">文件移动成功</string>
-    <string name="already_exists">相同的文件名已经存在</string>
-    <string name="moving_success_partial">相同文件不能移动</string>
-    <string name="copying_success_partial">相同文件不能复制</string>
-    <string name="invalid_name">The name contains invalid characters</string>
     <string name="show_all">Show all folders content</string>
     <string name="all_folders">All folders</string>
     <string name="folder_view">Switch to folder view</string>
-    <string name="select_all">Select all</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 folder deleted</item>
@@ -78,15 +50,6 @@
     <string name="extension">扩展名</string>
     <string name="extension_cannot_be_empty">Extension cannot be empty</string>
 
-    <!-- Sorting -->
-    <string name="sort_by">排序方式</string>
-    <string name="name">名称</string>
-    <string name="size">大小</string>
-    <string name="last_modified">Last modified</string>
-    <string name="date_taken">Date taken</string>
-    <string name="ascending">递增</string>
-    <string name="descending">递减</string>
-
     <!-- Editor -->
     <string name="editor">编辑器</string>
     <string name="save">保存</string>
@@ -108,22 +71,7 @@
     <string name="setting_wallpaper">壁纸应用中&#8230;</string>
     <string name="wallpaper_set_successfully">壁纸应用成功</string>
 
-    <!-- About -->
-    <string name="about">关于</string>
-    <string name="website">更多软件请访问: http://simplemobiletools.com</string>
-    <string name="email_label">反馈您的意见到:</string>
-    <string name="more_apps_underlined"><u>More apps</u></string>
-    <string name="third_party_licences_underlined"><u>开放源代码</u></string>
-    <string name="invite_friends_underlined"><u>分享给好友</u></string>
-    <string name="share_text">Hey, come check out %1$s at %2$s</string>
-    <string name="invite_via">分享到</string>
-    <string name="rate_us_underlined"><u>为我们打分</u></string>
-    <string name="donate_underlined"><u>Donate</u></string>
-    <string name="follow_us">关注我们:</string>
-    <string name="copyright">v %1$s Copyright © Simple Mobile Tools %2$d</string>
-
     <!-- Settings -->
-    <string name="settings">设置</string>
     <string name="dark_theme">暗主题</string>
     <string name="same_sorting">全局排序</string>
     <string name="show_hidden_folders">显示所有</string>
@@ -133,18 +81,6 @@
     <string name="images">Images only</string>
     <string name="videos">Videos only</string>
     <string name="images_and_videos">Images and videos</string>
-
-    <!-- License -->
-    <string name="notice">This app uses the following third party libraries to make my life easier. Thank you.</string>
-    <string name="third_party_licences">开放源代码</string>
-    <string name="kotlin_title"><u>Kotlin (programming language)</u></string>
-    <string name="subsampling_title"><u>Subsampling Scale Image View (zoomable imageviews)</u></string>
-    <string name="glide_title"><u>Glide (image loading and caching)</u></string>
-    <string name="cropper_title"><u>Android Image Cropper (image crop and rotate)</u></string>
-    <string name="multiselect_title"><u>RecyclerView MultiSelect (selecting multiple list items)</u></string>
-    <string name="rtl_viewpager_title"><u>RtlViewPager (for swiping images right to left)</u></string>
-    <string name="filepicker_title"><u>Simple File Picker (filepicker dialog)</u></string>
-    <string name="fileproperties_title"><u>Simple File Properties (properties dialog)</u></string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

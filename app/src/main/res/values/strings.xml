@@ -3,18 +3,12 @@
     <string name="app_launcher_name">Gallery</string>
     <string name="share_via">Share via</string>
     <string name="no_permissions">Not much to do in a gallery without accessing your storage</string>
-    <string name="delete">Delete</string>
     <string name="deleting">Deleting</string>
-    <string name="rename">Rename</string>
     <string name="edit">Edit</string>
     <string name="undo">Undo</string>
-    <string name="share">Share</string>
-    <string name="properties">Properties</string>
     <string name="file_deleted">File deleted</string>
     <string name="open_camera">Open camera</string>
     <string name="unknown_error">An unknown error occurred</string>
-    <string name="ok">OK</string>
-    <string name="cancel">Cancel</string>
     <string name="open_with">Open with</string>
     <string name="no_app_found">No valid app found</string>
     <string name="hide_folder">Hide folder</string>
@@ -24,30 +18,9 @@
     <string name="file_saved">File saved successfully</string>
     <string name="pin_folder">Pin folder</string>
     <string name="unpin_folder">Unpin folder</string>
-    <string name="copy">Copy</string>
-    <string name="move">Move</string>
-    <string name="copy_move">Copy / Move</string>
-    <string name="source">Source</string>
-    <string name="destination">Destination</string>
-    <string name="select_destination">Select destination</string>
-    <string name="other_folder">Other folder</string>
-    <string name="invalid_destination">Could not write to the selected destination</string>
-    <string name="please_select_destination">Please select a destination</string>
-    <string name="source_and_destination_same">Source and destination cannot be the same</string>
-    <string name="copy_failed">Could not copy the files</string>
-    <string name="copying">Copying&#8230;</string>
-    <string name="copying_success">Files copied successfully</string>
-    <string name="copy_move_failed">An error occurred</string>
-    <string name="moving">Moving&#8230;</string>
-    <string name="moving_success">Files moved successfully</string>
-    <string name="already_exists">A file with that name already exists</string>
-    <string name="moving_success_partial">Some files could not be moved</string>
-    <string name="copying_success_partial">Some files could not be copied</string>
-    <string name="invalid_name">The name contains invalid characters</string>
     <string name="show_all">Show all folders content</string>
     <string name="all_folders">All folders</string>
     <string name="folder_view">Switch to folder view</string>
-    <string name="select_all">Select all</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 folder deleted</item>
@@ -77,15 +50,6 @@
     <string name="extension">Extension</string>
     <string name="extension_cannot_be_empty">Extension cannot be empty</string>
 
-    <!-- Sorting -->
-    <string name="sort_by">Sort by</string>
-    <string name="name">Name</string>
-    <string name="size">Size</string>
-    <string name="last_modified">Last modified</string>
-    <string name="date_taken">Date taken</string>
-    <string name="ascending">Ascending</string>
-    <string name="descending">Descending</string>
-
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="save">Save</string>
@@ -107,23 +71,7 @@
     <string name="setting_wallpaper">Setting wallpaper&#8230;</string>
     <string name="wallpaper_set_successfully">Wallpaper set successfully</string>
 
-    <!-- About -->
-    <string name="about">About</string>
-    <string name="website">For the source codes visit\nhttp://simplemobiletools.com</string>
-    <string name="email_label">Send your feedback or suggestions to:</string>
-    <string name="email" translatable="false">hello@simplemobiletools.com</string>
-    <string name="more_apps_underlined"><u>More apps</u></string>
-    <string name="third_party_licences_underlined"><u>Third party licences</u></string>
-    <string name="invite_friends_underlined"><u>Invite friends</u></string>
-    <string name="share_text">Hey, come check out %1$s at %2$s</string>
-    <string name="invite_via">Invite via</string>
-    <string name="rate_us_underlined"><u>Rate us</u></string>
-    <string name="donate_underlined"><u>Donate</u></string>
-    <string name="follow_us">Follow us:</string>
-    <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>
-
     <!-- Settings -->
-    <string name="settings">Settings</string>
     <string name="dark_theme">Dark theme</string>
     <string name="same_sorting">Same sorting for files and folders</string>
     <string name="show_hidden_folders">Show hidden folders</string>
@@ -133,34 +81,6 @@
     <string name="images">Images only</string>
     <string name="videos">Videos only</string>
     <string name="images_and_videos">Images and videos</string>
-
-    <!-- License -->
-    <string name="notice">This app uses the following third party libraries to make my life easier. Thank you.</string>
-    <string name="third_party_licences">Third party licences</string>
-    <string name="kotlin_title"><u>Kotlin (programming language)</u></string>
-    <string name="kotlin_text" translatable="false">Copyright 2010 - 2016 JetBrains s.r.o.\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
-    <string name="kotlin_url" translatable="false">https://github.com/JetBrains/kotlin</string>
-    <string name="subsampling_title"><u>Subsampling Scale Image View (zoomable imageviews)</u></string>
-    <string name="subsampling_text" translatable="false">Copyright 2016 David Morrissey\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
-    <string name="subsampling_url" translatable="false">https://github.com/davemorrissey/subsampling-scale-image-view</string>
-    <string name="glide_title"><u>Glide (image loading and caching)</u></string>
-    <string name="glide_text" translatable="false">Copyright 2014 Google, Inc. All rights reserved.\n\nRedistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n\n1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.\n\n2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.\n\nTHIS SOFTWARE IS PROVIDED BY GOOGLE, INC. ``AS IS\'\' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL GOOGLE, INC. OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</string>
-    <string name="glide_url" translatable="false">https://github.com/bumptech/glide</string>
-    <string name="cropper_title"><u>Android Image Cropper (image crop and rotate)</u></string>
-    <string name="cropper_text" translatable="false">Copyright 2016, Arthur Teplitzki, 2013, Edmodo, Inc.\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this work except in compliance with the License. You may obtain a copy of the License in the LICENSE file, or at:\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</string>
-    <string name="cropper_url" translatable="false">https://github.com/ArthurHub/Android-Image-Cropper</string>
-    <string name="multiselect_title"><u>RecyclerView MultiSelect (selecting multiple list items)</u></string>
-    <string name="multiselect_text" translatable="false">The MIT License (MIT)\n\nCopyright (c) 2014 Big Nerd Ranch\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: \n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. \n\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</string>
-    <string name="multiselect_url" translatable="false">https://github.com/bignerdranch/recyclerview-multiselect</string>
-    <string name="rtl_viewpager_title"><u>RtlViewPager (for swiping images right to left)</u></string>
-    <string name="rtl_viewpager_text" translatable="false">Copyright 2015 Diego Gómez Olvera\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
-    <string name="rtl_viewpager_url" translatable="false">https://github.com/diego-gomez-olvera/RtlViewPager</string>
-    <string name="filepicker_title"><u>Simple File Picker (filepicker dialog)</u></string>
-    <string name="filepicker_text" translatable="false">Copyright 2016 SimpleMobileTools\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
-    <string name="filepicker_url" translatable="false">https://github.com/SimpleMobileTools/Simple-File-Picker</string>
-    <string name="fileproperties_title"><u>Simple File Properties (properties dialog)</u></string>
-    <string name="fileproperties_text" translatable="false">Copyright 2016 SimpleMobileTools\n\nLicensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.You may obtain a copy of the License at\n\nhttp://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.See the License for the specific language governing permissions and limitations under the License.</string>
-    <string name="fileproperties_url" translatable="false">https://github.com/SimpleMobileTools/Simple-File-Properties</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

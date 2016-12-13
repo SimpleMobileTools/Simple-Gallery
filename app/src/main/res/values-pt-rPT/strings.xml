@@ -3,18 +3,12 @@
     <string name="app_launcher_name">Galeria</string>
     <string name="share_via">Partilhar via</string>
     <string name="no_permissions">É necessário o acesso ao armazenamento para a galeria ter utilidade</string>
-    <string name="delete">Apagar</string>
     <string name="deleting">A apagar</string>
-    <string name="rename">Renomear</string>
     <string name="edit">Editar</string>
     <string name="undo">Desfazer</string>
-    <string name="share">Partilhar</string>
-    <string name="properties">Propriedades</string>
     <string name="file_deleted">Ficheiro apagado</string>
     <string name="open_camera">Abrir câmara</string>
     <string name="unknown_error">Ocorreu um erro desconhecido</string>
-    <string name="ok">OK</string>
-    <string name="cancel">Cancelar</string>
     <string name="open_with">Abrir com</string>
     <string name="no_app_found">Nenhuma aplicação encontrada</string>
     <string name="hide_folder">Ocultar pasta</string>
@@ -24,30 +18,9 @@
     <string name="file_saved">Ficheiro guardado com sucesso</string>
     <string name="pin_folder">Fixar pasta</string>
     <string name="unpin_folder">Desafixar pasta</string>
-    <string name="copy">Copiar</string>
-    <string name="move">Mover</string>
-    <string name="copy_move">Copiar / mover para</string>
-    <string name="source">Origem</string>
-    <string name="destination">Destino</string>
-    <string name="select_destination">Selecione o destino</string>
-    <string name="other_folder">Outra pasta</string>
-    <string name="invalid_destination">Não foi possível escrever no destino selecionado</string>
-    <string name="please_select_destination">Por favor selecione um destino</string>
-    <string name="source_and_destination_same">A origem e o destino não podem ser iguais</string>
-    <string name="copy_failed">Não foi possível copiar os ficheiros</string>
-    <string name="copying">A copiar&#8230;</string>
-    <string name="copying_success">Ficheiros copiados com sucesso</string>
-    <string name="copy_move_failed">Ocorreu um erro ao copiar</string>
-    <string name="moving">A mover&#8230;</string>
-    <string name="moving_success">Ficheiros movidos com sucesso</string>
-    <string name="already_exists">Já existe um ficheiro com este nome</string>
-    <string name="moving_success_partial">Alguns ficheiros não foram movidos</string>
-    <string name="copying_success_partial">Alguns ficheiros não foram copiados</string>
-    <string name="invalid_name">O nome contém caracteres inválidos</string>
     <string name="show_all">Mostrar conteúdo de todas as pastas</string>
     <string name="all_folders">Todas as pastas</string>
     <string name="folder_view">Alternar para a vista de pastas</string>
-    <string name="select_all">Selecionar tudo</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 pasta apagada</item>
@@ -77,15 +50,6 @@
     <string name="extension">Extensão</string>
     <string name="extension_cannot_be_empty">A extensão não pode estar vazia</string>
 
-    <!-- Sorting -->
-    <string name="sort_by">Ordenar por</string>
-    <string name="name">Nome</string>
-    <string name="size">Tamanho</string>
-    <string name="last_modified">Data de modificação</string>
-    <string name="date_taken">Data de obtenção</string>
-    <string name="ascending">Ascendente</string>
-    <string name="descending">Descendente</string>
-
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="save">Guardar</string>
@@ -107,22 +71,7 @@
     <string name="setting_wallpaper">A definir como fundo de ecrã&#8230;</string>
     <string name="wallpaper_set_successfully">Fundo definido com sucesso</string>
 
-    <!-- About -->
-    <string name="about">Acerca</string>
-    <string name="website">Mais aplicações Simple e código fonte em:\nhttp://simplemobiletools.com</string>
-    <string name="email_label">Envie os seus comentários ou sugestões para:</string>
-    <string name="more_apps_underlined"><u>Mais aplicações</u></string>
-    <string name="third_party_licences_underlined"><u>Licenças de terceiros</u></string>
-    <string name="invite_friends_underlined"><u>Convidar amigos</u></string>
-    <string name="share_text">Olá, experimenta %1$s em %2$s</string>
-    <string name="invite_via">Convidar via</string>
-    <string name="rate_us_underlined"><u>Avalie-nos na Play Store</u></string>
-    <string name="donate_underlined"><u>Donativos</u></string>
-    <string name="follow_us">Siga-nos:</string>
-    <string name="copyright">V %1$s\nCopyright © Simple Mobile Tools %2$d</string>
-
     <!-- Settings -->
-    <string name="settings">Definições</string>
     <string name="dark_theme">Tema escuro</string>
     <string name="same_sorting">Mesma ordenação para ficheiros e pastas</string>
     <string name="show_hidden_folders">Mostrar pastas ocultas</string>
@@ -132,18 +81,6 @@
     <string name="images">Apenas imagens</string>
     <string name="videos">Apenas vídeos</string>
     <string name="images_and_videos">Imagens e vídeos</string>
-
-    <!-- License -->
-    <string name="notice">Esta aplicação usa as seguintes bibliotecas de terceiros para facilitar a minha vida. Obrigado.</string>
-    <string name="third_party_licences">Licenças de terceiros</string>
-    <string name="kotlin_title"><u>Kotlin (linguagem de programação)</u></string>
-    <string name="subsampling_title"><u>Subsampling Scale Image View (ampliação de imagens)</u></string>
-    <string name="glide_title"><u>Glide (carregamento e cache de imagens)</u></string>
-    <string name="cropper_title"><u>Android Image Cropper (recorte e rotação de imagens)</u></string>
-    <string name="multiselect_title"><u>RecyclerView MultiSelect (seleção múltipla de itens)</u></string>
-    <string name="rtl_viewpager_title"><u>RtlViewPager (para percorrer as imagens)</u></string>
-    <string name="filepicker_title"><u>Simple File Picker (diálogo de seleção de ficheiros)</u></string>
-    <string name="fileproperties_title"><u>Simple File Properties (diálogo de propriedades)</u></string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

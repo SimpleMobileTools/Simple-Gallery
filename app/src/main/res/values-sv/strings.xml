@@ -3,18 +3,12 @@
     <string name="app_launcher_name">Gallery</string>
     <string name="share_via">Dela via</string>
     <string name="no_permissions">Inte mycket att göra i ett galleri om jag inte kommer åt lagringsutrymmet</string>
-    <string name="delete">Ta bort</string>
     <string name="deleting">Tar bort</string>
-    <string name="rename">Rename</string>
     <string name="edit">Edit</string>
     <string name="undo">Ångra</string>
-    <string name="share">Dela</string>
-    <string name="properties">Properties</string>
     <string name="file_deleted">Fil borttagen</string>
     <string name="open_camera">Starta kameran</string>
     <string name="unknown_error">Ett okänt fel har uppstått</string>
-    <string name="ok">OK</string>
-    <string name="cancel">Cancel</string>
     <string name="open_with">Open with</string>
     <string name="no_app_found">No valid app found</string>
     <string name="hide_folder">Hide folder</string>
@@ -24,30 +18,9 @@
     <string name="file_saved">File saved successfully</string>
     <string name="pin_folder">Pin folder</string>
     <string name="unpin_folder">Unpin folder</string>
-    <string name="copy">Kopiera</string>
-    <string name="move">Flytta</string>
-    <string name="copy_move">Copy / Move</string>
-    <string name="source">Källa</string>
-    <string name="destination">Mål</string>
-    <string name="select_destination">Välj mål</string>
-    <string name="other_folder">Other folder</string>
-    <string name="invalid_destination">Det gick inte att skriva till målet</string>
-    <string name="please_select_destination">Please select a destination</string>
-    <string name="source_and_destination_same">Source and destination cannot be the same</string>
-    <string name="copy_failed">Kunde inte kopiera filen</string>
-    <string name="copying">Kopierar&#8230;</string>
-    <string name="copying_success">Files copied successfully</string>
-    <string name="copy_move_failed">An error occurred</string>
-    <string name="moving">Moving&#8230;</string>
-    <string name="moving_success">Files moved successfully</string>
-    <string name="already_exists">A file with that name already exists</string>
-    <string name="moving_success_partial">Some files could not be moved</string>
-    <string name="copying_success_partial">Some files could not be copied</string>
-    <string name="invalid_name">Namnet innehåller ogiltiga tecken</string>
     <string name="show_all">Show all folders content</string>
     <string name="all_folders">All folders</string>
     <string name="folder_view">Switch to folder view</string>
-    <string name="select_all">Select all</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 mapp borttagen</item>
@@ -77,15 +50,6 @@
     <string name="extension">Filändelse</string>
     <string name="extension_cannot_be_empty">Extension cannot be empty</string>
 
-    <!-- Sorting -->
-    <string name="sort_by">Sort by</string>
-    <string name="name">Name</string>
-    <string name="size">Size</string>
-    <string name="last_modified">Last modified</string>
-    <string name="date_taken">Date taken</string>
-    <string name="ascending">Ascending</string>
-    <string name="descending">Descending</string>
-
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="save">Save</string>
@@ -107,22 +71,7 @@
     <string name="setting_wallpaper">Inställningar för bakgrundsbild&#8230;</string>
     <string name="wallpaper_set_successfully">Wallpaper set successfully</string>
 
-    <!-- About -->
-    <string name="about">Om</string>
-    <string name="website">Fler enkla appar och källkod här:\nhttp://simplemobiletools.com</string>
-    <string name="email_label">Skicka feedback och förslag till:</string>
-    <string name="more_apps_underlined"><u>More apps</u></string>
-    <string name="third_party_licences_underlined"><u>Tredjepartslicenser</u></string>
-    <string name="invite_friends_underlined"><u>Invite friends</u></string>
-    <string name="share_text">Hey, come check out %1$s at %2$s</string>
-    <string name="invite_via">Invite via</string>
-    <string name="rate_us_underlined"><u>Betygsätt oss i Play Butiken</u></string>
-    <string name="donate_underlined"><u>Donate</u></string>
-    <string name="follow_us">Följ oss:</string>
-    <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>
-
     <!-- Settings -->
-    <string name="settings">Inställningar</string>
     <string name="dark_theme">Mörkt tema</string>
     <string name="same_sorting">Same sorting for files and folders</string>
     <string name="show_hidden_folders">Show hidden folders</string>
@@ -132,18 +81,6 @@
     <string name="images">Images only</string>
     <string name="videos">Videos only</string>
     <string name="images_and_videos">Images and videos</string>
-
-    <!-- License -->
-    <string name="notice">Denna app använder följande tredjepartsbibliotek för att göra mitt liv enklare. Tack.</string>
-    <string name="third_party_licences">Tredjepartslicenser</string>
-    <string name="kotlin_title"><u>Kotlin (programming language)</u></string>
-    <string name="subsampling_title"><u>Subsampling Scale Image View (zoomable imageviews)</u></string>
-    <string name="glide_title"><u>Glide (image loading and caching)</u></string>
-    <string name="cropper_title"><u>Android Image Cropper (image crop and rotate)</u></string>
-    <string name="multiselect_title"><u>RecyclerView MultiSelect (selecting multiple list items)</u></string>
-    <string name="rtl_viewpager_title"><u>RtlViewPager (for swiping images right to left)</u></string>
-    <string name="filepicker_title"><u>Simple File Picker (filepicker dialog)</u></string>
-    <string name="fileproperties_title"><u>Simple File Properties (properties dialog)</u></string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

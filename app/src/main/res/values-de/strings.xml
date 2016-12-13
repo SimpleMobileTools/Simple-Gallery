@@ -3,18 +3,12 @@
     <string name="app_launcher_name">Galerie</string>
     <string name="share_via">Teilen via</string>
     <string name="no_permissions">Ohne Zugriff auf deinen Speicher gibt es hier nicht viel zu tun</string>
-    <string name="delete">Löschen</string>
     <string name="deleting">Lösche</string>
-    <string name="rename">Umbenennen</string>
     <string name="edit">Bearbeiten</string>
     <string name="undo">Rückgängig</string>
-    <string name="share">Teilen</string>
-    <string name="properties">Eigenschaften</string>
     <string name="file_deleted">Datei gelöscht</string>
     <string name="open_camera">Kamera öffnen</string>
     <string name="unknown_error">Ein unbekannter Fehler ist aufgetreten</string>
-    <string name="ok">OK</string>
-    <string name="cancel">Abbrechen</string>
     <string name="open_with">Öffnen mit</string>
     <string name="no_app_found">Keine zulässige App gefunden</string>
     <string name="hide_folder">Ordner verstecken</string>
@@ -24,30 +18,9 @@
     <string name="file_saved">File saved successfully</string>
     <string name="pin_folder">Pin folder</string>
     <string name="unpin_folder">Unpin folder</string>
-    <string name="copy">Kopieren</string>
-    <string name="move">Verschieben</string>
-    <string name="copy_move">Kopieren / Verschieben</string>
-    <string name="source">Quelle</string>
-    <string name="destination">Ziel</string>
-    <string name="select_destination">Ziel auswählen</string>
-    <string name="other_folder">Other folder</string>
-    <string name="invalid_destination">Konnte nicht an ausgewähltes Ziel schreiben</string>
-    <string name="please_select_destination">Bitte wähle ein Ziel</string>
-    <string name="source_and_destination_same">Source and destination cannot be the same</string>
-    <string name="copy_failed">Konnte die Datei nicht kopieren</string>
-    <string name="copying">Kopiere&#8230;</string>
-    <string name="copying_success">Files copied successfully</string>
-    <string name="copy_move_failed">An error occurred</string>
-    <string name="moving">Moving&#8230;</string>
-    <string name="moving_success">Files moved successfully</string>
-    <string name="already_exists">A file with that name already exists</string>
-    <string name="moving_success_partial">Some files could not be moved</string>
-    <string name="copying_success_partial">Some files could not be copied</string>
-    <string name="invalid_name">Der Name enthält nicht erlaubte Zeichen</string>
     <string name="show_all">Show all folders content</string>
     <string name="all_folders">All media</string>
     <string name="folder_view">Switch to folder view</string>
-    <string name="select_all">Select all</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 Ordner gelöscht</item>
@@ -77,15 +50,6 @@
     <string name="extension">Dateiendung</string>
     <string name="extension_cannot_be_empty">Extension cannot be empty</string>
 
-    <!-- Sorting -->
-    <string name="sort_by">Sortieren nach</string>
-    <string name="name">Name</string>
-    <string name="size">Größe</string>
-    <string name="last_modified">Last modified</string>
-    <string name="date_taken">Date taken</string>
-    <string name="ascending">Aufsteigend</string>
-    <string name="descending">Absteigend</string>
-
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="save">Speichern</string>
@@ -107,22 +71,7 @@
     <string name="setting_wallpaper">Setze Hintergrundbild&#8230;</string>
     <string name="wallpaper_set_successfully">Hintergrundbild erfolgreich festgelegt</string>
 
-    <!-- About -->
-    <string name="about">Über</string>
-    <string name="website">Weitere einfache Apps und Quellcode findest du auf:\nhttp://simplemobiletools.com</string>
-    <string name="email_label">Sende Vorschläge und Feedback an:</string>
-    <string name="more_apps_underlined"><u>More apps</u></string>
-    <string name="third_party_licences_underlined"><u>Drittanbieterlizenzen</u></string>
-    <string name="invite_friends_underlined"><u>Lade Freunde ein</u></string>
-    <string name="share_text">Hey, wirf mal einen Blick auf %1$s: %2$s</string>
-    <string name="invite_via">Einladen via</string>
-    <string name="rate_us_underlined"><u>Bewerte uns im Play Store</u></string>
-    <string name="donate_underlined"><u>Donate</u></string>
-    <string name="follow_us">Folge uns:</string>
-    <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>
-
     <!-- Settings -->
-    <string name="settings">Einstellungen</string>
     <string name="dark_theme">Dunkles Design</string>
     <string name="same_sorting">Selbe Sortierung für Dateien und Ordner</string>
     <string name="show_hidden_folders">Zeige versteckte Ordner</string>
@@ -132,18 +81,6 @@
     <string name="images">Images only</string>
     <string name="videos">Videos only</string>
     <string name="images_and_videos">Images and videos</string>
-
-    <!-- License -->
-    <string name="notice">Diese App nutzt die folgenden Drittanbieterbilbiotheken, die mein Leben einfacher machen. Danke.</string>
-    <string name="third_party_licences">Drittanbieterlizenzen</string>
-    <string name="kotlin_title"><u>Kotlin (Programmiersprache)</u></string>
-    <string name="subsampling_title"><u>Subsampling Scale Image View (zoomable imageviews)</u></string>
-    <string name="glide_title"><u>Glide (Bilder laden und zwischenspeichern)</u></string>
-    <string name="cropper_title"><u>Android Image Cropper (image crop and rotate)</u></string>
-    <string name="multiselect_title"><u>RecyclerView MultiSelect (selecting multiple list items)</u></string>
-    <string name="rtl_viewpager_title"><u>RtlViewPager (for swiping images right to left)</u></string>
-    <string name="filepicker_title"><u>Simple File Picker (filepicker dialog)</u></string>
-    <string name="fileproperties_title"><u>Simple File Properties (properties dialog)</u></string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

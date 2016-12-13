@@ -1,21 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<resources>
+﻿<resources>
     <string name="app_name">Simple Gallery</string>
     <string name="app_launcher_name">Галерея</string>
     <string name="share_via">Отправить по</string>
     <string name="no_permissions">Не предоставлено разрешение для доступа к файловой системе</string>
-    <string name="delete">Удалить</string>
     <string name="deleting">Удаление</string>
-    <string name="rename">Переименовать</string>
     <string name="edit">Редактировать</string>
     <string name="undo">Отменить</string>
-    <string name="share">Поделиться</string>
-    <string name="properties">Свойства</string>
     <string name="file_deleted">Файл удален</string>
     <string name="open_camera">Открыть камеру</string>
     <string name="unknown_error">Произошла неизвестная ошибка</string>
-    <string name="ok">ОК</string>
-    <string name="cancel">Отмена</string>
     <string name="open_with">Открыть в</string>
     <string name="no_app_found">Приложение не найдено</string>
     <string name="hide_folder">Скрыть папку</string>
@@ -25,30 +18,9 @@
     <string name="file_saved">Файл успешно сохранен</string>
     <string name="pin_folder">Закрепить папку</string>
     <string name="unpin_folder">Открепить папку</string>
-    <string name="copy">Копировать</string>
-    <string name="move">Переместить</string>
-    <string name="copy_move">Копировать / Переместить</string>
-    <string name="source">Путь источника</string>
-    <string name="destination">Путь назначения</string>
-    <string name="select_destination">Выберите путь назначения</string>
-    <string name="other_folder">Другая папка</string>
-    <string name="invalid_destination">Не удалось записать в выбранное расположение</string>
-    <string name="please_select_destination">Пожалуйста, выберите путь назначения</string>
-    <string name="source_and_destination_same">Исходный и конечный пути не могут совпадать</string>
-    <string name="copy_failed">Не удалось скопировать файлы</string>
-    <string name="copying">Копирование...</string>
-    <string name="copying_success">Файлы скопированы успешно</string>
-    <string name="copy_move_failed">Произошла ошибка</string>
-    <string name="moving">Перемещение...</string>
-    <string name="moving_success">Файлы успешно перемещены</string>
-    <string name="already_exists">Файл с таким именем уже существует</string>
-    <string name="moving_success_partial">Некоторые файлы не могут быть перемещены</string>
-    <string name="copying_success_partial">Некоторые файлы не могут быть скопированы</string>
-    <string name="invalid_name">Имя содержит недопустимые символы</string>
     <string name="show_all">Отобразить все медиафайлы</string>
     <string name="all_folders">Все медиафайлы</string>
     <string name="folder_view">Переключиться к виду с папками</string>
-    <string name="select_all">Выделить все</string>
 
     <plurals name="folders_deleted">
         <item quantity="one">1 папка удалена</item>
@@ -78,15 +50,6 @@
     <string name="extension">Расширение</string>
     <string name="extension_cannot_be_empty">Расширение не может быть пустым</string>
 
-    <!-- Sorting -->
-    <string name="sort_by">Сортировать по</string>
-    <string name="name">Имя</string>
-    <string name="size">Размер</string>
-    <string name="last_modified">Время изменения</string>
-    <string name="date_taken">Время создания</string>
-    <string name="ascending">По возрастанию</string>
-    <string name="descending">По убыванию</string>
-
     <!-- Editor -->
     <string name="editor">Редактор</string>
     <string name="save">Сохранить</string>
@@ -108,22 +71,7 @@
     <string name="setting_wallpaper">Установка обоев ...</string>
     <string name="wallpaper_set_successfully">Обои успешно установлены</string>
 
-    <!-- About -->
-    <string name="about">О приложении</string>
-    <string name="website">Исходный код можно найти по адресу:\nhttp://simplemobiletools.com</string>
-    <string name="email_label">Отправить отзывы или предложения:</string>
-    <string name="more_apps_underlined"><u>Больше простых приложений</u></string>
-    <string name="third_party_licences_underlined"><u>Лицензии третьих сторон</u></string>
-    <string name="invite_friends_underlined"><u>Предложить другу</u></string>
-    <string name="share_text">Попробуй %1$s по ссылке %2$s</string>
-    <string name="invite_via">Предложить с помощью</string>
-    <string name="rate_us_underlined"><u>Оценить нас в Google Play</u></string>
-    <string name="donate_underlined"><u>Поддержать разработчика</u></string>
-    <string name="follow_us">Подписаться на нас:</string>
-    <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>
-
     <!-- Settings -->
-    <string name="settings">Настройки</string>
     <string name="dark_theme">Темная тема</string>
     <string name="same_sorting">Одинаковая сортировка для файлов и папок</string>
     <string name="show_hidden_folders">Показать скрытые папки</string>
@@ -133,18 +81,6 @@
     <string name="images">Только изображения</string>
     <string name="videos">Только видео</string>
     <string name="images_and_videos">Изображения и видео</string>
-
-    <!-- License -->
-    <string name="notice">Это приложение использует следующие библиотеки сторонних разработчиков, чтобы облегчить мой труд. Спасибо.</string>
-    <string name="third_party_licences">Лицензии третьих сторон</string>
-    <string name="kotlin_title"><u>Kotlin (язык программирования)</u></string>
-    <string name="subsampling_title"><u>Subsampling Scale Image View (возможность масштабирования изображений)</u></string>
-    <string name="glide_title"><u>Glide (загрузка изображения и кэширование)</u></string>
-    <string name="cropper_title"><u>Android Image Cropper (обрезка и поворот изображений)</u></string>
-    <string name="multiselect_title"><u>RecyclerView MultiSelect (выбор нескольких элементов списка)</u></string>
-    <string name="rtl_viewpager_title"><u>RtlViewPager (для корректного отображения с RTL языками)</u></string>
-    <string name="filepicker_title"><u>Simple File Picker (диалог выбора файла)</u></string>
-    <string name="fileproperties_title"><u>Simple File Properties (диалог свойств файла)</u></string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

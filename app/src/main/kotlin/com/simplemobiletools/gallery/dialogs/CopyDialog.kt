@@ -60,7 +60,7 @@ class CopyDialog(val activity: SimpleActivity, val files: ArrayList<File>, val c
 
                 if (files.size == 1) {
                     if (File(destinationPath, files[0].name).exists()) {
-                        context.toast(R.string.already_exists)
+                        context.toast(R.string.file_exists)
                         return@setOnClickListener
                     }
                 }
