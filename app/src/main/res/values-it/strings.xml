@@ -26,9 +26,7 @@
     <string name="unpin_folder">Unpin folder</string>
     <string name="copy">Copia</string>
     <string name="move">Sposta</string>
-    <string name="copy_move">Copia/Sposta</string>
-    <string name="copy_item">Copia elemento</string>
-    <string name="copy_items">Copia elementi</string>
+    <string name="copy_move">Copia / Sposta</string>
     <string name="source">Fonte</string>
     <string name="destination">Destinazione</string>
     <string name="select_destination">Seleziona destinazione</string>

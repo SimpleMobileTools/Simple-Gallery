@@ -26,9 +26,7 @@
     <string name="unpin_folder">Desafixar pasta</string>
     <string name="copy">Copiar</string>
     <string name="move">Mover</string>
-    <string name="copy_move">Copiar/mover para</string>
-    <string name="copy_item">Copiar item</string>
-    <string name="copy_items">Copiar itens</string>
+    <string name="copy_move">Copiar / mover para</string>
     <string name="source">Origem</string>
     <string name="destination">Destino</string>
     <string name="select_destination">Selecione o destino</string>

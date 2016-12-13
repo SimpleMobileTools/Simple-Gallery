@@ -28,8 +28,6 @@
     <string name="copy">Копировать</string>
     <string name="move">Переместить</string>
     <string name="copy_move">Копировать / Переместить</string>
-    <string name="copy_item">Копировать элемент</string>
-    <string name="copy_items">Копирование объектов</string>
     <string name="source">Путь источника</string>
     <string name="destination">Путь назначения</string>
     <string name="select_destination">Выберите путь назначения</string>

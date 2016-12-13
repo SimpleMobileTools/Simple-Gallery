@@ -26,9 +26,7 @@
     <string name="unpin_folder">Unpin folder</string>
     <string name="copy">Kopieren</string>
     <string name="move">Verschieben</string>
-    <string name="copy_move">Kopieren/Verschieben</string>
-    <string name="copy_item">Datei/Ordner kopieren</string>
-    <string name="copy_items">Dateien/Ordner kopieren</string>
+    <string name="copy_move">Kopieren / Verschieben</string>
     <string name="source">Quelle</string>
     <string name="destination">Ziel</string>
     <string name="select_destination">Ziel auswählen</string>
