@@ -83,6 +83,17 @@
     <string name="videos">Videos only</string>
     <string name="images_and_videos">Images and videos</string>
 
+    <!-- Release notes -->
+    <string name="release_52">Add more color customization options</string>
+    <string name="release_51">Allow changing the column count with pinch gestures</string>
+    <string name="release_50">Add the option to display images or videos only</string>
+    <string name="release_49">Added a Select all button</string>
+    <string name="release_47">
+        Add an image resizer to the editor\n
+        Allow displaying images and videos from all folders together
+    </string>
+    <string name="release_46">Allow pinning folders at the top</string>
+
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">写真やビデオを見るためのギャラリー。広告はありません。</string>
