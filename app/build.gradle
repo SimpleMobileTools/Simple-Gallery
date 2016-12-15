@@ -3,13 +3,13 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.3"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
 
     defaultConfig {
         applicationId "com.simplemobiletools.gallery"
         minSdkVersion 16
-        targetSdkVersion 24
+        targetSdkVersion 25
         versionCode 51
         versionName "1.51"
     }
@@ -36,15 +36,15 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:24.0.0'
-    compile 'com.android.support:design:24.0.0'
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:design:25.1.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.davemorrissey.labs:subsampling-scale-image-view:3.6.0'
     compile 'com.theartofdev.edmodo:android-image-cropper:2.3.1'
     compile 'com.booking:rtlviewpager:1.0.1'
     compile 'com.simplemobiletools:fileproperties:1.0.7@aar'
     compile 'com.simplemobiletools:filepicker:1.6.1@aar'
-    compile 'com.simplemobiletools:commons:1.0.3@aar'
+    compile 'com.simplemobiletools:commons:1.0.4@aar'
     compile 'com.bignerdranch.android:recyclerview-multiselect:0.2'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
