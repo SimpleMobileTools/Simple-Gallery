@@ -1,9 +1,11 @@
 package com.simplemobiletools.gallery.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.TaskStackBuilder
 import android.view.View
 import android.widget.AdapterView
+import com.simplemobiletools.commons.activities.CustomizationActivity
 import com.simplemobiletools.gallery.R
 import kotlinx.android.synthetic.main.activity_settings.*
 
@@ -12,20 +14,20 @@ class SettingsActivity : SimpleActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
-        setupDarkTheme()
+        setupCustomizeColors()
         setupSameSorting()
         setupShowHiddenFolders()
         setupAutoplayVideos()
         setupShowMedia()
     }
 
-    private fun setupDarkTheme() {
-        settings_dark_theme.isChecked = config.isDarkTheme
-        settings_dark_theme_holder.setOnClickListener {
-            settings_dark_theme.toggle()
-            config.isDarkTheme = settings_dark_theme.isChecked
-            restartActivity()
-        }
+    override fun onResume() {
+        super.onResume()
+        updateTextColors(settings_holder)
+    }
+
+    private fun setupCustomizeColors() {
+        settings_customize_colors_holder.setOnClickListener { startActivity(Intent(this, CustomizationActivity::class.java)) }
     }
 
     private fun setupSameSorting() {

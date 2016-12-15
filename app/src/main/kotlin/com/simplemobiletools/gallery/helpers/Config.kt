@@ -6,7 +6,7 @@ import com.simplemobiletools.commons.helpers.BaseConfig
 import com.simplemobiletools.gallery.R
 import java.util.*
 
-class Config(val context: Context) : BaseConfig(context) {
+class Config(context: Context) : BaseConfig(context) {
     private val mPrefs: SharedPreferences
 
     companion object {

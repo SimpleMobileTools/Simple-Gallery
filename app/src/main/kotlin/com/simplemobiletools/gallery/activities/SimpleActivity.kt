@@ -8,7 +8,7 @@ open class SimpleActivity : BaseSimpleActivity() {
     lateinit var config: Config
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        config = Config.newInstance(applicationContext)
         super.onCreate(savedInstanceState)
+        config = Config.newInstance(applicationContext)
     }
 }

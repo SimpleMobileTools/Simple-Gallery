@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:id="@+id/settings_dark_theme_holder"
+            android:id="@+id/settings_customize_colors_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/settings_padding"
@@ -20,22 +20,13 @@
             android:padding="@dimen/activity_margin">
 
             <TextView
-                android:id="@+id/settings_dark_theme_label"
+                android:id="@+id/settings_customize_colors_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:paddingLeft="@dimen/settings_padding"
                 android:paddingStart="@dimen/settings_padding"
-                android:text="@string/dark_theme"/>
-
-            <android.support.v7.widget.SwitchCompat
-                android:id="@+id/settings_dark_theme"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:background="@null"
-                android:clickable="false"/>
+                android:text="@string/customize_colors"/>
 
         </RelativeLayout>
 

@@ -47,6 +47,8 @@ dependencies {
     compile 'com.simplemobiletools:commons:1.0.4@aar'
     compile 'com.bignerdranch.android:recyclerview-multiselect:0.2'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    compile 'com.github.yukuku:ambilwarna:2.0.1'
 }
 
 buildscript {
