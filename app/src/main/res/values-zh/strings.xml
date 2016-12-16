@@ -67,7 +67,7 @@
     <string name="simple_wallpaper">Simple Wallpaper</string>
     <string name="set_as_wallpaper">设为壁纸</string>
     <string name="set_as_wallpaper_failed">壁纸设置失败</string>
-    <string name="set_as_wallpaper_with">设为壁纸..</string>
+    <string name="set_as_wallpaper_with">设为壁纸...</string>
     <string name="no_wallpaper_setter_found">没有可用的软件</string>
     <string name="setting_wallpaper">壁纸应用中&#8230;</string>
     <string name="wallpaper_set_successfully">壁纸应用成功</string>
