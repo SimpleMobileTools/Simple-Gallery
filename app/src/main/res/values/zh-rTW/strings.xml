@@ -9,7 +9,7 @@
     <string name="file_deleted">檔案成功移除</string>
     <string name="open_camera">打開相機</string>
     <string name="unknown_error">未知錯誤</string>
-    <string name="open_with">打開方式</string>
+    <string name="open_with">打开用</string>
     <string name="no_app_found">沒有可用的應用</string>
     <string name="hide_folder">隱藏資料夾</string>
     <string name="unhide_folder">顯示資料夾</string>
@@ -58,7 +58,7 @@
     <string name="path">路徑</string>
     <string name="invalid_image_path">圖檔路徑錯誤</string>
     <string name="image_editing_failed">圖檔編輯失敗</string>
-    <string name="edit_image_with">編輯方式:</string>
+    <string name="edit_image_with">編輯用:</string>
     <string name="no_editor_found">沒有可用的圖檔編輯器</string>
     <string name="unknown_file_location">未知檔案路徑</string>
     <string name="error_saving_file">不能覆蓋源檔案</string>
@@ -67,7 +67,7 @@
     <string name="simple_wallpaper">Simple Wallpaper</string>
     <string name="set_as_wallpaper">設定為桌布</string>
     <string name="set_as_wallpaper_failed">桌布設定失敗</string>
-    <string name="set_as_wallpaper_with">設定為桌布...</string>
+    <string name="set_as_wallpaper_with">設定桌布用...</string>
     <string name="no_wallpaper_setter_found">沒有可用的應用</string>
     <string name="setting_wallpaper">桌布應用中&#8230;</string>
     <string name="wallpaper_set_successfully">成功應用桌布</string>
