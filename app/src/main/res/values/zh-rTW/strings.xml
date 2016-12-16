@@ -1,0 +1,117 @@
+<resources>
+    <string name="app_name">相冊</string>
+    <string name="app_launcher_name">相冊</string>
+    <string name="share_via">分享到</string>
+    <string name="no_permissions">無權訪問儲存</string>
+    <string name="deleting">正在移除</string>
+    <string name="edit">編輯</string>
+    <string name="undo">撤銷</string>
+    <string name="file_deleted">檔案成功移除</string>
+    <string name="open_camera">開啟相機</string>
+    <string name="unknown_error">未知錯誤</string>
+    <string name="open_with">以其他應用開啟</string>
+    <string name="no_app_found">沒有可用的應用</string>
+    <string name="hide_folder">隱藏資料夾</string>
+    <string name="unhide_folder">顯示資料夾</string>
+    <string name="hidden">(隱藏)</string>
+    <string name="save_as">存儲</string>
+    <string name="file_saved">成功存儲檔案</string>
+    <string name="pin_folder">鎖定資料夾</string>
+    <string name="unpin_folder">解除鎖定資料夾</string>
+    <string name="show_all">顯示所有資料夾的內容</string>
+    <string name="all_folders">所有資料夾</string>
+    <string name="folder_view">切換到資料夾視圖</string>
+    <string name="other_folder">其他資料夾</string>
+
+    <plurals name="folders_deleted">
+        <item quantity="one">移除 1 個資料夾</item>
+        <item quantity="other">移除 %1$d 個資料夾</item>
+    </plurals>
+
+    <!-- Resizing -->
+    <string name="resize">縮放</string>
+    <string name="resize_and_save">縮放選區並存儲</string>
+    <string name="width">寬度</string>
+    <string name="height">高度</string>
+    <string name="keep_aspect_ratio">保持縱橫比</string>
+    <string name="invalid_values">請輸入合法的解析度</string>
+
+    <!-- Renaming -->
+    <string name="rename_file">重新命名檔案</string>
+    <string name="rename_folder">重新命名資料夾</string>
+    <string name="rename_file_error">檔案無法重新命名</string>
+    <string name="rename_folder">重新命名資料夾</string>
+    <string name="rename_folder_empty">資料夾名稱不能為空</string>
+    <string name="rename_folder_exists">資料夾名稱已存在</string>
+    <string name="rename_folder_root">存儲器的根目錄無法重新命名</string>
+    <string name="rename_folder_ok">重新命名資料夾成功</string>
+    <string name="renaming_folder">正在重新命名...</string>
+    <string name="filename_cannot_be_empty">檔案名稱不能為空</string>
+    <string name="filename_invalid_characters">檔案名包含非法字元</string>
+    <string name="extension">副檔名</string>
+    <string name="extension_cannot_be_empty">副檔名不能為空</string>
+
+    <!-- Editor -->
+    <string name="editor">編輯器</string>
+    <string name="save">存儲</string>
+    <string name="rotate">旋轉</string>
+    <string name="path">路徑</string>
+    <string name="invalid_image_path">圖檔路徑錯誤</string>
+    <string name="image_editing_failed">圖檔編輯失敗</string>
+    <string name="edit_image_with">編輯用:</string>
+    <string name="no_editor_found">沒有可用的圖檔編輯器</string>
+    <string name="unknown_file_location">未知檔案路徑</string>
+    <string name="error_saving_file">不能覆蓋源檔案</string>
+
+    <!-- Set wallpaper -->
+    <string name="simple_wallpaper">Simple Wallpaper</string>
+    <string name="set_as_wallpaper">設定為桌布</string>
+    <string name="set_as_wallpaper_failed">桌布設定失敗</string>
+    <string name="set_as_wallpaper_with">用其他應用設定桌布...</string>
+    <string name="no_wallpaper_setter_found">沒有可用的應用</string>
+    <string name="setting_wallpaper">正在應用桌布&#8230;</string>
+    <string name="wallpaper_set_successfully">成功應用桌布</string>
+
+    <!-- Settings -->
+    <string name="dark_theme">暗色主題</string>
+    <string name="same_sorting">全部排序</string>
+    <string name="show_hidden_folders">顯示所有</string>
+    <string name="autoplay_videos">自動播放</string>
+    <string name="toggle_filename">顯示檔案名稱</string>
+    <string name="show_media">顯示多媒體檔案</string>
+    <string name="images">僅圖片</string>
+    <string name="videos">僅視訊</string>
+    <string name="images_and_videos">圖片和視訊</string>
+
+    <!-- Release notes -->
+    <string name="release_52">Add more color customization options</string>
+    <string name="release_51">Allow changing the column count with pinch gestures</string>
+    <string name="release_50">Add the option to display images or videos only</string>
+    <string name="release_49">Added a Select all button</string>
+    <string name="release_47">
+        Add an image resizer to the editor\n
+        Allow displaying images and videos from all folders together
+    </string>
+    <string name="release_46">Allow pinning folders at the top</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">A gallery for viewing photos and videos without ads.</string>
+    <string name="app_long_description">
+        A simple tool usable for viewing photos and videos. Items can be sorted by date, size, name both ascending or descending, photos can be zoomed in. Media files are shown in multiple columns depending on the size of the display, you can change the column count by pinch gestures. They can be renamed, shared, deleted, copied, moved. Images can also be cropped, rotated or set as Wallpaper directly from the app.
+
+
+        The Gallery is also offered for third party usage for previewing images / videos, adding attachments at email clients etc. It\'s perfect for everyday usage.
+
+        Contains no ads or unnecessary permissions. It is fully opensource, provides a Dark theme too.
+
+        This app is just one piece of a bigger series of apps. You can find the rest of them at http://www.simplemobiletools.com
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/library/src/main/res
+        https://github.com/SimpleMobileTools/Simple-File-Picker/tree/master/library/src/main/res
+        https://github.com/SimpleMobileTools/Simple-File-Properties/tree/master/library/src/main/res
+    -->
+</resources>
