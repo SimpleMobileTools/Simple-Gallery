@@ -10,52 +10,52 @@
     <string name="open_camera">打开相机</string>
     <string name="unknown_error">未知错误</string>
     <string name="open_with">打开方式</string>
-    <string name="no_app_found">没有可用的软件</string>
+    <string name="no_app_found">没有可用的应用</string>
     <string name="hide_folder">隐藏文件夹</string>
     <string name="unhide_folder">显示文件夹</string>
     <string name="hidden">(隐藏)</string>
     <string name="save_as">保存</string>
     <string name="file_saved">文件保存成功</string>
-    <string name="pin_folder">Pin folder</string>
-    <string name="unpin_folder">Unpin folder</string>
-    <string name="show_all">Show all folders content</string>
-    <string name="all_folders">All folders</string>
-    <string name="folder_view">Switch to folder view</string>
-    <string name="other_folder">Other folder</string>
+    <string name="pin_folder">锁定文件夹</string>
+    <string name="unpin_folder">解除锁定文件夹</string>
+    <string name="show_all">显示所有文件夹的内容</string>
+    <string name="all_folders">所有文件夹</string>
+    <string name="folder_view">切换到文件夹视图</string>
+    <string name="other_folder">其他文件夹</string>
 
     <plurals name="folders_deleted">
-        <item quantity="one">1 folder deleted</item>
-        <item quantity="other">%1$d folders deleted</item>
+        <item quantity="one">已删除 1 个文件夹</item>
+        <item quantity="other">已删除 %1$d 个文件夹</item>
     </plurals>
 
     <!-- Resizing -->
-    <string name="resize">Resize</string>
-    <string name="resize_and_save">Resize selection and save</string>
-    <string name="width">Width</string>
-    <string name="height">Height</string>
-    <string name="keep_aspect_ratio">Keep aspect ratio</string>
-    <string name="invalid_values">Please enter a valid resolution</string>
+    <string name="resize">缩放</string>
+    <string name="resize_and_save">缩放选定区域并保存</string>
+    <string name="width">宽度</string>
+    <string name="height">高度</string>
+    <string name="keep_aspect_ratio">保持纵横比</string>
+    <string name="invalid_values">请输入合法的分辨率</string>
 
     <!-- Renaming -->
     <string name="rename_file">重命名文件</string>
-    <string name="rename_file_error">文件不能重命名</string>
+    <string name="rename_folder">重命名文件夹</string>
+    <string name="rename_file_error">文件无法重命名</string>
     <string name="rename_folder">重命名文件夹</string>
     <string name="rename_folder_empty">文件夹名不能为空</string>
-    <string name="rename_folder_exists">A folder with that name already exists</string>
-    <string name="rename_folder_root">Cannot rename the root folder of a storage</string>
-    <string name="rename_folder_error">文件夹不能重命名</string>
+    <string name="rename_folder_exists">文件夹名已存在</string>
+    <string name="rename_folder_root">存储器的根目录无法重命名</string>
     <string name="rename_folder_ok">文件夹重命名成功</string>
-    <string name="renaming_folder">重命名中..</string>
+    <string name="renaming_folder">重命名中...</string>
     <string name="filename_cannot_be_empty">文件名不能为空</string>
     <string name="filename_invalid_characters">文件名包含非法字符</string>
     <string name="extension">扩展名</string>
-    <string name="extension_cannot_be_empty">Extension cannot be empty</string>
+    <string name="extension_cannot_be_empty">扩展名不能为空</string>
 
     <!-- Editor -->
     <string name="editor">编辑器</string>
     <string name="save">保存</string>
     <string name="rotate">旋转</string>
-    <string name="path">Path</string>
+    <string name="path">路径</string>
     <string name="invalid_image_path">错误图片路径</string>
     <string name="image_editing_failed">图像编辑失败</string>
     <string name="edit_image_with">编辑方式:</string>
@@ -78,10 +78,10 @@
     <string name="show_hidden_folders">显示所有</string>
     <string name="autoplay_videos">自动播放</string>
     <string name="toggle_filename">显示文件名</string>
-    <string name="show_media">Show media</string>
-    <string name="images">Images only</string>
-    <string name="videos">Videos only</string>
-    <string name="images_and_videos">Images and videos</string>
+    <string name="show_media">显示多媒体文件</string>
+    <string name="images">仅图像</string>
+    <string name="videos">仅视频</string>
+    <string name="images_and_videos">图像和视频</string>
 
     <!-- Release notes -->
     <string name="release_52">Add more color customization options</string>
