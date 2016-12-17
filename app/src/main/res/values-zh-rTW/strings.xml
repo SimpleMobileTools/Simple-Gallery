@@ -40,7 +40,6 @@
     <string name="rename_file">重新命名檔案</string>
     <string name="rename_folder">重新命名資料夾</string>
     <string name="rename_file_error">檔案無法重新命名</string>
-    <string name="rename_folder">重新命名資料夾</string>
     <string name="rename_folder_empty">資料夾名稱不能為空</string>
     <string name="rename_folder_exists">資料夾名稱已存在</string>
     <string name="rename_folder_root">儲存裝置的根目錄無法重新命名</string>
