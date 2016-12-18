@@ -38,23 +38,15 @@
             android:background="?attr/selectableItemBackground"
             android:padding="@dimen/activity_margin">
 
-            <TextView
-                android:id="@+id/settings_same_sorting_label"
-                android:layout_width="wrap_content"
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/settings_same_sorting"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
+                android:background="@null"
+                android:clickable="false"
                 android:paddingLeft="@dimen/settings_padding"
                 android:paddingStart="@dimen/settings_padding"
                 android:text="@string/same_sorting"/>
-
-            <android.support.v7.widget.SwitchCompat
-                android:id="@+id/settings_same_sorting"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:background="@null"
-                android:clickable="false"/>
 
         </RelativeLayout>
 
@@ -66,23 +58,15 @@
             android:background="?attr/selectableItemBackground"
             android:padding="@dimen/activity_margin">
 
-            <TextView
-                android:id="@+id/settings_show_hidden_folders_label"
-                android:layout_width="wrap_content"
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/settings_show_hidden_folders"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
+                android:background="@null"
+                android:clickable="false"
                 android:paddingLeft="@dimen/settings_padding"
                 android:paddingStart="@dimen/settings_padding"
                 android:text="@string/show_hidden_folders"/>
-
-            <android.support.v7.widget.SwitchCompat
-                android:id="@+id/settings_show_hidden_folders"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:background="@null"
-                android:clickable="false"/>
 
         </RelativeLayout>
 
@@ -94,23 +78,15 @@
             android:background="?attr/selectableItemBackground"
             android:padding="@dimen/activity_margin">
 
-            <TextView
-                android:id="@+id/settings_autoplay_videos_label"
-                android:layout_width="wrap_content"
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/settings_autoplay_videos"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
+                android:background="@null"
+                android:clickable="false"
                 android:paddingLeft="@dimen/settings_padding"
                 android:paddingStart="@dimen/settings_padding"
                 android:text="@string/autoplay_videos"/>
-
-            <android.support.v7.widget.SwitchCompat
-                android:id="@+id/settings_autoplay_videos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:background="@null"
-                android:clickable="false"/>
 
         </RelativeLayout>
 
@@ -133,7 +109,7 @@
                 android:paddingStart="@dimen/settings_padding"
                 android:text="@string/show_media"/>
 
-            <android.support.v7.widget.AppCompatSpinner
+            <com.simplemobiletools.commons.views.MyAppCompatSpinner
                 android:id="@+id/settings_show_media"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -6,7 +6,6 @@ import android.widget.AdapterView
 import com.simplemobiletools.gallery.R
 import kotlinx.android.synthetic.main.activity_settings.*
 
-
 class SettingsActivity : SimpleActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
