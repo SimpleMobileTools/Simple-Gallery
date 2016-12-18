@@ -96,7 +96,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">一個沒有廣告，用來觀看照片及影片的藝廊。.</string>
+    <string name="app_short_description">一個沒有廣告，用來觀看照片及影片的藝廊。</string>
     <string name="app_long_description">
         一個觀看照片跟影片的簡單實用工具。項目可以根據日期、大小、名稱來進行遞增及遞減排序，照片可以縮放。媒體檔案們根據螢幕的大小呈列在多個方格中，您可以使用捏放手勢來調整一列中的方格數量。媒體檔案可以被重新命名、分享、刪除、複製以及移動。照片亦可被裁切、旋轉或是直接在應用軟體中設定為桌布。
 
