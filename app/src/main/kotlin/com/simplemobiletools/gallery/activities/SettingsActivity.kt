@@ -1,13 +1,11 @@
 package com.simplemobiletools.gallery.activities
 
-import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.TaskStackBuilder
 import android.view.View
 import android.widget.AdapterView
-import com.simplemobiletools.commons.activities.CustomizationActivity
 import com.simplemobiletools.gallery.R
 import kotlinx.android.synthetic.main.activity_settings.*
+
 
 class SettingsActivity : SimpleActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +25,9 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun setupCustomizeColors() {
-        settings_customize_colors_holder.setOnClickListener { startActivity(Intent(this, CustomizationActivity::class.java)) }
+        settings_customize_colors_holder.setOnClickListener {
+            startCustomizationActivity()
+        }
     }
 
     private fun setupSameSorting() {
@@ -63,9 +63,5 @@ class SettingsActivity : SimpleActivity() {
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
         }
-    }
-
-    private fun restartActivity() {
-        TaskStackBuilder.create(applicationContext).addNextIntentWithParentStack(intent).startActivities()
     }
 }
