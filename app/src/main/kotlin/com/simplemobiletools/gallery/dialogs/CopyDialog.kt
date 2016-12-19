@@ -1,9 +1,10 @@
 package com.simplemobiletools.gallery.dialogs
 
-import android.app.AlertDialog
 import android.support.v4.util.Pair
+import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
-import android.view.WindowManager
+import android.view.ViewGroup
+import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.filepicker.asynctasks.CopyMoveTask
 import com.simplemobiletools.filepicker.extensions.humanizePath
 import com.simplemobiletools.filepicker.extensions.isPathOnSD
@@ -17,9 +18,12 @@ import java.io.File
 import java.util.*
 
 class CopyDialog(val activity: SimpleActivity, val files: ArrayList<File>, val copyMoveListener: CopyMoveTask.CopyMoveListener) {
+    companion object {
+        lateinit var view: ViewGroup
+    }
 
     init {
-        val view = LayoutInflater.from(activity).inflate(R.layout.dialog_copy_move, null)
+        view = LayoutInflater.from(activity).inflate(R.layout.dialog_copy_move, null) as ViewGroup
         val sourcePath = files[0].parent.trimEnd('/')
         var destinationPath = ""
 
@@ -33,14 +37,11 @@ class CopyDialog(val activity: SimpleActivity, val files: ArrayList<File>, val c
         }
 
         AlertDialog.Builder(activity)
-                .setTitle(R.string.copy_move)
                 .setView(view)
                 .setPositiveButton(R.string.ok, null)
                 .setNegativeButton(R.string.cancel, null)
                 .create().apply {
-            window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
-            setCanceledOnTouchOutside(true)
-            show()
+            activity.setupDialogStuff(view, this, R.string.copy_move)
             getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener({
                 if (destinationPath == context.resources.getString(R.string.select_destination) || destinationPath.isEmpty()) {
                     context.toast(R.string.please_select_destination)

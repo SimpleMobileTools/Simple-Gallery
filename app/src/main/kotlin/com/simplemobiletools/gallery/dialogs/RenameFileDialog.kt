@@ -1,8 +1,10 @@
 package com.simplemobiletools.gallery.dialogs
 
-import android.app.AlertDialog
+import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
+import android.view.ViewGroup
 import android.view.WindowManager
+import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.filepicker.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
@@ -13,7 +15,7 @@ import java.io.File
 class RenameFileDialog(val activity: SimpleActivity, val file: File, val callback: (newFile: File) -> Unit) {
 
     init {
-        val view = LayoutInflater.from(activity).inflate(R.layout.rename_file, null)
+        val view = LayoutInflater.from(activity).inflate(R.layout.rename_file, null) as ViewGroup
         val fullName = file.name
         val dotAt = fullName.lastIndexOf(".")
         var name = fullName
@@ -28,14 +30,12 @@ class RenameFileDialog(val activity: SimpleActivity, val file: File, val callbac
         view.file_path.text = "${activity.humanizePath(file.parent)}/"
 
         AlertDialog.Builder(activity)
-                .setTitle(R.string.rename_file)
                 .setView(view)
                 .setPositiveButton(R.string.ok, null)
                 .setNegativeButton(R.string.cancel, null)
                 .create().apply {
             window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
-            setCanceledOnTouchOutside(true)
-            show()
+            activity.setupDialogStuff(view, this, R.string.rename_file)
             getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener({
                 val filename = view.file_name.value
                 val extension = view.file_extension.value

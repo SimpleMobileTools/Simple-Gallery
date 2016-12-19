@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.activities
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
+import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.gallery.R
 import kotlinx.android.synthetic.main.activity_settings.*
 

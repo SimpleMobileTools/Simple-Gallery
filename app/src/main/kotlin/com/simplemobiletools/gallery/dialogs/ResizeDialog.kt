@@ -1,12 +1,13 @@
 package com.simplemobiletools.gallery.dialogs
 
-import android.app.AlertDialog
 import android.graphics.Point
+import android.support.v7.app.AlertDialog
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.WindowManager
 import android.widget.EditText
+import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.filepicker.extensions.toast
 import com.simplemobiletools.filepicker.extensions.value
 import com.simplemobiletools.gallery.R
@@ -69,14 +70,12 @@ class ResizeDialog(val activity: SimpleActivity, val size: Point, val callback: 
         })
 
         AlertDialog.Builder(activity)
-                .setTitle(R.string.resize_and_save)
                 .setView(view)
                 .setPositiveButton(R.string.ok, null)
                 .setNegativeButton(R.string.cancel, null)
                 .create().apply {
             window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
-            setCanceledOnTouchOutside(true)
-            show()
+            activity.setupDialogStuff(view, this, R.string.resize_and_save)
             getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener({
                 val width = getViewValue(widthView)
                 val height = getViewValue(heightView)

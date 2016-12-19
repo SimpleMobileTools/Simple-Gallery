@@ -1,35 +1,34 @@
 package com.simplemobiletools.gallery.dialogs
 
-import android.app.Activity
-import android.app.AlertDialog
 import android.content.DialogInterface
+import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
-import android.view.View
+import android.view.ViewGroup
+import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.helpers.*
 import kotlinx.android.synthetic.main.dialog_change_sorting.view.*
 
-class ChangeSortingDialog(val activity: Activity, val isDirectorySorting: Boolean, val callback: () -> Unit) : DialogInterface.OnClickListener {
+class ChangeSortingDialog(val activity: SimpleActivity, val isDirectorySorting: Boolean, val callback: () -> Unit) : DialogInterface.OnClickListener {
     companion object {
         private var currSorting = 0
 
         lateinit var config: Config
-        lateinit var view: View
+        lateinit var view: ViewGroup
     }
 
     init {
         config = Config.newInstance(activity)
-        view = LayoutInflater.from(activity).inflate(R.layout.dialog_change_sorting, null)
+        view = LayoutInflater.from(activity).inflate(R.layout.dialog_change_sorting, null) as ViewGroup
 
-        val dialog = AlertDialog.Builder(activity)
-                .setTitle(R.string.sort_by)
+        AlertDialog.Builder(activity)
                 .setView(view)
                 .setPositiveButton(R.string.ok, this)
                 .setNegativeButton(R.string.cancel, null)
-                .create()
-
-        dialog.setCanceledOnTouchOutside(true)
-        dialog.show()
+                .create().apply {
+            activity.setupDialogStuff(view, this, R.string.sort_by)
+        }
 
         currSorting = if (isDirectorySorting) config.directorySorting else config.sorting
         setupSortRadio()

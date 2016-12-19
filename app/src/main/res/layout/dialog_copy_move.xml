@@ -49,14 +49,14 @@
         android:layout_height="wrap_content"
         android:checkedButton="@+id/dialog_radio_copy">
 
-        <RadioButton
+        <com.simplemobiletools.commons.views.MyCompatRadioButton
             android:id="@+id/dialog_radio_copy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/medium_padding"
             android:text="@string/copy"/>
 
-        <RadioButton
+        <com.simplemobiletools.commons.views.MyCompatRadioButton
             android:id="@+id/dialog_radio_move"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -1,8 +1,10 @@
 package com.simplemobiletools.gallery.dialogs
 
-import android.app.AlertDialog
+import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
+import android.view.ViewGroup
 import android.view.WindowManager
+import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.filepicker.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
@@ -13,20 +15,17 @@ import java.util.*
 
 class RenameDirectoryDialog(val activity: SimpleActivity, val dir: File, val callback: (changedPaths: ArrayList<String>) -> Unit) {
     init {
-        val view = LayoutInflater.from(activity).inflate(R.layout.rename_directory, null)
-
+        val view = LayoutInflater.from(activity).inflate(R.layout.rename_directory, null) as ViewGroup
         view.directory_name.setText(dir.name)
         view.directory_path.text = "${activity.humanizePath(dir.parent)}/"
 
         AlertDialog.Builder(activity)
-                .setTitle(R.string.rename_folder)
                 .setView(view)
                 .setPositiveButton(R.string.ok, null)
                 .setNegativeButton(R.string.cancel, null)
                 .create().apply {
             window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
-            setCanceledOnTouchOutside(true)
-            show()
+            activity.setupDialogStuff(view, this, R.string.rename_folder)
             getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener({
                 val newDirName = view.directory_name.value
                 if (newDirName.isEmpty()) {
