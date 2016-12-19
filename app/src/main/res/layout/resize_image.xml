@@ -43,7 +43,7 @@
         android:maxLength="6"
         android:maxLines="1"/>
 
-    <CheckBox
+    <com.simplemobiletools.commons.views.MyAppCompatCheckbox
         android:id="@+id/keep_aspect_ratio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
