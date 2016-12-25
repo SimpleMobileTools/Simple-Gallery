@@ -6,6 +6,6 @@
     <color name="pressed_item_foreground">#33ff6f00</color>
     <color name="activated_item_foreground">#99ff6f00</color>
     <color name="tmb_background">#ff222222</color>
-    <color name="actionbar_grey">#55000000</color>
+    <color name="actionbar_grey">#AA000000</color>
     <color name="light_grey">#aa888888</color>
 </resources>

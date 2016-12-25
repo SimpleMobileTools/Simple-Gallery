@@ -87,6 +87,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (!hasStoragePermission()) {
             finish()
         }
+        supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.actionbar_gradient_background))
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

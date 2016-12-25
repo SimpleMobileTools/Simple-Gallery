@@ -86,7 +86,8 @@
             android:parentActivityName=".activities.SettingsActivity"/>
 
         <activity
-            android:name=".activities.PhotoVideoActivity"/>
+            android:name=".activities.PhotoVideoActivity"
+            android:theme="@style/FullScreenTheme"/>
 
         <activity
             android:name=".activities.PhotoActivity"

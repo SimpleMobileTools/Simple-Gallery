@@ -68,6 +68,11 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
         cursor?.close()
     }
 
+    override fun onResume() {
+        super.onResume()
+        supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.actionbar_gradient_background))
+    }
+
     private fun sendViewPagerIntent(path: String) {
         Intent(this, ViewPagerActivity::class.java).apply {
             putExtra(MEDIUM, path)
