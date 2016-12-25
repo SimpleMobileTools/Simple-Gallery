@@ -42,10 +42,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         val markedItems = HashSet<Int>()
 
         fun toggleItemSelection(itemView: View, select: Boolean, pos: Int = -1) {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-                itemView.medium_thumbnail_holder.isSelected = select
-            else
-                itemView.medium_thumbnail.isSelected = select
+            getProperView(itemView).isSelected = select
 
             if (pos == -1)
                 return
@@ -54,6 +51,13 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 markedItems.add(pos)
             else
                 markedItems.remove(pos)
+        }
+
+        fun getProperView(itemView: View): View {
+            return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+                itemView.medium_thumbnail_holder
+            else
+                itemView.medium_thumbnail
         }
     }
 

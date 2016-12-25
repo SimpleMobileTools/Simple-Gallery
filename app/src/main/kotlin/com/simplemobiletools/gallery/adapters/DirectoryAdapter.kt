@@ -42,10 +42,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         val markedItems = HashSet<Int>()
 
         fun toggleItemSelection(itemView: View, select: Boolean, pos: Int = -1) {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-                itemView.dir_frame.isSelected = select
-            else
-                itemView.dir_thumbnail.isSelected = select
+            getProperView(itemView).isSelected = select
 
             if (pos == -1)
                 return
@@ -54,6 +51,13 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                 markedItems.add(pos)
             else
                 markedItems.remove(pos)
+        }
+
+        fun getProperView(itemView: View): View {
+            return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+                itemView.dir_frame
+            else
+                itemView.dir_thumbnail
         }
     }
 
