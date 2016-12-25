@@ -4,6 +4,7 @@ import android.os.Build
 import android.support.v7.view.ActionMode
 import android.support.v7.widget.RecyclerView
 import android.view.*
+import android.widget.FrameLayout
 import com.bignerdranch.android.multiselector.ModalMultiSelectorCallback
 import com.bignerdranch.android.multiselector.MultiSelector
 import com.bignerdranch.android.multiselector.SwappingHolder
@@ -19,10 +20,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.dialogs.RenameFileDialog
-import com.simplemobiletools.gallery.extensions.beVisibleIf
-import com.simplemobiletools.gallery.extensions.openEditor
-import com.simplemobiletools.gallery.extensions.shareMedia
-import com.simplemobiletools.gallery.extensions.shareMedium
+import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.photo_video_item.view.*
@@ -40,6 +38,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         var actMode: ActionMode? = null
         var displayFilenames = false
         val markedItems = HashSet<Int>()
+        var foregroundColor = 0
 
         fun toggleItemSelection(itemView: View, select: Boolean, pos: Int = -1) {
             getProperView(itemView).isSelected = select
@@ -59,6 +58,10 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             else
                 itemView.medium_thumbnail
         }
+    }
+
+    init {
+        foregroundColor = Config.newInstance(activity).primaryColor
     }
 
     val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
@@ -198,7 +201,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent?.context).inflate(R.layout.photo_video_item, parent, false)
-        return ViewHolder(view, itemClick)
+        return ViewHolder(view, foregroundColor, itemClick)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -217,7 +220,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         notifyDataSetChanged()
     }
 
-    class ViewHolder(view: View, val itemClick: (Medium) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
+    class ViewHolder(view: View, val foregroundColor: Int, val itemClick: (Medium) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
         fun bindView(activity: SimpleActivity, multiSelectorCallback: ModalMultiSelectorCallback, multiSelector: MultiSelector, medium: Medium, pos: Int): View {
             itemView.play_outline.visibility = if (medium.isVideo) View.VISIBLE else View.GONE
             itemView.file_name.beVisibleIf(displayFilenames)
@@ -247,6 +250,11 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 }
                 true
             }
+
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+                (getProperView(itemView) as FrameLayout).foreground = foregroundColor.createSelector()
+            else
+                getProperView(itemView).foreground = foregroundColor.createSelector()
 
             return itemView
         }
