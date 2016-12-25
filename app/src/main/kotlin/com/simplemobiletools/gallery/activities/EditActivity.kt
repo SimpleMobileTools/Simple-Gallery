@@ -60,21 +60,13 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.save_as -> {
-                crop_image_view.getCroppedImageAsync()
-                true
-            }
-            R.id.rotate -> {
-                crop_image_view.rotateImage(90)
-                true
-            }
-            R.id.resize -> {
-                resizeImage()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
+        when (item.itemId) {
+            R.id.save_as -> crop_image_view.getCroppedImageAsync()
+            R.id.rotate -> crop_image_view.rotateImage(90)
+            R.id.resize -> resizeImage()
+            else -> return super.onOptionsItemSelected(item)
         }
+        return true
     }
 
     private fun resizeImage() {

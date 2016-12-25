@@ -111,41 +111,18 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.sort -> {
-                showSortingDialog()
-                true
-            }
-            R.id.toggle_filename -> {
-                toggleFilenameVisibility()
-                true
-            }
-            R.id.open_camera -> {
-                launchCamera()
-                true
-            }
-            R.id.folder_view -> {
-                switchToFolderView()
-                true
-            }
-            R.id.hide_folder -> {
-                hideFolder()
-                true
-            }
-            R.id.unhide_folder -> {
-                unhideFolder()
-                true
-            }
-            R.id.settings -> {
-                launchSettings()
-                true
-            }
-            R.id.about -> {
-                launchAbout()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
+        when (item.itemId) {
+            R.id.sort -> showSortingDialog()
+            R.id.toggle_filename -> toggleFilenameVisibility()
+            R.id.open_camera -> launchCamera()
+            R.id.folder_view -> switchToFolderView()
+            R.id.hide_folder -> hideFolder()
+            R.id.unhide_folder -> unhideFolder()
+            R.id.settings -> launchSettings()
+            R.id.about -> launchAbout()
+            else -> return super.onOptionsItemSelected(item)
         }
+        return true
     }
 
     private fun toggleFilenameVisibility() {

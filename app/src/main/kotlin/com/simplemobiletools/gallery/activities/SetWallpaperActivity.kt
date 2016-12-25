@@ -58,16 +58,11 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.save -> {
-                crop_image_view.getCroppedImageAsync()
-                return true
-            }
-            R.id.rotate -> {
-                crop_image_view.rotateImage(90)
-                return true
-            }
+            R.id.save -> crop_image_view.getCroppedImageAsync()
+            R.id.rotate -> crop_image_view.rotateImage(90)
+            else -> return super.onOptionsItemSelected(item)
         }
-        return super.onOptionsItemSelected(item)
+        return true
     }
 
     override fun onCropImageComplete(view: CropImageView?, result: CropImageView.CropResult) {

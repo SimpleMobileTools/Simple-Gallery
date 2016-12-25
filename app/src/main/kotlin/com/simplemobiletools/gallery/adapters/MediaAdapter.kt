@@ -59,37 +59,17 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
     val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
         override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
-            return when (item.itemId) {
-                R.id.cab_properties -> {
-                    showProperties()
-                    true
-                }
-                R.id.cab_rename -> {
-                    renameFile()
-                    true
-                }
-                R.id.cab_edit -> {
-                    editFile()
-                    true
-                }
-                R.id.cab_share -> {
-                    shareMedia()
-                    true
-                }
-                R.id.cab_copy_move -> {
-                    displayCopyDialog()
-                    true
-                }
-                R.id.cab_select_all -> {
-                    selectAll()
-                    true
-                }
-                R.id.cab_delete -> {
-                    askConfirmDelete()
-                    true
-                }
-                else -> false
+            when (item.itemId) {
+                R.id.cab_properties -> showProperties()
+                R.id.cab_rename -> renameFile()
+                R.id.cab_edit -> editFile()
+                R.id.cab_share -> shareMedia()
+                R.id.cab_copy_move -> displayCopyDialog()
+                R.id.cab_select_all -> selectAll()
+                R.id.cab_delete -> askConfirmDelete()
+                else -> return false
             }
+            return true
         }
 
         override fun onCreateActionMode(actionMode: ActionMode?, menu: Menu?): Boolean {

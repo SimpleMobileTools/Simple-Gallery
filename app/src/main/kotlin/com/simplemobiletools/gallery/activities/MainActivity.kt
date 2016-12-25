@@ -76,29 +76,15 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.sort -> {
-                showSortingDialog()
-                true
-            }
-            R.id.open_camera -> {
-                launchCamera()
-                true
-            }
-            R.id.show_all -> {
-                showAllMedia()
-                true
-            }
-            R.id.settings -> {
-                launchSettings()
-                true
-            }
-            R.id.about -> {
-                launchAbout()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
+        when (item.itemId) {
+            R.id.sort -> showSortingDialog()
+            R.id.open_camera -> launchCamera()
+            R.id.show_all -> showAllMedia()
+            R.id.settings -> launchSettings()
+            R.id.about -> launchAbout()
+            else -> return super.onOptionsItemSelected(item)
         }
+        return true
     }
 
     override fun onResume() {

@@ -100,41 +100,18 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.menu_set_as_wallpaper -> {
-                setAsWallpaper(getCurrentFile())
-                true
-            }
-            R.id.menu_copy_move -> {
-                displayCopyDialog()
-                true
-            }
-            R.id.menu_open_with -> {
-                openWith(getCurrentFile())
-                true
-            }
-            R.id.menu_share -> {
-                shareMedium(getCurrentMedium()!!)
-                true
-            }
-            R.id.menu_delete -> {
-                askConfirmDelete()
-                true
-            }
-            R.id.menu_rename -> {
-                renameFile()
-                true
-            }
-            R.id.menu_edit -> {
-                openEditor(getCurrentFile())
-                true
-            }
-            R.id.menu_properties -> {
-                showProperties()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
+        when (item.itemId) {
+            R.id.menu_set_as_wallpaper -> setAsWallpaper(getCurrentFile())
+            R.id.menu_copy_move -> displayCopyDialog()
+            R.id.menu_open_with -> openWith(getCurrentFile())
+            R.id.menu_share -> shareMedium(getCurrentMedium()!!)
+            R.id.menu_delete -> askConfirmDelete()
+            R.id.menu_rename -> renameFile()
+            R.id.menu_edit -> openEditor(getCurrentFile())
+            R.id.menu_properties -> showProperties()
+            else -> return super.onOptionsItemSelected(item)
         }
+        return true
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {

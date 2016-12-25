@@ -59,45 +59,18 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
     val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
         override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
-            return when (item.itemId) {
-                R.id.cab_properties -> {
-                    showProperties()
-                    true
-                }
-                R.id.cab_rename -> {
-                    renameDir()
-                    true
-                }
-                R.id.cab_pin -> {
-                    pinFolder()
-                    mode.finish()
-                    true
-                }
-                R.id.cab_unpin -> {
-                    unpinFolder()
-                    mode.finish()
-                    true
-                }
-                R.id.cab_hide -> {
-                    hideFolders()
-                    mode.finish()
-                    true
-                }
-                R.id.cab_unhide -> {
-                    unhideFolders()
-                    mode.finish()
-                    true
-                }
-                R.id.cab_copy_move -> {
-                    displayCopyDialog()
-                    true
-                }
-                R.id.cab_delete -> {
-                    askConfirmDelete()
-                    true
-                }
-                else -> false
+            when (item.itemId) {
+                R.id.cab_properties -> showProperties()
+                R.id.cab_rename -> renameDir()
+                R.id.cab_pin -> pinFolders(true)
+                R.id.cab_unpin -> pinFolders(false)
+                R.id.cab_hide -> toggleFoldersVisibility(true)
+                R.id.cab_unhide -> toggleFoldersVisibility(false)
+                R.id.cab_copy_move -> displayCopyDialog()
+                R.id.cab_delete -> askConfirmDelete()
+                else -> return false
             }
+            return true
         }
 
         override fun onCreateActionMode(actionMode: ActionMode?, menu: Menu?): Boolean {
@@ -183,28 +156,26 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         }
     }
 
-    private fun hideFolders() {
-        config.addHiddenFolders(getSelectedPaths())
+    private fun toggleFoldersVisibility(hide: Boolean) {
+        if (hide)
+            config.addHiddenFolders(getSelectedPaths())
+        else
+            config.removeHiddenFolders(getSelectedPaths())
+
         listener?.refreshItems()
+        actMode?.finish()
     }
 
-    private fun unhideFolders() {
-        config.removeHiddenFolders(getSelectedPaths())
-        listener?.refreshItems()
-    }
+    private fun pinFolders(pin: Boolean) {
+        if (pin)
+            config.addPinnedFolders(getSelectedPaths())
+        else
+            config.removePinnedFolders(getSelectedPaths())
 
-    private fun pinFolder() {
-        config.addPinnedFolders(getSelectedPaths())
         pinnedFolders = config.pinnedFolders
         listener?.refreshItems()
         notifyDataSetChanged()
-    }
-
-    private fun unpinFolder() {
-        config.removePinnedFolders(getSelectedPaths())
-        pinnedFolders = config.pinnedFolders
-        listener?.refreshItems()
-        notifyDataSetChanged()
+        actMode?.finish()
     }
 
     private fun displayCopyDialog() {

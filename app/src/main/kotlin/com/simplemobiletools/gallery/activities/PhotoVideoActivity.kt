@@ -95,25 +95,14 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.menu_set_as_wallpaper -> {
-                setAsWallpaper(File(mMedium!!.path))
-                true
-            }
-            R.id.menu_open_with -> {
-                openWith(File(mMedium!!.path))
-                true
-            }
-            R.id.menu_share -> {
-                shareMedium(mMedium!!)
-                true
-            }
-            R.id.menu_edit -> {
-                openEditor(File(mMedium!!.path))
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
+        when (item.itemId) {
+            R.id.menu_set_as_wallpaper -> setAsWallpaper(File(mMedium!!.path))
+            R.id.menu_open_with -> openWith(File(mMedium!!.path))
+            R.id.menu_share -> shareMedium(mMedium!!)
+            R.id.menu_edit -> openEditor(File(mMedium!!.path))
+            else -> return super.onOptionsItemSelected(item)
         }
+        return true
     }
 
     override fun fragmentClicked() {
