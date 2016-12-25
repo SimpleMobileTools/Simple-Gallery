@@ -11,43 +11,19 @@
         <item name="android:spinnerDropDownItemStyle">@style/SpinnerItem.DropDownItem</item>
     </style>
 
-    <style name="AppTheme.Dark" parent="Theme.AppCompat">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="actionBarStyle">@style/AppTheme.ActionBarStyle</item>
-        <item name="android:textSize">@dimen/normal_text_size</item>
-        <item name="android:windowBackground">@android:color/black</item>
-        <item name="android:spinnerItemStyle">@style/SpinnerItem</item>
-        <item name="spinnerDropDownItemStyle">@style/SpinnerItem.DropDownItem</item>
-        <item name="android:spinnerDropDownItemStyle">@style/SpinnerItem.DropDownItem</item>
-    </style>
-
     <style name="FullScreenTheme.Base" parent="AppTheme">
         <item name="android:windowContentOverlay">@null</item>
         <item name="actionBarStyle">@style/MyFullScreenActionBar</item>
         <item name="android:actionBarStyle">@style/MyFullScreenActionBar</item>
     </style>
 
-    <style name="FullScreenTheme.Base.Dark" parent="AppTheme.Dark">
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="actionBarStyle">@style/MyFullScreenActionBar</item>
-        <item name="android:actionBarStyle">@style/MyFullScreenActionBar</item>
-        <item name="android:windowBackground">@android:color/black</item>
-    </style>
-
     <style name="FullScreenTheme" parent="FullScreenTheme.Base"/>
 
-    <style name="FullScreenTheme.Dark" parent="FullScreenTheme.Base.Dark"/>
-
     <style name="MyFullScreenActionBar" parent="Widget.AppCompat.Light.ActionBar">
-        <item name="background">@color/actionbar_grey</item>
-        <item name="android:background">@color/actionbar_grey</item>
         <item name="titleTextStyle">@style/AppTheme.ActionBar.TitleTextStyle</item>
     </style>
 
     <style name="AppTheme.ActionBarStyle" parent="@style/Base.Widget.AppCompat.ActionBar">
-        <item name="background">@color/colorPrimary</item>
         <item name="titleTextStyle">@style/AppTheme.ActionBar.TitleTextStyle</item>
     </style>
 
@@ -55,7 +31,6 @@
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textSize">20sp</item>
     </style>
-
 
     <style name="SpinnerItem" parent="@android:style/Widget.TextView">
         <item name="android:paddingRight">@dimen/activity_margin</item>
