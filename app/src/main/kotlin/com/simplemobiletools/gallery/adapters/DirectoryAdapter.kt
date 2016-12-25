@@ -1,9 +1,15 @@
 package com.simplemobiletools.gallery.adapters
 
+import android.content.res.ColorStateList
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.RippleDrawable
+import android.graphics.drawable.StateListDrawable
 import android.os.Build
 import android.support.v7.view.ActionMode
 import android.support.v7.widget.RecyclerView
 import android.view.*
+import android.widget.FrameLayout
 import com.bignerdranch.android.multiselector.ModalMultiSelectorCallback
 import com.bignerdranch.android.multiselector.MultiSelector
 import com.bignerdranch.android.multiselector.SwappingHolder
@@ -12,6 +18,7 @@ import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.signature.StringSignature
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
+import com.simplemobiletools.commons.extensions.adjustAlpha
 import com.simplemobiletools.filepicker.asynctasks.CopyMoveTask
 import com.simplemobiletools.filepicker.extensions.isAStorageRootFolder
 import com.simplemobiletools.filepicker.extensions.isImageVideoGif
@@ -40,6 +47,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     companion object {
         var actMode: ActionMode? = null
         val markedItems = HashSet<Int>()
+        var selectorDrawableColor = 0
 
         fun toggleItemSelection(itemView: View, select: Boolean, pos: Int = -1) {
             getProperView(itemView).isSelected = select
@@ -59,6 +67,25 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             else
                 itemView.dir_thumbnail
         }
+
+        fun createSelector(color: Int): StateListDrawable {
+            val statelist = StateListDrawable()
+            val selectedDrawable = ColorDrawable(color.adjustAlpha(0.5f))
+            statelist.addState(intArrayOf(android.R.attr.state_selected), selectedDrawable)
+
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+                val pressedDrawable = ColorDrawable(color.adjustAlpha(0.4f))
+                statelist.addState(intArrayOf(android.R.attr.state_pressed), pressedDrawable)
+            } else {
+                val pressedDrawable = RippleDrawable(ColorStateList.valueOf(color.adjustAlpha(0.4f)), null, ColorDrawable(Color.WHITE))
+                statelist.addState(intArrayOf(), pressedDrawable)
+            }
+            return statelist
+        }
+    }
+
+    init {
+        selectorDrawableColor = Config.newInstance(activity).primaryColor
     }
 
     val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
@@ -252,7 +279,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent?.context).inflate(R.layout.directory_item, parent, false)
-        return ViewHolder(view, itemClick)
+        return ViewHolder(view, selectorDrawableColor, itemClick)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -262,7 +289,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
     override fun getItemCount() = dirs.size
 
-    class ViewHolder(view: View, val itemClick: (Directory) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
+    class ViewHolder(view: View, val foregroundColor: Int, val itemClick: (Directory) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
         fun bindView(activity: SimpleActivity, multiSelectorCallback: ModalMultiSelectorCallback, multiSelector: MultiSelector, directory: Directory, pos: Int, isPinned: Boolean)
                 : View {
             itemView.dir_name.text = directory.name
@@ -294,6 +321,11 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                 }
                 true
             }
+
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+                (getProperView(itemView) as FrameLayout).foreground = createSelector(foregroundColor)
+            else
+                getProperView(itemView).foreground = createSelector(foregroundColor)
             return itemView
         }
 
