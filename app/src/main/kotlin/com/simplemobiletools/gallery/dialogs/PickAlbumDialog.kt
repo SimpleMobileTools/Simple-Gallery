@@ -24,8 +24,9 @@ class PickAlbumDialog(val activity: SimpleActivity, val callback: (path: String)
 
         AlertDialog.Builder(activity)
                 .setView(view)
-                .setNeutralButton(R.string.other_folder, { dialogInterface, i -> showOtherFolder() })
                 .setPositiveButton(R.string.ok, null)
+                .setNegativeButton(R.string.cancel, null)
+                .setNeutralButton(R.string.other_folder, { dialogInterface, i -> showOtherFolder() })
                 .create().apply {
             activity.setupDialogStuff(view, this, R.string.select_destination)
 

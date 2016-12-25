@@ -19,7 +19,7 @@
             android:background="?attr/selectableItemBackground"
             android:padding="@dimen/activity_margin">
 
-            <TextView
+            <com.simplemobiletools.commons.views.MyTextView
                 android:id="@+id/settings_customize_colors_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -100,7 +100,7 @@
             android:paddingRight="@dimen/settings_padding"
             android:paddingTop="@dimen/activity_margin">
 
-            <TextView
+            <com.simplemobiletools.commons.views.MyTextView
                 android:id="@+id/settings_show_media_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

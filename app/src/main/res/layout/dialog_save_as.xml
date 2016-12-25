@@ -7,14 +7,14 @@
     android:orientation="vertical"
     android:padding="@dimen/activity_margin">
 
-    <TextView
+    <com.simplemobiletools.commons.views.MyTextView
         android:id="@+id/file_path_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/path"
         android:textSize="@dimen/details_text_size"/>
 
-    <TextView
+    <com.simplemobiletools.commons.views.MyTextView
         android:id="@+id/file_path"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,24 +23,26 @@
         android:paddingRight="@dimen/small_padding"
         android:paddingTop="@dimen/small_padding"/>
 
-    <EditText
+    <com.simplemobiletools.commons.views.MyEditText
         android:id="@+id/file_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/activity_margin"
-        android:singleLine="true"/>
+        android:singleLine="true"
+        android:textCursorDrawable="@null"/>
 
-    <TextView
+    <com.simplemobiletools.commons.views.MyTextView
         android:id="@+id/file_extension_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/extension"/>
 
-    <EditText
+    <com.simplemobiletools.commons.views.MyEditText
         android:id="@+id/file_extension"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/activity_margin"
-        android:singleLine="true"/>
+        android:singleLine="true"
+        android:textCursorDrawable="@null"/>
 
 </LinearLayout>
