@@ -10,8 +10,8 @@ import android.support.v4.view.ViewPager
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.filepicker.asynctasks.CopyMoveTask
-import com.simplemobiletools.filepicker.dialogs.ConfirmationDialog
 import com.simplemobiletools.filepicker.extensions.*
 import com.simplemobiletools.fileproperties.dialogs.PropertiesDialog
 import com.simplemobiletools.gallery.R
