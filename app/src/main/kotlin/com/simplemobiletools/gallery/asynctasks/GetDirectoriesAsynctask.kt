@@ -51,7 +51,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                         val file = File(fullPath)
                         val size = cursor.getLongValue(MediaStore.Images.Media.SIZE)
 
-                        if (size == 0L && !file.exists()) {
+                        if (size == 0L || !file.exists()) {
                             invalidFiles.add(file)
                             continue
                         }

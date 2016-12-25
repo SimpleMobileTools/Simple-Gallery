@@ -55,7 +55,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
                         val file = File(curPath)
                         val size = cursor.getLongValue(MediaStore.Images.Media.SIZE)
 
-                        if (size == 0L && !file.exists()) {
+                        if (size == 0L || !file.exists()) {
                             invalidFiles.add(file)
                             continue
                         }
