@@ -67,6 +67,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                 R.id.cab_hide -> toggleFoldersVisibility(true)
                 R.id.cab_unhide -> toggleFoldersVisibility(false)
                 R.id.cab_copy_move -> displayCopyDialog()
+                R.id.cab_select_all -> selectAll()
                 R.id.cab_delete -> askConfirmDelete()
                 else -> return false
             }
@@ -201,6 +202,17 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                 activity.toast(R.string.copy_move_failed)
             }
         })
+    }
+
+    fun selectAll() {
+        val cnt = dirs.size
+        for (i in 0..cnt - 1) {
+            markedItems.add(i)
+            multiSelector.setSelected(i, 0, true)
+            notifyItemChanged(i)
+        }
+        actMode?.title = cnt.toString()
+        actMode?.invalidate()
     }
 
     private fun askConfirmDelete() {
