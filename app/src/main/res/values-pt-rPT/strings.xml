@@ -84,7 +84,9 @@
     <string name="images_and_videos">Imagens e vídeos</string>
 
     <!-- Release notes -->
-    <string name="release_52">Add more color customization options</string>
+    <string name="release_52">
+        Add more color customization options\n
+        Your settings have been cleared, please reset them</string>
     <string name="release_51">Allow changing the column count with pinch gestures</string>
     <string name="release_50">Add the option to display images or videos only</string>
     <string name="release_49">Added a Select all button</string>

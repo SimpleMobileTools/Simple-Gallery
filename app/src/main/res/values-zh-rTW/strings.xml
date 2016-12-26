@@ -84,7 +84,9 @@
     <string name="images_and_videos">圖片和影片</string>
 
     <!-- Release notes -->
-    <string name="release_52">加入更多顏色的自訂選項</string>
+    <string name="release_52">
+        加入更多顏色的自訂選項\n
+        Your settings have been cleared, please reset them</string>
     <string name="release_51">允許用捏放手勢變更照片清單欄數</string>
     <string name="release_50">加入只顯示圖片或影片的選項</string>
     <string name="release_49">加入一個「選取全部」按鈕</string>

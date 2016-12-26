@@ -84,7 +84,9 @@
     <string name="images_and_videos">Изображения и видео</string>
 
     <!-- Release notes -->
-    <string name="release_52">Добавлена возможность изменять цветовое оформление</string>
+    <string name="release_52">
+        Добавлена возможность изменять цветовое оформление\n
+        Your settings have been cleared, please reset them</string>
     <string name="release_51">Добавлена возможность изменять количество столбцов щипком</string>
     <string name="release_50">Добавлен переключатель для отображения только изображений или видео</string>
     <string name="release_49">Добавлена кнопка "Выбрать всё"</string>
