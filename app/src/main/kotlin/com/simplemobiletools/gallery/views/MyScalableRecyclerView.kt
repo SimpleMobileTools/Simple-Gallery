@@ -12,6 +12,7 @@ class MyScalableRecyclerView : RecyclerView {
     companion object {
         var mListener: ZoomListener? = null
         var mCurrScaleFactor = 1.0f
+        var mLastUp = 0L    // allow only pinch zoom, not double tap
     }
 
     constructor(context: Context) : super(context) {
@@ -28,6 +29,7 @@ class MyScalableRecyclerView : RecyclerView {
         super.dispatchTouchEvent(ev)
         if (ev.action == MotionEvent.ACTION_UP) {
             mCurrScaleFactor = 1.0f
+            mLastUp = System.currentTimeMillis()
         }
 
         return mScaleDetector.onTouchEvent(ev)
@@ -38,6 +40,9 @@ class MyScalableRecyclerView : RecyclerView {
         val ZOOM_OUT_THRESHOLD = 0.3f
 
         override fun onScale(detector: ScaleGestureDetector): Boolean {
+            if (System.currentTimeMillis() - mLastUp < 1000)
+                return false
+
             val diff = mCurrScaleFactor - detector.scaleFactor
             if (diff < ZOOM_IN_THRESHOLD && mCurrScaleFactor == 1.0f) {
                 mListener?.zoomIn()
