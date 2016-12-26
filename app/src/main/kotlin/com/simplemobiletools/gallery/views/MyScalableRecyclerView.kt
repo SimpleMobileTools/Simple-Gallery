@@ -36,8 +36,8 @@ class MyScalableRecyclerView : RecyclerView {
     }
 
     class GestureListener : ScaleGestureDetector.SimpleOnScaleGestureListener() {
-        val ZOOM_IN_THRESHOLD = -0.7f
-        val ZOOM_OUT_THRESHOLD = 0.3f
+        val ZOOM_IN_THRESHOLD = -0.6f
+        val ZOOM_OUT_THRESHOLD = 0.25f
 
         override fun onScale(detector: ScaleGestureDetector): Boolean {
             if (System.currentTimeMillis() - mLastUp < 1000)
