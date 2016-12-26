@@ -4,7 +4,7 @@ import android.content.Context
 import android.database.Cursor
 import android.os.AsyncTask
 import android.provider.MediaStore
-import com.simplemobiletools.filepicker.extensions.scanFiles
+import com.simplemobiletools.commons.extensions.scanFiles
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.getHumanizedFilename
 import com.simplemobiletools.gallery.extensions.getLongValue

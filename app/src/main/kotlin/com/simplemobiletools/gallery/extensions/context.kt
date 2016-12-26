@@ -5,7 +5,7 @@ import android.content.Intent
 import android.database.Cursor
 import android.net.Uri
 import android.provider.MediaStore
-import com.simplemobiletools.filepicker.extensions.humanizePath
+import com.simplemobiletools.commons.extensions.humanizePath
 import com.simplemobiletools.gallery.activities.SettingsActivity
 
 fun Context.getRealPathFromURI(uri: Uri): String? {

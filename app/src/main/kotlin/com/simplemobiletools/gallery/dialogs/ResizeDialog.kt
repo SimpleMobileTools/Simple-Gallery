@@ -8,8 +8,8 @@ import android.view.LayoutInflater
 import android.view.WindowManager
 import android.widget.EditText
 import com.simplemobiletools.commons.extensions.setupDialogStuff
-import com.simplemobiletools.filepicker.extensions.toast
-import com.simplemobiletools.filepicker.extensions.value
+import com.simplemobiletools.commons.extensions.toast
+import com.simplemobiletools.commons.extensions.value
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import kotlinx.android.synthetic.main.resize_image.view.*

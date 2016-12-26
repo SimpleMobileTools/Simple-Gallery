@@ -4,12 +4,8 @@ import android.support.v4.util.Pair
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.simplemobiletools.commons.extensions.setupDialogStuff
-import com.simplemobiletools.filepicker.asynctasks.CopyMoveTask
-import com.simplemobiletools.filepicker.extensions.humanizePath
-import com.simplemobiletools.filepicker.extensions.isPathOnSD
-import com.simplemobiletools.filepicker.extensions.scanFiles
-import com.simplemobiletools.filepicker.extensions.toast
+import com.simplemobiletools.commons.asynctasks.CopyMoveTask
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.helpers.Config

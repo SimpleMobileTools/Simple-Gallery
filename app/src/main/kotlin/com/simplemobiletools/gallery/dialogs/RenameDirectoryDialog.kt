@@ -4,8 +4,7 @@ import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.WindowManager
-import com.simplemobiletools.commons.extensions.setupDialogStuff
-import com.simplemobiletools.filepicker.extensions.*
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.helpers.Config
