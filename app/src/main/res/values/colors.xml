@@ -6,4 +6,8 @@
     <color name="tmb_background">#ff222222</color>
     <color name="actionbar_grey">#AA000000</color>
     <color name="light_grey">#aa888888</color>
+
+    <!-- Color Customization -->
+    <color name="default_text_color">#FFEDEDED</color>
+    <color name="default_background_color">#FF3F3F3F</color>
 </resources>
