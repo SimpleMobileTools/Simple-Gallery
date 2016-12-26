@@ -1,45 +1,38 @@
 package com.simplemobiletools.gallery.helpers
 
 import android.content.Context
-import android.content.SharedPreferences
 import com.simplemobiletools.commons.helpers.BaseConfig
 import com.simplemobiletools.gallery.R
 import java.util.*
 
 class Config(context: Context) : BaseConfig(context) {
-    private val mPrefs: SharedPreferences
-
     companion object {
         fun newInstance(context: Context) = Config(context)
     }
 
-    init {
-        mPrefs = context.getSharedPreferences(PREFS_KEY, Context.MODE_PRIVATE)
-    }
-
     var isSameSorting: Boolean
-        get() = mPrefs.getBoolean(IS_SAME_SORTING, true)
-        set(isSameSorting) = mPrefs.edit().putBoolean(IS_SAME_SORTING, isSameSorting).apply()
+        get() = prefs.getBoolean(IS_SAME_SORTING, true)
+        set(isSameSorting) = prefs.edit().putBoolean(IS_SAME_SORTING, isSameSorting).apply()
 
     var fileSorting: Int
-        get() = if (isSameSorting) directorySorting else mPrefs.getInt(SORT_ORDER, SORT_BY_DATE_MODIFIED or SORT_DESCENDING)
-        set(order) = if (isSameSorting) directorySorting = order else mPrefs.edit().putInt(SORT_ORDER, order).apply()
+        get() = if (isSameSorting) directorySorting else prefs.getInt(SORT_ORDER, SORT_BY_DATE_MODIFIED or SORT_DESCENDING)
+        set(order) = if (isSameSorting) directorySorting = order else prefs.edit().putInt(SORT_ORDER, order).apply()
 
     var directorySorting: Int
-        get() = mPrefs.getInt(DIRECTORY_SORT_ORDER, SORT_BY_DATE_MODIFIED or SORT_DESCENDING)
-        set(order) = mPrefs.edit().putInt(DIRECTORY_SORT_ORDER, order).apply()
+        get() = prefs.getInt(DIRECTORY_SORT_ORDER, SORT_BY_DATE_MODIFIED or SORT_DESCENDING)
+        set(order) = prefs.edit().putInt(DIRECTORY_SORT_ORDER, order).apply()
 
     var showHiddenFolders: Boolean
-        get() = mPrefs.getBoolean(SHOW_HIDDEN_FOLDERS, false)
-        set(showHiddenFolders) = mPrefs.edit().putBoolean(SHOW_HIDDEN_FOLDERS, showHiddenFolders).apply()
+        get() = prefs.getBoolean(SHOW_HIDDEN_FOLDERS, false)
+        set(showHiddenFolders) = prefs.edit().putBoolean(SHOW_HIDDEN_FOLDERS, showHiddenFolders).apply()
 
     var pinnedFolders: Set<String>
-        get() = mPrefs.getStringSet(PINNED_FOLDERS, HashSet<String>())
-        set(pinnedFolders) = mPrefs.edit().putStringSet(PINNED_FOLDERS, pinnedFolders).apply()
+        get() = prefs.getStringSet(PINNED_FOLDERS, HashSet<String>())
+        set(pinnedFolders) = prefs.edit().putStringSet(PINNED_FOLDERS, pinnedFolders).apply()
 
     var showAll: Boolean
-        get() = mPrefs.getBoolean(SHOW_ALL, false)
-        set(showAll) = mPrefs.edit().putBoolean(SHOW_ALL, showAll).apply()
+        get() = prefs.getBoolean(SHOW_ALL, false)
+        set(showAll) = prefs.edit().putBoolean(SHOW_ALL, showAll).apply()
 
     fun addPinnedFolders(paths: Set<String>) {
         val currPinnedFolders = HashSet<String>(pinnedFolders)
@@ -76,26 +69,26 @@ class Config(context: Context) : BaseConfig(context) {
     fun getIsFolderHidden(path: String) = hiddenFolders.contains(path)
 
     var hiddenFolders: MutableSet<String>
-        get() = mPrefs.getStringSet(HIDDEN_FOLDERS, HashSet<String>())
-        set(hiddenFolders) = mPrefs.edit().remove(HIDDEN_FOLDERS).putStringSet(HIDDEN_FOLDERS, hiddenFolders).apply()
+        get() = prefs.getStringSet(HIDDEN_FOLDERS, HashSet<String>())
+        set(hiddenFolders) = prefs.edit().remove(HIDDEN_FOLDERS).putStringSet(HIDDEN_FOLDERS, hiddenFolders).apply()
 
     var autoplayVideos: Boolean
-        get() = mPrefs.getBoolean(AUTOPLAY_VIDEOS, false)
-        set(autoplay) = mPrefs.edit().putBoolean(AUTOPLAY_VIDEOS, autoplay).apply()
+        get() = prefs.getBoolean(AUTOPLAY_VIDEOS, false)
+        set(autoplay) = prefs.edit().putBoolean(AUTOPLAY_VIDEOS, autoplay).apply()
 
     var displayFileNames: Boolean
-        get() = mPrefs.getBoolean(DISPLAY_FILE_NAMES, false)
-        set(display) = mPrefs.edit().putBoolean(DISPLAY_FILE_NAMES, display).apply()
+        get() = prefs.getBoolean(DISPLAY_FILE_NAMES, false)
+        set(display) = prefs.edit().putBoolean(DISPLAY_FILE_NAMES, display).apply()
 
     var showMedia: Int
-        get() = mPrefs.getInt(SHOW_MEDIA, IMAGES_AND_VIDEOS)
-        set(showMedia) = mPrefs.edit().putInt(SHOW_MEDIA, showMedia).apply()
+        get() = prefs.getInt(SHOW_MEDIA, IMAGES_AND_VIDEOS)
+        set(showMedia) = prefs.edit().putInt(SHOW_MEDIA, showMedia).apply()
 
     var dirColumnCnt: Int
-        get() = mPrefs.getInt(DIR_COLUMN_CNT, context.resources.getInteger(R.integer.directory_columns))
-        set(dirColumnCnt) = mPrefs.edit().putInt(DIR_COLUMN_CNT, dirColumnCnt).apply()
+        get() = prefs.getInt(DIR_COLUMN_CNT, context.resources.getInteger(R.integer.directory_columns))
+        set(dirColumnCnt) = prefs.edit().putInt(DIR_COLUMN_CNT, dirColumnCnt).apply()
 
     var mediaColumnCnt: Int
-        get() = mPrefs.getInt(MEDIA_COLUMN_CNT, context.resources.getInteger(R.integer.media_columns))
-        set(mediaColumnCnt) = mPrefs.edit().putInt(MEDIA_COLUMN_CNT, mediaColumnCnt).apply()
+        get() = prefs.getInt(MEDIA_COLUMN_CNT, context.resources.getInteger(R.integer.media_columns))
+        set(mediaColumnCnt) = prefs.edit().putInt(MEDIA_COLUMN_CNT, mediaColumnCnt).apply()
 }
