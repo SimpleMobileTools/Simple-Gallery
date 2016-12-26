@@ -23,7 +23,6 @@ class ChangeSortingDialog(val activity: SimpleActivity, val isDirectorySorting: 
         view = LayoutInflater.from(activity).inflate(R.layout.dialog_change_sorting, null) as ViewGroup
 
         AlertDialog.Builder(activity)
-                .setView(view)
                 .setPositiveButton(R.string.ok, this)
                 .setNegativeButton(R.string.cancel, null)
                 .create().apply {

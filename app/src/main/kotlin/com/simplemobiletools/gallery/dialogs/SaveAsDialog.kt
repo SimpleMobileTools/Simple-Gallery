@@ -43,7 +43,6 @@ class SaveAsDialog(val activity: Activity, val path: String, val callback: (save
         }
 
         AlertDialog.Builder(activity)
-                .setView(view)
                 .setPositiveButton(R.string.ok, null)
                 .setNegativeButton(R.string.cancel, null)
                 .create().apply {

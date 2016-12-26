@@ -70,7 +70,6 @@ class ResizeDialog(val activity: SimpleActivity, val size: Point, val callback: 
         })
 
         AlertDialog.Builder(activity)
-                .setView(view)
                 .setPositiveButton(R.string.ok, null)
                 .setNegativeButton(R.string.cancel, null)
                 .create().apply {
