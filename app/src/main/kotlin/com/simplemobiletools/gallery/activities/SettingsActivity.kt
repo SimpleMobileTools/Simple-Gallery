@@ -47,6 +47,7 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun setupAutoplayVideos() {
+        settings_autoplay_videos.isChecked = config.autoplayVideos
         settings_autoplay_videos_holder.setOnClickListener {
             settings_autoplay_videos.toggle()
             config.autoplayVideos = settings_autoplay_videos.isChecked
