@@ -39,6 +39,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         var displayFilenames = false
         val markedItems = HashSet<Int>()
         var foregroundColor = 0
+        var backgroundColor = 0
 
         fun toggleItemSelection(itemView: View, select: Boolean, pos: Int = -1) {
             getProperView(itemView).isSelected = select
@@ -62,6 +63,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
     init {
         foregroundColor = Config.newInstance(activity).primaryColor
+        backgroundColor = Config.newInstance(activity).backgroundColor
     }
 
     val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
@@ -201,7 +203,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent?.context).inflate(R.layout.photo_video_item, parent, false)
-        return ViewHolder(view, foregroundColor, itemClick)
+        return ViewHolder(view, backgroundColor, foregroundColor, itemClick)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -220,7 +222,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         notifyDataSetChanged()
     }
 
-    class ViewHolder(view: View, val foregroundColor: Int, val itemClick: (Medium) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
+    class ViewHolder(view: View, val backgroundColor: Int, val foregroundColor: Int, val itemClick: (Medium) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
         fun bindView(activity: SimpleActivity, multiSelectorCallback: ModalMultiSelectorCallback, multiSelector: MultiSelector, medium: Medium, pos: Int): View {
             itemView.play_outline.visibility = if (medium.isVideo) View.VISIBLE else View.GONE
             itemView.file_name.beVisibleIf(displayFilenames)
@@ -233,10 +235,10 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 Glide.with(activity).load(path).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature).into(itemView.medium_thumbnail)
             } else if (medium.isPng()) {
                 Glide.with(activity).load(path).asBitmap().format(DecodeFormat.PREFER_ARGB_8888).diskCacheStrategy(DiskCacheStrategy.RESULT)
-                        .signature(timestampSignature).placeholder(R.color.tmb_background).centerCrop().into(itemView.medium_thumbnail)
+                        .signature(timestampSignature).placeholder(backgroundColor).centerCrop().into(itemView.medium_thumbnail)
             } else {
                 Glide.with(activity).load(path).diskCacheStrategy(DiskCacheStrategy.RESULT).signature(timestampSignature)
-                        .placeholder(R.color.tmb_background).centerCrop().crossFade().into(itemView.medium_thumbnail)
+                        .placeholder(backgroundColor).centerCrop().crossFade().into(itemView.medium_thumbnail)
             }
 
             itemView.setOnClickListener { viewClicked(multiSelector, medium, pos) }
