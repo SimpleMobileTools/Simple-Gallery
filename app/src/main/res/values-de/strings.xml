@@ -85,13 +85,13 @@
 
     <!-- Release notes -->
     <string name="release_52">
-        Add more color customization options\n
+        Added more color customization options\n
         Your settings have been cleared, please reset them</string>
     <string name="release_51">Allow changing the column count with pinch gestures</string>
-    <string name="release_50">Add the option to display images or videos only</string>
-    <string name="release_49">Added a Select all button</string>
+    <string name="release_50">Added an option to display images or videos only</string>
+    <string name="release_49">Added a Select all button at selecting media and folders</string>
     <string name="release_47">
-        Add an image resizer to the editor\n
+        Added an image resizer to the editor\n
         Allow displaying images and videos from all folders together
     </string>
     <string name="release_46">Allow pinning folders at the top</string>
