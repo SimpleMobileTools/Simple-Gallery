@@ -90,6 +90,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     override fun onResume() {
         super.onResume()
         tryloadGallery()
+
+        if (DirectoryAdapter.foregroundColor != config.primaryColor) {
+            DirectoryAdapter.foregroundColor = config.primaryColor
+            setupAdapter()
+        }
     }
 
     override fun onPause() {
@@ -317,6 +322,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
         mDirs = dirs
 
+        setupAdapter()
+    }
+
+    private fun setupAdapter() {
         val adapter = DirectoryAdapter(this, mDirs, this) {
             itemClicked(it.path)
         }
