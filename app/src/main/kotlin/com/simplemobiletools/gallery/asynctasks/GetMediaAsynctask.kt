@@ -76,7 +76,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
         }
 
         context.scanFiles(invalidFiles) {}
-        Medium.sorting = mConfig.sorting
+        Medium.sorting = mConfig.fileSorting
         media.sort()
         return media
     }

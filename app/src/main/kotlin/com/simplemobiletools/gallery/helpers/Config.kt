@@ -21,7 +21,7 @@ class Config(context: Context) : BaseConfig(context) {
         get() = mPrefs.getBoolean(IS_SAME_SORTING, true)
         set(isSameSorting) = mPrefs.edit().putBoolean(IS_SAME_SORTING, isSameSorting).apply()
 
-    var sorting: Int
+    var fileSorting: Int
         get() = if (isSameSorting) directorySorting else mPrefs.getInt(SORT_ORDER, SORT_BY_DATE_MODIFIED or SORT_DESCENDING)
         set(order) = if (isSameSorting) directorySorting = order else mPrefs.edit().putInt(SORT_ORDER, order).apply()
 

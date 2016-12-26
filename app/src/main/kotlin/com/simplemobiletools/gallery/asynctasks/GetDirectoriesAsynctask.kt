@@ -11,6 +11,7 @@ import com.simplemobiletools.gallery.extensions.getLongValue
 import com.simplemobiletools.gallery.extensions.getStringValue
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Directory
+import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 import java.util.*
 
@@ -24,6 +25,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
     }
 
     override fun doInBackground(vararg params: Void): ArrayList<Directory> {
+        val media = ArrayList<Medium>()
         val directories = LinkedHashMap<String, Directory>()
         val invalidFiles = ArrayList<File>()
         val showMedia = mConfig.showMedia
@@ -38,7 +40,8 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
 
                 uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
             }
-            val columns = arrayOf(MediaStore.Images.Media.DATA, MediaStore.Images.Media.DATE_MODIFIED, MediaStore.Images.Media.DATE_TAKEN, MediaStore.Images.Media.SIZE)
+            val columns = arrayOf(MediaStore.Images.Media.DATA, MediaStore.Images.Media.DISPLAY_NAME, MediaStore.Images.Media.DATE_MODIFIED,
+                    MediaStore.Images.Media.DATE_TAKEN, MediaStore.Images.Media.SIZE)
             val order = getSortOrder()
             var cursor: Cursor? = null
 
@@ -56,26 +59,34 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                             continue
                         }
 
-                        val parentDir = file.parent
-                        if (directories.containsKey(parentDir)) {
-                            val directory: Directory = directories[parentDir]!!
-                            val newImageCnt = directory.mediaCnt + 1
-                            directory.mediaCnt = newImageCnt
-                            directory.addSize(size)
-                        } else if (!mToBeDeleted.contains(parentDir)) {
-                            var dirName = context.getHumanizedFilename(parentDir)
-                            if (mConfig.getIsFolderHidden(parentDir)) {
-                                dirName += " ${context.resources.getString(R.string.hidden)}"
-                            }
-
-                            val dateModified = cursor.getLongValue(MediaStore.Images.Media.DATE_MODIFIED)
-                            val dateTaken = cursor.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
-                            directories.put(parentDir, Directory(parentDir, fullPath, dirName, 1, dateModified, dateTaken, size))
-                        }
+                        val name = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME) ?: ""
+                        val dateModified = cursor.getLongValue(MediaStore.Images.Media.DATE_MODIFIED)
+                        val dateTaken = cursor.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
+                        media.add(Medium(name, fullPath, i == 1, dateModified, dateTaken, size))
                     } while (cursor.moveToNext())
                 }
             } finally {
                 cursor?.close()
+            }
+        }
+
+        Medium.sorting = mConfig.fileSorting
+        media.sort()
+
+        for ((name, path, isVideo, dateModified, dateTaken, size) in media) {
+            val parentDir = File(path).parent
+            if (directories.containsKey(parentDir)) {
+                val directory: Directory = directories[parentDir]!!
+                val newImageCnt = directory.mediaCnt + 1
+                directory.mediaCnt = newImageCnt
+                directory.addSize(size)
+            } else if (!mToBeDeleted.contains(parentDir)) {
+                var dirName = context.getHumanizedFilename(parentDir)
+                if (mConfig.getIsFolderHidden(parentDir)) {
+                    dirName += " ${context.resources.getString(R.string.hidden)}"
+                }
+
+                directories.put(parentDir, Directory(parentDir, path, dirName, 1, dateModified, dateTaken, size))
             }
         }
 

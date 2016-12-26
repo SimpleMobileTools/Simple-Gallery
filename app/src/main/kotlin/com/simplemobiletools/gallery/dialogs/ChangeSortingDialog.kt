@@ -29,7 +29,7 @@ class ChangeSortingDialog(val activity: SimpleActivity, val isDirectorySorting: 
             activity.setupDialogStuff(view, this, R.string.sort_by)
         }
 
-        currSorting = if (isDirectorySorting) config.directorySorting else config.sorting
+        currSorting = if (isDirectorySorting) config.directorySorting else config.fileSorting
         setupSortRadio()
         setupOrderRadio()
     }
@@ -73,7 +73,7 @@ class ChangeSortingDialog(val activity: SimpleActivity, val isDirectorySorting: 
         if (isDirectorySorting) {
             config.directorySorting = sorting
         } else {
-            config.sorting = sorting
+            config.fileSorting = sorting
         }
         callback.invoke()
     }
