@@ -41,7 +41,7 @@
         android:paddingBottom="@dimen/small_padding"
         android:paddingRight="@dimen/small_padding"
         android:paddingTop="@dimen/small_padding"
-        android:text="@string/select_destination"/>
+        android:text="@string/click_select_destination"/>
 
     <RadioGroup
         android:id="@+id/dialog_radio_group"
