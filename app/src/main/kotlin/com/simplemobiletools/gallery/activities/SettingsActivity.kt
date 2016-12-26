@@ -11,16 +11,16 @@ class SettingsActivity : SimpleActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
+    }
+
+    override fun onResume() {
+        super.onResume()
 
         setupCustomizeColors()
         setupSameSorting()
         setupShowHiddenFolders()
         setupAutoplayVideos()
         setupShowMedia()
-    }
-
-    override fun onResume() {
-        super.onResume()
         updateTextColors(settings_holder)
     }
 

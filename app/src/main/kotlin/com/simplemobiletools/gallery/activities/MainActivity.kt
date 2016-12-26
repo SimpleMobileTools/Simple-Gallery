@@ -15,6 +15,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.models.Release
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
@@ -90,11 +91,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     override fun onResume() {
         super.onResume()
         tryloadGallery()
-
-        if (DirectoryAdapter.foregroundColor != config.primaryColor) {
-            DirectoryAdapter.foregroundColor = config.primaryColor
-            setupAdapter()
-        }
     }
 
     override fun onPause() {
@@ -114,6 +110,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             else
                 getDirectories()
             handleZooming()
+            checkWhatsNewDialog()
+            checkIfColorChanged()
         } else {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), STORAGE_PERMISSION)
         }
@@ -155,6 +153,13 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             startActivity(this)
         }
         finish()
+    }
+
+    private fun checkIfColorChanged() {
+        if (DirectoryAdapter.foregroundColor != config.primaryColor) {
+            DirectoryAdapter.foregroundColor = config.primaryColor
+            setupAdapter()
+        }
     }
 
     override fun prepareForDeleting(paths: ArrayList<String>) {
@@ -341,6 +346,18 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     fun checkDelete() {
         if (mSnackbar?.isShown == true) {
             deleteDirs()
+        }
+    }
+
+    private fun checkWhatsNewDialog() {
+        arrayListOf<Release>().apply {
+            add(Release(46, R.string.release_46))
+            add(Release(47, R.string.release_47))
+            add(Release(49, R.string.release_49))
+            add(Release(50, R.string.release_50))
+            add(Release(51, R.string.release_51))
+            add(Release(52, R.string.release_52))
+            checkWhatsNew(this)
         }
     }
 }
