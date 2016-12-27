@@ -33,7 +33,7 @@
 
     <style name="AppTheme.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
         <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">@dimen/actionbar_text_size</item>
     </style>
 
     <style name="SpinnerItem" parent="@android:style/Widget.TextView">
@@ -47,5 +47,4 @@
         <item name="android:paddingLeft">@dimen/activity_margin</item>
         <item name="android:paddingRight">@dimen/activity_margin</item>
     </style>
-
 </resources>
