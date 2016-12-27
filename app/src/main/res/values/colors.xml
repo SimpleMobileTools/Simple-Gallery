@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="actionbar_grey">#AA000000</color>
-
-    <!-- Color Customization -->
+    <!-- Default colors -->
     <color name="default_text_color">#FFEDEDED</color>
     <color name="default_background_color">#FF3F3F3F</color>
 </resources>

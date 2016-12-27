@@ -3,5 +3,5 @@
     <gradient
         android:angle="90"
         android:endColor="@android:color/transparent"
-        android:startColor="@color/actionbar_grey"/>
+        android:startColor="@color/gradient_grey_start"/>
 </shape>

@@ -17,7 +17,8 @@
         <RadioGroup
             android:id="@+id/sorting_dialog_radio_sorting"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/medium_margin">
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
                 android:id="@+id/sorting_dialog_radio_name"
@@ -53,17 +54,14 @@
 
         </RadioGroup>
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_marginBottom="@dimen/medium_margin"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="@color/divider_grey"/>
+        <include
+            layout="@layout/divider"/>
 
         <RadioGroup
             android:id="@+id/sorting_dialog_radio_order"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin">
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
                 android:id="@+id/sorting_dialog_radio_ascending"
