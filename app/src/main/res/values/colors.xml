@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="tmb_background">#ff222222</color>
     <color name="actionbar_grey">#AA000000</color>
 
     <!-- Color Customization -->

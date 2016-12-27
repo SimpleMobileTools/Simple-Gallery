@@ -43,6 +43,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         var actMode: ActionMode? = null
         val markedItems = HashSet<Int>()
         var foregroundColor = 0
+        var backgroundColor = 0
 
         fun toggleItemSelection(itemView: View, select: Boolean, pos: Int = -1) {
             getProperView(itemView).isSelected = select
@@ -66,6 +67,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
     init {
         foregroundColor = Config.newInstance(activity).primaryColor
+        backgroundColor = Config.newInstance(activity).backgroundColor
     }
 
     val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
@@ -259,7 +261,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent?.context).inflate(R.layout.directory_item, parent, false)
-        return ViewHolder(view, foregroundColor, itemClick)
+        return ViewHolder(view, backgroundColor, foregroundColor, itemClick)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -269,7 +271,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
     override fun getItemCount() = dirs.size
 
-    class ViewHolder(view: View, val foregroundColor: Int, val itemClick: (Directory) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
+    class ViewHolder(view: View, val backgroundColor: Int, val foregroundColor: Int, val itemClick: (Directory) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
         fun bindView(activity: SimpleActivity, multiSelectorCallback: ModalMultiSelectorCallback, multiSelector: MultiSelector, directory: Directory, pos: Int, isPinned: Boolean)
                 : View {
             itemView.dir_name.text = directory.name
@@ -281,13 +283,13 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             val timestampSignature = StringSignature(directory.date_modified.toString())
             if (tmb.toLowerCase().endsWith(".gif")) {
                 Glide.with(activity).load(tmb).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)
-                        .placeholder(R.color.tmb_background).centerCrop().crossFade().into(itemView.dir_thumbnail)
+                        .placeholder(backgroundColor).centerCrop().crossFade().into(itemView.dir_thumbnail)
             } else if (tmb.toLowerCase().endsWith(".png")) {
                 Glide.with(activity).load(tmb).asBitmap().format(DecodeFormat.PREFER_ARGB_8888).diskCacheStrategy(DiskCacheStrategy.RESULT)
-                        .signature(timestampSignature).placeholder(R.color.tmb_background).centerCrop().into(itemView.dir_thumbnail)
+                        .signature(timestampSignature).placeholder(backgroundColor).centerCrop().into(itemView.dir_thumbnail)
             } else {
                 Glide.with(activity).load(tmb).diskCacheStrategy(DiskCacheStrategy.RESULT).signature(timestampSignature)
-                        .placeholder(R.color.tmb_background).centerCrop().crossFade().into(itemView.dir_thumbnail)
+                        .placeholder(backgroundColor).centerCrop().crossFade().into(itemView.dir_thumbnail)
             }
 
             itemView.setOnClickListener { viewClicked(multiSelector, directory, pos) }
