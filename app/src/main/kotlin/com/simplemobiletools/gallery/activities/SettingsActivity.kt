@@ -55,10 +55,15 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun setupShowMedia() {
+        var isInitialSetup = true
         settings_show_media.setSelection(config.showMedia)
         settings_show_media.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                config.showMedia = settings_show_media.selectedItemPosition
+                if (isInitialSetup)
+                    settings_show_media.setSelection(config.showMedia)
+                else
+                    config.showMedia = settings_show_media.selectedItemPosition
+                isInitialSetup = false
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
