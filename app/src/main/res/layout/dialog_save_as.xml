@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/path"
-        android:textSize="@dimen/details_text_size"/>
+        android:textSize="@dimen/smaller_text_size"/>
 
     <com.simplemobiletools.commons.views.MyTextView
         android:id="@+id/file_path"
@@ -20,8 +20,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/activity_margin"
         android:layout_marginLeft="@dimen/activity_margin"
-        android:paddingRight="@dimen/small_padding"
-        android:paddingTop="@dimen/small_padding"/>
+        android:paddingRight="@dimen/small_margin"
+        android:paddingTop="@dimen/small_margin"/>
 
     <com.simplemobiletools.commons.views.MyEditText
         android:id="@+id/file_name"

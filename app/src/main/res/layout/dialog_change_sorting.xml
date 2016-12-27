@@ -23,32 +23,32 @@
                 android:id="@+id/sorting_dialog_radio_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/medium_padding"
-                android:paddingTop="@dimen/medium_padding"
+                android:paddingBottom="@dimen/medium_margin"
+                android:paddingTop="@dimen/medium_margin"
                 android:text="@string/name"/>
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
                 android:id="@+id/sorting_dialog_radio_size"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/medium_padding"
-                android:paddingTop="@dimen/medium_padding"
+                android:paddingBottom="@dimen/medium_margin"
+                android:paddingTop="@dimen/medium_margin"
                 android:text="@string/size"/>
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
                 android:id="@+id/sorting_dialog_radio_last_modified"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/medium_padding"
-                android:paddingTop="@dimen/medium_padding"
+                android:paddingBottom="@dimen/medium_margin"
+                android:paddingTop="@dimen/medium_margin"
                 android:text="@string/last_modified"/>
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
                 android:id="@+id/sorting_dialog_radio_date_taken"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/medium_padding"
-                android:paddingTop="@dimen/medium_padding"
+                android:paddingBottom="@dimen/medium_margin"
+                android:paddingTop="@dimen/medium_margin"
                 android:text="@string/date_taken"/>
 
         </RadioGroup>
@@ -56,9 +56,9 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:layout_marginBottom="@dimen/medium_padding"
-            android:layout_marginTop="@dimen/medium_padding"
-            android:background="@color/light_grey"/>
+            android:layout_marginBottom="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="@color/divider_grey"/>
 
         <RadioGroup
             android:id="@+id/sorting_dialog_radio_order"
@@ -69,16 +69,16 @@
                 android:id="@+id/sorting_dialog_radio_ascending"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/medium_padding"
-                android:paddingTop="@dimen/medium_padding"
+                android:paddingBottom="@dimen/medium_margin"
+                android:paddingTop="@dimen/medium_margin"
                 android:text="@string/ascending"/>
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
                 android:id="@+id/sorting_dialog_radio_descending"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/medium_padding"
-                android:paddingTop="@dimen/medium_padding"
+                android:paddingBottom="@dimen/medium_margin"
+                android:paddingTop="@dimen/medium_margin"
                 android:text="@string/descending"/>
         </RadioGroup>
     </LinearLayout>

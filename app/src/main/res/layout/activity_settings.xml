@@ -15,7 +15,7 @@
             android:id="@+id/settings_customize_colors_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/settings_padding"
+            android:layout_marginTop="@dimen/medium_margin"
             android:background="?attr/selectableItemBackground"
             android:padding="@dimen/activity_margin">
 
@@ -24,8 +24,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:paddingLeft="@dimen/settings_padding"
-                android:paddingStart="@dimen/settings_padding"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
                 android:text="@string/customize_colors"/>
 
         </RelativeLayout>
@@ -34,7 +34,7 @@
             android:id="@+id/settings_same_sorting_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/settings_padding"
+            android:layout_marginTop="@dimen/medium_margin"
             android:background="?attr/selectableItemBackground"
             android:padding="@dimen/activity_margin">
 
@@ -44,8 +44,8 @@
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:clickable="false"
-                android:paddingLeft="@dimen/settings_padding"
-                android:paddingStart="@dimen/settings_padding"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
                 android:text="@string/same_sorting"/>
 
         </RelativeLayout>
@@ -54,7 +54,7 @@
             android:id="@+id/settings_show_hidden_folders_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/settings_padding"
+            android:layout_marginTop="@dimen/medium_margin"
             android:background="?attr/selectableItemBackground"
             android:padding="@dimen/activity_margin">
 
@@ -64,8 +64,8 @@
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:clickable="false"
-                android:paddingLeft="@dimen/settings_padding"
-                android:paddingStart="@dimen/settings_padding"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
                 android:text="@string/show_hidden_folders"/>
 
         </RelativeLayout>
@@ -74,7 +74,7 @@
             android:id="@+id/settings_autoplay_videos_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/settings_padding"
+            android:layout_marginTop="@dimen/medium_margin"
             android:background="?attr/selectableItemBackground"
             android:padding="@dimen/activity_margin">
 
@@ -84,8 +84,8 @@
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:clickable="false"
-                android:paddingLeft="@dimen/settings_padding"
-                android:paddingStart="@dimen/settings_padding"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
                 android:text="@string/autoplay_videos"/>
 
         </RelativeLayout>
@@ -94,10 +94,10 @@
             android:id="@+id/settings_show_media_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/settings_padding"
+            android:layout_marginTop="@dimen/medium_margin"
             android:paddingBottom="@dimen/activity_margin"
             android:paddingLeft="@dimen/activity_margin"
-            android:paddingRight="@dimen/settings_padding"
+            android:paddingRight="@dimen/medium_margin"
             android:paddingTop="@dimen/activity_margin">
 
             <com.simplemobiletools.commons.views.MyTextView
@@ -105,8 +105,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:paddingLeft="@dimen/settings_padding"
-                android:paddingStart="@dimen/settings_padding"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
                 android:text="@string/show_media"/>
 
             <com.simplemobiletools.commons.views.MyAppCompatSpinner
