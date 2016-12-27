@@ -38,7 +38,6 @@
 
     <style name="SpinnerItem" parent="@android:style/Widget.TextView">
         <item name="android:paddingRight">@dimen/activity_margin</item>
-        <item name="android:gravity">end</item>
     </style>
 
     <style name="SpinnerItem.DropDownItem" parent="@android:style/Widget.TextView">
