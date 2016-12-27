@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 2.0 *(2016-12-27)*
+----------------------------
+
+ * Added color customization
+ * Added a Select all button to folders
+ * Added a Whats new dialog
+ * Misc bug and crashfixes
+ * Massive rewrites under the hood
+
 Version 1.51 *(2016-12-11)*
 ----------------------------
 
