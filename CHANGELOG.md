@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 2.1 *(2016-12-27)*
+----------------------------
+
+ * Improve the performance by removing file validity check
+
 Version 2.0 *(2016-12-27)*
 ----------------------------
 
