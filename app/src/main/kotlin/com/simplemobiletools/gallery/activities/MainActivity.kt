@@ -16,6 +16,7 @@ import android.view.MenuItem
 import android.view.View
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.models.Release
+import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
@@ -350,6 +351,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun checkWhatsNewDialog() {
+        if (config.lastVersion == 0) {
+            config.lastVersion = BuildConfig.VERSION_CODE
+            return
+        }
+
         arrayListOf<Release>().apply {
             add(Release(46, R.string.release_46))
             add(Release(47, R.string.release_47))
@@ -357,6 +363,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             add(Release(50, R.string.release_50))
             add(Release(51, R.string.release_51))
             add(Release(52, R.string.release_52))
+            add(Release(54, R.string.release_54))
             checkWhatsNew(this)
         }
     }
