@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 2.1.1 *(2016-12-28)*
+----------------------------
+
+ * Add an option to loop videos
+ * Do not display the Whats new dialog to new users
+ * Use the text color for dialog buttons
+
 Version 2.1 *(2016-12-27)*
 ----------------------------
 
