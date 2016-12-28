@@ -82,8 +82,10 @@
     <string name="images">Images only</string>
     <string name="videos">Videos only</string>
     <string name="images_and_videos">Images and videos</string>
+    <string name="loop_videos">Loop videos</string>
 
     <!-- Release notes -->
+    <string name="release_54">Added an option to loop videos automatically</string>
     <string name="release_52">
         Added more color customization options\n
         Your settings have been cleared, please reset them</string>
