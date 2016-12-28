@@ -276,9 +276,13 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
     }
 
     override fun onCompletion(mp: MediaPlayer) {
-        mSeekBar!!.progress = mSeekBar!!.max
-        mCurrTimeView!!.text = getTimeString(mDuration)
-        pauseVideo()
+        if (Config.newInstance(context).loopVideos) {
+            playVideo()
+        } else {
+            mSeekBar!!.progress = mSeekBar!!.max
+            mCurrTimeView!!.text = getTimeString(mDuration)
+            pauseVideo()
+        }
     }
 
     override fun onVideoSizeChanged(mp: MediaPlayer, width: Int, height: Int) {
