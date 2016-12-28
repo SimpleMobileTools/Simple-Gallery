@@ -76,6 +76,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(AUTOPLAY_VIDEOS, false)
         set(autoplay) = prefs.edit().putBoolean(AUTOPLAY_VIDEOS, autoplay).apply()
 
+    var loopVideos: Boolean
+        get() = prefs.getBoolean(LOOP_VIDEOS, false)
+        set(loop) = prefs.edit().putBoolean(LOOP_VIDEOS, loop).apply()
+
     var displayFileNames: Boolean
         get() = prefs.getBoolean(DISPLAY_FILE_NAMES, false)
         set(display) = prefs.edit().putBoolean(DISPLAY_FILE_NAMES, display).apply()

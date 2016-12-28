@@ -20,6 +20,7 @@ class SettingsActivity : SimpleActivity() {
         setupSameSorting()
         setupShowHiddenFolders()
         setupAutoplayVideos()
+        setupLoopVideos()
         setupShowMedia()
         updateTextColors(settings_holder)
     }
@@ -51,6 +52,14 @@ class SettingsActivity : SimpleActivity() {
         settings_autoplay_videos_holder.setOnClickListener {
             settings_autoplay_videos.toggle()
             config.autoplayVideos = settings_autoplay_videos.isChecked
+        }
+    }
+
+    private fun setupLoopVideos() {
+        settings_loop_videos.isChecked = config.loopVideos
+        settings_loop_videos_holder.setOnClickListener {
+            settings_loop_videos.toggle()
+            config.loopVideos = settings_loop_videos.isChecked
         }
     }
 
