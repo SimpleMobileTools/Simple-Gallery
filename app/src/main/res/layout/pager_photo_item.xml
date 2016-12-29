@@ -6,13 +6,12 @@
     android:layout_height="match_parent">
 
     <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/photo_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
     <ImageView
-        android:id="@+id/gif_view"
+        android:id="@+id/glide_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"/>

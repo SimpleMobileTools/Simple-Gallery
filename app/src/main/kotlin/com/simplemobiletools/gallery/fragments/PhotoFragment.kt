@@ -29,7 +29,7 @@ class PhotoFragment : ViewPagerFragment(), View.OnClickListener {
         subsamplingView = view.photo_view
         if (medium.isGif()) {
             subsamplingView.visibility = View.GONE
-            view.gif_view.apply {
+            view.glide_view.apply {
                 visibility = View.VISIBLE
                 Glide.with(context).load(medium.path).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).into(this)
                 setOnClickListener(this@PhotoFragment)
@@ -42,6 +42,31 @@ class PhotoFragment : ViewPagerFragment(), View.OnClickListener {
                 maxScale = 4f
                 setMinimumTileDpi(100)
                 setOnClickListener(this@PhotoFragment)
+                setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {
+                    override fun onImageLoaded() {
+                    }
+
+                    override fun onReady() {
+                    }
+
+                    override fun onTileLoadError(p0: Exception?) {
+                    }
+
+                    override fun onPreviewReleased() {
+                    }
+
+                    override fun onImageLoadError(p0: Exception?) {
+                        subsamplingView.visibility = View.GONE
+                        view.glide_view.apply {
+                            visibility = View.VISIBLE
+                            Glide.with(context).load(medium.path).diskCacheStrategy(DiskCacheStrategy.NONE).into(this)
+                            setOnClickListener(this@PhotoFragment)
+                        }
+                    }
+
+                    override fun onPreviewLoadError(p0: Exception?) {
+                    }
+                })
             }
         }
 
