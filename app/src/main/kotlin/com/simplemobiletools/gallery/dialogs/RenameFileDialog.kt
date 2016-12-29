@@ -2,7 +2,6 @@ package com.simplemobiletools.gallery.dialogs
 
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
-import android.view.ViewGroup
 import android.view.WindowManager
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
@@ -14,7 +13,7 @@ import java.io.File
 class RenameFileDialog(val activity: SimpleActivity, val file: File, val callback: (newFile: File) -> Unit) {
 
     init {
-        val view = LayoutInflater.from(activity).inflate(R.layout.rename_file, null) as ViewGroup
+        val view = LayoutInflater.from(activity).inflate(R.layout.rename_file, null)
         val fullName = file.name
         val dotAt = fullName.lastIndexOf(".")
         var name = fullName

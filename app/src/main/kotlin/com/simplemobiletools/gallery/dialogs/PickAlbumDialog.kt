@@ -4,7 +4,6 @@ import android.os.Environment
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.ViewGroup
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.gallery.R
@@ -19,7 +18,7 @@ class PickAlbumDialog(val activity: SimpleActivity, val callback: (path: String)
     var directoriesGrid: RecyclerView
 
     init {
-        val view = LayoutInflater.from(activity).inflate(R.layout.dialog_album_picker, null) as ViewGroup
+        val view = LayoutInflater.from(activity).inflate(R.layout.dialog_album_picker, null)
         directoriesGrid = view.directories_grid
 
         AlertDialog.Builder(activity)

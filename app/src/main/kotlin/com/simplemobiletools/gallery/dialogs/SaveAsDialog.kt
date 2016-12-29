@@ -14,8 +14,7 @@ class SaveAsDialog(val activity: Activity, val path: String, val callback: (save
 
     init {
         var realPath = File(path).parent.trimEnd('/')
-        val view = LayoutInflater.from(activity).inflate(R.layout.dialog_save_as, null)
-        view.apply {
+        val view = LayoutInflater.from(activity).inflate(R.layout.dialog_save_as, null).apply {
             file_path.text = activity.humanizePath(realPath)
 
             val fullName = path.getFilenameFromPath()
@@ -25,7 +24,7 @@ class SaveAsDialog(val activity: Activity, val path: String, val callback: (save
             if (dotAt > 0) {
                 name = fullName.substring(0, dotAt)
                 val extension = fullName.substring(dotAt + 1)
-                view.file_extension.setText(extension)
+                file_extension.setText(extension)
             }
 
             file_name.setText(name)

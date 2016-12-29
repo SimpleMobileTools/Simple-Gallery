@@ -3,7 +3,7 @@ package com.simplemobiletools.gallery.dialogs
 import android.content.DialogInterface
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
-import android.view.ViewGroup
+import android.view.View
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
@@ -15,12 +15,12 @@ class ChangeSortingDialog(val activity: SimpleActivity, val isDirectorySorting: 
         private var currSorting = 0
 
         lateinit var config: Config
-        lateinit var view: ViewGroup
+        lateinit var view: View
     }
 
     init {
         config = Config.newInstance(activity)
-        view = LayoutInflater.from(activity).inflate(R.layout.dialog_change_sorting, null) as ViewGroup
+        view = LayoutInflater.from(activity).inflate(R.layout.dialog_change_sorting, null)
 
         AlertDialog.Builder(activity)
                 .setPositiveButton(R.string.ok, this)

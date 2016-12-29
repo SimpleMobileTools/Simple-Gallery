@@ -3,7 +3,7 @@ package com.simplemobiletools.gallery.dialogs
 import android.support.v4.util.Pair
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
-import android.view.ViewGroup
+import android.view.View
 import com.simplemobiletools.commons.asynctasks.CopyMoveTask
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
@@ -15,11 +15,11 @@ import java.util.*
 
 class CopyDialog(val activity: SimpleActivity, val files: ArrayList<File>, val copyMoveListener: CopyMoveTask.CopyMoveListener) {
     companion object {
-        lateinit var view: ViewGroup
+        lateinit var view: View
     }
 
     init {
-        view = LayoutInflater.from(activity).inflate(R.layout.dialog_copy_move, null) as ViewGroup
+        view = LayoutInflater.from(activity).inflate(R.layout.dialog_copy_move, null)
         val sourcePath = files[0].parent.trimEnd('/')
         var destinationPath = ""
 
