@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">相册</string>
+    <string name="app_name">Simple Gallery</string>
     <string name="app_launcher_name">相册</string>
     <string name="share_via">分享到</string>
     <string name="no_permissions">需要访问储存权限</string>
@@ -100,16 +100,16 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">A gallery for viewing photos and videos without ads.</string>
+    <string name="app_short_description">一个没有广告，用来观看照片及视频的相册。</string>
     <string name="app_long_description">
-        A simple tool usable for viewing photos and videos. Items can be sorted by date, size, name both ascending or descending, photos can be zoomed in. Media files are shown in multiple columns depending on the size of the display, you can change the column count by pinch gestures. They can be renamed, shared, deleted, copied, moved. Images can also be cropped, rotated or set as Wallpaper directly from the app.
+        一个观看照片和视频的简单实用工具。项目可以根据日期、大小、名称来递增或递减排序，照片可以缩放。媒体文件根据屏幕的大小排列在多个方格中，您可以使用缩放手势来调整每一列的方格数量。媒体文件可以被重命名、分享、删除、复制以及移动。照片亦可被剪切、旋转或是直接在应用中设为壁纸。
+        
 
+        相册亦提供能让第三方应用预览图片／视频、向电子邮件客户端添加附件等的功能。非常适合日常使用。
+        
+        应用不包含广告与不必要的权限。它是完全开放源代码的，并内置一个深色主题。
 
-        The Gallery is also offered for third party usage for previewing images / videos, adding attachments at email clients etc. It\'s perfect for everyday usage.
-
-        Contains no ads or unnecessary permissions. It is fully opensource, provides a Dark theme too.
-
-        This app is just one piece of a bigger series of apps. You can find the rest of them at http://www.simplemobiletools.com
+        这个应用只是一系列应用中的一小部份。您可以在 http://www.simplemobiletools.com 找到其余的应用。
     </string>
 
     <!--
