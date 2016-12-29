@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 2.1.2 *(2016-12-29)*
+----------------------------
+
+ * Try using another library for loading images, if one fails
+
 Version 2.1.1 *(2016-12-28)*
 ----------------------------
 
