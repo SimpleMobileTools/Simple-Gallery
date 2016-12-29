@@ -51,7 +51,7 @@ fun Activity.shareMedia(media: List<Medium>) {
 fun Activity.setAsWallpaper(file: File) {
     val intent = Intent(Intent.ACTION_ATTACH_DATA)
     val uri = Uri.fromFile(file)
-    intent.setDataAndType(uri, file.getMimeType("image/jpeg"))
+    intent.setDataAndType(uri, file.getMimeType("image/*"))
     val chooser = Intent.createChooser(intent, getString(R.string.set_as_wallpaper_with))
 
     if (intent.resolveActivity(packageManager) != null) {
