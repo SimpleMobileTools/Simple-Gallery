@@ -261,7 +261,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent?.context).inflate(R.layout.directory_item, parent, false)
-        return ViewHolder(view, backgroundColor, foregroundColor, itemClick)
+        return ViewHolder(view, itemClick)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -271,7 +271,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
     override fun getItemCount() = dirs.size
 
-    class ViewHolder(view: View, val backgroundColor: Int, val foregroundColor: Int, val itemClick: (Directory) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
+    class ViewHolder(view: View, val itemClick: (Directory) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
         fun bindView(activity: SimpleActivity, multiSelectorCallback: ModalMultiSelectorCallback, multiSelector: MultiSelector, directory: Directory, pos: Int, isPinned: Boolean)
                 : View {
             itemView.dir_name.text = directory.name

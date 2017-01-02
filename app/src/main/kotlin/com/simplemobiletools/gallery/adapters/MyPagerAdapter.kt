@@ -14,11 +14,7 @@ import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 
 class MyPagerAdapter(val activity: ViewPagerActivity, fm: FragmentManager, val media: MutableList<Medium>) : FragmentStatePagerAdapter(fm) {
-    private val mFragments: SparseArray<ViewPagerFragment>
-
-    init {
-        mFragments = SparseArray<ViewPagerFragment>()
-    }
+    private val mFragments: SparseArray<ViewPagerFragment> = SparseArray<ViewPagerFragment>()
 
     override fun getCount() = media.size
 
