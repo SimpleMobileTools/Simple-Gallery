@@ -82,7 +82,7 @@
     <string name="images">Apenas imagens</string>
     <string name="videos">Apenas vídeos</string>
     <string name="images_and_videos">Imagens e vídeos</string>
-    <string name="loop_videos">Loop videos</string>
+    <string name="loop_videos">Vídeos em ciclo</string>
 
     <!-- Release notes -->
     <string name="release_54">Added an option to loop videos automatically</string>
