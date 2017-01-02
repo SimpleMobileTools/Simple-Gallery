@@ -1,4 +1,5 @@
-﻿<resources>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
     <string name="app_name">Simple Gallery</string>
     <string name="app_launcher_name">Галерея</string>
     <string name="share_via">Отправить по</string>

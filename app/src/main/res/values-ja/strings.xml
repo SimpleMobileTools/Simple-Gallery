@@ -1,4 +1,5 @@
-﻿<resources>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
     <string name="app_name">シンプル ギャラリー</string>
     <string name="app_launcher_name">ギャラリー</string>
     <string name="share_via">共有&#8230;</string>
