@@ -15,13 +15,13 @@
     <string name="hide_folder">Ordner verstecken</string>
     <string name="unhide_folder">Ordner sichtbar machen</string>
     <string name="hidden">(versteckt)</string>
-    <string name="save_as">Save as</string>
-    <string name="file_saved">File saved successfully</string>
-    <string name="pin_folder">Pin folder</string>
+    <string name="save_as">Speichern unter</string>
+    <string name="file_saved">Datei erfolgreich gespeichert</string>
+    <string name="pin_folder">fixiere Ordner</string>
     <string name="unpin_folder">Unpin folder</string>
     <string name="show_all">Show all folders content</string>
     <string name="all_folders">All media</string>
-    <string name="folder_view">Switch to folder view</string>
+    <string name="folder_view">wechsle zu Ordner Ansicht</string>
     <string name="other_folder">Other folder</string>
 
     <plurals name="folders_deleted">
@@ -32,10 +32,10 @@
     <!-- Resizing -->
     <string name="resize">Resize</string>
     <string name="resize_and_save">Resize selection and save</string>
-    <string name="width">Width</string>
-    <string name="height">Height</string>
-    <string name="keep_aspect_ratio">Keep aspect ratio</string>
-    <string name="invalid_values">Please enter a valid resolution</string>
+    <string name="width">Breite</string>
+    <string name="height">Höhe</string>
+    <string name="keep_aspect_ratio">Behalte Seitenverhältnis bei</string>
+    <string name="invalid_values">Bitte gib eine korrekte Auflösung ein</string>
 
     <!-- Renaming -->
     <string name="rename_file">Datei umbenennen</string>
@@ -43,20 +43,20 @@
     <string name="rename_file_error">Konnte die Datei nicht umbenennen</string>
     <string name="rename_folder_error">Konnte den Ordner nicht umbenennen</string>
     <string name="rename_folder_empty">Ordnername darf nicht leer sein</string>
-    <string name="rename_folder_exists">A folder with that name already exists</string>
+    <string name="rename_folder_exists">Ein Ordner mit diesem Namen existiert bereits</string>
     <string name="rename_folder_root">Cannot rename the root folder of a storage</string>
     <string name="rename_folder_ok">Ordner erfolgreich umbenannt</string>
     <string name="renaming_folder">Benenne Ordner um</string>
     <string name="filename_cannot_be_empty">Dateiname darf nicht leer sein</string>
-    <string name="filename_invalid_characters">Filename contains invalid characters</string>
+    <string name="filename_invalid_characters">Dateiname enthält ungültige Zeichen</string>
     <string name="extension">Dateiendung</string>
-    <string name="extension_cannot_be_empty">Extension cannot be empty</string>
+    <string name="extension_cannot_be_empty">Dateiendung darf nicht leer sein</string>
 
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="save">Speichern</string>
     <string name="rotate">Drehen</string>
-    <string name="path">Path</string>
+    <string name="path">Pfad</string>
     <string name="invalid_image_path">Ungültiger Dateipfad</string>
     <string name="image_editing_failed">Bildbearbeitung fehlgeschlagen</string>
     <string name="edit_image_with">Bearbeite Bild mit:</string>
@@ -77,12 +77,12 @@
     <string name="dark_theme">Dunkles Design</string>
     <string name="same_sorting">Selbe Sortierung für Dateien und Ordner</string>
     <string name="show_hidden_folders">Zeige versteckte Ordner</string>
-    <string name="autoplay_videos">Play videos automatically</string>
+    <string name="autoplay_videos">spiele Videos automatisch ab</string>
     <string name="toggle_filename">Toggle filename visibility</string>
     <string name="show_media">Show media</string>
-    <string name="images">Images only</string>
-    <string name="videos">Videos only</string>
-    <string name="images_and_videos">Images and videos</string>
+    <string name="images">nur Bilder</string>
+    <string name="videos">nur Videos</string>
+    <string name="images_and_videos">Bilder und Videos</string>
     <string name="loop_videos">Loop videos</string>
 
     <!-- Release notes -->
