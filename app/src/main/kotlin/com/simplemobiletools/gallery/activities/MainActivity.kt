@@ -323,7 +323,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     fun gotDirectories(dirs: ArrayList<Directory>) {
         directories_holder.isRefreshing = false
         mIsGettingDirs = false
-        if (dirs.toString() == mDirs.toString()) {
+        if (dirs == mDirs) {
             return
         }
         mDirs = dirs

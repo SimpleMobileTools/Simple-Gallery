@@ -272,7 +272,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     fun gotMedia(media: ArrayList<Medium>) {
         mIsGettingMedia = false
         media_holder.isRefreshing = false
-        if (media.toString() == mMedia.toString()) {
+        if (media == mMedia) {
             return
         }
 
