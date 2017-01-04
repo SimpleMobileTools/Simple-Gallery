@@ -36,6 +36,7 @@ dependencies {
     compile 'com.davemorrissey.labs:subsampling-scale-image-view:3.6.0'
     compile 'com.theartofdev.edmodo:android-image-cropper:2.3.1'
     compile 'com.bignerdranch.android:recyclerview-multiselect:0.2'
+    compile 'com.google.code.gson:gson:2.8.0'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 
