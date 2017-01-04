@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 2.1.3 *(2017-01-04)*
+----------------------------
+
+ * Store displayed directories and display them instantly on next app open
+ * Some crashfixes
+
 Version 2.1.2 *(2016-12-29)*
 ----------------------------
 
