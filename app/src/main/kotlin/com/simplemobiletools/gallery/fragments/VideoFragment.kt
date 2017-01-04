@@ -172,16 +172,19 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
     }
 
     private fun checkFullscreen() {
-        var anim = R.anim.fade_in
+        var anim = android.R.anim.fade_in
         if (mIsFullscreen) {
-            anim = R.anim.fade_out
+            anim = android.R.anim.fade_out
             mSeekBar!!.setOnSeekBarChangeListener(null)
         } else {
             mSeekBar!!.setOnSeekBarChangeListener(this)
         }
 
-        val animation = AnimationUtils.loadAnimation(context, anim)
-        mTimeHolder!!.startAnimation(animation)
+        AnimationUtils.loadAnimation(context, anim).apply {
+            duration = 150
+            fillAfter = true
+            mTimeHolder!!.startAnimation(this)
+        }
     }
 
     private fun togglePlayPause() {
