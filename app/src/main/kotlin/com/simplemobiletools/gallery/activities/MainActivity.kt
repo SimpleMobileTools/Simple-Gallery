@@ -195,7 +195,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         for (delPath in mToBeDeleted) {
             val dir = File(delPath)
             if (dir.exists()) {
-                val files = dir.listFiles()
+                val files = dir.listFiles() ?: continue
                 files.forEach {
                     if (it.isFile && it.isImageVideoGif()) {
                         updatedFiles.add(it)

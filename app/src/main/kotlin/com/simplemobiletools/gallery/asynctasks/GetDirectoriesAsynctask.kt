@@ -74,7 +74,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         media.sort()
 
         for ((name, path, isVideo, dateModified, dateTaken, size) in media) {
-            val parentDir = File(path).parent
+            val parentDir = File(path).parent ?: continue
             if (directories.containsKey(parentDir)) {
                 val directory: Directory = directories[parentDir]!!
                 val newImageCnt = directory.mediaCnt + 1
