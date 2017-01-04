@@ -14,6 +14,8 @@ import android.support.v7.widget.GridLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.models.Release
 import com.simplemobiletools.gallery.BuildConfig
@@ -97,6 +99,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     override fun onPause() {
         super.onPause()
         deleteDirs()
+        storeDirectories()
     }
 
     override fun onDestroy() {
@@ -134,6 +137,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun getDirectories() {
         if (mIsGettingDirs)
             return
+
+        val token = object : TypeToken<List<Directory>>() {}.type
+        val dirs = Gson().fromJson<ArrayList<Directory>>(config.directories, token) ?: ArrayList<Directory>(1)
+        gotDirectories(dirs)
 
         mIsGettingDirs = true
         GetDirectoriesAsynctask(applicationContext, mIsPickVideoIntent || mIsGetVideoContentIntent, mIsPickImageIntent || mIsGetImageContentIntent, mToBeDeleted) {
@@ -329,6 +336,12 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mDirs = dirs
 
         setupAdapter()
+        storeDirectories()
+    }
+
+    fun storeDirectories() {
+        val directories = Gson().toJson(mDirs)
+        config.directories = directories
     }
 
     private fun setupAdapter() {

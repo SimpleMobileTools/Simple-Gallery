@@ -95,4 +95,8 @@ class Config(context: Context) : BaseConfig(context) {
     var mediaColumnCnt: Int
         get() = prefs.getInt(MEDIA_COLUMN_CNT, context.resources.getInteger(R.integer.media_columns))
         set(mediaColumnCnt) = prefs.edit().putInt(MEDIA_COLUMN_CNT, mediaColumnCnt).apply()
+
+    var directories: String
+        get() = prefs.getString(DIRECTORIES, "")
+        set(directories) = prefs.edit().putString(DIRECTORIES, directories).apply()
 }

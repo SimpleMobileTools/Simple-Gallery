@@ -1,7 +1,6 @@
 package com.simplemobiletools.gallery.helpers
 
 // shared preferences
-val PREFS_KEY = "Gallery"
 val IS_SAME_SORTING = "is_same_sorting"
 val SORT_ORDER = "sort_order"
 val DIRECTORY_SORT_ORDER = "directory_sort_order"
@@ -23,13 +22,13 @@ val SORT_BY_SIZE = 4
 val SORT_BY_DATE_TAKEN = 8
 val SORT_DESCENDING = 1024
 
-
 val DIRECTORY = "directory"
 val MEDIUM = "medium"
 val GET_IMAGE_INTENT = "get_image_intent"
 val GET_VIDEO_INTENT = "get_video_intent"
 val GET_ANY_INTENT = "get_any_intent"
 val SET_WALLPAPER_INTENT = "set_wallpaper_intent"
+val DIRECTORIES = "directories"
 
 val REQUEST_EDIT_IMAGE = 1
 val REQUEST_SET_WALLPAPER = 2
