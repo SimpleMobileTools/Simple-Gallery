@@ -8,7 +8,7 @@ A simple tool usable for viewing photos and videos. Items can be sorted by date,
 
 The Gallery is also offered for third party usage for previewing images / videos, adding attachments at email clients etc. It's perfect for everyday usage.
 
-Contains no ads or unnecessary permissions. It is fully opensource, provides a Dark theme too.
+Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
 
 This app is just one piece of a bigger series of apps. You can find the rest of them at http://www.simplemobiletools.com
 
@@ -21,7 +21,7 @@ This app is just one piece of a bigger series of apps. You can find the rest of 
 
 License
 -------
-    Copyright 2016 SimpleMobileTools
+    Copyright 2017 SimpleMobileTools
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
