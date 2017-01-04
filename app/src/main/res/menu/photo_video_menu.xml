@@ -3,12 +3,12 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu_share"
-        android:icon="@mipmap/share"
+        android:icon="@drawable/ic_share"
         android:title="@string/share"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_edit"
-        android:icon="@mipmap/edit"
+        android:icon="@drawable/ic_edit"
         android:title="@string/edit"
         app:showAsAction="ifRoom"/>
     <item

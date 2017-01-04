@@ -3,37 +3,37 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/cab_delete"
-        android:icon="@mipmap/delete"
+        android:icon="@drawable/ic_delete"
         android:title="@string/delete"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_share"
-        android:icon="@mipmap/share"
+        android:icon="@drawable/ic_share"
         android:title="@string/share"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_properties"
-        android:icon="@mipmap/info"
+        android:icon="@drawable/ic_info"
         android:title="@string/properties"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_copy_move"
-        android:icon="@mipmap/copy"
+        android:icon="@drawable/ic_copy"
         android:title="@string/copy_move"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_rename"
-        android:icon="@mipmap/rename"
+        android:icon="@drawable/ic_rename"
         android:title="@string/rename"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_edit"
-        android:icon="@mipmap/edit"
+        android:icon="@drawable/ic_edit"
         android:title="@string/edit"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_select_all"
-        android:icon="@mipmap/select_all"
+        android:icon="@drawable/ic_select_all"
         android:title="@string/select_all"
         app:showAsAction="ifRoom"/>
 </menu>

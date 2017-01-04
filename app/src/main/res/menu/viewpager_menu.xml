@@ -15,27 +15,27 @@
         app:showAsAction="never"/>
     <item
         android:id="@+id/menu_delete"
-        android:icon="@mipmap/delete"
+        android:icon="@drawable/ic_delete"
         android:title="@string/delete"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_share"
-        android:icon="@mipmap/share"
+        android:icon="@drawable/ic_share"
         android:title="@string/share"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_edit"
-        android:icon="@mipmap/edit"
+        android:icon="@drawable/ic_edit"
         android:title="@string/edit"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_rename"
-        android:icon="@mipmap/rename"
+        android:icon="@drawable/ic_rename"
         android:title="@string/rename"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_properties"
-        android:icon="@mipmap/info"
+        android:icon="@drawable/ic_info"
         android:title="@string/properties"
         app:showAsAction="ifRoom"/>
 </menu>

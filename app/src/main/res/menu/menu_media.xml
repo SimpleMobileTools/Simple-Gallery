@@ -3,17 +3,17 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/sort"
-        android:icon="@mipmap/sort"
+        android:icon="@drawable/ic_sort"
         android:title="@string/sort_by"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/toggle_filename"
-        android:icon="@mipmap/toggle_filename"
+        android:icon="@drawable/ic_toggle_filename"
         android:title="@string/toggle_filename"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/open_camera"
-        android:icon="@mipmap/camera"
+        android:icon="@drawable/ic_camera"
         android:title="@string/open_camera"
         app:showAsAction="ifRoom"/>
     <item

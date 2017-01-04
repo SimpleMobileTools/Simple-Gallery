@@ -206,7 +206,7 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
     private fun pauseVideo() {
         mIsPlaying = false
         mMediaPlayer?.pause()
-        mView.video_play_outline.setImageDrawable(resources.getDrawable(R.mipmap.play_outline_big))
+        mView.video_play_outline.setImageDrawable(resources.getDrawable(R.drawable.img_play_outline_big))
         activity.window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 

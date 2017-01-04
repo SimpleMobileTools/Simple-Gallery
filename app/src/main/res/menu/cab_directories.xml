@@ -3,47 +3,47 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/cab_properties"
-        android:icon="@mipmap/info"
+        android:icon="@drawable/ic_info"
         android:title="@string/properties"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_pin"
-        android:icon="@mipmap/pin"
+        android:icon="@drawable/ic_pin"
         android:title="@string/pin_folder"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_unpin"
-        android:icon="@mipmap/unpin"
+        android:icon="@drawable/ic_unpin"
         android:title="@string/unpin_folder"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_rename"
-        android:icon="@mipmap/rename"
+        android:icon="@drawable/ic_rename"
         android:title="@string/rename"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_hide"
-        android:icon="@mipmap/hide"
+        android:icon="@drawable/ic_hide"
         android:title="@string/hide_folder"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_unhide"
-        android:icon="@mipmap/unhide"
+        android:icon="@drawable/ic_unhide"
         android:title="@string/unhide_folder"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_copy_move"
-        android:icon="@mipmap/copy"
+        android:icon="@drawable/ic_copy"
         android:title="@string/copy_move"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_select_all"
-        android:icon="@mipmap/select_all"
+        android:icon="@drawable/ic_select_all"
         android:title="@string/select_all"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_delete"
-        android:icon="@mipmap/delete"
+        android:icon="@drawable/ic_delete"
         android:title="@string/delete"
         app:showAsAction="ifRoom"/>
 </menu>

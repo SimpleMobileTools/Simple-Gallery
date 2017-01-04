@@ -3,12 +3,12 @@
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/rotate"
-        android:icon="@mipmap/rotate"
+        android:icon="@drawable/ic_rotate"
         android:title="@string/rotate"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/save"
-        android:icon="@mipmap/check"
+        android:icon="@drawable/ic_check"
         android:title="@string/save"
         app:showAsAction="ifRoom"/>
 </menu>

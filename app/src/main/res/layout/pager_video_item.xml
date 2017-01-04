@@ -18,7 +18,7 @@
         android:layout_height="@dimen/play_outline_size_big"
         android:layout_centerInParent="true"
         android:background="@android:color/transparent"
-        android:src="@mipmap/play_outline_big"/>
+        android:src="@drawable/img_play_outline_big"/>
 
     <RelativeLayout
         android:id="@+id/video_time_holder"
