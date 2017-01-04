@@ -50,7 +50,7 @@
     <string name="filename_cannot_be_empty">Le nom du fichier ne peut pas être nul</string>
     <string name="filename_invalid_characters">Le nom du fichier contient des caractères non valides</string>
     <string name="extension">Extension</string>
-    <string name="extension_cannot_be_empty">L'extension ne peut pas être nul</string>
+    <string name="extension_cannot_be_empty">L\'extension ne peut pas être nul</string>
 
     <!-- Editor -->
     <string name="editor">Éditeur</string>
