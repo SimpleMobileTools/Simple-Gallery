@@ -13,14 +13,15 @@ fun Context.getRealPathFromURI(uri: Uri): String? {
     try {
         val projection = arrayOf(MediaStore.Images.Media.DATA)
         cursor = contentResolver.query(uri, projection, null, null, null)
-        if (cursor != null && cursor.moveToFirst()) {
+        if (cursor?.moveToFirst() == true) {
             val index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
             return cursor.getString(index)
         }
-        return null
+    } catch (e: IllegalArgumentException) {
     } finally {
         cursor?.close()
     }
+    return null
 }
 
 fun Context.getHumanizedFilename(path: String): String {
