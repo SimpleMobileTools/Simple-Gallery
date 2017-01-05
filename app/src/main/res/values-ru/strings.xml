@@ -83,10 +83,10 @@
     <string name="images">Только изображения</string>
     <string name="videos">Только видео</string>
     <string name="images_and_videos">Изображения и видео</string>
-    <string name="loop_videos">Loop videos</string>
+    <string name="loop_videos">Повторять видео</string>
 
     <!-- Release notes -->
-    <string name="release_54">Added an option to loop videos automatically</string>
+    <string name="release_54">Добавлена возможность повторять видео автоматически</string>
     <string name="release_52">
         Добавлена возможность изменять цветовое оформление\n
         Настройки приложения в этой версии будут сброшены к первоначальным, пожалуйста, настройте снова</string>
