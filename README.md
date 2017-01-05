@@ -1,6 +1,6 @@
 # Simple Gallery
 
-<img alt="Logo" src="app/src/main/res/mipmap-xxxhdpi/launcher.png" width="80" />
+<img alt="Logo" src="app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" width="80" />
 
 A gallery for viewing photos and videos.
 
