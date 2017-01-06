@@ -143,16 +143,19 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
     }
 
     private fun removeNoMediaFolders(dirs: MutableList<Directory>) {
-        val ignoreDirs = ArrayList<Directory>()
-        for (d in dirs) {
-            val dir = File(d.path)
-            if (dir.exists() && dir.isDirectory) {
-                val res = dir.list { file, filename -> filename == ".nomedia" }
-                if (res?.isNotEmpty() == true)
-                    ignoreDirs.add(d)
+        val showHiddenFolders = mConfig.showHiddenFolders
+        if (!showHiddenFolders) {
+            val ignoreDirs = ArrayList<Directory>()
+            for (d in dirs) {
+                val dir = File(d.path)
+                if (dir.exists() && dir.isDirectory) {
+                    val res = dir.list { file, filename -> filename == ".nomedia" }
+                    if (res?.isNotEmpty() == true)
+                        ignoreDirs.add(d)
+                }
             }
-        }
 
-        dirs.removeAll(ignoreDirs)
+            dirs.removeAll(ignoreDirs)
+        }
     }
 }
