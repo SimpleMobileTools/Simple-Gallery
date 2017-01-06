@@ -88,26 +88,26 @@
     <!-- Release notes -->
     <string name="release_54">Ajouter une option pour tourner en boucle les vidéos automatiquement.</string>
     <string name="release_52">Plus d\'option de couleurs personnalisée ajouté.\n
-      Vos paramètres ont été réinitialisés aux valeurs par défaut, veuillez les reparamétrer à votre convenance.</string>
+        Vos paramètres ont été réinitialisés aux valeurs par défaut, veuillez les reparamétrer à votre convenance.</string>
     <string name="release_51">Permettre de changer le nombre de colonnes à afficher avec un mouvement de pincement.</string>
     <string name="release_50">Une option pour afficher afficher exclusivement les photos, ou exclusivement les vidéos a été ajoutée.</string>
     <string name="release_49">Un bouton pour tout sélectionner a été ajouté.</string>
     <string name="release_47">Une option pour redimmensionner les images a été ajouté à l\'éditeur.\n
-      Permettre d\'afficher les images et vidéos de tous les dossiers ensemble.</string>
+        Permettre d\'afficher les images et vidéos de tous les dossiers ensemble.</string>
     <string name="release_46">Permettre d\'épingler les dossiers en haut</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Un album pour visionner photos et vidéos sans publicité.</string>
     <string name="app_long_description">
-      Un simple outil pour visionner les photos et les vidéos. Elles peuvent être triées par dates, tailles, noms dans les deux sens (alphabétique comme désalphabétique), il est possible de zoomer sur les photos. Les fichiers sont affichés sur de multiple colonnes en fonction de la taille de l\'écran, vous pouvez changer le nombre de colonnes par pincement. Elles peuvent être renommées, partagées, supprimées, copiées et déplacées. Les images peuvent en plus être tournées, rognées ou être définies comme fond d\'écran directement depuis l\'application.\n
+        Un simple outil pour visionner les photos et les vidéos. Elles peuvent être triées par dates, tailles, noms dans les deux sens (alphabétique comme désalphabétique), il est possible de zoomer sur les photos. Les fichiers sont affichés sur de multiple colonnes en fonction de la taille de l\'écran, vous pouvez changer le nombre de colonnes par pincement. Elles peuvent être renommées, partagées, supprimées, copiées et déplacées. Les images peuvent en plus être tournées, rognées ou être définies comme fond d\'écran directement depuis l\'application.
       
       
-      La galerie est aussi offerte pour l\'utiliser comme une tierce partie pour de la prévisualisation des images/vidéos, joindre aux clients mail etc. C\'est parfait pour un usage au quotidien.\n
+        La galerie est aussi offerte pour l\'utiliser comme une tierce partie pour de la prévisualisation des images/vidéos, joindre aux clients mail etc. C\'est parfait pour un usage au quotidien.
       
-      L\'application ne contient ni de publicité ni d\'autorisation inutile. Elle est totalement OpenSource et est aussi fournie avec un thème sombre.\n
+        L\'application ne contient ni de publicité ni d\'autorisation inutile. Elle est totalement OpenSource et est aussi fournie avec un thème sombre.
       
-      Cette application est juste l\'une des applications d\'une plus grande suite. Vous pouvez trouver les autres sur http://www.simplemobiletools.com
+        Cette application est juste l\'une des applications d\'une plus grande suite. Vous pouvez trouver les autres sur http://www.simplemobiletools.com
     </string>
 
     <!--
