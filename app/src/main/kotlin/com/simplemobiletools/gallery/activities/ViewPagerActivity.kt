@@ -2,7 +2,6 @@ package com.simplemobiletools.gallery.activities
 
 import android.app.Activity
 import android.content.Intent
-import android.content.res.Configuration
 import android.database.Cursor
 import android.os.Bundle
 import android.provider.MediaStore
@@ -29,7 +28,7 @@ import kotlinx.android.synthetic.main.activity_medium.*
 import java.io.File
 import java.util.*
 
-class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View.OnSystemUiVisibilityChangeListener, ViewPagerFragment.FragmentClickListener {
+class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
     private var mMedia = ArrayList<Medium>()
     private var mPath = ""
     private var mDirectory = ""
@@ -77,7 +76,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         mDirectory = File(mPath).parent
         title = mPath.getFilenameFromPath()
-        window.decorView.setOnSystemUiVisibilityChangeListener(this)
         reloadViewPager()
         scanPath(mPath) {}
     }
@@ -112,12 +110,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             else -> return super.onOptionsItemSelected(item)
         }
         return true
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        val adapter = view_pager.adapter as MyPagerAdapter
-        adapter.updateItems(mPos)
     }
 
     private fun updatePagerItems() {
@@ -260,6 +252,15 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
+    override fun systemUiVisibilityChanged(visibility: Int) {
+        if (visibility and View.SYSTEM_UI_FLAG_FULLSCREEN == 0) {
+            mIsFullScreen = false
+            showSystemUI()
+        } else {
+            mIsFullScreen = true
+        }
+    }
+
     private fun updateActionbarTitle() {
         runOnUiThread {
             title = mMedia[mPos].path.getFilenameFromPath()
@@ -286,20 +287,5 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     override fun onPageScrollStateChanged(state: Int) {
-        if (state == ViewPager.SCROLL_STATE_DRAGGING) {
-            val adapter = view_pager.adapter as MyPagerAdapter
-            adapter.itemDragged(mPos)
-        }
-    }
-
-    override fun onSystemUiVisibilityChange(visibility: Int) {
-        view_pager.adapter?.apply {
-            if (visibility and View.SYSTEM_UI_FLAG_FULLSCREEN == 0) {
-                mIsFullScreen = false
-                showSystemUI()
-            }
-
-            (this as MyPagerAdapter).updateUiVisibility(mIsFullScreen, mPos)
-        }
     }
 }

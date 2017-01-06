@@ -3,15 +3,11 @@ package com.simplemobiletools.gallery.fragments
 import android.support.v4.app.Fragment
 
 abstract class ViewPagerFragment : Fragment() {
-    var listener: FragmentClickListener? = null
+    var listener: FragmentListener? = null
 
-    abstract fun itemDragged()
-
-    abstract fun systemUiVisibilityChanged(toFullscreen: Boolean)
-
-    abstract fun updateItem()
-
-    interface FragmentClickListener {
+    interface FragmentListener {
         fun fragmentClicked()
+
+        fun systemUiVisibilityChanged(visibility: Int)
     }
 }

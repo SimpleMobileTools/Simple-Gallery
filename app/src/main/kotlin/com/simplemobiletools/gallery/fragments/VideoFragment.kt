@@ -5,6 +5,7 @@ import android.media.AudioManager
 import android.media.MediaPlayer
 import android.media.MediaPlayer.OnPreparedListener
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.util.DisplayMetrics
@@ -61,6 +62,13 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
         setupPlayer()
         mView.setOnClickListener(this)
 
+        activity.window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
+            val fullscreen = visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
+            mIsFullscreen = fullscreen
+            checkFullscreen()
+            listener?.systemUiVisibilityChanged(visibility)
+        }
+
         return mView
     }
 
@@ -85,21 +93,14 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
             if (context != null && Config.newInstance(context).autoplayVideos) {
                 playVideo()
             }
+        } else {
+            if (mIsPlaying)
+                pauseVideo()
         }
     }
 
-    override fun itemDragged() {
-        pauseVideo()
-    }
-
-    override fun systemUiVisibilityChanged(toFullscreen: Boolean) {
-        if (mIsFullscreen != toFullscreen) {
-            mIsFullscreen = toFullscreen
-            checkFullscreen()
-        }
-    }
-
-    override fun updateItem() {
+    override fun onConfigurationChanged(newConfig: Configuration?) {
+        super.onConfigurationChanged(newConfig)
         setVideoSize()
         initTimeHolder()
     }
@@ -162,10 +163,6 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
             else -> {
                 mIsFullscreen = !mIsFullscreen
                 checkFullscreen()
-
-                if (listener == null)
-                    listener = activity as ViewPagerFragment.FragmentClickListener
-
                 listener?.fragmentClicked()
             }
         }
@@ -302,7 +299,7 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
         val screenWidth: Int
         val screenHeight: Int
 
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             val realMetrics = DisplayMetrics()
             display.getRealMetrics(realMetrics)
             screenWidth = realMetrics.widthPixels

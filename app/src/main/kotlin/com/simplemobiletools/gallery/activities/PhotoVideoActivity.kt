@@ -1,12 +1,12 @@
 package com.simplemobiletools.gallery.activities
 
 import android.content.Intent
-import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.fragments.PhotoFragment
@@ -16,7 +16,7 @@ import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 
-open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClickListener {
+open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentListener {
     private var mMedium: Medium? = null
     private var mIsFullScreen = false
 
@@ -46,6 +46,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
             }
         }
 
+        showSystemUI()
         val bundle = Bundle()
         val file = File(mUri.toString())
         mMedium = Medium(file.name, mUri.toString(), mIsVideo, 0, 0, file.length())
@@ -80,11 +81,6 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
         }
     }
 
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        mFragment.updateItem()
-    }
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.photo_video_menu, menu)
 
@@ -111,6 +107,15 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentClic
             hideSystemUI()
         } else {
             showSystemUI()
+        }
+    }
+
+    override fun systemUiVisibilityChanged(visibility: Int) {
+        if (visibility and View.SYSTEM_UI_FLAG_FULLSCREEN == 0) {
+            mIsFullScreen = false
+            showSystemUI()
+        } else {
+            mIsFullScreen = true
         }
     }
 }
