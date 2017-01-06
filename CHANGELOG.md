@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 2.2.0 *(2017-01-06)*
+----------------------------
+
+ * Refactor the way fullscreen images are displayed, should improve quality
+ * Display images in .nomedia folders when "Show hidden folders" is checked
+
 Version 2.1.3 *(2017-01-04)*
 ----------------------------
 
