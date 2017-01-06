@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Gallerie Simple</string>
-    <string name="app_launcher_name">Gallerie</string>
-    <string name="share_via">Partager avec</string>
-    <string name="no_permissions">Pas grand chose à faire pour une gallerie sans accès à votre support de stockage</string>
+    <string name="app_name">Simple Galerie</string>
+    <string name="app_launcher_name">Galerie</string>
+    <string name="share_via">Partager via</string>
+    <string name="no_permissions">Peu de choses à faire dans l\'album sans accès à la mémoire</string>
     <string name="deleting">Suppression</string>
-    <string name="edit">Éditer</string>
+    <string name="edit">Édition</string>
     <string name="undo">Annuler</string>
     <string name="file_deleted">Fichier supprimé</string>
-    <string name="open_camera">Ouvrir l\'appareil photo</string>
-    <string name="unknown_error">Une erreur inconnue a eu lieu</string>
+    <string name="open_camera">Ouvrir caméra</string>
+    <string name="unknown_error">Une erreur inconnue est survenue.</string>
     <string name="open_with">Ouvrir avec</string>
-    <string name="no_app_found">Aucune bonne application trouvée</string>
+    <string name="no_app_found">Aucune application valide trouvée</string>
     <string name="hide_folder">Cacher le dossier</string>
     <string name="unhide_folder">Ne plus cacher le dossier</string>
     <string name="hidden">(caché)</string>
-    <string name="save_as">Enregistrer sous</string>
-    <string name="file_saved">Fichier enregistré avec succès</string>
-    <string name="pin_folder">Pin folder</string> <!-- TODO -->
-    <string name="unpin_folder">Unpin folder</string> <!-- TODO -->
-    <string name="show_all">Montrer tout le contenu des dossiers</string>
+    <string name="save_as">Sauvegarder sous</string>
+    <string name="file_saved">Fichier sauvegardé avec succès</string>
+    <string name="pin_folder">Épingler les dossiers</string>
+    <string name="unpin_folder">Désépingler le dossier</string>
+    <string name="show_all">Afficher le contenu de tous les dossiers</string>
     <string name="all_folders">Tous les dossiers</string>
-    <string name="folder_view">Passer en vue orienté dossier</string>
+    <string name="folder_view">Permuter vers la vue du dossier</string>
     <string name="other_folder">Autre dossier</string>
 
     <plurals name="folders_deleted">
@@ -30,89 +30,84 @@
     </plurals>
 
     <!-- Resizing -->
-    <string name="resize">Resize</string>  <!-- TODO -->
-    <string name="resize_and_save">Resize selection and save</string>  <!-- TODO -->
+    <string name="resize">Redimensionner</string>
+    <string name="resize_and_save">Redimensionner la sélection et enregistrer</string>
     <string name="width">Largeur</string>
     <string name="height">Hauteur</string>
-    <string name="keep_aspect_ratio">Keep aspect ratio</string>  <!-- TODO -->
-    <string name="invalid_values">Please enter a valid resolution</string> <!-- TODO -->
+    <string name="keep_aspect_ratio">Garder le ratio</string>
+    <string name="invalid_values">Veuillez entrez une résolution valide</string>
 
     <!-- Renaming -->
     <string name="rename_file">Renommer le fichier</string>
     <string name="rename_folder">Renommer le dossier</string>
     <string name="rename_file_error">Impossible de renommer le fichier</string>
-    <string name="rename_folder_error">Impossible de renommer le dossier</string>
-    <string name="rename_folder_empty">Le nom du dossier ne doit pas être nul</string>
-    <string name="rename_folder_exists">Un dossier avec ce nom existe déjà</string>
-    <string name="rename_folder_root">Impossible de renommer le dossier racine d\'un support de stockage</string>
+    <string name="rename_folder_error">Impossible de renommer le dossier.</string>
+    <string name="rename_folder_empty">Le nom de dossier ne peut pas être vide.</string>
+    <string name="rename_folder_exists">Un dossier homonyme existe déjà.</string>
+    <string name="rename_folder_root">Impossible de renommer le dossier racine de la mémoire.</string>
     <string name="rename_folder_ok">Dossier renommé avec succès</string>
     <string name="renaming_folder">Renommage du dossier</string>
-    <string name="filename_cannot_be_empty">Le nom du fichier ne peut pas être nul</string>
-    <string name="filename_invalid_characters">Le nom du fichier contient des caractères non valides</string>
+    <string name="filename_cannot_be_empty">Le nom de fichier ne peut pas rester vide</string>
+    <string name="filename_invalid_characters">Le nom de fichier contient des caractères invalides</string>
     <string name="extension">Extension</string>
-    <string name="extension_cannot_be_empty">L\'extension ne peut pas être nul</string>
+    <string name="extension_cannot_be_empty">L\'extension ne peut pas rester vide</string>
 
     <!-- Editor -->
     <string name="editor">Éditeur</string>
     <string name="save">Sauvegarder</string>
-    <string name="rotate">Rotate</string>  <!-- TODO -->
+    <string name="rotate">Tourner</string>
     <string name="path">Chemin</string>
-    <string name="invalid_image_path">Chemin d\'image invalide</string>
-    <string name="image_editing_failed">Écher de l\'édition de l\'image</string>
+    <string name="invalid_image_path">Chemin invalide</string>
+    <string name="image_editing_failed">Échec de l\'édition de l\'image</string>
     <string name="edit_image_with">Éditer l\'image avec :</string>
     <string name="no_editor_found">Aucun éditeur d\'image trouvé</string>
-    <string name="unknown_file_location">Unknown file location</string>  <!-- TODO -->
-    <string name="error_saving_file">Could not overwrite the source file</string> <!-- TODO -->
+    <string name="unknown_file_location">Emplacement du fichier inconnu.</string>
+    <string name="error_saving_file">Ne parvient pas à réécrire par dessus le fichier source</string>
 
     <!-- Set wallpaper -->
-    <string name="simple_wallpaper">Fond d\'écran simple</string>
-    <string name="set_as_wallpaper">Définir en tant que fond d\'écran</string>
-    <string name="set_as_wallpaper_failed">Échec de la définition du fond d\'écran</string>
-    <string name="set_as_wallpaper_with">Définir en tant que fond d\'écran avec :</string>
-    <string name="no_wallpaper_setter_found">Aucune app capable de cela n\'a été trouvée</string>
-    <string name="setting_wallpaper">Mise en place du fond d\'écran&#8230;</string>
-    <string name="wallpaper_set_successfully">Fond d\'écran défini avec succès</string>
+    <string name="simple_wallpaper">Simple fond d\'écran</string>
+    <string name="set_as_wallpaper">Définir comme fond d\'écran</string>
+    <string name="set_as_wallpaper_failed">Échec de la définition en tant que fond d\'écran.</string>
+    <string name="set_as_wallpaper_with">Définir comme fond d\'écran avec :</string>
+    <string name="no_wallpaper_setter_found">Aucune application trouvée pour continuer cette action</string>
+    <string name="setting_wallpaper">Paramètre de fond d\'écran…</string>
+    <string name="wallpaper_set_successfully">Fond d\'écran défini avec succès.</string>
 
     <!-- Settings -->
     <string name="dark_theme">Thème sombre</string>
-    <string name="same_sorting">Même tri pour les fichiers et dossiers</string>
-    <string name="show_hidden_folders">Montrer les dossiers cachés</string>
-    <string name="autoplay_videos">Jouer automatiquement les vidéos</string>
-    <string name="toggle_filename">Inverser la visibilité des noms de fichiers</string>
-    <string name="show_media">Montrer les médias</string>
+    <string name="same_sorting">Tri identique pour fichiers et dossiers</string>
+    <string name="show_hidden_folders">Afficher les dossiers cachés</string>
+    <string name="autoplay_videos">Lecture automatique des vidéos</string>
+    <string name="toggle_filename">Permutter la visibilité des noms de fichier</string>
+    <string name="show_media">Afficher les médias</string>
     <string name="images">Seulement les images</string>
-    <string name="videos">Seulement les vidéos</string>
-    <string name="images_and_videos">Les images et les vidéos</string>
-    <string name="loop_videos">Boucler les vidéos</string>
+    <string name="videos">Vidéos uniquement</string>
+    <string name="images_and_videos">Images et vidéos</string>
+    <string name="loop_videos">Tourner en boucle les vidéos</string>
 
     <!-- Release notes -->
-    <string name="release_54">Ajouter une option pour boucler les vidéos automatiquement</string>
-    <!-- TODO -->
-    <string name="release_52">
-        Added more color customization options\n
-        Your settings have been cleared, please reset them</string>
-    <string name="release_51">Allow changing the column count with pinch gestures</string>
-    <string name="release_50">Added an option to display images or videos only</string>
-    <string name="release_49">Added a Select all button at selecting media and folders</string>
-    <string name="release_47">
-        Added an image resizer to the editor\n
-        Allow displaying images and videos from all folders together
-    </string>
-    <string name="release_46">Allow pinning folders at the top</string>
+    <string name="release_54">Ajouter une option pour tourner en boucle les vidéos automatiquement.</string>
+    <string name="release_52">Plus d\'option de couleurs personnalisée ajouté.\n
+      Vos paramètres ont été réinitialisés aux valeurs par défaut, veuillez les reparamétrer à votre convenance.</string>
+    <string name="release_51">Permettre de changer le nombre de colonnes à afficher avec un mouvement de pincement.</string>
+    <string name="release_50">Une option pour afficher afficher exclusivement les photos, ou exclusivement les vidéos a été ajoutée.</string>
+    <string name="release_49">Un bouton pour tout sélectionner a été ajouté.</string>
+    <string name="release_47">Une option pour redimmensionner les images a été ajouté à l\'éditeur.\n
+      Permettre d\'afficher les images et vidéos de tous les dossiers ensemble.</string>
+    <string name="release_46">Permettre d\'épingler les dossiers en haut</string>
 
-    <!-- Strings displayed only on Google Play Store. Optional, but good to have -->
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Une gallerie pour visualiser des photos et vidéos sans pubs.</string>
-    <!-- TODO -->
+    <string name="app_short_description">Un album pour visionner photos et vidéos sans publicité.</string>
     <string name="app_long_description">
-        A simple tool usable for viewing photos and videos. Items can be sorted by date, size, name both ascending or descending, photos can be zoomed in. Media files are shown in multiple columns depending on the size of the display, you can change the column count by pinch gestures. They can be renamed, shared, deleted, copied, moved. Images can also be cropped, rotated or set as Wallpaper directly from the app.
-
-
-        The Gallery is also offered for third party usage for previewing images / videos, adding attachments at email clients etc. It\'s perfect for everyday usage.
-
-        Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
-
-        This app is just one piece of a bigger series of apps. You can find the rest of them at http://www.simplemobiletools.com
+      Un simple outil pour visionner les photos et les vidéos. Elles peuvent être triées par dates, tailles, noms dans les deux sens (alphabétique comme désalphabétique), il est possible de zoomer sur les photos. Les fichiers sont affichés sur de multiple colonnes en fonction de la taille de l\'écran, vous pouvez changer le nombre de colonnes par pincement. Elles peuvent être renommées, partagées, supprimées, copiées et déplacées. Les images peuvent en plus être tournées, rognées ou être définies comme fond d\'écran directement depuis l\'application.\n
+      
+      
+      La galerie est aussi offerte pour l\'utiliser comme une tierce partie pour de la prévisualisation des images/vidéos, joindre aux clients mail etc. C\'est parfait pour un usage au quotidien.\n
+      
+      L\'application ne contient ni de publicité ni d\'autorisation inutile. Elle est totalement OpenSource et est aussi fournie avec un thème sombre.\n
+      
+      Cette application est juste l\'une des applications d\'une plus grande suite. Vous pouvez trouver les autres sur http://www.simplemobiletools.com
     </string>
 
     <!--
@@ -120,3 +115,4 @@
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
     -->
 </resources>
+
