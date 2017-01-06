@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -22,28 +23,28 @@ import kotlinx.android.synthetic.main.pager_photo_item.view.*
 
 class PhotoFragment : ViewPagerFragment() {
     lateinit var medium: Medium
-    lateinit var mView: View
+    lateinit var subsamplingView: SubsamplingScaleImageView
+    lateinit var glideView: ImageView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        mView = inflater.inflate(R.layout.pager_photo_item, container, false)
+        val view = inflater.inflate(R.layout.pager_photo_item, container, false)
 
         medium = arguments.getSerializable(MEDIUM) as Medium
         if (medium.path.startsWith("content://"))
             medium.path = context.getRealPathFromURI(Uri.parse(medium.path)) ?: ""
 
+        subsamplingView = view.photo_view.apply { setOnClickListener({ photoClicked() }) }
+        glideView = view.glide_view.apply { setOnClickListener({ photoClicked() }) }
         loadImage(medium)
 
         activity.window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
             listener?.systemUiVisibilityChanged(visibility)
         }
 
-        return mView
+        return view
     }
 
     private fun loadImage(medium: Medium) {
-        val subsamplingView = mView.photo_view.apply { setOnClickListener({ photoClicked() }) }
-        val glideView = mView.glide_view.apply { setOnClickListener({ photoClicked() }) }
-
         if (medium.isGif()) {
             Glide.with(this)
                     .load(medium.path)
@@ -62,39 +63,43 @@ class PhotoFragment : ViewPagerFragment() {
                         }
 
                         override fun onResourceReady(resource: Bitmap?, model: String?, target: Target<Bitmap>?, isFromMemoryCache: Boolean, isFirstResource: Boolean): Boolean {
-                            if (!medium.isPng()) {
-                                subsamplingView.visibility = View.VISIBLE
-                                subsamplingView.apply {
-                                    setDoubleTapZoomScale(1.2f)
-                                    setImage(ImageSource.uri(medium.path))
-                                    orientation = SubsamplingScaleImageView.ORIENTATION_USE_EXIF
-                                    maxScale = 5f
-                                    setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {
-                                        override fun onImageLoaded() {
-                                        }
-
-                                        override fun onReady() {
-                                            glideView.visibility = View.GONE
-                                            subsamplingView.visibility = View.VISIBLE
-                                        }
-
-                                        override fun onTileLoadError(p0: Exception?) {
-                                        }
-
-                                        override fun onPreviewReleased() {
-                                        }
-
-                                        override fun onImageLoadError(p0: Exception?) {
-                                        }
-
-                                        override fun onPreviewLoadError(p0: Exception?) {
-                                        }
-                                    })
-                                }
-                            }
+                            addZoomableView()
                             return false
                         }
                     }).into(glideView)
+        }
+    }
+
+    private fun addZoomableView() {
+        if (!medium.isPng()) {
+            subsamplingView.visibility = View.VISIBLE
+            subsamplingView.apply {
+                setDoubleTapZoomScale(1.2f)
+                setImage(ImageSource.uri(medium.path))
+                orientation = SubsamplingScaleImageView.ORIENTATION_USE_EXIF
+                maxScale = 5f
+                setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {
+                    override fun onImageLoaded() {
+                    }
+
+                    override fun onReady() {
+                        glideView.visibility = View.GONE
+                        glideView.setImageBitmap(null)
+                    }
+
+                    override fun onTileLoadError(p0: Exception?) {
+                    }
+
+                    override fun onPreviewReleased() {
+                    }
+
+                    override fun onImageLoadError(p0: Exception?) {
+                    }
+
+                    override fun onPreviewLoadError(p0: Exception?) {
+                    }
+                })
+            }
         }
     }
 
