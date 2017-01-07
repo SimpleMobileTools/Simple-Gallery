@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 2.2.1 *(2017-01-07)*
+----------------------------
+
+ * Allow zooming pngs and gifs
+ * Allow creating new folders at Copy/Move or Save as dialog destinations
+ * Update the way the app is obtaining images, so it will show more of them
+ * Couple smaller improvements
+
 Version 2.2.0 *(2017-01-06)*
 ----------------------------
 
