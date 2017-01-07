@@ -105,6 +105,7 @@ class PhotoFragment : ViewPagerFragment() {
                     }
 
                     override fun onImageLoadError(p0: Exception?) {
+                        visibility = View.GONE
                     }
 
                     override fun onPreviewLoadError(p0: Exception?) {
