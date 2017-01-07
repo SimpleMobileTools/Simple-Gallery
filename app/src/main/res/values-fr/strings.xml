@@ -86,6 +86,7 @@
     <string name="loop_videos">Tourner en boucle les vidéos</string>
 
     <!-- Release notes -->
+    <string name="release_58">Allow zooming pngs and gifs</string>
     <string name="release_54">Ajouter une option pour tourner en boucle les vidéos automatiquement.</string>
     <string name="release_52">Plus d\'option de couleurs personnalisée ajouté.\n
         Vos paramètres ont été réinitialisés aux valeurs par défaut, veuillez les reparamétrer à votre convenance.</string>

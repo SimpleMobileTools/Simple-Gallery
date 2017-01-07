@@ -85,6 +85,7 @@
     <string name="loop_videos">Vídeos em ciclo</string>
 
     <!-- Release notes -->
+    <string name="release_58">Allow zooming pngs and gifs</string>
     <string name="release_54">Added an option to loop videos automatically</string>
     <string name="release_52">
         Added more color customization options\n

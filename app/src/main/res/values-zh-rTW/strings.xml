@@ -86,6 +86,7 @@
     <string name="loop_videos">Loop videos</string>
 
     <!-- Release notes -->
+    <string name="release_58">Allow zooming pngs and gifs</string>
     <string name="release_54">Added an option to loop videos automatically</string>
     <string name="release_52">
         加入更多顏色的自訂選項\n
