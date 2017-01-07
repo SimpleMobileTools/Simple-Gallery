@@ -160,7 +160,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun askConfirmDelete() {
         ConfirmationDialog(this) {
-            deleteFile()
+            Thread({
+                deleteFile()
+            }).start()
         }
     }
 

@@ -171,7 +171,9 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     private fun askConfirmDelete() {
         ConfirmationDialog(activity) {
             actMode?.finish()
-            deleteFiles()
+            Thread({
+                deleteFiles()
+            }).start()
         }
     }
 
@@ -187,7 +189,9 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             val medium = media[it]
             files.add(File(medium.path))
             removeMedia.add(medium)
-            notifyItemRemoved(it)
+            activity.runOnUiThread {
+                notifyItemRemoved(it)
+            }
         }
 
         media.removeAll(removeMedia)
