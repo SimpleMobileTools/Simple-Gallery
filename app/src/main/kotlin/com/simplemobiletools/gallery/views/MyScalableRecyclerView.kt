@@ -15,11 +15,9 @@ class MyScalableRecyclerView : RecyclerView {
         var mLastUp = 0L    // allow only pinch zoom, not double tap
     }
 
-    constructor(context: Context) : super(context) {
-    }
+    constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-    }
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
 
     init {
         mScaleDetector = ScaleGestureDetector(context, GestureListener())
