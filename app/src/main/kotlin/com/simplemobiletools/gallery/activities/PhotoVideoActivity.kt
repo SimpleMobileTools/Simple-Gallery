@@ -7,6 +7,7 @@ import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import com.simplemobiletools.commons.extensions.scanPath
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.fragments.PhotoFragment
@@ -34,11 +35,13 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         mUri = intent.data ?: return
 
         if (mUri.scheme == "file") {
+            scanPath(mUri.path) {}
             sendViewPagerIntent(mUri.path)
             finish()
             return
         } else {
             val path = applicationContext.getRealPathFromURI(mUri) ?: ""
+            scanPath(mUri.path) {}
             if (path.isNotEmpty()) {
                 sendViewPagerIntent(path)
                 finish()
