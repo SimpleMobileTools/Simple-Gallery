@@ -78,7 +78,10 @@
     <string name="loop_videos">Повторять видео</string>
 
     <!-- Release notes -->
-    <string name="release_58">Allow zooming pngs and gifs</string>
+    <string name="release_58">
+        Allow zooming pngs and gifs\n
+        Allow creating new folders at Copy/Move or Save as dialog destinations
+    </string>
     <string name="release_54">Добавлена возможность повторять видео автоматически</string>
     <string name="release_52">
         Добавлена возможность изменять цветовое оформление\n
