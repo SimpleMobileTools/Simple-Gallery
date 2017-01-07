@@ -29,7 +29,7 @@ class SaveAsDialog(val activity: SimpleActivity, val path: String, val callback:
 
             file_name.setText(name)
             file_path.setOnClickListener {
-                FilePickerDialog(activity, realPath, false, false) {
+                FilePickerDialog(activity, realPath, false, false, true) {
                     file_path.text = activity.humanizePath(it)
                     realPath = it
                 }
