@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -20,11 +19,13 @@ import com.simplemobiletools.gallery.extensions.getRealPathFromURI
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.pager_photo_item.view.*
+import uk.co.senab.photoview.PhotoView
+import uk.co.senab.photoview.PhotoViewAttacher
 
 class PhotoFragment : ViewPagerFragment() {
     lateinit var medium: Medium
     lateinit var subsamplingView: SubsamplingScaleImageView
-    lateinit var glideView: ImageView
+    lateinit var glideView: PhotoView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val view = inflater.inflate(R.layout.pager_photo_item, container, false)
@@ -34,7 +35,17 @@ class PhotoFragment : ViewPagerFragment() {
             medium.path = context.getRealPathFromURI(Uri.parse(medium.path)) ?: ""
 
         subsamplingView = view.photo_view.apply { setOnClickListener({ photoClicked() }) }
-        glideView = view.glide_view.apply { setOnClickListener({ photoClicked() }) }
+        glideView = view.glide_view.apply {
+            setOnPhotoTapListener(object : PhotoViewAttacher.OnPhotoTapListener {
+                override fun onPhotoTap(view: View?, x: Float, y: Float) {
+                    photoClicked()
+                }
+
+                override fun onOutsidePhotoTap() {
+                    photoClicked()
+                }
+            })
+        }
         loadImage(medium)
 
         activity.window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
