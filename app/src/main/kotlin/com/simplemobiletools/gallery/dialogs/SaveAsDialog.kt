@@ -1,16 +1,16 @@
 package com.simplemobiletools.gallery.dialogs
 
-import android.app.Activity
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.WindowManager
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.activities.SimpleActivity
 import kotlinx.android.synthetic.main.rename_file.view.*
 import java.io.File
 
-class SaveAsDialog(val activity: Activity, val path: String, val callback: (savePath: String) -> Unit) {
+class SaveAsDialog(val activity: SimpleActivity, val path: String, val callback: (savePath: String) -> Unit) {
 
     init {
         var realPath = File(path).parent.trimEnd('/')
@@ -29,15 +29,10 @@ class SaveAsDialog(val activity: Activity, val path: String, val callback: (save
 
             file_name.setText(name)
             file_path.setOnClickListener {
-                FilePickerDialog(activity, realPath, false, false, listener = object : FilePickerDialog.OnFilePickerListener {
-                    override fun onSuccess(pickedPath: String) {
-                        file_path.text = activity.humanizePath(pickedPath)
-                        realPath = pickedPath
-                    }
-
-                    override fun onFail(error: FilePickerDialog.FilePickerResult) {
-                    }
-                })
+                FilePickerDialog(activity, realPath, false, false) {
+                    file_path.text = activity.humanizePath(it)
+                    realPath = it
+                }
             }
         }
 

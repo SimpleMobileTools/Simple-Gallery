@@ -40,13 +40,8 @@ class PickAlbumDialog(val activity: SimpleActivity, val callback: (path: String)
     fun showOtherFolder() {
         val initialPath = Environment.getExternalStorageDirectory().toString()
         val showHidden = Config.newInstance(activity).showHiddenFolders
-        FilePickerDialog(activity, initialPath, false, showHidden, object : FilePickerDialog.OnFilePickerListener {
-            override fun onSuccess(pickedPath: String) {
-                callback.invoke(pickedPath)
-            }
-
-            override fun onFail(error: FilePickerDialog.FilePickerResult) {
-            }
-        })
+        FilePickerDialog(activity, initialPath, false, showHidden) {
+            callback.invoke(it)
+        }
     }
 }
