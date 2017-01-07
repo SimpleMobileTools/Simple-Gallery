@@ -4,10 +4,7 @@
     <string name="app_launcher_name">Gallery</string>
     <string name="share_via">Compartir vía</string>
     <string name="no_permissions">No hay mucho que hacer en una galería sin acceso al almacenamiento</string>
-    <string name="deleting">Eliminando</string>
     <string name="edit">Edit</string>
-    <string name="undo">Deshacer</string>
-    <string name="file_deleted">Archivo eliminado</string>
     <string name="open_camera">Abrir cámara</string>
     <string name="unknown_error">Ocurrió un error desconocido</string>
     <string name="open_with">Abrir con&#8230;</string>
@@ -23,11 +20,6 @@
     <string name="all_folders">All media</string>
     <string name="folder_view">Switch to folder view</string>
     <string name="other_folder">Other folder</string>
-
-    <plurals name="folders_deleted">
-        <item quantity="one">1 carpeta eliminada</item>
-        <item quantity="other">%1$d carpetas eliminadas</item>
-    </plurals>
 
     <!-- Resizing -->
     <string name="resize">Resize</string>

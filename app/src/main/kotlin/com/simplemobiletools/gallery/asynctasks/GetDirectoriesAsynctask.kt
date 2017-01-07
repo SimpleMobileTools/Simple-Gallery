@@ -16,7 +16,7 @@ import java.io.File
 import java.util.*
 
 class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, val isPickImage: Boolean,
-                              val mToBeDeleted: List<String>, val callback: (dirs: ArrayList<Directory>) -> Unit) : AsyncTask<Void, Void, ArrayList<Directory>>() {
+                              val callback: (dirs: ArrayList<Directory>) -> Unit) : AsyncTask<Void, Void, ArrayList<Directory>>() {
     lateinit var mConfig: Config
 
     override fun onPreExecute() {
@@ -80,7 +80,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                 val newImageCnt = directory.mediaCnt + 1
                 directory.mediaCnt = newImageCnt
                 directory.addSize(size)
-            } else if (!mToBeDeleted.contains(parentDir)) {
+            } else {
                 var dirName = context.getHumanizedFilename(parentDir)
                 if (mConfig.getIsFolderHidden(parentDir)) {
                     dirName += " ${context.resources.getString(R.string.hidden)}"

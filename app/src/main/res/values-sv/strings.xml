@@ -4,10 +4,7 @@
     <string name="app_launcher_name">Gallery</string>
     <string name="share_via">Dela via</string>
     <string name="no_permissions">Inte mycket att göra i ett galleri om jag inte kommer åt lagringsutrymmet</string>
-    <string name="deleting">Tar bort</string>
     <string name="edit">Edit</string>
-    <string name="undo">Ångra</string>
-    <string name="file_deleted">Fil borttagen</string>
     <string name="open_camera">Starta kameran</string>
     <string name="unknown_error">Ett okänt fel har uppstått</string>
     <string name="open_with">Open with</string>
@@ -23,11 +20,6 @@
     <string name="all_folders">All folders</string>
     <string name="folder_view">Switch to folder view</string>
     <string name="other_folder">Другая папка</string>
-
-    <plurals name="folders_deleted">
-        <item quantity="one">1 mapp borttagen</item>
-        <item quantity="other">%1$d mappar borttagna</item>
-    </plurals>
 
     <!-- Resizing -->
     <string name="resize">Resize</string>

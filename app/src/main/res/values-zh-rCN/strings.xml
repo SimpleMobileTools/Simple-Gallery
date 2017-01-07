@@ -4,10 +4,7 @@
     <string name="app_launcher_name">相册</string>
     <string name="share_via">分享到</string>
     <string name="no_permissions">需要访问储存权限</string>
-    <string name="deleting">删除中</string>
     <string name="edit">编辑</string>
-    <string name="undo">撤销</string>
-    <string name="file_deleted">文件删除成功</string>
     <string name="open_camera">打开相机</string>
     <string name="unknown_error">未知错误</string>
     <string name="open_with">打开方式</string>
@@ -23,11 +20,6 @@
     <string name="all_folders">所有文件夹</string>
     <string name="folder_view">切换到文件夹视图</string>
     <string name="other_folder">其他文件夹</string>
-
-    <plurals name="folders_deleted">
-        <item quantity="one">已删除 1 个文件夹</item>
-        <item quantity="other">已删除 %1$d 个文件夹</item>
-    </plurals>
 
     <!-- Resizing -->
     <string name="resize">缩放</string>

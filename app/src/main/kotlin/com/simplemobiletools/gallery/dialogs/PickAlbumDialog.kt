@@ -12,7 +12,6 @@ import com.simplemobiletools.gallery.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
 import com.simplemobiletools.gallery.helpers.Config
 import kotlinx.android.synthetic.main.dialog_album_picker.view.*
-import java.util.*
 
 class PickAlbumDialog(val activity: SimpleActivity, val callback: (path: String) -> Unit) {
     var directoriesGrid: RecyclerView
@@ -28,7 +27,7 @@ class PickAlbumDialog(val activity: SimpleActivity, val callback: (path: String)
                 .create().apply {
             activity.setupDialogStuff(view, this, R.string.select_destination)
 
-            GetDirectoriesAsynctask(activity, false, false, ArrayList<String>()) {
+            GetDirectoriesAsynctask(activity, false, false) {
                 val adapter = DirectoryAdapter(activity, it, null) {
                     callback.invoke(it.path)
                     dismiss()

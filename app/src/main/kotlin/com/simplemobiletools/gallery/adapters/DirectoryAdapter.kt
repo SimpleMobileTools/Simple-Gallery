@@ -231,11 +231,13 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     private fun askConfirmDelete() {
         ConfirmationDialog(activity) {
             actMode?.finish()
-            prepareForDeleting()
+            Thread({
+                deleteFiles()
+            }).start()
         }
     }
 
-    private fun prepareForDeleting() {
+    private fun deleteFiles() {
         val selections = multiSelector.selectedPositions
         val paths = ArrayList<String>(selections.size)
         val removeDirs = ArrayList<Directory>(selections.size)
@@ -245,11 +247,13 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             val directory = dirs[it]
             paths.add(directory.path)
             removeDirs.add(directory)
-            notifyItemRemoved(it)
+            activity.runOnUiThread {
+                notifyItemRemoved(it)
+            }
         }
 
         dirs.removeAll(removeDirs)
-        listener?.prepareForDeleting(paths)
+        listener?.deleteFiles(paths)
     }
 
     private fun getSelectedPaths(): HashSet<String> {
@@ -333,6 +337,6 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     interface DirOperationsListener {
         fun refreshItems()
 
-        fun prepareForDeleting(paths: ArrayList<String>)
+        fun deleteFiles(paths: ArrayList<String>)
     }
 }

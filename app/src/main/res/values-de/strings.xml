@@ -4,10 +4,7 @@
     <string name="app_launcher_name">Galerie</string>
     <string name="share_via">Teilen via</string>
     <string name="no_permissions">Ohne Zugriff auf deinen Speicher gibt es hier nicht viel zu tun</string>
-    <string name="deleting">Lösche</string>
     <string name="edit">Bearbeiten</string>
-    <string name="undo">Rückgängig</string>
-    <string name="file_deleted">Datei gelöscht</string>
     <string name="open_camera">Kamera öffnen</string>
     <string name="unknown_error">Ein unbekannter Fehler ist aufgetreten</string>
     <string name="open_with">Öffnen mit</string>
@@ -23,11 +20,6 @@
     <string name="all_folders">All media</string>
     <string name="folder_view">wechsle zu Ordner Ansicht</string>
     <string name="other_folder">Other folder</string>
-
-    <plurals name="folders_deleted">
-        <item quantity="one">1 Ordner gelöscht</item>
-        <item quantity="other">%1$d Ordner gelöscht</item>
-    </plurals>
 
     <!-- Resizing -->
     <string name="resize">Resize</string>

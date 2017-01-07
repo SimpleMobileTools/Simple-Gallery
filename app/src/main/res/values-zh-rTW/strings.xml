@@ -4,10 +4,7 @@
     <string name="app_launcher_name">藝廊</string>
     <string name="share_via">分享到</string>
     <string name="no_permissions">一個沒有權限存取您的儲存空間的藝廊能做的事情寥寥無幾</string>
-    <string name="deleting">正在刪除</string>
     <string name="edit">編輯</string>
-    <string name="undo">復原</string>
-    <string name="file_deleted">檔案成功刪除</string>
     <string name="open_camera">開啟相機</string>
     <string name="unknown_error">未知錯誤</string>
     <string name="open_with">以其他應用軟體開啟</string>
@@ -23,11 +20,6 @@
     <string name="all_folders">所有資料夾</string>
     <string name="folder_view">切換到資料夾檢視</string>
     <string name="other_folder">其他資料夾</string>
-
-    <plurals name="folders_deleted">
-        <item quantity="one">刪除 1 個資料夾</item>
-        <item quantity="other">刪除 %1$d 個資料夾</item>
-    </plurals>
 
     <!-- Resizing -->
     <string name="resize">縮放</string>

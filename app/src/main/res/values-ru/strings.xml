@@ -4,10 +4,7 @@
     <string name="app_launcher_name">Галерея</string>
     <string name="share_via">Отправить по</string>
     <string name="no_permissions">Не предоставлено разрешение для доступа к файловой системе</string>
-    <string name="deleting">Удаление</string>
     <string name="edit">Редактировать</string>
-    <string name="undo">Отменить</string>
-    <string name="file_deleted">Файл удален</string>
     <string name="open_camera">Открыть камеру</string>
     <string name="unknown_error">Произошла неизвестная ошибка</string>
     <string name="open_with">Открыть в</string>
@@ -23,11 +20,6 @@
     <string name="all_folders">Все медиафайлы</string>
     <string name="folder_view">Переключиться к виду с папками</string>
     <string name="other_folder">Другая папка</string>
-
-    <plurals name="folders_deleted">
-        <item quantity="one">1 папка удалена</item>
-        <item quantity="other">Папок удалено: %1$d</item>
-    </plurals>
 
     <!-- Resizing -->
     <string name="resize">Изменить размер</string>

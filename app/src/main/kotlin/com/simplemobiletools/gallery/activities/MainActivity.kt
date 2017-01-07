@@ -4,16 +4,13 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityCompat
 import android.support.v7.widget.GridLayoutManager
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.extensions.*
@@ -39,9 +36,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         private val PICK_MEDIA = 2
         private val PICK_WALLPAPER = 3
 
-        private var mSnackbar: Snackbar? = null
         lateinit var mDirs: ArrayList<Directory>
-        lateinit var mToBeDeleted: ArrayList<String>
 
         private var mIsPickImageIntent = false
         private var mIsPickVideoIntent = false
@@ -66,7 +61,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mIsThirdPartyIntent = mIsPickImageIntent || mIsPickVideoIntent || mIsGetImageContentIntent || mIsGetVideoContentIntent ||
                 mIsGetAnyContentIntent || mIsSetWallpaperIntent
 
-        mToBeDeleted = ArrayList<String>()
         directories_holder.setOnRefreshListener({ getDirectories() })
         mDirs = ArrayList<Directory>()
     }
@@ -98,7 +92,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     override fun onPause() {
         super.onPause()
-        deleteDirs()
         storeDirectories()
     }
 
@@ -143,7 +136,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         gotDirectories(dirs)
 
         mIsGettingDirs = true
-        GetDirectoriesAsynctask(applicationContext, mIsPickVideoIntent || mIsGetVideoContentIntent, mIsPickImageIntent || mIsGetImageContentIntent, mToBeDeleted) {
+        GetDirectoriesAsynctask(applicationContext, mIsPickVideoIntent || mIsGetVideoContentIntent, mIsPickImageIntent || mIsGetImageContentIntent) {
             gotDirectories(it)
         }.execute()
     }
@@ -170,36 +163,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
     }
 
-    override fun prepareForDeleting(paths: ArrayList<String>) {
-        toast(R.string.deleting)
-        mToBeDeleted = paths
-        val deletedCnt = mToBeDeleted.size
-
-        if (isShowingPermDialog(File(mToBeDeleted[0])))
-            return
-
-        notifyDeletion(deletedCnt)
-    }
-
-    private fun notifyDeletion(cnt: Int) {
-        val res = resources
-        val msg = res.getQuantityString(R.plurals.folders_deleted, cnt, cnt)
-        mSnackbar = Snackbar.make(coordinator_layout, msg, Snackbar.LENGTH_INDEFINITE)
-        mSnackbar!!.apply {
-            setAction(res.getString(R.string.undo), undoDeletion)
-            setActionTextColor(Color.WHITE)
-            show()
-        }
-    }
-
-    private fun deleteDirs() {
-        if (mToBeDeleted.isEmpty())
-            return
-
-        mSnackbar?.dismiss()
-
+    override fun deleteFiles(paths: ArrayList<String>) {
         val updatedFiles = ArrayList<File>()
-        for (delPath in mToBeDeleted) {
+        for (delPath in paths) {
             val dir = File(delPath)
             if (dir.exists()) {
                 val files = dir.listFiles() ?: continue
@@ -216,7 +182,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         scanFiles(updatedFiles) {}
-        mToBeDeleted.clear()
     }
 
     private fun deleteItem(file: File) {
@@ -231,12 +196,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         } else {
             file.delete()
         }
-    }
-
-    private val undoDeletion = View.OnClickListener {
-        mSnackbar!!.dismiss()
-        mToBeDeleted.clear()
-        getDirectories()
     }
 
     private fun handleZooming() {
@@ -350,17 +309,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         directories_grid.adapter = adapter
-        directories_grid.setOnTouchListener { view, motionEvent -> checkDelete(); false }
     }
 
     override fun refreshItems() {
         getDirectories()
-    }
-
-    fun checkDelete() {
-        if (mSnackbar?.isShown == true) {
-            deleteDirs()
-        }
     }
 
     private fun checkWhatsNewDialog() {

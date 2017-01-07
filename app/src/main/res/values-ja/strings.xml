@@ -4,10 +4,7 @@
     <string name="app_launcher_name">ギャラリー</string>
     <string name="share_via">共有&#8230;</string>
     <string name="no_permissions">ストレージにアクセスしないとギャラリーでできることはほとんどありません</string>
-    <string name="deleting">削除中</string>
     <string name="edit">編集</string>
-    <string name="undo">元に戻す</string>
-    <string name="file_deleted">ファイルを削除しました</string>
     <string name="open_camera">カメラを開く</string>
     <string name="unknown_error">不明なエラーが発生しました</string>
     <string name="open_with">&#8230;で開く</string>
@@ -23,11 +20,6 @@
     <string name="all_folders">All media</string>
     <string name="folder_view">Switch to folder view</string>
     <string name="other_folder">Other folder</string>
-
-    <plurals name="folders_deleted">
-        <item quantity="one">1 フォルダーを削除しました</item>
-        <item quantity="other">%1$d フォルダーを削除しました</item>
-    </plurals>
 
     <!-- Resizing -->
     <string name="resize">Resize</string>

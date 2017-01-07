@@ -4,10 +4,7 @@
     <string name="app_launcher_name">Gallery</string>
     <string name="share_via">Share via</string>
     <string name="no_permissions">Not much to do in a gallery without accessing your storage</string>
-    <string name="deleting">Deleting</string>
     <string name="edit">Edit</string>
-    <string name="undo">Undo</string>
-    <string name="file_deleted">File deleted</string>
     <string name="open_camera">Open camera</string>
     <string name="unknown_error">An unknown error occurred</string>
     <string name="open_with">Open with</string>
@@ -23,11 +20,6 @@
     <string name="all_folders">All folders</string>
     <string name="folder_view">Switch to folder view</string>
     <string name="other_folder">Other folder</string>
-
-    <plurals name="folders_deleted">
-        <item quantity="one">1 folder deleted</item>
-        <item quantity="other">%1$d folders deleted</item>
-    </plurals>
 
     <!-- Resizing -->
     <string name="resize">Resize</string>

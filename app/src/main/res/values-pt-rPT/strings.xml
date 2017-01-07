@@ -1,12 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Simple Gallery</string>
     <string name="app_launcher_name">Galeria</string>
     <string name="share_via">Partilhar via</string>
     <string name="no_permissions">É necessário o acesso ao armazenamento para a galeria ter utilidade</string>
-    <string name="deleting">A apagar</string>
     <string name="edit">Editar</string>
-    <string name="undo">Desfazer</string>
-    <string name="file_deleted">Ficheiro apagado</string>
     <string name="open_camera">Abrir câmara</string>
     <string name="unknown_error">Ocorreu um erro desconhecido</string>
     <string name="open_with">Abrir com</string>
@@ -22,11 +20,6 @@
     <string name="all_folders">Todas as pastas</string>
     <string name="folder_view">Alternar para a vista de pastas</string>
     <string name="other_folder">Outra pasta</string>
-
-    <plurals name="folders_deleted">
-        <item quantity="one">1 pasta apagada</item>
-        <item quantity="other">%1$d pastas apagadas</item>
-    </plurals>
 
     <!-- Resizing -->
     <string name="resize">Redimensionar</string>
