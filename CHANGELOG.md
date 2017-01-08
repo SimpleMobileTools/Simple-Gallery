@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 2.2.2 *(2017-01-08)*
+----------------------------
+
+ * Fix deleting folders on sd card
+ * Some threading fixes related to delete
+
 Version 2.2.1 *(2017-01-07)*
 ----------------------------
 
