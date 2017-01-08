@@ -190,11 +190,16 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 val document = getFileDocument(file.absolutePath, config.treeUri)
 
                 // double check we have the uri to the proper file path, not some parent folder
-                if (document.uri.toString().endsWith(file.absolutePath.getFilenameFromPath()) && !document.isDirectory)
-                    document.delete()
+                if (document.uri.toString().endsWith(file.absolutePath.getFilenameFromPath())) {
+                    Thread({
+                        document.delete()
+                    }).start()
+                }
             }
         } else {
-            file.delete()
+            Thread({
+                file.delete()
+            }).start()
         }
     }
 

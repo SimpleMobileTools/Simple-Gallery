@@ -160,9 +160,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun askConfirmDelete() {
         ConfirmationDialog(this) {
-            Thread({
-                deleteFile()
-            }).start()
+            deleteFile()
         }
     }
 
@@ -175,10 +173,14 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             if (!isShowingPermDialog(file)) {
                 val document = getFileDocument(mPath, config.treeUri)
                 if (document.uri.toString().endsWith(file.absolutePath.getFilenameFromPath()) && !document.isDirectory)
-                    document.delete()
+                    Thread({
+                        document.delete()
+                    }).start()
             }
         } else {
-            file.delete()
+            Thread({
+                file.delete()
+            }).start()
         }
 
         if (deleteFromMediaStore(file)) {

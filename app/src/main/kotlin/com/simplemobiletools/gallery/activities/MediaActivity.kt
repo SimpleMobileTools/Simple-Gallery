@@ -214,10 +214,14 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
                         // double check we have the uri to the proper file path, not some parent folder
                         if (document.uri.toString().endsWith(it.absolutePath.getFilenameFromPath()) && !document.isDirectory) {
-                            document.delete()
+                            Thread({
+                                document.delete()
+                            }).start()
                         }
                     } else {
-                        it.delete()
+                        Thread({
+                            it.delete()
+                        }).start()
                     }
 
                     deleteFromMediaStore(it)

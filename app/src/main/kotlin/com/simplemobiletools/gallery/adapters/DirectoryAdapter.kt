@@ -231,9 +231,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     private fun askConfirmDelete() {
         ConfirmationDialog(activity) {
             actMode?.finish()
-            Thread({
-                deleteFiles()
-            }).start()
+            deleteFiles()
         }
     }
 
@@ -247,9 +245,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             val directory = dirs[it]
             paths.add(directory.path)
             removeDirs.add(directory)
-            activity.runOnUiThread {
-                notifyItemRemoved(it)
-            }
+            notifyItemRemoved(it)
         }
 
         dirs.removeAll(removeDirs)
