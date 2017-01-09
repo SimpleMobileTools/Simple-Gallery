@@ -75,7 +75,7 @@
     <string name="images">仅图像</string>
     <string name="videos">仅视频</string>
     <string name="images_and_videos">图像和视频</string>
-    <string name="loop_videos">Loop videos</string>
+    <string name="loop_videos">循环播放视频</string>
 
     <!-- Release notes -->
     <string name="release_58">
