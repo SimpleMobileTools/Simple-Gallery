@@ -66,7 +66,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         if (mPath.isEmpty()) {
-            toast(R.string.unknown_error)
+            toast(R.string.unknown_error_occurred)
             finish()
             return
         }

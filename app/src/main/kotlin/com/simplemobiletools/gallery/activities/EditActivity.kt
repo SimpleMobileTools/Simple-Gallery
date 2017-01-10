@@ -72,7 +72,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private fun resizeImage() {
         val point = getAreaSize()
         if (point == null) {
-            toast(R.string.unknown_error)
+            toast(R.string.unknown_error_occurred)
             return
         }
 
