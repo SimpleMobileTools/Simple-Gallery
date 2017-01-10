@@ -6,7 +6,6 @@
     <string name="no_permissions">Non c\'è molto da fare in una galleria senza l\'accesso all\'archiviazione</string>
     <string name="edit">Modifica</string>
     <string name="open_camera">Apri fotocamera</string>
-    <string name="unknown_error">Riscontrato un errore sconosciuto</string>
     <string name="open_with">Apri con</string>
     <string name="no_app_found">Nessun app valida trovata</string>
     <string name="hide_folder">Nascondi cartella</string>

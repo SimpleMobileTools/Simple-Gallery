@@ -6,7 +6,6 @@
     <string name="no_permissions">Ohne Zugriff auf deinen Speicher gibt es hier nicht viel zu tun</string>
     <string name="edit">Bearbeiten</string>
     <string name="open_camera">Kamera öffnen</string>
-    <string name="unknown_error">Ein unbekannter Fehler ist aufgetreten</string>
     <string name="open_with">Öffnen mit</string>
     <string name="no_app_found">Keine zulässige App gefunden</string>
     <string name="hide_folder">Ordner verstecken</string>

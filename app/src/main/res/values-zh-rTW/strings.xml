@@ -6,7 +6,6 @@
     <string name="no_permissions">一個沒有權限存取您的儲存空間的藝廊能做的事情寥寥無幾</string>
     <string name="edit">編輯</string>
     <string name="open_camera">開啟相機</string>
-    <string name="unknown_error">未知錯誤</string>
     <string name="open_with">以其他應用軟體開啟</string>
     <string name="no_app_found">沒有可用的應用軟體</string>
     <string name="hide_folder">隱藏資料夾</string>

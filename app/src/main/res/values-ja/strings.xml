@@ -6,7 +6,6 @@
     <string name="no_permissions">ストレージにアクセスしないとギャラリーでできることはほとんどありません</string>
     <string name="edit">編集</string>
     <string name="open_camera">カメラを開く</string>
-    <string name="unknown_error">不明なエラーが発生しました</string>
     <string name="open_with">&#8230;で開く</string>
     <string name="no_app_found">有効なアプリが見つかりません</string>
     <string name="hide_folder">フォルダーを非表示</string>

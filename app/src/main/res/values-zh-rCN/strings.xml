@@ -6,7 +6,6 @@
     <string name="no_permissions">需要访问储存权限</string>
     <string name="edit">编辑</string>
     <string name="open_camera">打开相机</string>
-    <string name="unknown_error">未知错误</string>
     <string name="open_with">打开方式</string>
     <string name="no_app_found">没有可用的应用</string>
     <string name="hide_folder">隐藏文件夹</string>

@@ -6,7 +6,6 @@
     <string name="no_permissions">Не предоставлено разрешение для доступа к файловой системе</string>
     <string name="edit">Редактировать</string>
     <string name="open_camera">Открыть камеру</string>
-    <string name="unknown_error">Произошла неизвестная ошибка</string>
     <string name="open_with">Открыть в</string>
     <string name="no_app_found">Приложение не найдено</string>
     <string name="hide_folder">Скрыть папку</string>

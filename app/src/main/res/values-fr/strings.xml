@@ -6,7 +6,6 @@
     <string name="no_permissions">Peu de choses à faire dans l\'album sans accès à la mémoire</string>
     <string name="edit">Édition</string>
     <string name="open_camera">Ouvrir caméra</string>
-    <string name="unknown_error">Une erreur inconnue est survenue.</string>
     <string name="open_with">Ouvrir avec</string>
     <string name="no_app_found">Aucune application valide trouvée</string>
     <string name="hide_folder">Cacher le dossier</string>
