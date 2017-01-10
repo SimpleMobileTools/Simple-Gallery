@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 2.2.3 *(2017-01-10)*
+----------------------------
+
+ * Revert to the previous way of obtaining images and videos
+ * Use the updated colorpicker dialog
+
 Version 2.2.2 *(2017-01-08)*
 ----------------------------
 
