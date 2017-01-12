@@ -12,6 +12,7 @@ import com.simplemobiletools.gallery.extensions.getHumanizedFilename
 import com.simplemobiletools.gallery.extensions.getStringValue
 import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.helpers.IMAGES
+import com.simplemobiletools.gallery.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.gallery.helpers.VIDEOS
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
@@ -47,25 +48,38 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         }
     }
 
-    override fun doInBackground(vararg params: Void): ArrayList<Directory> {
-        val directories = LinkedHashMap<String, Directory>()
-        val media = ArrayList<Medium>()
-        val showMedia = mConfig.showMedia
+    private fun getParents(): ArrayList<String> {
         val uri = MediaStore.Files.getContentUri("external")
-        val where = getWhereCondition() + " GROUP BY ( ${MediaStore.Files.FileColumns.PARENT} "
+        val where = "${getWhereCondition()} GROUP BY ( ${MediaStore.Files.FileColumns.PARENT} "
         val args = getArgs()
         val columns = arrayOf(MediaStore.Files.FileColumns.PARENT, MediaStore.Images.Media.DATA)
         var cursor: Cursor? = null
+        val parents = ArrayList<String>()
 
         try {
             cursor = context.contentResolver.query(uri, columns, where, args, null)
             if (cursor?.moveToFirst() == true) {
                 do {
                     val curPath = cursor.getStringValue(MediaStore.Images.Media.DATA)
-                    val dirPath = File(curPath).parent
-                    val dir = File(dirPath).listFiles() ?: continue
+                    parents.add(File(curPath).parent)
+                } while (cursor.moveToNext())
+            }
+        } finally {
+            cursor?.close()
+        }
+        return parents
+    }
 
-                    for (file in dir) {
+    override fun doInBackground(vararg params: Void): ArrayList<Directory> {
+        val directories = LinkedHashMap<String, Directory>()
+        val media = ArrayList<Medium>()
+        val showMedia = mConfig.showMedia
+        val fileSorting = mConfig.fileSorting
+        val parents = getParents()
+
+        parents.mapNotNull { File(it).listFiles() }
+                .forEach {
+                    for (file in it) {
                         val isImage = file.isImageFast() || file.isGif()
                         val isVideo = file.isVideoFast()
 
@@ -84,16 +98,12 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
 
                         val name = file.name
                         val path = file.absolutePath
-                        val dateModified = file.lastModified()
+                        val dateModified = if (fileSorting and SORT_BY_DATE_MODIFIED != 0) file.lastModified() else 0
                         media.add(Medium(name, path, isVideo, dateModified, dateModified, size))
                     }
-                } while (cursor.moveToNext())
-            }
-        } finally {
-            cursor?.close()
-        }
+                }
 
-        Medium.sorting = mConfig.fileSorting
+        Medium.sorting = fileSorting
         media.sort()
 
         for ((name, path, isVideo, dateModified, dateTaken, size) in media) {
