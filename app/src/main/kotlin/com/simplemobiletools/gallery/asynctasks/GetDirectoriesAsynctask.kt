@@ -4,12 +4,15 @@ import android.content.Context
 import android.database.Cursor
 import android.os.AsyncTask
 import android.provider.MediaStore
-import com.simplemobiletools.commons.extensions.scanFiles
+import com.simplemobiletools.commons.extensions.isGif
+import com.simplemobiletools.commons.extensions.isImageFast
+import com.simplemobiletools.commons.extensions.isVideoFast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.getHumanizedFilename
-import com.simplemobiletools.gallery.extensions.getLongValue
 import com.simplemobiletools.gallery.extensions.getStringValue
-import com.simplemobiletools.gallery.helpers.*
+import com.simplemobiletools.gallery.helpers.Config
+import com.simplemobiletools.gallery.helpers.IMAGES
+import com.simplemobiletools.gallery.helpers.VIDEOS
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
@@ -24,50 +27,70 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         mConfig = Config.newInstance(context)
     }
 
-    override fun doInBackground(vararg params: Void): ArrayList<Directory> {
-        val media = ArrayList<Medium>()
-        val directories = LinkedHashMap<String, Directory>()
-        val invalidFiles = ArrayList<File>()
+    private fun getWhereCondition(): String {
         val showMedia = mConfig.showMedia
-        for (i in 0..1) {
-            if (i == 0 && (isPickVideo || showMedia == VIDEOS))
-                continue
+        return if ((isPickImage || showMedia == IMAGES) || (isPickVideo || showMedia == VIDEOS)) {
+            "${MediaStore.Files.FileColumns.MEDIA_TYPE} = ?)"
+        } else {
+            "${MediaStore.Files.FileColumns.MEDIA_TYPE} = ? OR ${MediaStore.Files.FileColumns.MEDIA_TYPE} = ?)"
+        }
+    }
 
-            var uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-            if (i == 1) {
-                if (isPickImage || showMedia == IMAGES)
-                    continue
+    private fun getArgs(): Array<String> {
+        val showMedia = mConfig.showMedia
+        return if (isPickImage || showMedia == IMAGES) {
+            arrayOf(MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE.toString())
+        } else if (isPickVideo || showMedia == VIDEOS) {
+            arrayOf(MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO.toString())
+        } else {
+            arrayOf(MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE.toString(), MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO.toString())
+        }
+    }
 
-                uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
-            }
-            val columns = arrayOf(MediaStore.Images.Media.DATA, MediaStore.Images.Media.DISPLAY_NAME, MediaStore.Images.Media.DATE_MODIFIED,
-                    MediaStore.Images.Media.DATE_TAKEN, MediaStore.Images.Media.SIZE)
-            val order = getSortOrder()
-            var cursor: Cursor? = null
+    override fun doInBackground(vararg params: Void): ArrayList<Directory> {
+        val directories = LinkedHashMap<String, Directory>()
+        val media = ArrayList<Medium>()
+        val showMedia = mConfig.showMedia
+        val uri = MediaStore.Files.getContentUri("external")
+        val where = getWhereCondition() + " GROUP BY ( ${MediaStore.Files.FileColumns.PARENT} "
+        val args = getArgs()
+        val columns = arrayOf(MediaStore.Files.FileColumns.PARENT, MediaStore.Images.Media.DATA)
+        var cursor: Cursor? = null
 
-            try {
-                cursor = context.contentResolver.query(uri, columns, null, null, order)
+        try {
+            cursor = context.contentResolver.query(uri, columns, where, args, null)
+            if (cursor?.moveToFirst() == true) {
+                do {
+                    val curPath = cursor.getStringValue(MediaStore.Images.Media.DATA)
+                    val dirPath = File(curPath).parent
+                    val dir = File(dirPath).listFiles() ?: continue
 
-                if (cursor?.moveToFirst() == true) {
-                    do {
-                        val fullPath = cursor.getStringValue(MediaStore.Images.Media.DATA) ?: continue
-                        val file = File(fullPath)
-                        val size = cursor.getLongValue(MediaStore.Images.Media.SIZE)
+                    for (file in dir) {
+                        val isImage = file.isImageFast() || file.isGif()
+                        val isVideo = file.isVideoFast()
 
-                        if (size == 0L) {
-                            invalidFiles.add(file)
+                        if (!isImage && !isVideo)
                             continue
-                        }
 
-                        val name = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME) ?: ""
-                        val dateModified = cursor.getLongValue(MediaStore.Images.Media.DATE_MODIFIED)
-                        val dateTaken = cursor.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
-                        media.add(Medium(name, fullPath, i == 1, dateModified, dateTaken, size))
-                    } while (cursor.moveToNext())
-                }
-            } finally {
-                cursor?.close()
+                        if (isVideo && (isPickImage || showMedia == IMAGES))
+                            continue
+
+                        if (isImage && (isPickVideo || showMedia == VIDEOS))
+                            continue
+
+                        val size = file.length()
+                        if (size == 0L)
+                            continue
+
+                        val name = file.name
+                        val path = file.absolutePath
+                        val dateModified = file.lastModified()
+                        media.add(Medium(name, path, isVideo, dateModified, dateModified, size))
+                    }
+                } while (cursor.moveToNext())
             }
+        } finally {
+            cursor?.close()
         }
 
         Medium.sorting = mConfig.fileSorting
@@ -90,7 +113,6 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
             }
         }
 
-        context.scanFiles(invalidFiles) {}
         val dirs = ArrayList(directories.values.filter { File(it.path).exists() })
 
         filterDirectories(dirs)
@@ -113,20 +135,6 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
     override fun onPostExecute(dirs: ArrayList<Directory>) {
         super.onPostExecute(dirs)
         callback.invoke(dirs)
-    }
-
-    // sort the files at querying too, just to get the correct thumbnail
-    private fun getSortOrder(): String {
-        val sorting = mConfig.directorySorting
-        var sortBy = MediaStore.Images.Media.DATE_MODIFIED
-        if (sorting and SORT_BY_NAME != 0) {
-            sortBy = MediaStore.Images.Media.DATA
-        }
-
-        if (sorting and SORT_DESCENDING != 0) {
-            sortBy += " DESC"
-        }
-        return sortBy
     }
 
     private fun filterDirectories(dirs: MutableList<Directory>) {
