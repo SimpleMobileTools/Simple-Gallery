@@ -61,6 +61,8 @@ fun Context.getParents(isPickImage: Boolean, isPickVideo: Boolean): ArrayList<St
     } finally {
         cursor?.close()
     }
+
+    filterDirectories(parents)
     return parents
 }
 
@@ -84,4 +86,32 @@ fun Context.getArgs(isPickImage: Boolean, isPickVideo: Boolean): Array<String> {
     }
 }
 
+fun Context.filterDirectories(dirs: MutableList<String>) {
+    if (!config.showHiddenFolders) {
+        removeHiddenFolders(dirs)
+        removeNoMediaFolders(dirs)
+    }
+}
+
+fun Context.removeHiddenFolders(paths: MutableList<String>) {
+    val hiddenPaths = config.hiddenFolders
+    val ignorePaths = paths.filter { hiddenPaths.contains(it) }
+    paths.removeAll(ignorePaths)
+}
+
+private fun removeNoMediaFolders(paths: MutableList<String>) {
+    val ignorePaths = ArrayList<String>()
+    for (path in paths) {
+        val dir = File(path)
+        if (dir.exists() && dir.isDirectory) {
+            val res = dir.list { file, filename -> filename == ".nomedia" }
+            if (res?.isNotEmpty() == true)
+                ignorePaths.add(path)
+        }
+    }
+
+    paths.removeAll(ignorePaths)
+}
+
 val Context.config: Config get() = Config.newInstance(this)
+
