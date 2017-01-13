@@ -5,9 +5,8 @@ import android.os.AsyncTask
 import com.simplemobiletools.commons.extensions.isGif
 import com.simplemobiletools.commons.extensions.isImageFast
 import com.simplemobiletools.commons.extensions.isVideoFast
-import com.simplemobiletools.gallery.helpers.Config
-import com.simplemobiletools.gallery.helpers.IMAGES
-import com.simplemobiletools.gallery.helpers.VIDEOS
+import com.simplemobiletools.gallery.extensions.getParents
+import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 import java.util.*
@@ -16,17 +15,36 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
                         val showAll: Boolean, val callback: (media: ArrayList<Medium>) -> Unit) :
         AsyncTask<Void, Void, ArrayList<Medium>>() {
     lateinit var mConfig: Config
+    var showMedia = IMAGES_AND_VIDEOS
+    var fileSorting = 0
 
     override fun onPreExecute() {
         super.onPreExecute()
         mConfig = Config.newInstance(context)
+        showMedia = mConfig.showMedia
+        fileSorting = mConfig.fileSorting
     }
 
     override fun doInBackground(vararg params: Void): ArrayList<Medium> {
         val media = ArrayList<Medium>()
-        val showMedia = mConfig.showMedia
 
-        val dir = File(mPath)
+        if (showAll) {
+            val parents = context.getParents(isPickImage, isPickVideo)
+            for (parent in parents) {
+                media.addAll(getFilesFrom(parent))
+            }
+        } else {
+            media.addAll(getFilesFrom(mPath))
+        }
+
+        Medium.sorting = fileSorting
+        media.sort()
+        return media
+    }
+
+    private fun getFilesFrom(path: String): ArrayList<Medium> {
+        val media = ArrayList<Medium>()
+        val dir = File(path)
         val files = dir.listFiles() ?: return media
         for (file in files) {
             val isImage = file.isImageFast() || file.isGif()
@@ -46,13 +64,10 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
                 continue
 
             val name = file.name
-            val path = file.absolutePath
-            val dateModified = file.lastModified()
-            media.add(Medium(name, path, isVideo, dateModified, dateModified, size))
+            val absolutePath = file.absolutePath
+            val dateModified = if (fileSorting and SORT_BY_DATE_MODIFIED != 0) file.lastModified() else 0
+            media.add(Medium(name, absolutePath, isVideo, dateModified, dateModified, size))
         }
-
-        Medium.sorting = mConfig.fileSorting
-        media.sort()
         return media
     }
 
