@@ -26,6 +26,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         val showMedia = config.showMedia
         val fileSorting = config.fileSorting
         val parents = context.getParents(isPickImage, isPickVideo)
+        filterDirectories(parents)
 
         parents.mapNotNull { File(it).listFiles() }
                 .forEach {
@@ -74,8 +75,6 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         }
 
         val dirs = ArrayList(directories.values.filter { File(it.path).exists() })
-
-        filterDirectories(dirs)
         Directory.sorting = config.directorySorting
         dirs.sort()
 
@@ -97,30 +96,30 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         callback.invoke(dirs)
     }
 
-    private fun filterDirectories(dirs: MutableList<Directory>) {
+    private fun filterDirectories(dirs: MutableList<String>) {
         if (!config.showHiddenFolders) {
             removeHiddenFolders(dirs)
             removeNoMediaFolders(dirs)
         }
     }
 
-    private fun removeHiddenFolders(dirs: MutableList<Directory>) {
-        val hiddenDirs = config.hiddenFolders
-        val ignoreDirs = dirs.filter { hiddenDirs.contains(it.path) }
-        dirs.removeAll(ignoreDirs)
+    private fun removeHiddenFolders(paths: MutableList<String>) {
+        val hiddenPaths = config.hiddenFolders
+        val ignorePaths = paths.filter { hiddenPaths.contains(it) }
+        paths.removeAll(ignorePaths)
     }
 
-    private fun removeNoMediaFolders(dirs: MutableList<Directory>) {
-        val ignoreDirs = ArrayList<Directory>()
-        for (d in dirs) {
-            val dir = File(d.path)
+    private fun removeNoMediaFolders(paths: MutableList<String>) {
+        val ignorePaths = ArrayList<String>()
+        for (path in paths) {
+            val dir = File(path)
             if (dir.exists() && dir.isDirectory) {
                 val res = dir.list { file, filename -> filename == ".nomedia" }
                 if (res?.isNotEmpty() == true)
-                    ignoreDirs.add(d)
+                    ignorePaths.add(path)
             }
         }
 
-        dirs.removeAll(ignoreDirs)
+        paths.removeAll(ignorePaths)
     }
 }
