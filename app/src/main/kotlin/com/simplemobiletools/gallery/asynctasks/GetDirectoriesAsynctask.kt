@@ -10,7 +10,6 @@ import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getHumanizedFilename
 import com.simplemobiletools.gallery.extensions.getParents
 import com.simplemobiletools.gallery.helpers.IMAGES
-import com.simplemobiletools.gallery.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.gallery.helpers.VIDEOS
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
@@ -49,7 +48,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
 
                         val name = file.name
                         val path = file.absolutePath
-                        val dateModified = if (fileSorting and SORT_BY_DATE_MODIFIED != 0) file.lastModified() else file.lastModified()
+                        val dateModified = file.lastModified()
                         media.add(Medium(name, path, isVideo, dateModified, dateModified, size))
                     }
                 }

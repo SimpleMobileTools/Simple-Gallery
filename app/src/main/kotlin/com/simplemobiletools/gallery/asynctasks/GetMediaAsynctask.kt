@@ -9,7 +9,6 @@ import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getParents
 import com.simplemobiletools.gallery.helpers.IMAGES
 import com.simplemobiletools.gallery.helpers.IMAGES_AND_VIDEOS
-import com.simplemobiletools.gallery.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.gallery.helpers.VIDEOS
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
@@ -68,7 +67,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
 
             val name = file.name
             val absolutePath = file.absolutePath
-            val dateModified = if (fileSorting and SORT_BY_DATE_MODIFIED != 0) file.lastModified() else file.lastModified()
+            val dateModified = file.lastModified()
             media.add(Medium(name, absolutePath, isVideo, dateModified, dateModified, size))
         }
         return media
