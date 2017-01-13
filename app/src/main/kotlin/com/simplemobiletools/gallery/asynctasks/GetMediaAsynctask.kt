@@ -68,7 +68,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
 
             val name = file.name
             val absolutePath = file.absolutePath
-            val dateModified = if (fileSorting and SORT_BY_DATE_MODIFIED != 0) file.lastModified() else 0
+            val dateModified = if (fileSorting and SORT_BY_DATE_MODIFIED != 0) file.lastModified() else file.lastModified()
             media.add(Medium(name, absolutePath, isVideo, dateModified, dateModified, size))
         }
         return media

@@ -49,7 +49,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
 
                         val name = file.name
                         val path = file.absolutePath
-                        val dateModified = if (fileSorting and SORT_BY_DATE_MODIFIED != 0) file.lastModified() else 0
+                        val dateModified = if (fileSorting and SORT_BY_DATE_MODIFIED != 0) file.lastModified() else file.lastModified()
                         media.add(Medium(name, path, isVideo, dateModified, dateModified, size))
                     }
                 }
