@@ -1,15 +1,13 @@
 package com.simplemobiletools.gallery.asynctasks
 
 import android.content.Context
-import android.database.Cursor
 import android.os.AsyncTask
-import android.provider.MediaStore
 import com.simplemobiletools.commons.extensions.isGif
 import com.simplemobiletools.commons.extensions.isImageFast
 import com.simplemobiletools.commons.extensions.isVideoFast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.getHumanizedFilename
-import com.simplemobiletools.gallery.extensions.getStringValue
+import com.simplemobiletools.gallery.extensions.getParents
 import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.helpers.IMAGES
 import com.simplemobiletools.gallery.helpers.SORT_BY_DATE_MODIFIED
@@ -28,54 +26,12 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         mConfig = Config.newInstance(context)
     }
 
-    private fun getWhereCondition(): String {
-        val showMedia = mConfig.showMedia
-        return if ((isPickImage || showMedia == IMAGES) || (isPickVideo || showMedia == VIDEOS)) {
-            "${MediaStore.Files.FileColumns.MEDIA_TYPE} = ?)"
-        } else {
-            "${MediaStore.Files.FileColumns.MEDIA_TYPE} = ? OR ${MediaStore.Files.FileColumns.MEDIA_TYPE} = ?)"
-        }
-    }
-
-    private fun getArgs(): Array<String> {
-        val showMedia = mConfig.showMedia
-        return if (isPickImage || showMedia == IMAGES) {
-            arrayOf(MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE.toString())
-        } else if (isPickVideo || showMedia == VIDEOS) {
-            arrayOf(MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO.toString())
-        } else {
-            arrayOf(MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE.toString(), MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO.toString())
-        }
-    }
-
-    private fun getParents(): ArrayList<String> {
-        val uri = MediaStore.Files.getContentUri("external")
-        val where = "${getWhereCondition()} GROUP BY ( ${MediaStore.Files.FileColumns.PARENT} "
-        val args = getArgs()
-        val columns = arrayOf(MediaStore.Files.FileColumns.PARENT, MediaStore.Images.Media.DATA)
-        var cursor: Cursor? = null
-        val parents = ArrayList<String>()
-
-        try {
-            cursor = context.contentResolver.query(uri, columns, where, args, null)
-            if (cursor?.moveToFirst() == true) {
-                do {
-                    val curPath = cursor.getStringValue(MediaStore.Images.Media.DATA)
-                    parents.add(File(curPath).parent)
-                } while (cursor.moveToNext())
-            }
-        } finally {
-            cursor?.close()
-        }
-        return parents
-    }
-
     override fun doInBackground(vararg params: Void): ArrayList<Directory> {
         val directories = LinkedHashMap<String, Directory>()
         val media = ArrayList<Medium>()
         val showMedia = mConfig.showMedia
         val fileSorting = mConfig.fileSorting
-        val parents = getParents()
+        val parents = context.getParents(isPickImage, isPickVideo)
 
         parents.mapNotNull { File(it).listFiles() }
                 .forEach {
