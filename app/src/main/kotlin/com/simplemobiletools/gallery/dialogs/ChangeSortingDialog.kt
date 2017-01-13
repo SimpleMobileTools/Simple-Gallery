@@ -7,6 +7,7 @@ import android.view.View
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
+import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.helpers.*
 import kotlinx.android.synthetic.main.dialog_change_sorting.view.*
 
@@ -19,7 +20,7 @@ class ChangeSortingDialog(val activity: SimpleActivity, val isDirectorySorting: 
     }
 
     init {
-        config = Config.newInstance(activity)
+        config = activity.config
         view = LayoutInflater.from(activity).inflate(R.layout.dialog_change_sorting, null)
 
         AlertDialog.Builder(activity)

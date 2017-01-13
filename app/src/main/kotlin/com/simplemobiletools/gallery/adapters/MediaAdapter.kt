@@ -21,7 +21,6 @@ import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.dialogs.RenameFileDialog
 import com.simplemobiletools.gallery.extensions.*
-import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.photo_video_item.view.*
 import kotlinx.android.synthetic.main.photo_video_tmb.view.*
@@ -32,7 +31,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         RecyclerView.Adapter<MediaAdapter.ViewHolder>() {
     val multiSelector = MultiSelector()
     val views = ArrayList<View>()
-    val config = Config.newInstance(activity)
+    val config = activity.config
 
     companion object {
         var actMode: ActionMode? = null
@@ -62,8 +61,8 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     }
 
     init {
-        foregroundColor = Config.newInstance(activity).primaryColor
-        backgroundColor = Config.newInstance(activity).backgroundColor
+        foregroundColor = config.primaryColor
+        backgroundColor = config.backgroundColor
     }
 
     val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {

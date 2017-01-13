@@ -23,8 +23,8 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.dialogs.RenameDirectoryDialog
+import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.createSelector
-import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.directory_item.view.*
 import kotlinx.android.synthetic.main.directory_tmb.view.*
@@ -36,7 +36,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
     val multiSelector = MultiSelector()
     val views = ArrayList<View>()
-    val config = Config.newInstance(activity)
+    val config = activity.config
     var pinnedFolders = config.pinnedFolders
 
     companion object {
@@ -66,8 +66,8 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     }
 
     init {
-        foregroundColor = Config.newInstance(activity).primaryColor
-        backgroundColor = Config.newInstance(activity).backgroundColor
+        foregroundColor = config.primaryColor
+        backgroundColor = config.backgroundColor
     }
 
     val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {

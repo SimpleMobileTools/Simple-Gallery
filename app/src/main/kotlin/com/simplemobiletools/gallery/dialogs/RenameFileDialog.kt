@@ -6,7 +6,7 @@ import android.view.WindowManager
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
-import com.simplemobiletools.gallery.helpers.Config
+import com.simplemobiletools.gallery.extensions.config
 import kotlinx.android.synthetic.main.rename_file.view.*
 import java.io.File
 
@@ -57,7 +57,7 @@ class RenameFileDialog(val activity: SimpleActivity, val file: File, val callbac
                     if (activity.isShowingPermDialog(file))
                         return@setOnClickListener
 
-                    val document = context.getFileDocument(file.absolutePath, Config.newInstance(context).treeUri)
+                    val document = context.getFileDocument(file.absolutePath, context.config.treeUri)
                     if (document.canWrite())
                         document.renameTo(newFile.name)
                     sendSuccess(file, newFile)

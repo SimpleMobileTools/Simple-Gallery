@@ -10,7 +10,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
-import com.simplemobiletools.gallery.helpers.Config
+import com.simplemobiletools.gallery.extensions.config
 import kotlinx.android.synthetic.main.dialog_album_picker.view.*
 
 class PickAlbumDialog(val activity: SimpleActivity, val callback: (path: String) -> Unit) {
@@ -39,7 +39,7 @@ class PickAlbumDialog(val activity: SimpleActivity, val callback: (path: String)
 
     fun showOtherFolder() {
         val initialPath = Environment.getExternalStorageDirectory().toString()
-        val showHidden = Config.newInstance(activity).showHiddenFolders
+        val showHidden = activity.config.showHiddenFolders
         FilePickerDialog(activity, initialPath, false, showHidden, true) {
             callback.invoke(it)
         }

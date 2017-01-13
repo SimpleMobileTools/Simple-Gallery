@@ -20,6 +20,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
 import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
+import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.launchAbout
 import com.simplemobiletools.gallery.extensions.launchCamera
 import com.simplemobiletools.gallery.extensions.launchSettings

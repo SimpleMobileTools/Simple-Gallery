@@ -6,7 +6,7 @@ import android.view.WindowManager
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
-import com.simplemobiletools.gallery.helpers.Config
+import com.simplemobiletools.gallery.extensions.config
 import kotlinx.android.synthetic.main.rename_directory.view.*
 import java.io.File
 import java.util.*
@@ -49,7 +49,7 @@ class RenameDirectoryDialog(val activity: SimpleActivity, val dir: File, val cal
                     if (activity.isShowingPermDialog(dir))
                         return@setOnClickListener
 
-                    val document = context.getFileDocument(dir.absolutePath, Config.newInstance(context).treeUri)
+                    val document = context.getFileDocument(dir.absolutePath, context.config.treeUri)
                     if (document.canWrite())
                         document.renameTo(newDirName)
                     sendSuccess(updatedFiles, newDir)

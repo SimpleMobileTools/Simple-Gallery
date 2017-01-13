@@ -5,8 +5,12 @@ import android.os.AsyncTask
 import com.simplemobiletools.commons.extensions.isGif
 import com.simplemobiletools.commons.extensions.isImageFast
 import com.simplemobiletools.commons.extensions.isVideoFast
+import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getParents
-import com.simplemobiletools.gallery.helpers.*
+import com.simplemobiletools.gallery.helpers.IMAGES
+import com.simplemobiletools.gallery.helpers.IMAGES_AND_VIDEOS
+import com.simplemobiletools.gallery.helpers.SORT_BY_DATE_MODIFIED
+import com.simplemobiletools.gallery.helpers.VIDEOS
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 import java.util.*
@@ -14,15 +18,14 @@ import java.util.*
 class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo: Boolean = false, val isPickImage: Boolean = false,
                         val showAll: Boolean, val callback: (media: ArrayList<Medium>) -> Unit) :
         AsyncTask<Void, Void, ArrayList<Medium>>() {
-    lateinit var mConfig: Config
+    var config = context.config
     var showMedia = IMAGES_AND_VIDEOS
     var fileSorting = 0
 
     override fun onPreExecute() {
         super.onPreExecute()
-        mConfig = Config.newInstance(context)
-        showMedia = mConfig.showMedia
-        fileSorting = mConfig.fileSorting
+        showMedia = config.showMedia
+        fileSorting = config.fileSorting
     }
 
     override fun doInBackground(vararg params: Void): ArrayList<Medium> {

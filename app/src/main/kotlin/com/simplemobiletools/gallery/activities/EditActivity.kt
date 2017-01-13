@@ -15,6 +15,7 @@ import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.ResizeDialog
 import com.simplemobiletools.gallery.dialogs.SaveAsDialog
+import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getRealPathFromURI
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_edit.*

@@ -15,9 +15,9 @@ import android.view.animation.AnimationUtils
 import android.widget.SeekBar
 import android.widget.TextView
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getNavBarHeight
 import com.simplemobiletools.gallery.extensions.hasNavBar
-import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.pager_video_item.view.*
@@ -90,7 +90,7 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
         super.setMenuVisibility(menuVisible)
         mIsFragmentVisible = menuVisible
         if (menuVisible) {
-            if (context != null && Config.newInstance(context).autoplayVideos) {
+            if (context != null && context.config.autoplayVideos) {
                 playVideo()
             }
         } else {
@@ -276,7 +276,7 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
     }
 
     override fun onCompletion(mp: MediaPlayer) {
-        if (Config.newInstance(context).loopVideos) {
+        if (context.config.loopVideos) {
             playVideo()
         } else {
             mSeekBar!!.progress = mSeekBar!!.max
@@ -367,7 +367,7 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
         setupTimeHolder()
         setProgress(mCurrTime)
 
-        if (mIsFragmentVisible && Config.newInstance(context).autoplayVideos)
+        if (mIsFragmentVisible && context.config.autoplayVideos)
             playVideo()
     }
 }

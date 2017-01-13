@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.AdapterView
 import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.extensions.config
 import kotlinx.android.synthetic.main.activity_settings.*
 
 class SettingsActivity : SimpleActivity() {

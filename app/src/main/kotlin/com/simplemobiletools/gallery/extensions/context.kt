@@ -44,8 +44,8 @@ fun Context.launchSettings() {
 
 fun Context.getParents(isPickImage: Boolean, isPickVideo: Boolean): ArrayList<String> {
     val uri = MediaStore.Files.getContentUri("external")
-    val where = "${getWhereCondition(this, isPickImage, isPickVideo)} GROUP BY ( ${MediaStore.Files.FileColumns.PARENT} "
-    val args = getArgs(this, isPickImage, isPickVideo)
+    val where = "${getWhereCondition(isPickImage, isPickVideo)} GROUP BY ( ${MediaStore.Files.FileColumns.PARENT} "
+    val args = getArgs(isPickImage, isPickVideo)
     val columns = arrayOf(MediaStore.Files.FileColumns.PARENT, MediaStore.Images.Media.DATA)
     var cursor: Cursor? = null
     val parents = ArrayList<String>()
@@ -64,8 +64,8 @@ fun Context.getParents(isPickImage: Boolean, isPickVideo: Boolean): ArrayList<St
     return parents
 }
 
-private fun getWhereCondition(context: Context, isPickImage: Boolean, isPickVideo: Boolean): String {
-    val showMedia = Config.newInstance(context).showMedia
+fun Context.getWhereCondition(isPickImage: Boolean, isPickVideo: Boolean): String {
+    val showMedia = config.showMedia
     return if ((isPickImage || showMedia == IMAGES) || (isPickVideo || showMedia == VIDEOS)) {
         "${MediaStore.Files.FileColumns.MEDIA_TYPE} = ?)"
     } else {
@@ -73,8 +73,8 @@ private fun getWhereCondition(context: Context, isPickImage: Boolean, isPickVide
     }
 }
 
-private fun getArgs(context: Context, isPickImage: Boolean, isPickVideo: Boolean): Array<String> {
-    val showMedia = Config.newInstance(context).showMedia
+fun Context.getArgs(isPickImage: Boolean, isPickVideo: Boolean): Array<String> {
+    val showMedia = config.showMedia
     return if (isPickImage || showMedia == IMAGES) {
         arrayOf(MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE.toString())
     } else if (isPickVideo || showMedia == VIDEOS) {
@@ -83,3 +83,5 @@ private fun getArgs(context: Context, isPickImage: Boolean, isPickVideo: Boolean
         arrayOf(MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE.toString(), MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO.toString())
     }
 }
+
+val Context.config: Config get() = Config.newInstance(this)

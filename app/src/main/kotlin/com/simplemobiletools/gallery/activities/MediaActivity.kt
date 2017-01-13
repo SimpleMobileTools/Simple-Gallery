@@ -18,10 +18,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.MediaAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
-import com.simplemobiletools.gallery.extensions.getHumanizedFilename
-import com.simplemobiletools.gallery.extensions.launchAbout
-import com.simplemobiletools.gallery.extensions.launchCamera
-import com.simplemobiletools.gallery.extensions.launchSettings
+import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
 import com.simplemobiletools.gallery.views.MyScalableRecyclerView

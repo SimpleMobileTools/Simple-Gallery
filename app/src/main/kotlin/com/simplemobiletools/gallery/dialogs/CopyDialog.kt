@@ -8,7 +8,7 @@ import com.simplemobiletools.commons.asynctasks.CopyMoveTask
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
-import com.simplemobiletools.gallery.helpers.Config
+import com.simplemobiletools.gallery.extensions.config
 import kotlinx.android.synthetic.main.dialog_copy_move.view.*
 import java.io.File
 import java.util.*
@@ -65,11 +65,10 @@ class CopyDialog(val activity: SimpleActivity, val files: ArrayList<File>, val c
                     return@setOnClickListener
                 }
 
-                val config = Config.newInstance(context)
                 if (view.dialog_radio_group.checkedRadioButtonId == R.id.dialog_radio_copy) {
                     context.toast(R.string.copying)
                     val pair = Pair<ArrayList<File>, File>(files, destinationDir)
-                    CopyMoveTask(context, false, config.treeUri, true, copyMoveListener).execute(pair)
+                    CopyMoveTask(context, false, context.config.treeUri, true, copyMoveListener).execute(pair)
                     dismiss()
                 } else {
                     if (context.isPathOnSD(sourcePath) || context.isPathOnSD(destinationPath)) {
@@ -79,7 +78,7 @@ class CopyDialog(val activity: SimpleActivity, val files: ArrayList<File>, val c
 
                         context.toast(R.string.moving)
                         val pair = Pair<ArrayList<File>, File>(files, destinationDir)
-                        CopyMoveTask(context, true, config.treeUri, true, copyMoveListener).execute(pair)
+                        CopyMoveTask(context, true, context.config.treeUri, true, copyMoveListener).execute(pair)
                         dismiss()
                     } else {
                         val updatedFiles = ArrayList<File>(files.size * 2)

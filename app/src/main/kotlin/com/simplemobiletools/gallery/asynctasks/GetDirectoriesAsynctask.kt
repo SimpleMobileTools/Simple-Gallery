@@ -6,9 +6,9 @@ import com.simplemobiletools.commons.extensions.isGif
 import com.simplemobiletools.commons.extensions.isImageFast
 import com.simplemobiletools.commons.extensions.isVideoFast
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getHumanizedFilename
 import com.simplemobiletools.gallery.extensions.getParents
-import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.helpers.IMAGES
 import com.simplemobiletools.gallery.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.gallery.helpers.VIDEOS
@@ -19,18 +19,13 @@ import java.util.*
 
 class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, val isPickImage: Boolean,
                               val callback: (dirs: ArrayList<Directory>) -> Unit) : AsyncTask<Void, Void, ArrayList<Directory>>() {
-    lateinit var mConfig: Config
-
-    override fun onPreExecute() {
-        super.onPreExecute()
-        mConfig = Config.newInstance(context)
-    }
+    var config = context.config
 
     override fun doInBackground(vararg params: Void): ArrayList<Directory> {
         val directories = LinkedHashMap<String, Directory>()
         val media = ArrayList<Medium>()
-        val showMedia = mConfig.showMedia
-        val fileSorting = mConfig.fileSorting
+        val showMedia = config.showMedia
+        val fileSorting = config.fileSorting
         val parents = context.getParents(isPickImage, isPickVideo)
 
         parents.mapNotNull { File(it).listFiles() }
@@ -71,7 +66,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                 directory.addSize(size)
             } else {
                 var dirName = context.getHumanizedFilename(parentDir)
-                if (mConfig.getIsFolderHidden(parentDir)) {
+                if (config.getIsFolderHidden(parentDir)) {
                     dirName += " ${context.resources.getString(R.string.hidden)}"
                 }
 
@@ -82,7 +77,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         val dirs = ArrayList(directories.values.filter { File(it.path).exists() })
 
         filterDirectories(dirs)
-        Directory.sorting = mConfig.directorySorting
+        Directory.sorting = config.directorySorting
         dirs.sort()
 
         return movePinnedToFront(dirs)
@@ -90,7 +85,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
 
     private fun movePinnedToFront(dirs: ArrayList<Directory>): ArrayList<Directory> {
         val foundFolders = ArrayList<Directory>()
-        val pinnedFolders = mConfig.pinnedFolders
+        val pinnedFolders = config.pinnedFolders
 
         dirs.forEach { if (pinnedFolders.contains(it.path)) foundFolders.add(it) }
         dirs.removeAll(foundFolders)
@@ -104,14 +99,14 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
     }
 
     private fun filterDirectories(dirs: MutableList<Directory>) {
-        if (!mConfig.showHiddenFolders) {
+        if (!config.showHiddenFolders) {
             removeHiddenFolders(dirs)
             removeNoMediaFolders(dirs)
         }
     }
 
     private fun removeHiddenFolders(dirs: MutableList<Directory>) {
-        val hiddenDirs = mConfig.hiddenFolders
+        val hiddenDirs = config.hiddenFolders
         val ignoreDirs = dirs.filter { hiddenDirs.contains(it.path) }
         dirs.removeAll(ignoreDirs)
     }
