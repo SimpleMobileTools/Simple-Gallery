@@ -98,6 +98,7 @@
 
         <activity
             android:name=".activities.PhotoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/FullScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
