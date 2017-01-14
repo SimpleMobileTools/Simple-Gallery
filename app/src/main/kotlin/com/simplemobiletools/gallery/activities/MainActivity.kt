@@ -134,7 +134,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
         val token = object : TypeToken<List<Directory>>() {}.type
         val dirs = Gson().fromJson<ArrayList<Directory>>(config.directories, token) ?: ArrayList<Directory>(1)
-        gotDirectories(dirs)
+        if (dirs.size == 0) {
+            directories_holder.isRefreshing = true
+        } else {
+            gotDirectories(dirs)
+        }
 
         mIsGettingDirs = true
         GetDirectoriesAsynctask(applicationContext, mIsPickVideoIntent || mIsGetVideoContentIntent, mIsPickImageIntent || mIsGetImageContentIntent) {
