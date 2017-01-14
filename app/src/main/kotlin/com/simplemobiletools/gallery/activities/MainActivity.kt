@@ -32,22 +32,20 @@ import java.io.File
 import java.util.*
 
 class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
-    companion object {
-        private val STORAGE_PERMISSION = 1
-        private val PICK_MEDIA = 2
-        private val PICK_WALLPAPER = 3
+    private val STORAGE_PERMISSION = 1
+    private val PICK_MEDIA = 2
+    private val PICK_WALLPAPER = 3
 
-        lateinit var mDirs: ArrayList<Directory>
+    lateinit var mDirs: ArrayList<Directory>
 
-        private var mIsPickImageIntent = false
-        private var mIsPickVideoIntent = false
-        private var mIsGetImageContentIntent = false
-        private var mIsGetVideoContentIntent = false
-        private var mIsGetAnyContentIntent = false
-        private var mIsSetWallpaperIntent = false
-        private var mIsThirdPartyIntent = false
-        private var mIsGettingDirs = false
-    }
+    private var mIsPickImageIntent = false
+    private var mIsPickVideoIntent = false
+    private var mIsGetImageContentIntent = false
+    private var mIsGetVideoContentIntent = false
+    private var mIsGetAnyContentIntent = false
+    private var mIsSetWallpaperIntent = false
+    private var mIsThirdPartyIntent = false
+    private var mIsGettingDirs = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

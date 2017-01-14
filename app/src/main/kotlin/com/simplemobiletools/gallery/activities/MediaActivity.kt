@@ -28,18 +28,16 @@ import java.io.IOException
 import java.util.*
 
 class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
-    companion object {
-        private val TAG = MediaActivity::class.java.simpleName
+    private val TAG = MediaActivity::class.java.simpleName
 
-        private var mMedia = ArrayList<Medium>()
+    private var mMedia = ArrayList<Medium>()
 
-        private var mPath = ""
-        private var mIsGetImageIntent = false
-        private var mIsGetVideoIntent = false
-        private var mIsGetAnyIntent = false
-        private var mIsGettingMedia = false
-        private var mShowAll = false
-    }
+    private var mPath = ""
+    private var mIsGetImageIntent = false
+    private var mIsGetVideoIntent = false
+    private var mIsGetAnyIntent = false
+    private var mIsGettingMedia = false
+    private var mShowAll = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
