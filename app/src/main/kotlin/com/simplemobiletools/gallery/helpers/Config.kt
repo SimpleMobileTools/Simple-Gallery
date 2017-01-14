@@ -68,6 +68,12 @@ class Config(context: Context) : BaseConfig(context) {
 
     fun getIsFolderHidden(path: String) = hiddenFolders.contains(path)
 
+    fun saveFolderMedia(path: String, json: String) {
+        prefs.edit().putString(SAVE_FOLDER_PREFIX + path, json).apply()
+    }
+
+    fun loadFolderMedia(path: String) = prefs.getString(SAVE_FOLDER_PREFIX + path, "")
+
     var hiddenFolders: MutableSet<String>
         get() = prefs.getStringSet(HIDDEN_FOLDERS, HashSet<String>())
         set(hiddenFolders) = prefs.edit().remove(HIDDEN_FOLDERS).putStringSet(HIDDEN_FOLDERS, hiddenFolders).apply()

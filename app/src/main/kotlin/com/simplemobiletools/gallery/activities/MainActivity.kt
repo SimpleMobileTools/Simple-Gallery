@@ -130,6 +130,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         if (mIsGettingDirs)
             return
 
+        mIsGettingDirs = true
         val token = object : TypeToken<List<Directory>>() {}.type
         val dirs = Gson().fromJson<ArrayList<Directory>>(config.directories, token) ?: ArrayList<Directory>(1)
         if (dirs.size == 0) {
@@ -138,7 +139,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             gotDirectories(dirs)
         }
 
-        mIsGettingDirs = true
         GetDirectoriesAsynctask(applicationContext, mIsPickVideoIntent || mIsGetVideoContentIntent, mIsPickImageIntent || mIsGetImageContentIntent) {
             gotDirectories(it)
         }.execute()

@@ -13,6 +13,8 @@ import android.view.MenuItem
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.animation.GlideAnimation
 import com.bumptech.glide.request.target.SimpleTarget
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.MediaAdapter
@@ -164,6 +166,14 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             return
 
         mIsGettingMedia = true
+        val token = object : TypeToken<List<Medium>>() {}.type
+        val media = Gson().fromJson<ArrayList<Medium>>(config.loadFolderMedia(mPath), token) ?: ArrayList<Medium>(1)
+        if (media.size == 0) {
+            media_holder.isRefreshing = true
+        } else {
+            gotMedia(media)
+        }
+
         GetMediaAsynctask(applicationContext, mPath, mIsGetVideoIntent, mIsGetImageIntent, mShowAll) {
             gotMedia(it)
         }.execute()
@@ -277,6 +287,13 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         mMedia = media
         initializeGallery()
+        storeFolder()
+    }
+
+    private fun storeFolder() {
+        val subList = mMedia.subList(0, Math.min(30, mMedia.size))
+        val json = Gson().toJson(subList)
+        config.saveFolderMedia(mPath, json)
     }
 
     override fun refreshItems() {

@@ -14,6 +14,7 @@ val DIR_COLUMN_CNT = "dir_column_cnt"
 val MEDIA_COLUMN_CNT = "media_column_cnt"
 val SHOW_ALL = "show_all"   // display images and videos from all folders together
 val SHOW_MEDIA = "show_media"
+val SAVE_FOLDER_PREFIX = "folder_"
 
 // sorting
 val SORT_BY_NAME = 1
