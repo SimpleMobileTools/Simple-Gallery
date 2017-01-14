@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 2.3.1 *(2017-01-14)*
+----------------------------
+
+ * Properly display some third party photos, like K9 mail attachments
+ * Cache 30 photos per folder for instant loading
+ * Add some additional Exif data to photo properties
+ * Change the app launcher icon
+
 Version 2.3.0 *(2017-01-13)*
 ----------------------------
 
