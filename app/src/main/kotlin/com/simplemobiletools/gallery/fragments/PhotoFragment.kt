@@ -2,6 +2,8 @@ package com.simplemobiletools.gallery.fragments
 
 import android.content.res.Configuration
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Matrix
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -18,9 +20,13 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.getRealPathFromURI
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
+import it.sephiroth.android.library.exif2.ExifInterface
 import kotlinx.android.synthetic.main.pager_photo_item.view.*
 import uk.co.senab.photoview.PhotoView
 import uk.co.senab.photoview.PhotoViewAttacher
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
 
 class PhotoFragment : ViewPagerFragment() {
     lateinit var medium: Medium
@@ -31,8 +37,41 @@ class PhotoFragment : ViewPagerFragment() {
         val view = inflater.inflate(R.layout.pager_photo_item, container, false)
 
         medium = arguments.getSerializable(MEDIUM) as Medium
-        if (medium.path.startsWith("content://"))
+
+        if (medium.path.startsWith("content://")) {
+            val originalPath = medium.path
             medium.path = context.getRealPathFromURI(Uri.parse(medium.path)) ?: ""
+
+            if (medium.path.isEmpty()) {
+                var inputStream = context.contentResolver.openInputStream(Uri.parse(originalPath))
+                val exif = ExifInterface()
+                exif.readExif(inputStream, ExifInterface.Options.OPTION_ALL)
+                val tag = exif.getTag(ExifInterface.TAG_ORIENTATION)
+                val orientation = tag?.getValueAsInt(-1) ?: -1
+
+                inputStream = context.contentResolver.openInputStream(Uri.parse(originalPath))
+                val original = BitmapFactory.decodeStream(inputStream)
+                val rotated = rotateViaMatrix(original, orientation)
+                exif.setTagValue(ExifInterface.TAG_ORIENTATION, 1)
+                exif.removeCompressedThumbnail()
+
+                val uri = Uri.parse(originalPath)
+                val file = File(context.cacheDir, uri.lastPathSegment)
+                var out: FileOutputStream? = null
+                try {
+                    out = FileOutputStream(file)
+                    rotated.compress(Bitmap.CompressFormat.JPEG, 100, out)
+                } catch (e: Exception) {
+                } finally {
+                    try {
+                        out?.close()
+                    } catch (e: IOException) {
+                    }
+                }
+                exif.writeExif(rotated, file.absolutePath, 100)
+                medium.path = file.absolutePath
+            }
+        }
 
         subsamplingView = view.photo_view.apply { setOnClickListener({ photoClicked() }) }
         glideView = view.glide_view.apply {
@@ -53,6 +92,26 @@ class PhotoFragment : ViewPagerFragment() {
         }
 
         return view
+    }
+
+    private fun degreesForRotation(orientation: Int): Int {
+        return when (orientation) {
+            8 -> 270
+            3 -> 180
+            6 -> 90
+            else -> 0
+        }
+    }
+
+    private fun rotateViaMatrix(original: Bitmap, orientation: Int): Bitmap {
+        val degrees = degreesForRotation(orientation).toFloat()
+        return if (degrees == 0f) {
+            original
+        } else {
+            val matrix = Matrix()
+            matrix.setRotate(degrees)
+            Bitmap.createBitmap(original, 0, 0, original.width, original.height, matrix, true)
+        }
     }
 
     private fun loadImage(medium: Medium) {

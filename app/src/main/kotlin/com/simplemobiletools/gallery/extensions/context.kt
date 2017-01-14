@@ -22,7 +22,7 @@ fun Context.getRealPathFromURI(uri: Uri): String? {
             val index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
             return cursor.getString(index)
         }
-    } catch (e: IllegalArgumentException) {
+    } catch (e: Exception) {
     } finally {
         cursor?.close()
     }
