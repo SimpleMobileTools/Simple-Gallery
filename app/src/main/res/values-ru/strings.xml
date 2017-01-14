@@ -77,6 +77,7 @@
     <string name="loop_videos">Повторять видео</string>
 
     <!-- Release notes -->
+    <string name="release_62">Show some additional Exif data at photo properties</string>
     <string name="release_58">
         Добавлена возможность масштабирования png и gif изображений\n
         Добавлена возможность создания новой папки в диалогах "Копировать/Переместить" и "Сохранить как"

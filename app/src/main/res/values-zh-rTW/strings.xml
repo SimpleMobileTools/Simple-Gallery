@@ -77,6 +77,7 @@
     <string name="loop_videos">迴圈播放影片</string>
 
     <!-- Release notes -->
+    <string name="release_62">Show some additional Exif data at photo properties</string>
     <string name="release_58">
         Allow zooming pngs and gifs\n
         Allow creating new folders at Copy/Move or Save as dialog destinations
