@@ -1,6 +1,7 @@
 package com.simplemobiletools.gallery.activities
 
 import android.content.Intent
+import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -63,13 +64,19 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         }
 
         val proj = arrayOf(MediaStore.Images.Media.TITLE)
-        val cursor = contentResolver.query(mUri, proj, null, null, null)
-        if (cursor != null && cursor.count != 0) {
-            val columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.TITLE)
-            cursor.moveToFirst()
-            title = cursor.getString(columnIndex)
+        var cursor: Cursor? = null
+        try {
+            cursor = contentResolver.query(mUri, proj, null, null, null)
+            if (cursor != null && cursor.count != 0) {
+                val columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.TITLE)
+                cursor.moveToFirst()
+                title = cursor.getString(columnIndex)
+            }
+        } catch (e: Exception) {
+            title = mMedium?.name ?: ""
+        } finally {
+            cursor?.close()
         }
-        cursor?.close()
     }
 
     override fun onResume() {
