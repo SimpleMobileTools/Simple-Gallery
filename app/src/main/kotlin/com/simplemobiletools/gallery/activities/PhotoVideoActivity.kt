@@ -104,7 +104,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         when (item.itemId) {
             R.id.menu_set_as_wallpaper -> setAsWallpaper(File(mMedium!!.path))
             R.id.menu_open_with -> openWith(File(mMedium!!.path))
-            R.id.menu_share -> shareMedium(mMedium!!)
+            R.id.menu_share -> shareUri(mMedium!!, mUri)
             R.id.menu_edit -> openEditor(File(mMedium!!.path))
             else -> return super.onOptionsItemSelected(item)
         }

@@ -55,8 +55,7 @@ class PhotoFragment : ViewPagerFragment() {
                 exif.setTagValue(ExifInterface.TAG_ORIENTATION, 1)
                 exif.removeCompressedThumbnail()
 
-                val uri = Uri.parse(originalPath)
-                val file = File(context.cacheDir, uri.lastPathSegment)
+                val file = File(context.externalCacheDir, Uri.parse(originalPath).lastPathSegment)
                 var out: FileOutputStream? = null
                 try {
                     out = FileOutputStream(file)

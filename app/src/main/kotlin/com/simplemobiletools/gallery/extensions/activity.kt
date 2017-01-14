@@ -22,6 +22,16 @@ import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 import java.util.*
 
+fun Activity.shareUri(medium: Medium, uri: Uri) {
+    val shareTitle = resources.getString(R.string.share_via)
+    Intent().apply {
+        action = Intent.ACTION_SEND
+        putExtra(Intent.EXTRA_STREAM, uri)
+        type = medium.getMimeType()
+        startActivity(Intent.createChooser(this, shareTitle))
+    }
+}
+
 fun Activity.shareMedium(medium: Medium) {
     val shareTitle = resources.getString(R.string.share_via)
     val file = File(medium.path)
