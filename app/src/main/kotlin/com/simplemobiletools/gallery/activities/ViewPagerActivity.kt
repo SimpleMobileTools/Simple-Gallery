@@ -141,7 +141,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun showProperties() {
-        PropertiesDialog(this, getCurrentFile().absolutePath, false)
+        if (getCurrentMedium() != null)
+            PropertiesDialog(this, getCurrentMedium()!!.path, false)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
