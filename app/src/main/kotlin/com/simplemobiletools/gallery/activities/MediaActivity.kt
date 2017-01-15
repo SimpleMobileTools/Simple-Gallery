@@ -41,6 +41,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mIsGetAnyIntent = false
     private var mIsGettingMedia = false
     private var mShowAll = false
+    private var mLoadedInitialPhotos = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -172,8 +173,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         if (media.size == 0) {
             media_holder.isRefreshing = true
         } else {
-            gotMedia(media)
+            if (!mLoadedInitialPhotos)
+                gotMedia(media)
         }
+        mLoadedInitialPhotos = true
 
         GetMediaAsynctask(applicationContext, mPath, mIsGetVideoIntent, mIsGetImageIntent, mShowAll) {
             gotMedia(it)
