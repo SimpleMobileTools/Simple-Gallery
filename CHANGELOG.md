@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 2.3.2 *(2017-01-15)*
+----------------------------
+
+ * Remember 40 photos per folder for instant loading
+ * Remember the scroll position when opening fullscreen photo
+ * Make the launcher icon a bit smaller
+
 Version 2.3.1 *(2017-01-14)*
 ----------------------------
 
