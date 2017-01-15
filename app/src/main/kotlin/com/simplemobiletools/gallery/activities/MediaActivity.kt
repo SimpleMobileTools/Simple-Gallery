@@ -31,6 +31,7 @@ import java.util.*
 
 class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private val TAG = MediaActivity::class.java.simpleName
+    private val SAVE_MEDIA_CNT = 40
 
     private var mMedia = ArrayList<Medium>()
 
@@ -291,7 +292,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun storeFolder() {
-        val subList = mMedia.subList(0, Math.min(30, mMedia.size))
+        val subList = mMedia.subList(0, Math.min(SAVE_MEDIA_CNT, mMedia.size))
         val json = Gson().toJson(subList)
         config.saveFolderMedia(mPath, json)
     }
