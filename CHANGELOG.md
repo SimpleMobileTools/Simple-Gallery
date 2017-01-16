@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 2.3.3 *(2017-01-16)*
+----------------------------
+
+ * Fix a rare bug which could remove unwanted folders from SD card
+ * Remove the Source field from copy dialog to make it simpler
+
 Version 2.3.2 *(2017-01-15)*
 ----------------------------
 
