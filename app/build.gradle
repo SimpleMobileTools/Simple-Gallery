@@ -10,8 +10,8 @@ android {
         applicationId "com.simplemobiletools.gallery"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 63
-        versionName "2.3.2"
+        versionCode 64
+        versionName "2.3.3"
     }
 
     signingConfigs {
