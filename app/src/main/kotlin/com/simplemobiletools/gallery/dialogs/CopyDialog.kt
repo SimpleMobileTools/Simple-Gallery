@@ -23,8 +23,6 @@ class CopyDialog(val activity: SimpleActivity, val files: ArrayList<File>, val c
         val sourcePath = files[0].parent.trimEnd('/')
         var destinationPath = ""
 
-        view.source.text = activity.humanizePath(sourcePath)
-
         view.destination.setOnClickListener {
             PickAlbumDialog(activity) {
                 destinationPath = it
@@ -43,7 +41,7 @@ class CopyDialog(val activity: SimpleActivity, val files: ArrayList<File>, val c
                     return@setOnClickListener
                 }
 
-                if (view.source.text.trimEnd('/') == destinationPath.trimEnd('/')) {
+                if (sourcePath.trimEnd('/') == destinationPath.trimEnd('/')) {
                     context.toast(R.string.source_and_destination_same)
                     return@setOnClickListener
                 }
