@@ -13,19 +13,19 @@
     <string name="hidden">(versteckt)</string>
     <string name="save_as">Speichern unter</string>
     <string name="file_saved">Datei erfolgreich gespeichert</string>
-    <string name="pin_folder">fixiere Ordner</string>
-    <string name="unpin_folder">Unpin folder</string>
+    <string name="pin_folder">Fixiere Ordner</string>
+    <string name="unpin_folder">Ordner lösen</string>
     <string name="show_all">Inhalt aller Ordner (anzeigen)</string>
     <string name="all_folders">Alle Medien</string>
-    <string name="folder_view">wechsle zu Ordner Ansicht</string>
+    <string name="folder_view">Wechsle zu Ordner Ansicht</string>
     <string name="other_folder">Other folder</string>
 
     <!-- Resizing -->
-    <string name="resize">Resize</string>
-    <string name="resize_and_save">Resize selection and save</string>
+    <string name="resize">Größe ändern</string>
+    <string name="resize_and_save">Größe ändern und speichern</string>
     <string name="width">Breite</string>
     <string name="height">Höhe</string>
-    <string name="keep_aspect_ratio">Behalte Seitenverhältnis bei</string>
+    <string name="keep_aspect_ratio">Seitenverhältnis beibehalten</string>
     <string name="invalid_values">Bitte gib eine korrekte Auflösung ein</string>
 
     <!-- Renaming -->
@@ -35,9 +35,9 @@
     <string name="rename_folder_error">Konnte den Ordner nicht umbenennen</string>
     <string name="rename_folder_empty">Ordnername darf nicht leer sein</string>
     <string name="rename_folder_exists">Ein Ordner mit diesem Namen existiert bereits</string>
-    <string name="rename_folder_root">Cannot rename the root folder of a storage</string>
+    <string name="rename_folder_root">Root-Ordner des Speichers kann nicht umbenannt werden</string>
     <string name="rename_folder_ok">Ordner erfolgreich umbenannt</string>
-    <string name="renaming_folder">Benenne Ordner um</string>
+    <string name="renaming_folder">Ordner umbennenen</string>
     <string name="filename_cannot_be_empty">Dateiname darf nicht leer sein</string>
     <string name="filename_invalid_characters">Dateiname enthält ungültige Zeichen</string>
     <string name="extension">Dateiendung</string>
@@ -68,7 +68,7 @@
     <string name="dark_theme">Dunkles Design</string>
     <string name="same_sorting">Selbe Sortierung für Dateien und Ordner</string>
     <string name="show_hidden_folders">Zeige versteckte Ordner</string>
-    <string name="autoplay_videos">spiele Videos automatisch ab</string>
+    <string name="autoplay_videos">Spiele Videos automatisch ab</string>
     <string name="toggle_filename">Toggle filename visibility</string>
     <string name="show_media">Medienauswahl</string>
     <string name="images">nur Bilder</string>
