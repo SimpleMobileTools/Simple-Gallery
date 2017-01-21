@@ -4,29 +4,29 @@
     <string name="app_launcher_name">Gallery</string>
     <string name="share_via">Dela via</string>
     <string name="no_permissions">Inte mycket att göra i ett galleri om jag inte kommer åt lagringsutrymmet</string>
-    <string name="edit">Edit</string>
+    <string name="edit">Redigera</string>
     <string name="open_camera">Starta kameran</string>
-    <string name="open_with">Open with</string>
-    <string name="no_app_found">No valid app found</string>
-    <string name="hide_folder">Hide folder</string>
-    <string name="unhide_folder">Unhide folder</string>
-    <string name="hidden">(hidden)</string>
-    <string name="save_as">Save as</string>
-    <string name="file_saved">File saved successfully</string>
-    <string name="pin_folder">Pin folder</string>
-    <string name="unpin_folder">Unpin folder</string>
-    <string name="show_all">Show all folders content</string>
-    <string name="all_folders">All folders</string>
-    <string name="folder_view">Switch to folder view</string>
-    <string name="other_folder">Другая папка</string>
+    <string name="open_with">Öppna med</string>
+    <string name="no_app_found">Hittade ingen giltig app</string>
+    <string name="hide_folder">Dölj mapp</string>
+    <string name="unhide_folder">Visa mapp</string>
+    <string name="hidden">(dold)</string>
+    <string name="save_as">Spara som</string>
+    <string name="file_saved">Filen sparad</string>
+    <string name="pin_folder">Fäst mappen</string>
+    <string name="unpin_folder">Släpp mappen</string>
+    <string name="show_all">Visa alla mappars innehåll</string>
+    <string name="all_folders">Alla mappar</string>
+    <string name="folder_view">Byt till mappvy</string>
+    <string name="other_folder">Andra mappar</string>
 
     <!-- Resizing -->
-    <string name="resize">Resize</string>
-    <string name="resize_and_save">Resize selection and save</string>
-    <string name="width">Width</string>
-    <string name="height">Height</string>
-    <string name="keep_aspect_ratio">Keep aspect ratio</string>
-    <string name="invalid_values">Please enter a valid resolution</string>
+    <string name="resize">Ändra storlek</string>
+    <string name="resize_and_save">Ändra storlek och spara</string>
+    <string name="width">Bredd</string>
+    <string name="height">Höjd</string>
+    <string name="keep_aspect_ratio">Behåll bildförhållande</string>
+    <string name="invalid_values">Ange en giltig bildupplösning</string>
 
     <!-- Renaming -->
     <string name="rename_file">Döp om fil</string>
@@ -34,47 +34,47 @@
     <string name="rename_file_error">Det gick inte att döpa om filen</string>
     <string name="rename_folder_error">Det gick inte att döpa om mappen</string>
     <string name="rename_folder_empty">Du måste ange ett mappnamn</string>
-    <string name="rename_folder_exists">A folder with that name already exists</string>
-    <string name="rename_folder_root">Cannot rename the root folder of a storage</string>
+    <string name="rename_folder_exists">En mapp med det namnet finns redan</string>
+    <string name="rename_folder_root">Det går inte att döpa om rotmappen på lagringsutrymmet</string>
     <string name="rename_folder_ok">Mappen döptes om</string>
     <string name="renaming_folder">Döper om mappen</string>
     <string name="filename_cannot_be_empty">Du måste ange ett filnamn</string>
-    <string name="filename_invalid_characters">Filename contains invalid characters</string>
+    <string name="filename_invalid_characters">Filnamnet innehåller ogiltiga tecken</string>
     <string name="extension">Filändelse</string>
-    <string name="extension_cannot_be_empty">Extension cannot be empty</string>
+    <string name="extension_cannot_be_empty">Filändelsen får inte vara tom</string>
 
     <!-- Editor -->
-    <string name="editor">Editor</string>
-    <string name="save">Save</string>
-    <string name="rotate">Rotate</string>
-    <string name="path">Path</string>
-    <string name="invalid_image_path">Invalid image path</string>
+    <string name="editor">Redigera</string>
+    <string name="save">Spara</string>
+    <string name="rotate">Rotera</string>
+    <string name="path">Sökväg</string>
+    <string name="invalid_image_path">Ogiltig bildsökväg</string>
     <string name="image_editing_failed">Image editing failed</string>
-    <string name="edit_image_with">Edit image with:</string>
-    <string name="no_editor_found">No image editor found</string>
-    <string name="unknown_file_location">Unknown file location</string>
-    <string name="error_saving_file">Could not overwrite the source file</string>
+    <string name="edit_image_with">Redigera bilden med:</string>
+    <string name="no_editor_found">Hittade ingen bildredigerare</string>
+    <string name="unknown_file_location">Okänd filplats</string>
+    <string name="error_saving_file">Det gick inte att skriva över källfilen</string>
 
     <!-- Set wallpaper -->
-    <string name="simple_wallpaper">Simple Wallpaper</string>
-    <string name="set_as_wallpaper">Set as Wallpaper</string>
-    <string name="set_as_wallpaper_failed">Setting as Wallpaper failed</string>
-    <string name="set_as_wallpaper_with">Set as wallpaper with:</string>
-    <string name="no_wallpaper_setter_found">No app capable of it has been found</string>
+    <string name="simple_wallpaper">Bakgrundsbild</string>
+    <string name="set_as_wallpaper">Ange som bakgrundsbild</string>
+    <string name="set_as_wallpaper_failed">Det gick inte att byta bakgrundsbild</string>
+    <string name="set_as_wallpaper_with">Ange som bakgrundsbild med:</string>
+    <string name="no_wallpaper_setter_found">Hittade ingen app som klarar av detta</string>
     <string name="setting_wallpaper">Inställningar för bakgrundsbild&#8230;</string>
-    <string name="wallpaper_set_successfully">Wallpaper set successfully</string>
+    <string name="wallpaper_set_successfully">Bakgrundsbilden är ändrad</string>
 
     <!-- Settings -->
     <string name="dark_theme">Mörkt tema</string>
-    <string name="same_sorting">Same sorting for files and folders</string>
-    <string name="show_hidden_folders">Show hidden folders</string>
-    <string name="autoplay_videos">Play videos automatically</string>
-    <string name="toggle_filename">Toggle filename visibility</string>
-    <string name="show_media">Show media</string>
-    <string name="images">Images only</string>
-    <string name="videos">Videos only</string>
-    <string name="images_and_videos">Images and videos</string>
-    <string name="loop_videos">Loop videos</string>
+    <string name="same_sorting">Samma sortering för filer som för mappar</string>
+    <string name="show_hidden_folders">Visa dolda mappar</string>
+    <string name="autoplay_videos">Spela upp videos automatiskt</string>
+    <string name="toggle_filename">Visa/dölj filnamnen</string>
+    <string name="show_media">Visa media</string>
+    <string name="images">Endast bilder</string>
+    <string name="videos">Endast videos</string>
+    <string name="images_and_videos">Bilder och videos</string>
+    <string name="loop_videos">Återspela videos</string>
 
     <!-- Release notes -->
     <string name="release_62">Show some additional Exif data at photo properties</string>
@@ -97,16 +97,16 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">A gallery for viewing photos and videos without ads.</string>
+    <string name="app_short_description">Ett Galleri för att visa bilder och videos utan en massa reklam.</string>
     <string name="app_long_description">
-        A simple tool usable for viewing photos and videos. Items can be sorted by date, size, name both ascending or descending, photos can be zoomed in. Media files are shown in multiple columns depending on the size of the display, you can change the column count by pinch gestures. They can be renamed, shared, deleted, copied, moved. Images can also be cropped, rotated or set as Wallpaper directly from the app.
+        Ett enkelt verktyg för att visa bilder och vdeos. Objekten kan sorteras efter datum, storlek, namn både stigande och fallande, bilder kan zoomas in. Mediafiler visas i flera kolumner beroende av skärmens storlek, du kan ändra antalet kolumner genom en nyp-rörelse. De går att döpa om, dela, ta bort, kopiera, flytta. Bilder kan också beskäras, roteras och anges som bakgrundsbild direkt från appen.
 
 
-        The Gallery is also offered for third party usage for previewing images / videos, adding attachments at email clients etc. It\'s perfect for everyday usage.
+        Galleriet kan också användas av tredjeparts för förhandsgranskning av bilder / videos, bifoga bilagor i e-postklienter etc. Den är perfekt för det dagliga användandet.
 
-        Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
+        Innehåller ingen reklam eller onödiga behörigheter. Det är helt och hållet opensource, innehåller anpassningsbara färger.
 
-        This app is just one piece of a bigger series of apps. You can find the rest of them at http://www.simplemobiletools.com
+        Detta är bara en app i en serie av appar. Du hittar resten av dem här http://www.simplemobiletools.com
     </string>
 
     <!--
