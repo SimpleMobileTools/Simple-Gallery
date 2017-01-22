@@ -54,7 +54,7 @@ fun Context.getParents(isPickImage: Boolean, isPickVideo: Boolean): ArrayList<St
         cursor = contentResolver.query(uri, columns, where, args, null)
         if (cursor?.moveToFirst() == true) {
             do {
-                val curPath = cursor.getStringValue(MediaStore.Images.Media.DATA)
+                val curPath = cursor.getStringValue(MediaStore.Images.Media.DATA) ?: ""
                 parents.add(File(curPath).parent)
             } while (cursor.moveToNext())
         }
@@ -62,8 +62,10 @@ fun Context.getParents(isPickImage: Boolean, isPickVideo: Boolean): ArrayList<St
         cursor?.close()
     }
 
-    filterDirectories(parents)
-    return parents
+    val notNull = ArrayList<String>()
+    parents.mapNotNullTo(notNull, { it })
+    filterDirectories(notNull)
+    return notNull
 }
 
 fun Context.getWhereCondition(isPickImage: Boolean, isPickVideo: Boolean): String {
@@ -86,7 +88,7 @@ fun Context.getArgs(isPickImage: Boolean, isPickVideo: Boolean): Array<String> {
     }
 }
 
-fun Context.filterDirectories(dirs: MutableList<String>) {
+fun Context.filterDirectories(dirs: ArrayList<String>) {
     if (!config.showHiddenFolders) {
         removeHiddenFolders(dirs)
         removeNoMediaFolders(dirs)
