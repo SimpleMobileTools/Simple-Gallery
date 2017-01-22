@@ -3,6 +3,8 @@ package com.simplemobiletools.gallery.activities
 import android.app.Activity
 import android.content.Intent
 import android.database.Cursor
+import android.media.ExifInterface
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v4.view.ViewPager
@@ -147,8 +149,57 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun showOnMap() {
+        val exif = ExifInterface(getCurrentMedium()?.path)
+        val lat = exif.getAttribute(ExifInterface.TAG_GPS_LATITUDE)
+        val lat_ref = exif.getAttribute(ExifInterface.TAG_GPS_LATITUDE_REF)
+        val lon = exif.getAttribute(ExifInterface.TAG_GPS_LONGITUDE)
+        val lon_ref = exif.getAttribute(ExifInterface.TAG_GPS_LONGITUDE_REF)
 
+        if (lat == null || lat_ref == null || lon == null || lon_ref == null) {
+            toast(R.string.unknown_location)
+        } else {
+            val geoLat = if (lat_ref == "N") {
+                convertToDegree(lat)
+            } else {
+                0 - convertToDegree(lat)
+            }
+
+            val geoLon = if (lon_ref == "E") {
+                convertToDegree(lon)
+            } else {
+                0 - convertToDegree(lon)
+            }
+
+            val uriBegin = "geo:$geoLat,$geoLon"
+            val query = "$geoLat, $geoLon"
+            val encodedQuery = Uri.encode(query)
+            val uriString = "$uriBegin?q=$encodedQuery&z=16"
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uriString))
+            startActivity(intent)
+        }
     }
+
+    private fun convertToDegree(stringDMS: String): Float {
+        val dms = stringDMS.split(",".toRegex(), 3).toTypedArray()
+
+        val stringD = dms[0].split("/".toRegex(), 2).toTypedArray()
+        val d0 = stringD[0].toDouble()
+        val d1 = stringD[1].toDouble()
+        val floatD = d0 / d1
+
+        val stringM = dms[1].split("/".toRegex(), 2).toTypedArray()
+        val m0 = stringM[0].toDouble()
+        val m1 = stringM[1].toDouble()
+        val floatM = m0 / m1
+
+        val stringS = dms[2].split("/".toRegex(), 2).toTypedArray()
+        val s0 = stringS[0].toDouble()
+        val s1 = stringS[1].toDouble()
+        val floatS = s0 / s1
+
+        return (floatD + floatM / 60 + floatS / 3600).toFloat()
+    }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
         if (requestCode == REQUEST_EDIT_IMAGE) {
