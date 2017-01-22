@@ -16,6 +16,7 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.davemorrissey.labs.subscaleview.ImageSource
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
+import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.getRealPathFromURI
 import com.simplemobiletools.gallery.helpers.MEDIUM
@@ -43,32 +44,34 @@ class PhotoFragment : ViewPagerFragment() {
             medium.path = context.getRealPathFromURI(Uri.parse(medium.path)) ?: ""
 
             if (medium.path.isEmpty()) {
-                var inputStream = context.contentResolver.openInputStream(Uri.parse(originalPath))
-                val exif = ExifInterface()
-                exif.readExif(inputStream, ExifInterface.Options.OPTION_ALL)
-                val tag = exif.getTag(ExifInterface.TAG_ORIENTATION)
-                val orientation = tag?.getValueAsInt(-1) ?: -1
-
-                inputStream = context.contentResolver.openInputStream(Uri.parse(originalPath))
-                val original = BitmapFactory.decodeStream(inputStream)
-                val rotated = rotateViaMatrix(original, orientation)
-                exif.setTagValue(ExifInterface.TAG_ORIENTATION, 1)
-                exif.removeCompressedThumbnail()
-
-                val file = File(context.externalCacheDir, Uri.parse(originalPath).lastPathSegment)
                 var out: FileOutputStream? = null
                 try {
+                    var inputStream = context.contentResolver.openInputStream(Uri.parse(originalPath))
+                    val exif = ExifInterface()
+                    exif.readExif(inputStream, ExifInterface.Options.OPTION_ALL)
+                    val tag = exif.getTag(ExifInterface.TAG_ORIENTATION)
+                    val orientation = tag?.getValueAsInt(-1) ?: -1
+
+                    inputStream = context.contentResolver.openInputStream(Uri.parse(originalPath))
+                    val original = BitmapFactory.decodeStream(inputStream)
+                    val rotated = rotateViaMatrix(original, orientation)
+                    exif.setTagValue(ExifInterface.TAG_ORIENTATION, 1)
+                    exif.removeCompressedThumbnail()
+
+                    val file = File(context.externalCacheDir, Uri.parse(originalPath).lastPathSegment)
                     out = FileOutputStream(file)
                     rotated.compress(Bitmap.CompressFormat.JPEG, 100, out)
+                    exif.writeExif(rotated, file.absolutePath, 100)
+                    medium.path = file.absolutePath
                 } catch (e: Exception) {
+                    context.toast(R.string.unknown_error_occurred)
+                    return view
                 } finally {
                     try {
                         out?.close()
                     } catch (e: IOException) {
                     }
                 }
-                exif.writeExif(rotated, file.absolutePath, 100)
-                medium.path = file.absolutePath
             }
         }
 
