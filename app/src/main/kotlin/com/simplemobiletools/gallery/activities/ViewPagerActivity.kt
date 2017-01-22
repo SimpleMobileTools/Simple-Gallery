@@ -174,14 +174,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             if (!isShowingPermDialog(file)) {
                 val document = getFileDocument(mPath, config.treeUri)
                 if (document.uri.toString().endsWith(file.absolutePath.getFilenameFromPath()) && !document.isDirectory)
-                    Thread({
-                        document.delete()
-                    }).start()
+                    document.delete()
             }
         } else {
-            Thread({
-                file.delete()
-            }).start()
+            file.delete()
         }
 
         if (deleteFromMediaStore(file)) {
