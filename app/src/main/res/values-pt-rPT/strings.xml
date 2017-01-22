@@ -19,6 +19,8 @@
     <string name="all_folders">Todas as pastas</string>
     <string name="folder_view">Alternar para a vista de pastas</string>
     <string name="other_folder">Outra pasta</string>
+    <string name="show_on_map">Show on map</string>
+    <string name="unknown_location">Unknown location</string>
 
     <!-- Resizing -->
     <string name="resize">Redimensionar</string>

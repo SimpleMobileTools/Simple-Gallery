@@ -19,6 +19,8 @@
     <string name="all_folders">Alla mappar</string>
     <string name="folder_view">Byt till mappvy</string>
     <string name="other_folder">Andra mappar</string>
+    <string name="show_on_map">Show on map</string>
+    <string name="unknown_location">Unknown location</string>
 
     <!-- Resizing -->
     <string name="resize">Ändra storlek</string>

@@ -107,6 +107,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_rename -> renameFile()
             R.id.menu_edit -> openEditor(getCurrentFile())
             R.id.menu_properties -> showProperties()
+            R.id.show_on_map -> showOnMap()
             else -> return super.onOptionsItemSelected(item)
         }
         return true
@@ -143,6 +144,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun showProperties() {
         if (getCurrentMedium() != null)
             PropertiesDialog(this, getCurrentMedium()!!.path, false)
+    }
+
+    private fun showOnMap() {
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {

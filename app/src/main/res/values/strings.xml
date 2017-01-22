@@ -19,6 +19,8 @@
     <string name="all_folders">All folders</string>
     <string name="folder_view">Switch to folder view</string>
     <string name="other_folder">Other folder</string>
+    <string name="show_on_map">Show on map</string>
+    <string name="unknown_location">Unknown location</string>
 
     <!-- Resizing -->
     <string name="resize">Resize</string>

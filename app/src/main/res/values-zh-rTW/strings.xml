@@ -19,6 +19,8 @@
     <string name="all_folders">所有資料夾</string>
     <string name="folder_view">切換到資料夾檢視</string>
     <string name="other_folder">其他資料夾</string>
+    <string name="show_on_map">Show on map</string>
+    <string name="unknown_location">Unknown location</string>
 
     <!-- Resizing -->
     <string name="resize">縮放</string>

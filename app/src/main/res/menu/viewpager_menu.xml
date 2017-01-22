@@ -38,4 +38,8 @@
         android:icon="@drawable/ic_info"
         android:title="@string/properties"
         app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/show_on_map"
+        android:title="@string/show_on_map"
+        app:showAsAction="never"/>
 </menu>
