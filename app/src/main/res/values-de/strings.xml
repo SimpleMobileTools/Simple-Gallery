@@ -18,7 +18,7 @@
     <string name="show_all">Inhalt aller Ordner (anzeigen)</string>
     <string name="all_folders">Alle Medien</string>
     <string name="folder_view">Wechsle zu Ordner Ansicht</string>
-    <string name="other_folder">Other folder</string>
+    <string name="other_folder">andere Ordner</string>
 
     <!-- Resizing -->
     <string name="resize">Größe ändern</string>
