@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 2.3.4 *(2017-01-22)*
+----------------------------
+
+ * Allow showing photos and videos on the map, if coords are available
+ * Some crashfixes
+
 Version 2.3.3 *(2017-01-16)*
 ----------------------------
 
