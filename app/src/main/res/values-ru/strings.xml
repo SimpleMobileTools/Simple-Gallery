@@ -79,6 +79,7 @@
     <string name="loop_videos">Повторять видео</string>
 
     <!-- Release notes -->
+    <string name="release_66">Allow picking colors by hex codes</string>
     <string name="release_65">Allow showing the photos and videos on a map, if there are available map coordinates</string>
     <string name="release_62">Show some additional Exif data at photo properties</string>
     <string name="release_58">
