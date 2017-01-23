@@ -122,11 +122,13 @@
 
             <com.simplemobiletools.commons.views.MyTextView
                 android:id="@+id/settings_show_media_label"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/settings_show_media"
+                android:layout_toStartOf="@+id/settings_show_media"
                 android:paddingLeft="@dimen/medium_margin"
-                android:paddingStart="@dimen/medium_margin"
+                android:paddingRight="@dimen/medium_margin"
                 android:text="@string/show_media"/>
 
             <com.simplemobiletools.commons.views.MyAppCompatSpinner
