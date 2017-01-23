@@ -61,7 +61,6 @@ class PhotoFragment : ViewPagerFragment() {
                     val file = File(context.externalCacheDir, Uri.parse(originalPath).lastPathSegment)
                     out = FileOutputStream(file)
                     rotated.compress(Bitmap.CompressFormat.JPEG, 100, out)
-                    exif.writeExif(rotated, file.absolutePath, 100)
                     medium.path = file.absolutePath
                 } catch (e: Exception) {
                     context.toast(R.string.unknown_error_occurred)
