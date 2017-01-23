@@ -175,7 +175,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             val encodedQuery = Uri.encode(query)
             val uriString = "$uriBegin?q=$encodedQuery&z=16"
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uriString))
-            startActivity(intent)
+            val packageManager = packageManager
+            if (intent.resolveActivity(packageManager) != null) {
+                startActivity(intent)
+            } else {
+                toast(R.string.no_map_application)
+            }
         }
     }
 

@@ -21,6 +21,7 @@
     <string name="other_folder">Outra pasta</string>
     <string name="show_on_map">Mostrar no mapa</string>
     <string name="unknown_location">Localização desconhecida</string>
+    <string name="no_map_application">No application with maps has been found</string>
 
     <!-- Resizing -->
     <string name="resize">Redimensionar</string>
