@@ -43,7 +43,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medium)
 
-        if (!hasStoragePermission()) {
+        if (!hasWriteStoragePermission()) {
             finish()
             return
         }
@@ -84,7 +84,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     override fun onResume() {
         super.onResume()
-        if (!hasStoragePermission()) {
+        if (!hasWriteStoragePermission()) {
             finish()
         }
         supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.actionbar_gradient_background))

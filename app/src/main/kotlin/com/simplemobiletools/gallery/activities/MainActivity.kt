@@ -100,7 +100,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun tryloadGallery() {
-        if (hasStoragePermission()) {
+        if (hasWriteStoragePermission()) {
             if (config.showAll)
                 showAllMedia()
             else
