@@ -19,9 +19,9 @@
     <string name="all_folders">Все медиафайлы</string>
     <string name="folder_view">Переключиться к виду с папками</string>
     <string name="other_folder">Другая папка</string>
-    <string name="show_on_map">Show on map</string>
-    <string name="unknown_location">Unknown location</string>
-    <string name="no_map_application">No application with maps has been found</string>
+    <string name="show_on_map">Показать место съёмки</string>
+    <string name="unknown_location">Место съёмки не указано</string>
+    <string name="no_map_application">Не найдено приложений с картами</string>
 
     <!-- Resizing -->
     <string name="resize">Изменить размер</string>
@@ -80,9 +80,9 @@
     <string name="loop_videos">Повторять видео</string>
 
     <!-- Release notes -->
-    <string name="release_66">Allow picking colors by hex codes</string>
-    <string name="release_65">Allow showing the photos and videos on a map, if there are available map coordinates</string>
-    <string name="release_62">Show some additional Exif data at photo properties</string>
+    <string name="release_66">Добавлена возможность выбирать цвета по hex-кодам</string>
+    <string name="release_65">Добавлена возможность показывать место съёмки фото или видео на карте, если указаны координаты</string>
+    <string name="release_62">В свойствах фото теперь отображаются некоторые Exif-данные</string>
     <string name="release_58">
         Добавлена возможность масштабирования png и gif изображений\n
         Добавлена возможность создания новой папки в диалогах "Копировать/Переместить" и "Сохранить как"
