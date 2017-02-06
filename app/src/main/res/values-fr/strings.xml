@@ -22,6 +22,7 @@
     <string name="show_on_map">Show on map</string>
     <string name="unknown_location">Unknown location</string>
     <string name="no_map_application">No application with maps has been found</string>
+    <string name="no_camera_app_found">No Camera app has been found</string>
 
     <!-- Resizing -->
     <string name="resize">Redimensionner</string>
