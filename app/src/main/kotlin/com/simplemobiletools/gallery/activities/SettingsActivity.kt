@@ -1,11 +1,11 @@
 package com.simplemobiletools.gallery.activities
 
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView
 import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
+import com.simplemobiletools.gallery.helpers.IMAGES
+import com.simplemobiletools.gallery.helpers.IMAGES_AND_VIDEOS
 import kotlinx.android.synthetic.main.activity_settings.*
 
 class SettingsActivity : SimpleActivity() {
@@ -65,14 +65,15 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun setupShowMedia() {
-        settings_show_media.setSelection(config.showMedia)
-        settings_show_media.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                config.showMedia = settings_show_media.selectedItemPosition
-            }
+        settings_show_media.text = getShowMediaText(config.showMedia)
+        settings_show_media_holder.setOnClickListener {
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
         }
     }
+
+    private fun getShowMediaText(id: Int) = getString(when (id) {
+        IMAGES_AND_VIDEOS -> R.string.images_and_videos
+        IMAGES -> R.string.images
+        else -> R.string.videos
+    })
 }
