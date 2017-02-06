@@ -3,7 +3,6 @@ package com.simplemobiletools.gallery.fragments
 import android.content.res.Configuration
 import android.media.AudioManager
 import android.media.MediaPlayer
-import android.media.MediaPlayer.OnPreparedListener
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -24,8 +23,7 @@ import kotlinx.android.synthetic.main.pager_video_item.view.*
 import java.io.IOException
 import java.util.*
 
-class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.Callback, MediaPlayer.OnCompletionListener,
-        MediaPlayer.OnVideoSizeChangedListener, SeekBar.OnSeekBarChangeListener, OnPreparedListener {
+class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSeekBarChangeListener {
 
     private var mMediaPlayer: MediaPlayer? = null
     private var mSurfaceView: SurfaceView? = null
@@ -60,7 +58,6 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
 
         mIsFullscreen = activity.window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN == View.SYSTEM_UI_FLAG_FULLSCREEN
         setupPlayer()
-        mView.setOnClickListener(this)
 
         activity.window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
             val fullscreen = visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
@@ -76,12 +73,16 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
         if (activity == null)
             return
 
-        mView.video_play_outline.setOnClickListener(this)
+        mView.video_play_outline.setOnClickListener { togglePlayPause() }
 
         mSurfaceView = mView.video_surface
-        mSurfaceView!!.setOnClickListener(this)
         mSurfaceHolder = mSurfaceView!!.holder
         mSurfaceHolder!!.addCallback(this)
+        mSurfaceView!!.setOnClickListener({
+            mIsFullscreen = !mIsFullscreen
+            checkFullscreen()
+            listener?.fragmentClicked()
+        })
 
         initTimeHolder()
     }
@@ -157,17 +158,6 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
         outState.putInt(PROGRESS, mCurrTime)
     }
 
-    override fun onClick(v: View) {
-        when (v.id) {
-            R.id.video_play_outline -> togglePlayPause()
-            else -> {
-                mIsFullscreen = !mIsFullscreen
-                checkFullscreen()
-                listener?.fragmentClicked()
-            }
-        }
-    }
-
     private fun checkFullscreen() {
         var anim = android.R.anim.fade_in
         if (mIsFullscreen) {
@@ -218,9 +208,9 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
             mMediaPlayer = MediaPlayer().apply {
                 setDataSource(context, Uri.parse(mMedium.path))
                 setDisplay(mSurfaceHolder)
-                setOnCompletionListener(this@VideoFragment)
-                setOnVideoSizeChangedListener(this@VideoFragment)
-                setOnPreparedListener(this@VideoFragment)
+                setOnCompletionListener { videoCompleted() }
+                setOnVideoSizeChangedListener({ mediaPlayer, width, height -> setVideoSize() })
+                setOnPreparedListener { videoPrepared(it) }
                 setAudioStreamType(AudioManager.STREAM_MUSIC)
                 prepareAsync()
             }
@@ -262,6 +252,26 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
         mTimerHandler?.removeCallbacksAndMessages(null)
     }
 
+    private fun videoPrepared(mediaPlayer: MediaPlayer) {
+        mDuration = mediaPlayer.duration / 1000
+        addPreviewImage()
+        setupTimeHolder()
+        setProgress(mCurrTime)
+
+        if (mIsFragmentVisible && context.config.autoplayVideos)
+            playVideo()
+    }
+
+    private fun videoCompleted() {
+        if (context.config.loopVideos) {
+            playVideo()
+        } else {
+            mSeekBar!!.progress = mSeekBar!!.max
+            mCurrTimeView!!.text = getTimeString(mDuration)
+            pauseVideo()
+        }
+    }
+
     override fun surfaceCreated(holder: SurfaceHolder) {
         initMediaPlayer()
     }
@@ -273,20 +283,6 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
     override fun surfaceDestroyed(holder: SurfaceHolder) {
         mMediaPlayer?.release()
         mMediaPlayer = null
-    }
-
-    override fun onCompletion(mp: MediaPlayer) {
-        if (context.config.loopVideos) {
-            playVideo()
-        } else {
-            mSeekBar!!.progress = mSeekBar!!.max
-            mCurrTimeView!!.text = getTimeString(mDuration)
-            pauseVideo()
-        }
-    }
-
-    override fun onVideoSizeChanged(mp: MediaPlayer, width: Int, height: Int) {
-        setVideoSize()
     }
 
     private fun setVideoSize() {
@@ -359,15 +355,5 @@ class VideoFragment : ViewPagerFragment(), View.OnClickListener, SurfaceHolder.C
         }
 
         mIsDragged = false
-    }
-
-    override fun onPrepared(mp: MediaPlayer) {
-        mDuration = mp.duration / 1000
-        addPreviewImage()
-        setupTimeHolder()
-        setProgress(mCurrTime)
-
-        if (mIsFragmentVisible && context.config.autoplayVideos)
-            playVideo()
     }
 }
