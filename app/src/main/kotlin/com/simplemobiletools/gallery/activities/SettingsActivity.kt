@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.activities
 import android.os.Bundle
 import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.dialogs.ShowMediaDialog
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.helpers.IMAGES
 import com.simplemobiletools.gallery.helpers.IMAGES_AND_VIDEOS
@@ -65,13 +66,16 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun setupShowMedia() {
-        settings_show_media.text = getShowMediaText(config.showMedia)
+        settings_show_media.text = getShowMediaText()
         settings_show_media_holder.setOnClickListener {
-
+            ShowMediaDialog(this) {
+                config.showMedia = it
+                settings_show_media.text = getShowMediaText()
+            }
         }
     }
 
-    private fun getShowMediaText(id: Int) = getString(when (id) {
+    private fun getShowMediaText() = getString(when (config.showMedia) {
         IMAGES_AND_VIDEOS -> R.string.images_and_videos
         IMAGES -> R.string.images
         else -> R.string.videos

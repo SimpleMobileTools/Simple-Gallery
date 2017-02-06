@@ -116,4 +116,3 @@ private fun removeNoMediaFolders(paths: MutableList<String>) {
 }
 
 val Context.config: Config get() = Config.newInstance(this)
-
