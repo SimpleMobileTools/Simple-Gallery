@@ -297,9 +297,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     fun gotDirectories(dirs: ArrayList<Directory>) {
         directories_holder.isRefreshing = false
         mIsGettingDirs = false
-        if (dirs == mDirs) {
+
+        if (dirs.hashCode() == mDirs.hashCode())
             return
-        }
+
         mDirs = dirs
 
         setupAdapter()

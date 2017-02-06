@@ -285,9 +285,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     fun gotMedia(media: ArrayList<Medium>) {
         mIsGettingMedia = false
         media_holder.isRefreshing = false
-        if (media == mMedia) {
+
+        if (media.hashCode() == mMedia.hashCode())
             return
-        }
 
         mMedia = media
         initializeGallery()
