@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Jednoduchá galéria</string>
+    <string name="app_launcher_name">Galéria</string>
+    <string name="share_via">Zdieľať cez</string>
+    <string name="no_permissions">Bez prístupu k súborom sa nedá robiť nič</string>
+    <string name="edit">Upraviť</string>
+    <string name="open_camera">Otvoriť fotoaparát</string>
+    <string name="open_with">Otvoriť s</string>
+    <string name="no_app_found">Nenašla sa žiadna vhodná aplikácia</string>
+    <string name="hide_folder">Skryť priečinok</string>
+    <string name="unhide_folder">Odkryť priečinok</string>
+    <string name="hidden">(skryté)</string>
+    <string name="save_as">Uložiť ako</string>
+    <string name="file_saved">Súbor bol úspešne uložený</string>
+    <string name="pin_folder">Pripnúť priečinok</string>
+    <string name="unpin_folder">Odopnúť priečinok</string>
+    <string name="show_all">Zobraziť obsah všetkých priečinkov</string>
+    <string name="all_folders">Všetky priečinky</string>
+    <string name="folder_view">Prepnúť na zobrazenie priečinkov</string>
+    <string name="other_folder">Iný priečinok</string>
+    <string name="show_on_map">ZobraziŤ na mape</string>
+    <string name="unknown_location">Neznáma poloha</string>
+    <string name="no_map_application">Nenašla sa žiadna mapová aplikácia</string>
+    <string name="no_camera_app_found">Nenašla sa žiadna aplikácia pre fotoaparát</string>
+
+    <!-- Resizing -->
+    <string name="resize">Zmeniť veľkosť</string>
+    <string name="resize_and_save">Zmeniť veľkosť a uložiť</string>
+    <string name="width">Šǐrka</string>
+    <string name="height">Výška</string>
+    <string name="keep_aspect_ratio">Zachovať pomer strán</string>
+    <string name="invalid_values">Prosím zadajte platné rozlíšenie</string>
+
+    <!-- Renaming -->
+    <string name="rename_file">Premenovať súbor</string>
+    <string name="rename_folder">Premenovať priečinok</string>
+    <string name="rename_file_error">Nepodarilo sa premenovať súbor</string>
+    <string name="rename_folder_error">Nepodarilo sa premenovať priečinok</string>
+    <string name="rename_folder_empty">Názov priečinka nemôže byť prázdny</string>
+    <string name="rename_folder_exists">Priečinok s daným názvom už existuje</string>
+    <string name="rename_folder_root">Nepodarilo sa premenovať základný priečinok úložiska</string>
+    <string name="rename_folder_ok">Priečinok bol úspešne premenovaný</string>
+    <string name="renaming_folder">Premenúva sa priečinok</string>
+    <string name="filename_cannot_be_empty">Názov súboru nemôže byť prázdny</string>
+    <string name="filename_invalid_characters">Názov súboru obsahuje neplatné znaky</string>
+    <string name="extension">Prípona</string>
+    <string name="extension_cannot_be_empty">Prípona nesmie byť prázdna</string>
+
+    <!-- Editor -->
+    <string name="editor">Editor</string>
+    <string name="save">Uložiť</string>
+    <string name="rotate">Otočiť</string>
+    <string name="path">Cesta</string>
+    <string name="invalid_image_path">Neplatná cesta</string>
+    <string name="image_editing_failed">Úprava súboru zlyhala</string>
+    <string name="edit_image_with">Upraviť súbor s:</string>
+    <string name="no_editor_found">Nebol nájdený žiadny editor</string>
+    <string name="unknown_file_location">Neznáme umiestnenie súboru</string>
+    <string name="error_saving_file">Nepodarilo sa prepísať zdrojový súbor</string>
+
+    <!-- Set wallpaper -->
+    <string name="simple_wallpaper">Jednoduchá tapeta</string>
+    <string name="set_as_wallpaper">Nastaviť ako tapetu</string>
+    <string name="set_as_wallpaper_failed">Nastavovanie ako tapeta zlyhalo</string>
+    <string name="set_as_wallpaper_with">Nastaviť ako tapetu s:</string>
+    <string name="no_wallpaper_setter_found">Nenašla sa žiadna vhodná aplikácia No app capable of it has been found</string>
+    <string name="setting_wallpaper">Nastavuje sa tapeta&#8230;</string>
+    <string name="wallpaper_set_successfully">Tapeta bola úspešne zmenená</string>
+
+    <!-- Settings -->
+    <string name="same_sorting">Použiť rovnaké zoradenie pre súbory a priečinky</string>
+    <string name="show_hidden_folders">Zobraziť skryté priečinky</string>
+    <string name="autoplay_videos">Spúšťať videá automaticky</string>
+    <string name="toggle_filename">Prepnúť viditeľnosť názvov súborov</string>
+    <string name="show_media">Zobraziť médiá</string>
+    <string name="images">Iba obrázky</string>
+    <string name="videos">Iba videá</string>
+    <string name="images_and_videos">Obrázky aj videá</string>
+    <string name="loop_videos">Automaticky reštartovať videá</string>
+
+    <!-- Release notes -->
+    <string name="release_66">Allow picking colors by hex codes</string>
+    <string name="release_65">Allow showing the photos and videos on a map, if there are available map coordinates</string>
+    <string name="release_62">Show some additional Exif data at photo properties</string>
+    <string name="release_58">
+        Allow zooming pngs and gifs\n
+        Allow creating new folders at Copy/Move or Save as dialog destinations
+    </string>
+    <string name="release_54">Added an option to loop videos automatically</string>
+    <string name="release_52">
+        Added more color customization options\n
+        Your settings have been cleared, please reset them</string>
+    <string name="release_51">Allow changing the column count with pinch gestures</string>
+    <string name="release_50">Added an option to display images or videos only</string>
+    <string name="release_49">Added a Select all button at selecting media and folders</string>
+    <string name="release_47">
+        Added an image resizer to the editor\n
+        Allow displaying images and videos from all folders together
+    </string>
+    <string name="release_46">Allow pinning folders at the top</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">Galéria na prezeranie obrázkov a videí bez reklám.</string>
+    <string name="app_long_description">
+        Jednoduchá nástroj použiteľný na prezeranie obrázkov a videí. Položky môžu byť zoradené podľa dátumu, veľkosti, názvu oboma smermi, obrázky je možné aj priblížiť. Položky sú zobrazované vo viacerých stĺpcoch v závislosti od veľkosti displeja, počet stĺpcov je možné meniť pomocou gesta prstami. Súbory môžete premenovať, zdieľať, mazať, kopírovať, premiestňovaŤ. Obrázky môžete orezať, otočiť, alebo nastaviť ako tapeta priamo v aplikácií.
+
+
+        Galéria je tiež poskytovaná pre použitie treťou stranou pre prehliadanie fotiek a videí, pridávanie príloh v emailových klientoch. Je perfektná na každodenné použitie.
+
+        Neobsahuje žiadne reklamy a nepotrebné oprávnenia. Je opensource, poskytuje možnosť zmeny farieb.
+
+        Táto aplikácia je iba jednou zo skupiny aplikácií. Ostatné viete nájsť na http://www.simplemobiletools.com
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>

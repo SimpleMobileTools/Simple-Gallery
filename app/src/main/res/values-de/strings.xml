@@ -69,7 +69,6 @@
     <string name="wallpaper_set_successfully">Hintergrundbild erfolgreich festgelegt</string>
 
     <!-- Settings -->
-    <string name="dark_theme">Dunkles Design</string>
     <string name="same_sorting">Selbe Sortierung für Dateien und Ordner</string>
     <string name="show_hidden_folders">Zeige versteckte Ordner</string>
     <string name="autoplay_videos">Spiele Videos automatisch ab</string>

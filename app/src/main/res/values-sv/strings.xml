@@ -69,7 +69,6 @@
     <string name="wallpaper_set_successfully">Bakgrundsbilden är ändrad</string>
 
     <!-- Settings -->
-    <string name="dark_theme">Mörkt tema</string>
     <string name="same_sorting">Samma sortering för filer som för mappar</string>
     <string name="show_hidden_folders">Visa dolda mappar</string>
     <string name="autoplay_videos">Spela upp videos automatiskt</string>

@@ -69,7 +69,6 @@
     <string name="wallpaper_set_successfully">Wallpaper set successfully</string>
 
     <!-- Settings -->
-    <string name="dark_theme">Dark theme</string>
     <string name="same_sorting">Same sorting for files and folders</string>
     <string name="show_hidden_folders">Show hidden folders</string>
     <string name="autoplay_videos">Play videos automatically</string>

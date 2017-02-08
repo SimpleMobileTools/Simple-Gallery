@@ -69,7 +69,6 @@
     <string name="wallpaper_set_successfully">壁纸应用成功</string>
 
     <!-- Settings -->
-    <string name="dark_theme">暗主题</string>
     <string name="same_sorting">全局排序</string>
     <string name="show_hidden_folders">显示所有</string>
     <string name="autoplay_videos">自动播放</string>

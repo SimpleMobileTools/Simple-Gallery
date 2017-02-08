@@ -69,7 +69,6 @@
     <string name="wallpaper_set_successfully">Fond d\'écran défini avec succès.</string>
 
     <!-- Settings -->
-    <string name="dark_theme">Thème sombre</string>
     <string name="same_sorting">Tri identique pour fichiers et dossiers</string>
     <string name="show_hidden_folders">Afficher les dossiers cachés</string>
     <string name="autoplay_videos">Lecture automatique des vidéos</string>
