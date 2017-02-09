@@ -100,6 +100,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (getCurrentMedium() == null)
+            return true
+
         when (item.itemId) {
             R.id.menu_set_as_wallpaper -> setAsWallpaper(getCurrentFile())
             R.id.menu_copy_move -> displayCopyDialog()
