@@ -159,6 +159,9 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     }
 
     private fun checkFullscreen() {
+        if (activity == null)
+            return
+
         var anim = android.R.anim.fade_in
         if (mIsFullscreen) {
             anim = android.R.anim.fade_out
@@ -167,7 +170,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             mSeekBar!!.setOnSeekBarChangeListener(this)
         }
 
-        AnimationUtils.loadAnimation(context, anim).apply {
+        AnimationUtils.loadAnimation(activity, anim).apply {
             duration = 150
             fillAfter = true
             mTimeHolder!!.startAnimation(this)
