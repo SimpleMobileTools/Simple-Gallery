@@ -241,11 +241,16 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
                 // double check we have the uri to the proper file path, not some parent folder
                 val uri = URLDecoder.decode(document.uri.toString(), "UTF-8")
-                if (uri.endsWith(file.absolutePath.getFilenameFromPath()) && !document.isDirectory)
-                    document.delete()
+                if (uri.endsWith(file.absolutePath.getFilenameFromPath()) && !document.isDirectory) {
+                    Thread({
+                        document.delete()
+                    }).start()
+                }
             }
         } else {
-            file.delete()
+            Thread({
+                file.delete()
+            }).start()
         }
 
         if (deleteFromMediaStore(file)) {
