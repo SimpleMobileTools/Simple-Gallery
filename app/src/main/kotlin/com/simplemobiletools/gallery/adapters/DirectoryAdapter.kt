@@ -240,6 +240,16 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         val paths = ArrayList<String>(selections.size)
         val removeDirs = ArrayList<Directory>(selections.size)
 
+        var isShowingPermDialog = false
+        activity.runOnUiThread {
+            if (activity.isShowingPermDialog(File(dirs[selections[0]].path))) {
+                isShowingPermDialog = true
+            }
+        }
+
+        if (isShowingPermDialog)
+            return
+
         selections.reverse()
         selections.forEach {
             val directory = dirs[it]
@@ -249,6 +259,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         }
 
         dirs.removeAll(removeDirs)
+        markedItems.clear()
         listener?.deleteFiles(paths)
     }
 

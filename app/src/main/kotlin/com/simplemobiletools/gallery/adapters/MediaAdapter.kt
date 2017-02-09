@@ -181,6 +181,16 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         val files = ArrayList<File>(selections.size)
         val removeMedia = ArrayList<Medium>(selections.size)
 
+        var isShowingPermDialog = false
+        activity.runOnUiThread {
+            if (activity.isShowingPermDialog(File(media[selections[0]].path))) {
+                isShowingPermDialog = true
+            }
+        }
+
+        if (isShowingPermDialog)
+            return
+
         selections.reverse()
         selections.forEach {
             val medium = media[it]
@@ -190,6 +200,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         }
 
         media.removeAll(removeMedia)
+        markedItems.clear()
         listener?.deleteFiles(files)
     }
 
