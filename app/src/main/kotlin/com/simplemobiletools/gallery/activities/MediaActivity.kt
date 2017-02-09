@@ -27,6 +27,7 @@ import com.simplemobiletools.gallery.views.MyScalableRecyclerView
 import kotlinx.android.synthetic.main.activity_media.*
 import java.io.File
 import java.io.IOException
+import java.net.URLDecoder
 import java.util.*
 
 class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
@@ -222,7 +223,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                         val document = getFileDocument(it.absolutePath, config.treeUri)
 
                         // double check we have the uri to the proper file path, not some parent folder
-                        if (document.uri.toString().endsWith(it.absolutePath.getFilenameFromPath()) && !document.isDirectory) {
+                        val uri = URLDecoder.decode(document.uri.toString(), "UTF-8")
+                        if (uri.endsWith(it.absolutePath.getFilenameFromPath()) && !document.isDirectory) {
                             Thread({
                                 document.delete()
                             }).start()

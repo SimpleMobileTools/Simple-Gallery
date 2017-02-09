@@ -28,6 +28,7 @@ import com.simplemobiletools.gallery.helpers.REQUEST_SET_WALLPAPER
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_medium.*
 import java.io.File
+import java.net.URLDecoder
 import java.util.*
 
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
@@ -237,7 +238,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (needsStupidWritePermissions(mPath)) {
             if (!isShowingPermDialog(file)) {
                 val document = getFileDocument(mPath, config.treeUri)
-                if (document.uri.toString().endsWith(file.absolutePath.getFilenameFromPath()) && !document.isDirectory)
+
+                // double check we have the uri to the proper file path, not some parent folder
+                val uri = URLDecoder.decode(document.uri.toString(), "UTF-8")
+                if (uri.endsWith(file.absolutePath.getFilenameFromPath()) && !document.isDirectory)
                     document.delete()
             }
         } else {

@@ -29,6 +29,7 @@ import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.views.MyScalableRecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
+import java.net.URLDecoder
 import java.util.*
 
 class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
@@ -193,7 +194,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 val document = getFileDocument(file.absolutePath, config.treeUri)
 
                 // double check we have the uri to the proper file path, not some parent folder
-                if (document.uri.toString().endsWith(file.absolutePath.getFilenameFromPath())) {
+                val uri = URLDecoder.decode(document.uri.toString(), "UTF-8")
+                if (uri.endsWith(file.absolutePath.getFilenameFromPath())) {
                     Thread({
                         document.delete()
                     }).start()
