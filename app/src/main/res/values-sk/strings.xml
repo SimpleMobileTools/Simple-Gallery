@@ -6,7 +6,7 @@
     <string name="no_permissions">Bez prístupu k súborom sa nedá robiť nič</string>
     <string name="edit">Upraviť</string>
     <string name="open_camera">Otvoriť fotoaparát</string>
-    <string name="open_with">Otvoriť s</string>
+    <string name="open_with">Otvoriť pomocou</string>
     <string name="no_app_found">Nenašla sa žiadna vhodná aplikácia</string>
     <string name="hide_folder">Skryť priečinok</string>
     <string name="unhide_folder">Odkryť priečinok</string>
@@ -19,7 +19,7 @@
     <string name="all_folders">Všetky priečinky</string>
     <string name="folder_view">Prepnúť na zobrazenie priečinkov</string>
     <string name="other_folder">Iný priečinok</string>
-    <string name="show_on_map">ZobraziŤ na mape</string>
+    <string name="show_on_map">Zobraziť na mape</string>
     <string name="unknown_location">Neznáma poloha</string>
     <string name="no_map_application">Nenašla sa žiadna mapová aplikácia</string>
     <string name="no_camera_app_found">Nenašla sa žiadna aplikácia pre fotoaparát</string>
