@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 2.3.7 *(2017-02-09)*
+----------------------------
+
+ * Fixed some issues with inability to delete files from SD card
+ * Some crashfixes
+
 Version 2.3.6 *(2017-02-07)*
 ----------------------------
 
