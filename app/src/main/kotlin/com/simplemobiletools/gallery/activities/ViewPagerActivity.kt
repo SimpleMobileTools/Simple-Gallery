@@ -246,6 +246,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 val filename = URLDecoder.decode(file.absolutePath.getFilenameFromPath(), "UTF-8")
                 if (uri.endsWith(filename) && !document.isDirectory) {
                     document.delete()
+                } else {
+                    runOnUiThread {
+                        toast(R.string.unknown_error_occurred)
+                    }
+                    return@Thread
                 }
             } else {
                 file.delete()

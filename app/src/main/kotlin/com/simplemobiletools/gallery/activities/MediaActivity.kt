@@ -235,6 +235,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
 
         Thread({
+            var hadSuccess = false
             files.filter { it.exists() && it.isImageVideoGif() }
                     .forEach {
                         if (needsPermissions) {
@@ -244,13 +245,19 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                             val uri = URLDecoder.decode(document.uri.toString(), "UTF-8")
                             val filename = URLDecoder.decode(it.absolutePath.getFilenameFromPath(), "UTF-8")
                             if (uri.endsWith(filename) && !document.isDirectory) {
-                                document.delete()
+                                if (document.delete())
+                                    hadSuccess = true
                             }
                         } else {
-                            it.delete()
+                            if (it.delete())
+                                hadSuccess = true
                         }
                         deleteFromMediaStore(it)
                     }
+            if (!hadSuccess)
+                runOnUiThread {
+                    toast(R.string.unknown_error_occurred)
+                }
         }).start()
 
         if (mMedia.isEmpty()) {
