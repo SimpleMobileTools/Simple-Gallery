@@ -105,6 +105,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             findItem(R.id.open_camera).isVisible = mShowAll
             findItem(R.id.settings).isVisible = mShowAll
             findItem(R.id.about).isVisible = mShowAll
+
+            findItem(R.id.increase_column_count).isVisible = config.mediaColumnCnt < 10
+            findItem(R.id.reduce_column_count).isVisible = config.mediaColumnCnt > 1
         }
 
         return true
@@ -118,6 +121,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             R.id.folder_view -> switchToFolderView()
             R.id.hide_folder -> hideFolder()
             R.id.unhide_folder -> unhideFolder()
+            R.id.increase_column_count -> increaseColumnCount()
+            R.id.reduce_column_count -> reduceColumnCount()
             R.id.settings -> launchSettings()
             R.id.about -> launchAbout()
             else -> return super.onOptionsItemSelected(item)
@@ -199,18 +204,28 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.ZoomListener {
             override fun zoomIn() {
                 if (layoutManager.spanCount > 1) {
-                    config.mediaColumnCnt = --layoutManager.spanCount
+                    reduceColumnCount()
                     MediaAdapter.actMode?.finish()
                 }
             }
 
             override fun zoomOut() {
                 if (layoutManager.spanCount < 10) {
-                    config.mediaColumnCnt = ++layoutManager.spanCount
+                    increaseColumnCount()
                     MediaAdapter.actMode?.finish()
                 }
             }
         }
+    }
+
+    private fun increaseColumnCount() {
+        config.mediaColumnCnt = ++(media_grid.layoutManager as GridLayoutManager).spanCount
+        invalidateOptionsMenu()
+    }
+
+    private fun reduceColumnCount() {
+        config.mediaColumnCnt = --(media_grid.layoutManager as GridLayoutManager).spanCount
+        invalidateOptionsMenu()
     }
 
     override fun deleteFiles(files: ArrayList<File>) {
