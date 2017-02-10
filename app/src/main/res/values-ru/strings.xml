@@ -82,6 +82,7 @@
     <string name="loop_videos">Повторять видео</string>
 
     <!-- Release notes -->
+    <string name="release_69">Added menu buttons for changing the column count</string>
     <string name="release_66">Добавлена возможность выбирать цвета по hex-кодам</string>
     <string name="release_65">Добавлена возможность показывать место съёмки фото или видео на карте, если указаны координаты</string>
     <string name="release_62">В свойствах фото теперь отображаются некоторые Exif-данные</string>
