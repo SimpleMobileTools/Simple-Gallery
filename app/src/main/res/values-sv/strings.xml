@@ -46,6 +46,8 @@
     <string name="filename_invalid_characters">Filnamnet innehåller ogiltiga tecken</string>
     <string name="extension">Filändelse</string>
     <string name="extension_cannot_be_empty">Filändelsen får inte vara tom</string>
+    <string name="increase_column_count">Increase column count</string>
+    <string name="reduce_column_count">Reduce column count</string>
 
     <!-- Editor -->
     <string name="editor">Redigera</string>

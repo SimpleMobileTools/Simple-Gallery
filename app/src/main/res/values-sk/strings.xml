@@ -23,6 +23,8 @@
     <string name="unknown_location">Neznáma poloha</string>
     <string name="no_map_application">Nenašla sa žiadna mapová aplikácia</string>
     <string name="no_camera_app_found">Nenašla sa žiadna aplikácia pre fotoaparát</string>
+    <string name="increase_column_count">Zvýšiť počet stĺpcov</string>
+    <string name="reduce_column_count">Znížiť počet stĺpcov</string>
 
     <!-- Resizing -->
     <string name="resize">Zmeniť veľkosť</string>

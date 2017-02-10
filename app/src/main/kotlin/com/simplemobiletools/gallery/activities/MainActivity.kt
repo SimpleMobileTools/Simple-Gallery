@@ -70,6 +70,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             return false
 
         menuInflater.inflate(R.menu.menu_main, menu)
+
+        menu.findItem(R.id.increase_column_count).isVisible = config.dirColumnCnt < 10
+        menu.findItem(R.id.reduce_column_count).isVisible = config.dirColumnCnt > 1
         return true
     }
 
@@ -78,6 +81,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             R.id.sort -> showSortingDialog()
             R.id.open_camera -> launchCamera()
             R.id.show_all -> showAllMedia()
+            R.id.increase_column_count -> increaseColumnCount()
+            R.id.reduce_column_count -> reduceColumnCount()
             R.id.settings -> launchSettings()
             R.id.about -> launchAbout()
             else -> return super.onOptionsItemSelected(item)
@@ -216,18 +221,28 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.ZoomListener {
             override fun zoomIn() {
                 if (layoutManager.spanCount > 1) {
-                    config.dirColumnCnt = --layoutManager.spanCount
+                    reduceColumnCount()
                     DirectoryAdapter.actMode?.finish()
                 }
             }
 
             override fun zoomOut() {
                 if (layoutManager.spanCount < 10) {
-                    config.dirColumnCnt = ++layoutManager.spanCount
+                    increaseColumnCount()
                     DirectoryAdapter.actMode?.finish()
                 }
             }
         }
+    }
+
+    private fun increaseColumnCount() {
+        config.dirColumnCnt = ++(directories_grid.layoutManager as GridLayoutManager).spanCount
+        invalidateOptionsMenu()
+    }
+
+    private fun reduceColumnCount() {
+        config.dirColumnCnt = --(directories_grid.layoutManager as GridLayoutManager).spanCount
+        invalidateOptionsMenu()
     }
 
     private fun isPickImageIntent(intent: Intent) = isPickIntent(intent) && (hasImageContentData(intent) || isImageType(intent))
