@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 2.3.8 *(2017-02-10)*
+----------------------------
+
+ * Allow easily changing the column count
+ * Misc performance improvements and bugfixes
+
 Version 2.3.7 *(2017-02-09)*
 ----------------------------
 
