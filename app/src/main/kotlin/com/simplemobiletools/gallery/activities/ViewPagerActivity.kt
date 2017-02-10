@@ -232,34 +232,33 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun deleteFile() {
         val file = File(mMedia[mPos].path)
-        if (isShowingPermDialog(file))
+        val needsPermissions = needsStupidWritePermissions(file.path)
+        if (needsPermissions && isShowingPermDialog(file)) {
             return
+        }
 
-        if (needsStupidWritePermissions(mPath)) {
-            if (!isShowingPermDialog(file)) {
+        Thread({
+            if (needsPermissions) {
                 val document = getFileDocument(mPath, config.treeUri)
 
                 // double check we have the uri to the proper file path, not some parent folder
                 val uri = URLDecoder.decode(document.uri.toString(), "UTF-8")
-                if (uri.endsWith(file.absolutePath.getFilenameFromPath()) && !document.isDirectory) {
-                    Thread({
-                        document.delete()
-                    }).start()
+                val filename = URLDecoder.decode(file.absolutePath.getFilenameFromPath(), "UTF-8")
+                if (uri.endsWith(filename) && !document.isDirectory) {
+                    document.delete()
+                }
+            } else {
+                file.delete()
+            }
+
+            if (deleteFromMediaStore(file)) {
+                reloadViewPager()
+            } else {
+                scanFile(file) {
+                    reloadViewPager()
                 }
             }
-        } else {
-            Thread({
-                file.delete()
-            }).start()
-        }
-
-        if (deleteFromMediaStore(file)) {
-            reloadViewPager()
-        } else {
-            scanFile(file) {
-                reloadViewPager()
-            }
-        }
+        }).start()
     }
 
     private fun isDirEmpty(): Boolean {

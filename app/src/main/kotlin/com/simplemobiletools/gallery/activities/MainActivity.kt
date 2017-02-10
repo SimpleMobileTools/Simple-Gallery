@@ -189,23 +189,25 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun deleteItem(file: File) {
-        if (needsStupidWritePermissions(file.absolutePath)) {
-            if (!isShowingPermDialog(file)) {
+        val needsPermissions = needsStupidWritePermissions(file.path)
+        if (needsPermissions && isShowingPermDialog(file)) {
+            return
+        }
+
+        Thread({
+            if (needsPermissions) {
                 val document = getFileDocument(file.absolutePath, config.treeUri)
 
                 // double check we have the uri to the proper file path, not some parent folder
                 val uri = URLDecoder.decode(document.uri.toString(), "UTF-8")
-                if (uri.endsWith(file.absolutePath.getFilenameFromPath())) {
-                    Thread({
-                        document.delete()
-                    }).start()
+                val filename = URLDecoder.decode(file.absolutePath.getFilenameFromPath(), "UTF-8")
+                if (uri.endsWith(filename)) {
+                    document.delete()
                 }
-            }
-        } else {
-            Thread({
+            } else {
                 file.delete()
-            }).start()
-        }
+            }
+        }).start()
     }
 
     private fun handleZooming() {

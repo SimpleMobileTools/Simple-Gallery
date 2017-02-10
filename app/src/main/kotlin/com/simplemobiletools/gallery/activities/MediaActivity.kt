@@ -214,29 +214,29 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     override fun deleteFiles(files: ArrayList<File>) {
-        files.filter { it.exists() && it.isImageVideoGif() }
-                .forEach {
-                    if (needsStupidWritePermissions(it.absolutePath)) {
-                        if (isShowingPermDialog(it))
-                            return
+        val needsPermissions = needsStupidWritePermissions(files[0].path)
+        if (needsPermissions && isShowingPermDialog(files[0])) {
+            return
+        }
 
-                        val document = getFileDocument(it.absolutePath, config.treeUri)
+        Thread({
+            files.filter { it.exists() && it.isImageVideoGif() }
+                    .forEach {
+                        if (needsPermissions) {
+                            val document = getFileDocument(it.absolutePath, config.treeUri)
 
-                        // double check we have the uri to the proper file path, not some parent folder
-                        val uri = URLDecoder.decode(document.uri.toString(), "UTF-8")
-                        if (uri.endsWith(it.absolutePath.getFilenameFromPath()) && !document.isDirectory) {
-                            Thread({
+                            // double check we have the uri to the proper file path, not some parent folder
+                            val uri = URLDecoder.decode(document.uri.toString(), "UTF-8")
+                            val filename = URLDecoder.decode(it.absolutePath.getFilenameFromPath(), "UTF-8")
+                            if (uri.endsWith(filename) && !document.isDirectory) {
                                 document.delete()
-                            }).start()
-                        }
-                    } else {
-                        Thread({
+                            }
+                        } else {
                             it.delete()
-                        }).start()
+                        }
+                        deleteFromMediaStore(it)
                     }
-
-                    deleteFromMediaStore(it)
-                }
+        }).start()
 
         if (mMedia.isEmpty()) {
             finish()
