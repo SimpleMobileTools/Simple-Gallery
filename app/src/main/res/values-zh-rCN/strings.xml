@@ -60,6 +60,12 @@
     <string name="no_editor_found">没有可用的图片编辑器</string>
     <string name="unknown_file_location">未知文件路径</string>
     <string name="error_saving_file">不能覆盖源文件</string>
+    <string name="rotate_left">Rotate left</string>
+    <string name="rotate_right">Rotate right</string>
+    <string name="rotate_one_eighty">Rotate by 180º</string>
+    <string name="flip">Flip</string>
+    <string name="horizontally">Horizontally</string>
+    <string name="vertically">Vertically</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>

@@ -60,6 +60,12 @@
     <string name="no_editor_found">Nebol nájdený žiadny editor</string>
     <string name="unknown_file_location">Neznáme umiestnenie súboru</string>
     <string name="error_saving_file">Nepodarilo sa prepísať zdrojový súbor</string>
+    <string name="rotate_left">Otočiť vľavo</string>
+    <string name="rotate_right">Otočiť vpravo</string>
+    <string name="rotate_one_eighty">Otočiť o 180º</string>
+    <string name="flip">Preklopiť</string>
+    <string name="horizontally">Vodorovne</string>
+    <string name="vertically">Zvisle</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Jednoduchá tapeta</string>

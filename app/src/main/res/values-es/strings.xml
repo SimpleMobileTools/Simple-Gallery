@@ -60,6 +60,12 @@
     <string name="no_editor_found">No image editor found</string>
     <string name="unknown_file_location">Unknown file location</string>
     <string name="error_saving_file">Could not overwrite the source file</string>
+    <string name="rotate_left">Rotate left</string>
+    <string name="rotate_right">Rotate right</string>
+    <string name="rotate_one_eighty">Rotate by 180º</string>
+    <string name="flip">Flip</string>
+    <string name="horizontally">Horizontally</string>
+    <string name="vertically">Vertically</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>

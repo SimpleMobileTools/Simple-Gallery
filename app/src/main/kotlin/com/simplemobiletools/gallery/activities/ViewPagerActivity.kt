@@ -92,10 +92,21 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.viewpager_menu, menu)
+        menuInflater.inflate(R.menu.menu_viewpager, menu)
 
-        menu.findItem(R.id.menu_set_as_wallpaper).isVisible = getCurrentMedium()?.isImage() == true
-        menu.findItem(R.id.menu_edit).isVisible = getCurrentMedium()?.isImage() == true
+        menu.apply {
+            if (getCurrentMedium()?.isImage() == true) {
+                findItem(R.id.menu_set_as_wallpaper).isVisible = getCurrentMedium()?.isImage() == true
+                findItem(R.id.menu_edit).isVisible = getCurrentMedium()?.isImage() == true
+
+                findItem(R.id.menu_rotate).subMenu.apply {
+                    clearHeader()
+                    findItem(R.id.rotate_right).icon = resources.getColoredDrawable(R.drawable.ic_rotate_right, R.color.actionbar_menu_icon)
+                    findItem(R.id.rotate_left).icon = resources.getColoredDrawable(R.drawable.ic_rotate_left, R.color.actionbar_menu_icon)
+                    findItem(R.id.rotate_one_eighty).icon = resources.getColoredDrawable(R.drawable.ic_rotate_one_eighty, R.color.actionbar_menu_icon)
+                }
+            }
+        }
 
         return true
     }
@@ -114,6 +125,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_edit -> openEditor(getCurrentFile())
             R.id.menu_properties -> showProperties()
             R.id.show_on_map -> showOnMap()
+            R.id.rotate_right -> {}
+            R.id.rotate_left -> {}
+            R.id.rotate_one_eighty -> {}
             else -> return super.onOptionsItemSelected(item)
         }
         return true
