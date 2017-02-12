@@ -22,9 +22,9 @@
     <string name="show_on_map">Mostrar no mapa</string>
     <string name="unknown_location">Localização desconhecida</string>
     <string name="no_map_application">Não existe uma aplicação adequada</string>
-    <string name="no_camera_app_found">No Camera app has been found</string>
-    <string name="increase_column_count">Increase column count</string>
-    <string name="reduce_column_count">Reduce column count</string>
+    <string name="no_camera_app_found">Não existe uma aplicação adequeada</string>
+    <string name="increase_column_count">Aumentar número de colunas</string>
+    <string name="reduce_column_count">Reduzir número de colunas</string>
 
     <!-- Resizing -->
     <string name="resize">Redimensionar</string>
@@ -60,12 +60,12 @@
     <string name="no_editor_found">Editor não encontrado</string>
     <string name="unknown_file_location">Localização desconhecida</string>
     <string name="error_saving_file">Não foi possível substituir o ficheiro original</string>
-    <string name="rotate_left">Rotate left</string>
-    <string name="rotate_right">Rotate right</string>
-    <string name="rotate_one_eighty">Rotate by 180º</string>
-    <string name="flip">Flip</string>
-    <string name="horizontally">Horizontally</string>
-    <string name="vertically">Vertically</string>
+    <string name="rotate_left">Rodar à esquerda</string>
+    <string name="rotate_right">Rodar à direita</string>
+    <string name="rotate_one_eighty">Rodar 180º</string>
+    <string name="flip">Inverter</string>
+    <string name="horizontally">Horizontalmente</string>
+    <string name="vertically">Verticalmente</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
