@@ -55,7 +55,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         media_holder.setOnRefreshListener({ getMedia() })
         mPath = intent.getStringExtra(DIRECTORY)
-        mMedia = ArrayList<Medium>()
         mShowAll = config.showAll
         if (mShowAll)
             supportActionBar?.setDisplayHomeAsUpEnabled(false)
@@ -164,7 +163,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun deleteDirectoryIfEmpty() {
         val file = File(mPath)
-        if (file.isDirectory && file.listFiles().isEmpty()) {
+        if (file.isDirectory && file.listFiles()?.isEmpty() == true) {
             file.delete()
         }
     }
