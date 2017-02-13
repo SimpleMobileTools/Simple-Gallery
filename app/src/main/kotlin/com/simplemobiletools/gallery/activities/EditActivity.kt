@@ -149,6 +149,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             Log.e(TAG, "Crop compressing failed $path $e")
             toast(R.string.image_editing_failed)
             finish()
+        } catch (e: OutOfMemoryError) {
+            toast(R.string.unknown_error_occurred)
         } finally {
             try {
                 out?.close()
