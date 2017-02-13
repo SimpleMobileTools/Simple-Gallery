@@ -21,6 +21,7 @@ import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.dialogs.RenameFileDialog
 import com.simplemobiletools.gallery.extensions.*
+import com.simplemobiletools.gallery.fragments.PhotoFragment
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.helpers.REQUEST_EDIT_IMAGE
@@ -39,6 +40,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mIsFullScreen = false
     private var mPos = -1
     private var mShowAll = false
+    private var mRotationDegrees = 0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -125,9 +127,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_edit -> openEditor(getCurrentFile())
             R.id.menu_properties -> showProperties()
             R.id.show_on_map -> showOnMap()
-            R.id.rotate_right -> {}
-            R.id.rotate_left -> {}
-            R.id.rotate_one_eighty -> {}
+            R.id.rotate_right -> rotateImageRight()
+            R.id.rotate_left -> rotateImageLeft()
+            R.id.rotate_one_eighty -> rotateImageOneEighty()
             else -> return super.onOptionsItemSelected(item)
         }
         return true
@@ -160,6 +162,23 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         })
     }
+
+    private fun rotateImageRight() {
+        mRotationDegrees += 90
+        getCurrentFragment().rotateImageViewBy(mRotationDegrees)
+    }
+
+    private fun rotateImageLeft() {
+        mRotationDegrees -= 90
+        getCurrentFragment().rotateImageViewBy(mRotationDegrees)
+    }
+
+    private fun rotateImageOneEighty() {
+        mRotationDegrees += 180
+        getCurrentFragment().rotateImageViewBy(mRotationDegrees)
+    }
+
+    private fun getCurrentFragment() = ((view_pager.adapter as MyPagerAdapter).getCurrentFragment(view_pager.currentItem) as PhotoFragment)
 
     private fun showProperties() {
         if (getCurrentMedium() != null)

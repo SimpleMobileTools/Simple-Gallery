@@ -144,17 +144,19 @@ class PhotoFragment : ViewPagerFragment() {
                     }
 
                     override fun onResourceReady(bitmap: Bitmap?, model: String?, target: Target<Bitmap>?, isFromMemoryCache: Boolean, isFirstResource: Boolean): Boolean {
-                        if (degrees == 0f)
+                        if (degrees == 0f) {
                             addZoomableView()
+                        } else {
+                            photo_view.beVisible()
+                            subsampling_view.beGone()
+                        }
                         return false
                     }
                 }).into(glideView)
     }
 
     fun rotateImageViewBy(degrees: Float) {
-        loadBitmap(degrees)
-        photo_view.beVisible()
-        subsampling_view.beGone()
+        loadBitmap(degrees % 360)
     }
 
     private fun addZoomableView() {
