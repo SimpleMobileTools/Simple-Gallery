@@ -95,18 +95,19 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_viewpager, menu)
+        if (getCurrentMedium() == null)
+            return true
 
         menu.apply {
-            if (getCurrentMedium()?.isImage() == true) {
-                findItem(R.id.menu_set_as_wallpaper).isVisible = getCurrentMedium()?.isImage() == true
-                findItem(R.id.menu_edit).isVisible = getCurrentMedium()?.isImage() == true
+            findItem(R.id.menu_set_as_wallpaper).isVisible = getCurrentMedium()!!.isImage() == true
+            findItem(R.id.menu_edit).isVisible = getCurrentMedium()!!.isImage() == true
+            findItem(R.id.menu_rotate).isVisible = getCurrentMedium()!!.isImage() == true
 
-                findItem(R.id.menu_rotate).subMenu.apply {
-                    clearHeader()
-                    findItem(R.id.rotate_right).icon = resources.getColoredDrawable(R.drawable.ic_rotate_right, R.color.actionbar_menu_icon)
-                    findItem(R.id.rotate_left).icon = resources.getColoredDrawable(R.drawable.ic_rotate_left, R.color.actionbar_menu_icon)
-                    findItem(R.id.rotate_one_eighty).icon = resources.getColoredDrawable(R.drawable.ic_rotate_one_eighty, R.color.actionbar_menu_icon)
-                }
+            findItem(R.id.menu_rotate).subMenu.apply {
+                clearHeader()
+                findItem(R.id.rotate_right).icon = resources.getColoredDrawable(R.drawable.ic_rotate_right, R.color.actionbar_menu_icon)
+                findItem(R.id.rotate_left).icon = resources.getColoredDrawable(R.drawable.ic_rotate_left, R.color.actionbar_menu_icon)
+                findItem(R.id.rotate_one_eighty).icon = resources.getColoredDrawable(R.drawable.ic_rotate_one_eighty, R.color.actionbar_menu_icon)
             }
         }
 
