@@ -188,7 +188,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 fOut.flush()
                 toast(R.string.file_saved)
             } catch (e: OutOfMemoryError) {
-                toast(R.string.unknown_error_occurred)
+                toast(R.string.out_of_memory_error)
             } catch (e: Exception) {
                 toast(R.string.unknown_error_occurred)
             } finally {

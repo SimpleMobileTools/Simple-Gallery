@@ -150,7 +150,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             toast(R.string.image_editing_failed)
             finish()
         } catch (e: OutOfMemoryError) {
-            toast(R.string.unknown_error_occurred)
+            toast(R.string.out_of_memory_error)
         } finally {
             try {
                 out?.close()
