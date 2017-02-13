@@ -15,7 +15,6 @@ import com.simplemobiletools.gallery.helpers.VIDEOS
 import java.io.File
 import java.util.*
 
-
 fun Context.getRealPathFromURI(uri: Uri): String? {
     var cursor: Cursor? = null
     try {

@@ -66,6 +66,7 @@
     <string name="flip">Preklopiť</string>
     <string name="horizontally">Vodorovne</string>
     <string name="vertically">Zvisle</string>
+    <string name="out_of_memory_error">Došlo k chybe s nedostatkom pamäte</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Jednoduchá tapeta</string>

@@ -3,6 +3,9 @@ package com.simplemobiletools.gallery.activities
 import android.app.Activity
 import android.content.Intent
 import android.database.Cursor
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Matrix
 import android.media.ExifInterface
 import android.net.Uri
 import android.os.Bundle
@@ -30,8 +33,10 @@ import com.simplemobiletools.gallery.helpers.REQUEST_SET_WALLPAPER
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_medium.*
 import java.io.File
+import java.io.FileOutputStream
 import java.net.URLDecoder
 import java.util.*
+
 
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
     private var mMedia = ArrayList<Medium>()
@@ -168,8 +173,27 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun saveImageAs() {
-        SaveAsDialog(this, getCurrentMedium()!!.path) {
+        val currPath = getCurrentMedium()!!.path
+        SaveAsDialog(this, currPath) {
+            var fOut: FileOutputStream? = null
+            try {
+                var bitmap = BitmapFactory.decodeFile(currPath)
+                val matrix = Matrix()
+                matrix.postRotate(mRotationDegrees)
+                bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
 
+                val file = File(it)
+                fOut = FileOutputStream(file)
+                bitmap.compress(file.getCompressionFormat(), 90, fOut)
+                fOut.flush()
+                toast(R.string.file_saved)
+            } catch (e: OutOfMemoryError) {
+                toast(R.string.unknown_error_occurred)
+            } catch (e: Exception) {
+                toast(R.string.unknown_error_occurred)
+            } finally {
+                fOut?.close()
+            }
         }
     }
 

@@ -16,6 +16,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.ResizeDialog
 import com.simplemobiletools.gallery.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.extensions.config
+import com.simplemobiletools.gallery.extensions.getCompressionFormat
 import com.simplemobiletools.gallery.extensions.getRealPathFromURI
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_edit.*
@@ -139,9 +140,9 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
             if (resizeWidth > 0 && resizeHeight > 0) {
                 val resized = Bitmap.createScaledBitmap(bitmap, resizeWidth, resizeHeight, false)
-                resized.compress(getCompressionFormat(file), 90, out)
+                resized.compress(file.getCompressionFormat(), 90, out)
             } else {
-                bitmap.compress(getCompressionFormat(file), 90, out)
+                bitmap.compress(file.getCompressionFormat(), 90, out)
             }
             setResult(Activity.RESULT_OK, intent)
         } catch (e: Exception) {
@@ -163,14 +164,6 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             }
 
             finish()
-        }
-    }
-
-    private fun getCompressionFormat(file: File): Bitmap.CompressFormat {
-        return when (file.extension.toLowerCase()) {
-            "png" -> Bitmap.CompressFormat.PNG
-            "webp" -> Bitmap.CompressFormat.WEBP
-            else -> Bitmap.CompressFormat.JPEG
         }
     }
 }

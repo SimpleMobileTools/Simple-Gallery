@@ -66,6 +66,7 @@
     <string name="flip">Flip</string>
     <string name="horizontally">Horizontally</string>
     <string name="vertically">Vertically</string>
+    <string name="out_of_memory_error">Out of memory error</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Sfondo Semplice</string>
