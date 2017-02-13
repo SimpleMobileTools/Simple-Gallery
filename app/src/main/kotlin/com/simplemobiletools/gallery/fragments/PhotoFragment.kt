@@ -16,12 +16,16 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.davemorrissey.labs.subscaleview.ImageSource
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
+import com.simplemobiletools.commons.extensions.beGone
+import com.simplemobiletools.commons.extensions.beVisible
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.getRealPathFromURI
+import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 import it.sephiroth.android.library.exif2.ExifInterface
+import kotlinx.android.synthetic.main.pager_photo_item.*
 import kotlinx.android.synthetic.main.pager_photo_item.view.*
 import uk.co.senab.photoview.PhotoView
 import uk.co.senab.photoview.PhotoViewAttacher
@@ -86,7 +90,7 @@ class PhotoFragment : ViewPagerFragment() {
                 }
             })
         }
-        loadImage(medium)
+        loadImage()
 
         activity.window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
             listener?.systemUiVisibilityChanged(visibility)
@@ -115,7 +119,7 @@ class PhotoFragment : ViewPagerFragment() {
         }
     }
 
-    private fun loadImage(medium: Medium) {
+    private fun loadImage() {
         if (medium.isGif()) {
             Glide.with(this)
                     .load(medium.path)
@@ -123,28 +127,40 @@ class PhotoFragment : ViewPagerFragment() {
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .into(glideView)
         } else {
-            Glide.with(this)
-                    .load(medium.path)
-                    .asBitmap()
-                    .format(if (medium.isPng()) DecodeFormat.PREFER_ARGB_8888 else DecodeFormat.PREFER_RGB_565)
-                    .diskCacheStrategy(DiskCacheStrategy.NONE)
-                    .listener(object : RequestListener<String, Bitmap> {
-                        override fun onException(e: Exception?, model: String?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
-                            return false
-                        }
-
-                        override fun onResourceReady(bitmap: Bitmap?, model: String?, target: Target<Bitmap>?, isFromMemoryCache: Boolean, isFirstResource: Boolean): Boolean {
-                            addZoomableView()
-                            return false
-                        }
-                    }).into(glideView)
+            loadBitmap()
         }
+    }
+
+    private fun loadBitmap(degrees: Float = 0f) {
+        Glide.with(this)
+                .load(medium.path)
+                .asBitmap()
+                .transform(GlideRotateTransformation(context, degrees))
+                .format(if (medium.isPng()) DecodeFormat.PREFER_ARGB_8888 else DecodeFormat.PREFER_RGB_565)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .listener(object : RequestListener<String, Bitmap> {
+                    override fun onException(e: Exception?, model: String?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
+                        return false
+                    }
+
+                    override fun onResourceReady(bitmap: Bitmap?, model: String?, target: Target<Bitmap>?, isFromMemoryCache: Boolean, isFirstResource: Boolean): Boolean {
+                        if (degrees == 0f)
+                            addZoomableView()
+                        return false
+                    }
+                }).into(glideView)
+    }
+
+    fun rotateImageViewBy(degrees: Float) {
+        loadBitmap(degrees)
+        photo_view.beVisible()
+        subsampling_view.beGone()
     }
 
     private fun addZoomableView() {
         if (!medium.isPng()) {
             subsamplingView.apply {
-                visibility = View.VISIBLE
+                beVisible()
                 setDoubleTapZoomScale(1.2f)
                 setImage(ImageSource.uri(medium.path))
                 orientation = SubsamplingScaleImageView.ORIENTATION_USE_EXIF
@@ -154,7 +170,7 @@ class PhotoFragment : ViewPagerFragment() {
                     }
 
                     override fun onReady() {
-                        glideView.visibility = View.GONE
+                        glideView.beGone()
                         glideView.setImageBitmap(null)
                     }
 
@@ -165,7 +181,7 @@ class PhotoFragment : ViewPagerFragment() {
                     }
 
                     override fun onImageLoadError(p0: Exception?) {
-                        visibility = View.GONE
+                        beGone()
                     }
 
                     override fun onPreviewLoadError(p0: Exception?) {
@@ -177,7 +193,7 @@ class PhotoFragment : ViewPagerFragment() {
 
     override fun onConfigurationChanged(newConfig: Configuration?) {
         super.onConfigurationChanged(newConfig)
-        loadImage(medium)
+        loadImage()
     }
 
     private fun photoClicked() {
