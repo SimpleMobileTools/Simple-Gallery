@@ -74,8 +74,8 @@ class PhotoFragment : ViewPagerFragment() {
             }
         }
 
-        subsamplingView = view.photo_view.apply { setOnClickListener({ photoClicked() }) }
-        glideView = view.glide_view.apply {
+        subsamplingView = view.subsampling_view.apply { setOnClickListener({ photoClicked() }) }
+        glideView = view.photo_view.apply {
             setOnPhotoTapListener(object : PhotoViewAttacher.OnPhotoTapListener {
                 override fun onPhotoTap(view: View?, x: Float, y: Float) {
                     photoClicked()

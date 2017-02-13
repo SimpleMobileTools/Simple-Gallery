@@ -6,12 +6,12 @@
     android:layout_height="match_parent">
 
     <uk.co.senab.photoview.PhotoView
-        android:id="@+id/glide_view"
+        android:id="@+id/photo_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
     <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
-        android:id="@+id/photo_view"
+        android:id="@+id/subsampling_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"/>
