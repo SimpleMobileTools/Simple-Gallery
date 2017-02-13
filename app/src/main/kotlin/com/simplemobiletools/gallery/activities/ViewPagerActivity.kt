@@ -20,6 +20,7 @@ import com.simplemobiletools.gallery.adapters.MyPagerAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.dialogs.RenameFileDialog
+import com.simplemobiletools.gallery.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.fragments.PhotoFragment
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment
@@ -102,6 +103,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_set_as_wallpaper).isVisible = getCurrentMedium()!!.isImage() == true
             findItem(R.id.menu_edit).isVisible = getCurrentMedium()!!.isImage() == true
             findItem(R.id.menu_rotate).isVisible = getCurrentMedium()!!.isImage() == true
+            findItem(R.id.menu_save_as).isVisible = mRotationDegrees != 0f
 
             findItem(R.id.menu_rotate).subMenu.apply {
                 clearHeader()
@@ -127,10 +129,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_rename -> renameFile()
             R.id.menu_edit -> openEditor(getCurrentFile())
             R.id.menu_properties -> showProperties()
+            R.id.menu_save_as -> saveImageAs()
             R.id.show_on_map -> showOnMap()
-            R.id.rotate_right -> rotateImageRight()
-            R.id.rotate_left -> rotateImageLeft()
-            R.id.rotate_one_eighty -> rotateImageOneEighty()
+            R.id.rotate_right -> rotateImage(90f)
+            R.id.rotate_left -> rotateImage(-90f)
+            R.id.rotate_one_eighty -> rotateImage(180f)
             else -> return super.onOptionsItemSelected(item)
         }
         return true
@@ -164,19 +167,16 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         })
     }
 
-    private fun rotateImageRight() {
-        mRotationDegrees += 90
-        getCurrentFragment().rotateImageViewBy(mRotationDegrees)
+    private fun saveImageAs() {
+        SaveAsDialog(this, getCurrentMedium()!!.path) {
+
+        }
     }
 
-    private fun rotateImageLeft() {
-        mRotationDegrees -= 90
+    private fun rotateImage(degrees: Float) {
+        mRotationDegrees = (mRotationDegrees + degrees) % 360
         getCurrentFragment().rotateImageViewBy(mRotationDegrees)
-    }
-
-    private fun rotateImageOneEighty() {
-        mRotationDegrees += 180
-        getCurrentFragment().rotateImageViewBy(mRotationDegrees)
+        supportInvalidateOptionsMenu()
     }
 
     private fun getCurrentFragment() = ((view_pager.adapter as MyPagerAdapter).getCurrentFragment(view_pager.currentItem) as PhotoFragment)
@@ -395,6 +395,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun onPageSelected(position: Int) {
         mPos = position
         updateActionbarTitle()
+        mRotationDegrees = 0f
         supportInvalidateOptionsMenu()
     }
 

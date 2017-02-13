@@ -156,7 +156,7 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     fun rotateImageViewBy(degrees: Float) {
-        loadBitmap(degrees % 360)
+        loadBitmap(degrees)
     }
 
     private fun addZoomableView() {
