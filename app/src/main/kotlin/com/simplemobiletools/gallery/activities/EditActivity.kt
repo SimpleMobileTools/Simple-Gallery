@@ -22,7 +22,6 @@ import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_edit.*
 import java.io.File
 import java.io.FileOutputStream
-import java.io.IOException
 import java.io.OutputStream
 
 class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener {
@@ -152,11 +151,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         } catch (e: OutOfMemoryError) {
             toast(R.string.out_of_memory_error)
         } finally {
-            try {
-                out?.close()
-            } catch (e: IOException) {
-                Log.e(TAG, "FileOutputStream closing failed $e")
-            }
+            out?.close()
         }
 
         scanPath(path) {

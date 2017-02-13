@@ -34,6 +34,7 @@ import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_medium.*
 import java.io.File
 import java.io.FileOutputStream
+import java.io.OutputStream
 import java.net.URLDecoder
 import java.util.*
 
@@ -175,24 +176,40 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun saveImageAs() {
         val currPath = getCurrentMedium()!!.path
         SaveAsDialog(this, currPath) {
-            var fOut: FileOutputStream? = null
+            var out: OutputStream? = null
             try {
+                val file = File(it)
+                if (file.exists()) {
+                    toast(R.string.file_exists)
+                    return@SaveAsDialog
+                }
+
                 var bitmap = BitmapFactory.decodeFile(currPath)
+                if (needsStupidWritePermissions(it)) {
+                    if (isShowingPermDialog(file))
+                        return@SaveAsDialog
+
+                    var document = getFileDocument(it, config.treeUri)
+                    if (!file.exists()) {
+                        document = document.createFile("", file.name)
+                    }
+                    out = contentResolver.openOutputStream(document.uri)
+                } else {
+                    out = FileOutputStream(file)
+                }
+
                 val matrix = Matrix()
                 matrix.postRotate(mRotationDegrees)
                 bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
-
-                val file = File(it)
-                fOut = FileOutputStream(file)
-                bitmap.compress(file.getCompressionFormat(), 90, fOut)
-                fOut.flush()
+                bitmap.compress(file.getCompressionFormat(), 90, out)
+                out?.flush()
                 toast(R.string.file_saved)
             } catch (e: OutOfMemoryError) {
                 toast(R.string.out_of_memory_error)
             } catch (e: Exception) {
                 toast(R.string.unknown_error_occurred)
             } finally {
-                fOut?.close()
+                out?.close()
             }
         }
     }
