@@ -253,7 +253,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         Thread({
             if (needsPermissions) {
-                val document = getFileDocument(mPath, config.treeUri)
+                val document = getFileDocument(file.absolutePath, config.treeUri)
 
                 // double check we have the uri to the proper file path, not some parent folder
                 val uri = URLDecoder.decode(document.uri.toString(), "UTF-8")
