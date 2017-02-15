@@ -147,10 +147,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun updatePagerItems() {
         val pagerAdapter = MyPagerAdapter(this, supportFragmentManager, mMedia)
-        view_pager?.apply {
-            adapter = pagerAdapter
-            currentItem = mPos
-            addOnPageChangeListener(this@ViewPagerActivity)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && !isDestroyed) {
+            view_pager?.apply {
+                adapter = pagerAdapter
+                currentItem = mPos
+                addOnPageChangeListener(this@ViewPagerActivity)
+            }
         }
     }
 
