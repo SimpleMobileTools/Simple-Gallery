@@ -22,9 +22,9 @@
     <string name="show_on_map">Показать место съёмки</string>
     <string name="unknown_location">Место съёмки не указано</string>
     <string name="no_map_application">Не найдено приложений с картами</string>
-    <string name="no_camera_app_found">No Camera app has been found</string>
-    <string name="increase_column_count">Increase column count</string>
-    <string name="reduce_column_count">Reduce column count</string>
+    <string name="no_camera_app_found">Не найдено приложения камеры</string>
+    <string name="increase_column_count">Добавить 1 столбец</string>
+    <string name="reduce_column_count">Убрать 1 столбец</string>
 
     <!-- Resizing -->
     <string name="resize">Изменить размер</string>
@@ -60,13 +60,13 @@
     <string name="no_editor_found">Ни одного редактора изображений не найдено</string>
     <string name="unknown_file_location">Неизвестное местоположение файла</string>
     <string name="error_saving_file">Не удалось перезаписать исходный файл</string>
-    <string name="rotate_left">Rotate left</string>
-    <string name="rotate_right">Rotate right</string>
-    <string name="rotate_one_eighty">Rotate by 180º</string>
-    <string name="flip">Flip</string>
-    <string name="horizontally">Horizontally</string>
-    <string name="vertically">Vertically</string>
-    <string name="out_of_memory_error">Out of memory error</string>
+    <string name="rotate_left">Повернуть влево</string>
+    <string name="rotate_right">Повернуть вправо</string>
+    <string name="rotate_one_eighty">Перевернуть на 180º</string>
+    <string name="flip">Отразить</string>
+    <string name="horizontally">По горизонтали</string>
+    <string name="vertically">По вертикали</string>
+    <string name="out_of_memory_error">Память переполнена</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Простые обои</string>
@@ -74,7 +74,7 @@
     <string name="set_as_wallpaper_failed">Установить не удалось</string>
     <string name="set_as_wallpaper_with">Установить в качестве обоев в:</string>
     <string name="no_wallpaper_setter_found">Приложение не найдено</string>
-    <string name="setting_wallpaper">Установка обоев ...</string>
+    <string name="setting_wallpaper">Установка обоев&#8230;</string>
     <string name="wallpaper_set_successfully">Обои успешно установлены</string>
 
     <!-- Settings -->
@@ -90,10 +90,10 @@
 
     <!-- Release notes -->
     <string name="release_70">
-        Added menu items for easy image rotating in fullscreen view\n
-        Allow flipping images horizontally and vertically in the editor
+        Добавлены элементы меню, позволяющие легко повернуть изображение в полноэкранном режиме\n
+        Добавлена возможность отразить изобржение в редакторе по вертикали и горизонтали
     </string>
-    <string name="release_69">Added menu buttons for changing the column count</string>
+    <string name="release_69">В меню добавлены кнопки для изменения количества столбцов на гравном экране</string>
     <string name="release_66">Добавлена возможность выбирать цвета по hex-кодам</string>
     <string name="release_65">Добавлена возможность показывать место съёмки фото или видео на карте, если указаны координаты</string>
     <string name="release_62">В свойствах фото теперь отображаются некоторые Exif-данные</string>
