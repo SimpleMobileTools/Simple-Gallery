@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 2.3.9 *(2017-02-17)*
+----------------------------
+
+ * Add a rotate option at fullscreen view
+ * Attempt to fix delete issues from some devices with SD cards
+
 Version 2.3.8 *(2017-02-10)*
 ----------------------------
 
