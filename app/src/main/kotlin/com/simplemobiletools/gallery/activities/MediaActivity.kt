@@ -237,19 +237,20 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             var hadSuccess = false
             files.filter { it.exists() && it.isImageVideoGif() }
                     .forEach {
-                        if (needsPermissions) {
-                            val document = getFileDocument(it.absolutePath, config.treeUri)
+                        if (!it.delete()) {
+                            if (needsPermissions) {
+                                val document = getFileDocument(it.absolutePath, config.treeUri)
 
-                            // double check we have the uri to the proper file path, not some parent folder
-                            val uri = URLDecoder.decode(document.uri.toString(), "UTF-8")
-                            val filename = URLDecoder.decode(it.absolutePath.getFilenameFromPath(), "UTF-8")
-                            if (uri.endsWith(filename) && !document.isDirectory) {
-                                if (document.delete())
-                                    hadSuccess = true
-                            }
-                        } else {
-                            if (it.delete())
+                                // double check we have the uri to the proper file path, not some parent folder
+                                val uri = URLDecoder.decode(document.uri.toString(), "UTF-8")
+                                val filename = URLDecoder.decode(it.absolutePath.getFilenameFromPath(), "UTF-8")
+                                if (uri.endsWith(filename) && !document.isDirectory) {
+                                    if (document.delete())
+                                        hadSuccess = true
+                                }
+                            } else {
                                 hadSuccess = true
+                            }
                         }
                         deleteFromMediaStore(it)
                     }

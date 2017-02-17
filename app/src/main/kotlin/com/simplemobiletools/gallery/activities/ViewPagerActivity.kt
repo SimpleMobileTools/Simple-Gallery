@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.media.ExifInterface
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v4.view.ViewPager
@@ -286,7 +287,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         return (floatD + floatM / 60 + floatS / 3600).toFloat()
     }
 
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
         if (requestCode == REQUEST_EDIT_IMAGE) {
             if (resultCode == Activity.RESULT_OK && resultData != null) {
@@ -314,23 +314,23 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
-        Thread({
-            if (needsPermissions) {
-                val document = getFileDocument(file.absolutePath, config.treeUri)
+        Thread {
+            if (!file.delete()) {
+                if (needsPermissions) {
+                    val document = getFileDocument(file.absolutePath, config.treeUri)
 
-                // double check we have the uri to the proper file path, not some parent folder
-                val uri = URLDecoder.decode(document.uri.toString(), "UTF-8")
-                val filename = URLDecoder.decode(file.absolutePath.getFilenameFromPath(), "UTF-8")
-                if (uri.endsWith(filename) && !document.isDirectory) {
-                    document.delete()
-                } else {
-                    runOnUiThread {
-                        toast(R.string.unknown_error_occurred)
+                    // double check we have the uri to the proper file path, not some parent folder
+                    val uri = URLDecoder.decode(document.uri.toString(), "UTF-8")
+                    val filename = URLDecoder.decode(file.absolutePath.getFilenameFromPath(), "UTF-8")
+                    if (uri.endsWith(filename) && !document.isDirectory) {
+                        document.delete()
+                    } else {
+                        runOnUiThread {
+                            toast(R.string.unknown_error_occurred)
+                        }
+                        return@Thread
                     }
-                    return@Thread
                 }
-            } else {
-                file.delete()
             }
 
             if (deleteFromMediaStore(file)) {
@@ -340,7 +340,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     reloadViewPager()
                 }
             }
-        }).start()
+        }.start()
     }
 
     private fun isDirEmpty(): Boolean {
