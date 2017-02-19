@@ -50,7 +50,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
         val files = dir.listFiles() ?: return media
         for (file in files) {
             val isImage = file.isImageFast() || file.isGif()
-            val isVideo = file.isVideoFast()
+            val isVideo = if (isImage) false else file.isVideoFast()
 
             if (!isImage && !isVideo)
                 continue
