@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.dialogs
 
+import android.provider.DocumentsContract
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.WindowManager
@@ -57,9 +58,12 @@ class RenameFileDialog(val activity: SimpleActivity, val file: File, val callbac
                     if (activity.isShowingPermDialog(file))
                         return@setOnClickListener
 
-                    val document = context.getFileDocument(file.absolutePath, context.config.treeUri)
-                    if (document.canWrite())
-                        document.renameTo(newFile.name)
+                    var document = context.getFastDocument(file)
+                    if (!document.isFile) {
+                        document = context.getFileDocument(file.absolutePath, context.config.treeUri)
+                    }
+
+                    DocumentsContract.renameDocument(context.contentResolver, document.uri, newFile.name)
                     sendSuccess(file, newFile)
                     dismiss()
                 } else if (file.renameTo(newFile)) {
