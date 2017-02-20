@@ -2,9 +2,6 @@ package com.simplemobiletools.gallery.asynctasks
 
 import android.content.Context
 import android.os.AsyncTask
-import com.simplemobiletools.commons.extensions.isGif
-import com.simplemobiletools.commons.extensions.isImageFast
-import com.simplemobiletools.commons.extensions.isVideoFast
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getParents
 import com.simplemobiletools.gallery.helpers.IMAGES
@@ -20,6 +17,8 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
     var config = context.config
     var showMedia = IMAGES_AND_VIDEOS
     var fileSorting = 0
+    val photoExtensions = arrayOf("jpg", "png", "jpeg", "bmp", "webp", "tiff")
+    val videoExtensions = arrayOf("webm", "mkv", "flv", "vob", "avi", "wmv", "mp4", "ogv", "qt", "m4p", "mpg", "m4v", "mp2", "mpeg", "3gp")
 
     override fun onPreExecute() {
         super.onPreExecute()
@@ -49,8 +48,9 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
         val dir = File(path)
         val files = dir.listFiles() ?: return media
         for (file in files) {
-            val isImage = file.isImageFast() || file.isGif()
-            val isVideo = if (isImage) false else file.isVideoFast()
+            val filePath = file.absolutePath
+            val isImage = localIsImage(filePath) || localIsGif(filePath)
+            val isVideo = if (isImage) false else localIsVideo(filePath)
 
             if (!isImage && !isVideo)
                 continue
@@ -68,10 +68,14 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
             val name = file.name
             val absolutePath = file.absolutePath
             val dateModified = file.lastModified()
-            media.add(Medium(name, absolutePath, isVideo, dateModified, dateModified, size))
+            media.add(Medium(name, absolutePath, isVideo, dateModified, dateModified, 0))
         }
         return media
     }
+
+    private fun localIsImage(path: String) = photoExtensions.any { path.endsWith(".$it", true) }
+    private fun localIsGif(path: String) = path.endsWith(".gif", true)
+    private fun localIsVideo(path: String) = videoExtensions.any { path.endsWith(".$it", true) }
 
     override fun onPostExecute(media: ArrayList<Medium>) {
         super.onPostExecute(media)
