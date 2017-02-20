@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 2.4.0 *(2017-02-20)*
+----------------------------
+
+ * Improve the performance of loading the images, deleting and renaming
+ * Couple other bug and crashfixes
+
 Version 2.3.9 *(2017-02-17)*
 ----------------------------
 
