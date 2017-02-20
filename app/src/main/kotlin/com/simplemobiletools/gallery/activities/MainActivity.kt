@@ -194,22 +194,19 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun deleteItem(file: File) {
-        val needsPermissions = needsStupidWritePermissions(file.path)
-        if (needsPermissions && isShowingPermDialog(file)) {
+        if (needsStupidWritePermissions(file.path) && isShowingPermDialog(file)) {
             return
         }
 
         Thread({
             if (!file.delete()) {
-                if (needsPermissions) {
-                    val document = getFileDocument(file.absolutePath, config.treeUri)
+                val document = getFileDocument(file.absolutePath, config.treeUri)
 
-                    // double check we have the uri to the proper file path, not some parent folder
-                    val uri = URLDecoder.decode(document.uri.toString(), "UTF-8")
-                    val filename = URLDecoder.decode(file.absolutePath.getFilenameFromPath(), "UTF-8")
-                    if (uri.endsWith(filename)) {
-                        document.delete()
-                    }
+                // double check we have the uri to the proper file path, not some parent folder
+                val uri = URLDecoder.decode(document.uri.toString(), "UTF-8")
+                val filename = URLDecoder.decode(file.absolutePath.getFilenameFromPath(), "UTF-8")
+                if (uri.endsWith(filename)) {
+                    document.delete()
                 }
             }
         }).start()

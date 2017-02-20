@@ -27,7 +27,6 @@ import com.simplemobiletools.gallery.views.MyScalableRecyclerView
 import kotlinx.android.synthetic.main.activity_media.*
 import java.io.File
 import java.io.IOException
-import java.net.URLDecoder
 import java.util.*
 
 class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
@@ -228,8 +227,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     override fun deleteFiles(files: ArrayList<File>) {
-        val needsPermissions = needsStupidWritePermissions(files[0].path)
-        if (needsPermissions && isShowingPermDialog(files[0])) {
+        if (needsStupidWritePermissions(files[0].path) && isShowingPermDialog(files[0])) {
             return
         }
 
@@ -237,18 +235,11 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             var hadSuccess = false
             files.filter { it.exists() && it.isImageVideoGif() }
                     .forEach {
-                        if (!it.delete()) {
-                            if (needsPermissions) {
-                                val document = getFileDocument(it.absolutePath, config.treeUri)
-
-                                // double check we have the uri to the proper file path, not some parent folder
-                                val uri = URLDecoder.decode(document.uri.toString(), "UTF-8")
-                                val filename = URLDecoder.decode(it.absolutePath.getFilenameFromPath(), "UTF-8")
-                                if (uri.endsWith(filename) && !document.isDirectory) {
-                                    if (document.delete())
-                                        hadSuccess = true
-                                }
-                            } else {
+                        if (it.delete() || tryFastDocumentDelete(it)) {
+                            hadSuccess = true
+                        } else {
+                            val document = getFileDocument(it.absolutePath, config.treeUri)
+                            if (document.isFile && document.delete()) {
                                 hadSuccess = true
                             }
                         }

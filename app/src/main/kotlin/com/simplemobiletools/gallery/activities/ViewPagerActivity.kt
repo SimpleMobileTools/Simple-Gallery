@@ -36,7 +36,6 @@ import kotlinx.android.synthetic.main.activity_medium.*
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
-import java.net.URLDecoder
 import java.util.*
 
 
@@ -309,27 +308,19 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun deleteFile() {
         val file = File(mMedia[mPos].path)
-        val needsPermissions = needsStupidWritePermissions(file.path)
-        if (needsPermissions && isShowingPermDialog(file)) {
+        if (needsStupidWritePermissions(file.path) && isShowingPermDialog(file)) {
             return
         }
 
         Thread {
-            if (!file.delete()) {
-                if (needsPermissions) {
-                    val document = getFileDocument(file.absolutePath, config.treeUri)
+            if (!file.delete() && !tryFastDocumentDelete(file)) {
+                val document = getFileDocument(file.absolutePath, config.treeUri)
 
-                    // double check we have the uri to the proper file path, not some parent folder
-                    val uri = URLDecoder.decode(document.uri.toString(), "UTF-8")
-                    val filename = URLDecoder.decode(file.absolutePath.getFilenameFromPath(), "UTF-8")
-                    if (uri.endsWith(filename) && !document.isDirectory) {
-                        document.delete()
-                    } else {
-                        runOnUiThread {
-                            toast(R.string.unknown_error_occurred)
-                        }
-                        return@Thread
+                if (!document.isFile || !document.delete()) {
+                    runOnUiThread {
+                        toast(R.string.unknown_error_occurred)
                     }
+                    return@Thread
                 }
             }
 
