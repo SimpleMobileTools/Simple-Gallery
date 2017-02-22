@@ -89,6 +89,7 @@
     <string name="loop_videos">Automaticky reštartovať videá</string>
 
     <!-- Release notes -->
+    <string name="release_72">Bolo pridané správne ukrývanie priečinkov pomocou súboru .nomedia</string>
     <string name="release_70">Do celoobrazovkového pohľadu boli pridané tlačidlá na jednoduché otáčanie obrázkov</string>
     <string name="release_69">Boli pridané tlačidlá na zmenu počtu stĺpcov</string>
     <string name="release_66">Allow picking colors by hex codes</string>

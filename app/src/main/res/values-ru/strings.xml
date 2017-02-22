@@ -89,6 +89,7 @@
     <string name="loop_videos">Повторять видео</string>
 
     <!-- Release notes -->
+    <string name="release_72">Implement proper folder hiding via .nomedia file</string>
     <string name="release_70">Добавлены элементы меню, позволяющие легко повернуть изображение в полноэкранном режиме</string>
     <string name="release_69">В меню добавлены кнопки для изменения количества столбцов на гравном экране</string>
     <string name="release_66">Добавлена возможность выбирать цвета по hex-кодам</string>

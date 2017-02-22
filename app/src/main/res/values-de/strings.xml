@@ -89,6 +89,7 @@
     <string name="loop_videos">Video Endlos-Schleife</string>
 
     <!-- Release notes -->
+    <string name="release_72">Implement proper folder hiding via .nomedia file</string>
     <string name="release_70">Added menu items for easy image rotating in fullscreen view</string>
     <string name="release_69">Added menu buttons for changing the column count</string>
     <string name="release_66">Allow picking colors by hex codes</string>
