@@ -46,37 +46,11 @@ class Config(context: Context) : BaseConfig(context) {
         pinnedFolders = currPinnedFolders
     }
 
-    fun addHiddenFolder(path: String) {
-        addHiddenFolders(HashSet<String>(Arrays.asList(path)))
-    }
-
-    fun addHiddenFolders(paths: Set<String>) {
-        val currHiddenFolders = HashSet<String>(hiddenFolders)
-        currHiddenFolders.addAll(paths)
-        hiddenFolders = currHiddenFolders
-    }
-
-    fun removeHiddenFolder(path: String) {
-        removeHiddenFolders(HashSet<String>(Arrays.asList(path)))
-    }
-
-    fun removeHiddenFolders(paths: Set<String>) {
-        val currHiddenFolders = HashSet<String>(hiddenFolders)
-        currHiddenFolders.removeAll(paths)
-        hiddenFolders = currHiddenFolders
-    }
-
-    fun getIsFolderHidden(path: String) = hiddenFolders.contains(path)
-
     fun saveFolderMedia(path: String, json: String) {
         prefs.edit().putString(SAVE_FOLDER_PREFIX + path, json).apply()
     }
 
     fun loadFolderMedia(path: String) = prefs.getString(SAVE_FOLDER_PREFIX + path, "")
-
-    var hiddenFolders: MutableSet<String>
-        get() = prefs.getStringSet(HIDDEN_FOLDERS, HashSet<String>())
-        set(hiddenFolders) = prefs.edit().remove(HIDDEN_FOLDERS).putStringSet(HIDDEN_FOLDERS, hiddenFolders).apply()
 
     var autoplayVideos: Boolean
         get() = prefs.getBoolean(AUTOPLAY_VIDEOS, false)

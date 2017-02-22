@@ -24,6 +24,7 @@ import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.dialogs.RenameDirectoryDialog
 import com.simplemobiletools.gallery.extensions.config
+import com.simplemobiletools.gallery.extensions.containsNoMedia
 import com.simplemobiletools.gallery.extensions.createSelector
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.directory_item.view.*
@@ -114,7 +115,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             var hiddenCnt = 0
             var unhiddenCnt = 0
             positions.map { dirs[it].path }.forEach {
-                if (config.getIsFolderHidden(it))
+                if (File(it).containsNoMedia())
                     hiddenCnt++
                 else
                     unhiddenCnt++
@@ -171,11 +172,6 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     }
 
     private fun toggleFoldersVisibility(hide: Boolean) {
-        if (hide)
-            config.addHiddenFolders(getSelectedPaths())
-        else
-            config.removeHiddenFolders(getSelectedPaths())
-
         listener?.refreshItems()
         actMode?.finish()
     }

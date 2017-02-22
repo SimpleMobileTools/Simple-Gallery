@@ -94,7 +94,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_media, menu)
 
-        val isFolderHidden = config.getIsFolderHidden(mPath)
+        val isFolderHidden = File(mPath).containsNoMedia()
         menu.apply {
             findItem(R.id.hide_folder).isVisible = !isFolderHidden && !mShowAll
             findItem(R.id.unhide_folder).isVisible = isFolderHidden && !mShowAll
@@ -147,8 +147,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun hideFolder() {
-        config.addHiddenFolder(mPath)
-
         if (!config.showHiddenFolders)
             finish()
         else
@@ -156,7 +154,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun unhideFolder() {
-        config.removeHiddenFolder(mPath)
         invalidateOptionsMenu()
     }
 

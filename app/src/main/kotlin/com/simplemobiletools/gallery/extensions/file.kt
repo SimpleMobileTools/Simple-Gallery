@@ -1,6 +1,7 @@
 package com.simplemobiletools.gallery.extensions
 
 import android.graphics.Bitmap
+import com.simplemobiletools.gallery.helpers.NOMEDIA
 import java.io.File
 
 fun File.getCompressionFormat(): Bitmap.CompressFormat {
@@ -10,3 +11,5 @@ fun File.getCompressionFormat(): Bitmap.CompressFormat {
         else -> Bitmap.CompressFormat.JPEG
     }
 }
+
+fun File.containsNoMedia() = isDirectory && File(this, NOMEDIA).exists()

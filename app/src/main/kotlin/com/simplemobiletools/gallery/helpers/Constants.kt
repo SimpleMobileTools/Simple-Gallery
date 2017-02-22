@@ -4,7 +4,6 @@ package com.simplemobiletools.gallery.helpers
 val IS_SAME_SORTING = "is_same_sorting"
 val SORT_ORDER = "sort_order"
 val DIRECTORY_SORT_ORDER = "directory_sort_order"
-val HIDDEN_FOLDERS = "hidden_folders"
 val SHOW_HIDDEN_FOLDERS = "show_hidden_folders"
 val AUTOPLAY_VIDEOS = "autoplay_videos"
 val LOOP_VIDEOS = "loop_videos"
@@ -15,6 +14,8 @@ val MEDIA_COLUMN_CNT = "media_column_cnt"
 val SHOW_ALL = "show_all"   // display images and videos from all folders together
 val SHOW_MEDIA = "show_media"
 val SAVE_FOLDER_PREFIX = "folder_"
+
+val NOMEDIA = ".nomedia"
 
 // sorting
 val SORT_BY_NAME = 1

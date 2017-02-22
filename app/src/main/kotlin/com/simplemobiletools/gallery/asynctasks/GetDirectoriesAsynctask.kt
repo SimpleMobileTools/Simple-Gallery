@@ -7,6 +7,7 @@ import com.simplemobiletools.commons.extensions.isImageFast
 import com.simplemobiletools.commons.extensions.isVideoFast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
+import com.simplemobiletools.gallery.extensions.containsNoMedia
 import com.simplemobiletools.gallery.extensions.getHumanizedFilename
 import com.simplemobiletools.gallery.extensions.getParents
 import com.simplemobiletools.gallery.helpers.IMAGES
@@ -65,7 +66,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                 directory.addSize(size)
             } else {
                 var dirName = context.getHumanizedFilename(parentDir)
-                if (config.getIsFolderHidden(parentDir)) {
+                if (File(parentDir).containsNoMedia()) {
                     dirName += " ${context.resources.getString(R.string.hidden)}"
                 }
 
