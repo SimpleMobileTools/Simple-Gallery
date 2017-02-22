@@ -238,7 +238,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                         if (it.delete() || tryFastDocumentDelete(it)) {
                             hadSuccess = true
                         } else {
-                            val document = getFileDocument(it.absolutePath, config.treeUri)
+                            val document = getFileDocument(it.absolutePath, config.treeUri) ?: return@forEach
                             if (document.isFile && document.delete()) {
                                 hadSuccess = true
                             }

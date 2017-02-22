@@ -191,7 +191,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     if (isShowingPermDialog(file))
                         return@SaveAsDialog
 
-                    var document = getFileDocument(it, config.treeUri)
+                    var document = getFileDocument(it, config.treeUri) ?: return@SaveAsDialog
                     if (!file.exists()) {
                         document = document.createFile("", file.name)
                     }
@@ -320,7 +320,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         Thread {
             if (!file.delete() && !tryFastDocumentDelete(file)) {
-                val document = getFileDocument(file.absolutePath, config.treeUri)
+                val document = getFileDocument(file.absolutePath, config.treeUri) ?: return@Thread
 
                 if (!document.isFile || !document.delete()) {
                     runOnUiThread {

@@ -200,7 +200,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
         Thread({
             if (!file.delete()) {
-                val document = getFileDocument(file.absolutePath, config.treeUri)
+                val document = getFileDocument(file.absolutePath, config.treeUri) ?: return@Thread
 
                 // double check we have the uri to the proper file path, not some parent folder
                 val uri = URLDecoder.decode(document.uri.toString(), "UTF-8")

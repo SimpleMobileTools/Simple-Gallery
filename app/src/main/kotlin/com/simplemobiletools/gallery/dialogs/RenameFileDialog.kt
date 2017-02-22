@@ -59,11 +59,11 @@ class RenameFileDialog(val activity: SimpleActivity, val file: File, val callbac
                         return@setOnClickListener
 
                     var document = context.getFastDocument(file)
-                    if (!document.isFile) {
+                    if (document?.isFile == false) {
                         document = context.getFileDocument(file.absolutePath, context.config.treeUri)
                     }
 
-                    DocumentsContract.renameDocument(context.contentResolver, document.uri, newFile.name)
+                    DocumentsContract.renameDocument(context.contentResolver, document!!.uri, newFile.name)
                     sendSuccess(file, newFile)
                     dismiss()
                 } else if (file.renameTo(newFile)) {

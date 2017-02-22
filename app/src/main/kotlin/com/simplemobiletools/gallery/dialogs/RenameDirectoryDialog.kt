@@ -49,7 +49,7 @@ class RenameDirectoryDialog(val activity: SimpleActivity, val dir: File, val cal
                     if (activity.isShowingPermDialog(dir))
                         return@setOnClickListener
 
-                    val document = context.getFileDocument(dir.absolutePath, context.config.treeUri)
+                    val document = context.getFileDocument(dir.absolutePath, context.config.treeUri) ?: return@setOnClickListener
                     if (document.canWrite())
                         document.renameTo(newDirName)
                     sendSuccess(updatedFiles, newDir)
