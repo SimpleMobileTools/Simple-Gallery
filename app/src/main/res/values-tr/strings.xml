@@ -109,8 +109,8 @@
         Düzenleyiciye bir resim editörü ekledi\n Tüm klasörlerdeki görüntüleri ve videoları birlikte görüntülemeye izin ver</string>
     <string name="release_46">Üst kısımdaki sabitleme klasörlerine izin ver</string>
 
-    <!-- Dizeler yalnızca Google Play Store'da görüntülenir. İsteğe bağlı, ancak sahip olmak güzel -->
-    <!-- Kısa açıklama 80 karakterden az olmalıdır -->
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Fotoğrafları ve videoları reklamsız olarak görüntülemek için kullanılan bir galeri.</string>
     <string name="app_long_description">
         Fotoğrafları ve videoları görüntülemek için kullanılabilecek basit bir araç. Öğeler tarihine, boyutuna, adına göre artan veya azalan olarak sıralanabilir, fotoğraflar yakınlaştırılabilir. Medya dosyaları, ekranın boyutuna bağlı olarak birden fazla sütunda gösterilir, sıkıştırma hareketleriyle sütun sayısını değiştirebilirsiniz. Yeniden adlandırılabilir, paylaşılabilir, silinebilir, kopyalanabilir, taşınabilirler. Resimler ayrıca kırpılabilir, döndürülebilir veya doğrudan uygulama\'dan Duvar kağıdı olarak ayarlanabilir.
