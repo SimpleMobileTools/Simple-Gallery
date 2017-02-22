@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Basit Galeri</string>
+    <string name="app_launcher_name">Galeri</string>
+    <string name="share_via">Üzerinden paylaş</string>
+    <string name="no_permissions">Depolama alanınıza erişmeden bir galeride yapmanız gereken çok şey</string>
+    <string name="edit">Düzenle</string>
+    <string name="open_camera">Kamerayı aç</string>
+    <string name="open_with">Bununla aç</string>
+    <string name="no_app_found">Geçerli bir uygulama bulunamadı</string>
+    <string name="hide_folder">Klasörü gizle</string>
+    <string name="unhide_folder">Klasörü göster</string>
+    <string name="hidden">(gizli)</string>
+    <string name="save_as">Farklı kaydet</string>
+    <string name="file_saved">Dosya başarıyla kaydedildi</string>
+    <string name="pin_folder">Pin klasör</string>
+    <string name="unpin_folder">Klasörü çöz</string>
+    <string name="show_all">Tüm klasörlerin içeriğini göster</string>
+    <string name="all_folders">Tüm klasörler</string>
+    <string name="folder_view">Klasör görünümüne geç</string>
+    <string name="other_folder">Diğer klasör</string>
+    <string name="show_on_map">Haritada göster</string>
+    <string name="unknown_location">Bilinmeyen konum</string>
+    <string name="no_map_application">Haritalarla hiçbir uygulama bulunamadı</string>
+    <string name="no_camera_app_found">Hiçbir Kamera uygulaması bulunamadı</string>
+    <string name="increase_column_count">Sütun sayısını artır</string>
+    <string name="reduce_column_count">Sütun sayısını azalt</string>
+
+    <!-- Resizing -->
+    <string name="resize">Yeniden boyutlandır</string>
+    <string name="resize_and_save">Seçimi yeniden boyutlandır ve kaydet</string>
+    <string name="width">Genişlik</string>
+    <string name="height">Yükseklik</string>
+    <string name="keep_aspect_ratio">En-boy oranını koru</string>
+    <string name="invalid_values">Lütfen geçerli bir çözüm önerisi girin</string>
+
+    <!-- Renaming -->
+    <string name="rename_file">Dosyayı yeniden adlandır</string>
+    <string name="rename_folder">Klasörü yeniden adlandır</string>
+    <string name="rename_file_error">Dosya yeniden adlandırılamadı</string>
+    <string name="rename_folder_error">Klasör yeniden adlandırılamadı</string>
+    <string name="rename_folder_empty">Klasör adı boş olmamalıdır</string>
+    <string name="rename_folder_exists">Bu ada sahip bir klasör zaten var</string>
+    <string name="rename_folder_root">Depolama kök klasörü yeniden adlandırılamıyor</string>
+    <string name="rename_folder_ok">Klasör başarıyla yeniden adlandırıldı</string>
+    <string name="renaming_folder">Klasörü yeniden adlandır</string>
+    <string name="filename_cannot_be_empty">Dosya adı boş olamaz</string>
+    <string name="filename_invalid_characters">Dosya adı geçersiz karakter içeriyor</string>
+    <string name="extension">Genişlet</string>
+    <string name="extension_cannot_be_empty">Uzantı boş olamaz</string>
+
+    <!-- Editor -->
+    <string name="editor">Editör</string>
+    <string name="save">Kaydet</string>
+    <string name="rotate">Döndür</string>
+    <string name="path">Yol</string>
+    <string name="invalid_image_path">Görüntü yolu geçersiz</string>
+    <string name="image_editing_failed">Resim düzenleme başarısız</string>
+    <string name="edit_image_with">İle resmi düzenle:</string>
+    <string name="no_editor_found">Resim editörü bulunamadı</string>
+    <string name="unknown_file_location">Bilinmeyen dosya konumu</string>
+    <string name="error_saving_file">Kaynak dosyanın üzerine yazılamadı</string>
+    <string name="rotate_left">Sola döndür</string>
+    <string name="rotate_right">Sağa döndür</string>
+    <string name="rotate_one_eighty">Ters çevir 180º</string>
+    <string name="flip">Çevir</string>
+    <string name="horizontally">Yatay</string>
+    <string name="vertically">Dikey</string>
+    <string name="out_of_memory_error">Yetersiz bellek hatası</string>
+
+    <!-- Set wallpaper -->
+    <string name="simple_wallpaper">Basit Duvar Kağıdı</string>
+    <string name="set_as_wallpaper">Duvar kağıdı olarak ayarla</string>
+    <string name="set_as_wallpaper_failed">Duvar Kağıdı Olarak Ayarlanılamıyor</string>
+    <string name="set_as_wallpaper_with">İle duvar kağıdı olarak ayarla:</string>
+    <string name="no_wallpaper_setter_found">Mümkün olan herhangi bir uygulama bulunamadı</string>
+    <string name="setting_wallpaper">Duvar kağıdını ayarlama&#8230;</string>
+    <string name="wallpaper_set_successfully">Duvar kağıdı başarıyla ayarlandı</string>
+
+    <!-- Settings -->
+    <string name="same_sorting">Dosya ve klasörler için aynı sıralama</string>
+    <string name="show_hidden_folders">Gizli klasörleri göster</string>
+    <string name="autoplay_videos">Videoları otomatik olarak oynat</string>
+    <string name="toggle_filename">Dosya adı görünürlüğünü değiştir</string>
+    <string name="show_media">Medyayı göster</string>
+    <string name="images">Yalnızca resimler</string>
+    <string name="videos">Yalnızca videolar</string>
+    <string name="images_and_videos">Resimler ve videolar</string>
+    <string name="loop_videos">Videolar döngüsü</string>
+
+    <!-- Release notes -->
+    <string name="release_72">Implement proper folder hiding via .nomedia file</string>
+    <string name="release_70">Tam ekran görünümünde kolay resim dönmesi için menü öğeleri eklendi</string>
+    <string name="release_69">Sütun sayısını değiştirmek için menü düğmeleri eklendi</string>
+    <string name="release_66">Allow picking colors by hex code Renkleri hex kodlarla toplama izni verin</string>
+    <string name="release_65">Kullanılabilir harita koordinatları varsa fotoğrafları ve videoları bir haritada göstermeye izin ver</string>
+    <string name="release_62">Fotoğraf özelliklerine ek Exif verileri göster</string>
+    <string name="release_58">
+        Png ve gif\'leri yakınlaştırmaya izin ver\n
+        Kopyala/Taşı veya Farklı Kaydet iletişim hedeflerinde yeni klasörler oluşturmaya izin ver</string>
+    <string name="release_54">Videoları otomatik olarak iliştirmek için bir seçenek eklendi</string>
+    <string name="release_52">
+        Daha fazla renk özelleştirme seçeneği eklendi\n
+        Ayarlarınız silindi, lütfen onları sıfırlayın</string>
+    <string name="release_51">Sıkıştırma hareketi ile sütun sayısının değiştirilmesine izin ver</string>
+    <string name="release_50">Yalnızca resim veya videoları görüntülemek için bir seçenek eklendi</string>
+    <string name="release_49">Ortamı ve klasörleri seçerken Tümünü seç düğmesi eklendi</string>
+    <string name="release_47">
+        Düzenleyiciye bir resim editörü ekledi\n Tüm klasörlerdeki görüntüleri ve videoları birlikte görüntülemeye izin ver</string>
+    <string name="release_46">Üst kısımdaki sabitleme klasörlerine izin ver</string>
+
+    <!-- Dizeler yalnızca Google Play Store'da görüntülenir. İsteğe bağlı, ancak sahip olmak güzel -->
+    <!-- Kısa açıklama 80 karakterden az olmalıdır -->
+    <string name="app_short_description">Fotoğrafları ve videoları reklamsız olarak görüntülemek için kullanılan bir galeri.</string>
+    <string name="app_long_description">
+        Fotoğrafları ve videoları görüntülemek için kullanılabilecek basit bir araç. Öğeler tarihine, boyutuna, adına göre artan veya azalan olarak sıralanabilir, fotoğraflar yakınlaştırılabilir. Medya dosyaları, ekranın boyutuna bağlı olarak birden fazla sütunda gösterilir, sıkıştırma hareketleriyle sütun sayısını değiştirebilirsiniz. Yeniden adlandırılabilir, paylaşılabilir, silinebilir, kopyalanabilir, taşınabilirler. Resimler ayrıca kırpılabilir, döndürülebilir veya doğrudan uygulama\'dan Duvar kağıdı olarak ayarlanabilir.
+
+
+        Galeri, görüntüleri/videoları önizlemek, e-posta istemcilerine ek ekler yapmak için üçüncü taraf kullanımı için de önerilir. Bu\'s günlük kullanım için mükemmel.
+
+        Reklam içermeyen veya gereksiz izinler. Tamamen açık kaynaktır, özelleştirilebilir renkler sağlar.
+
+        Bu uygulama, daha büyük bir uygulama serisinden sadece bir parça. Geri kalanını şu adresten bulabilirsiniz http://www.simplemobiletools.com
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/Basit Mobil Araçlar/Basit-Commons/tree/master/commons/src/main/res
+    -->
+</resources>
