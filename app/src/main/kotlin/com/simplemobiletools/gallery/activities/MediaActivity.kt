@@ -147,6 +147,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun hideFolder() {
+        addNoMedia(mPath)
+
         if (!config.showHiddenFolders)
             finish()
         else
@@ -154,6 +156,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun unhideFolder() {
+        removeNoMedia(mPath)
         invalidateOptionsMenu()
     }
 
