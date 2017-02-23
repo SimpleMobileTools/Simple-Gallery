@@ -10,12 +10,12 @@ import android.view.KeyCharacterMap
 import android.view.KeyEvent
 import android.view.View
 import android.view.ViewConfiguration
-import com.simplemobiletools.commons.extensions.getMimeType
-import com.simplemobiletools.commons.extensions.toast
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
+import com.simplemobiletools.gallery.helpers.NOMEDIA
 import com.simplemobiletools.gallery.helpers.REQUEST_EDIT_IMAGE
 import com.simplemobiletools.gallery.helpers.REQUEST_SET_WALLPAPER
 import com.simplemobiletools.gallery.models.Medium
@@ -141,4 +141,38 @@ fun AppCompatActivity.hideSystemUI() {
             View.SYSTEM_UI_FLAG_LOW_PROFILE or
             View.SYSTEM_UI_FLAG_FULLSCREEN or
             View.SYSTEM_UI_FLAG_IMMERSIVE
+}
+
+fun SimpleActivity.addNoMedia(path: String) {
+    val file = File(path, NOMEDIA)
+    if (file.exists())
+        return
+
+    if (needsStupidWritePermissions(path)) {
+        if (!isShowingPermDialog(file)) {
+            getFileDocument(path, config.treeUri)?.createFile("", NOMEDIA)
+        }
+    } else {
+        file.createNewFile()
+    }
+    scanFile(file) {}
+}
+
+fun SimpleActivity.removeNoMedia(path: String) {
+    val file = File(path, NOMEDIA)
+    if (!file.exists())
+        return
+
+    if (!file.delete() && !tryFastDocumentDelete(file)) {
+        if (needsStupidWritePermissions(path)) {
+            if (!isShowingPermDialog(file)) {
+                getFileDocument(path, config.treeUri)?.apply {
+                    if (isFile) {
+                        delete()
+                    }
+                }
+            }
+        }
+        scanFile(file) {}
+    }
 }

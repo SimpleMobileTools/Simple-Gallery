@@ -23,9 +23,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.dialogs.RenameDirectoryDialog
-import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.extensions.containsNoMedia
-import com.simplemobiletools.gallery.extensions.createSelector
+import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.directory_item.view.*
 import kotlinx.android.synthetic.main.directory_tmb.view.*
@@ -172,6 +170,15 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     }
 
     private fun toggleFoldersVisibility(hide: Boolean) {
+        val paths = getSelectedPaths()
+        for (path in paths) {
+            if (hide) {
+                activity.addNoMedia(path)
+            } else {
+                activity.removeNoMedia(path)
+            }
+        }
+
         listener?.refreshItems()
         actMode?.finish()
     }
