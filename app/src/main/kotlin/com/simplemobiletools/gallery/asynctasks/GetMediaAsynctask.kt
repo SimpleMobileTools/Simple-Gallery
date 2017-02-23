@@ -30,7 +30,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
         val media = ArrayList<Medium>()
 
         if (showAll) {
-            val parents = context.getParents(isPickImage, isPickVideo)
+            val parents = context.getParents()
             for (parent in parents) {
                 media.addAll(getFilesFrom(parent))
             }

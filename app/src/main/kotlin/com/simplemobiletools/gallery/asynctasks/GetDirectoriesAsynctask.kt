@@ -26,9 +26,9 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         val media = ArrayList<Medium>()
         val showMedia = config.showMedia
         val fileSorting = config.fileSorting
-        val parents = context.getParents(isPickImage, isPickVideo)
+        val parents = context.getParents()
 
-        parents.map { File(it).listFiles() }
+        parents.mapNotNull { File(it).listFiles() }
                 .forEach {
                     for (file in it) {
                         val isImage = file.isImageFast() || file.isGif()

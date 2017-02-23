@@ -11,9 +11,7 @@ import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SettingsActivity
 import com.simplemobiletools.gallery.helpers.Config
-import com.simplemobiletools.gallery.helpers.IMAGES
 import com.simplemobiletools.gallery.helpers.NOMEDIA
-import com.simplemobiletools.gallery.helpers.VIDEOS
 import java.io.File
 import java.util.*
 
@@ -51,55 +49,34 @@ fun Context.launchSettings() {
     startActivity(Intent(this, SettingsActivity::class.java))
 }
 
-fun Context.getParents(isPickImage: Boolean, isPickVideo: Boolean): ArrayList<String> {
+fun Context.getParents(): ArrayList<String> {
     val uri = MediaStore.Files.getContentUri("external")
-    val where = "${getWhereCondition(isPickImage, isPickVideo)} GROUP BY ( ${MediaStore.Files.FileColumns.PARENT} "
-    val args = getArgs(isPickImage, isPickVideo)
-    val columns = arrayOf(MediaStore.Files.FileColumns.PARENT, MediaStore.Images.Media.DATA)
+    val columns = arrayOf(MediaStore.Images.Media.DATA)
     var cursor: Cursor? = null
     val parents = ArrayList<String>()
 
+    val parentsSet = HashSet<String>()
     try {
-        cursor = contentResolver.query(uri, columns, where, args, null)
+        cursor = contentResolver.query(uri, columns, null, null, null)
         if (cursor?.moveToFirst() == true) {
             do {
-                val curPath = cursor.getStringValue(MediaStore.Images.Media.DATA) ?: ""
-                parents.add(File(curPath).parent)
+                val curPath = cursor.getStringValue(MediaStore.Images.Media.DATA) ?: continue
+                val parent = File(curPath).parent ?: continue
+                parentsSet.add(parent)
             } while (cursor.moveToNext())
         }
     } finally {
         cursor?.close()
     }
 
-    val filtered = ArrayList<String>()
-    parents.mapNotNullTo(filtered, { it })
+    parentsSet.filterTo(parents, { hasImageVideoGif(File(it)) })
 
     if (config.showHiddenFolders) {
-        filtered.addAll(getNoMediaFolders())
+        parents.addAll(getNoMediaFolders())
     } else {
-        removeNoMediaFolders(filtered)
+        removeNoMediaFolders(parents)
     }
-    return filtered
-}
-
-fun Context.getWhereCondition(isPickImage: Boolean, isPickVideo: Boolean): String {
-    val showMedia = config.showMedia
-    return if ((isPickImage || showMedia == IMAGES) || (isPickVideo || showMedia == VIDEOS)) {
-        "${MediaStore.Files.FileColumns.MEDIA_TYPE} = ?)"
-    } else {
-        "${MediaStore.Files.FileColumns.MEDIA_TYPE} = ? OR ${MediaStore.Files.FileColumns.MEDIA_TYPE} = ?)"
-    }
-}
-
-fun Context.getArgs(isPickImage: Boolean, isPickVideo: Boolean): Array<String> {
-    val showMedia = config.showMedia
-    return if (isPickImage || showMedia == IMAGES) {
-        arrayOf(MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE.toString())
-    } else if (isPickVideo || showMedia == VIDEOS) {
-        arrayOf(MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO.toString())
-    } else {
-        arrayOf(MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE.toString(), MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO.toString())
-    }
+    return parents
 }
 
 private fun removeNoMediaFolders(paths: MutableList<String>) {
@@ -146,9 +123,7 @@ fun Context.getNoMediaFolders(): ArrayList<String> {
 
 fun hasImageVideoGif(dir: File): Boolean {
     if (dir.isDirectory) {
-        dir.listFiles()
-                .filter(File::isImageVideoGif)
-                .forEach { return true }
+        dir.listFiles()?.filter(File::isImageVideoGif)?.any { return true }
     }
     return false
 }
