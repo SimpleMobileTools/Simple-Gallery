@@ -147,17 +147,22 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun hideFolder() {
-        addNoMedia(mPath)
-
-        if (!config.showHiddenFolders)
-            finish()
-        else
-            invalidateOptionsMenu()
+        addNoMedia(mPath) {
+            runOnUiThread {
+                if (!config.showHiddenFolders)
+                    finish()
+                else
+                    invalidateOptionsMenu()
+            }
+        }
     }
 
     private fun unhideFolder() {
-        removeNoMedia(mPath)
-        invalidateOptionsMenu()
+        removeNoMedia(mPath) {
+            runOnUiThread {
+                invalidateOptionsMenu()
+            }
+        }
     }
 
     private fun deleteDirectoryIfEmpty() {

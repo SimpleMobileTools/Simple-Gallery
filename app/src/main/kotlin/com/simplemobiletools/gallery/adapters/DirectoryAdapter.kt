@@ -173,14 +173,22 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         val paths = getSelectedPaths()
         for (path in paths) {
             if (hide) {
-                activity.addNoMedia(path)
+                activity.addNoMedia(path) {
+                    noMediaHandled()
+                }
             } else {
-                activity.removeNoMedia(path)
+                activity.removeNoMedia(path) {
+                    noMediaHandled()
+                }
             }
         }
+    }
 
-        listener?.refreshItems()
-        actMode?.finish()
+    private fun noMediaHandled() {
+        activity.runOnUiThread {
+            listener?.refreshItems()
+            actMode?.finish()
+        }
     }
 
     private fun pinFolders(pin: Boolean) {

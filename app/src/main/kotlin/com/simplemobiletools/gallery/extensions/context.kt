@@ -6,11 +6,13 @@ import android.database.Cursor
 import android.net.Uri
 import android.provider.MediaStore
 import com.simplemobiletools.commons.extensions.humanizePath
+import com.simplemobiletools.commons.extensions.isImageVideoGif
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SettingsActivity
 import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.helpers.IMAGES
+import com.simplemobiletools.gallery.helpers.NOMEDIA
 import com.simplemobiletools.gallery.helpers.VIDEOS
 import java.io.File
 import java.util.*
@@ -69,10 +71,15 @@ fun Context.getParents(isPickImage: Boolean, isPickVideo: Boolean): ArrayList<St
         cursor?.close()
     }
 
-    val notNull = ArrayList<String>()
-    parents.mapNotNullTo(notNull, { it })
-    filterDirectories(notNull)
-    return notNull
+    val filtered = ArrayList<String>()
+    parents.mapNotNullTo(filtered, { it })
+
+    if (config.showHiddenFolders) {
+        filtered.addAll(getNoMediaFolders())
+    } else {
+        removeNoMediaFolders(filtered)
+    }
+    return filtered
 }
 
 fun Context.getWhereCondition(isPickImage: Boolean, isPickVideo: Boolean): String {
@@ -95,24 +102,55 @@ fun Context.getArgs(isPickImage: Boolean, isPickVideo: Boolean): Array<String> {
     }
 }
 
-fun Context.filterDirectories(dirs: ArrayList<String>) {
-    if (!config.showHiddenFolders) {
-        removeNoMediaFolders(dirs)
-    }
-}
-
 private fun removeNoMediaFolders(paths: MutableList<String>) {
     val ignorePaths = ArrayList<String>()
     for (path in paths) {
         val dir = File(path)
         if (dir.exists() && dir.isDirectory) {
-            val res = dir.list { file, filename -> filename == ".nomedia" }
+            val res = dir.list { file, filename -> filename == NOMEDIA }
             if (res?.isNotEmpty() == true)
                 ignorePaths.add(path)
         }
     }
 
     paths.removeAll(ignorePaths)
+}
+
+fun Context.getNoMediaFolders(): ArrayList<String> {
+    val folders = ArrayList<String>()
+    val noMediaCondition = "${MediaStore.Files.FileColumns.MEDIA_TYPE} = ${MediaStore.Files.FileColumns.MEDIA_TYPE_NONE}"
+
+    val uri = MediaStore.Files.getContentUri("external")
+    val columns = arrayOf(MediaStore.Files.FileColumns.DATA)
+    val where = "$noMediaCondition AND ${MediaStore.Files.FileColumns.TITLE} LIKE ?"
+    val args = arrayOf("%$NOMEDIA%")
+    var cursor: Cursor? = null
+
+    try {
+        cursor = contentResolver.query(uri, columns, where, args, null)
+        if (cursor?.moveToFirst() == true) {
+            do {
+                val path = cursor.getString(cursor.getColumnIndex(MediaStore.Files.FileColumns.DATA)) ?: continue
+                val parent = File(path).parentFile
+                if (hasImageVideoGif(parent)) {
+                    folders.add(parent.absolutePath)
+                }
+            } while (cursor.moveToNext())
+        }
+    } finally {
+        cursor?.close()
+    }
+
+    return folders
+}
+
+fun hasImageVideoGif(dir: File): Boolean {
+    if (dir.isDirectory) {
+        dir.listFiles()
+                .filter(File::isImageVideoGif)
+                .forEach { return true }
+    }
+    return false
 }
 
 val Context.config: Config get() = Config.newInstance(this)

@@ -28,7 +28,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         val fileSorting = config.fileSorting
         val parents = context.getParents(isPickImage, isPickVideo)
 
-        parents.mapNotNull { File(it).listFiles() }
+        parents.map { File(it).listFiles() }
                 .forEach {
                     for (file in it) {
                         val isImage = file.isImageFast() || file.isGif()
@@ -95,6 +95,4 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         super.onPostExecute(dirs)
         callback.invoke(dirs)
     }
-
-
 }

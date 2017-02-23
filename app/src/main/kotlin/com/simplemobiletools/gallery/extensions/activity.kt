@@ -143,7 +143,7 @@ fun AppCompatActivity.hideSystemUI() {
             View.SYSTEM_UI_FLAG_IMMERSIVE
 }
 
-fun SimpleActivity.addNoMedia(path: String) {
+fun SimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
     val file = File(path, NOMEDIA)
     if (file.exists())
         return
@@ -155,10 +155,12 @@ fun SimpleActivity.addNoMedia(path: String) {
     } else {
         file.createNewFile()
     }
-    scanFile(file) {}
+    scanFile(file) {
+        callback.invoke()
+    }
 }
 
-fun SimpleActivity.removeNoMedia(path: String) {
+fun SimpleActivity.removeNoMedia(path: String, callback: () -> Unit) {
     val file = File(path, NOMEDIA)
     if (!file.exists())
         return
@@ -173,6 +175,8 @@ fun SimpleActivity.removeNoMedia(path: String) {
                 }
             }
         }
-        scanFile(file) {}
+    }
+    scanFile(file) {
+        callback.invoke()
     }
 }
