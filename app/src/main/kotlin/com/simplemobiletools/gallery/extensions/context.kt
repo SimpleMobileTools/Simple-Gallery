@@ -49,29 +49,6 @@ fun Context.launchSettings() {
     startActivity(Intent(this, SettingsActivity::class.java))
 }
 
-fun Context.getMediaFolders(): Set<String> {
-    val uri = MediaStore.Files.getContentUri("external")
-    val where = "${MediaStore.Files.FileColumns.MEDIA_TYPE} = ? OR ${MediaStore.Files.FileColumns.MEDIA_TYPE} = ?"
-    val args = arrayOf(MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE.toString(), MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO.toString())
-    val columns = arrayOf(MediaStore.Files.FileColumns.PARENT, MediaStore.Images.Media.DATA)
-    val parentsSet = HashSet<String>()
-
-    var cursor: Cursor? = null
-    try {
-        cursor = contentResolver.query(uri, columns, where, args, null)
-        if (cursor?.moveToFirst() == true) {
-            do {
-                val curPath = cursor.getStringValue(MediaStore.Images.Media.DATA) ?: ""
-                parentsSet.add(File(curPath).parent)
-            } while (cursor.moveToNext())
-        }
-    } finally {
-        cursor?.close()
-    }
-
-    return parentsSet
-}
-
 fun Context.getParents(): ArrayList<String> {
     val uri = MediaStore.Files.getContentUri("external")
     val columns = arrayOf(MediaStore.Images.Media.DATA)
@@ -92,8 +69,7 @@ fun Context.getParents(): ArrayList<String> {
         cursor?.close()
     }
 
-    val mediaFolders = getMediaFolders()
-    parentsSet.filterTo(parents, { mediaFolders.contains(it) || hasImageVideoGif(File(it)) })
+    parentsSet.mapTo(parents, { it })
 
     if (config.showHiddenFolders) {
         parents.addAll(getNoMediaFolders())

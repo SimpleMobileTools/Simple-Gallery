@@ -2,9 +2,6 @@ package com.simplemobiletools.gallery.asynctasks
 
 import android.content.Context
 import android.os.AsyncTask
-import com.simplemobiletools.commons.extensions.isGif
-import com.simplemobiletools.commons.extensions.isImageFast
-import com.simplemobiletools.commons.extensions.isVideoFast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.containsNoMedia
@@ -21,6 +18,13 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                               val callback: (dirs: ArrayList<Directory>) -> Unit) : AsyncTask<Void, Void, ArrayList<Directory>>() {
     var config = context.config
 
+    val photoExtensions = arrayOf("jpg", "png", "jpeg", "bmp", "webp", "tiff")
+    val videoExtensions = arrayOf("webm", "mkv", "flv", "vob", "avi", "wmv", "mp4", "ogv", "qt", "m4p", "mpg", "m4v", "mp2", "mpeg", "3gp")
+
+    private fun localIsImage(path: String) = photoExtensions.any { path.endsWith(".$it", true) }
+    private fun localIsGif(path: String) = path.endsWith(".gif", true)
+    private fun localIsVideo(path: String) = videoExtensions.any { path.endsWith(".$it", true) }
+
     override fun doInBackground(vararg params: Void): ArrayList<Directory> {
         val directories = LinkedHashMap<String, Directory>()
         val media = ArrayList<Medium>()
@@ -28,31 +32,34 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         val fileSorting = config.fileSorting
         val parents = context.getParents()
 
-        parents.mapNotNull { File(it).listFiles() }
-                .forEach {
-                    for (file in it) {
-                        val isImage = file.isImageFast() || file.isGif()
-                        val isVideo = file.isVideoFast()
+        parents.map {
+            val paths = File(it).list()
+            if (paths?.size ?: 0 > 0) {
+                for (path in paths) {
+                    val isImage = localIsGif(path) or localIsImage(path)
+                    val isVideo = if (isImage) false else localIsVideo(path)
 
-                        if (!isImage && !isVideo)
-                            continue
+                    if (!isImage && !isVideo)
+                        continue
 
-                        if (isVideo && (isPickImage || showMedia == IMAGES))
-                            continue
+                    if (isVideo && (isPickImage || showMedia == IMAGES))
+                        continue
 
-                        if (isImage && (isPickVideo || showMedia == VIDEOS))
-                            continue
+                    if (isImage && (isPickVideo || showMedia == VIDEOS))
+                        continue
 
-                        val size = file.length()
-                        if (size == 0L)
-                            continue
+                    val file = File(it, path)
+                    val size = file.length()
+                    if (size == 0L)
+                        continue
 
-                        val name = file.name
-                        val path = file.absolutePath
-                        val dateModified = file.lastModified()
-                        media.add(Medium(name, path, isVideo, dateModified, dateModified, size))
-                    }
+                    val name = file.name
+                    val dateModified = file.lastModified()
+                    val medium = Medium(name, file.absolutePath, false, dateModified, dateModified, size)
+                    media.add(medium)
                 }
+            }
+        }
 
         Medium.sorting = fileSorting
         media.sort()
