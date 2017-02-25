@@ -2,13 +2,10 @@ package com.simplemobiletools.gallery.asynctasks
 
 import android.content.Context
 import android.os.AsyncTask
-import com.simplemobiletools.commons.extensions.isGif
-import com.simplemobiletools.commons.extensions.isImageFast
-import com.simplemobiletools.commons.extensions.isVideoFast
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.containsNoMedia
-import com.simplemobiletools.gallery.extensions.getHumanizedFilename
 import com.simplemobiletools.gallery.extensions.getParents
 import com.simplemobiletools.gallery.helpers.IMAGES
 import com.simplemobiletools.gallery.helpers.VIDEOS
@@ -22,7 +19,6 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
     var config = context.config
 
     override fun doInBackground(vararg params: Void): ArrayList<Directory> {
-        val directories = LinkedHashMap<String, Directory>()
         val media = ArrayList<Medium>()
         val showMedia = config.showMedia
         val fileSorting = config.fileSorting
@@ -62,20 +58,29 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         Medium.sorting = fileSorting
         media.sort()
 
+        val hidden = context.resources.getString(R.string.hidden)
+        val directories = LinkedHashMap<String, Directory>()
         for ((name, path, isVideo, dateModified, dateTaken, size) in media) {
             val parentDir = File(path).parent ?: continue
             if (directories.containsKey(parentDir)) {
-                val directory: Directory = directories[parentDir]!!
+                val directory = directories[parentDir]!!
                 val newImageCnt = directory.mediaCnt + 1
                 directory.mediaCnt = newImageCnt
                 directory.addSize(size)
             } else {
-                var dirName = context.getHumanizedFilename(parentDir)
-                if (File(parentDir).containsNoMedia()) {
-                    dirName += " ${context.resources.getString(R.string.hidden)}"
+                var dirName = parentDir.getFilenameFromPath()
+                if (parentDir == context.getInternalStoragePath()) {
+                    dirName = context.getString(R.string.internal)
+                } else if (parentDir == context.sdCardPath) {
+                    dirName = context.getString(R.string.sd_card)
                 }
 
-                directories.put(parentDir, Directory(parentDir, path, dirName, 1, dateModified, dateTaken, size))
+                if (File(parentDir).containsNoMedia()) {
+                    dirName += " $hidden"
+                }
+
+                val directory = Directory(parentDir, path, dirName, 1, dateModified, dateTaken, size)
+                directories.put(parentDir, directory)
             }
         }
 
