@@ -2,6 +2,9 @@ package com.simplemobiletools.gallery.asynctasks
 
 import android.content.Context
 import android.os.AsyncTask
+import com.simplemobiletools.commons.extensions.isGif
+import com.simplemobiletools.commons.extensions.isImageFast
+import com.simplemobiletools.commons.extensions.isVideoFast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.containsNoMedia
@@ -18,13 +21,6 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                               val callback: (dirs: ArrayList<Directory>) -> Unit) : AsyncTask<Void, Void, ArrayList<Directory>>() {
     var config = context.config
 
-    val photoExtensions = arrayOf("jpg", "png", "jpeg", "bmp", "webp", "tiff")
-    val videoExtensions = arrayOf("webm", "mkv", "flv", "vob", "avi", "wmv", "mp4", "ogv", "qt", "m4p", "mpg", "m4v", "mp2", "mpeg", "3gp")
-
-    private fun localIsImage(path: String) = photoExtensions.any { path.endsWith(".$it", true) }
-    private fun localIsGif(path: String) = path.endsWith(".gif", true)
-    private fun localIsVideo(path: String) = videoExtensions.any { path.endsWith(".$it", true) }
-
     override fun doInBackground(vararg params: Void): ArrayList<Directory> {
         val directories = LinkedHashMap<String, Directory>()
         val media = ArrayList<Medium>()
@@ -36,8 +32,8 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
             val paths = File(it).list()
             if (paths?.size ?: 0 > 0) {
                 for (path in paths) {
-                    val isImage = localIsGif(path) or localIsImage(path)
-                    val isVideo = if (isImage) false else localIsVideo(path)
+                    val isImage = path.isGif() or path.isImageFast()
+                    val isVideo = if (isImage) false else path.isVideoFast()
 
                     if (!isImage && !isVideo)
                         continue
