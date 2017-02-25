@@ -69,7 +69,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                 directory.addSize(size)
             } else {
                 var dirName = parentDir.getFilenameFromPath()
-                if (parentDir == context.getInternalStoragePath()) {
+                if (parentDir == context.internalStoragePath) {
                     dirName = context.getString(R.string.internal)
                 } else if (parentDir == context.sdCardPath) {
                     dirName = context.getString(R.string.sd_card)

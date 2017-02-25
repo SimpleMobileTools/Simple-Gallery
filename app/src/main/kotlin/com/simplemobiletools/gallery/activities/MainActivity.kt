@@ -63,7 +63,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
         directories_holder.setOnRefreshListener({ getDirectories() })
         mDirs = ArrayList<Directory>()
-        storeSDCardPath()
+        storeStoragePaths()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
