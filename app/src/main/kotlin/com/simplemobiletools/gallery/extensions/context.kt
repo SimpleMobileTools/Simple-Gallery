@@ -6,7 +6,6 @@ import android.database.Cursor
 import android.net.Uri
 import android.provider.MediaStore
 import com.simplemobiletools.commons.extensions.humanizePath
-import com.simplemobiletools.commons.extensions.isImageVideoGif
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SettingsActivity
@@ -52,7 +51,6 @@ fun Context.launchSettings() {
 fun Context.getParents(): ArrayList<String> {
     val uri = MediaStore.Files.getContentUri("external")
     val columns = arrayOf(MediaStore.Images.Media.DATA)
-    val parents = ArrayList<String>()
     val parentsSet = HashSet<String>()
 
     var cursor: Cursor? = null
@@ -69,6 +67,7 @@ fun Context.getParents(): ArrayList<String> {
         cursor?.close()
     }
 
+    val parents = ArrayList<String>()
     parentsSet.mapTo(parents, { it })
 
     if (config.showHiddenFolders) {
@@ -109,10 +108,7 @@ fun Context.getNoMediaFolders(): ArrayList<String> {
         if (cursor?.moveToFirst() == true) {
             do {
                 val path = cursor.getString(cursor.getColumnIndex(MediaStore.Files.FileColumns.DATA)) ?: continue
-                val parent = File(path).parentFile
-                if (hasImageVideoGif(parent)) {
-                    folders.add(parent.absolutePath)
-                }
+                folders.add(File(path).parent)
             } while (cursor.moveToNext())
         }
     } finally {
@@ -120,14 +116,6 @@ fun Context.getNoMediaFolders(): ArrayList<String> {
     }
 
     return folders
-}
-
-fun hasImageVideoGif(dir: File): Boolean {
-    if (dir.isDirectory) {
-        val files = dir.listFiles() ?: return false
-        files.filter(File::isImageVideoGif).any { return true }
-    }
-    return false
 }
 
 val Context.config: Config get() = Config.newInstance(this)
