@@ -55,6 +55,15 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         Medium.sorting = fileSorting
         media.sort()
 
+        val directories = groupDirectories(media)
+        val dirs = ArrayList(directories.values.filter { File(it.path).exists() })
+        Directory.sorting = config.directorySorting
+        dirs.sort()
+
+        return movePinnedToFront(dirs)
+    }
+
+    private fun groupDirectories(media: ArrayList<Medium>): Map<String, Directory> {
         val hidden = context.resources.getString(R.string.hidden)
         val directories = LinkedHashMap<String, Directory>()
         for ((name, path, isVideo, dateModified, dateTaken, size) in media) {
@@ -80,12 +89,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                 directories.put(parentDir, directory)
             }
         }
-
-        val dirs = ArrayList(directories.values.filter { File(it.path).exists() })
-        Directory.sorting = config.directorySorting
-        dirs.sort()
-
-        return movePinnedToFront(dirs)
+        return directories
     }
 
     private fun movePinnedToFront(dirs: ArrayList<Directory>): ArrayList<Directory> {
