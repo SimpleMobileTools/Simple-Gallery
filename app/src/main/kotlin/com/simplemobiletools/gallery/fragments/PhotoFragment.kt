@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
+import com.bumptech.glide.Priority
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestListener
@@ -37,6 +38,7 @@ class PhotoFragment : ViewPagerFragment() {
     lateinit var medium: Medium
     lateinit var subsamplingView: SubsamplingScaleImageView
     lateinit var glideView: PhotoView
+    private var isFragmentVisible = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val view = inflater.inflate(R.layout.pager_photo_item, container, false)
@@ -99,6 +101,11 @@ class PhotoFragment : ViewPagerFragment() {
         return view
     }
 
+    override fun setMenuVisibility(menuVisible: Boolean) {
+        super.setMenuVisibility(menuVisible)
+        isFragmentVisible = menuVisible
+    }
+
     private fun degreesForRotation(orientation: Int): Int {
         return when (orientation) {
             8 -> 270
@@ -125,6 +132,7 @@ class PhotoFragment : ViewPagerFragment() {
                     .load(medium.path)
                     .asGif()
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .priority(if (isFragmentVisible) Priority.IMMEDIATE else Priority.NORMAL)
                     .into(glideView)
         } else {
             loadBitmap()
@@ -137,6 +145,7 @@ class PhotoFragment : ViewPagerFragment() {
                 .asBitmap()
                 .transform(GlideRotateTransformation(context, degrees))
                 .format(if (medium.isPng()) DecodeFormat.PREFER_ARGB_8888 else DecodeFormat.PREFER_RGB_565)
+                .priority(if (isFragmentVisible) Priority.IMMEDIATE else Priority.NORMAL)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .listener(object : RequestListener<String, Bitmap> {
                     override fun onException(e: Exception?, model: String?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
