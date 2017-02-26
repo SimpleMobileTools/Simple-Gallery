@@ -47,11 +47,10 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
     private fun getFilesFrom(path: String): ArrayList<Medium> {
         val media = ArrayList<Medium>()
         val dir = File(path)
-        val files = dir.listFiles() ?: return media
-        for (file in files) {
-            val filePath = file.absolutePath
-            val isImage = filePath.isImageFast() || filePath.isGif()
-            val isVideo = if (isImage) false else filePath.isVideoFast()
+        val filenames = dir.list() ?: return media
+        for (filename in filenames) {
+            val isImage = filename.isImageFast() || filename.isGif()
+            val isVideo = if (isImage) false else filename.isVideoFast()
 
             if (!isImage && !isVideo)
                 continue
@@ -62,13 +61,13 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
             if (isImage && (isPickVideo || showMedia == VIDEOS))
                 continue
 
+            val file = File(path, filename)
             val size = file.length()
             if (size == 0L)
                 continue
 
-            val name = file.name
             val dateModified = file.lastModified()
-            media.add(Medium(name, filePath, isVideo, dateModified, dateModified, size))
+            media.add(Medium(filename, file.absolutePath, isVideo, dateModified, dateModified, size))
         }
         return media
     }
