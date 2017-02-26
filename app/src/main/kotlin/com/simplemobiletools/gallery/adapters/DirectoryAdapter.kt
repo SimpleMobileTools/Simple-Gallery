@@ -78,7 +78,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                 R.id.cab_unpin -> pinFolders(false)
                 R.id.cab_hide -> toggleFoldersVisibility(true)
                 R.id.cab_unhide -> toggleFoldersVisibility(false)
-                R.id.exclude_folder -> excludeFolder()
+                R.id.cab_exclude -> tryExcludeFolder()
                 R.id.cab_copy_move -> displayCopyDialog()
                 R.id.cab_select_all -> selectAll()
                 R.id.cab_delete -> askConfirmDelete()
@@ -181,6 +181,17 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                 activity.removeNoMedia(path) {
                     noMediaHandled()
                 }
+            }
+        }
+    }
+
+    private fun tryExcludeFolder() {
+        if (config.wasExcludeFolderTooltipShown) {
+            excludeFolder()
+        } else {
+            ConfirmationDialog(activity, activity.getString(R.string.exclude_folder_description)) {
+                config.wasExcludeFolderTooltipShown = true
+                excludeFolder()
             }
         }
     }

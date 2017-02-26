@@ -28,7 +28,7 @@
     <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it. You can still see it by toggling \'Show hidden folders\' option in Settings. Continue?</string>
     <string name="exclude">Exclude</string>
     <string name="excluded_folders">Excluded folders</string>
-    <string name="exclude_folder_description">This function will make this folder hidden only for Simple Gallery. You can manage hidden folders in Settings. Continue?</string>
+    <string name="exclude_folder_description">This function will make the selection hidden only for Simple Gallery. You can manage hidden folders in Settings. Continue?</string>
 
     <!-- Resizing -->
     <string name="resize">Größe ändern</string>

@@ -15,6 +15,7 @@ import com.bumptech.glide.request.animation.GlideAnimation
 import com.bumptech.glide.request.target.SimpleTarget
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.MediaAdapter
@@ -119,7 +120,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             R.id.folder_view -> switchToFolderView()
             R.id.hide_folder -> hideFolder()
             R.id.unhide_folder -> unhideFolder()
-            R.id.exclude_folder -> excludeFolder()
+            R.id.exclude_folder -> tryExcludeFolder()
             R.id.increase_column_count -> increaseColumnCount()
             R.id.reduce_column_count -> reduceColumnCount()
             R.id.settings -> launchSettings()
@@ -162,6 +163,17 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         removeNoMedia(mPath) {
             runOnUiThread {
                 invalidateOptionsMenu()
+            }
+        }
+    }
+
+    private fun tryExcludeFolder() {
+        if (config.wasExcludeFolderTooltipShown) {
+            excludeFolder()
+        } else {
+            ConfirmationDialog(this, getString(R.string.exclude_folder_description)) {
+                config.wasExcludeFolderTooltipShown = true
+                excludeFolder()
             }
         }
     }
