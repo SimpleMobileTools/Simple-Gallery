@@ -35,6 +35,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private val SAVE_MEDIA_CNT = 40
 
     private var mMedia = ArrayList<Medium>()
+    private var mCurrAsyncTask: GetMediaAsynctask? = null
 
     private var mPath = ""
     private var mIsGetImageIntent = false
@@ -63,6 +64,11 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     override fun onResume() {
         super.onResume()
         tryloadGallery()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mCurrAsyncTask?.shouldStop = true
     }
 
     private fun tryloadGallery() {
@@ -204,9 +210,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
         mLoadedInitialPhotos = true
 
-        GetMediaAsynctask(applicationContext, mPath, mIsGetVideoIntent, mIsGetImageIntent, mShowAll) {
+        mCurrAsyncTask = GetMediaAsynctask(applicationContext, mPath, mIsGetVideoIntent, mIsGetImageIntent, mShowAll) {
             gotMedia(it)
-        }.execute()
+        }
+        mCurrAsyncTask!!.execute()
     }
 
     private fun isDirEmpty(): Boolean {

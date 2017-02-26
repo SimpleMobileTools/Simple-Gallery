@@ -17,6 +17,7 @@ import java.util.*
 class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, val isPickImage: Boolean,
                               val callback: (dirs: ArrayList<Directory>) -> Unit) : AsyncTask<Void, Void, ArrayList<Directory>>() {
     var config = context.config
+    var shouldStop = false
 
     override fun doInBackground(vararg params: Void): ArrayList<Directory> {
         val media = ArrayList<Medium>()
@@ -29,6 +30,9 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
             val filenames = File(it).list()
             if (filenames?.size ?: 0 > 0) {
                 for (filename in filenames) {
+                    if (shouldStop)
+                        cancel(true)
+
                     val isImage = filename.isImageFast() || filename.isGif()
                     val isVideo = if (isImage) false else filename.isVideoFast()
 
@@ -68,6 +72,9 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         val hidden = context.resources.getString(R.string.hidden)
         val directories = LinkedHashMap<String, Directory>()
         for ((name, path, isVideo, dateModified, dateTaken, size) in media) {
+            if (shouldStop)
+                cancel(true)
+
             val parentDir = File(path).parent ?: continue
             if (directories.containsKey(parentDir)) {
                 val directory = directories[parentDir]!!

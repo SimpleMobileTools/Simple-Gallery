@@ -20,6 +20,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
     var config = context.config
     var showMedia = IMAGES_AND_VIDEOS
     var fileSorting = 0
+    var shouldStop = false
 
     override fun onPreExecute() {
         super.onPreExecute()
@@ -49,6 +50,9 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
         val dir = File(path)
         val filenames = dir.list() ?: return media
         for (filename in filenames) {
+            if (shouldStop)
+                cancel(true)
+
             val isImage = filename.isImageFast() || filename.isGif()
             val isVideo = if (isImage) false else filename.isVideoFast()
 

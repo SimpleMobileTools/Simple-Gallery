@@ -48,6 +48,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mIsThirdPartyIntent = false
     private var mIsGettingDirs = false
 
+    private var mCurrAsyncTask: GetDirectoriesAsynctask? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -98,6 +100,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     override fun onPause() {
         super.onPause()
+        mCurrAsyncTask?.shouldStop = true
         storeDirectories()
     }
 
@@ -146,9 +149,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             gotDirectories(dirs)
         }
 
-        GetDirectoriesAsynctask(applicationContext, mIsPickVideoIntent || mIsGetVideoContentIntent, mIsPickImageIntent || mIsGetImageContentIntent) {
+        mCurrAsyncTask = GetDirectoriesAsynctask(applicationContext, mIsPickVideoIntent || mIsGetVideoContentIntent, mIsPickImageIntent || mIsGetImageContentIntent) {
             gotDirectories(it)
-        }.execute()
+        }
+        mCurrAsyncTask!!.execute()
     }
 
     private fun showSortingDialog() {

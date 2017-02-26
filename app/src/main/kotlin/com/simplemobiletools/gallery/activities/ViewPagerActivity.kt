@@ -38,11 +38,11 @@ import java.io.FileOutputStream
 import java.io.OutputStream
 import java.util.*
 
-
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
     private var mMedia = ArrayList<Medium>()
     private var mPath = ""
     private var mDirectory = ""
+    private var mCurrAsyncTask: GetMediaAsynctask? = null
 
     private var mIsFullScreen = false
     private var mPos = -1
@@ -98,6 +98,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             finish()
         }
         supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.actionbar_gradient_background))
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mCurrAsyncTask?.shouldStop = true
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -357,7 +362,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun reloadViewPager() {
-        GetMediaAsynctask(applicationContext, mDirectory, false, false, mShowAll) {
+        mCurrAsyncTask = GetMediaAsynctask(applicationContext, mDirectory, false, false, mShowAll) {
             mMedia = it
             if (isDirEmpty())
                 return@GetMediaAsynctask
@@ -371,7 +376,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             updateActionbarTitle()
             updatePagerItems()
             invalidateOptionsMenu()
-        }.execute()
+        }
+        mCurrAsyncTask!!.execute()
     }
 
     private fun getProperPosition(): Int {
