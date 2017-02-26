@@ -67,35 +67,31 @@ fun Context.getParents(): ArrayList<String> {
         cursor?.close()
     }
 
+    val noMediaFolders = getNoMediaFolders()
     val parents = ArrayList<String>()
-    parentsSet.filterTo(parents, { File(it).isDirectory })
+    parentsSet.filterTo(parents, {
+        if (File(it).isDirectory) {
+            if (!config.showHiddenFolders) {
+                isFolderVisible(it, noMediaFolders)
+            } else
+                true
+        } else {
+            false
+        }
+    })
 
     if (config.showHiddenFolders) {
-        parents.addAll(getNoMediaFolders())
-    } else {
-        removeHiddenFolders(parents)
+        parents.addAll(noMediaFolders)
     }
 
     return parents
 }
 
-private fun removeHiddenFolders(paths: MutableList<String>) {
-    val ignorePaths = ArrayList<String>()
-    for (path in paths) {
-        val dir = File(path)
-        if (dir.exists() && dir.isDirectory) {
-            if (dir.name.startsWith(".")) {
-                ignorePaths.add((path))
-                continue
-            }
-
-            val res = dir.list { file, filename -> filename == NOMEDIA }
-            if (res?.isNotEmpty() == true)
-                ignorePaths.add(path)
-        }
-    }
-
-    paths.removeAll(ignorePaths)
+private fun isFolderVisible(path: String, noMediaFolders: ArrayList<String>): Boolean {
+    val parts = path.split("/")
+    return if (parts.any { it.startsWith(".") }) {
+        false
+    } else !noMediaFolders.any { path.startsWith(it) }
 }
 
 fun Context.getNoMediaFolders(): ArrayList<String> {
@@ -113,7 +109,9 @@ fun Context.getNoMediaFolders(): ArrayList<String> {
         if (cursor?.moveToFirst() == true) {
             do {
                 val path = cursor.getString(cursor.getColumnIndex(MediaStore.Files.FileColumns.DATA)) ?: continue
-                folders.add(File(path).parent)
+                val noMediaFile = File(path)
+                if (noMediaFile.exists())
+                    folders.add(noMediaFile.parent)
             } while (cursor.moveToNext())
         }
     } finally {
