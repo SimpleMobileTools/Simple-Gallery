@@ -124,7 +124,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             R.id.toggle_filename -> toggleFilenameVisibility()
             R.id.open_camera -> launchCamera()
             R.id.folder_view -> switchToFolderView()
-            R.id.hide_folder -> hideFolder()
+            R.id.hide_folder -> tryHideFolder()
             R.id.unhide_folder -> unhideFolder()
             R.id.exclude_folder -> tryExcludeFolder()
             R.id.increase_column_count -> increaseColumnCount()
@@ -151,6 +151,17 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         config.showAll = false
         startActivity(Intent(this, MainActivity::class.java))
         finish()
+    }
+
+    private fun tryHideFolder() {
+        if (config.wasHideFolderTooltipShown) {
+            hideFolder()
+        } else {
+            ConfirmationDialog(this, getString(R.string.hide_folder_description)) {
+                config.wasHideFolderTooltipShown = true
+                hideFolder()
+            }
+        }
     }
 
     private fun hideFolder() {
