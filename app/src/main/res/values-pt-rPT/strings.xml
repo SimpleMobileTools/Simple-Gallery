@@ -66,7 +66,7 @@
     <string name="flip">Inverter</string>
     <string name="horizontally">Horizontalmente</string>
     <string name="vertically">Verticalmente</string>
-    <string name="out_of_memory_error">Out of memory error</string>
+    <string name="out_of_memory_error">Memória insuficiente</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
