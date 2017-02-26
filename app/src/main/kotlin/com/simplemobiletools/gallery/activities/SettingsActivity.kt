@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.activities
 
+import android.content.Intent
 import android.os.Bundle
 import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.gallery.R
@@ -36,7 +37,7 @@ class SettingsActivity : SimpleActivity() {
 
     private fun setupManageExcludedFolders() {
         settings_manage_excluded_folders_holder.setOnClickListener {
-
+            startActivity(Intent(this, ExcludedFoldersActivity::class.java))
         }
     }
 
