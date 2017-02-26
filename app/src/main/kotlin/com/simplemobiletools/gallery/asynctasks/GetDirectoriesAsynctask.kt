@@ -23,6 +23,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         val showMedia = config.showMedia
         val fileSorting = config.fileSorting
         val parents = context.getParents()
+        removeExcludedFolders(parents)
 
         parents.forEach {
             val filenames = File(it).list()
@@ -90,6 +91,12 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
             }
         }
         return directories
+    }
+
+    private fun removeExcludedFolders(paths: MutableList<String>) {
+        val excludedPaths = config.excludedFolders
+        val ignorePaths = paths.filter { excludedPaths.contains(it) }
+        paths.removeAll(ignorePaths)
     }
 
     private fun movePinnedToFront(dirs: ArrayList<Directory>): ArrayList<Directory> {

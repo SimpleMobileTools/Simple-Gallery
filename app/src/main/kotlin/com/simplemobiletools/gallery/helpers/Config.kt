@@ -54,6 +54,20 @@ class Config(context: Context) : BaseConfig(context) {
         pinnedFolders = currPinnedFolders
     }
 
+    fun addExcludedFolder(path: String) {
+        addExcludedFolders(HashSet<String>(Arrays.asList(path)))
+    }
+
+    fun addExcludedFolders(paths: Set<String>) {
+        val currExcludedFolders = HashSet<String>(excludedFolders)
+        currExcludedFolders.addAll(paths)
+        excludedFolders = currExcludedFolders
+    }
+
+    var excludedFolders: MutableSet<String>
+        get() = prefs.getStringSet(EXCLUDED_FOLDERS, HashSet<String>())
+        set(excludedFolders) = prefs.edit().remove(EXCLUDED_FOLDERS).putStringSet(EXCLUDED_FOLDERS, excludedFolders).apply()
+
     fun saveFolderMedia(path: String, json: String) {
         prefs.edit().putString(SAVE_FOLDER_PREFIX + path, json).apply()
     }

@@ -197,7 +197,9 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     }
 
     private fun excludeFolder() {
-
+        activity.config.addExcludedFolders(getSelectedPaths())
+        listener?.refreshItems()
+        actMode?.finish()
     }
 
     private fun noMediaHandled() {

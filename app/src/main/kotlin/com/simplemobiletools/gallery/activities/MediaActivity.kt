@@ -179,7 +179,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun excludeFolder() {
-
+        config.addExcludedFolder(mPath)
+        finish()
     }
 
     private fun deleteDirectoryIfEmpty() {
