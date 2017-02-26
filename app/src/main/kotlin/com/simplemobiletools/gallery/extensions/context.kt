@@ -73,17 +73,22 @@ fun Context.getParents(): ArrayList<String> {
     if (config.showHiddenFolders) {
         parents.addAll(getNoMediaFolders())
     } else {
-        removeNoMediaFolders(parents)
+        removeHiddenFolders(parents)
     }
 
     return parents
 }
 
-private fun removeNoMediaFolders(paths: MutableList<String>) {
+private fun removeHiddenFolders(paths: MutableList<String>) {
     val ignorePaths = ArrayList<String>()
     for (path in paths) {
         val dir = File(path)
         if (dir.exists() && dir.isDirectory) {
+            if (dir.name.startsWith(".")) {
+                ignorePaths.add((path))
+                continue
+            }
+
             val res = dir.list { file, filename -> filename == NOMEDIA }
             if (res?.isNotEmpty() == true)
                 ignorePaths.add(path)
