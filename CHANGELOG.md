@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 2.5.0 *(2017-02-26)*
+----------------------------
+
+ * Rethink the way of obtaining images/videos
+ * Use the proper way of hiding folders, by using .nomedia
+ * Add a section in Settings for managing excluded folders
+
 Version 2.4.0 *(2017-02-20)*
 ----------------------------
 
