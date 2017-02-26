@@ -30,6 +30,8 @@
     <string name="excluded_folders">Excluded folders</string>
     <string name="manage_excluded_folders">Manage excluded folders</string>
     <string name="exclude_folder_description">This function will make the selection hidden only for Simple Gallery. You can manage hidden folders in Settings. Continue?</string>
+    <string name="remove_all">Remove all</string>
+    <string name="remove_all_description">Remove all folders from the list of excluded? This will not delete the folders.</string>
 
     <!-- Resizing -->
     <string name="resize">Resize</string>

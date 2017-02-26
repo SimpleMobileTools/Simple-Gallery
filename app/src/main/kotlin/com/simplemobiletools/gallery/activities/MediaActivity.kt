@@ -125,7 +125,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             R.id.reduce_column_count -> reduceColumnCount()
             R.id.settings -> launchSettings()
             R.id.about -> launchAbout()
-            else -> return super.onOptionsItemSelected(item)
         }
         return true
     }
