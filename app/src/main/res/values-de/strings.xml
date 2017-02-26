@@ -25,7 +25,7 @@
     <string name="reduce_column_count">Reduce column count</string>
     <string name="hide_folder">Ordner verstecken</string>
     <string name="unhide_folder">Ordner sichtbar machen</string>
-    <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it. You can still see it by toggling \'Show hidden folders\' option in Settings. Continue?</string>
+    <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden folders\' option in Settings. Continue?</string>
     <string name="exclude">Exclude</string>
     <string name="excluded_folders">Excluded folders</string>
     <string name="manage_excluded_folders">Manage excluded folders</string>
