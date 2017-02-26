@@ -3,8 +3,4 @@
     <style name="FullScreenTheme" parent="FullScreenTheme.Base">
         <item name="android:windowTranslucentNavigation">true</item>
     </style>
-
-    <style name="MyBorderlessBackgroundStyle">
-        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
-    </style>
 </resources>
