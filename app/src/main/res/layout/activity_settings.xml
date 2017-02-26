@@ -20,13 +20,32 @@
             android:padding="@dimen/activity_margin">
 
             <com.simplemobiletools.commons.views.MyTextView
-                android:id="@+id/settings_customize_colors_label"
+                android:id="@+id/settings_customize_colors"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:paddingLeft="@dimen/medium_margin"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/customize_colors"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/settings_manage_excluded_folders_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MyTextView
+                android:id="@+id/settings_manage_excluded_folders"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/manage_excluded_folders"/>
 
         </RelativeLayout>
 
