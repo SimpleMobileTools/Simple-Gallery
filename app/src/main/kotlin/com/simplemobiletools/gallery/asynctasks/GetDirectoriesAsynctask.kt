@@ -25,32 +25,29 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         val parents = context.getParents()
 
         parents.forEach {
-            val dir = File(it)
-            if (dir.isDirectory) {
-                val filenames = dir.list()
-                if (filenames?.size ?: 0 > 0) {
-                    for (filename in filenames) {
-                        val isImage = filename.isImageFast() || filename.isGif()
-                        val isVideo = if (isImage) false else filename.isVideoFast()
+            val filenames = File(it).list()
+            if (filenames?.size ?: 0 > 0) {
+                for (filename in filenames) {
+                    val isImage = filename.isImageFast() || filename.isGif()
+                    val isVideo = if (isImage) false else filename.isVideoFast()
 
-                        if (!isImage && !isVideo)
-                            continue
+                    if (!isImage && !isVideo)
+                        continue
 
-                        if (isVideo && (isPickImage || showMedia == IMAGES))
-                            continue
+                    if (isVideo && (isPickImage || showMedia == IMAGES))
+                        continue
 
-                        if (isImage && (isPickVideo || showMedia == VIDEOS))
-                            continue
+                    if (isImage && (isPickVideo || showMedia == VIDEOS))
+                        continue
 
-                        val file = File(it, filename)
-                        val size = file.length()
-                        if (size == 0L)
-                            continue
+                    val file = File(it, filename)
+                    val size = file.length()
+                    if (size == 0L)
+                        continue
 
-                        val dateModified = file.lastModified()
-                        val medium = Medium(filename, file.absolutePath, isVideo, dateModified, dateModified, size)
-                        media.add(medium)
-                    }
+                    val dateModified = file.lastModified()
+                    val medium = Medium(filename, file.absolutePath, isVideo, dateModified, dateModified, size)
+                    media.add(medium)
                 }
             }
         }
