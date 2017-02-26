@@ -11,11 +11,19 @@ class ExcludedFoldersActivity : SimpleActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_excluded_folders)
+        addExcludedFolders()
+    }
 
+    private fun addExcludedFolders() {
+        excluded_folders_holder.removeAllViews()
         val folders = config.excludedFolders
         for (folder in folders) {
             layoutInflater.inflate(R.layout.item_excluded_folder, null, false).apply {
                 excluded_folder_title.text = folder
+                excluded_folders_icon.setOnClickListener {
+                    config.removeExcludedFolder(folder)
+                    addExcludedFolders()
+                }
                 excluded_folders_holder.addView(this)
             }
         }

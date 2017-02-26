@@ -64,6 +64,12 @@ class Config(context: Context) : BaseConfig(context) {
         excludedFolders = currExcludedFolders
     }
 
+    fun removeExcludedFolder(path: String) {
+        val currExcludedFolders = HashSet<String>(excludedFolders)
+        currExcludedFolders.remove(path)
+        excludedFolders = currExcludedFolders
+    }
+
     var excludedFolders: MutableSet<String>
         get() = prefs.getStringSet(EXCLUDED_FOLDERS, HashSet<String>())
         set(excludedFolders) = prefs.edit().remove(EXCLUDED_FOLDERS).putStringSet(EXCLUDED_FOLDERS, excludedFolders).apply()
