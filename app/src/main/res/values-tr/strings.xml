@@ -8,8 +8,6 @@
     <string name="open_camera">Kamerayı aç</string>
     <string name="open_with">Bununla aç</string>
     <string name="no_app_found">Geçerli bir uygulama bulunamadı</string>
-    <string name="hide_folder">Klasörü gizle</string>
-    <string name="unhide_folder">Klasörü göster</string>
     <string name="hidden">(gizli)</string>
     <string name="save_as">Farklı kaydet</string>
     <string name="file_saved">Dosya başarıyla kaydedildi</string>
@@ -25,6 +23,12 @@
     <string name="no_camera_app_found">Hiçbir Kamera uygulaması bulunamadı</string>
     <string name="increase_column_count">Sütun sayısını artır</string>
     <string name="reduce_column_count">Sütun sayısını azalt</string>
+    <string name="hide_folder">Klasörü gizle</string>
+    <string name="unhide_folder">Klasörü göster</string>
+    <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it. You can still see it by toggling \'Show hidden folders\' option in Settings. Continue?</string>
+    <string name="exclude">Exclude</string>
+    <string name="excluded_folders">Excluded folders</string>
+    <string name="exclude_folder_description">This function will make this folder hidden only for Simple Gallery. You can manage hidden folders in Settings. Continue?</string>
 
     <!-- Resizing -->
     <string name="resize">Yeniden boyutlandır</string>
@@ -89,7 +93,10 @@
     <string name="loop_videos">Videolar döngüsü</string>
 
     <!-- Release notes -->
-    <string name="release_72">Implement proper folder hiding via .nomedia file</string>
+    <string name="release_72">
+        Implement proper folder hiding via .nomedia file\n
+        Allow managing excluded folders in Settings
+    </string>
     <string name="release_70">Tam ekran görünümünde kolay resim dönmesi için menü öğeleri eklendi</string>
     <string name="release_69">Sütun sayısını değiştirmek için menü düğmeleri eklendi</string>
     <string name="release_66">Allow picking colors by hex code Renkleri hex kodlarla toplama izni verin</string>

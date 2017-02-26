@@ -8,8 +8,6 @@
     <string name="open_camera">Открыть камеру</string>
     <string name="open_with">Открыть в</string>
     <string name="no_app_found">Приложение не найдено</string>
-    <string name="hide_folder">Скрыть папку</string>
-    <string name="unhide_folder">Сделать папку видимой</string>
     <string name="hidden">(Скрытый)</string>
     <string name="save_as">Сохранить как</string>
     <string name="file_saved">Файл успешно сохранен</string>
@@ -25,6 +23,12 @@
     <string name="no_camera_app_found">Не найдено приложения камеры</string>
     <string name="increase_column_count">Добавить 1 столбец</string>
     <string name="reduce_column_count">Убрать 1 столбец</string>
+    <string name="hide_folder">Скрыть папку</string>
+    <string name="unhide_folder">Сделать папку видимой</string>
+    <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it. You can still see it by toggling \'Show hidden folders\' option in Settings. Continue?</string>
+    <string name="exclude">Exclude</string>
+    <string name="excluded_folders">Excluded folders</string>
+    <string name="exclude_folder_description">This function will make this folder hidden only for Simple Gallery. You can manage hidden folders in Settings. Continue?</string>
 
     <!-- Resizing -->
     <string name="resize">Изменить размер</string>
@@ -89,7 +93,10 @@
     <string name="loop_videos">Повторять видео</string>
 
     <!-- Release notes -->
-    <string name="release_72">Implement proper folder hiding via .nomedia file</string>
+    <string name="release_72">
+        Implement proper folder hiding via .nomedia file\n
+        Allow managing excluded folders in Settings
+    </string>
     <string name="release_70">Добавлены элементы меню, позволяющие легко повернуть изображение в полноэкранном режиме</string>
     <string name="release_69">В меню добавлены кнопки для изменения количества столбцов на гравном экране</string>
     <string name="release_66">Добавлена возможность выбирать цвета по hex-кодам</string>

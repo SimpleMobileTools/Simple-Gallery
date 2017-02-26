@@ -8,8 +8,6 @@
     <string name="open_camera">Otvoriť fotoaparát</string>
     <string name="open_with">Otvoriť pomocou</string>
     <string name="no_app_found">Nenašla sa žiadna vhodná aplikácia</string>
-    <string name="hide_folder">Skryť priečinok</string>
-    <string name="unhide_folder">Odkryť priečinok</string>
     <string name="hidden">(skryté)</string>
     <string name="save_as">Uložiť ako</string>
     <string name="file_saved">Súbor bol úspešne uložený</string>
@@ -25,6 +23,12 @@
     <string name="no_camera_app_found">Nenašla sa žiadna aplikácia pre fotoaparát</string>
     <string name="increase_column_count">Zvýšiť počet stĺpcov</string>
     <string name="reduce_column_count">Znížiť počet stĺpcov</string>
+    <string name="hide_folder">Skryť priečinok</string>
+    <string name="unhide_folder">Odkryť priečinok</string>
+    <string name="hide_folder_description">Táto funkcia skryje priečinok pridaním súboru \'.nomedia\'. Stále ho môžete vidieť zvolením možnosti \'Zobraziť skryté priečinky\' v nastaveniach. Pokračovať?</string>
+    <string name="exclude">Vylúčiť</string>
+    <string name="excluded_folders">Vylúčené priečinky</string>
+    <string name="exclude_folder_description">Táto funkcia ukryje priečinok iba pred Jednoduchou galériou. Spravovať vylúčené priečinky je možné v nastaveniach. Pokračovať?</string>
 
     <!-- Resizing -->
     <string name="resize">Zmeniť veľkosť</string>
@@ -89,7 +93,10 @@
     <string name="loop_videos">Automaticky reštartovať videá</string>
 
     <!-- Release notes -->
-    <string name="release_72">Bolo pridané správne ukrývanie priečinkov pomocou súboru .nomedia</string>
+    <string name="release_72">
+        Bolo pridané správne ukrývanie priečinkov pomocou súboru .nomedia\n
+        Bolo pridané spravovanie vylúčených súborov v nastaveniach
+    </string>
     <string name="release_70">Do celoobrazovkového pohľadu boli pridané tlačidlá na jednoduché otáčanie obrázkov</string>
     <string name="release_69">Boli pridané tlačidlá na zmenu počtu stĺpcov</string>
     <string name="release_66">Allow picking colors by hex codes</string>
