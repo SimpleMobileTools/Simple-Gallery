@@ -119,6 +119,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             R.id.folder_view -> switchToFolderView()
             R.id.hide_folder -> hideFolder()
             R.id.unhide_folder -> unhideFolder()
+            R.id.exclude_folder -> excludeFolder()
             R.id.increase_column_count -> increaseColumnCount()
             R.id.reduce_column_count -> reduceColumnCount()
             R.id.settings -> launchSettings()
@@ -163,6 +164,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                 invalidateOptionsMenu()
             }
         }
+    }
+
+    private fun excludeFolder() {
+
     }
 
     private fun deleteDirectoryIfEmpty() {

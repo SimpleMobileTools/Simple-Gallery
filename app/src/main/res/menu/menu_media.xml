@@ -29,6 +29,10 @@
         android:title="@string/unhide_folder"
         app:showAsAction="never"/>
     <item
+        android:id="@+id/exclude_folder"
+        android:title="@string/exclude"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/increase_column_count"
         android:title="@string/increase_column_count"
         app:showAsAction="never"/>
