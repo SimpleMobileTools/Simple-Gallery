@@ -22,6 +22,14 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getInt(DIRECTORY_SORT_ORDER, SORT_BY_DATE_MODIFIED or SORT_DESCENDING)
         set(order) = prefs.edit().putInt(DIRECTORY_SORT_ORDER, order).apply()
 
+    var wasHideFolderTooltipShown: Boolean
+        get() = prefs.getBoolean(HIDE_FOLDER_TOOLTIP_SHOWN, false)
+        set(wasShown) = prefs.edit().putBoolean(HIDE_FOLDER_TOOLTIP_SHOWN, wasShown).apply()
+
+    var wasExcludeFolderTooltipShown: Boolean
+        get() = prefs.getBoolean(EXCLUDE_FOLDER_TOOLTIP_SHOWN, false)
+        set(wasShown) = prefs.edit().putBoolean(EXCLUDE_FOLDER_TOOLTIP_SHOWN, wasShown).apply()
+
     var showHiddenFolders: Boolean
         get() = prefs.getBoolean(SHOW_HIDDEN_FOLDERS, false)
         set(showHiddenFolders) = prefs.edit().putBoolean(SHOW_HIDDEN_FOLDERS, showHiddenFolders).apply()

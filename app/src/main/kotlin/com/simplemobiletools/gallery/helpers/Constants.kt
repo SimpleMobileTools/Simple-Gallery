@@ -14,6 +14,8 @@ val MEDIA_COLUMN_CNT = "media_column_cnt"
 val SHOW_ALL = "show_all"   // display images and videos from all folders together
 val SHOW_MEDIA = "show_media"
 val SAVE_FOLDER_PREFIX = "folder_"
+val HIDE_FOLDER_TOOLTIP_SHOWN = "hide_folder_tooltip_shown"
+val EXCLUDE_FOLDER_TOOLTIP_SHOWN = "exclude_folder_tooltip_shown"
 
 val NOMEDIA = ".nomedia"
 
