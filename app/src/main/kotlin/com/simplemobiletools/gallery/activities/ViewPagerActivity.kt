@@ -319,7 +319,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun deleteFile() {
         val file = File(mMedia[mPos].path)
-        if (needsStupidWritePermissions(file.path) && isShowingPermDialog(file)) {
+        if (isShowingPermDialog(file)) {
             return
         }
 

@@ -268,7 +268,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     override fun deleteFiles(files: ArrayList<File>) {
-        if (needsStupidWritePermissions(files[0].path) && isShowingPermDialog(files[0])) {
+        if (isShowingPermDialog(files[0])) {
             return
         }
 
