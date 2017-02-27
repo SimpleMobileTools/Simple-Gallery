@@ -173,7 +173,7 @@ class PhotoFragment : ViewPagerFragment() {
         if (!medium.isPng()) {
             subsamplingView.apply {
                 beVisible()
-                setDoubleTapZoomScale(1.2f)
+                setDoubleTapZoomScale(1.8f)
                 setImage(ImageSource.cachedBitmap(bitmap))
                 orientation = SubsamplingScaleImageView.ORIENTATION_USE_EXIF
                 maxScale = 5f
