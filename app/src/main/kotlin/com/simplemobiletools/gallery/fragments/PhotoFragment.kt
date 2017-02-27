@@ -153,9 +153,9 @@ class PhotoFragment : ViewPagerFragment() {
                         return false
                     }
 
-                    override fun onResourceReady(bitmap: Bitmap?, model: String?, target: Target<Bitmap>?, isFromMemoryCache: Boolean, isFirstResource: Boolean): Boolean {
+                    override fun onResourceReady(bitmap: Bitmap, model: String?, target: Target<Bitmap>?, isFromMemoryCache: Boolean, isFirstResource: Boolean): Boolean {
                         if (degrees == 0f) {
-                            addZoomableView()
+                            addZoomableView(bitmap)
                         } else {
                             photo_view.beVisible()
                             subsampling_view.beGone()
@@ -169,12 +169,12 @@ class PhotoFragment : ViewPagerFragment() {
         loadBitmap(degrees)
     }
 
-    private fun addZoomableView() {
+    private fun addZoomableView(bitmap: Bitmap) {
         if (!medium.isPng()) {
             subsamplingView.apply {
                 beVisible()
                 setDoubleTapZoomScale(1.2f)
-                setImage(ImageSource.uri(medium.path))
+                setImage(ImageSource.cachedBitmap(bitmap))
                 orientation = SubsamplingScaleImageView.ORIENTATION_USE_EXIF
                 maxScale = 5f
                 setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {
