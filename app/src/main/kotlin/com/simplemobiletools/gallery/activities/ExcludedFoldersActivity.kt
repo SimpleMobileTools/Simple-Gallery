@@ -1,10 +1,10 @@
 package com.simplemobiletools.gallery.activities
 
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
-import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
 import kotlinx.android.synthetic.main.activity_excluded_folders.*
@@ -22,15 +22,21 @@ class ExcludedFoldersActivity : SimpleActivity() {
         val folders = config.excludedFolders
         for (folder in folders) {
             layoutInflater.inflate(R.layout.item_excluded_folder, null, false).apply {
-                excluded_folder_title.text = folder
-                excluded_folders_icon.setOnClickListener {
-                    config.removeExcludedFolder(folder)
-                    updateExcludedFolders()
+                excluded_folder_title.apply {
+                    text = folder
+                    setTextColor(config.textColor)
+                }
+                excluded_folders_icon.apply {
+                    setColorFilter(config.textColor, PorterDuff.Mode.SRC_IN)
+                    alpha = 0.7f
+                    setOnClickListener {
+                        config.removeExcludedFolder(folder)
+                        updateExcludedFolders()
+                    }
                 }
                 excluded_folders_holder.addView(this)
             }
         }
-        updateTextColors(excluded_folders_holder)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
