@@ -41,6 +41,7 @@ class ExcludedFoldersActivity : SimpleActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.remove_all -> removeAllExcludedFolders()
+            else -> return super.onOptionsItemSelected(item)
         }
         return true
     }
