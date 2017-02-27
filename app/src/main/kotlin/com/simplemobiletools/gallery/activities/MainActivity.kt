@@ -102,6 +102,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         super.onPause()
         mCurrAsyncTask?.shouldStop = true
         storeDirectories()
+        directories_holder.isRefreshing = false
+        mIsGettingDirs = false
     }
 
     override fun onDestroy() {

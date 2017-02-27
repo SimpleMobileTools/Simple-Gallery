@@ -69,6 +69,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     override fun onPause() {
         super.onPause()
         mCurrAsyncTask?.shouldStop = true
+        mIsGettingMedia = false
+        media_holder.isRefreshing = false
     }
 
     private fun tryloadGallery() {
