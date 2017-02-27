@@ -88,10 +88,11 @@ fun Context.getParents(): ArrayList<String> {
 }
 
 private fun isFolderVisible(path: String, noMediaFolders: ArrayList<String>): Boolean {
-    val parts = path.split("/")
-    return if (parts.any { it.startsWith(".") }) {
+    return if (path.contains("/.")) {
         false
-    } else !noMediaFolders.any { path.startsWith(it) }
+    } else {
+        !noMediaFolders.any { path.startsWith(it) }
+    }
 }
 
 fun Context.getNoMediaFolders(): ArrayList<String> {
