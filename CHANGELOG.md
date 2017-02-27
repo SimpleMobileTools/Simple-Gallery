@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 2.5.1 *(2017-02-27)*
+----------------------------
+
+ * Couple performance improvements and bugfixes
+
 Version 2.5.0 *(2017-02-26)*
 ----------------------------
 
