@@ -146,7 +146,6 @@ class PhotoFragment : ViewPagerFragment() {
                 .transform(GlideRotateTransformation(context, degrees))
                 .format(if (medium.isPng()) DecodeFormat.PREFER_ARGB_8888 else DecodeFormat.PREFER_RGB_565)
                 .priority(if (isFragmentVisible) Priority.IMMEDIATE else Priority.NORMAL)
-                .thumbnail(0.3f)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .listener(object : RequestListener<String, Bitmap> {
                     override fun onException(e: Exception?, model: String?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
