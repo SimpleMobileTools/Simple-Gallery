@@ -1,6 +1,5 @@
 package com.simplemobiletools.gallery.dialogs
 
-import android.os.Environment
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -44,9 +43,8 @@ class PickAlbumDialog(val activity: SimpleActivity, val sourcePath: String, val 
     }
 
     fun showOtherFolder() {
-        val initialPath = Environment.getExternalStorageDirectory().toString()
         val showHidden = activity.config.showHiddenFolders
-        FilePickerDialog(activity, initialPath, false, showHidden, true) {
+        FilePickerDialog(activity, sourcePath, false, showHidden, true) {
             callback.invoke(it)
         }
     }
