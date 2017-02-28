@@ -18,6 +18,22 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getInt(DIRECTORY_SORT_ORDER, SORT_BY_DATE_MODIFIED or SORT_DESCENDING)
         set(order) = prefs.edit().putInt(DIRECTORY_SORT_ORDER, order).apply()
 
+    fun saveFileSorting(path: String, value: Int) {
+        if (path.isEmpty()) {
+            fileSorting = value
+        } else {
+            prefs.edit().putInt(SORT_FOLDER_PREFIX + path, value).apply()
+        }
+    }
+
+    fun getFileSorting(path: String) = prefs.getInt(SORT_FOLDER_PREFIX + path, fileSorting)
+
+    fun removeFileSorting(path: String) {
+        prefs.edit().remove(SORT_FOLDER_PREFIX + path).apply()
+    }
+
+    fun hasCustomSorting(path: String) = prefs.contains(SORT_FOLDER_PREFIX + path)
+
     var wasHideFolderTooltipShown: Boolean
         get() = prefs.getBoolean(HIDE_FOLDER_TOOLTIP_SHOWN, false)
         set(wasShown) = prefs.edit().putBoolean(HIDE_FOLDER_TOOLTIP_SHOWN, wasShown).apply()

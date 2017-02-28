@@ -25,7 +25,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
     override fun onPreExecute() {
         super.onPreExecute()
         showMedia = config.showMedia
-        fileSorting = config.fileSorting
+        fileSorting = config.getFileSorting(mPath)
     }
 
     override fun doInBackground(vararg params: Void): ArrayList<Medium> {

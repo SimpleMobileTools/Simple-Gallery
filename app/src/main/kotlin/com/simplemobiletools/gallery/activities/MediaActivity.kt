@@ -145,7 +145,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun showSortingDialog() {
-        ChangeSortingDialog(this, false, true) {
+        ChangeSortingDialog(this, false, true, mPath) {
             getMedia()
         }
     }

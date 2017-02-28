@@ -12,7 +12,8 @@ import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.helpers.*
 import kotlinx.android.synthetic.main.dialog_change_sorting.view.*
 
-class ChangeSortingDialog(val activity: SimpleActivity, val isDirectorySorting: Boolean, val showFolderCheckbox: Boolean, val callback: () -> Unit) :
+class ChangeSortingDialog(val activity: SimpleActivity, val isDirectorySorting: Boolean, showFolderCheckbox: Boolean,
+                          val path: String = "", val callback: () -> Unit) :
         DialogInterface.OnClickListener {
     companion object {
         private var currSorting = 0
@@ -26,6 +27,7 @@ class ChangeSortingDialog(val activity: SimpleActivity, val isDirectorySorting: 
         view = LayoutInflater.from(activity).inflate(R.layout.dialog_change_sorting, null)
         view.use_for_this_folder_divider.beVisibleIf(showFolderCheckbox)
         view.sorting_dialog_use_for_this_folder.beVisibleIf(showFolderCheckbox)
+        view.sorting_dialog_use_for_this_folder.isChecked = config.hasCustomSorting(path)
 
         AlertDialog.Builder(activity)
                 .setPositiveButton(R.string.ok, this)
@@ -34,7 +36,7 @@ class ChangeSortingDialog(val activity: SimpleActivity, val isDirectorySorting: 
             activity.setupDialogStuff(view, this, R.string.sort_by)
         }
 
-        currSorting = if (isDirectorySorting) config.directorySorting else config.fileSorting
+        currSorting = if (isDirectorySorting) config.directorySorting else config.getFileSorting(path)
         setupSortRadio()
         setupOrderRadio()
     }
@@ -78,7 +80,12 @@ class ChangeSortingDialog(val activity: SimpleActivity, val isDirectorySorting: 
         if (isDirectorySorting) {
             config.directorySorting = sorting
         } else {
-            config.fileSorting = sorting
+            if (view.sorting_dialog_use_for_this_folder.isChecked) {
+                config.saveFileSorting(path, sorting)
+            } else {
+                config.removeFileSorting(path)
+                config.fileSorting = sorting
+            }
         }
         callback.invoke()
     }

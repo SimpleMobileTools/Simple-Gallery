@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.helpers
 // shared preferences
 val SORT_ORDER = "sort_order"
 val DIRECTORY_SORT_ORDER = "directory_sort_order"
+val SORT_FOLDER_PREFIX = "sort_folder_"
 val SHOW_HIDDEN_FOLDERS = "show_hidden_folders"
 val AUTOPLAY_VIDEOS = "autoplay_videos"
 val LOOP_VIDEOS = "loop_videos"
