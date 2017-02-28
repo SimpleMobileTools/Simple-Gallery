@@ -95,7 +95,7 @@
     <string name="loop_videos">循环播放视频</string>
 
     <!-- Release notes -->
-    <string name="release_74">Allow setting different sorting per folders</string>
+    <string name="release_74">Allow setting different sorting per folder</string>
     <string name="release_72">
         Implement proper folder hiding via .nomedia file\n
         Allow managing excluded folders in Settings
