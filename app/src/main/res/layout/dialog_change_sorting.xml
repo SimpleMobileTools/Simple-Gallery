@@ -61,7 +61,8 @@
             android:id="@+id/sorting_dialog_radio_order"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin">
+            android:layout_marginTop="@dimen/medium_margin"
+            android:paddingBottom="@dimen/medium_margin">
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
                 android:id="@+id/sorting_dialog_radio_ascending"
@@ -79,5 +80,18 @@
                 android:paddingTop="@dimen/medium_margin"
                 android:text="@string/descending"/>
         </RadioGroup>
+
+        <include
+            android:id="@+id/use_for_this_folder_divider"
+            layout="@layout/divider"/>
+
+        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+            android:id="@+id/sorting_dialog_use_for_this_folder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/activity_margin"
+            android:paddingTop="@dimen/activity_margin"
+            android:text="@string/use_for_this_folder"/>
+
     </LinearLayout>
 </ScrollView>

@@ -158,7 +158,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun showSortingDialog() {
-        ChangeSortingDialog(this, true) {
+        ChangeSortingDialog(this, true, false) {
             getDirectories()
         }
     }
