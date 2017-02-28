@@ -24,7 +24,7 @@ class CopyDialog(val activity: SimpleActivity, val files: ArrayList<File>, val c
         var destinationPath = ""
 
         view.destination.setOnClickListener {
-            PickAlbumDialog(activity) {
+            PickAlbumDialog(activity, sourcePath) {
                 destinationPath = it
                 view.destination.text = activity.humanizePath(it)
             }

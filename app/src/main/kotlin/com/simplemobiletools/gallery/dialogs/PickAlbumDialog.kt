@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.setupDialogStuff
+import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
@@ -13,7 +14,7 @@ import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
 import com.simplemobiletools.gallery.extensions.config
 import kotlinx.android.synthetic.main.dialog_album_picker.view.*
 
-class PickAlbumDialog(val activity: SimpleActivity, val callback: (path: String) -> Unit) {
+class PickAlbumDialog(val activity: SimpleActivity, val sourcePath: String, val callback: (path: String) -> Unit) {
     var directoriesGrid: RecyclerView
 
     init {
@@ -29,8 +30,13 @@ class PickAlbumDialog(val activity: SimpleActivity, val callback: (path: String)
 
             GetDirectoriesAsynctask(activity, false, false) {
                 val adapter = DirectoryAdapter(activity, it, null) {
-                    callback.invoke(it.path)
-                    dismiss()
+                    if (it.path.trimEnd('/') == sourcePath) {
+                        activity.toast(R.string.source_and_destination_same)
+                        return@DirectoryAdapter
+                    } else {
+                        callback.invoke(it.path)
+                        dismiss()
+                    }
                 }
                 directoriesGrid.adapter = adapter
             }.execute()
