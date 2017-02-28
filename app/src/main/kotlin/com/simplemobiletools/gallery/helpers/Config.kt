@@ -10,13 +10,9 @@ class Config(context: Context) : BaseConfig(context) {
         fun newInstance(context: Context) = Config(context)
     }
 
-    var isSameSorting: Boolean
-        get() = prefs.getBoolean(IS_SAME_SORTING, true)
-        set(isSameSorting) = prefs.edit().putBoolean(IS_SAME_SORTING, isSameSorting).apply()
-
     var fileSorting: Int
-        get() = if (isSameSorting) directorySorting else prefs.getInt(SORT_ORDER, SORT_BY_DATE_MODIFIED or SORT_DESCENDING)
-        set(order) = if (isSameSorting) directorySorting = order else prefs.edit().putInt(SORT_ORDER, order).apply()
+        get() = prefs.getInt(SORT_ORDER, SORT_BY_DATE_MODIFIED or SORT_DESCENDING)
+        set(order) = prefs.edit().putInt(SORT_ORDER, order).apply()
 
     var directorySorting: Int
         get() = prefs.getInt(DIRECTORY_SORT_ORDER, SORT_BY_DATE_MODIFIED or SORT_DESCENDING)

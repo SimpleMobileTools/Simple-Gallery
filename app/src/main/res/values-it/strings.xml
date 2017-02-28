@@ -85,7 +85,6 @@
     <string name="wallpaper_set_successfully">Sfondo impostato correttamente</string>
 
     <!-- Settings -->
-    <string name="same_sorting">Stesso ordinamento per file e cartelle</string>
     <string name="show_hidden_folders">Mostra cartelle nascoste</string>
     <string name="autoplay_videos">Riproduci video automaticamente</string>
     <string name="toggle_filename">Visibilità nome del file</string>

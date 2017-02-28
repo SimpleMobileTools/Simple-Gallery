@@ -1,7 +1,6 @@
 package com.simplemobiletools.gallery.helpers
 
 // shared preferences
-val IS_SAME_SORTING = "is_same_sorting"
 val SORT_ORDER = "sort_order"
 val DIRECTORY_SORT_ORDER = "directory_sort_order"
 val SHOW_HIDDEN_FOLDERS = "show_hidden_folders"

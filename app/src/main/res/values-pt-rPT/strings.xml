@@ -85,7 +85,6 @@
     <string name="wallpaper_set_successfully">Fundo definido com sucesso</string>
 
     <!-- Settings -->
-    <string name="same_sorting">Mesma ordenação para ficheiros e pastas</string>
     <string name="show_hidden_folders">Mostrar pastas ocultas</string>
     <string name="autoplay_videos">Reproduzir vídeos automaticamente</string>
     <string name="toggle_filename">Mostrar/ocultar nome do ficheiro</string>

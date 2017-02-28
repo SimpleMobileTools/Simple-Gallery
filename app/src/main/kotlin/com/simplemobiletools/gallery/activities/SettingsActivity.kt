@@ -21,7 +21,6 @@ class SettingsActivity : SimpleActivity() {
 
         setupCustomizeColors()
         setupManageExcludedFolders()
-        setupSameSorting()
         setupShowHiddenFolders()
         setupAutoplayVideos()
         setupLoopVideos()
@@ -38,14 +37,6 @@ class SettingsActivity : SimpleActivity() {
     private fun setupManageExcludedFolders() {
         settings_manage_excluded_folders_holder.setOnClickListener {
             startActivity(Intent(this, ExcludedFoldersActivity::class.java))
-        }
-    }
-
-    private fun setupSameSorting() {
-        settings_same_sorting.isChecked = config.isSameSorting
-        settings_same_sorting_holder.setOnClickListener {
-            settings_same_sorting.toggle()
-            config.isSameSorting = settings_same_sorting.isChecked
         }
     }
 

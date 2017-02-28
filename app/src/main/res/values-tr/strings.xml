@@ -85,7 +85,6 @@
     <string name="wallpaper_set_successfully">Duvar kağıdı başarıyla ayarlandı</string>
 
     <!-- Settings -->
-    <string name="same_sorting">Dosya ve klasörler için aynı sıralama</string>
     <string name="show_hidden_folders">Gizli klasörleri göster</string>
     <string name="autoplay_videos">Videoları otomatik olarak oynat</string>
     <string name="toggle_filename">Dosya adı görünürlüğünü değiştir</string>

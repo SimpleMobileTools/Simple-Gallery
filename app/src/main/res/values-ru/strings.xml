@@ -85,7 +85,6 @@
     <string name="wallpaper_set_successfully">Обои успешно установлены</string>
 
     <!-- Settings -->
-    <string name="same_sorting">Одинаковая сортировка для файлов и папок</string>
     <string name="show_hidden_folders">Показать скрытые папки</string>
     <string name="autoplay_videos">Воспроизводить видео автоматически</string>
     <string name="toggle_filename">Переключить отображение имени файла</string>

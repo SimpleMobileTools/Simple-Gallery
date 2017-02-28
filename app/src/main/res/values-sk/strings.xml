@@ -85,7 +85,6 @@
     <string name="wallpaper_set_successfully">Tapeta bola úspešne zmenená</string>
 
     <!-- Settings -->
-    <string name="same_sorting">Použiť rovnaké zoradenie pre súbory a priečinky</string>
     <string name="show_hidden_folders">Zobraziť skryté priečinky</string>
     <string name="autoplay_videos">Spúšťať videá automaticky</string>
     <string name="toggle_filename">Prepnúť viditeľnosť názvov súborov</string>

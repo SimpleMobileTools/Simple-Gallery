@@ -85,7 +85,6 @@
     <string name="wallpaper_set_successfully">壁紙を正常に設定しました</string>
 
     <!-- Settings -->
-    <string name="same_sorting">ファイルとフォルダーを同じに並べ替え</string>
     <string name="show_hidden_folders">非表示フォルダーを表示</string>
     <string name="autoplay_videos">自動的にビデオを再生</string>
     <string name="toggle_filename">ファイル名の表示を切り替え</string>

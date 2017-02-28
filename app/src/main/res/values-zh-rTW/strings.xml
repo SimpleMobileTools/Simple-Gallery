@@ -85,7 +85,6 @@
     <string name="wallpaper_set_successfully">成功應用軟體桌布</string>
 
     <!-- Settings -->
-    <string name="same_sorting">全部排序</string>
     <string name="show_hidden_folders">秀出隱藏資料夾</string>
     <string name="autoplay_videos">自動播放影片</string>
     <string name="toggle_filename">顯示檔案名稱</string>
