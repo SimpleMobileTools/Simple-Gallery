@@ -96,5 +96,7 @@ class CopyDialog(val activity: SimpleActivity, val files: ArrayList<File>, val c
                 }
             })
         }
+
+        view.destination.performClick()
     }
 }
