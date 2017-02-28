@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 2.5.2 *(2017-02-28)*
+----------------------------
+
+ * Allow setting different sorting per folder
+ * Couple changes to make the copy/move progress easier
+ * Misc smaller fixes
+
 Version 2.5.1 *(2017-02-27)*
 ----------------------------
 
