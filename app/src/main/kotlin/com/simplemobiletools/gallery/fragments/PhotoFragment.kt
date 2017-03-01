@@ -146,6 +146,7 @@ class PhotoFragment : ViewPagerFragment() {
                 .transform(GlideRotateTransformation(context, degrees))
                 .format(if (medium.isPng()) DecodeFormat.PREFER_ARGB_8888 else DecodeFormat.PREFER_RGB_565)
                 .priority(if (isFragmentVisible) Priority.IMMEDIATE else Priority.NORMAL)
+                .thumbnail(0.3f)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .listener(object : RequestListener<String, Bitmap> {
                     override fun onException(e: Exception?, model: String?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
@@ -154,7 +155,7 @@ class PhotoFragment : ViewPagerFragment() {
 
                     override fun onResourceReady(bitmap: Bitmap, model: String?, target: Target<Bitmap>?, isFromMemoryCache: Boolean, isFirstResource: Boolean): Boolean {
                         if (degrees == 0f) {
-                            addZoomableView(bitmap)
+                            addZoomableView()
                         } else {
                             photo_view.beVisible()
                             subsampling_view.beGone()
@@ -168,12 +169,12 @@ class PhotoFragment : ViewPagerFragment() {
         loadBitmap(degrees)
     }
 
-    private fun addZoomableView(bitmap: Bitmap) {
+    private fun addZoomableView() {
         if (!medium.isPng()) {
             subsamplingView.apply {
                 beVisible()
                 setDoubleTapZoomScale(1.8f)
-                setImage(ImageSource.cachedBitmap(bitmap))
+                setImage(ImageSource.uri(medium.path))
                 orientation = SubsamplingScaleImageView.ORIENTATION_USE_EXIF
                 maxScale = 5f
                 setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {
