@@ -71,6 +71,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
     private fun groupDirectories(media: ArrayList<Medium>): Map<String, Directory> {
         val hidden = context.resources.getString(R.string.hidden)
         val directories = LinkedHashMap<String, Directory>()
+        val showHidden = config.showHiddenFolders
         for ((name, path, isVideo, dateModified, dateTaken, size) in media) {
             if (shouldStop)
                 cancel(true)
@@ -91,6 +92,9 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
 
                 if (File(parentDir).containsNoMedia()) {
                     dirName += " $hidden"
+
+                    if (!showHidden)
+                        continue
                 }
 
                 val directory = Directory(parentDir, path, dirName, 1, dateModified, dateTaken, size)
