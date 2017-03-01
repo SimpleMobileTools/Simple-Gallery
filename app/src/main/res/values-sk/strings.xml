@@ -96,6 +96,7 @@
     <string name="animate_gifs">Animovať gif súbory pri náhľade</string>
 
     <!-- Release notes -->
+    <string name="release_76">Bola pridaná možnosŤ vypnutia prehrávania gif súborov pri náhľadoch</string>
     <string name="release_74">Bola pridaná možnosť vlastného zoradenia jednotlivých priečinkov</string>
     <string name="release_72">
         Bolo pridané správne ukrývanie priečinkov pomocou súboru .nomedia\n

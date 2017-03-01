@@ -96,6 +96,7 @@
     <string name="animate_gifs">Animate gifs at thumbnails</string>
 
     <!-- Release notes -->
+    <string name="release_76">Added an option to toggle gif animation at thumbnails</string>
     <string name="release_74">Allow setting different sorting per folder</string>
     <string name="release_72">
         Implement proper folder hiding via .nomedia file\n
