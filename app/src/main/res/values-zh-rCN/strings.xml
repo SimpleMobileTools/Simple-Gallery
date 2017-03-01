@@ -93,6 +93,7 @@
     <string name="videos">仅视频</string>
     <string name="images_and_videos">图像和视频</string>
     <string name="loop_videos">循环播放视频</string>
+    <string name="animate_gifs">Animate gifs at thumbnails</string>
 
     <!-- Release notes -->
     <string name="release_74">Allow setting different sorting per folder</string>

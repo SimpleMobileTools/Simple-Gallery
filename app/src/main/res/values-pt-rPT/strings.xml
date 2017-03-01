@@ -93,6 +93,7 @@
     <string name="videos">Apenas vídeos</string>
     <string name="images_and_videos">Imagens e vídeos</string>
     <string name="loop_videos">Vídeos em ciclo</string>
+    <string name="animate_gifs">Animate gifs at thumbnails</string>
 
     <!-- Release notes -->
     <string name="release_74">Allow setting different sorting per folder</string>

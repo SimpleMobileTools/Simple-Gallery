@@ -93,6 +93,7 @@
     <string name="videos">Yalnızca videolar</string>
     <string name="images_and_videos">Resimler ve videolar</string>
     <string name="loop_videos">Videolar döngüsü</string>
+    <string name="animate_gifs">Animate gifs at thumbnails</string>
 
     <!-- Release notes -->
     <string name="release_74">Allow setting different sorting per folder</string>

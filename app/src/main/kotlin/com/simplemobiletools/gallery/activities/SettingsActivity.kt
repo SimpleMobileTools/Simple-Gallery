@@ -24,6 +24,7 @@ class SettingsActivity : SimpleActivity() {
         setupShowHiddenFolders()
         setupAutoplayVideos()
         setupLoopVideos()
+        setupAnimateGifs()
         setupShowMedia()
         updateTextColors(settings_holder)
     }
@@ -61,6 +62,14 @@ class SettingsActivity : SimpleActivity() {
         settings_loop_videos_holder.setOnClickListener {
             settings_loop_videos.toggle()
             config.loopVideos = settings_loop_videos.isChecked
+        }
+    }
+
+    private fun setupAnimateGifs() {
+        settings_animate_gifs.isChecked = config.animateGifs
+        settings_animate_gifs_holder.setOnClickListener {
+            settings_animate_gifs.toggle()
+            config.animateGifs = settings_animate_gifs.isChecked
         }
     }
 

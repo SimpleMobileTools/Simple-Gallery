@@ -93,6 +93,7 @@
     <string name="videos">Endast videos</string>
     <string name="images_and_videos">Bilder och videos</string>
     <string name="loop_videos">Återspela videos</string>
+    <string name="animate_gifs">Animate gifs at thumbnails</string>
 
     <!-- Release notes -->
     <string name="release_74">Allow setting different sorting per folder</string>
