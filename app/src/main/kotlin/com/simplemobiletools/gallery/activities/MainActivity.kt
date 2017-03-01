@@ -207,7 +207,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun deleteItem(file: File) {
-        if (needsStupidWritePermissions(file.path) && isShowingPermDialog(file)) {
+        if (isShowingPermDialog(file)) {
             return
         }
 
