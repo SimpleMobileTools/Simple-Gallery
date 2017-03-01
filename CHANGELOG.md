@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 2.5.3 *(2017-03-01)*
+----------------------------
+
+ * Added an option to toggle autoplaying gifs at thumbnails
+
 Version 2.5.2 *(2017-02-28)*
 ----------------------------
 
