@@ -39,6 +39,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         val markedItems = HashSet<Int>()
         var foregroundColor = 0
         var backgroundColor = 0
+        var animateGifs = true
 
         fun toggleItemSelection(itemView: View, select: Boolean, pos: Int = -1) {
             getProperView(itemView).isSelected = select
@@ -63,6 +64,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     init {
         foregroundColor = config.primaryColor
         backgroundColor = config.backgroundColor
+        animateGifs = config.animateGifs
     }
 
     val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
@@ -242,7 +244,13 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             val path = medium.path
             val timestampSignature = StringSignature(medium.date_modified.toString())
             if (medium.isGif()) {
-                Glide.with(activity).load(path).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature).into(itemView.medium_thumbnail)
+                if (animateGifs) {
+                    Glide.with(activity).load(path).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)
+                            .placeholder(backgroundColor).centerCrop().crossFade().into(itemView.medium_thumbnail)
+                } else {
+                    Glide.with(activity).load(path).asBitmap().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)
+                            .placeholder(backgroundColor).centerCrop().into(itemView.medium_thumbnail)
+                }
             } else if (medium.isPng()) {
                 Glide.with(activity).load(path).asBitmap().format(DecodeFormat.PREFER_ARGB_8888).diskCacheStrategy(DiskCacheStrategy.RESULT)
                         .signature(timestampSignature).placeholder(backgroundColor).centerCrop().into(itemView.medium_thumbnail)

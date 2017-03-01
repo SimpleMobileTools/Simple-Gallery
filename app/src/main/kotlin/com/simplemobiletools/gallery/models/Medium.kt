@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.models
 
+import com.simplemobiletools.commons.extensions.isGif
 import com.simplemobiletools.gallery.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.gallery.helpers.SORT_BY_NAME
 import com.simplemobiletools.gallery.helpers.SORT_BY_SIZE
@@ -12,9 +13,9 @@ data class Medium(val name: String, var path: String, val isVideo: Boolean, val 
         var sorting: Int = 0
     }
 
-    fun isGif() = path.toLowerCase().endsWith(".gif")
+    fun isGif() = path.isGif()
 
-    fun isPng() = path.toLowerCase().endsWith(".png")
+    fun isPng() = path.endsWith(".png", true)
 
     fun isImage() = !isGif() && !isVideo
 

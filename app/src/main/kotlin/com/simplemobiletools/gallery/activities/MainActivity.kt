@@ -47,6 +47,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mIsSetWallpaperIntent = false
     private var mIsThirdPartyIntent = false
     private var mIsGettingDirs = false
+    private var mStoredAnimateGifs = true
 
     private var mCurrAsyncTask: GetDirectoriesAsynctask? = null
 
@@ -65,6 +66,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
         directories_holder.setOnRefreshListener({ getDirectories() })
         mDirs = ArrayList<Directory>()
+        mStoredAnimateGifs = config.animateGifs
         storeStoragePaths()
     }
 
@@ -95,6 +97,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     override fun onResume() {
         super.onResume()
+        if (mStoredAnimateGifs != config.animateGifs) {
+            mDirs.clear()
+        }
         tryloadGallery()
     }
 
@@ -104,6 +109,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         storeDirectories()
         directories_holder.isRefreshing = false
         mIsGettingDirs = false
+        mStoredAnimateGifs = config.animateGifs
     }
 
     override fun onDestroy() {

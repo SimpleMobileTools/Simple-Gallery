@@ -44,6 +44,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mIsGettingMedia = false
     private var mShowAll = false
     private var mLoadedInitialPhotos = false
+    private var mStoredAnimateGifs = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +57,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         media_holder.setOnRefreshListener({ getMedia() })
         mPath = intent.getStringExtra(DIRECTORY)
+        mStoredAnimateGifs = config.animateGifs
         mShowAll = config.showAll
         if (mShowAll)
             supportActionBar?.setDisplayHomeAsUpEnabled(false)
@@ -63,6 +65,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     override fun onResume() {
         super.onResume()
+        if (mShowAll && mStoredAnimateGifs != config.animateGifs) {
+            mMedia.clear()
+        }
         tryloadGallery()
     }
 
@@ -71,6 +76,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         mCurrAsyncTask?.shouldStop = true
         mIsGettingMedia = false
         media_holder.isRefreshing = false
+        mStoredAnimateGifs = config.animateGifs
     }
 
     private fun tryloadGallery() {

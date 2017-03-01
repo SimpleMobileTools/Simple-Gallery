@@ -15,10 +15,7 @@ import com.bumptech.glide.signature.StringSignature
 import com.simplemobiletools.commons.asynctasks.CopyMoveTask
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
-import com.simplemobiletools.commons.extensions.isAStorageRootFolder
-import com.simplemobiletools.commons.extensions.isImageVideoGif
-import com.simplemobiletools.commons.extensions.scanPaths
-import com.simplemobiletools.commons.extensions.toast
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.CopyDialog
@@ -43,6 +40,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         val markedItems = HashSet<Int>()
         var foregroundColor = 0
         var backgroundColor = 0
+        var animateGifs = true
 
         fun toggleItemSelection(itemView: View, select: Boolean, pos: Int = -1) {
             getProperView(itemView).isSelected = select
@@ -67,6 +65,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     init {
         foregroundColor = config.primaryColor
         backgroundColor = config.backgroundColor
+        animateGifs = config.animateGifs
     }
 
     val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
@@ -332,9 +331,14 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
             val tmb = directory.thumbnail
             val timestampSignature = StringSignature(directory.date_modified.toString())
-            if (tmb.toLowerCase().endsWith(".gif")) {
-                Glide.with(activity).load(tmb).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)
-                        .placeholder(backgroundColor).centerCrop().crossFade().into(itemView.dir_thumbnail)
+            if (tmb.isGif()) {
+                if (animateGifs) {
+                    Glide.with(activity).load(tmb).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)
+                            .placeholder(backgroundColor).centerCrop().crossFade().into(itemView.dir_thumbnail)
+                } else {
+                    Glide.with(activity).load(tmb).asBitmap().diskCacheStrategy(DiskCacheStrategy.RESULT).signature(timestampSignature)
+                            .placeholder(backgroundColor).centerCrop().into(itemView.dir_thumbnail)
+                }
             } else if (tmb.toLowerCase().endsWith(".png")) {
                 Glide.with(activity).load(tmb).asBitmap().format(DecodeFormat.PREFER_ARGB_8888).diskCacheStrategy(DiskCacheStrategy.RESULT)
                         .signature(timestampSignature).placeholder(backgroundColor).centerCrop().into(itemView.dir_thumbnail)
