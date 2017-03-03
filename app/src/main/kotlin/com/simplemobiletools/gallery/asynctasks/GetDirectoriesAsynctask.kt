@@ -106,9 +106,11 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
 
     private fun removeExcludedFolders(paths: MutableList<String>) {
         val excludedPaths = config.excludedFolders
-        val ignorePaths = paths.filter { excludedPaths.contains(it) }
+        val ignorePaths = paths.filter { isThisOrParentExcluded(it, excludedPaths) }
         paths.removeAll(ignorePaths)
     }
+
+    private fun isThisOrParentExcluded(path: String, excludedPaths: MutableSet<String>) = excludedPaths.any { path.startsWith(it) }
 
     private fun movePinnedToFront(dirs: ArrayList<Directory>): ArrayList<Directory> {
         val foundFolders = ArrayList<Directory>()
