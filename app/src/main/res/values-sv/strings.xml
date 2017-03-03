@@ -21,13 +21,18 @@
     <string name="unknown_location">Unknown location</string>
     <string name="no_map_application">No application with maps has been found</string>
     <string name="no_camera_app_found">No Camera app has been found</string>
+    <string name="increase_column_count">Increase column count</string>
+    <string name="reduce_column_count">Reduce column count</string>
+
+    <!-- Hide / Exclude -->
     <string name="hide_folder">Dölj mapp</string>
     <string name="unhide_folder">Visa mapp</string>
     <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden folders\' option in Settings. Continue?</string>
     <string name="exclude">Exclude</string>
     <string name="excluded_folders">Excluded folders</string>
     <string name="manage_excluded_folders">Manage excluded folders</string>
-    <string name="exclude_folder_description">This function will make the selection hidden only for Simple Gallery. You can manage excluded folders in Settings. Continue?</string>
+    <string name="exclude_folder_description">This will exclude the selection together with its subfolders from Simple Gallery only. You can manage excluded folders in Settings.</string>
+    <string name="exclude_folder_parent">Exclude a parent instead?</string>
     <string name="remove_all">Remove all</string>
     <string name="remove_all_description">Remove all folders from the list of excluded? This will not delete the folders.</string>
 
@@ -53,8 +58,6 @@
     <string name="filename_invalid_characters">Filnamnet innehåller ogiltiga tecken</string>
     <string name="extension">Filändelse</string>
     <string name="extension_cannot_be_empty">Filändelsen får inte vara tom</string>
-    <string name="increase_column_count">Increase column count</string>
-    <string name="reduce_column_count">Reduce column count</string>
 
     <!-- Editor -->
     <string name="editor">Redigera</string>
