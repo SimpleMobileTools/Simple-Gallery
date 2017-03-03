@@ -193,13 +193,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun tryExcludeFolder() {
-        if (config.wasExcludeFolderTooltipShown) {
+        ConfirmationDialog(this, getString(R.string.exclude_folder_description)) {
             excludeFolder()
-        } else {
-            ConfirmationDialog(this, getString(R.string.exclude_folder_description)) {
-                config.wasExcludeFolderTooltipShown = true
-                excludeFolder()
-            }
         }
     }
 

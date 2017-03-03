@@ -16,7 +16,6 @@ val SHOW_ALL = "show_all"   // display images and videos from all folders togeth
 val SHOW_MEDIA = "show_media"
 val SAVE_FOLDER_PREFIX = "folder_"
 val HIDE_FOLDER_TOOLTIP_SHOWN = "hide_folder_tooltip_shown"
-val EXCLUDE_FOLDER_TOOLTIP_SHOWN = "exclude_folder_tooltip_shown"
 val EXCLUDED_FOLDERS = "excluded_folders"
 
 val NOMEDIA = ".nomedia"

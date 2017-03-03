@@ -38,10 +38,6 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(HIDE_FOLDER_TOOLTIP_SHOWN, false)
         set(wasShown) = prefs.edit().putBoolean(HIDE_FOLDER_TOOLTIP_SHOWN, wasShown).apply()
 
-    var wasExcludeFolderTooltipShown: Boolean
-        get() = prefs.getBoolean(EXCLUDE_FOLDER_TOOLTIP_SHOWN, false)
-        set(wasShown) = prefs.edit().putBoolean(EXCLUDE_FOLDER_TOOLTIP_SHOWN, wasShown).apply()
-
     var showHiddenFolders: Boolean
         get() = prefs.getBoolean(SHOW_HIDDEN_FOLDERS, false)
         set(showHiddenFolders) = prefs.edit().putBoolean(SHOW_HIDDEN_FOLDERS, showHiddenFolders).apply()

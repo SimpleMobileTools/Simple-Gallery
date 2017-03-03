@@ -196,13 +196,8 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     }
 
     private fun tryExcludeFolder() {
-        if (config.wasExcludeFolderTooltipShown) {
+        ConfirmationDialog(activity, activity.getString(R.string.exclude_folder_description)) {
             excludeFolder()
-        } else {
-            ConfirmationDialog(activity, activity.getString(R.string.exclude_folder_description)) {
-                config.wasExcludeFolderTooltipShown = true
-                excludeFolder()
-            }
         }
     }
 
