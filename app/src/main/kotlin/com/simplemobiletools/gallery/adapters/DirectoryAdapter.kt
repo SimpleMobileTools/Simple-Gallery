@@ -19,6 +19,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.CopyDialog
+import com.simplemobiletools.gallery.dialogs.ExcludeFolderDialog
 import com.simplemobiletools.gallery.dialogs.RenameDirectoryDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.models.Directory
@@ -196,15 +197,10 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     }
 
     private fun tryExcludeFolder() {
-        ConfirmationDialog(activity, activity.getString(R.string.exclude_folder_description)) {
-            excludeFolder()
+        ExcludeFolderDialog(activity, getSelectedPaths()) {
+            listener?.refreshItems()
+            actMode?.finish()
         }
-    }
-
-    private fun excludeFolder() {
-        activity.config.addExcludedFolders(getSelectedPaths())
-        listener?.refreshItems()
-        actMode?.finish()
     }
 
     private fun noMediaHandled() {

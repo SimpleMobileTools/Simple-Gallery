@@ -21,6 +21,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.MediaAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
+import com.simplemobiletools.gallery.dialogs.ExcludeFolderDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
@@ -193,14 +194,12 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun tryExcludeFolder() {
-        ConfirmationDialog(this, getString(R.string.exclude_folder_description)) {
-            excludeFolder()
-        }
-    }
+        val pathSet = HashSet<String>(1)
+        pathSet.add(mPath)
 
-    private fun excludeFolder() {
-        config.addExcludedFolder(mPath)
-        finish()
+        ExcludeFolderDialog(this, pathSet) {
+            finish()
+        }
     }
 
     private fun deleteDirectoryIfEmpty() {
