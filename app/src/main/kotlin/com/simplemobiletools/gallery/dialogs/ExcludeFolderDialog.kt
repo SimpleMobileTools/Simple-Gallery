@@ -3,12 +3,13 @@ package com.simplemobiletools.gallery.dialogs
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import com.simplemobiletools.commons.extensions.beVisibleIf
+import com.simplemobiletools.commons.extensions.getBasePath
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import kotlinx.android.synthetic.main.dialog_exclude_folder.view.*
 
-class ExcludeFolderDialog(val activity: SimpleActivity, val selectedPaths: HashSet<String>, val callback: () -> Unit) {
+class ExcludeFolderDialog(val activity: SimpleActivity, val selectedPaths: List<String>, val callback: () -> Unit) {
     var dialog: AlertDialog? = null
 
     init {
@@ -30,11 +31,24 @@ class ExcludeFolderDialog(val activity: SimpleActivity, val selectedPaths: HashS
 
     }
 
-    private fun getAlternativePaths(): ArrayList<String> {
-        val parentsList = ArrayList<String>()
+    private fun getAlternativePaths(): List<String> {
+        val pathsList = ArrayList<String>()
         if (selectedPaths.size > 1)
-            return parentsList
+            return pathsList
 
-        return parentsList
+        val path = selectedPaths[0]
+        var basePath = path.getBasePath(activity)
+        val relativePath = path.substring(basePath.length)
+        val parts = relativePath.split("/").filter(String::isNotEmpty)
+        if (parts.isEmpty())
+            return pathsList
+
+        pathsList.add(basePath)
+        for (part in parts) {
+            basePath += "/$part"
+            pathsList.add(basePath)
+        }
+
+        return pathsList.reversed()
     }
 }

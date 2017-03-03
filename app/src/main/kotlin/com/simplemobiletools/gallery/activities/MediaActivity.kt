@@ -194,10 +194,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun tryExcludeFolder() {
-        val pathSet = HashSet<String>(1)
-        pathSet.add(mPath)
-
-        ExcludeFolderDialog(this, pathSet) {
+        ExcludeFolderDialog(this, arrayListOf(mPath)) {
             finish()
         }
     }

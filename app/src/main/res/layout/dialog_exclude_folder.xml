@@ -23,7 +23,9 @@
             android:id="@+id/exclude_folder_parent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/exclude_folder_parent"/>
+            android:layout_marginTop="@dimen/activity_margin"
+            android:text="@string/exclude_folder_parent"
+            android:textSize="@dimen/normal_text_size"/>
 
         <RadioGroup
             android:id="@+id/exclude_folder_radio_group"

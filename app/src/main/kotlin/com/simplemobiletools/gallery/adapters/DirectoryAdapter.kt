@@ -197,7 +197,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     }
 
     private fun tryExcludeFolder() {
-        ExcludeFolderDialog(activity, getSelectedPaths()) {
+        ExcludeFolderDialog(activity, getSelectedPaths().toList()) {
             listener?.refreshItems()
             actMode?.finish()
         }
