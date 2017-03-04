@@ -42,6 +42,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         var foregroundColor = 0
         var backgroundColor = 0
         var animateGifs = true
+        var itemCnt = 0
 
         fun toggleItemSelection(itemView: View, select: Boolean, pos: Int = -1) {
             getProperView(itemView).isSelected = select
@@ -61,12 +62,17 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             else
                 itemView.dir_thumbnail
         }
+
+        fun updateTitle(cnt: Int) {
+            actMode?.title = "$cnt / $itemCnt"
+        }
     }
 
     init {
         foregroundColor = config.primaryColor
         backgroundColor = config.backgroundColor
         animateGifs = config.animateGifs
+        itemCnt = dirs.size
     }
 
     val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
@@ -254,7 +260,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             multiSelector.setSelected(i, 0, true)
             notifyItemChanged(i)
         }
-        actMode?.title = cnt.toString()
+        updateTitle(cnt)
         actMode?.invalidate()
     }
 
@@ -343,7 +349,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                 if (!multiSelector.isSelectable) {
                     activity.startSupportActionMode(multiSelectorCallback)
                     multiSelector.setSelected(this, true)
-                    actMode?.title = multiSelector.selectedPositions.size.toString()
+                    updateTitle(multiSelector.selectedPositions.size)
                     toggleItemSelection(itemView, true, pos)
                     actMode?.invalidate()
                 }
@@ -367,7 +373,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                 if (selectedCnt == 0) {
                     actMode?.finish()
                 } else {
-                    actMode?.title = selectedCnt.toString()
+                    updateTitle(selectedCnt)
                 }
                 actMode?.invalidate()
             } else {

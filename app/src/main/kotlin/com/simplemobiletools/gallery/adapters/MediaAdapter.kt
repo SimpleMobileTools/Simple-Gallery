@@ -40,6 +40,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         var foregroundColor = 0
         var backgroundColor = 0
         var animateGifs = true
+        var itemCnt = 0
 
         fun toggleItemSelection(itemView: View, select: Boolean, pos: Int = -1) {
             getProperView(itemView).isSelected = select
@@ -59,12 +60,17 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             else
                 itemView.medium_thumbnail
         }
+
+        fun updateTitle(cnt: Int) {
+            actMode?.title = "$cnt / $itemCnt"
+        }
     }
 
     init {
         foregroundColor = config.primaryColor
         backgroundColor = config.backgroundColor
         animateGifs = config.animateGifs
+        itemCnt = media.size
     }
 
     val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
@@ -165,7 +171,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             multiSelector.setSelected(i, 0, true)
             notifyItemChanged(i)
         }
-        actMode?.title = cnt.toString()
+        updateTitle(cnt)
         actMode?.invalidate()
     }
 
@@ -264,7 +270,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 if (!multiSelector.isSelectable) {
                     activity.startSupportActionMode(multiSelectorCallback)
                     multiSelector.setSelected(this, true)
-                    actMode?.title = multiSelector.selectedPositions.size.toString()
+                    updateTitle(multiSelector.selectedPositions.size)
                     toggleItemSelection(itemView, true, pos)
                     actMode?.invalidate()
                 }
@@ -289,7 +295,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 if (selectedCnt == 0) {
                     actMode?.finish()
                 } else {
-                    actMode?.title = selectedCnt.toString()
+                    updateTitle(selectedCnt)
                 }
                 actMode?.invalidate()
             } else {
