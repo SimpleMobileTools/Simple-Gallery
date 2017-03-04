@@ -101,7 +101,8 @@
     <!-- Release notes -->
     <string name="release_77">
         Exclude the subfolders of excluded folders too\n
-        Added an easy way of excluding parent folders from the exclude confirmation dialog
+        Added an easy way of excluding parent folders from the exclude confirmation dialog\n
+        Added draggable scrollbars
     </string>
     <string name="release_76">Added an option to toggle gif animation at thumbnails</string>
     <string name="release_74">Allow setting different sorting per folder</string>

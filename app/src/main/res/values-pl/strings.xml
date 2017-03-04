@@ -101,7 +101,8 @@
     <!-- Release notes -->
     <string name="release_77">
         Wykluczyć podfoldery folderów wykluczonych\n
-        Dodano łatwy sposób bez folderów nadrzędnych w oknie potwierdzenia wykluczenia
+        Dodano łatwy sposób bez folderów nadrzędnych w oknie potwierdzenia wykluczenia\n
+        Added draggable scrollbars
     </string>
     <string name="release_76">Dodano opcję, aby przełączyć animację gif w miniaturach</string>
     <string name="release_74">Pozwala na ustawienie innego sortowania w folderze</string>
