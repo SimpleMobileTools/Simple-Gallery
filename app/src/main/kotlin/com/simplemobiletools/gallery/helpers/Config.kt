@@ -97,7 +97,7 @@ class Config(context: Context) : BaseConfig(context) {
         set(autoplay) = prefs.edit().putBoolean(AUTOPLAY_VIDEOS, autoplay).apply()
 
     var animateGifs: Boolean
-        get() = prefs.getBoolean(ANIMATE_GIFS, true)
+        get() = prefs.getBoolean(ANIMATE_GIFS, false)
         set(animateGifs) = prefs.edit().putBoolean(ANIMATE_GIFS, animateGifs).apply()
 
     var loopVideos: Boolean
