@@ -56,7 +56,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             mIsGetAnyIntent = getBooleanExtra(GET_ANY_INTENT, false)
         }
 
-        media_holder.setOnRefreshListener({ getMedia() })
+        media_refresh_layout.setOnRefreshListener({ getMedia() })
         mPath = intent.getStringExtra(DIRECTORY)
         mStoredAnimateGifs = config.animateGifs
         mShowAll = config.showAll
@@ -76,7 +76,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         super.onPause()
         mCurrAsyncTask?.shouldStop = true
         mIsGettingMedia = false
-        media_holder.isRefreshing = false
+        media_refresh_layout.isRefreshing = false
         mStoredAnimateGifs = config.animateGifs
     }
 
@@ -105,6 +105,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         } else {
             media_grid.adapter = adapter
         }
+        media_fastscroller.setViews(media_grid, media_refresh_layout)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -214,7 +215,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         val token = object : TypeToken<List<Medium>>() {}.type
         val media = Gson().fromJson<ArrayList<Medium>>(config.loadFolderMedia(mPath), token) ?: ArrayList<Medium>(1)
         if (media.size == 0) {
-            media_holder.isRefreshing = true
+            media_refresh_layout.isRefreshing = true
         } else {
             if (!mLoadedInitialPhotos)
                 gotMedia(media)
@@ -339,7 +340,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     fun gotMedia(media: ArrayList<Medium>) {
         mIsGettingMedia = false
-        media_holder.isRefreshing = false
+        media_refresh_layout.isRefreshing = false
 
         if (media.hashCode() == mMedia.hashCode())
             return
