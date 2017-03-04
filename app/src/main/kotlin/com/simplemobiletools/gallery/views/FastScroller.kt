@@ -1,6 +1,7 @@
 package com.simplemobiletools.gallery.views
 
 import android.content.Context
+import android.graphics.PorterDuff
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -10,6 +11,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.LinearLayout
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.extensions.config
 import kotlinx.android.synthetic.main.fastscroller.view.*
 
 // based on https://blog.stylingandroid.com/recyclerview-fastscroll-part-1
@@ -30,6 +32,7 @@ class FastScroller : LinearLayout {
     fun setViews(recyclerView: RecyclerView, swipeRefreshLayout: SwipeRefreshLayout) {
         this.recyclerView = recyclerView
         this.swipeRefreshLayout = swipeRefreshLayout
+        handle.background.setColorFilter(context.config.primaryColor, PorterDuff.Mode.SRC_IN)
 
         recyclerView.setOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(rv: RecyclerView, dx: Int, dy: Int) {
