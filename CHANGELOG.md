@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 2.6.1 *(2017-03-05)*
+----------------------------
+
+ * Fix a video playing crash at Android Nougat
+
 Version 2.6.0 *(2017-03-04)*
 ----------------------------
 
