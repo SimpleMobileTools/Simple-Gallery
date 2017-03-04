@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Simple Gallery</string>
+    <string name="app_launcher_name">Galeria</string>
+    <string name="share_via">Udostępnij przez</string>
+    <string name="no_permissions">Bez dostępu do pamięci galeria nie będzie działać</string>
+    <string name="edit">Edytuj</string>
+    <string name="open_camera">Aparat</string>
+    <string name="open_with">Otwórz w</string>
+    <string name="no_app_found">Nie znaleziono danych aplikacji</string>
+    <string name="hidden">(ukryty)</string>
+    <string name="save_as">Zapisz jako</string>
+    <string name="file_saved">Plik zapisany</string>
+    <string name="pin_folder">Pin folder</string>
+    <string name="unpin_folder">Wypakuj folder</string>
+    <string name="show_all">Pokaż całą zawartość folderów</string>
+    <string name="all_folders">Wszystkie foldery</string>
+    <string name="folder_view">Przełącz na widok folderów</string>
+    <string name="other_folder">Inny folder</string>
+    <string name="show_on_map">Pokaż na mapie</string>
+    <string name="unknown_location">Nieznana lokalizacja</string>
+    <string name="no_map_application">Brak aplikacji powiązanej z mapami</string>
+    <string name="no_camera_app_found">Brak aplikacji powiązanej z aparatem</string>
+    <string name="increase_column_count">Zwiększ liczbę kolumn</string>
+    <string name="reduce_column_count">Zmniejsz liczbę kolumn</string>
+
+    <!-- Hide / Exclude -->
+    <string name="hide_folder">Ukryj folder</string>
+    <string name="unhide_folder">Pokaż folder</string>
+    <string name="hide_folder_description">Ta funkcja ukrywa folder dodając \'. \' Nomedia plik do niego, można tak ukryć wszystkie podfoldery. Można je zobaczyć poprzez przełączanie \'Pokaż ukryte foldery \' opcję w ustawieniach. Kontyntynuj?</string>
+    <string name="exclude">Wyklucz</string>
+    <string name="excluded_folders">Wyklucz foldery</string>
+    <string name="manage_excluded_folders">Zarządzaj wykluczonymi folderami</string>
+    <string name="exclude_folder_description">Działa na folderach Galerii. Możesz zarządzać wykluczonymi folderami w Menu/Ustawienia.</string>
+    <string name="exclude_folder_parent">Wykluczyć folder nadżędny ?</string>
+    <string name="remove_all">Usuń wszystko</string>
+    <string name="remove_all_description">Usuń wszystkie foldery z listy wykluczone? To nie usuwa folderów.</string>
+
+    <!-- Resizing -->
+    <string name="resize">Zmień rozmiar</string>
+    <string name="resize_and_save">Zmień i zapisz</string>
+    <string name="width">Długość</string>
+    <string name="height">Wysokość</string>
+    <string name="keep_aspect_ratio">Zachowaj proporcje</string>
+    <string name="invalid_values">Wpisz poprawną rozdzielczość</string>
+
+    <!-- Renaming -->
+    <string name="rename_file">Zmień nazwę</string>
+    <string name="rename_folder">Zmień nazwę folderu</string>
+    <string name="rename_file_error">Nie można zmienić nazwy pliku</string>
+    <string name="rename_folder_error">Nie można zmienić nazwy folderu</string>
+    <string name="rename_folder_empty">Nazwa folderu nie może być pusta</string>
+    <string name="rename_folder_exists">Folder o tej nazwie już istnieje</string>
+    <string name="rename_folder_root">Nie można zmienić nazwy folderu głównego</string>
+    <string name="rename_folder_ok">Zmieniono nazwę folderu</string>
+    <string name="renaming_folder">Zmiana nazwy folderu</string>
+    <string name="filename_cannot_be_empty">Nazwa pliku nie może być pusta</string>
+    <string name="filename_invalid_characters">Nazwa pliku zawiera niedozwolone znaki</string>
+    <string name="extension">Rozszerzenie pliku</string>
+    <string name="extension_cannot_be_empty">Rozszerzenie pliku nie może być puste</string>
+
+    <!-- Editor -->
+    <string name="editor">Edycja</string>
+    <string name="save">zapisz</string>
+    <string name="rotate">Obróć</string>
+    <string name="path">Ścieżka</string>
+    <string name="invalid_image_path">Nieprawidłowa ścieżka</string>
+    <string name="image_editing_failed">Edycja obrazu nie powiodło się</string>
+    <string name="edit_image_with">Edytuj obraz w:</string>
+    <string name="no_editor_found">Nie znaleziono edytora zdjęć</string>
+    <string name="unknown_file_location">Nieznana lokalizacja pliku</string>
+    <string name="error_saving_file">Nie udało się zastąpić pliku</string>
+    <string name="rotate_left">Obróć w lewo</string>
+    <string name="rotate_right">Obróć w prawo</string>
+    <string name="rotate_one_eighty">Obróć o 180o</string>
+    <string name="flip">Flip</string>
+    <string name="horizontally">Poziomo</string>
+    <string name="vertically">Pionowo</string>
+    <string name="out_of_memory_error">Błąd pamięci</string>
+
+    <!-- Set wallpaper -->
+    <string name="simple_wallpaper">Tapeta</string>
+    <string name="set_as_wallpaper">Ustaw jako tapeta</string>
+    <string name="set_as_wallpaper_failed">Ustawienie tapety nie powiodło się</string>
+    <string name="set_as_wallpaper_with">Ustaw jako tapetę w:</string>
+    <string name="no_wallpaper_setter_found">Brak odpowiednich ustawień</string>
+    <string name="setting_wallpaper">Ustawianie tapety&#8230;</string>
+    <string name="wallpaper_set_successfully">Tapeta ustawiona</string>
+
+    <!-- Settings -->
+    <string name="show_hidden_folders">Pokaż ukryte foldery</string>
+    <string name="autoplay_videos">Odtwarzaj plików wideo automatycznie</string>
+    <string name="toggle_filename">Włącz widoczność nazwy pliku</string>
+    <string name="show_media">Pokaż media</string>
+    <string name="images">Tylko Zdjęcia</string>
+    <string name="videos">Tylko Filmy</string>
+    <string name="images_and_videos">Obrazy i wideo</string>
+    <string name="loop_videos">Pętla wideo</string>
+    <string name="animate_gifs">Animowanie gify z miniaturkami</string>
+
+    <!-- Release notes -->
+    <string name="release_77">
+        Wykluczyć podfoldery folderów wykluczonych\n
+        Dodano łatwy sposób bez folderów nadrzędnych w oknie potwierdzenia wykluczenia
+    </string>
+    <string name="release_76">Dodano opcję, aby przełączyć animację gif w miniaturach</string>
+    <string name="release_74">Pozwala na ustawienie innego sortowania w folderze</string>
+    <string name="release_72">
+        Wdrożenie odpowiedniego ukrywania folderów poprzez .nomedia pliku\n
+        Pozwala zarządzać ukrytymi folderami w menu Ustawienia
+    </string>
+    <string name="release_70">Dodano elementy menu ułatwiające obracanie obrazu w widoku pełnoekranowym</string>
+    <string name="release_69">Dodano przyciski menu do zmiany liczby kolumn</string>
+    <string name="release_66">Pozwala wybierać kolory przez hex codes</string>
+    <string name="release_65">Pozwala pokazać zdjęcia i filmy na mapie, jeśli są dostępne współrzędne geograficzne</string>
+    <string name="release_62">Pokaż dodatkowe dane EXIF z właściwości zdjęcia</string>
+    <string name="release_58">
+        Pozwala powiększyć png i gif\n
+        Pozwalają na tworzenie nowych folderów Kopiuj / przenieś lub zapisać
+    </string>
+    <string name="release_54">Dodano automatyczną opcję filmy w pętli</string>
+    <string name="release_52">
+        Dodano opcje doboru kolorów\n
+        Twoje ustawienia zostały wyczyszczone, należy je zresetować</string>
+    <string name="release_51">Pozwala zmieniając liczyć kolumna gestami</string>
+    <string name="release_50">Dodano opcję wyświetlania: zdjęcia albo filmy</string>
+    <string name="release_49">Dodano przycisk: Zaznacz wszystko w wyborze plików i folderów</string>
+    <string name="release_47">
+        Dodano opcję zmianu rozmiaru w edytorze\n
+        Pozwala na wyświetlanie zdjęć i filmów razem
+    </string>
+    <string name="release_46">Pozwala na przypinanie folderów na szczycie</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">Darmowa Galeria bez reklam do przeglądania zdjęć i filmów.</string>
+    <string name="app_long_description">
+        Prosta aplikacja galerii do oglądania zdjęć i filmów. Pliki  mogą być sortowane według daty, rozmiaru, nazwy zarówno w porządku rosnącym lub malejącym, zdjęcia można powiększać. Pliki multimedialne są wyświetlane w wielu kolumnach w zależności od wielkości ekranu, można zmienić liczbę kolumn za pomocą gestów. Obrazy mogą być edytowane w galerii. Zdjęcia mogą być przycięte, można je obracać lub ustawić jako tapetę bezpośrednio z aplikacji. Kolor aplikacji mozna dowolnie ustawić według własnych preferencji.
+
+        Galeria jest również oferowane do użytkowania przez osoby trzecie do podglądu zdjęć/filmów, dodawania załączników do klientów e-mail itp, Idealne nadaje się do codziennego użytku.
+
+        Nie zawiera żadnych reklam ani niepotrzebnych uprawnień. Jest w pełni opensource.
+
+        Ta aplikacja jest tylko jedą z większego szeregu naszych aplikacji. Można znaleźć resztę z nich w http://www.simplemobiletools.com
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        Polish translation : Dariusz Dróżdż - www.onlan.pl
+    -->
+</resources>
