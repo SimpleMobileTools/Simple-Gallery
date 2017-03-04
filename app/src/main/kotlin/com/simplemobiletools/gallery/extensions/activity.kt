@@ -71,14 +71,14 @@ fun Activity.setAsWallpaper(file: File) {
     }
 }
 
-fun Activity.openWith(file: File) {
+fun Activity.openWith(file: File, forceChooser: Boolean = true) {
     val intent = Intent(Intent.ACTION_VIEW)
     val uri = Uri.fromFile(file)
     intent.setDataAndType(uri, file.getMimeType("image/jpeg"))
     val chooser = Intent.createChooser(intent, getString(R.string.open_with))
 
     if (intent.resolveActivity(packageManager) != null) {
-        startActivity(chooser)
+        startActivity(if (forceChooser) chooser else intent)
     } else {
         toast(R.string.no_app_found)
     }

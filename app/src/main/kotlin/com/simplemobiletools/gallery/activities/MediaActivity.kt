@@ -330,10 +330,16 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             }
             finish()
         } else {
-            Intent(this, ViewPagerActivity::class.java).apply {
-                putExtra(MEDIUM, path)
-                putExtra(SHOW_ALL, mShowAll)
-                startActivity(this)
+            val file = File(path)
+            val isVideo = file.isVideoFast()
+            if (isVideo) {
+                openWith(file, false)
+            } else {
+                Intent(this, ViewPagerActivity::class.java).apply {
+                    putExtra(MEDIUM, path)
+                    putExtra(SHOW_ALL, mShowAll)
+                    startActivity(this)
+                }
             }
         }
     }
