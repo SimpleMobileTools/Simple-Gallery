@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 2.6.0 *(2017-03-04)*
+----------------------------
+
+ * Exclude the subfolders of excluded folders too
+ * Added an easy way of excluding parent folders from the exclude confirmation dialog
+ * Added draggable scrollbars
+ * Allow setting a third party video player as the default
+ * Many other bugfixes and improvements
+
 Version 2.5.3 *(2017-03-01)*
 ----------------------------
 
