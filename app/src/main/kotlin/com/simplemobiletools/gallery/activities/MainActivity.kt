@@ -64,7 +64,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mIsThirdPartyIntent = mIsPickImageIntent || mIsPickVideoIntent || mIsGetImageContentIntent || mIsGetVideoContentIntent ||
                 mIsGetAnyContentIntent || mIsSetWallpaperIntent
 
-        directories_holder.setOnRefreshListener({ getDirectories() })
+        directories_refresh_layout.setOnRefreshListener({ getDirectories() })
         mDirs = ArrayList<Directory>()
         mStoredAnimateGifs = config.animateGifs
         storeStoragePaths()
@@ -107,7 +107,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         super.onPause()
         mCurrAsyncTask?.shouldStop = true
         storeDirectories()
-        directories_holder.isRefreshing = false
+        directories_refresh_layout.isRefreshing = false
         mIsGettingDirs = false
         mStoredAnimateGifs = config.animateGifs
     }
@@ -152,7 +152,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         val token = object : TypeToken<List<Directory>>() {}.type
         val dirs = Gson().fromJson<ArrayList<Directory>>(config.directories, token) ?: ArrayList<Directory>(1)
         if (dirs.size == 0) {
-            directories_holder.isRefreshing = true
+            directories_refresh_layout.isRefreshing = true
         } else {
             gotDirectories(dirs)
         }
@@ -324,7 +324,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     fun gotDirectories(dirs: ArrayList<Directory>) {
-        directories_holder.isRefreshing = false
+        directories_refresh_layout.isRefreshing = false
         mIsGettingDirs = false
 
         if (dirs.hashCode() == mDirs.hashCode())
@@ -347,6 +347,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         directories_grid.adapter = adapter
+        directories_fastscroller.setViews(directories_grid, directories_refresh_layout)
     }
 
     override fun refreshItems() {

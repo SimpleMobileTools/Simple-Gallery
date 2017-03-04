@@ -54,7 +54,7 @@ class FastScroller : LinearLayout {
     }
 
     private fun updateHandlePosition() {
-        if (handle.isSelected)
+        if (handle.isSelected || recyclerView == null)
             return
 
         val verticalScrollOffset = recyclerView!!.computeVerticalScrollOffset()
