@@ -307,7 +307,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         super.onActivityResult(requestCode, resultCode, resultData)
     }
 
-    fun itemClicked(path: String) {
+    private fun itemClicked(path: String) {
         Intent(this, MediaActivity::class.java).apply {
             putExtra(DIRECTORY, path)
 
@@ -323,7 +323,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
     }
 
-    fun gotDirectories(dirs: ArrayList<Directory>) {
+    private fun gotDirectories(dirs: ArrayList<Directory>) {
         directories_refresh_layout.isRefreshing = false
         mIsGettingDirs = false
 
@@ -336,7 +336,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         storeDirectories()
     }
 
-    fun storeDirectories() {
+    private fun storeDirectories() {
         val directories = Gson().toJson(mDirs)
         config.directories = directories
     }

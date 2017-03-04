@@ -299,7 +299,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun isSetWallpaperIntent() = intent.getBooleanExtra(SET_WALLPAPER_INTENT, false)
 
-    fun itemClicked(path: String) {
+    private fun itemClicked(path: String) {
         if (isSetWallpaperIntent()) {
             toast(R.string.setting_wallpaper)
 
@@ -344,7 +344,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
     }
 
-    fun gotMedia(media: ArrayList<Medium>) {
+    private fun gotMedia(media: ArrayList<Medium>) {
         mIsGettingMedia = false
         media_refresh_layout.isRefreshing = false
 
