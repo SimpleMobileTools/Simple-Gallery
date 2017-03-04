@@ -8,6 +8,6 @@
     <dimen name="timer_padding">24dp</dimen>
     <dimen name="tmb_shadow_height">50dp</dimen>
     <dimen name="exclude_folder_img_size">48dp</dimen>
-    <dimen name="fastscroll_width">8dp</dimen>
+    <dimen name="fastscroll_width">6dp</dimen>
     <dimen name="fastscroll_height">40dp</dimen>
 </resources>

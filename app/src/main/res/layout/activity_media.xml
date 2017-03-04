@@ -25,8 +25,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:paddingLeft="@dimen/small_margin"
-            android:paddingRight="@dimen/small_margin"/>
+            android:paddingLeft="@dimen/normal_margin"/>
 
     </RelativeLayout>
 </android.support.v4.widget.SwipeRefreshLayout>
