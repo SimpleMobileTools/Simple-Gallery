@@ -87,10 +87,9 @@ fun Activity.openWith(file: File) {
 fun Activity.openEditor(file: File) {
     val intent = Intent(Intent.ACTION_EDIT)
     intent.setDataAndType(Uri.fromFile(file), "image/*")
-    val chooser = Intent.createChooser(intent, getString(R.string.edit_image_with))
 
     if (intent.resolveActivity(packageManager) != null) {
-        startActivityForResult(chooser, REQUEST_EDIT_IMAGE)
+        startActivityForResult(intent, REQUEST_EDIT_IMAGE)
     } else {
         toast(R.string.no_editor_found)
     }
