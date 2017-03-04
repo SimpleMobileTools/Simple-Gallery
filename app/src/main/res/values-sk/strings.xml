@@ -102,7 +102,8 @@
     <string name="release_77">
         Bulo pridané vylučovanie podpriečinky vylúčených priečinkov\n
         Bol pridaný jednoduchý spôsob vylučovania rodičovských priečinkov z potvrdzujúceho okna\n
-        Boli pridané presúvateľné scrollbary
+        Boli pridané presúvateľné scrollbary\n
+        Bola pridaná možnosť nastavenia aplikácie tretej strany ako predvolený video prehrávač
     </string>
     <string name="release_76">Bola pridaná možnosť vypnutia prehrávania gif súborov pri náhľadoch</string>
     <string name="release_74">Bola pridaná možnosť vlastného zoradenia jednotlivých priečinkov</string>
