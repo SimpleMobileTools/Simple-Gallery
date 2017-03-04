@@ -11,7 +11,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 25
         versionCode 77
-        versionName "2.5.3"
+        versionName "2.6.0"
     }
 
     signingConfigs {
