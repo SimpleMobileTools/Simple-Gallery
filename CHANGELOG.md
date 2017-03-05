@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 2.6.2 *(2017-03-05)*
+----------------------------
+
+ * Fixing some issues, mostly related to Android 7
+
 Version 2.6.1 *(2017-03-05)*
 ----------------------------
 
