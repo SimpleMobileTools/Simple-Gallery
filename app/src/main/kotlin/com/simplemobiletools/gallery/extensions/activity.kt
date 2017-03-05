@@ -28,6 +28,7 @@ fun Activity.shareUri(medium: Medium, uri: Uri) {
         action = Intent.ACTION_SEND
         putExtra(Intent.EXTRA_STREAM, uri)
         type = medium.getMimeType()
+        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         startActivity(Intent.createChooser(this, shareTitle))
     }
 }
@@ -40,6 +41,7 @@ fun Activity.shareMedium(medium: Medium) {
         action = Intent.ACTION_SEND
         putExtra(Intent.EXTRA_STREAM, uri)
         type = medium.getMimeType()
+        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         startActivity(Intent.createChooser(this, shareTitle))
     }
 }
@@ -50,6 +52,7 @@ fun Activity.shareMedia(media: List<Medium>) {
         action = Intent.ACTION_SEND_MULTIPLE
         type = "image/* video/*"
         val uris = ArrayList<Uri>(media.size)
+        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         media.map { File(it.path) }
                 .mapTo(uris) { Uri.fromFile(it) }
 
@@ -62,6 +65,7 @@ fun Activity.setAsWallpaper(file: File) {
     val intent = Intent(Intent.ACTION_ATTACH_DATA)
     val uri = Uri.fromFile(file)
     intent.setDataAndType(uri, file.getMimeType("image/*"))
+    intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
     val chooser = Intent.createChooser(intent, getString(R.string.set_as_wallpaper_with))
 
     if (intent.resolveActivity(packageManager) != null) {
@@ -75,6 +79,7 @@ fun Activity.openWith(file: File, forceChooser: Boolean = true) {
     val intent = Intent(Intent.ACTION_VIEW)
     val uri = Uri.fromFile(file)
     intent.setDataAndType(uri, file.getMimeType("image/jpeg"))
+    intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
     val chooser = Intent.createChooser(intent, getString(R.string.open_with))
 
     if (intent.resolveActivity(packageManager) != null) {
@@ -87,6 +92,7 @@ fun Activity.openWith(file: File, forceChooser: Boolean = true) {
 fun Activity.openEditor(file: File) {
     val intent = Intent(Intent.ACTION_EDIT)
     intent.setDataAndType(Uri.fromFile(file), "image/*")
+    intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
 
     if (intent.resolveActivity(packageManager) != null) {
         startActivityForResult(intent, REQUEST_EDIT_IMAGE)
