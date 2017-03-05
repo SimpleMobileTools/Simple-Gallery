@@ -13,7 +13,7 @@
     <string name="file_saved">Plik zapisany</string>
     <string name="pin_folder">Pin folder</string>
     <string name="unpin_folder">Wypakuj folder</string>
-    <string name="show_all">Pokaż całą zawartość folderów</string>
+    <string name="show_all">Pokaż wszystko</string>
     <string name="all_folders">Wszystkie foldery</string>
     <string name="folder_view">Przełącz na widok folderów</string>
     <string name="other_folder">Inny folder</string>
@@ -91,7 +91,7 @@
     <string name="show_hidden_folders">Pokaż ukryte foldery</string>
     <string name="autoplay_videos">Odtwarzaj plików wideo automatycznie</string>
     <string name="toggle_filename">Włącz widoczność nazwy pliku</string>
-    <string name="show_media">Pokaż media</string>
+    <string name="show_media">Wybierz co pokazywać</string>
     <string name="images">Tylko Zdjęcia</string>
     <string name="videos">Tylko Filmy</string>
     <string name="images_and_videos">Obrazy i wideo</string>
