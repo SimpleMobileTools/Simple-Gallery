@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 2.6.4 *(2017-03-06)*
+----------------------------
+
+ * Some folder exclusion and Android 7 related fixes
+
 Version 2.6.3 *(2017-03-06)*
 ----------------------------
 
