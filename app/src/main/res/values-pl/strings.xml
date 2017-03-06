@@ -89,7 +89,7 @@
 
     <!-- Settings -->
     <string name="show_hidden_folders">Pokaż ukryte foldery</string>
-    <string name="autoplay_videos">Odtwarzaj plików wideo automatycznie</string>
+    <string name="autoplay_videos">Odtwarzaj pliki wideo automatycznie</string>
     <string name="toggle_filename">Włącz widoczność nazwy pliku</string>
     <string name="show_media">Wybierz co pokazywać</string>
     <string name="images">Tylko Zdjęcia</string>
