@@ -62,6 +62,9 @@ class ExcludeFolderDialog(val activity: SimpleActivity, val selectedPaths: List<
             return pathsList
 
         pathsList.add(basePath)
+        if (basePath == "/")
+            basePath = ""
+
         for (part in parts) {
             basePath += "/$part"
             pathsList.add(basePath)
