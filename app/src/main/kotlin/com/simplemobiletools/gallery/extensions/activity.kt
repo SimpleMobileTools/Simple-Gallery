@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
+import android.support.v4.content.FileProvider
 import android.support.v7.app.AppCompatActivity
 import android.util.DisplayMetrics
 import android.view.KeyCharacterMap
@@ -36,7 +37,7 @@ fun Activity.shareUri(medium: Medium, uri: Uri) {
 fun Activity.shareMedium(medium: Medium) {
     val shareTitle = resources.getString(R.string.share_via)
     val file = File(medium.path)
-    val uri = Uri.fromFile(file)
+    val uri = FileProvider.getUriForFile(this, "$packageName.provider", file)
     Intent().apply {
         action = Intent.ACTION_SEND
         putExtra(Intent.EXTRA_STREAM, uri)
@@ -54,7 +55,7 @@ fun Activity.shareMedia(media: List<Medium>) {
         type = "image/* video/*"
         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         media.map { File(it.path) }
-                .mapTo(uris) { Uri.fromFile(it) }
+                .mapTo(uris) { FileProvider.getUriForFile(this@shareMedia, "$packageName.provider", it) }
 
         putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris)
         startActivity(Intent.createChooser(this, shareTitle))
@@ -62,7 +63,7 @@ fun Activity.shareMedia(media: List<Medium>) {
 }
 
 fun Activity.setAsWallpaper(file: File) {
-    val uri = Uri.fromFile(file)
+    val uri = FileProvider.getUriForFile(this, "$packageName.provider", file)
     Intent().apply {
         action = Intent.ACTION_ATTACH_DATA
         setDataAndType(uri, file.getMimeType("image/*"))
@@ -78,7 +79,7 @@ fun Activity.setAsWallpaper(file: File) {
 }
 
 fun Activity.openWith(file: File, forceChooser: Boolean = true) {
-    val uri = Uri.fromFile(file)
+    val uri = FileProvider.getUriForFile(this, "$packageName.provider", file)
     Intent().apply {
         action = Intent.ACTION_VIEW
         setDataAndType(uri, file.getMimeType("image/jpeg"))
@@ -94,9 +95,10 @@ fun Activity.openWith(file: File, forceChooser: Boolean = true) {
 }
 
 fun Activity.openEditor(file: File) {
+    val uri = FileProvider.getUriForFile(this, "$packageName.provider", file)
     Intent().apply {
         action = Intent.ACTION_EDIT
-        setDataAndType(Uri.fromFile(file), "image/*")
+        setDataAndType(uri, "image/*")
         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
 
         if (resolveActivity(packageManager) != null) {
