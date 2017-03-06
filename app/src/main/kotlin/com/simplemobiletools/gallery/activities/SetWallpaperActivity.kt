@@ -66,6 +66,9 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
     }
 
     override fun onCropImageComplete(view: CropImageView?, result: CropImageView.CropResult) {
+        if (isDestroyed)
+            return
+
         if (result.error == null) {
             toast(R.string.setting_wallpaper)
             Thread({
