@@ -27,14 +27,14 @@
     <!-- Hide / Exclude -->
     <string name="hide_folder">Klasörü gizle</string>
     <string name="unhide_folder">Klasörü göster</string>
-    <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden folders\' option in Settings. Continue?</string>
-    <string name="exclude">Exclude</string>
-    <string name="excluded_folders">Excluded folders</string>
-    <string name="manage_excluded_folders">Manage excluded folders</string>
-    <string name="exclude_folder_description">This will exclude the selection together with its subfolders from Simple Gallery only. You can manage excluded folders in Settings.</string>
-    <string name="exclude_folder_parent">Exclude a parent instead?</string>
-    <string name="remove_all">Remove all</string>
-    <string name="remove_all_description">Remove all folders from the list of excluded? This will not delete the folders.</string>
+    <string name="hide_folder_description">Bu işlev, klasöre\'.medya yok\'dosyası ekleyerek gizler; tüm alt klasörleri de gizler. Bunları Ayarlar\'da\'Gizli klasörleri göster\'seçeneğine basarak görebilirsiniz. Devam et?</string>
+    <string name="exclude">Dışlama</string>
+    <string name="excluded_folders">Hariç tutulan klasörler</string>
+    <string name="manage_excluded_folders">Hariç tutulan klasörleri yönet</string>
+    <string name="exclude_folder_description">Bu, seçimi alt klasörleriyle birlikte yalnızca Basit Galeri\'den hariç tutacaktır. Dışlanan klasörleri Ayarlar\'dan yönetebilirsiniz.</string>
+    <string name="exclude_folder_parent">Bunun yerine ebeveynleri hariç tutun?</string>
+    <string name="remove_all">Hepsini sil</string>
+    <string name="remove_all_description">Hariç tutulanlar listesinden tüm klasörleri kaldırmak mı istiyorsunuz? Bu, klasörler silinmez.</string>
 
     <!-- Resizing -->
     <string name="resize">Yeniden boyutlandır</string>
@@ -96,33 +96,33 @@
     <string name="videos">Yalnızca videolar</string>
     <string name="images_and_videos">Resimler ve videolar</string>
     <string name="loop_videos">Videolar döngüsü</string>
-    <string name="animate_gifs">Animate gifs at thumbnails</string>
+    <string name="animate_gifs">Küçük resimlerde gif\'leri canlandırın</string>
 
     <!-- Release notes -->
     <string name="release_77">
-        Exclude the subfolders of excluded folders too\n
-        Added an easy way of excluding parent folders from the exclude confirmation dialog\n
-        Added draggable scrollbars\n
-        Allow setting a third party video player as the default
+        Hariç tutulan klasörlerin alt klasörlerini de hariç tutun\n
+        Dışlama onay iletişim kutusundan üst klasörleri hariç tutmanın kolay bir yol ekledi\n
+        Sürüklenebilir kaydırma çubukları eklendi\n
+        Bir üçüncü taraf video oynatıcının varsayılan ayarına izin verme
     </string>
-    <string name="release_76">Added an option to toggle gif animation at thumbnails</string>
-    <string name="release_74">Allow setting different sorting per folder</string>
+    <string name="release_76">Küçük resimlerde gif animasyonunu değiştirmek için bir seçenek eklendi</string>
+    <string name="release_74">Her klasör için farklı sıralama ayarı yapmaya izin ver</string>
     <string name="release_72">
-        Implement proper folder hiding via .nomedia file\n
-        Allow managing excluded folders in Settings
+        Medya yok fil dosyası üzerinden uygun klasörü gizleme uygulayın\n
+        Ayarlar\'da hariç tutulan klasörleri yönetmeye izin ver
     </string>
     <string name="release_70">Tam ekran görünümünde kolay resim dönmesi için menü öğeleri eklendi</string>
     <string name="release_69">Sütun sayısını değiştirmek için menü düğmeleri eklendi</string>
-    <string name="release_66">Allow picking colors by hex code Renkleri hex kodlarla toplama izni verin</string>
+    <string name="release_66">Renkleri hex kodlarla toplama izni verin</string>
     <string name="release_65">Kullanılabilir harita koordinatları varsa fotoğrafları ve videoları bir haritada göstermeye izin ver</string>
     <string name="release_62">Fotoğraf özelliklerine ek Exif verileri göster</string>
     <string name="release_58">
         Png ve gif\'leri yakınlaştırmaya izin ver\n
-        Kopyala/Taşı veya Farklı Kaydet iletişim hedeflerinde yeni klasörler oluşturmaya izin ver</string>
+        Kopyala/Taşı veya Farklı Kaydet iletişim hedeflerinde yeni klasörler oluşturmaya izin ver</string>
     <string name="release_54">Videoları otomatik olarak iliştirmek için bir seçenek eklendi</string>
     <string name="release_52">
         Daha fazla renk özelleştirme seçeneği eklendi\n
-        Ayarlarınız silindi, lütfen onları sıfırlayın</string>
+        Ayarlarınız silindi, lütfen onları sıfırlayın</string>
     <string name="release_51">Sıkıştırma hareketi ile sütun sayısının değiştirilmesine izin ver</string>
     <string name="release_50">Yalnızca resim veya videoları görüntülemek için bir seçenek eklendi</string>
     <string name="release_49">Ortamı ve klasörleri seçerken Tümünü seç düğmesi eklendi</string>
