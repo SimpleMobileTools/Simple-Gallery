@@ -5,6 +5,7 @@ import android.app.WallpaperManager
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.util.Log
@@ -332,7 +333,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         } else {
             val file = File(path)
             val isVideo = file.isVideoFast()
-            if (isVideo) {
+            val isNougat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.N
+            if (isVideo && !isNougat) {
                 openWith(file, false)
             } else {
                 Intent(this, ViewPagerActivity::class.java).apply {
