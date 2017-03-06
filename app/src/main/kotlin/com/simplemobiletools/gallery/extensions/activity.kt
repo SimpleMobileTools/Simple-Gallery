@@ -37,7 +37,7 @@ fun Activity.shareUri(medium: Medium, uri: Uri) {
 fun Activity.shareMedium(medium: Medium) {
     val shareTitle = resources.getString(R.string.share_via)
     val file = File(medium.path)
-    val uri = FileProvider.getUriForFile(this, "$packageName.provider", file)
+    val uri = getFileUri(file)
     Intent().apply {
         action = Intent.ACTION_SEND
         putExtra(Intent.EXTRA_STREAM, uri)
@@ -55,7 +55,7 @@ fun Activity.shareMedia(media: List<Medium>) {
         type = "image/* video/*"
         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         media.map { File(it.path) }
-                .mapTo(uris) { FileProvider.getUriForFile(this@shareMedia, "$packageName.provider", it) }
+                .mapTo(uris) { getFileUri(it) }
 
         putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris)
         startActivity(Intent.createChooser(this, shareTitle))
@@ -63,7 +63,7 @@ fun Activity.shareMedia(media: List<Medium>) {
 }
 
 fun Activity.setAsWallpaper(file: File) {
-    val uri = FileProvider.getUriForFile(this, "$packageName.provider", file)
+    val uri = getFileUri(file)
     Intent().apply {
         action = Intent.ACTION_ATTACH_DATA
         setDataAndType(uri, file.getMimeType("image/*"))
@@ -79,7 +79,7 @@ fun Activity.setAsWallpaper(file: File) {
 }
 
 fun Activity.openWith(file: File, forceChooser: Boolean = true) {
-    val uri = FileProvider.getUriForFile(this, "$packageName.provider", file)
+    val uri = getFileUri(file)
     Intent().apply {
         action = Intent.ACTION_VIEW
         setDataAndType(uri, file.getMimeType("image/jpeg"))
@@ -95,7 +95,7 @@ fun Activity.openWith(file: File, forceChooser: Boolean = true) {
 }
 
 fun Activity.openEditor(file: File) {
-    val uri = FileProvider.getUriForFile(this, "$packageName.provider", file)
+    val uri = getFileUri(file)
     Intent().apply {
         action = Intent.ACTION_EDIT
         setDataAndType(uri, "image/*")
@@ -108,6 +108,8 @@ fun Activity.openEditor(file: File) {
         }
     }
 }
+
+fun Activity.getFileUri(file: File) = FileProvider.getUriForFile(this, "$packageName.provider", file)
 
 fun Activity.hasNavBar(): Boolean {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {

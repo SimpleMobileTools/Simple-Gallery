@@ -20,10 +20,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
 import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
-import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.extensions.launchAbout
-import com.simplemobiletools.gallery.extensions.launchCamera
-import com.simplemobiletools.gallery.extensions.launchSettings
+import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.views.MyScalableRecyclerView
@@ -286,7 +283,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             if (requestCode == PICK_MEDIA && resultData != null) {
                 Intent().apply {
                     val path = resultData.data.path
-                    val uri = FileProvider.getUriForFile(this@MainActivity, "$packageName.provider", File(path))
+                    val uri = getFileUri(File(path))
                     if (mIsGetImageContentIntent || mIsGetVideoContentIntent || mIsGetAnyContentIntent) {
                         val type = File(path).getMimeType("image/jpeg")
                         setDataAndTypeAndNormalize(uri, type)
