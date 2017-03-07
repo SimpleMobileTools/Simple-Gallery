@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
-import android.support.v4.content.FileProvider
 import android.support.v7.app.AppCompatActivity
 import android.util.DisplayMetrics
 import android.view.KeyCharacterMap
@@ -37,7 +36,7 @@ fun Activity.shareUri(medium: Medium, uri: Uri) {
 fun Activity.shareMedium(medium: Medium) {
     val shareTitle = resources.getString(R.string.share_via)
     val file = File(medium.path)
-    val uri = getFileUri(file)
+    val uri = getMyFileUri(file)
     Intent().apply {
         action = Intent.ACTION_SEND
         putExtra(Intent.EXTRA_STREAM, uri)
@@ -55,7 +54,7 @@ fun Activity.shareMedia(media: List<Medium>) {
         type = "image/* video/*"
         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         media.map { File(it.path) }
-                .mapTo(uris) { getFileUri(it) }
+                .mapTo(uris) { getMyFileUri(it) }
 
         putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris)
         startActivity(Intent.createChooser(this, shareTitle))
@@ -63,7 +62,7 @@ fun Activity.shareMedia(media: List<Medium>) {
 }
 
 fun Activity.setAsWallpaper(file: File) {
-    val uri = getFileUri(file)
+    val uri = getMyFileUri(file)
     Intent().apply {
         action = Intent.ACTION_ATTACH_DATA
         setDataAndType(uri, file.getMimeType("image/*"))
@@ -79,7 +78,7 @@ fun Activity.setAsWallpaper(file: File) {
 }
 
 fun Activity.openWith(file: File, forceChooser: Boolean = true) {
-    val uri = getFileUri(file)
+    val uri = getMyFileUri(file)
     Intent().apply {
         action = Intent.ACTION_VIEW
         setDataAndType(uri, file.getMimeType("image/jpeg"))
@@ -107,14 +106,6 @@ fun Activity.openEditor(file: File) {
             toast(R.string.no_editor_found)
         }
     }
-}
-
-fun Activity.getFileUri(file: File): Uri {
-    val isNougat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.N
-    return if (isNougat)
-        FileProvider.getUriForFile(this, "$packageName.provider", file)
-    else
-        Uri.fromFile(file)
 }
 
 fun Activity.hasNavBar(): Boolean {
