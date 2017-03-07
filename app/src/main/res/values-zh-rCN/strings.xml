@@ -9,7 +9,6 @@
     <string name="open_with">打开方式</string>
     <string name="no_app_found">没有可用的应用</string>
     <string name="hidden">(隐藏)</string>
-    <string name="save_as">保存</string>
     <string name="file_saved">文件保存成功</string>
     <string name="pin_folder">锁定文件夹</string>
     <string name="unpin_folder">解除锁定文件夹</string>
