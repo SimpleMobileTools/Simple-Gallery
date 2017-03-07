@@ -9,7 +9,6 @@
     <string name="open_with">&#8230;で開く</string>
     <string name="no_app_found">有効なアプリが見つかりません</string>
     <string name="hidden">(非表示)</string>
-    <string name="file_saved">ファイルを正常に保存しました</string>
     <string name="pin_folder">Pin folder</string>
     <string name="unpin_folder">Unpin folder</string>
     <string name="show_all">Show all folders content</string>

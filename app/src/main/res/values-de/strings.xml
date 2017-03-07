@@ -9,7 +9,6 @@
     <string name="open_with">Öffnen mit</string>
     <string name="no_app_found">Keine zulässige App gefunden</string>
     <string name="hidden">(versteckt)</string>
-    <string name="file_saved">Datei erfolgreich gespeichert</string>
     <string name="pin_folder">Fixiere Ordner</string>
     <string name="unpin_folder">Ordner lösen</string>
     <string name="show_all">Inhalt aller Ordner (anzeigen)</string>
