@@ -54,10 +54,6 @@
     <string name="rename_folder_root">Nepodarilo sa premenovať základný priečinok úložiska</string>
     <string name="rename_folder_ok">Priečinok bol úspešne premenovaný</string>
     <string name="renaming_folder">Premenúva sa priečinok</string>
-    <string name="filename_cannot_be_empty">Názov súboru nemôže byť prázdny</string>
-    <string name="filename_invalid_characters">Názov súboru obsahuje neplatné znaky</string>
-    <string name="extension">Prípona</string>
-    <string name="extension_cannot_be_empty">Prípona nesmie byť prázdna</string>
 
     <!-- Editor -->
     <string name="editor">Editor</string>

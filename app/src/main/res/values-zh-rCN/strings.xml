@@ -54,10 +54,6 @@
     <string name="rename_folder_root">存储器的根目录无法重命名</string>
     <string name="rename_folder_ok">文件夹重命名成功</string>
     <string name="renaming_folder">重命名中...</string>
-    <string name="filename_cannot_be_empty">文件名不能为空</string>
-    <string name="filename_invalid_characters">文件名包含非法字符</string>
-    <string name="extension">扩展名</string>
-    <string name="extension_cannot_be_empty">扩展名不能为空</string>
 
     <!-- Editor -->
     <string name="editor">编辑器</string>

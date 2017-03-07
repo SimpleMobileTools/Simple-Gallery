@@ -54,10 +54,6 @@
     <string name="rename_folder_root">Root-Ordner des Speichers kann nicht umbenannt werden</string>
     <string name="rename_folder_ok">Ordner erfolgreich umbenannt</string>
     <string name="renaming_folder">Ordner umbennenen</string>
-    <string name="filename_cannot_be_empty">Dateiname darf nicht leer sein</string>
-    <string name="filename_invalid_characters">Dateiname enthält ungültige Zeichen</string>
-    <string name="extension">Dateiendung</string>
-    <string name="extension_cannot_be_empty">Dateiendung darf nicht leer sein</string>
 
     <!-- Editor -->
     <string name="editor">Editor</string>

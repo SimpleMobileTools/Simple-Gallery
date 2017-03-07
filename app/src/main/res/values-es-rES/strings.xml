@@ -56,7 +56,6 @@
     <string name="renaming_folder">Renombrando carpeta</string>
     <string name="filename_cannot_be_empty">El nombre de archivo no puede estar vacío</string>
     <string name="filename_invalid_characters">Filename contains invalid characters</string>
-    <string name="extension">Extensión</string>
     <string name="extension_cannot_be_empty">Extension cannot be empty</string>
 
     <!-- Editor -->

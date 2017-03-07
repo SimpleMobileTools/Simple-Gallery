@@ -54,10 +54,6 @@
     <string name="rename_folder_root">Nie można zmienić nazwy folderu głównego</string>
     <string name="rename_folder_ok">Zmieniono nazwę folderu</string>
     <string name="renaming_folder">Zmiana nazwy folderu</string>
-    <string name="filename_cannot_be_empty">Nazwa pliku nie może być pusta</string>
-    <string name="filename_invalid_characters">Nazwa pliku zawiera niedozwolone znaki</string>
-    <string name="extension">Rozszerzenie pliku</string>
-    <string name="extension_cannot_be_empty">Rozszerzenie pliku nie może być puste</string>
 
     <!-- Editor -->
     <string name="editor">Edycja</string>

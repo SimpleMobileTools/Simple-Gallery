@@ -54,10 +54,6 @@
     <string name="rename_folder_root">Depolama kök klasörü yeniden adlandırılamıyor</string>
     <string name="rename_folder_ok">Klasör başarıyla yeniden adlandırıldı</string>
     <string name="renaming_folder">Klasörü yeniden adlandır</string>
-    <string name="filename_cannot_be_empty">Dosya adı boş olamaz</string>
-    <string name="filename_invalid_characters">Dosya adı geçersiz karakter içeriyor</string>
-    <string name="extension">Genişlet</string>
-    <string name="extension_cannot_be_empty">Uzantı boş olamaz</string>
 
     <!-- Editor -->
     <string name="editor">Editör</string>

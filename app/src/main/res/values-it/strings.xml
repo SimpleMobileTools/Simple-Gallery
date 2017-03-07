@@ -54,10 +54,6 @@
     <string name="rename_folder_root">Non è possibile rinominare la cartella principale</string>
     <string name="rename_folder_ok">Cartella rinominata correttamente</string>
     <string name="renaming_folder">Rinominazione cartella</string>
-    <string name="filename_cannot_be_empty">Il nome del file non deve essere vuoto</string>
-    <string name="filename_invalid_characters">Il nome contiene caratteri non validi</string>
-    <string name="extension">Estensione</string>
-    <string name="extension_cannot_be_empty">Extension cannot be empty</string>
 
     <!-- Editor -->
     <string name="editor">Editor</string>

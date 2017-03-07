@@ -54,10 +54,6 @@
     <string name="rename_folder_root">Impossible de renommer le dossier racine de la mémoire.</string>
     <string name="rename_folder_ok">Dossier renommé avec succès</string>
     <string name="renaming_folder">Renommage du dossier</string>
-    <string name="filename_cannot_be_empty">Le nom de fichier ne peut pas rester vide</string>
-    <string name="filename_invalid_characters">Le nom de fichier contient des caractères invalides</string>
-    <string name="extension">Extension</string>
-    <string name="extension_cannot_be_empty">L\'extension ne peut pas rester vide</string>
 
     <!-- Editor -->
     <string name="editor">Éditeur</string>

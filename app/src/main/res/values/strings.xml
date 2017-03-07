@@ -54,10 +54,6 @@
     <string name="rename_folder_root">Cannot rename the root folder of a storage</string>
     <string name="rename_folder_ok">Folder renamed successfully</string>
     <string name="renaming_folder">Renaming folder</string>
-    <string name="filename_cannot_be_empty">Filename cannot be empty</string>
-    <string name="filename_invalid_characters">Filename contains invalid characters</string>
-    <string name="extension">Extension</string>
-    <string name="extension_cannot_be_empty">Extension cannot be empty</string>
 
     <!-- Editor -->
     <string name="editor">Editor</string>

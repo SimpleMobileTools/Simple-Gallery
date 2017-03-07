@@ -54,10 +54,6 @@
     <string name="rename_folder_root">Невозможно переименовать корневую папку хранения</string>
     <string name="rename_folder_ok">Папка переименована успешно</string>
     <string name="renaming_folder">Изменение имени папки</string>
-    <string name="filename_cannot_be_empty">Имя файла не может быть пустым</string>
-    <string name="filename_invalid_characters">Имя файла содержит недопустимые символы</string>
-    <string name="extension">Расширение</string>
-    <string name="extension_cannot_be_empty">Расширение не может быть пустым</string>
 
     <!-- Editor -->
     <string name="editor">Редактор</string>

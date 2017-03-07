@@ -54,10 +54,6 @@
     <string name="rename_folder_root">Det går inte att döpa om rotmappen på lagringsutrymmet</string>
     <string name="rename_folder_ok">Mappen döptes om</string>
     <string name="renaming_folder">Döper om mappen</string>
-    <string name="filename_cannot_be_empty">Du måste ange ett filnamn</string>
-    <string name="filename_invalid_characters">Filnamnet innehåller ogiltiga tecken</string>
-    <string name="extension">Filändelse</string>
-    <string name="extension_cannot_be_empty">Filändelsen får inte vara tom</string>
 
     <!-- Editor -->
     <string name="editor">Redigera</string>

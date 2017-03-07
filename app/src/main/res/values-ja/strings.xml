@@ -54,10 +54,6 @@
     <string name="rename_folder_root">ストレージのルートフォルダーの名前を変更できません</string>
     <string name="rename_folder_ok">フォルダーの名前を正常に変更しました</string>
     <string name="renaming_folder">フォルダーの名前を変更中</string>
-    <string name="filename_cannot_be_empty">ファイル名は空にできません</string>
-    <string name="filename_invalid_characters">ファイル名に無効な文字が含まれています</string>
-    <string name="extension">拡張</string>
-    <string name="extension_cannot_be_empty">Extension cannot be empty</string>
 
     <!-- Editor -->
     <string name="editor">エディター</string>

@@ -56,7 +56,6 @@
     <string name="renaming_folder">正在重新命名……</string>
     <string name="filename_cannot_be_empty">檔案名稱不能為空</string>
     <string name="filename_invalid_characters">檔案名包含無效字元</string>
-    <string name="extension">副檔名</string>
     <string name="extension_cannot_be_empty">副檔名不能為空</string>
 
     <!-- Editor -->

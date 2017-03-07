@@ -54,10 +54,6 @@
     <string name="rename_folder_root">Não pode renomear a pasta raiz de um armazenamento</string>
     <string name="rename_folder_ok">A pasta foi renomeada com sucesso</string>
     <string name="renaming_folder">A renomear pasta</string>
-    <string name="filename_cannot_be_empty">O nome do ficheiro não pode estar vazio</string>
-    <string name="filename_invalid_characters">O nome do ficheiro contém caracteres inválidos</string>
-    <string name="extension">Extensão</string>
-    <string name="extension_cannot_be_empty">A extensão não pode estar vazia</string>
 
     <!-- Editor -->
     <string name="editor">Editor</string>
