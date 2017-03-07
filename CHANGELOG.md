@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 2.6.5 *(2017-03-07)*
+----------------------------
+
+ * Fix some file uri issues below android 7
+
 Version 2.6.4 *(2017-03-06)*
 ----------------------------
 
