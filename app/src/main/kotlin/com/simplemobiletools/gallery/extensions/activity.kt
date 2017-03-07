@@ -109,7 +109,13 @@ fun Activity.openEditor(file: File) {
     }
 }
 
-fun Activity.getFileUri(file: File) = FileProvider.getUriForFile(this, "$packageName.provider", file)
+fun Activity.getFileUri(file: File): Uri {
+    val isNougat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.N
+    return if (isNougat)
+        FileProvider.getUriForFile(this, "$packageName.provider", file)
+    else
+        Uri.fromFile(file)
+}
 
 fun Activity.hasNavBar(): Boolean {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
