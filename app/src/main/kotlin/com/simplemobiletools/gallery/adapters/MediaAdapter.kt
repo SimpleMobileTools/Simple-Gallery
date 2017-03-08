@@ -96,8 +96,9 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         }
 
         override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu): Boolean {
-            menu.findItem(R.id.cab_rename).isVisible = multiSelector.selectedPositions.size <= 1
-            menu.findItem(R.id.cab_edit).isVisible = multiSelector.selectedPositions.size <= 1
+            val selections = multiSelector.selectedPositions
+            menu.findItem(R.id.cab_rename).isVisible = selections.size <= 1
+            menu.findItem(R.id.cab_edit).isVisible = selections.size == 1 && media[selections[0]].isImage()
             return true
         }
 
