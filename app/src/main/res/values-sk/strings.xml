@@ -42,17 +42,6 @@
     <string name="keep_aspect_ratio">Zachovať pomer strán</string>
     <string name="invalid_values">Prosím zadajte platné rozlíšenie</string>
 
-    <!-- Renaming -->
-    <string name="rename_file">Premenovať súbor</string>
-    <string name="rename_folder">Premenovať priečinok</string>
-    <string name="rename_file_error">Nepodarilo sa premenovať súbor</string>
-    <string name="rename_folder_error">Nepodarilo sa premenovať priečinok</string>
-    <string name="rename_folder_empty">Názov priečinka nemôže byť prázdny</string>
-    <string name="rename_folder_exists">Priečinok s daným názvom už existuje</string>
-    <string name="rename_folder_root">Nepodarilo sa premenovať základný priečinok úložiska</string>
-    <string name="rename_folder_ok">Priečinok bol úspešne premenovaný</string>
-    <string name="renaming_folder">Premenúva sa priečinok</string>
-
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="save">Uložiť</string>

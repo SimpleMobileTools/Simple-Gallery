@@ -42,17 +42,6 @@
     <string name="keep_aspect_ratio">Keep aspect ratio</string>
     <string name="invalid_values">Please enter a valid resolution</string>
 
-    <!-- Renaming -->
-    <string name="rename_file">Rinomina file</string>
-    <string name="rename_folder">Rinomina cartella</string>
-    <string name="rename_file_error">Impossibile rinominare il file</string>
-    <string name="rename_folder_error">Impossibile rinominare la cartella</string>
-    <string name="rename_folder_empty">Il nome della cartella non deve essere vuoto</string>
-    <string name="rename_folder_exists">Esiste già una cartella con questo nome</string>
-    <string name="rename_folder_root">Non è possibile rinominare la cartella principale</string>
-    <string name="rename_folder_ok">Cartella rinominata correttamente</string>
-    <string name="renaming_folder">Rinominazione cartella</string>
-
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="save">Salva</string>

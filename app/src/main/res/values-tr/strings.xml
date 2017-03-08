@@ -42,17 +42,6 @@
     <string name="keep_aspect_ratio">En-boy oranını koru</string>
     <string name="invalid_values">Lütfen geçerli bir çözüm önerisi girin</string>
 
-    <!-- Renaming -->
-    <string name="rename_file">Dosyayı yeniden adlandır</string>
-    <string name="rename_folder">Klasörü yeniden adlandır</string>
-    <string name="rename_file_error">Dosya yeniden adlandırılamadı</string>
-    <string name="rename_folder_error">Klasör yeniden adlandırılamadı</string>
-    <string name="rename_folder_empty">Klasör adı boş olmamalıdır</string>
-    <string name="rename_folder_exists">Bu ada sahip bir klasör zaten var</string>
-    <string name="rename_folder_root">Depolama kök klasörü yeniden adlandırılamıyor</string>
-    <string name="rename_folder_ok">Klasör başarıyla yeniden adlandırıldı</string>
-    <string name="renaming_folder">Klasörü yeniden adlandır</string>
-
     <!-- Editor -->
     <string name="editor">Editör</string>
     <string name="save">Kaydet</string>

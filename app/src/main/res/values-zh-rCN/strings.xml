@@ -42,17 +42,6 @@
     <string name="keep_aspect_ratio">保持纵横比</string>
     <string name="invalid_values">请输入合法的分辨率</string>
 
-    <!-- Renaming -->
-    <string name="rename_file">重命名文件</string>
-    <string name="rename_folder">重命名文件夹</string>
-    <string name="rename_file_error">文件无法重命名</string>
-    <string name="rename_folder_error">Could not rename the folder</string>
-    <string name="rename_folder_empty">文件夹名不能为空</string>
-    <string name="rename_folder_exists">文件夹名已存在</string>
-    <string name="rename_folder_root">存储器的根目录无法重命名</string>
-    <string name="rename_folder_ok">文件夹重命名成功</string>
-    <string name="renaming_folder">重命名中...</string>
-
     <!-- Editor -->
     <string name="editor">编辑器</string>
     <string name="save">保存</string>

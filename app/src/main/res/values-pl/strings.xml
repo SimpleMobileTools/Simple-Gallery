@@ -42,17 +42,6 @@
     <string name="keep_aspect_ratio">Zachowaj proporcje</string>
     <string name="invalid_values">Wpisz poprawną rozdzielczość</string>
 
-    <!-- Renaming -->
-    <string name="rename_file">Zmień nazwę</string>
-    <string name="rename_folder">Zmień nazwę folderu</string>
-    <string name="rename_file_error">Nie można zmienić nazwy pliku</string>
-    <string name="rename_folder_error">Nie można zmienić nazwy folderu</string>
-    <string name="rename_folder_empty">Nazwa folderu nie może być pusta</string>
-    <string name="rename_folder_exists">Folder o tej nazwie już istnieje</string>
-    <string name="rename_folder_root">Nie można zmienić nazwy folderu głównego</string>
-    <string name="rename_folder_ok">Zmieniono nazwę folderu</string>
-    <string name="renaming_folder">Zmiana nazwy folderu</string>
-
     <!-- Editor -->
     <string name="editor">Edycja</string>
     <string name="save">zapisz</string>

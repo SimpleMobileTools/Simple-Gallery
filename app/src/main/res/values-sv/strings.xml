@@ -42,17 +42,6 @@
     <string name="keep_aspect_ratio">Behåll bildförhållande</string>
     <string name="invalid_values">Ange en giltig bildupplösning</string>
 
-    <!-- Renaming -->
-    <string name="rename_file">Döp om fil</string>
-    <string name="rename_folder">Döp om mapp</string>
-    <string name="rename_file_error">Det gick inte att döpa om filen</string>
-    <string name="rename_folder_error">Det gick inte att döpa om mappen</string>
-    <string name="rename_folder_empty">Du måste ange ett mappnamn</string>
-    <string name="rename_folder_exists">En mapp med det namnet finns redan</string>
-    <string name="rename_folder_root">Det går inte att döpa om rotmappen på lagringsutrymmet</string>
-    <string name="rename_folder_ok">Mappen döptes om</string>
-    <string name="renaming_folder">Döper om mappen</string>
-
     <!-- Editor -->
     <string name="editor">Redigera</string>
     <string name="save">Spara</string>

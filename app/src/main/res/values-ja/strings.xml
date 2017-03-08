@@ -42,17 +42,6 @@
     <string name="keep_aspect_ratio">Keep aspect ratio</string>
     <string name="invalid_values">Please enter a valid resolution</string>
 
-    <!-- Renaming -->
-    <string name="rename_file">ファイルの名前を変更</string>
-    <string name="rename_folder">フォルダーの名前を変更</string>
-    <string name="rename_file_error">ファイルの名前を変更できませんでした</string>
-    <string name="rename_folder_error">フォルダーの名前を変更できませんでした</string>
-    <string name="rename_folder_empty">フォルダー名は空にできません</string>
-    <string name="rename_folder_exists">その名前のフォルダーは既に存在します</string>
-    <string name="rename_folder_root">ストレージのルートフォルダーの名前を変更できません</string>
-    <string name="rename_folder_ok">フォルダーの名前を正常に変更しました</string>
-    <string name="renaming_folder">フォルダーの名前を変更中</string>
-
     <!-- Editor -->
     <string name="editor">エディター</string>
     <string name="save">保存</string>

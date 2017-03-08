@@ -42,17 +42,6 @@
     <string name="keep_aspect_ratio">Сохранить соотношение сторон</string>
     <string name="invalid_values">Указано недопустимое разрешение</string>
 
-    <!-- Renaming -->
-    <string name="rename_file">Изменение имени файла</string>
-    <string name="rename_folder">Изменение имени папки</string>
-    <string name="rename_file_error">Невозможно переименовать файл</string>
-    <string name="rename_folder_error">Невозможно переименовать папку</string>
-    <string name="rename_folder_empty">Имя папки не должно быть пустым</string>
-    <string name="rename_folder_exists">Папка с таким именем уже существует</string>
-    <string name="rename_folder_root">Невозможно переименовать корневую папку хранения</string>
-    <string name="rename_folder_ok">Папка переименована успешно</string>
-    <string name="renaming_folder">Изменение имени папки</string>
-
     <!-- Editor -->
     <string name="editor">Редактор</string>
     <string name="save">Сохранить</string>

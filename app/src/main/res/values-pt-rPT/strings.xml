@@ -42,17 +42,6 @@
     <string name="keep_aspect_ratio">Manter rácio de tamanho</string>
     <string name="invalid_values">Digite uma resolução válida</string>
 
-    <!-- Renaming -->
-    <string name="rename_file">Renomear ficheiro</string>
-    <string name="rename_folder">Renomear pasta</string>
-    <string name="rename_file_error">Não foi possível renomear o ficheiro</string>
-    <string name="rename_folder_error">Não foi possível renomear a pasta</string>
-    <string name="rename_folder_empty">O nome da pasta não pode estar vazio</string>
-    <string name="rename_folder_exists">Já existe uma pasta com este nome</string>
-    <string name="rename_folder_root">Não pode renomear a pasta raiz de um armazenamento</string>
-    <string name="rename_folder_ok">A pasta foi renomeada com sucesso</string>
-    <string name="renaming_folder">A renomear pasta</string>
-
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="save">Guardar</string>

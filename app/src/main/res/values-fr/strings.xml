@@ -42,17 +42,6 @@
     <string name="keep_aspect_ratio">Garder le ratio</string>
     <string name="invalid_values">Veuillez entrez une résolution valide</string>
 
-    <!-- Renaming -->
-    <string name="rename_file">Renommer le fichier</string>
-    <string name="rename_folder">Renommer le dossier</string>
-    <string name="rename_file_error">Impossible de renommer le fichier</string>
-    <string name="rename_folder_error">Impossible de renommer le dossier.</string>
-    <string name="rename_folder_empty">Le nom de dossier ne peut pas être vide.</string>
-    <string name="rename_folder_exists">Un dossier homonyme existe déjà.</string>
-    <string name="rename_folder_root">Impossible de renommer le dossier racine de la mémoire.</string>
-    <string name="rename_folder_ok">Dossier renommé avec succès</string>
-    <string name="renaming_folder">Renommage du dossier</string>
-
     <!-- Editor -->
     <string name="editor">Éditeur</string>
     <string name="save">Sauvegarder</string>

@@ -42,17 +42,6 @@
     <string name="keep_aspect_ratio">Seitenverhältnis beibehalten</string>
     <string name="invalid_values">Bitte gib eine korrekte Auflösung ein</string>
 
-    <!-- Renaming -->
-    <string name="rename_file">Datei umbenennen</string>
-    <string name="rename_folder">Ordner umbenennen</string>
-    <string name="rename_file_error">Konnte die Datei nicht umbenennen</string>
-    <string name="rename_folder_error">Konnte den Ordner nicht umbenennen</string>
-    <string name="rename_folder_empty">Ordnername darf nicht leer sein</string>
-    <string name="rename_folder_exists">Ein Ordner mit diesem Namen existiert bereits</string>
-    <string name="rename_folder_root">Root-Ordner des Speichers kann nicht umbenannt werden</string>
-    <string name="rename_folder_ok">Ordner erfolgreich umbenannt</string>
-    <string name="renaming_folder">Ordner umbennenen</string>
-
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="save">Speichern</string>
