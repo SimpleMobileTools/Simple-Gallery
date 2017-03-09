@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 2.6.6 *(2017-03-09)*
+----------------------------
+
+ * Fixed some editor and sharing issues
+
 Version 2.6.5 *(2017-03-07)*
 ----------------------------
 
