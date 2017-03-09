@@ -82,6 +82,10 @@
     <string name="animate_gifs">Küçük resimlerde gif\'leri canlandırın</string>
 
     <!-- Release notes -->
+    <string name="release_83">
+        Fixed some sharing and editor issues\n
+        Sorry for the frequent updates lately, they should be stopped now.
+    </string>
     <string name="release_77">
         Hariç tutulan klasörlerin alt klasörlerini de hariç tutun\n
         Dışlama onay iletişim kutusundan üst klasörleri hariç tutmanın kolay bir yol ekledi\n

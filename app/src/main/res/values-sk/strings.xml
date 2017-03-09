@@ -82,6 +82,10 @@
     <string name="animate_gifs">Animovať gif súbory pri náhľade</string>
 
     <!-- Release notes -->
+    <string name="release_83">
+        Boli opravené problémy s editorom a zdieľaním\n
+        Ospravedlňujeme sa za časté aktualizácie, už by mali prestať.
+    </string>
     <string name="release_77">
         Bulo pridané vylučovanie podpriečinky vylúčených priečinkov\n
         Bol pridaný jednoduchý spôsob vylučovania rodičovských priečinkov z potvrdzujúceho okna\n
