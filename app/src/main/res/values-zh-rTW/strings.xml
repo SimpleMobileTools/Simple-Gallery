@@ -9,7 +9,6 @@
     <string name="open_with">以其他應用軟體開啟</string>
     <string name="no_app_found">沒有可用的應用軟體</string>
     <string name="hidden">（隱藏）</string>
-    <string name="file_saved">成功儲存檔案</string>
     <string name="pin_folder">鎖定資料夾</string>
     <string name="unpin_folder">解除鎖定資料夾</string>
     <string name="show_all">顯示所有資料夾的內容</string>
@@ -42,20 +41,6 @@
     <string name="height">高度</string>
     <string name="keep_aspect_ratio">保持長寬比</string>
     <string name="invalid_values">請輸入有效的解析度</string>
-
-    <!-- Renaming -->
-    <string name="rename_file">重新命名檔案</string>
-    <string name="rename_folder">重新命名資料夾</string>
-    <string name="rename_file_error">檔案無法重新命名</string>
-    <string name="rename_folder_error">無法重新命名資料夾</string>
-    <string name="rename_folder_empty">資料夾名稱不能為空</string>
-    <string name="rename_folder_exists">資料夾名稱已存在</string>
-    <string name="rename_folder_root">儲存裝置的根目錄無法重新命名</string>
-    <string name="rename_folder_ok">重新命名資料夾成功</string>
-    <string name="renaming_folder">正在重新命名……</string>
-    <string name="filename_cannot_be_empty">檔案名稱不能為空</string>
-    <string name="filename_invalid_characters">檔案名包含無效字元</string>
-    <string name="extension_cannot_be_empty">副檔名不能為空</string>
 
     <!-- Editor -->
     <string name="editor">編輯器</string>
