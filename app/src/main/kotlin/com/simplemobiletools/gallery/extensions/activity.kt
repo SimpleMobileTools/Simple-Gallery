@@ -36,7 +36,7 @@ fun Activity.shareUri(medium: Medium, uri: Uri) {
 fun Activity.shareMedium(medium: Medium) {
     val shareTitle = resources.getString(R.string.share_via)
     val file = File(medium.path)
-    val uri = getMyFileUri(file)
+    val uri = Uri.fromFile(file)
     Intent().apply {
         action = Intent.ACTION_SEND
         putExtra(Intent.EXTRA_STREAM, uri)
@@ -54,7 +54,7 @@ fun Activity.shareMedia(media: List<Medium>) {
         type = "image/* video/*"
         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         media.map { File(it.path) }
-                .mapTo(uris) { getMyFileUri(it) }
+                .mapTo(uris) { Uri.fromFile(it) }
 
         putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris)
         startActivity(Intent.createChooser(this, shareTitle))
@@ -62,7 +62,7 @@ fun Activity.shareMedia(media: List<Medium>) {
 }
 
 fun Activity.setAsWallpaper(file: File) {
-    val uri = getMyFileUri(file)
+    val uri = Uri.fromFile(file)
     Intent().apply {
         action = Intent.ACTION_ATTACH_DATA
         setDataAndType(uri, file.getMimeType("image/*"))
@@ -78,7 +78,7 @@ fun Activity.setAsWallpaper(file: File) {
 }
 
 fun Activity.openWith(file: File, forceChooser: Boolean = true) {
-    val uri = getMyFileUri(file)
+    val uri = Uri.fromFile(file)
     Intent().apply {
         action = Intent.ACTION_VIEW
         setDataAndType(uri, file.getMimeType("image/jpeg"))
@@ -94,7 +94,7 @@ fun Activity.openWith(file: File, forceChooser: Boolean = true) {
 }
 
 fun Activity.openEditor(file: File) {
-    val uri = getFileUri(file)
+    val uri = Uri.fromFile(file)
     Intent().apply {
         action = Intent.ACTION_EDIT
         setDataAndType(uri, "image/*")

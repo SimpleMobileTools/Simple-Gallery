@@ -332,7 +332,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         } else {
             val file = File(path)
             val isVideo = file.isVideoFast()
-            if (isVideo && !isNougatPlus()) {
+            if (isVideo) {
                 openWith(file, false)
             } else {
                 Intent(this, ViewPagerActivity::class.java).apply {
