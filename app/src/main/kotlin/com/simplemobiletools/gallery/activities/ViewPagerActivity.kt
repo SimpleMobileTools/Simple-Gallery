@@ -100,9 +100,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.actionbar_gradient_background))
 
         if (config.maxBrightness) {
-            var attributes = getWindow().getAttributes()
-            attributes.screenBrightness = 1F
-            getWindow().setAttributes(attributes)
+            val attributes = window.attributes
+            attributes.screenBrightness = 1f
+            window.attributes = attributes
         }
     }
 

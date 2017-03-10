@@ -149,7 +149,6 @@
 
         </RelativeLayout>
 
-
         <RelativeLayout
             android:id="@+id/settings_show_media_holder"
             android:layout_width="match_parent"
