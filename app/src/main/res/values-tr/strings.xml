@@ -80,6 +80,7 @@
     <string name="images_and_videos">Resimler ve videolar</string>
     <string name="loop_videos">Videolar döngüsü</string>
     <string name="animate_gifs">Küçük resimlerde gif\'leri canlandırın</string>
+    <string name="max_brightness">Maximum brightness when viewing media</string>
 
     <!-- Release notes -->
     <string name="release_83">

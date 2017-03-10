@@ -26,6 +26,7 @@ class SettingsActivity : SimpleActivity() {
         setupAutoplayVideos()
         setupLoopVideos()
         setupAnimateGifs()
+        setupMaxBrightness()
         setupShowMedia()
         updateTextColors(settings_holder)
     }
@@ -86,9 +87,18 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
+    private fun setupMaxBrightness() {
+        settings_max_brightness.isChecked = config.maxBrightness
+        settings_max_brightness_holder.setOnClickListener {
+            settings_max_brightness.toggle()
+            config.maxBrightness = settings_max_brightness.isChecked
+        }
+    }
+
     private fun getShowMediaText() = getString(when (config.showMedia) {
         IMAGES_AND_VIDEOS -> R.string.images_and_videos
         IMAGES -> R.string.images
         else -> R.string.videos
     })
+
 }

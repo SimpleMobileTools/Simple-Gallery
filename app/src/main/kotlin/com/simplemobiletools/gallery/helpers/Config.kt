@@ -100,6 +100,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(ANIMATE_GIFS, false)
         set(animateGifs) = prefs.edit().putBoolean(ANIMATE_GIFS, animateGifs).apply()
 
+    var maxBrightness: Boolean
+        get() = prefs.getBoolean(MAX_BRIGHTNESS, false)
+        set(maxBrightness) = prefs.edit().putBoolean(MAX_BRIGHTNESS, maxBrightness).apply()
+
     var loopVideos: Boolean
         get() = prefs.getBoolean(LOOP_VIDEOS, false)
         set(loop) = prefs.edit().putBoolean(LOOP_VIDEOS, loop).apply()

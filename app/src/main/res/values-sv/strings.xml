@@ -80,6 +80,7 @@
     <string name="images_and_videos">Bilder och videos</string>
     <string name="loop_videos">Återspela videos</string>
     <string name="animate_gifs">Animate gifs at thumbnails</string>
+    <string name="max_brightness">Maximum brightness when viewing media</string>
 
     <!-- Release notes -->
     <string name="release_83">
