@@ -80,6 +80,7 @@
     <string name="images_and_videos">Obrázky aj videá</string>
     <string name="loop_videos">Automaticky reštartovať videá</string>
     <string name="animate_gifs">Animovať gif súbory pri náhľade</string>
+    <string name="max_brightness">Maximum brightness when viewing media</string>
 
     <!-- Release notes -->
     <string name="release_83">

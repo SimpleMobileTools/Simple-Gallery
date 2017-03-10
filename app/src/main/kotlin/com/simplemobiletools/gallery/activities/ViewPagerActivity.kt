@@ -98,6 +98,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             finish()
         }
         supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.actionbar_gradient_background))
+
+        if (config.maxBrightness) {
+            var attributes = getWindow().getAttributes()
+            attributes.screenBrightness = 1F
+            getWindow().setAttributes(attributes)
+        }
     }
 
     override fun onPause() {

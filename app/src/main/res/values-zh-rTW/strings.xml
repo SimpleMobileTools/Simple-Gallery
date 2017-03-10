@@ -80,6 +80,7 @@
     <string name="images_and_videos">圖片和影片</string>
     <string name="loop_videos">迴圈播放影片</string>
     <string name="animate_gifs">Animate gifs at thumbnails</string>
+    <string name="max_brightness">Maximum brightness when viewing media</string>
 
     <!-- Release notes -->
     <string name="release_83">
