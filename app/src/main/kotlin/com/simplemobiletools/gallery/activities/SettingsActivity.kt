@@ -1,20 +1,26 @@
 package com.simplemobiletools.gallery.activities
 
 import android.content.Intent
+import android.content.res.Resources
 import android.os.Bundle
+import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.updateTextColors
+import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.dialogs.ShowMediaDialog
 import com.simplemobiletools.gallery.extensions.beVisibleIf
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.helpers.IMAGES
 import com.simplemobiletools.gallery.helpers.IMAGES_AND_VIDEOS
+import com.simplemobiletools.gallery.helpers.VIDEOS
 import kotlinx.android.synthetic.main.activity_settings.*
 
 class SettingsActivity : SimpleActivity() {
+    lateinit var res: Resources
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
+        res = resources
     }
 
     override fun onResume() {
@@ -80,7 +86,12 @@ class SettingsActivity : SimpleActivity() {
     private fun setupShowMedia() {
         settings_show_media.text = getShowMediaText()
         settings_show_media_holder.setOnClickListener {
-            ShowMediaDialog(this) {
+            val items = arrayListOf(
+                    RadioItem(IMAGES_AND_VIDEOS, res.getString(R.string.images_and_videos)),
+                    RadioItem(IMAGES, res.getString(R.string.images)),
+                    RadioItem(VIDEOS, res.getString(R.string.videos)))
+
+            RadioGroupDialog(this@SettingsActivity, items, config.showMedia) {
                 config.showMedia = it
                 settings_show_media.text = getShowMediaText()
             }
