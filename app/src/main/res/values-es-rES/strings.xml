@@ -4,83 +4,83 @@
     <string name="app_launcher_name">Gallery</string>
     <string name="share_via">Compartir vía</string>
     <string name="no_permissions">No hay mucho que hacer en una galería sin acceso al almacenamiento</string>
-    <string name="edit">Edit</string>
+    <string name="edit">Editar</string>
     <string name="open_camera">Abrir cámara</string>
     <string name="open_with">Abrir con&#8230;</string>
-    <string name="no_app_found">No valid app found</string>
-    <string name="hidden">(hidden)</string>
-    <string name="pin_folder">Pin folder</string>
-    <string name="unpin_folder">Unpin folder</string>
-    <string name="show_all">Show all folders content</string>
-    <string name="all_folders">All media</string>
-    <string name="folder_view">Switch to folder view</string>
-    <string name="other_folder">Other folder</string>
-    <string name="show_on_map">Show on map</string>
-    <string name="unknown_location">Unknown location</string>
-    <string name="no_map_application">No application with maps has been found</string>
-    <string name="no_camera_app_found">No Camera app has been found</string>
-    <string name="increase_column_count">Increase column count</string>
-    <string name="reduce_column_count">Reduce column count</string>
+    <string name="no_app_found">No se encontró una aplicación válida</string>
+    <string name="hidden">(oculto)</string>
+    <string name="pin_folder">Fijar carpeta</string>
+    <string name="unpin_folder">No fijar carpeta</string>
+    <string name="show_all">Mostrar el contenido de todas las carpetas</string>
+    <string name="all_folders">Todos los medios</string>
+    <string name="folder_view">Cambiar a vista de carpeta</string>
+    <string name="other_folder">Otra carpeta</string>
+    <string name="show_on_map">Mostrar en el mapa</string>
+    <string name="unknown_location">Ubicación desconocida</string>
+    <string name="no_map_application">No se encontró aplicación de mapas</string>
+    <string name="no_camera_app_found">No se encontró aplicación de cámara</string>
+    <string name="increase_column_count">Aumentar el número de columnas</string>
+    <string name="reduce_column_count">Reducir el número de columnas</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder">Ocultar carpeta</string>
-    <string name="unhide_folder">Unhide folder</string>
-    <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden folders\' option in Settings. Continue?</string>
-    <string name="exclude">Exclude</string>
-    <string name="excluded_folders">Excluded folders</string>
-    <string name="manage_excluded_folders">Manage excluded folders</string>
-    <string name="exclude_folder_description">This will exclude the selection together with its subfolders from Simple Gallery only. You can manage excluded folders in Settings.</string>
-    <string name="exclude_folder_parent">Exclude a parent instead?</string>
-    <string name="remove_all">Remove all</string>
-    <string name="remove_all_description">Remove all folders from the list of excluded? This will not delete the folders.</string>
+    <string name="unhide_folder">Mostrar carpeta</string>
+    <string name="hide_folder_description">Esta función oculta la carpeta agregando un archivo \'.nomedia\' en ella, y ocultará también las subcarpetas. Puede mostrarlas cambiando la opción \'Mostrar carpetas ocultas\' en los Ajustes. ¿Continuar?</string>
+    <string name="exclude">Excluir</string>
+    <string name="excluded_folders">Carpetas excluidas</string>
+    <string name="manage_excluded_folders">Gestionar carpetas excluidas</string>
+    <string name="exclude_folder_description">Esto excluirá la selección junto con sus subcarpetas, solamente de Simple Gallery. Puede gestionar las carpetas excluidas en los Ajustes.</string>
+    <string name="exclude_folder_parent">¿Excluir mejor la carpeta superior?</string>
+    <string name="remove_all">Eliminar todo</string>
+    <string name="remove_all_description">¿Eliminar todas las carpetas de la lista de excluidas? Esto no borrará las carpetas.</string>
 
     <!-- Resizing -->
-    <string name="resize">Resize</string>
-    <string name="resize_and_save">Resize selection and save</string>
-    <string name="width">Width</string>
-    <string name="height">Height</string>
-    <string name="keep_aspect_ratio">Keep aspect ratio</string>
-    <string name="invalid_values">Please enter a valid resolution</string>
+    <string name="resize">Redimensionar</string>
+    <string name="resize_and_save">Redimensionar la selección y guardar</string>
+    <string name="width">Ancho</string>
+    <string name="height">Alto</string>
+    <string name="keep_aspect_ratio">Mantener proporciones</string>
+    <string name="invalid_values">Por favor, introduzca una resolución válida</string>
 
     <!-- Editor -->
     <string name="editor">Editor</string>
-    <string name="save">Save</string>
-    <string name="rotate">Rotate</string>
-    <string name="path">Path</string>
-    <string name="invalid_image_path">Invalid image path</string>
-    <string name="image_editing_failed">Image editing failed</string>
-    <string name="edit_image_with">Editar image usando:</string>
-    <string name="no_editor_found">No image editor found</string>
-    <string name="unknown_file_location">Unknown file location</string>
-    <string name="error_saving_file">Could not overwrite the source file</string>
-    <string name="rotate_left">Rotate left</string>
-    <string name="rotate_right">Rotate right</string>
-    <string name="rotate_one_eighty">Rotate by 180º</string>
-    <string name="flip">Flip</string>
-    <string name="horizontally">Horizontally</string>
-    <string name="vertically">Vertically</string>
-    <string name="out_of_memory_error">Out of memory error</string>
+    <string name="save">Guardar</string>
+    <string name="rotate">Rotar</string>
+    <string name="path">Ruta</string>
+    <string name="invalid_image_path">Ruta de imagen no válida</string>
+    <string name="image_editing_failed">Falló la edición de imagen</string>
+    <string name="edit_image_with">Editar imagen usando:</string>
+    <string name="no_editor_found">No se encontró editor de imágenes</string>
+    <string name="unknown_file_location">Ubicación del archivo desconocida</string>
+    <string name="error_saving_file">No se ha podido sobrescribir el archivo de origen</string>
+    <string name="rotate_left">Rotar a la izquierda</string>
+    <string name="rotate_right">Rotar a la derecha</string>
+    <string name="rotate_one_eighty">Rotar 180º</string>
+    <string name="flip">Voltear</string>
+    <string name="horizontally">Horizontalmente</string>
+    <string name="vertically">Verticalmente</string>
+    <string name="out_of_memory_error">Error: sin memoria</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
     <string name="set_as_wallpaper">Establecer como fondo de pantalla</string>
     <string name="set_as_wallpaper_failed">Error al establecer fondo de pantalla</string>
-    <string name="set_as_wallpaper_with">Set as wallpaper with:</string>
-    <string name="no_wallpaper_setter_found">No app capable of it has been found</string>
+    <string name="set_as_wallpaper_with">Establecer como fondo de pantalla con:</string>
+    <string name="no_wallpaper_setter_found">No se encontró aplicación para ello</string>
     <string name="setting_wallpaper">Estableciendo fondo de pantalla&#8230;</string>
-    <string name="wallpaper_set_successfully">Wallpaper set successfully</string>
+    <string name="wallpaper_set_successfully">Fondo de pantalla establecido correctamente</string>
 
     <!-- Settings -->
     <string name="show_hidden_folders">Mostrar carpetas ocultas</string>
     <string name="autoplay_videos">Reproducir vídeos automáticamente</string>
-    <string name="toggle_filename">Toggle filename visibility</string>
-    <string name="show_media">Show media</string>
-    <string name="images">Images only</string>
-    <string name="videos">Videos only</string>
-    <string name="images_and_videos">Images and videos</string>
-    <string name="loop_videos">Loop videos</string>
-    <string name="animate_gifs">Animate gifs at thumbnails</string>
-    <string name="max_brightness">Maximum brightness when viewing media</string>
+    <string name="toggle_filename">Cambiar la visibilidad del nombre de archivo</string>
+    <string name="show_media">Mostrar medios</string>
+    <string name="images">Solo imágenes</string>
+    <string name="videos">Solo vídeos</string>
+    <string name="images_and_videos">Imágenes y vídeos</string>
+    <string name="loop_videos">Reproducción continua de vídeos</string>
+    <string name="animate_gifs">Animar las miniaturas de gifs</string>
+    <string name="max_brightness">Brillo máximo cuando se muestran los medios</string>
 
     <!-- Release notes -->
     <string name="release_83">
@@ -123,16 +123,16 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">A gallery for viewing photos and videos without ads.</string>
+    <string name="app_short_description">Una galería para ver fotos y vídeos sin publicidad.</string>
     <string name="app_long_description">
-        A simple tool usable for viewing photos and videos. Items can be sorted by date, size, name both ascending or descending, photos can be zoomed in. Media files are shown in multiple columns depending on the size of the display, you can change the column count by pinch gestures. They can be renamed, shared, deleted, copied, moved. Images can also be cropped, rotated or set as Wallpaper directly from the app.
+        Una herramienta sencilla que se puede usar para ver fotos y vídeos. Los elementos se peden ordenar por fecha, tamaño, nombre tanto ascendente como descendente; se puede hacer zoom en las fotos. Los archivos de medios se muestran en múltiples columnas dependiendo del tamaño de la pantalla, y se pede cambiar el número de columnas mediante gestos. Permite renombrar, compartir, borrar, mover. Las imágenes también se pueden recortar, rotar o usarse como fondo de pantalla directamente desde la aplicación.
 
 
-        The Gallery is also offered for third party usage for previewing images / videos, adding attachments at email clients etc. It\'s perfect for everyday usage.
+        Gallery también se ofrece para uso de terceros para previsualizar imágenes / vídeos, agregar adjuntos en clientes de correo, etc. Es perfecta para uso diario.
 
-        Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
+        No contiene publicidad ni permisos innecesarios. Es totalmente libre, proporciona colores personalizables.
 
-        This app is just one piece of a bigger series of apps. You can find the rest of them at http://www.simplemobiletools.com
+        Esta aplicación es solamente una pieza de una serie más grande de aplicaciones. Puede encontrar el resto en http://www.simplemobiletools.com
     </string>
 
     <!--
