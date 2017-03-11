@@ -24,10 +24,11 @@ class ChangeSortingDialog(val activity: SimpleActivity, val isDirectorySorting: 
 
     init {
         config = activity.config
-        view = LayoutInflater.from(activity).inflate(R.layout.dialog_change_sorting, null)
-        view.use_for_this_folder_divider.beVisibleIf(showFolderCheckbox)
-        view.sorting_dialog_use_for_this_folder.beVisibleIf(showFolderCheckbox)
-        view.sorting_dialog_use_for_this_folder.isChecked = config.hasCustomSorting(path)
+        view = LayoutInflater.from(activity).inflate(R.layout.dialog_change_sorting, null).apply {
+            use_for_this_folder_divider.beVisibleIf(showFolderCheckbox)
+            sorting_dialog_use_for_this_folder.beVisibleIf(showFolderCheckbox)
+            sorting_dialog_use_for_this_folder.isChecked = config.hasCustomSorting(path)
+        }
 
         AlertDialog.Builder(activity)
                 .setPositiveButton(R.string.ok, this)
