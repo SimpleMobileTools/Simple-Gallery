@@ -82,51 +82,11 @@
     <string name="animate_gifs">Animovať gif súbory pri náhľade</string>
     <string name="max_brightness">Maximum brightness when viewing media</string>
 
-    <!-- Release notes -->
-    <string name="release_83">
-        Boli opravené problémy s editorom a zdieľaním\n
-        Ospravedlňujeme sa za časté aktualizácie, už by mali prestať.
-    </string>
-    <string name="release_77">
-        Bulo pridané vylučovanie podpriečinky vylúčených priečinkov\n
-        Bol pridaný jednoduchý spôsob vylučovania rodičovských priečinkov z potvrdzujúceho okna\n
-        Boli pridané presúvateľné scrollbary\n
-        Bola pridaná možnosť nastavenia aplikácie tretej strany ako predvolený video prehrávač
-    </string>
-    <string name="release_76">Bola pridaná možnosť vypnutia prehrávania gif súborov pri náhľadoch</string>
-    <string name="release_74">Bola pridaná možnosť vlastného zoradenia jednotlivých priečinkov</string>
-    <string name="release_72">
-        Bolo pridané správne ukrývanie priečinkov pomocou súboru .nomedia\n
-        Bolo pridané spravovanie vylúčených súborov v nastaveniach
-    </string>
-    <string name="release_70">Do celoobrazovkového pohľadu boli pridané tlačidlá na jednoduché otáčanie obrázkov</string>
-    <string name="release_69">Boli pridané tlačidlá na zmenu počtu stĺpcov</string>
-    <string name="release_66">Allow picking colors by hex codes</string>
-    <string name="release_65">Allow showing the photos and videos on a map, if there are available map coordinates</string>
-    <string name="release_62">Show some additional Exif data at photo properties</string>
-    <string name="release_58">
-        Allow zooming pngs and gifs\n
-        Allow creating new folders at Copy/Move or Save as dialog destinations
-    </string>
-    <string name="release_54">Added an option to loop videos automatically</string>
-    <string name="release_52">
-        Added more color customization options\n
-        Your settings have been cleared, please reset them</string>
-    <string name="release_51">Allow changing the column count with pinch gestures</string>
-    <string name="release_50">Added an option to display images or videos only</string>
-    <string name="release_49">Added a Select all button at selecting media and folders</string>
-    <string name="release_47">
-        Added an image resizer to the editor\n
-        Allow displaying images and videos from all folders together
-    </string>
-    <string name="release_46">Allow pinning folders at the top</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Galéria na prezeranie obrázkov a videí bez reklám.</string>
     <string name="app_long_description">
         Jednoduchá nástroj použiteľný na prezeranie obrázkov a videí. Položky môžu byť zoradené podľa dátumu, veľkosti, názvu oboma smermi, obrázky je možné aj priblížiť. Položky sú zobrazované vo viacerých stĺpcoch v závislosti od veľkosti displeja, počet stĺpcov je možné meniť pomocou gesta prstami. Súbory môžete premenovať, zdieľať, mazať, kopírovať, premiestňovaŤ. Obrázky môžete orezať, otočiť, alebo nastaviť ako tapeta priamo v aplikácií.
-
 
         Galéria je tiež poskytovaná pre použitie treťou stranou pre prehliadanie fotiek a videí, pridávanie príloh v emailových klientoch. Je perfektná na každodenné použitie.
 

@@ -82,51 +82,11 @@
     <string name="animate_gifs">Animate gifs at thumbnails</string>
     <string name="max_brightness">Maximum brightness when viewing media</string>
 
-    <!-- Release notes -->
-    <string name="release_83">
-        Fixed some sharing and editor issues\n
-        Sorry for the frequent updates lately, they should be stopped now.
-    </string>
-    <string name="release_77">
-        Exclude the subfolders of excluded folders too\n
-        Added an easy way of excluding parent folders from the exclude confirmation dialog\n
-        Added draggable scrollbars\n
-        Allow setting a third party video player as the default
-    </string>
-    <string name="release_76">Added an option to toggle gif animation at thumbnails</string>
-    <string name="release_74">Allow setting different sorting per folder</string>
-    <string name="release_72">
-        Implement proper folder hiding via .nomedia file\n
-        Allow managing excluded folders in Settings
-    </string>
-    <string name="release_70">Добавлены элементы меню, позволяющие легко повернуть изображение в полноэкранном режиме</string>
-    <string name="release_69">В меню добавлены кнопки для изменения количества столбцов на гравном экране</string>
-    <string name="release_66">Добавлена возможность выбирать цвета по hex-кодам</string>
-    <string name="release_65">Добавлена возможность показывать место съёмки фото или видео на карте, если указаны координаты</string>
-    <string name="release_62">В свойствах фото теперь отображаются некоторые Exif-данные</string>
-    <string name="release_58">
-        Добавлена возможность масштабирования png и gif изображений\n
-        Добавлена возможность создания новой папки в диалогах "Копировать/Переместить" и "Сохранить как"
-    </string>
-    <string name="release_54">Добавлена возможность повторять видео автоматически</string>
-    <string name="release_52">
-        Добавлена возможность изменять цветовое оформление\n
-        Настройки приложения в этой версии были сброшены к первоначальным, пожалуйста, настройте снова</string>
-    <string name="release_51">Добавлена возможность изменять количество столбцов щипком</string>
-    <string name="release_50">Добавлен переключатель для отображения только изображений или видео</string>
-    <string name="release_49">Добавлена кнопка "Выбрать всё"</string>
-    <string name="release_47">
-        Добавлена возможность изменения размера изображения в редакторе\n
-        Добавлена возможность отображения всех изображений и видео одним потоком
-    </string>
-    <string name="release_46">Добавлена возможность закреплять папки</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Галерея для просмотра изображений и видео. Без рекламы.</string>
     <string name="app_long_description">
         Простое приложение для просмотра изображений и видеозаписей. Отображаемые файлы могут быть отсортированы как по возрастанию, так и по убыванию даты, размера или имени. Фотографии можно масштабировать. В зависимости от размера экрана, медиафайлы располагаются в несколько столбцов, можно изменять число столбцов щипком двумя пальцами. Можно переименовывать, удалять, копировать, перемещать и делиться файлами из галереи. В приложении есть возможность обрезать и поворачивать изображения или устанавливать их в качестве обоев.
-
 
         Галерея идеальна для повседневных задач (предпросмотр фото/видео, добавление вложений в почтовых клиентах и т.д.).
 

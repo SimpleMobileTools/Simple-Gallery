@@ -82,45 +82,6 @@
     <string name="animate_gifs">Animowanie gify z miniaturkami</string>
     <string name="max_brightness">Maximum brightness when viewing media</string>
 
-    <!-- Release notes -->
-    <string name="release_83">
-        Fixed some sharing and editor issues\n
-        Sorry for the frequent updates lately, they should be stopped now.
-    </string>
-    <string name="release_77">
-        Wykluczyć podfoldery folderów wykluczonych\n
-        Dodano łatwy sposób bez folderów nadrzędnych w oknie potwierdzenia wykluczenia\n
-        Added draggable scrollbars\n
-        Allow setting a third party video player as the default
-    </string>
-    <string name="release_76">Dodano opcję, aby przełączyć animację gif w miniaturach</string>
-    <string name="release_74">Pozwala na ustawienie innego sortowania w folderze</string>
-    <string name="release_72">
-        Wdrożenie odpowiedniego ukrywania folderów poprzez .nomedia pliku\n
-        Pozwala zarządzać ukrytymi folderami w menu Ustawienia
-    </string>
-    <string name="release_70">Dodano elementy menu ułatwiające obracanie obrazu w widoku pełnoekranowym</string>
-    <string name="release_69">Dodano przyciski menu do zmiany liczby kolumn</string>
-    <string name="release_66">Pozwala wybierać kolory przez hex codes</string>
-    <string name="release_65">Pozwala pokazać zdjęcia i filmy na mapie, jeśli są dostępne współrzędne geograficzne</string>
-    <string name="release_62">Pokaż dodatkowe dane EXIF z właściwości zdjęcia</string>
-    <string name="release_58">
-        Pozwala powiększyć png i gif\n
-        Pozwalają na tworzenie nowych folderów Kopiuj / przenieś lub zapisać
-    </string>
-    <string name="release_54">Dodano automatyczną opcję filmy w pętli</string>
-    <string name="release_52">
-        Dodano opcje doboru kolorów\n
-        Twoje ustawienia zostały wyczyszczone, należy je zresetować</string>
-    <string name="release_51">Pozwala zmieniając liczyć kolumna gestami</string>
-    <string name="release_50">Dodano opcję wyświetlania: zdjęcia albo filmy</string>
-    <string name="release_49">Dodano przycisk: Zaznacz wszystko w wyborze plików i folderów</string>
-    <string name="release_47">
-        Dodano opcję zmianu rozmiaru w edytorze\n
-        Pozwala na wyświetlanie zdjęć i filmów razem
-    </string>
-    <string name="release_46">Pozwala na przypinanie folderów na szczycie</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Darmowa Galeria bez reklam do przeglądania zdjęć i filmów.</string>

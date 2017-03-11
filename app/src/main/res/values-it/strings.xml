@@ -82,51 +82,11 @@
     <string name="animate_gifs">Animate gifs at thumbnails</string>
     <string name="max_brightness">Maximum brightness when viewing media</string>
 
-    <!-- Release notes -->
-    <string name="release_83">
-        Fixed some sharing and editor issues\n
-        Sorry for the frequent updates lately, they should be stopped now.
-    </string>
-    <string name="release_77">
-        Exclude the subfolders of excluded folders too\n
-        Added an easy way of excluding parent folders from the exclude confirmation dialog\n
-        Added draggable scrollbars\n
-        Allow setting a third party video player as the default
-    </string>
-    <string name="release_76">Added an option to toggle gif animation at thumbnails</string>
-    <string name="release_74">Allow setting different sorting per folder</string>
-    <string name="release_72">
-        Implement proper folder hiding via .nomedia file\n
-        Allow managing excluded folders in Settings
-    </string>
-    <string name="release_70">Added menu items for easy image rotating in fullscreen view</string>
-    <string name="release_69">Added menu buttons for changing the column count</string>
-    <string name="release_66">Allow picking colors by hex codes</string>
-    <string name="release_65">Allow showing the photos and videos on a map, if there are available map coordinates</string>
-    <string name="release_62">Show some additional Exif data at photo properties</string>
-    <string name="release_58">
-        Allow zooming pngs and gifs\n
-        Allow creating new folders at Copy/Move or Save as dialog destinations
-    </string>
-    <string name="release_54">Added an option to loop videos automatically</string>
-    <string name="release_52">
-        Added more color customization options\n
-        Your settings have been cleared, please reset them</string>
-    <string name="release_51">Allow changing the column count with pinch gestures</string>
-    <string name="release_50">Added an option to display images or videos only</string>
-    <string name="release_49">Added a Select all button at selecting media and folders</string>
-    <string name="release_47">
-        Added an image resizer to the editor\n
-        Allow displaying images and videos from all folders together
-    </string>
-    <string name="release_46">Allow pinning folders at the top</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">A gallery for viewing photos and videos without ads.</string>
     <string name="app_long_description">
         A simple tool usable for viewing photos and videos. Items can be sorted by date, size, name both ascending or descending, photos can be zoomed in. Media files are shown in multiple columns depending on the size of the display, you can change the column count by pinch gestures. They can be renamed, shared, deleted, copied, moved. Images can also be cropped, rotated or set as Wallpaper directly from the app.
-
 
         The Gallery is also offered for third party usage for previewing images / videos, adding attachments at email clients etc. It\'s perfect for everyday usage.
 

@@ -243,46 +243,47 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
     class ViewHolder(view: View, val itemClick: (Medium) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
         fun bindView(activity: SimpleActivity, multiSelectorCallback: ModalMultiSelectorCallback, multiSelector: MultiSelector, medium: Medium, pos: Int): View {
-            itemView.play_outline.visibility = if (medium.isVideo) View.VISIBLE else View.GONE
-            itemView.file_name.beVisibleIf(displayFilenames)
-            itemView.file_name.text = medium.name
-            toggleItemSelection(itemView, markedItems.contains(pos), pos)
+            itemView.apply {
+                play_outline.visibility = if (medium.isVideo) View.VISIBLE else View.GONE
+                file_name.beVisibleIf(displayFilenames)
+                file_name.text = medium.name
+                toggleItemSelection(this, markedItems.contains(pos), pos)
 
-            val path = medium.path
-            val timestampSignature = StringSignature(medium.date_modified.toString())
-            if (medium.isGif()) {
-                if (animateGifs) {
-                    Glide.with(activity).load(path).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)
-                            .placeholder(backgroundColor).centerCrop().crossFade().into(itemView.medium_thumbnail)
+                val path = medium.path
+                val timestampSignature = StringSignature(medium.date_modified.toString())
+                if (medium.isGif()) {
+                    if (animateGifs) {
+                        Glide.with(activity).load(path).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)
+                                .placeholder(backgroundColor).centerCrop().crossFade().into(medium_thumbnail)
+                    } else {
+                        Glide.with(activity).load(path).asBitmap().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)
+                                .placeholder(backgroundColor).centerCrop().into(medium_thumbnail)
+                    }
+                } else if (medium.isPng()) {
+                    Glide.with(activity).load(path).asBitmap().format(DecodeFormat.PREFER_ARGB_8888).diskCacheStrategy(DiskCacheStrategy.RESULT)
+                            .signature(timestampSignature).placeholder(backgroundColor).centerCrop().into(medium_thumbnail)
                 } else {
-                    Glide.with(activity).load(path).asBitmap().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)
-                            .placeholder(backgroundColor).centerCrop().into(itemView.medium_thumbnail)
+                    Glide.with(activity).load(path).diskCacheStrategy(DiskCacheStrategy.RESULT).signature(timestampSignature)
+                            .placeholder(backgroundColor).centerCrop().crossFade().into(medium_thumbnail)
                 }
-            } else if (medium.isPng()) {
-                Glide.with(activity).load(path).asBitmap().format(DecodeFormat.PREFER_ARGB_8888).diskCacheStrategy(DiskCacheStrategy.RESULT)
-                        .signature(timestampSignature).placeholder(backgroundColor).centerCrop().into(itemView.medium_thumbnail)
-            } else {
-                Glide.with(activity).load(path).diskCacheStrategy(DiskCacheStrategy.RESULT).signature(timestampSignature)
-                        .placeholder(backgroundColor).centerCrop().crossFade().into(itemView.medium_thumbnail)
-            }
 
-            itemView.setOnClickListener { viewClicked(multiSelector, medium, pos) }
-            itemView.setOnLongClickListener {
-                if (!multiSelector.isSelectable) {
-                    activity.startSupportActionMode(multiSelectorCallback)
-                    multiSelector.setSelected(this, true)
-                    updateTitle(multiSelector.selectedPositions.size)
-                    toggleItemSelection(itemView, true, pos)
-                    actMode?.invalidate()
+                setOnClickListener { viewClicked(multiSelector, medium, pos) }
+                setOnLongClickListener {
+                    if (!multiSelector.isSelectable) {
+                        activity.startSupportActionMode(multiSelectorCallback)
+                        multiSelector.setSelected(this@ViewHolder, true)
+                        updateTitle(multiSelector.selectedPositions.size)
+                        toggleItemSelection(this, true, pos)
+                        actMode?.invalidate()
+                    }
+                    true
                 }
-                true
+
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+                    (getProperView(this) as FrameLayout).foreground = foregroundColor.createSelector()
+                else
+                    getProperView(this).foreground = foregroundColor.createSelector()
             }
-
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-                (getProperView(itemView) as FrameLayout).foreground = foregroundColor.createSelector()
-            else
-                getProperView(itemView).foreground = foregroundColor.createSelector()
-
             return itemView
         }
 

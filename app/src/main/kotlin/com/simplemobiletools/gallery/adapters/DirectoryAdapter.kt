@@ -321,45 +321,47 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     class ViewHolder(view: View, val itemClick: (Directory) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
         fun bindView(activity: SimpleActivity, multiSelectorCallback: ModalMultiSelectorCallback, multiSelector: MultiSelector, directory: Directory, pos: Int, isPinned: Boolean)
                 : View {
-            itemView.dir_name.text = directory.name
-            itemView.photo_cnt.text = directory.mediaCnt.toString()
-            itemView.dir_pin.visibility = if (isPinned) View.VISIBLE else View.GONE
-            toggleItemSelection(itemView, markedItems.contains(pos), pos)
+            itemView.apply {
+                dir_name.text = directory.name
+                photo_cnt.text = directory.mediaCnt.toString()
+                dir_pin.visibility = if (isPinned) View.VISIBLE else View.GONE
+                toggleItemSelection(this, markedItems.contains(pos), pos)
 
-            val tmb = directory.thumbnail
-            val timestampSignature = StringSignature(directory.date_modified.toString())
-            if (tmb.isGif()) {
-                if (animateGifs) {
-                    Glide.with(activity).load(tmb).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)
-                            .placeholder(backgroundColor).centerCrop().crossFade().into(itemView.dir_thumbnail)
+                val tmb = directory.thumbnail
+                val timestampSignature = StringSignature(directory.date_modified.toString())
+                if (tmb.isGif()) {
+                    if (animateGifs) {
+                        Glide.with(activity).load(tmb).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)
+                                .placeholder(backgroundColor).centerCrop().crossFade().into(dir_thumbnail)
+                    } else {
+                        Glide.with(activity).load(tmb).asBitmap().diskCacheStrategy(DiskCacheStrategy.RESULT).signature(timestampSignature)
+                                .placeholder(backgroundColor).centerCrop().into(dir_thumbnail)
+                    }
+                } else if (tmb.toLowerCase().endsWith(".png")) {
+                    Glide.with(activity).load(tmb).asBitmap().format(DecodeFormat.PREFER_ARGB_8888).diskCacheStrategy(DiskCacheStrategy.RESULT)
+                            .signature(timestampSignature).placeholder(backgroundColor).centerCrop().into(dir_thumbnail)
                 } else {
-                    Glide.with(activity).load(tmb).asBitmap().diskCacheStrategy(DiskCacheStrategy.RESULT).signature(timestampSignature)
-                            .placeholder(backgroundColor).centerCrop().into(itemView.dir_thumbnail)
+                    Glide.with(activity).load(tmb).diskCacheStrategy(DiskCacheStrategy.RESULT).signature(timestampSignature)
+                            .placeholder(backgroundColor).centerCrop().crossFade().into(dir_thumbnail)
                 }
-            } else if (tmb.toLowerCase().endsWith(".png")) {
-                Glide.with(activity).load(tmb).asBitmap().format(DecodeFormat.PREFER_ARGB_8888).diskCacheStrategy(DiskCacheStrategy.RESULT)
-                        .signature(timestampSignature).placeholder(backgroundColor).centerCrop().into(itemView.dir_thumbnail)
-            } else {
-                Glide.with(activity).load(tmb).diskCacheStrategy(DiskCacheStrategy.RESULT).signature(timestampSignature)
-                        .placeholder(backgroundColor).centerCrop().crossFade().into(itemView.dir_thumbnail)
-            }
 
-            itemView.setOnClickListener { viewClicked(multiSelector, directory, pos) }
-            itemView.setOnLongClickListener {
-                if (!multiSelector.isSelectable) {
-                    activity.startSupportActionMode(multiSelectorCallback)
-                    multiSelector.setSelected(this, true)
-                    updateTitle(multiSelector.selectedPositions.size)
-                    toggleItemSelection(itemView, true, pos)
-                    actMode?.invalidate()
+                setOnClickListener { viewClicked(multiSelector, directory, pos) }
+                setOnLongClickListener {
+                    if (!multiSelector.isSelectable) {
+                        activity.startSupportActionMode(multiSelectorCallback)
+                        multiSelector.setSelected(this@ViewHolder, true)
+                        updateTitle(multiSelector.selectedPositions.size)
+                        toggleItemSelection(this, true, pos)
+                        actMode?.invalidate()
+                    }
+                    true
                 }
-                true
-            }
 
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-                (getProperView(itemView) as FrameLayout).foreground = foregroundColor.createSelector()
-            else
-                getProperView(itemView).foreground = foregroundColor.createSelector()
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+                    (getProperView(this) as FrameLayout).foreground = foregroundColor.createSelector()
+                else
+                    getProperView(this).foreground = foregroundColor.createSelector()
+            }
             return itemView
         }
 
