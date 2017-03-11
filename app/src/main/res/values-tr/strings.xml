@@ -82,48 +82,11 @@
     <string name="animate_gifs">Küçük resimlerde gif\'leri canlandırın</string>
     <string name="max_brightness">Maximum brightness when viewing media</string>
 
-    <!-- Release notes -->
-    <string name="release_83">
-        Fixed some sharing and editor issues\n
-        Sorry for the frequent updates lately, they should be stopped now.
-    </string>
-    <string name="release_77">
-        Hariç tutulan klasörlerin alt klasörlerini de hariç tutun\n
-        Dışlama onay iletişim kutusundan üst klasörleri hariç tutmanın kolay bir yol ekledi\n
-        Sürüklenebilir kaydırma çubukları eklendi\n
-        Bir üçüncü taraf video oynatıcının varsayılan ayarına izin verme
-    </string>
-    <string name="release_76">Küçük resimlerde gif animasyonunu değiştirmek için bir seçenek eklendi</string>
-    <string name="release_74">Her klasör için farklı sıralama ayarı yapmaya izin ver</string>
-    <string name="release_72">
-        Medya yok fil dosyası üzerinden uygun klasörü gizleme uygulayın\n
-        Ayarlar\'da hariç tutulan klasörleri yönetmeye izin ver
-    </string>
-    <string name="release_70">Tam ekran görünümünde kolay resim dönmesi için menü öğeleri eklendi</string>
-    <string name="release_69">Sütun sayısını değiştirmek için menü düğmeleri eklendi</string>
-    <string name="release_66">Renkleri hex kodlarla toplama izni verin</string>
-    <string name="release_65">Kullanılabilir harita koordinatları varsa fotoğrafları ve videoları bir haritada göstermeye izin ver</string>
-    <string name="release_62">Fotoğraf özelliklerine ek Exif verileri göster</string>
-    <string name="release_58">
-        Png ve gif\'leri yakınlaştırmaya izin ver\n
-        Kopyala/Taşı veya Farklı Kaydet iletişim hedeflerinde yeni klasörler oluşturmaya izin ver</string>
-    <string name="release_54">Videoları otomatik olarak iliştirmek için bir seçenek eklendi</string>
-    <string name="release_52">
-        Daha fazla renk özelleştirme seçeneği eklendi\n
-        Ayarlarınız silindi, lütfen onları sıfırlayın</string>
-    <string name="release_51">Sıkıştırma hareketi ile sütun sayısının değiştirilmesine izin ver</string>
-    <string name="release_50">Yalnızca resim veya videoları görüntülemek için bir seçenek eklendi</string>
-    <string name="release_49">Ortamı ve klasörleri seçerken Tümünü seç düğmesi eklendi</string>
-    <string name="release_47">
-        Düzenleyiciye bir resim editörü ekledi\n Tüm klasörlerdeki görüntüleri ve videoları birlikte görüntülemeye izin ver</string>
-    <string name="release_46">Üst kısımdaki sabitleme klasörlerine izin ver</string>
-
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Fotoğrafları ve videoları reklamsız görüntülemek için kullanılan bir galeri.</string>
     <string name="app_long_description">
         Fotoğrafları ve videoları görüntülemek için kullanılabilecek basit bir araç. Öğeler tarihine, boyutuna, adına göre artan veya azalan olarak sıralanabilir, fotoğraflar yakınlaştırılabilir. Medya dosyaları, ekranın boyutuna bağlı olarak birden fazla sütunda gösterilir, sıkıştırma hareketleriyle sütun sayısını değiştirebilirsiniz. Yeniden adlandırılabilir, paylaşılabilir, silinebilir, kopyalanabilir, taşınabilirler. Resimler ayrıca kırpılabilir, döndürülebilir veya doğrudan uygulama\'dan Duvar kağıdı olarak ayarlanabilir.
-
 
         Galeri, görüntüleri/videoları önizlemek, e-posta istemcilerine ek ekler yapmak için üçüncü taraf kullanımı için de önerilir. Bu\'s günlük kullanım için mükemmel.
 
