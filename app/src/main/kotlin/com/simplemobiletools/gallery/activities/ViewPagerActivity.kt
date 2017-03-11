@@ -193,7 +193,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             try {
                 val file = File(it)
                 if (file.exists()) {
-                    toast(R.string.file_exists)
+                    toast(R.string.name_taken)
                     return@SaveAsDialog
                 }
 

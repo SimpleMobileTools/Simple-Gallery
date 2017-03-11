@@ -41,7 +41,7 @@ class CopyDialog(val activity: SimpleActivity, val files: ArrayList<File>, val c
                     return@setOnClickListener
                 }
 
-                if (sourcePath.trimEnd('/') == destinationPath.trimEnd('/')) {
+                if (sourcePath == destinationPath.trimEnd('/')) {
                     context.toast(R.string.source_and_destination_same)
                     return@setOnClickListener
                 }
@@ -54,7 +54,7 @@ class CopyDialog(val activity: SimpleActivity, val files: ArrayList<File>, val c
 
                 if (files.size == 1) {
                     if (File(destinationPath, files[0].name).exists()) {
-                        context.toast(R.string.file_exists)
+                        context.toast(R.string.name_taken)
                         return@setOnClickListener
                     }
                 }
