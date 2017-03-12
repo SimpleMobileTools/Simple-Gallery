@@ -189,7 +189,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun saveImageAs() {
         val currPath = getCurrentMedium()!!.path
         SaveAsDialog(this, currPath) {
-            var out: OutputStream? = null
             try {
                 val file = File(it)
                 if (file.exists()) {
@@ -197,34 +196,36 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     return@SaveAsDialog
                 }
 
-                var bitmap = BitmapFactory.decodeFile(currPath)
+                val bitmap = BitmapFactory.decodeFile(currPath)
                 if (needsStupidWritePermissions(it)) {
-                    if (isShowingPermDialog(file))
-                        return@SaveAsDialog
-
-                    var document = getFileDocument(it, config.treeUri) ?: return@SaveAsDialog
-                    if (!file.exists()) {
-                        document = document.createFile("", file.name)
+                    handleSAFDialog(file) {
+                        var document = getFileDocument(it, config.treeUri) ?: return@handleSAFDialog
+                        if (!file.exists()) {
+                            document = document.createFile("", file.name)
+                        }
+                        val out = contentResolver.openOutputStream(document.uri)
+                        saveFile(file, bitmap, out)
                     }
-                    out = contentResolver.openOutputStream(document.uri)
                 } else {
-                    out = FileOutputStream(file)
+                    val out = FileOutputStream(file)
+                    saveFile(file, bitmap, out)
                 }
-
-                val matrix = Matrix()
-                matrix.postRotate(mRotationDegrees)
-                bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
-                bitmap.compress(file.getCompressionFormat(), 90, out)
-                out?.flush()
-                toast(R.string.file_saved)
             } catch (e: OutOfMemoryError) {
                 toast(R.string.out_of_memory_error)
             } catch (e: Exception) {
                 toast(R.string.unknown_error_occurred)
-            } finally {
-                out?.close()
             }
         }
+    }
+
+    private fun saveFile(file: File, bitmap: Bitmap, out: OutputStream) {
+        val matrix = Matrix()
+        matrix.postRotate(mRotationDegrees)
+        val bmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
+        bmp.compress(file.getCompressionFormat(), 90, out)
+        out.flush()
+        toast(R.string.file_saved)
+        out.close()
     }
 
     private fun rotateImage(degrees: Float) {
@@ -319,36 +320,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun askConfirmDelete() {
         ConfirmationDialog(this) {
-            deleteFile()
-        }
-    }
-
-    private fun deleteFile() {
-        val file = File(mMedia[mPos].path)
-        if (isShowingPermDialog(file)) {
-            return
-        }
-
-        Thread {
-            if (!file.delete() && !tryFastDocumentDelete(file)) {
-                val document = getFileDocument(file.absolutePath, config.treeUri) ?: return@Thread
-
-                if (!document.isFile || !document.delete()) {
-                    runOnUiThread {
-                        toast(R.string.unknown_error_occurred)
-                    }
-                    return@Thread
-                }
-            }
-
-            if (deleteFromMediaStore(file)) {
+            deleteFileBg(File(mMedia[mPos].path)) {
                 reloadViewPager()
-            } else {
-                scanFile(file) {
-                    reloadViewPager()
-                }
             }
-        }.start()
+        }
     }
 
     private fun isDirEmpty(): Boolean {

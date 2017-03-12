@@ -122,38 +122,42 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private fun saveBitmapToFile(bitmap: Bitmap, path: String) {
         val file = File(path)
 
-        var out: OutputStream? = null
         try {
             if (needsStupidWritePermissions(path)) {
-                if (isShowingPermDialog(file))
-                    return
-
-                var document = getFileDocument(path, config.treeUri) ?: return
-                if (!file.exists()) {
-                    document = document.createFile("", file.name)
+                handleSAFDialog(file) {
+                    var document = getFileDocument(path, config.treeUri) ?: return@handleSAFDialog
+                    if (!file.exists()) {
+                        document = document.createFile("", file.name)
+                    }
+                    val out = contentResolver.openOutputStream(document.uri)
+                    saveBitmap(file, bitmap, out)
                 }
-                out = contentResolver.openOutputStream(document.uri)
             } else {
-                out = FileOutputStream(file)
+                val out = FileOutputStream(file)
+                saveBitmap(file, bitmap, out)
             }
-
-            if (resizeWidth > 0 && resizeHeight > 0) {
-                val resized = Bitmap.createScaledBitmap(bitmap, resizeWidth, resizeHeight, false)
-                resized.compress(file.getCompressionFormat(), 90, out)
-            } else {
-                bitmap.compress(file.getCompressionFormat(), 90, out)
-            }
-            setResult(Activity.RESULT_OK, intent)
         } catch (e: Exception) {
             Log.e(TAG, "Crop compressing failed $path $e")
             toast(R.string.image_editing_failed)
             finish()
         } catch (e: OutOfMemoryError) {
             toast(R.string.out_of_memory_error)
-        } finally {
-            out?.close()
         }
+    }
 
+    private fun saveBitmap(file: File, bitmap: Bitmap, out: OutputStream) {
+        if (resizeWidth > 0 && resizeHeight > 0) {
+            val resized = Bitmap.createScaledBitmap(bitmap, resizeWidth, resizeHeight, false)
+            resized.compress(file.getCompressionFormat(), 90, out)
+        } else {
+            bitmap.compress(file.getCompressionFormat(), 90, out)
+        }
+        setResult(Activity.RESULT_OK, intent)
+        scanFinalPath(file.absolutePath)
+        out.close()
+    }
+
+    private fun scanFinalPath(path: String) {
         scanPath(path) {
             setResult(Activity.RESULT_OK, intent)
             runOnUiThread {

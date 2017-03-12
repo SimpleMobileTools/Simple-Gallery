@@ -19,13 +19,15 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
 import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
-import com.simplemobiletools.gallery.extensions.*
+import com.simplemobiletools.gallery.extensions.config
+import com.simplemobiletools.gallery.extensions.launchAbout
+import com.simplemobiletools.gallery.extensions.launchCamera
+import com.simplemobiletools.gallery.extensions.launchSettings
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.views.MyScalableRecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
-import java.net.URLDecoder
 import java.util.*
 
 class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
@@ -181,44 +183,14 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
     }
 
-    override fun deleteFiles(paths: ArrayList<String>) {
-        val updatedFiles = ArrayList<File>()
-        for (delPath in paths) {
-            val dir = File(delPath)
-            if (dir.exists()) {
-                val files = dir.listFiles() ?: continue
-                files.forEach {
-                    if (it.isFile && it.isImageVideoGif()) {
-                        updatedFiles.add(it)
-                        deleteItem(it)
-                    }
-                }
-                updatedFiles.add(dir)
-                if (dir.listFiles().isEmpty())
-                    deleteItem(dir)
-            }
-        }
-
-        scanFiles(updatedFiles) {}
-    }
-
-    private fun deleteItem(file: File) {
-        if (isShowingPermDialog(file)) {
-            return
-        }
-
-        Thread({
-            if (!file.delete()) {
-                val document = getFileDocument(file.absolutePath, config.treeUri) ?: return@Thread
-
-                // double check we have the uri to the proper file path, not some parent folder
-                val uri = URLDecoder.decode(document.uri.toString(), "UTF-8")
-                val filename = URLDecoder.decode(file.absolutePath.getFilenameFromPath(), "UTF-8")
-                if (uri.endsWith(filename)) {
-                    document.delete()
+    override fun tryDeleteFolders(folders: ArrayList<File>) {
+        for (file in folders) {
+            deleteFolders(folders) {
+                runOnUiThread {
+                    refreshItems()
                 }
             }
-        }).start()
+        }
     }
 
     private fun handleZooming() {

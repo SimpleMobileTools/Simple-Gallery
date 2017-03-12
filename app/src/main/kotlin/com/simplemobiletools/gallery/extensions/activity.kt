@@ -161,7 +161,7 @@ fun SimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
         return
 
     if (needsStupidWritePermissions(path)) {
-        if (!isShowingPermDialog(file)) {
+        handleSAFDialog(file) {
             getFileDocument(path, config.treeUri)?.createFile("", NOMEDIA)
         }
     } else {
@@ -174,21 +174,9 @@ fun SimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
 
 fun SimpleActivity.removeNoMedia(path: String, callback: () -> Unit) {
     val file = File(path, NOMEDIA)
-    if (!file.exists())
-        return
-
-    if (!file.delete() && !tryFastDocumentDelete(file)) {
-        if (needsStupidWritePermissions(path)) {
-            if (!isShowingPermDialog(file)) {
-                getFileDocument(path, config.treeUri)?.apply {
-                    if (isFile) {
-                        delete()
-                    }
-                }
-            }
+    deleteFile(file) {
+        scanFile(File(path)) {
+            callback()
         }
-    }
-    scanFile(file) {
-        callback.invoke()
     }
 }

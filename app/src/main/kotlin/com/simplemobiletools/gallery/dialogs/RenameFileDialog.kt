@@ -26,7 +26,7 @@ class RenameFileDialog(val activity: SimpleActivity, val file: File, val callbac
         }
 
         view.file_name.setText(name)
-        view.file_path.text = "${activity.humanizePath(file.parent)}/"
+        view.file_path.text = activity.humanizePath(file.parent) + "/"
 
         AlertDialog.Builder(activity)
                 .setPositiveButton(R.string.ok, null)
@@ -55,17 +55,16 @@ class RenameFileDialog(val activity: SimpleActivity, val file: File, val callbac
                 }
 
                 if (context.needsStupidWritePermissions(file.absolutePath)) {
-                    if (activity.isShowingPermDialog(file))
-                        return@setOnClickListener
+                    activity.handleSAFDialog(file) {
+                        var document = context.getFastDocument(file)
+                        if (document?.isFile == false) {
+                            document = context.getFileDocument(file.absolutePath, context.config.treeUri)
+                        }
 
-                    var document = context.getFastDocument(file)
-                    if (document?.isFile == false) {
-                        document = context.getFileDocument(file.absolutePath, context.config.treeUri)
+                        DocumentsContract.renameDocument(context.contentResolver, document!!.uri, newFile.name)
+                        sendSuccess(file, newFile)
+                        dismiss()
                     }
-
-                    DocumentsContract.renameDocument(context.contentResolver, document!!.uri, newFile.name)
-                    sendSuccess(file, newFile)
-                    dismiss()
                 } else if (file.renameTo(newFile)) {
                     sendSuccess(file, newFile)
                     dismiss()

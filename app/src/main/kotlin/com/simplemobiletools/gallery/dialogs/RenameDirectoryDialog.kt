@@ -46,14 +46,13 @@ class RenameDirectoryDialog(val activity: SimpleActivity, val dir: File, val cal
                 }
 
                 if (context.needsStupidWritePermissions(dir.absolutePath)) {
-                    if (activity.isShowingPermDialog(dir))
-                        return@setOnClickListener
-
-                    val document = context.getFileDocument(dir.absolutePath, context.config.treeUri) ?: return@setOnClickListener
-                    if (document.canWrite())
-                        document.renameTo(newDirName)
-                    sendSuccess(updatedFiles, newDir)
-                    dismiss()
+                    activity.handleSAFDialog(dir) {
+                        val document = context.getFileDocument(dir.absolutePath, context.config.treeUri) ?: return@handleSAFDialog
+                        if (document.canWrite())
+                            document.renameTo(newDirName)
+                        sendSuccess(updatedFiles, newDir)
+                        dismiss()
+                    }
                 } else if (dir.renameTo(newDir)) {
                     sendSuccess(updatedFiles, newDir)
                     dismiss()

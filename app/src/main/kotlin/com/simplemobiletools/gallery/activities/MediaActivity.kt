@@ -29,7 +29,6 @@ import com.simplemobiletools.gallery.views.MyScalableRecyclerView
 import kotlinx.android.synthetic.main.activity_media.*
 import java.io.File
 import java.io.IOException
-import java.util.*
 
 class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private val TAG = MediaActivity::class.java.simpleName
@@ -268,32 +267,15 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     override fun deleteFiles(files: ArrayList<File>) {
-        if (isShowingPermDialog(files[0])) {
-            return
-        }
-
-        Thread({
-            var hadSuccess = false
-            files.filter { it.exists() && it.isImageVideoGif() }
-                    .forEach {
-                        if (it.delete() || tryFastDocumentDelete(it)) {
-                            hadSuccess = true
-                        } else {
-                            val document = getFileDocument(it.absolutePath, config.treeUri) ?: return@forEach
-                            if (document.isFile && document.delete()) {
-                                hadSuccess = true
-                            }
-                        }
-                        deleteFromMediaStore(it)
-                    }
-            if (!hadSuccess)
+        val filtered = files.filter { it.exists() && it.isImageVideoGif() } as ArrayList
+        deleteFiles(filtered) {
+            if (!it) {
                 runOnUiThread {
                     toast(R.string.unknown_error_occurred)
                 }
-        }).start()
-
-        if (mMedia.isEmpty()) {
-            finish()
+            } else if (mMedia.isEmpty()) {
+                finish()
+            }
         }
     }
 

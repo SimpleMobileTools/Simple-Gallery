@@ -70,6 +70,10 @@ fun Context.getParents(): ArrayList<String> {
 
     val noMediaFolders = getNoMediaFolders()
     val parents = ArrayList<String>()
+    if (config.showHiddenFolders) {
+        parentsSet.addAll(noMediaFolders)
+    }
+
     parentsSet.filterTo(parents, {
         if (File(it).isDirectory) {
             if (!config.showHiddenFolders) {
@@ -80,10 +84,6 @@ fun Context.getParents(): ArrayList<String> {
             false
         }
     })
-
-    if (config.showHiddenFolders) {
-        parents.addAll(noMediaFolders)
-    }
 
     return parents
 }

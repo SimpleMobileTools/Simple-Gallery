@@ -273,30 +273,30 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
     private fun deleteFiles() {
         val selections = multiSelector.selectedPositions
-        val paths = ArrayList<String>(selections.size)
-        val removeDirs = ArrayList<Directory>(selections.size)
+        val folders = ArrayList<File>(selections.size)
+        val removeFolders = ArrayList<Directory>(selections.size)
 
-        var isShowingPermDialog = false
-        activity.runOnUiThread {
-            if (activity.isShowingPermDialog(File(dirs[selections[0]].path))) {
-                isShowingPermDialog = true
+        var needPermissionForPath = ""
+        selections.forEach {
+            val path = dirs[it].path
+            if (activity.needsStupidWritePermissions(path) && activity.config.treeUri.isEmpty()) {
+                needPermissionForPath = path
             }
         }
 
-        if (isShowingPermDialog)
-            return
+        activity.handleSAFDialog(File(needPermissionForPath)) {
+            selections.reverse()
+            selections.forEach {
+                val directory = dirs[it]
+                folders.add(File(directory.path))
+                removeFolders.add(directory)
+                notifyItemRemoved(it)
+            }
 
-        selections.reverse()
-        selections.forEach {
-            val directory = dirs[it]
-            paths.add(directory.path)
-            removeDirs.add(directory)
-            notifyItemRemoved(it)
+            dirs.removeAll(removeFolders)
+            markedItems.clear()
+            listener?.tryDeleteFolders(folders)
         }
-
-        dirs.removeAll(removeDirs)
-        markedItems.clear()
-        listener?.deleteFiles(paths)
     }
 
     private fun getSelectedPaths(): HashSet<String> {
@@ -387,6 +387,6 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     interface DirOperationsListener {
         fun refreshItems()
 
-        fun deleteFiles(paths: ArrayList<String>)
+        fun tryDeleteFolders(folders: ArrayList<File>)
     }
 }

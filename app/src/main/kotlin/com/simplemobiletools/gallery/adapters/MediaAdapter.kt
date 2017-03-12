@@ -190,27 +190,19 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         val files = ArrayList<File>(selections.size)
         val removeMedia = ArrayList<Medium>(selections.size)
 
-        var isShowingPermDialog = false
-        activity.runOnUiThread {
-            if (activity.isShowingPermDialog(File(media[selections[0]].path))) {
-                isShowingPermDialog = true
+        activity.handleSAFDialog(File(media[selections[0]].path)) {
+            selections.reverse()
+            selections.forEach {
+                val medium = media[it]
+                files.add(File(medium.path))
+                removeMedia.add(medium)
+                notifyItemRemoved(it)
             }
+
+            media.removeAll(removeMedia)
+            markedItems.clear()
+            listener?.deleteFiles(files)
         }
-
-        if (isShowingPermDialog)
-            return
-
-        selections.reverse()
-        selections.forEach {
-            val medium = media[it]
-            files.add(File(medium.path))
-            removeMedia.add(medium)
-            notifyItemRemoved(it)
-        }
-
-        media.removeAll(removeMedia)
-        markedItems.clear()
-        listener?.deleteFiles(files)
     }
 
     private fun getSelectedMedia(): List<Medium> {
