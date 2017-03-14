@@ -136,7 +136,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getDirectories()
             } else {
-                toast(R.string.no_permissions)
+                toast(R.string.no_storage_permissions)
                 finish()
             }
         }

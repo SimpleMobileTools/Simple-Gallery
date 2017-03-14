@@ -2,8 +2,6 @@
 <resources>
     <string name="app_name">Simple Gallery</string>
     <string name="app_launcher_name">相册</string>
-    <string name="share_via">分享到</string>
-    <string name="no_permissions">需要访问储存权限</string>
     <string name="edit">编辑</string>
     <string name="open_camera">打开相机</string>
     <string name="open_with">打开方式</string>

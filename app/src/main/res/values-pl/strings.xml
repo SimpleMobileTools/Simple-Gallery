@@ -2,8 +2,6 @@
 <resources>
     <string name="app_name">Simple Gallery</string>
     <string name="app_launcher_name">Galeria</string>
-    <string name="share_via">Udostępnij przez</string>
-    <string name="no_permissions">Bez dostępu do pamięci galeria nie będzie działać</string>
     <string name="edit">Edytuj</string>
     <string name="open_camera">Aparat</string>
     <string name="open_with">Otwórz w</string>

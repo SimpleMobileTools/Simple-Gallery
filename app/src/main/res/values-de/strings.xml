@@ -2,8 +2,6 @@
 <resources>
     <string name="app_name">Schlichte Galerie</string>
     <string name="app_launcher_name">Galerie</string>
-    <string name="share_via">Teilen via</string>
-    <string name="no_permissions">Ohne Zugriff auf deinen Speicher gibt es hier nicht viel zu tun</string>
     <string name="edit">Bearbeiten</string>
     <string name="open_camera">Kamera öffnen</string>
     <string name="open_with">Öffnen mit</string>

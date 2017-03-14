@@ -2,8 +2,6 @@
 <resources>
     <string name="app_name">Simple Gallery</string>
     <string name="app_launcher_name">Galleria</string>
-    <string name="share_via">Condividi via</string>
-    <string name="no_permissions">Non c\'è molto da fare in una galleria senza l\'accesso all\'archiviazione</string>
     <string name="edit">Modifica</string>
     <string name="open_camera">Apri fotocamera</string>
     <string name="open_with">Apri con</string>

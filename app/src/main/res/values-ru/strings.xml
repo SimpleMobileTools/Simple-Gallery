@@ -2,8 +2,6 @@
 <resources>
     <string name="app_name">Simple Gallery</string>
     <string name="app_launcher_name">Галерея</string>
-    <string name="share_via">Отправить по</string>
-    <string name="no_permissions">Не предоставлено разрешение для доступа к файловой системе</string>
     <string name="edit">Редактировать</string>
     <string name="open_camera">Открыть камеру</string>
     <string name="open_with">Открыть в</string>

@@ -2,8 +2,6 @@
 <resources>
     <string name="app_name">シンプル ギャラリー</string>
     <string name="app_launcher_name">ギャラリー</string>
-    <string name="share_via">共有&#8230;</string>
-    <string name="no_permissions">ストレージにアクセスしないとギャラリーでできることはほとんどありません</string>
     <string name="edit">編集</string>
     <string name="open_camera">カメラを開く</string>
     <string name="open_with">&#8230;で開く</string>

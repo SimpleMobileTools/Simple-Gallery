@@ -2,8 +2,6 @@
 <resources>
     <string name="app_name">Simple Gallery</string>
     <string name="app_launcher_name">Gallery</string>
-    <string name="share_via">Share via</string>
-    <string name="no_permissions">Not much to do in a gallery without accessing your storage</string>
     <string name="edit">Edit</string>
     <string name="open_camera">Open camera</string>
     <string name="open_with">Open with</string>
