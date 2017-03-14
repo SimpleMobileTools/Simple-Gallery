@@ -15,11 +15,11 @@ import com.bumptech.glide.signature.StringSignature
 import com.simplemobiletools.commons.asynctasks.CopyMoveTask
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
+import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.CopyDialog
-import com.simplemobiletools.gallery.dialogs.RenameFileDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.photo_video_item.view.*
@@ -121,7 +121,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     }
 
     private fun renameFile() {
-        RenameFileDialog(activity, getCurrentFile()) {
+        RenameItemDialog(activity, getCurrentFile().absolutePath) {
             listener?.refreshItems()
             activity.runOnUiThread {
                 actMode?.finish()
@@ -237,8 +237,8 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         fun bindView(activity: SimpleActivity, multiSelectorCallback: ModalMultiSelectorCallback, multiSelector: MultiSelector, medium: Medium, pos: Int): View {
             itemView.apply {
                 play_outline.visibility = if (medium.isVideo) View.VISIBLE else View.GONE
-                file_name.beVisibleIf(displayFilenames)
-                file_name.text = medium.name
+                save_as_name.beVisibleIf(displayFilenames)
+                save_as_name.text = medium.name
                 toggleItemSelection(this, markedItems.contains(pos), pos)
 
                 val path = medium.path

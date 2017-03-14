@@ -18,12 +18,12 @@ import android.view.View
 import com.simplemobiletools.commons.asynctasks.CopyMoveTask
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
+import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.dialogs.CopyDialog
-import com.simplemobiletools.gallery.dialogs.RenameFileDialog
 import com.simplemobiletools.gallery.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.fragments.PhotoFragment
@@ -336,8 +336,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun renameFile() {
-        RenameFileDialog(this, getCurrentFile()) {
-            mMedia[mPos].path = it.absolutePath
+        RenameItemDialog(this, getCurrentFile().absolutePath) {
+            mMedia[mPos].path = it
             updateActionbarTitle()
         }
     }

@@ -6,7 +6,7 @@ import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
-import kotlinx.android.synthetic.main.rename_file.view.*
+import kotlinx.android.synthetic.main.dialog_save_as.view.*
 import java.io.File
 
 class SaveAsDialog(val activity: SimpleActivity, val path: String, val callback: (savePath: String) -> Unit) {
@@ -14,7 +14,7 @@ class SaveAsDialog(val activity: SimpleActivity, val path: String, val callback:
     init {
         var realPath = File(path).parent.trimEnd('/')
         val view = LayoutInflater.from(activity).inflate(R.layout.dialog_save_as, null).apply {
-            file_path.text = activity.humanizePath(realPath)
+            save_as_path.text = activity.humanizePath(realPath)
 
             val fullName = path.getFilenameFromPath()
             val dotAt = fullName.lastIndexOf(".")
@@ -23,13 +23,13 @@ class SaveAsDialog(val activity: SimpleActivity, val path: String, val callback:
             if (dotAt > 0) {
                 name = fullName.substring(0, dotAt)
                 val extension = fullName.substring(dotAt + 1)
-                file_extension.setText(extension)
+                save_as_extension.setText(extension)
             }
 
-            file_name.setText(name)
-            file_path.setOnClickListener {
+            save_as_name.setText(name)
+            save_as_path.setOnClickListener {
                 FilePickerDialog(activity, realPath, false, false, true) {
-                    file_path.text = activity.humanizePath(it)
+                    save_as_path.text = activity.humanizePath(it)
                     realPath = it
                 }
             }
@@ -41,8 +41,8 @@ class SaveAsDialog(val activity: SimpleActivity, val path: String, val callback:
                 .create().apply {
             activity.setupDialogStuff(view, this, R.string.save_as)
             getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener({
-                val filename = view.file_name.value
-                val extension = view.file_extension.value
+                val filename = view.save_as_name.value
+                val extension = view.save_as_extension.value
 
                 if (filename.isEmpty()) {
                     context.toast(R.string.filename_cannot_be_empty)

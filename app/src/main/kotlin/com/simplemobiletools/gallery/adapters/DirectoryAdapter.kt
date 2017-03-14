@@ -15,7 +15,7 @@ import com.bumptech.glide.signature.StringSignature
 import com.simplemobiletools.commons.asynctasks.CopyMoveTask
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
-import com.simplemobiletools.commons.dialogs.RenameFolderDialog
+import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
@@ -165,11 +165,10 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             return
         }
 
-        RenameFolderDialog(activity, dir) {
+        RenameItemDialog(activity, dir.absolutePath) {
             activity.runOnUiThread {
                 actMode?.finish()
                 listener?.refreshItems()
-                activity.toast(R.string.rename_folder_ok)
             }
         }
     }
