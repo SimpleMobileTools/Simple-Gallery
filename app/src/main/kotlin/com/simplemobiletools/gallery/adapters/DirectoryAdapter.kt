@@ -15,12 +15,12 @@ import com.bumptech.glide.signature.StringSignature
 import com.simplemobiletools.commons.asynctasks.CopyMoveTask
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
+import com.simplemobiletools.commons.dialogs.RenameFolderDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.dialogs.ExcludeFolderDialog
-import com.simplemobiletools.gallery.dialogs.RenameDirectoryDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.directory_item.view.*
@@ -165,13 +165,11 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             return
         }
 
-        RenameDirectoryDialog(activity, dir) {
-            activity.scanPaths(it) {
-                activity.runOnUiThread {
-                    actMode?.finish()
-                    listener?.refreshItems()
-                    activity.toast(R.string.rename_folder_ok)
-                }
+        RenameFolderDialog(activity, dir) {
+            activity.runOnUiThread {
+                actMode?.finish()
+                listener?.refreshItems()
+                activity.toast(R.string.rename_folder_ok)
             }
         }
     }
