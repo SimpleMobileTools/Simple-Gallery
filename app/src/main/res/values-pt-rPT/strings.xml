@@ -30,7 +30,7 @@
     <string name="exclude_folder_description">Esta ação apenas exclui as pastas selecionadas da lista de pastas desta aplicação. Pode gerir as pastas excuídas nas Definições.</string>
     <string name="exclude_folder_parent">Excluir antes a pasta superior?</string>
     <string name="remove_all">Remover todas</string>
-    <string name="remove_all_description">Remover todas as pastas de lista de exclusões? Esta ação nas apaga as pastas.</string>
+    <string name="remove_all_description">Remover todas as pastas de lista de exclusões? Esta ação não apaga as pastas.</string>
 
     <!-- Resizing -->
     <string name="resize">Redimensionar</string>
@@ -78,7 +78,7 @@
     <string name="images_and_videos">Imagens e vídeos</string>
     <string name="loop_videos">Vídeos em ciclo</string>
     <string name="animate_gifs">Animação de gifs nas miniaturas</string>
-    <string name="max_brightness">Maximum brightness when viewing media</string>
+    <string name="max_brightness">Brilho máximo permitido</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
