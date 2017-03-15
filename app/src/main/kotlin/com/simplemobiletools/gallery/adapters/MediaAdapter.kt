@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.adapters
 
+import android.graphics.drawable.StateListDrawable
 import android.os.Build
 import android.support.v7.view.ActionMode
 import android.support.v7.widget.RecyclerView
@@ -16,6 +17,7 @@ import com.simplemobiletools.commons.asynctasks.CopyMoveTask
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
+import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
@@ -41,6 +43,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         var backgroundColor = 0
         var animateGifs = true
         var itemCnt = 0
+        var selectorDrawable: StateListDrawable? = null
 
         fun toggleItemSelection(itemView: View, select: Boolean, pos: Int = -1) {
             getProperView(itemView).isSelected = select
@@ -69,6 +72,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     init {
         foregroundColor = config.primaryColor
         backgroundColor = config.backgroundColor
+        selectorDrawable = foregroundColor.createSelector()
         animateGifs = config.animateGifs
         itemCnt = media.size
     }
@@ -221,6 +225,11 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         views.add(holder.bindView(activity, multiSelectorMode, multiSelector, media[position], position))
     }
 
+    override fun onViewRecycled(holder: ViewHolder?) {
+        super.onViewRecycled(holder)
+        holder?.stopLoad()
+    }
+
     override fun getItemCount() = media.size
 
     fun updateMedia(newMedia: ArrayList<Medium>) {
@@ -233,12 +242,12 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         notifyDataSetChanged()
     }
 
-    class ViewHolder(view: View, val itemClick: (Medium) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
+    class ViewHolder(val view: View, val itemClick: (Medium) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
         fun bindView(activity: SimpleActivity, multiSelectorCallback: ModalMultiSelectorCallback, multiSelector: MultiSelector, medium: Medium, pos: Int): View {
             itemView.apply {
                 play_outline.visibility = if (medium.isVideo) View.VISIBLE else View.GONE
-                save_as_name.beVisibleIf(displayFilenames)
-                save_as_name.text = medium.name
+                photo_name.beVisibleIf(displayFilenames)
+                photo_name.text = medium.name
                 toggleItemSelection(this, markedItems.contains(pos), pos)
 
                 val path = medium.path
@@ -272,9 +281,9 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 }
 
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-                    (getProperView(this) as FrameLayout).foreground = foregroundColor.createSelector()
+                    (getProperView(this) as FrameLayout).foreground = selectorDrawable
                 else
-                    getProperView(this).foreground = foregroundColor.createSelector()
+                    getProperView(this).foreground = selectorDrawable
             }
             return itemView
         }
@@ -295,6 +304,10 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             } else {
                 itemClick(medium)
             }
+        }
+
+        fun stopLoad() {
+            Glide.clear(view.medium_thumbnail)
         }
     }
 
