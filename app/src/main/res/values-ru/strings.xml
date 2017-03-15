@@ -25,7 +25,7 @@
     <string name="unhide_folder">Сделать папку видимой</string>
     <string name="hide_folder_description">Эта опция скрывает папку, добавляя в неё файл \'.nomedia\'; будут скрыты все подпапки. Можно показывать их, переключая \'Показать скрытые папки\' в настройках. Продолжить?</string>
     <string name="exclude">Исключить</string>
-    <string name="excluded_folders">Исключить папки</string>
+    <string name="excluded_folders">Исключённые папки</string>
     <string name="manage_excluded_folders">Управление исключёнными папками</string>
     <string name="exclude_folder_description">Эта опция исключит выбранные папки вместе с подпапками только для Simple Gallery. Можно управлять исключёнными папками из настроек.</string>
     <string name="exclude_folder_parent">Исключить только родительский каталог?</string>
