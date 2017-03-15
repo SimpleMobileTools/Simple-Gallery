@@ -313,9 +313,14 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         views.add(holder.bindView(activity, multiSelectorMode, multiSelector, dir, position, pinnedFolders.contains(dir.path)))
     }
 
+    override fun onViewRecycled(holder: ViewHolder?) {
+        super.onViewRecycled(holder)
+        holder?.stopLoad()
+    }
+
     override fun getItemCount() = dirs.size
 
-    class ViewHolder(view: View, val itemClick: (Directory) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
+    class ViewHolder(val view: View, val itemClick: (Directory) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
         fun bindView(activity: SimpleActivity, multiSelectorCallback: ModalMultiSelectorCallback, multiSelector: MultiSelector, directory: Directory, pos: Int, isPinned: Boolean)
                 : View {
             itemView.apply {
@@ -378,6 +383,10 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             } else {
                 itemClick(directory)
             }
+        }
+
+        fun stopLoad() {
+            Glide.clear(view.dir_thumbnail)
         }
     }
 
