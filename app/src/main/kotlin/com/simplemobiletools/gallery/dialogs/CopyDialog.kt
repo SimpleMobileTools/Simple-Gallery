@@ -78,7 +78,7 @@ class CopyDialog(val activity: SimpleActivity, val files: ArrayList<File>, val c
                             updatedFiles.addAll(files)
                             for (file in files) {
                                 val destination = File(destinationDir, file.name)
-                                if (file.renameTo(destination))
+                                if (!destination.exists() && file.renameTo(destination))
                                     updatedFiles.add(destination)
                             }
 
