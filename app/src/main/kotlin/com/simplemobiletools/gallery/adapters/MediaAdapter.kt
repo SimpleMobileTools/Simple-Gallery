@@ -1,6 +1,5 @@
 package com.simplemobiletools.gallery.adapters
 
-import android.graphics.drawable.StateListDrawable
 import android.os.Build
 import android.support.v7.view.ActionMode
 import android.support.v7.widget.RecyclerView
@@ -43,7 +42,6 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         var backgroundColor = 0
         var animateGifs = true
         var itemCnt = 0
-        var selectorDrawable: StateListDrawable? = null
 
         fun toggleItemSelection(itemView: View, select: Boolean, pos: Int = -1) {
             getProperView(itemView).isSelected = select
@@ -72,7 +70,6 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     init {
         foregroundColor = config.primaryColor
         backgroundColor = config.backgroundColor
-        selectorDrawable = foregroundColor.createSelector()
         animateGifs = config.animateGifs
         itemCnt = media.size
     }
@@ -281,9 +278,9 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 }
 
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-                    (getProperView(this) as FrameLayout).foreground = selectorDrawable
+                    (getProperView(this) as FrameLayout).foreground = foregroundColor.createSelector()
                 else
-                    getProperView(this).foreground = selectorDrawable
+                    getProperView(this).foreground = foregroundColor.createSelector()
             }
             return itemView
         }
