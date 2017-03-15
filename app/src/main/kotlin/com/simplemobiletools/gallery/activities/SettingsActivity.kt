@@ -4,10 +4,10 @@ import android.content.Intent
 import android.content.res.Resources
 import android.os.Bundle
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
+import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.extensions.beVisibleIf
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.helpers.IMAGES
 import com.simplemobiletools.gallery.helpers.IMAGES_AND_VIDEOS
