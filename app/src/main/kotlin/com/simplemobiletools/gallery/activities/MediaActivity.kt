@@ -281,6 +281,16 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun isSetWallpaperIntent() = intent.getBooleanExtra(SET_WALLPAPER_INTENT, false)
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
+        if (requestCode == REQUEST_EDIT_IMAGE) {
+            if (resultCode == Activity.RESULT_OK && resultData != null) {
+                mMedia.clear()
+                refreshItems()
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, resultData)
+    }
+
     private fun itemClicked(path: String) {
         if (isSetWallpaperIntent()) {
             toast(R.string.setting_wallpaper)
