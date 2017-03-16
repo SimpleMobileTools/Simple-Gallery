@@ -1,14 +1,19 @@
 package com.simplemobiletools.gallery.activities
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.support.v4.app.ActivityCompat
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import com.simplemobiletools.commons.extensions.hasWriteStoragePermission
 import com.simplemobiletools.commons.extensions.scanPath
+import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.fragments.PhotoFragment
@@ -19,6 +24,7 @@ import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 
 open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentListener {
+    private val STORAGE_PERMISSION = 1
     private var mMedium: Medium? = null
     private var mIsFullScreen = false
 
@@ -33,6 +39,14 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_holder)
 
+        if (hasWriteStoragePermission()) {
+            checkIntent(savedInstanceState)
+        } else {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), STORAGE_PERMISSION)
+        }
+    }
+
+    private fun checkIntent(savedInstanceState: Bundle? = null) {
         mUri = intent.data ?: return
 
         if (mUri.scheme == "file") {
@@ -82,6 +96,19 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     override fun onResume() {
         super.onResume()
         supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.actionbar_gradient_background))
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+
+        if (requestCode == STORAGE_PERMISSION) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                checkIntent()
+            } else {
+                toast(R.string.no_storage_permissions)
+                finish()
+            }
+        }
     }
 
     private fun sendViewPagerIntent(path: String) {
