@@ -10,7 +10,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
-import com.bumptech.glide.Priority
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.simplemobiletools.commons.extensions.toast
@@ -120,7 +119,6 @@ class PhotoFragment : ViewPagerFragment() {
                     .load(medium.path)
                     .asGif()
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
-                    .priority(if (isFragmentVisible) Priority.IMMEDIATE else Priority.NORMAL)
                     .into(view)
         } else {
             loadBitmap()
@@ -133,7 +131,6 @@ class PhotoFragment : ViewPagerFragment() {
                 .asBitmap()
                 .transform(GlideRotateTransformation(context, degrees))
                 .format(if (medium.isPng()) DecodeFormat.PREFER_ARGB_8888 else DecodeFormat.PREFER_RGB_565)
-                .priority(if (isFragmentVisible) Priority.IMMEDIATE else Priority.NORMAL)
                 .thumbnail(0.3f)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .into(view)
