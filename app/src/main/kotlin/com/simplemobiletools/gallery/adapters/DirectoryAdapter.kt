@@ -333,7 +333,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                 val timestampSignature = StringSignature(directory.date_modified.toString())
                 if (tmb.isGif()) {
                     if (animateGifs) {
-                        Glide.with(activity).load(tmb).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)
+                        Glide.with(activity).load(tmb).asGif().diskCacheStrategy(DiskCacheStrategy.SOURCE).signature(timestampSignature)
                                 .placeholder(backgroundColor).centerCrop().crossFade().into(dir_thumbnail)
                     } else {
                         Glide.with(activity).load(tmb).asBitmap().diskCacheStrategy(DiskCacheStrategy.RESULT).signature(timestampSignature)

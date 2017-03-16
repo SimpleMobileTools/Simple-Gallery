@@ -251,7 +251,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 val timestampSignature = StringSignature(medium.date_modified.toString())
                 if (medium.isGif()) {
                     if (animateGifs) {
-                        Glide.with(activity).load(path).asGif().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)
+                        Glide.with(activity).load(path).asGif().diskCacheStrategy(DiskCacheStrategy.SOURCE).signature(timestampSignature)
                                 .placeholder(backgroundColor).centerCrop().crossFade().into(medium_thumbnail)
                     } else {
                         Glide.with(activity).load(path).asBitmap().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)

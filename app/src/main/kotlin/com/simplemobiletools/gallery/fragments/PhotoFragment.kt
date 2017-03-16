@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.simplemobiletools.commons.extensions.beGone
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.getRealPathFromURI
@@ -19,7 +20,7 @@ import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 import it.sephiroth.android.library.exif2.ExifInterface
-import uk.co.senab.photoview.PhotoView
+import kotlinx.android.synthetic.main.pager_photo_item.view.*
 import uk.co.senab.photoview.PhotoViewAttacher
 import java.io.File
 import java.io.FileOutputStream
@@ -27,11 +28,11 @@ import java.io.IOException
 
 class PhotoFragment : ViewPagerFragment() {
     lateinit var medium: Medium
-    lateinit var view: PhotoView
+    lateinit var view: ViewGroup
     private var isFragmentVisible = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        view = inflater.inflate(R.layout.pager_photo_item, container, false) as PhotoView
+        view = inflater.inflate(R.layout.pager_photo_item, container, false) as ViewGroup
 
         medium = arguments.getSerializable(MEDIUM) as Medium
 
@@ -70,7 +71,8 @@ class PhotoFragment : ViewPagerFragment() {
             }
         }
 
-        view.setOnPhotoTapListener(object : PhotoViewAttacher.OnPhotoTapListener {
+        view.gif_holder.setOnClickListener { photoClicked() }
+        view.photo_view.setOnPhotoTapListener(object : PhotoViewAttacher.OnPhotoTapListener {
             override fun onPhotoTap(view: View?, x: Float, y: Float) {
                 photoClicked()
             }
@@ -115,11 +117,13 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun loadImage() {
         if (medium.isGif()) {
+            view.photo_view.beGone()
             Glide.with(this)
                     .load(medium.path)
                     .asGif()
-                    .diskCacheStrategy(DiskCacheStrategy.NONE)
-                    .into(view)
+                    .crossFade()
+                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                    .into(view.gif_holder)
         } else {
             loadBitmap()
         }
@@ -131,9 +135,9 @@ class PhotoFragment : ViewPagerFragment() {
                 .asBitmap()
                 .transform(GlideRotateTransformation(context, degrees))
                 .format(if (medium.isPng()) DecodeFormat.PREFER_ARGB_8888 else DecodeFormat.PREFER_RGB_565)
-                .thumbnail(0.3f)
+                .thumbnail(0.2f)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .into(view)
+                .into(view.photo_view)
     }
 
     fun rotateImageViewBy(degrees: Float) {
@@ -142,7 +146,8 @@ class PhotoFragment : ViewPagerFragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        Glide.clear(view)
+        Glide.clear(view.photo_view)
+        Glide.clear(view.gif_holder)
     }
 
     override fun onConfigurationChanged(newConfig: Configuration?) {

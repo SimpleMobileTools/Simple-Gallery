@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<uk.co.senab.photoview.PhotoView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/photo_view"
+    android:id="@+id/photo_holder"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/gif_holder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <uk.co.senab.photoview.PhotoView
+        android:id="@+id/photo_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</RelativeLayout>
