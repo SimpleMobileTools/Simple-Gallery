@@ -61,7 +61,10 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         media.sort()
 
         val directories = groupDirectories(media)
-        val dirs = ArrayList(directories.values.filter { File(it.path).exists() })
+        val dirs = ArrayList(directories.values.filter {
+            val file = File(it.path)
+            file.exists() && file.canonicalFile == file.absoluteFile    // filter out symbolic links too
+        })
         Directory.sorting = config.directorySorting
         dirs.sort()
 
