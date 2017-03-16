@@ -1,19 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<uk.co.senab.photoview.PhotoView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/photo_holder"
+    android:id="@+id/photo_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <uk.co.senab.photoview.PhotoView
-        android:id="@+id/photo_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-    <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
-        android:id="@+id/subsampling_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"/>
-
-</RelativeLayout>
+    android:layout_height="match_parent"/>

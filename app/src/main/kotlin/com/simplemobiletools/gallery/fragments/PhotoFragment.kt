@@ -13,12 +13,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.Target
-import com.davemorrissey.labs.subscaleview.ImageSource
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
-import com.simplemobiletools.commons.extensions.beGone
-import com.simplemobiletools.commons.extensions.beVisible
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.getRealPathFromURI
@@ -26,8 +20,6 @@ import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 import it.sephiroth.android.library.exif2.ExifInterface
-import kotlinx.android.synthetic.main.pager_photo_item.*
-import kotlinx.android.synthetic.main.pager_photo_item.view.*
 import uk.co.senab.photoview.PhotoView
 import uk.co.senab.photoview.PhotoViewAttacher
 import java.io.File
@@ -36,12 +28,11 @@ import java.io.IOException
 
 class PhotoFragment : ViewPagerFragment() {
     lateinit var medium: Medium
-    lateinit var subsamplingView: SubsamplingScaleImageView
-    lateinit var glideView: PhotoView
+    lateinit var view: PhotoView
     private var isFragmentVisible = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        val view = inflater.inflate(R.layout.pager_photo_item, container, false)
+        view = inflater.inflate(R.layout.pager_photo_item, container, false) as PhotoView
 
         medium = arguments.getSerializable(MEDIUM) as Medium
 
@@ -80,18 +71,15 @@ class PhotoFragment : ViewPagerFragment() {
             }
         }
 
-        subsamplingView = view.subsampling_view.apply { setOnClickListener({ photoClicked() }) }
-        glideView = view.photo_view.apply {
-            setOnPhotoTapListener(object : PhotoViewAttacher.OnPhotoTapListener {
-                override fun onPhotoTap(view: View?, x: Float, y: Float) {
-                    photoClicked()
-                }
+        view.setOnPhotoTapListener(object : PhotoViewAttacher.OnPhotoTapListener {
+            override fun onPhotoTap(view: View?, x: Float, y: Float) {
+                photoClicked()
+            }
 
-                override fun onOutsidePhotoTap() {
-                    photoClicked()
-                }
-            })
-        }
+            override fun onOutsidePhotoTap() {
+                photoClicked()
+            }
+        })
         loadImage()
 
         activity.window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
@@ -133,7 +121,7 @@ class PhotoFragment : ViewPagerFragment() {
                     .asGif()
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .priority(if (isFragmentVisible) Priority.IMMEDIATE else Priority.NORMAL)
-                    .into(glideView)
+                    .into(view)
         } else {
             loadBitmap()
         }
@@ -148,59 +136,11 @@ class PhotoFragment : ViewPagerFragment() {
                 .priority(if (isFragmentVisible) Priority.IMMEDIATE else Priority.NORMAL)
                 .thumbnail(0.3f)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .listener(object : RequestListener<String, Bitmap> {
-                    override fun onException(e: Exception?, model: String?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
-                        return false
-                    }
-
-                    override fun onResourceReady(bitmap: Bitmap, model: String?, target: Target<Bitmap>?, isFromMemoryCache: Boolean, isFirstResource: Boolean): Boolean {
-                        if (degrees == 0f) {
-                            addZoomableView()
-                        } else {
-                            photo_view.beVisible()
-                            subsampling_view.beGone()
-                        }
-                        return false
-                    }
-                }).into(glideView)
+                .into(view)
     }
 
     fun rotateImageViewBy(degrees: Float) {
         loadBitmap(degrees)
-    }
-
-    private fun addZoomableView() {
-        if (!medium.isPng()) {
-            subsamplingView.apply {
-                beVisible()
-                setDoubleTapZoomScale(1.4f)
-                setImage(ImageSource.uri(medium.path))
-                orientation = SubsamplingScaleImageView.ORIENTATION_USE_EXIF
-                maxScale = 5f
-                setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {
-                    override fun onImageLoaded() {
-                    }
-
-                    override fun onReady() {
-                        glideView.beGone()
-                        glideView.setImageBitmap(null)
-                    }
-
-                    override fun onTileLoadError(p0: Exception?) {
-                    }
-
-                    override fun onPreviewReleased() {
-                    }
-
-                    override fun onImageLoadError(p0: Exception?) {
-                        beGone()
-                    }
-
-                    override fun onPreviewLoadError(p0: Exception?) {
-                    }
-                })
-            }
-        }
     }
 
     override fun onConfigurationChanged(newConfig: Configuration?) {
