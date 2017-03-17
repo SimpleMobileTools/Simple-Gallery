@@ -187,7 +187,20 @@ fun SimpleActivity.removeNoMedia(path: String, callback: () -> Unit) {
 }
 
 fun Activity.loadImage(path: String, size: Int, target: MyImageView) {
-    if (path.isGif()) {
+    if (path.isImageFast()) {
+        Picasso.with(this)
+                .load("file:$path")
+                .resize(size, size)
+                .centerCrop()
+                .into(target)
+    } else if (path.isVideoFast()) {
+        Glide.with(this)
+                .load(path)
+                .diskCacheStrategy(DiskCacheStrategy.RESULT)
+                .centerCrop()
+                .crossFade()
+                .into(target)
+    } else if (path.isGif()) {
         if (MediaAdapter.animateGifs) {
             Glide.with(this)
                     .load(path)
@@ -204,18 +217,5 @@ fun Activity.loadImage(path: String, size: Int, target: MyImageView) {
                     .centerCrop()
                     .into(target)
         }
-    } else if (path.isVideoFast()) {
-        Glide.with(this)
-                .load(path)
-                .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                .centerCrop()
-                .crossFade()
-                .into(target)
-    } else {
-        Picasso.with(this)
-                .load("file:$path")
-                .resize(size, size)
-                .centerCrop()
-                .into(target)
     }
 }
