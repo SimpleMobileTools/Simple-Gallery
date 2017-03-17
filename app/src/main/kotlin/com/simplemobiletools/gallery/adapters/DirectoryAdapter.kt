@@ -294,6 +294,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             dirs.removeAll(removeFolders)
             markedItems.clear()
             listener?.tryDeleteFolders(folders)
+            itemCnt = dirs.size
         }
     }
 

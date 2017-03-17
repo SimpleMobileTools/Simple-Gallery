@@ -201,6 +201,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             media.removeAll(removeMedia)
             markedItems.clear()
             listener?.deleteFiles(files)
+            itemCnt = media.size
         }
     }
 
