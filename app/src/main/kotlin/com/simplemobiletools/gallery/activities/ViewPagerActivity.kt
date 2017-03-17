@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.activities
 
 import android.app.Activity
 import android.content.Intent
+import android.content.res.Configuration
 import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -12,6 +13,7 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v4.view.ViewPager
+import android.util.DisplayMetrics
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -49,6 +51,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mShowAll = false
     private var mRotationDegrees = 0f
 
+    companion object {
+        var screenWidth = 0
+        var screenHeight = 0
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medium)
@@ -58,6 +65,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
+        measureScreen()
         val uri = intent.data
         if (uri != null) {
             var cursor: Cursor? = null
@@ -154,6 +162,18 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             else -> return super.onOptionsItemSelected(item)
         }
         return true
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration?) {
+        super.onConfigurationChanged(newConfig)
+        measureScreen()
+    }
+
+    private fun measureScreen() {
+        val metrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(metrics)
+        screenWidth = metrics.widthPixels
+        screenHeight = metrics.heightPixels
     }
 
     private fun updatePagerItems() {
