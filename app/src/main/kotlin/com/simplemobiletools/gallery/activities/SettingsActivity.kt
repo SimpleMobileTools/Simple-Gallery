@@ -4,7 +4,6 @@ import android.content.Intent
 import android.content.res.Resources
 import android.os.Bundle
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
-import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.R
@@ -44,8 +43,6 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun setupManageExcludedFolders() {
-        val excludedFolders = config.excludedFolders
-        settings_manage_excluded_folders_holder.beVisibleIf(excludedFolders.isNotEmpty())
         settings_manage_excluded_folders_holder.setOnClickListener {
             startActivity(Intent(this, ExcludedFoldersActivity::class.java))
         }
