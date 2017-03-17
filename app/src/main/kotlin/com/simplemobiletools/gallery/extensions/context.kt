@@ -52,7 +52,7 @@ fun Context.getParents(): ArrayList<String> {
     val uri = MediaStore.Files.getContentUri("external")
     val columns = arrayOf(MediaStore.Files.FileColumns.PARENT, MediaStore.Images.Media.DATA)
     val where = "${MediaStore.Images.Media.DATA} IS NOT NULL) GROUP BY (${MediaStore.Files.FileColumns.PARENT} "
-    val parentsSet = HashSet<String>()
+    val parentsSet = TreeSet<String>(String.CASE_INSENSITIVE_ORDER)
 
     var cursor: Cursor? = null
     try {
