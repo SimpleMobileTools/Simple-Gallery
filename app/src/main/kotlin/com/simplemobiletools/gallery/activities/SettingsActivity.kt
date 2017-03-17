@@ -26,6 +26,7 @@ class SettingsActivity : SimpleActivity() {
         super.onResume()
 
         setupCustomizeColors()
+        setupManageIncludedFolders()
         setupManageExcludedFolders()
         setupShowHiddenFolders()
         setupAutoplayVideos()
@@ -39,6 +40,12 @@ class SettingsActivity : SimpleActivity() {
     private fun setupCustomizeColors() {
         settings_customize_colors_holder.setOnClickListener {
             startCustomizationActivity()
+        }
+    }
+
+    private fun setupManageIncludedFolders() {
+        settings_manage_included_folders_holder.setOnClickListener {
+            startActivity(Intent(this, IncludedFoldersActivity::class.java))
         }
     }
 

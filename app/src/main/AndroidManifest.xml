@@ -97,6 +97,11 @@
             android:theme="@style/FullScreenTheme"/>
 
         <activity
+            android:name=".activities.IncludedFoldersActivity"
+            android:label="@string/include_folders"
+            android:parentActivityName=".activities.SettingsActivity"/>
+
+        <activity
             android:name=".activities.ExcludedFoldersActivity"
             android:label="@string/excluded_folders"
             android:parentActivityName=".activities.SettingsActivity"/>
