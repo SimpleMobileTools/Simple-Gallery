@@ -1,16 +1,42 @@
 package com.simplemobiletools.gallery.activities
 
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
+import kotlinx.android.synthetic.main.activity_included_folders.*
+import kotlinx.android.synthetic.main.item_manage_folder.view.*
 
 class IncludedFoldersActivity : SimpleActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_included_folders)
+        updateIncludedFolders()
+    }
+
+    private fun updateIncludedFolders() {
+        included_folders_holder.removeAllViews()
+        val folders = config.includedFolders
+        for (folder in folders) {
+            layoutInflater.inflate(R.layout.item_manage_folder, null, false).apply {
+                managed_folder_title.apply {
+                    text = folder
+                    setTextColor(config.textColor)
+                }
+                managed_folders_icon.apply {
+                    setColorFilter(config.textColor, PorterDuff.Mode.SRC_IN)
+                    alpha = 0.7f
+                    setOnClickListener {
+                        config.removeIncludedFolder(folder)
+                        updateIncludedFolders()
+                    }
+                }
+                included_folders_holder.addView(this)
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

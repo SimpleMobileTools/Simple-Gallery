@@ -8,7 +8,7 @@ import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
 import kotlinx.android.synthetic.main.activity_excluded_folders.*
-import kotlinx.android.synthetic.main.item_excluded_folder.view.*
+import kotlinx.android.synthetic.main.item_manage_folder.view.*
 
 class ExcludedFoldersActivity : SimpleActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,12 +21,12 @@ class ExcludedFoldersActivity : SimpleActivity() {
         excluded_folders_holder.removeAllViews()
         val folders = config.excludedFolders
         for (folder in folders) {
-            layoutInflater.inflate(R.layout.item_excluded_folder, null, false).apply {
-                excluded_folder_title.apply {
+            layoutInflater.inflate(R.layout.item_manage_folder, null, false).apply {
+                managed_folder_title.apply {
                     text = folder
                     setTextColor(config.textColor)
                 }
-                excluded_folders_icon.apply {
+                managed_folders_icon.apply {
                     setColorFilter(config.textColor, PorterDuff.Mode.SRC_IN)
                     alpha = 0.7f
                     setOnClickListener {
