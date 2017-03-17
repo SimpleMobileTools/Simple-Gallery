@@ -4,6 +4,7 @@ import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
 import kotlinx.android.synthetic.main.activity_excluded_folders.*
@@ -52,6 +53,9 @@ class ExcludedFoldersActivity : SimpleActivity() {
     }
 
     private fun addExcludedFolder() {
-
+        FilePickerDialog(this, pickFile = false, showHidden = config.showHiddenFolders) {
+            config.addExcludedFolder(it)
+            updateExcludedFolders()
+        }
     }
 }
