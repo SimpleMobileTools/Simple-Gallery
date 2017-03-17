@@ -336,7 +336,6 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                                 .load(path)
                                 .asGif()
                                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                                .placeholder(backgroundColor)
                                 .centerCrop()
                                 .crossFade()
                                 .into(dir_thumbnail)
@@ -345,10 +344,16 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                                 .load(path)
                                 .asBitmap()
                                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                                .placeholder(backgroundColor)
                                 .centerCrop()
                                 .into(dir_thumbnail)
                     }
+                } else if (path.isVideoFast()) {
+                    Glide.with(activity)
+                            .load(path)
+                            .diskCacheStrategy(DiskCacheStrategy.RESULT)
+                            .centerCrop()
+                            .crossFade()
+                            .into(dir_thumbnail)
                 } else {
                     Picasso.with(activity)
                             .load("file:$path")

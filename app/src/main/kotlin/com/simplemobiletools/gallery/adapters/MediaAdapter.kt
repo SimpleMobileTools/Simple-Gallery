@@ -15,6 +15,7 @@ import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.beVisibleIf
+import com.simplemobiletools.commons.extensions.isVideoFast
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.MediaActivity
@@ -265,6 +266,13 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                                 .centerCrop()
                                 .into(medium_thumbnail)
                     }
+                } else if (path.isVideoFast()) {
+                    Glide.with(activity)
+                            .load(path)
+                            .diskCacheStrategy(DiskCacheStrategy.RESULT)
+                            .centerCrop()
+                            .crossFade()
+                            .into(medium_thumbnail)
                 } else {
                     Picasso.with(activity)
                             .load("file:$path")
