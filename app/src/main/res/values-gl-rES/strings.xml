@@ -32,6 +32,10 @@
     <string name="remove_all">Eliminar todo</string>
     <string name="remove_all_description">¿Eliminar todas las carpetas de la lista de excluidas? Esto no borrará las carpetas.</string>
 
+    <!-- Include folders -->
+    <string name="include_folders">Included folders</string>
+    <string name="manage_included_folders">Manage included folders</string>
+
     <!-- Resizing -->
     <string name="resize">Redimensionar</string>
     <string name="resize_and_save">Redimensionar la selección y guardar</string>

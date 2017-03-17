@@ -32,6 +32,10 @@
     <string name="remove_all">Remove all</string>
     <string name="remove_all_description">Remove all folders from the list of excluded? This will not delete the folders.</string>
 
+    <!-- Include folders -->
+    <string name="include_folders">Included folders</string>
+    <string name="manage_included_folders">Manage included folders</string>
+
     <!-- Resizing -->
     <string name="resize">缩放</string>
     <string name="resize_and_save">缩放选定区域并保存</string>

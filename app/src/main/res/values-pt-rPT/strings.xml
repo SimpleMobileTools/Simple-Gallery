@@ -32,6 +32,10 @@
     <string name="remove_all">Remover todas</string>
     <string name="remove_all_description">Remover todas as pastas de lista de exclusões? Esta ação não apaga as pastas.</string>
 
+    <!-- Include folders -->
+    <string name="include_folders">Included folders</string>
+    <string name="manage_included_folders">Manage included folders</string>
+
     <!-- Resizing -->
     <string name="resize">Redimensionar</string>
     <string name="resize_and_save">Redimensionar seleção e guardar</string>

@@ -32,6 +32,10 @@
     <string name="remove_all">Usuń wszystko</string>
     <string name="remove_all_description">Usuń wszystkie foldery z listy wykluczone? To nie usuwa folderów.</string>
 
+    <!-- Include folders -->
+    <string name="include_folders">Included folders</string>
+    <string name="manage_included_folders">Manage included folders</string>
+
     <!-- Resizing -->
     <string name="resize">Zmień rozmiar</string>
     <string name="resize_and_save">Zmień i zapisz</string>

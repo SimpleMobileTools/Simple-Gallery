@@ -32,6 +32,10 @@
     <string name="remove_all">Hepsini sil</string>
     <string name="remove_all_description">Hariç tutulanlar listesinden tüm klasörleri kaldırmak mı istiyorsunuz? Bu, klasörler silinmez.</string>
 
+    <!-- Include folders -->
+    <string name="include_folders">Included folders</string>
+    <string name="manage_included_folders">Manage included folders</string>
+
     <!-- Resizing -->
     <string name="resize">Yeniden boyutlandır</string>
     <string name="resize_and_save">Seçimi yeniden boyutlandır ve kaydet</string>

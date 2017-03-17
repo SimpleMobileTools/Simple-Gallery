@@ -32,6 +32,10 @@
     <string name="remove_all">Удалить всё</string>
     <string name="remove_all_description">Очистить список исключённых? Сами папки не будут удалены.</string>
 
+    <!-- Include folders -->
+    <string name="include_folders">Included folders</string>
+    <string name="manage_included_folders">Manage included folders</string>
+
     <!-- Resizing -->
     <string name="resize">Изменить размер</string>
     <string name="resize_and_save">Изменить выбранное и сохранить</string>

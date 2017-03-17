@@ -32,6 +32,10 @@
     <string name="remove_all">Odstrániť všetky</string>
     <string name="remove_all_description">Odstrániť všetky priečinky zo zoznamu vylúčených? Táto operácia neodstráni samotný obsah priečinkov.</string>
 
+    <!-- Include folders -->
+    <string name="include_folders">Pridané priečinky</string>
+    <string name="manage_included_folders">Spravovať pridané priečinky</string>
+
     <!-- Resizing -->
     <string name="resize">Zmeniť veľkosť</string>
     <string name="resize_and_save">Zmeniť veľkosť a uložiť</string>
