@@ -74,6 +74,8 @@ fun Context.getParents(): ArrayList<String> {
         parentsSet.addAll(noMediaFolders)
     }
 
+    parentsSet.addAll(config.includedFolders)
+
     parentsSet.filterTo(parents, {
         val file = File(it)
         if (file.isDirectory && file.canonicalFile == file.absoluteFile) {  // filter out symbolic links too
