@@ -75,7 +75,8 @@ fun Context.getParents(): ArrayList<String> {
     }
 
     parentsSet.filterTo(parents, {
-        if (File(it).isDirectory) {
+        val file = File(it)
+        if (file.isDirectory && file.canonicalFile == file.absoluteFile) {  // filter out symbolic links too
             if (!config.showHiddenFolders) {
                 isFolderVisible(it, noMediaFolders)
             } else
