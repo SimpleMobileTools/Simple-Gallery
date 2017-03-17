@@ -9,13 +9,11 @@ import com.bignerdranch.android.multiselector.ModalMultiSelectorCallback
 import com.bignerdranch.android.multiselector.MultiSelector
 import com.bignerdranch.android.multiselector.SwappingHolder
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.simplemobiletools.commons.asynctasks.CopyMoveTask
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.beVisibleIf
-import com.simplemobiletools.commons.extensions.isVideoFast
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.MediaActivity
@@ -23,7 +21,6 @@ import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.models.Medium
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.photo_video_item.view.*
 import kotlinx.android.synthetic.main.photo_video_tmb.view.*
 import java.io.File
@@ -247,39 +244,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 photo_name.beVisibleIf(displayFilenames)
                 photo_name.text = medium.name
                 toggleItemSelection(this, markedItems.contains(pos), pos)
-
-                val path = medium.path
-                if (medium.isGif()) {
-                    if (animateGifs) {
-                        Glide.with(activity)
-                                .load(path)
-                                .asGif()
-                                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                                .centerCrop()
-                                .crossFade()
-                                .into(medium_thumbnail)
-                    } else {
-                        Glide.with(activity)
-                                .load(path)
-                                .asBitmap()
-                                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                                .centerCrop()
-                                .into(medium_thumbnail)
-                    }
-                } else if (path.isVideoFast()) {
-                    Glide.with(activity)
-                            .load(path)
-                            .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                            .centerCrop()
-                            .crossFade()
-                            .into(medium_thumbnail)
-                } else {
-                    Picasso.with(activity)
-                            .load("file:$path")
-                            .resize(MediaActivity.thumbnailSize, MediaActivity.thumbnailSize)
-                            .centerCrop()
-                            .into(medium_thumbnail)
-                }
+                activity.loadImage(medium.path, MediaActivity.thumbnailSize, medium_thumbnail)
 
                 setOnClickListener { viewClicked(multiSelector, medium, pos) }
                 setOnLongClickListener {

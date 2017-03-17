@@ -10,15 +10,20 @@ import android.view.KeyCharacterMap
 import android.view.KeyEvent
 import android.view.View
 import android.view.ViewConfiguration
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
+import com.simplemobiletools.gallery.adapters.MediaAdapter
 import com.simplemobiletools.gallery.helpers.NOMEDIA
 import com.simplemobiletools.gallery.helpers.REQUEST_EDIT_IMAGE
 import com.simplemobiletools.gallery.helpers.REQUEST_SET_WALLPAPER
 import com.simplemobiletools.gallery.models.Medium
+import com.simplemobiletools.gallery.views.MyImageView
+import com.squareup.picasso.Picasso
 import java.io.File
 import java.util.*
 
@@ -178,5 +183,39 @@ fun SimpleActivity.removeNoMedia(path: String, callback: () -> Unit) {
         scanFile(File(path)) {
             callback()
         }
+    }
+}
+
+fun Activity.loadImage(path: String, size: Int, target: MyImageView) {
+    if (path.isGif()) {
+        if (MediaAdapter.animateGifs) {
+            Glide.with(this)
+                    .load(path)
+                    .asGif()
+                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                    .centerCrop()
+                    .crossFade()
+                    .into(target)
+        } else {
+            Glide.with(this)
+                    .load(path)
+                    .asBitmap()
+                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                    .centerCrop()
+                    .into(target)
+        }
+    } else if (path.isVideoFast()) {
+        Glide.with(this)
+                .load(path)
+                .diskCacheStrategy(DiskCacheStrategy.RESULT)
+                .centerCrop()
+                .crossFade()
+                .into(target)
+    } else {
+        Picasso.with(this)
+                .load("file:$path")
+                .resize(size, size)
+                .centerCrop()
+                .into(target)
     }
 }
