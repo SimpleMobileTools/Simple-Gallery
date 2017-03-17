@@ -9,7 +9,6 @@ import com.bignerdranch.android.multiselector.ModalMultiSelectorCallback
 import com.bignerdranch.android.multiselector.MultiSelector
 import com.bignerdranch.android.multiselector.SwappingHolder
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.simplemobiletools.commons.asynctasks.CopyMoveTask
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
@@ -18,10 +17,12 @@ import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.activities.MediaActivity
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.models.Medium
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.photo_video_item.view.*
 import kotlinx.android.synthetic.main.photo_video_tmb.view.*
 import java.io.File
@@ -249,18 +250,27 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 val path = medium.path
                 if (medium.isGif()) {
                     if (animateGifs) {
-                        Glide.with(activity).load(path).asGif().diskCacheStrategy(DiskCacheStrategy.SOURCE).placeholder(backgroundColor)
-                                .centerCrop().crossFade().into(medium_thumbnail)
+                        Glide.with(activity)
+                                .load(path)
+                                .asGif()
+                                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                                .centerCrop()
+                                .crossFade()
+                                .into(medium_thumbnail)
                     } else {
-                        Glide.with(activity).load(path).asBitmap().diskCacheStrategy(DiskCacheStrategy.NONE).placeholder(backgroundColor)
-                                .centerCrop().into(medium_thumbnail)
+                        Glide.with(activity)
+                                .load(path)
+                                .asBitmap()
+                                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                                .centerCrop()
+                                .into(medium_thumbnail)
                     }
-                } else if (medium.isPng()) {
-                    Glide.with(activity).load(path).asBitmap().format(DecodeFormat.PREFER_ARGB_8888).diskCacheStrategy(DiskCacheStrategy.RESULT)
-                            .placeholder(backgroundColor).centerCrop().into(medium_thumbnail)
                 } else {
-                    Glide.with(activity).load(path).diskCacheStrategy(DiskCacheStrategy.RESULT).placeholder(backgroundColor)
-                            .centerCrop().crossFade().into(medium_thumbnail)
+                    Picasso.with(activity)
+                            .load("file:$path")
+                            .resize(MediaActivity.thumbnailSize, MediaActivity.thumbnailSize)
+                            .centerCrop()
+                            .into(medium_thumbnail)
                 }
 
                 setOnClickListener { viewClicked(multiSelector, medium, pos) }
