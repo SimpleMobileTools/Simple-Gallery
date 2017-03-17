@@ -61,7 +61,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             mIsGetAnyIntent = getBooleanExtra(GET_ANY_INTENT, false)
         }
 
-        updateThumbnailWidth()
+        updateThumbnailSize()
         media_refresh_layout.setOnRefreshListener({ getMedia() })
         mPath = intent.getStringExtra(DIRECTORY)
         mStoredAnimateGifs = config.animateGifs
@@ -99,10 +99,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     override fun onConfigurationChanged(newConfig: Configuration?) {
         super.onConfigurationChanged(newConfig)
-        updateThumbnailWidth()
+        updateThumbnailSize()
     }
 
-    private fun updateThumbnailWidth() {
+    private fun updateThumbnailSize() {
         val metrics = DisplayMetrics()
         windowManager.defaultDisplay.getMetrics(metrics)
         thumbnailSize = metrics.widthPixels / config.mediaColumnCnt
@@ -277,13 +277,13 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun increaseColumnCount() {
         config.mediaColumnCnt = ++(media_grid.layoutManager as GridLayoutManager).spanCount
         invalidateOptionsMenu()
-        updateThumbnailWidth()
+        updateThumbnailSize()
     }
 
     private fun reduceColumnCount() {
         config.mediaColumnCnt = --(media_grid.layoutManager as GridLayoutManager).spanCount
         invalidateOptionsMenu()
-        updateThumbnailWidth()
+        updateThumbnailSize()
     }
 
     override fun deleteFiles(files: ArrayList<File>) {

@@ -7,7 +7,7 @@ import com.simplemobiletools.gallery.helpers.SORT_DESCENDING
 import java.io.Serializable
 
 data class Directory(val path: String, val thumbnail: String, val name: String, var mediaCnt: Int, val date_modified: Long, val date_taken: Long,
-                var size: Long) : Serializable, Comparable<Directory> {
+                     var size: Long) : Serializable, Comparable<Directory> {
     companion object {
         private val serialVersionUID = -6553649863575455L
         var sorting: Int = 0

@@ -9,7 +9,6 @@ import com.bignerdranch.android.multiselector.ModalMultiSelectorCallback
 import com.bignerdranch.android.multiselector.MultiSelector
 import com.bignerdranch.android.multiselector.SwappingHolder
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.simplemobiletools.commons.asynctasks.CopyMoveTask
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
@@ -17,11 +16,13 @@ import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.activities.MainActivity
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.dialogs.ExcludeFolderDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.models.Directory
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.directory_item.view.*
 import kotlinx.android.synthetic.main.directory_tmb.view.*
 import java.io.File
@@ -328,21 +329,32 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                 dir_pin.visibility = if (isPinned) View.VISIBLE else View.GONE
                 toggleItemSelection(this, markedItems.contains(pos), pos)
 
-                val tmb = directory.thumbnail
-                if (tmb.isGif()) {
+                val path = directory.thumbnail
+                if (path.isGif()) {
                     if (animateGifs) {
-                        Glide.with(activity).load(tmb).asGif().diskCacheStrategy(DiskCacheStrategy.SOURCE).placeholder(backgroundColor)
-                                .centerCrop().crossFade().into(dir_thumbnail)
+                        Glide.with(activity)
+                                .load(path)
+                                .asGif()
+                                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                                .placeholder(backgroundColor)
+                                .centerCrop()
+                                .crossFade()
+                                .into(dir_thumbnail)
                     } else {
-                        Glide.with(activity).load(tmb).asBitmap().diskCacheStrategy(DiskCacheStrategy.RESULT).placeholder(backgroundColor)
-                                .centerCrop().into(dir_thumbnail)
+                        Glide.with(activity)
+                                .load(path)
+                                .asBitmap()
+                                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                                .placeholder(backgroundColor)
+                                .centerCrop()
+                                .into(dir_thumbnail)
                     }
-                } else if (tmb.toLowerCase().endsWith(".png")) {
-                    Glide.with(activity).load(tmb).asBitmap().format(DecodeFormat.PREFER_ARGB_8888).diskCacheStrategy(DiskCacheStrategy.RESULT)
-                            .placeholder(backgroundColor).centerCrop().into(dir_thumbnail)
                 } else {
-                    Glide.with(activity).load(tmb).diskCacheStrategy(DiskCacheStrategy.RESULT).placeholder(backgroundColor)
-                            .centerCrop().crossFade().into(dir_thumbnail)
+                    Picasso.with(activity)
+                            .load("file:$path")
+                            .resize(MainActivity.thumbnailSize, MainActivity.thumbnailSize)
+                            .centerCrop()
+                            .into(dir_thumbnail)
                 }
 
                 setOnClickListener { viewClicked(multiSelector, directory, pos) }
