@@ -11,7 +11,6 @@ import com.bignerdranch.android.multiselector.SwappingHolder
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.signature.StringSignature
 import com.simplemobiletools.commons.asynctasks.CopyMoveTask
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
@@ -330,21 +329,20 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                 toggleItemSelection(this, markedItems.contains(pos), pos)
 
                 val tmb = directory.thumbnail
-                val timestampSignature = StringSignature(directory.date_modified.toString())
                 if (tmb.isGif()) {
                     if (animateGifs) {
-                        Glide.with(activity).load(tmb).asGif().diskCacheStrategy(DiskCacheStrategy.SOURCE).signature(timestampSignature)
-                                .placeholder(backgroundColor).centerCrop().crossFade().into(dir_thumbnail)
+                        Glide.with(activity).load(tmb).asGif().diskCacheStrategy(DiskCacheStrategy.SOURCE).placeholder(backgroundColor)
+                                .centerCrop().crossFade().into(dir_thumbnail)
                     } else {
-                        Glide.with(activity).load(tmb).asBitmap().diskCacheStrategy(DiskCacheStrategy.RESULT).signature(timestampSignature)
-                                .placeholder(backgroundColor).centerCrop().into(dir_thumbnail)
+                        Glide.with(activity).load(tmb).asBitmap().diskCacheStrategy(DiskCacheStrategy.RESULT).placeholder(backgroundColor)
+                                .centerCrop().into(dir_thumbnail)
                     }
                 } else if (tmb.toLowerCase().endsWith(".png")) {
                     Glide.with(activity).load(tmb).asBitmap().format(DecodeFormat.PREFER_ARGB_8888).diskCacheStrategy(DiskCacheStrategy.RESULT)
-                            .signature(timestampSignature).placeholder(backgroundColor).centerCrop().into(dir_thumbnail)
+                            .placeholder(backgroundColor).centerCrop().into(dir_thumbnail)
                 } else {
-                    Glide.with(activity).load(tmb).diskCacheStrategy(DiskCacheStrategy.RESULT).signature(timestampSignature)
-                            .placeholder(backgroundColor).centerCrop().crossFade().into(dir_thumbnail)
+                    Glide.with(activity).load(tmb).diskCacheStrategy(DiskCacheStrategy.RESULT).placeholder(backgroundColor)
+                            .centerCrop().crossFade().into(dir_thumbnail)
                 }
 
                 setOnClickListener { viewClicked(multiSelector, directory, pos) }

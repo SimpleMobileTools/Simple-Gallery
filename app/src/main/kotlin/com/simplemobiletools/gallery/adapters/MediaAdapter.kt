@@ -11,7 +11,6 @@ import com.bignerdranch.android.multiselector.SwappingHolder
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.signature.StringSignature
 import com.simplemobiletools.commons.asynctasks.CopyMoveTask
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
@@ -248,21 +247,20 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 toggleItemSelection(this, markedItems.contains(pos), pos)
 
                 val path = medium.path
-                val timestampSignature = StringSignature(medium.date_modified.toString())
                 if (medium.isGif()) {
                     if (animateGifs) {
-                        Glide.with(activity).load(path).asGif().diskCacheStrategy(DiskCacheStrategy.SOURCE).signature(timestampSignature)
-                                .placeholder(backgroundColor).centerCrop().crossFade().into(medium_thumbnail)
+                        Glide.with(activity).load(path).asGif().diskCacheStrategy(DiskCacheStrategy.SOURCE).placeholder(backgroundColor)
+                                .centerCrop().crossFade().into(medium_thumbnail)
                     } else {
-                        Glide.with(activity).load(path).asBitmap().diskCacheStrategy(DiskCacheStrategy.NONE).signature(timestampSignature)
-                                .placeholder(backgroundColor).centerCrop().into(medium_thumbnail)
+                        Glide.with(activity).load(path).asBitmap().diskCacheStrategy(DiskCacheStrategy.NONE).placeholder(backgroundColor)
+                                .centerCrop().into(medium_thumbnail)
                     }
                 } else if (medium.isPng()) {
                     Glide.with(activity).load(path).asBitmap().format(DecodeFormat.PREFER_ARGB_8888).diskCacheStrategy(DiskCacheStrategy.RESULT)
-                            .signature(timestampSignature).placeholder(backgroundColor).centerCrop().into(medium_thumbnail)
+                            .placeholder(backgroundColor).centerCrop().into(medium_thumbnail)
                 } else {
-                    Glide.with(activity).load(path).diskCacheStrategy(DiskCacheStrategy.RESULT).signature(timestampSignature)
-                            .placeholder(backgroundColor).centerCrop().crossFade().into(medium_thumbnail)
+                    Glide.with(activity).load(path).diskCacheStrategy(DiskCacheStrategy.RESULT).placeholder(backgroundColor)
+                            .centerCrop().crossFade().into(medium_thumbnail)
                 }
 
                 setOnClickListener { viewClicked(multiSelector, medium, pos) }
