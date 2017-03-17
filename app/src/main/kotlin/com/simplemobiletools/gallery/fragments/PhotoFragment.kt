@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
+import com.bumptech.glide.Priority
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.simplemobiletools.commons.extensions.beGone
 import com.simplemobiletools.commons.extensions.beVisible
@@ -124,6 +125,7 @@ class PhotoFragment : ViewPagerFragment() {
                     .load(medium.path)
                     .asGif()
                     .crossFade()
+                    .priority(if (isFragmentVisible) Priority.IMMEDIATE else Priority.LOW)
                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                     .into(view.gif_holder)
         } else {
@@ -135,6 +137,7 @@ class PhotoFragment : ViewPagerFragment() {
         Picasso.with(activity)
                 .load("file:${medium.path}")
                 .resize(ViewPagerActivity.screenWidth * 2, ViewPagerActivity.screenHeight * 2)
+                .priority(if (isFragmentVisible) Picasso.Priority.HIGH else Picasso.Priority.LOW)
                 .rotate(degrees)
                 .centerInside()
                 .into(view.photo_view)
