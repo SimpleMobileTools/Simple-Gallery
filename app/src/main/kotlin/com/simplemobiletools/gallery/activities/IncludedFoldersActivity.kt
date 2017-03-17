@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
+import com.simplemobiletools.commons.extensions.scanPath
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
 import kotlinx.android.synthetic.main.activity_included_folders.*
@@ -55,6 +56,7 @@ class IncludedFoldersActivity : SimpleActivity() {
     private fun addIncludedFolder() {
         FilePickerDialog(this, pickFile = false, showHidden = config.showHiddenFolders) {
             config.addIncludedFolder(it)
+            scanPath(it) {}
         }
     }
 }
