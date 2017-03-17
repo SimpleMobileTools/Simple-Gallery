@@ -4,7 +4,6 @@ import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
 import kotlinx.android.synthetic.main.activity_excluded_folders.*
@@ -46,16 +45,13 @@ class ExcludedFoldersActivity : SimpleActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.remove_all -> removeAllExcludedFolders()
+            R.id.add_folder -> addExcludedFolder()
             else -> return super.onOptionsItemSelected(item)
         }
         return true
     }
 
-    private fun removeAllExcludedFolders() {
-        ConfirmationDialog(this, getString(R.string.remove_all_description)) {
-            config.removeAllExcludedFolders()
-            updateExcludedFolders()
-        }
+    private fun addExcludedFolder() {
+
     }
 }

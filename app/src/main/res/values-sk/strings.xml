@@ -35,6 +35,7 @@
     <!-- Include folders -->
     <string name="include_folders">Pridané priečinky</string>
     <string name="manage_included_folders">Spravovať pridané priečinky</string>
+    <string name="add_folder">Pridať priečinok</string>
 
     <!-- Resizing -->
     <string name="resize">Zmeniť veľkosť</string>

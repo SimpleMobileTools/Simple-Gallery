@@ -35,6 +35,7 @@
     <!-- Include folders -->
     <string name="include_folders">Included folders</string>
     <string name="manage_included_folders">Manage included folders</string>
+    <string name="add_folder">Add folder</string>
 
     <!-- Resizing -->
     <string name="resize">Yeniden boyutlandır</string>
