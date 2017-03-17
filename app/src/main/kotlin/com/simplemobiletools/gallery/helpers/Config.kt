@@ -78,13 +78,25 @@ class Config(context: Context) : BaseConfig(context) {
         excludedFolders = currExcludedFolders
     }
 
-    fun removeAllExcludedFolders() {
-        prefs.edit().remove(EXCLUDED_FOLDERS).apply()
-    }
-
     var excludedFolders: MutableSet<String>
         get() = prefs.getStringSet(EXCLUDED_FOLDERS, HashSet<String>())
         set(excludedFolders) = prefs.edit().remove(EXCLUDED_FOLDERS).putStringSet(EXCLUDED_FOLDERS, excludedFolders).apply()
+
+    fun addIncludedFolder(path: String) {
+        val currIncludedFolders = HashSet<String>(includedFolders)
+        currIncludedFolders.add(path)
+        includedFolders = currIncludedFolders
+    }
+
+    fun removeIncludedFolder(path: String) {
+        val currIncludedFolders = HashSet<String>(includedFolders)
+        currIncludedFolders.remove(path)
+        includedFolders = currIncludedFolders
+    }
+
+    var includedFolders: MutableSet<String>
+        get() = prefs.getStringSet(INCLUDED_FOLDERS, HashSet<String>())
+        set(includedFolders) = prefs.edit().remove(INCLUDED_FOLDERS).putStringSet(INCLUDED_FOLDERS, includedFolders).apply()
 
     fun saveFolderMedia(path: String, json: String) {
         prefs.edit().putString(SAVE_FOLDER_PREFIX + path, json).apply()
