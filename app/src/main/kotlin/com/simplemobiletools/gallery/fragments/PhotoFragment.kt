@@ -6,19 +6,20 @@ import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.net.Uri
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.simplemobiletools.commons.extensions.beGone
+import com.simplemobiletools.commons.extensions.beVisible
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.getRealPathFromURI
-import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
+import com.squareup.picasso.Picasso
 import it.sephiroth.android.library.exif2.ExifInterface
 import kotlinx.android.synthetic.main.pager_photo_item.view.*
 import uk.co.senab.photoview.PhotoViewAttacher
@@ -118,6 +119,7 @@ class PhotoFragment : ViewPagerFragment() {
     private fun loadImage() {
         if (medium.isGif()) {
             view.photo_view.beGone()
+            view.gif_holder.beVisible()
             Glide.with(this)
                     .load(medium.path)
                     .asGif()
@@ -130,13 +132,12 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun loadBitmap(degrees: Float = 0f) {
-        Glide.with(this)
-                .load(medium.path)
-                .asBitmap()
-                .transform(GlideRotateTransformation(context, degrees))
-                .format(if (medium.isPng()) DecodeFormat.PREFER_ARGB_8888 else DecodeFormat.PREFER_RGB_565)
-                .thumbnail(0.2f)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
+        val metrics = DisplayMetrics()
+        activity.windowManager.defaultDisplay.getMetrics(metrics)
+        Picasso.with(activity)
+                .load("file:${medium.path}")
+                .resize(metrics.widthPixels * 2, metrics.heightPixels * 2)
+                .centerInside()
                 .into(view.photo_view)
     }
 
@@ -146,7 +147,6 @@ class PhotoFragment : ViewPagerFragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        Glide.clear(view.photo_view)
         Glide.clear(view.gif_holder)
     }
 

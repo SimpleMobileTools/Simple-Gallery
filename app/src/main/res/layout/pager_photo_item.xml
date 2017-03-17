@@ -8,7 +8,8 @@
     <ImageView
         android:id="@+id/gif_holder"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
 
     <uk.co.senab.photoview.PhotoView
         android:id="@+id/photo_view"
