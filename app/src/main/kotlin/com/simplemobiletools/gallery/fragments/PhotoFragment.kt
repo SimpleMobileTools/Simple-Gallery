@@ -137,6 +137,7 @@ class PhotoFragment : ViewPagerFragment() {
         Picasso.with(activity)
                 .load("file:${medium.path}")
                 .resize(metrics.widthPixels * 2, metrics.heightPixels * 2)
+                .rotate(degrees)
                 .centerInside()
                 .into(view.photo_view)
     }
