@@ -54,6 +54,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     companion object {
         var screenWidth = 0
         var screenHeight = 0
+        var screenDensity = 0f
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -174,13 +175,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         windowManager.defaultDisplay.getMetrics(metrics)
         screenWidth = metrics.widthPixels
         screenHeight = metrics.heightPixels
+        screenDensity = metrics.density
     }
 
     private fun updatePagerItems() {
         val pagerAdapter = MyPagerAdapter(this, supportFragmentManager, mMedia)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && !isDestroyed) {
             view_pager?.apply {
-                offscreenPageLimit = 2
                 adapter = pagerAdapter
                 currentItem = mPos
                 addOnPageChangeListener(this@ViewPagerActivity)
