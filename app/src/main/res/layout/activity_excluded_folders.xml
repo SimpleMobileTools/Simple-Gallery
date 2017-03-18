@@ -5,10 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:id="@+id/excluded_folders_holder"
+    <RelativeLayout
+        android:id="@+id/exclude_folders_wrapper"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"/>
+        android:layout_height="wrap_content">
 
+        <LinearLayout
+            android:id="@+id/excluded_folders_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+    </RelativeLayout>
 </ScrollView>
