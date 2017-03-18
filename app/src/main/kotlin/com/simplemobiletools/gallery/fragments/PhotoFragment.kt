@@ -11,16 +11,14 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
+import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.simplemobiletools.commons.extensions.beGone
-import com.simplemobiletools.commons.extensions.beVisible
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.getRealPathFromURI
+import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
-import com.squareup.picasso.Picasso
 import it.sephiroth.android.library.exif2.ExifInterface
 import kotlinx.android.synthetic.main.pager_photo_item.view.*
 import uk.co.senab.photoview.PhotoViewAttacher
@@ -32,6 +30,7 @@ class PhotoFragment : ViewPagerFragment() {
     lateinit var medium: Medium
     lateinit var view: ViewGroup
     private var isFragmentVisible = false
+    private var wasInit = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         view = inflater.inflate(R.layout.pager_photo_item, container, false) as ViewGroup
@@ -73,7 +72,6 @@ class PhotoFragment : ViewPagerFragment() {
             }
         }
 
-        view.gif_holder.setOnClickListener { photoClicked() }
         view.photo_view.setOnPhotoTapListener(object : PhotoViewAttacher.OnPhotoTapListener {
             override fun onPhotoTap(view: View?, x: Float, y: Float) {
                 photoClicked()
@@ -88,6 +86,7 @@ class PhotoFragment : ViewPagerFragment() {
         activity.window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
             listener?.systemUiVisibilityChanged(visibility)
         }
+        wasInit = true
 
         return view
     }
@@ -119,28 +118,26 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun loadImage() {
         if (medium.isGif()) {
-            view.photo_view.beGone()
-            view.gif_holder.beVisible()
             Glide.with(this)
                     .load(medium.path)
                     .asGif()
                     .crossFade()
                     .priority(if (isFragmentVisible) Priority.IMMEDIATE else Priority.LOW)
                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                    .into(view.gif_holder)
+                    .into(view.photo_view)
         } else {
             loadBitmap()
         }
     }
 
     private fun loadBitmap(degrees: Float = 0f) {
-        val density = ViewPagerActivity.screenDensity
-        Picasso.with(activity)
-                .load("file:${medium.path}")
-                .resize((ViewPagerActivity.screenWidth * density).toInt(), (ViewPagerActivity.screenHeight * density).toInt())
-                .priority(if (isFragmentVisible) Picasso.Priority.HIGH else Picasso.Priority.LOW)
-                .rotate(degrees)
-                .centerInside()
+        Glide.with(this)
+                .load(medium.path)
+                .asBitmap()
+                .transform(GlideRotateTransformation(context, degrees))
+                .format(if (medium.isPng()) DecodeFormat.PREFER_ARGB_8888 else DecodeFormat.PREFER_RGB_565)
+                .thumbnail(0.1f)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .into(view.photo_view)
     }
 
@@ -150,7 +147,7 @@ class PhotoFragment : ViewPagerFragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        Glide.clear(view.gif_holder)
+        Glide.clear(view.photo_view)
     }
 
     override fun onConfigurationChanged(newConfig: Configuration?) {

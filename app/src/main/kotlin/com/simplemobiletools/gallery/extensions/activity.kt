@@ -11,6 +11,7 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.ViewConfiguration
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
@@ -23,7 +24,6 @@ import com.simplemobiletools.gallery.helpers.REQUEST_EDIT_IMAGE
 import com.simplemobiletools.gallery.helpers.REQUEST_SET_WALLPAPER
 import com.simplemobiletools.gallery.models.Medium
 import com.simplemobiletools.gallery.views.MySquareImageView
-import com.squareup.picasso.Picasso
 import java.io.File
 import java.util.*
 
@@ -139,7 +139,7 @@ fun Activity.hasNavBar(): Boolean {
 
 fun SimpleActivity.launchAbout() {
     startAboutActivity(R.string.app_name, LICENSE_KOTLIN or LICENSE_GLIDE or LICENSE_CROPPER or LICENSE_MULTISELECT or LICENSE_RTL
-            or LICENSE_PHOTOVIEW or LICENSE_PICASSO, BuildConfig.VERSION_NAME)
+            or LICENSE_PHOTOVIEW, BuildConfig.VERSION_NAME)
 }
 
 fun AppCompatActivity.showSystemUI() {
@@ -186,20 +186,24 @@ fun SimpleActivity.removeNoMedia(path: String, callback: () -> Unit) {
     }
 }
 
-fun Activity.loadImage(path: String, size: Int, target: MySquareImageView) {
-    if (path.isImageFast()) {
-        Picasso.with(this)
-                .load("file:$path")
-                .resize(size, size)
-                .centerCrop()
-                .into(target)
-    } else if (path.isVideoFast()) {
-        Glide.with(this)
-                .load(path)
-                .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                .centerCrop()
-                .crossFade()
-                .into(target)
+fun Activity.loadImage(path: String, target: MySquareImageView) {
+    if (path.isImageFast() || path.isVideoFast()) {
+        if (path.isPng()) {
+            Glide.with(this)
+                    .load(path)
+                    .asBitmap()
+                    .diskCacheStrategy(DiskCacheStrategy.RESULT)
+                    .format(DecodeFormat.PREFER_ARGB_8888)
+                    .centerCrop()
+                    .into(target)
+        } else {
+            Glide.with(this)
+                    .load(path)
+                    .diskCacheStrategy(DiskCacheStrategy.RESULT)
+                    .centerCrop()
+                    .crossFade()
+                    .into(target)
+        }
     } else if (path.isGif()) {
         if (MediaAdapter.animateGifs) {
             Glide.with(this)

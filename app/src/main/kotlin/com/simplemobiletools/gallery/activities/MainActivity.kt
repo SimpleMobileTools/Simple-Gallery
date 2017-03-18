@@ -4,13 +4,11 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v4.app.ActivityCompat
 import android.support.v7.widget.GridLayoutManager
-import android.util.DisplayMetrics
 import android.view.Menu
 import android.view.MenuItem
 import com.google.gson.Gson
@@ -52,14 +50,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private var mCurrAsyncTask: GetDirectoriesAsynctask? = null
 
-    companion object {
-        var thumbnailSize = 0
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        updateThumbnailSize()
 
         mIsPickImageIntent = isPickImageIntent(intent)
         mIsPickVideoIntent = isPickVideoIntent(intent)
@@ -122,17 +115,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     override fun onDestroy() {
         super.onDestroy()
         config.isFirstRun = false
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration?) {
-        super.onConfigurationChanged(newConfig)
-        updateThumbnailSize()
-    }
-
-    private fun updateThumbnailSize() {
-        val metrics = DisplayMetrics()
-        windowManager.defaultDisplay.getMetrics(metrics)
-        thumbnailSize = metrics.widthPixels / config.dirColumnCnt
     }
 
     private fun tryloadGallery() {
@@ -235,13 +217,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun increaseColumnCount() {
         config.dirColumnCnt = ++(directories_grid.layoutManager as GridLayoutManager).spanCount
         invalidateOptionsMenu()
-        updateThumbnailSize()
     }
 
     private fun reduceColumnCount() {
         config.dirColumnCnt = --(directories_grid.layoutManager as GridLayoutManager).spanCount
         invalidateOptionsMenu()
-        updateThumbnailSize()
     }
 
     private fun isPickImageIntent(intent: Intent) = isPickIntent(intent) && (hasImageContentData(intent) || isImageType(intent))

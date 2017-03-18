@@ -3,12 +3,10 @@ package com.simplemobiletools.gallery.activities
 import android.app.Activity
 import android.app.WallpaperManager
 import android.content.Intent
-import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
-import android.util.DisplayMetrics
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -48,10 +46,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mLoadedInitialPhotos = false
     private var mStoredAnimateGifs = true
 
-    companion object {
-        var thumbnailSize = 0
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_media)
@@ -61,7 +55,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             mIsGetAnyIntent = getBooleanExtra(GET_ANY_INTENT, false)
         }
 
-        updateThumbnailSize()
         media_refresh_layout.setOnRefreshListener({ getMedia() })
         mPath = intent.getStringExtra(DIRECTORY)
         mStoredAnimateGifs = config.animateGifs
@@ -95,17 +88,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         } else {
             finish()
         }
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration?) {
-        super.onConfigurationChanged(newConfig)
-        updateThumbnailSize()
-    }
-
-    private fun updateThumbnailSize() {
-        val metrics = DisplayMetrics()
-        windowManager.defaultDisplay.getMetrics(metrics)
-        thumbnailSize = metrics.widthPixels / config.mediaColumnCnt
     }
 
     private fun initializeGallery() {
@@ -277,13 +259,11 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun increaseColumnCount() {
         config.mediaColumnCnt = ++(media_grid.layoutManager as GridLayoutManager).spanCount
         invalidateOptionsMenu()
-        updateThumbnailSize()
     }
 
     private fun reduceColumnCount() {
         config.mediaColumnCnt = --(media_grid.layoutManager as GridLayoutManager).spanCount
         invalidateOptionsMenu()
-        updateThumbnailSize()
     }
 
     override fun deleteFiles(files: ArrayList<File>) {

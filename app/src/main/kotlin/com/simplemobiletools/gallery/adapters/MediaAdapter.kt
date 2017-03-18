@@ -245,7 +245,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 photo_name.beVisibleIf(displayFilenames)
                 photo_name.text = medium.name
                 toggleItemSelection(this, markedItems.contains(pos), pos)
-                activity.loadImage(medium.path, MediaActivity.thumbnailSize, medium_thumbnail)
+                activity.loadImage(medium.path, medium_thumbnail)
 
                 setOnClickListener { viewClicked(multiSelector, medium, pos) }
                 setOnLongClickListener {

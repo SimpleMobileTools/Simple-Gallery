@@ -18,7 +18,6 @@ import com.simplemobiletools.commons.extensions.isImageVideoGif
 import com.simplemobiletools.commons.extensions.needsStupidWritePermissions
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.activities.MainActivity
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.dialogs.ExcludeFolderDialog
@@ -330,7 +329,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                 photo_cnt.text = directory.mediaCnt.toString()
                 dir_pin.visibility = if (isPinned) View.VISIBLE else View.GONE
                 toggleItemSelection(this, markedItems.contains(pos), pos)
-                activity.loadImage(directory.thumbnail, MainActivity.thumbnailSize, dir_thumbnail)
+                activity.loadImage(directory.thumbnail, dir_thumbnail)
 
                 setOnClickListener { viewClicked(multiSelector, directory, pos) }
                 setOnLongClickListener {
