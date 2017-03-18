@@ -1,3 +1,2 @@
 -keep class com.simplemobiletools.** { *; }
 -dontwarn com.simplemobiletools.**
--dontwarn com.squareup.okhttp.**
