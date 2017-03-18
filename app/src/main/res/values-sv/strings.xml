@@ -29,6 +29,7 @@
     <string name="manage_excluded_folders">Manage excluded folders</string>
     <string name="exclude_folder_description">This will exclude the selection together with its subfolders from Simple Gallery only. You can manage excluded folders in Settings.</string>
     <string name="exclude_folder_parent">Exclude a parent instead?</string>
+    <string name="excluded_activity_placeholder">Excluding folders will make them together with their subfolders hidden just in Simple Gallery, they will still be visible in other applications.\\n\\nIf you want to hide them from other apps too, use the Hide function.</string>
     <string name="remove_all">Remove all</string>
     <string name="remove_all_description">Remove all folders from the list of excluded? This will not delete the folders.</string>
 
@@ -36,6 +37,7 @@
     <string name="include_folders">Included folders</string>
     <string name="manage_included_folders">Manage included folders</string>
     <string name="add_folder">Add folder</string>
+    <string name="included_activity_placeholder">If you have some folders which contain media, but were not recognized by the app, you can add them manually here.</string>
 
     <!-- Resizing -->
     <string name="resize">Ändra storlek</string>

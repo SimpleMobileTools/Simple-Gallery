@@ -15,5 +15,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"/>
+
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/included_folders_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingLeft="@dimen/big_margin"
+            android:paddingRight="@dimen/big_margin"
+            android:paddingTop="@dimen/activity_margin"
+            android:text="@string/included_activity_placeholder"
+            android:visibility="gone"/>
     </RelativeLayout>
 </ScrollView>

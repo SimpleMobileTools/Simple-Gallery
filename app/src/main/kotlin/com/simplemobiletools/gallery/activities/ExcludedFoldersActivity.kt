@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
+import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
 import kotlinx.android.synthetic.main.activity_excluded_folders.*
@@ -20,6 +21,9 @@ class ExcludedFoldersActivity : SimpleActivity() {
     private fun updateExcludedFolders() {
         excluded_folders_holder.removeAllViews()
         val folders = config.excludedFolders
+        excluded_folders_placeholder.beVisibleIf(folders.isEmpty())
+        excluded_folders_placeholder.setTextColor(config.textColor)
+
         for (folder in folders) {
             layoutInflater.inflate(R.layout.item_manage_folder, null, false).apply {
                 managed_folder_title.apply {

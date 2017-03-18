@@ -29,6 +29,7 @@
     <string name="manage_excluded_folders">Hariç tutulan klasörleri yönet</string>
     <string name="exclude_folder_description">Bu, seçimi alt klasörleriyle birlikte yalnızca Basit Galeri\'den hariç tutacaktır. Dışlanan klasörleri Ayarlar\'dan yönetebilirsiniz.</string>
     <string name="exclude_folder_parent">Bunun yerine ebeveynleri hariç tutun?</string>
+    <string name="excluded_activity_placeholder">Excluding folders will make them together with their subfolders hidden just in Simple Gallery, they will still be visible in other applications.\\n\\nIf you want to hide them from other apps too, use the Hide function.</string>
     <string name="remove_all">Hepsini sil</string>
     <string name="remove_all_description">Hariç tutulanlar listesinden tüm klasörleri kaldırmak mı istiyorsunuz? Bu, klasörler silinmez.</string>
 
@@ -36,6 +37,7 @@
     <string name="include_folders">Included folders</string>
     <string name="manage_included_folders">Manage included folders</string>
     <string name="add_folder">Add folder</string>
+    <string name="included_activity_placeholder">If you have some folders which contain media, but were not recognized by the app, you can add them manually here.</string>
 
     <!-- Resizing -->
     <string name="resize">Yeniden boyutlandır</string>
