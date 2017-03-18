@@ -19,8 +19,8 @@
     <ImageView
         android:id="@+id/managed_folders_icon"
         style="@style/MyBorderlessBackgroundStyle"
-        android:layout_width="@dimen/exclude_folder_img_size"
-        android:layout_height="@dimen/exclude_folder_img_size"
+        android:layout_width="@dimen/normal_icon_size"
+        android:layout_height="@dimen/normal_icon_size"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:padding="@dimen/medium_margin"
