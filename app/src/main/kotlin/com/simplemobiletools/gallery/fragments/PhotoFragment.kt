@@ -134,10 +134,10 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun loadBitmap(degrees: Float = 0f) {
-        val densiy = ViewPagerActivity.screenDensity
+        val densiyy = ViewPagerActivity.screenDensity
         Picasso.with(activity)
                 .load("file:${medium.path}")
-                .resize((ViewPagerActivity.screenWidth * densiy).toInt(), (ViewPagerActivity.screenHeight * densiy).toInt())
+                .resize((ViewPagerActivity.screenWidth * densiyy).toInt(), (ViewPagerActivity.screenHeight * densiyy).toInt())
                 .priority(if (isFragmentVisible) Picasso.Priority.HIGH else Picasso.Priority.LOW)
                 .rotate(degrees)
                 .centerInside()
