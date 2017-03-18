@@ -2,7 +2,10 @@
 <resources>
 
     <!-- Release notes -->
-    <string name="release_84">Added an option to use max brightness at viewing fullscreen media</string>
+    <string name="release_84">
+        Added an option to use max brightness at viewing fullscreen media\n
+        Added an option to manually include folders which contain media, but were not recognized by the app
+    </string>
     <string name="release_83">
         Fixed some sharing and editor issues\n
         Sorry for the frequent updates lately, they should be stopped now.
