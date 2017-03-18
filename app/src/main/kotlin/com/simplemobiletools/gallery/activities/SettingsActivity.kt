@@ -96,7 +96,7 @@ class SettingsActivity : SimpleActivity() {
                     RadioItem(VIDEOS, res.getString(R.string.videos)))
 
             RadioGroupDialog(this@SettingsActivity, items, config.showMedia) {
-                config.showMedia = it
+                config.showMedia = it as Int
                 settings_show_media.text = getShowMediaText()
             }
         }
