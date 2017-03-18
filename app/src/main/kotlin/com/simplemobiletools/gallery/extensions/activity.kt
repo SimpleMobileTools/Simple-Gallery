@@ -139,7 +139,7 @@ fun Activity.hasNavBar(): Boolean {
 
 fun SimpleActivity.launchAbout() {
     startAboutActivity(R.string.app_name, LICENSE_KOTLIN or LICENSE_GLIDE or LICENSE_CROPPER or LICENSE_MULTISELECT or LICENSE_RTL
-            or LICENSE_PHOTOVIEW, BuildConfig.VERSION_NAME)
+            or LICENSE_PHOTOVIEW or LICENSE_PICASSO, BuildConfig.VERSION_NAME)
 }
 
 fun AppCompatActivity.showSystemUI() {
