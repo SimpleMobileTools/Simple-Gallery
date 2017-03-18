@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 2.7.3 *(2017-03-18)*
+----------------------------
+
+ * Improved the fullscreen images loading
+ * Updated the launcher icon
+
 Version 2.7.2 *(2017-03-18)*
 ----------------------------
 
