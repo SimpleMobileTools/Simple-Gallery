@@ -74,6 +74,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mDirs = ArrayList<Directory>()
         mStoredAnimateGifs = config.animateGifs
         storeStoragePaths()
+        checkWhatsNewDialog()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -141,7 +142,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             else
                 getDirectories()
             handleZooming()
-            checkWhatsNewDialog()
             checkIfColorChanged()
         } else {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), STORAGE_PERMISSION)
