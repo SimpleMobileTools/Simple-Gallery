@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v4.app.ActivityCompat
@@ -274,7 +275,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             if (requestCode == PICK_MEDIA && resultData != null) {
                 Intent().apply {
                     val path = resultData.data.path
-                    val uri = getFileUri(File(path))
+                    val uri = Uri.fromFile(File(path))
                     if (mIsGetImageContentIntent || mIsGetVideoContentIntent || mIsGetAnyContentIntent) {
                         val type = File(path).getMimeType("image/jpeg")
                         setDataAndTypeAndNormalize(uri, type)
