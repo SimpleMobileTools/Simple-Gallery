@@ -16,7 +16,7 @@
         android:layout_toLeftOf="@+id/managed_folders_icon"
         android:layout_toStartOf="@+id/managed_folders_icon"/>
 
-    <com.simplemobiletools.gallery.views.MyImageView
+    <ImageView
         android:id="@+id/managed_folders_icon"
         style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="@dimen/exclude_folder_img_size"

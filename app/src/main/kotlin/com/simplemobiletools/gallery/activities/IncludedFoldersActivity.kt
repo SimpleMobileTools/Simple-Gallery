@@ -33,7 +33,6 @@ class IncludedFoldersActivity : SimpleActivity() {
                 }
                 managed_folders_icon.apply {
                     setColorFilter(config.textColor, PorterDuff.Mode.SRC_IN)
-                    alpha = 0.7f
                     setOnClickListener {
                         config.removeIncludedFolder(folder)
                         updateIncludedFolders()

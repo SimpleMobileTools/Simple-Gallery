@@ -22,7 +22,7 @@ import com.simplemobiletools.gallery.helpers.NOMEDIA
 import com.simplemobiletools.gallery.helpers.REQUEST_EDIT_IMAGE
 import com.simplemobiletools.gallery.helpers.REQUEST_SET_WALLPAPER
 import com.simplemobiletools.gallery.models.Medium
-import com.simplemobiletools.gallery.views.MyImageView
+import com.simplemobiletools.gallery.views.MySquareImageView
 import com.squareup.picasso.Picasso
 import java.io.File
 import java.util.*
@@ -186,7 +186,7 @@ fun SimpleActivity.removeNoMedia(path: String, callback: () -> Unit) {
     }
 }
 
-fun Activity.loadImage(path: String, size: Int, target: MyImageView) {
+fun Activity.loadImage(path: String, size: Int, target: MySquareImageView) {
     if (path.isImageFast()) {
         Picasso.with(this)
                 .load("file:$path")

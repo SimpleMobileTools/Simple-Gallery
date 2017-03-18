@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.simplemobiletools.gallery.views.MyImageView
+        <com.simplemobiletools.gallery.views.MySquareImageView
             android:id="@+id/medium_thumbnail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
