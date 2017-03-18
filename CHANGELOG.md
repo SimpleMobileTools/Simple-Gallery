@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 2.7.0 *(2017-03-18)*
+----------------------------
+
+ * Added an option to use max brightness at viewing fullscreen media
+ * Added an option to manually include folders which contain media, but were not recognized by the app
+ * Many improvements around SD card detecting and file operations
+ * Replaced Glide with Picasso at loading most thumbnails and fullscreen images
+ * Many other optimizations and improvements
+
 Version 2.6.6 *(2017-03-09)*
 ----------------------------
 
