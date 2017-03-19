@@ -1,9 +1,9 @@
 package com.simplemobiletools.gallery.models
 
-import com.simplemobiletools.gallery.helpers.SORT_BY_DATE_MODIFIED
-import com.simplemobiletools.gallery.helpers.SORT_BY_NAME
-import com.simplemobiletools.gallery.helpers.SORT_BY_SIZE
-import com.simplemobiletools.gallery.helpers.SORT_DESCENDING
+import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
+import com.simplemobiletools.commons.helpers.SORT_BY_NAME
+import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
+import com.simplemobiletools.commons.helpers.SORT_DESCENDING
 import java.io.Serializable
 
 data class Directory(val path: String, val thumbnail: String, val name: String, var mediaCnt: Int, val date_modified: Long, val date_taken: Long,

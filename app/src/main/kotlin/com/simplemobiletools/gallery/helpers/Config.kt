@@ -2,6 +2,8 @@ package com.simplemobiletools.gallery.helpers
 
 import android.content.Context
 import com.simplemobiletools.commons.helpers.BaseConfig
+import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
+import com.simplemobiletools.commons.helpers.SORT_DESCENDING
 import com.simplemobiletools.gallery.R
 import java.util.*
 

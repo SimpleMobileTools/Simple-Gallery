@@ -2,10 +2,10 @@ package com.simplemobiletools.gallery.models
 
 import com.simplemobiletools.commons.extensions.isGif
 import com.simplemobiletools.commons.extensions.isPng
-import com.simplemobiletools.gallery.helpers.SORT_BY_DATE_MODIFIED
-import com.simplemobiletools.gallery.helpers.SORT_BY_NAME
-import com.simplemobiletools.gallery.helpers.SORT_BY_SIZE
-import com.simplemobiletools.gallery.helpers.SORT_DESCENDING
+import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
+import com.simplemobiletools.commons.helpers.SORT_BY_NAME
+import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
+import com.simplemobiletools.commons.helpers.SORT_DESCENDING
 import java.io.Serializable
 
 data class Medium(val name: String, var path: String, val isVideo: Boolean, val date_modified: Long, val date_taken: Long, val size: Long) : Serializable, Comparable<Medium> {

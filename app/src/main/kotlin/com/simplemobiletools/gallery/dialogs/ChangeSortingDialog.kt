@@ -6,10 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.setupDialogStuff
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.helpers.*
+import com.simplemobiletools.gallery.helpers.Config
 import kotlinx.android.synthetic.main.dialog_change_sorting.view.*
 
 class ChangeSortingDialog(val activity: SimpleActivity, val isDirectorySorting: Boolean, showFolderCheckbox: Boolean,
