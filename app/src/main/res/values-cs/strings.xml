@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Jednoduchá galerie</string>
+    <string name="app_launcher_name">Galerie</string>
+    <string name="edit">Upravit</string>
+    <string name="open_camera">Spustit fotoaparát</string>
+    <string name="open_with">Otevřít pomocí</string>
+    <string name="no_app_found">Nebyla nalezena žádná vhodná aplikace</string>
+    <string name="hidden">(skryté)</string>
+    <string name="pin_folder">Připnout složku</string>
+    <string name="unpin_folder">Odepnout složku</string>
+    <string name="show_all">Zobrazit obsah všech složek</string>
+    <string name="all_folders">Všechny složky</string>
+    <string name="folder_view">Přepnout na zobrazení složek</string>
+    <string name="other_folder">Jiná složka</string>
+    <string name="show_on_map">Zobrazit na mapě</string>
+    <string name="unknown_location">Neznámá poloha</string>
+    <string name="no_map_application">Nebyla nalezena žádná mapová aplikace</string>
+    <string name="no_camera_app_found">Nebyla nalezena žádná fotografická aplikace</string>
+    <string name="increase_column_count">Zvýšit počet sloupců</string>
+    <string name="reduce_column_count">Snížit počet sloupců</string>
+    <string name="temporarily_show_hidden">Dočasně zobrazit skryté</string>
+
+    <!-- Hide / Exclude -->
+    <string name="hide_folder">Skrýt složku</string>
+    <string name="unhide_folder">Odkrýt složku</string>
+    <string name="hide_folder_description">Tato funkce skryje složku, včetně podsložek, přidáním souboru \'.nomedia\'. Zobrazíte je zvolením možnosti \'Zobrazit skryté složky\' v nastavení. Pokračovat?</string>
+    <string name="exclude">Vyloučit</string>
+    <string name="excluded_folders">Vyloučené složky</string>
+    <string name="manage_excluded_folders">Spravovat vyloučené složky</string>
+    <string name="exclude_folder_description">Tato funkce vyloučí výběr včetně podsložek jen z Jednoduché galerie. V nastavení můžete spravovat vyloučené složky.</string>
+    <string name="exclude_folder_parent">Chcete vyloučit rodičovskou složku?</string>
+    <string name="excluded_activity_placeholder">Vyloučené složky budou spolu s podsložkami vyloučeny jen z Jednoduché Galerie, ostatní aplikace je nadále uvidí.\\n\\nPokud je chcete skrýt i před ostatními aplikacemi, použijte funkci Skrýt.</string>
+    <string name="remove_all">Odstranit všechny</string>
+    <string name="remove_all_description">Odstranit všechny složky ze seznamu vyloučených? Tato operace neodstraní obsah složek.</string>
+
+    <!-- Include folders -->
+    <string name="include_folders">Přidané složky</string>
+    <string name="manage_included_folders">Spravovat přidané složky</string>
+    <string name="add_folder">Přidat složku</string>
+    <string name="included_activity_placeholder">Pokud máte nějaké složky obsahující média, ale nebyly aplikací nalezeny, můžete je zde přidat ručně.</string>
+
+    <!-- Resizing -->
+    <string name="resize">Změnit velikost</string>
+    <string name="resize_and_save">Změnit velikost a uložit</string>
+    <string name="width">Šířka</string>
+    <string name="height">Výška</string>
+    <string name="keep_aspect_ratio">Zachovat poměr stran</string>
+    <string name="invalid_values">Prosím zadejte platné rozlišení</string>
+
+    <!-- Editor -->
+    <string name="editor">Editor</string>
+    <string name="save">Uložit</string>
+    <string name="rotate">Otočit</string>
+    <string name="path">Cesta</string>
+    <string name="invalid_image_path">Neplatná cesta</string>
+    <string name="image_editing_failed">Úprava souboru selhala</string>
+    <string name="edit_image_with">Upravit soubor pomocí:</string>
+    <string name="no_editor_found">Nebyl nalezen žádný editor</string>
+    <string name="unknown_file_location">Neznámé umístění souboru</string>
+    <string name="error_saving_file">Nepodařilo se přepsat zdrojový soubor</string>
+    <string name="rotate_left">Otočit doleva</string>
+    <string name="rotate_right">Otočit doprava</string>
+    <string name="rotate_one_eighty">Otočit o 180°</string>
+    <string name="flip">Překlopit</string>
+    <string name="horizontally">Vodorovně</string>
+    <string name="vertically">Svisle</string>
+    <string name="out_of_memory_error">Zařízení nemá dostatek paměti</string>
+
+    <!-- Set wallpaper -->
+    <string name="simple_wallpaper">Jednoduchá tapeta</string>
+    <string name="set_as_wallpaper">Nastavit jako tapetu</string>
+    <string name="set_as_wallpaper_failed">Nastavení tapety selhalo</string>
+    <string name="set_as_wallpaper_with">Nastavit jako tapetu pomocí:</string>
+    <string name="no_wallpaper_setter_found">Nebyla nalezena žádná vhodná aplikace</string>
+    <string name="setting_wallpaper">Nastavuje se tapeta&#8230;</string>
+    <string name="wallpaper_set_successfully">Tapeta byla úspěšně změněna</string>
+
+    <!-- Settings -->
+    <string name="show_hidden_folders">Zobrazit skryté složky</string>
+    <string name="autoplay_videos">Automaticky přehrávat videa</string>
+    <string name="toggle_filename">Přepnout viditelnost názvů souborů</string>
+    <string name="show_media">Zobrazit média</string>
+    <string name="images">Jen obrázky</string>
+    <string name="videos">Jen videa</string>
+    <string name="images_and_videos">Obrázky i videa</string>
+    <string name="loop_videos">Přehrávat videa ve smyčce</string>
+    <string name="animate_gifs">Animovat náhledy souborů GIF</string>
+    <string name="max_brightness">Nastavit jas obrazovky na maximum při zobrazení médií</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">Galerie na prohlížení obrázků a videí bez reklam.</string>
+    <string name="app_long_description">
+        Jednoduchý nástroj použitelný na prohlížení obrázků a videí. Položky mohou být seřazeny podle data, velikosti či názvu vzestupně i sestupně. Obrázky lze přiblížit. Položky jsou zobrazeny ve více sloupcích v závislosti na velikosti displeje, počet sloupců je možné měnit gestem. Soubory můžete přejmenovávat, sdílet, mazat, kopírovat i přesouvat. Obrázky lze ořezávat, otáčen, nebo nastavit jako tapetu přímo v aplikaci.
+
+        Galerie je též k disposici ostatním aplikacím za účelem zobrazení fotografií a videí a přidávání příloh v e-mailových klientech. Je vhodná ke každodennímu použití.
+
+        Neobsahuje žádné reklamy ani nepotřebná oprávnění a má otevřený zdrojový kód. Poskytuje možnost změny barev rozhraní.
+
+        Táto aplikace je jen jednou ze skupiny aplikací. Všechny tyto aplikace naleznete na http://www.simplemobiletools.com
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>
