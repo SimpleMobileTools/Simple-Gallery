@@ -18,25 +18,25 @@ data class Directory(val path: String, val thumbnail: String, val name: String, 
     }
 
     override fun compareTo(other: Directory): Int {
-        var res: Int
+        var result: Int
         if (sorting and SORT_BY_NAME != 0) {
-            res = name.toLowerCase().compareTo(other.name.toLowerCase())
+            result = name.toLowerCase().compareTo(other.name.toLowerCase())
         } else if (sorting and SORT_BY_SIZE != 0) {
-            res = if (size == other.size)
+            result = if (size == other.size)
                 0
             else if (size > other.size)
                 1
             else
                 -1
         } else if (sorting and SORT_BY_DATE_MODIFIED != 0) {
-            res = if (date_modified == other.date_modified)
+            result = if (date_modified == other.date_modified)
                 0
             else if (date_modified > other.date_modified)
                 1
             else
                 -1
         } else {
-            res = if (date_taken == other.date_taken)
+            result = if (date_taken == other.date_taken)
                 0
             else if (date_taken > other.date_taken)
                 1
@@ -45,8 +45,8 @@ data class Directory(val path: String, val thumbnail: String, val name: String, 
         }
 
         if (sorting and SORT_DESCENDING != 0) {
-            res *= -1
+            result *= -1
         }
-        return res
+        return result
     }
 }
