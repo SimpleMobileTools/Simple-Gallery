@@ -22,13 +22,6 @@ val INCLUDED_FOLDERS = "included_folders"
 
 val NOMEDIA = ".nomedia"
 
-// sorting
-val SORT_BY_NAME = 1
-val SORT_BY_DATE_MODIFIED = 2
-val SORT_BY_SIZE = 4
-val SORT_BY_DATE_TAKEN = 8
-val SORT_DESCENDING = 1024
-
 val DIRECTORY = "directory"
 val MEDIUM = "medium"
 val GET_IMAGE_INTENT = "get_image_intent"
