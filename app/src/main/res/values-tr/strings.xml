@@ -19,7 +19,7 @@
     <string name="no_camera_app_found">Hiçbir Kamera uygulaması bulunamadı</string>
     <string name="increase_column_count">Sütun sayısını artır</string>
     <string name="reduce_column_count">Sütun sayısını azalt</string>
-    <string name="temporarily_show_hidden">Temporarily show hidden</string>
+    <string name="temporarily_show_hidden">Geçici olarak gizli göster</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder">Klasörü gizle</string>
@@ -30,15 +30,15 @@
     <string name="manage_excluded_folders">Hariç tutulan klasörleri yönet</string>
     <string name="exclude_folder_description">Bu, seçimi alt klasörleriyle birlikte yalnızca Basit Galeri\'den hariç tutacaktır. Dışlanan klasörleri Ayarlar\'dan yönetebilirsiniz.</string>
     <string name="exclude_folder_parent">Bunun yerine ebeveynleri hariç tutun?</string>
-    <string name="excluded_activity_placeholder">Excluding folders will make them together with their subfolders hidden just in Simple Gallery, they will still be visible in other applications.\\n\\nIf you want to hide them from other apps too, use the Hide function.</string>
+    <string name="excluded_activity_placeholder">Klasörler hariç tutulduğunda, onları Basit Galeri\'de gizli olan alt klasörleriyle bir araya getirirler, ancak yine de diğer uygulamalarda görünür olurlar.\n\nBunları diğer uygulamalardan gizlemek isterseniz, Gizle işlevini kullanın.</string>
     <string name="remove_all">Hepsini sil</string>
     <string name="remove_all_description">Hariç tutulanlar listesinden tüm klasörleri kaldırmak mı istiyorsunuz? Bu, klasörler silinmez.</string>
 
     <!-- Include folders -->
-    <string name="include_folders">Included folders</string>
-    <string name="manage_included_folders">Manage included folders</string>
-    <string name="add_folder">Add folder</string>
-    <string name="included_activity_placeholder">If you have some folders which contain media, but were not recognized by the app, you can add them manually here.</string>
+    <string name="include_folders">Dahil edilen klasörler</string>
+    <string name="manage_included_folders">Dahil edilen klasörleri yönet</string>
+    <string name="add_folder">Klasör ekle</string>
+    <string name="included_activity_placeholder">Ortam içeren, ancak uygulama tarafından tanınmayan bazı klasörleriniz varsa, bunları el ile buradan ekleyebilirsiniz.</string>
 
     <!-- Resizing -->
     <string name="resize">Yeniden boyutlandır</string>
@@ -86,7 +86,7 @@
     <string name="images_and_videos">Resimler ve videolar</string>
     <string name="loop_videos">Videolar döngüsü</string>
     <string name="animate_gifs">Küçük resimlerde gif\'leri canlandırın</string>
-    <string name="max_brightness">Maximum brightness when viewing media</string>
+    <string name="max_brightness">Ortam görüntülerken azami parlaklık</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
