@@ -1,5 +1,0 @@
-<resources>
-
-    <style name="SpinnerItem" parent="@android:style/Widget.TextView"/>
-
-</resources>
