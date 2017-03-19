@@ -18,7 +18,6 @@ import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
-import com.simplemobiletools.gallery.adapters.MediaAdapter
 import com.simplemobiletools.gallery.helpers.NOMEDIA
 import com.simplemobiletools.gallery.helpers.REQUEST_EDIT_IMAGE
 import com.simplemobiletools.gallery.helpers.REQUEST_SET_WALLPAPER
@@ -205,7 +204,7 @@ fun Activity.loadImage(path: String, target: MySquareImageView) {
                     .into(target)
         }
     } else if (path.isGif()) {
-        if (MediaAdapter.animateGifs) {
+        if (config.animateGifs) {
             Glide.with(this)
                     .load(path)
                     .asGif()

@@ -16,7 +16,6 @@ import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.activities.MediaActivity
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.extensions.*
@@ -38,7 +37,6 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         val markedItems = HashSet<Int>()
         var foregroundColor = 0
         var backgroundColor = 0
-        var animateGifs = true
         var itemCnt = 0
 
         fun toggleItemSelection(itemView: View, select: Boolean, pos: Int = -1) {
@@ -68,7 +66,6 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     init {
         foregroundColor = config.primaryColor
         backgroundColor = config.backgroundColor
-        animateGifs = config.animateGifs
         itemCnt = media.size
     }
 
