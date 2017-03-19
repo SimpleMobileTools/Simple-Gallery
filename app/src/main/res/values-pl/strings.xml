@@ -19,6 +19,7 @@
     <string name="no_camera_app_found">Brak aplikacji powiązanej z aparatem</string>
     <string name="increase_column_count">Zwiększ liczbę kolumn</string>
     <string name="reduce_column_count">Zmniejsz liczbę kolumn</string>
+    <string name="temporarily_show_hidden">Temporarily show hidden</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder">Ukryj folder</string>

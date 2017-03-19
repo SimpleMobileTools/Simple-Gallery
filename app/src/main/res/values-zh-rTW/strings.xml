@@ -19,6 +19,7 @@
     <string name="no_camera_app_found">No Camera app has been found</string>
     <string name="increase_column_count">Increase column count</string>
     <string name="reduce_column_count">Reduce column count</string>
+    <string name="temporarily_show_hidden">Temporarily show hidden</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder">隱藏資料夾</string>

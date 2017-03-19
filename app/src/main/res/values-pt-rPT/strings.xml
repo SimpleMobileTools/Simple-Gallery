@@ -19,6 +19,7 @@
     <string name="no_camera_app_found">Não existe uma aplicação adequeada</string>
     <string name="increase_column_count">Aumentar número de colunas</string>
     <string name="reduce_column_count">Reduzir número de colunas</string>
+    <string name="temporarily_show_hidden">Temporarily show hidden</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder">Ocultar pasta</string>

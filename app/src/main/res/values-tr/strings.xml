@@ -19,6 +19,7 @@
     <string name="no_camera_app_found">Hiçbir Kamera uygulaması bulunamadı</string>
     <string name="increase_column_count">Sütun sayısını artır</string>
     <string name="reduce_column_count">Sütun sayısını azalt</string>
+    <string name="temporarily_show_hidden">Temporarily show hidden</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder">Klasörü gizle</string>
