@@ -30,7 +30,7 @@
     <string name="manage_excluded_folders">Spravovat vyloučené složky</string>
     <string name="exclude_folder_description">Tato funkce vyloučí výběr včetně podsložek jen z Jednoduché galerie. V nastavení můžete spravovat vyloučené složky.</string>
     <string name="exclude_folder_parent">Chcete vyloučit rodičovskou složku?</string>
-    <string name="excluded_activity_placeholder">Vyloučené složky budou spolu s podsložkami vyloučeny jen z Jednoduché Galerie, ostatní aplikace je nadále uvidí.\\n\\nPokud je chcete skrýt i před ostatními aplikacemi, použijte funkci Skrýt.</string>
+    <string name="excluded_activity_placeholder">Vyloučené složky budou spolu s podsložkami vyloučeny jen z Jednoduché Galerie, ostatní aplikace je nadále uvidí.\n\nPokud je chcete skrýt i před ostatními aplikacemi, použijte funkci Skrýt.</string>
     <string name="remove_all">Odstranit všechny</string>
     <string name="remove_all_description">Odstranit všechny složky ze seznamu vyloučených? Tato operace neodstraní obsah složek.</string>
 
