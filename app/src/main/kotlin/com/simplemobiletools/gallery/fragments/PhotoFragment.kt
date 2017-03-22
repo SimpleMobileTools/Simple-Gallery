@@ -81,6 +81,10 @@ class PhotoFragment : ViewPagerFragment() {
                 photoClicked()
             }
         })
+        PhotoViewAttacher(view.photo_view).apply {
+            maximumScale = 8f
+            mediumScale = 3f
+        }
         loadImage()
 
         activity.window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
