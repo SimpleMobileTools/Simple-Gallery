@@ -5,6 +5,7 @@ import android.app.WallpaperManager
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -66,7 +67,7 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
     }
 
     override fun onCropImageComplete(view: CropImageView?, result: CropImageView.CropResult) {
-        if (isDestroyed)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && isDestroyed)
             return
 
         if (result.error == null) {
