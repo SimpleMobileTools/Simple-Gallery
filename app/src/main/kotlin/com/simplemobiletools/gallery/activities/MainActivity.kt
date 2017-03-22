@@ -86,6 +86,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             R.id.sort -> showSortingDialog()
             R.id.open_camera -> launchCamera()
             R.id.show_all -> showAllMedia()
+            R.id.temporarily_show_hidden -> temporarilyShowHidden()
             R.id.increase_column_count -> increaseColumnCount()
             R.id.reduce_column_count -> reduceColumnCount()
             R.id.settings -> launchSettings()
@@ -175,6 +176,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             startActivity(this)
         }
         finish()
+    }
+
+    private fun temporarilyShowHidden() {
+
     }
 
     private fun checkIfColorChanged() {
