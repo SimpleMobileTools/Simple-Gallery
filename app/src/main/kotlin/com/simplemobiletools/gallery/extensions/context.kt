@@ -70,7 +70,7 @@ fun Context.getParents(): ArrayList<String> {
 
     val noMediaFolders = getNoMediaFolders()
     val parents = ArrayList<String>()
-    if (config.showHiddenFolders || config.temporarilyShowHidden) {
+    if (config.shouldShowHidden) {
         parentsSet.addAll(noMediaFolders)
     }
 
@@ -79,7 +79,7 @@ fun Context.getParents(): ArrayList<String> {
     parentsSet.filterTo(parents, {
         val file = File(it)
         if (file.isDirectory && file.canonicalFile == file.absoluteFile) {  // filter out symbolic links too
-            if (!config.showHiddenFolders && !config.temporarilyShowHidden) {
+            if (!config.shouldShowHidden) {
                 isFolderVisible(it, noMediaFolders)
             } else
                 true

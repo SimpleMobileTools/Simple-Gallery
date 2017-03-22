@@ -177,7 +177,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun hideFolder() {
         addNoMedia(mPath) {
             runOnUiThread {
-                if (!config.showHiddenFolders)
+                if (!config.shouldShowHidden)
                     finish()
                 else
                     invalidateOptionsMenu()

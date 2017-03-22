@@ -149,11 +149,11 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     private fun showProperties() {
         val selections = multiSelector.selectedPositions
         if (selections.size <= 1) {
-            PropertiesDialog(activity, dirs[selections[0]].path, config.showHiddenFolders)
+            PropertiesDialog(activity, dirs[selections[0]].path, config.shouldShowHidden)
         } else {
             val paths = ArrayList<String>()
             selections.forEach { paths.add(dirs[it].path) }
-            PropertiesDialog(activity, paths, config.showHiddenFolders)
+            PropertiesDialog(activity, paths, config.shouldShowHidden)
         }
     }
 

@@ -113,6 +113,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mStoredAnimateGifs = config.animateGifs
     }
 
+    override fun onStop() {
+        super.onStop()
+        config.temporarilyShowHidden = false
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         config.isFirstRun = false
@@ -158,7 +163,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         mCurrAsyncTask = GetDirectoriesAsynctask(applicationContext, mIsPickVideoIntent || mIsGetVideoContentIntent, mIsPickImageIntent || mIsGetImageContentIntent) {
-            config.temporarilyShowHidden = false
             gotDirectories(it)
         }
         mCurrAsyncTask!!.execute()

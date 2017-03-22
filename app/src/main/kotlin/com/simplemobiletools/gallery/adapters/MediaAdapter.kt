@@ -108,11 +108,11 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     private fun showProperties() {
         val selections = multiSelector.selectedPositions
         if (selections.size <= 1) {
-            PropertiesDialog(activity, media[selections[0]].path, config.showHiddenFolders)
+            PropertiesDialog(activity, media[selections[0]].path, config.shouldShowHidden)
         } else {
             val paths = ArrayList<String>()
             selections.forEach { paths.add(media[it].path) }
-            PropertiesDialog(activity, paths, config.showHiddenFolders)
+            PropertiesDialog(activity, paths, config.shouldShowHidden)
         }
     }
 

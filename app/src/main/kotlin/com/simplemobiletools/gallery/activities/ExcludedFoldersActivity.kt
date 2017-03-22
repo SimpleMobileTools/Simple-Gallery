@@ -56,7 +56,7 @@ class ExcludedFoldersActivity : SimpleActivity() {
     }
 
     private fun addExcludedFolder() {
-        FilePickerDialog(this, pickFile = false, showHidden = config.showHiddenFolders) {
+        FilePickerDialog(this, pickFile = false, showHidden = config.shouldShowHidden) {
             config.addExcludedFolder(it)
             updateExcludedFolders()
         }

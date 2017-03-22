@@ -43,7 +43,7 @@ class PickAlbumDialog(val activity: SimpleActivity, val sourcePath: String, val 
     }
 
     fun showOtherFolder() {
-        val showHidden = activity.config.showHiddenFolders
+        val showHidden = activity.config.shouldShowHidden
         FilePickerDialog(activity, sourcePath, false, showHidden, true) {
             callback.invoke(it)
         }
