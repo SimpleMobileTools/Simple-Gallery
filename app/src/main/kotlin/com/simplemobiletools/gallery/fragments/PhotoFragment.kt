@@ -72,18 +72,18 @@ class PhotoFragment : ViewPagerFragment() {
             }
         }
 
-        view.photo_view.setOnPhotoTapListener(object : PhotoViewAttacher.OnPhotoTapListener {
-            override fun onPhotoTap(view: View?, x: Float, y: Float) {
-                photoClicked()
-            }
-
-            override fun onOutsidePhotoTap() {
-                photoClicked()
-            }
-        })
-        PhotoViewAttacher(view.photo_view).apply {
+        view.photo_view.apply {
             maximumScale = 8f
             mediumScale = 3f
+            setOnPhotoTapListener(object : PhotoViewAttacher.OnPhotoTapListener {
+                override fun onPhotoTap(view: View?, x: Float, y: Float) {
+                    photoClicked()
+                }
+
+                override fun onOutsidePhotoTap() {
+                    photoClicked()
+                }
+            })
         }
         loadImage()
 
