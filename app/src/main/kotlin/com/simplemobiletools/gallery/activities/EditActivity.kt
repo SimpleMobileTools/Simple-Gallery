@@ -19,7 +19,7 @@ import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getCompressionFormat
 import com.simplemobiletools.gallery.extensions.getRealPathFromURI
 import com.theartofdev.edmodo.cropper.CropImageView
-import kotlinx.android.synthetic.main.activity_edit.*
+import kotlinx.android.synthetic.main.view_crop_image.*
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
@@ -33,7 +33,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit)
+        setContentView(R.layout.view_crop_image)
 
         if (intent.data == null) {
             toast(R.string.invalid_image_path)

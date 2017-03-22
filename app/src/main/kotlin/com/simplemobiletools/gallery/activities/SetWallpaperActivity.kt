@@ -12,7 +12,7 @@ import android.view.MenuItem
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.theartofdev.edmodo.cropper.CropImageView
-import kotlinx.android.synthetic.main.activity_edit.*
+import kotlinx.android.synthetic.main.view_crop_image.*
 
 class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener {
     private val PICK_IMAGE = 1
@@ -22,7 +22,7 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_set_wallpaper)
+        setContentView(R.layout.view_crop_image)
 
         if (intent.data == null) {
             val pickIntent = Intent(applicationContext, MainActivity::class.java)
