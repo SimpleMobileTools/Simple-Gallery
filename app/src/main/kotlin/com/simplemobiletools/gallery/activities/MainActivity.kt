@@ -158,6 +158,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         mCurrAsyncTask = GetDirectoriesAsynctask(applicationContext, mIsPickVideoIntent || mIsGetVideoContentIntent, mIsPickImageIntent || mIsGetImageContentIntent) {
+            config.temporarilyShowHidden = false
             gotDirectories(it)
         }
         mCurrAsyncTask!!.execute()
@@ -179,7 +180,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun temporarilyShowHidden() {
-
+        config.temporarilyShowHidden = true
+        getDirectories()
     }
 
     private fun checkIfColorChanged() {

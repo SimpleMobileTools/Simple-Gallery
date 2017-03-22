@@ -44,6 +44,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(SHOW_HIDDEN_FOLDERS, false)
         set(showHiddenFolders) = prefs.edit().putBoolean(SHOW_HIDDEN_FOLDERS, showHiddenFolders).apply()
 
+    var temporarilyShowHidden: Boolean
+        get() = prefs.getBoolean(TEMPORARILY_SHOW_HIDDEN, false)
+        set(temporarilyShowHidden) = prefs.edit().putBoolean(TEMPORARILY_SHOW_HIDDEN, temporarilyShowHidden).apply()
+
     var pinnedFolders: Set<String>
         get() = prefs.getStringSet(PINNED_FOLDERS, HashSet<String>())
         set(pinnedFolders) = prefs.edit().putStringSet(PINNED_FOLDERS, pinnedFolders).apply()
