@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<com.theartofdev.edmodo.cropper.CropImageView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/coordinator_layout"
+    android:id="@+id/crop_image_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <com.theartofdev.edmodo.cropper.CropImageView
-        android:id="@+id/crop_image_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:cropInitialCropWindowPaddingRatio="0"/>
-
-</RelativeLayout>
+    android:layout_height="match_parent"
+    app:cropBackgroundColor="@color/crop_image_view_background"
+    app:cropInitialCropWindowPaddingRatio="0"/>
