@@ -10,7 +10,7 @@ android {
         applicationId "com.simplemobiletools.gallery"
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 87
+        versionCode 88
         versionName "2.7.3"
     }
 
