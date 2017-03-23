@@ -33,6 +33,7 @@ class SettingsActivity : SimpleActivity() {
         setupLoopVideos()
         setupAnimateGifs()
         setupMaxBrightness()
+        setupCropThumbnails()
         setupShowMedia()
         updateTextColors(settings_holder)
     }
@@ -87,6 +88,22 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
+    private fun setupMaxBrightness() {
+        settings_max_brightness.isChecked = config.maxBrightness
+        settings_max_brightness_holder.setOnClickListener {
+            settings_max_brightness.toggle()
+            config.maxBrightness = settings_max_brightness.isChecked
+        }
+    }
+
+    private fun setupCropThumbnails() {
+        settings_crop_thumbnails.isChecked = config.cropThumbnails
+        settings_crop_thumbnails_holder.setOnClickListener {
+            settings_crop_thumbnails.toggle()
+            config.cropThumbnails = settings_crop_thumbnails.isChecked
+        }
+    }
+
     private fun setupShowMedia() {
         settings_show_media.text = getShowMediaText()
         settings_show_media_holder.setOnClickListener {
@@ -99,14 +116,6 @@ class SettingsActivity : SimpleActivity() {
                 config.showMedia = it as Int
                 settings_show_media.text = getShowMediaText()
             }
-        }
-    }
-
-    private fun setupMaxBrightness() {
-        settings_max_brightness.isChecked = config.maxBrightness
-        settings_max_brightness_holder.setOnClickListener {
-            settings_max_brightness.toggle()
-            config.maxBrightness = settings_max_brightness.isChecked
         }
     }
 
