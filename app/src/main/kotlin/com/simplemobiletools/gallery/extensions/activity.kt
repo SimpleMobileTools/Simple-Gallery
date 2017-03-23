@@ -85,7 +85,7 @@ fun Activity.openWith(file: File, forceChooser: Boolean = true) {
     val uri = Uri.fromFile(file)
     Intent().apply {
         action = Intent.ACTION_VIEW
-        setDataAndType(uri, file.getMimeType("image/jpeg"))
+        setDataAndType(uri, file.getMimeType())
         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         val chooser = Intent.createChooser(this, getString(R.string.open_with))
 
