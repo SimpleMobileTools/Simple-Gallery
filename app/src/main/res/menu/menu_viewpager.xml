@@ -65,4 +65,8 @@
         android:id="@+id/show_on_map"
         android:title="@string/show_on_map"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/settings"
+        android:title="@string/settings"
+        app:showAsAction="never"/>
 </menu>

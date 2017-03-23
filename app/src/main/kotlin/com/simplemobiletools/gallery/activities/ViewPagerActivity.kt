@@ -160,6 +160,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.rotate_right -> rotateImage(90f)
             R.id.rotate_left -> rotateImage(-90f)
             R.id.rotate_one_eighty -> rotateImage(180f)
+            R.id.settings -> launchSettings()
             else -> return super.onOptionsItemSelected(item)
         }
         return true

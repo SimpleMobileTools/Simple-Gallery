@@ -117,7 +117,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
             findItem(R.id.folder_view).isVisible = mShowAll
             findItem(R.id.open_camera).isVisible = mShowAll
-            findItem(R.id.settings).isVisible = mShowAll
             findItem(R.id.about).isVisible = mShowAll
 
             findItem(R.id.increase_column_count).isVisible = config.mediaColumnCnt < 10
