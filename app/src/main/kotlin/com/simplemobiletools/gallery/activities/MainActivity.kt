@@ -47,6 +47,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mIsThirdPartyIntent = false
     private var mIsGettingDirs = false
     private var mStoredAnimateGifs = true
+    private var mStoredCropThumbnails = true
 
     private var mCurrAsyncTask: GetDirectoriesAsynctask? = null
 
@@ -66,6 +67,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         directories_refresh_layout.setOnRefreshListener({ getDirectories() })
         mDirs = ArrayList<Directory>()
         mStoredAnimateGifs = config.animateGifs
+        mStoredCropThumbnails = config.cropThumbnails
         storeStoragePaths()
         checkWhatsNewDialog()
     }
@@ -101,6 +103,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         if (mStoredAnimateGifs != config.animateGifs) {
             mDirs.clear()
         }
+
+        if (mStoredCropThumbnails != config.cropThumbnails) {
+            mDirs.clear()
+        }
         tryloadGallery()
     }
 
@@ -111,6 +117,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         directories_refresh_layout.isRefreshing = false
         mIsGettingDirs = false
         mStoredAnimateGifs = config.animateGifs
+        mStoredCropThumbnails = config.cropThumbnails
     }
 
     override fun onStop() {

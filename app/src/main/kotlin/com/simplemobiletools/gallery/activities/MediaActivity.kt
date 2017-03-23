@@ -45,6 +45,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mShowAll = false
     private var mLoadedInitialPhotos = false
     private var mStoredAnimateGifs = true
+    private var mStoredCropThumbnails = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +59,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         media_refresh_layout.setOnRefreshListener({ getMedia() })
         mPath = intent.getStringExtra(DIRECTORY)
         mStoredAnimateGifs = config.animateGifs
+        mStoredCropThumbnails = config.cropThumbnails
         mShowAll = config.showAll
         if (mShowAll)
             supportActionBar?.setDisplayHomeAsUpEnabled(false)
@@ -66,6 +68,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     override fun onResume() {
         super.onResume()
         if (mShowAll && mStoredAnimateGifs != config.animateGifs) {
+            mMedia.clear()
+        }
+
+        if (mStoredCropThumbnails != config.cropThumbnails) {
             mMedia.clear()
         }
         tryloadGallery()
@@ -77,6 +83,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         mIsGettingMedia = false
         media_refresh_layout.isRefreshing = false
         mStoredAnimateGifs = config.animateGifs
+        mStoredCropThumbnails = config.cropThumbnails
     }
 
     private fun tryloadGallery() {
