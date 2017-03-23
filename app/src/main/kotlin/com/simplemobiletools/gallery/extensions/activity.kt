@@ -188,37 +188,57 @@ fun SimpleActivity.removeNoMedia(path: String, callback: () -> Unit) {
 fun Activity.loadImage(path: String, target: MySquareImageView) {
     if (path.isImageFast() || path.isVideoFast()) {
         if (path.isPng()) {
-            Glide.with(this)
-                    .load(path)
-                    .asBitmap()
-                    .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                    .format(DecodeFormat.PREFER_ARGB_8888)
-                    .centerCrop()
-                    .into(target)
+            loadPng(path, target)
         } else {
-            Glide.with(this)
-                    .load(path)
-                    .diskCacheStrategy(DiskCacheStrategy.RESULT)
-                    .centerCrop()
-                    .crossFade()
-                    .into(target)
+            loadJpg(path, target)
         }
     } else if (path.isGif()) {
         if (config.animateGifs) {
-            Glide.with(this)
-                    .load(path)
-                    .asGif()
-                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                    .centerCrop()
-                    .crossFade()
-                    .into(target)
+            loadAnimatedGif(path, target)
         } else {
-            Glide.with(this)
-                    .load(path)
-                    .asBitmap()
-                    .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                    .centerCrop()
-                    .into(target)
+            loadStaticGif(path, target)
         }
     }
+}
+
+fun Activity.loadPng(path: String, target: MySquareImageView) {
+    val builder = Glide.with(this)
+            .load(path)
+            .asBitmap()
+            .diskCacheStrategy(DiskCacheStrategy.RESULT)
+            .format(DecodeFormat.PREFER_ARGB_8888)
+
+    if (config.cropThumbnails) builder.centerCrop() else builder.fitCenter()
+    builder.into(target)
+}
+
+fun Activity.loadJpg(path: String, target: MySquareImageView) {
+    val builder = Glide.with(this)
+            .load(path)
+            .diskCacheStrategy(DiskCacheStrategy.RESULT)
+            .crossFade()
+
+    if (config.cropThumbnails) builder.centerCrop() else builder.fitCenter()
+    builder.into(target)
+}
+
+fun Activity.loadAnimatedGif(path: String, target: MySquareImageView) {
+    val builder = Glide.with(this)
+            .load(path)
+            .asGif()
+            .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+            .crossFade()
+
+    if (config.cropThumbnails) builder.centerCrop() else builder.fitCenter()
+    builder.into(target)
+}
+
+fun Activity.loadStaticGif(path: String, target: MySquareImageView) {
+    val builder = Glide.with(this)
+            .load(path)
+            .asBitmap()
+            .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+
+    if (config.cropThumbnails) builder.centerCrop() else builder.fitCenter()
+    builder.into(target)
 }
