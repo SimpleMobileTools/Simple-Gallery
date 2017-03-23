@@ -34,6 +34,7 @@ class SettingsActivity : SimpleActivity() {
         setupAnimateGifs()
         setupMaxBrightness()
         setupCropThumbnails()
+        setupAutoRotateScreen()
         setupShowMedia()
         updateTextColors(settings_holder)
     }
@@ -101,6 +102,14 @@ class SettingsActivity : SimpleActivity() {
         settings_crop_thumbnails_holder.setOnClickListener {
             settings_crop_thumbnails.toggle()
             config.cropThumbnails = settings_crop_thumbnails.isChecked
+        }
+    }
+
+    private fun setupAutoRotateScreen() {
+        settings_auto_rotate_screen.isChecked = config.autoRotateScreen
+        settings_auto_rotate_screen_holder.setOnClickListener {
+            settings_auto_rotate_screen.toggle()
+            config.autoRotateScreen = settings_auto_rotate_screen.isChecked
         }
     }
 
