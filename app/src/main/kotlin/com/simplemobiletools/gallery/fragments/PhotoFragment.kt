@@ -135,14 +135,24 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun loadBitmap(degrees: Float = 0f) {
-        Glide.with(this)
-                .load(medium.path)
-                .asBitmap()
-                .transform(GlideRotateTransformation(context, degrees))
-                .format(if (medium.isPng()) DecodeFormat.PREFER_ARGB_8888 else DecodeFormat.PREFER_RGB_565)
-                .thumbnail(0.1f)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .into(view.photo_view)
+        if (degrees == 0f) {
+            Glide.with(this)
+                    .load(medium.path)
+                    .asBitmap()
+                    .format(DecodeFormat.PREFER_ARGB_8888)
+                    .thumbnail(0.1f)
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .into(view.photo_view)
+        } else {
+            Glide.with(this)
+                    .load(medium.path)
+                    .asBitmap()
+                    .transform(GlideRotateTransformation(context, degrees))
+                    .format(DecodeFormat.PREFER_ARGB_8888)
+                    .thumbnail(0.1f)
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .into(view.photo_view)
+        }
     }
 
     fun rotateImageViewBy(degrees: Float) {
