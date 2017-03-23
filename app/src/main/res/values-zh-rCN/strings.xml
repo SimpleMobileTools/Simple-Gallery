@@ -87,6 +87,8 @@
     <string name="loop_videos">循环播放视频</string>
     <string name="animate_gifs">Animate gifs at thumbnails</string>
     <string name="max_brightness">Maximum brightness when viewing media</string>
+    <string name="crop_thumbnails">Crop thumbnails into squares</string>
+    <string name="auto_rotate_screen">Auto-rotate screen at fullscreen view</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

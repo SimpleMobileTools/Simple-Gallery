@@ -87,6 +87,8 @@
     <string name="loop_videos">Vídeos em ciclo</string>
     <string name="animate_gifs">Animação de gifs nas miniaturas</string>
     <string name="max_brightness">Brilho máximo permitido</string>
+    <string name="crop_thumbnails">Crop thumbnails into squares</string>
+    <string name="auto_rotate_screen">Auto-rotate screen at fullscreen view</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

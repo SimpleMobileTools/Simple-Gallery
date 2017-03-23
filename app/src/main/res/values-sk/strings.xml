@@ -86,7 +86,9 @@
     <string name="images_and_videos">Obrázky aj videá</string>
     <string name="loop_videos">Automaticky reštartovať videá</string>
     <string name="animate_gifs">Animovať gif súbory pri náhľade</string>
-    <string name="max_brightness">Maximum brightness when viewing media</string>
+    <string name="max_brightness">Maximálny jas pri prezeraní médií</string>
+    <string name="crop_thumbnails">Orezať náhľady na štvorce</string>
+    <string name="auto_rotate_screen">Automaticky otáčať obrazovku pri celoobrazovkovom zobrazení</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
