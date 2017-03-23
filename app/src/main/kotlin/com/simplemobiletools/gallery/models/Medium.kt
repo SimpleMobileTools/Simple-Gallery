@@ -1,11 +1,12 @@
 package com.simplemobiletools.gallery.models
 
+import com.simplemobiletools.commons.extensions.getMimeType
 import com.simplemobiletools.commons.extensions.isGif
-import com.simplemobiletools.commons.extensions.isPng
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.commons.helpers.SORT_BY_NAME
 import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
 import com.simplemobiletools.commons.helpers.SORT_DESCENDING
+import java.io.File
 import java.io.Serializable
 
 data class Medium(val name: String, var path: String, val isVideo: Boolean, val date_modified: Long, val date_taken: Long, val size: Long) : Serializable, Comparable<Medium> {
@@ -16,11 +17,9 @@ data class Medium(val name: String, var path: String, val isVideo: Boolean, val 
 
     fun isGif() = path.isGif()
 
-    fun isPng() = path.isPng()
-
     fun isImage() = !isGif() && !isVideo
 
-    fun getMimeType() = if (isVideo) "video/*" else "image/*"
+    fun getMimeType() = File(path).getMimeType()
 
     override fun compareTo(other: Medium): Int {
         var res: Int
