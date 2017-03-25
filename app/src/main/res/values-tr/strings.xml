@@ -87,8 +87,8 @@
     <string name="loop_videos">Videolar döngüsü</string>
     <string name="animate_gifs">Küçük resimlerde gif\'leri canlandırın</string>
     <string name="max_brightness">Ortam görüntülerken azami parlaklık</string>
-    <string name="crop_thumbnails">Crop thumbnails into squares</string>
-    <string name="auto_rotate_screen">Auto-rotate screen at fullscreen view</string>
+    <string name="crop_thumbnails">Küçük resimleri karelere kırp</string>
+    <string name="auto_rotate_screen">Ekranı tam ekran görünümde otomatik döndür</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
