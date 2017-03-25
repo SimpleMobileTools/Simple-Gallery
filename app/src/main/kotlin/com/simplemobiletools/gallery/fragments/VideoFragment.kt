@@ -41,7 +41,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private var mDuration = 0
 
     lateinit var mView: View
-    lateinit var mMedium: Medium
+    lateinit var medium: Medium
 
     companion object {
         private val TAG = VideoFragment::class.java.simpleName
@@ -51,7 +51,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mView = inflater.inflate(R.layout.pager_video_item, container, false)
 
-        mMedium = arguments.getSerializable(MEDIUM) as Medium
+        medium = arguments.getSerializable(MEDIUM) as Medium
         if (savedInstanceState != null) {
             mCurrTime = savedInstanceState.getInt(PROGRESS)
         }
@@ -209,7 +209,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
         try {
             mMediaPlayer = MediaPlayer().apply {
-                setDataSource(context, Uri.parse(mMedium.path))
+                setDataSource(context, Uri.parse(medium.path))
                 setDisplay(mSurfaceHolder)
                 setOnCompletionListener { videoCompleted() }
                 setOnVideoSizeChangedListener({ mediaPlayer, width, height -> setVideoSize() })

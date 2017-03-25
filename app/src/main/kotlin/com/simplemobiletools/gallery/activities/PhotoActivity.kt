@@ -7,7 +7,4 @@ class PhotoActivity : PhotoVideoActivity() {
         PhotoVideoActivity.mIsVideo = false
         super.onCreate(savedInstanceState)
     }
-
-    override fun systemUiVisibilityChanged(visibility: Int) {
-    }
 }

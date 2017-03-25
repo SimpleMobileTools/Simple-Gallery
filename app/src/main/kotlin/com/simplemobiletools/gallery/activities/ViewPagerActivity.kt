@@ -359,6 +359,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             updateActionbarTitle()
             updatePagerItems()
             invalidateOptionsMenu()
+            checkOrientation()
         }
         mCurrAsyncTask!!.execute()
     }
@@ -382,6 +383,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         scanPath(mDirectory) {}
+    }
+
+    private fun checkOrientation() {
+        if (config.autoRotateScreen) {
+            val res = getCurrentFile().getResolution()
+        }
     }
 
     override fun fragmentClicked() {
@@ -426,6 +433,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         updateActionbarTitle()
         mRotationDegrees = 0f
         supportInvalidateOptionsMenu()
+        checkOrientation()
     }
 
     override fun onPageScrollStateChanged(state: Int) {
