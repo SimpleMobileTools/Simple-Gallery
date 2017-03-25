@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 2.7.4 *(2017-03-25)*
+----------------------------
+
+ * Added an option to temporarily show hidden folders
+ * Added a setting for preventing thumbnail croping to square
+ * Added a setting for auto-rotating the screen depending on photo aspect ratio
+
 Version 2.7.3 *(2017-03-18)*
 ----------------------------
 
