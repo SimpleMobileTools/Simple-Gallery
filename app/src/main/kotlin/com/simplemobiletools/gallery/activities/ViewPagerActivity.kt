@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.activities
 
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -388,6 +389,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun checkOrientation() {
         if (config.autoRotateScreen) {
             val res = getCurrentFile().getResolution()
+            if (res.x > res.y) {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+            } else if (res.x < res.y) {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+            }
         }
     }
 
@@ -433,9 +439,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         updateActionbarTitle()
         mRotationDegrees = 0f
         supportInvalidateOptionsMenu()
-        checkOrientation()
     }
 
     override fun onPageScrollStateChanged(state: Int) {
+        if (state == ViewPager.SCROLL_STATE_IDLE) {
+            checkOrientation()
+        }
     }
 }
