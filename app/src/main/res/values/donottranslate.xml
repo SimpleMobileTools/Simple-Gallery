@@ -2,7 +2,11 @@
 <resources>
 
     <!-- Release notes -->
-    <string name="release_88">Added an option to temporarily show hidden folders</string>
+    <string name="release_88">
+        Added an option to temporarily show hidden folders\n
+        Added a setting for preventing thumbnail croping to square\n
+        Added a setting for auto-rotating the screen depending on photo aspect ratio
+    </string>
     <string name="release_84">
         Added an option to use max brightness at viewing fullscreen media\n
         Added an option to manually include folders which contain media, but were not recognized by the app
