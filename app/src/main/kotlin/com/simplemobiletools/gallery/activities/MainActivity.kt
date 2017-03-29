@@ -198,7 +198,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun checkIfColorChanged() {
         if (DirectoryAdapter.foregroundColor != config.primaryColor) {
             DirectoryAdapter.foregroundColor = config.primaryColor
-            setupAdapter()
+            directories_fastscroller.updateHandleColor()
         }
     }
 
