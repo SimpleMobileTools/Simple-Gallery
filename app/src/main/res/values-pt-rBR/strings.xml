@@ -6,7 +6,7 @@
     <string name="open_camera">Abrir câmera</string>
     <string name="open_with">Abrir com</string>
     <string name="no_app_found">Nenhum aplicativo encontrado</string>
-    <string name="hidden">Oculto</string>
+    <string name="hidden">(oculto)</string>
     <string name="pin_folder">Fixar pasta</string>
     <string name="unpin_folder">Desafixar pasta</string>
     <string name="show_all">Mostrar conteúdo de todas as pastas</string>
@@ -86,9 +86,9 @@
     <string name="images_and_videos">Imagens e vídeos</string>
     <string name="loop_videos">Reproduzir vídeos em ciclo</string>
     <string name="animate_gifs">Animação de gifs nas miniaturas</string>
-    <string name="max_brightness">Brilho máximo permitido</string>
+    <string name="max_brightness">Brilho máximo ao visualizar midia</string>
     <string name="crop_thumbnails">Recortar miniaturas em quadrados</string>
-    <string name="auto_rotate_screen">Girar automaticamente se em tela cheia</string>
+    <string name="auto_rotate_screen">Girar automaticamente quando em tela cheia</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
