@@ -180,8 +180,8 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                 if (config.wasHideFolderTooltipShown) {
                     hideFolder(path)
                 } else {
+                    config.wasHideFolderTooltipShown = true
                     ConfirmationDialog(activity, activity.getString(R.string.hide_folder_description)) {
-                        config.wasHideFolderTooltipShown = true
                         hideFolder(path)
                     }
                 }
