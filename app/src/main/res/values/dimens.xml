@@ -4,7 +4,7 @@
     <dimen name="medium_tmb_size">100dp</dimen>
     <dimen name="pin_size">20dp</dimen>
     <dimen name="play_outline_size">40dp</dimen>
-    <dimen name="play_outline_size_big">160dp</dimen>
+    <dimen name="play_outline_size_big">120dp</dimen>
     <dimen name="timer_padding">24dp</dimen>
     <dimen name="tmb_shadow_height">50dp</dimen>
 </resources>
