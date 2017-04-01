@@ -2,6 +2,11 @@
 <resources>
 
     <!-- Release notes -->
+    <string name="release_89">
+        Improved fullscreen image zooming\n
+        Added more settings related to screen autorotating\n
+        Split copy and move functions for ease of use
+    </string>
     <string name="release_88">
         Added an option to temporarily show hidden folders\n
         Added a setting for preventing thumbnail croping to square\n
