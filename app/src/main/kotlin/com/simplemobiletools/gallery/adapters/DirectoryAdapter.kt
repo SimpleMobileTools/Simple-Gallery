@@ -228,6 +228,9 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     private fun displayCopyDialog() {
         val files = ArrayList<File>()
         val positions = multiSelector.selectedPositions
+        if (positions.isEmpty())
+            return
+
         positions.forEach {
             val dir = File(dirs[it].path)
             files.addAll(dir.listFiles().filter { it.isFile && it.isImageVideoGif() })
