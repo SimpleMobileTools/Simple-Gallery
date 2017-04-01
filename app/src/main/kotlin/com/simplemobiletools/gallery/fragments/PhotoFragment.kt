@@ -106,6 +106,14 @@ class PhotoFragment : ViewPagerFragment() {
     override fun setMenuVisibility(menuVisible: Boolean) {
         super.setMenuVisibility(menuVisible)
         isFragmentVisible = menuVisible
+        if (wasInit) {
+            if (menuVisible) {
+                addZoomableView()
+            } else {
+                view.subsampling_view.recycle()
+                view.subsampling_view.beGone()
+            }
+        }
     }
 
     private fun degreesForRotation(orientation: Int): Int {
@@ -156,7 +164,8 @@ class PhotoFragment : ViewPagerFragment() {
                         }
 
                         override fun onResourceReady(resource: Bitmap?, model: String?, target: Target<Bitmap>?, isFromMemoryCache: Boolean, isFirstResource: Boolean): Boolean {
-                            addZoomableView()
+                            if (isMenuVisible)
+                                addZoomableView()
                             return false
                         }
                     }).into(view.photo_view)
@@ -166,46 +175,25 @@ class PhotoFragment : ViewPagerFragment() {
                     .asBitmap()
                     .transform(GlideRotateTransformation(context, degrees))
                     .format(DecodeFormat.PREFER_ARGB_8888)
-                    .thumbnail(0.1f)
+                    .thumbnail(0.2f)
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .into(view.photo_view)
         }
     }
 
     private fun addZoomableView() {
-        if (!medium.isPng()) {
+        if (!medium.isPng() && isMenuVisible && view.subsampling_view.visibility == View.GONE) {
             view.subsampling_view.apply {
                 beVisible()
                 setDoubleTapZoomScale(1.4f)
                 setImage(ImageSource.uri(medium.path))
                 orientation = SubsamplingScaleImageView.ORIENTATION_USE_EXIF
-                setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {
-                    override fun onImageLoaded() {
-                    }
-
-                    override fun onReady() {
-                        view.photo_view.beGone()
-                        view.photo_view.setImageBitmap(null)
-                    }
-
-                    override fun onTileLoadError(p0: Exception?) {
-                    }
-
-                    override fun onPreviewReleased() {
-                    }
-
-                    override fun onImageLoadError(p0: Exception?) {
-                        beGone()
-                    }
-
-                    override fun onPreviewLoadError(p0: Exception?) {
-                    }
-                })
             }
         }
     }
 
     fun rotateImageViewBy(degrees: Float) {
+        view.subsampling_view.visibility = View.GONE
         loadBitmap(degrees)
     }
 
