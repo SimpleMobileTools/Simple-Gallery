@@ -20,8 +20,6 @@ data class Medium(val name: String, var path: String, val isVideo: Boolean, val 
 
     fun isGif() = path.isGif()
 
-    fun isJpg() = !isPng() && !isGif()
-
     fun isImage() = !isGif() && !isVideo
 
     fun getMimeType() = File(path).getMimeType()
