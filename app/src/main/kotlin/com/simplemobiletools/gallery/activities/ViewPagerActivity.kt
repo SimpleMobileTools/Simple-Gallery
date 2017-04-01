@@ -185,9 +185,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun copyMoveTo(isCopyOperation: Boolean) {
-        val currPath = File(getCurrentPath()).parent.trimEnd('/')
         val files = ArrayList<File>(1).apply { add(getCurrentFile()) }
-        copyMoveFilesTo(currPath, files, isCopyOperation) {
+        copyMoveFilesTo(files, isCopyOperation) {
             if (!isCopyOperation) {
                 reloadViewPager()
             }

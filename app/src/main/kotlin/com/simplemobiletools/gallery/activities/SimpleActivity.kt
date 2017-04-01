@@ -18,8 +18,14 @@ open class SimpleActivity : BaseSimpleActivity() {
         super.onCreate(savedInstanceState)
     }
 
-    protected fun copyMoveFilesTo(source: String, files: ArrayList<File>, isCopyOperation: Boolean, callback: () -> Unit) {
+    fun copyMoveFilesTo(files: ArrayList<File>, isCopyOperation: Boolean, callback: () -> Unit) {
+        if (files.isEmpty()) {
+            toast(R.string.unknown_error_occurred)
+            return
+        }
+
         copyMoveCallback = callback
+        val source = if (files[0].isFile) files[0].parent.trimEnd('/') else files[0].absolutePath
         val currPath = source.trimEnd('/')
         PickAlbumDialog(this, currPath) {
             val destinationFolder = File(it)
