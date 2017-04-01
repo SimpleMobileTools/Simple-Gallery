@@ -8,9 +8,7 @@ import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.helpers.IMAGES
-import com.simplemobiletools.gallery.helpers.IMAGES_AND_VIDEOS
-import com.simplemobiletools.gallery.helpers.VIDEOS
+import com.simplemobiletools.gallery.helpers.*
 import kotlinx.android.synthetic.main.activity_settings.*
 
 class SettingsActivity : SimpleActivity() {
@@ -34,7 +32,7 @@ class SettingsActivity : SimpleActivity() {
         setupAnimateGifs()
         setupMaxBrightness()
         setupCropThumbnails()
-        setupAutoRotateScreen()
+        setupScreenRotation()
         setupShowMedia()
         updateTextColors(settings_holder)
     }
@@ -105,13 +103,26 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupAutoRotateScreen() {
-        settings_auto_rotate_screen.isChecked = config.autoRotateScreen
-        settings_auto_rotate_screen_holder.setOnClickListener {
-            settings_auto_rotate_screen.toggle()
-            config.autoRotateScreen = settings_auto_rotate_screen.isChecked
+    private fun setupScreenRotation() {
+        settings_screen_rotation.text = getScreenRotationText()
+        settings_screen_rotation_holder.setOnClickListener {
+            val items = arrayListOf(
+                    RadioItem(ROTATE_BY_SYSTEM_SETTING, res.getString(R.string.screen_rotation_system_setting)),
+                    RadioItem(ROTATE_BY_DEVICE_ROTATION, res.getString(R.string.screen_rotation_device_rotation)),
+                    RadioItem(ROTATE_BY_ASPECT_RATIO, res.getString(R.string.screen_rotation_aspect_ratio)))
+
+            RadioGroupDialog(this@SettingsActivity, items, config.screenRotation) {
+                config.screenRotation = it as Int
+                settings_screen_rotation.text = getScreenRotationText()
+            }
         }
     }
+
+    private fun getScreenRotationText() = getString(when (config.screenRotation) {
+        ROTATE_BY_SYSTEM_SETTING -> R.string.screen_rotation_system_setting
+        ROTATE_BY_DEVICE_ROTATION -> R.string.screen_rotation_device_rotation
+        else -> R.string.screen_rotation_aspect_ratio
+    })
 
     private fun setupShowMedia() {
         settings_show_media.text = getShowMediaText()
@@ -133,5 +144,4 @@ class SettingsActivity : SimpleActivity() {
         IMAGES -> R.string.images
         else -> R.string.videos
     })
-
 }

@@ -11,7 +11,7 @@ val LOOP_VIDEOS = "loop_videos"
 val ANIMATE_GIFS = "animate_gifs"
 val MAX_BRIGHTNESS = "max_brightness"
 val CROP_THUMBNAILS = "crop_thumbnails"
-val AUTO_ROTATE_SCREEN = "auto_rotate_screen"
+val SCREEN_ROTATION = "screen_rotation"
 val DISPLAY_FILE_NAMES = "display_file_names"
 val PINNED_FOLDERS = "pinned_folders"
 val DIR_COLUMN_CNT = "dir_column_cnt"
@@ -40,3 +40,8 @@ val REQUEST_SET_WALLPAPER = 2
 val IMAGES_AND_VIDEOS = 0
 val IMAGES = 1
 val VIDEOS = 2
+
+// rotations
+val ROTATE_BY_SYSTEM_SETTING = 0
+val ROTATE_BY_DEVICE_ROTATION = 1
+val ROTATE_BY_ASPECT_RATIO = 2

@@ -2,7 +2,6 @@ package com.simplemobiletools.gallery.activities
 
 import android.app.Activity
 import android.content.Intent
-import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.database.Cursor
 import android.graphics.Bitmap
@@ -403,14 +402,14 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun checkOrientation() {
-        if (config.autoRotateScreen) {
+        /*if (config.screenRotation) {
             val res = getCurrentFile().getResolution()
             if (res.x > res.y) {
                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
             } else if (res.x < res.y) {
                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
             }
-        }
+        }*/
     }
 
     override fun fragmentClicked() {

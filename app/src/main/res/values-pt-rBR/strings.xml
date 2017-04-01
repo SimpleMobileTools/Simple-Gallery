@@ -88,7 +88,10 @@
     <string name="animate_gifs">Animação de gifs nas miniaturas</string>
     <string name="max_brightness">Brilho máximo ao visualizar midia</string>
     <string name="crop_thumbnails">Recortar miniaturas em quadrados</string>
-    <string name="auto_rotate_screen">Girar automaticamente quando em tela cheia</string>
+    <string name="screen_rotation_by">Rotate fullscreen media by</string>
+    <string name="screen_rotation_system_setting">System setting</string>
+    <string name="screen_rotation_device_rotation">Device rotation</string>
+    <string name="screen_rotation_aspect_ratio">Aspect ratio</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

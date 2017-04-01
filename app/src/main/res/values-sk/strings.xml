@@ -88,7 +88,10 @@
     <string name="animate_gifs">Animovať gif súbory pri náhľade</string>
     <string name="max_brightness">Maximálny jas pri prezeraní médií</string>
     <string name="crop_thumbnails">Orezať náhľady na štvorce</string>
-    <string name="auto_rotate_screen">Automaticky otáčať obrazovku pri celoobrazovkovom zobrazení</string>
+    <string name="screen_rotation_by">Otáčať obrazovku podľa Rotate fullscreen media by</string>
+    <string name="screen_rotation_system_setting">Systémového nastavenia</string>
+    <string name="screen_rotation_device_rotation">Otočenia zariadenia</string>
+    <string name="screen_rotation_aspect_ratio">Pomeru strán</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

@@ -136,9 +136,9 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(CROP_THUMBNAILS, true)
         set(cropThumbnails) = prefs.edit().putBoolean(CROP_THUMBNAILS, cropThumbnails).apply()
 
-    var autoRotateScreen: Boolean
-        get() = prefs.getBoolean(AUTO_ROTATE_SCREEN, false)
-        set(autoRotateScreen) = prefs.edit().putBoolean(AUTO_ROTATE_SCREEN, autoRotateScreen).apply()
+    var screenRotation: Int
+        get() = prefs.getInt(SCREEN_ROTATION, ROTATE_BY_SYSTEM_SETTING)
+        set(screenRotation) = prefs.edit().putInt(SCREEN_ROTATION, screenRotation).apply()
 
     var loopVideos: Boolean
         get() = prefs.getBoolean(LOOP_VIDEOS, false)
