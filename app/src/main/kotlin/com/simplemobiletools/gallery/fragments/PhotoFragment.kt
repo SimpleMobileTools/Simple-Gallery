@@ -13,8 +13,15 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
+import com.davemorrissey.labs.subscaleview.ImageSource
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
+import com.simplemobiletools.commons.extensions.beGone
+import com.simplemobiletools.commons.extensions.beVisible
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.getRealPathFromURI
 import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
 import com.simplemobiletools.gallery.helpers.MEDIUM
@@ -72,6 +79,7 @@ class PhotoFragment : ViewPagerFragment() {
             }
         }
 
+        view.subsampling_view.apply { setOnClickListener({ photoClicked() }) }
         view.photo_view.apply {
             maximumScale = 8f
             mediumScale = 3f
@@ -140,9 +148,18 @@ class PhotoFragment : ViewPagerFragment() {
                     .load(medium.path)
                     .asBitmap()
                     .format(DecodeFormat.PREFER_ARGB_8888)
-                    .thumbnail(0.1f)
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
-                    .into(view.photo_view)
+                    .override(ViewPagerActivity.screenWidth, ViewPagerActivity.screenHeight)
+                    .listener(object : RequestListener<String, Bitmap> {
+                        override fun onException(e: java.lang.Exception?, model: String?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
+                            return false
+                        }
+
+                        override fun onResourceReady(resource: Bitmap?, model: String?, target: Target<Bitmap>?, isFromMemoryCache: Boolean, isFirstResource: Boolean): Boolean {
+                            addZoomableView()
+                            return false
+                        }
+                    }).into(view.photo_view)
         } else {
             Glide.with(this)
                     .load(medium.path)
@@ -152,6 +169,39 @@ class PhotoFragment : ViewPagerFragment() {
                     .thumbnail(0.1f)
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .into(view.photo_view)
+        }
+    }
+
+    private fun addZoomableView() {
+        if (!medium.isPng()) {
+            view.subsampling_view.apply {
+                beVisible()
+                setDoubleTapZoomScale(1.4f)
+                setImage(ImageSource.uri(medium.path))
+                orientation = SubsamplingScaleImageView.ORIENTATION_USE_EXIF
+                setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {
+                    override fun onImageLoaded() {
+                    }
+
+                    override fun onReady() {
+                        view.photo_view.beGone()
+                        view.photo_view.setImageBitmap(null)
+                    }
+
+                    override fun onTileLoadError(p0: Exception?) {
+                    }
+
+                    override fun onPreviewReleased() {
+                    }
+
+                    override fun onImageLoadError(p0: Exception?) {
+                        beGone()
+                    }
+
+                    override fun onPreviewLoadError(p0: Exception?) {
+                    }
+                })
+            }
         }
     }
 

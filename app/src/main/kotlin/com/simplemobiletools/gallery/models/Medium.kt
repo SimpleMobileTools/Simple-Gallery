@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.models
 
 import com.simplemobiletools.commons.extensions.getMimeType
 import com.simplemobiletools.commons.extensions.isGif
+import com.simplemobiletools.commons.extensions.isPng
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.commons.helpers.SORT_BY_NAME
 import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
@@ -14,6 +15,8 @@ data class Medium(val name: String, var path: String, val isVideo: Boolean, val 
         private val serialVersionUID = -6553149466975455L
         var sorting: Int = 0
     }
+
+    fun isPng() = path.isPng()
 
     fun isGif() = path.isGif()
 
