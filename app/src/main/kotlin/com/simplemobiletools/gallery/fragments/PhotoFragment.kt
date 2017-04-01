@@ -3,7 +3,9 @@ package com.simplemobiletools.gallery.fragments
 import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.graphics.Matrix
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -22,6 +24,7 @@ import com.simplemobiletools.commons.extensions.beVisible
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
+import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getRealPathFromURI
 import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
 import com.simplemobiletools.gallery.helpers.MEDIUM
@@ -112,6 +115,7 @@ class PhotoFragment : ViewPagerFragment() {
             } else {
                 view.subsampling_view.recycle()
                 view.subsampling_view.beGone()
+                view.subsampling_view.background = ColorDrawable(Color.TRANSPARENT)
             }
         }
     }
@@ -182,12 +186,32 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun addZoomableView() {
-        if (!medium.isPng() && isMenuVisible && view.subsampling_view.visibility == View.GONE) {
+        if (medium.isJpg() && isMenuVisible && view.subsampling_view.visibility == View.GONE) {
             view.subsampling_view.apply {
                 beVisible()
                 setDoubleTapZoomScale(1.4f)
                 setImage(ImageSource.uri(medium.path))
                 orientation = SubsamplingScaleImageView.ORIENTATION_USE_EXIF
+                setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {
+                    override fun onImageLoaded() {
+                    }
+
+                    override fun onReady() {
+                        background = ColorDrawable(context.config.backgroundColor)
+                    }
+
+                    override fun onTileLoadError(p0: java.lang.Exception?) {
+                    }
+
+                    override fun onPreviewReleased() {
+                    }
+
+                    override fun onImageLoadError(p0: java.lang.Exception?) {
+                    }
+
+                    override fun onPreviewLoadError(p0: java.lang.Exception?) {
+                    }
+                })
             }
         }
     }
