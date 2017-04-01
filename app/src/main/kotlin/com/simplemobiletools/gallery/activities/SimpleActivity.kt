@@ -24,7 +24,6 @@ open class SimpleActivity : BaseSimpleActivity() {
             return
         }
 
-        copyMoveCallback = callback
         val source = if (files[0].isFile) files[0].parent.trimEnd('/') else files[0].absolutePath
         val currPath = source.trimEnd('/')
         PickAlbumDialog(this, currPath) {
@@ -47,6 +46,7 @@ open class SimpleActivity : BaseSimpleActivity() {
             }
 
             handleSAFDialog(destinationFolder) {
+                copyMoveCallback = callback
                 if (isCopyOperation) {
                     toast(R.string.copying)
                     val pair = Pair<ArrayList<File>, File>(files, destinationFolder)
