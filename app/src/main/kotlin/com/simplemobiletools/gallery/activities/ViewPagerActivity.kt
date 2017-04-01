@@ -206,7 +206,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun saveImageAs() {
-        val currPath = getCurrentMedium()!!.path
+        val currPath = getCurrentPath()
         SaveAsDialog(this, currPath) {
             try {
                 val file = File(it)
@@ -263,11 +263,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun showProperties() {
         if (getCurrentMedium() != null)
-            PropertiesDialog(this, getCurrentMedium()!!.path, false)
+            PropertiesDialog(this, getCurrentPath(), false)
     }
 
     private fun showOnMap() {
-        val exif = ExifInterface(getCurrentMedium()?.path)
+        val exif = ExifInterface(getCurrentPath())
         val lat = exif.getAttribute(ExifInterface.TAG_GPS_LATITUDE)
         val lat_ref = exif.getAttribute(ExifInterface.TAG_GPS_LATITUDE_REF)
         val lon = exif.getAttribute(ExifInterface.TAG_GPS_LONGITUDE)
@@ -355,7 +355,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun renameFile() {
-        RenameItemDialog(this, getCurrentFile().absolutePath) {
+        RenameItemDialog(this, getCurrentPath()) {
             mMedia[mPos].path = it
             updateActionbarTitle()
         }
@@ -456,7 +456,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             mMedia[Math.min(mPos, mMedia.size - 1)]
     }
 
-    private fun getCurrentFile() = File(getCurrentMedium()!!.path)
+    private fun getCurrentPath() = getCurrentMedium()!!.path
+
+    private fun getCurrentFile() = File(getCurrentPath())
 
     override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
 
