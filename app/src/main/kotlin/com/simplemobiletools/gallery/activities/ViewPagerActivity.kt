@@ -8,6 +8,7 @@ import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
+import android.hardware.SensorManager
 import android.media.ExifInterface
 import android.net.Uri
 import android.os.Build
@@ -17,6 +18,7 @@ import android.support.v4.view.ViewPager
 import android.util.DisplayMetrics
 import android.view.Menu
 import android.view.MenuItem
+import android.view.OrientationEventListener
 import android.view.View
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
@@ -29,10 +31,7 @@ import com.simplemobiletools.gallery.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.fragments.PhotoFragment
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment
-import com.simplemobiletools.gallery.helpers.MEDIUM
-import com.simplemobiletools.gallery.helpers.REQUEST_EDIT_IMAGE
-import com.simplemobiletools.gallery.helpers.REQUEST_SET_WALLPAPER
-import com.simplemobiletools.gallery.helpers.ROTATE_BY_ASPECT_RATIO
+import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_medium.*
 import java.io.File
@@ -41,6 +40,7 @@ import java.io.OutputStream
 import java.util.*
 
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
+    lateinit var mOrientationEventListener: OrientationEventListener
     private var mMedia = ArrayList<Medium>()
     private var mPath = ""
     private var mDirectory = ""
@@ -50,6 +50,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mPos = -1
     private var mShowAll = false
     private var mRotationDegrees = 0f
+    private var mLastHandledOrientation = 0
 
     companion object {
         var screenWidth = 0
@@ -98,6 +99,33 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         title = mPath.getFilenameFromPath()
         reloadViewPager()
         scanPath(mPath) {}
+        setupOrientationEventListener()
+    }
+
+    private fun setupOrientationEventListener() {
+        mOrientationEventListener = object : OrientationEventListener(this, SensorManager.SENSOR_DELAY_NORMAL) {
+            override fun onOrientationChanged(orientation: Int) {
+                val currOrient = if (orientation in 45..134) {
+                    ORIENT_LANDSCAPE_RIGHT
+                } else if (orientation in 225..314) {
+                    ORIENT_LANDSCAPE_LEFT
+                } else {
+                    ORIENT_PORTRAIT
+                }
+
+                if (mLastHandledOrientation != currOrient) {
+                    mLastHandledOrientation = currOrient
+
+                    if (currOrient == ORIENT_LANDSCAPE_LEFT) {
+                        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                    } else if (currOrient == ORIENT_LANDSCAPE_RIGHT) {
+                        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE
+                    } else {
+                        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                    }
+                }
+            }
+        }
     }
 
     override fun onResume() {
@@ -112,11 +140,18 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             attributes.screenBrightness = 1f
             window.attributes = attributes
         }
+
+        if (config.screenRotation == ROTATE_BY_DEVICE_ROTATION && mOrientationEventListener.canDetectOrientation()) {
+            mOrientationEventListener.enable()
+        } else if (config.screenRotation == ROTATE_BY_SYSTEM_SETTING) {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+        }
     }
 
     override fun onPause() {
         super.onPause()
         mCurrAsyncTask?.shouldStop = true
+        mOrientationEventListener.disable()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
