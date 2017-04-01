@@ -137,18 +137,25 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         }
     }
 
-    private fun displayCopyDialog() {
+    private fun copyMoveTo(isCopyOperation: Boolean) {
         val files = ArrayList<File>()
         val positions = multiSelector.selectedPositions
         positions.forEach { files.add(File(media[it].path)) }
+
+        activity.copyMoveFilesTo(files, isCopyOperation) {
+            if (!isCopyOperation) {
+                listener?.refreshItems()
+            }
+            actMode?.finish()
+        }
     }
 
     private fun copyTo() {
-
+        copyMoveTo(true)
     }
 
     private fun moveTo() {
-
+        copyMoveTo(false)
     }
 
     fun selectAll() {

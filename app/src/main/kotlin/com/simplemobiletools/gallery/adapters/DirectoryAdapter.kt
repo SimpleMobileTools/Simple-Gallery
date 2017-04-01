@@ -224,7 +224,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         actMode?.finish()
     }
 
-    private fun displayCopyDialog() {
+    private fun copyMoveTo(isCopyOperation: Boolean) {
         val files = ArrayList<File>()
         val positions = multiSelector.selectedPositions
         if (positions.isEmpty())
@@ -234,14 +234,21 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             val dir = File(dirs[it].path)
             files.addAll(dir.listFiles().filter { it.isFile && it.isImageVideoGif() })
         }
+
+        activity.copyMoveFilesTo(files, isCopyOperation) {
+            if (!isCopyOperation) {
+                listener?.refreshItems()
+            }
+            actMode?.finish()
+        }
     }
 
     private fun copyTo() {
-
+        copyMoveTo(true)
     }
 
     private fun moveTo() {
-
+        copyMoveTo(false)
     }
 
     fun selectAll() {
