@@ -9,15 +9,12 @@ import com.bignerdranch.android.multiselector.ModalMultiSelectorCallback
 import com.bignerdranch.android.multiselector.MultiSelector
 import com.bignerdranch.android.multiselector.SwappingHolder
 import com.bumptech.glide.Glide
-import com.simplemobiletools.commons.asynctasks.CopyMoveTask
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.beVisibleIf
-import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
-import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.photo_video_item.view.*
@@ -144,22 +141,6 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         val files = ArrayList<File>()
         val positions = multiSelector.selectedPositions
         positions.forEach { files.add(File(media[it].path)) }
-
-        CopyDialog(activity, files, object : CopyMoveTask.CopyMoveListener {
-            override fun copySucceeded(deleted: Boolean, copiedAll: Boolean) {
-                if (deleted) {
-                    activity.toast(if (copiedAll) R.string.moving_success else R.string.moving_success_partial)
-                } else {
-                    activity.toast(if (copiedAll) R.string.copying_success else R.string.copying_success_partial)
-                }
-                listener?.refreshItems()
-                actMode?.finish()
-            }
-
-            override fun copyFailed() {
-                activity.toast(R.string.copy_move_failed)
-            }
-        })
     }
 
     private fun copyTo() {

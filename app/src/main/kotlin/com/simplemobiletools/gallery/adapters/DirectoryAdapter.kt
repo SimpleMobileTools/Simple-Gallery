@@ -9,7 +9,6 @@ import com.bignerdranch.android.multiselector.ModalMultiSelectorCallback
 import com.bignerdranch.android.multiselector.MultiSelector
 import com.bignerdranch.android.multiselector.SwappingHolder
 import com.bumptech.glide.Glide
-import com.simplemobiletools.commons.asynctasks.CopyMoveTask
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
@@ -19,7 +18,6 @@ import com.simplemobiletools.commons.extensions.needsStupidWritePermissions
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
-import com.simplemobiletools.gallery.dialogs.CopyDialog
 import com.simplemobiletools.gallery.dialogs.ExcludeFolderDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.models.Directory
@@ -236,22 +234,6 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             val dir = File(dirs[it].path)
             files.addAll(dir.listFiles().filter { it.isFile && it.isImageVideoGif() })
         }
-
-        CopyDialog(activity, files, object : CopyMoveTask.CopyMoveListener {
-            override fun copySucceeded(deleted: Boolean, copiedAll: Boolean) {
-                if (deleted) {
-                    activity.toast(if (copiedAll) R.string.moving_success else R.string.moving_success_partial)
-                } else {
-                    activity.toast(if (copiedAll) R.string.copying_success else R.string.copying_success_partial)
-                }
-                listener?.refreshItems()
-                actMode?.finish()
-            }
-
-            override fun copyFailed() {
-                activity.toast(R.string.copy_move_failed)
-            }
-        })
     }
 
     private fun copyTo() {
