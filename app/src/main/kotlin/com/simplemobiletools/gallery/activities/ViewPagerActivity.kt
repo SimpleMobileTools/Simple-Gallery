@@ -18,7 +18,6 @@ import android.util.DisplayMetrics
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import com.simplemobiletools.commons.asynctasks.CopyMoveTask
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
@@ -188,21 +187,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun copyMoveTo(isCopyOperation: Boolean) {
         val currPath = File(getCurrentPath()).parent.trimEnd('/')
         val files = ArrayList<File>(1).apply { add(getCurrentFile()) }
-        copyMoveFilesTo(currPath, files, isCopyOperation, copyMoveListener)
-    }
-
-    private val copyMoveListener = object : CopyMoveTask.CopyMoveListener {
-        override fun copySucceeded(copyOnly: Boolean, copiedAll: Boolean) {
-            if (copyOnly) {
-                toast(if (copiedAll) R.string.copying_success else R.string.copying_success_partial)
-            } else {
+        copyMoveFilesTo(currPath, files, isCopyOperation) {
+            if (!isCopyOperation) {
                 reloadViewPager()
-                toast(if (copiedAll) R.string.moving_success else R.string.moving_success_partial)
             }
-        }
-
-        override fun copyFailed() {
-            toast(R.string.copy_move_failed)
         }
     }
 

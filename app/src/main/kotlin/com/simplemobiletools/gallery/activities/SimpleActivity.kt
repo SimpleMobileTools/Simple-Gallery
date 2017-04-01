@@ -13,11 +13,13 @@ import java.io.File
 import java.util.*
 
 open class SimpleActivity : BaseSimpleActivity() {
+    var copyMoveCallback: (() -> Unit)? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
-    protected fun copyMoveFilesTo(source: String, files: ArrayList<File>, isCopyOperation: Boolean, copyMoveListener: CopyMoveTask.CopyMoveListener) {
+    protected fun copyMoveFilesTo(source: String, files: ArrayList<File>, isCopyOperation: Boolean, callback: () -> Unit) {
+        copyMoveCallback = callback
         val currPath = source.trimEnd('/')
         PickAlbumDialog(this, currPath) {
             val destinationFolder = File(it)
@@ -67,6 +69,23 @@ open class SimpleActivity : BaseSimpleActivity() {
                     }
                 }
             }
+        }
+    }
+
+    private val copyMoveListener = object : CopyMoveTask.CopyMoveListener {
+        override fun copySucceeded(copyOnly: Boolean, copiedAll: Boolean) {
+            if (copyOnly) {
+                toast(if (copiedAll) R.string.copying_success else R.string.copying_success_partial)
+            } else {
+                toast(if (copiedAll) R.string.moving_success else R.string.moving_success_partial)
+            }
+            copyMoveCallback?.invoke()
+            copyMoveCallback = null
+        }
+
+        override fun copyFailed() {
+            toast(R.string.copy_move_failed)
+            copyMoveCallback = null
         }
     }
 }
