@@ -180,24 +180,16 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun copyTo() {
-        val copyMoveListener = object : CopyMoveTask.CopyMoveListener {
-            override fun copySucceeded(copyOnly: Boolean, copiedAll: Boolean) {
-                if (copyOnly) {
-                    toast(if (copiedAll) R.string.copying_success else R.string.copying_success_partial)
-                } else {
-                    reloadViewPager()
-                    toast(if (copiedAll) R.string.moving_success else R.string.moving_success_partial)
-                }
-            }
+        copyMoveTo(true)
+    }
 
-            override fun copyFailed() {
-                toast(R.string.copy_move_failed)
-            }
-        }
+    private fun moveTo() {
+        copyMoveTo(false)
+    }
 
+    private fun copyMoveTo(isCopyOperation: Boolean) {
         val currPath = File(getCurrentPath()).parent.trimEnd('/')
         val files = ArrayList<File>(1).apply { add(getCurrentFile()) }
-        val isCopyOperation = true
 
         PickAlbumDialog(this, currPath) {
             val destinationFolder = File(it)
@@ -222,13 +214,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 if (isCopyOperation) {
                     toast(R.string.copying)
                     val pair = Pair<ArrayList<File>, File>(files, destinationFolder)
-                    CopyMoveTask(this, false, true, copyMoveListener).execute(pair)
+                    CopyMoveTask(this, isCopyOperation, true, copyMoveListener).execute(pair)
                 } else {
                     if (isPathOnSD(currPath) || isPathOnSD(destinationFolder.absolutePath)) {
                         handleSAFDialog(files[0]) {
                             toast(R.string.moving)
                             val pair = Pair<ArrayList<File>, File>(files, destinationFolder)
-                            CopyMoveTask(this, true, true, copyMoveListener).execute(pair)
+                            CopyMoveTask(this, isCopyOperation, true, copyMoveListener).execute(pair)
                         }
                     } else {
                         val updatedFiles = ArrayList<File>(files.size * 2)
@@ -250,8 +242,19 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
-    private fun moveTo() {
+    private val copyMoveListener = object : CopyMoveTask.CopyMoveListener {
+        override fun copySucceeded(copyOnly: Boolean, copiedAll: Boolean) {
+            if (copyOnly) {
+                toast(if (copiedAll) R.string.copying_success else R.string.copying_success_partial)
+            } else {
+                reloadViewPager()
+                toast(if (copiedAll) R.string.moving_success else R.string.moving_success_partial)
+            }
+        }
 
+        override fun copyFailed() {
+            toast(R.string.copy_move_failed)
+        }
     }
 
     private fun saveImageAs() {
