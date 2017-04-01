@@ -1,6 +1,5 @@
 package com.simplemobiletools.gallery.activities
 
-import android.os.Bundle
 import android.support.v4.util.Pair
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.asynctasks.CopyMoveTask
@@ -14,9 +13,6 @@ import java.util.*
 
 open class SimpleActivity : BaseSimpleActivity() {
     var copyMoveCallback: (() -> Unit)? = null
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     fun copyMoveFilesTo(files: ArrayList<File>, isCopyOperation: Boolean, callback: () -> Unit) {
         if (files.isEmpty()) {
