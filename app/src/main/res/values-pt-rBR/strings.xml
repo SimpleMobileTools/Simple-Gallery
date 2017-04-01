@@ -86,12 +86,12 @@
     <string name="images_and_videos">Imagens e vídeos</string>
     <string name="loop_videos">Reproduzir vídeos em ciclo</string>
     <string name="animate_gifs">Animação de gifs nas miniaturas</string>
-    <string name="max_brightness">Brilho máximo ao visualizar midia</string>
+    <string name="max_brightness">Brilho máximo ao visualizar mídia</string>
     <string name="crop_thumbnails">Recortar miniaturas em quadrados</string>
-    <string name="screen_rotation_by">Rotate fullscreen media by</string>
-    <string name="screen_rotation_system_setting">System setting</string>
-    <string name="screen_rotation_device_rotation">Device rotation</string>
-    <string name="screen_rotation_aspect_ratio">Aspect ratio</string>
+    <string name="screen_rotation_by">Critério para rotação de tela</string>
+    <string name="screen_rotation_system_setting">Padrão do sistema</string>
+    <string name="screen_rotation_device_rotation">Sensor do aparelho</string>
+    <string name="screen_rotation_aspect_ratio">Proporção da mídia</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
