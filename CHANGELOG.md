@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 2.8.0 *(2017-04-01)*
+----------------------------
+
+ * Improved fullscreen image zooming
+ * Added more settings related to screen autorotating
+ * Split copy and move functions for ease of use
+ * Fixed gif sharing
+
 Version 2.7.4 *(2017-03-25)*
 ----------------------------
 
