@@ -36,10 +36,13 @@
         android:title="@string/exclude"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/cab_copy_move"
-        android:icon="@drawable/ic_copy"
-        android:title="@string/copy_move"
-        app:showAsAction="ifRoom"/>
+        android:id="@+id/cab_copy_to"
+        android:title="@string/copy_to"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/cab_move_to"
+        android:title="@string/move_to"
+        app:showAsAction="never"/>
     <item
         android:id="@+id/cab_select_all"
         android:icon="@drawable/ic_select_all"

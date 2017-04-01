@@ -17,11 +17,6 @@
         android:title="@string/properties"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/cab_copy_move"
-        android:icon="@drawable/ic_copy"
-        android:title="@string/copy_move"
-        app:showAsAction="ifRoom"/>
-    <item
         android:id="@+id/cab_rename"
         android:icon="@drawable/ic_rename"
         android:title="@string/rename"
@@ -36,4 +31,12 @@
         android:icon="@drawable/ic_select_all"
         android:title="@string/select_all"
         app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/cab_copy_to"
+        android:title="@string/copy_to"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/cab_move_to"
+        android:title="@string/move_to"
+        app:showAsAction="never"/>
 </menu>

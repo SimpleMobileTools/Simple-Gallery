@@ -148,7 +148,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         when (item.itemId) {
             R.id.menu_set_as_wallpaper -> setAsWallpaper(getCurrentFile())
-            R.id.menu_copy_move -> displayCopyDialog()
+            R.id.cab_copy_to -> copyTo()
+            R.id.cab_move_to -> moveTo()
             R.id.menu_open_with -> openWith(getCurrentFile())
             R.id.menu_share -> shareMedium(getCurrentMedium()!!)
             R.id.menu_delete -> askConfirmDelete()
@@ -194,6 +195,14 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 toast(R.string.copy_move_failed)
             }
         })
+    }
+
+    private fun copyTo() {
+
+    }
+
+    private fun moveTo() {
+
     }
 
     private fun saveImageAs() {

@@ -35,8 +35,12 @@
         android:title="@string/share"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/menu_copy_move"
-        android:title="@string/copy_move"
+        android:id="@+id/menu_copy_to"
+        android:title="@string/copy_to"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_move_to"
+        android:title="@string/move_to"
         app:showAsAction="never"/>
     <item
         android:id="@+id/menu_set_as_wallpaper"
