@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.dialogs
 
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
+import android.view.WindowManager
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
@@ -39,6 +40,7 @@ class SaveAsDialog(val activity: SimpleActivity, val path: String, val callback:
                 .setPositiveButton(R.string.ok, null)
                 .setNegativeButton(R.string.cancel, null)
                 .create().apply {
+            window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
             activity.setupDialogStuff(view, this, R.string.save_as)
             getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener({
                 val filename = view.save_as_name.value
