@@ -189,7 +189,7 @@ class PhotoFragment : ViewPagerFragment() {
         if ((medium.isImage()) && isMenuVisible && view.subsampling_view.visibility == View.GONE) {
             view.subsampling_view.apply {
                 beVisible()
-                setDoubleTapZoomScale(1.4f)
+                setDoubleTapZoomScale(2f)
                 setImage(ImageSource.uri(medium.path))
                 orientation = SubsamplingScaleImageView.ORIENTATION_USE_EXIF
                 setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {
