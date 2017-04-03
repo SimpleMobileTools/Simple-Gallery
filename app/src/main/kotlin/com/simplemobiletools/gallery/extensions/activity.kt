@@ -13,6 +13,7 @@ import android.view.ViewConfiguration
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.signature.StringSignature
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.BuildConfig
@@ -185,6 +186,7 @@ fun SimpleActivity.removeNoMedia(path: String, callback: () -> Unit) {
     }
 }
 
+fun Activity.getFileSignature(path: String) = StringSignature(File(path).lastModified().toString())
 fun Activity.loadImage(path: String, target: MySquareImageView) {
     if (path.isImageFast() || path.isVideoFast()) {
         if (path.isPng()) {
@@ -205,6 +207,7 @@ fun Activity.loadPng(path: String, target: MySquareImageView) {
     val builder = Glide.with(this)
             .load(path)
             .asBitmap()
+            .signature(getFileSignature(path))
             .diskCacheStrategy(DiskCacheStrategy.RESULT)
             .format(DecodeFormat.PREFER_ARGB_8888)
 
@@ -215,6 +218,7 @@ fun Activity.loadPng(path: String, target: MySquareImageView) {
 fun Activity.loadJpg(path: String, target: MySquareImageView) {
     val builder = Glide.with(this)
             .load(path)
+            .signature(getFileSignature(path))
             .diskCacheStrategy(DiskCacheStrategy.RESULT)
             .crossFade()
 
@@ -226,6 +230,7 @@ fun Activity.loadAnimatedGif(path: String, target: MySquareImageView) {
     val builder = Glide.with(this)
             .load(path)
             .asGif()
+            .signature(getFileSignature(path))
             .diskCacheStrategy(DiskCacheStrategy.SOURCE)
             .crossFade()
 
@@ -237,6 +242,7 @@ fun Activity.loadStaticGif(path: String, target: MySquareImageView) {
     val builder = Glide.with(this)
             .load(path)
             .asBitmap()
+            .signature(getFileSignature(path))
             .diskCacheStrategy(DiskCacheStrategy.SOURCE)
 
     if (config.cropThumbnails) builder.centerCrop() else builder.fitCenter()
