@@ -188,6 +188,7 @@ class PhotoFragment : ViewPagerFragment() {
     private fun addZoomableView() {
         if ((medium.isImage()) && isMenuVisible && view.subsampling_view.visibility == View.GONE) {
             view.subsampling_view.apply {
+                maxScale = 10f
                 beVisible()
                 setDoubleTapZoomScale(2f)
                 setImage(ImageSource.uri(medium.path))
