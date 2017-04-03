@@ -167,6 +167,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             directories_refresh_layout.isRefreshing = true
         } else {
             gotDirectories(dirs)
+            return
         }
 
         mCurrAsyncTask = GetDirectoriesAsynctask(applicationContext, mIsPickVideoIntent || mIsGetVideoContentIntent, mIsPickImageIntent || mIsGetImageContentIntent) {
