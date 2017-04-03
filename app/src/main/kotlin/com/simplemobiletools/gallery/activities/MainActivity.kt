@@ -48,6 +48,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mIsGettingDirs = false
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
+    private var mLoadedInitialPhotos = false
 
     private var mCurrAsyncTask: GetDirectoriesAsynctask? = null
 
@@ -165,11 +166,13 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         val dirs = Gson().fromJson<ArrayList<Directory>>(config.directories, token) ?: ArrayList<Directory>(1)
         if (dirs.size == 0) {
             directories_refresh_layout.isRefreshing = true
-        } else {
+        } else if (!mLoadedInitialPhotos) {
+            mLoadedInitialPhotos = true
             gotDirectories(dirs)
             return
         }
 
+        mLoadedInitialPhotos = true
         mCurrAsyncTask = GetDirectoriesAsynctask(applicationContext, mIsPickVideoIntent || mIsGetVideoContentIntent, mIsPickImageIntent || mIsGetImageContentIntent) {
             gotDirectories(it)
         }

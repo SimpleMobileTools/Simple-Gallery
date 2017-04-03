@@ -217,18 +217,17 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             return
 
         mIsGettingMedia = true
-        mLoadedInitialPhotos = true
         val token = object : TypeToken<List<Medium>>() {}.type
         val media = Gson().fromJson<ArrayList<Medium>>(config.loadFolderMedia(mPath), token) ?: ArrayList<Medium>(1)
         if (media.size == 0) {
             media_refresh_layout.isRefreshing = true
-        } else {
-            if (!mLoadedInitialPhotos) {
-                gotMedia(media)
-                return
-            }
+        } else if (!mLoadedInitialPhotos) {
+            mLoadedInitialPhotos = true
+            gotMedia(media)
+            return
         }
 
+        mLoadedInitialPhotos = true
         mCurrAsyncTask = GetMediaAsynctask(applicationContext, mPath, mIsGetVideoIntent, mIsGetImageIntent, mShowAll) {
             gotMedia(it)
         }
