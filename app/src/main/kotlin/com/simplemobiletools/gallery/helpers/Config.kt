@@ -92,7 +92,7 @@ class Config(context: Context) : BaseConfig(context) {
 
     private fun getDataFolder(): Set<String> {
         val folders = HashSet<String>()
-        val dataFolder = context.externalCacheDir.parentFile.parent.trimEnd('/')
+        val dataFolder = context.externalCacheDir?.parentFile?.parent?.trimEnd('/') ?: ""
         if (dataFolder.endsWith("data"))
             folders.add(dataFolder)
         return folders
