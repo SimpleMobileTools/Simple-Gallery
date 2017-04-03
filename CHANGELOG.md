@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 2.8.1 *(2017-04-03)*
+----------------------------
+
+ * Allow more indepth zoom at fullscreen images
+ * Improved thumbnail caching to make sure its up to date
+ * Couple other smaller improvements
+
 Version 2.8.0 *(2017-04-01)*
 ----------------------------
 
