@@ -156,12 +156,14 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun loadBitmap(degrees: Float = 0f) {
         if (degrees == 0f) {
+            val targetWidth = if (ViewPagerActivity.screenWidth == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenWidth
+            val targetHeight = if (ViewPagerActivity.screenHeight == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenHeight
             Glide.with(this)
                     .load(medium.path)
                     .asBitmap()
                     .format(DecodeFormat.PREFER_ARGB_8888)
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
-                    .override(ViewPagerActivity.screenWidth, ViewPagerActivity.screenHeight)
+                    .override(targetWidth, targetHeight)
                     .listener(object : RequestListener<String, Bitmap> {
                         override fun onException(e: java.lang.Exception?, model: String?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
                             return false
