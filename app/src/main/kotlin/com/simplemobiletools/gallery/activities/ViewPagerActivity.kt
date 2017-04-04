@@ -11,6 +11,7 @@ import android.graphics.Matrix
 import android.hardware.SensorManager
 import android.media.ExifInterface
 import android.net.Uri
+import android.os.AsyncTask
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
@@ -414,7 +415,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             invalidateOptionsMenu()
             checkOrientation()
         }
-        mCurrAsyncTask!!.execute()
+        mCurrAsyncTask!!.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR)
     }
 
     private fun getProperPosition(): Int {
