@@ -169,7 +169,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         } else if (!mLoadedInitialPhotos) {
             mLoadedInitialPhotos = true
             gotDirectories(dirs)
-            return
         }
 
         mLoadedInitialPhotos = true

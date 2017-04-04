@@ -224,7 +224,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         } else if (!mLoadedInitialPhotos) {
             mLoadedInitialPhotos = true
             gotMedia(media)
-            return
         }
 
         mLoadedInitialPhotos = true
