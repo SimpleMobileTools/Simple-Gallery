@@ -207,7 +207,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun deleteDirectoryIfEmpty() {
         val file = File(mPath)
-        if (file.isDirectory && file.listFiles()?.isEmpty() == true) {
+        if (!file.isDownloadsFolder() && file.isDirectory && file.listFiles()?.isEmpty() == true) {
             file.delete()
         }
     }

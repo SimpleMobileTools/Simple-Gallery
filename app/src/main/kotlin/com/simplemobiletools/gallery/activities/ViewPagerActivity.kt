@@ -431,7 +431,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun deleteDirectoryIfEmpty() {
         val file = File(mDirectory)
-        if (file.isDirectory && file.listFiles()?.isEmpty() == true) {
+        if (!file.isDownloadsFolder() && file.isDirectory && file.listFiles()?.isEmpty() == true) {
             file.delete()
         }
 
