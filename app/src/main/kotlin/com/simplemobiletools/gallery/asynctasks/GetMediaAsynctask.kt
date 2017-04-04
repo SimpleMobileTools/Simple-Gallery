@@ -16,11 +16,12 @@ import java.util.*
 
 class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo: Boolean = false, val isPickImage: Boolean = false,
                         val showAll: Boolean, val callback: (media: ArrayList<Medium>) -> Unit) :
-        AsyncTask<Void, Void, ArrayList<Medium>>() {
+        AsyncTask<Void, Void, Unit>() {
     var config = context.config
     var showMedia = IMAGES_AND_VIDEOS
     var fileSorting = 0
     var shouldStop = false
+    var media = ArrayList<Medium>()
 
     override fun onPreExecute() {
         super.onPreExecute()
@@ -28,27 +29,24 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
         fileSorting = config.getFileSorting(mPath)
     }
 
-    override fun doInBackground(vararg params: Void): ArrayList<Medium> {
-        val media = ArrayList<Medium>()
-
+    override fun doInBackground(vararg params: Void): Unit {
         if (showAll) {
             val parents = context.getParents()
             for (parent in parents) {
-                media.addAll(getFilesFrom(parent))
+                getFilesFrom(parent)
             }
         } else {
-            media.addAll(getFilesFrom(mPath))
+            getFilesFrom(mPath)
         }
 
         Medium.sorting = fileSorting
         media.sort()
-        return media
+        return Unit
     }
 
-    private fun getFilesFrom(path: String): ArrayList<Medium> {
-        val media = ArrayList<Medium>()
+    private fun getFilesFrom(path: String) {
         val dir = File(path)
-        val filenames = dir.list() ?: return media
+        val filenames = dir.list() ?: return
         for (filename in filenames) {
             if (shouldStop)
                 cancel(true)
@@ -71,13 +69,13 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
                 continue
 
             val dateModified = file.lastModified()
-            media.add(Medium(filename, file.absolutePath, isVideo, dateModified, dateModified, size))
+            val medium = Medium(filename, file.absolutePath, isVideo, dateModified, dateModified, size)
+            media.add(medium)
         }
-        return media
     }
 
-    override fun onPostExecute(media: ArrayList<Medium>) {
-        super.onPostExecute(media)
+    override fun onPostExecute(result: Unit?) {
+        super.onPostExecute(result)
         callback.invoke(media)
     }
 }
