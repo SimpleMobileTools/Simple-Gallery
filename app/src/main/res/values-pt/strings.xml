@@ -45,7 +45,7 @@
     <string name="resize_and_save">Redimensionar seleção e guardar</string>
     <string name="width">Largura</string>
     <string name="height">Altura</string>
-    <string name="keep_aspect_ratio">Manter rácio de tamanho</string>
+    <string name="keep_aspect_ratio">Manter proporção</string>
     <string name="invalid_values">Digite uma resolução válida</string>
 
     <!-- Editor -->
@@ -88,10 +88,10 @@
     <string name="animate_gifs">Animação de gifs nas miniaturas</string>
     <string name="max_brightness">Brilho máximo permitido</string>
     <string name="crop_thumbnails">Recortar miniaturas em quadrados</string>
-    <string name="screen_rotation_by">Rotate fullscreen media by</string>
-    <string name="screen_rotation_system_setting">System setting</string>
-    <string name="screen_rotation_device_rotation">Device rotation</string>
-    <string name="screen_rotation_aspect_ratio">Aspect ratio</string>
+    <string name="screen_rotation_by">Rodar em ecrã completo por</string>
+    <string name="screen_rotation_system_setting">Definições do sistema</string>
+    <string name="screen_rotation_device_rotation">Rotação do dispositivo</string>
+    <string name="screen_rotation_aspect_ratio">Proporção</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
