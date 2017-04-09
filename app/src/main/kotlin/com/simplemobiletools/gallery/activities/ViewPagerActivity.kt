@@ -36,7 +36,6 @@ import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_medium.*
 import java.io.File
-import java.io.FileOutputStream
 import java.io.OutputStream
 import java.util.*
 
@@ -241,18 +240,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 }
 
                 val bitmap = BitmapFactory.decodeFile(currPath)
-                if (needsStupidWritePermissions(it)) {
-                    handleSAFDialog(file) {
-                        var document = getFileDocument(it) ?: return@handleSAFDialog
-                        if (!file.exists()) {
-                            document = document.createFile("", file.name)
-                        }
-                        val out = contentResolver.openOutputStream(document.uri)
-                        saveFile(file, bitmap, out)
-                    }
-                } else {
-                    val out = FileOutputStream(file)
-                    saveFile(file, bitmap, out)
+                getFileOutputStream(file) {
+                    saveFile(file, bitmap, it)
                 }
             } catch (e: OutOfMemoryError) {
                 toast(R.string.out_of_memory_error)

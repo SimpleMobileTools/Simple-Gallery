@@ -8,7 +8,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.extensions.getCompressionFormat
+import com.simplemobiletools.commons.extensions.getFileOutputStream
+import com.simplemobiletools.commons.extensions.scanPath
+import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.ResizeDialog
 import com.simplemobiletools.gallery.dialogs.SaveAsDialog
@@ -16,7 +19,6 @@ import com.simplemobiletools.gallery.extensions.getRealPathFromURI
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.view_crop_image.*
 import java.io.File
-import java.io.FileOutputStream
 import java.io.OutputStream
 
 class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener {
@@ -118,18 +120,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         val file = File(path)
 
         try {
-            if (needsStupidWritePermissions(path)) {
-                handleSAFDialog(file) {
-                    var document = getFileDocument(path) ?: return@handleSAFDialog
-                    if (!file.exists()) {
-                        document = document.createFile("", file.name)
-                    }
-                    val out = contentResolver.openOutputStream(document.uri)
-                    saveBitmap(file, bitmap, out)
-                }
-            } else {
-                val out = FileOutputStream(file)
-                saveBitmap(file, bitmap, out)
+            getFileOutputStream(file) {
+                saveBitmap(file, bitmap, it)
             }
         } catch (e: Exception) {
             Log.e(TAG, "Crop compressing failed $path $e")
