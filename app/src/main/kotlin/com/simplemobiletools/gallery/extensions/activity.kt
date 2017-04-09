@@ -167,7 +167,7 @@ fun SimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
 
     if (needsStupidWritePermissions(path)) {
         handleSAFDialog(file) {
-            getFileDocument(path, config.treeUri)?.createFile("", NOMEDIA)
+            getFileDocument(path)?.createFile("", NOMEDIA)
         }
     } else {
         file.createNewFile()

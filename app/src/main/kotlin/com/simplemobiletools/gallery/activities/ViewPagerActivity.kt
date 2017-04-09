@@ -243,7 +243,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 val bitmap = BitmapFactory.decodeFile(currPath)
                 if (needsStupidWritePermissions(it)) {
                     handleSAFDialog(file) {
-                        var document = getFileDocument(it, config.treeUri) ?: return@handleSAFDialog
+                        var document = getFileDocument(it) ?: return@handleSAFDialog
                         if (!file.exists()) {
                             document = document.createFile("", file.name)
                         }

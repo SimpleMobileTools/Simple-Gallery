@@ -127,11 +127,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         config.temporarilyShowHidden = false
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        config.isFirstRun = false
-    }
-
     private fun tryloadGallery() {
         if (hasWriteStoragePermission()) {
             if (config.showAll)

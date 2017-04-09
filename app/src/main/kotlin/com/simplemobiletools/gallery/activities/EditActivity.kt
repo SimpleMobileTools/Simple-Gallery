@@ -8,15 +8,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import com.simplemobiletools.commons.extensions.getFileDocument
-import com.simplemobiletools.commons.extensions.needsStupidWritePermissions
-import com.simplemobiletools.commons.extensions.scanPath
-import com.simplemobiletools.commons.extensions.toast
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.ResizeDialog
 import com.simplemobiletools.gallery.dialogs.SaveAsDialog
-import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.extensions.getCompressionFormat
 import com.simplemobiletools.gallery.extensions.getRealPathFromURI
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.view_crop_image.*
@@ -125,7 +120,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         try {
             if (needsStupidWritePermissions(path)) {
                 handleSAFDialog(file) {
-                    var document = getFileDocument(path, config.treeUri) ?: return@handleSAFDialog
+                    var document = getFileDocument(path) ?: return@handleSAFDialog
                     if (!file.exists()) {
                         document = document.createFile("", file.name)
                     }
