@@ -235,7 +235,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     class ViewHolder(val view: View, val itemClick: (Medium) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
         fun bindView(activity: SimpleActivity, multiSelectorCallback: ModalMultiSelectorCallback, multiSelector: MultiSelector, medium: Medium, pos: Int): View {
             itemView.apply {
-                play_outline.visibility = if (medium.isVideo) View.VISIBLE else View.GONE
+                play_outline.visibility = if (medium.video) View.VISIBLE else View.GONE
                 photo_name.beVisibleIf(displayFilenames)
                 photo_name.text = medium.name
                 toggleItemSelection(this, markedItems.contains(pos), pos)

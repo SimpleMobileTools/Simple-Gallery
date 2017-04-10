@@ -10,9 +10,9 @@ import com.simplemobiletools.commons.helpers.SORT_DESCENDING
 import java.io.File
 import java.io.Serializable
 
-data class Medium(val name: String, var path: String, val isVideo: Boolean, val date_modified: Long, val date_taken: Long, val size: Long) : Serializable, Comparable<Medium> {
+data class Medium(val name: String, var path: String, val video: Boolean, val modified: Long, val taken: Long, val size: Long) : Serializable, Comparable<Medium> {
     companion object {
-        private val serialVersionUID = -6553149466975455L
+        private val serialVersionUID = -6553149366975455L
         var sorting: Int = 0
     }
 
@@ -20,7 +20,7 @@ data class Medium(val name: String, var path: String, val isVideo: Boolean, val 
 
     fun isGif() = path.isGif()
 
-    fun isImage() = !isGif() && !isVideo
+    fun isImage() = !isGif() && !video
 
     fun getMimeType() = File(path).getMimeType()
 
@@ -36,16 +36,16 @@ data class Medium(val name: String, var path: String, val isVideo: Boolean, val 
             else
                 -1
         } else if (sorting and SORT_BY_DATE_MODIFIED != 0) {
-            res = if (date_modified == other.date_modified)
+            res = if (modified == other.modified)
                 0
-            else if (date_modified > other.date_modified)
+            else if (modified > other.modified)
                 1
             else
                 -1
         } else {
-            res = if (date_taken == other.date_taken)
+            res = if (taken == other.taken)
                 0
-            else if (date_taken > other.date_taken)
+            else if (taken > other.taken)
                 1
             else
                 -1

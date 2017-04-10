@@ -330,7 +330,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                 photo_cnt.text = directory.mediaCnt.toString()
                 dir_pin.visibility = if (isPinned) View.VISIBLE else View.GONE
                 toggleItemSelection(this, markedItems.contains(pos), pos)
-                activity.loadImage(directory.thumbnail, dir_thumbnail)
+                activity.loadImage(directory.tmb, dir_thumbnail)
 
                 setOnClickListener { viewClicked(multiSelector, directory, pos) }
                 setOnLongClickListener {

@@ -6,10 +6,10 @@ import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
 import com.simplemobiletools.commons.helpers.SORT_DESCENDING
 import java.io.Serializable
 
-data class Directory(val path: String, val thumbnail: String, val name: String, var mediaCnt: Int, val date_modified: Long, val date_taken: Long,
+data class Directory(val path: String, val tmb: String, val name: String, var mediaCnt: Int, val modified: Long, val taken: Long,
                      var size: Long) : Serializable, Comparable<Directory> {
     companion object {
-        private val serialVersionUID = -6553345863575455L
+        private val serialVersionUID = -6553345863555455L
         var sorting: Int = 0
     }
 
@@ -29,16 +29,16 @@ data class Directory(val path: String, val thumbnail: String, val name: String, 
             else
                 -1
         } else if (sorting and SORT_BY_DATE_MODIFIED != 0) {
-            result = if (date_modified == other.date_modified)
+            result = if (modified == other.modified)
                 0
-            else if (date_modified > other.date_modified)
+            else if (modified > other.modified)
                 1
             else
                 -1
         } else {
-            result = if (date_taken == other.date_taken)
+            result = if (taken == other.taken)
                 0
-            else if (date_taken > other.date_taken)
+            else if (taken > other.taken)
                 1
             else
                 -1

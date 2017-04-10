@@ -18,7 +18,7 @@ val DIR_COLUMN_CNT = "dir_column_cnt"
 val MEDIA_COLUMN_CNT = "media_column_cnt"
 val SHOW_ALL = "show_all"   // display images and videos from all folders together
 val SHOW_MEDIA = "show_media"
-val SAVE_FOLDER_PREFIX = "folder_"
+val SAVE_FOLDER_PREFIX = "folder2_"
 val HIDE_FOLDER_TOOLTIP_SHOWN = "hide_folder_tooltip_shown"
 val EXCLUDED_FOLDERS = "excluded_folders"
 val INCLUDED_FOLDERS = "included_folders"
@@ -31,7 +31,7 @@ val GET_IMAGE_INTENT = "get_image_intent"
 val GET_VIDEO_INTENT = "get_video_intent"
 val GET_ANY_INTENT = "get_any_intent"
 val SET_WALLPAPER_INTENT = "set_wallpaper_intent"
-val DIRECTORIES = "directories"
+val DIRECTORIES = "directories2"
 
 val REQUEST_EDIT_IMAGE = 1
 val REQUEST_SET_WALLPAPER = 2
