@@ -13,7 +13,7 @@
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/resize"
-        android:icon="@drawable/ic_resize"
+        android:icon="@drawable/ic_minimize"
         android:title="@string/resize"
         app:showAsAction="ifRoom"/>
 </menu>
