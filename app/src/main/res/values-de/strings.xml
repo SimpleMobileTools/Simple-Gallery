@@ -75,6 +75,8 @@
     <string name="no_wallpaper_setter_found">Keine passende App gefunden</string>
     <string name="setting_wallpaper">Setze Hintergrundbild&#8230;</string>
     <string name="wallpaper_set_successfully">Hintergrundbild erfolgreich festgelegt</string>
+    <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
+    <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
 
     <!-- Settings -->
     <string name="show_hidden_folders">Zeige versteckte Ordner</string>

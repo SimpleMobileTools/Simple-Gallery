@@ -75,6 +75,8 @@
     <string name="no_wallpaper_setter_found">対応できるアプリが見つかりません</string>
     <string name="setting_wallpaper">壁紙の設定&#8230;</string>
     <string name="wallpaper_set_successfully">壁紙を正常に設定しました</string>
+    <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
+    <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
 
     <!-- Settings -->
     <string name="show_hidden_folders">非表示フォルダーを表示</string>

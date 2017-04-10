@@ -75,6 +75,8 @@
     <string name="no_wallpaper_setter_found">Nenašla sa žiadna vhodná aplikácia No app capable of it has been found</string>
     <string name="setting_wallpaper">Nastavuje sa tapeta&#8230;</string>
     <string name="wallpaper_set_successfully">Tapeta bola úspešne zmenená</string>
+    <string name="portrait_aspect_ratio">Orientácia nastojato</string>
+    <string name="landscape_aspect_ratio">Orientácia naležato</string>
 
     <!-- Settings -->
     <string name="show_hidden_folders">Zobraziť skryté priečinky</string>

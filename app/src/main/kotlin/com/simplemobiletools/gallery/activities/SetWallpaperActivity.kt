@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.view_crop_image.*
 
 class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener {
     private val PICK_IMAGE = 1
+    private var isLandscapeRatio = true
 
     lateinit var uri: Uri
     lateinit var wallpaperManager: WallpaperManager
@@ -47,13 +48,22 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
         crop_image_view.apply {
             guidelines = CropImageView.Guidelines.OFF
             setOnCropImageCompleteListener(this@SetWallpaperActivity)
-            setImageUriAsync(intent.data)
-            setAspectRatio(wallpaperManager.desiredMinimumWidth, wallpaperManager.desiredMinimumHeight)
+            setImageUriAsync(uri)
         }
+
+        setupAspectRatio()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    private fun setupAspectRatio() {
+        val wallpaperWidth = if (isLandscapeRatio) wallpaperManager.desiredMinimumWidth else wallpaperManager.desiredMinimumWidth / 2
+        crop_image_view.setAspectRatio(wallpaperWidth, wallpaperManager.desiredMinimumHeight)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_set_wallpaper, menu)
+
+        menu.findItem(R.id.portrait_aspect_ratio).isVisible = isLandscapeRatio
+        menu.findItem(R.id.landscape_aspect_ratio).isVisible = !isLandscapeRatio
         return true
     }
 
@@ -61,9 +71,17 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
         when (item.itemId) {
             R.id.save -> crop_image_view.getCroppedImageAsync()
             R.id.rotate -> crop_image_view.rotateImage(90)
+            R.id.portrait_aspect_ratio -> changeAspectRatio(false)
+            R.id.landscape_aspect_ratio -> changeAspectRatio(true)
             else -> return super.onOptionsItemSelected(item)
         }
         return true
+    }
+
+    private fun changeAspectRatio(isLandscape: Boolean) {
+        isLandscapeRatio = isLandscape
+        setupAspectRatio()
+        invalidateOptionsMenu()
     }
 
     override fun onCropImageComplete(view: CropImageView?, result: CropImageView.CropResult) {

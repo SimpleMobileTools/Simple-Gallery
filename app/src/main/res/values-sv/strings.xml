@@ -75,6 +75,8 @@
     <string name="no_wallpaper_setter_found">Hittade ingen app som klarar av detta</string>
     <string name="setting_wallpaper">Inställningar för bakgrundsbild&#8230;</string>
     <string name="wallpaper_set_successfully">Bakgrundsbilden är ändrad</string>
+    <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
+    <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
 
     <!-- Settings -->
     <string name="show_hidden_folders">Visa dolda mappar</string>

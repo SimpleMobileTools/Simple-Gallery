@@ -75,6 +75,8 @@
     <string name="no_wallpaper_setter_found">沒有可用的應用軟體</string>
     <string name="setting_wallpaper">正在應用軟體桌布&#8230;</string>
     <string name="wallpaper_set_successfully">成功應用軟體桌布</string>
+    <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
+    <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
 
     <!-- Settings -->
     <string name="show_hidden_folders">秀出隱藏資料夾</string>

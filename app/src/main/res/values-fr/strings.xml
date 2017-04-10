@@ -75,6 +75,8 @@
     <string name="no_wallpaper_setter_found">Aucune application trouvée pour continuer cette action</string>
     <string name="setting_wallpaper">Paramètre de fond d\'écran…</string>
     <string name="wallpaper_set_successfully">Fond d\'écran défini avec succès.</string>
+    <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
+    <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
 
     <!-- Settings -->
     <string name="show_hidden_folders">Afficher les dossiers cachés</string>

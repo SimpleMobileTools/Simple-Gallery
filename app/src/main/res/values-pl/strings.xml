@@ -75,6 +75,8 @@
     <string name="no_wallpaper_setter_found">Brak odpowiednich ustawień</string>
     <string name="setting_wallpaper">Ustawianie tapety&#8230;</string>
     <string name="wallpaper_set_successfully">Tapeta ustawiona</string>
+    <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
+    <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
 
     <!-- Settings -->
     <string name="show_hidden_folders">Pokaż ukryte foldery</string>

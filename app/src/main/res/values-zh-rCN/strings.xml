@@ -75,6 +75,8 @@
     <string name="no_wallpaper_setter_found">没有可用的软件</string>
     <string name="setting_wallpaper">壁纸应用中&#8230;</string>
     <string name="wallpaper_set_successfully">壁纸应用成功</string>
+    <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
+    <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
 
     <!-- Settings -->
     <string name="show_hidden_folders">显示所有</string>

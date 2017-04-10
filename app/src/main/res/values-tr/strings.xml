@@ -75,6 +75,8 @@
     <string name="no_wallpaper_setter_found">Mümkün olan herhangi bir uygulama bulunamadı</string>
     <string name="setting_wallpaper">Duvar kağıdını ayarlama&#8230;</string>
     <string name="wallpaper_set_successfully">Duvar kağıdı başarıyla ayarlandı</string>
+    <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
+    <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
 
     <!-- Settings -->
     <string name="show_hidden_folders">Gizli klasörleri göster</string>
