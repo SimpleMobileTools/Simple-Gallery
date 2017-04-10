@@ -170,7 +170,11 @@ fun SimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
             getFileDocument(path)?.createFile("", NOMEDIA)
         }
     } else {
-        file.createNewFile()
+        try {
+            file.createNewFile()
+        } catch (e: Exception) {
+            toast(R.string.unknown_error_occurred)
+        }
     }
     scanFile(file) {
         callback.invoke()
