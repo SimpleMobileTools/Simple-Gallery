@@ -59,12 +59,12 @@
     <string name="no_editor_found">Kein Bildeditor gefunden</string>
     <string name="unknown_file_location">Unbekannter Dateiort</string>
     <string name="error_saving_file">Konnte Quelldatei nicht überschreiben</string>
-    <string name="rotate_left">Rotate left</string>
-    <string name="rotate_right">Rotate right</string>
-    <string name="rotate_one_eighty">Rotate by 180º</string>
-    <string name="flip">Flip</string>
-    <string name="horizontally">Horizontally</string>
-    <string name="vertically">Vertically</string>
+    <string name="rotate_left">drehe links</string>
+    <string name="rotate_right">drehe rechts</string>
+    <string name="rotate_one_eighty">drehe um 180º</string>
+    <string name="flip">Spiegeln</string>
+    <string name="horizontally">Horizontal</string>
+    <string name="vertically">Vertikal</string>
     <string name="out_of_memory_error">Out of memory error</string>
 
     <!-- Set wallpaper -->
@@ -75,8 +75,8 @@
     <string name="no_wallpaper_setter_found">Keine passende App gefunden</string>
     <string name="setting_wallpaper">Setze Hintergrundbild&#8230;</string>
     <string name="wallpaper_set_successfully">Hintergrundbild erfolgreich festgelegt</string>
-    <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
-    <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
+    <string name="portrait_aspect_ratio">Hochformat</string>
+    <string name="landscape_aspect_ratio">Querformat</string>
 
     <!-- Settings -->
     <string name="show_hidden_folders">Zeige versteckte Ordner</string>
@@ -91,9 +91,9 @@
     <string name="max_brightness">Max brightness when viewing media</string>
     <string name="crop_thumbnails">Crop thumbnails into squares</string>
     <string name="screen_rotation_by">Rotate fullscreen media by</string>
-    <string name="screen_rotation_system_setting">System setting</string>
-    <string name="screen_rotation_device_rotation">Device rotation</string>
-    <string name="screen_rotation_aspect_ratio">Aspect ratio</string>
+    <string name="screen_rotation_system_setting">System Einstellunge</string>
+    <string name="screen_rotation_device_rotation">Gerät Drehung</string>
+    <string name="screen_rotation_aspect_ratio">Seitenverhältnis</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
