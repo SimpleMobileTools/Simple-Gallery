@@ -13,6 +13,7 @@ import android.view.*
 import android.view.animation.AnimationUtils
 import android.widget.SeekBar
 import android.widget.TextView
+import com.simplemobiletools.commons.extensions.getFormattedDuration
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getNavBarHeight
@@ -21,7 +22,6 @@ import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.pager_video_item.view.*
 import java.io.IOException
-import java.util.*
 
 class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSeekBarChangeListener {
 
@@ -133,7 +133,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
     private fun setupTimeHolder() {
         mSeekBar!!.max = mDuration
-        mView.video_duration.text = getTimeString(mDuration)
+        mView.video_duration.text = mDuration.getFormattedDuration()
         mTimerHandler = Handler()
         setupTimer()
     }
@@ -144,7 +144,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 if (mMediaPlayer != null && !mIsDragged && mIsPlaying) {
                     mCurrTime = mMediaPlayer!!.currentPosition / 1000
                     mSeekBar!!.progress = mCurrTime
-                    mCurrTimeView!!.text = getTimeString(mCurrTime)
+                    mCurrTimeView!!.text = mCurrTime.getFormattedDuration()
                 }
 
                 mTimerHandler!!.postDelayed(this, 1000)
@@ -224,7 +224,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private fun setProgress(seconds: Int) {
         mMediaPlayer!!.seekTo(seconds * 1000)
         mSeekBar!!.progress = seconds
-        mCurrTimeView!!.text = getTimeString(seconds)
+        mCurrTimeView!!.text = seconds.getFormattedDuration()
     }
 
     private fun addPreviewImage() {
@@ -247,7 +247,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
     private fun cleanup() {
         pauseVideo()
-        mCurrTimeView?.text = getTimeString(0)
+        mCurrTimeView?.text = 0.getFormattedDuration()
         mMediaPlayer?.release()
         mMediaPlayer = null
         mSeekBar?.progress = 0
@@ -269,7 +269,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             playVideo()
         } else {
             mSeekBar!!.progress = mSeekBar!!.max
-            mCurrTimeView!!.text = getTimeString(mDuration)
+            mCurrTimeView!!.text = mDuration.getFormattedDuration()
             pauseVideo()
         }
     }
@@ -319,22 +319,6 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             }
             mSurfaceView!!.layoutParams = this
         }
-    }
-
-    private fun getTimeString(duration: Int): String {
-        val sb = StringBuilder(8)
-        val hours = duration / (60 * 60)
-        val minutes = duration % (60 * 60) / 60
-        val seconds = duration % (60 * 60) % 60
-
-        if (duration > 3600) {
-            sb.append(String.format(Locale.getDefault(), "%02d", hours)).append(":")
-        }
-
-        sb.append(String.format(Locale.getDefault(), "%02d", minutes))
-        sb.append(":").append(String.format(Locale.getDefault(), "%02d", seconds))
-
-        return sb.toString()
     }
 
     override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
