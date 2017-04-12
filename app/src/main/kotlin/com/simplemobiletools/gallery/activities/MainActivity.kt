@@ -75,13 +75,13 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        if (mIsThirdPartyIntent)
-            return false
-
-        menuInflater.inflate(R.menu.menu_main, menu)
-
-        menu.findItem(R.id.increase_column_count).isVisible = config.dirColumnCnt < 10
-        menu.findItem(R.id.reduce_column_count).isVisible = config.dirColumnCnt > 1
+        if (mIsThirdPartyIntent) {
+            menuInflater.inflate(R.menu.menu_main_intent, menu)
+        } else {
+            menuInflater.inflate(R.menu.menu_main, menu)
+            menu.findItem(R.id.increase_column_count).isVisible = config.dirColumnCnt < 10
+            menu.findItem(R.id.reduce_column_count).isVisible = config.dirColumnCnt > 1
+        }
         return true
     }
 
