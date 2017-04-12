@@ -18,6 +18,7 @@
         android:layout_height="@dimen/play_outline_size_big"
         android:layout_centerInParent="true"
         android:background="@android:color/transparent"
+        android:padding="@dimen/activity_margin"
         android:src="@drawable/img_play_outline_big"/>
 
     <RelativeLayout
