@@ -113,9 +113,11 @@ class PhotoFragment : ViewPagerFragment() {
             if (menuVisible) {
                 addZoomableView()
             } else {
-                view.subsampling_view.recycle()
-                view.subsampling_view.beGone()
-                view.subsampling_view.background = ColorDrawable(Color.TRANSPARENT)
+                view.subsampling_view.apply {
+                    recycle()
+                    beGone()
+                    background = ColorDrawable(Color.TRANSPARENT)
+                }
             }
         }
     }
@@ -170,7 +172,7 @@ class PhotoFragment : ViewPagerFragment() {
                         }
 
                         override fun onResourceReady(resource: Bitmap?, model: String?, target: Target<Bitmap>?, isFromMemoryCache: Boolean, isFirstResource: Boolean): Boolean {
-                            if (isMenuVisible)
+                            if (isFragmentVisible)
                                 addZoomableView()
                             return false
                         }
@@ -188,7 +190,7 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun addZoomableView() {
-        if ((medium.isImage()) && isMenuVisible && view.subsampling_view.visibility == View.GONE) {
+        if ((medium.isImage()) && isFragmentVisible && view.subsampling_view.visibility == View.GONE) {
             view.subsampling_view.apply {
                 maxScale = 10f
                 beVisible()
