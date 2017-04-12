@@ -269,7 +269,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
         if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == PICK_MEDIA && resultData != null) {
+            if (requestCode == PICK_MEDIA && resultData?.data != null) {
                 Intent().apply {
                     val path = resultData.data.path
                     val uri = Uri.fromFile(File(path))
