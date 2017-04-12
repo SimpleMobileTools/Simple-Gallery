@@ -275,11 +275,11 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     }
 
     override fun surfaceCreated(holder: SurfaceHolder) {
-        initMediaPlayer()
+
     }
 
     override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {
-
+        setVideoSize()
     }
 
     override fun surfaceDestroyed(holder: SurfaceHolder) {
@@ -288,7 +288,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     }
 
     private fun setVideoSize() {
-        if (activity == null)
+        if (activity == null || !mSurfaceHolder!!.surface.isValid)
             return
 
         initMediaPlayer()
