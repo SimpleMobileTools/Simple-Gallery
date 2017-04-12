@@ -212,9 +212,11 @@ class PhotoFragment : ViewPagerFragment() {
                     }
 
                     override fun onImageLoadError(p0: java.lang.Exception?) {
+                        background = ColorDrawable(Color.TRANSPARENT)
                     }
 
                     override fun onPreviewLoadError(p0: java.lang.Exception?) {
+                        background = ColorDrawable(Color.TRANSPARENT)
                     }
                 })
             }
