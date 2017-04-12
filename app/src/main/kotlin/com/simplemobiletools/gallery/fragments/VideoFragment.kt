@@ -91,12 +91,11 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         super.setMenuVisibility(menuVisible)
         mIsFragmentVisible = menuVisible
         if (menuVisible) {
-            if (context != null && context.config.autoplayVideos) {
+            if (context?.config?.autoplayVideos == true) {
                 playVideo()
             }
-        } else {
-            if (mIsPlaying)
-                pauseVideo()
+        } else if (mIsPlaying) {
+            pauseVideo()
         }
     }
 
@@ -241,7 +240,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
     override fun onDestroy() {
         super.onDestroy()
-        if (activity != null && !activity.isChangingConfigurations) {
+        if (activity?.isChangingConfigurations == false) {
             cleanup()
         }
     }
