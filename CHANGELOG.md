@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 2.8.4 *(2017-04-13)*
+----------------------------
+
+ * Allow setting portrait wallpapers
+ * Added more fields in photo Properties dialog
+ * Try fixing the issue with not appearing fullscreen images to some people
+ * Couple crashfixes
+
 Version 2.8.3 *(2017-04-04)*
 ----------------------------
 
