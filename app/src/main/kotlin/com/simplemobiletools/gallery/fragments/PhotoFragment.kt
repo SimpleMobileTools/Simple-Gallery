@@ -228,11 +228,6 @@ class PhotoFragment : ViewPagerFragment() {
         loadBitmap(degrees)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        Glide.clear(view.photo_view)
-    }
-
     override fun onConfigurationChanged(newConfig: Configuration?) {
         super.onConfigurationChanged(newConfig)
         loadImage()
