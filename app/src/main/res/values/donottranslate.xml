@@ -2,6 +2,10 @@
 <resources>
 
     <!-- Release notes -->
+    <string name="release_93">
+        Allow setting portrait wallpapers\n
+        Added more fields in photo Properties dialog
+    </string>
     <string name="release_89">
         Improved fullscreen image zooming\n
         Added more settings related to screen autorotating\n
