@@ -63,8 +63,8 @@
     <string name="rotate_right">Obróć w prawo</string>
     <string name="rotate_one_eighty">Obróć o 180o</string>
     <string name="flip">Flip</string>
-    <string name="horizontally">Poziomo</string>
-    <string name="vertically">Pionowo</string>
+    <string name="flip_horizontally">Flip poziomo</string>
+    <string name="flip_vertically">Flip pionowo</string>
     <string name="out_of_memory_error">Błąd pamięci</string>
 
     <!-- Set wallpaper -->

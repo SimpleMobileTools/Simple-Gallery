@@ -63,8 +63,8 @@
     <string name="rotate_right">Rotate right</string>
     <string name="rotate_one_eighty">Rotate by 180º</string>
     <string name="flip">Flip</string>
-    <string name="horizontally">Horizontally</string>
-    <string name="vertically">Vertically</string>
+    <string name="flip_horizontally">Flip horizontally</string>
+    <string name="flip_vertically">Flip vertically</string>
     <string name="out_of_memory_error">Out of memory error</string>
 
     <!-- Set wallpaper -->

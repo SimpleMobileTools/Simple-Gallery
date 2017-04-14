@@ -63,8 +63,8 @@
     <string name="rotate_right">Rodar à direita</string>
     <string name="rotate_one_eighty">Rodar 180º</string>
     <string name="flip">Inverter</string>
-    <string name="horizontally">Horizontalmente</string>
-    <string name="vertically">Verticalmente</string>
+    <string name="flip_horizontally">Horizontalmente</string>
+    <string name="flip_vertically">Verticalmente</string>
     <string name="out_of_memory_error">Memória insuficiente</string>
 
     <!-- Set wallpaper -->

@@ -63,8 +63,8 @@
     <string name="rotate_right">Otočit doprava</string>
     <string name="rotate_one_eighty">Otočit o 180°</string>
     <string name="flip">Překlopit</string>
-    <string name="horizontally">Vodorovně</string>
-    <string name="vertically">Svisle</string>
+    <string name="flip_horizontally">Překlopit vodorovně</string>
+    <string name="flip_vertically">Překlopit svisle</string>
     <string name="out_of_memory_error">Zařízení nemá dostatek paměti</string>
 
     <!-- Set wallpaper -->

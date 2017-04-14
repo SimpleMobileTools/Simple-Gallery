@@ -63,8 +63,8 @@
     <string name="rotate_right">Sağa döndür</string>
     <string name="rotate_one_eighty">Ters çevir 180º</string>
     <string name="flip">Çevir</string>
-    <string name="horizontally">Yatay</string>
-    <string name="vertically">Dikey</string>
+    <string name="flip_horizontally">Yatay</string>
+    <string name="flip_vertically">Dikey</string>
     <string name="out_of_memory_error">Yetersiz bellek hatası</string>
 
     <!-- Set wallpaper -->

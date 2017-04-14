@@ -63,8 +63,8 @@
     <string name="rotate_right">drehe rechts</string>
     <string name="rotate_one_eighty">drehe um 180º</string>
     <string name="flip">Spiegeln</string>
-    <string name="horizontally">Horizontal</string>
-    <string name="vertically">Vertikal</string>
+    <string name="flip_horizontally">Horizontal</string>
+    <string name="flip_vertically">Vertikal</string>
     <string name="out_of_memory_error">Out of memory error</string>
 
     <!-- Set wallpaper -->
