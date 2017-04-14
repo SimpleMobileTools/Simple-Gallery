@@ -42,7 +42,7 @@
             android:text="00:00"
             android:textColor="@android:color/white"/>
 
-        <SeekBar
+        <com.simplemobiletools.commons.views.MySeekBar
             android:id="@+id/video_seekbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

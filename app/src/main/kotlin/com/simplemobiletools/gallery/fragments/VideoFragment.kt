@@ -14,6 +14,7 @@ import android.view.animation.AnimationUtils
 import android.widget.SeekBar
 import android.widget.TextView
 import com.simplemobiletools.commons.extensions.getFormattedDuration
+import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getNavBarHeight
@@ -67,6 +68,11 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         }
 
         return mView
+    }
+
+    override fun onResume() {
+        super.onResume()
+        activity.updateTextColors(mView.video_holder)
     }
 
     private fun setupPlayer() {
