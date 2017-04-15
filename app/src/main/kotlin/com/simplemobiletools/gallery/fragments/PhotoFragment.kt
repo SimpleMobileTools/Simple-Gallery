@@ -160,14 +160,15 @@ class PhotoFragment : ViewPagerFragment() {
         if (degrees == 0f) {
             val targetWidth = if (ViewPagerActivity.screenWidth == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenWidth
             val targetHeight = if (ViewPagerActivity.screenHeight == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenHeight
+
             Glide.with(this)
                     .load(medium.path)
                     .asBitmap()
-                    .format(DecodeFormat.PREFER_ARGB_8888)
+                    .format(if (medium.isPng()) DecodeFormat.PREFER_ARGB_8888 else DecodeFormat.PREFER_RGB_565)
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .override(targetWidth, targetHeight)
                     .listener(object : RequestListener<String, Bitmap> {
-                        override fun onException(e: java.lang.Exception?, model: String?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
+                        override fun onException(e: Exception?, model: String?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
                             return false
                         }
 
@@ -182,7 +183,6 @@ class PhotoFragment : ViewPagerFragment() {
                     .load(medium.path)
                     .asBitmap()
                     .transform(GlideRotateTransformation(context, degrees))
-                    .format(DecodeFormat.PREFER_ARGB_8888)
                     .thumbnail(0.2f)
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .into(view.photo_view)
@@ -205,26 +205,34 @@ class PhotoFragment : ViewPagerFragment() {
                         background = ColorDrawable(context.config.backgroundColor)
                     }
 
-                    override fun onTileLoadError(p0: java.lang.Exception?) {
+                    override fun onTileLoadError(e: Exception?) {
                     }
 
                     override fun onPreviewReleased() {
                     }
 
-                    override fun onImageLoadError(p0: java.lang.Exception?) {
+                    override fun onImageLoadError(e: Exception?) {
                         background = ColorDrawable(Color.TRANSPARENT)
+
+                        beGone()
                     }
 
-                    override fun onPreviewLoadError(p0: java.lang.Exception?) {
+                    override fun onPreviewLoadError(e: Exception?) {
                         background = ColorDrawable(Color.TRANSPARENT)
+                        beGone()
                     }
                 })
             }
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Glide.clear(view.photo_view)
+    }
+
     fun rotateImageViewBy(degrees: Float) {
-        view.subsampling_view.visibility = View.GONE
+        view.subsampling_view.beGone()
         loadBitmap(degrees)
     }
 
