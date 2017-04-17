@@ -16,4 +16,18 @@
         android:icon="@drawable/ic_minimize"
         android:title="@string/resize"
         app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/flip"
+        android:icon="@drawable/ic_flip"
+        android:title="@string/flip"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/flip_horizontally"
+                android:title="@string/flip_horizontally"/>
+            <item
+                android:id="@+id/flip_vertically"
+                android:title="@string/flip_vertically"/>
+        </menu>
+    </item>
 </menu>

@@ -62,6 +62,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             R.id.save_as -> crop_image_view.getCroppedImageAsync()
             R.id.rotate -> crop_image_view.rotateImage(90)
             R.id.resize -> resizeImage()
+            R.id.flip_horizontally -> flipImage(true)
+            R.id.flip_vertically -> flipImage(false)
             else -> return super.onOptionsItemSelected(item)
         }
         return true
@@ -142,6 +144,10 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         setResult(Activity.RESULT_OK, intent)
         scanFinalPath(file.absolutePath)
         out.close()
+    }
+
+    private fun flipImage(horizontally: Boolean) {
+
     }
 
     private fun scanFinalPath(path: String) {

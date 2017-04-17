@@ -35,6 +35,20 @@
         android:title="@string/share"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/menu_flip"
+        android:icon="@drawable/ic_flip"
+        android:title="@string/flip"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/menu_flip_horizontally"
+                android:title="@string/flip_horizontally"/>
+            <item
+                android:id="@+id/menu_flip_vertically"
+                android:title="@string/flip_vertically"/>
+        </menu>
+    </item>
+    <item
         android:id="@+id/menu_copy_to"
         android:title="@string/copy_to"
         app:showAsAction="never"/>
