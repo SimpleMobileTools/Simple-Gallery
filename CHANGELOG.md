@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 2.8.6 *(2017-04-17)*
+----------------------------
+
+ * Fixing a crash at getting the sd card path
+
 Version 2.8.5 *(2017-04-17)*
 ----------------------------
 
