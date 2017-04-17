@@ -234,11 +234,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         SaveAsDialog(this, currPath) {
             try {
                 val file = File(it)
-                if (file.exists()) {
-                    toast(R.string.name_taken)
-                    return@SaveAsDialog
-                }
-
                 val bitmap = BitmapFactory.decodeFile(currPath)
                 getFileOutputStream(file) {
                     saveFile(file, bitmap, it)
