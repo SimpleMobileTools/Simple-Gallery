@@ -160,11 +160,12 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mIsGettingDirs = true
         val token = object : TypeToken<List<Directory>>() {}.type
         val dirs = Gson().fromJson<ArrayList<Directory>>(config.directories, token) ?: ArrayList<Directory>(1)
-        if (dirs.size == 0) {
-            directories_refresh_layout.isRefreshing = true
-        } else if (!mLoadedInitialPhotos) {
-            mLoadedInitialPhotos = true
+        if (dirs.size != 0 && !mLoadedInitialPhotos) {
             gotDirectories(dirs)
+        }
+
+        if (!mLoadedInitialPhotos) {
+            directories_refresh_layout.isRefreshing = true
         }
 
         mLoadedInitialPhotos = true
