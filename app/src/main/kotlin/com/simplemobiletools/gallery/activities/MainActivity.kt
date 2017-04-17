@@ -13,7 +13,6 @@ import android.support.v7.widget.GridLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.models.Release
 import com.simplemobiletools.gallery.BuildConfig
@@ -21,10 +20,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
 import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
-import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.extensions.launchAbout
-import com.simplemobiletools.gallery.extensions.launchCamera
-import com.simplemobiletools.gallery.extensions.launchSettings
+import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.views.MyScalableRecyclerView
@@ -159,9 +155,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             return
 
         mIsGettingDirs = true
-        val token = object : TypeToken<List<Directory>>() {}.type
-        val dirs = Gson().fromJson<ArrayList<Directory>>(config.directories, token) ?: ArrayList<Directory>(1)
-        if (dirs.size != 0 && !mLoadedInitialPhotos) {
+        val dirs = getCachedDirectories()
+        if (dirs.isNotEmpty() && !mLoadedInitialPhotos) {
             gotDirectories(dirs)
         }
 

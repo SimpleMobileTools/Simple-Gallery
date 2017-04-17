@@ -14,6 +14,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.signature.StringSignature
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.BuildConfig
@@ -22,6 +24,7 @@ import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.helpers.NOMEDIA
 import com.simplemobiletools.gallery.helpers.REQUEST_EDIT_IMAGE
 import com.simplemobiletools.gallery.helpers.REQUEST_SET_WALLPAPER
+import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
 import com.simplemobiletools.gallery.views.MySquareImageView
 import java.io.File
@@ -252,4 +255,9 @@ fun Activity.loadStaticGif(path: String, target: MySquareImageView) {
 
     if (config.cropThumbnails) builder.centerCrop() else builder.fitCenter()
     builder.into(target)
+}
+
+fun Activity.getCachedDirectories(): ArrayList<Directory> {
+    val token = object : TypeToken<List<Directory>>() {}.type
+    return Gson().fromJson<ArrayList<Directory>>(config.directories, token) ?: ArrayList<Directory>(1)
 }
