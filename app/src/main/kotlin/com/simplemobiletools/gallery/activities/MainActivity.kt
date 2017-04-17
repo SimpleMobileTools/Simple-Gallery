@@ -120,6 +120,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mIsGettingDirs = false
         mStoredAnimateGifs = config.animateGifs
         mStoredCropThumbnails = config.cropThumbnails
+        MyScalableRecyclerView.mListener = null
     }
 
     override fun onStop() {

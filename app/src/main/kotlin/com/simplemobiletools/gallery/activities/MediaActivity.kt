@@ -85,6 +85,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         media_refresh_layout.isRefreshing = false
         mStoredAnimateGifs = config.animateGifs
         mStoredCropThumbnails = config.cropThumbnails
+        MyScalableRecyclerView.mListener = null
     }
 
     private fun tryloadGallery() {
