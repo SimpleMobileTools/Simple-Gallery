@@ -113,6 +113,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             super.onDestroyActionMode(actionMode)
             views.forEach { toggleItemSelection(it, false) }
             markedItems.clear()
+            actMode = null
         }
 
         fun checkHideBtnVisibility(menu: Menu, positions: List<Int>) {

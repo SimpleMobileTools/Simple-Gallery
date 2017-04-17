@@ -100,6 +100,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             super.onDestroyActionMode(actionMode)
             views.forEach { toggleItemSelection(it, false) }
             markedItems.clear()
+            actMode = null
         }
     }
 
