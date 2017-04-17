@@ -84,11 +84,8 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mSurfaceView = mView.video_surface
         mSurfaceHolder = mSurfaceView!!.holder
         mSurfaceHolder!!.addCallback(this)
-        mSurfaceView!!.setOnClickListener({
-            mIsFullscreen = !mIsFullscreen
-            checkFullscreen()
-            listener?.fragmentClicked()
-        })
+        mSurfaceView!!.setOnClickListener({ toggleFullscreen() })
+        mView.video_holder.setOnClickListener { toggleFullscreen() }
 
         initTimeHolder()
     }
@@ -109,6 +106,12 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         super.onConfigurationChanged(newConfig)
         setVideoSize()
         initTimeHolder()
+    }
+
+    private fun toggleFullscreen() {
+        mIsFullscreen = !mIsFullscreen
+        checkFullscreen()
+        listener?.fragmentClicked()
     }
 
     private fun initTimeHolder() {
