@@ -25,6 +25,7 @@ import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.config
+import com.simplemobiletools.gallery.extensions.getFileSignature
 import com.simplemobiletools.gallery.extensions.getRealPathFromURI
 import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
 import com.simplemobiletools.gallery.helpers.MEDIUM
@@ -164,6 +165,7 @@ class PhotoFragment : ViewPagerFragment() {
             Glide.with(this)
                     .load(medium.path)
                     .asBitmap()
+                    .signature(activity.getFileSignature(medium.path))
                     .format(if (medium.isPng()) DecodeFormat.PREFER_ARGB_8888 else DecodeFormat.PREFER_RGB_565)
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .override(targetWidth, targetHeight)
