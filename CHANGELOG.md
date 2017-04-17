@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 2.8.5 *(2017-04-17)*
+----------------------------
+
+ * Added horizontal and vertical image flipping in the image editor
+ * Fixed an issue with fullscreen image often not appearing
+ * Fixed deleting files from SD cards on some devices
+ * Fixed some memory leaks and other smaller issues
+
 Version 2.8.4 *(2017-04-13)*
 ----------------------------
 
