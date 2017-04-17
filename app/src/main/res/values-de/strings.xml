@@ -5,40 +5,40 @@
     <string name="edit">Bearbeiten</string>
     <string name="open_camera">Kamera öffnen</string>
     <string name="open_with">Öffnen mit</string>
-    <string name="no_app_found">Keine zulässige App gefunden</string>
+    <string name="no_app_found">Keine passende App gefunden</string>
     <string name="hidden">(versteckt)</string>
-    <string name="pin_folder">Fixiere Ordner</string>
-    <string name="unpin_folder">Ordner lösen</string>
-    <string name="show_all">Inhalt aller Ordner (anzeigen)</string>
+    <string name="pin_folder">Ordner anheften</string>
+    <string name="unpin_folder">Ordner loslösen</string>
+    <string name="show_all">Ansicht: Alle Medien</string>
     <string name="all_folders">Alle Medien</string>
-    <string name="folder_view">Wechsle zu Ordner Ansicht</string>
-    <string name="other_folder">andere Ordner</string>
-    <string name="show_on_map">Show on map</string>
-    <string name="unknown_location">Unknown location</string>
-    <string name="no_map_application">No application with maps has been found</string>
-    <string name="no_camera_app_found">No Camera app has been found</string>
-    <string name="increase_column_count">Increase column count</string>
-    <string name="reduce_column_count">Reduce column count</string>
-    <string name="temporarily_show_hidden">Temporarily show hidden</string>
+    <string name="folder_view">Ansicht: Als Ordner</string>
+    <string name="other_folder">Ordner wählen...</string>
+    <string name="show_on_map">Auf Karte zeigen</string>
+    <string name="unknown_location">Unbekannter Ort</string>
+    <string name="no_map_application">Keine Karten-App gefunden</string>
+    <string name="no_camera_app_found">Keine Kamera-App gefunden</string>
+    <string name="increase_column_count">Kacheln verkleinern</string>
+    <string name="reduce_column_count">Kacheln vergrößern</string>
+    <string name="temporarily_show_hidden">Verstecktes temporär zeigen</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder">Ordner verstecken</string>
-    <string name="unhide_folder">Ordner sichtbar machen</string>
-    <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden folders\' option in Settings. Continue?</string>
-    <string name="exclude">Exclude</string>
-    <string name="excluded_folders">Excluded folders</string>
-    <string name="manage_excluded_folders">Manage excluded folders</string>
-    <string name="exclude_folder_description">This will exclude the selection together with its subfolders from Simple Gallery only. You can manage excluded folders in Settings.</string>
-    <string name="exclude_folder_parent">Maybe you want to exclude a parent instead?</string>
-    <string name="excluded_activity_placeholder">Excluding folders will make them together with their subfolders hidden just in Simple Gallery, they will still be visible in other applications.\\n\\nIf you want to hide them from other apps too, use the Hide function.</string>
-    <string name="remove_all">Remove all</string>
-    <string name="remove_all_description">Remove all folders from the list of excluded? This will not delete the folders.</string>
+    <string name="unhide_folder">Ordner nicht verstecken</string>
+    <string name="hide_folder_description">Diese Funktion versteckt ausgewählte Ordner auf Systemebene (auch für andere Apps), indem dort eine \'.nomedia\'-Datei abgelegt wird. Dadurch werden auch deren Unterordner versteckt. \\nSolche Ordner werden nur gezeigt, wenn die Einstellung \'Versteckte Ordner zeigen\' aktiv ist (auch andere Apps bieten üblicherweise eine solche Option). Fortfahren?</string>
+    <string name="exclude">Ordner ausblenden</string>
+    <string name="excluded_folders">Ausgeblendete Ordner</string>
+    <string name="manage_excluded_folders">Ausgeblendete Ordner verwalten</string>
+    <string name="exclude_folder_description">Diese Funktion blendet ausgewählte Ordner inklusive ihrer Unterordner aus (nur in dieser App). Ausgeblendete Ordner können in den Einstellungen verwaltet werden.</string>
+    <string name="exclude_folder_parent">Möchten Sie vielleicht einen Ordner stattdessen ausblenden?</string>
+    <string name="excluded_activity_placeholder">\'Ordner ausblenden\' wird ausgewählte Ordner inklusive Unterordnern nur in dieser App ausblenden. Andere Apps werden solche Ordner weiterhin anzeigen. \\n\\nWenn Sie Ordner auch für andere Apps verstecken wollen, verwenden Sie dafür die Funktion \'Ordner verstecken\'.</string>
+    <string name="remove_all">Alle entfernen</string>
+    <string name="remove_all_description">Alle Ordner aus der Ausgeblendet-Liste entfernen? Die Ordner selbst werden nicht gelöscht.</string>
 
     <!-- Include folders -->
-    <string name="include_folders">Included folders</string>
-    <string name="manage_included_folders">Manage included folders</string>
-    <string name="add_folder">Add folder</string>
-    <string name="included_activity_placeholder">If you have some folders which contain media, but were not recognized by the app, you can add them manually here.</string>
+    <string name="include_folders">Einbezogene Ordner</string>
+    <string name="manage_included_folders">Einbezogene Ordner verwalten</string>
+    <string name="add_folder">Ordner hinzufügen</string>
+    <string name="included_activity_placeholder">Wenn Sie Ordner mit Medien haben, die von dieser App nicht erkannt wurden, können Sie diese hier manuell hinzufügen.</string>
 
     <!-- Resizing -->
     <string name="resize">Größe ändern</string>
@@ -46,7 +46,7 @@
     <string name="width">Breite</string>
     <string name="height">Höhe</string>
     <string name="keep_aspect_ratio">Seitenverhältnis beibehalten</string>
-    <string name="invalid_values">Bitte gib eine korrekte Auflösung ein</string>
+    <string name="invalid_values">Bitte eine gültige Auflösung eingeben</string>
 
     <!-- Editor -->
     <string name="editor">Editor</string>
@@ -55,57 +55,57 @@
     <string name="path">Pfad</string>
     <string name="invalid_image_path">Ungültiger Dateipfad</string>
     <string name="image_editing_failed">Bildbearbeitung fehlgeschlagen</string>
-    <string name="edit_image_with">Bearbeite Bild mit:</string>
-    <string name="no_editor_found">Kein Bildeditor gefunden</string>
+    <string name="edit_image_with">Bild bearbeiten mit:</string>
+    <string name="no_editor_found">Keine Bildeditor-App gefunden</string>
     <string name="unknown_file_location">Unbekannter Dateiort</string>
     <string name="error_saving_file">Konnte Quelldatei nicht überschreiben</string>
-    <string name="rotate_left">drehe links</string>
-    <string name="rotate_right">drehe rechts</string>
-    <string name="rotate_one_eighty">drehe um 180º</string>
+    <string name="rotate_left">Nach links drehen</string>
+    <string name="rotate_right">Nach rechts drehen</string>
+    <string name="rotate_one_eighty">Um 180º drehen</string>
     <string name="flip">Spiegeln</string>
-    <string name="flip_horizontally">Horizontal</string>
-    <string name="flip_vertically">Vertikal</string>
-    <string name="out_of_memory_error">Out of memory error</string>
+    <string name="flip_horizontally">Horizontal spiegeln</string>
+    <string name="flip_vertically">Vertikal spiegeln</string>
+    <string name="out_of_memory_error">Fehler: Zuwenig Speicher</string>
 
     <!-- Set wallpaper -->
-    <string name="simple_wallpaper">Simple Wallpaper</string>
-    <string name="set_as_wallpaper">Als Hintergrundbild festlegen</string>
-    <string name="set_as_wallpaper_failed">Setzen des Hintergrundbildes fehlgeschlagen</string>
-    <string name="set_as_wallpaper_with">Als Hintergrundbild festlegen mit:</string>
-    <string name="no_wallpaper_setter_found">Keine passende App gefunden</string>
-    <string name="setting_wallpaper">Setze Hintergrundbild&#8230;</string>
+    <string name="simple_wallpaper">Schlichter Hintergrund</string>
+    <string name="set_as_wallpaper">Als Hintergrund festlegen</string>
+    <string name="set_as_wallpaper_failed">Hintergrundbild festlegen fehlgeschlagen</string>
+    <string name="set_as_wallpaper_with">Als Hintergrund festlegen mit:</string>
+    <string name="no_wallpaper_setter_found">Keine Hintergrundbild-App gefunden</string>
+    <string name="setting_wallpaper">Hintergrund festlegen&#8230;</string>
     <string name="wallpaper_set_successfully">Hintergrundbild erfolgreich festgelegt</string>
     <string name="portrait_aspect_ratio">Hochformat</string>
     <string name="landscape_aspect_ratio">Querformat</string>
 
     <!-- Settings -->
-    <string name="show_hidden_folders">Zeige versteckte Ordner</string>
-    <string name="autoplay_videos">Spiele Videos automatisch ab</string>
-    <string name="toggle_filename">Toggle filename visibility</string>
-    <string name="show_media">Medienauswahl</string>
-    <string name="images">nur Bilder</string>
-    <string name="videos">nur Videos</string>
+    <string name="show_hidden_folders">Versteckte Ordner zeigen</string>
+    <string name="autoplay_videos">Videos automatisch abspielen</string>
+    <string name="toggle_filename">Beschriftungen ein/aus</string>
+    <string name="show_media">Medien auswählen</string>
+    <string name="images">Nur Bilder</string>
+    <string name="videos">Nur Videos</string>
     <string name="images_and_videos">Bilder und Videos</string>
-    <string name="loop_videos">Video Endlos-Schleife</string>
-    <string name="animate_gifs">Animate gifs at thumbnails</string>
-    <string name="max_brightness">Max brightness when viewing media</string>
-    <string name="crop_thumbnails">Crop thumbnails into squares</string>
-    <string name="screen_rotation_by">Rotate fullscreen media by</string>
-    <string name="screen_rotation_system_setting">System Einstellunge</string>
-    <string name="screen_rotation_device_rotation">Gerät Drehung</string>
+    <string name="loop_videos">Videos in Endlos-Schleife spielen</string>
+    <string name="animate_gifs">Kacheln bei GIFs animieren</string>
+    <string name="max_brightness">Helligkeit beim Betrachten maximieren</string>
+    <string name="crop_thumbnails">Kacheln quadratisch zuschneiden</string>
+    <string name="screen_rotation_by">Medien im Vollbild ausrichten nach</string>
+    <string name="screen_rotation_system_setting">Systemeinstellung</string>
+    <string name="screen_rotation_device_rotation">Geräte-Drehung</string>
     <string name="screen_rotation_aspect_ratio">Seitenverhältnis</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">A gallery for viewing photos and videos without ads.</string>
+    <string name="app_short_description">Eine schlichte Galerie zum Betrachten von Bildern und Videos ohne Werbung.</string>
     <string name="app_long_description">
-        A simple tool usable for viewing photos and videos. Items can be sorted by date, size, name both ascending or descending, photos can be zoomed in. Media files are shown in multiple columns depending on the size of the display, you can change the column count by pinch gestures. They can be renamed, shared, deleted, copied, moved. Images can also be cropped, rotated or set as Wallpaper directly from the app.
+        Ein schlichtes Tool zum Betrachten von Bildern und Videos. Die Medien können nach Datum, Größe, Name sowie auf- oder absteigend  sortiert gezeigt werden, in Bilder kann hineingezoomt werden. Vorschau-Kacheln werden in mehreren Spalten abhängig von der Displaygröße gezeigt, die Spaltenanzahl ist mit Zweifingergesten änderbar.  Medien können umbenannt, geteilt, gelöscht, kopiert, verschoben werden. Bilder können zugeschnitten, gedreht oder als Hintergrund festgelegt werden, direkt aus der App heraus.
 
-        The Gallery is also offered for third party usage for previewing images / videos, adding attachments at email clients etc. It\'s perfect for everyday usage.
+        Die Galerie bietet auch für Drittparteien einige Funktionen an: zum Vorschauen von Bildern / Videos, zum Hinzufügen von Anhängen bei eMail-Clients, etc. Sie ist perfekt für den täglichen Gebrauch.
 
-        Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
+        Beinhaltet keine Werbung oder unnötige Berechtigungen. Sie ist komplett Open Source, ihre Farben sind anpassbar.
 
-        This app is just one piece of a bigger series of apps. You can find the rest of them at http://www.simplemobiletools.com
+        Diese App ist nur eine aus einer größeren Serie von schlichten Apps. Den Rest davon finden Sie auf http://www.simplemobiletools.com
     </string>
 
     <!--
