@@ -163,7 +163,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_set_as_wallpaper).isVisible = getCurrentMedium()!!.isImage() == true
             findItem(R.id.menu_edit).isVisible = getCurrentMedium()!!.isImage() == true
             findItem(R.id.menu_rotate).isVisible = getCurrentMedium()!!.isImage() == true
-            findItem(R.id.menu_flip).isVisible = getCurrentMedium()!!.isImage() == true
             findItem(R.id.menu_save_as).isVisible = mRotationDegrees != 0f
 
             findItem(R.id.menu_rotate).subMenu.apply {
@@ -187,8 +186,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_move_to -> moveTo()
             R.id.menu_open_with -> openWith(getCurrentFile())
             R.id.menu_share -> shareMedium(getCurrentMedium()!!)
-            R.id.menu_flip_horizontally -> flipImage(true)
-            R.id.menu_flip_vertically -> flipImage(false)
             R.id.menu_delete -> askConfirmDelete()
             R.id.menu_rename -> renameFile()
             R.id.menu_edit -> openEditor(getCurrentFile())
@@ -352,10 +349,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         }
         super.onActivityResult(requestCode, resultCode, resultData)
-    }
-
-    private fun flipImage(horizontally: Boolean) {
-
     }
 
     private fun askConfirmDelete() {

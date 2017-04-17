@@ -191,6 +191,7 @@ fun SimpleActivity.removeNoMedia(path: String, callback: () -> Unit) {
 }
 
 fun Activity.getFileSignature(path: String) = StringSignature(File(path).lastModified().toString())
+
 fun Activity.loadImage(path: String, target: MySquareImageView) {
     if (path.isImageFast() || path.isVideoFast()) {
         if (path.isPng()) {

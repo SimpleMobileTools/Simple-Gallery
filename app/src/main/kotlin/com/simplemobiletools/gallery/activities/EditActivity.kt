@@ -147,7 +147,10 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun flipImage(horizontally: Boolean) {
-
+        if (horizontally)
+            crop_image_view.flipImageHorizontally()
+        else
+            crop_image_view.flipImageVertically()
     }
 
     private fun scanFinalPath(path: String) {
