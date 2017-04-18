@@ -223,9 +223,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         val media = Gson().fromJson<ArrayList<Medium>>(config.loadFolderMedia(mPath), token) ?: ArrayList<Medium>(1)
         if (media.isNotEmpty() && !mLoadedInitialPhotos) {
             gotMedia(media)
-        }
-
-        if (!mLoadedInitialPhotos) {
+        } else {
             media_refresh_layout.isRefreshing = true
         }
 
