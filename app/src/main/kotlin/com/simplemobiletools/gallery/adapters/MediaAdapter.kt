@@ -73,8 +73,8 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 R.id.cab_rename -> renameFile()
                 R.id.cab_edit -> editFile()
                 R.id.cab_share -> shareMedia()
-                R.id.cab_copy_to -> copyTo()
-                R.id.cab_move_to -> moveTo()
+                R.id.cab_copy_to -> copyMoveTo(true)
+                R.id.cab_move_to -> copyMoveTo(false)
                 R.id.cab_select_all -> selectAll()
                 R.id.cab_delete -> askConfirmDelete()
                 else -> return false
@@ -149,14 +149,6 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             }
             actMode?.finish()
         }
-    }
-
-    private fun copyTo() {
-        copyMoveTo(true)
-    }
-
-    private fun moveTo() {
-        copyMoveTo(false)
     }
 
     fun selectAll() {
