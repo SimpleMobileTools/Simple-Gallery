@@ -236,7 +236,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             files.addAll(dir.listFiles().filter { it.isFile && it.isImageVideoGif() })
         }
 
-        activity.copyMoveFilesTo(files, isCopyOperation) {
+        activity.tryCopyMoveFilesTo(files, isCopyOperation) {
             if (!isCopyOperation) {
                 listener?.refreshItems()
             }

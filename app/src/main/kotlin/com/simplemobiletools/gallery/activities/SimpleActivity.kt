@@ -14,59 +14,62 @@ import java.util.*
 open class SimpleActivity : BaseSimpleActivity() {
     var copyMoveCallback: (() -> Unit)? = null
 
-    fun copyMoveFilesTo(files: ArrayList<File>, isCopyOperation: Boolean, callback: () -> Unit) {
+    fun tryCopyMoveFilesTo(files: ArrayList<File>, isCopyOperation: Boolean, callback: () -> Unit) {
         if (files.isEmpty()) {
             toast(R.string.unknown_error_occurred)
             return
         }
 
-        val source = if (files[0].isFile) files[0].parent.trimEnd('/') else files[0].absolutePath
-        val currPath = source.trimEnd('/')
-        PickAlbumDialog(this, currPath) {
-            val destinationFolder = File(it)
-            if (currPath == it.trimEnd('/')) {
-                toast(R.string.source_and_destination_same)
-                return@PickAlbumDialog
-            }
+        val source = if (files[0].isFile) files[0].parent.trimEnd('/') else files[0].absolutePath.trimEnd('/')
+        PickAlbumDialog(this, source) {
+            copyMoveFilesTo(files, source, it, isCopyOperation, callback)
+        }
+    }
 
-            if (!destinationFolder.exists()) {
-                toast(R.string.invalid_destination)
-                return@PickAlbumDialog
-            }
+    private fun copyMoveFilesTo(files: ArrayList<File>, source: String, destination: String, isCopyOperation: Boolean, callback: () -> Unit) {
+        if (source == destination) {
+            toast(R.string.source_and_destination_same)
+            return
+        }
 
-            if (files.size == 1) {
-                if (File(destinationFolder.absolutePath, files[0].name).exists()) {
-                    toast(R.string.name_taken)
-                    return@PickAlbumDialog
-                }
-            }
+        val destinationFolder = File(destination)
+        if (!destinationFolder.exists()) {
+            toast(R.string.invalid_destination)
+            return
+        }
 
-            handleSAFDialog(destinationFolder) {
-                copyMoveCallback = callback
-                if (isCopyOperation) {
-                    toast(R.string.copying)
-                    val pair = Pair<ArrayList<File>, File>(files, destinationFolder)
-                    CopyMoveTask(this, isCopyOperation, true, copyMoveListener).execute(pair)
+        if (files.size == 1) {
+            if (File(destinationFolder.absolutePath, files[0].name).exists()) {
+                toast(R.string.name_taken)
+                return
+            }
+        }
+
+        handleSAFDialog(destinationFolder) {
+            copyMoveCallback = callback
+            if (isCopyOperation) {
+                toast(R.string.copying)
+                val pair = Pair<ArrayList<File>, File>(files, destinationFolder)
+                CopyMoveTask(this, isCopyOperation, true, copyMoveListener).execute(pair)
+            } else {
+                if (isPathOnSD(source) || isPathOnSD(destinationFolder.absolutePath)) {
+                    handleSAFDialog(files[0]) {
+                        toast(R.string.moving)
+                        val pair = Pair<ArrayList<File>, File>(files, destinationFolder)
+                        CopyMoveTask(this, isCopyOperation, true, copyMoveListener).execute(pair)
+                    }
                 } else {
-                    if (isPathOnSD(currPath) || isPathOnSD(destinationFolder.absolutePath)) {
-                        handleSAFDialog(files[0]) {
-                            toast(R.string.moving)
-                            val pair = Pair<ArrayList<File>, File>(files, destinationFolder)
-                            CopyMoveTask(this, isCopyOperation, true, copyMoveListener).execute(pair)
-                        }
-                    } else {
-                        val updatedFiles = ArrayList<File>(files.size * 2)
-                        updatedFiles.addAll(files)
-                        for (file in files) {
-                            val destination = File(destinationFolder, file.name)
-                            if (!destination.exists() && file.renameTo(destination))
-                                updatedFiles.add(destination)
-                        }
+                    val updatedFiles = ArrayList<File>(files.size * 2)
+                    updatedFiles.addAll(files)
+                    for (file in files) {
+                        val newFile = File(destinationFolder, file.name)
+                        if (!newFile.exists() && file.renameTo(newFile))
+                            updatedFiles.add(newFile)
+                    }
 
-                        scanFiles(updatedFiles) {
-                            runOnUiThread {
-                                copyMoveListener.copySucceeded(true, files.size * 2 == updatedFiles.size)
-                            }
+                    scanFiles(updatedFiles) {
+                        runOnUiThread {
+                            copyMoveListener.copySucceeded(true, files.size * 2 == updatedFiles.size)
                         }
                     }
                 }

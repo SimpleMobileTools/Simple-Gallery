@@ -143,7 +143,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         val positions = multiSelector.selectedPositions
         positions.forEach { files.add(File(media[it].path)) }
 
-        activity.copyMoveFilesTo(files, isCopyOperation) {
+        activity.tryCopyMoveFilesTo(files, isCopyOperation) {
             if (!isCopyOperation) {
                 listener?.refreshItems()
             }

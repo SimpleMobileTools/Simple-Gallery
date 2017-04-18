@@ -222,7 +222,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun copyMoveTo(isCopyOperation: Boolean) {
         val files = ArrayList<File>(1).apply { add(getCurrentFile()) }
-        copyMoveFilesTo(files, isCopyOperation) {
+        tryCopyMoveFilesTo(files, isCopyOperation) {
             if (!isCopyOperation) {
                 reloadViewPager()
             }
