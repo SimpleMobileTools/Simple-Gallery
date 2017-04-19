@@ -16,7 +16,7 @@ open class SimpleActivity : BaseSimpleActivity() {
 
         val source = if (files[0].isFile) files[0].parent else files[0].absolutePath
         PickAlbumDialog(this, source) {
-            copyMoveFilesTo(files, source.trimEnd('/'), it, isCopyOperation, callback)
+            copyMoveFilesTo(files, source.trimEnd('/'), it, isCopyOperation, true, callback)
         }
     }
 }
