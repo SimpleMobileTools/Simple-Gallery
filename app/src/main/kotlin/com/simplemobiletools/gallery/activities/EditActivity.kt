@@ -46,7 +46,6 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
 
         crop_image_view.apply {
-            guidelines = CropImageView.Guidelines.OFF
             setOnCropImageCompleteListener(this@EditActivity)
             setImageUriAsync(intent.data)
         }

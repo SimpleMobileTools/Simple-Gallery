@@ -46,7 +46,6 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
 
         wallpaperManager = WallpaperManager.getInstance(applicationContext)
         crop_image_view.apply {
-            guidelines = CropImageView.Guidelines.OFF
             setOnCropImageCompleteListener(this@SetWallpaperActivity)
             setImageUriAsync(uri)
         }
