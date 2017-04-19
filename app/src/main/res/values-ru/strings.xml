@@ -36,7 +36,7 @@
 
     <!-- Include folders -->
     <string name="include_folders">Включенные папки</string>
-    <string name="manage_included_folders">Упарвление включенными папками</string>
+    <string name="manage_included_folders">Управление включенными папками</string>
     <string name="add_folder">Добавление папки</string>
     <string name="included_activity_placeholder">Если у вас есть папки содержащие медиа, но не распознанные Simple Gallery. Вы можете добавить их вручную.</string>
 
@@ -89,7 +89,7 @@
     <string name="loop_videos">Повторять видео</string>
     <string name="animate_gifs">Анимировать эскизы gif-файлов</string>
     <string name="max_brightness">Максимальная яркость при просмотре файлов</string>
-    <string name="crop_thumbnails">Обрезать миниатюры в квадраты</string>
+    <string name="crop_thumbnails">Нарезать миниатюры в квадраты</string>
     <string name="screen_rotation_by">Полноэкранный поворот</string>
     <string name="screen_rotation_system_setting">Системные настройки</string>
     <string name="screen_rotation_device_rotation">Поворот устройства</string>
