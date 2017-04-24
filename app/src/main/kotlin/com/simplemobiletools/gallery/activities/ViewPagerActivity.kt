@@ -181,7 +181,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return true
 
         when (item.itemId) {
-            R.id.menu_set_as_wallpaper -> setAsWallpaper(getCurrentFile())
+            R.id.menu_set_as_wallpaper -> trySetAsWallpaper(getCurrentFile())
             R.id.menu_copy_to -> copyTo()
             R.id.menu_move_to -> moveTo()
             R.id.menu_open_with -> openWith(getCurrentFile())

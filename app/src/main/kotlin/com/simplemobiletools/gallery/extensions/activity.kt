@@ -2,8 +2,10 @@ package com.simplemobiletools.gallery.extensions
 
 import android.app.Activity
 import android.content.Intent
+import android.database.Cursor
 import android.net.Uri
 import android.os.Build
+import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.util.DisplayMetrics
 import android.view.KeyCharacterMap
@@ -69,8 +71,16 @@ fun Activity.shareMedia(media: List<Medium>) {
     }
 }
 
-fun Activity.setAsWallpaper(file: File) {
-    val uri = Uri.fromFile(file)
+fun Activity.trySetAsWallpaper(file: File) {
+    var uri = Uri.fromFile(file)
+    if (!setAsWallpaper(uri, file)) {
+        uri = getFileContentUri(file)
+        setAsWallpaper(uri, file, false)
+    }
+}
+
+fun Activity.setAsWallpaper(uri: Uri, file: File, showToast: Boolean = true): Boolean {
+    var success = false
     Intent().apply {
         action = Intent.ACTION_ATTACH_DATA
         setDataAndType(uri, file.getMimeType("image/*"))
@@ -79,10 +89,35 @@ fun Activity.setAsWallpaper(file: File) {
 
         if (resolveActivity(packageManager) != null) {
             startActivityForResult(chooser, REQUEST_SET_WALLPAPER)
+            success = true
         } else {
-            toast(R.string.no_wallpaper_setter_found)
+            if (showToast) {
+                toast(R.string.no_wallpaper_setter_found)
+            }
+            success = false
         }
     }
+
+    return success
+}
+
+fun Activity.getFileContentUri(file: File): Uri? {
+    val uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+    val projection = arrayOf(MediaStore.Images.Media._ID)
+    val selection = "${MediaStore.Images.Media.DATA} = ?"
+    val selectionArgs = arrayOf(file.absolutePath)
+
+    var cursor: Cursor? = null
+    try {
+        cursor = contentResolver.query(uri, projection, selection, selectionArgs, null)
+        if (cursor?.moveToFirst() == true) {
+            val id = cursor.getIntValue(MediaStore.Images.Media._ID)
+            return Uri.withAppendedPath(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "$id")
+        }
+    } finally {
+        cursor?.close()
+    }
+    return null
 }
 
 fun Activity.openWith(file: File, forceChooser: Boolean = true) {
