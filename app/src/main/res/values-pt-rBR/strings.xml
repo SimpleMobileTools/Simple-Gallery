@@ -32,17 +32,17 @@
     <string name="exclude_folder_parent">Excluir antes a pasta raíz?</string>
     <string name="excluded_activity_placeholder">A exlusão de uma pasta apenas oculta o seu conteúdo da galeria, pois todos os outros aplicativos poderão acessá-las.\\n\\nSe quiser ocultar de todos os aplicativos, utilize a função ocultar.</string>
     <string name="remove_all">Remover todas</string>
-    <string name="remove_all_description">Remover todas as pastas de lista de exclusões? Esta ação não apaga as pastas.</string>
+    <string name="remove_all_description">Remover todas as pastas da lista de exclusões? Esta ação não apaga as pastas.</string>
 
     <!-- Include folders -->
     <string name="include_folders">Pastas incluídas</string>
     <string name="manage_included_folders">Gerenciar pastas incluídas</string>
     <string name="add_folder">Adicionar pasta</string>
-    <string name="included_activity_placeholder">Se possuir pastas com dados multimídia não reconhecidos pela aplicação, aqui pode adicioná-las manualmente.</string>
+    <string name="included_activity_placeholder">Se possuir pastas com dados multimídia não reconhecidos pelo aplicativo, aqui você pode adicioná-las manualmente.</string>
 
     <!-- Resizing -->
     <string name="resize">Redimensionar</string>
-    <string name="resize_and_save">Redimensionar seleção e guardar</string>
+    <string name="resize_and_save">Redimensionar seleção e salvar</string>
     <string name="width">Largura</string>
     <string name="height">Altura</string>
     <string name="keep_aspect_ratio">Manter proporção</string>
