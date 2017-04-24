@@ -233,6 +233,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val currPath = getCurrentPath()
         SaveAsDialog(this, currPath) {
             Thread({
+                toast(R.string.saving)
                 val selectedFile = File(it)
                 val tmpFile = File(selectedFile.parent, "tmp_${it.getFilenameFromPath()}")
                 try {
