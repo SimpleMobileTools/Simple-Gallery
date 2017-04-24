@@ -232,18 +232,26 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun saveImageAs() {
         val currPath = getCurrentPath()
         SaveAsDialog(this, currPath) {
+            val selectedFile = File(it)
+            val tmpFile = File(selectedFile.parent, "tmp_${it.getFilenameFromPath()}")
             try {
-                val selectedFile = File(it)
-                val tmpFile = File(selectedFile.parent, "tmp_${it.getFilenameFromPath()}")
                 val bitmap = BitmapFactory.decodeFile(currPath)
                 getFileOutputStream(tmpFile) {
                     saveFile(tmpFile, bitmap, it)
-                    renameFile(tmpFile, selectedFile) { }
+                    if (needsStupidWritePermissions(selectedFile.absolutePath)) {
+                        deleteFile(selectedFile) {}
+                    }
+
+                    renameFile(tmpFile, selectedFile) {
+                        deleteFile(tmpFile) {}
+                    }
                 }
             } catch (e: OutOfMemoryError) {
                 toast(R.string.out_of_memory_error)
+                deleteFile(tmpFile) {}
             } catch (e: Exception) {
                 toast(R.string.unknown_error_occurred)
+                deleteFile(tmpFile) {}
             }
         }
     }
