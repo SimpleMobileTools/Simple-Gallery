@@ -175,6 +175,15 @@ fun Activity.hasNavBar(): Boolean {
     }
 }
 
+fun Activity.launchCamera() {
+    val intent = Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA)
+    if (intent.resolveActivity(packageManager) != null) {
+        startActivity(intent)
+    } else {
+        toast(R.string.no_camera_app_found)
+    }
+}
+
 fun SimpleActivity.launchAbout() {
     startAboutActivity(R.string.app_name, LICENSE_KOTLIN or LICENSE_GLIDE or LICENSE_CROPPER or LICENSE_MULTISELECT or LICENSE_RTL
             or LICENSE_PHOTOVIEW or LICENSE_SUBSAMPLING, BuildConfig.VERSION_NAME)

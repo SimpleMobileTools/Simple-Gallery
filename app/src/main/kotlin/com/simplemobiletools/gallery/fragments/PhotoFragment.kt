@@ -72,7 +72,7 @@ class PhotoFragment : ViewPagerFragment() {
                     rotated.compress(Bitmap.CompressFormat.JPEG, 100, out)
                     medium.path = file.absolutePath
                 } catch (e: Exception) {
-                    context.toast(R.string.unknown_error_occurred)
+                    activity.toast(R.string.unknown_error_occurred)
                     return view
                 } finally {
                     try {

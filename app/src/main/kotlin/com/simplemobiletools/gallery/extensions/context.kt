@@ -6,8 +6,6 @@ import android.database.Cursor
 import android.net.Uri
 import android.provider.MediaStore
 import com.simplemobiletools.commons.extensions.humanizePath
-import com.simplemobiletools.commons.extensions.toast
-import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SettingsActivity
 import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.helpers.NOMEDIA
@@ -33,15 +31,6 @@ fun Context.getRealPathFromURI(uri: Uri): String? {
 fun Context.getHumanizedFilename(path: String): String {
     val humanized = humanizePath(path)
     return humanized.substring(humanized.lastIndexOf("/") + 1)
-}
-
-fun Context.launchCamera() {
-    val intent = Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA)
-    if (intent.resolveActivity(packageManager) != null) {
-        startActivity(intent)
-    } else {
-        toast(R.string.no_camera_app_found)
-    }
 }
 
 fun Context.launchSettings() {

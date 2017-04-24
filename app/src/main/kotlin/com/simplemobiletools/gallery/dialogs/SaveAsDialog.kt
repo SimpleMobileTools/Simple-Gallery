@@ -47,18 +47,18 @@ class SaveAsDialog(val activity: SimpleActivity, val path: String, val callback:
                 val extension = view.save_as_extension.value
 
                 if (filename.isEmpty()) {
-                    context.toast(R.string.filename_cannot_be_empty)
+                    activity.toast(R.string.filename_cannot_be_empty)
                     return@setOnClickListener
                 }
 
                 if (extension.isEmpty()) {
-                    context.toast(R.string.extension_cannot_be_empty)
+                    activity.toast(R.string.extension_cannot_be_empty)
                     return@setOnClickListener
                 }
 
                 val newFile = File(realPath, "$filename.$extension")
                 if (!newFile.name.isAValidFilename()) {
-                    context.toast(R.string.filename_invalid_characters)
+                    activity.toast(R.string.filename_invalid_characters)
                     return@setOnClickListener
                 }
 
