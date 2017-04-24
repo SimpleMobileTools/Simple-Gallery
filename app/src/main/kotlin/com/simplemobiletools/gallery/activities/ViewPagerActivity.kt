@@ -233,10 +233,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val currPath = getCurrentPath()
         SaveAsDialog(this, currPath) {
             try {
-                val file = File(it)
+                val selectedFile = File(it)
+                val tmpFile = File(selectedFile.parent, "tmp_${it.getFilenameFromPath()}")
                 val bitmap = BitmapFactory.decodeFile(currPath)
-                getFileOutputStream(file) {
-                    saveFile(file, bitmap, it)
+                getFileOutputStream(tmpFile) {
+                    saveFile(tmpFile, bitmap, it)
+                    renameFile(tmpFile, selectedFile) { }
                 }
             } catch (e: OutOfMemoryError) {
                 toast(R.string.out_of_memory_error)
