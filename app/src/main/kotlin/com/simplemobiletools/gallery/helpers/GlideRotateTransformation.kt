@@ -6,7 +6,7 @@ import android.graphics.Matrix
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation
 
-class GlideRotateTransformation(val context: Context, val rotateRotationAngle: Float) : BitmapTransformation(context) {
+class GlideRotateTransformation(context: Context, val rotateRotationAngle: Float) : BitmapTransformation(context) {
 
     override fun transform(pool: BitmapPool, bitmap: Bitmap, outWidth: Int, outHeight: Int): Bitmap {
         if (rotateRotationAngle % 360 == 0f)
