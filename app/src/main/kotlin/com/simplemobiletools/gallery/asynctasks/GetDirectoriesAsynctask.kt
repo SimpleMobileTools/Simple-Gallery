@@ -20,6 +20,9 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
     var shouldStop = false
 
     override fun doInBackground(vararg params: Void): ArrayList<Directory> {
+        if (!context.hasWriteStoragePermission())
+            return ArrayList()
+
         val media = ArrayList<Medium>()
         val showMedia = config.showMedia
         val fileSorting = config.fileSorting
