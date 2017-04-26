@@ -18,6 +18,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                               val callback: (dirs: ArrayList<Directory>) -> Unit) : AsyncTask<Void, Void, ArrayList<Directory>>() {
     var config = context.config
     var shouldStop = false
+    val showHidden = config.shouldShowHidden
 
     override fun doInBackground(vararg params: Void): ArrayList<Directory> {
         if (!context.hasWriteStoragePermission())
@@ -48,6 +49,9 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                     if (isImage && (isPickVideo || showMedia == VIDEOS))
                         continue
 
+                    if (!showHidden && filename.startsWith('.'))
+                        continue
+
                     val file = File(it, filename)
                     val size = file.length()
                     if (size == 0L)
@@ -74,7 +78,6 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
     private fun groupDirectories(media: ArrayList<Medium>): Map<String, Directory> {
         val hidden = context.resources.getString(R.string.hidden)
         val directories = LinkedHashMap<String, Directory>()
-        val showHidden = config.shouldShowHidden
         for ((name, path, isVideo, dateModified, dateTaken, size) in media) {
             if (shouldStop)
                 cancel(true)

@@ -22,6 +22,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
     var fileSorting = 0
     var shouldStop = false
     var media = ArrayList<Medium>()
+    val showHidden = config.shouldShowHidden
 
     override fun onPreExecute() {
         super.onPreExecute()
@@ -61,6 +62,9 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
                 continue
 
             if (isImage && (isPickVideo || showMedia == VIDEOS))
+                continue
+
+            if (!showHidden && filename.startsWith('.'))
                 continue
 
             val file = File(path, filename)
