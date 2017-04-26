@@ -174,19 +174,18 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     }
 
     private fun toggleFoldersVisibility(hide: Boolean) {
-        val paths = getSelectedPaths()
-        for (path in paths) {
+        getSelectedPaths().forEach {
             if (hide) {
                 if (config.wasHideFolderTooltipShown) {
-                    hideFolder(path)
+                    hideFolder(it)
                 } else {
                     config.wasHideFolderTooltipShown = true
                     ConfirmationDialog(activity, activity.getString(R.string.hide_folder_description)) {
-                        hideFolder(path)
+                        hideFolder(it)
                     }
                 }
             } else {
-                activity.removeNoMedia(path) {
+                activity.removeNoMedia(it) {
                     noMediaHandled()
                 }
             }
