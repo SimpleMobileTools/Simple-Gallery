@@ -169,7 +169,7 @@ fun Activity.hasNavBar(): Boolean {
 
         realWidth - displayWidth > 0 || realHeight - displayHeight > 0
     } else {
-        val hasMenuKey = ViewConfiguration.get(this).hasPermanentMenuKey()
+        val hasMenuKey = ViewConfiguration.get(applicationContext).hasPermanentMenuKey()
         val hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK)
         !hasMenuKey && !hasBackKey
     }
@@ -271,7 +271,7 @@ fun Activity.loadImage(path: String, target: MySquareImageView) {
 }
 
 fun Activity.loadPng(path: String, target: MySquareImageView) {
-    val builder = Glide.with(this)
+    val builder = Glide.with(applicationContext)
             .load(path)
             .asBitmap()
             .signature(getFileSignature(path))
@@ -283,7 +283,7 @@ fun Activity.loadPng(path: String, target: MySquareImageView) {
 }
 
 fun Activity.loadJpg(path: String, target: MySquareImageView) {
-    val builder = Glide.with(this)
+    val builder = Glide.with(applicationContext)
             .load(path)
             .signature(getFileSignature(path))
             .diskCacheStrategy(DiskCacheStrategy.RESULT)
@@ -294,7 +294,7 @@ fun Activity.loadJpg(path: String, target: MySquareImageView) {
 }
 
 fun Activity.loadAnimatedGif(path: String, target: MySquareImageView) {
-    val builder = Glide.with(this)
+    val builder = Glide.with(applicationContext)
             .load(path)
             .asGif()
             .signature(getFileSignature(path))
@@ -306,7 +306,7 @@ fun Activity.loadAnimatedGif(path: String, target: MySquareImageView) {
 }
 
 fun Activity.loadStaticGif(path: String, target: MySquareImageView) {
-    val builder = Glide.with(this)
+    val builder = Glide.with(applicationContext)
             .load(path)
             .asBitmap()
             .signature(getFileSignature(path))
