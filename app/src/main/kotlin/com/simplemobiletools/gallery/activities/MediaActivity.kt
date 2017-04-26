@@ -76,6 +76,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             mMedia.clear()
         }
         tryloadGallery()
+        invalidateOptionsMenu()
     }
 
     override fun onPause() {
@@ -132,6 +133,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             findItem(R.id.folder_view).isVisible = mShowAll
             findItem(R.id.open_camera).isVisible = mShowAll
             findItem(R.id.about).isVisible = mShowAll
+
+            findItem(R.id.temporarily_show_hidden).isVisible = !config.showHiddenMedia
 
             findItem(R.id.increase_column_count).isVisible = config.mediaColumnCnt < 10
             findItem(R.id.reduce_column_count).isVisible = config.mediaColumnCnt > 1

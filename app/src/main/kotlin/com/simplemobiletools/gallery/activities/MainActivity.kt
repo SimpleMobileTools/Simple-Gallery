@@ -78,6 +78,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             menu.findItem(R.id.increase_column_count).isVisible = config.dirColumnCnt < 10
             menu.findItem(R.id.reduce_column_count).isVisible = config.dirColumnCnt > 1
         }
+        menu.findItem(R.id.temporarily_show_hidden).isVisible = !config.showHiddenMedia
         return true
     }
 
@@ -106,6 +107,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             mDirs.clear()
         }
         tryloadGallery()
+        invalidateOptionsMenu()
     }
 
     override fun onPause() {
