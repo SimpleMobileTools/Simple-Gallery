@@ -88,6 +88,11 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         MyScalableRecyclerView.mListener = null
     }
 
+    override fun onStop() {
+        super.onStop()
+        config.temporarilyShowHidden = false
+    }
+
     private fun tryloadGallery() {
         if (hasWriteStoragePermission()) {
             val dirName = getHumanizedFilename(mPath)
@@ -144,6 +149,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             R.id.hide_folder -> tryHideFolder()
             R.id.unhide_folder -> unhideFolder()
             R.id.exclude_folder -> tryExcludeFolder()
+            R.id.temporarily_show_hidden -> temporarilyShowHidden()
             R.id.increase_column_count -> increaseColumnCount()
             R.id.reduce_column_count -> reduceColumnCount()
             R.id.settings -> launchSettings()
@@ -241,6 +247,11 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             true
         } else
             false
+    }
+
+    private fun temporarilyShowHidden() {
+        config.temporarilyShowHidden = true
+        getMedia()
     }
 
     private fun handleZooming() {

@@ -33,6 +33,10 @@
         android:title="@string/exclude"
         app:showAsAction="never"/>
     <item
+        android:id="@+id/temporarily_show_hidden"
+        android:title="@string/temporarily_show_hidden"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/increase_column_count"
         android:title="@string/increase_column_count"
         app:showAsAction="never"/>
