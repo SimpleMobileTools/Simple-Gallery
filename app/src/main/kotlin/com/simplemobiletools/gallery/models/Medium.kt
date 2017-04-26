@@ -10,7 +10,7 @@ import com.simplemobiletools.commons.helpers.SORT_DESCENDING
 import java.io.File
 import java.io.Serializable
 
-data class Medium(val name: String, var path: String, val video: Boolean, val modified: Long, val taken: Long, val size: Long) : Serializable, Comparable<Medium> {
+data class Medium(var name: String, var path: String, val video: Boolean, val modified: Long, val taken: Long, val size: Long) : Serializable, Comparable<Medium> {
     companion object {
         private val serialVersionUID = -6553149366975455L
         var sorting: Int = 0

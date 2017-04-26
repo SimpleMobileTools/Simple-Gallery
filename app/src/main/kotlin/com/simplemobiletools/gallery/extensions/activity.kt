@@ -237,6 +237,21 @@ fun SimpleActivity.removeNoMedia(path: String, callback: () -> Unit) {
     }
 }
 
+fun SimpleActivity.toggleFileVisibility(oldFile: File, hide: Boolean, callback: (newFile: File) -> Unit) {
+    val path = oldFile.parent
+    var filename = oldFile.name
+    if (hide) {
+        filename = ".${filename.trimStart('.')}"
+    } else {
+        filename = filename.substring(1, filename.length)
+    }
+    val newFile = File(path, filename)
+    renameFile(oldFile, newFile) {
+        newFile.setLastModified(System.currentTimeMillis())
+        callback(newFile)
+    }
+}
+
 fun Activity.getFileSignature(path: String) = StringSignature(File(path).lastModified().toString())
 
 fun Activity.loadImage(path: String, target: MySquareImageView) {

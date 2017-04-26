@@ -51,6 +51,14 @@
         android:title="@string/open_with"
         app:showAsAction="never"/>
     <item
+        android:id="@+id/menu_hide"
+        android:title="@string/hide"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_unhide"
+        android:title="@string/unhide"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/menu_edit"
         android:icon="@drawable/ic_edit"
         android:title="@string/edit"

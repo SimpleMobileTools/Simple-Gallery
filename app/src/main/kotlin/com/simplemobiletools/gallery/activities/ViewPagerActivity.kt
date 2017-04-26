@@ -164,6 +164,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_edit).isVisible = getCurrentMedium()!!.isImage() == true
             findItem(R.id.menu_rotate).isVisible = getCurrentMedium()!!.isImage() == true
             findItem(R.id.menu_save_as).isVisible = mRotationDegrees != 0f
+            findItem(R.id.menu_hide).isVisible = !getCurrentMedium()!!.name.startsWith('.')
+            findItem(R.id.menu_unhide).isVisible = getCurrentMedium()!!.name.startsWith('.')
 
             findItem(R.id.menu_rotate).subMenu.apply {
                 clearHeader()
@@ -185,6 +187,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_copy_to -> copyTo()
             R.id.menu_move_to -> moveTo()
             R.id.menu_open_with -> openWith(getCurrentFile())
+            R.id.menu_hide -> toggleFileVisibility(true)
+            R.id.menu_unhide -> toggleFileVisibility(false)
             R.id.menu_share -> shareMedium(getCurrentMedium()!!)
             R.id.menu_delete -> askConfirmDelete()
             R.id.menu_rename -> renameFile()
@@ -226,6 +230,20 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             if (!isCopyOperation) {
                 reloadViewPager()
             }
+        }
+    }
+
+    private fun toggleFileVisibility(hide: Boolean) {
+        toggleFileVisibility(getCurrentFile(), hide) {
+            val newFileName = it.absolutePath.getFilenameFromPath()
+            title = newFileName
+
+            getCurrentMedium()!!.apply {
+                name = newFileName
+                path = it.absolutePath
+                mMedia[mPos] = this
+            }
+            invalidateOptionsMenu()
         }
     }
 

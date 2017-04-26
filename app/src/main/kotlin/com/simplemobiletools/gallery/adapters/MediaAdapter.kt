@@ -13,7 +13,6 @@ import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.beVisibleIf
-import com.simplemobiletools.commons.extensions.renameFile
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.extensions.*
@@ -153,17 +152,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         Thread({
             getSelectedMedia().forEach {
                 val oldFile = File(it.path)
-                val path = oldFile.parent
-                var filename = it.name
-                if (hide) {
-                    filename = ".${filename.trimStart('.')}"
-                } else {
-                    filename = filename.substring(1, filename.length)
-                }
-                val newFile = File(path, filename)
-                activity.renameFile(oldFile, newFile) {
-                    newFile.setLastModified(System.currentTimeMillis())
-                }
+                activity.toggleFileVisibility(oldFile, hide) {}
             }
             activity.runOnUiThread {
                 listener?.refreshItems()
