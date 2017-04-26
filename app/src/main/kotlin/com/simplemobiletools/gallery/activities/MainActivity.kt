@@ -366,6 +366,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             add(Release(89, R.string.release_89))
             add(Release(93, R.string.release_93))
             add(Release(94, R.string.release_94))
+            add(Release(97, R.string.release_97))
             checkWhatsNew(this, BuildConfig.VERSION_CODE)
         }
     }

@@ -2,6 +2,7 @@
 <resources>
 
     <!-- Release notes -->
+    <string name="release_97">Allow hiding individual files by prepending filenames with a dot</string>
     <string name="release_94">Added horizontal and vertical image flipping in the image editor</string>
     <string name="release_93">
         Allow setting portrait wallpapers\n
