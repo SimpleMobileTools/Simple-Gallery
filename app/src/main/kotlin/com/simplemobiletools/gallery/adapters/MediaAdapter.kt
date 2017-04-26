@@ -72,6 +72,8 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 R.id.cab_properties -> showProperties()
                 R.id.cab_rename -> renameFile()
                 R.id.cab_edit -> editFile()
+                R.id.cab_hide -> toggleFileVisibility(true)
+                R.id.cab_unhide -> toggleFileVisibility(false)
                 R.id.cab_share -> shareMedia()
                 R.id.cab_copy_to -> copyMoveTo(true)
                 R.id.cab_move_to -> copyMoveTo(false)
@@ -90,9 +92,12 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         }
 
         override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu): Boolean {
-            val selections = multiSelector.selectedPositions
-            menu.findItem(R.id.cab_rename).isVisible = selections.size <= 1
-            menu.findItem(R.id.cab_edit).isVisible = selections.size == 1 && media[selections[0]].isImage()
+            val positions = multiSelector.selectedPositions
+            menu.findItem(R.id.cab_rename).isVisible = positions.size <= 1
+            menu.findItem(R.id.cab_edit).isVisible = positions.size == 1 && media[positions[0]].isImage()
+
+            checkHideBtnVisibility(menu, positions)
+
             return true
         }
 
@@ -101,6 +106,20 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             views.forEach { toggleItemSelection(it, false) }
             markedItems.clear()
             actMode = null
+        }
+
+        fun checkHideBtnVisibility(menu: Menu, positions: List<Int>) {
+            var hiddenCnt = 0
+            var unhiddenCnt = 0
+            positions.map { media[it] }.forEach {
+                if (it.name.startsWith('.'))
+                    hiddenCnt++
+                else
+                    unhiddenCnt++
+            }
+
+            menu.findItem(R.id.cab_hide).isVisible = unhiddenCnt > 0
+            menu.findItem(R.id.cab_unhide).isVisible = hiddenCnt > 0
         }
     }
 
@@ -127,6 +146,10 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     private fun editFile() {
         activity.openEditor(getCurrentFile())
         actMode?.finish()
+    }
+
+    private fun toggleFileVisibility(hide: Boolean) {
+
     }
 
     private fun shareMedia() {
