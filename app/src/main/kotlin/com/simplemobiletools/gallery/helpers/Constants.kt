@@ -4,7 +4,7 @@ package com.simplemobiletools.gallery.helpers
 val SORT_ORDER = "sort_order"
 val DIRECTORY_SORT_ORDER = "directory_sort_order"
 val SORT_FOLDER_PREFIX = "sort_folder_"
-val SHOW_HIDDEN_FOLDERS = "show_hidden_folders"
+val SHOW_HIDDEN_MEDIA = "show_hidden_media"
 val TEMPORARILY_SHOW_HIDDEN = "temporarily_show_hidden"
 val AUTOPLAY_VIDEOS = "autoplay_videos"
 val LOOP_VIDEOS = "loop_videos"

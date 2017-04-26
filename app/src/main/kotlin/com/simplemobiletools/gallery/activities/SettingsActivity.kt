@@ -56,10 +56,10 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun setupShowHiddenFolders() {
-        settings_show_hidden_folders.isChecked = config.showHiddenFolders
+        settings_show_hidden_folders.isChecked = config.showHiddenMedia
         settings_show_hidden_folders_holder.setOnClickListener {
             settings_show_hidden_folders.toggle()
-            config.showHiddenFolders = settings_show_hidden_folders.isChecked
+            config.showHiddenMedia = settings_show_hidden_folders.isChecked
         }
     }
 

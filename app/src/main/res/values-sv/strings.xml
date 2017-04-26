@@ -77,7 +77,7 @@
     <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
 
     <!-- Settings -->
-    <string name="show_hidden_folders">Visa dolda mappar</string>
+    <string name="show_hidden_media">Visa dolda mappar</string>
     <string name="autoplay_videos">Spela upp videos automatiskt</string>
     <string name="toggle_filename">Visa/dölj filnamnen</string>
     <string name="show_media">Visa media</string>

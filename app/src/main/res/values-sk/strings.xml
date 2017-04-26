@@ -77,7 +77,7 @@
     <string name="landscape_aspect_ratio">Orientácia naležato</string>
 
     <!-- Settings -->
-    <string name="show_hidden_folders">Zobraziť skryté priečinky</string>
+    <string name="show_hidden_media">Zobraziť skryté médiá</string>
     <string name="autoplay_videos">Spúšťať videá automaticky</string>
     <string name="toggle_filename">Prepnúť viditeľnosť názvov súborov</string>
     <string name="show_media">Zobraziť médiá</string>

@@ -77,7 +77,7 @@
     <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
 
     <!-- Settings -->
-    <string name="show_hidden_folders">秀出隱藏資料夾</string>
+    <string name="show_hidden_media">秀出隱藏資料夾</string>
     <string name="autoplay_videos">自動播放影片</string>
     <string name="toggle_filename">顯示檔案名稱</string>
     <string name="show_media">秀出多媒體檔案</string>

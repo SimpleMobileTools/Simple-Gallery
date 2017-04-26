@@ -77,7 +77,7 @@
     <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
 
     <!-- Settings -->
-    <string name="show_hidden_folders">Pokaż ukryte foldery</string>
+    <string name="show_hidden_media">Pokaż ukryte foldery</string>
     <string name="autoplay_videos">Odtwarzaj pliki wideo automatycznie</string>
     <string name="toggle_filename">Włącz widoczność nazwy pliku</string>
     <string name="show_media">Wybierz co pokazywać</string>

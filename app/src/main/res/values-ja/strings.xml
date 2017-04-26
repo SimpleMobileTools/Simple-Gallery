@@ -77,7 +77,7 @@
     <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
 
     <!-- Settings -->
-    <string name="show_hidden_folders">非表示フォルダーを表示</string>
+    <string name="show_hidden_media">非表示フォルダーを表示</string>
     <string name="autoplay_videos">自動的にビデオを再生</string>
     <string name="toggle_filename">ファイル名の表示を切り替え</string>
     <string name="show_media">Show media</string>

@@ -77,7 +77,7 @@
     <string name="landscape_aspect_ratio">proporção na horizontal</string>
 
     <!-- Settings -->
-    <string name="show_hidden_folders">Mostrar pastas ocultas</string>
+    <string name="show_hidden_media">Mostrar pastas ocultas</string>
     <string name="autoplay_videos">Reproduzir vídeos automaticamente</string>
     <string name="toggle_filename">Mostrar/ocultar nome do ficheiro</string>
     <string name="show_media">Mostrar multimédia</string>

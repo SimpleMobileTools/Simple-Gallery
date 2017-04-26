@@ -77,7 +77,7 @@
    <string name="landscape_aspect_ratio">Paisagem</string>
 
     <!-- Settings -->
-    <string name="show_hidden_folders">Mostrar pastas ocultas</string>
+    <string name="show_hidden_media">Mostrar pastas ocultas</string>
     <string name="autoplay_videos">Reproduzir vídeos automaticamente</string>
     <string name="toggle_filename">Mostrar/ocultar nome do arquivo</string>
     <string name="show_media">Mostrar mídia</string>

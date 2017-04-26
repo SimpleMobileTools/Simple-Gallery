@@ -77,7 +77,7 @@
     <string name="landscape_aspect_ratio">Пейзажное соотношение сторон</string>
 
     <!-- Settings -->
-    <string name="show_hidden_folders">Показать скрытые папки</string>
+    <string name="show_hidden_media">Показать скрытые папки</string>
     <string name="autoplay_videos">Воспроизводить видео автоматически</string>
     <string name="toggle_filename">Переключить отображение имени файла</string>
     <string name="show_media">Отображать</string>

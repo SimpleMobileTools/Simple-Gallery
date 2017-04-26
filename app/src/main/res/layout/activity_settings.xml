@@ -84,7 +84,7 @@
                 android:clickable="false"
                 android:paddingLeft="@dimen/medium_margin"
                 android:paddingStart="@dimen/medium_margin"
-                android:text="@string/show_hidden_folders"/>
+                android:text="@string/show_hidden_media"/>
 
         </RelativeLayout>
 

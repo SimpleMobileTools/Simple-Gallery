@@ -40,11 +40,11 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(HIDE_FOLDER_TOOLTIP_SHOWN, false)
         set(wasShown) = prefs.edit().putBoolean(HIDE_FOLDER_TOOLTIP_SHOWN, wasShown).apply()
 
-    var shouldShowHidden = showHiddenFolders || temporarilyShowHidden
+    var shouldShowHidden = showHiddenMedia || temporarilyShowHidden
 
-    var showHiddenFolders: Boolean
-        get() = prefs.getBoolean(SHOW_HIDDEN_FOLDERS, false)
-        set(showHiddenFolders) = prefs.edit().putBoolean(SHOW_HIDDEN_FOLDERS, showHiddenFolders).apply()
+    var showHiddenMedia: Boolean
+        get() = prefs.getBoolean(SHOW_HIDDEN_MEDIA, false)
+        set(showHiddenFolders) = prefs.edit().putBoolean(SHOW_HIDDEN_MEDIA, showHiddenFolders).apply()
 
     var temporarilyShowHidden: Boolean
         get() = prefs.getBoolean(TEMPORARILY_SHOW_HIDDEN, false)
