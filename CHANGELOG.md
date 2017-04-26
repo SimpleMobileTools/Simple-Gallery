@@ -1,6 +1,16 @@
 Changelog
 ==========
 
+Version 2.9.0 *(2017-04-26)*
+----------------------------
+
+ * Allow hiding individual files by prepending filenames with a dot
+ * Fix setting wallpaper on some devices
+ * Preload 2 images per side in fullscreen mode
+ * Fixed many memory leaks
+ * Try fetching directories right after app install, before first launch
+ * Many other bugfixes and improvements
+
 Version 2.8.6 *(2017-04-17)*
 ----------------------------
 
