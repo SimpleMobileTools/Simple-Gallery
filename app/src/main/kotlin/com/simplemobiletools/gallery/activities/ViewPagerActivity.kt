@@ -184,8 +184,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         when (item.itemId) {
             R.id.menu_set_as_wallpaper -> trySetAsWallpaper(getCurrentFile())
-            R.id.menu_copy_to -> copyTo()
-            R.id.menu_move_to -> moveTo()
+            R.id.menu_copy_to -> copyMoveTo(true)
+            R.id.menu_move_to -> copyMoveTo(false)
             R.id.menu_open_with -> openWith(getCurrentFile())
             R.id.menu_hide -> toggleFileVisibility(true)
             R.id.menu_unhide -> toggleFileVisibility(false)
@@ -215,14 +215,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 addOnPageChangeListener(this@ViewPagerActivity)
             }
         }
-    }
-
-    private fun copyTo() {
-        copyMoveTo(true)
-    }
-
-    private fun moveTo() {
-        copyMoveTo(false)
     }
 
     private fun copyMoveTo(isCopyOperation: Boolean) {

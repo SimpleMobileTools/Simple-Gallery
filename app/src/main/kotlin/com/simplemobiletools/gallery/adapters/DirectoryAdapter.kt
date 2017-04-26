@@ -83,8 +83,8 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                 R.id.cab_hide -> toggleFoldersVisibility(true)
                 R.id.cab_unhide -> toggleFoldersVisibility(false)
                 R.id.cab_exclude -> tryExcludeFolder()
-                R.id.cab_copy_to -> copyTo()
-                R.id.cab_move_to -> moveTo()
+                R.id.cab_copy_to -> copyMoveTo(true)
+                R.id.cab_move_to -> copyMoveTo(false)
                 R.id.cab_select_all -> selectAll()
                 R.id.cab_delete -> askConfirmDelete()
                 else -> return false
@@ -241,14 +241,6 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             }
             actMode?.finish()
         }
-    }
-
-    private fun copyTo() {
-        copyMoveTo(true)
-    }
-
-    private fun moveTo() {
-        copyMoveTo(false)
     }
 
     fun selectAll() {
