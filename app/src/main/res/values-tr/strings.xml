@@ -22,8 +22,6 @@
     <string name="temporarily_show_hidden">Geçici olarak gizli göster</string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder">Klasörü gizle</string>
-    <string name="unhide_folder">Klasörü göster</string>
     <string name="hide_folder_description">Bu işlev, klasöre\'.medya yok\'dosyası ekleyerek gizler; tüm alt klasörleri de gizler. Bunları Ayarlar\'da\'Gizli klasörleri göster\'seçeneğine basarak görebilirsiniz. Devam et?</string>
     <string name="exclude">Dışlama</string>
     <string name="excluded_folders">Hariç tutulan klasörler</string>

@@ -22,8 +22,6 @@
     <string name="temporarily_show_hidden">Dočasně zobrazit skryté</string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder">Skrýt složku</string>
-    <string name="unhide_folder">Odkrýt složku</string>
     <string name="hide_folder_description">Tato funkce skryje složku, včetně podsložek, přidáním souboru \'.nomedia\'. Zobrazíte je zvolením možnosti \'Zobrazit skryté složky\' v nastavení. Pokračovat?</string>
     <string name="exclude">Vyloučit</string>
     <string name="excluded_folders">Vyloučené složky</string>

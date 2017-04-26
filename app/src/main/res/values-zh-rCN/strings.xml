@@ -22,8 +22,6 @@
     <string name="temporarily_show_hidden">Temporarily show hidden</string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder">隐藏文件夹</string>
-    <string name="unhide_folder">显示文件夹</string>
     <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden folders\' option in Settings. Continue?</string>
     <string name="exclude">Exclude</string>
     <string name="excluded_folders">Excluded folders</string>

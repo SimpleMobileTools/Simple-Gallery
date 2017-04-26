@@ -22,11 +22,11 @@
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/hide_folder"
-        android:title="@string/hide_folder"
+        android:title="@string/hide"
         app:showAsAction="never"/>
     <item
         android:id="@+id/unhide_folder"
-        android:title="@string/unhide_folder"
+        android:title="@string/unhide"
         app:showAsAction="never"/>
     <item
         android:id="@+id/exclude_folder"

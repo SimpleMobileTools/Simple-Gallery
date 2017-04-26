@@ -22,8 +22,6 @@
     <string name="temporarily_show_hidden">Mostrar pastas ocultas temporariamente</string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder">Ocultar pasta</string>
-    <string name="unhide_folder">Mostrar pasta</string>
     <string name="hide_folder_description">Esta opção oculta uma pasta com a adição de um arquivo \'.nomedia\' dentro dela, e irá ocultar todas as subpastas que estejam dentro da mesma. Você poderá rever essas pastas com a opção \'Mostrar pastas ocultas\'. Continuar?</string>
     <string name="exclude">Excluir</string>
     <string name="excluded_folders">Pastas excluídas</string>

@@ -22,8 +22,6 @@
     <string name="temporarily_show_hidden">Verstecktes temporär zeigen</string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder">Ordner verstecken</string>
-    <string name="unhide_folder">Ordner nicht verstecken</string>
     <string name="hide_folder_description">Diese Funktion versteckt ausgewählte Ordner (auch für andere Apps), indem dort im Dateisystem eine \'.nomedia\'-Datei abgelegt wird. Dadurch werden auch deren Unterordner versteckt. Solche Ordner werden nur gezeigt, wenn die Einstellung \'Versteckte Ordner zeigen\' aktiv ist (auch andere Apps bieten üblicherweise eine solche Option). Fortfahren?</string>
     <string name="exclude">Ordner ausblenden</string>
     <string name="excluded_folders">Ausgeblendete Ordner</string>

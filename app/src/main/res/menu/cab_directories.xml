@@ -24,12 +24,12 @@
     <item
         android:id="@+id/cab_hide"
         android:icon="@drawable/ic_hide"
-        android:title="@string/hide_folder"
+        android:title="@string/hide"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_unhide"
         android:icon="@drawable/ic_unhide"
-        android:title="@string/unhide_folder"
+        android:title="@string/unhide"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_exclude"

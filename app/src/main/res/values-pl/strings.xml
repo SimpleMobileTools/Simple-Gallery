@@ -22,8 +22,6 @@
     <string name="temporarily_show_hidden">Temporarily show hidden</string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder">Ukryj folder</string>
-    <string name="unhide_folder">Pokaż folder</string>
     <string name="hide_folder_description">Ta funkcja ukrywa folder dodając \'. \' Nomedia plik do niego, można tak ukryć wszystkie podfoldery. Można je zobaczyć poprzez przełączanie \'Pokaż ukryte foldery \' opcję w ustawieniach. Kontyntynuj?</string>
     <string name="exclude">Wyklucz</string>
     <string name="excluded_folders">Wyklucz foldery</string>

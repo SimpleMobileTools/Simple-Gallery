@@ -22,8 +22,6 @@
     <string name="temporarily_show_hidden">Dočasne zobraziť skryté</string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder">Skryť priečinok</string>
-    <string name="unhide_folder">Odkryť priečinok</string>
     <string name="hide_folder_description">Táto funkcia skryje priečinok pridaním súboru \'.nomedia\', skryté budú aj podpriečinky. Môžete ich vidieť zvolením možnosti \'Zobraziť skryté priečinky\' v nastaveniach. Pokračovať?</string>
     <string name="exclude">Vylúčiť</string>
     <string name="excluded_folders">Vylúčené priečinky</string>

@@ -10,7 +10,7 @@ android {
         applicationId "com.simplemobiletools.gallery"
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 95
+        versionCode 96
         versionName "2.8.6"
     }
 
@@ -32,7 +32,7 @@ android {
 }
 
 dependencies {
-    compile 'com.simplemobiletools:commons:2.17.4'
+    compile 'com.simplemobiletools:commons:2.17.5'
     compile 'com.davemorrissey.labs:subsampling-scale-image-view:3.6.0'
     compile 'com.theartofdev.edmodo:android-image-cropper:2.4.0'
     compile 'com.bignerdranch.android:recyclerview-multiselect:0.2'

@@ -22,8 +22,6 @@
     <string name="temporarily_show_hidden">Временный показ скрытых</string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder">Скрыть папку</string>
-    <string name="unhide_folder">Сделать папку видимой</string>
     <string name="hide_folder_description">Эта опция скрывает папку, добавляя в неё файл \'.nomedia\'; будут скрыты все подпапки. Можно показывать их, переключая \'Показать скрытые папки\' в настройках. Продолжить?</string>
     <string name="exclude">Исключить</string>
     <string name="excluded_folders">Исключённые папки</string>
