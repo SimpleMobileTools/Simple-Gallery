@@ -13,30 +13,30 @@
     <string name="all_folders">Tous les dossiers</string>
     <string name="folder_view">Permuter vers la vue du dossier</string>
     <string name="other_folder">Autre dossier</string>
-    <string name="show_on_map">Show on map</string>
-    <string name="unknown_location">Unknown location</string>
-    <string name="no_map_application">No application with maps has been found</string>
-    <string name="no_camera_app_found">No Camera app has been found</string>
-    <string name="increase_column_count">Increase column count</string>
-    <string name="reduce_column_count">Reduce column count</string>
-    <string name="temporarily_show_hidden">Temporarily show hidden</string>
+    <string name="show_on_map">Afficher sur la carte</string>
+    <string name="unknown_location">Position inconnue</string>
+    <string name="no_map_application">Aucune application de cartes n\'a été trouvée</string>
+    <string name="no_camera_app_found">Aucune application d\appareil photo n\'a été trouvée</string>
+    <string name="increase_column_count">Augmenter le nombre de colonnes</string>
+    <string name="reduce_column_count">Réduire le nombre de colonnes</string>
+    <string name="temporarily_show_hidden">Afficher temporairement les fichiers masqués</string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden folders\' option in Settings. Continue?</string>
-    <string name="exclude">Exclude</string>
-    <string name="excluded_folders">Excluded folders</string>
-    <string name="manage_excluded_folders">Manage excluded folders</string>
-    <string name="exclude_folder_description">This will exclude the selection together with its subfolders from Simple Gallery only. You can manage excluded folders in Settings.</string>
-    <string name="exclude_folder_parent">Exclude a parent instead?</string>
-    <string name="excluded_activity_placeholder">Excluding folders will make them together with their subfolders hidden just in Simple Gallery, they will still be visible in other applications.\\n\\nIf you want to hide them from other apps too, use the Hide function.</string>
-    <string name="remove_all">Remove all</string>
-    <string name="remove_all_description">Remove all folders from the list of excluded? This will not delete the folders.</string>
+    <string name="hide_folder_description">Cette option masque le dossier en ajoutant un fichier \'.nomedia\' à l\'intérieur, cela masquera aussi tous les sous-dossiers. Vous pouvez les voir en modifiant l\'option \'Afficher les dossiers cachés\' dans les Paramètres. Continuer ?</string>
+    <string name="exclude">Exclure</string>
+    <string name="excluded_folders">Dossiers exclus</string>
+    <string name="manage_excluded_folders">Gérer les dossiers exclus</string>
+    <string name="exclude_folder_description">Cela va exclure la sélection ainsi que ses sous-dossiers depuis Simple Galerie uniquement. Vous pouvez gérer les dossiers exclus depuis les Paramètres.</string>
+    <string name="exclude_folder_parent">Exclure un parent plutôt ?</string>
+    <string name="excluded_activity_placeholder">Exclure des dossiers les masquera ainsi que leurs sous-dossiers uniquement dans Simple Galerie, ils seront toujours visibles depuis d\'autres applications.\\n\\nSi vous voulez aussi les masquer ailleurs, utilisez la fonction Masquer.</string>
+    <string name="remove_all">Tout supprimer</string>
+    <string name="remove_all_description">Supprimer tous les dossiers de la liste des exclusions ? Ceci n\'effacera pas les dossiers.</string>
 
     <!-- Include folders -->
-    <string name="include_folders">Included folders</string>
-    <string name="manage_included_folders">Manage included folders</string>
-    <string name="add_folder">Add folder</string>
-    <string name="included_activity_placeholder">If you have some folders which contain media, but were not recognized by the app, you can add them manually here.</string>
+    <string name="include_folders">Dossiers inclus</string>
+    <string name="manage_included_folders">Gérer les dossiers inclus</string>
+    <string name="add_folder">Ajouter un dossier</string>
+    <string name="included_activity_placeholder">Si vous avez des dossiers contenant du media et qui ne sont pas reconnus par l\'application alors, vous pouvez les ajouter manuellement ici.</string>
 
     <!-- Resizing -->
     <string name="resize">Redimensionner</string>
@@ -57,13 +57,13 @@
     <string name="no_editor_found">Aucun éditeur d\'image trouvé</string>
     <string name="unknown_file_location">Emplacement du fichier inconnu.</string>
     <string name="error_saving_file">Ne parvient pas à réécrire par dessus le fichier source</string>
-    <string name="rotate_left">Rotate left</string>
-    <string name="rotate_right">Rotate right</string>
-    <string name="rotate_one_eighty">Rotate by 180º</string>
-    <string name="flip">Flip</string>
-    <string name="flip_horizontally">Flip horizontally</string>
-    <string name="flip_vertically">Flip vertically</string>
-    <string name="out_of_memory_error">Out of memory error</string>
+    <string name="rotate_left">Pivoter à gauche</string>
+    <string name="rotate_right">Pivoter à droite</string>
+    <string name="rotate_one_eighty">Pivoter à 180º</string>
+    <string name="flip">Retourner</string>
+    <string name="flip_horizontally">Retourner horizontalement</string>
+    <string name="flip_vertically">Retourner verticallement</string>
+    <string name="out_of_memory_error">Erreur excès de mémoire</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple fond d\'écran</string>
@@ -73,8 +73,8 @@
     <string name="no_wallpaper_setter_found">Aucune application trouvée pour continuer cette action</string>
     <string name="setting_wallpaper">Paramètre de fond d\'écran…</string>
     <string name="wallpaper_set_successfully">Fond d\'écran défini avec succès.</string>
-    <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
-    <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
+    <string name="portrait_aspect_ratio">Ratio aspect Portrait</string>
+    <string name="landscape_aspect_ratio">Ratio aspect Paysage</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Afficher les dossiers cachés</string>
@@ -85,13 +85,13 @@
     <string name="videos">Vidéos uniquement</string>
     <string name="images_and_videos">Images et vidéos</string>
     <string name="loop_videos">Tourner en boucle les vidéos</string>
-    <string name="animate_gifs">Animate gifs at thumbnails</string>
-    <string name="max_brightness">Max brightness when viewing media</string>
-    <string name="crop_thumbnails">Crop thumbnails into squares</string>
-    <string name="screen_rotation_by">Rotate fullscreen media by</string>
-    <string name="screen_rotation_system_setting">System setting</string>
-    <string name="screen_rotation_device_rotation">Device rotation</string>
-    <string name="screen_rotation_aspect_ratio">Aspect ratio</string>
+    <string name="animate_gifs">Gifs animés sur les miniatures</string>
+    <string name="max_brightness">Luminosité maximale lors de l\'affichage de media</string>
+    <string name="crop_thumbnails">Rogner les miniatures en carrés</string>
+    <string name="screen_rotation_by">Pivoter les medias plen écran selon</string>
+    <string name="screen_rotation_system_setting">Paramètres système</string>
+    <string name="screen_rotation_device_rotation">Rotation de l\'appareil</string>
+    <string name="screen_rotation_aspect_ratio">Ratio d\'aspect</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
