@@ -19,7 +19,7 @@
     <string name="no_camera_app_found">No se encontró aplicación de cámara</string>
     <string name="increase_column_count">Aumentar el número de columnas</string>
     <string name="reduce_column_count">Reducir el número de columnas</string>
-    <string name="temporarily_show_hidden">Temporarily show hidden</string>
+    <string name="temporarily_show_hidden">Mostrar ocultos temporalmente</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Esta función oculta la carpeta agregando un archivo \'.nomedia\' en ella, y ocultará también las subcarpetas. Puede mostrarlas cambiando la opción \'Mostrar carpetas ocultas\' en los Ajustes. ¿Continuar?</string>
@@ -33,10 +33,10 @@
     <string name="remove_all_description">¿Eliminar todas las carpetas de la lista de excluidas? Esto no borrará las carpetas.</string>
 
     <!-- Include folders -->
-    <string name="include_folders">Included folders</string>
-    <string name="manage_included_folders">Manage included folders</string>
-    <string name="add_folder">Add folder</string>
-    <string name="included_activity_placeholder">If you have some folders which contain media, but were not recognized by the app, you can add them manually here.</string>
+    <string name="include_folders">Carpetas incluidas</string>
+    <string name="manage_included_folders">Gestionar carpetas incluidas</string>
+    <string name="add_folder">Agregar carpeta</string>
+    <string name="included_activity_placeholder">Si tiene algunas carpetas que contengan multimedia, pero que no fueron reconocidas por la aplicación, puede agregarlas manualmente aquí.</string>
 
     <!-- Resizing -->
     <string name="resize">Redimensionar</string>
@@ -60,46 +60,46 @@
     <string name="rotate_left">Rotar a la izquierda</string>
     <string name="rotate_right">Rotar a la derecha</string>
     <string name="rotate_one_eighty">Rotar 180º</string>
-    <string name="flip">Voltear</string>
+    <string name="flip">Girar/string>
     <string name="flip_horizontally">Horizontalmente</string>
     <string name="flip_vertically">Verticalmente</string>
     <string name="out_of_memory_error">Error: sin memoria</string>
 
     <!-- Set wallpaper -->
-    <string name="simple_wallpaper">Simple Wallpaper</string>
+    <string name="simple_wallpaper">Fondos de pantalla Simple Gallery</string>
     <string name="set_as_wallpaper">Establecer como fondo de pantalla</string>
     <string name="set_as_wallpaper_failed">Error al establecer fondo de pantalla</string>
     <string name="set_as_wallpaper_with">Establecer como fondo de pantalla con:</string>
     <string name="no_wallpaper_setter_found">No se encontró aplicación para ello</string>
     <string name="setting_wallpaper">Estableciendo fondo de pantalla&#8230;</string>
     <string name="wallpaper_set_successfully">Fondo de pantalla establecido correctamente</string>
-    <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
-    <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
+    <string name="portrait_aspect_ratio">Relación de aspecto tipo retrato</string>
+    <string name="landscape_aspect_ratio">Relación de aspecto tipo paisaje</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Mostrar carpetas ocultas</string>
     <string name="autoplay_videos">Reproducir vídeos automáticamente</string>
     <string name="toggle_filename">Cambiar la visibilidad del nombre de archivo</string>
-    <string name="show_media">Mostrar medios</string>
+    <string name="show_media">Mostrar multimedia</string>
     <string name="images">Solo imágenes</string>
     <string name="videos">Solo vídeos</string>
     <string name="images_and_videos">Imágenes y vídeos</string>
     <string name="loop_videos">Reproducción continua de vídeos</string>
     <string name="animate_gifs">Animar las miniaturas de gifs</string>
-    <string name="max_brightness">Brillo máximo cuando se muestran los medios</string>
-    <string name="crop_thumbnails">Crop thumbnails into squares</string>
-    <string name="screen_rotation_by">Rotate fullscreen media by</string>
-    <string name="screen_rotation_system_setting">System setting</string>
-    <string name="screen_rotation_device_rotation">Device rotation</string>
-    <string name="screen_rotation_aspect_ratio">Aspect ratio</string>
+    <string name="max_brightness">Brillo máximo cuando se muestra multimedia</string>
+    <string name="crop_thumbnails">Recortar miniaturas en cuadrados</string>
+    <string name="screen_rotation_by">Rotar multimedia en pantalla completa según</string>
+    <string name="screen_rotation_system_setting">Configuración del sistema</string>
+    <string name="screen_rotation_device_rotation">Rotación del dispositivo</string>
+    <string name="screen_rotation_aspect_ratio">Relación de aspecto</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Una galería para ver fotos y vídeos sin publicidad.</string>
     <string name="app_long_description">
-        Una herramienta sencilla que se puede usar para ver fotos y vídeos. Los elementos se peden ordenar por fecha, tamaño, nombre tanto ascendente como descendente; se puede hacer zoom en las fotos. Los archivos de medios se muestran en múltiples columnas dependiendo del tamaño de la pantalla, y se pede cambiar el número de columnas mediante gestos. Permite renombrar, compartir, borrar, mover. Las imágenes también se pueden recortar, rotar o usarse como fondo de pantalla directamente desde la aplicación.
+        Una herramienta sencilla que se puede usar para ver fotos y vídeos. Los elementos se pueden ordenar por fecha, tamaño, nombre tanto ascendente como descendente; se puede hacer zoom en las fotos. Los archivos de medios se muestran en múltiples columnas dependiendo del tamaño de la pantalla, y se puede cambiar el número de columnas mediante gestos. Permite renombrar, compartir, borrar, mover. Las imágenes también se pueden recortar, rotar o usarse como fondo de pantalla directamente desde la aplicación.
 
-        Gallery también se ofrece para uso de terceros para previsualizar imágenes / vídeos, agregar adjuntos en clientes de correo, etc. Es perfecta para uso diario.
+        Gallery también se ofrece para uso de terceros para previsualizar imágenes/vídeos, agregar adjuntos en clientes de correo, etc. Es perfecta para uso diario.
 
         No contiene publicidad ni permisos innecesarios. Es totalmente libre, proporciona colores personalizables.
 
