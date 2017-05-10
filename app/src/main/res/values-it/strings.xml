@@ -22,7 +22,7 @@
     <string name="temporarily_show_hidden">Mostra temporaneamente nascosti</string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Questa funzione nasconde la cartella aggiungendo un file \'.nomedia\' all'interno, nasconderà anche tutte le sottocartelle. Puoi vederle attivando l\'opzione \'Mostra cartelle nascoste\' nelle impostazioni. Continuare?</string>
+    <string name="hide_folder_description">Questa funzione nasconde la cartella aggiungendo un file \'.nomedia\' all\'interno, nasconderà anche tutte le sottocartelle. Puoi vederle attivando l\'opzione \'Mostra cartelle nascoste\' nelle impostazioni. Continuare?</string>
     <string name="exclude">Escludi</string>
     <string name="excluded_folders">Cartelle escluse</string>
     <string name="manage_excluded_folders">Gestisci cartelle escluse</string>
