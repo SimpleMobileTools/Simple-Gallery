@@ -60,7 +60,7 @@
     <string name="rotate_left">Rotar a la izquierda</string>
     <string name="rotate_right">Rotar a la derecha</string>
     <string name="rotate_one_eighty">Rotar 180º</string>
-    <string name="flip">Girar/string>
+    <string name="flip">Girar</string>
     <string name="flip_horizontally">Horizontalmente</string>
     <string name="flip_vertically">Verticalmente</string>
     <string name="out_of_memory_error">Error: sin memoria</string>
@@ -92,6 +92,7 @@
     <string name="screen_rotation_system_setting">Configuración del sistema</string>
     <string name="screen_rotation_device_rotation">Rotación del dispositivo</string>
     <string name="screen_rotation_aspect_ratio">Relación de aspecto</string>
+    <string name="dark_background_at_fullscreen">Always use dark background at fullscreen media</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
