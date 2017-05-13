@@ -124,6 +124,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     override fun onStop() {
         super.onStop()
         config.temporarilyShowHidden = false
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
         DirectoryAdapter.cleanup()
     }
 
@@ -209,6 +213,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 }
             }
         }
+    }
+
+    override fun itemLongClicked(position: Int) {
+        directories_grid.setDragSelectActive(position)
     }
 
     private fun handleZooming() {

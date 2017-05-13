@@ -321,6 +321,10 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
     override fun getItemCount() = dirs.size
 
+    fun selectItem(pos: Int) {
+        toggleItemSelection(true, pos)
+    }
+
     fun selectRange(from: Int, to: Int, min: Int, max: Int) {
         if (from == to) {
             (min..max).filter { it != from }

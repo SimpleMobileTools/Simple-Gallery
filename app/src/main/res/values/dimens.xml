@@ -7,4 +7,6 @@
     <dimen name="play_outline_size_big">150dp</dimen>
     <dimen name="timer_padding">24dp</dimen>
     <dimen name="tmb_shadow_height">50dp</dimen>
+
+    <dimen name="dragselect_hotspot_height">56dp</dimen>
 </resources>
