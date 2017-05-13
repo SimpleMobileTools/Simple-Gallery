@@ -31,21 +31,31 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     companion object {
         var actMode: ActionMode? = null
         var displayFilenames = false
-        val markedItems = HashSet<Int>()
         var foregroundColor = 0
         var backgroundColor = 0
         var itemCnt = 0
+        var itemViews: HashMap<Int, View> = HashMap()
+        val selectedPositions = HashSet<Int>()
 
-        fun toggleItemSelection(itemView: View, select: Boolean, pos: Int = -1) {
-            getProperView(itemView).isSelected = select
+        fun toggleItemSelection(select: Boolean, pos: Int) {
+            if (itemViews[pos] != null)
+                getProperView(itemViews[pos]!!).isSelected = select
 
             if (pos == -1)
                 return
 
             if (select)
-                markedItems.add(pos)
+                selectedPositions.add(pos)
             else
-                markedItems.remove(pos)
+                selectedPositions.remove(pos)
+
+            if (selectedPositions.isEmpty()) {
+                actMode?.finish()
+                return
+            }
+
+            updateTitle(selectedPositions.size)
+            actMode?.invalidate()
         }
 
         fun getProperView(itemView: View): View {
@@ -57,6 +67,11 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
         fun updateTitle(cnt: Int) {
             actMode?.title = "$cnt / $itemCnt"
+        }
+
+        fun cleanup() {
+            itemViews.clear()
+            selectedPositions.clear()
         }
     }
 
@@ -92,26 +107,27 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         }
 
         override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu): Boolean {
-            val positions = multiSelector.selectedPositions
-            menu.findItem(R.id.cab_rename).isVisible = positions.size <= 1
-            menu.findItem(R.id.cab_edit).isVisible = positions.size == 1 && media[positions[0]].isImage()
+            menu.findItem(R.id.cab_rename).isVisible = selectedPositions.size <= 1
+            menu.findItem(R.id.cab_edit).isVisible = selectedPositions.size == 1 && media[selectedPositions.first()].isImage()
 
-            checkHideBtnVisibility(menu, positions)
+            checkHideBtnVisibility(menu)
 
             return true
         }
 
         override fun onDestroyActionMode(actionMode: ActionMode?) {
             super.onDestroyActionMode(actionMode)
-            views.forEach { toggleItemSelection(it, false) }
-            markedItems.clear()
+            selectedPositions.forEach {
+                getProperView(itemViews[it]!!).isSelected = false
+            }
+            selectedPositions.clear()
             actMode = null
         }
 
-        fun checkHideBtnVisibility(menu: Menu, positions: List<Int>) {
+        fun checkHideBtnVisibility(menu: Menu) {
             var hiddenCnt = 0
             var unhiddenCnt = 0
-            positions.map { media[it] }.forEach {
+            selectedPositions.map { media[it] }.forEach {
                 if (it.name.startsWith('.'))
                     hiddenCnt++
                 else
@@ -124,12 +140,11 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     }
 
     private fun showProperties() {
-        val selections = multiSelector.selectedPositions
-        if (selections.size <= 1) {
-            PropertiesDialog(activity, media[selections[0]].path, config.shouldShowHidden)
+        if (selectedPositions.size <= 1) {
+            PropertiesDialog(activity, media[selectedPositions.first()].path, config.shouldShowHidden)
         } else {
             val paths = ArrayList<String>()
-            selections.forEach { paths.add(media[it].path) }
+            selectedPositions.forEach { paths.add(media[it].path) }
             PropertiesDialog(activity, paths, config.shouldShowHidden)
         }
     }
@@ -162,8 +177,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     }
 
     private fun shareMedia() {
-        val selections = multiSelector.selectedPositions
-        if (selections.size <= 1) {
+        if (selectedPositions.size <= 1) {
             activity.shareMedium(getSelectedMedia()[0])
         } else {
             activity.shareMedia(getSelectedMedia())
@@ -172,8 +186,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
     private fun copyMoveTo(isCopyOperation: Boolean) {
         val files = ArrayList<File>()
-        val positions = multiSelector.selectedPositions
-        positions.forEach { files.add(File(media[it].path)) }
+        selectedPositions.forEach { files.add(File(media[it].path)) }
 
         activity.tryCopyMoveFilesTo(files, isCopyOperation) {
             if (!isCopyOperation) {
@@ -186,7 +199,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     fun selectAll() {
         val cnt = media.size
         for (i in 0..cnt - 1) {
-            markedItems.add(i)
+            selectedPositions.add(i)
             multiSelector.setSelected(i, 0, true)
             notifyItemChanged(i)
         }
@@ -201,16 +214,14 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         }
     }
 
-    private fun getCurrentFile() = File(media[multiSelector.selectedPositions[0]].path)
+    private fun getCurrentFile() = File(media[selectedPositions.first()].path)
 
     private fun deleteFiles() {
-        val selections = multiSelector.selectedPositions
-        val files = ArrayList<File>(selections.size)
-        val removeMedia = ArrayList<Medium>(selections.size)
+        val files = ArrayList<File>(selectedPositions.size)
+        val removeMedia = ArrayList<Medium>(selectedPositions.size)
 
-        activity.handleSAFDialog(File(media[selections[0]].path)) {
-            selections.reverse()
-            selections.forEach {
+        activity.handleSAFDialog(File(media[selectedPositions.first()].path)) {
+            selectedPositions.reversed().forEach {
                 val medium = media[it]
                 files.add(File(medium.path))
                 removeMedia.add(medium)
@@ -218,16 +229,15 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             }
 
             media.removeAll(removeMedia)
-            markedItems.clear()
+            selectedPositions.clear()
             listener?.deleteFiles(files)
             itemCnt = media.size
         }
     }
 
     private fun getSelectedMedia(): List<Medium> {
-        val positions = multiSelector.selectedPositions
-        val selectedMedia = ArrayList<Medium>(positions.size)
-        positions.forEach { selectedMedia.add(media[it]) }
+        val selectedMedia = ArrayList<Medium>(selectedPositions.size)
+        selectedPositions.forEach { selectedMedia.add(media[it]) }
         return selectedMedia
     }
 
@@ -259,21 +269,19 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
     class ViewHolder(val view: View, val itemClick: (Medium) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
         fun bindView(activity: SimpleActivity, multiSelectorCallback: ModalMultiSelectorCallback, multiSelector: MultiSelector, medium: Medium, pos: Int): View {
+            itemViews.put(pos, itemView)
             itemView.apply {
                 play_outline.visibility = if (medium.video) View.VISIBLE else View.GONE
                 photo_name.beVisibleIf(displayFilenames)
                 photo_name.text = medium.name
-                toggleItemSelection(this, markedItems.contains(pos), pos)
+                toggleItemSelection(selectedPositions.contains(pos), pos)
                 activity.loadImage(medium.path, medium_thumbnail)
 
                 setOnClickListener { viewClicked(multiSelector, medium, pos) }
                 setOnLongClickListener {
                     if (!multiSelector.isSelectable) {
                         activity.startSupportActionMode(multiSelectorCallback)
-                        multiSelector.setSelected(this@ViewHolder, true)
-                        updateTitle(multiSelector.selectedPositions.size)
-                        toggleItemSelection(this, true, pos)
-                        actMode?.invalidate()
+                        toggleItemSelection(true, pos)
                     }
                     true
                 }
@@ -288,17 +296,8 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
         fun viewClicked(multiSelector: MultiSelector, medium: Medium, pos: Int) {
             if (multiSelector.isSelectable) {
-                val isSelected = multiSelector.selectedPositions.contains(layoutPosition)
-                multiSelector.setSelected(this, !isSelected)
-                toggleItemSelection(itemView, !isSelected, pos)
-
-                val selectedCnt = multiSelector.selectedPositions.size
-                if (selectedCnt == 0) {
-                    actMode?.finish()
-                } else {
-                    updateTitle(selectedCnt)
-                }
-                actMode?.invalidate()
+                val isSelected = selectedPositions.contains(layoutPosition)
+                toggleItemSelection(!isSelected, pos)
             } else {
                 itemClick(medium)
             }

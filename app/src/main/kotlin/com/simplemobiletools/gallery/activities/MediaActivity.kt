@@ -94,6 +94,11 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         config.temporarilyShowHidden = false
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        MediaAdapter.cleanup()
+    }
+
     private fun tryloadGallery() {
         if (hasWriteStoragePermission()) {
             val dirName = getHumanizedFilename(mPath)

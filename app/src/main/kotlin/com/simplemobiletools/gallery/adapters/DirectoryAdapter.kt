@@ -376,7 +376,6 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                     if (!multiSelector.isSelectable) {
                         activity.startSupportActionMode(multiSelectorCallback)
                         toggleItemSelection(true, pos)
-                        actMode?.invalidate()
                     }
 
                     listener!!.itemLongClicked(pos)
