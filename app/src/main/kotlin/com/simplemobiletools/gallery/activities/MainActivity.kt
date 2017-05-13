@@ -124,6 +124,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     override fun onStop() {
         super.onStop()
         config.temporarilyShowHidden = false
+        DirectoryAdapter.cleanup()
     }
 
     private fun tryloadGallery() {
