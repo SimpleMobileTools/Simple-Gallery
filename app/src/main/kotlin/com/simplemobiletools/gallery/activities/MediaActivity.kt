@@ -260,7 +260,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun handleZooming() {
         val layoutManager = media_grid.layoutManager as GridLayoutManager
         layoutManager.spanCount = config.mediaColumnCnt
-        MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.ZoomListener {
+        MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.MyScalableRecyclerViewListener {
             override fun zoomIn() {
                 if (layoutManager.spanCount > 1) {
                     reduceColumnCount()
@@ -273,6 +273,13 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                     increaseColumnCount()
                     MediaAdapter.actMode?.finish()
                 }
+            }
+            override fun selectItem(position: Int) {
+
+            }
+
+            override fun selectRange(initialSelection: Int, lastDraggedIndex: Int, minReached: Int, maxReached: Int) {
+
             }
         }
     }

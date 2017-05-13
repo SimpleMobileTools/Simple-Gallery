@@ -7,7 +7,6 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.ScaleGestureDetector
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.adapters.DirectoryAdapter
 
 // drag selection is based on https://github.com/afollestad/drag-select-recyclerview
 class MyScalableRecyclerView : RecyclerView {
@@ -35,7 +34,7 @@ class MyScalableRecyclerView : RecyclerView {
     private var inBottomHotspot = false
 
     companion object {
-        var mListener: ZoomListener? = null
+        var mListener: MyScalableRecyclerViewListener? = null
         var mCurrScaleFactor = 1.0f
         var mLastUp = 0L    // allow only pinch zoom, not double tap
     }
@@ -135,7 +134,7 @@ class MyScalableRecyclerView : RecyclerView {
                             minReached = lastDraggedIndex
                         }
 
-                        (adapter as DirectoryAdapter).selectRange(initialSelection, lastDraggedIndex, minReached, maxReached)
+                        mListener?.selectRange(initialSelection, lastDraggedIndex, minReached, maxReached)
 
                         if (initialSelection == lastDraggedIndex) {
                             minReached = lastDraggedIndex
@@ -159,7 +158,7 @@ class MyScalableRecyclerView : RecyclerView {
         maxReached = -1
         this.initialSelection = initialSelection
         dragSelectActive = true
-        (adapter as DirectoryAdapter).selectItem(initialSelection)
+        mListener?.selectItem(initialSelection)
     }
 
     private fun getItemPosition(e: MotionEvent): Int {
@@ -194,9 +193,13 @@ class MyScalableRecyclerView : RecyclerView {
         }
     }
 
-    interface ZoomListener {
+    interface MyScalableRecyclerViewListener {
         fun zoomOut()
 
         fun zoomIn()
+
+        fun selectItem(position: Int)
+
+        fun selectRange(initialSelection: Int, lastDraggedIndex: Int, minReached: Int, maxReached: Int)
     }
 }

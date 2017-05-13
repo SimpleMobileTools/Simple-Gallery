@@ -222,7 +222,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun handleZooming() {
         val layoutManager = directories_grid.layoutManager as GridLayoutManager
         layoutManager.spanCount = config.dirColumnCnt
-        MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.ZoomListener {
+        MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.MyScalableRecyclerViewListener {
             override fun zoomIn() {
                 if (layoutManager.spanCount > 1) {
                     reduceColumnCount()
@@ -235,6 +235,14 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                     increaseColumnCount()
                     DirectoryAdapter.actMode?.finish()
                 }
+            }
+
+            override fun selectItem(position: Int) {
+                (directories_grid.adapter as DirectoryAdapter).selectItem(position)
+            }
+
+            override fun selectRange(initialSelection: Int, lastDraggedIndex: Int, minReached: Int, maxReached: Int) {
+                (directories_grid.adapter as DirectoryAdapter).selectRange(initialSelection, lastDraggedIndex, minReached, maxReached)
             }
         }
     }
