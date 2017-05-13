@@ -92,7 +92,7 @@
     <string name="screen_rotation_system_setting">Configuración del sistema</string>
     <string name="screen_rotation_device_rotation">Rotación del dispositivo</string>
     <string name="screen_rotation_aspect_ratio">Relación de aspecto</string>
-    <string name="dark_background_at_fullscreen">Always use dark background at fullscreen media</string>
+    <string name="dark_background_at_fullscreen">Utilizar siempre fondo oscuro en pantalla completa</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
