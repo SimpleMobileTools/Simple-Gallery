@@ -32,6 +32,7 @@ class SettingsActivity : SimpleActivity() {
         setupAnimateGifs()
         setupMaxBrightness()
         setupCropThumbnails()
+        setupDarkBackground()
         setupScreenRotation()
         setupShowMedia()
         updateTextColors(settings_holder)
@@ -100,6 +101,14 @@ class SettingsActivity : SimpleActivity() {
         settings_crop_thumbnails_holder.setOnClickListener {
             settings_crop_thumbnails.toggle()
             config.cropThumbnails = settings_crop_thumbnails.isChecked
+        }
+    }
+
+    private fun setupDarkBackground() {
+        settings_dark_background.isChecked = config.darkBackground
+        settings_dark_background_holder.setOnClickListener {
+            settings_dark_background.toggle()
+            config.darkBackground = settings_dark_background.isChecked
         }
     }
 

@@ -148,6 +148,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(DISPLAY_FILE_NAMES, false)
         set(display) = prefs.edit().putBoolean(DISPLAY_FILE_NAMES, display).apply()
 
+    var darkBackground: Boolean
+        get() = prefs.getBoolean(DARK_BACKGROUND, false)
+        set(darkBackground) = prefs.edit().putBoolean(DARK_BACKGROUND, darkBackground).apply()
+
     var showMedia: Int
         get() = prefs.getInt(SHOW_MEDIA, IMAGES_AND_VIDEOS)
         set(showMedia) = prefs.edit().putInt(SHOW_MEDIA, showMedia).apply()
