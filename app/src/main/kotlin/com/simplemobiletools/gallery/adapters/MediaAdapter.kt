@@ -24,6 +24,7 @@ import java.util.*
 
 class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>, val listener: MediaOperationsListener?, val itemClick: (Medium) -> Unit) :
         RecyclerView.Adapter<MediaAdapter.ViewHolder>() {
+
     val multiSelector = MultiSelector()
     val views = ArrayList<View>()
     val config = activity.config
@@ -40,9 +41,6 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         fun toggleItemSelection(select: Boolean, pos: Int) {
             if (itemViews[pos] != null)
                 getProperView(itemViews[pos]!!).isSelected = select
-
-            if (pos == -1)
-                return
 
             if (select)
                 selectedPositions.add(pos)
@@ -247,7 +245,8 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        views.add(holder.bindView(activity, multiSelectorMode, multiSelector, media[position], position))
+        views.add(holder.bindView(activity, multiSelectorMode, multiSelector, media[position], position, listener))
+        holder.itemView.tag = holder
     }
 
     override fun onViewRecycled(holder: ViewHolder?) {
@@ -267,8 +266,48 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         notifyDataSetChanged()
     }
 
+    fun selectItem(pos: Int) {
+        toggleItemSelection(true, pos)
+    }
+
+    fun selectRange(from: Int, to: Int, min: Int, max: Int) {
+        if (from == to) {
+            (min..max).filter { it != from }
+                    .forEach { toggleItemSelection(false, it) }
+            return
+        }
+
+        if (to < from) {
+            for (i in to..from)
+                toggleItemSelection(true, i)
+
+            if (min > -1 && min < to) {
+                (min..to - 1).filter { it != from }
+                        .forEach { toggleItemSelection(false, it) }
+            }
+            if (max > -1) {
+                for (i in from + 1..max)
+                    toggleItemSelection(false, i)
+            }
+        } else {
+            for (i in from..to)
+                toggleItemSelection(true, i)
+
+            if (max > -1 && max > to) {
+                (to + 1..max).filter { it != from }
+                        .forEach { toggleItemSelection(false, it) }
+            }
+
+            if (min > -1) {
+                for (i in min..from - 1)
+                    toggleItemSelection(false, i)
+            }
+        }
+    }
+
     class ViewHolder(val view: View, val itemClick: (Medium) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
-        fun bindView(activity: SimpleActivity, multiSelectorCallback: ModalMultiSelectorCallback, multiSelector: MultiSelector, medium: Medium, pos: Int): View {
+        fun bindView(activity: SimpleActivity, multiSelectorCallback: ModalMultiSelectorCallback, multiSelector: MultiSelector, medium: Medium,
+                     pos: Int, listener: MediaOperationsListener?): View {
             itemViews.put(pos, itemView)
             itemView.apply {
                 play_outline.visibility = if (medium.video) View.VISIBLE else View.GONE
@@ -283,6 +322,8 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                         activity.startSupportActionMode(multiSelectorCallback)
                         toggleItemSelection(true, pos)
                     }
+
+                    listener!!.itemLongClicked(pos)
                     true
                 }
 
@@ -312,5 +353,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         fun refreshItems()
 
         fun deleteFiles(files: ArrayList<File>)
+
+        fun itemLongClicked(position: Int)
     }
 }

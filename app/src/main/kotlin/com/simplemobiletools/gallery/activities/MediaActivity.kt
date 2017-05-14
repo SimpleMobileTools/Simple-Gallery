@@ -280,11 +280,11 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                 }
             }
             override fun selectItem(position: Int) {
-
+                (media_grid.adapter as MediaAdapter).selectItem(position)
             }
 
             override fun selectRange(initialSelection: Int, lastDraggedIndex: Int, minReached: Int, maxReached: Int) {
-
+                (media_grid.adapter as MediaAdapter).selectRange(initialSelection, lastDraggedIndex, minReached, maxReached)
             }
         }
     }
@@ -297,19 +297,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun reduceColumnCount() {
         config.mediaColumnCnt = --(media_grid.layoutManager as GridLayoutManager).spanCount
         invalidateOptionsMenu()
-    }
-
-    override fun deleteFiles(files: ArrayList<File>) {
-        val filtered = files.filter { it.exists() && it.isImageVideoGif() } as ArrayList
-        deleteFiles(filtered) {
-            if (!it) {
-                runOnUiThread {
-                    toast(R.string.unknown_error_occurred)
-                }
-            } else if (mMedia.isEmpty()) {
-                finish()
-            }
-        }
     }
 
     private fun isSetWallpaperIntent() = intent.getBooleanExtra(SET_WALLPAPER_INTENT, false)
@@ -387,7 +374,24 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         config.saveFolderMedia(mPath, json)
     }
 
+    override fun deleteFiles(files: ArrayList<File>) {
+        val filtered = files.filter { it.exists() && it.isImageVideoGif() } as ArrayList
+        deleteFiles(filtered) {
+            if (!it) {
+                runOnUiThread {
+                    toast(R.string.unknown_error_occurred)
+                }
+            } else if (mMedia.isEmpty()) {
+                finish()
+            }
+        }
+    }
+
     override fun refreshItems() {
         getMedia()
+    }
+
+    override fun itemLongClicked(position: Int) {
+        media_grid.setDragSelectActive(position)
     }
 }
