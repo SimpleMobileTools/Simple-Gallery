@@ -297,6 +297,9 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     }
 
     private fun setVideoSize() {
+        if (mSurfaceHolder == null)
+            mSurfaceHolder = mSurfaceView!!.holder
+
         if (activity == null || !mSurfaceHolder!!.surface.isValid)
             return
 
