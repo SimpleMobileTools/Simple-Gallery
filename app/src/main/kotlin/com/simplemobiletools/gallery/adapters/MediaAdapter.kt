@@ -228,11 +228,23 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 files.add(File(medium.path))
                 removeMedia.add(medium)
                 notifyItemRemoved(it)
+                itemViews.put(it, null)
             }
 
             media.removeAll(removeMedia)
             selectedPositions.clear()
             listener?.deleteFiles(files)
+
+            val newItems = SparseArray<View>()
+            var curIndex = 0
+            for (i in 0..itemViews.size() - 1) {
+                if (itemViews[i] != null) {
+                    newItems.put(curIndex, itemViews[i])
+                    curIndex++
+                }
+            }
+
+            itemViews = newItems
         }
     }
 
@@ -248,7 +260,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        itemViews.put(position, holder.bindView(activity, multiSelectorMode, multiSelector, media[position], position, listener, displayFilenames))
+        itemViews.put(position, holder.bindView(activity, multiSelectorMode, multiSelector, media[position], listener, displayFilenames))
         toggleItemSelection(selectedPositions.contains(position), position)
         holder.itemView.tag = holder
     }
@@ -311,22 +323,22 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
     class ViewHolder(val view: View, val adapter: MyAdapterListener, val itemClick: (Medium) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
         fun bindView(activity: SimpleActivity, multiSelectorCallback: ModalMultiSelectorCallback, multiSelector: MultiSelector, medium: Medium,
-                     pos: Int, listener: MediaOperationsListener?, displayFilenames: Boolean): View {
+                     listener: MediaOperationsListener?, displayFilenames: Boolean): View {
             itemView.apply {
                 play_outline.visibility = if (medium.video) View.VISIBLE else View.GONE
                 photo_name.beVisibleIf(displayFilenames)
                 photo_name.text = medium.name
                 activity.loadImage(medium.path, medium_thumbnail)
 
-                setOnClickListener { viewClicked(multiSelector, medium, pos) }
+                setOnClickListener { viewClicked(multiSelector, medium) }
                 setOnLongClickListener {
                     if (listener != null) {
                         if (!multiSelector.isSelectable) {
                             activity.startSupportActionMode(multiSelectorCallback)
-                            adapter.toggleItemSelectionAdapter(true, pos)
+                            adapter.toggleItemSelectionAdapter(true, layoutPosition)
                         }
 
-                        listener.itemLongClicked(pos)
+                        listener.itemLongClicked(layoutPosition)
                     }
                     true
                 }
@@ -336,10 +348,10 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             return itemView
         }
 
-        fun viewClicked(multiSelector: MultiSelector, medium: Medium, pos: Int) {
+        fun viewClicked(multiSelector: MultiSelector, medium: Medium) {
             if (multiSelector.isSelectable) {
-                val isSelected = adapter.getSelectedPositions().contains(pos)
-                adapter.toggleItemSelectionAdapter(!isSelected, pos)
+                val isSelected = adapter.getSelectedPositions().contains(layoutPosition)
+                adapter.toggleItemSelectionAdapter(!isSelected, layoutPosition)
             } else {
                 itemClick(medium)
             }
