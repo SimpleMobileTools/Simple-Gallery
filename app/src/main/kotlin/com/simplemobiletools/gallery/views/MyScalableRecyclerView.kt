@@ -78,6 +78,9 @@ class MyScalableRecyclerView : RecyclerView {
         when (ev.action) {
             MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
                 dragSelectActive = false
+                inTopHotspot = false
+                inBottomHotspot = false
+                autoScrollHandler.removeCallbacks(autoScrollRunnable)
                 mCurrScaleFactor = 1.0f
                 mLastUp = System.currentTimeMillis()
                 return true
