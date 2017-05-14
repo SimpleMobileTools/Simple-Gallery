@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.adapters
 import android.os.Build
 import android.support.v7.view.ActionMode
 import android.support.v7.widget.RecyclerView
+import android.util.SparseArray
 import android.view.*
 import android.widget.FrameLayout
 import com.bignerdranch.android.multiselector.ModalMultiSelectorCallback
@@ -29,14 +30,14 @@ import java.util.*
 class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Directory>, val listener: DirOperationsListener?, val itemClick: (Directory) -> Unit) :
         RecyclerView.Adapter<DirectoryAdapter.ViewHolder>() {
 
-    val views = ArrayList<View>()
-    val config = activity.config
-    var pinnedFolders = config.pinnedFolders
-    var itemViews: HashMap<Int, View> = HashMap()
-    val selectedPositions: HashSet<Int> = HashSet()
-    var actMode: ActionMode? = null
     val multiSelector = MultiSelector()
+    val config = activity.config
+
+    var actMode: ActionMode? = null
+    var itemViews = SparseArray<View>()
+    val selectedPositions = HashSet<Int>()
     var foregroundColor = 0
+    var pinnedFolders = config.pinnedFolders
 
     fun toggleItemSelection(select: Boolean, pos: Int) {
         if (itemViews[pos] != null)
@@ -78,8 +79,6 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
             else
                 getProperView(itemView).foreground = foregroundColor.createSelector()
         }
-
-        override fun getItemViews(): HashMap<Int, View> = itemViews
 
         override fun getSelectedPositions(): HashSet<Int> = selectedPositions
     }
@@ -281,7 +280,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         var needPermissionForPath = ""
         selectedPositions.forEach {
             val path = dirs[it].path
-            if (activity.needsStupidWritePermissions(path) && activity.config.treeUri.isEmpty()) {
+            if (activity.needsStupidWritePermissions(path) && config.treeUri.isEmpty()) {
                 needPermissionForPath = path
             }
         }
@@ -312,7 +311,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val dir = dirs[position]
-        views.add(holder.bindView(activity, multiSelectorMode, multiSelector, dir, position, pinnedFolders.contains(dir.path), listener))
+        itemViews.put(position, holder.bindView(activity, multiSelectorMode, multiSelector, dir, position, pinnedFolders.contains(dir.path), listener))
         holder.itemView.tag = holder
     }
 
@@ -365,7 +364,6 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     class ViewHolder(val view: View, val adapter: MyAdapterListener, val itemClick: (Directory) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
         fun bindView(activity: SimpleActivity, multiSelectorCallback: ModalMultiSelectorCallback, multiSelector: MultiSelector, directory: Directory, pos: Int,
                      isPinned: Boolean, listener: DirOperationsListener?): View {
-            adapter.getItemViews().put(pos, itemView)
             itemView.apply {
                 dir_name.text = directory.name
                 photo_cnt.text = directory.mediaCnt.toString()
@@ -409,8 +407,6 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         fun toggleItemSelectionAdapter(select: Boolean, position: Int)
 
         fun setupItemForeground(itemView: View)
-
-        fun getItemViews(): HashMap<Int, View>
 
         fun getSelectedPositions(): HashSet<Int>
     }

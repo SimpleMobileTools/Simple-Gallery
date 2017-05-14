@@ -94,11 +94,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         config.temporarilyShowHidden = false
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        MediaAdapter.cleanup()
-    }
-
     private fun tryloadGallery() {
         if (hasWriteStoragePermission()) {
             val dirName = getHumanizedFilename(mPath)
@@ -170,7 +165,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun toggleFilenameVisibility() {
         config.displayFileNames = !config.displayFileNames
         if (media_grid.adapter != null)
-            (media_grid.adapter as MediaAdapter).updateDisplayFilenames(config.displayFileNames)
+            getRecyclerAdapter().updateDisplayFilenames(config.displayFileNames)
     }
 
     private fun showSortingDialog() {
@@ -262,6 +257,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         getMedia()
     }
 
+    private fun getRecyclerAdapter() = (media_grid.adapter as MediaAdapter)
+
     private fun handleZooming() {
         val layoutManager = media_grid.layoutManager as GridLayoutManager
         layoutManager.spanCount = config.mediaColumnCnt
@@ -269,22 +266,23 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             override fun zoomIn() {
                 if (layoutManager.spanCount > 1) {
                     reduceColumnCount()
-                    MediaAdapter.actMode?.finish()
+                    getRecyclerAdapter().actMode?.finish()
                 }
             }
 
             override fun zoomOut() {
                 if (layoutManager.spanCount < 10) {
                     increaseColumnCount()
-                    MediaAdapter.actMode?.finish()
+                    getRecyclerAdapter().actMode?.finish()
                 }
             }
+
             override fun selectItem(position: Int) {
-                (media_grid.adapter as MediaAdapter).selectItem(position)
+                getRecyclerAdapter().selectItem(position)
             }
 
             override fun selectRange(initialSelection: Int, lastDraggedIndex: Int, minReached: Int, maxReached: Int) {
-                (media_grid.adapter as MediaAdapter).selectRange(initialSelection, lastDraggedIndex, minReached, maxReached)
+                getRecyclerAdapter().selectRange(initialSelection, lastDraggedIndex, minReached, maxReached)
             }
         }
     }
