@@ -249,9 +249,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         }
 
         activity.tryCopyMoveFilesTo(files, isCopyOperation) {
-            if (!isCopyOperation) {
-                listener?.refreshItems()
-            }
+            listener?.refreshItems()
             actMode?.finish()
         }
     }
