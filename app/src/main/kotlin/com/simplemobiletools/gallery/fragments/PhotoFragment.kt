@@ -83,7 +83,7 @@ class PhotoFragment : ViewPagerFragment() {
             }
         }
 
-        view.subsampling_view.apply { setOnClickListener({ photoClicked() }) }
+        view.subsampling_view.setOnClickListener({ photoClicked() })
         view.photo_view.apply {
             maximumScale = 8f
             mediumScale = 3f
