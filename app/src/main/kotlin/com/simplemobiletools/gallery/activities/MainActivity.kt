@@ -126,11 +126,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         config.temporarilyShowHidden = false
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        DirectoryAdapter.cleanup()
-    }
-
     private fun tryloadGallery() {
         if (hasWriteStoragePermission()) {
             if (config.showAll)
@@ -199,8 +194,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun checkIfColorChanged() {
-        if (DirectoryAdapter.foregroundColor != config.primaryColor) {
-            DirectoryAdapter.foregroundColor = config.primaryColor
+        if (getDirectoryAdapter().foregroundColor != config.primaryColor) {
+            getDirectoryAdapter().foregroundColor = config.primaryColor
             directories_fastscroller.updateHandleColor()
         }
     }
@@ -215,6 +210,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
     }
 
+    private fun getDirectoryAdapter() = (directories_grid.adapter as DirectoryAdapter)
+
     override fun itemLongClicked(position: Int) {
         directories_grid.setDragSelectActive(position)
     }
@@ -226,23 +223,23 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             override fun zoomIn() {
                 if (layoutManager.spanCount > 1) {
                     reduceColumnCount()
-                    DirectoryAdapter.actMode?.finish()
+                    getDirectoryAdapter().actMode?.finish()
                 }
             }
 
             override fun zoomOut() {
                 if (layoutManager.spanCount < 10) {
                     increaseColumnCount()
-                    DirectoryAdapter.actMode?.finish()
+                    getDirectoryAdapter().actMode?.finish()
                 }
             }
 
             override fun selectItem(position: Int) {
-                (directories_grid.adapter as DirectoryAdapter).selectItem(position)
+                getDirectoryAdapter().selectItem(position)
             }
 
             override fun selectRange(initialSelection: Int, lastDraggedIndex: Int, minReached: Int, maxReached: Int) {
-                (directories_grid.adapter as DirectoryAdapter).selectRange(initialSelection, lastDraggedIndex, minReached, maxReached)
+                getDirectoryAdapter().selectRange(initialSelection, lastDraggedIndex, minReached, maxReached)
             }
         }
     }
