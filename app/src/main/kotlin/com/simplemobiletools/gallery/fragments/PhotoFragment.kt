@@ -204,7 +204,7 @@ class PhotoFragment : ViewPagerFragment() {
                     }
 
                     override fun onReady() {
-                        background = ColorDrawable(context.config.backgroundColor)
+                        background = ColorDrawable(if (context.config.darkBackground) Color.BLACK else context.config.backgroundColor)
                     }
 
                     override fun onTileLoadError(e: Exception?) {

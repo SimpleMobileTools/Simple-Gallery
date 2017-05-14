@@ -7,7 +7,9 @@ import android.content.res.Configuration
 import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.graphics.Matrix
+import android.graphics.drawable.ColorDrawable
 import android.hardware.SensorManager
 import android.media.ExifInterface
 import android.net.Uri
@@ -100,6 +102,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         reloadViewPager()
         scanPath(mPath) {}
         setupOrientationEventListener()
+
+        if (config.darkBackground)
+            view_pager.background = ColorDrawable(Color.BLACK)
     }
 
     private fun setupOrientationEventListener() {
