@@ -107,7 +107,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun checkIfColorChanged() {
-        if (getRecyclerAdapter().foregroundColor != config.primaryColor) {
+        if (media_grid.adapter != null && getRecyclerAdapter().foregroundColor != config.primaryColor) {
             getRecyclerAdapter().updatePrimaryColor(config.primaryColor)
             media_fastscroller.updateHandleColor()
         }
