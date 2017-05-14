@@ -286,7 +286,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
         }
 
         activity.handleSAFDialog(File(needPermissionForPath)) {
-            selectedPositions.reversed().forEach {
+            selectedPositions.sortedDescending().forEach {
                 val directory = dirs[it]
                 folders.add(File(directory.path))
                 removeFolders.add(directory)

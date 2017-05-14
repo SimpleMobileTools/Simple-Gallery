@@ -223,7 +223,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         val removeMedia = ArrayList<Medium>(selectedPositions.size)
 
         activity.handleSAFDialog(File(media[selectedPositions.first()].path)) {
-            selectedPositions.reversed().forEach {
+            selectedPositions.sortedDescending().forEach {
                 val medium = media[it]
                 files.add(File(medium.path))
                 removeMedia.add(medium)
