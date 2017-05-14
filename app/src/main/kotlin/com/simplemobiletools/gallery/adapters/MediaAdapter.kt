@@ -207,8 +207,8 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
     private fun askConfirmDelete() {
         ConfirmationDialog(activity) {
-            actMode?.finish()
             deleteFiles()
+            actMode?.finish()
         }
     }
 
