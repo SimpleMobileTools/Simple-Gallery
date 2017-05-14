@@ -312,6 +312,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val dir = dirs[position]
         itemViews.put(position, holder.bindView(activity, multiSelectorMode, multiSelector, dir, position, pinnedFolders.contains(dir.path), listener))
+        toggleItemSelection(selectedPositions.contains(position), position)
         holder.itemView.tag = holder
     }
 
@@ -368,7 +369,6 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
                 dir_name.text = directory.name
                 photo_cnt.text = directory.mediaCnt.toString()
                 dir_pin.visibility = if (isPinned) View.VISIBLE else View.GONE
-                adapter.toggleItemSelectionAdapter(adapter.getSelectedPositions().contains(pos), pos)
                 activity.loadImage(directory.tmb, dir_thumbnail)
 
                 setOnClickListener { viewClicked(multiSelector, directory, pos) }
@@ -391,7 +391,7 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
 
         fun viewClicked(multiSelector: MultiSelector, directory: Directory, pos: Int) {
             if (multiSelector.isSelectable) {
-                val isSelected = adapter.getSelectedPositions().contains(layoutPosition)
+                val isSelected = adapter.getSelectedPositions().contains(pos)
                 adapter.toggleItemSelectionAdapter(!isSelected, pos)
             } else {
                 itemClick(directory)

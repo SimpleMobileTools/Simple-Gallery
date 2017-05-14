@@ -249,6 +249,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         itemViews.put(position, holder.bindView(activity, multiSelectorMode, multiSelector, media[position], position, listener, displayFilenames))
+        toggleItemSelection(selectedPositions.contains(position), position)
         holder.itemView.tag = holder
     }
 
@@ -315,7 +316,6 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 play_outline.visibility = if (medium.video) View.VISIBLE else View.GONE
                 photo_name.beVisibleIf(displayFilenames)
                 photo_name.text = medium.name
-                adapter.toggleItemSelectionAdapter(adapter.getSelectedPositions().contains(pos), pos)
                 activity.loadImage(medium.path, medium_thumbnail)
 
                 setOnClickListener { viewClicked(multiSelector, medium, pos) }
@@ -338,7 +338,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
         fun viewClicked(multiSelector: MultiSelector, medium: Medium, pos: Int) {
             if (multiSelector.isSelectable) {
-                val isSelected = adapter.getSelectedPositions().contains(layoutPosition)
+                val isSelected = adapter.getSelectedPositions().contains(pos)
                 adapter.toggleItemSelectionAdapter(!isSelected, pos)
             } else {
                 itemClick(medium)
