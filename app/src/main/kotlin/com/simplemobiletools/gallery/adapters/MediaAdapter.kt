@@ -64,16 +64,26 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         actMode?.title = "$cnt / ${media.size}"
     }
 
+    fun updatePrimaryColor(color: Int) {
+        foregroundColor = color
+        (0..itemViews.size() - 1).mapNotNull { itemViews[it] }
+                .forEach { setupItemViewForeground(it) }
+    }
+
+    private fun setupItemViewForeground(itemView: View) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+            (getProperView(itemView) as FrameLayout).foreground = foregroundColor.createSelector()
+        else
+            getProperView(itemView).foreground = foregroundColor.createSelector()
+    }
+
     val adapterListener = object : MyAdapterListener {
         override fun toggleItemSelectionAdapter(select: Boolean, position: Int) {
             toggleItemSelection(select, position)
         }
 
         override fun setupItemForeground(itemView: View) {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-                (getProperView(itemView) as FrameLayout).foreground = foregroundColor.createSelector()
-            else
-                getProperView(itemView).foreground = foregroundColor.createSelector()
+            setupItemViewForeground(itemView)
         }
 
         override fun getSelectedPositions(): HashSet<Int> = selectedPositions

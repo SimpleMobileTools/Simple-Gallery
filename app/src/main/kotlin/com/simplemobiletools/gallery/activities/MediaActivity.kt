@@ -100,8 +100,16 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             title = if (mShowAll) resources.getString(R.string.all_folders) else dirName
             getMedia()
             handleZooming()
+            checkIfColorChanged()
         } else {
             finish()
+        }
+    }
+
+    private fun checkIfColorChanged() {
+        if (getRecyclerAdapter().foregroundColor != config.primaryColor) {
+            getRecyclerAdapter().updatePrimaryColor(config.primaryColor)
+            media_fastscroller.updateHandleColor()
         }
     }
 
