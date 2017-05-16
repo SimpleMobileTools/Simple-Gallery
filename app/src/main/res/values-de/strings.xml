@@ -26,9 +26,9 @@
     <string name="exclude">Ordner ausblenden</string>
     <string name="excluded_folders">Ausgeblendete Ordner</string>
     <string name="manage_excluded_folders">Ausgeblendete Ordner verwalten</string>
-    <string name="exclude_folder_description">Diese Funktion blendet ausgewählte Ordner inklusive ihrer Unterordner aus (nur in dieser App). Ausgeblendete Ordner können in den Einstellungen verwaltet werden.</string>
-    <string name="exclude_folder_parent">Möchten Sie vielleicht einen höherliegenden Ordner stattdessen ausblenden?</string>
-    <string name="excluded_activity_placeholder">\'Ordner ausblenden\' wird ausgewählte Ordner inklusive Unterordnern nur in dieser App ausblenden. Andere Apps werden solche Ordner weiterhin anzeigen.\\n\\nWenn Sie Ordner auch für andere Apps verstecken wollen, verwenden Sie dafür die Funktion \'Ordner verstecken\'.</string>
+    <string name="exclude_folder_description">Diese Funktion blendet ausgewählte Ordner und deren Unterordner aus (nur in dieser App). Ausgeblendete Ordner können in den Einstellungen verwaltet werden.</string>
+    <string name="exclude_folder_parent">Möchten Sie stattdessen einen höherliegenden Ordner ausblenden?</string>
+    <string name="excluded_activity_placeholder">\'Ordner ausblenden\' wird ausgewählte Ordner und deren Unterordner nur in dieser App ausblenden. Andere Apps werden solche Ordner weiterhin anzeigen.\\n\\nWenn Sie Ordner auch für andere Apps verstecken wollen, verwenden Sie dafür die Funktion \'Ordner verstecken\'.</string>
     <string name="remove_all">Alle entfernen</string>
     <string name="remove_all_description">Alle Ordner aus der Ausgeblendet-Liste entfernen? Die Ordner selbst werden nicht gelöscht.</string>
 
@@ -92,7 +92,7 @@
     <string name="screen_rotation_system_setting">Systemeinstellung</string>
     <string name="screen_rotation_device_rotation">Gerätedrehung</string>
     <string name="screen_rotation_aspect_ratio">Seitenverhältnis</string>
-    <string name="dark_background_at_fullscreen">Dark background at fullscreen media</string>
+    <string name="dark_background_at_fullscreen">Schwarzer Hintergrund im Vollbild</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
