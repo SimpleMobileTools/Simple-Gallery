@@ -7,7 +7,7 @@ Version 2.9.1 *(2017-05-14)*
  * Allow selecting multiple items by finger dragging
  * Added an option to always use black background at fullscreen media
  * Rewrite selecting thumbnails to make it more reliable
- * Not sure what else, nobody reads this anyway
+ * Not sure what else
 
 Version 2.9.0 *(2017-04-26)*
 ----------------------------
