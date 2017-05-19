@@ -130,7 +130,8 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         override fun onDestroyActionMode(actionMode: ActionMode?) {
             super.onDestroyActionMode(actionMode)
             selectedPositions.forEach {
-                getProperView(itemViews[it]!!).isSelected = false
+                if (itemViews[it] != null)
+                    getProperView(itemViews[it]!!).isSelected = false
             }
             selectedPositions.clear()
             actMode = null
