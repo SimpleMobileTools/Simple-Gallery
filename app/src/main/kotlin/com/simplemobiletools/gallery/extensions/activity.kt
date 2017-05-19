@@ -72,10 +72,14 @@ fun Activity.shareMedia(media: List<Medium>) {
 }
 
 fun Activity.trySetAsWallpaper(file: File) {
-    var uri = Uri.fromFile(file)
-    if (!setAsWallpaper(uri, file)) {
-        uri = getFileContentUri(file)
-        setAsWallpaper(uri, file, false)
+    try {
+        var uri = Uri.fromFile(file)
+        if (!setAsWallpaper(uri, file)) {
+            uri = getFileContentUri(file)
+            setAsWallpaper(uri, file, false)
+        }
+    } catch (e: Exception) {
+        toast(R.string.unknown_error_occurred)
     }
 }
 
