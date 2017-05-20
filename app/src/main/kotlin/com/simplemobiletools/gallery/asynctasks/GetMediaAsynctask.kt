@@ -2,9 +2,8 @@ package com.simplemobiletools.gallery.asynctasks
 
 import android.content.Context
 import android.os.AsyncTask
-import com.simplemobiletools.commons.extensions.isGif
-import com.simplemobiletools.commons.extensions.isImageFast
-import com.simplemobiletools.commons.extensions.isVideoFast
+import android.provider.MediaStore
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getParents
 import com.simplemobiletools.gallery.helpers.IMAGES
@@ -45,37 +44,63 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
         return Unit
     }
 
-    private fun getFilesFrom(path: String) {
-        val dir = File(path)
-        val filenames = dir.list() ?: return
-        for (filename in filenames) {
-            if (shouldStop)
-                cancel(true)
+    private fun getFilesFrom(curPath: String) {
+        val projection = arrayOf(MediaStore.Images.Media._ID,
+                MediaStore.Images.Media.DISPLAY_NAME,
+                MediaStore.Images.Media.DATE_TAKEN,
+                MediaStore.Images.Media.DATE_MODIFIED,
+                MediaStore.Images.Media.DATA,
+                MediaStore.Images.Media.SIZE)
+        val uri = MediaStore.Files.getContentUri("external")
+        val selection = "${MediaStore.Images.Media.DATA} LIKE ? AND ${MediaStore.Images.Media.DATA} NOT LIKE ?"
+        val selectionArgs = arrayOf("$curPath/%", "$curPath/%/%")
 
-            val isImage = filename.isImageFast() || filename.isGif()
-            val isVideo = if (isImage) false else filename.isVideoFast()
+        val cur = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
+        if (cur.moveToFirst()) {
+            var filename: String
+            var path: String
+            var dateTaken: Long
+            var dateModified: Long
+            var size: Long
 
-            if (!isImage && !isVideo)
-                continue
+            do {
+                if (shouldStop)
+                    cancel(true)
 
-            if (isVideo && (isPickImage || showMedia == IMAGES))
-                continue
+                path = cur.getStringValue(MediaStore.Images.Media.DATA)
+                size = cur.getLongValue(MediaStore.Images.Media.SIZE)
+                if (size == 0L) {
+                    size = File(path).length()
+                }
 
-            if (isImage && (isPickVideo || showMedia == VIDEOS))
-                continue
+                if (size <= 0L) {
+                    continue
+                }
 
-            if (!showHidden && filename.startsWith('.'))
-                continue
+                filename = cur.getStringValue(MediaStore.Images.Media.DISPLAY_NAME) ?: ""
+                val isImage = filename.isImageFast() || filename.isGif()
+                val isVideo = if (isImage) false else filename.isVideoFast()
 
-            val file = File(path, filename)
-            val size = file.length()
-            if (size == 0L)
-                continue
+                if (!isImage && !isVideo)
+                    continue
 
-            val dateModified = file.lastModified()
-            val medium = Medium(filename, file.absolutePath, isVideo, dateModified, dateModified, size)
-            media.add(medium)
+                if (isVideo && (isPickImage || showMedia == IMAGES))
+                    continue
+
+                if (isImage && (isPickVideo || showMedia == VIDEOS))
+                    continue
+
+                if (!showHidden && filename.startsWith('.'))
+                    continue
+
+                dateTaken = cur.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
+                dateModified = cur.getIntValue(MediaStore.Images.Media.DATE_MODIFIED) * 1000L
+
+                val medium = Medium(filename, path, isVideo, dateModified, dateTaken, size)
+                media.add(medium)
+            } while (cur.moveToNext())
         }
+        cur.close()
     }
 
     override fun onPostExecute(result: Unit?) {
