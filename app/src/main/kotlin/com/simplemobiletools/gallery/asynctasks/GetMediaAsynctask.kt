@@ -78,6 +78,9 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
                 }
 
                 filename = cur.getStringValue(MediaStore.Images.Media.DISPLAY_NAME) ?: ""
+                if (filename.isEmpty())
+                    filename = path.getFilenameFromPath()
+
                 val isImage = filename.isImageFast() || filename.isGif()
                 val isVideo = if (isImage) false else filename.isVideoFast()
 
