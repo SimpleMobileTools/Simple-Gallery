@@ -5,11 +5,17 @@ import android.content.Intent
 import android.database.Cursor
 import android.net.Uri
 import android.provider.MediaStore
-import com.simplemobiletools.commons.extensions.getStringValue
-import com.simplemobiletools.commons.extensions.humanizePath
+import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
+import com.simplemobiletools.commons.helpers.SORT_BY_NAME
+import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
+import com.simplemobiletools.commons.helpers.SORT_DESCENDING
 import com.simplemobiletools.gallery.activities.SettingsActivity
 import com.simplemobiletools.gallery.helpers.Config
+import com.simplemobiletools.gallery.helpers.IMAGES
 import com.simplemobiletools.gallery.helpers.NOMEDIA
+import com.simplemobiletools.gallery.helpers.VIDEOS
+import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 import java.util.*
 
@@ -117,3 +123,89 @@ fun Context.getNoMediaFolders(): ArrayList<String> {
 }
 
 val Context.config: Config get() = Config.newInstance(this)
+
+fun Context.getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean): ArrayList<Medium> {
+    val curMedia = ArrayList<Medium>()
+    val showMedia = config.showMedia
+    val showHidden = config.shouldShowHidden
+    val projection = arrayOf(MediaStore.Images.Media._ID,
+            MediaStore.Images.Media.DISPLAY_NAME,
+            MediaStore.Images.Media.DATE_TAKEN,
+            MediaStore.Images.Media.DATE_MODIFIED,
+            MediaStore.Images.Media.DATA,
+            MediaStore.Images.Media.SIZE)
+    val uri = MediaStore.Files.getContentUri("external")
+    val selection = if (curPath.isEmpty()) null else "(${MediaStore.Images.Media.DATA} LIKE ? AND ${MediaStore.Images.Media.DATA} NOT LIKE ?)"
+    val selectionArgs = if (curPath.isEmpty()) null else arrayOf("$curPath/%", "$curPath/%/%")
+
+    val cur = contentResolver.query(uri, projection, selection, selectionArgs, getSortingForFolder(curPath))
+    if (cur.moveToFirst()) {
+        var filename: String
+        var path: String
+        var dateTaken: Long
+        var dateModified: Long
+        var size: Long
+        var isImage: Boolean
+        var isVideo: Boolean
+
+        do {
+            path = cur.getStringValue(MediaStore.Images.Media.DATA)
+            size = cur.getLongValue(MediaStore.Images.Media.SIZE)
+            if (size == 0L) {
+                size = File(path).length()
+            }
+
+            if (size <= 0L) {
+                continue
+            }
+
+            filename = cur.getStringValue(MediaStore.Images.Media.DISPLAY_NAME) ?: ""
+            if (filename.isEmpty())
+                filename = path.getFilenameFromPath()
+
+            isImage = filename.isImageFast() || filename.isGif()
+            isVideo = if (isImage) false else filename.isVideoFast()
+
+            if (!isImage && !isVideo)
+                continue
+
+            if (isVideo && (isPickImage || showMedia == IMAGES))
+                continue
+
+            if (isImage && (isPickVideo || showMedia == VIDEOS))
+                continue
+
+            if (!showHidden && filename.startsWith('.'))
+                continue
+
+            dateTaken = cur.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
+            dateModified = cur.getIntValue(MediaStore.Images.Media.DATE_MODIFIED) * 1000L
+
+            val medium = Medium(filename, path, isVideo, dateModified, dateTaken, size)
+            curMedia.add(medium)
+        } while (cur.moveToNext())
+    }
+    cur.close()
+
+    Medium.sorting = config.getFileSorting(curPath)
+    curMedia.sort()
+
+    return curMedia
+}
+
+fun Context.getSortingForFolder(path: String): String {
+    val sorting = config.getFileSorting(path)
+    val sortValue = if (sorting and SORT_BY_NAME > 0)
+        MediaStore.Images.Media.DISPLAY_NAME
+    else if (sorting and SORT_BY_SIZE > 0)
+        MediaStore.Images.Media.SIZE
+    else if (sorting and SORT_BY_DATE_MODIFIED > 0)
+        MediaStore.Images.Media.DATE_MODIFIED
+    else
+        MediaStore.Images.Media.DATE_TAKEN
+
+    return if (sorting and SORT_DESCENDING > 0)
+        "$sortValue DESC"
+    else
+        "$sortValue ASC"
+}
