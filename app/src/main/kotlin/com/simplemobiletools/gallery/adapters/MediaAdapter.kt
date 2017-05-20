@@ -33,7 +33,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     var itemViews = SparseArray<View>()
     val selectedPositions = HashSet<Int>()
     var foregroundColor = 0
-    var displayFilenames = false
+    var displayFilenames = config.displayFileNames
 
     fun toggleItemSelection(select: Boolean, pos: Int) {
         if (itemViews[pos] != null)
