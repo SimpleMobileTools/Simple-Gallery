@@ -83,6 +83,8 @@
     <string name="show_media">Wybierz co pokazywać</string>
     <string name="images">Tylko Zdjęcia</string>
     <string name="videos">Tylko Filmy</string>
+    <string name="gifs">Gifs only</string>
+    <string name="images_videos_gifs">Images, videos, gifs</string>
     <string name="images_and_videos">Obrazy i wideo</string>
     <string name="loop_videos">Pętla wideo</string>
     <string name="animate_gifs">Animowanie gify z miniaturkami</string>

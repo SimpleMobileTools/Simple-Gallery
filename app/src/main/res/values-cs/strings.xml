@@ -83,6 +83,8 @@
     <string name="show_media">Zobrazit média</string>
     <string name="images">Jen obrázky</string>
     <string name="videos">Jen videa</string>
+    <string name="gifs">Gifs only</string>
+    <string name="images_videos_gifs">Images, videos, gifs</string>
     <string name="images_and_videos">Obrázky i videa</string>
     <string name="loop_videos">Přehrávat videa ve smyčce</string>
     <string name="animate_gifs">Animovat náhledy souborů GIF</string>

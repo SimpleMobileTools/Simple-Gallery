@@ -83,6 +83,8 @@
     <string name="show_media">秀出多媒體檔案</string>
     <string name="images">僅圖片</string>
     <string name="videos">僅影片</string>
+    <string name="gifs">Gifs only</string>
+    <string name="images_videos_gifs">Images, videos, gifs</string>
     <string name="images_and_videos">圖片和影片</string>
     <string name="loop_videos">迴圈播放影片</string>
     <string name="animate_gifs">Animate gifs at thumbnails</string>

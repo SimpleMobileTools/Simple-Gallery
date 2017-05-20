@@ -83,6 +83,8 @@
     <string name="show_media">Mostrar multimedia</string>
     <string name="images">Solo imágenes</string>
     <string name="videos">Solo vídeos</string>
+    <string name="gifs">Gifs only</string>
+    <string name="images_videos_gifs">Images, videos, gifs</string>
     <string name="images_and_videos">Imágenes y vídeos</string>
     <string name="loop_videos">Reproducción continua de vídeos</string>
     <string name="animate_gifs">Animar las miniaturas de gifs</string>

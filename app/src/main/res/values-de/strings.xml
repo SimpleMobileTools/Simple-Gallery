@@ -83,6 +83,8 @@
     <string name="show_media">Medien auswählen</string>
     <string name="images">Nur Bilder</string>
     <string name="videos">Nur Videos</string>
+    <string name="gifs">Gifs only</string>
+    <string name="images_videos_gifs">Images, videos, gifs</string>
     <string name="images_and_videos">Bilder und Videos</string>
     <string name="loop_videos">Videos in Endlosschleife spielen</string>
     <string name="animate_gifs">Kacheln bei GIFs animieren</string>

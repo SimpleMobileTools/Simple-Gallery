@@ -83,6 +83,8 @@
     <string name="show_media">Medyayı göster</string>
     <string name="images">Yalnızca resimler</string>
     <string name="videos">Yalnızca videolar</string>
+    <string name="gifs">Gifs only</string>
+    <string name="images_videos_gifs">Images, videos, gifs</string>
     <string name="images_and_videos">Resimler ve videolar</string>
     <string name="loop_videos">Videolar döngüsü</string>
     <string name="animate_gifs">Küçük resimlerde gif\'leri canlandırın</string>

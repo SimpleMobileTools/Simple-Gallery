@@ -83,6 +83,8 @@
     <string name="show_media">Zobraziť médiá</string>
     <string name="images">Iba obrázky</string>
     <string name="videos">Iba videá</string>
+    <string name="gifs">Iba gifká</string>
+    <string name="images_videos_gifs">Obrázky, videá, gifká</string>
     <string name="images_and_videos">Obrázky aj videá</string>
     <string name="loop_videos">Automaticky reštartovať videá</string>
     <string name="animate_gifs">Animovať gif súbory pri náhľade</string>

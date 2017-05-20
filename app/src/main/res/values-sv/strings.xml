@@ -83,6 +83,8 @@
     <string name="show_media">Visa media</string>
     <string name="images">Endast bilder</string>
     <string name="videos">Endast videos</string>
+    <string name="gifs">Gifs only</string>
+    <string name="images_videos_gifs">Images, videos, gifs</string>
     <string name="images_and_videos">Bilder och videos</string>
     <string name="loop_videos">Återspela videos</string>
     <string name="animate_gifs">Animate gifs at thumbnails</string>
