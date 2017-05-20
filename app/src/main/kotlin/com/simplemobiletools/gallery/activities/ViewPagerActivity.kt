@@ -214,7 +214,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val pagerAdapter = MyPagerAdapter(this, supportFragmentManager, mMedia)
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1 || !isDestroyed) {
             view_pager.apply {
-                offscreenPageLimit = 2
                 adapter = pagerAdapter
                 currentItem = mPos
                 addOnPageChangeListener(this@ViewPagerActivity)
@@ -503,6 +502,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     override fun onPageSelected(position: Int) {
+        if (view_pager.offscreenPageLimit == 1) {
+            view_pager.offscreenPageLimit = 2
+        }
         mPos = position
         updateActionbarTitle()
         mRotationDegrees = 0f
