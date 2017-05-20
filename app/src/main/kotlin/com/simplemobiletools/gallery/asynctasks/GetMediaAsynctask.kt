@@ -4,6 +4,10 @@ import android.content.Context
 import android.os.AsyncTask
 import android.provider.MediaStore
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
+import com.simplemobiletools.commons.helpers.SORT_BY_NAME
+import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
+import com.simplemobiletools.commons.helpers.SORT_DESCENDING
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.helpers.IMAGES
 import com.simplemobiletools.gallery.helpers.VIDEOS
@@ -24,9 +28,6 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
             media = getFilesFrom(mPath)
         }
 
-        Medium.sorting = context.config.getFileSorting(mPath)
-        media.sort()
-
         return Unit
     }
 
@@ -44,7 +45,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
         val selection = if (curPath.isEmpty()) null else "(${MediaStore.Images.Media.DATA} LIKE ? AND ${MediaStore.Images.Media.DATA} NOT LIKE ?)"
         val selectionArgs = if (curPath.isEmpty()) null else arrayOf("$curPath/%", "$curPath/%/%")
 
-        val cur = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
+        val cur = context.contentResolver.query(uri, projection, selection, selectionArgs, getSorting())
         if (cur.moveToFirst()) {
             var filename: String
             var path: String
@@ -95,7 +96,28 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
             } while (cur.moveToNext())
         }
         cur.close()
+
+        Medium.sorting = context.config.getFileSorting(mPath)
+        curMedia.sort()
+
         return curMedia
+    }
+
+    private fun getSorting(): String {
+        val sorting = context.config.getFileSorting(mPath)
+        val sortValue = if (sorting and SORT_BY_NAME > 0)
+            MediaStore.Images.Media.DISPLAY_NAME
+        else if (sorting and SORT_BY_SIZE > 0)
+            MediaStore.Images.Media.SIZE
+        else if (sorting and SORT_BY_DATE_MODIFIED > 0)
+            MediaStore.Images.Media.DATE_MODIFIED
+        else
+            MediaStore.Images.Media.DATE_TAKEN
+
+        return if (sorting and SORT_DESCENDING > 0)
+            "$sortValue DESC"
+        else
+            "$sortValue ASC"
     }
 
     override fun onPostExecute(result: Unit?) {
