@@ -13,7 +13,6 @@ import android.graphics.drawable.ColorDrawable
 import android.hardware.SensorManager
 import android.media.ExifInterface
 import android.net.Uri
-import android.os.AsyncTask
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
@@ -46,7 +45,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mMedia = ArrayList<Medium>()
     private var mPath = ""
     private var mDirectory = ""
-    private var mCurrAsyncTask: GetMediaAsynctask? = null
 
     private var mIsFullScreen = false
     private var mPos = -1
@@ -155,7 +153,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     override fun onPause() {
         super.onPause()
-        mCurrAsyncTask?.shouldStop = true
         mOrientationEventListener.disable()
     }
 
@@ -411,7 +408,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun reloadViewPager() {
-        mCurrAsyncTask = GetMediaAsynctask(applicationContext, mDirectory, false, false, mShowAll) {
+        GetMediaAsynctask(applicationContext, mDirectory, false, false, mShowAll) {
             mMedia = it
             if (isDirEmpty())
                 return@GetMediaAsynctask
@@ -426,8 +423,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             updatePagerItems()
             invalidateOptionsMenu()
             checkOrientation()
-        }
-        mCurrAsyncTask!!.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR)
+        }.execute()
     }
 
     private fun getProperPosition(): Int {

@@ -18,7 +18,6 @@ import java.util.*
 class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo: Boolean = false, val isPickImage: Boolean = false,
                         val showAll: Boolean, val callback: (media: ArrayList<Medium>) -> Unit) :
         AsyncTask<Void, Void, Unit>() {
-    var shouldStop = false
     var media = ArrayList<Medium>()
 
     override fun doInBackground(vararg params: Void): Unit {
@@ -56,9 +55,6 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
             var isVideo: Boolean
 
             do {
-                if (shouldStop)
-                    cancel(true)
-
                 path = cur.getStringValue(MediaStore.Images.Media.DATA)
                 size = cur.getLongValue(MediaStore.Images.Media.SIZE)
                 if (size == 0L) {

@@ -5,7 +5,6 @@ import android.app.WallpaperManager
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
-import android.os.AsyncTask
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.util.Log
@@ -36,7 +35,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private val SAVE_MEDIA_CNT = 40
 
     private var mMedia = ArrayList<Medium>()
-    private var mCurrAsyncTask: GetMediaAsynctask? = null
 
     private var mPath = ""
     private var mIsGetImageIntent = false
@@ -81,7 +79,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     override fun onPause() {
         super.onPause()
-        mCurrAsyncTask?.shouldStop = true
         mIsGettingMedia = false
         media_refresh_layout.isRefreshing = false
         mStoredAnimateGifs = config.animateGifs
@@ -245,10 +242,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
 
         mLoadedInitialPhotos = true
-        mCurrAsyncTask = GetMediaAsynctask(applicationContext, mPath, mIsGetVideoIntent, mIsGetImageIntent, mShowAll) {
+        GetMediaAsynctask(applicationContext, mPath, mIsGetVideoIntent, mIsGetImageIntent, mShowAll) {
             gotMedia(it)
-        }
-        mCurrAsyncTask!!.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR)
+        }.execute()
     }
 
     private fun isDirEmpty(): Boolean {
