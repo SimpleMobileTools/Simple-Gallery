@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 2.10.0 *(2017-05-20)*
+----------------------------
+
+ * Rewrite the way of fetching media, should improve performance
+ * Fix sorting by Date Taken
+
 Version 2.9.1 *(2017-05-14)*
 ----------------------------
 
