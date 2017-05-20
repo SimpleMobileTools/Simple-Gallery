@@ -5,7 +5,6 @@ import android.os.AsyncTask
 import android.provider.MediaStore
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.extensions.getParents
 import com.simplemobiletools.gallery.helpers.IMAGES
 import com.simplemobiletools.gallery.helpers.IMAGES_AND_VIDEOS
 import com.simplemobiletools.gallery.helpers.VIDEOS
@@ -31,16 +30,14 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
 
     override fun doInBackground(vararg params: Void): Unit {
         if (showAll) {
-            val parents = context.getParents()
-            for (parent in parents) {
-                getFilesFrom(parent)
-            }
+            getFilesFrom("")
         } else {
             getFilesFrom(mPath)
         }
 
         Medium.sorting = fileSorting
         media.sort()
+
         return Unit
     }
 
@@ -52,8 +49,8 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
                 MediaStore.Images.Media.DATA,
                 MediaStore.Images.Media.SIZE)
         val uri = MediaStore.Files.getContentUri("external")
-        val selection = "${MediaStore.Images.Media.DATA} LIKE ? AND ${MediaStore.Images.Media.DATA} NOT LIKE ?"
-        val selectionArgs = arrayOf("$curPath/%", "$curPath/%/%")
+        val selection = if (curPath.isEmpty()) null else "(${MediaStore.Images.Media.DATA} LIKE ? AND ${MediaStore.Images.Media.DATA} NOT LIKE ?)"
+        val selectionArgs = if (curPath.isEmpty()) null else arrayOf("$curPath/%", "$curPath/%/%")
 
         val cur = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
         if (cur.moveToFirst()) {
@@ -62,6 +59,8 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
             var dateTaken: Long
             var dateModified: Long
             var size: Long
+            var isImage: Boolean
+            var isVideo: Boolean
 
             do {
                 if (shouldStop)
@@ -81,8 +80,8 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
                 if (filename.isEmpty())
                     filename = path.getFilenameFromPath()
 
-                val isImage = filename.isImageFast() || filename.isGif()
-                val isVideo = if (isImage) false else filename.isVideoFast()
+                isImage = filename.isImageFast() || filename.isGif()
+                isVideo = if (isImage) false else filename.isVideoFast()
 
                 if (!isImage && !isVideo)
                     continue
