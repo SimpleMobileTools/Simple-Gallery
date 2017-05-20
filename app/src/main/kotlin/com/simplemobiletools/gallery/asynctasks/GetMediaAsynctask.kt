@@ -6,7 +6,6 @@ import android.provider.MediaStore
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.helpers.IMAGES
-import com.simplemobiletools.gallery.helpers.IMAGES_AND_VIDEOS
 import com.simplemobiletools.gallery.helpers.VIDEOS
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
@@ -15,33 +14,26 @@ import java.util.*
 class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo: Boolean = false, val isPickImage: Boolean = false,
                         val showAll: Boolean, val callback: (media: ArrayList<Medium>) -> Unit) :
         AsyncTask<Void, Void, Unit>() {
-    var config = context.config
-    var showMedia = IMAGES_AND_VIDEOS
-    var fileSorting = 0
     var shouldStop = false
     var media = ArrayList<Medium>()
-    val showHidden = config.shouldShowHidden
-
-    override fun onPreExecute() {
-        super.onPreExecute()
-        showMedia = config.showMedia
-        fileSorting = config.getFileSorting(mPath)
-    }
 
     override fun doInBackground(vararg params: Void): Unit {
         if (showAll) {
-            getFilesFrom("")
+            media = getFilesFrom("")
         } else {
-            getFilesFrom(mPath)
+            media = getFilesFrom(mPath)
         }
 
-        Medium.sorting = fileSorting
+        Medium.sorting = context.config.getFileSorting(mPath)
         media.sort()
 
         return Unit
     }
 
-    private fun getFilesFrom(curPath: String) {
+    private fun getFilesFrom(curPath: String): ArrayList<Medium> {
+        val curMedia = ArrayList<Medium>()
+        val showMedia = context.config.showMedia
+        val showHidden = context.config.shouldShowHidden
         val projection = arrayOf(MediaStore.Images.Media._ID,
                 MediaStore.Images.Media.DISPLAY_NAME,
                 MediaStore.Images.Media.DATE_TAKEN,
@@ -99,10 +91,11 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
                 dateModified = cur.getIntValue(MediaStore.Images.Media.DATE_MODIFIED) * 1000L
 
                 val medium = Medium(filename, path, isVideo, dateModified, dateTaken, size)
-                media.add(medium)
+                curMedia.add(medium)
             } while (cur.moveToNext())
         }
         cur.close()
+        return curMedia
     }
 
     override fun onPostExecute(result: Unit?) {
