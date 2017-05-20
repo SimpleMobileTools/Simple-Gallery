@@ -2,13 +2,14 @@ package com.simplemobiletools.gallery.asynctasks
 
 import android.content.Context
 import android.os.AsyncTask
-import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.extensions.getFilenameFromPath
+import com.simplemobiletools.commons.extensions.hasWriteStoragePermission
+import com.simplemobiletools.commons.extensions.internalStoragePath
+import com.simplemobiletools.commons.extensions.sdCardPath
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.containsNoMedia
-import com.simplemobiletools.gallery.extensions.getParents
-import com.simplemobiletools.gallery.helpers.IMAGES
-import com.simplemobiletools.gallery.helpers.VIDEOS
+import com.simplemobiletools.gallery.extensions.getFilesFrom
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
@@ -24,54 +25,12 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         if (!context.hasWriteStoragePermission())
             return ArrayList()
 
-        val media = ArrayList<Medium>()
-        val showMedia = config.showMedia
-        val fileSorting = config.fileSorting
-        val parents = context.getParents()
-        removeExcludedFolders(parents)
-
-        parents.forEach {
-            val filenames = File(it).list()
-            if (filenames?.size ?: 0 > 0) {
-                for (filename in filenames) {
-                    if (shouldStop)
-                        cancel(true)
-
-                    val isImage = filename.isImageFast() || filename.isGif()
-                    val isVideo = if (isImage) false else filename.isVideoFast()
-
-                    if (!isImage && !isVideo)
-                        continue
-
-                    if (isVideo && (isPickImage || showMedia == IMAGES))
-                        continue
-
-                    if (isImage && (isPickVideo || showMedia == VIDEOS))
-                        continue
-
-                    if (!showHidden && filename.startsWith('.'))
-                        continue
-
-                    val file = File(it, filename)
-                    val size = file.length()
-                    if (size == 0L)
-                        continue
-
-                    val dateModified = file.lastModified()
-                    val medium = Medium(filename, file.absolutePath, isVideo, dateModified, dateModified, size)
-                    media.add(medium)
-                }
-            }
-        }
-
-        Medium.sorting = fileSorting
-        media.sort()
-
+        val media = context.getFilesFrom("", isPickImage, isPickVideo)
+        val excludedPaths = config.excludedFolders
         val directories = groupDirectories(media)
-        val dirs = ArrayList(directories.values.filter { File(it.path).exists() })
+        val dirs = ArrayList(directories.values.filter { File(it.path).exists() }).filter { !isThisOrParentExcluded(it.path, excludedPaths) } as ArrayList<Directory>
         Directory.sorting = config.directorySorting
         dirs.sort()
-
         return movePinnedToFront(dirs)
     }
 
@@ -108,12 +67,6 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
             }
         }
         return directories
-    }
-
-    private fun removeExcludedFolders(paths: MutableList<String>) {
-        val excludedPaths = config.excludedFolders
-        val ignorePaths = paths.filter { isThisOrParentExcluded(it, excludedPaths) }
-        paths.removeAll(ignorePaths)
     }
 
     private fun isThisOrParentExcluded(path: String, excludedPaths: MutableSet<String>) = excludedPaths.any { path.startsWith(it) }
