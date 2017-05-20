@@ -4,6 +4,8 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.database.Cursor
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -21,6 +23,7 @@ import com.simplemobiletools.gallery.fragments.VideoFragment
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
+import kotlinx.android.synthetic.main.fragment_holder.*
 import java.io.File
 
 open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentListener {
@@ -76,6 +79,9 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             mFragment.arguments = bundle
             supportFragmentManager.beginTransaction().replace(R.id.fragment_holder, mFragment).commit()
         }
+
+        if (config.darkBackground)
+            fragment_holder.background = ColorDrawable(Color.BLACK)
 
         val proj = arrayOf(MediaStore.Images.Media.TITLE)
         var cursor: Cursor? = null
