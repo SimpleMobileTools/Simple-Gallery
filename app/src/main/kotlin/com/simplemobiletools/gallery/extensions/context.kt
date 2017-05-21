@@ -139,53 +139,61 @@ fun Context.getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boo
     val selectionArgs = if (curPath.isEmpty()) null else arrayOf("$curPath/%", "$curPath/%/%")
 
     val cur = contentResolver.query(uri, projection, selection, selectionArgs, getSortingForFolder(curPath))
-    if (cur.moveToFirst()) {
-        var filename: String
-        var path: String
-        var dateTaken: Long
-        var dateModified: Long
-        var size: Long
-        var isImage: Boolean
-        var isVideo: Boolean
+    try {
+        if (cur.moveToFirst()) {
+            var filename: String
+            var path: String
+            var dateTaken: Long
+            var dateModified: Long
+            var size: Long
+            var isImage: Boolean
+            var isVideo: Boolean
 
-        do {
-            path = cur.getStringValue(MediaStore.Images.Media.DATA)
-            size = cur.getLongValue(MediaStore.Images.Media.SIZE)
-            if (size == 0L) {
-                size = File(path).length()
-            }
 
-            if (size <= 0L) {
-                continue
-            }
+            do {
+                try {
+                    path = cur.getStringValue(MediaStore.Images.Media.DATA)
+                    size = cur.getLongValue(MediaStore.Images.Media.SIZE)
+                    if (size == 0L) {
+                        size = File(path).length()
+                    }
 
-            filename = cur.getStringValue(MediaStore.Images.Media.DISPLAY_NAME) ?: ""
-            if (filename.isEmpty())
-                filename = path.getFilenameFromPath()
+                    if (size <= 0L) {
+                        continue
+                    }
 
-            isImage = filename.isImageFast() || filename.isGif()
-            isVideo = if (isImage) false else filename.isVideoFast()
+                    filename = cur.getStringValue(MediaStore.Images.Media.DISPLAY_NAME) ?: ""
+                    if (filename.isEmpty())
+                        filename = path.getFilenameFromPath()
 
-            if (!isImage && !isVideo)
-                continue
+                    isImage = filename.isImageFast() || filename.isGif()
+                    isVideo = if (isImage) false else filename.isVideoFast()
 
-            if (isVideo && (isPickImage || showMedia == IMAGES))
-                continue
+                    if (!isImage && !isVideo)
+                        continue
 
-            if (isImage && (isPickVideo || showMedia == VIDEOS))
-                continue
+                    if (isVideo && (isPickImage || showMedia == IMAGES))
+                        continue
 
-            if (!showHidden && filename.startsWith('.'))
-                continue
+                    if (isImage && (isPickVideo || showMedia == VIDEOS))
+                        continue
 
-            dateTaken = cur.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
-            dateModified = cur.getIntValue(MediaStore.Images.Media.DATE_MODIFIED) * 1000L
+                    if (!showHidden && filename.startsWith('.'))
+                        continue
 
-            val medium = Medium(filename, path, isVideo, dateModified, dateTaken, size)
-            curMedia.add(medium)
-        } while (cur.moveToNext())
+                    dateTaken = cur.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
+                    dateModified = cur.getIntValue(MediaStore.Images.Media.DATE_MODIFIED) * 1000L
+
+                    val medium = Medium(filename, path, isVideo, dateModified, dateTaken, size)
+                    curMedia.add(medium)
+                } catch (e: Exception) {
+                    continue
+                }
+            } while (cur.moveToNext())
+        }
+    } finally {
+        cur.close()
     }
-    cur.close()
 
     Medium.sorting = config.getFileSorting(curPath)
     curMedia.sort()
