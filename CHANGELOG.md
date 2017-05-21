@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 2.10.4 *(2017-05-21)*
+----------------------------
+
+ * Hide subfolders of folders with .nomedia too
+
 Version 2.10.3 *(2017-05-21)*
 ----------------------------
 
