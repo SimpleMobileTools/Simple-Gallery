@@ -28,7 +28,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         val media = context.getFilesFrom("", isPickImage, isPickVideo)
         val excludedPaths = config.excludedFolders
         val directories = groupDirectories(media)
-        val dirs = ArrayList(directories.values.filter { File(it.path).exists() }).filter { !shouldFolderBeVisible(it.path, excludedPaths) } as ArrayList<Directory>
+        val dirs = ArrayList(directories.values.filter { File(it.path).exists() }).filter { shouldFolderBeVisible(it.path, excludedPaths) } as ArrayList<Directory>
         Directory.sorting = config.directorySorting
         dirs.sort()
         return movePinnedToFront(dirs)
@@ -71,8 +71,13 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
 
     private fun shouldFolderBeVisible(path: String, excludedPaths: MutableSet<String>): Boolean {
         val file = File(path)
-        return isThisOrParentExcluded(path, excludedPaths) || (!config.shouldShowHidden && file.isDirectory &&
-                file.canonicalFile == file.absoluteFile && file.containsNoMedia())
+        return if (isThisOrParentExcluded(path, excludedPaths))
+            false
+        else if (!config.shouldShowHidden && file.isDirectory && file.canonicalFile == file.absoluteFile) {
+            !(file.containsNoMedia() || path.contains("/."))
+        } else {
+            true
+        }
     }
 
     private fun isThisOrParentExcluded(path: String, excludedPaths: MutableSet<String>) = excludedPaths.any { path.startsWith(it) }
