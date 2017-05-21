@@ -235,9 +235,7 @@ fun SimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
 fun SimpleActivity.removeNoMedia(path: String, callback: () -> Unit) {
     val file = File(path, NOMEDIA)
     deleteFile(file) {
-        scanFile(File(path)) {
-            callback()
-        }
+        callback()
     }
 }
 
