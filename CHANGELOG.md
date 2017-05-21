@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 2.10.0 *(2017-05-21)*
+----------------------------
+
+ * Catch exceptions thrown during media obtaining
+
 Version 2.10.0 *(2017-05-20)*
 ----------------------------
 
