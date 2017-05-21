@@ -1,7 +1,12 @@
 Changelog
 ==========
 
-Version 2.10.0 *(2017-05-21)*
+Version 2.10.2 *(2017-05-21)*
+----------------------------
+
+ * Properly hide .nomedia folders when appropriate
+
+Version 2.10.1 *(2017-05-21)*
 ----------------------------
 
  * Catch exceptions thrown during media obtaining
