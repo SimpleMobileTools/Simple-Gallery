@@ -13,7 +13,6 @@ import com.simplemobiletools.commons.helpers.SORT_DESCENDING
 import com.simplemobiletools.gallery.activities.SettingsActivity
 import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.helpers.IMAGES
-import com.simplemobiletools.gallery.helpers.NOMEDIA
 import com.simplemobiletools.gallery.helpers.VIDEOS
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
@@ -42,84 +41,6 @@ fun Context.getHumanizedFilename(path: String): String {
 
 fun Context.launchSettings() {
     startActivity(Intent(this, SettingsActivity::class.java))
-}
-
-fun Context.getParents(): ArrayList<String> {
-    val uri = MediaStore.Files.getContentUri("external")
-    val columns = arrayOf(MediaStore.Files.FileColumns.PARENT, MediaStore.Images.Media.DATA)
-    val where = "${MediaStore.Images.Media.DATA} IS NOT NULL) GROUP BY (${MediaStore.Files.FileColumns.PARENT} "
-    val parentsSet = TreeSet<String>(String.CASE_INSENSITIVE_ORDER)
-
-    var cursor: Cursor? = null
-    try {
-        cursor = contentResolver.query(uri, columns, where, null, null)
-        if (cursor?.moveToFirst() == true) {
-            do {
-                val curPath = cursor.getStringValue(MediaStore.Images.Media.DATA) ?: continue
-                val parent = File(curPath).parent ?: continue
-                parentsSet.add(parent)
-            } while (cursor.moveToNext())
-        }
-    } finally {
-        cursor?.close()
-    }
-
-    val noMediaFolders = getNoMediaFolders()
-    val parents = ArrayList<String>()
-    if (config.shouldShowHidden) {
-        parentsSet.addAll(noMediaFolders)
-    }
-
-    parentsSet.addAll(config.includedFolders)
-
-    parentsSet.filterTo(parents, {
-        val file = File(it)
-        if (file.isDirectory && file.canonicalFile == file.absoluteFile) {  // filter out symbolic links too
-            if (!config.shouldShowHidden) {
-                isFolderVisible(it, noMediaFolders)
-            } else
-                true
-        } else {
-            false
-        }
-    })
-
-    return parents
-}
-
-private fun isFolderVisible(path: String, noMediaFolders: ArrayList<String>): Boolean {
-    return if (path.contains("/.")) {
-        false
-    } else {
-        !noMediaFolders.any { path.startsWith(it) }
-    }
-}
-
-fun Context.getNoMediaFolders(): ArrayList<String> {
-    val folders = ArrayList<String>()
-    val noMediaCondition = "${MediaStore.Files.FileColumns.MEDIA_TYPE} = ${MediaStore.Files.FileColumns.MEDIA_TYPE_NONE}"
-
-    val uri = MediaStore.Files.getContentUri("external")
-    val columns = arrayOf(MediaStore.Files.FileColumns.DATA)
-    val where = "$noMediaCondition AND ${MediaStore.Files.FileColumns.TITLE} LIKE ?"
-    val args = arrayOf("%$NOMEDIA%")
-    var cursor: Cursor? = null
-
-    try {
-        cursor = contentResolver.query(uri, columns, where, args, null)
-        if (cursor?.moveToFirst() == true) {
-            do {
-                val path = cursor.getString(cursor.getColumnIndex(MediaStore.Files.FileColumns.DATA)) ?: continue
-                val noMediaFile = File(path)
-                if (noMediaFile.exists())
-                    folders.add(noMediaFile.parent)
-            } while (cursor.moveToNext())
-        }
-    } finally {
-        cursor?.close()
-    }
-
-    return folders
 }
 
 val Context.config: Config get() = Config.newInstance(this)
