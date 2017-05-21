@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 2.10.3 *(2017-05-21)*
+----------------------------
+
+ * Really hide hidden folders when appropriate
+
 Version 2.10.2 *(2017-05-21)*
 ----------------------------
 
