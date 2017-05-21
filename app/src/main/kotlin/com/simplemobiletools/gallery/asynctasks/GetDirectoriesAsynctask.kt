@@ -70,7 +70,9 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
     }
 
     private fun shouldFolderBeVisible(path: String, excludedPaths: MutableSet<String>): Boolean {
-        return isThisOrParentExcluded(path, excludedPaths) || (!config.shouldShowHidden && File(path).containsNoMedia())
+        val file = File(path)
+        return isThisOrParentExcluded(path, excludedPaths) || (!config.shouldShowHidden && file.isDirectory &&
+                file.canonicalFile == file.absoluteFile && file.containsNoMedia())
     }
 
     private fun isThisOrParentExcluded(path: String, excludedPaths: MutableSet<String>) = excludedPaths.any { path.startsWith(it) }
