@@ -42,6 +42,7 @@ class PhotoFragment : ViewPagerFragment() {
     lateinit var view: ViewGroup
     private var isFragmentVisible = false
     private var wasInit = false
+    private var RATIO_THRESHOLD = 0.1
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         view = inflater.inflate(R.layout.pager_photo_item, container, false) as ViewGroup
@@ -174,7 +175,7 @@ class PhotoFragment : ViewPagerFragment() {
                             return false
                         }
 
-                        override fun onResourceReady(resource: Bitmap?, model: String?, target: Target<Bitmap>?, isFromMemoryCache: Boolean, isFirstResource: Boolean): Boolean {
+                        override fun onResourceReady(resource: Bitmap, model: String?, target: Target<Bitmap>?, isFromMemoryCache: Boolean, isFirstResource: Boolean): Boolean {
                             if (isFragmentVisible)
                                 addZoomableView()
                             return false
@@ -196,7 +197,6 @@ class PhotoFragment : ViewPagerFragment() {
             view.subsampling_view.apply {
                 maxScale = 10f
                 beVisible()
-                setDoubleTapZoomScale(2f)
                 setImage(ImageSource.uri(medium.path))
                 orientation = SubsamplingScaleImageView.ORIENTATION_USE_EXIF
                 setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {
@@ -205,6 +205,7 @@ class PhotoFragment : ViewPagerFragment() {
 
                     override fun onReady() {
                         background = ColorDrawable(if (context.config.darkBackground) Color.BLACK else context.config.backgroundColor)
+                        setDoubleTapZoomScale(getDoubleTapZoomScale())
                     }
 
                     override fun onTileLoadError(e: Exception?) {
@@ -224,6 +225,25 @@ class PhotoFragment : ViewPagerFragment() {
                     }
                 })
             }
+        }
+    }
+
+    private fun getDoubleTapZoomScale(): Float {
+        val displayAspectRatio = ViewPagerActivity.screenHeight / (ViewPagerActivity.screenWidth).toFloat()
+
+        val bitmapOptions = BitmapFactory.Options()
+        bitmapOptions.inJustDecodeBounds = true
+        BitmapFactory.decodeFile(medium.path, bitmapOptions)
+        val width = bitmapOptions.outWidth
+        val height = bitmapOptions.outHeight
+        val bitmapAspectRatio = height / (width).toFloat()
+
+        return if (Math.abs(displayAspectRatio - bitmapAspectRatio) < RATIO_THRESHOLD) {
+            2f
+        } else if (bitmapAspectRatio > 1f) {
+            width / (height).toFloat()
+        } else {
+            bitmapAspectRatio
         }
     }
 
