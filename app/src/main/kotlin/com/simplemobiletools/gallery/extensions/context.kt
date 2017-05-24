@@ -13,6 +13,7 @@ import com.simplemobiletools.commons.helpers.SORT_DESCENDING
 import com.simplemobiletools.gallery.activities.SettingsActivity
 import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.helpers.IMAGES
+import com.simplemobiletools.gallery.helpers.NOMEDIA
 import com.simplemobiletools.gallery.helpers.VIDEOS
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
@@ -70,6 +71,7 @@ fun Context.getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boo
             var isImage: Boolean
             var isVideo: Boolean
             val excludedFolders = config.excludedFolders
+            val noMediaFolders = getNoMediaFolders()
 
             do {
                 try {
@@ -109,8 +111,17 @@ fun Context.getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boo
                         }
                     }
 
-                    if (!showHidden && path.contains("/."))
+                    if (!isExcluded) {
+                        noMediaFolders.forEach {
+                            if (path.startsWith(it)) {
+                                isExcluded = true
+                            }
+                        }
+                    }
+
+                    if (!isExcluded && !showHidden && path.contains("/.")) {
                         isExcluded = true
+                    }
 
                     if (!isExcluded) {
                         dateTaken = cur.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
@@ -149,4 +160,31 @@ fun Context.getSortingForFolder(path: String): String {
         "$sortValue DESC"
     else
         "$sortValue ASC"
+}
+
+fun Context.getNoMediaFolders(): ArrayList<String> {
+    val folders = ArrayList<String>()
+    val noMediaCondition = "${MediaStore.Files.FileColumns.MEDIA_TYPE} = ${MediaStore.Files.FileColumns.MEDIA_TYPE_NONE}"
+
+    val uri = MediaStore.Files.getContentUri("external")
+    val columns = arrayOf(MediaStore.Files.FileColumns.DATA)
+    val where = "$noMediaCondition AND ${MediaStore.Files.FileColumns.TITLE} LIKE ?"
+    val args = arrayOf("%$NOMEDIA%")
+    var cursor: Cursor? = null
+
+    try {
+        cursor = contentResolver.query(uri, columns, where, args, null)
+        if (cursor?.moveToFirst() == true) {
+            do {
+                val path = cursor.getString(cursor.getColumnIndex(MediaStore.Files.FileColumns.DATA)) ?: continue
+                val noMediaFile = File(path)
+                if (noMediaFile.exists())
+                    folders.add(noMediaFile.parent)
+            } while (cursor.moveToNext())
+        }
+    } finally {
+        cursor?.close()
+    }
+
+    return folders
 }
