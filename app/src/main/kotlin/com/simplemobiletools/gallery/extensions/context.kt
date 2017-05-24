@@ -69,7 +69,7 @@ fun Context.getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boo
             var size: Long
             var isImage: Boolean
             var isVideo: Boolean
-
+            val excludedFolders = config.excludedFolders
 
             do {
                 try {
@@ -102,11 +102,23 @@ fun Context.getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boo
                     if (!showHidden && filename.startsWith('.'))
                         continue
 
-                    dateTaken = cur.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
-                    dateModified = cur.getIntValue(MediaStore.Images.Media.DATE_MODIFIED) * 1000L
+                    var isExcluded = false
+                    excludedFolders.forEach {
+                        if (path.startsWith(it)) {
+                            isExcluded = true
+                        }
+                    }
 
-                    val medium = Medium(filename, path, isVideo, dateModified, dateTaken, size)
-                    curMedia.add(medium)
+                    if (!showHidden && path.contains("/."))
+                        isExcluded = true
+
+                    if (!isExcluded) {
+                        dateTaken = cur.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
+                        dateModified = cur.getIntValue(MediaStore.Images.Media.DATE_MODIFIED) * 1000L
+
+                        val medium = Medium(filename, path, isVideo, dateModified, dateTaken, size)
+                        curMedia.add(medium)
+                    }
                 } catch (e: Exception) {
                     continue
                 }
