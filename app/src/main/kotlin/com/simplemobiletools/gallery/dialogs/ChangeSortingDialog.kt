@@ -16,15 +16,11 @@ import kotlinx.android.synthetic.main.dialog_change_sorting.view.*
 class ChangeSortingDialog(val activity: SimpleActivity, val isDirectorySorting: Boolean, showFolderCheckbox: Boolean,
                           val path: String = "", val callback: () -> Unit) :
         DialogInterface.OnClickListener {
-    companion object {
-        private var currSorting = 0
-
-        lateinit var config: Config
-        lateinit var view: View
-    }
+    private var currSorting = 0
+    private var config: Config = activity.config
+    private var view: View
 
     init {
-        config = activity.config
         view = LayoutInflater.from(activity).inflate(R.layout.dialog_change_sorting, null).apply {
             use_for_this_folder_divider.beVisibleIf(showFolderCheckbox)
             sorting_dialog_use_for_this_folder.beVisibleIf(showFolderCheckbox)
