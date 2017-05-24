@@ -47,9 +47,6 @@ fun Context.launchSettings() {
 val Context.config: Config get() = Config.newInstance(this)
 
 fun Context.getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean): ArrayList<Medium> {
-    val curMedia = ArrayList<Medium>()
-    val showMedia = config.showMedia
-    val showHidden = config.shouldShowHidden
     val projection = arrayOf(MediaStore.Images.Media._ID,
             MediaStore.Images.Media.DISPLAY_NAME,
             MediaStore.Images.Media.DATE_TAKEN,
@@ -61,7 +58,18 @@ fun Context.getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boo
     val selectionArgs = if (curPath.isEmpty()) null else arrayOf("$curPath/%", "$curPath/%/%")
 
     val cur = contentResolver.query(uri, projection, selection, selectionArgs, getSortingForFolder(curPath))
-    try {
+    cur.use { cur ->
+        return parseCursor(this, cur, isPickImage, isPickVideo, curPath)
+    }
+}
+
+private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isPickVideo: Boolean, curPath: String): ArrayList<Medium> {
+    val curMedia = ArrayList<Medium>()
+    val config = context.config
+    val showMedia = config.showMedia
+    val showHidden = config.shouldShowHidden
+
+    cur.use { cur ->
         if (cur.moveToFirst()) {
             var filename: String
             var path: String
@@ -71,7 +79,7 @@ fun Context.getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boo
             var isImage: Boolean
             var isVideo: Boolean
             val excludedFolders = config.excludedFolders
-            val noMediaFolders = getNoMediaFolders()
+            val noMediaFolders = context.getNoMediaFolders()
 
             do {
                 try {
@@ -135,8 +143,6 @@ fun Context.getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boo
                 }
             } while (cur.moveToNext())
         }
-    } finally {
-        cur.close()
     }
 
     Medium.sorting = config.getFileSorting(curPath)
