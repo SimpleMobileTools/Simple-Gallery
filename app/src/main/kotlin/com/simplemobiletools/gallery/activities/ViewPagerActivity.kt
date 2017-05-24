@@ -402,7 +402,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun measureScreen() {
         val metrics = DisplayMetrics()
-        windowManager.defaultDisplay.getMetrics(metrics)
+        windowManager.defaultDisplay.getRealMetrics(metrics)
         screenWidth = metrics.widthPixels
         screenHeight = metrics.heightPixels
     }
