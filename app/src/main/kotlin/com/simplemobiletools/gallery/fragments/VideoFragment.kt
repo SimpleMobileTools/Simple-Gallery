@@ -52,6 +52,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mView = inflater.inflate(R.layout.pager_video_item, container, false)
+        setupPlayer()
 
         medium = arguments.getSerializable(MEDIUM) as Medium
         if (savedInstanceState != null) {
@@ -59,7 +60,6 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         }
 
         mIsFullscreen = activity.window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN == View.SYSTEM_UI_FLAG_FULLSCREEN
-        setupPlayer()
 
         activity.window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
             val fullscreen = visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
@@ -289,7 +289,8 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     }
 
     override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {
-        setVideoSize()
+        if (width != 0 && height != 0)
+            setVideoSize()
     }
 
     override fun surfaceDestroyed(holder: SurfaceHolder) {
