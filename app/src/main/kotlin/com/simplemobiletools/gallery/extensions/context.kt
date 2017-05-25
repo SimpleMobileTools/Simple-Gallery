@@ -194,3 +194,20 @@ fun Context.getNoMediaFolders(): ArrayList<String> {
 
     return folders
 }
+
+
+fun Context.getLastMediaModified(): Int {
+    val uri = MediaStore.Files.getContentUri("external")
+    val projection = arrayOf(MediaStore.Images.Media._ID, MediaStore.Images.Media.DATE_MODIFIED)
+    val order = "${MediaStore.Images.Media.DATE_MODIFIED} DESC"
+    var cursor: Cursor? = null
+    try {
+        cursor = contentResolver.query(uri, projection, null, null, order)
+        if (cursor?.moveToFirst() == true) {
+            return cursor.getIntValue(MediaStore.Images.Media.DATE_MODIFIED)
+        }
+    } finally {
+        cursor?.close()
+    }
+    return 0
+}

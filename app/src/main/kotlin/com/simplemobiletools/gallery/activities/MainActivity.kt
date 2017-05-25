@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.AsyncTask
 import android.os.Bundle
+import android.os.Handler
 import android.provider.MediaStore
 import android.support.v4.app.ActivityCompat
 import android.support.v7.widget.GridLayoutManager
@@ -32,6 +33,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private val STORAGE_PERMISSION = 1
     private val PICK_MEDIA = 2
     private val PICK_WALLPAPER = 3
+    private val LAST_MEDIA_CHECK_PERIOD = 3000L
 
     lateinit var mDirs: ArrayList<Directory>
 
@@ -46,6 +48,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
     private var mLoadedInitialPhotos = false
+    private var mLastMediaModified = 0
+    private var mLastMediaHandler = Handler()
 
     private var mCurrAsyncTask: GetDirectoriesAsynctask? = null
 
@@ -119,6 +123,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mStoredAnimateGifs = config.animateGifs
         mStoredCropThumbnails = config.cropThumbnails
         MyScalableRecyclerView.mListener = null
+        mLastMediaHandler.removeCallbacksAndMessages(null)
     }
 
     override fun onStop() {
@@ -321,9 +326,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun gotDirectories(dirs: ArrayList<Directory>) {
+        mLastMediaModified = getLastMediaModified()
         directories_refresh_layout.isRefreshing = false
         mIsGettingDirs = false
 
+        checkLastMediaChanged()
         if (dirs.hashCode() == mDirs.hashCode())
             return
 
@@ -350,6 +357,19 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             directories_grid.adapter = adapter
         }
         directories_fastscroller.setViews(directories_grid, directories_refresh_layout)
+    }
+
+    private fun checkLastMediaChanged() {
+        mLastMediaHandler.removeCallbacksAndMessages(null)
+        mLastMediaHandler.postDelayed({
+            val lastModified = getLastMediaModified()
+            if (mLastMediaModified != lastModified) {
+                getDirectories()
+                mLastMediaModified = lastModified
+            } else {
+                checkLastMediaChanged()
+            }
+        }, LAST_MEDIA_CHECK_PERIOD)
     }
 
     override fun refreshItems() {
