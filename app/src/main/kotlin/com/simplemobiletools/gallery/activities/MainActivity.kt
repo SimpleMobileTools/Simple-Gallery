@@ -362,13 +362,17 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun checkLastMediaChanged() {
         mLastMediaHandler.removeCallbacksAndMessages(null)
         mLastMediaHandler.postDelayed({
-            val lastModified = getLastMediaModified()
-            if (mLastMediaModified != lastModified) {
-                getDirectories()
-                mLastMediaModified = lastModified
-            } else {
-                checkLastMediaChanged()
-            }
+            Thread({
+                val lastModified = getLastMediaModified()
+                if (mLastMediaModified != lastModified) {
+                    mLastMediaModified = lastModified
+                    runOnUiThread {
+                        getDirectories()
+                    }
+                } else {
+                    checkLastMediaChanged()
+                }
+            }).start()
         }, LAST_MEDIA_CHECK_PERIOD)
     }
 

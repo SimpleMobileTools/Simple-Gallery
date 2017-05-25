@@ -6,6 +6,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
 import android.support.v7.widget.GridLayoutManager
 import android.util.Log
 import android.view.Menu
@@ -33,6 +34,7 @@ import java.io.IOException
 class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private val TAG = MediaActivity::class.java.simpleName
     private val SAVE_MEDIA_CNT = 40
+    private val LAST_MEDIA_CHECK_PERIOD = 3000L
 
     private var mMedia = ArrayList<Medium>()
 
@@ -45,6 +47,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mLoadedInitialPhotos = false
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
+    private var mLastMediaModified = 0
+    private var mLastMediaHandler = Handler()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,6 +88,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         mStoredAnimateGifs = config.animateGifs
         mStoredCropThumbnails = config.cropThumbnails
         MyScalableRecyclerView.mListener = null
+        mLastMediaHandler.removeCallbacksAndMessages(null)
     }
 
     override fun onStop() {
@@ -110,7 +115,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
     }
 
-    private fun initializeGallery() {
+    private fun setupAdapter() {
         if (isDirEmpty())
             return
 
@@ -125,6 +130,23 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             media_grid.adapter = adapter
         }
         media_fastscroller.setViews(media_grid, media_refresh_layout)
+    }
+
+    private fun checkLastMediaChanged() {
+        mLastMediaHandler.removeCallbacksAndMessages(null)
+        mLastMediaHandler.postDelayed({
+            Thread({
+                val lastModified = getLastMediaModified()
+                if (mLastMediaModified != lastModified) {
+                    mLastMediaModified = lastModified
+                    runOnUiThread {
+                        getMedia()
+                    }
+                } else {
+                    checkLastMediaChanged()
+                }
+            }).start()
+        }, LAST_MEDIA_CHECK_PERIOD)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -359,14 +381,16 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun gotMedia(media: ArrayList<Medium>) {
+        mLastMediaModified = getLastMediaModified()
         mIsGettingMedia = false
         media_refresh_layout.isRefreshing = false
 
+        checkLastMediaChanged()
         if (media.hashCode() == mMedia.hashCode())
             return
 
         mMedia = media
-        initializeGallery()
+        setupAdapter()
         storeFolder()
     }
 
