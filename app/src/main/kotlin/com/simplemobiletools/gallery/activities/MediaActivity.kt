@@ -5,6 +5,7 @@ import android.app.WallpaperManager
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.widget.GridLayoutManager
@@ -133,6 +134,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun checkLastMediaChanged() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && isDestroyed)
+            return
+
         mLastMediaHandler.removeCallbacksAndMessages(null)
         mLastMediaHandler.postDelayed({
             Thread({
