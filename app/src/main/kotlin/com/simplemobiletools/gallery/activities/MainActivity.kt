@@ -343,7 +343,12 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             itemClicked(it.path)
         }
 
-        directories_grid.adapter = adapter
+        val currAdapter = directories_grid.adapter
+        if (currAdapter != null) {
+            (currAdapter as DirectoryAdapter).updateDirs(mDirs)
+        } else {
+            directories_grid.adapter = adapter
+        }
         directories_fastscroller.setViews(directories_grid, directories_refresh_layout)
     }
 

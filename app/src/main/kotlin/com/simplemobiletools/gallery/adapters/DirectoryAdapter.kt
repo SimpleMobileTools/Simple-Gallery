@@ -27,7 +27,7 @@ import kotlinx.android.synthetic.main.directory_tmb.view.*
 import java.io.File
 import java.util.*
 
-class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Directory>, val listener: DirOperationsListener?, val itemClick: (Directory) -> Unit) :
+class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Directory>, val listener: DirOperationsListener?, val itemClick: (Directory) -> Unit) :
         RecyclerView.Adapter<DirectoryAdapter.ViewHolder>() {
 
     val multiSelector = MultiSelector()
@@ -344,6 +344,11 @@ class DirectoryAdapter(val activity: SimpleActivity, val dirs: MutableList<Direc
     }
 
     override fun getItemCount() = dirs.size
+
+    fun updateDirs(newDirs: ArrayList<Directory>) {
+        dirs = newDirs
+        notifyDataSetChanged()
+    }
 
     fun selectItem(pos: Int) {
         toggleItemSelection(true, pos)
