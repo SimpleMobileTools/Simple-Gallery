@@ -22,11 +22,15 @@ import java.io.File
 import java.io.OutputStream
 
 class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener {
-    val TAG: String = EditActivity::class.java.simpleName
+    val TAG = EditActivity::class.java.simpleName
+    val ASPECT_X = "aspectX"
+    val ASPECT_Y = "aspectY"
+    val CROP = "crop"
 
     lateinit var uri: Uri
     var resizeWidth = 0
     var resizeHeight = 0
+    var isCropIntent = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,14 +49,20 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             return
         }
 
+        isCropIntent = intent.extras?.get(CROP) == true
+
         crop_image_view.apply {
             setOnCropImageCompleteListener(this@EditActivity)
             setImageUriAsync(intent.data)
+
+            if (isCropIntent && shouldCropSquare())
+                setFixedAspectRatio(true)
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_editor, menu)
+        menu.findItem(R.id.resize).isVisible = !isCropIntent
         return true
     }
 
@@ -79,6 +89,15 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             resizeWidth = it.x
             resizeHeight = it.y
             crop_image_view.getCroppedImageAsync()
+        }
+    }
+
+    private fun shouldCropSquare(): Boolean {
+        val extras = intent.extras
+        return if (extras != null && extras.containsKey(ASPECT_X) && extras.containsKey(ASPECT_Y)) {
+            extras.getInt(ASPECT_X) == extras.getInt(ASPECT_Y)
+        } else {
+            false
         }
     }
 
