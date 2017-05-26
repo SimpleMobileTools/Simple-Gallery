@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 2.10.6 *(2017-05-26)*
+----------------------------
+
+ * Properly show hidden media when appropriate
+ * Some crashfixes
+
 Version 2.10.5 *(2017-05-25)*
 ----------------------------
 
