@@ -408,9 +408,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         val filtered = files.filter { it.exists() && it.isImageVideoGif() } as ArrayList
         deleteFiles(filtered) {
             if (!it) {
-                runOnUiThread {
-                    toast(R.string.unknown_error_occurred)
-                }
+                toast(R.string.unknown_error_occurred)
             } else if (mMedia.isEmpty()) {
                 finish()
             }

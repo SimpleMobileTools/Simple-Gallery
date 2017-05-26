@@ -155,10 +155,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private fun scanFinalPath(path: String) {
         scanPath(path) {
             setResult(Activity.RESULT_OK, intent)
-            runOnUiThread {
-                toast(R.string.file_saved)
-            }
-
+            toast(R.string.file_saved)
             finish()
         }
     }
