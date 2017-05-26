@@ -119,7 +119,7 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
                         }
                     }
 
-                    if (!isExcluded) {
+                    if (!isExcluded && !showHidden) {
                         noMediaFolders.forEach {
                             if (path.startsWith(it)) {
                                 isExcluded = true
