@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 2.10.5 *(2017-05-25)*
+----------------------------
+
+ * Check new files or folders periodically
+ * Try zooming in just to fit the screen on doubleclick
+ * Do not show excluded and hidden files at All Folders Content view
+
 Version 2.10.4 *(2017-05-21)*
 ----------------------------
 
