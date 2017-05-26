@@ -405,7 +405,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     override fun deleteFiles(files: ArrayList<File>) {
-        val filtered = files.filter { it.exists() && it.isImageVideoGif() } as ArrayList
+        val filtered = files.filter { it.isImageVideoGif() } as ArrayList
         deleteFiles(filtered) {
             if (!it) {
                 toast(R.string.unknown_error_occurred)
