@@ -289,7 +289,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     }
 
     override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {
-        if (width != 0 && height != 0)
+        if (width != 0 && height != 0 && mSurfaceView != null)
             setVideoSize()
     }
 
