@@ -74,7 +74,7 @@
     <string name="setting_wallpaper">A definir como fundo de ecrã&#8230;</string>
     <string name="wallpaper_set_successfully">Fundo definido com sucesso</string>
     <string name="portrait_aspect_ratio">Proporção na vertical</string>
-    <string name="landscape_aspect_ratio">proporção na horizontal</string>
+    <string name="landscape_aspect_ratio">Proporção na horizontal</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Mostrar pastas ocultas</string>
@@ -83,8 +83,8 @@
     <string name="show_media">Mostrar multimédia</string>
     <string name="images">Apenas imagens</string>
     <string name="videos">Apenas vídeos</string>
-    <string name="gifs">Gifs only</string>
-    <string name="images_videos_gifs">Images, videos, gifs</string>
+    <string name="gifs">Apenas gifs</string>
+    <string name="images_videos_gifs">Imagens, vídeos e gifs</string>
     <string name="images_and_videos">Imagens e vídeos</string>
     <string name="loop_videos">Vídeos em ciclo</string>
     <string name="animate_gifs">Animação de gifs nas miniaturas</string>
