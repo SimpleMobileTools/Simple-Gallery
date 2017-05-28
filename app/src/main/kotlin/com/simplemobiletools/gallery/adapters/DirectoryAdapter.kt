@@ -145,7 +145,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         fun checkHideBtnVisibility(menu: Menu) {
             var hiddenCnt = 0
             var unhiddenCnt = 0
-            selectedPositions.map { dirs[it].path }.forEach {
+            selectedPositions.map { dirs.getOrNull(it)?.path }.filterNotNull().forEach {
                 if (File(it).containsNoMedia())
                     hiddenCnt++
                 else
@@ -160,7 +160,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             val pinnedFolders = config.pinnedFolders
             var pinnedCnt = 0
             var unpinnedCnt = 0
-            selectedPositions.map { dirs[it].path }.forEach {
+            selectedPositions.map { dirs.getOrNull(it)?.path }.filterNotNull().forEach {
                 if (pinnedFolders.contains(it))
                     pinnedCnt++
                 else
