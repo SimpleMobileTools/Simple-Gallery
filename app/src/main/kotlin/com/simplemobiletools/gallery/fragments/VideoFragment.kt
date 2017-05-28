@@ -306,8 +306,10 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             return
 
         initMediaPlayer()
-        if (mMediaPlayer == null)
+        if (mMediaPlayer == null) {
             activity.toast(R.string.unknown_error_occurred)
+            return
+        }
 
         val videoProportion = mMediaPlayer!!.videoWidth.toFloat() / mMediaPlayer!!.videoHeight.toFloat()
         val display = activity.windowManager.defaultDisplay
