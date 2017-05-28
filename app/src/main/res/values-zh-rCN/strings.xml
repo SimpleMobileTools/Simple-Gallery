@@ -7,35 +7,35 @@
     <string name="open_with">打开方式</string>
     <string name="no_app_found">没有可用的应用</string>
     <string name="hidden">(隐藏)</string>
-    <string name="pin_folder">锁定文件夹</string>
-    <string name="unpin_folder">解除锁定文件夹</string>
-    <string name="show_all">显示所有文件夹的内容</string>
-    <string name="all_folders">所有文件夹</string>
-    <string name="folder_view">切换到文件夹视图</string>
-    <string name="other_folder">其他文件夹</string>
-    <string name="show_on_map">Show on map</string>
-    <string name="unknown_location">Unknown location</string>
-    <string name="no_map_application">No application with maps has been found</string>
-    <string name="no_camera_app_found">No Camera app has been found</string>
-    <string name="increase_column_count">Increase column count</string>
-    <string name="reduce_column_count">Reduce column count</string>
-    <string name="temporarily_show_hidden">Temporarily show hidden</string>
+    <string name="pin_folder">锁定目录</string>
+    <string name="unpin_folder">解除锁定目录</string>
+    <string name="show_all">显示目录中所有内容</string>
+    <string name="all_folders">所有目录</string>
+    <string name="folder_view">切换到目录视图</string>
+    <string name="other_folder">其他目录</string>
+    <string name="show_on_map">在地图中显示</string>
+    <string name="unknown_location">未知位置</string>
+    <string name="no_map_application">未发现地图应用</string>
+    <string name="no_camera_app_found">未发现相机应用</string>
+    <string name="increase_column_count">增加一行</string>
+    <string name="reduce_column_count">减少一行</string>
+    <string name="temporarily_show_hidden">显示/隐藏缓存内容</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden folders\' option in Settings. Continue?</string>
-    <string name="exclude">Exclude</string>
-    <string name="excluded_folders">Excluded folders</string>
-    <string name="manage_excluded_folders">Manage excluded folders</string>
+    <string name="exclude">排除</string>
+    <string name="excluded_folders">排除目录</string>
+    <string name="manage_excluded_folders">管理排除的目录</string>
     <string name="exclude_folder_description">This will exclude the selection together with its subfolders from Simple Gallery only. You can manage excluded folders in Settings.</string>
     <string name="exclude_folder_parent">Exclude a parent instead?</string>
     <string name="excluded_activity_placeholder">Excluding folders will make them together with their subfolders hidden just in Simple Gallery, they will still be visible in other applications.\\n\\nIf you want to hide them from other apps too, use the Hide function.</string>
-    <string name="remove_all">Remove all</string>
-    <string name="remove_all_description">Remove all folders from the list of excluded? This will not delete the folders.</string>
+    <string name="remove_all">移除全部</string>
+    <string name="remove_all_description">移除列表中的全部目录？目录不会被删除。</string>
 
     <!-- Include folders -->
-    <string name="include_folders">Included folders</string>
-    <string name="manage_included_folders">Manage included folders</string>
-    <string name="add_folder">Add folder</string>
+    <string name="include_folders">包含目录</string>
+    <string name="manage_included_folders">管理包含的目录</string>
+    <string name="add_folder">添加目录</string>
     <string name="included_activity_placeholder">If you have some folders which contain media, but were not recognized by the app, you can add them manually here.</string>
 
     <!-- Resizing -->
@@ -51,18 +51,18 @@
     <string name="save">保存</string>
     <string name="rotate">旋转</string>
     <string name="path">路径</string>
-    <string name="invalid_image_path">错误图片路径</string>
+    <string name="invalid_image_path">无效的图片路径</string>
     <string name="image_editing_failed">图像编辑失败</string>
     <string name="edit_image_with">编辑方式:</string>
     <string name="no_editor_found">没有可用的图片编辑器</string>
-    <string name="unknown_file_location">未知文件路径</string>
+    <string name="unknown_file_location">未知的文件路径</string>
     <string name="error_saving_file">不能覆盖源文件</string>
-    <string name="rotate_left">Rotate left</string>
-    <string name="rotate_right">Rotate right</string>
-    <string name="rotate_one_eighty">Rotate by 180º</string>
-    <string name="flip">Flip</string>
-    <string name="flip_horizontally">Flip horizontally</string>
-    <string name="flip_vertically">Flip vertically</string>
+    <string name="rotate_left">向左旋转</string>
+    <string name="rotate_right">向右旋转</string>
+    <string name="rotate_one_eighty">旋转 180º</string>
+    <string name="flip">翻转</string>
+    <string name="flip_horizontally">水平翻转</string>
+    <string name="flip_vertically">垂直翻转</string>
     <string name="out_of_memory_error">Out of memory error</string>
 
     <!-- Set wallpaper -->
@@ -70,11 +70,11 @@
     <string name="set_as_wallpaper">设为壁纸</string>
     <string name="set_as_wallpaper_failed">壁纸设置失败</string>
     <string name="set_as_wallpaper_with">设为壁纸...</string>
-    <string name="no_wallpaper_setter_found">没有可用的软件</string>
+    <string name="no_wallpaper_setter_found">没有应用可用</string>
     <string name="setting_wallpaper">壁纸应用中&#8230;</string>
     <string name="wallpaper_set_successfully">壁纸应用成功</string>
-    <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
-    <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
+    <string name="portrait_aspect_ratio">纵向长宽比</string>
+    <string name="landscape_aspect_ratio">横向长宽比</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">显示所有</string>
@@ -83,18 +83,18 @@
     <string name="show_media">显示多媒体文件</string>
     <string name="images">仅图像</string>
     <string name="videos">仅视频</string>
-    <string name="gifs">Gifs only</string>
-    <string name="images_videos_gifs">Images, videos, gifs</string>
-    <string name="images_and_videos">图像和视频</string>
+    <string name="gifs">仅 GIF </string>
+    <string name="images_videos_gifs">图片, 视频, GIF</string>
+    <string name="images_and_videos">图片和视频</string>
     <string name="loop_videos">循环播放视频</string>
-    <string name="animate_gifs">Animate gifs at thumbnails</string>
-    <string name="max_brightness">Max brightness when viewing media</string>
-    <string name="crop_thumbnails">Crop thumbnails into squares</string>
-    <string name="screen_rotation_by">Rotate fullscreen media by</string>
-    <string name="screen_rotation_system_setting">System setting</string>
-    <string name="screen_rotation_device_rotation">Device rotation</string>
-    <string name="screen_rotation_aspect_ratio">Aspect ratio</string>
-    <string name="dark_background_at_fullscreen">Dark background at fullscreen media</string>
+    <string name="animate_gifs">GIF 缩略图</string>
+    <string name="max_brightness">浏览时最大亮度</string>
+    <string name="crop_thumbnails">裁剪缩略图</string>
+    <string name="screen_rotation_by">全屏时方向</string>
+    <string name="screen_rotation_system_setting">系统设置</string>
+    <string name="screen_rotation_device_rotation">设备方向</string>
+    <string name="screen_rotation_aspect_ratio">根据长宽比</string>
+    <string name="dark_background_at_fullscreen">全屏时黑色背景</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
@@ -103,7 +103,7 @@
         一个观看照片和视频的简单实用工具。项目可以根据日期、大小、名称来递增或递减排序，照片可以缩放。媒体文件根据屏幕的大小排列在多个方格中，您可以使用缩放手势来调整每一列的方格数量。媒体文件可以被重命名、分享、删除、复制以及移动。照片亦可被剪切、旋转或是直接在应用中设为壁纸。
 
         相册亦提供能让第三方应用预览图片／视频、向电子邮件客户端添加附件等的功能。非常适合日常使用。
-        
+
         应用不包含广告与不必要的权限。它是完全开放源代码的，并内置自定义颜色主题。
 
         这个应用只是一系列应用中的一小部份。您可以在 http://www.simplemobiletools.com 找到其余的应用。
