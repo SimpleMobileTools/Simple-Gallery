@@ -399,9 +399,11 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun storeFolder() {
-        val subList = mMedia.subList(0, Math.min(SAVE_MEDIA_CNT, mMedia.size))
-        val json = Gson().toJson(subList)
-        config.saveFolderMedia(mPath, json)
+        if (!config.temporarilyShowHidden) {
+            val subList = mMedia.subList(0, Math.min(SAVE_MEDIA_CNT, mMedia.size))
+            val json = Gson().toJson(subList)
+            config.saveFolderMedia(mPath, json)
+        }
     }
 
     override fun deleteFiles(files: ArrayList<File>) {

@@ -342,8 +342,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun storeDirectories() {
-        val directories = Gson().toJson(mDirs)
-        config.directories = directories
+        if (!config.temporarilyShowHidden) {
+            val directories = Gson().toJson(mDirs)
+            config.directories = directories
+        }
     }
 
     private fun setupAdapter() {
