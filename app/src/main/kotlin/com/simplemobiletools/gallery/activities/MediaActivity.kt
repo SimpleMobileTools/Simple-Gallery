@@ -92,8 +92,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         mLastMediaHandler.removeCallbacksAndMessages(null)
     }
 
-    override fun onStop() {
-        super.onStop()
+    override fun onDestroy() {
+        super.onDestroy()
         config.temporarilyShowHidden = false
     }
 
