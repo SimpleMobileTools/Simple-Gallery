@@ -37,8 +37,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private val SAVE_MEDIA_CNT = 40
     private val LAST_MEDIA_CHECK_PERIOD = 3000L
 
-    private var mMedia = ArrayList<Medium>()
-
     private var mPath = ""
     private var mIsGetImageIntent = false
     private var mIsGetVideoIntent = false
@@ -50,6 +48,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mStoredCropThumbnails = true
     private var mLastMediaModified = 0
     private var mLastMediaHandler = Handler()
+
+    companion object {
+        var mMedia = ArrayList<Medium>()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -95,6 +97,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     override fun onDestroy() {
         super.onDestroy()
         config.temporarilyShowHidden = false
+        mMedia.clear()
     }
 
     private fun tryloadGallery() {
