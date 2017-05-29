@@ -140,7 +140,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         fun checkHideBtnVisibility(menu: Menu) {
             var hiddenCnt = 0
             var unhiddenCnt = 0
-            selectedPositions.map { media[it] }.forEach {
+            selectedPositions.map { media.getOrNull(it) }.filterNotNull().forEach {
                 if (it.name.startsWith('.'))
                     hiddenCnt++
                 else

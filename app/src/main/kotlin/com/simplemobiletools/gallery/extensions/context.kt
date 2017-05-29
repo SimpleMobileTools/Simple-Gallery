@@ -58,9 +58,7 @@ fun Context.getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boo
     val selectionArgs = if (curPath.isEmpty()) null else arrayOf("$curPath/%", "$curPath/%/%")
 
     val cur = contentResolver.query(uri, projection, selection, selectionArgs, getSortingForFolder(curPath))
-    cur.use { cur ->
-        return parseCursor(this, cur, isPickImage, isPickVideo, curPath)
-    }
+    return parseCursor(this, cur, isPickImage, isPickVideo, curPath)
 }
 
 private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isPickVideo: Boolean, curPath: String): ArrayList<Medium> {
@@ -69,78 +67,80 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
     val showMedia = config.showMedia
     val showHidden = config.shouldShowHidden
 
-    if (cur.moveToFirst()) {
-        var filename: String
-        var path: String
-        var dateTaken: Long
-        var dateModified: Long
-        var size: Long
-        var isImage: Boolean
-        var isVideo: Boolean
-        val excludedFolders = config.excludedFolders
-        val noMediaFolders = context.getNoMediaFolders()
+    cur.use { cur ->
+        if (cur.moveToFirst()) {
+            var filename: String
+            var path: String
+            var dateTaken: Long
+            var dateModified: Long
+            var size: Long
+            var isImage: Boolean
+            var isVideo: Boolean
+            val excludedFolders = config.excludedFolders
+            val noMediaFolders = context.getNoMediaFolders()
 
-        do {
-            try {
-                path = cur.getStringValue(MediaStore.Images.Media.DATA)
-                size = cur.getLongValue(MediaStore.Images.Media.SIZE)
-                if (size == 0L) {
-                    size = File(path).length()
-                }
-
-                if (size <= 0L) {
-                    continue
-                }
-
-                filename = cur.getStringValue(MediaStore.Images.Media.DISPLAY_NAME) ?: ""
-                if (filename.isEmpty())
-                    filename = path.getFilenameFromPath()
-
-                isImage = filename.isImageFast() || filename.isGif()
-                isVideo = if (isImage) false else filename.isVideoFast()
-
-                if (!isImage && !isVideo)
-                    continue
-
-                if (isVideo && (isPickImage || showMedia == IMAGES))
-                    continue
-
-                if (isImage && (isPickVideo || showMedia == VIDEOS))
-                    continue
-
-                if (!showHidden && filename.startsWith('.'))
-                    continue
-
-                var isExcluded = false
-                excludedFolders.forEach {
-                    if (path.startsWith(it)) {
-                        isExcluded = true
+            do {
+                try {
+                    path = cur.getStringValue(MediaStore.Images.Media.DATA)
+                    size = cur.getLongValue(MediaStore.Images.Media.SIZE)
+                    if (size == 0L) {
+                        size = File(path).length()
                     }
-                }
 
-                if (!isExcluded && !showHidden) {
-                    noMediaFolders.forEach {
+                    if (size <= 0L) {
+                        continue
+                    }
+
+                    filename = cur.getStringValue(MediaStore.Images.Media.DISPLAY_NAME) ?: ""
+                    if (filename.isEmpty())
+                        filename = path.getFilenameFromPath()
+
+                    isImage = filename.isImageFast() || filename.isGif()
+                    isVideo = if (isImage) false else filename.isVideoFast()
+
+                    if (!isImage && !isVideo)
+                        continue
+
+                    if (isVideo && (isPickImage || showMedia == IMAGES))
+                        continue
+
+                    if (isImage && (isPickVideo || showMedia == VIDEOS))
+                        continue
+
+                    if (!showHidden && filename.startsWith('.'))
+                        continue
+
+                    var isExcluded = false
+                    excludedFolders.forEach {
                         if (path.startsWith(it)) {
                             isExcluded = true
                         }
                     }
-                }
 
-                if (!isExcluded && !showHidden && path.contains("/.")) {
-                    isExcluded = true
-                }
+                    if (!isExcluded && !showHidden) {
+                        noMediaFolders.forEach {
+                            if (path.startsWith(it)) {
+                                isExcluded = true
+                            }
+                        }
+                    }
 
-                if (!isExcluded) {
-                    dateTaken = cur.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
-                    dateModified = cur.getIntValue(MediaStore.Images.Media.DATE_MODIFIED) * 1000L
+                    if (!isExcluded && !showHidden && path.contains("/.")) {
+                        isExcluded = true
+                    }
 
-                    val medium = Medium(filename, path, isVideo, dateModified, dateTaken, size)
-                    curMedia.add(medium)
+                    if (!isExcluded) {
+                        dateTaken = cur.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
+                        dateModified = cur.getIntValue(MediaStore.Images.Media.DATE_MODIFIED) * 1000L
+
+                        val medium = Medium(filename, path, isVideo, dateModified, dateTaken, size)
+                        curMedia.add(medium)
+                    }
+                } catch (e: Exception) {
+                    continue
                 }
-            } catch (e: Exception) {
-                continue
-            }
-        } while (cur.moveToNext())
+            } while (cur.moveToNext())
+        }
     }
 
     Medium.sorting = config.getFileSorting(curPath)

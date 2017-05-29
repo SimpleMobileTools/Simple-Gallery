@@ -127,8 +127,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mLastMediaHandler.removeCallbacksAndMessages(null)
     }
 
-    override fun onStop() {
-        super.onStop()
+    override fun onDestroy() {
+        super.onDestroy()
         config.temporarilyShowHidden = false
     }
 
@@ -342,8 +342,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun storeDirectories() {
-        val directories = Gson().toJson(mDirs)
-        config.directories = directories
+        if (!config.temporarilyShowHidden) {
+            val directories = Gson().toJson(mDirs)
+            config.directories = directories
+        }
     }
 
     private fun setupAdapter() {
