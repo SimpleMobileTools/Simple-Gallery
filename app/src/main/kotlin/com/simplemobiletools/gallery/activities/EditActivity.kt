@@ -49,7 +49,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             return
         }
 
-        isCropIntent = intent.extras?.get(CROP) == true
+        isCropIntent = intent.extras?.get(CROP) == "true"
 
         crop_image_view.apply {
             setOnCropImageCompleteListener(this@EditActivity)
