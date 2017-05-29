@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 2.10.7 *(2017-05-29)*
+----------------------------
+
+ * Show hidden folders when they should be shown
+ * Add an overwrite confirmation dialog when replacing the original image with edited
+ * Reuse the list of media at fullscreen view from thumbnails, increasing performance
+ * Some crashfixes
+
 Version 2.10.6 *(2017-05-26)*
 ----------------------------
 
