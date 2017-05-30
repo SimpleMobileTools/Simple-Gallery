@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Simple Gallery</string>
-    <string name="app_launcher_name">相册</string>
+    <string name="app_launcher_name">简约图库</string>
     <string name="edit">编辑</string>
     <string name="open_camera">打开相机</string>
     <string name="open_with">打开方式</string>
@@ -22,13 +22,13 @@
     <string name="temporarily_show_hidden">显示/隐藏缓存内容</string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden folders\' option in Settings. Continue?</string>
+    <string name="hide_folder_description">通过添加一个 \'.nomedia\' 文件到目录下，该目录包括子目录下的所有媒体都不会被扫描。 你可以通过设置中的 \'Show hidden folders\' 选项改变设置， 继续？</string>
     <string name="exclude">排除</string>
     <string name="excluded_folders">排除目录</string>
     <string name="manage_excluded_folders">管理排除的目录</string>
-    <string name="exclude_folder_description">This will exclude the selection together with its subfolders from Simple Gallery only. You can manage excluded folders in Settings.</string>
+    <string name="exclude_folder_description">目录及其子目录中的媒体将不会在Simple Gallery中显示，你可以修改设置。</string>
     <string name="exclude_folder_parent">Exclude a parent instead?</string>
-    <string name="excluded_activity_placeholder">Excluding folders will make them together with their subfolders hidden just in Simple Gallery, they will still be visible in other applications.\\n\\nIf you want to hide them from other apps too, use the Hide function.</string>
+    <string name="excluded_activity_placeholder">此处的目录及其子目录中的媒体将不会在Simple Gallery中显示，但是其它应用可以访问。\\n\\n如果你想对其它应用隐藏，请使用隐藏功能。</string>
     <string name="remove_all">移除全部</string>
     <string name="remove_all_description">移除列表中的全部目录？目录不会被删除。</string>
 
@@ -36,7 +36,7 @@
     <string name="include_folders">包含目录</string>
     <string name="manage_included_folders">管理包含的目录</string>
     <string name="add_folder">添加目录</string>
-    <string name="included_activity_placeholder">If you have some folders which contain media, but were not recognized by the app, you can add them manually here.</string>
+    <string name="included_activity_placeholder">如果你还有应用未扫描到的媒体文件，可以将所在目录路径添加到这里。</string>
 
     <!-- Resizing -->
     <string name="resize">缩放</string>
