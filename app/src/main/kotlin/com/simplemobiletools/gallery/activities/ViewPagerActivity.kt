@@ -97,6 +97,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         mDirectory = File(mPath).parent
         title = mPath.getFilenameFromPath()
+
+        if (MediaActivity.mMedia.isNotEmpty())
+            gotMedia(MediaActivity.mMedia)
+
         reloadViewPager()
         scanPath(mPath) {}
         setupOrientationEventListener()
@@ -379,8 +383,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
-    private fun isDirEmpty(): Boolean {
-        return if (mMedia.size <= 0) {
+    private fun isDirEmpty(media: ArrayList<Medium>): Boolean {
+        return if (media.isEmpty()) {
             deleteDirectoryIfEmpty()
             finish()
             true
@@ -402,28 +406,39 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun measureScreen() {
         val metrics = DisplayMetrics()
-        windowManager.defaultDisplay.getRealMetrics(metrics)
-        screenWidth = metrics.widthPixels
-        screenHeight = metrics.heightPixels
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            windowManager.defaultDisplay.getRealMetrics(metrics)
+            screenWidth = metrics.widthPixels
+            screenHeight = metrics.heightPixels
+        } else {
+            windowManager.defaultDisplay.getMetrics(metrics)
+            screenWidth = metrics.widthPixels
+            screenHeight = metrics.heightPixels
+        }
     }
 
     private fun reloadViewPager() {
         GetMediaAsynctask(applicationContext, mDirectory, false, false, mShowAll) {
-            mMedia = it
-            if (isDirEmpty())
-                return@GetMediaAsynctask
-
-            if (mPos == -1) {
-                mPos = getProperPosition()
-            } else {
-                mPos = Math.min(mPos, mMedia.size - 1)
-            }
-
-            updateActionbarTitle()
-            updatePagerItems()
-            invalidateOptionsMenu()
-            checkOrientation()
+            gotMedia(it)
         }.execute()
+    }
+
+    private fun gotMedia(media: ArrayList<Medium>) {
+        if (isDirEmpty(media) || mMedia.hashCode() == media.hashCode()) {
+            return
+        }
+
+        mMedia = media
+        if (mPos == -1) {
+            mPos = getProperPosition()
+        } else {
+            mPos = Math.min(mPos, mMedia.size - 1)
+        }
+
+        updateActionbarTitle()
+        updatePagerItems()
+        invalidateOptionsMenu()
+        checkOrientation()
     }
 
     private fun getProperPosition(): Int {

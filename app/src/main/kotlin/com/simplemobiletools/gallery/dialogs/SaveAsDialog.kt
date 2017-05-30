@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.dialogs
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.WindowManager
+import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
@@ -62,8 +63,16 @@ class SaveAsDialog(val activity: SimpleActivity, val path: String, val callback:
                     return@setOnClickListener
                 }
 
-                callback.invoke(newFile.absolutePath)
-                dismiss()
+                if (newFile.exists()) {
+                    val title = String.format(activity.getString(R.string.file_already_exists_overwrite), newFile.name)
+                    ConfirmationDialog(activity, title) {
+                        callback.invoke(newFile.absolutePath)
+                        dismiss()
+                    }
+                } else {
+                    callback.invoke(newFile.absolutePath)
+                    dismiss()
+                }
             })
         }
     }
