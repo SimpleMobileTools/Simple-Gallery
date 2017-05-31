@@ -498,7 +498,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun getCurrentMedium(): Medium? {
-        return if (mMedia.isEmpty())
+        return if (mMedia.isEmpty() || mPos >= mMedia.size)
             null
         else
             mMedia[Math.min(mPos, mMedia.size - 1)]
