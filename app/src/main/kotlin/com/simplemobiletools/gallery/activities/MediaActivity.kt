@@ -46,6 +46,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mLoadedInitialPhotos = false
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
+    private var mLastDrawnHashCode = 0
     private var mLastMediaModified = 0
     private var mLastMediaHandler = Handler()
 
@@ -393,9 +394,13 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         media_refresh_layout.isRefreshing = false
 
         checkLastMediaChanged()
-        if (media.hashCode() == mMedia.hashCode())
+        if (mLastDrawnHashCode == 0)
+            mLastDrawnHashCode = media.hashCode()
+
+        if (media.hashCode() == mMedia.hashCode() && media.hashCode() == mLastDrawnHashCode)
             return
 
+        mLastDrawnHashCode = media.hashCode()
         mMedia = media
         setupAdapter()
         storeFolder()

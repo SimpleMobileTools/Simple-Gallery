@@ -27,6 +27,7 @@ import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.activities.MediaActivity.Companion.mMedia
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.dialogs.SaveAsDialog
@@ -42,7 +43,6 @@ import java.util.*
 
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
     lateinit var mOrientationEventListener: OrientationEventListener
-    private var mMedia = ArrayList<Medium>()
     private var mPath = ""
     private var mDirectory = ""
 
@@ -98,8 +98,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         mDirectory = File(mPath).parent
         title = mPath.getFilenameFromPath()
 
-        if (MediaActivity.mMedia.isNotEmpty())
-            gotMedia(MediaActivity.mMedia)
+        if (mMedia.isNotEmpty())
+            gotMedia(mMedia)
 
         reloadViewPager()
         scanPath(mPath) {}
