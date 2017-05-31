@@ -2,9 +2,11 @@ package com.simplemobiletools.gallery.activities
 
 import android.app.Activity
 import android.graphics.Bitmap
+import android.graphics.Bitmap.CompressFormat
 import android.graphics.Point
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -18,8 +20,8 @@ import com.simplemobiletools.gallery.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.extensions.getRealPathFromURI
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.view_crop_image.*
-import java.io.File
-import java.io.OutputStream
+import java.io.*
+
 
 class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener {
     val TAG = EditActivity::class.java.simpleName
@@ -113,7 +115,23 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     override fun onCropImageComplete(view: CropImageView, result: CropImageView.CropResult) {
         if (result.error == null) {
-            if (uri.scheme == "file") {
+            if (isCropIntent && intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true) {
+                val targetUri = intent.extras!!.get(MediaStore.EXTRA_OUTPUT) as Uri
+                var inputStream: InputStream? = null
+                var outputStream: OutputStream? = null
+                try {
+                    val stream = ByteArrayOutputStream()
+                    result.bitmap.compress(CompressFormat.JPEG, 100, stream)
+                    inputStream = ByteArrayInputStream(stream.toByteArray())
+                    outputStream = contentResolver.openOutputStream(targetUri)
+                    inputStream.copyTo(outputStream)
+                } finally {
+                    inputStream?.close()
+                    outputStream?.close()
+                }
+                setResult(RESULT_OK)
+                finish()
+            } else if (uri.scheme == "file") {
                 SaveAsDialog(this, uri.path) {
                     saveBitmapToFile(result.bitmap, it)
                 }

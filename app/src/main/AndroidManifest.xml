@@ -145,6 +145,18 @@
 
                 <data android:mimeType="image/*"/>
             </intent-filter>
+
+            <intent-filter>
+                <action android:name="com.android.camera.action.CROP"/>
+
+                <data android:scheme="content"/>
+                <data android:scheme="file"/>
+                <data android:mimeType="image/*"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.ALTERNATIVE"/>
+                <category android:name="android.intent.category.SELECTED_ALTERNATIVE"/>
+            </intent-filter>
         </activity>
 
         <activity
