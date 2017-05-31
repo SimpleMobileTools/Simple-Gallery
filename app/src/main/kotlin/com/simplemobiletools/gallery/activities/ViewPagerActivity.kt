@@ -73,10 +73,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             try {
                 val proj = arrayOf(MediaStore.Images.Media.DATA)
                 cursor = contentResolver.query(uri, proj, null, null, null)
-                if (cursor != null) {
-                    val dataIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
-                    cursor.moveToFirst()
-                    mPath = cursor.getString(dataIndex)
+                if (cursor?.moveToFirst() == true) {
+                    mPath = cursor.getStringValue(MediaStore.Images.Media.DATA)
                 }
             } finally {
                 cursor?.close()
