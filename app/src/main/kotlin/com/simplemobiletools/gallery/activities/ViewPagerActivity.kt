@@ -90,6 +90,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
+        if (intent.extras?.containsKey(IS_VIEW_INTENT) == true) {
+            config.temporarilyShowHidden = true
+        }
+
         mMedia = ArrayList<Medium>()
         showSystemUI()
 
@@ -105,6 +109,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         if (config.darkBackground)
             view_pager.background = ColorDrawable(Color.BLACK)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (intent.extras?.containsKey(IS_VIEW_INTENT) == true) {
+            config.temporarilyShowHidden = false
+        }
     }
 
     private fun setupOrientationEventListener() {
