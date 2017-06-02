@@ -57,8 +57,12 @@ fun Context.getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boo
     val selection = if (curPath.isEmpty()) null else "(${MediaStore.Images.Media.DATA} LIKE ? AND ${MediaStore.Images.Media.DATA} NOT LIKE ?)"
     val selectionArgs = if (curPath.isEmpty()) null else arrayOf("$curPath/%", "$curPath/%/%")
 
-    val cur = contentResolver.query(uri, projection, selection, selectionArgs, getSortingForFolder(curPath))
-    return parseCursor(this, cur, isPickImage, isPickVideo, curPath)
+    try {
+        val cur = contentResolver.query(uri, projection, selection, selectionArgs, getSortingForFolder(curPath))
+        return parseCursor(this, cur, isPickImage, isPickVideo, curPath)
+    } catch (e: Exception) {
+        return ArrayList()
+    }
 }
 
 private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isPickVideo: Boolean, curPath: String): ArrayList<Medium> {
