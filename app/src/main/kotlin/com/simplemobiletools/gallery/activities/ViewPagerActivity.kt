@@ -502,7 +502,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun updateActionbarTitle() {
         runOnUiThread {
-            title = mMedia[mPos].path.getFilenameFromPath()
+            if (mPos < mMedia.size) {
+                title = mMedia[mPos].path.getFilenameFromPath()
+            }
         }
     }
 
