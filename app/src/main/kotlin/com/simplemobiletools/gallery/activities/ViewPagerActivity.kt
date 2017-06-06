@@ -51,6 +51,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mShowAll = false
     private var mRotationDegrees = 0f
     private var mLastHandledOrientation = 0
+    private var mPrevHashcode = 0
 
     companion object {
         var screenWidth = 0
@@ -94,14 +95,14 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             config.temporarilyShowHidden = true
         }
 
-        mMedia = ArrayList<Medium>()
         showSystemUI()
 
         mDirectory = File(mPath).parent
         title = mPath.getFilenameFromPath()
 
-        if (mMedia.isNotEmpty())
+        if (mMedia.isNotEmpty()) {
             gotMedia(mMedia)
+        }
 
         reloadViewPager()
         scanPath(mPath) {}
@@ -433,10 +434,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun gotMedia(media: ArrayList<Medium>) {
-        if (isDirEmpty(media) || mMedia.hashCode() == media.hashCode()) {
+        if (isDirEmpty(media) || media.hashCode() == mPrevHashcode) {
             return
         }
 
+        mPrevHashcode = media.hashCode()
         mMedia = media
         if (mPos == -1) {
             mPos = getProperPosition()
