@@ -15,7 +15,7 @@ import com.simplemobiletools.gallery.extensions.getCachedDirectories
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.dialog_album_picker.view.*
 
-class PickAlbumDialog(val activity: SimpleActivity, val sourcePath: String, val callback: (path: String) -> Unit) {
+class PickDirectoryDialog(val activity: SimpleActivity, val sourcePath: String, val callback: (path: String) -> Unit) {
     var dialog: AlertDialog
     var directoriesGrid: RecyclerView
     var shownDirectories: ArrayList<Directory> = ArrayList()
