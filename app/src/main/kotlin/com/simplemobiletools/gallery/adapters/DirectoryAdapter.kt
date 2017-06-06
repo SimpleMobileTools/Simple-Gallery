@@ -10,6 +10,8 @@ import com.bignerdranch.android.multiselector.ModalMultiSelectorCallback
 import com.bignerdranch.android.multiselector.MultiSelector
 import com.bignerdranch.android.multiselector.SwappingHolder
 import com.bumptech.glide.Glide
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
@@ -20,7 +22,9 @@ import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.ExcludeFolderDialog
+import com.simplemobiletools.gallery.dialogs.PickMediumDialog
 import com.simplemobiletools.gallery.extensions.*
+import com.simplemobiletools.gallery.models.AlbumCover
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.directory_item.view.*
 import kotlinx.android.synthetic.main.directory_tmb.view.*
@@ -253,10 +257,10 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     }
 
     private fun copyMoveTo(isCopyOperation: Boolean) {
-        val files = ArrayList<File>()
         if (selectedPositions.isEmpty())
             return
 
+        val files = ArrayList<File>()
         selectedPositions.forEach {
             val dir = File(dirs[it].path)
             files.addAll(dir.listFiles().filter { it.isFile && it.isImageVideoGif() })
@@ -324,6 +328,28 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     }
 
     private fun changeAlbumCover(useDefault: Boolean) {
+        if (selectedPositions.size != 1)
+            return
+
+        val path = dirs[selectedPositions.first()].path
+        val listType = object : TypeToken<List<AlbumCover>>() {}.type
+        var albumCovers = Gson().fromJson<ArrayList<AlbumCover>>(config.albumCovers, listType) ?: ArrayList(1)
+
+        if (useDefault) {
+            albumCovers = albumCovers.filterNot { it.path == path } as ArrayList
+            storeCovers(albumCovers)
+        } else {
+            PickMediumDialog(activity, path) {
+                albumCovers = albumCovers.filterNot { it.path == path } as ArrayList
+                albumCovers.add(AlbumCover(path, it))
+                storeCovers(albumCovers)
+            }
+        }
+    }
+
+    private fun storeCovers(albumCovers: ArrayList<AlbumCover>) {
+        activity.config.albumCovers = Gson().toJson(albumCovers)
+        actMode?.finish()
         listener?.refreshItems()
     }
 

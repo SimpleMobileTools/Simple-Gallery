@@ -167,4 +167,8 @@ class Config(context: Context) : BaseConfig(context) {
     var directories: String
         get() = prefs.getString(DIRECTORIES, "")
         set(directories) = prefs.edit().putString(DIRECTORIES, directories).apply()
+
+    var albumCovers: String
+        get() = prefs.getString(ALBUM_COVERS, "")
+        set(albumCovers) = prefs.edit().putString(ALBUM_COVERS, albumCovers).apply()
 }

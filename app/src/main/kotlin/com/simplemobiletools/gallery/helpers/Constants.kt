@@ -17,12 +17,13 @@ val DARK_BACKGROUND = "dark_background"
 val PINNED_FOLDERS = "pinned_folders"
 val DIR_COLUMN_CNT = "dir_column_cnt"
 val MEDIA_COLUMN_CNT = "media_column_cnt"
-val SHOW_ALL = "show_all"   // display images and videos from all folders together
+val SHOW_ALL = "show_all"                           // display images and videos from all folders together
 val SHOW_MEDIA = "show_media"
 val SAVE_FOLDER_PREFIX = "folder2_"
 val HIDE_FOLDER_TOOLTIP_SHOWN = "hide_folder_tooltip_shown"
 val EXCLUDED_FOLDERS = "excluded_folders"
 val INCLUDED_FOLDERS = "included_folders"
+val ALBUM_COVERS = "album_covers"
 
 val NOMEDIA = ".nomedia"
 
