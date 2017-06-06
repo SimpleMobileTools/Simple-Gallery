@@ -11,7 +11,6 @@ import com.bignerdranch.android.multiselector.MultiSelector
 import com.bignerdranch.android.multiselector.SwappingHolder
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
@@ -332,8 +331,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             return
 
         val path = dirs[selectedPositions.first()].path
-        val listType = object : TypeToken<List<AlbumCover>>() {}.type
-        var albumCovers = Gson().fromJson<ArrayList<AlbumCover>>(config.albumCovers, listType) ?: ArrayList(1)
+        var albumCovers = config.parseAlbumCovers()
 
         if (useDefault) {
             albumCovers = albumCovers.filterNot { it.path == path } as ArrayList

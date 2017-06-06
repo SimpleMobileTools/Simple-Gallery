@@ -1,10 +1,13 @@
 package com.simplemobiletools.gallery.helpers
 
 import android.content.Context
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.helpers.BaseConfig
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.commons.helpers.SORT_DESCENDING
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.models.AlbumCover
 import java.util.*
 
 class Config(context: Context) : BaseConfig(context) {
@@ -171,4 +174,9 @@ class Config(context: Context) : BaseConfig(context) {
     var albumCovers: String
         get() = prefs.getString(ALBUM_COVERS, "")
         set(albumCovers) = prefs.edit().putString(ALBUM_COVERS, albumCovers).apply()
+
+    fun parseAlbumCovers(): ArrayList<AlbumCover> {
+        val listType = object : TypeToken<List<AlbumCover>>() {}.type
+        return Gson().fromJson<ArrayList<AlbumCover>>(albumCovers, listType) ?: ArrayList(1)
+    }
 }
