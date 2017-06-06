@@ -20,6 +20,9 @@
     <string name="increase_column_count">Aumentar número de colunas</string>
     <string name="reduce_column_count">Reduzir número de colunas</string>
     <string name="temporarily_show_hidden">Mostrar ocultas temporariamente</string>
+    <string name="change_cover_image">Change cover image</string>
+    <string name="select_photo">Select photo</string>
+    <string name="use_default">Use default</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Esta opção oculta uma pasta com a adição de um ficheiro \'.nomedia\' na pasta, e irá ocultar todas as subpastas existentes. Pode ver as pastas com a opção \'Mostrar pastas ocultas\'. Continuar?</string>

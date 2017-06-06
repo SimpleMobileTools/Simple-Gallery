@@ -20,6 +20,9 @@
     <string name="increase_column_count">Aumentar el número de columnas</string>
     <string name="reduce_column_count">Reducir el número de columnas</string>
     <string name="temporarily_show_hidden">Mostrar ocultos temporalmente</string>
+    <string name="change_cover_image">Change cover image</string>
+    <string name="select_photo">Select photo</string>
+    <string name="use_default">Use default</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Esta función oculta la carpeta agregando un archivo \'.nomedia\' en ella, y ocultará también las subcarpetas. Puede mostrarlas cambiando la opción \'Mostrar carpetas ocultas\' en los Ajustes. ¿Continuar?</string>

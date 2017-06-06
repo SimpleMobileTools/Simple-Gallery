@@ -20,6 +20,9 @@
     <string name="increase_column_count">Augmenter le nombre de colonnes</string>
     <string name="reduce_column_count">Réduire le nombre de colonnes</string>
     <string name="temporarily_show_hidden">Afficher temporairement les fichiers masqués</string>
+    <string name="change_cover_image">Change cover image</string>
+    <string name="select_photo">Select photo</string>
+    <string name="use_default">Use default</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Cette option masque le dossier en ajoutant un fichier \'.nomedia\' à l\'intérieur, cela masquera aussi tous les sous-dossiers. Vous pouvez les voir en modifiant l\'option \'Afficher les dossiers cachés\' dans les Paramètres. Continuer ?</string>

@@ -20,6 +20,9 @@
     <string name="increase_column_count">增加一行</string>
     <string name="reduce_column_count">减少一行</string>
     <string name="temporarily_show_hidden">显示/隐藏缓存内容</string>
+    <string name="change_cover_image">Change cover image</string>
+    <string name="select_photo">Select photo</string>
+    <string name="use_default">Use default</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">通过添加一个 \'.nomedia\' 文件到目录下，该目录包括子目录下的所有媒体都不会被扫描。 你可以通过设置中的 \'Show hidden folders\' 选项改变设置， 继续？</string>
