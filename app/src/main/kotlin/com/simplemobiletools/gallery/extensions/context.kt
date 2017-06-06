@@ -70,12 +70,11 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
     val config = context.config
     val showMedia = config.showMedia
     val showHidden = config.shouldShowHidden
+    val excludedFolders = config.excludedFolders
+    val noMediaFolders = context.getNoMediaFolders()
 
     cur.use { cur ->
         if (cur.moveToFirst()) {
-            val excludedFolders = config.excludedFolders
-            val noMediaFolders = context.getNoMediaFolders()
-
             do {
                 try {
                     val path = cur.getStringValue(MediaStore.Images.Media.DATA)
@@ -137,6 +136,38 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
                     continue
                 }
             } while (cur.moveToNext())
+        }
+    }
+
+    if (curPath.isEmpty()) {
+        config.includedFolders.mapNotNull { File(it).listFiles() }.forEach {
+            for (file in it) {
+                val size = file.length()
+                if (size <= 0L) {
+                    continue
+                }
+
+                val filename = file.name
+                val isImage = filename.isImageFast() || filename.isGif()
+                val isVideo = if (isImage) false else filename.isVideoFast()
+
+                if (!isImage && !isVideo)
+                    continue
+
+                if (isVideo && (isPickImage || showMedia == IMAGES))
+                    continue
+
+                if (isImage && (isPickVideo || showMedia == VIDEOS))
+                    continue
+
+                val dateTaken = file.lastModified()
+                val dateModified = file.lastModified()
+
+                val medium = Medium(filename, file.absolutePath, isVideo, dateModified, dateTaken, size)
+                val isAlreadyAdded = curMedia.any { it.path == file.absolutePath }
+                if (!isAlreadyAdded)
+                    curMedia.add(medium)
+            }
         }
     }
 
