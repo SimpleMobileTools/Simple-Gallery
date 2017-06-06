@@ -111,6 +111,8 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
                 R.id.cab_move_to -> copyMoveTo(false)
                 R.id.cab_select_all -> selectAll()
                 R.id.cab_delete -> askConfirmDelete()
+                R.id.cab_select_photo -> changeAlbumCover(false)
+                R.id.cab_use_default -> changeAlbumCover(true)
                 else -> return false
             }
             return true
@@ -125,6 +127,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
         override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu): Boolean {
             menu.findItem(R.id.cab_rename).isVisible = selectedPositions.size <= 1
+            menu.findItem(R.id.cab_change_cover_image).isVisible = selectedPositions.size <= 1
 
             checkHideBtnVisibility(menu)
             checkPinBtnVisibility(menu)
@@ -318,6 +321,10 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
             itemViews = newItems
         }
+    }
+
+    private fun changeAlbumCover(useDefault: Boolean) {
+        listener?.refreshItems()
     }
 
     private fun getSelectedPaths(): HashSet<String> {

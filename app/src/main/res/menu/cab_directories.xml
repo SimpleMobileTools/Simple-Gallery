@@ -49,6 +49,19 @@
         android:title="@string/select_all"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/cab_change_cover_image"
+        android:title="@string/change_cover_image"
+        app:showAsAction="never">
+        <menu>
+            <item
+                android:id="@+id/cab_select_photo"
+                android:title="@string/select_photo"/>
+            <item
+                android:id="@+id/cab_use_default"
+                android:title="@string/use_default"/>
+        </menu>
+    </item>
+    <item
         android:id="@+id/cab_delete"
         android:icon="@drawable/ic_delete"
         android:title="@string/delete"
