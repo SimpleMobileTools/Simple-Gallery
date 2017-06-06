@@ -98,6 +98,7 @@
     <string name="screen_rotation_device_rotation">设备方向</string>
     <string name="screen_rotation_aspect_ratio">根据长宽比</string>
     <string name="dark_background_at_fullscreen">全屏时黑色背景</string>
+    <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

@@ -98,6 +98,7 @@
     <string name="screen_rotation_device_rotation">Sensor do aparelho</string>
     <string name="screen_rotation_aspect_ratio">Proporção da mídia</string>
     <string name="dark_background_at_fullscreen">Fundo de tela escuro em mídia tela cheia</string>
+    <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
