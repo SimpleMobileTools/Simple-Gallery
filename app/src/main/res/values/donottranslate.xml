@@ -2,6 +2,7 @@
 <resources>
 
     <!-- Release notes -->
+    <string name="release_108">Allow setting custom folder covers</string>
     <string name="release_98">
         Allow selecting multiple items by finger dragging\n
         Added an option to always use black background at fullscreen media
