@@ -73,20 +73,13 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
 
     cur.use { cur ->
         if (cur.moveToFirst()) {
-            var filename: String
-            var path: String
-            var dateTaken: Long
-            var dateModified: Long
-            var size: Long
-            var isImage: Boolean
-            var isVideo: Boolean
             val excludedFolders = config.excludedFolders
             val noMediaFolders = context.getNoMediaFolders()
 
             do {
                 try {
-                    path = cur.getStringValue(MediaStore.Images.Media.DATA)
-                    size = cur.getLongValue(MediaStore.Images.Media.SIZE)
+                    val path = cur.getStringValue(MediaStore.Images.Media.DATA)
+                    var size = cur.getLongValue(MediaStore.Images.Media.SIZE)
                     if (size == 0L) {
                         size = File(path).length()
                     }
@@ -95,12 +88,12 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
                         continue
                     }
 
-                    filename = cur.getStringValue(MediaStore.Images.Media.DISPLAY_NAME) ?: ""
+                    var filename = cur.getStringValue(MediaStore.Images.Media.DISPLAY_NAME) ?: ""
                     if (filename.isEmpty())
                         filename = path.getFilenameFromPath()
 
-                    isImage = filename.isImageFast() || filename.isGif()
-                    isVideo = if (isImage) false else filename.isVideoFast()
+                    val isImage = filename.isImageFast() || filename.isGif()
+                    val isVideo = if (isImage) false else filename.isVideoFast()
 
                     if (!isImage && !isVideo)
                         continue
@@ -134,8 +127,8 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
                     }
 
                     if (!isExcluded) {
-                        dateTaken = cur.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
-                        dateModified = cur.getIntValue(MediaStore.Images.Media.DATE_MODIFIED) * 1000L
+                        val dateTaken = cur.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
+                        val dateModified = cur.getIntValue(MediaStore.Images.Media.DATE_MODIFIED) * 1000L
 
                         val medium = Medium(filename, path, isVideo, dateModified, dateTaken, size)
                         curMedia.add(medium)
