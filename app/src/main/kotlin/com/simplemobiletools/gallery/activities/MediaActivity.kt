@@ -97,7 +97,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     override fun onDestroy() {
         super.onDestroy()
-        config.temporarilyShowHidden = false
+        if (config.showAll)
+            config.temporarilyShowHidden = false
         mMedia.clear()
     }
 
