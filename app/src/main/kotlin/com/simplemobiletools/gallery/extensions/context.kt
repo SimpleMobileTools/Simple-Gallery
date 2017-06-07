@@ -139,35 +139,33 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
         }
     }
 
-    if (curPath.isEmpty()) {
-        config.includedFolders.mapNotNull { File(it).listFiles() }.forEach {
-            for (file in it) {
-                val size = file.length()
-                if (size <= 0L) {
-                    continue
-                }
-
-                val filename = file.name
-                val isImage = filename.isImageFast() || filename.isGif()
-                val isVideo = if (isImage) false else filename.isVideoFast()
-
-                if (!isImage && !isVideo)
-                    continue
-
-                if (isVideo && (isPickImage || showMedia == IMAGES))
-                    continue
-
-                if (isImage && (isPickVideo || showMedia == VIDEOS))
-                    continue
-
-                val dateTaken = file.lastModified()
-                val dateModified = file.lastModified()
-
-                val medium = Medium(filename, file.absolutePath, isVideo, dateModified, dateTaken, size)
-                val isAlreadyAdded = curMedia.any { it.path == file.absolutePath }
-                if (!isAlreadyAdded)
-                    curMedia.add(medium)
+    config.includedFolders.filter { it.isEmpty() || it == curPath }.mapNotNull { File(it).listFiles() }.forEach {
+        for (file in it) {
+            val size = file.length()
+            if (size <= 0L) {
+                continue
             }
+
+            val filename = file.name
+            val isImage = filename.isImageFast() || filename.isGif()
+            val isVideo = if (isImage) false else filename.isVideoFast()
+
+            if (!isImage && !isVideo)
+                continue
+
+            if (isVideo && (isPickImage || showMedia == IMAGES))
+                continue
+
+            if (isImage && (isPickVideo || showMedia == VIDEOS))
+                continue
+
+            val dateTaken = file.lastModified()
+            val dateModified = file.lastModified()
+
+            val medium = Medium(filename, file.absolutePath, isVideo, dateModified, dateTaken, size)
+            val isAlreadyAdded = curMedia.any { it.path == file.absolutePath }
+            if (!isAlreadyAdded)
+                curMedia.add(medium)
         }
     }
 
