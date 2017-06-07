@@ -28,6 +28,9 @@ import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.views.MyScalableRecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
+import java.io.FileInputStream
+import java.io.InputStream
+import java.io.OutputStream
 import java.util.*
 
 class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
@@ -291,9 +294,23 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                     val path = resultData.data.path
                     val uri = Uri.fromFile(File(path))
                     if (mIsGetImageContentIntent || mIsGetVideoContentIntent || mIsGetAnyContentIntent) {
-                        val type = File(path).getMimeType("image/jpeg")
-                        setDataAndTypeAndNormalize(uri, type)
-                        flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+                        if (intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true) {
+                            var inputStream: InputStream? = null
+                            var outputStream: OutputStream? = null
+                            try {
+                                val output = intent.extras.get(MediaStore.EXTRA_OUTPUT) as Uri
+                                inputStream = FileInputStream(File(path))
+                                outputStream = contentResolver.openOutputStream(output)
+                                inputStream.copyTo(outputStream)
+                            } finally {
+                                inputStream?.close()
+                                outputStream?.close()
+                            }
+                        } else {
+                            val type = File(path).getMimeType("image/jpeg")
+                            setDataAndTypeAndNormalize(uri, type)
+                            flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+                        }
                     } else if (mIsPickImageIntent || mIsPickVideoIntent) {
                         data = uri
                         flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
@@ -417,6 +434,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             add(Release(94, R.string.release_94))
             add(Release(97, R.string.release_97))
             add(Release(98, R.string.release_98))
+            add(Release(108, R.string.release_108))
             checkWhatsNew(this, BuildConfig.VERSION_CODE)
         }
     }

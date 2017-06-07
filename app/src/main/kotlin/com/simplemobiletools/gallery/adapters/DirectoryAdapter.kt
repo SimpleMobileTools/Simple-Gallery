@@ -10,6 +10,7 @@ import com.bignerdranch.android.multiselector.ModalMultiSelectorCallback
 import com.bignerdranch.android.multiselector.MultiSelector
 import com.bignerdranch.android.multiselector.SwappingHolder
 import com.bumptech.glide.Glide
+import com.google.gson.Gson
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
@@ -20,7 +21,9 @@ import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.ExcludeFolderDialog
+import com.simplemobiletools.gallery.dialogs.PickMediumDialog
 import com.simplemobiletools.gallery.extensions.*
+import com.simplemobiletools.gallery.models.AlbumCover
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.directory_item.view.*
 import kotlinx.android.synthetic.main.directory_tmb.view.*
@@ -111,6 +114,8 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
                 R.id.cab_move_to -> copyMoveTo(false)
                 R.id.cab_select_all -> selectAll()
                 R.id.cab_delete -> askConfirmDelete()
+                R.id.cab_select_photo -> changeAlbumCover(false)
+                R.id.cab_use_default -> changeAlbumCover(true)
                 else -> return false
             }
             return true
@@ -125,6 +130,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
         override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu): Boolean {
             menu.findItem(R.id.cab_rename).isVisible = selectedPositions.size <= 1
+            menu.findItem(R.id.cab_change_cover_image).isVisible = selectedPositions.size <= 1
 
             checkHideBtnVisibility(menu)
             checkPinBtnVisibility(menu)
@@ -250,10 +256,10 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     }
 
     private fun copyMoveTo(isCopyOperation: Boolean) {
-        val files = ArrayList<File>()
         if (selectedPositions.isEmpty())
             return
 
+        val files = ArrayList<File>()
         selectedPositions.forEach {
             val dir = File(dirs[it].path)
             files.addAll(dir.listFiles().filter { it.isFile && it.isImageVideoGif() })
@@ -318,6 +324,31 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
             itemViews = newItems
         }
+    }
+
+    private fun changeAlbumCover(useDefault: Boolean) {
+        if (selectedPositions.size != 1)
+            return
+
+        val path = dirs[selectedPositions.first()].path
+        var albumCovers = config.parseAlbumCovers()
+
+        if (useDefault) {
+            albumCovers = albumCovers.filterNot { it.path == path } as ArrayList
+            storeCovers(albumCovers)
+        } else {
+            PickMediumDialog(activity, path) {
+                albumCovers = albumCovers.filterNot { it.path == path } as ArrayList
+                albumCovers.add(AlbumCover(path, it))
+                storeCovers(albumCovers)
+            }
+        }
+    }
+
+    private fun storeCovers(albumCovers: ArrayList<AlbumCover>) {
+        activity.config.albumCovers = Gson().toJson(albumCovers)
+        actMode?.finish()
+        listener?.refreshItems()
     }
 
     private fun getSelectedPaths(): HashSet<String> {

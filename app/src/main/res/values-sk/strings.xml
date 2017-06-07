@@ -20,6 +20,9 @@
     <string name="increase_column_count">Zvýšiť počet stĺpcov</string>
     <string name="reduce_column_count">Znížiť počet stĺpcov</string>
     <string name="temporarily_show_hidden">Dočasne zobraziť skryté</string>
+    <string name="change_cover_image">Zmeniť obal albumu</string>
+    <string name="select_photo">Zvoliť foto</string>
+    <string name="use_default">Použiť predvolený</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Táto funkcia skryje priečinok pridaním súboru \'.nomedia\', skryté budú aj podpriečinky. Môžete ich vidieť zvolením možnosti \'Zobraziť skryté priečinky\' v nastaveniach. Pokračovať?</string>
@@ -95,6 +98,7 @@
     <string name="screen_rotation_device_rotation">Otočenia zariadenia</string>
     <string name="screen_rotation_aspect_ratio">Pomeru strán</string>
     <string name="dark_background_at_fullscreen">Tmavé pozadie pri médiách na celú obrazovku</string>
+    <string name="scroll_thumbnails_horizontally">Prehliadať miniatúry vodorovne</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

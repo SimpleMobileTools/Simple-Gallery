@@ -27,6 +27,7 @@ import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.activities.MediaActivity.Companion.mMedia
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.dialogs.SaveAsDialog
@@ -42,7 +43,6 @@ import java.util.*
 
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
     lateinit var mOrientationEventListener: OrientationEventListener
-    private var mMedia = ArrayList<Medium>()
     private var mPath = ""
     private var mDirectory = ""
 
@@ -51,6 +51,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mShowAll = false
     private var mRotationDegrees = 0f
     private var mLastHandledOrientation = 0
+    private var mPrevHashcode = 0
 
     companion object {
         var screenWidth = 0
@@ -73,10 +74,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             try {
                 val proj = arrayOf(MediaStore.Images.Media.DATA)
                 cursor = contentResolver.query(uri, proj, null, null, null)
-                if (cursor != null) {
-                    val dataIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
-                    cursor.moveToFirst()
-                    mPath = cursor.getString(dataIndex)
+                if (cursor?.moveToFirst() == true) {
+                    mPath = cursor.getStringValue(MediaStore.Images.Media.DATA)
                 }
             } finally {
                 cursor?.close()
@@ -92,14 +91,18 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
-        mMedia = ArrayList<Medium>()
+        if (intent.extras?.containsKey(IS_VIEW_INTENT) == true) {
+            config.temporarilyShowHidden = true
+        }
+
         showSystemUI()
 
         mDirectory = File(mPath).parent
         title = mPath.getFilenameFromPath()
 
-        if (MediaActivity.mMedia.isNotEmpty())
-            gotMedia(MediaActivity.mMedia)
+        if (mMedia.isNotEmpty()) {
+            gotMedia(mMedia)
+        }
 
         reloadViewPager()
         scanPath(mPath) {}
@@ -107,6 +110,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         if (config.darkBackground)
             view_pager.background = ColorDrawable(Color.BLACK)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (intent.extras?.containsKey(IS_VIEW_INTENT) == true) {
+            config.temporarilyShowHidden = false
+        }
     }
 
     private fun setupOrientationEventListener() {
@@ -424,10 +434,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun gotMedia(media: ArrayList<Medium>) {
-        if (isDirEmpty(media) || mMedia.hashCode() == media.hashCode()) {
+        if (isDirEmpty(media) || media.hashCode() == mPrevHashcode) {
             return
         }
 
+        mPrevHashcode = media.hashCode()
         mMedia = media
         if (mPos == -1) {
             mPos = getProperPosition()
@@ -493,12 +504,14 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun updateActionbarTitle() {
         runOnUiThread {
-            title = mMedia[mPos].path.getFilenameFromPath()
+            if (mPos < mMedia.size) {
+                title = mMedia[mPos].path.getFilenameFromPath()
+            }
         }
     }
 
     private fun getCurrentMedium(): Medium? {
-        return if (mMedia.isEmpty())
+        return if (mMedia.isEmpty() || mPos == -1)
             null
         else
             mMedia[Math.min(mPos, mMedia.size - 1)]

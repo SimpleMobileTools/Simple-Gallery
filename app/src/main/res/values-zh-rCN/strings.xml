@@ -20,6 +20,9 @@
     <string name="increase_column_count">增加一行</string>
     <string name="reduce_column_count">减少一行</string>
     <string name="temporarily_show_hidden">显示/隐藏缓存内容</string>
+    <string name="change_cover_image">Change cover image</string>
+    <string name="select_photo">Select photo</string>
+    <string name="use_default">Use default</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">通过添加一个 \'.nomedia\' 文件到目录下，该目录包括子目录下的所有媒体都不会被扫描。 你可以通过设置中的 \'Show hidden folders\' 选项改变设置， 继续？</string>
@@ -95,6 +98,7 @@
     <string name="screen_rotation_device_rotation">设备方向</string>
     <string name="screen_rotation_aspect_ratio">根据长宽比</string>
     <string name="dark_background_at_fullscreen">全屏时黑色背景</string>
+    <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

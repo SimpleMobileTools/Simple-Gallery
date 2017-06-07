@@ -20,6 +20,9 @@
     <string name="increase_column_count">Zwiększ liczbę kolumn</string>
     <string name="reduce_column_count">Zmniejsz liczbę kolumn</string>
     <string name="temporarily_show_hidden">Temporarily show hidden</string>
+    <string name="change_cover_image">Change cover image</string>
+    <string name="select_photo">Select photo</string>
+    <string name="use_default">Use default</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Ta funkcja ukrywa folder dodając \'. \' Nomedia plik do niego, można tak ukryć wszystkie podfoldery. Można je zobaczyć poprzez przełączanie \'Pokaż ukryte foldery \' opcję w ustawieniach. Kontyntynuj?</string>
@@ -95,6 +98,7 @@
     <string name="screen_rotation_device_rotation">Device rotation</string>
     <string name="screen_rotation_aspect_ratio">Aspect ratio</string>
     <string name="dark_background_at_fullscreen">Dark background at fullscreen media</string>
+    <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

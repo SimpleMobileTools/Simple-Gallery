@@ -35,6 +35,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
     }
 
     private fun groupDirectories(media: ArrayList<Medium>): Map<String, Directory> {
+        val albumCovers = config.parseAlbumCovers()
         val hidden = context.resources.getString(R.string.hidden)
         val directories = LinkedHashMap<String, Directory>()
         for ((name, path, isVideo, dateModified, dateTaken, size) in media) {
@@ -62,7 +63,14 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                         continue
                 }
 
-                val directory = Directory(parentDir, path, dirName, 1, dateModified, dateTaken, size)
+                var thumbnail = path
+                albumCovers.forEach {
+                    if (it.path == parentDir && File(it.tmb).exists()) {
+                        thumbnail = it.tmb
+                    }
+                }
+
+                val directory = Directory(parentDir, thumbnail, dirName, 1, dateModified, dateTaken, size)
                 directories.put(parentDir, directory)
             }
         }

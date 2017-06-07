@@ -20,6 +20,9 @@
     <string name="increase_column_count">Aumentar número de colunas</string>
     <string name="reduce_column_count">Reduzir número de colunas</string>
     <string name="temporarily_show_hidden">Mostrar ocultas temporariamente</string>
+    <string name="change_cover_image">Change cover image</string>
+    <string name="select_photo">Select photo</string>
+    <string name="use_default">Use default</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Esta opção oculta uma pasta com a adição de um ficheiro \'.nomedia\' na pasta, e irá ocultar todas as subpastas existentes. Pode ver as pastas com a opção \'Mostrar pastas ocultas\'. Continuar?</string>
@@ -95,6 +98,7 @@
     <string name="screen_rotation_device_rotation">Rotação do dispositivo</string>
     <string name="screen_rotation_aspect_ratio">Proporção</string>
     <string name="dark_background_at_fullscreen">Usar sempre um fundo escuro se em ecrã completo</string>
+    <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

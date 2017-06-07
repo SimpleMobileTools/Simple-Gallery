@@ -94,8 +94,13 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
                 val wantedHeight = wallpaperManager.desiredMinimumHeight
                 val ratio = wantedHeight / bitmap.height.toFloat()
                 val wantedWidth = (bitmap.width * ratio).toInt()
-                wallpaperManager.setBitmap(Bitmap.createScaledBitmap(bitmap, wantedWidth, wantedHeight, true))
-                setResult(Activity.RESULT_OK)
+                try {
+                    wallpaperManager.setBitmap(Bitmap.createScaledBitmap(bitmap, wantedWidth, wantedHeight, true))
+                    setResult(Activity.RESULT_OK)
+                } catch (e: OutOfMemoryError) {
+                    toast(R.string.out_of_memory_error)
+                    setResult(Activity.RESULT_CANCELED)
+                }
                 finish()
             }).start()
         } else {

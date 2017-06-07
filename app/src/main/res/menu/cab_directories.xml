@@ -24,12 +24,12 @@
     <item
         android:id="@+id/cab_hide"
         android:icon="@drawable/ic_hide"
-        android:title="@string/hide"
+        android:title="@string/hide_folder"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_unhide"
         android:icon="@drawable/ic_unhide"
-        android:title="@string/unhide"
+        android:title="@string/unhide_folder"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_exclude"
@@ -48,6 +48,19 @@
         android:icon="@drawable/ic_select_all"
         android:title="@string/select_all"
         app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/cab_change_cover_image"
+        android:title="@string/change_cover_image"
+        app:showAsAction="never">
+        <menu>
+            <item
+                android:id="@+id/cab_select_photo"
+                android:title="@string/select_photo"/>
+            <item
+                android:id="@+id/cab_use_default"
+                android:title="@string/use_default"/>
+        </menu>
+    </item>
     <item
         android:id="@+id/cab_delete"
         android:icon="@drawable/ic_delete"

@@ -20,6 +20,9 @@
     <string name="increase_column_count">Augmenter le nombre de colonnes</string>
     <string name="reduce_column_count">Réduire le nombre de colonnes</string>
     <string name="temporarily_show_hidden">Afficher temporairement les fichiers masqués</string>
+    <string name="change_cover_image">Change cover image</string>
+    <string name="select_photo">Select photo</string>
+    <string name="use_default">Use default</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Cette option masque le dossier en ajoutant un fichier \'.nomedia\' à l\'intérieur, cela masquera aussi tous les sous-dossiers. Vous pouvez les voir en modifiant l\'option \'Afficher les dossiers cachés\' dans les Paramètres. Continuer ?</string>
@@ -95,6 +98,7 @@
     <string name="screen_rotation_device_rotation">Rotation de l\'appareil</string>
     <string name="screen_rotation_aspect_ratio">Ratio d\'aspect</string>
     <string name="dark_background_at_fullscreen">Dark background at fullscreen media</string>
+    <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

@@ -1,6 +1,25 @@
 Changelog
 ==========
 
+Version 2.10.10 *(2017-06-07)*
+----------------------------
+
+ * Some crashfixes
+
+Version 2.10.9 *(2017-06-06)*
+----------------------------
+
+ * Allow setting custom folder covers
+ * Properly handle manually included folders
+ * Improve the performance at opening fullscreen media
+
+Version 2.10.8 *(2017-06-02)*
+----------------------------
+
+ * Always properly show hidden files from third party intents
+ * Properly handle Crop intent used for example at selecting contact photos
+ * Couple smaller fixes and crashfixes
+
 Version 2.10.7 *(2017-05-29)*
 ----------------------------
 

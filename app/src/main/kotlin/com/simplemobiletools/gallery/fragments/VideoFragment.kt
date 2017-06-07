@@ -302,7 +302,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         if (mSurfaceHolder == null)
             mSurfaceHolder = mSurfaceView!!.holder
 
-        if (activity == null || !mSurfaceHolder!!.surface.isValid)
+        if (activity == null || mSurfaceHolder == null || !mSurfaceHolder!!.surface.isValid)
             return
 
         initMediaPlayer()

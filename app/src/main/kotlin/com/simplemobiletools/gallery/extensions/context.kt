@@ -57,8 +57,12 @@ fun Context.getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boo
     val selection = if (curPath.isEmpty()) null else "(${MediaStore.Images.Media.DATA} LIKE ? AND ${MediaStore.Images.Media.DATA} NOT LIKE ?)"
     val selectionArgs = if (curPath.isEmpty()) null else arrayOf("$curPath/%", "$curPath/%/%")
 
-    val cur = contentResolver.query(uri, projection, selection, selectionArgs, getSortingForFolder(curPath))
-    return parseCursor(this, cur, isPickImage, isPickVideo, curPath)
+    try {
+        val cur = contentResolver.query(uri, projection, selection, selectionArgs, getSortingForFolder(curPath))
+        return parseCursor(this, cur, isPickImage, isPickVideo, curPath)
+    } catch (e: Exception) {
+        return ArrayList()
+    }
 }
 
 private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isPickVideo: Boolean, curPath: String): ArrayList<Medium> {
@@ -66,23 +70,15 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
     val config = context.config
     val showMedia = config.showMedia
     val showHidden = config.shouldShowHidden
+    val excludedFolders = config.excludedFolders
+    val noMediaFolders = context.getNoMediaFolders()
 
     cur.use { cur ->
         if (cur.moveToFirst()) {
-            var filename: String
-            var path: String
-            var dateTaken: Long
-            var dateModified: Long
-            var size: Long
-            var isImage: Boolean
-            var isVideo: Boolean
-            val excludedFolders = config.excludedFolders
-            val noMediaFolders = context.getNoMediaFolders()
-
             do {
                 try {
-                    path = cur.getStringValue(MediaStore.Images.Media.DATA)
-                    size = cur.getLongValue(MediaStore.Images.Media.SIZE)
+                    val path = cur.getStringValue(MediaStore.Images.Media.DATA)
+                    var size = cur.getLongValue(MediaStore.Images.Media.SIZE)
                     if (size == 0L) {
                         size = File(path).length()
                     }
@@ -91,12 +87,12 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
                         continue
                     }
 
-                    filename = cur.getStringValue(MediaStore.Images.Media.DISPLAY_NAME) ?: ""
+                    var filename = cur.getStringValue(MediaStore.Images.Media.DISPLAY_NAME) ?: ""
                     if (filename.isEmpty())
                         filename = path.getFilenameFromPath()
 
-                    isImage = filename.isImageFast() || filename.isGif()
-                    isVideo = if (isImage) false else filename.isVideoFast()
+                    val isImage = filename.isImageFast() || filename.isGif()
+                    val isVideo = if (isImage) false else filename.isVideoFast()
 
                     if (!isImage && !isVideo)
                         continue
@@ -130,8 +126,8 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
                     }
 
                     if (!isExcluded) {
-                        dateTaken = cur.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
-                        dateModified = cur.getIntValue(MediaStore.Images.Media.DATE_MODIFIED) * 1000L
+                        val dateTaken = cur.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
+                        val dateModified = cur.getIntValue(MediaStore.Images.Media.DATE_MODIFIED) * 1000L
 
                         val medium = Medium(filename, path, isVideo, dateModified, dateTaken, size)
                         curMedia.add(medium)
@@ -140,6 +136,38 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
                     continue
                 }
             } while (cur.moveToNext())
+        }
+    }
+
+    if (curPath.isEmpty()) {
+        config.includedFolders.mapNotNull { File(it).listFiles() }.forEach {
+            for (file in it) {
+                val size = file.length()
+                if (size <= 0L) {
+                    continue
+                }
+
+                val filename = file.name
+                val isImage = filename.isImageFast() || filename.isGif()
+                val isVideo = if (isImage) false else filename.isVideoFast()
+
+                if (!isImage && !isVideo)
+                    continue
+
+                if (isVideo && (isPickImage || showMedia == IMAGES))
+                    continue
+
+                if (isImage && (isPickVideo || showMedia == VIDEOS))
+                    continue
+
+                val dateTaken = file.lastModified()
+                val dateModified = file.lastModified()
+
+                val medium = Medium(filename, file.absolutePath, isVideo, dateModified, dateTaken, size)
+                val isAlreadyAdded = curMedia.any { it.path == file.absolutePath }
+                if (!isAlreadyAdded)
+                    curMedia.add(medium)
+            }
         }
     }
 

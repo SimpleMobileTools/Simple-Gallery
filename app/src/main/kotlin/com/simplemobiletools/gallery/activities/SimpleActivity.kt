@@ -3,7 +3,7 @@ package com.simplemobiletools.gallery.activities
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.dialogs.PickAlbumDialog
+import com.simplemobiletools.gallery.dialogs.PickDirectoryDialog
 import java.io.File
 import java.util.*
 
@@ -15,7 +15,7 @@ open class SimpleActivity : BaseSimpleActivity() {
         }
 
         val source = if (files[0].isFile) files[0].parent else files[0].absolutePath
-        PickAlbumDialog(this, source) {
+        PickDirectoryDialog(this, source) {
             copyMoveFilesTo(files, source.trimEnd('/'), it, isCopyOperation, true, callback)
         }
     }

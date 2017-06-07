@@ -20,6 +20,9 @@
     <string name="increase_column_count">Добавить 1 столбец</string>
     <string name="reduce_column_count">Убрать 1 столбец</string>
     <string name="temporarily_show_hidden">Временный показ скрытых</string>
+    <string name="change_cover_image">Change cover image</string>
+    <string name="select_photo">Select photo</string>
+    <string name="use_default">Use default</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Эта опция скрывает папку, добавляя в неё файл \'.nomedia\'; будут скрыты все подпапки. Можно показывать их, переключая \'Показать скрытые папки\' в настройках. Продолжить?</string>
@@ -95,6 +98,7 @@
     <string name="screen_rotation_device_rotation">Поворот устройства</string>
     <string name="screen_rotation_aspect_ratio">Соотношение сторон</string>
     <string name="dark_background_at_fullscreen">Dark background at fullscreen media</string>
+    <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
