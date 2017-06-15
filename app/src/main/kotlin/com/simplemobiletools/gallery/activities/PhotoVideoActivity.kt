@@ -136,6 +136,9 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (mMedium == null)
+            return true
+
         when (item.itemId) {
             R.id.menu_set_as_wallpaper -> trySetAsWallpaper(File(mMedium!!.path))
             R.id.menu_open_with -> openWith(File(mMedium!!.path))
