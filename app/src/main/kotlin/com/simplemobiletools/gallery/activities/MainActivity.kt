@@ -27,10 +27,7 @@ import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.views.MyScalableRecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
-import java.io.File
-import java.io.FileInputStream
-import java.io.InputStream
-import java.io.OutputStream
+import java.io.*
 import java.util.*
 
 class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
@@ -302,6 +299,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                                 inputStream = FileInputStream(File(path))
                                 outputStream = contentResolver.openOutputStream(output)
                                 inputStream.copyTo(outputStream)
+                            } catch (ignored: FileNotFoundException) {
                             } finally {
                                 inputStream?.close()
                                 outputStream?.close()
