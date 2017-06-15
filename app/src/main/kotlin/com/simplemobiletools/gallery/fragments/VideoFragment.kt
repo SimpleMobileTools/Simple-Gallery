@@ -348,6 +348,9 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
     override fun onStartTrackingTouch(seekBar: SeekBar) {
         initMediaPlayer()
+        if (mMediaPlayer == null)
+            return
+
         mMediaPlayer!!.pause()
         mIsDragged = true
     }
