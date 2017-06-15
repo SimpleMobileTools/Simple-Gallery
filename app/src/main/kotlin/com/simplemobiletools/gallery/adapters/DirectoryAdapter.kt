@@ -294,9 +294,11 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
         var needPermissionForPath = ""
         selectedPositions.forEach {
-            val path = dirs[it].path
-            if (activity.needsStupidWritePermissions(path) && config.treeUri.isEmpty()) {
-                needPermissionForPath = path
+            if (dirs.size > it) {
+                val path = dirs[it].path
+                if (activity.needsStupidWritePermissions(path) && config.treeUri.isEmpty()) {
+                    needPermissionForPath = path
+                }
             }
         }
 
