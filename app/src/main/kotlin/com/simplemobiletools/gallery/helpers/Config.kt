@@ -1,6 +1,7 @@
 package com.simplemobiletools.gallery.helpers
 
 import android.content.Context
+import android.content.res.Configuration
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.helpers.BaseConfig
@@ -160,12 +161,22 @@ class Config(context: Context) : BaseConfig(context) {
         set(showMedia) = prefs.edit().putInt(SHOW_MEDIA, showMedia).apply()
 
     var dirColumnCnt: Int
-        get() = prefs.getInt(DIR_COLUMN_CNT, context.resources.getInteger(R.integer.directory_columns))
-        set(dirColumnCnt) = prefs.edit().putInt(DIR_COLUMN_CNT, dirColumnCnt).apply()
+        get() = prefs.getInt(getDirectoryColumnsField(), context.resources.getInteger(R.integer.directory_columns))
+        set(dirColumnCnt) = prefs.edit().putInt(getDirectoryColumnsField(), dirColumnCnt).apply()
+
+    private fun getDirectoryColumnsField(): String {
+        val isPortrait = context.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
+        return if (isPortrait) DIR_COLUMN_CNT else DIR_LANDSCAPE_COLUMN_CNT
+    }
 
     var mediaColumnCnt: Int
-        get() = prefs.getInt(MEDIA_COLUMN_CNT, context.resources.getInteger(R.integer.media_columns))
-        set(mediaColumnCnt) = prefs.edit().putInt(MEDIA_COLUMN_CNT, mediaColumnCnt).apply()
+        get() = prefs.getInt(getMediaColumnsField(), context.resources.getInteger(R.integer.media_columns))
+        set(mediaColumnCnt) = prefs.edit().putInt(getMediaColumnsField(), mediaColumnCnt).apply()
+
+    private fun getMediaColumnsField(): String {
+        val isPortrait = context.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
+        return if (isPortrait) MEDIA_COLUMN_CNT else MEDIA_LANDSCAPE_COLUMN_CNT
+    }
 
     var directories: String
         get() = prefs.getString(DIRECTORIES, "")
