@@ -304,7 +304,7 @@ fun Activity.loadAnimatedGif(path: String, target: MySquareImageView) {
             .load(path)
             .asGif()
             .signature(getFileSignature(path))
-            .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+            .diskCacheStrategy(DiskCacheStrategy.NONE)
             .crossFade()
 
     if (config.cropThumbnails) builder.centerCrop() else builder.fitCenter()
