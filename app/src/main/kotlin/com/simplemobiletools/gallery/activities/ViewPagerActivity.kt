@@ -228,6 +228,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 adapter = pagerAdapter
                 currentItem = mPos
                 addOnPageChangeListener(this@ViewPagerActivity)
+                adapter!!.notifyDataSetChanged()
             }
         }
     }
