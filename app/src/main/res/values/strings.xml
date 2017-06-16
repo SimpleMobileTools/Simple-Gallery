@@ -23,6 +23,7 @@
     <string name="change_cover_image">Change cover image</string>
     <string name="select_photo">Select photo</string>
     <string name="use_default">Use default</string>
+    <string name="set_as">Set as</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden folders\' option in Settings. Continue?</string>
@@ -73,7 +74,7 @@
     <string name="set_as_wallpaper">Set as Wallpaper</string>
     <string name="set_as_wallpaper_failed">Setting as Wallpaper failed</string>
     <string name="set_as_wallpaper_with">Set as wallpaper with:</string>
-    <string name="no_wallpaper_setter_found">No app capable of it has been found</string>
+    <string name="no_capable_app_found">No app capable of it has been found</string>
     <string name="setting_wallpaper">Setting wallpaper&#8230;</string>
     <string name="wallpaper_set_successfully">Wallpaper set successfully</string>
     <string name="portrait_aspect_ratio">Portrait aspect ratio</string>

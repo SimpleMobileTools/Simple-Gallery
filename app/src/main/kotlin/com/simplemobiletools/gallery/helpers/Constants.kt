@@ -39,7 +39,7 @@ val DIRECTORIES = "directories2"
 val IS_VIEW_INTENT = "is_view_intent"
 
 val REQUEST_EDIT_IMAGE = 1
-val REQUEST_SET_WALLPAPER = 2
+val REQUEST_SET_AS = 2
 
 // show media
 val IMAGES_AND_VIDEOS = 0

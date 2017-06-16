@@ -23,6 +23,7 @@
     <string name="change_cover_image">Change cover image</string>
     <string name="select_photo">Select photo</string>
     <string name="use_default">Use default</string>
+    <string name="set_as">Set as</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Bu işlev, klasöre\'.medya yok\'dosyası ekleyerek gizler; tüm alt klasörleri de gizler. Bunları Ayarlar\'da\'Gizli klasörleri göster\'seçeneğine basarak görebilirsiniz. Devam et?</string>
@@ -73,7 +74,7 @@
     <string name="set_as_wallpaper">Duvar kağıdı olarak ayarla</string>
     <string name="set_as_wallpaper_failed">Duvar Kağıdı Olarak Ayarlanılamıyor</string>
     <string name="set_as_wallpaper_with">İle duvar kağıdı olarak ayarla:</string>
-    <string name="no_wallpaper_setter_found">Mümkün olan herhangi bir uygulama bulunamadı</string>
+    <string name="no_capable_app_found">Mümkün olan herhangi bir uygulama bulunamadı</string>
     <string name="setting_wallpaper">Duvar kağıdını ayarlama&#8230;</string>
     <string name="wallpaper_set_successfully">Duvar kağıdı başarıyla ayarlandı</string>
     <string name="portrait_aspect_ratio">Portrait aspect ratio</string>

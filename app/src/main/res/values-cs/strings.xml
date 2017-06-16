@@ -23,6 +23,7 @@
     <string name="change_cover_image">Change cover image</string>
     <string name="select_photo">Select photo</string>
     <string name="use_default">Use default</string>
+    <string name="set_as">Nastavit jako</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Tato funkce skryje složku, včetně podsložek, přidáním souboru \'.nomedia\'. Zobrazíte je zvolením možnosti \'Zobrazit skryté složky\' v nastavení. Pokračovat?</string>
@@ -73,7 +74,7 @@
     <string name="set_as_wallpaper">Nastavit jako tapetu</string>
     <string name="set_as_wallpaper_failed">Nastavení tapety selhalo</string>
     <string name="set_as_wallpaper_with">Nastavit jako tapetu pomocí:</string>
-    <string name="no_wallpaper_setter_found">Nebyla nalezena žádná vhodná aplikace</string>
+    <string name="no_capable_app_found">Nebyla nalezena žádná vhodná aplikace</string>
     <string name="setting_wallpaper">Nastavuje se tapeta&#8230;</string>
     <string name="wallpaper_set_successfully">Tapeta byla úspěšně změněna</string>
     <string name="portrait_aspect_ratio">Portrait aspect ratio</string>

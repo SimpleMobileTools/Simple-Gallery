@@ -129,7 +129,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.photo_video_menu, menu)
 
-        menu.findItem(R.id.menu_set_as_wallpaper).isVisible = mMedium?.isImage() == true
+        menu.findItem(R.id.menu_set_as).isVisible = mMedium?.isImage() == true
         menu.findItem(R.id.menu_edit).isVisible = mMedium?.isImage() == true
 
         return true
@@ -140,7 +140,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             return true
 
         when (item.itemId) {
-            R.id.menu_set_as_wallpaper -> trySetAsWallpaper(File(mMedium!!.path))
+            R.id.menu_set_as -> trySetAs(File(mMedium!!.path))
             R.id.menu_open_with -> openWith(File(mMedium!!.path))
             R.id.menu_share -> shareUri(mMedium!!, mUri)
             R.id.menu_edit -> openEditor(File(mMedium!!.path))

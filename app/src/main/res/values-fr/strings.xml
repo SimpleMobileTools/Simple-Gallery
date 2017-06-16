@@ -23,6 +23,7 @@
     <string name="change_cover_image">Change cover image</string>
     <string name="select_photo">Select photo</string>
     <string name="use_default">Use default</string>
+    <string name="set_as">Set as</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Cette option masque le dossier en ajoutant un fichier \'.nomedia\' à l\'intérieur, cela masquera aussi tous les sous-dossiers. Vous pouvez les voir en modifiant l\'option \'Afficher les dossiers cachés\' dans les Paramètres. Continuer ?</string>
@@ -73,7 +74,7 @@
     <string name="set_as_wallpaper">Définir comme fond d\'écran</string>
     <string name="set_as_wallpaper_failed">Échec de la définition en tant que fond d\'écran.</string>
     <string name="set_as_wallpaper_with">Définir comme fond d\'écran avec :</string>
-    <string name="no_wallpaper_setter_found">Aucune application trouvée pour continuer cette action</string>
+    <string name="no_capable_app_found">Aucune application trouvée pour continuer cette action</string>
     <string name="setting_wallpaper">Paramètre de fond d\'écran…</string>
     <string name="wallpaper_set_successfully">Fond d\'écran défini avec succès.</string>
     <string name="portrait_aspect_ratio">Ratio aspect Portrait</string>

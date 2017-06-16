@@ -23,6 +23,7 @@
     <string name="change_cover_image">更改封面图片</string>
     <string name="select_photo">选择图片</string>
     <string name="use_default">使用默认</string>
+    <string name="set_as">Set as</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">通过添加文件 \'.nomedia\' 到文件夹，可以防止文件夹及其子文件夹下的所有媒体被扫描。您可以通过设置中的 \'显示隐藏文件夹\' 选项改变设置，是否继续？</string>
@@ -73,7 +74,7 @@
     <string name="set_as_wallpaper">设为壁纸</string>
     <string name="set_as_wallpaper_failed">壁纸设置失败</string>
     <string name="set_as_wallpaper_with">设为壁纸...</string>
-    <string name="no_wallpaper_setter_found">未找到可用应用</string>
+    <string name="no_capable_app_found">未找到可用应用</string>
     <string name="setting_wallpaper">正在设置壁纸&#8230;</string>
     <string name="wallpaper_set_successfully">壁纸设置成功</string>
     <string name="portrait_aspect_ratio">纵向长宽比</string>

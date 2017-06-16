@@ -23,6 +23,7 @@
     <string name="change_cover_image">Change cover image</string>
     <string name="select_photo">Select photo</string>
     <string name="use_default">Use default</string>
+    <string name="set_as">Set as</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Questa funzione nasconde la cartella aggiungendo un file \'.nomedia\' all\'interno, nasconderà anche tutte le sottocartelle. Puoi vederle attivando l\'opzione \'Mostra cartelle nascoste\' nelle impostazioni. Continuare?</string>
@@ -73,7 +74,7 @@
     <string name="set_as_wallpaper">Imposta come sfondo</string>
     <string name="set_as_wallpaper_failed">Impostazione sfondo non riuscita</string>
     <string name="set_as_wallpaper_with">Imposta come sfondo con:</string>
-    <string name="no_wallpaper_setter_found">Non sono disponibili app compatibili</string>
+    <string name="no_capable_app_found">Non sono disponibili app compatibili</string>
     <string name="setting_wallpaper">Impostazione sfondo&#8230;</string>
     <string name="wallpaper_set_successfully">Sfondo impostato correttamente</string>
     <string name="portrait_aspect_ratio">Proporzioni ritratto</string>

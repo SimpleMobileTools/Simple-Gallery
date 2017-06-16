@@ -25,7 +25,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.helpers.NOMEDIA
 import com.simplemobiletools.gallery.helpers.REQUEST_EDIT_IMAGE
-import com.simplemobiletools.gallery.helpers.REQUEST_SET_WALLPAPER
+import com.simplemobiletools.gallery.helpers.REQUEST_SET_AS
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
 import com.simplemobiletools.gallery.views.MySquareImageView
@@ -71,32 +71,32 @@ fun Activity.shareMedia(media: List<Medium>) {
     }
 }
 
-fun Activity.trySetAsWallpaper(file: File) {
+fun Activity.trySetAs(file: File) {
     try {
         var uri = Uri.fromFile(file)
-        if (!setAsWallpaper(uri, file)) {
+        if (!setAs(uri, file)) {
             uri = getFileContentUri(file)
-            setAsWallpaper(uri, file, false)
+            setAs(uri, file, false)
         }
     } catch (e: Exception) {
         toast(R.string.unknown_error_occurred)
     }
 }
 
-fun Activity.setAsWallpaper(uri: Uri, file: File, showToast: Boolean = true): Boolean {
+fun Activity.setAs(uri: Uri, file: File, showToast: Boolean = true): Boolean {
     var success = false
     Intent().apply {
         action = Intent.ACTION_ATTACH_DATA
         setDataAndType(uri, file.getMimeType("image/*"))
         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        val chooser = Intent.createChooser(this, getString(R.string.set_as_wallpaper_with))
+        val chooser = Intent.createChooser(this, getString(R.string.set_as))
 
         if (resolveActivity(packageManager) != null) {
-            startActivityForResult(chooser, REQUEST_SET_WALLPAPER)
+            startActivityForResult(chooser, REQUEST_SET_AS)
             success = true
         } else {
             if (showToast) {
-                toast(R.string.no_wallpaper_setter_found)
+                toast(R.string.no_capable_app_found)
             }
             success = false
         }

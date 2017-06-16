@@ -23,6 +23,7 @@
     <string name="change_cover_image">Change cover image</string>
     <string name="select_photo">Select photo</string>
     <string name="use_default">Use default</string>
+    <string name="set_as">Set as</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden folders\' option in Settings. Continue?</string>
@@ -73,7 +74,7 @@
     <string name="set_as_wallpaper">設定為桌布</string>
     <string name="set_as_wallpaper_failed">桌布設定失敗</string>
     <string name="set_as_wallpaper_with">用其他應用軟體設定桌布……</string>
-    <string name="no_wallpaper_setter_found">沒有可用的應用軟體</string>
+    <string name="no_capable_app_found">沒有可用的應用軟體</string>
     <string name="setting_wallpaper">正在應用軟體桌布&#8230;</string>
     <string name="wallpaper_set_successfully">成功應用軟體桌布</string>
     <string name="portrait_aspect_ratio">Portrait aspect ratio</string>

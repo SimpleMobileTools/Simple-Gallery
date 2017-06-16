@@ -23,6 +23,7 @@
     <string name="change_cover_image">Change cover image</string>
     <string name="select_photo">Select photo</string>
     <string name="use_default">Use default</string>
+    <string name="set_as">Set as</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Diese Funktion versteckt ausgewählte Ordner (auch für andere Apps), indem dort im Dateisystem eine \'.nomedia\'-Datei abgelegt wird. Dadurch werden auch deren Unterordner versteckt. Solche Ordner werden nur gezeigt, wenn die Einstellung \'Versteckte Ordner zeigen\' aktiv ist (auch andere Apps bieten üblicherweise eine solche Option). Fortfahren?</string>
@@ -73,7 +74,7 @@
     <string name="set_as_wallpaper">Als Hintergrund festlegen</string>
     <string name="set_as_wallpaper_failed">Hintergrundbild festlegen fehlgeschlagen</string>
     <string name="set_as_wallpaper_with">Als Hintergrund festlegen mit:</string>
-    <string name="no_wallpaper_setter_found">Keine Hintergrundbild-App gefunden</string>
+    <string name="no_capable_app_found">Keine Hintergrundbild-App gefunden</string>
     <string name="setting_wallpaper">Hintergrund festlegen&#8230;</string>
     <string name="wallpaper_set_successfully">Hintergrundbild erfolgreich festgelegt</string>
     <string name="portrait_aspect_ratio">Hochformat</string>
