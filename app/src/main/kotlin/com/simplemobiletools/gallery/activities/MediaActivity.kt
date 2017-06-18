@@ -77,11 +77,11 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     override fun onResume() {
         super.onResume()
         if (mShowAll && mStoredAnimateGifs != config.animateGifs) {
-            mMedia.clear()
+            media_grid.adapter.notifyDataSetChanged()
         }
 
         if (mStoredCropThumbnails != config.cropThumbnails) {
-            mMedia.clear()
+            media_grid.adapter.notifyDataSetChanged()
         }
         tryloadGallery()
         invalidateOptionsMenu()

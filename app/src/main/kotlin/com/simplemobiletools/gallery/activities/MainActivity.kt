@@ -107,11 +107,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     override fun onResume() {
         super.onResume()
         if (mStoredAnimateGifs != config.animateGifs) {
-            mDirs.clear()
+            directories_grid.adapter.notifyDataSetChanged()
         }
 
         if (mStoredCropThumbnails != config.cropThumbnails) {
-            mDirs.clear()
+            directories_grid.adapter.notifyDataSetChanged()
         }
         tryloadGallery()
         invalidateOptionsMenu()
