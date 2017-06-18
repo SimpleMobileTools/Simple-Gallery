@@ -26,6 +26,7 @@ val HIDE_FOLDER_TOOLTIP_SHOWN = "hide_folder_tooltip_shown"
 val EXCLUDED_FOLDERS = "excluded_folders"
 val INCLUDED_FOLDERS = "included_folders"
 val ALBUM_COVERS = "album_covers"
+val SCROLL_HORIZONTALLY = "scroll_horizontally"
 
 val NOMEDIA = ".nomedia"
 

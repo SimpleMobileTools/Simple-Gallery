@@ -220,6 +220,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun handleZooming() {
         val layoutManager = directories_grid.layoutManager as GridLayoutManager
+        layoutManager.orientation = if (config.scrollHorizontally) GridLayoutManager.HORIZONTAL else GridLayoutManager.VERTICAL
         layoutManager.spanCount = config.dirColumnCnt
         MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.MyScalableRecyclerViewListener {
             override fun zoomIn() {

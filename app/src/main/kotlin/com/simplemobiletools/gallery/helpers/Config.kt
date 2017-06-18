@@ -190,4 +190,8 @@ class Config(context: Context) : BaseConfig(context) {
         val listType = object : TypeToken<List<AlbumCover>>() {}.type
         return Gson().fromJson<ArrayList<AlbumCover>>(albumCovers, listType) ?: ArrayList(1)
     }
+
+    var scrollHorizontally: Boolean
+        get() = prefs.getBoolean(SCROLL_HORIZONTALLY, false)
+        set(scrollHorizontally) = prefs.edit().putBoolean(SCROLL_HORIZONTALLY, scrollHorizontally).apply()
 }

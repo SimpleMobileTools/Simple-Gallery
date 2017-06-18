@@ -296,6 +296,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun handleZooming() {
         val layoutManager = media_grid.layoutManager as GridLayoutManager
+        layoutManager.orientation = if (config.scrollHorizontally) GridLayoutManager.HORIZONTAL else GridLayoutManager.VERTICAL
         layoutManager.spanCount = config.mediaColumnCnt
         MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.MyScalableRecyclerViewListener {
             override fun zoomIn() {
