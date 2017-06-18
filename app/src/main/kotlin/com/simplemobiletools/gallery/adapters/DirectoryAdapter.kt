@@ -41,6 +41,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     val selectedPositions = HashSet<Int>()
     var foregroundColor = 0
     var pinnedFolders = config.pinnedFolders
+    var scrollVertically = !config.scrollHorizontally
 
     fun toggleItemSelection(select: Boolean, pos: Int) {
         if (itemViews[pos] != null)
@@ -366,7 +367,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val dir = dirs[position]
-        itemViews.put(position, holder.bindView(dir, pinnedFolders.contains(dir.path)))
+        itemViews.put(position, holder.bindView(dir, pinnedFolders.contains(dir.path), scrollVertically))
         toggleItemSelection(selectedPositions.contains(position), position)
         holder.itemView.tag = holder
     }
@@ -425,12 +426,12 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     class ViewHolder(val view: View, val adapter: MyAdapterListener, val activity: SimpleActivity, val multiSelectorCallback: ModalMultiSelectorCallback,
                      val multiSelector: MultiSelector, val listener: DirOperationsListener?, val itemClick: (Directory) -> (Unit)) :
             SwappingHolder(view, MultiSelector()) {
-        fun bindView(directory: Directory, isPinned: Boolean): View {
+        fun bindView(directory: Directory, isPinned: Boolean, scrollVertically: Boolean): View {
             itemView.apply {
                 dir_name.text = directory.name
                 photo_cnt.text = directory.mediaCnt.toString()
                 dir_pin.visibility = if (isPinned) View.VISIBLE else View.GONE
-                activity.loadImage(directory.tmb, dir_thumbnail, true)
+                activity.loadImage(directory.tmb, dir_thumbnail, scrollVertically)
 
                 setOnClickListener { viewClicked(directory) }
                 setOnLongClickListener { viewLongClicked(); true }

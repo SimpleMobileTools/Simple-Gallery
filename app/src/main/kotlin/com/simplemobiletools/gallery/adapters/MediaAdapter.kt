@@ -34,6 +34,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     val selectedPositions = HashSet<Int>()
     var foregroundColor = 0
     var displayFilenames = config.displayFileNames
+    var scrollVertically = !config.scrollHorizontally
 
     fun toggleItemSelection(select: Boolean, pos: Int) {
         if (itemViews[pos] != null)
@@ -274,7 +275,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        itemViews.put(position, holder.bindView(media[position], displayFilenames))
+        itemViews.put(position, holder.bindView(media[position], displayFilenames, scrollVertically))
         toggleItemSelection(selectedPositions.contains(position), position)
         holder.itemView.tag = holder
     }
@@ -337,12 +338,12 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
     class ViewHolder(val view: View, val adapter: MyAdapterListener, val activity: SimpleActivity, val multiSelectorCallback: ModalMultiSelectorCallback,
                      val multiSelector: MultiSelector, val listener: MediaOperationsListener?, val itemClick: (Medium) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
-        fun bindView(medium: Medium, displayFilenames: Boolean): View {
+        fun bindView(medium: Medium, displayFilenames: Boolean, scrollVertically: Boolean): View {
             itemView.apply {
                 play_outline.visibility = if (medium.video) View.VISIBLE else View.GONE
                 photo_name.beVisibleIf(displayFilenames)
                 photo_name.text = medium.name
-                activity.loadImage(medium.path, medium_thumbnail, true)
+                activity.loadImage(medium.path, medium_thumbnail, scrollVertically)
 
                 setOnClickListener { viewClicked(medium) }
                 setOnLongClickListener { viewLongClicked(); true }
