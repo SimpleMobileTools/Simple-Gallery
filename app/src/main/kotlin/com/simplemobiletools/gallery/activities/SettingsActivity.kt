@@ -33,6 +33,7 @@ class SettingsActivity : SimpleActivity() {
         setupMaxBrightness()
         setupCropThumbnails()
         setupDarkBackground()
+        setupScrollHorizontally()
         setupScreenRotation()
         setupShowMedia()
         updateTextColors(settings_holder)
@@ -109,6 +110,14 @@ class SettingsActivity : SimpleActivity() {
         settings_dark_background_holder.setOnClickListener {
             settings_dark_background.toggle()
             config.darkBackground = settings_dark_background.isChecked
+        }
+    }
+
+    private fun setupScrollHorizontally() {
+        settings_scroll_horizontally.isChecked = config.scrollHorizontally
+        settings_scroll_horizontally_holder.setOnClickListener {
+            settings_scroll_horizontally.toggle()
+            config.scrollHorizontally = settings_scroll_horizontally.isChecked
         }
     }
 
