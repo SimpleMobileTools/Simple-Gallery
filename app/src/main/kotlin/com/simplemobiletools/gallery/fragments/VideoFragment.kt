@@ -95,6 +95,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         super.setMenuVisibility(menuVisible)
         mIsFragmentVisible = menuVisible
         if (menuVisible) {
+            initMediaPlayer()
             if (context?.config?.autoplayVideos == true) {
                 playVideo()
             }
