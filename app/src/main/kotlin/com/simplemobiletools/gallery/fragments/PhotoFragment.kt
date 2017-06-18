@@ -230,8 +230,6 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun getDoubleTapZoomScale(): Float {
-        val displayAspectRatio = ViewPagerActivity.screenHeight / (ViewPagerActivity.screenWidth).toFloat()
-
         val bitmapOptions = BitmapFactory.Options()
         bitmapOptions.inJustDecodeBounds = true
         BitmapFactory.decodeFile(medium.path, bitmapOptions)
