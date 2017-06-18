@@ -87,11 +87,11 @@
     <string name="show_media">Show media</string>
     <string name="images">Images only</string>
     <string name="videos">Videos only</string>
-    <string name="gifs">Gifs only</string>
-    <string name="images_videos_gifs">Images, videos, gifs</string>
+    <string name="gifs">GIFs only</string>
+    <string name="images_videos_gifs">Images, videos, GIFs</string>
     <string name="images_and_videos">Images and videos</string>
     <string name="loop_videos">Loop videos</string>
-    <string name="animate_gifs">Animate gifs at thumbnails</string>
+    <string name="animate_gifs">Animate GIFs at thumbnails</string>
     <string name="max_brightness">Max brightness when viewing media</string>
     <string name="crop_thumbnails">Crop thumbnails into squares</string>
     <string name="screen_rotation_by">Rotate fullscreen media by</string>

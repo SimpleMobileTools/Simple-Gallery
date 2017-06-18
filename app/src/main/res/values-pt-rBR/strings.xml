@@ -88,10 +88,10 @@
     <string name="images">Apenas imagens</string>
     <string name="videos">Apenas vídeos</string>
     <string name="gifs">Apenas GIFS</string>
-    <string name="images_videos_gifs">Imagens, vídeos, gifs</string>
+    <string name="images_videos_gifs">Imagens, vídeos, GIFs</string>
     <string name="images_and_videos">Imagens e vídeos</string>
     <string name="loop_videos">Reproduzir vídeos em ciclo</string>
-    <string name="animate_gifs">Animação de gifs nas miniaturas</string>
+    <string name="animate_gifs">Animação de GIFs nas miniaturas</string>
     <string name="max_brightness">Brilho máximo ao visualizar mídia</string>
     <string name="crop_thumbnails">Recortar miniaturas em quadrados</string>
     <string name="screen_rotation_by">Critério para rotação de tela</string>

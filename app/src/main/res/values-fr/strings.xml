@@ -87,11 +87,11 @@
     <string name="show_media">Afficher les médias</string>
     <string name="images">Seulement les images</string>
     <string name="videos">Vidéos uniquement</string>
-    <string name="gifs">Gifs only</string>
-    <string name="images_videos_gifs">Images, videos, gifs</string>
+    <string name="gifs">GIFs only</string>
+    <string name="images_videos_gifs">Images, videos, GIFs</string>
     <string name="images_and_videos">Images et vidéos</string>
     <string name="loop_videos">Tourner en boucle les vidéos</string>
-    <string name="animate_gifs">Gifs animés sur les miniatures</string>
+    <string name="animate_gifs">GIFs animés sur les miniatures</string>
     <string name="max_brightness">Luminosité maximale lors de l\'affichage de media</string>
     <string name="crop_thumbnails">Rogner les miniatures en carrés</string>
     <string name="screen_rotation_by">Pivoter les medias plen écran selon</string>
