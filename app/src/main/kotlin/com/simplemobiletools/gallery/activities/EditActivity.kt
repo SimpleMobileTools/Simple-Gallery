@@ -34,6 +34,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     var resizeWidth = 0
     var resizeHeight = 0
     var isCropIntent = false
+    var isEditingWithThirdParty = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,6 +62,17 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             if (isCropIntent && shouldCropSquare())
                 setFixedAspectRatio(true)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        isEditingWithThirdParty = false
+    }
+
+    override fun onStop() {
+        super.onStop()
+        if (isEditingWithThirdParty)
+            finish()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -193,7 +205,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     private fun editWith() {
         openEditor(uri, true)
-        finish()
+        isEditingWithThirdParty = true
     }
 
     private fun scanFinalPath(path: String) {
