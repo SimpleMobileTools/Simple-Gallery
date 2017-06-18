@@ -12,6 +12,8 @@ import android.support.v7.widget.GridLayoutManager
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.ViewGroup
+import android.widget.FrameLayout
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.animation.GlideAnimation
 import com.bumptech.glide.request.target.SimpleTarget
@@ -107,7 +109,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             val dirName = getHumanizedFilename(mPath)
             title = if (mShowAll) resources.getString(R.string.all_folders) else dirName
             getMedia()
-            handleZooming()
+            setupLayoutManager()
             checkIfColorChanged()
         } else {
             finish()
@@ -294,9 +296,16 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun getRecyclerAdapter() = (media_grid.adapter as MediaAdapter)
 
-    private fun handleZooming() {
+    private fun setupLayoutManager() {
         val layoutManager = media_grid.layoutManager as GridLayoutManager
-        layoutManager.orientation = if (config.scrollHorizontally) GridLayoutManager.HORIZONTAL else GridLayoutManager.VERTICAL
+        if (config.scrollHorizontally) {
+            layoutManager.orientation = GridLayoutManager.HORIZONTAL
+            media_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        } else {
+            layoutManager.orientation = GridLayoutManager.VERTICAL
+            media_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        }
+
         layoutManager.spanCount = config.mediaColumnCnt
         MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.MyScalableRecyclerViewListener {
             override fun zoomIn() {

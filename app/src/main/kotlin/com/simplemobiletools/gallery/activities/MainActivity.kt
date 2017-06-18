@@ -14,6 +14,8 @@ import android.support.v4.app.ActivityCompat
 import android.support.v7.widget.GridLayoutManager
 import android.view.Menu
 import android.view.MenuItem
+import android.view.ViewGroup
+import android.widget.FrameLayout
 import com.google.gson.Gson
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.models.Release
@@ -138,7 +140,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 showAllMedia()
             else
                 getDirectories()
-            handleZooming()
+            setupLayoutManager()
             checkIfColorChanged()
         } else {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), STORAGE_PERMISSION)
@@ -218,9 +220,16 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun getRecyclerAdapter() = (directories_grid.adapter as DirectoryAdapter)
 
-    private fun handleZooming() {
+    private fun setupLayoutManager() {
         val layoutManager = directories_grid.layoutManager as GridLayoutManager
-        layoutManager.orientation = if (config.scrollHorizontally) GridLayoutManager.HORIZONTAL else GridLayoutManager.VERTICAL
+        if (config.scrollHorizontally) {
+            layoutManager.orientation = GridLayoutManager.HORIZONTAL
+            directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        } else {
+            layoutManager.orientation = GridLayoutManager.VERTICAL
+            directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        }
+
         layoutManager.spanCount = config.dirColumnCnt
         MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.MyScalableRecyclerViewListener {
             override fun zoomIn() {
