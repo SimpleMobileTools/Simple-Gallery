@@ -50,6 +50,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mIsGettingDirs = false
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
+    private var mStoredScrollHorizontally = true
     private var mLoadedInitialPhotos = false
     private var mLastMediaModified = 0
     private var mLastMediaHandler = Handler()
@@ -73,6 +74,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mDirs = ArrayList<Directory>()
         mStoredAnimateGifs = config.animateGifs
         mStoredCropThumbnails = config.cropThumbnails
+        mStoredScrollHorizontally = config.scrollHorizontally
         storeStoragePaths()
         checkWhatsNewDialog()
     }
@@ -113,6 +115,12 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         if (mStoredCropThumbnails != config.cropThumbnails) {
             directories_grid.adapter.notifyDataSetChanged()
         }
+
+        if (mStoredScrollHorizontally != config.scrollHorizontally) {
+            (directories_grid.adapter as DirectoryAdapter).scrollVertically = !config.scrollHorizontally
+            directories_grid.adapter.notifyDataSetChanged()
+        }
+
         tryloadGallery()
         invalidateOptionsMenu()
     }
@@ -125,6 +133,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mIsGettingDirs = false
         mStoredAnimateGifs = config.animateGifs
         mStoredCropThumbnails = config.cropThumbnails
+        mStoredScrollHorizontally = config.scrollHorizontally
         MyScalableRecyclerView.mListener = null
         mLastMediaHandler.removeCallbacksAndMessages(null)
     }

@@ -48,6 +48,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mLoadedInitialPhotos = false
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
+    private var mStoredScrollHorizontally = true
     private var mLastDrawnHashCode = 0
     private var mLastMediaModified = 0
     private var mLastMediaHandler = Handler()
@@ -69,6 +70,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         mPath = intent.getStringExtra(DIRECTORY)
         mStoredAnimateGifs = config.animateGifs
         mStoredCropThumbnails = config.cropThumbnails
+        mStoredScrollHorizontally = config.scrollHorizontally
         mShowAll = config.showAll
         if (mShowAll)
             supportActionBar?.setDisplayHomeAsUpEnabled(false)
@@ -83,6 +85,12 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         if (mStoredCropThumbnails != config.cropThumbnails) {
             media_grid.adapter.notifyDataSetChanged()
         }
+
+        if (mStoredScrollHorizontally != config.scrollHorizontally) {
+            (media_grid.adapter as MediaAdapter).scrollVertically = !config.scrollHorizontally
+            media_grid.adapter.notifyDataSetChanged()
+        }
+
         tryloadGallery()
         invalidateOptionsMenu()
     }
@@ -93,6 +101,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         media_refresh_layout.isRefreshing = false
         mStoredAnimateGifs = config.animateGifs
         mStoredCropThumbnails = config.cropThumbnails
+        mStoredScrollHorizontally = config.scrollHorizontally
         MyScalableRecyclerView.mListener = null
         mLastMediaHandler.removeCallbacksAndMessages(null)
     }
