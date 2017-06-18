@@ -259,11 +259,13 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun increaseColumnCount() {
         config.dirColumnCnt = ++(directories_grid.layoutManager as GridLayoutManager).spanCount
         invalidateOptionsMenu()
+        directories_grid.adapter.notifyDataSetChanged()
     }
 
     private fun reduceColumnCount() {
         config.dirColumnCnt = --(directories_grid.layoutManager as GridLayoutManager).spanCount
         invalidateOptionsMenu()
+        directories_grid.adapter.notifyDataSetChanged()
     }
 
     private fun isPickImageIntent(intent: Intent) = isPickIntent(intent) && (hasImageContentData(intent) || isImageType(intent))
