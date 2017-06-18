@@ -23,7 +23,6 @@ import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.view_crop_image.*
 import java.io.*
 
-
 class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener {
     val TAG = EditActivity::class.java.simpleName
     val ASPECT_X = "aspectX"
