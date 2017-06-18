@@ -270,11 +270,11 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent?.context).inflate(R.layout.photo_video_item, parent, false)
-        return ViewHolder(view, adapterListener, itemClick)
+        return ViewHolder(view, adapterListener, activity, multiSelectorMode, multiSelector, listener, itemClick)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        itemViews.put(position, holder.bindView(activity, multiSelectorMode, multiSelector, media[position], listener, displayFilenames))
+        itemViews.put(position, holder.bindView(media[position], displayFilenames))
         toggleItemSelection(selectedPositions.contains(position), position)
         holder.itemView.tag = holder
     }
@@ -335,39 +335,40 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         }
     }
 
-    class ViewHolder(val view: View, val adapter: MyAdapterListener, val itemClick: (Medium) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
-        fun bindView(activity: SimpleActivity, multiSelectorCallback: ModalMultiSelectorCallback, multiSelector: MultiSelector, medium: Medium,
-                     listener: MediaOperationsListener?, displayFilenames: Boolean): View {
+    class ViewHolder(val view: View, val adapter: MyAdapterListener, val activity: SimpleActivity, val multiSelectorCallback: ModalMultiSelectorCallback,
+                     val multiSelector: MultiSelector, val listener: MediaOperationsListener?, val itemClick: (Medium) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
+        fun bindView(medium: Medium, displayFilenames: Boolean): View {
             itemView.apply {
                 play_outline.visibility = if (medium.video) View.VISIBLE else View.GONE
                 photo_name.beVisibleIf(displayFilenames)
                 photo_name.text = medium.name
-                activity.loadImage(medium.path, medium_thumbnail)
+                activity.loadImage(medium.path, medium_thumbnail, true)
 
-                setOnClickListener { viewClicked(multiSelector, medium) }
-                setOnLongClickListener {
-                    if (listener != null) {
-                        if (!multiSelector.isSelectable) {
-                            activity.startSupportActionMode(multiSelectorCallback)
-                            adapter.toggleItemSelectionAdapter(true, layoutPosition)
-                        }
-
-                        listener.itemLongClicked(layoutPosition)
-                    }
-                    true
-                }
+                setOnClickListener { viewClicked(medium) }
+                setOnLongClickListener { viewLongClicked(); true }
 
                 adapter.setupItemForeground(this)
             }
             return itemView
         }
 
-        fun viewClicked(multiSelector: MultiSelector, medium: Medium) {
+        fun viewClicked(medium: Medium) {
             if (multiSelector.isSelectable) {
                 val isSelected = adapter.getSelectedPositions().contains(layoutPosition)
                 adapter.toggleItemSelectionAdapter(!isSelected, layoutPosition)
             } else {
                 itemClick(medium)
+            }
+        }
+
+        fun viewLongClicked() {
+            if (listener != null) {
+                if (!multiSelector.isSelectable) {
+                    activity.startSupportActionMode(multiSelectorCallback)
+                    adapter.toggleItemSelectionAdapter(true, layoutPosition)
+                }
+
+                listener.itemLongClicked(layoutPosition)
             }
         }
 

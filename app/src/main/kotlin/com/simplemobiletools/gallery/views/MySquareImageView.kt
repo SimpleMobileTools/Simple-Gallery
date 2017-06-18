@@ -1,12 +1,11 @@
 package com.simplemobiletools.gallery.views
 
 import android.content.Context
-import android.support.v7.widget.OrientationHelper
 import android.util.AttributeSet
 import android.widget.ImageView
 
 class MySquareImageView : ImageView {
-    var orientation = OrientationHelper.VERTICAL
+    var isVerticalScrolling = true
 
     constructor(context: Context) : super(context)
 
@@ -16,7 +15,7 @@ class MySquareImageView : ImageView {
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        val spec = if (orientation == OrientationHelper.VERTICAL) measuredWidth else measuredHeight
+        val spec = if (isVerticalScrolling) measuredWidth else measuredHeight
         setMeasuredDimension(spec, spec)
     }
 }

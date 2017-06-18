@@ -264,7 +264,8 @@ fun SimpleActivity.toggleFileVisibility(oldFile: File, hide: Boolean, callback: 
 
 fun Activity.getFileSignature(path: String) = StringSignature(File(path).lastModified().toString())
 
-fun Activity.loadImage(path: String, target: MySquareImageView) {
+fun Activity.loadImage(path: String, target: MySquareImageView, verticalScroll: Boolean) {
+    target.isVerticalScrolling = verticalScroll
     if (path.isImageFast() || path.isVideoFast()) {
         if (path.isPng()) {
             loadPng(path, target)
