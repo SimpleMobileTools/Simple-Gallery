@@ -68,6 +68,7 @@
     <string name="flip_horizontally">Yatay</string>
     <string name="flip_vertically">Dikey</string>
     <string name="out_of_memory_error">Yetersiz bellek hatası</string>
+    <string name="edit_with">Edit with</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Basit Duvar Kağıdı</string>

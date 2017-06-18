@@ -172,7 +172,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     }
 
     private fun editFile() {
-        activity.openEditor(getCurrentFile())
+        activity.openFileEditor(getCurrentFile())
         actMode?.finish()
     }
 

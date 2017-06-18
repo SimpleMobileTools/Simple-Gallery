@@ -208,7 +208,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_share -> shareMedium(getCurrentMedium()!!)
             R.id.menu_delete -> askConfirmDelete()
             R.id.menu_rename -> renameFile()
-            R.id.menu_edit -> openEditor(getCurrentFile())
+            R.id.menu_edit -> openFileEditor(getCurrentFile())
             R.id.menu_properties -> showProperties()
             R.id.menu_save_as -> saveImageAs()
             R.id.show_on_map -> showOnMap()

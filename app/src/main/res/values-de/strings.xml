@@ -68,6 +68,7 @@
     <string name="flip_horizontally">Horizontal spiegeln</string>
     <string name="flip_vertically">Vertikal spiegeln</string>
     <string name="out_of_memory_error">Fehler: Zuwenig Speicher</string>
+    <string name="edit_with">Edit with</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Schlichter Hintergrund</string>

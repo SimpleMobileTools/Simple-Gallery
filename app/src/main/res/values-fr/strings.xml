@@ -68,6 +68,7 @@
     <string name="flip_horizontally">Retourner horizontalement</string>
     <string name="flip_vertically">Retourner verticallement</string>
     <string name="out_of_memory_error">Erreur excès de mémoire</string>
+    <string name="edit_with">Edit with</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple fond d\'écran</string>

@@ -18,6 +18,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.ResizeDialog
 import com.simplemobiletools.gallery.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.extensions.getRealPathFromURI
+import com.simplemobiletools.gallery.extensions.openEditor
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.view_crop_image.*
 import java.io.*
@@ -75,6 +76,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             R.id.resize -> resizeImage()
             R.id.flip_horizontally -> flipImage(true)
             R.id.flip_vertically -> flipImage(false)
+            R.id.edit -> editWith()
             else -> return super.onOptionsItemSelected(item)
         }
         return true
@@ -187,6 +189,11 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             crop_image_view.flipImageHorizontally()
         else
             crop_image_view.flipImageVertically()
+    }
+
+    private fun editWith() {
+        openEditor(uri, true)
+        finish()
     }
 
     private fun scanFinalPath(path: String) {

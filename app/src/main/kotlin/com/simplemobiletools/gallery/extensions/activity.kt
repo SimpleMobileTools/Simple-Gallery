@@ -130,9 +130,9 @@ fun Activity.openWith(file: File, forceChooser: Boolean = true) {
         action = Intent.ACTION_VIEW
         setDataAndType(uri, file.getMimeType())
         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        val chooser = Intent.createChooser(this, getString(R.string.open_with))
 
         if (resolveActivity(packageManager) != null) {
+            val chooser = Intent.createChooser(this, getString(R.string.open_with))
             startActivity(if (forceChooser) chooser else this)
         } else {
             toast(R.string.no_app_found)
@@ -140,15 +140,19 @@ fun Activity.openWith(file: File, forceChooser: Boolean = true) {
     }
 }
 
-fun Activity.openEditor(file: File) {
-    val uri = Uri.fromFile(file)
+fun Activity.openFileEditor(file: File) {
+    openEditor(Uri.fromFile(file))
+}
+
+fun Activity.openEditor(uri: Uri, forceChooser: Boolean = false) {
     Intent().apply {
         action = Intent.ACTION_EDIT
         setDataAndType(uri, "image/*")
         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
 
         if (resolveActivity(packageManager) != null) {
-            startActivityForResult(this, REQUEST_EDIT_IMAGE)
+            val chooser = Intent.createChooser(this, getString(R.string.edit_image_with))
+            startActivityForResult(if (forceChooser) chooser else this, REQUEST_EDIT_IMAGE)
         } else {
             toast(R.string.no_editor_found)
         }

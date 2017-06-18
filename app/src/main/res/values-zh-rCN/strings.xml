@@ -68,6 +68,7 @@
     <string name="flip_horizontally">水平翻转</string>
     <string name="flip_vertically">垂直翻转</string>
     <string name="out_of_memory_error">内存不足</string>
+    <string name="edit_with">Edit with</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
