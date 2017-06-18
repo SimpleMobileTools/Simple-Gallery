@@ -21,9 +21,9 @@
     <string name="reduce_column_count">Kacheln vergrößern</string>
     <string name="temporarily_show_hidden">Verstecktes temporär zeigen</string>
     <string name="change_cover_image">Change cover image</string>
-    <string name="select_photo">Select photo</string>
-    <string name="use_default">Use default</string>
-    <string name="set_as">Set as</string>
+    <string name="select_photo">Bild auswählen</string>
+    <string name="use_default">Standard verwenden</string>
+    <string name="set_as">Festlegen als</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Diese Funktion versteckt ausgewählte Ordner (auch für andere Apps), indem dort im Dateisystem eine \'.nomedia\'-Datei abgelegt wird. Dadurch werden auch deren Unterordner versteckt. Solche Ordner werden nur gezeigt, wenn die Einstellung \'Versteckte Ordner zeigen\' aktiv ist (auch andere Apps bieten üblicherweise eine solche Option). Fortfahren?</string>
@@ -40,7 +40,7 @@
     <string name="include_folders">Einbezogene Ordner</string>
     <string name="manage_included_folders">Einbezogene Ordner verwalten</string>
     <string name="add_folder">Ordner hinzufügen</string>
-    <string name="included_activity_placeholder">Sollten Sie weitere Medien-Ordner haben, die von der App nicht erkannt wurden, können Sie diese hier manuell hinzufügen.</string>
+    <string name="included_activity_placeholder">Sollten Sie weitere Medienordner haben, die von der App nicht erkannt wurden, können Sie diese hier manuell hinzufügen.</string>
 
     <!-- Resizing -->
     <string name="resize">Größe ändern</string>
@@ -63,7 +63,7 @@
     <string name="error_saving_file">Konnte Quelldatei nicht überschreiben</string>
     <string name="rotate_left">Nach links drehen</string>
     <string name="rotate_right">Nach rechts drehen</string>
-    <string name="rotate_one_eighty">Um 180º drehen</string>
+    <string name="rotate_one_eighty">Um 180° drehen</string>
     <string name="flip">Spiegeln</string>
     <string name="flip_horizontally">Horizontal spiegeln</string>
     <string name="flip_vertically">Vertikal spiegeln</string>
@@ -87,8 +87,8 @@
     <string name="show_media">Medien auswählen</string>
     <string name="images">Nur Bilder</string>
     <string name="videos">Nur Videos</string>
-    <string name="gifs">GIFs only</string>
-    <string name="images_videos_gifs">Images, videos, GIFs</string>
+    <string name="gifs">Nur GIFs</string>
+    <string name="images_videos_gifs">Bilder, Videos und GIFs</string>
     <string name="images_and_videos">Bilder und Videos</string>
     <string name="loop_videos">Videos in Endlosschleife spielen</string>
     <string name="animate_gifs">Kacheln bei GIFs animieren</string>
@@ -99,7 +99,7 @@
     <string name="screen_rotation_device_rotation">Gerätedrehung</string>
     <string name="screen_rotation_aspect_ratio">Seitenverhältnis</string>
     <string name="dark_background_at_fullscreen">Schwarzer Hintergrund im Vollbild</string>
-    <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
+    <string name="scroll_thumbnails_horizontally">Kacheln horizontal scrollen</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
