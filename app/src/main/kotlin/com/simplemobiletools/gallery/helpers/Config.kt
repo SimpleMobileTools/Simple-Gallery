@@ -161,7 +161,7 @@ class Config(context: Context) : BaseConfig(context) {
         set(showMedia) = prefs.edit().putInt(SHOW_MEDIA, showMedia).apply()
 
     var dirColumnCnt: Int
-        get() = prefs.getInt(getDirectoryColumnsField(), context.resources.getInteger(R.integer.directory_columns))
+        get() = prefs.getInt(getDirectoryColumnsField(), context.resources.getInteger(R.integer.directory_columns_vertical_scroll))
         set(dirColumnCnt) = prefs.edit().putInt(getDirectoryColumnsField(), dirColumnCnt).apply()
 
     private fun getDirectoryColumnsField(): String {
@@ -170,7 +170,7 @@ class Config(context: Context) : BaseConfig(context) {
     }
 
     var mediaColumnCnt: Int
-        get() = prefs.getInt(getMediaColumnsField(), context.resources.getInteger(R.integer.media_columns))
+        get() = prefs.getInt(getMediaColumnsField(), context.resources.getInteger(R.integer.media_columns_vertical_scroll))
         set(mediaColumnCnt) = prefs.edit().putInt(getMediaColumnsField(), mediaColumnCnt).apply()
 
     private fun getMediaColumnsField(): String {

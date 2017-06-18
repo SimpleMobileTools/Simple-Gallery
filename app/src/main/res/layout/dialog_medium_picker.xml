@@ -7,4 +7,4 @@
     android:layout_height="wrap_content"
     android:paddingTop="@dimen/activity_margin"
     app:layoutManager="android.support.v7.widget.GridLayoutManager"
-    app:spanCount="@integer/media_columns"/>
+    app:spanCount="@integer/media_columns_vertical_scroll"/>
