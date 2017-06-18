@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.extensions
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.database.Cursor
 import android.net.Uri
 import android.provider.MediaStore
@@ -18,6 +19,8 @@ import com.simplemobiletools.gallery.helpers.VIDEOS
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 import java.util.*
+
+val Context.portrait get() = resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
 
 fun Context.getRealPathFromURI(uri: Uri): String? {
     var cursor: Cursor? = null
