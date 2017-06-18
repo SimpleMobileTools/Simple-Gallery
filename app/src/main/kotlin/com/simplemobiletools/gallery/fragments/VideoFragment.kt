@@ -229,6 +229,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             }
         } catch (e: IOException) {
             Log.e(TAG, "init media player failed $e")
+            releaseMediaPlayer()
         }
     }
 
@@ -259,10 +260,14 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private fun cleanup() {
         pauseVideo()
         mCurrTimeView?.text = 0.getFormattedDuration()
-        mMediaPlayer?.release()
-        mMediaPlayer = null
+        releaseMediaPlayer()
         mSeekBar?.progress = 0
         mTimerHandler?.removeCallbacksAndMessages(null)
+    }
+
+    private fun releaseMediaPlayer() {
+        mMediaPlayer?.release()
+        mMediaPlayer = null
     }
 
     private fun videoPrepared(mediaPlayer: MediaPlayer) {
@@ -295,8 +300,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     }
 
     override fun surfaceDestroyed(holder: SurfaceHolder) {
-        mMediaPlayer?.release()
-        mMediaPlayer = null
+        releaseMediaPlayer()
     }
 
     private fun setVideoSize() {
