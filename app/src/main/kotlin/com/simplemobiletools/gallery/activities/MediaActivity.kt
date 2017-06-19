@@ -12,6 +12,8 @@ import android.support.v7.widget.GridLayoutManager
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.ViewGroup
+import android.widget.FrameLayout
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.animation.GlideAnimation
 import com.bumptech.glide.request.target.SimpleTarget
@@ -46,6 +48,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mLoadedInitialPhotos = false
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
+    private var mStoredScrollHorizontally = true
     private var mLastDrawnHashCode = 0
     private var mLastMediaModified = 0
     private var mLastMediaHandler = Handler()
@@ -67,6 +70,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         mPath = intent.getStringExtra(DIRECTORY)
         mStoredAnimateGifs = config.animateGifs
         mStoredCropThumbnails = config.cropThumbnails
+        mStoredScrollHorizontally = config.scrollHorizontally
         mShowAll = config.showAll
         if (mShowAll)
             supportActionBar?.setDisplayHomeAsUpEnabled(false)
@@ -75,12 +79,18 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     override fun onResume() {
         super.onResume()
         if (mShowAll && mStoredAnimateGifs != config.animateGifs) {
-            mMedia.clear()
+            media_grid.adapter.notifyDataSetChanged()
         }
 
         if (mStoredCropThumbnails != config.cropThumbnails) {
-            mMedia.clear()
+            media_grid.adapter.notifyDataSetChanged()
         }
+
+        if (mStoredScrollHorizontally != config.scrollHorizontally) {
+            (media_grid.adapter as MediaAdapter).scrollVertically = !config.scrollHorizontally
+            media_grid.adapter.notifyDataSetChanged()
+        }
+
         tryloadGallery()
         invalidateOptionsMenu()
     }
@@ -91,13 +101,15 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         media_refresh_layout.isRefreshing = false
         mStoredAnimateGifs = config.animateGifs
         mStoredCropThumbnails = config.cropThumbnails
+        mStoredScrollHorizontally = config.scrollHorizontally
         MyScalableRecyclerView.mListener = null
         mLastMediaHandler.removeCallbacksAndMessages(null)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        config.temporarilyShowHidden = false
+        if (config.showAll)
+            config.temporarilyShowHidden = false
         mMedia.clear()
     }
 
@@ -106,7 +118,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             val dirName = getHumanizedFilename(mPath)
             title = if (mShowAll) resources.getString(R.string.all_folders) else dirName
             getMedia()
-            handleZooming()
+            setupLayoutManager()
             checkIfColorChanged()
         } else {
             finish()
@@ -293,8 +305,16 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun getRecyclerAdapter() = (media_grid.adapter as MediaAdapter)
 
-    private fun handleZooming() {
+    private fun setupLayoutManager() {
         val layoutManager = media_grid.layoutManager as GridLayoutManager
+        if (config.scrollHorizontally) {
+            layoutManager.orientation = GridLayoutManager.HORIZONTAL
+            media_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        } else {
+            layoutManager.orientation = GridLayoutManager.VERTICAL
+            media_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        }
+
         layoutManager.spanCount = config.mediaColumnCnt
         MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.MyScalableRecyclerViewListener {
             override fun zoomIn() {
@@ -324,11 +344,13 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun increaseColumnCount() {
         config.mediaColumnCnt = ++(media_grid.layoutManager as GridLayoutManager).spanCount
         invalidateOptionsMenu()
+        media_grid.adapter.notifyDataSetChanged()
     }
 
     private fun reduceColumnCount() {
         config.mediaColumnCnt = --(media_grid.layoutManager as GridLayoutManager).spanCount
         invalidateOptionsMenu()
+        media_grid.adapter.notifyDataSetChanged()
     }
 
     private fun isSetWallpaperIntent() = intent.getBooleanExtra(SET_WALLPAPER_INTENT, false)

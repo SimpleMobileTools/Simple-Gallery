@@ -1,6 +1,19 @@
 Changelog
 ==========
 
+Version 2.11.1 *(2017-06-19)*
+----------------------------
+
+ * Fixed a crash at starting video
+
+Version 2.11.0 *(2017-06-18)*
+----------------------------
+
+ * Store column count separately for portrait and landscape modes
+ * Improve zooming at double taping fullscreen images
+ * Allow opening a third party editor from our Editor screen
+ * Many crashfixes and smaller improvements
+
 Version 2.10.10 *(2017-06-07)*
 ----------------------------
 

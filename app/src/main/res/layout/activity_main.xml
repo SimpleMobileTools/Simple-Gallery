@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:scrollbars="none"
             app:layoutManager="android.support.v7.widget.GridLayoutManager"
-            app:spanCount="@integer/directory_columns"/>
+            app:spanCount="@integer/directory_columns_vertical_scroll"/>
 
         <com.simplemobiletools.commons.views.FastScroller
             android:id="@+id/directories_fastscroller"

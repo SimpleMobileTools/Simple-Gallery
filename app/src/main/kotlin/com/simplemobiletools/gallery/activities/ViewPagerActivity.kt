@@ -176,7 +176,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return true
 
         menu.apply {
-            findItem(R.id.menu_set_as_wallpaper).isVisible = getCurrentMedium()!!.isImage() == true
+            findItem(R.id.menu_set_as).isVisible = getCurrentMedium()!!.isImage() == true
             findItem(R.id.menu_edit).isVisible = getCurrentMedium()!!.isImage() == true
             findItem(R.id.menu_rotate).isVisible = getCurrentMedium()!!.isImage() == true
             findItem(R.id.menu_save_as).isVisible = mRotationDegrees != 0f
@@ -199,7 +199,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return true
 
         when (item.itemId) {
-            R.id.menu_set_as_wallpaper -> trySetAsWallpaper(getCurrentFile())
+            R.id.menu_set_as -> trySetAs(getCurrentFile())
             R.id.menu_copy_to -> copyMoveTo(true)
             R.id.menu_move_to -> copyMoveTo(false)
             R.id.menu_open_with -> openWith(getCurrentFile())
@@ -208,7 +208,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_share -> shareMedium(getCurrentMedium()!!)
             R.id.menu_delete -> askConfirmDelete()
             R.id.menu_rename -> renameFile()
-            R.id.menu_edit -> openEditor(getCurrentFile())
+            R.id.menu_edit -> openFileEditor(getCurrentFile())
             R.id.menu_properties -> showProperties()
             R.id.menu_save_as -> saveImageAs()
             R.id.show_on_map -> showOnMap()
@@ -228,6 +228,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 adapter = pagerAdapter
                 currentItem = mPos
                 addOnPageChangeListener(this@ViewPagerActivity)
+                adapter!!.notifyDataSetChanged()
             }
         }
     }
@@ -377,7 +378,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 mPos = -1
                 reloadViewPager()
             }
-        } else if (requestCode == REQUEST_SET_WALLPAPER) {
+        } else if (requestCode == REQUEST_SET_AS) {
             if (resultCode == Activity.RESULT_OK) {
                 toast(R.string.wallpaper_set_successfully)
             }

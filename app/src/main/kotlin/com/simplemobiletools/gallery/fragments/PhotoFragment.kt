@@ -27,6 +27,7 @@ import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getFileSignature
 import com.simplemobiletools.gallery.extensions.getRealPathFromURI
+import com.simplemobiletools.gallery.extensions.portrait
 import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
@@ -229,8 +230,6 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun getDoubleTapZoomScale(): Float {
-        val displayAspectRatio = ViewPagerActivity.screenHeight / (ViewPagerActivity.screenWidth).toFloat()
-
         val bitmapOptions = BitmapFactory.Options()
         bitmapOptions.inJustDecodeBounds = true
         BitmapFactory.decodeFile(medium.path, bitmapOptions)
@@ -238,12 +237,15 @@ class PhotoFragment : ViewPagerFragment() {
         val height = bitmapOptions.outHeight
         val bitmapAspectRatio = height / (width).toFloat()
 
-        return if (Math.abs(displayAspectRatio - bitmapAspectRatio) < RATIO_THRESHOLD) {
-            2f
-        } else if (bitmapAspectRatio > 1f) {
-            width / (height).toFloat()
+        if (context == null)
+            return 2f
+
+        return if (context.portrait && bitmapAspectRatio <= 1f) {
+            ViewPagerActivity.screenHeight / height.toFloat()
+        } else if (!context.portrait && bitmapAspectRatio >= 1f) {
+            ViewPagerActivity.screenWidth / width.toFloat()
         } else {
-            bitmapAspectRatio
+            2f
         }
     }
 

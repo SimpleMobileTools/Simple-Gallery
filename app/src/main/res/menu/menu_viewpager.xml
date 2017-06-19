@@ -43,8 +43,8 @@
         android:title="@string/move_to"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/menu_set_as_wallpaper"
-        android:title="@string/set_as_wallpaper"
+        android:id="@+id/menu_set_as"
+        android:title="@string/set_as"
         app:showAsAction="never"/>
     <item
         android:id="@+id/menu_open_with"

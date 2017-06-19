@@ -1,6 +1,7 @@
 package com.simplemobiletools.gallery.helpers
 
 import android.content.Context
+import android.content.res.Configuration
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.helpers.BaseConfig
@@ -160,12 +161,52 @@ class Config(context: Context) : BaseConfig(context) {
         set(showMedia) = prefs.edit().putInt(SHOW_MEDIA, showMedia).apply()
 
     var dirColumnCnt: Int
-        get() = prefs.getInt(DIR_COLUMN_CNT, context.resources.getInteger(R.integer.directory_columns))
-        set(dirColumnCnt) = prefs.edit().putInt(DIR_COLUMN_CNT, dirColumnCnt).apply()
+        get() = prefs.getInt(getDirectoryColumnsField(), getDefaultDirectoryColumnCount())
+        set(dirColumnCnt) = prefs.edit().putInt(getDirectoryColumnsField(), dirColumnCnt).apply()
+
+    private fun getDirectoryColumnsField(): String {
+        val isPortrait = context.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
+        return if (isPortrait) {
+            if (scrollHorizontally) {
+                DIR_HORIZONTAL_COLUMN_CNT
+            } else {
+                DIR_COLUMN_CNT
+            }
+        } else {
+            if (scrollHorizontally) {
+                DIR_LANDSCAPE_HORIZONTAL_COLUMN_CNT
+            } else {
+                DIR_LANDSCAPE_COLUMN_CNT
+            }
+        }
+    }
+
+    private fun getDefaultDirectoryColumnCount() = context.resources.getInteger(if (scrollHorizontally) R.integer.directory_columns_horizontal_scroll
+    else R.integer.directory_columns_vertical_scroll)
 
     var mediaColumnCnt: Int
-        get() = prefs.getInt(MEDIA_COLUMN_CNT, context.resources.getInteger(R.integer.media_columns))
-        set(mediaColumnCnt) = prefs.edit().putInt(MEDIA_COLUMN_CNT, mediaColumnCnt).apply()
+        get() = prefs.getInt(getMediaColumnsField(), getDefaultMediaColumnCount())
+        set(mediaColumnCnt) = prefs.edit().putInt(getMediaColumnsField(), mediaColumnCnt).apply()
+
+    private fun getMediaColumnsField(): String {
+        val isPortrait = context.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
+        return if (isPortrait) {
+            if (scrollHorizontally) {
+                MEDIA_HORIZONTAL_COLUMN_CNT
+            } else {
+                MEDIA_COLUMN_CNT
+            }
+        } else {
+            if (scrollHorizontally) {
+                MEDIA_LANDSCAPE_HORIZONTAL_COLUMN_CNT
+            } else {
+                MEDIA_LANDSCAPE_COLUMN_CNT
+            }
+        }
+    }
+
+    private fun getDefaultMediaColumnCount() = context.resources.getInteger(if (scrollHorizontally) R.integer.media_columns_horizontal_scroll
+    else R.integer.media_columns_vertical_scroll)
 
     var directories: String
         get() = prefs.getString(DIRECTORIES, "")
@@ -179,4 +220,8 @@ class Config(context: Context) : BaseConfig(context) {
         val listType = object : TypeToken<List<AlbumCover>>() {}.type
         return Gson().fromJson<ArrayList<AlbumCover>>(albumCovers, listType) ?: ArrayList(1)
     }
+
+    var scrollHorizontally: Boolean
+        get() = prefs.getBoolean(SCROLL_HORIZONTALLY, false)
+        set(scrollHorizontally) = prefs.edit().putBoolean(SCROLL_HORIZONTALLY, scrollHorizontally).apply()
 }

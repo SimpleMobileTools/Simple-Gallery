@@ -23,6 +23,7 @@
     <string name="change_cover_image">Change cover image</string>
     <string name="select_photo">Select photo</string>
     <string name="use_default">Use default</string>
+    <string name="set_as">Set as</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Bu işlev, klasöre\'.medya yok\'dosyası ekleyerek gizler; tüm alt klasörleri de gizler. Bunları Ayarlar\'da\'Gizli klasörleri göster\'seçeneğine basarak görebilirsiniz. Devam et?</string>
@@ -67,13 +68,14 @@
     <string name="flip_horizontally">Yatay</string>
     <string name="flip_vertically">Dikey</string>
     <string name="out_of_memory_error">Yetersiz bellek hatası</string>
+    <string name="edit_with">Edit with</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Basit Duvar Kağıdı</string>
     <string name="set_as_wallpaper">Duvar kağıdı olarak ayarla</string>
     <string name="set_as_wallpaper_failed">Duvar Kağıdı Olarak Ayarlanılamıyor</string>
     <string name="set_as_wallpaper_with">İle duvar kağıdı olarak ayarla:</string>
-    <string name="no_wallpaper_setter_found">Mümkün olan herhangi bir uygulama bulunamadı</string>
+    <string name="no_capable_app_found">Mümkün olan herhangi bir uygulama bulunamadı</string>
     <string name="setting_wallpaper">Duvar kağıdını ayarlama&#8230;</string>
     <string name="wallpaper_set_successfully">Duvar kağıdı başarıyla ayarlandı</string>
     <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
@@ -86,11 +88,11 @@
     <string name="show_media">Medyayı göster</string>
     <string name="images">Yalnızca resimler</string>
     <string name="videos">Yalnızca videolar</string>
-    <string name="gifs">Gifs only</string>
-    <string name="images_videos_gifs">Images, videos, gifs</string>
+    <string name="gifs">GIFs only</string>
+    <string name="images_videos_gifs">Images, videos, GIFs</string>
     <string name="images_and_videos">Resimler ve videolar</string>
     <string name="loop_videos">Videolar döngüsü</string>
-    <string name="animate_gifs">Küçük resimlerde gif\'leri canlandırın</string>
+    <string name="animate_gifs">Küçük resimlerde GIF\'leri canlandırın</string>
     <string name="max_brightness">Ortam görüntülerken azami parlaklık</string>
     <string name="crop_thumbnails">Küçük resimleri karelere kırp</string>
     <string name="screen_rotation_by">Tarafından tam ekran medyayı döndür</string>

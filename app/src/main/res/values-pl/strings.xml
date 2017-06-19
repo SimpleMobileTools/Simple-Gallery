@@ -23,6 +23,7 @@
     <string name="change_cover_image">Change cover image</string>
     <string name="select_photo">Select photo</string>
     <string name="use_default">Use default</string>
+    <string name="set_as">Set as</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Ta funkcja ukrywa folder dodając \'. \' Nomedia plik do niego, można tak ukryć wszystkie podfoldery. Można je zobaczyć poprzez przełączanie \'Pokaż ukryte foldery \' opcję w ustawieniach. Kontyntynuj?</string>
@@ -67,13 +68,14 @@
     <string name="flip_horizontally">Flip poziomo</string>
     <string name="flip_vertically">Flip pionowo</string>
     <string name="out_of_memory_error">Błąd pamięci</string>
+    <string name="edit_with">Edit with</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Tapeta</string>
     <string name="set_as_wallpaper">Ustaw jako tapeta</string>
     <string name="set_as_wallpaper_failed">Ustawienie tapety nie powiodło się</string>
     <string name="set_as_wallpaper_with">Ustaw jako tapetę w:</string>
-    <string name="no_wallpaper_setter_found">Brak odpowiednich ustawień</string>
+    <string name="no_capable_app_found">Brak odpowiednich ustawień</string>
     <string name="setting_wallpaper">Ustawianie tapety&#8230;</string>
     <string name="wallpaper_set_successfully">Tapeta ustawiona</string>
     <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
@@ -86,11 +88,11 @@
     <string name="show_media">Wybierz co pokazywać</string>
     <string name="images">Tylko Zdjęcia</string>
     <string name="videos">Tylko Filmy</string>
-    <string name="gifs">Gifs only</string>
-    <string name="images_videos_gifs">Images, videos, gifs</string>
+    <string name="gifs">GIFs only</string>
+    <string name="images_videos_gifs">Images, videos, GIFs</string>
     <string name="images_and_videos">Obrazy i wideo</string>
     <string name="loop_videos">Pętla wideo</string>
-    <string name="animate_gifs">Animowanie gify z miniaturkami</string>
+    <string name="animate_gifs">Animowanie GIFy z miniaturkami</string>
     <string name="max_brightness">Max brightness when viewing media</string>
     <string name="crop_thumbnails">Crop thumbnails into squares</string>
     <string name="screen_rotation_by">Rotate fullscreen media by</string>

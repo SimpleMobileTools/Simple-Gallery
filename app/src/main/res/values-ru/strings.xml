@@ -23,6 +23,7 @@
     <string name="change_cover_image">Change cover image</string>
     <string name="select_photo">Select photo</string>
     <string name="use_default">Use default</string>
+    <string name="set_as">Set as</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Эта опция скрывает папку, добавляя в неё файл \'.nomedia\'; будут скрыты все подпапки. Можно показывать их, переключая \'Показать скрытые папки\' в настройках. Продолжить?</string>
@@ -67,13 +68,14 @@
     <string name="flip_horizontally">По горизонтали</string>
     <string name="flip_vertically">По вертикали</string>
     <string name="out_of_memory_error">Память переполнена</string>
+    <string name="edit_with">Edit with</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Простые обои</string>
     <string name="set_as_wallpaper">Установить в качестве обоев</string>
     <string name="set_as_wallpaper_failed">Установить не удалось</string>
     <string name="set_as_wallpaper_with">Установить в качестве обоев в:</string>
-    <string name="no_wallpaper_setter_found">Приложение не найдено</string>
+    <string name="no_capable_app_found">Приложение не найдено</string>
     <string name="setting_wallpaper">Установка обоев&#8230;</string>
     <string name="wallpaper_set_successfully">Обои успешно установлены</string>
     <string name="portrait_aspect_ratio">Формат изображения</string>
@@ -86,11 +88,11 @@
     <string name="show_media">Отображать</string>
     <string name="images">Только изображения</string>
     <string name="videos">Только видео</string>
-    <string name="gifs">Gifs only</string>
-    <string name="images_videos_gifs">Images, videos, gifs</string>
+    <string name="gifs">GIFs only</string>
+    <string name="images_videos_gifs">Images, videos, GIFs</string>
     <string name="images_and_videos">Изображения и видео</string>
     <string name="loop_videos">Повторять видео</string>
-    <string name="animate_gifs">Анимировать эскизы gif-файлов</string>
+    <string name="animate_gifs">Анимировать эскизы GIF-файлов</string>
     <string name="max_brightness">Максимальная яркость при просмотре файлов</string>
     <string name="crop_thumbnails">Нарезать миниатюры в квадраты</string>
     <string name="screen_rotation_by">Полноэкранный поворот</string>

@@ -14,6 +14,8 @@ import android.support.v4.app.ActivityCompat
 import android.support.v7.widget.GridLayoutManager
 import android.view.Menu
 import android.view.MenuItem
+import android.view.ViewGroup
+import android.widget.FrameLayout
 import com.google.gson.Gson
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.models.Release
@@ -27,10 +29,7 @@ import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.views.MyScalableRecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
-import java.io.File
-import java.io.FileInputStream
-import java.io.InputStream
-import java.io.OutputStream
+import java.io.*
 import java.util.*
 
 class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
@@ -51,6 +50,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mIsGettingDirs = false
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
+    private var mStoredScrollHorizontally = true
     private var mLoadedInitialPhotos = false
     private var mLastMediaModified = 0
     private var mLastMediaHandler = Handler()
@@ -74,6 +74,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mDirs = ArrayList<Directory>()
         mStoredAnimateGifs = config.animateGifs
         mStoredCropThumbnails = config.cropThumbnails
+        mStoredScrollHorizontally = config.scrollHorizontally
         storeStoragePaths()
         checkWhatsNewDialog()
     }
@@ -108,12 +109,18 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     override fun onResume() {
         super.onResume()
         if (mStoredAnimateGifs != config.animateGifs) {
-            mDirs.clear()
+            directories_grid.adapter.notifyDataSetChanged()
         }
 
         if (mStoredCropThumbnails != config.cropThumbnails) {
-            mDirs.clear()
+            directories_grid.adapter.notifyDataSetChanged()
         }
+
+        if (mStoredScrollHorizontally != config.scrollHorizontally) {
+            (directories_grid.adapter as DirectoryAdapter).scrollVertically = !config.scrollHorizontally
+            directories_grid.adapter.notifyDataSetChanged()
+        }
+
         tryloadGallery()
         invalidateOptionsMenu()
     }
@@ -126,6 +133,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mIsGettingDirs = false
         mStoredAnimateGifs = config.animateGifs
         mStoredCropThumbnails = config.cropThumbnails
+        mStoredScrollHorizontally = config.scrollHorizontally
         MyScalableRecyclerView.mListener = null
         mLastMediaHandler.removeCallbacksAndMessages(null)
     }
@@ -141,7 +149,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 showAllMedia()
             else
                 getDirectories()
-            handleZooming()
+            setupLayoutManager()
             checkIfColorChanged()
         } else {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), STORAGE_PERMISSION)
@@ -221,8 +229,16 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun getRecyclerAdapter() = (directories_grid.adapter as DirectoryAdapter)
 
-    private fun handleZooming() {
+    private fun setupLayoutManager() {
         val layoutManager = directories_grid.layoutManager as GridLayoutManager
+        if (config.scrollHorizontally) {
+            layoutManager.orientation = GridLayoutManager.HORIZONTAL
+            directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        } else {
+            layoutManager.orientation = GridLayoutManager.VERTICAL
+            directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        }
+
         layoutManager.spanCount = config.dirColumnCnt
         MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.MyScalableRecyclerViewListener {
             override fun zoomIn() {
@@ -252,11 +268,13 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun increaseColumnCount() {
         config.dirColumnCnt = ++(directories_grid.layoutManager as GridLayoutManager).spanCount
         invalidateOptionsMenu()
+        directories_grid.adapter.notifyDataSetChanged()
     }
 
     private fun reduceColumnCount() {
         config.dirColumnCnt = --(directories_grid.layoutManager as GridLayoutManager).spanCount
         invalidateOptionsMenu()
+        directories_grid.adapter.notifyDataSetChanged()
     }
 
     private fun isPickImageIntent(intent: Intent) = isPickIntent(intent) && (hasImageContentData(intent) || isImageType(intent))
@@ -302,6 +320,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                                 inputStream = FileInputStream(File(path))
                                 outputStream = contentResolver.openOutputStream(output)
                                 inputStream.copyTo(outputStream)
+                            } catch (ignored: FileNotFoundException) {
                             } finally {
                                 inputStream?.close()
                                 outputStream?.close()

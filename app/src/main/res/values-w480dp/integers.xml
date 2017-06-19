@@ -1,4 +1,6 @@
 <resources>
-    <integer name="directory_columns">3</integer>
-    <integer name="media_columns">5</integer>
+    <integer name="directory_columns_vertical_scroll">3</integer>
+    <integer name="directory_columns_horizontal_scroll">3</integer>
+    <integer name="media_columns_vertical_scroll">5</integer>
+    <integer name="media_columns_horizontal_scroll">5</integer>
 </resources>

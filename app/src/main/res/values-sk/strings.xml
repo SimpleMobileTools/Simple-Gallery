@@ -23,6 +23,7 @@
     <string name="change_cover_image">Zmeniť obal albumu</string>
     <string name="select_photo">Zvoliť foto</string>
     <string name="use_default">Použiť predvolený</string>
+    <string name="set_as">Nastaviť ako</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Táto funkcia skryje priečinok pridaním súboru \'.nomedia\', skryté budú aj podpriečinky. Môžete ich vidieť zvolením možnosti \'Zobraziť skryté priečinky\' v nastaveniach. Pokračovať?</string>
@@ -67,13 +68,14 @@
     <string name="flip_horizontally">Preklopiť vodorovne</string>
     <string name="flip_vertically">Preklopiť zvisle</string>
     <string name="out_of_memory_error">Došlo k chybe s nedostatkom pamäte</string>
+    <string name="edit_with">Upraviť s</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Jednoduchá tapeta</string>
     <string name="set_as_wallpaper">Nastaviť ako tapetu</string>
     <string name="set_as_wallpaper_failed">Nastavovanie ako tapeta zlyhalo</string>
     <string name="set_as_wallpaper_with">Nastaviť ako tapetu s:</string>
-    <string name="no_wallpaper_setter_found">Nenašla sa žiadna vhodná aplikácia No app capable of it has been found</string>
+    <string name="no_capable_app_found">Nenašla sa žiadna vhodná aplikácia</string>
     <string name="setting_wallpaper">Nastavuje sa tapeta&#8230;</string>
     <string name="wallpaper_set_successfully">Tapeta bola úspešne zmenená</string>
     <string name="portrait_aspect_ratio">Orientácia nastojato</string>
@@ -86,11 +88,11 @@
     <string name="show_media">Zobraziť médiá</string>
     <string name="images">Iba obrázky</string>
     <string name="videos">Iba videá</string>
-    <string name="gifs">Iba gifká</string>
-    <string name="images_videos_gifs">Obrázky, videá, gifká</string>
+    <string name="gifs">Iba GIFká</string>
+    <string name="images_videos_gifs">Obrázky, videá, GIFká</string>
     <string name="images_and_videos">Obrázky aj videá</string>
     <string name="loop_videos">Automaticky reštartovať videá</string>
-    <string name="animate_gifs">Animovať gif súbory pri náhľade</string>
+    <string name="animate_gifs">Animovať GIF súbory pri náhľade</string>
     <string name="max_brightness">Maximálny jas pri prezeraní médií</string>
     <string name="crop_thumbnails">Orezať náhľady na štvorce</string>
     <string name="screen_rotation_by">Otáčať obrazovku podľa Rotate fullscreen media by</string>

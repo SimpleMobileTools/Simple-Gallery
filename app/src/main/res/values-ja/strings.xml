@@ -23,6 +23,7 @@
     <string name="change_cover_image">Change cover image</string>
     <string name="select_photo">Select photo</string>
     <string name="use_default">Use default</string>
+    <string name="set_as">Set as</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden folders\' option in Settings. Continue?</string>
@@ -67,13 +68,14 @@
     <string name="flip_horizontally">Flip horizontally</string>
     <string name="flip_vertically">Flip vertically</string>
     <string name="out_of_memory_error">Out of memory error</string>
+    <string name="edit_with">Edit with</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">シンプル壁紙</string>
     <string name="set_as_wallpaper">壁紙として設定</string>
     <string name="set_as_wallpaper_failed">壁紙としての設定に失敗しました</string>
     <string name="set_as_wallpaper_with">壁紙として設定:</string>
-    <string name="no_wallpaper_setter_found">対応できるアプリが見つかりません</string>
+    <string name="no_capable_app_found">対応できるアプリが見つかりません</string>
     <string name="setting_wallpaper">壁紙の設定&#8230;</string>
     <string name="wallpaper_set_successfully">壁紙を正常に設定しました</string>
     <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
@@ -86,11 +88,11 @@
     <string name="show_media">Show media</string>
     <string name="images">Images only</string>
     <string name="videos">Videos only</string>
-    <string name="gifs">Gifs only</string>
-    <string name="images_videos_gifs">Images, videos, gifs</string>
+    <string name="gifs">GIFs only</string>
+    <string name="images_videos_gifs">Images, videos, GIFs</string>
     <string name="images_and_videos">Images and videos</string>
     <string name="loop_videos">Loop videos</string>
-    <string name="animate_gifs">Animate gifs at thumbnails</string>
+    <string name="animate_gifs">Animate GIFs at thumbnails</string>
     <string name="max_brightness">Max brightness when viewing media</string>
     <string name="crop_thumbnails">Crop thumbnails into squares</string>
     <string name="screen_rotation_by">Rotate fullscreen media by</string>

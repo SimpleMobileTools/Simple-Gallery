@@ -30,4 +30,8 @@
                 android:title="@string/flip_vertically"/>
         </menu>
     </item>
+    <item
+        android:id="@+id/edit"
+        android:title="@string/edit_with"
+        app:showAsAction="never"/>
 </menu>
