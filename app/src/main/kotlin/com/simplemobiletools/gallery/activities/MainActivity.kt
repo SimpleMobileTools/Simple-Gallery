@@ -239,6 +239,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         }
 
+        directories_grid.isZoomingEnabled = true
         layoutManager.spanCount = config.dirColumnCnt
         MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.MyScalableRecyclerViewListener {
             override fun zoomIn() {

@@ -11,6 +11,7 @@ import com.simplemobiletools.gallery.R
 // drag selection is based on https://github.com/afollestad/drag-select-recyclerview
 class MyScalableRecyclerView : RecyclerView {
     private val AUTO_SCROLL_DELAY = 25L
+    var isZoomingEnabled = false
 
     private var mScaleDetector: ScaleGestureDetector
 
@@ -149,7 +150,10 @@ class MyScalableRecyclerView : RecyclerView {
                 }
             }
         }
-        return mScaleDetector.onTouchEvent(ev)
+        return if (isZoomingEnabled)
+            mScaleDetector.onTouchEvent(ev)
+        else
+            true
     }
 
     fun setDragSelectActive(initialSelection: Int) {

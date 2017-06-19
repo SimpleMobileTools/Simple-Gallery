@@ -39,7 +39,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     var actMode: ActionMode? = null
     var itemViews = SparseArray<View>()
     val selectedPositions = HashSet<Int>()
-    var foregroundColor = 0
+    var foregroundColor = config.primaryColor
     var pinnedFolders = config.pinnedFolders
     var scrollVertically = !config.scrollHorizontally
 
@@ -95,10 +95,6 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         }
 
         override fun getSelectedPositions(): HashSet<Int> = selectedPositions
-    }
-
-    init {
-        foregroundColor = config.primaryColor
     }
 
     val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
@@ -423,7 +419,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         }
     }
 
-    class ViewHolder(val view: View, val adapter: MyAdapterListener, val activity: SimpleActivity, val multiSelectorCallback: ModalMultiSelectorCallback,
+    class ViewHolder(val view: View, val adapterListener: MyAdapterListener, val activity: SimpleActivity, val multiSelectorCallback: ModalMultiSelectorCallback,
                      val multiSelector: MultiSelector, val listener: DirOperationsListener?, val itemClick: (Directory) -> (Unit)) :
             SwappingHolder(view, MultiSelector()) {
         fun bindView(directory: Directory, isPinned: Boolean, scrollVertically: Boolean): View {
@@ -436,15 +432,15 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
                 setOnClickListener { viewClicked(directory) }
                 setOnLongClickListener { viewLongClicked(); true }
 
-                adapter.setupItemForeground(this)
+                adapterListener.setupItemForeground(this)
             }
             return itemView
         }
 
         fun viewClicked(directory: Directory) {
             if (multiSelector.isSelectable) {
-                val isSelected = adapter.getSelectedPositions().contains(layoutPosition)
-                adapter.toggleItemSelectionAdapter(!isSelected, layoutPosition)
+                val isSelected = adapterListener.getSelectedPositions().contains(layoutPosition)
+                adapterListener.toggleItemSelectionAdapter(!isSelected, layoutPosition)
             } else {
                 itemClick(directory)
             }
@@ -454,7 +450,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             if (listener != null) {
                 if (!multiSelector.isSelectable) {
                     activity.startSupportActionMode(multiSelectorCallback)
-                    adapter.toggleItemSelectionAdapter(true, layoutPosition)
+                    adapterListener.toggleItemSelectionAdapter(true, layoutPosition)
                 }
 
                 listener.itemLongClicked(layoutPosition)

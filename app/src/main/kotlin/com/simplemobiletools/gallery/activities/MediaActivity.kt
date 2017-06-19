@@ -315,6 +315,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             media_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         }
 
+        media_grid.isZoomingEnabled = true
         layoutManager.spanCount = config.mediaColumnCnt
         MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.MyScalableRecyclerViewListener {
             override fun zoomIn() {

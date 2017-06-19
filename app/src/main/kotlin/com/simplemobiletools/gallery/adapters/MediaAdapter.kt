@@ -32,7 +32,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     var actMode: ActionMode? = null
     var itemViews = SparseArray<View>()
     val selectedPositions = HashSet<Int>()
-    var foregroundColor = 0
+    var foregroundColor = config.primaryColor
     var displayFilenames = config.displayFileNames
     var scrollVertically = !config.scrollHorizontally
 
@@ -88,10 +88,6 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         }
 
         override fun getSelectedPositions(): HashSet<Int> = selectedPositions
-    }
-
-    init {
-        foregroundColor = config.primaryColor
     }
 
     val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
@@ -336,7 +332,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         }
     }
 
-    class ViewHolder(val view: View, val adapter: MyAdapterListener, val activity: SimpleActivity, val multiSelectorCallback: ModalMultiSelectorCallback,
+    class ViewHolder(val view: View, val adapterListener: MyAdapterListener, val activity: SimpleActivity, val multiSelectorCallback: ModalMultiSelectorCallback,
                      val multiSelector: MultiSelector, val listener: MediaOperationsListener?, val itemClick: (Medium) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
         fun bindView(medium: Medium, displayFilenames: Boolean, scrollVertically: Boolean): View {
             itemView.apply {
@@ -348,15 +344,15 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 setOnClickListener { viewClicked(medium) }
                 setOnLongClickListener { viewLongClicked(); true }
 
-                adapter.setupItemForeground(this)
+                adapterListener.setupItemForeground(this)
             }
             return itemView
         }
 
         fun viewClicked(medium: Medium) {
             if (multiSelector.isSelectable) {
-                val isSelected = adapter.getSelectedPositions().contains(layoutPosition)
-                adapter.toggleItemSelectionAdapter(!isSelected, layoutPosition)
+                val isSelected = adapterListener.getSelectedPositions().contains(layoutPosition)
+                adapterListener.toggleItemSelectionAdapter(!isSelected, layoutPosition)
             } else {
                 itemClick(medium)
             }
@@ -366,7 +362,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             if (listener != null) {
                 if (!multiSelector.isSelectable) {
                     activity.startSupportActionMode(multiSelectorCallback)
-                    adapter.toggleItemSelectionAdapter(true, layoutPosition)
+                    adapterListener.toggleItemSelectionAdapter(true, layoutPosition)
                 }
 
                 listener.itemLongClicked(layoutPosition)
