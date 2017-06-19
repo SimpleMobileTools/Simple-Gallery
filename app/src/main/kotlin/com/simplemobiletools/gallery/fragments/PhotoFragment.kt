@@ -237,6 +237,9 @@ class PhotoFragment : ViewPagerFragment() {
         val height = bitmapOptions.outHeight
         val bitmapAspectRatio = height / (width).toFloat()
 
+        if (context == null)
+            return 2f
+
         return if (context.portrait && bitmapAspectRatio <= 1f) {
             ViewPagerActivity.screenHeight / height.toFloat()
         } else if (!context.portrait && bitmapAspectRatio >= 1f) {
