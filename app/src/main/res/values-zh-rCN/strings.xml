@@ -7,12 +7,12 @@
     <string name="open_with">打开方式</string>
     <string name="no_app_found">未找到可用应用</string>
     <string name="hidden">（隐藏）</string>
-    <string name="pin_folder">锁定文件夹</string>
-    <string name="unpin_folder">解除锁定文件夹</string>
-    <string name="show_all">显示文件夹中所有内容</string>
-    <string name="all_folders">所有文件夹</string>
-    <string name="folder_view">切换到文件夹视图</string>
-    <string name="other_folder">其他文件夹</string>
+    <string name="pin_folder">锁定目录</string>
+    <string name="unpin_folder">解除锁定目录</string>
+    <string name="show_all">文件视图</string>
+    <string name="all_folders">所有目录</string>
+    <string name="folder_view">目录视图</string>
+    <string name="other_folder">其他目录</string>
     <string name="show_on_map">在地图中显示</string>
     <string name="unknown_location">未知位置</string>
     <string name="no_map_application">未找到地图应用</string>
@@ -23,24 +23,24 @@
     <string name="change_cover_image">更改封面图片</string>
     <string name="select_photo">选择图片</string>
     <string name="use_default">使用默认</string>
-    <string name="set_as">Set as</string>
+    <string name="set_as">设置为</string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">通过添加文件 \'.nomedia\' 到文件夹，可以防止文件夹及其子文件夹下的所有媒体被扫描。您可以通过设置中的 \'显示隐藏文件夹\' 选项改变设置，是否继续？</string>
+    <string name="hide_folder_description">通过添加文件 \'.nomedia\' 到目录，可以防止目录及其子目录下的所有媒体被扫描。您可以通过设置中的 \'显示隐藏目录\' 选项改变设置，是否继续？</string>
     <string name="exclude">排除</string>
-    <string name="excluded_folders">排除文件夹</string>
-    <string name="manage_excluded_folders">管理排除文件夹</string>
-    <string name="exclude_folder_description">文件夹及其子文件夹中的媒体将不会在 Simple Gallery 中显示，您可以在设置更改。</string>
-    <string name="exclude_folder_parent">是否排除父文件夹？</string>
-    <string name="excluded_activity_placeholder">此文件夹及其子文件夹中的媒体将不会在 Simple Gallery 中显示，但是其它应用可以访问。\\n\\n如果您想对其它应用隐藏，请使用隐藏功能。</string>
+    <string name="excluded_folders">排除目录</string>
+    <string name="manage_excluded_folders">管理排除目录</string>
+    <string name="exclude_folder_description">目录及其子目录中的媒体将不会在 Simple Gallery 中显示，您可以在设置更改。</string>
+    <string name="exclude_folder_parent">是否排除父目录？</string>
+    <string name="excluded_activity_placeholder">此目录及其子目录中的媒体将不会在 Simple Gallery 中显示，但是其它应用可以访问。如果您想对其它应用隐藏，请使用隐藏功能。</string>
     <string name="remove_all">移除全部</string>
-    <string name="remove_all_description">是否移除列表中的全部文件夹？文件夹不会被物理删除。</string>
+    <string name="remove_all_description">是否移除列表中的全部目录？目录不会被物理删除。</string>
 
     <!-- Include folders -->
-    <string name="include_folders">包含文件夹</string>
-    <string name="manage_included_folders">管理包含文件夹</string>
-    <string name="add_folder">添加文件夹</string>
-    <string name="included_activity_placeholder">如果您还有应用未扫描到的媒体文件，请添加所在文件夹路径。</string>
+    <string name="include_folders">包含目录</string>
+    <string name="manage_included_folders">管理包含目录</string>
+    <string name="add_folder">添加目录</string>
+    <string name="included_activity_placeholder">如果您还有应用未扫描到的媒体文件，请添加所在目录路径。</string>
 
     <!-- Resizing -->
     <string name="resize">缩放</string>
@@ -68,7 +68,7 @@
     <string name="flip_horizontally">水平翻转</string>
     <string name="flip_vertically">垂直翻转</string>
     <string name="out_of_memory_error">内存不足</string>
-    <string name="edit_with">Edit with</string>
+    <string name="edit_with">编辑方式</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
