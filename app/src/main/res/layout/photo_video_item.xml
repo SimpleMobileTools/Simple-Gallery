@@ -6,7 +6,14 @@
     android:layout_height="wrap_content"
     android:padding="1px">
 
-    <include layout="@layout/photo_video_tmb"/>
+    <FrameLayout
+        android:id="@+id/tmb_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/photo_video_tmb"/>
+
+    </FrameLayout>
 
     <ImageView
         android:id="@+id/play_outline"
@@ -23,7 +30,9 @@
         android:id="@+id/photo_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tmb_wrapper"
         android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/tmb_wrapper"
         android:background="@drawable/gradient_background"
         android:gravity="bottom"
         android:maxLines="3"

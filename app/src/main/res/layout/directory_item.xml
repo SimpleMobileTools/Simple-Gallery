@@ -6,7 +6,14 @@
     android:layout_height="wrap_content"
     android:padding="1px">
 
-    <include layout="@layout/directory_tmb"/>
+    <FrameLayout
+        android:id="@+id/tmb_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/directory_tmb"/>
+
+    </FrameLayout>
 
     <ImageView
         android:id="@+id/dir_pin"
@@ -29,7 +36,9 @@
         android:id="@+id/dir_bottom_holder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tmb_wrapper"
         android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/tmb_wrapper"
         android:gravity="bottom"
         android:orientation="vertical"
         android:paddingBottom="@dimen/small_margin"
