@@ -12,6 +12,7 @@ import com.simplemobiletools.gallery.R
 class MyScalableRecyclerView : RecyclerView {
     private val AUTO_SCROLL_DELAY = 25L
     var isZoomingEnabled = false
+    var isDragSelectionEnabled = false
 
     private var mScaleDetector: ScaleGestureDetector
 
@@ -157,7 +158,7 @@ class MyScalableRecyclerView : RecyclerView {
     }
 
     fun setDragSelectActive(initialSelection: Int) {
-        if (dragSelectActive)
+        if (dragSelectActive || !isDragSelectionEnabled)
             return
 
         lastDraggedIndex = -1
