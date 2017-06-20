@@ -51,7 +51,6 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         }
 
         updateTitle(selectedPositions.size)
-        actMode?.invalidate()
     }
 
     fun getProperView(itemView: View): View {
@@ -63,6 +62,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
     fun updateTitle(cnt: Int) {
         actMode?.title = "$cnt / ${media.size}"
+        actMode?.invalidate()
     }
 
     fun updatePrimaryColor(color: Int) {
@@ -214,7 +214,6 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             notifyItemChanged(i)
         }
         updateTitle(cnt)
-        actMode?.invalidate()
     }
 
     private fun askConfirmDelete() {

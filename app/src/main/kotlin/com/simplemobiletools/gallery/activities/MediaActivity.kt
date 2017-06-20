@@ -136,15 +136,13 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         if (isDirEmpty())
             return
 
-        val adapter = MediaAdapter(this, mMedia, this) {
-            itemClicked(it.path)
-        }
-
         val currAdapter = media_grid.adapter
         if (currAdapter != null) {
             (currAdapter as MediaAdapter).updateMedia(mMedia)
         } else {
-            media_grid.adapter = adapter
+            media_grid.adapter = MediaAdapter(this, mMedia, this) {
+                itemClicked(it.path)
+            }
         }
         media_fastscroller.setViews(media_grid, media_refresh_layout)
     }

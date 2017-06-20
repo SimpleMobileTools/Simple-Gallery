@@ -58,7 +58,6 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         }
 
         updateTitle(selectedPositions.size)
-        actMode?.invalidate()
     }
 
     fun getProperView(itemView: View): View {
@@ -70,6 +69,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
     fun updateTitle(cnt: Int) {
         actMode?.title = "$cnt / ${dirs.size}"
+        actMode?.invalidate()
     }
 
     fun updatePrimaryColor(color: Int) {
@@ -275,7 +275,6 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             notifyItemChanged(i)
         }
         updateTitle(cnt)
-        actMode?.invalidate()
     }
 
     private fun askConfirmDelete() {
