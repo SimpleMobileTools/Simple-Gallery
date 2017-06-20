@@ -13,6 +13,7 @@ class MyScalableRecyclerView : RecyclerView {
     private val AUTO_SCROLL_DELAY = 25L
     var isZoomingEnabled = false
     var isDragSelectionEnabled = false
+    var listener: MyScalableRecyclerViewListener? = null
 
     private var mScaleDetector: ScaleGestureDetector
 
@@ -35,11 +36,8 @@ class MyScalableRecyclerView : RecyclerView {
     private var inTopHotspot = false
     private var inBottomHotspot = false
 
-    companion object {
-        var mListener: MyScalableRecyclerViewListener? = null
-        var mCurrScaleFactor = 1.0f
-        var mLastUp = 0L    // allow only pinch zoom, not double tap
-    }
+    private var currScaleFactor = 1.0f
+    private var lastUp = 0L    // allow only pinch zoom, not double tap
 
     constructor(context: Context) : super(context)
 
@@ -47,7 +45,20 @@ class MyScalableRecyclerView : RecyclerView {
 
     init {
         hotspotHeight = context.resources.getDimensionPixelSize(R.dimen.dragselect_hotspot_height)
-        mScaleDetector = ScaleGestureDetector(context, GestureListener())
+
+        val gestureListener = object : MyGestureListenerInterface {
+            override fun getLastUp() = lastUp
+
+            override fun getScaleFactor() = currScaleFactor
+
+            override fun setScaleFactor(value: Float) {
+                currScaleFactor = value
+            }
+
+            override fun getMainListener() = listener
+        }
+
+        mScaleDetector = ScaleGestureDetector(context, GestureListener(gestureListener))
     }
 
     override fun onMeasure(widthSpec: Int, heightSpec: Int) {
@@ -83,8 +94,8 @@ class MyScalableRecyclerView : RecyclerView {
                 inTopHotspot = false
                 inBottomHotspot = false
                 autoScrollHandler.removeCallbacks(autoScrollRunnable)
-                mCurrScaleFactor = 1.0f
-                mLastUp = System.currentTimeMillis()
+                currScaleFactor = 1.0f
+                lastUp = System.currentTimeMillis()
                 return true
             }
 
@@ -139,7 +150,7 @@ class MyScalableRecyclerView : RecyclerView {
                             minReached = lastDraggedIndex
                         }
 
-                        mListener?.selectRange(initialSelection, lastDraggedIndex, minReached, maxReached)
+                        listener?.selectRange(initialSelection, lastDraggedIndex, minReached, maxReached)
 
                         if (initialSelection == lastDraggedIndex) {
                             minReached = lastDraggedIndex
@@ -166,7 +177,7 @@ class MyScalableRecyclerView : RecyclerView {
         maxReached = -1
         this.initialSelection = initialSelection
         dragSelectActive = true
-        mListener?.selectItem(initialSelection)
+        listener?.selectItem(initialSelection)
     }
 
     private fun getItemPosition(e: MotionEvent): Int {
@@ -181,21 +192,23 @@ class MyScalableRecyclerView : RecyclerView {
     }
 
 
-    class GestureListener : ScaleGestureDetector.SimpleOnScaleGestureListener() {
+    class GestureListener(val gestureListener: MyGestureListenerInterface) : ScaleGestureDetector.SimpleOnScaleGestureListener() {
         private val ZOOM_IN_THRESHOLD = -0.4f
         private val ZOOM_OUT_THRESHOLD = 0.15f
 
         override fun onScale(detector: ScaleGestureDetector): Boolean {
-            if (System.currentTimeMillis() - mLastUp < 1000)
-                return false
+            gestureListener.apply {
+                if (System.currentTimeMillis() - getLastUp() < 1000)
+                    return false
 
-            val diff = mCurrScaleFactor - detector.scaleFactor
-            if (diff < ZOOM_IN_THRESHOLD && mCurrScaleFactor == 1.0f) {
-                mListener?.zoomIn()
-                mCurrScaleFactor = detector.scaleFactor
-            } else if (diff > ZOOM_OUT_THRESHOLD && mCurrScaleFactor == 1.0f) {
-                mListener?.zoomOut()
-                mCurrScaleFactor = detector.scaleFactor
+                val diff = getScaleFactor() - detector.scaleFactor
+                if (diff < ZOOM_IN_THRESHOLD && getScaleFactor() == 1.0f) {
+                    getMainListener()?.zoomIn()
+                    setScaleFactor(detector.scaleFactor)
+                } else if (diff > ZOOM_OUT_THRESHOLD && getScaleFactor() == 1.0f) {
+                    getMainListener()?.zoomOut()
+                    setScaleFactor(detector.scaleFactor)
+                }
             }
             return false
         }
@@ -209,5 +222,15 @@ class MyScalableRecyclerView : RecyclerView {
         fun selectItem(position: Int)
 
         fun selectRange(initialSelection: Int, lastDraggedIndex: Int, minReached: Int, maxReached: Int)
+    }
+
+    interface MyGestureListenerInterface {
+        fun getLastUp(): Long
+
+        fun getScaleFactor(): Float
+
+        fun setScaleFactor(value: Float)
+
+        fun getMainListener(): MyScalableRecyclerViewListener?
     }
 }

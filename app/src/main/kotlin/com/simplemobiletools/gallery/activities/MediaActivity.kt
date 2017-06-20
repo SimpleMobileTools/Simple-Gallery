@@ -102,7 +102,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         mStoredAnimateGifs = config.animateGifs
         mStoredCropThumbnails = config.cropThumbnails
         mStoredScrollHorizontally = config.scrollHorizontally
-        MyScalableRecyclerView.mListener = null
+        media_grid.listener = null
         mLastMediaHandler.removeCallbacksAndMessages(null)
     }
 
@@ -318,7 +318,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         media_grid.isDragSelectionEnabled = true
         media_grid.isZoomingEnabled = true
         layoutManager.spanCount = config.mediaColumnCnt
-        MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.MyScalableRecyclerViewListener {
+        media_grid.listener = object : MyScalableRecyclerView.MyScalableRecyclerViewListener {
             override fun zoomIn() {
                 if (layoutManager.spanCount > 1) {
                     reduceColumnCount()

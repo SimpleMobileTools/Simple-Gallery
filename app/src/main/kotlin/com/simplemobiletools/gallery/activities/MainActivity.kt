@@ -134,7 +134,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mStoredAnimateGifs = config.animateGifs
         mStoredCropThumbnails = config.cropThumbnails
         mStoredScrollHorizontally = config.scrollHorizontally
-        MyScalableRecyclerView.mListener = null
+        directories_grid.listener = null
         mLastMediaHandler.removeCallbacksAndMessages(null)
     }
 
@@ -242,7 +242,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         directories_grid.isDragSelectionEnabled = true
         directories_grid.isZoomingEnabled = true
         layoutManager.spanCount = config.dirColumnCnt
-        MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.MyScalableRecyclerViewListener {
+        directories_grid.listener = object : MyScalableRecyclerView.MyScalableRecyclerViewListener {
             override fun zoomIn() {
                 if (layoutManager.spanCount > 1) {
                     reduceColumnCount()
