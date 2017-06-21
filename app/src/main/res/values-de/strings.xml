@@ -19,7 +19,6 @@
     <string name="no_camera_app_found">Keine Kamera-App gefunden</string>
     <string name="increase_column_count">Kacheln verkleinern</string>
     <string name="reduce_column_count">Kacheln vergrößern</string>
-    <string name="temporarily_show_hidden">Verstecktes temporär zeigen</string>
     <string name="change_cover_image">Change cover image</string>
     <string name="select_photo">Bild auswählen</string>
     <string name="use_default">Standard verwenden</string>

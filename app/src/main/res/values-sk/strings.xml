@@ -19,7 +19,6 @@
     <string name="no_camera_app_found">Nenašla sa žiadna aplikácia pre fotoaparát</string>
     <string name="increase_column_count">Zvýšiť počet stĺpcov</string>
     <string name="reduce_column_count">Znížiť počet stĺpcov</string>
-    <string name="temporarily_show_hidden">Dočasne zobraziť skryté</string>
     <string name="change_cover_image">Zmeniť obal albumu</string>
     <string name="select_photo">Zvoliť foto</string>
     <string name="use_default">Použiť predvolený</string>

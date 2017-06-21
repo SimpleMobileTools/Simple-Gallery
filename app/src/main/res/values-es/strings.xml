@@ -19,7 +19,6 @@
     <string name="no_camera_app_found">No se encontró aplicación de cámara</string>
     <string name="increase_column_count">Aumentar el número de columnas</string>
     <string name="reduce_column_count">Reducir el número de columnas</string>
-    <string name="temporarily_show_hidden">Mostrar ocultos temporalmente</string>
     <string name="change_cover_image">Change cover image</string>
     <string name="select_photo">Select photo</string>
     <string name="use_default">Use default</string>

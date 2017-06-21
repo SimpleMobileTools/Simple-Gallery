@@ -19,7 +19,6 @@
     <string name="no_camera_app_found">未找到相机应用</string>
     <string name="increase_column_count">增加一栏</string>
     <string name="reduce_column_count">减少一栏</string>
-    <string name="temporarily_show_hidden">显示／隐藏缓存内容</string>
     <string name="change_cover_image">更改封面图片</string>
     <string name="select_photo">选择图片</string>
     <string name="use_default">使用默认</string>
