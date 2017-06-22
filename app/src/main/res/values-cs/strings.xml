@@ -66,7 +66,6 @@
     <string name="flip">Překlopit</string>
     <string name="flip_horizontally">Překlopit vodorovně</string>
     <string name="flip_vertically">Překlopit svisle</string>
-    <string name="out_of_memory_error">Zařízení nemá dostatek paměti</string>
     <string name="edit_with">Edit with</string>
 
     <!-- Set wallpaper -->
