@@ -19,9 +19,9 @@
     <string name="no_camera_app_found">Keine Kamera-App gefunden</string>
     <string name="increase_column_count">Kacheln verkleinern</string>
     <string name="reduce_column_count">Kacheln vergrößern</string>
-    <string name="change_cover_image">Change cover image</string>
-    <string name="select_photo">Bild auswählen</string>
-    <string name="use_default">Standard verwenden</string>
+    <string name="change_cover_image">Cover-Bild ändern</string>
+    <string name="select_photo">Auswählen</string>
+    <string name="use_default">Standard</string>
     <string name="set_as">Festlegen als</string>
 
     <!-- Hide / Exclude -->
