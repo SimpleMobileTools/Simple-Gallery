@@ -17,7 +17,7 @@ class ChangeSortingDialog(val activity: SimpleActivity, val isDirectorySorting: 
                           val path: String = "", val callback: () -> Unit) :
         DialogInterface.OnClickListener {
     private var currSorting = 0
-    private var config: Config = activity.config
+    private var config = activity.config
     private var view: View
 
     init {
