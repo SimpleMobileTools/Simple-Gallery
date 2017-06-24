@@ -213,7 +213,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun checkIfColorChanged() {
         if (directories_grid.adapter != null && getRecyclerAdapter().foregroundColor != config.primaryColor) {
             getRecyclerAdapter().updatePrimaryColor(config.primaryColor)
-            directories_fastscroller.updateHandleColor()
+            directories_vertical_fastscroller.updateHandleColor()
+            directories_horizontal_fastscroller.updateHandleColor()
         }
     }
 
@@ -395,7 +396,18 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 itemClicked(it.path)
             }
         }
-        directories_fastscroller.setViews(directories_grid, directories_refresh_layout)
+
+        directories_vertical_fastscroller.isHorizontal = false
+        directories_vertical_fastscroller.beGoneIf(config.scrollHorizontally)
+
+        directories_horizontal_fastscroller.isHorizontal = true
+        directories_horizontal_fastscroller.beVisibleIf(config.scrollHorizontally)
+
+        if (config.scrollHorizontally) {
+            directories_horizontal_fastscroller.setViews(directories_grid, directories_refresh_layout)
+        } else {
+            directories_vertical_fastscroller.setViews(directories_grid, directories_refresh_layout)
+        }
     }
 
     private fun checkLastMediaChanged() {

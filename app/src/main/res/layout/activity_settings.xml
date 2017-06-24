@@ -214,8 +214,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/medium_margin"
             android:background="?attr/selectableItemBackground"
-            android:padding="@dimen/activity_margin"
-            android:visibility="gone">
+            android:padding="@dimen/activity_margin">
 
             <com.simplemobiletools.commons.views.MySwitchCompat
                 android:id="@+id/settings_scroll_horizontally"
