@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 2.11.2 *(2017-06-24)*
+----------------------------
+
+ * Added optional horizontal scrolling
+
 Version 2.11.1 *(2017-06-19)*
 ----------------------------
 
