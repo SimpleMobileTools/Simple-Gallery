@@ -89,6 +89,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         if (mStoredScrollHorizontally != config.scrollHorizontally) {
             (media_grid.adapter as MediaAdapter).scrollVertically = !config.scrollHorizontally
             media_grid.adapter.notifyDataSetChanged()
+            setupScrollDirection()
         }
 
         tryloadGallery()
@@ -145,7 +146,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                 itemClicked(it.path)
             }
         }
+        setupScrollDirection()
+    }
 
+    private fun setupScrollDirection() {
         media_vertical_fastscroller.isHorizontal = false
         media_vertical_fastscroller.beGoneIf(config.scrollHorizontally)
 

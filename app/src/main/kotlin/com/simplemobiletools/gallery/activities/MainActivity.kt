@@ -119,6 +119,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         if (mStoredScrollHorizontally != config.scrollHorizontally) {
             (directories_grid.adapter as DirectoryAdapter).scrollVertically = !config.scrollHorizontally
             directories_grid.adapter.notifyDataSetChanged()
+            setupScrollDirection()
         }
 
         tryloadGallery()
@@ -396,7 +397,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 itemClicked(it.path)
             }
         }
+        setupScrollDirection()
+    }
 
+    private fun setupScrollDirection() {
         directories_vertical_fastscroller.isHorizontal = false
         directories_vertical_fastscroller.beGoneIf(config.scrollHorizontally)
 
