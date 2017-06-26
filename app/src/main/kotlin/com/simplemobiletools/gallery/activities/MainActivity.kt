@@ -109,16 +109,18 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     override fun onResume() {
         super.onResume()
         if (mStoredAnimateGifs != config.animateGifs) {
-            directories_grid.adapter.notifyDataSetChanged()
+            directories_grid.adapter?.notifyDataSetChanged()
         }
 
         if (mStoredCropThumbnails != config.cropThumbnails) {
-            directories_grid.adapter.notifyDataSetChanged()
+            directories_grid.adapter?.notifyDataSetChanged()
         }
 
         if (mStoredScrollHorizontally != config.scrollHorizontally) {
-            (directories_grid.adapter as DirectoryAdapter).scrollVertically = !config.scrollHorizontally
-            directories_grid.adapter.notifyDataSetChanged()
+            directories_grid.adapter?.let {
+                (it as DirectoryAdapter).scrollVertically = !config.scrollHorizontally
+                it.notifyDataSetChanged()
+            }
             setupScrollDirection()
         }
 
