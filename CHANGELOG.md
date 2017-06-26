@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 2.11.4 *(2017-06-26)*
+----------------------------
+
+ * Added an option for automatically hiding the system UI at entering fullscreen mode
+ * Fix deleting SD card files on some devices
+ * Couple crashfixes
+
 Version 2.11.3 *(2017-06-24)*
 ----------------------------
 
