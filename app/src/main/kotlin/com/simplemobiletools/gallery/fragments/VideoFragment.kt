@@ -62,11 +62,11 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mIsFullscreen = activity.window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN == View.SYSTEM_UI_FLAG_FULLSCREEN
 
         activity.window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
-            val fullscreen = visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
-            mIsFullscreen = fullscreen
+            mIsFullscreen = visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
             checkFullscreen()
             listener?.systemUiVisibilityChanged(visibility)
         }
+        checkFullscreen()
 
         return mView
     }
