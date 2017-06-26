@@ -115,6 +115,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         if (config.darkBackground)
             view_pager.background = ColorDrawable(Color.BLACK)
+
+        if (config.hideSystemUI)
+            fragmentClicked()
     }
 
     override fun onDestroy() {
