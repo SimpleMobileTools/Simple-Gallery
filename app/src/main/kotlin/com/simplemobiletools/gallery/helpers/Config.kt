@@ -224,4 +224,8 @@ class Config(context: Context) : BaseConfig(context) {
     var scrollHorizontally: Boolean
         get() = prefs.getBoolean(SCROLL_HORIZONTALLY, false)
         set(scrollHorizontally) = prefs.edit().putBoolean(SCROLL_HORIZONTALLY, scrollHorizontally).apply()
+
+    var hideSystemUI: Boolean
+        get() = prefs.getBoolean(HIDE_SYSTEM_UI, false)
+        set(hideSystemUI) = prefs.edit().putBoolean(HIDE_SYSTEM_UI, hideSystemUI).apply()
 }

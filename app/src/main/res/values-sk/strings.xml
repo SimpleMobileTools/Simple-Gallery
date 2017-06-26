@@ -99,6 +99,7 @@
     <string name="screen_rotation_aspect_ratio">Pomeru strán</string>
     <string name="dark_background_at_fullscreen">Tmavé pozadie pri médiách na celú obrazovku</string>
     <string name="scroll_thumbnails_horizontally">Prehliadať miniatúry vodorovne</string>
+    <string name="hide_system_ui_at_fullscreen">Automaticky skrývať systémové lišty pri celoobrazovkových médiách</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

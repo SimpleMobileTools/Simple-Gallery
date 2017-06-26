@@ -31,6 +31,7 @@ val EXCLUDED_FOLDERS = "excluded_folders"
 val INCLUDED_FOLDERS = "included_folders"
 val ALBUM_COVERS = "album_covers"
 val SCROLL_HORIZONTALLY = "scroll_horizontally"
+val HIDE_SYSTEM_UI = "hide_system_ui"
 
 val NOMEDIA = ".nomedia"
 

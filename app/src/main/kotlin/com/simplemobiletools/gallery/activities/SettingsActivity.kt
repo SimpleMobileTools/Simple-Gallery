@@ -36,6 +36,7 @@ class SettingsActivity : SimpleActivity() {
         setupScrollHorizontally()
         setupScreenRotation()
         setupShowMedia()
+        setupHideSystemUI()
         updateTextColors(settings_holder)
     }
 
@@ -118,6 +119,14 @@ class SettingsActivity : SimpleActivity() {
         settings_scroll_horizontally_holder.setOnClickListener {
             settings_scroll_horizontally.toggle()
             config.scrollHorizontally = settings_scroll_horizontally.isChecked
+        }
+    }
+
+    private fun setupHideSystemUI() {
+        settings_hide_system_ui.isChecked = config.hideSystemUI
+        settings_hide_system_ui_holder.setOnClickListener {
+            settings_hide_system_ui.toggle()
+            config.hideSystemUI = settings_hide_system_ui.isChecked
         }
     }
 
