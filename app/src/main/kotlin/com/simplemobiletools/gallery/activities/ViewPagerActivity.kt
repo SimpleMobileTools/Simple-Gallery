@@ -306,17 +306,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun rotateImage(degrees: Float) {
         mRotationDegrees = (mRotationDegrees + degrees) % 360
-        getCurrentFragment()?.rotateImageViewBy(mRotationDegrees)
+        getCurrentFragment()?.let {
+            (it as? PhotoFragment)?.rotateImageViewBy(mRotationDegrees)
+        }
         supportInvalidateOptionsMenu()
     }
 
-    private fun getCurrentFragment(): PhotoFragment? {
-        val fragment = (view_pager.adapter as MyPagerAdapter).getCurrentFragment(view_pager.currentItem)
-        return if (fragment is PhotoFragment)
-            fragment
-        else
-            null
-    }
+    private fun getCurrentFragment() = (view_pager.adapter as MyPagerAdapter).getCurrentFragment(view_pager.currentItem)
 
     private fun showProperties() {
         if (getCurrentMedium() != null)
