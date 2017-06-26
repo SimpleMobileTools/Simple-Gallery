@@ -392,12 +392,12 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun setupAdapter() {
         val currAdapter = directories_grid.adapter
-        if (currAdapter != null) {
-            (currAdapter as DirectoryAdapter).updateDirs(mDirs)
-        } else {
-            directories_grid.adapter = DirectoryAdapter(this, mDirs, this) {
+        if (currAdapter == null) {
+            directories_grid.adapter = DirectoryAdapter(this, mDirs, this, isPickIntent(intent) || isGetAnyContentIntent(intent)) {
                 itemClicked(it.path)
             }
+        } else {
+            (currAdapter as DirectoryAdapter).updateDirs(mDirs)
         }
         setupScrollDirection()
     }

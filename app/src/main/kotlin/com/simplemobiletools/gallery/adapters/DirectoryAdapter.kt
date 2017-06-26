@@ -30,8 +30,8 @@ import kotlinx.android.synthetic.main.directory_tmb.view.*
 import java.io.File
 import java.util.*
 
-class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Directory>, val listener: DirOperationsListener?, val itemClick: (Directory) -> Unit) :
-        RecyclerView.Adapter<DirectoryAdapter.ViewHolder>() {
+class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Directory>, val listener: DirOperationsListener?, val isPickIntent: Boolean,
+                       val itemClick: (Directory) -> Unit) : RecyclerView.Adapter<DirectoryAdapter.ViewHolder>() {
 
     val multiSelector = MultiSelector()
     val config = activity.config
@@ -357,7 +357,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent?.context).inflate(R.layout.directory_item, parent, false)
-        return ViewHolder(view, adapterListener, activity, multiSelectorMode, multiSelector, listener, itemClick)
+        return ViewHolder(view, adapterListener, activity, multiSelectorMode, multiSelector, listener, isPickIntent, itemClick)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -419,7 +419,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     }
 
     class ViewHolder(val view: View, val adapterListener: MyAdapterListener, val activity: SimpleActivity, val multiSelectorCallback: ModalMultiSelectorCallback,
-                     val multiSelector: MultiSelector, val listener: DirOperationsListener?, val itemClick: (Directory) -> (Unit)) :
+                     val multiSelector: MultiSelector, val listener: DirOperationsListener?, val isPickIntent: Boolean, val itemClick: (Directory) -> (Unit)) :
             SwappingHolder(view, MultiSelector()) {
         fun bindView(directory: Directory, isPinned: Boolean, scrollVertically: Boolean): View {
             itemView.apply {
@@ -429,7 +429,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
                 activity.loadImage(directory.tmb, dir_thumbnail, scrollVertically)
 
                 setOnClickListener { viewClicked(directory) }
-                setOnLongClickListener { viewLongClicked(); true }
+                setOnLongClickListener { if (isPickIntent) viewClicked(directory) else viewLongClicked(); true }
 
                 adapterListener.setupItemForeground(this)
             }

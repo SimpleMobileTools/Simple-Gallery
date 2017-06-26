@@ -141,12 +141,12 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             return
 
         val currAdapter = media_grid.adapter
-        if (currAdapter != null) {
-            (currAdapter as MediaAdapter).updateMedia(mMedia)
-        } else {
-            media_grid.adapter = MediaAdapter(this, mMedia, this) {
+        if (currAdapter == null) {
+            media_grid.adapter = MediaAdapter(this, mMedia, this, mIsGetAnyIntent) {
                 itemClicked(it.path)
             }
+        } else {
+            (currAdapter as MediaAdapter).updateMedia(mMedia)
         }
         setupScrollDirection()
     }
