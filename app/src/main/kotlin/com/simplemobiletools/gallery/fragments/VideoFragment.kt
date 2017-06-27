@@ -367,7 +367,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         if (!mIsPlaying) {
             togglePlayPause()
         } else {
-            mMediaPlayer!!.start()
+            mMediaPlayer?.start()
         }
 
         mIsDragged = false
