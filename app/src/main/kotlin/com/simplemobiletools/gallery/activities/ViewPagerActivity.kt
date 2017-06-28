@@ -5,7 +5,10 @@ import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.database.Cursor
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Color
+import android.graphics.Matrix
 import android.graphics.drawable.ColorDrawable
 import android.hardware.SensorManager
 import android.media.ExifInterface
@@ -24,6 +27,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.MediaActivity.Companion.mMedia
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
+import com.simplemobiletools.gallery.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.fragments.PhotoFragment
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment
@@ -31,6 +35,7 @@ import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_medium.*
 import java.io.File
+import java.io.OutputStream
 import java.util.*
 
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
@@ -41,6 +46,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mIsFullScreen = false
     private var mPos = -1
     private var mShowAll = false
+    private var mRotationDegrees = 0f
     private var mLastHandledOrientation = 0
     private var mPrevHashcode = 0
 
@@ -182,15 +188,15 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_viewpager, menu)
-        if (getCurrentMedium() == null)
-            return true
+        val currentMedium = getCurrentMedium() ?: return true
 
         menu.apply {
-            findItem(R.id.menu_set_as).isVisible = getCurrentMedium()!!.isImage() == true
-            findItem(R.id.menu_edit).isVisible = getCurrentMedium()!!.isImage() == true
-            findItem(R.id.menu_rotate).isVisible = getCurrentMedium()!!.isImage() == true
-            findItem(R.id.menu_hide).isVisible = !getCurrentMedium()!!.name.startsWith('.')
-            findItem(R.id.menu_unhide).isVisible = getCurrentMedium()!!.name.startsWith('.')
+            findItem(R.id.menu_set_as).isVisible = currentMedium.isImage()
+            findItem(R.id.menu_edit).isVisible = currentMedium.isImage()
+            findItem(R.id.menu_rotate).isVisible = currentMedium.isImage()
+            findItem(R.id.menu_save_as).isVisible = mRotationDegrees != 0f
+            findItem(R.id.menu_hide).isVisible = !currentMedium.name.startsWith('.')
+            findItem(R.id.menu_unhide).isVisible = currentMedium.name.startsWith('.')
         }
 
         return true
@@ -214,6 +220,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_properties -> showProperties()
             R.id.show_on_map -> showOnMap()
             R.id.menu_rotate -> rotateImage()
+            R.id.menu_save_as -> saveImageAs()
             R.id.settings -> launchSettings()
             else -> return super.onOptionsItemSelected(item)
         }
@@ -256,6 +263,15 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun rotateImage() {
+        val currentMedium = getCurrentMedium() ?: return
+        if (currentMedium.isJpg() && !isPathOnSD(currentMedium.path)) {
+            rotateByExif()
+        } else {
+            rotateByDegrees()
+        }
+    }
+
+    private fun rotateByExif() {
         val exif = ExifInterface(getCurrentPath())
         val rotation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
         val newRotation = getNewRotation(rotation)
@@ -272,6 +288,54 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             ExifInterface.ORIENTATION_ROTATE_270 -> ExifInterface.ORIENTATION_NORMAL
             else -> ExifInterface.ORIENTATION_ROTATE_90
         }.toString()
+    }
+
+    private fun rotateByDegrees() {
+        mRotationDegrees = (mRotationDegrees + 90) % 360
+        getCurrentFragment()?.let {
+            (it as? PhotoFragment)?.rotateImageViewBy(mRotationDegrees)
+        }
+        supportInvalidateOptionsMenu()
+    }
+
+    private fun saveImageAs() {
+        val currPath = getCurrentPath()
+        SaveAsDialog(this, currPath) {
+            Thread({
+                toast(R.string.saving)
+                val selectedFile = File(it)
+                val tmpFile = File(selectedFile.parent, "tmp_${it.getFilenameFromPath()}")
+                try {
+                    val bitmap = BitmapFactory.decodeFile(currPath)
+                    getFileOutputStream(tmpFile) {
+                        saveFile(tmpFile, bitmap, it)
+                        if (needsStupidWritePermissions(selectedFile.absolutePath)) {
+                            deleteFile(selectedFile) {}
+                        }
+
+                        renameFile(tmpFile, selectedFile) {
+                            deleteFile(tmpFile) {}
+                        }
+                    }
+                } catch (e: OutOfMemoryError) {
+                    toast(R.string.out_of_memory_error)
+                    deleteFile(tmpFile) {}
+                } catch (e: Exception) {
+                    toast(R.string.unknown_error_occurred)
+                    deleteFile(tmpFile) {}
+                }
+            }).start()
+        }
+    }
+
+    private fun saveFile(file: File, bitmap: Bitmap, out: OutputStream) {
+        val matrix = Matrix()
+        matrix.postRotate(mRotationDegrees)
+        val bmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
+        bmp.compress(file.getCompressionFormat(), 90, out)
+        out.flush()
+        toast(R.string.file_saved)
+        out.close()
     }
 
     private fun getCurrentFragment() = (view_pager.adapter as MyPagerAdapter).getCurrentFragment(view_pager.currentItem)
@@ -493,6 +557,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
         mPos = position
         updateActionbarTitle()
+        mRotationDegrees = 0f
         supportInvalidateOptionsMenu()
     }
 

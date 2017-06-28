@@ -28,6 +28,7 @@ import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getFileSignature
 import com.simplemobiletools.gallery.extensions.getRealPathFromURI
 import com.simplemobiletools.gallery.extensions.portrait
+import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 import it.sephiroth.android.library.exif2.ExifInterface
@@ -154,28 +155,38 @@ class PhotoFragment : ViewPagerFragment() {
         }
     }
 
-    private fun loadBitmap() {
-        val targetWidth = if (ViewPagerActivity.screenWidth == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenWidth
-        val targetHeight = if (ViewPagerActivity.screenHeight == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenHeight
+    private fun loadBitmap(degrees: Float = 0f) {
+        if (degrees == 0f) {
+            val targetWidth = if (ViewPagerActivity.screenWidth == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenWidth
+            val targetHeight = if (ViewPagerActivity.screenHeight == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenHeight
 
-        Glide.with(this)
-                .load(medium.path)
-                .asBitmap()
-                .signature(activity.getFileSignature(medium.path))
-                .format(if (medium.isPng()) DecodeFormat.PREFER_ARGB_8888 else DecodeFormat.PREFER_RGB_565)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .override(targetWidth, targetHeight)
-                .listener(object : RequestListener<String, Bitmap> {
-                    override fun onException(e: Exception?, model: String?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
-                        return false
-                    }
+            Glide.with(this)
+                    .load(medium.path)
+                    .asBitmap()
+                    .signature(activity.getFileSignature(medium.path))
+                    .format(if (medium.isPng()) DecodeFormat.PREFER_ARGB_8888 else DecodeFormat.PREFER_RGB_565)
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .override(targetWidth, targetHeight)
+                    .listener(object : RequestListener<String, Bitmap> {
+                        override fun onException(e: Exception?, model: String?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
+                            return false
+                        }
 
-                    override fun onResourceReady(resource: Bitmap, model: String?, target: Target<Bitmap>?, isFromMemoryCache: Boolean, isFirstResource: Boolean): Boolean {
-                        if (isFragmentVisible)
-                            addZoomableView()
-                        return false
-                    }
-                }).into(view.photo_view)
+                        override fun onResourceReady(resource: Bitmap, model: String?, target: Target<Bitmap>?, isFromMemoryCache: Boolean, isFirstResource: Boolean): Boolean {
+                            if (isFragmentVisible)
+                                addZoomableView()
+                            return false
+                        }
+                    }).into(view.photo_view)
+        } else {
+            Glide.with(this)
+                    .load(medium.path)
+                    .asBitmap()
+                    .transform(GlideRotateTransformation(context, degrees))
+                    .thumbnail(0.2f)
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .into(view.photo_view)
+        }
     }
 
     private fun addZoomableView() {
@@ -237,6 +248,11 @@ class PhotoFragment : ViewPagerFragment() {
     fun refreshBitmap() {
         view.subsampling_view.beGone()
         loadBitmap()
+    }
+
+    fun rotateImageViewBy(degrees: Float) {
+        view.subsampling_view.beGone()
+        loadBitmap(degrees)
     }
 
     override fun onDestroyView() {
