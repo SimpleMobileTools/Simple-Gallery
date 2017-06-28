@@ -14,10 +14,7 @@ import com.google.gson.Gson
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
-import com.simplemobiletools.commons.extensions.isAStorageRootFolder
-import com.simplemobiletools.commons.extensions.isImageVideoGif
-import com.simplemobiletools.commons.extensions.needsStupidWritePermissions
-import com.simplemobiletools.commons.extensions.toast
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.ExcludeFolderDialog
@@ -425,8 +422,9 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             itemView.apply {
                 dir_name.text = directory.name
                 photo_cnt.text = directory.mediaCnt.toString()
-                dir_pin.visibility = if (isPinned) View.VISIBLE else View.GONE
                 activity.loadImage(directory.tmb, dir_thumbnail, scrollVertically)
+                dir_pin.beVisibleIf(isPinned)
+                dir_sd_card.beVisibleIf(activity.isPathOnSD(directory.path))
 
                 setOnClickListener { viewClicked(directory) }
                 setOnLongClickListener { if (isPickIntent) viewClicked(directory) else viewLongClicked(); true }
