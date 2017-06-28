@@ -112,6 +112,14 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         if (config.hideSystemUI)
             fragmentClicked()
+
+        window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
+            mIsFullScreen = visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
+            view_pager.adapter?.let {
+                (it as MyPagerAdapter).toggleFullscreen(mIsFullScreen)
+                checkSystemUI()
+            }
+        }
     }
 
     override fun onDestroy() {
@@ -445,19 +453,14 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     override fun fragmentClicked() {
         mIsFullScreen = !mIsFullScreen
+        checkSystemUI()
+    }
+
+    private fun checkSystemUI() {
         if (mIsFullScreen) {
             hideSystemUI()
         } else {
             showSystemUI()
-        }
-    }
-
-    override fun systemUiVisibilityChanged(visibility: Int) {
-        if (visibility and View.SYSTEM_UI_FLAG_FULLSCREEN == 0) {
-            mIsFullScreen = false
-            showSystemUI()
-        } else {
-            mIsFullScreen = true
         }
     }
 

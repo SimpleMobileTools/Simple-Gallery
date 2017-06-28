@@ -42,7 +42,6 @@ class PhotoFragment : ViewPagerFragment() {
     lateinit var view: ViewGroup
     private var isFragmentVisible = false
     private var wasInit = false
-    private var RATIO_THRESHOLD = 0.1
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         view = inflater.inflate(R.layout.pager_photo_item, container, false) as ViewGroup
@@ -100,9 +99,6 @@ class PhotoFragment : ViewPagerFragment() {
         }
         loadImage()
 
-        activity.window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
-            listener?.systemUiVisibilityChanged(visibility)
-        }
         wasInit = true
 
         return view
@@ -255,5 +251,9 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun photoClicked() {
         listener?.fragmentClicked()
+    }
+
+    override fun fullscreenToggled(isFullscreen: Boolean) {
+
     }
 }
