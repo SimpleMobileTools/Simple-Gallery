@@ -18,7 +18,10 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v4.view.ViewPager
 import android.util.DisplayMetrics
-import android.view.*
+import android.view.Menu
+import android.view.MenuItem
+import android.view.OrientationEventListener
+import android.view.View
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
@@ -97,7 +100,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         mDirectory = File(mPath).parent
         title = mPath.getFilenameFromPath()
 
-        view_pager.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+        /*view_pager.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
             override fun onGlobalLayout() {
                 view_pager.viewTreeObserver.removeOnGlobalLayoutListener(this)
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && isDestroyed)
@@ -107,7 +110,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     gotMedia(mMedia)
                 }
             }
-        })
+        })*/
 
         reloadViewPager()
         scanPath(mPath) {}
