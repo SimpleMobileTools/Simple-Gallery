@@ -2,6 +2,10 @@
 <resources>
 
     <!-- Release notes -->
+    <string name="release_115">
+        Added an indicator of folders located on SD cards
+        Improved the way of rotating jpg images on the internal storage by modifying the exif tags + added autosave
+    </string>
     <string name="release_114">Added an option for automatically hiding the system UI at entering fullscreen mode</string>
     <string name="release_112">Added an option for enabling horizontal scrolling</string>
     <string name="release_108">Allow setting custom folder covers</string>
