@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 2.11.5 *(2017-06-29)*
+----------------------------
+
+ * Added an indicator of folders located on SD cards
+ * Improved the way of rotating jpg images on the internal storage by modifying the exif tags + added autosave
+
 Version 2.11.4 *(2017-06-26)*
 ----------------------------
 
