@@ -9,14 +9,14 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.widget.GridLayoutManager
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.animation.GlideAnimation
+import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.SimpleTarget
+import com.bumptech.glide.request.transition.Transition
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
@@ -390,18 +390,22 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             val wantedWidth = wallpaperDesiredMinimumWidth
             val wantedHeight = wallpaperDesiredMinimumHeight
             val ratio = wantedWidth.toFloat() / wantedHeight
-            Glide.with(this)
-                    .load(File(path))
-                    .asBitmap()
+
+            val options = RequestOptions()
                     .override((wantedWidth * ratio).toInt(), wantedHeight)
                     .fitCenter()
+
+            Glide.with(this)
+                    .asBitmap()
+                    .load(File(path))
+                    .apply(options)
                     .into(object : SimpleTarget<Bitmap>() {
-                        override fun onResourceReady(bitmap: Bitmap?, glideAnimation: GlideAnimation<in Bitmap>?) {
+                        override fun onResourceReady(resource: Bitmap?, transition: Transition<in Bitmap>?) {
                             try {
-                                WallpaperManager.getInstance(applicationContext).setBitmap(bitmap)
+                                WallpaperManager.getInstance(applicationContext).setBitmap(resource)
                                 setResult(Activity.RESULT_OK)
-                            } catch (e: IOException) {
-                                Log.e(TAG, "item click $e")
+                            } catch (ignored: IOException) {
+
                             }
 
                             finish()
