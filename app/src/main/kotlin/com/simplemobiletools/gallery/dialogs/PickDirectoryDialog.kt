@@ -21,10 +21,9 @@ import kotlinx.android.synthetic.main.dialog_directory_picker.view.*
 class PickDirectoryDialog(val activity: SimpleActivity, val sourcePath: String, val callback: (path: String) -> Unit) {
     var dialog: AlertDialog
     var shownDirectories: ArrayList<Directory> = ArrayList()
-    var view: View
+    var view: View = LayoutInflater.from(activity).inflate(R.layout.dialog_directory_picker, null)
 
     init {
-        view = LayoutInflater.from(activity).inflate(R.layout.dialog_directory_picker, null)
         (view.directories_grid.layoutManager as GridLayoutManager).apply {
             orientation = if (activity.config.scrollHorizontally) GridLayoutManager.HORIZONTAL else GridLayoutManager.VERTICAL
             spanCount = activity.config.dirColumnCnt
