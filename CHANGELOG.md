@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 2.12.0 *(2017-07-01)*
+----------------------------
+
+ * Added a button for disabling "Temporarily show hidden"
+ * Updated Glide (library used for loading images) to 4.0.0
+ * Made playing gifs smooth
+
 Version 2.11.5 *(2017-06-29)*
 ----------------------------
 
