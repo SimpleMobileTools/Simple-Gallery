@@ -197,7 +197,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             findItem(R.id.open_camera).isVisible = mShowAll
             findItem(R.id.about).isVisible = mShowAll
 
-            findItem(R.id.temporarily_show_hidden).isVisible = !config.showHiddenMedia
+            findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden
+            findItem(R.id.stop_showing_hidden).isVisible = config.temporarilyShowHidden
 
             findItem(R.id.increase_column_count).isVisible = config.mediaColumnCnt < 10
             findItem(R.id.reduce_column_count).isVisible = config.mediaColumnCnt > 1
@@ -215,7 +216,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             R.id.hide_folder -> tryHideFolder()
             R.id.unhide_folder -> unhideFolder()
             R.id.exclude_folder -> tryExcludeFolder()
-            R.id.temporarily_show_hidden -> temporarilyShowHidden()
+            R.id.temporarily_show_hidden -> toggleTemporarilyShowHidden(true)
+            R.id.stop_showing_hidden -> toggleTemporarilyShowHidden(false)
             R.id.increase_column_count -> increaseColumnCount()
             R.id.reduce_column_count -> reduceColumnCount()
             R.id.settings -> launchSettings()
@@ -314,9 +316,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             false
     }
 
-    private fun temporarilyShowHidden() {
-        config.temporarilyShowHidden = true
+    private fun toggleTemporarilyShowHidden(show: Boolean) {
+        config.temporarilyShowHidden = show
         getMedia()
+        invalidateOptionsMenu()
     }
 
     private fun getRecyclerAdapter() = (media_grid.adapter as MediaAdapter)

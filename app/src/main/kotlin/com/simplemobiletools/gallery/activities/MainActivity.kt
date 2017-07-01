@@ -87,7 +87,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             menu.findItem(R.id.increase_column_count).isVisible = config.dirColumnCnt < 10
             menu.findItem(R.id.reduce_column_count).isVisible = config.dirColumnCnt > 1
         }
-        menu.findItem(R.id.temporarily_show_hidden).isVisible = !config.showHiddenMedia
+        menu.findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden
+        menu.findItem(R.id.stop_showing_hidden).isVisible = config.temporarilyShowHidden
         return true
     }
 
@@ -96,7 +97,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             R.id.sort -> showSortingDialog()
             R.id.open_camera -> launchCamera()
             R.id.show_all -> showAllMedia()
-            R.id.temporarily_show_hidden -> temporarilyShowHidden()
+            R.id.temporarily_show_hidden -> toggleTemporarilyShowHidden(true)
+            R.id.stop_showing_hidden -> toggleTemporarilyShowHidden(false)
             R.id.increase_column_count -> increaseColumnCount()
             R.id.reduce_column_count -> reduceColumnCount()
             R.id.settings -> launchSettings()
@@ -208,9 +210,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         finish()
     }
 
-    private fun temporarilyShowHidden() {
-        config.temporarilyShowHidden = true
+    private fun toggleTemporarilyShowHidden(show: Boolean) {
+        config.temporarilyShowHidden = show
         getDirectories()
+        invalidateOptionsMenu()
     }
 
     private fun checkIfColorChanged() {
