@@ -382,7 +382,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
         mDirs = dirs
 
-        setupAdapter()
+        runOnUiThread {
+            setupAdapter()
+        }
         storeDirectories()
     }
 

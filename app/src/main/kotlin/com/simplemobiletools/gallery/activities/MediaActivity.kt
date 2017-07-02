@@ -449,7 +449,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         mLastDrawnHashCode = media.hashCode()
         mMedia = media
-        setupAdapter()
+        runOnUiThread {
+            setupAdapter()
+        }
         storeFolder()
     }
 
