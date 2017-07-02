@@ -455,7 +455,8 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         }
 
         fun stopLoad() {
-            Glide.with(activity).clear(view.dir_thumbnail)
+            if (!activity.isDestroyed)
+                Glide.with(activity).clear(view.dir_thumbnail)
         }
     }
 

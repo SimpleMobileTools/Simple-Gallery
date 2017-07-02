@@ -370,7 +370,8 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         }
 
         fun stopLoad() {
-            Glide.with(activity).clear(view.medium_thumbnail)
+            if (!activity.isDestroyed)
+                Glide.with(activity).clear(view.medium_thumbnail)
         }
     }
 
