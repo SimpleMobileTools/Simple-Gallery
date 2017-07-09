@@ -2,6 +2,7 @@
 <resources>
 
     <!-- Release notes -->
+    <string name="release_118">Added a toggle for replacing Share with Rotate at fullscreen media</string>
     <string name="release_115">
         Added an indicator of folders located on SD cards
         Improved the way of rotating jpg images on the internal storage by modifying the exif tags + added autosave
