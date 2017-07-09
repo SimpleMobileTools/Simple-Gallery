@@ -42,9 +42,9 @@ class MyPagerAdapter(val activity: ViewPagerActivity, fm: FragmentManager, val m
         return fragment
     }
 
-    override fun destroyItem(container: ViewGroup?, position: Int, `object`: Any?) {
+    override fun destroyItem(container: ViewGroup?, position: Int, any: Any?) {
         mFragments.remove(position)
-        super.destroyItem(container, position, `object`)
+        super.destroyItem(container, position, any)
     }
 
     fun getCurrentFragment(position: Int) = mFragments.get(position)
