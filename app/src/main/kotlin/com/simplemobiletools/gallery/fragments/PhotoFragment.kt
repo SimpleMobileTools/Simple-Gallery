@@ -38,7 +38,6 @@ import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 import it.sephiroth.android.library.exif2.ExifInterface
 import kotlinx.android.synthetic.main.pager_photo_item.view.*
-import uk.co.senab.photoview.PhotoViewAttacher
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -93,15 +92,13 @@ class PhotoFragment : ViewPagerFragment() {
         view.photo_view.apply {
             maximumScale = 8f
             mediumScale = 3f
-            setOnPhotoTapListener(object : PhotoViewAttacher.OnPhotoTapListener {
-                override fun onPhotoTap(view: View?, x: Float, y: Float) {
-                    photoClicked()
-                }
+            setOnOutsidePhotoTapListener {
+                photoClicked()
+            }
 
-                override fun onOutsidePhotoTap() {
-                    photoClicked()
-                }
-            })
+            setOnPhotoTapListener { view, x, y ->
+                photoClicked()
+            }
         }
         loadImage()
 
