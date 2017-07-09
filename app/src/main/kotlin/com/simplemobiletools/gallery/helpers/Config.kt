@@ -228,4 +228,8 @@ class Config(context: Context) : BaseConfig(context) {
     var hideSystemUI: Boolean
         get() = prefs.getBoolean(HIDE_SYSTEM_UI, false)
         set(hideSystemUI) = prefs.edit().putBoolean(HIDE_SYSTEM_UI, hideSystemUI).apply()
+
+    var replaceShare: Boolean
+        get() = prefs.getBoolean(REPLACE_SHARE_WITH_ROTATE, false)
+        set(replaceShare) = prefs.edit().putBoolean(REPLACE_SHARE_WITH_ROTATE, replaceShare).apply()
 }

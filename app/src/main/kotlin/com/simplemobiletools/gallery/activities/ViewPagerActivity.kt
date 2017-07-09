@@ -179,6 +179,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         } else if (config.screenRotation == ROTATE_BY_SYSTEM_SETTING) {
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
         }
+
+        invalidateOptionsMenu()
     }
 
     override fun onPause() {
@@ -191,6 +193,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val currentMedium = getCurrentMedium() ?: return true
 
         menu.apply {
+            findItem(R.id.menu_share_1).isVisible = !config.replaceShare
+            findItem(R.id.menu_share_2).isVisible = config.replaceShare
             findItem(R.id.menu_set_as).isVisible = currentMedium.isImage()
             findItem(R.id.menu_edit).isVisible = currentMedium.isImage()
             findItem(R.id.menu_rotate).isVisible = currentMedium.isImage()

@@ -100,6 +100,7 @@
     <string name="dark_background_at_fullscreen">Sfondo scuro a schermo intero</string>
     <string name="scroll_thumbnails_horizontally">Scorri miniature orizzontalmente</string>
     <string name="hide_system_ui_at_fullscreen">Nascondi UI di sistema con media a schermo intero</string>
+    <string name="replace_share_with_rotate">Replace Share with Rotate at fullscreen menu</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
