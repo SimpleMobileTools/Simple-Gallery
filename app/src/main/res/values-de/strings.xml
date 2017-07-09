@@ -56,7 +56,7 @@
     <string name="path">Pfad</string>
     <string name="invalid_image_path">Ungültiger Dateipfad</string>
     <string name="image_editing_failed">Bildbearbeitung fehlgeschlagen</string>
-    <string name="edit_image_with">Bild bearbeiten mit:</string>
+    <string name="edit_image_with">Bild bearbeiten mit</string>
     <string name="no_editor_found">Keine Bildeditor-App gefunden</string>
     <string name="unknown_file_location">Unbekannter Dateiort</string>
     <string name="error_saving_file">Konnte Quelldatei nicht überschreiben</string>
@@ -66,13 +66,13 @@
     <string name="flip">Spiegeln</string>
     <string name="flip_horizontally">Horizontal spiegeln</string>
     <string name="flip_vertically">Vertikal spiegeln</string>
-    <string name="edit_with">Edit with</string>
+    <string name="edit_with">Bearbeiten mit</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Schlichter Hintergrund</string>
     <string name="set_as_wallpaper">Als Hintergrund festlegen</string>
     <string name="set_as_wallpaper_failed">Hintergrundbild festlegen fehlgeschlagen</string>
-    <string name="set_as_wallpaper_with">Als Hintergrund festlegen mit:</string>
+    <string name="set_as_wallpaper_with">Als Hintergrund festlegen mit</string>
     <string name="no_capable_app_found">Keine Hintergrundbild-App gefunden</string>
     <string name="setting_wallpaper">Hintergrund festlegen&#8230;</string>
     <string name="wallpaper_set_successfully">Hintergrundbild erfolgreich festgelegt</string>
