@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 2.12.2 *(2017-07-09)*
+----------------------------
+
+ * Added a toggle for replacing Share with Rotate at fullscreen media
+ * Some crashfixes and translation updates
+
 Version 2.12.1 *(2017-07-02)*
 ----------------------------
 
