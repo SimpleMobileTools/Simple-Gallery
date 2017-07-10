@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/cab_properties"
-        android:icon="@drawable/ic_info"
-        android:title="@string/properties"
+        android:id="@+id/cab_delete"
+        android:icon="@drawable/ic_delete"
+        android:title="@string/delete"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_pin"
@@ -15,6 +15,11 @@
         android:id="@+id/cab_unpin"
         android:icon="@drawable/ic_unpin"
         android:title="@string/unpin_folder"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/cab_properties"
+        android:icon="@drawable/ic_info"
+        android:title="@string/properties"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_rename"
@@ -61,9 +66,4 @@
                 android:title="@string/use_default"/>
         </menu>
     </item>
-    <item
-        android:id="@+id/cab_delete"
-        android:icon="@drawable/ic_delete"
-        android:title="@string/delete"
-        app:showAsAction="ifRoom"/>
 </menu>
