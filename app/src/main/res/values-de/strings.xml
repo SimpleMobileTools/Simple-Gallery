@@ -100,7 +100,7 @@
     <string name="dark_background_at_fullscreen">Schwarzer Hintergrund im Vollbild</string>
     <string name="scroll_thumbnails_horizontally">Kacheln horizontal scrollen</string>
     <string name="hide_system_ui_at_fullscreen">Systemleisten ausblenden im Vollbild</string>
-    <string name="replace_share_with_rotate">Replace Share with Rotate at fullscreen menu</string>
+    <string name="replace_share_with_rotate">Teilen/Drehen im Vollbild-Menü vertauschen</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
