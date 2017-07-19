@@ -22,7 +22,7 @@
     <string name="change_cover_image">Alterar imagem da capa</string>
     <string name="select_photo">Selecionar foto</string>
     <string name="use_default">Predefinição</string>
-    <string name="set_as">Set as</string>
+    <string name="set_as">Definir como</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Esta opção oculta uma pasta com a adição de um ficheiro \'.nomedia\' na pasta, e irá ocultar todas as subpastas existentes. Pode ver as pastas com a opção \'Mostrar pastas ocultas\'. Continuar?</string>
@@ -66,7 +66,7 @@
     <string name="flip">Inverter</string>
     <string name="flip_horizontally">Horizontalmente</string>
     <string name="flip_vertically">Verticalmente</string>
-    <string name="edit_with">Edit with</string>
+    <string name="edit_with">Editar com</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
@@ -99,8 +99,8 @@
     <string name="screen_rotation_aspect_ratio">Proporção</string>
     <string name="dark_background_at_fullscreen">Usar sempre um fundo escuro se em ecrã completo</string>
     <string name="scroll_thumbnails_horizontally">Deslocação horizontal de miniaturas</string>
-    <string name="hide_system_ui_at_fullscreen">Automatically hide system UI at fullscreen media</string>
-    <string name="replace_share_with_rotate">Replace Share with Rotate at fullscreen menu</string>
+    <string name="hide_system_ui_at_fullscreen">Ocultar interface do sistema se em ecrã completo</string>
+    <string name="replace_share_with_rotate">Substituir a opção Partilhar pela opção Rodar se em ecrã completo</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
