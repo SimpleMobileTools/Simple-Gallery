@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Simple Gallery</string>
-    <string name="app_launcher_name">Galeria</string>
+    <string name="app_launcher_name">Simple Gallery</string>
     <string name="edit">Edytuj</string>
     <string name="open_camera">Aparat</string>
     <string name="open_with">Otwórz w</string>
     <string name="no_app_found">Nie znaleziono danych aplikacji</string>
     <string name="hidden">(ukryty)</string>
-    <string name="pin_folder">Pin folder</string>
+    <string name="pin_folder">Przypnij folder</string>
     <string name="unpin_folder">Wypakuj folder</string>
     <string name="show_all">Pokaż wszystko</string>
     <string name="all_folders">Wszystkie foldery</string>
@@ -19,27 +19,27 @@
     <string name="no_camera_app_found">Brak aplikacji powiązanej z aparatem</string>
     <string name="increase_column_count">Zwiększ liczbę kolumn</string>
     <string name="reduce_column_count">Zmniejsz liczbę kolumn</string>
-    <string name="change_cover_image">Change cover image</string>
-    <string name="select_photo">Select photo</string>
-    <string name="use_default">Use default</string>
-    <string name="set_as">Set as</string>
+    <string name="change_cover_image">Zmień okładkę</string>
+    <string name="select_photo">Wybierz obraz</string>
+    <string name="use_default">Użyj domyślnego</string>
+    <string name="set_as">Ustaw jako</string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Ta funkcja ukrywa folder dodając \'. \' Nomedia plik do niego, można tak ukryć wszystkie podfoldery. Można je zobaczyć poprzez przełączanie \'Pokaż ukryte foldery \' opcję w ustawieniach. Kontyntynuj?</string>
+    <string name="hide_folder_description">Ta funkcja ukrywa foldery dodając do nich pusty plik .nomedia. Aby móc je zobaczyć, należy włączyć opcję 'Pokazuj ukryte foldery' w ustawieniach. Kontyntynuować?</string>
     <string name="exclude">Wyklucz</string>
-    <string name="excluded_folders">Wyklucz foldery</string>
+    <string name="excluded_folders">Wykluczone foldery</string>
     <string name="manage_excluded_folders">Zarządzaj wykluczonymi folderami</string>
-    <string name="exclude_folder_description">Działa na folderach Galerii. Możesz zarządzać wykluczonymi folderami w Menu/Ustawienia.</string>
-    <string name="exclude_folder_parent">Wykluczyć folder nadżędny ?</string>
-    <string name="excluded_activity_placeholder">Excluding folders will make them together with their subfolders hidden just in Simple Gallery, they will still be visible in other applications.\\n\\nIf you want to hide them from other apps too, use the Hide function.</string>
+    <string name="exclude_folder_description">Działa na folderach galerii. Możesz zarządzać wykluczonymi folderami w ustawieniach aplikacji.</string>
+    <string name="exclude_folder_parent">Wykluczyć folder nadrzędny?</string>
+    <string name="excluded_activity_placeholder">Wykluczenie folderów ukryje je tylko w aplikacji Simple Gallery, w innych aplikacjach będą one wciąż widoczne.\n\nJeśli chcesz je ukryć także w innych aplikacjach, użyj funkcji ukrywania.</string>
     <string name="remove_all">Usuń wszystko</string>
-    <string name="remove_all_description">Usuń wszystkie foldery z listy wykluczone? To nie usuwa folderów.</string>
+    <string name="remove_all_description">Usunąć wszystkie foldery z listy wykluczonych? Foldery nie zostaną fizycznie usunięte.</string>
 
     <!-- Include folders -->
-    <string name="include_folders">Included folders</string>
-    <string name="manage_included_folders">Manage included folders</string>
-    <string name="add_folder">Add folder</string>
-    <string name="included_activity_placeholder">If you have some folders which contain media, but were not recognized by the app, you can add them manually here.</string>
+    <string name="include_folders">Dołączone foldery</string>
+    <string name="manage_included_folders">Zarządzaj dołączonymi folderami</string>
+    <string name="add_folder">Dodaj folder</string>
+    <string name="included_activity_placeholder">Jeśli masz jakieś foldery z multimediami, ale aplikacja ich nie wykryła, możesz je tutaj dodać ręcznie.</string>
 
     <!-- Resizing -->
     <string name="resize">Zmień rozmiar</string>
@@ -55,64 +55,59 @@
     <string name="rotate">Obróć</string>
     <string name="path">Ścieżka</string>
     <string name="invalid_image_path">Nieprawidłowa ścieżka</string>
-    <string name="image_editing_failed">Edycja obrazu nie powiodło się</string>
+    <string name="image_editing_failed">Edycja obrazu nie powiodła się</string>
     <string name="edit_image_with">Edytuj obraz w:</string>
-    <string name="no_editor_found">Nie znaleziono edytora zdjęć</string>
+    <string name="no_editor_found">Nie znalazłem edytora zdjęć</string>
     <string name="unknown_file_location">Nieznana lokalizacja pliku</string>
     <string name="error_saving_file">Nie udało się zastąpić pliku</string>
     <string name="rotate_left">Obróć w lewo</string>
     <string name="rotate_right">Obróć w prawo</string>
-    <string name="rotate_one_eighty">Obróć o 180o</string>
-    <string name="flip">Flip</string>
-    <string name="flip_horizontally">Flip poziomo</string>
-    <string name="flip_vertically">Flip pionowo</string>
-    <string name="edit_with">Edit with</string>
+    <string name="rotate_one_eighty">Obróć o 180 stopni</string>
+    <string name="flip">Przewróć</string>
+    <string name="flip_horizontally">Przewróć w poziomie</string>
+    <string name="flip_vertically">Przewróć w pionie</string>
+    <string name="edit_with">Edytuj w:</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Tapeta</string>
-    <string name="set_as_wallpaper">Ustaw jako tapeta</string>
+    <string name="set_as_wallpaper">Ustaw jako tapetę</string>
     <string name="set_as_wallpaper_failed">Ustawienie tapety nie powiodło się</string>
     <string name="set_as_wallpaper_with">Ustaw jako tapetę w:</string>
     <string name="no_capable_app_found">Brak odpowiednich ustawień</string>
     <string name="setting_wallpaper">Ustawianie tapety&#8230;</string>
     <string name="wallpaper_set_successfully">Tapeta ustawiona</string>
-    <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
-    <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
+    <string name="portrait_aspect_ratio">Proporcje ekranu w trybie pionowym</string>
+    <string name="landscape_aspect_ratio">Proporcje ekranu w trybie poziomym</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">Pokaż ukryte foldery</string>
+    <string name="show_hidden_media">Pokazuj ukryte foldery</string>
     <string name="autoplay_videos">Odtwarzaj pliki wideo automatycznie</string>
     <string name="toggle_filename">Włącz widoczność nazwy pliku</string>
     <string name="show_media">Wybierz co pokazywać</string>
-    <string name="images">Tylko Zdjęcia</string>
-    <string name="videos">Tylko Filmy</string>
-    <string name="gifs">GIFs only</string>
-    <string name="images_videos_gifs">Images, videos, GIFs</string>
-    <string name="images_and_videos">Obrazy i wideo</string>
-    <string name="loop_videos">Pętla wideo</string>
-    <string name="animate_gifs">Animowanie GIFy z miniaturkami</string>
-    <string name="max_brightness">Max brightness when viewing media</string>
-    <string name="crop_thumbnails">Crop thumbnails into squares</string>
-    <string name="screen_rotation_by">Rotate fullscreen media by</string>
-    <string name="screen_rotation_system_setting">System setting</string>
-    <string name="screen_rotation_device_rotation">Device rotation</string>
-    <string name="screen_rotation_aspect_ratio">Aspect ratio</string>
-    <string name="dark_background_at_fullscreen">Dark background at fullscreen media</string>
-    <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
-    <string name="hide_system_ui_at_fullscreen">Automatically hide system UI at fullscreen media</string>
-    <string name="replace_share_with_rotate">Replace Share with Rotate at fullscreen menu</string>
+    <string name="images">Tylko obrazy</string>
+    <string name="videos">Tylko filmy</string>
+    <string name="gifs">Tylko GIFy</string>
+    <string name="images_videos_gifs">Obrazy, filmy i GIFy</string>
+    <string name="images_and_videos">Obrazy i filmy</string>
+    <string name="loop_videos">Zapętlaj odtwarzanie filmów</string>
+    <string name="animate_gifs">Animowane miniatury GIFów</string>
+    <string name="max_brightness">Maksymalna jasność podczas wyświetlania multimediów</string>
+    <string name="crop_thumbnails">Przycinaj miniatury do kwadratów</string>
+    <string name="screen_rotation_by">Obracaj pełnoekranowe multimedia według</string>
+    <string name="screen_rotation_system_setting">Ustawień systemowych</string>
+    <string name="screen_rotation_device_rotation">Orientacji urządzenia</string>
+    <string name="screen_rotation_aspect_ratio">Proporcji</string>
+    <string name="dark_background_at_fullscreen">Czarne tło przy podglądzie pełnoekranowym</string>
+    <string name="scroll_thumbnails_horizontally">Przewijaj miniatury poziomo</string>
+    <string name="hide_system_ui_at_fullscreen">Ukrywaj automatycznie interfejs przy pełnoekranowym podglądzie</string>
+    <string name="replace_share_with_rotate">Zamień funkcję udostępniania na obracanie w menu pełnoekranowym</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Darmowa Galeria bez reklam do przeglądania zdjęć i filmów.</string>
-    <string name="app_long_description">
-        Prosta aplikacja galerii do oglądania zdjęć i filmów. Pliki  mogą być sortowane według daty, rozmiaru, nazwy zarówno w porządku rosnącym lub malejącym, zdjęcia można powiększać. Pliki multimedialne są wyświetlane w wielu kolumnach w zależności od wielkości ekranu, można zmienić liczbę kolumn za pomocą gestów. Obrazy mogą być edytowane w galerii. Zdjęcia mogą być przycięte, można je obracać lub ustawić jako tapetę bezpośrednio z aplikacji. Kolor aplikacji mozna dowolnie ustawić według własnych preferencji.
-
-        Galeria jest również oferowane do użytkowania przez osoby trzecie do podglądu zdjęć/filmów, dodawania załączników do klientów e-mail itp, Idealne nadaje się do codziennego użytku.
-
-        Nie zawiera żadnych reklam ani niepotrzebnych uprawnień. Jest w pełni opensource.
-
-        Ta aplikacja jest tylko jedą z większego szeregu naszych aplikacji. Można znaleźć resztę z nich w http://www.simplemobiletools.com
+    <string name="app_short_description">Darmowa galeria bez reklam do przeglądania obrazów i filmów.</string>
+    <string name="app_long_description">Prosta aplikacja galerii do oglądania obrazów i filmów. Pliki mogą być sortowane według daty, rozmiaru i nazwy, zarówno w porządku rosnącym jak i malejącym. Można je również powiększać. Pliki multimedialne są wyświetlane w wielu kolumnach w zależności od wielkości ekranu. Liczbę kolumn można zmienić za pomocą gestów. Obrazy mogą być edytowane w galerii. Zdjęcia mogą być przycięte, można je obracać lub ustawić jako tapetę bezpośrednio z aplikacji. Kolor aplikacji można dowolnie ustawiać według własnych preferencji. Galeria jest również oferowana do użytkowania przez osoby trzecie do podglądu zdjęć i filmów, dodawania załączników do emaili, itp. Idealne nadaje się do codziennego użytku. Nie zawiera żadnych reklam, ani niepotrzebnych uprawnień. Jest w pełni otawrtoźrodłowa.
+        
+Ta aplikacja jest tylko jedną z wielu naszych aplikacji. Resztę można znaleźć na stronie http://www.simplemobiletools.com .
     </string>
 
     <!--
