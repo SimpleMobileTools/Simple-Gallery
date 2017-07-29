@@ -9,6 +9,7 @@ import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.PatternDialog
 import com.simplemobiletools.gallery.extensions.config
+import com.simplemobiletools.gallery.extensions.handleHiddenFolderPasswordProtection
 import com.simplemobiletools.gallery.helpers.*
 import kotlinx.android.synthetic.main.activity_settings.*
 
@@ -64,9 +65,19 @@ class SettingsActivity : SimpleActivity() {
     private fun setupShowHiddenFolders() {
         settings_show_hidden_folders.isChecked = config.showHiddenMedia
         settings_show_hidden_folders_holder.setOnClickListener {
-            settings_show_hidden_folders.toggle()
-            config.showHiddenMedia = settings_show_hidden_folders.isChecked
+            if (config.showHiddenMedia) {
+                toggleHiddenFolders()
+            } else {
+                handleHiddenFolderPasswordProtection {
+                    toggleHiddenFolders()
+                }
+            }
         }
+    }
+
+    private fun toggleHiddenFolders() {
+        settings_show_hidden_folders.toggle()
+        config.showHiddenMedia = settings_show_hidden_folders.isChecked
     }
 
     private fun setupAutoplayVideos() {
