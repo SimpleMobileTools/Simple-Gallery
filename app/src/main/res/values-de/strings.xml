@@ -79,6 +79,14 @@
     <string name="portrait_aspect_ratio">Hochformat</string>
     <string name="landscape_aspect_ratio">Querformat</string>
 
+    <!-- Password protection -->
+    <string name="pin">PIN</string>
+    <string name="wrong_pin">Wrong PIN</string>
+    <string name="repeat_pin">Repeat PIN</string>
+    <string name="pattern">Pattern</string>
+    <string name="wrong_pattern">Wrong pattern</string>
+    <string name="repeat_pattern">Repeat pattern</string>
+
     <!-- Settings -->
     <string name="show_hidden_media">Versteckte Ordner zeigen</string>
     <string name="autoplay_videos">Videos automatisch abspielen</string>
@@ -101,6 +109,7 @@
     <string name="scroll_thumbnails_horizontally">Kacheln horizontal scrollen</string>
     <string name="hide_system_ui_at_fullscreen">Systemleisten ausblenden im Vollbild</string>
     <string name="replace_share_with_rotate">Teilen/Drehen im Vollbild-Menü vertauschen</string>
+    <string name="password_protect_hidden_folders">Password protect hidden folders</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

@@ -79,6 +79,14 @@
     <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
     <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
 
+    <!-- Password protection -->
+    <string name="pin">PIN</string>
+    <string name="wrong_pin">Wrong PIN</string>
+    <string name="repeat_pin">Repeat PIN</string>
+    <string name="pattern">Pattern</string>
+    <string name="wrong_pattern">Wrong pattern</string>
+    <string name="repeat_pattern">Repeat pattern</string>
+
     <!-- Settings -->
     <string name="show_hidden_media">非表示フォルダーを表示</string>
     <string name="autoplay_videos">自動的にビデオを再生</string>
@@ -101,6 +109,7 @@
     <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
     <string name="hide_system_ui_at_fullscreen">Automatically hide system UI at fullscreen media</string>
     <string name="replace_share_with_rotate">Replace Share with Rotate at fullscreen menu</string>
+    <string name="password_protect_hidden_folders">Password protect hidden folders</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

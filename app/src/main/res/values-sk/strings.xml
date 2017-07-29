@@ -79,6 +79,14 @@
     <string name="portrait_aspect_ratio">Orientácia nastojato</string>
     <string name="landscape_aspect_ratio">Orientácia naležato</string>
 
+    <!-- Password protection -->
+    <string name="pin">PIN</string>
+    <string name="wrong_pin">Nesprávny PIN</string>
+    <string name="repeat_pin">Zopakujte PIN</string>
+    <string name="pattern">Vzor</string>
+    <string name="wrong_pattern">Nesprávny vzor</string>
+    <string name="repeat_pattern">Zopakujte vzor</string>
+
     <!-- Settings -->
     <string name="show_hidden_media">Zobraziť skryté médiá</string>
     <string name="autoplay_videos">Spúšťať videá automaticky</string>
@@ -101,6 +109,7 @@
     <string name="scroll_thumbnails_horizontally">Prehliadať miniatúry vodorovne</string>
     <string name="hide_system_ui_at_fullscreen">Automaticky skrývať systémové lišty pri celoobrazovkových médiách</string>
     <string name="replace_share_with_rotate">Nahradiť Zdieľanie s Otočením v celoobrazovkovom menu</string>
+    <string name="password_protect_hidden_folders">Uzamknúť zobrazovanie skrytých priečinkov heslom</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
