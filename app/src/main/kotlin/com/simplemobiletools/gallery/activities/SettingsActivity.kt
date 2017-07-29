@@ -36,6 +36,7 @@ class SettingsActivity : SimpleActivity() {
         setupScrollHorizontally()
         setupScreenRotation()
         setupReplaceShare()
+        setupPasswordProtection()
         setupShowMedia()
         setupHideSystemUI()
         updateTextColors(settings_holder)
@@ -136,6 +137,14 @@ class SettingsActivity : SimpleActivity() {
         settings_replace_share_holder.setOnClickListener {
             settings_replace_share.toggle()
             config.replaceShare = settings_replace_share.isChecked
+        }
+    }
+
+    private fun setupPasswordProtection() {
+        settings_password_protection.isChecked = config.passwordProtection
+        settings_password_protection_holder.setOnClickListener {
+            settings_password_protection.toggle()
+            config.passwordProtection = settings_password_protection.isChecked
         }
     }
 

@@ -232,4 +232,8 @@ class Config(context: Context) : BaseConfig(context) {
     var replaceShare: Boolean
         get() = prefs.getBoolean(REPLACE_SHARE_WITH_ROTATE, false)
         set(replaceShare) = prefs.edit().putBoolean(REPLACE_SHARE_WITH_ROTATE, replaceShare).apply()
+
+    var passwordProtection: Boolean
+        get() = prefs.getBoolean(PASSWORD_PROTECTION, false)
+        set(passwordProtection) = prefs.edit().putBoolean(PASSWORD_PROTECTION, passwordProtection).apply()
 }
