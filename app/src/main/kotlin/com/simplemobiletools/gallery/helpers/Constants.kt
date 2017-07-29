@@ -33,7 +33,8 @@ val ALBUM_COVERS = "album_covers"
 val SCROLL_HORIZONTALLY = "scroll_horizontally"
 val HIDE_SYSTEM_UI = "hide_system_ui"
 val REPLACE_SHARE_WITH_ROTATE = "replace_share_with_rotate"
-val PASSWORD_PROTECTION = "password_protection"
+val IS_PASSWORD_PROTECTION = "password_protection"
+val PASSWORD_HASH = "password_hash"
 
 val NOMEDIA = ".nomedia"
 

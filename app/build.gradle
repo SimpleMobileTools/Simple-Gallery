@@ -39,6 +39,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.0'
     compile 'com.github.chrisbanes:PhotoView:2.1.2'
     compile 'it.sephiroth.android.exif:library:1.0.1'
+    compile 'com.andrognito.patternlockview:patternlockview:1.0.0'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'

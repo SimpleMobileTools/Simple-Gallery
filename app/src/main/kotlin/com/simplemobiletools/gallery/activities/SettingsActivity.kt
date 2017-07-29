@@ -7,6 +7,7 @@ import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.dialogs.PatternDialog
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.helpers.*
 import kotlinx.android.synthetic.main.activity_settings.*
@@ -141,10 +142,19 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun setupPasswordProtection() {
-        settings_password_protection.isChecked = config.passwordProtection
+        settings_password_protection.isChecked = config.isPasswordProtectionOn
         settings_password_protection_holder.setOnClickListener {
-            settings_password_protection.toggle()
-            config.passwordProtection = settings_password_protection.isChecked
+            PatternDialog(this) {
+                if (config.isPasswordProtectionOn) {
+                    settings_password_protection.isChecked = false
+                    config.isPasswordProtectionOn = false
+                    config.passwordHash = ""
+                } else {
+                    settings_password_protection.isChecked = true
+                    config.isPasswordProtectionOn = true
+                    config.passwordHash = it
+                }
+            }
         }
     }
 
