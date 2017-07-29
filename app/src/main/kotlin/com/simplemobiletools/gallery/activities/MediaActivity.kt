@@ -318,10 +318,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun tryToggleTemporarilyShowHidden(show: Boolean) {
         if (config.temporarilyShowHidden) {
-            toggleTemporarilyShowHidden(show)
+            toggleTemporarilyShowHidden(false)
         } else {
             handleHiddenFolderPasswordProtection {
-                toggleTemporarilyShowHidden(show)
+                toggleTemporarilyShowHidden(true)
             }
         }
     }

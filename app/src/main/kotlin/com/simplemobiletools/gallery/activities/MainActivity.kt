@@ -212,10 +212,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun tryToggleTemporarilyShowHidden(show: Boolean) {
         if (config.temporarilyShowHidden) {
-            toggleTemporarilyShowHidden(show)
+            toggleTemporarilyShowHidden(false)
         } else {
             handleHiddenFolderPasswordProtection {
-                toggleTemporarilyShowHidden(show)
+                toggleTemporarilyShowHidden(true)
             }
         }
     }
