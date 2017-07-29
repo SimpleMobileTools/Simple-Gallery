@@ -89,7 +89,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         if (intent.extras?.containsKey(IS_VIEW_INTENT) == true) {
-            config.temporarilyShowHidden = true
+            if (!config.isPasswordProtectionOn)
+                config.temporarilyShowHidden = true
         }
 
         showSystemUI()
