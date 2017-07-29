@@ -85,7 +85,7 @@
     <string name="wrong_pin">Wrong PIN</string>
     <string name="repeat_pin">Repeat PIN</string>
     <string name="pattern">Pattern</string>
-    <string name="select_pattern">Select pattern</string>
+    <string name="insert_pattern">Insert pattern</string>
     <string name="wrong_pattern">Wrong pattern</string>
     <string name="repeat_pattern">Repeat pattern</string>
 

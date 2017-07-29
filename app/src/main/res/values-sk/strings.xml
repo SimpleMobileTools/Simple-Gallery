@@ -85,7 +85,7 @@
     <string name="wrong_pin">Nesprávny PIN</string>
     <string name="repeat_pin">Zopakujte PIN</string>
     <string name="pattern">Vzor</string>
-    <string name="select_pattern">Zvoľte vzor</string>
+    <string name="insert_pattern">Zadajte vzor</string>
     <string name="wrong_pattern">Nesprávny vzor</string>
     <string name="repeat_pattern">Zopakujte vzor</string>
 

@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/activity_margin"
-        android:text="@string/select_pattern"/>
+        android:text="@string/insert_pattern"/>
 
     <com.andrognito.patternlockview.PatternLockView
         android:id="@+id/pattern_lock_view"
