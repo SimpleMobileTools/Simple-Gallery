@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/pattern_dialog_holder"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:id="@+id/dialog_holder"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
-    <com.simplemobiletools.commons.views.MyTextView
-        android:id="@+id/pattern_dialog_title"
-        android:layout_width="wrap_content"
+    <android.support.design.widget.TabLayout
+        android:id="@+id/dialog_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pattern"/>
+
+        <android.support.design.widget.TabItem
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pin"/>
+
+    </android.support.design.widget.TabLayout>
+
+    <com.simplemobiletools.gallery.views.MyDialogViewPager
+        android:id="@+id/dialog_tab_view_pager"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/activity_margin"
-        android:text="@string/insert_pattern"/>
-
-    <com.andrognito.patternlockview.PatternLockView
-        android:id="@+id/pattern_lock_view"
-        android:layout_width="280dp"
-        android:layout_height="280dp"
-        android:layout_below="@+id/pattern_dialog_title"
-        android:layout_centerInParent="true"/>
+        android:layout_below="@+id/dialog_tab_layout"/>
 
 </RelativeLayout>
