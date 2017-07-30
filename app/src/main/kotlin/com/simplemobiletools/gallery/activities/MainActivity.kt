@@ -97,8 +97,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             R.id.sort -> showSortingDialog()
             R.id.open_camera -> launchCamera()
             R.id.show_all -> showAllMedia()
-            R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden(true)
-            R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden(false)
+            R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden()
+            R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
             R.id.increase_column_count -> increaseColumnCount()
             R.id.reduce_column_count -> reduceColumnCount()
             R.id.settings -> launchSettings()
@@ -210,7 +210,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         finish()
     }
 
-    private fun tryToggleTemporarilyShowHidden(show: Boolean) {
+    private fun tryToggleTemporarilyShowHidden() {
         if (config.temporarilyShowHidden) {
             toggleTemporarilyShowHidden(false)
         } else {

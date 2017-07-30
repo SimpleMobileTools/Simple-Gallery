@@ -216,8 +216,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             R.id.hide_folder -> tryHideFolder()
             R.id.unhide_folder -> unhideFolder()
             R.id.exclude_folder -> tryExcludeFolder()
-            R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden(true)
-            R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden(false)
+            R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden()
+            R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
             R.id.increase_column_count -> increaseColumnCount()
             R.id.reduce_column_count -> reduceColumnCount()
             R.id.settings -> launchSettings()
@@ -316,7 +316,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             false
     }
 
-    private fun tryToggleTemporarilyShowHidden(show: Boolean) {
+    private fun tryToggleTemporarilyShowHidden() {
         if (config.temporarilyShowHidden) {
             toggleTemporarilyShowHidden(false)
         } else {
