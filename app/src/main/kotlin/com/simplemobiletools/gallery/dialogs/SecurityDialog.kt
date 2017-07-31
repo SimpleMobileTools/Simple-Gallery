@@ -1,5 +1,7 @@
 package com.simplemobiletools.gallery.dialogs
 
+import android.support.design.widget.TabLayout
+import android.support.v4.view.ViewPager
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import com.simplemobiletools.commons.extensions.setupDialogStuff
@@ -17,11 +19,37 @@ class SecurityDialog(val activity: SimpleActivity, val requiredHash: String, val
 
     init {
         view.apply {
+            val viewPager = findViewById(R.id.dialog_tab_view_pager) as MyDialogViewPager
             val textColor = context.config.textColor
             dialog_tab_layout.setTabTextColors(textColor, textColor)
+            dialog_tab_layout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+                override fun onTabReselected(tab: TabLayout.Tab?) {
+                }
 
-            val viewPager = findViewById(R.id.dialog_tab_view_pager) as MyDialogViewPager
+                override fun onTabUnselected(tab: TabLayout.Tab) {
+                }
+
+                override fun onTabSelected(tab: TabLayout.Tab) {
+                    if (tab.text.toString().equals(resources.getString(R.string.pattern), true)) {
+                        viewPager.currentItem = 0
+                    } else {
+                        viewPager.currentItem = 1
+                    }
+                }
+            })
+
             viewPager.adapter = PasswordTypesAdapter(context, requiredHash, this@SecurityDialog)
+            viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+                override fun onPageScrollStateChanged(state: Int) {
+                }
+
+                override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+                }
+
+                override fun onPageSelected(position: Int) {
+                    dialog_tab_layout.getTabAt(position)!!.select()
+                }
+            })
         }
 
         dialog = AlertDialog.Builder(activity)

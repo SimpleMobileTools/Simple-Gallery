@@ -11,11 +11,13 @@
         android:layout_height="wrap_content">
 
         <android.support.design.widget.TabItem
+            android:id="@+id/dialog_tab_pattern"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/pattern"/>
 
         <android.support.design.widget.TabItem
+            android:id="@+id/dialog_tab_pin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/pin"/>
