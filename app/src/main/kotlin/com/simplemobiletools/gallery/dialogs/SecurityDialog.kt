@@ -22,6 +22,7 @@ class SecurityDialog(val activity: SimpleActivity, val requiredHash: String, val
             val viewPager = findViewById(R.id.dialog_tab_view_pager) as MyDialogViewPager
             val textColor = context.config.textColor
             dialog_tab_layout.setTabTextColors(textColor, textColor)
+            dialog_tab_layout.setSelectedTabIndicatorColor(context.config.primaryColor)
             dialog_tab_layout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
                 override fun onTabReselected(tab: TabLayout.Tab?) {
                 }
