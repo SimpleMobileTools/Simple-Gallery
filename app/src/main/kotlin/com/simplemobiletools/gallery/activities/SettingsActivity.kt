@@ -7,7 +7,7 @@ import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.dialogs.PatternDialog
+import com.simplemobiletools.gallery.dialogs.SecurityDialog
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.handleHiddenFolderPasswordProtection
 import com.simplemobiletools.gallery.helpers.*
@@ -155,7 +155,7 @@ class SettingsActivity : SimpleActivity() {
     private fun setupPasswordProtection() {
         settings_password_protection.isChecked = config.isPasswordProtectionOn
         settings_password_protection_holder.setOnClickListener {
-            PatternDialog(this, config.passwordHash) {
+            SecurityDialog(this, config.passwordHash) {
                 val hasPasswordProtection = config.isPasswordProtectionOn
                 settings_password_protection.isChecked = !hasPasswordProtection
                 config.isPasswordProtectionOn = !hasPasswordProtection

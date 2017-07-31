@@ -24,7 +24,7 @@ import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
-import com.simplemobiletools.gallery.dialogs.PatternDialog
+import com.simplemobiletools.gallery.dialogs.SecurityDialog
 import com.simplemobiletools.gallery.helpers.NOMEDIA
 import com.simplemobiletools.gallery.helpers.REQUEST_EDIT_IMAGE
 import com.simplemobiletools.gallery.helpers.REQUEST_SET_AS
@@ -335,7 +335,7 @@ fun Activity.loadStaticGif(path: String, target: MySquareImageView) {
 
 fun SimpleActivity.handleHiddenFolderPasswordProtection(callback: () -> Unit) {
     if (config.isPasswordProtectionOn) {
-        PatternDialog(this, config.passwordHash) {
+        SecurityDialog(this, config.passwordHash) {
             callback()
         }
     } else {
