@@ -5,4 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/pin_lock_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/small_margin"
+        android:paddingLeft="@dimen/activity_margin"
+        android:paddingRight="@dimen/activity_margin"
+        android:paddingTop="@dimen/activity_margin"
+        android:text="@string/enter_pin"/>
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/pin_lock_current_pin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pin_lock_title"
+        android:gravity="center"
+        android:letterSpacing="1.05"
+        android:paddingBottom="@dimen/small_margin"
+        android:paddingTop="@dimen/small_margin"
+        android:textSize="@dimen/big_text_size"/>
+
 </com.simplemobiletools.gallery.views.PinTab>

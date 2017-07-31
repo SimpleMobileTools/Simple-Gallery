@@ -8,6 +8,7 @@ import com.andrognito.patternlockview.PatternLockView
 import com.andrognito.patternlockview.listener.PatternLockViewListener
 import com.andrognito.patternlockview.utils.PatternLockUtils
 import com.simplemobiletools.commons.extensions.toast
+import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
 import kotlinx.android.synthetic.main.tab_pattern.view.*
@@ -20,7 +21,7 @@ class PatternTab(context: Context, attrs: AttributeSet) : RelativeLayout(context
     override fun onFinishInflate() {
         super.onFinishInflate()
         val textColor = context.config.textColor
-        pattern_lock_title.setTextColor(textColor)
+        context.updateTextColors(pattern_lock_holder)
         pattern_lock_view.correctStateColor = context.config.primaryColor
         pattern_lock_view.normalStateColor = textColor
         pattern_lock_view.addPatternLockListener(object : PatternLockViewListener {
