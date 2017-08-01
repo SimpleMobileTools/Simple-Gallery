@@ -22,6 +22,8 @@
         android:layout_below="@+id/pin_lock_title"
         android:gravity="center"
         android:letterSpacing="1.05"
+        android:lines="1"
+        android:maxLength="10"
         android:paddingBottom="@dimen/small_margin"
         android:paddingTop="@dimen/small_margin"
         android:textSize="@dimen/big_text_size"/>
