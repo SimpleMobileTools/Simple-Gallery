@@ -12,11 +12,12 @@ import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.interfaces.HashListener
+import com.simplemobiletools.gallery.interfaces.SecurityTab
 import kotlinx.android.synthetic.main.tab_pattern.view.*
 
-class PatternTab(context: Context, attrs: AttributeSet) : RelativeLayout(context, attrs) {
-    var hash = ""
-    var requiredHash = ""
+class PatternTab(context: Context, attrs: AttributeSet) : RelativeLayout(context, attrs), SecurityTab {
+    private var hash = ""
+    private var requiredHash = ""
     lateinit var hashListener: HashListener
 
     override fun onFinishInflate() {
@@ -41,7 +42,7 @@ class PatternTab(context: Context, attrs: AttributeSet) : RelativeLayout(context
         })
     }
 
-    fun initTab(requiredHash: String, listener: HashListener) {
+    override fun initTab(requiredHash: String, listener: HashListener) {
         this.requiredHash = requiredHash
         hash = requiredHash
         hashListener = listener
@@ -52,23 +53,21 @@ class PatternTab(context: Context, attrs: AttributeSet) : RelativeLayout(context
             hash = newHash
             pattern_lock_view.clearPattern()
             pattern_lock_title.setText(R.string.repeat_pattern)
+        } else if (hash == newHash) {
+            pattern_lock_view.setViewMode(PatternLockView.PatternViewMode.CORRECT)
+            Handler().postDelayed({
+                hashListener.receivedHash(hash)
+            }, 300)
         } else {
-            if (hash == newHash) {
-                pattern_lock_view.setViewMode(PatternLockView.PatternViewMode.CORRECT)
-                Handler().postDelayed({
-                    hashListener.receivedHash(hash)
-                }, 300)
-            } else {
-                pattern_lock_view.setViewMode(PatternLockView.PatternViewMode.WRONG)
-                context.toast(R.string.wrong_pattern)
-                Handler().postDelayed({
-                    pattern_lock_view.clearPattern()
-                    if (requiredHash.isEmpty()) {
-                        hash = ""
-                        pattern_lock_title.setText(R.string.insert_pattern)
-                    }
-                }, 1000)
-            }
+            pattern_lock_view.setViewMode(PatternLockView.PatternViewMode.WRONG)
+            context.toast(R.string.wrong_pattern)
+            Handler().postDelayed({
+                pattern_lock_view.clearPattern()
+                if (requiredHash.isEmpty()) {
+                    hash = ""
+                    pattern_lock_title.setText(R.string.insert_pattern)
+                }
+            }, 1000)
         }
     }
 }

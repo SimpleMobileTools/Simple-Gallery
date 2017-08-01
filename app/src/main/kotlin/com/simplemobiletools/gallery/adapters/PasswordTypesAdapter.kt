@@ -7,15 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.interfaces.HashListener
-import com.simplemobiletools.gallery.views.PatternTab
+import com.simplemobiletools.gallery.interfaces.SecurityTab
 
 class PasswordTypesAdapter(val context: Context, val requiredHash: String, val hashListener: HashListener) : PagerAdapter() {
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val view = LayoutInflater.from(context).inflate(layoutSelection(position), container, false)
         container.addView(view)
-        if (position == 0)
-            (view as PatternTab).initTab(requiredHash, hashListener)
+        (view as SecurityTab).initTab(requiredHash, hashListener)
         return view
     }
 

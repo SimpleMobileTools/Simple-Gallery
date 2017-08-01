@@ -76,12 +76,13 @@
     <string name="no_capable_app_found">Aplicativo não encontrado</string>
     <string name="setting_wallpaper">Definindo como papel de parede;</string>
     <string name="wallpaper_set_successfully">Papel de parede com sucesso</string>
-   <string name="portrait_aspect_ratio">Retrato</string>
-   <string name="landscape_aspect_ratio">Paisagem</string>
+    <string name="portrait_aspect_ratio">Retrato</string>
+    <string name="landscape_aspect_ratio">Paisagem</string>
 
     <!-- Password protection -->
     <string name="pin">PIN</string>
     <string name="enter_pin">Enter PIN</string>
+    <string name="please_enter_pin">Please enter a PIN</string>
     <string name="wrong_pin">Wrong PIN</string>
     <string name="repeat_pin">Repeat PIN</string>
     <string name="pattern">Pattern</string>

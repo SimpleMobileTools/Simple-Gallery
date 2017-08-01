@@ -82,6 +82,7 @@
     <!-- Password protection -->
     <string name="pin">PIN</string>
     <string name="enter_pin">Enter PIN</string>
+    <string name="please_enter_pin">Please enter a PIN</string>
     <string name="wrong_pin">Wrong PIN</string>
     <string name="repeat_pin">Repeat PIN</string>
     <string name="pattern">Pattern</string>

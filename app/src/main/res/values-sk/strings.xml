@@ -82,6 +82,7 @@
     <!-- Password protection -->
     <string name="pin">PIN</string>
     <string name="enter_pin">Zadajte PIN</string>
+    <string name="please_enter_pin">Prosím zadajte PIN</string>
     <string name="wrong_pin">Nesprávny PIN</string>
     <string name="repeat_pin">Zopakujte PIN</string>
     <string name="pattern">Vzor</string>

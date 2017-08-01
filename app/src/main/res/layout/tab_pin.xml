@@ -45,7 +45,7 @@
                 android:id="@+id/pin_1"
                 style="@style/PinNumberStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="1"/>
 
@@ -53,7 +53,7 @@
                 android:id="@+id/pin_2"
                 style="@style/PinNumberStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="2"/>
 
@@ -61,7 +61,7 @@
                 android:id="@+id/pin_3"
                 style="@style/PinNumberStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="3"/>
         </LinearLayout>
@@ -76,7 +76,7 @@
                 android:id="@+id/pin_4"
                 style="@style/PinNumberStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="4"/>
 
@@ -84,7 +84,7 @@
                 android:id="@+id/pin_5"
                 style="@style/PinNumberStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="5"/>
 
@@ -92,7 +92,7 @@
                 android:id="@+id/pin_6"
                 style="@style/PinNumberStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="6"/>
         </LinearLayout>
@@ -107,7 +107,7 @@
                 android:id="@+id/pin_7"
                 style="@style/PinNumberStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="7"/>
 
@@ -115,7 +115,7 @@
                 android:id="@+id/pin_8"
                 style="@style/PinNumberStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="8"/>
 
@@ -123,7 +123,7 @@
                 android:id="@+id/pin_9"
                 style="@style/PinNumberStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="9"/>
         </LinearLayout>
@@ -138,7 +138,7 @@
                 android:id="@+id/pin_c"
                 style="@style/PinNumberStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="C"/>
 
@@ -146,7 +146,7 @@
                 android:id="@+id/pin_0"
                 style="@style/PinNumberStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="0"/>
 
@@ -154,8 +154,9 @@
                 android:id="@+id/pin_ok"
                 style="@style/PinNumberStyle"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:padding="@dimen/activity_margin"
                 android:src="@drawable/ic_check"/>
 
         </LinearLayout>
