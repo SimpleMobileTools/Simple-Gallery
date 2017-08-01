@@ -9,11 +9,11 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.adapters.PasswordTypesAdapter
 import com.simplemobiletools.gallery.extensions.config
+import com.simplemobiletools.gallery.interfaces.HashListener
 import com.simplemobiletools.gallery.views.MyDialogViewPager
-import com.simplemobiletools.gallery.views.PatternTab
 import kotlinx.android.synthetic.main.dialog_security.view.*
 
-class SecurityDialog(val activity: SimpleActivity, val requiredHash: String, val callback: (hash: String) -> Unit) : PatternTab.HashListener {
+class SecurityDialog(val activity: SimpleActivity, val requiredHash: String, val callback: (hash: String) -> Unit) : HashListener {
     var dialog: AlertDialog? = null
     val view = LayoutInflater.from(activity).inflate(R.layout.dialog_security, null)
 

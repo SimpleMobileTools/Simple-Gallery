@@ -11,6 +11,7 @@ import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
+import com.simplemobiletools.gallery.interfaces.HashListener
 import kotlinx.android.synthetic.main.tab_pattern.view.*
 
 class PatternTab(context: Context, attrs: AttributeSet) : RelativeLayout(context, attrs) {
@@ -69,9 +70,5 @@ class PatternTab(context: Context, attrs: AttributeSet) : RelativeLayout(context
                 }, 1000)
             }
         }
-    }
-
-    interface HashListener {
-        fun receivedHash(hash: String)
     }
 }
