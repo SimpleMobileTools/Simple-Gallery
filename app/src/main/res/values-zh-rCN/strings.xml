@@ -79,17 +79,6 @@
     <string name="portrait_aspect_ratio">纵向长宽比</string>
     <string name="landscape_aspect_ratio">横向长宽比</string>
 
-    <!-- Password protection -->
-    <string name="pin">PIN</string>
-    <string name="enter_pin">Enter PIN</string>
-    <string name="please_enter_pin">Please enter a PIN</string>
-    <string name="wrong_pin">Wrong PIN</string>
-    <string name="repeat_pin">Repeat PIN</string>
-    <string name="pattern">Pattern</string>
-    <string name="insert_pattern">Insert pattern</string>
-    <string name="wrong_pattern">Wrong pattern</string>
-    <string name="repeat_pattern">Repeat pattern</string>
-
     <!-- Settings -->
     <string name="show_hidden_media">显示所有</string>
     <string name="autoplay_videos">自动播放</string>
