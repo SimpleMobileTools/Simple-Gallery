@@ -335,7 +335,7 @@ fun Activity.loadStaticGif(path: String, target: MySquareImageView) {
 
 fun SimpleActivity.handleHiddenFolderPasswordProtection(callback: () -> Unit) {
     if (config.isPasswordProtectionOn) {
-        SecurityDialog(this, config.passwordHash) { hash, type ->
+        SecurityDialog(this, config.passwordHash, config.protectionType) { hash, type ->
             callback()
         }
     } else {

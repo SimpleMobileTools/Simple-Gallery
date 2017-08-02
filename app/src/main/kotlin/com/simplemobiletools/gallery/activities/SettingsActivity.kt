@@ -155,12 +155,13 @@ class SettingsActivity : SimpleActivity() {
     private fun setupPasswordProtection() {
         settings_password_protection.isChecked = config.isPasswordProtectionOn
         settings_password_protection_holder.setOnClickListener {
-            SecurityDialog(this, config.passwordHash) { hash, type ->
+            val tabToShow = if (config.isPasswordProtectionOn) config.protectionType else SHOW_ALL_TABS
+            SecurityDialog(this, config.passwordHash, tabToShow) { hash, type ->
                 val hasPasswordProtection = config.isPasswordProtectionOn
                 settings_password_protection.isChecked = !hasPasswordProtection
                 config.isPasswordProtectionOn = !hasPasswordProtection
                 config.passwordHash = if (hasPasswordProtection) "" else hash
-                config.protectionType = PROTECTION_PATTERN
+                config.protectionType = type
             }
         }
     }
