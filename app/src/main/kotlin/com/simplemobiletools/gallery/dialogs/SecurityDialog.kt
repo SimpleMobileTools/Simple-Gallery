@@ -13,7 +13,7 @@ import com.simplemobiletools.gallery.interfaces.HashListener
 import com.simplemobiletools.gallery.views.MyDialogViewPager
 import kotlinx.android.synthetic.main.dialog_security.view.*
 
-class SecurityDialog(val activity: SimpleActivity, val requiredHash: String, val callback: (hash: String) -> Unit) : HashListener {
+class SecurityDialog(val activity: SimpleActivity, val requiredHash: String, val callback: (hash: String, type: Int) -> Unit) : HashListener {
     var dialog: AlertDialog? = null
     val view = LayoutInflater.from(activity).inflate(R.layout.dialog_security, null)
 
@@ -60,8 +60,8 @@ class SecurityDialog(val activity: SimpleActivity, val requiredHash: String, val
         }
     }
 
-    override fun receivedHash(hash: String) {
-        callback(hash)
+    override fun receivedHash(hash: String, type: Int) {
+        callback(hash, type)
         dialog!!.dismiss()
     }
 }

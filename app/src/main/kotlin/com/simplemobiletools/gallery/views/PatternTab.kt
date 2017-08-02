@@ -11,6 +11,7 @@ import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
+import com.simplemobiletools.gallery.helpers.PROTECTION_PATTERN
 import com.simplemobiletools.gallery.interfaces.HashListener
 import com.simplemobiletools.gallery.interfaces.SecurityTab
 import kotlinx.android.synthetic.main.tab_pattern.view.*
@@ -56,7 +57,7 @@ class PatternTab(context: Context, attrs: AttributeSet) : RelativeLayout(context
         } else if (hash == newHash) {
             pattern_lock_view.setViewMode(PatternLockView.PatternViewMode.CORRECT)
             Handler().postDelayed({
-                hashListener.receivedHash(hash)
+                hashListener.receivedHash(hash, PROTECTION_PATTERN)
             }, 300)
         } else {
             pattern_lock_view.setViewMode(PatternLockView.PatternViewMode.WRONG)

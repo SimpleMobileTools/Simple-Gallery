@@ -35,6 +35,7 @@ val HIDE_SYSTEM_UI = "hide_system_ui"
 val REPLACE_SHARE_WITH_ROTATE = "replace_share_with_rotate"
 val IS_PASSWORD_PROTECTION = "password_protection"
 val PASSWORD_HASH = "password_hash"
+val PROTECTION_TYPE = "protection_type"
 
 val NOMEDIA = ".nomedia"
 
@@ -64,3 +65,8 @@ val ORIENT_PORTRAIT = 0
 val ORIENT_LANDSCAPE_LEFT = 1
 val ORIENT_LANDSCAPE_RIGHT = 2
 val ORIENT_UPSIDE_DOWN = 3
+
+// security
+val PROTECTION_PATTERN = 1
+val PROTECTION_PIN = 2
+val PROTECTION_FINGERPRINT = 3

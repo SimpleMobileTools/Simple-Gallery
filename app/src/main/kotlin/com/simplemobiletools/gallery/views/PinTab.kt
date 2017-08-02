@@ -6,6 +6,7 @@ import android.widget.RelativeLayout
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.helpers.PROTECTION_PIN
 import com.simplemobiletools.gallery.interfaces.HashListener
 import com.simplemobiletools.gallery.interfaces.SecurityTab
 import kotlinx.android.synthetic.main.tab_pin.view.*
@@ -66,7 +67,7 @@ class PinTab(context: Context, attrs: AttributeSet) : RelativeLayout(context, at
             resetPin()
             pin_lock_title.setText(R.string.repeat_pin)
         } else if (hash == newHash) {
-            hashListener.receivedHash(hash)
+            hashListener.receivedHash(hash, PROTECTION_PIN)
         } else {
             resetPin()
             context.toast(R.string.wrong_pin)

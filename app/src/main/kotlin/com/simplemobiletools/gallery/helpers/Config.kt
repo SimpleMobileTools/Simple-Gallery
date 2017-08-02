@@ -240,4 +240,8 @@ class Config(context: Context) : BaseConfig(context) {
     var passwordHash: String
         get() = prefs.getString(PASSWORD_HASH, "")
         set(passwordHash) = prefs.edit().putString(PASSWORD_HASH, passwordHash).apply()
+
+    var protectionType: Int
+        get() = prefs.getInt(PROTECTION_TYPE, PROTECTION_PATTERN)
+        set(protectionType) = prefs.edit().putInt(PROTECTION_TYPE, protectionType).apply()
 }
