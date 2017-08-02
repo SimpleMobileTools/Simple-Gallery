@@ -31,9 +31,9 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     private val STORAGE_PERMISSION = 1
     private var mMedium: Medium? = null
     private var mIsFullScreen = false
+    private var mFragment: ViewPagerFragment? = null
 
     lateinit var mUri: Uri
-    lateinit var mFragment: ViewPagerFragment
 
     companion object {
         var mIsVideo = false
@@ -76,8 +76,8 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
         if (savedInstanceState == null) {
             mFragment = if (mIsVideo) VideoFragment() else PhotoFragment()
-            mFragment.listener = this
-            mFragment.arguments = bundle
+            mFragment!!.listener = this
+            mFragment!!.arguments = bundle
             supportFragmentManager.beginTransaction().replace(R.id.fragment_holder, mFragment).commit()
         }
 
@@ -101,7 +101,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
         window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
             val isFullscreen = visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
-            mFragment.fullscreenToggled(isFullscreen)
+            mFragment?.fullscreenToggled(isFullscreen)
         }
     }
 
