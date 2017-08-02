@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 2.12.3 *(2017-08-02)*
+----------------------------
+
+ * Added pattern/pin protection for showing hidden items
+ * Hopefully fixed unintentional SD card file deleting
+
 Version 2.12.2 *(2017-07-09)*
 ----------------------------
 
