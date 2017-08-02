@@ -297,11 +297,13 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
         activity.handleSAFDialog(File(needPermissionForPath)) {
             selectedPositions.sortedDescending().forEach {
-                val directory = dirs[it]
-                folders.add(File(directory.path))
-                removeFolders.add(directory)
-                notifyItemRemoved(it)
-                itemViews.put(it, null)
+                if (dirs.size > it) {
+                    val directory = dirs[it]
+                    folders.add(File(directory.path))
+                    removeFolders.add(directory)
+                    notifyItemRemoved(it)
+                    itemViews.put(it, null)
+                }
             }
 
             dirs.removeAll(removeFolders)
