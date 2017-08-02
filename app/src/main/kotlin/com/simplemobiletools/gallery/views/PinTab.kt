@@ -1,11 +1,13 @@
 package com.simplemobiletools.gallery.views
 
 import android.content.Context
+import android.graphics.PorterDuff
 import android.util.AttributeSet
 import android.widget.RelativeLayout
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.helpers.PROTECTION_PIN
 import com.simplemobiletools.gallery.interfaces.HashListener
 import com.simplemobiletools.gallery.interfaces.SecurityTab
@@ -36,6 +38,7 @@ class PinTab(context: Context, attrs: AttributeSet) : RelativeLayout(context, at
         pin_9.setOnClickListener { addNumber("9") }
         pin_c.setOnClickListener { clear() }
         pin_ok.setOnClickListener { confirmPIN() }
+        pin_ok.setColorFilter(context.config.textColor, PorterDuff.Mode.SRC_IN)
     }
 
     override fun initTab(requiredHash: String, listener: HashListener) {
