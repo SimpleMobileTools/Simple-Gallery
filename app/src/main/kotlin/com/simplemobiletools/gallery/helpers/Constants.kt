@@ -33,9 +33,6 @@ val ALBUM_COVERS = "album_covers"
 val SCROLL_HORIZONTALLY = "scroll_horizontally"
 val HIDE_SYSTEM_UI = "hide_system_ui"
 val REPLACE_SHARE_WITH_ROTATE = "replace_share_with_rotate"
-val IS_PASSWORD_PROTECTION = "password_protection"
-val PASSWORD_HASH = "password_hash"
-val PROTECTION_TYPE = "protection_type"
 
 val NOMEDIA = ".nomedia"
 
@@ -65,12 +62,3 @@ val ORIENT_PORTRAIT = 0
 val ORIENT_LANDSCAPE_LEFT = 1
 val ORIENT_LANDSCAPE_RIGHT = 2
 val ORIENT_UPSIDE_DOWN = 3
-
-// security
-val PROTECTION_PATTERN = 0
-val PROTECTION_PIN = 1
-val PROTECTION_FINGERPRINT = 2
-
-val SHOW_ALL_TABS = -1
-val SHOW_PATTERN = 0
-val SHOW_PIN = 1

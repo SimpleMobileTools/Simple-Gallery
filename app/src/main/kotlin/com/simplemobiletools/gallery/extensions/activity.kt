@@ -24,7 +24,6 @@ import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
-import com.simplemobiletools.gallery.dialogs.SecurityDialog
 import com.simplemobiletools.gallery.helpers.NOMEDIA
 import com.simplemobiletools.gallery.helpers.REQUEST_EDIT_IMAGE
 import com.simplemobiletools.gallery.helpers.REQUEST_SET_AS
@@ -331,16 +330,6 @@ fun Activity.loadStaticGif(path: String, target: MySquareImageView) {
 
     if (config.cropThumbnails) options.centerCrop() else options.fitCenter()
     builder.apply(options).into(target)
-}
-
-fun SimpleActivity.handleHiddenFolderPasswordProtection(callback: () -> Unit) {
-    if (config.isPasswordProtectionOn) {
-        SecurityDialog(this, config.passwordHash, config.protectionType) { hash, type ->
-            callback()
-        }
-    } else {
-        callback()
-    }
 }
 
 fun Activity.getCachedDirectories(): ArrayList<Directory> {

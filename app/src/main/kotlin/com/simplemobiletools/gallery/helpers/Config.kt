@@ -232,16 +232,4 @@ class Config(context: Context) : BaseConfig(context) {
     var replaceShare: Boolean
         get() = prefs.getBoolean(REPLACE_SHARE_WITH_ROTATE, false)
         set(replaceShare) = prefs.edit().putBoolean(REPLACE_SHARE_WITH_ROTATE, replaceShare).apply()
-
-    var isPasswordProtectionOn: Boolean
-        get() = prefs.getBoolean(IS_PASSWORD_PROTECTION, false)
-        set(passwordProtection) = prefs.edit().putBoolean(IS_PASSWORD_PROTECTION, passwordProtection).apply()
-
-    var passwordHash: String
-        get() = prefs.getString(PASSWORD_HASH, "")
-        set(passwordHash) = prefs.edit().putString(PASSWORD_HASH, passwordHash).apply()
-
-    var protectionType: Int
-        get() = prefs.getInt(PROTECTION_TYPE, PROTECTION_PATTERN)
-        set(protectionType) = prefs.edit().putInt(PROTECTION_TYPE, protectionType).apply()
 }

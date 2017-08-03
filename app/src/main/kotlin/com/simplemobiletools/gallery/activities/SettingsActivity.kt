@@ -4,12 +4,13 @@ import android.content.Intent
 import android.content.res.Resources
 import android.os.Bundle
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
+import com.simplemobiletools.commons.dialogs.SecurityDialog
+import com.simplemobiletools.commons.extensions.handleHiddenFolderPasswordProtection
 import com.simplemobiletools.commons.extensions.updateTextColors
+import com.simplemobiletools.commons.helpers.SHOW_ALL_TABS
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.dialogs.SecurityDialog
 import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.extensions.handleHiddenFolderPasswordProtection
 import com.simplemobiletools.gallery.helpers.*
 import kotlinx.android.synthetic.main.activity_settings.*
 

@@ -4,8 +4,4 @@
         <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
-    <style name="PinNumberStyle" parent="PinNumberStyle.Base">
-        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
-    </style>
-
 </resources>
