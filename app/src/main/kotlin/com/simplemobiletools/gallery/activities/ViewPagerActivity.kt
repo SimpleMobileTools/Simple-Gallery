@@ -17,6 +17,7 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v4.view.ViewPager
+import android.transition.Slide
 import android.util.DisplayMetrics
 import android.view.*
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
@@ -28,6 +29,7 @@ import com.simplemobiletools.gallery.activities.MediaActivity.Companion.mMedia
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.dialogs.SaveAsDialog
+import com.simplemobiletools.gallery.dialogs.SlideshowDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.fragments.PhotoFragment
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment
@@ -247,7 +249,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun initSlideshow() {
+        SlideshowDialog(this) {
 
+        }
     }
 
     private fun copyMoveTo(isCopyOperation: Boolean) {

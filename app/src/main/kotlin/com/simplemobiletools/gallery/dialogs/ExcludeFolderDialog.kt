@@ -14,7 +14,6 @@ import com.simplemobiletools.gallery.extensions.config
 import kotlinx.android.synthetic.main.dialog_exclude_folder.view.*
 
 class ExcludeFolderDialog(val activity: SimpleActivity, val selectedPaths: List<String>, val callback: () -> Unit) {
-    var dialog: AlertDialog? = null
     val alternativePaths = getAlternativePathsList()
     var radioGroup: RadioGroup? = null
 
