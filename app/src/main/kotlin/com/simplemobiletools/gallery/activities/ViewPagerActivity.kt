@@ -17,7 +17,6 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v4.view.ViewPager
-import android.transition.Slide
 import android.util.DisplayMetrics
 import android.view.*
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog

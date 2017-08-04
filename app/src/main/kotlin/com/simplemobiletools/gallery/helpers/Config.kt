@@ -232,4 +232,20 @@ class Config(context: Context) : BaseConfig(context) {
     var replaceShare: Boolean
         get() = prefs.getBoolean(REPLACE_SHARE_WITH_ROTATE, false)
         set(replaceShare) = prefs.edit().putBoolean(REPLACE_SHARE_WITH_ROTATE, replaceShare).apply()
+
+    var slideshowInterval: Int
+        get() = prefs.getInt(SLIDESHOW_INTERVAL, SLIDESHOW_DEFAULT_DURATION)
+        set(slideshowInterval) = prefs.edit().putInt(SLIDESHOW_INTERVAL, slideshowInterval).apply()
+
+    var slideshowIncludeVideos: Boolean
+        get() = prefs.getBoolean(SLIDESHOW_INCLUDE_VIDEOS, false)
+        set(slideshowIncludeVideos) = prefs.edit().putBoolean(SLIDESHOW_INCLUDE_VIDEOS, slideshowIncludeVideos).apply()
+
+    var slideshowRandomOrder: Boolean
+        get() = prefs.getBoolean(SLIDESHOW_RANDOM_ORDER, false)
+        set(slideshowRandomOrder) = prefs.edit().putBoolean(SLIDESHOW_RANDOM_ORDER, slideshowRandomOrder).apply()
+
+    var slideshowUseFade: Boolean
+        get() = prefs.getBoolean(SLIDESHOW_USE_FADE, false)
+        set(slideshowUseFade) = prefs.edit().putBoolean(SLIDESHOW_USE_FADE, slideshowUseFade).apply()
 }

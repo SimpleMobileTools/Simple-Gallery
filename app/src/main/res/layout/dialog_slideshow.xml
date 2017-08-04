@@ -35,7 +35,6 @@
             android:imeOptions="actionDone"
             android:inputType="number"
             android:maxLength="2"
-            android:text="5"
             android:textCursorDrawable="@null"/>
 
         <RelativeLayout

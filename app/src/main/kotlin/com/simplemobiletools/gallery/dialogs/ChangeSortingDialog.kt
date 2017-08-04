@@ -84,6 +84,6 @@ class ChangeSortingDialog(val activity: SimpleActivity, val isDirectorySorting: 
                 config.fileSorting = sorting
             }
         }
-        callback.invoke()
+        callback()
     }
 }

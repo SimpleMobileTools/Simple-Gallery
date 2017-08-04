@@ -66,11 +66,11 @@ class SaveAsDialog(val activity: SimpleActivity, val path: String, val callback:
                 if (newFile.exists()) {
                     val title = String.format(activity.getString(R.string.file_already_exists_overwrite), newFile.name)
                     ConfirmationDialog(activity, title) {
-                        callback.invoke(newFile.absolutePath)
+                        callback(newFile.absolutePath)
                         dismiss()
                     }
                 } else {
-                    callback.invoke(newFile.absolutePath)
+                    callback(newFile.absolutePath)
                     dismiss()
                 }
             })
