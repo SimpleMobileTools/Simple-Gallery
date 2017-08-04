@@ -47,6 +47,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mIsFullScreen = false
     private var mPos = -1
     private var mShowAll = false
+    private var mIsSlideshowActive = false
     private var mRotationDegrees = 0f
     private var mLastHandledOrientation = 0
     private var mPrevHashcode = 0
@@ -249,7 +250,19 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun initSlideshow() {
         SlideshowDialog(this) {
+            startSlideshow()
+        }
+    }
 
+    private fun startSlideshow() {
+        hideSystemUI()
+        mIsSlideshowActive = true
+    }
+
+    private fun stopSlideshow() {
+        if (mIsSlideshowActive) {
+            showSystemUI()
+            mIsSlideshowActive = false
         }
     }
 
@@ -538,6 +551,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (mIsFullScreen) {
             hideSystemUI()
         } else {
+            stopSlideshow()
             showSystemUI()
         }
     }
