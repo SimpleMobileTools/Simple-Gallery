@@ -107,13 +107,11 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Darmowa galeria bez reklam do przeglądania obrazów i filmów.</string>
     <string name="app_long_description">
-        Prosta aplikacja galerii do oglądania obrazów i filmów. Pliki mogą być sortowane według daty, rozmiaru i nazwy, zarówno w porządku rosnącym jak i malejącym. Można je również powiększać. Pliki multimedialne są wyświetlane w wielu kolumnach w zależności od wielkości ekranu. Liczbę kolumn można zmienić za pomocą gestów. Obrazy mogą być edytowane w galerii. Zdjęcia mogą być przycięte, można je obracać lub ustawić jako tapetę bezpośrednio z aplikacji. Kolor aplikacji można dowolnie ustawiać według własnych preferencji.
+        Prosta aplikacja galerii do oglądania obrazów i filmów. Pliki mogą być sortowane według daty, rozmiaru i nazwy, zarówno w porządku rosnącym jak i malejącym. W zależności od wielkości ekranu wyświetlane mogą być w wielu kolumnach. Liczbę kolumn można zmieniać za pomocą gestów. Zdjęcia mogą być powiększane, przycinane, obracane lub ustawiane jako tapeta bezpośrednio z poziomu aplikacji. Kolory aplikacji można dowolnie ustawiać.
 
-        Galeria jest również oferowana do użytkowania przez osoby trzecie do podglądu zdjęć i filmów, dodawania załączników do emaili, itp. Idealne nadaje się do codziennego użytku.
-
-        Nie zawiera żadnych reklam, ani niepotrzebnych uprawnień. Jest w pełni otawrtoźrodłowa.
+        Aplikacja nie zawiera żadnych reklam ani niepotrzebnych uprawnień. Jest też w pełni otawrtoźrodłowa.
         
-        Ta aplikacja jest tylko jedną z wielu naszych aplikacji. Resztę można znaleźć na stronie http://www.simplemobiletools.com.
+        Niniejsza aplikacja jest tylko częścią naszego zestawu prostych aplikacji. Znajdziecie je na stronie http://www.simplemobiletools.com.
     </string>
 
     <!--
