@@ -3,7 +3,7 @@
     <string name="app_name">Simple Gallery</string>
     <string name="app_launcher_name">Simple Gallery</string>
     <string name="edit">Edytuj</string>
-    <string name="open_camera">Aparat</string>
+    <string name="open_camera">Uruchom aplikację aparatu</string>
     <string name="open_with">Otwórz w</string>
     <string name="no_app_found">Nie znaleziono danych aplikacji</string>
     <string name="hidden">(ukryty)</string>
@@ -51,7 +51,7 @@
 
     <!-- Editor -->
     <string name="editor">Edycja</string>
-    <string name="save">zapisz</string>
+    <string name="save">Zapisz</string>
     <string name="rotate">Obróć</string>
     <string name="path">Ścieżka</string>
     <string name="invalid_image_path">Nieprawidłowa ścieżka</string>
@@ -74,16 +74,16 @@
     <string name="set_as_wallpaper_failed">Ustawienie tapety nie powiodło się</string>
     <string name="set_as_wallpaper_with">Ustaw jako tapetę w:</string>
     <string name="no_capable_app_found">Brak odpowiednich ustawień</string>
-    <string name="setting_wallpaper">Ustawianie tapety&#8230;</string>
-    <string name="wallpaper_set_successfully">Tapeta ustawiona</string>
+    <string name="setting_wallpaper">Ustawiam tapetę&#8230;</string>
+    <string name="wallpaper_set_successfully">Tapeta została ustawiona</string>
     <string name="portrait_aspect_ratio">Proporcje ekranu w trybie pionowym</string>
     <string name="landscape_aspect_ratio">Proporcje ekranu w trybie poziomym</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Pokazuj ukryte foldery</string>
-    <string name="autoplay_videos">Odtwarzaj pliki wideo automatycznie</string>
-    <string name="toggle_filename">Włącz widoczność nazwy pliku</string>
-    <string name="show_media">Wybierz co pokazywać</string>
+    <string name="autoplay_videos">Odtwarzaj filmy automatycznie</string>
+    <string name="toggle_filename">Pokazuj / ukrywaj nazwy plików</string>
+    <string name="show_media">Pokazywane typy multimediów</string>
     <string name="images">Tylko obrazy</string>
     <string name="videos">Tylko filmy</string>
     <string name="gifs">Tylko GIFy</string>
@@ -99,9 +99,9 @@
     <string name="screen_rotation_aspect_ratio">Proporcji</string>
     <string name="dark_background_at_fullscreen">Czarne tło przy podglądzie pełnoekranowym</string>
     <string name="scroll_thumbnails_horizontally">Przewijaj miniatury poziomo</string>
-    <string name="hide_system_ui_at_fullscreen">Ukrywaj automatycznie interfejs przy pełnoekranowym podglądzie</string>
+    <string name="hide_system_ui_at_fullscreen">Ukrywaj interfejs przy pełnoekranowym podglądzie</string>
     <string name="replace_share_with_rotate">Zamień funkcję udostępniania na obracanie w menu pełnoekranowym</string>
-    <string name="password_protect_hidden_folders">Password protect hidden folders</string>
+    <string name="password_protect_hidden_folders">Zabezpiecz ukryte foldery</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
