@@ -213,6 +213,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         when (item.itemId) {
             R.id.menu_set_as -> trySetAs(getCurrentFile())
+            R.id.slideshow -> initSlideshow()
             R.id.menu_copy_to -> copyMoveTo(true)
             R.id.menu_move_to -> copyMoveTo(false)
             R.id.menu_open_with -> openWith(getCurrentFile())
@@ -243,6 +244,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 addOnPageChangeListener(this@ViewPagerActivity)
             }
         }
+    }
+
+    private fun initSlideshow() {
+
     }
 
     private fun copyMoveTo(isCopyOperation: Boolean) {

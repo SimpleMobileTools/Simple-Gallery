@@ -6,7 +6,8 @@
     <string name="open_camera">Abrir câmera</string>
     <string name="open_with">Abrir com</string>
     <string name="no_app_found">Nenhum aplicativo encontrado</string>
-    <string name="hidden">(oculto)</string>
+       
+    <string name="hidden">(oculto)</string>
     <string name="pin_folder">Fixar pasta</string>
     <string name="unpin_folder">Desfixar pasta</string>
     <string name="show_all">Mostrar conteúdo de todas as pastas</string>
@@ -79,6 +80,13 @@
     <string name="portrait_aspect_ratio">Retrato</string>
     <string name="landscape_aspect_ratio">Paisagem</string>
 
+    <!-- Slideshow -->
+    <string name="slideshow">Slideshow</string>
+    <string name="interval">Interval</string>
+    <string name="include_videos">Include videos</string>
+    <string name="random_order">Random order</string>
+    <string name="use_fade">Use fade animations</string>
+
     <!-- Settings -->
     <string name="show_hidden_media">Mostrar pastas ocultas</string>
     <string name="autoplay_videos">Reproduzir vídeos automaticamente</string>
@@ -91,7 +99,8 @@
     <string name="images_and_videos">Imagens e vídeos</string>
     <string name="loop_videos">Reproduzir vídeos em ciclo</string>
     <string name="animate_gifs">Animação de GIFs nas miniaturas</string>
-    <string name="max_brightness">Brilho máximo ao visualizar mídia</string>
+       
+    <string name="max_brightness">Brilho máximo ao visualizar mídia</string>
     <string name="crop_thumbnails">Recortar miniaturas em quadrados</string>
     <string name="screen_rotation_by">Critério para rotação de tela</string>
     <string name="screen_rotation_system_setting">Padrão do sistema</string>

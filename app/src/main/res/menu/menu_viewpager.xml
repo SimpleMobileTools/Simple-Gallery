@@ -29,6 +29,10 @@
         android:visible="false"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/slideshow"
+        android:title="@string/slideshow"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/menu_copy_to"
         android:title="@string/copy_to"
         app:showAsAction="never"/>

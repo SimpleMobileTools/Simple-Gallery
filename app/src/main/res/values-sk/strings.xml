@@ -79,6 +79,13 @@
     <string name="portrait_aspect_ratio">Orientácia nastojato</string>
     <string name="landscape_aspect_ratio">Orientácia naležato</string>
 
+    <!-- Slideshow -->
+    <string name="slideshow">Prezentácia</string>
+    <string name="interval">Interval</string>
+    <string name="include_videos">Zahrnúť videá</string>
+    <string name="random_order">Náhodné poradie</string>
+    <string name="use_fade">Používať miznúce animácie</string>
+
     <!-- Settings -->
     <string name="show_hidden_media">Zobraziť skryté médiá</string>
     <string name="autoplay_videos">Spúšťať videá automaticky</string>
