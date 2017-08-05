@@ -39,6 +39,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private var mIsDragged = false
     private var mIsFullscreen = false
     private var mIsFragmentVisible = false
+    private var mPlayOnPrepare = false
     private var mCurrTime = 0
     private var mDuration = 0
 
@@ -194,9 +195,13 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         }
     }
 
-    private fun playVideo() {
-        mIsPlaying = true
-        mMediaPlayer?.start()
+    fun playVideo() {
+        if (mMediaPlayer != null) {
+            mIsPlaying = true
+            mMediaPlayer?.start()
+        } else {
+            mPlayOnPrepare = true
+        }
         mView.video_play_outline.setImageDrawable(null)
         activity.window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
@@ -271,12 +276,12 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         setupTimeHolder()
         setProgress(mCurrTime)
 
-        if (mIsFragmentVisible && context.config.autoplayVideos)
+        if (mIsFragmentVisible && (context.config.autoplayVideos || mPlayOnPrepare))
             playVideo()
     }
 
     private fun videoCompleted() {
-        if (context.config.loopVideos) {
+        if (listener?.videoEnded() == false && context.config.loopVideos) {
             playVideo()
         } else {
             mSeekBar!!.progress = mSeekBar!!.max

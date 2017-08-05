@@ -162,4 +162,6 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             showSystemUI()
         }
     }
+
+    override fun videoEnded() = false
 }

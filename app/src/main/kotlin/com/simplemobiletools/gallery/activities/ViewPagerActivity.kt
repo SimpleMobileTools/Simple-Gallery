@@ -32,6 +32,7 @@ import com.simplemobiletools.gallery.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.dialogs.SlideshowDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.fragments.PhotoFragment
+import com.simplemobiletools.gallery.fragments.VideoFragment
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
@@ -56,6 +57,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mSlideshowHandler = Handler()
     private var mSlideshowInterval = SLIDESHOW_DEFAULT_INTERVAL
     private var mSlideshowMoveBackwards = false
+    private var mSlideshowMedia = mutableListOf<Medium>()
+    private var mAreSlideShowMediaVisible = false
 
     companion object {
         var screenWidth = 0
@@ -262,12 +265,20 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun startSlideshow() {
         if (getMediaForSlideshow()) {
-            hideSystemUI()
-            mSlideshowInterval = config.slideshowInterval
-            mSlideshowMoveBackwards = config.slideshowMoveBackwards
-            mIsSlideshowActive = true
-            scheduleSwipe()
-            window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+            view_pager.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+                override fun onGlobalLayout() {
+                    view_pager.viewTreeObserver.removeOnGlobalLayoutListener(this)
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && isDestroyed)
+                        return
+
+                    hideSystemUI()
+                    mSlideshowInterval = config.slideshowInterval
+                    mSlideshowMoveBackwards = config.slideshowMoveBackwards
+                    mIsSlideshowActive = true
+                    window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+                    scheduleSwipe()
+                }
+            })
         }
     }
 
@@ -283,38 +294,47 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun scheduleSwipe() {
         mSlideshowHandler.removeCallbacksAndMessages(null)
         if (mIsSlideshowActive) {
-            mSlideshowHandler.postDelayed({
-                if (mIsSlideshowActive && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && !isDestroyed) {
-                    val before = view_pager.currentItem
-                    view_pager.currentItem = if (mSlideshowMoveBackwards) --view_pager.currentItem else ++view_pager.currentItem
-                    if (before == view_pager.currentItem) {
-                        stopSlideshow()
-                        toast(R.string.slideshow_ended)
+            if (getCurrentMedium()!!.isImage() || getCurrentMedium()!!.isGif()) {
+                mSlideshowHandler.postDelayed({
+                    if (mIsSlideshowActive && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && !isDestroyed) {
+                        swipeToNextMedium()
                     }
-                }
-            }, mSlideshowInterval * 1000L)
+                }, mSlideshowInterval * 1000L)
+            } else {
+                (getCurrentFragment() as? VideoFragment)!!.playVideo()
+            }
+        }
+    }
+
+    private fun swipeToNextMedium() {
+        val before = view_pager.currentItem
+        view_pager.currentItem = if (mSlideshowMoveBackwards) --view_pager.currentItem else ++view_pager.currentItem
+        if (before == view_pager.currentItem) {
+            stopSlideshow()
+            toast(R.string.slideshow_ended)
         }
     }
 
     private fun getMediaForSlideshow(): Boolean {
-        var slideshowMedia = mMedia.toMutableList()
+        mSlideshowMedia = mMedia.toMutableList()
         if (!config.slideshowIncludeVideos) {
-            slideshowMedia = slideshowMedia.filter { it.isImage() || it.isGif() } as MutableList
+            mSlideshowMedia = mSlideshowMedia.filter { it.isImage() || it.isGif() } as MutableList
         }
 
         if (config.slideshowRandomOrder) {
-            Collections.shuffle(slideshowMedia)
+            Collections.shuffle(mSlideshowMedia)
             mPos = 0
         } else {
             mPath = getCurrentPath()
-            mPos = getPositionInList(slideshowMedia)
+            mPos = getPositionInList(mSlideshowMedia)
         }
 
-        return if (slideshowMedia.isEmpty()) {
+        return if (mSlideshowMedia.isEmpty()) {
             toast(R.string.no_media_for_slideshow)
             false
         } else {
-            updatePagerItems(slideshowMedia)
+            updatePagerItems(mSlideshowMedia)
+            mAreSlideShowMediaVisible = true
             true
         }
     }
@@ -336,7 +356,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             getCurrentMedium()!!.apply {
                 name = newFileName
                 path = it.absolutePath
-                mMedia[mPos] = this
+                getCurrentMedia()[mPos] = this
             }
             invalidateOptionsMenu()
         }
@@ -498,7 +518,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun askConfirmDelete() {
         ConfirmationDialog(this) {
-            deleteFileBg(File(mMedia[mPos].path)) {
+            deleteFileBg(File(getCurrentMedia()[mPos].path)) {
                 reloadViewPager()
             }
         }
@@ -515,7 +535,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun renameFile() {
         RenameItemDialog(this, getCurrentPath()) {
-            mMedia[mPos].path = it
+            getCurrentMedia()[mPos].path = it
             updateActionbarTitle()
         }
     }
@@ -600,6 +620,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         checkSystemUI()
     }
 
+    override fun videoEnded(): Boolean {
+        if (mIsSlideshowActive)
+            swipeToNextMedium()
+        return mIsSlideshowActive
+    }
+
     private fun checkSystemUI() {
         if (mIsFullScreen) {
             hideSystemUI()
@@ -611,18 +637,20 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun updateActionbarTitle() {
         runOnUiThread {
-            if (mPos < mMedia.size) {
-                title = mMedia[mPos].path.getFilenameFromPath()
+            if (mPos < getCurrentMedia().size) {
+                title = getCurrentMedia()[mPos].path.getFilenameFromPath()
             }
         }
     }
 
     private fun getCurrentMedium(): Medium? {
-        return if (mMedia.isEmpty() || mPos == -1)
+        return if (getCurrentMedia().isEmpty() || mPos == -1)
             null
         else
-            mMedia[Math.min(mPos, mMedia.size - 1)]
+            getCurrentMedia()[Math.min(mPos, getCurrentMedia().size - 1)]
     }
+
+    private fun getCurrentMedia() = if (mAreSlideShowMediaVisible) mSlideshowMedia else mMedia
 
     private fun getCurrentPath() = getCurrentMedium()!!.path
 
