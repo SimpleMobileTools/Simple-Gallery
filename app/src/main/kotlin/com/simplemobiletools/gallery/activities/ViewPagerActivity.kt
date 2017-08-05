@@ -52,8 +52,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mRotationDegrees = 0f
     private var mLastHandledOrientation = 0
     private var mPrevHashcode = 0
+
     private var mSlideshowHandler = Handler()
     private var mSlideshowInterval = SLIDESHOW_DEFAULT_INTERVAL
+    private var mSlideshowMoveBackwards = false
 
     companion object {
         var screenWidth = 0
@@ -261,6 +263,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun startSlideshow() {
         hideSystemUI()
         mSlideshowInterval = config.slideshowInterval
+        mSlideshowMoveBackwards = config.slideshowMoveBackwards
         mIsSlideshowActive = true
         scheduleSwipe()
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
@@ -280,7 +283,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (mIsSlideshowActive) {
             mSlideshowHandler.postDelayed({
                 if (mIsSlideshowActive && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && !isDestroyed) {
-                    view_pager.currentItem = ++view_pager.currentItem
+                    val before = view_pager.currentItem
+                    view_pager.currentItem = if (mSlideshowMoveBackwards) --view_pager.currentItem else ++view_pager.currentItem
+                    if (before == view_pager.currentItem) {
+                        stopSlideshow()
+                        toast(R.string.slideshow_ended)
+                    }
                 }
             }, mSlideshowInterval * 1000L)
         }
