@@ -4,12 +4,14 @@ import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
+import com.simplemobiletools.commons.extensions.hideKeyboard
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.helpers.SLIDESHOW_DEFAULT_INTERVAL
 import kotlinx.android.synthetic.main.dialog_slideshow.view.*
+
 
 class SlideshowDialog(val activity: SimpleActivity, val callback: () -> Unit) {
     val dialog: AlertDialog
@@ -25,19 +27,28 @@ class SlideshowDialog(val activity: SimpleActivity, val callback: () -> Unit) {
                 }
             }
 
+            interval_value.setOnFocusChangeListener { v, hasFocus ->
+                if (!hasFocus)
+                    activity.hideKeyboard(v)
+            }
+
             include_videos_holder.setOnClickListener {
+                interval_value.clearFocus()
                 include_videos.toggle()
             }
 
             random_order_holder.setOnClickListener {
+                interval_value.clearFocus()
                 random_order.toggle()
             }
 
             use_fade_holder.setOnClickListener {
+                interval_value.clearFocus()
                 use_fade.toggle()
             }
 
             move_backwards_holder.setOnClickListener {
+                interval_value.clearFocus()
                 move_backwards.toggle()
             }
         }
