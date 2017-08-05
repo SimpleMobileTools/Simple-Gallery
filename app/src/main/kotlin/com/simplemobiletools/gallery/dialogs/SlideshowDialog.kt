@@ -36,6 +36,10 @@ class SlideshowDialog(val activity: SimpleActivity, val callback: () -> Unit) {
             use_fade_holder.setOnClickListener {
                 use_fade.toggle()
             }
+
+            move_backwards_holder.setOnClickListener {
+                move_backwards.toggle()
+            }
         }
         setupValues()
 
@@ -55,6 +59,7 @@ class SlideshowDialog(val activity: SimpleActivity, val callback: () -> Unit) {
             include_videos.isChecked = config.slideshowIncludeVideos
             random_order.isChecked = config.slideshowRandomOrder
             use_fade.isChecked = config.slideshowUseFade
+            move_backwards.isChecked = config.slideshowMoveBackwards
         }
     }
 
@@ -68,6 +73,7 @@ class SlideshowDialog(val activity: SimpleActivity, val callback: () -> Unit) {
             slideshowIncludeVideos = view.include_videos.isChecked
             slideshowRandomOrder = view.random_order.isChecked
             slideshowUseFade = view.use_fade.isChecked
+            slideshowMoveBackwards = view.move_backwards.isChecked
         }
         dialog.dismiss()
         callback()

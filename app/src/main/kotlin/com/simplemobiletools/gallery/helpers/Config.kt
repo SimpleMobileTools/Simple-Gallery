@@ -248,4 +248,8 @@ class Config(context: Context) : BaseConfig(context) {
     var slideshowUseFade: Boolean
         get() = prefs.getBoolean(SLIDESHOW_USE_FADE, false)
         set(slideshowUseFade) = prefs.edit().putBoolean(SLIDESHOW_USE_FADE, slideshowUseFade).apply()
+
+    var slideshowMoveBackwards: Boolean
+        get() = prefs.getBoolean(SLIDESHOW_MOVE_BACKWARDS, false)
+        set(slideshowMoveBackwards) = prefs.edit().putBoolean(SLIDESHOW_MOVE_BACKWARDS, slideshowMoveBackwards).apply()
 }

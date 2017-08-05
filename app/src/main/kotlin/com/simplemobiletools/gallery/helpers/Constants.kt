@@ -39,6 +39,7 @@ val SLIDESHOW_INTERVAL = "slideshow_interval"
 val SLIDESHOW_INCLUDE_VIDEOS = "slideshow_include_videos"
 val SLIDESHOW_RANDOM_ORDER = "slideshow_random_order"
 val SLIDESHOW_USE_FADE = "slideshow_use_fade"
+val SLIDESHOW_MOVE_BACKWARDS = "slideshow_move_backwards"
 val SLIDESHOW_DEFAULT_INTERVAL = 5
 
 val NOMEDIA = ".nomedia"
