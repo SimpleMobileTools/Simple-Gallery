@@ -6,14 +6,20 @@
     android:layout_height="wrap_content"
     android:padding="1px">
 
-    <FrameLayout
-        android:id="@+id/tmb_wrapper"
+    <com.simplemobiletools.gallery.views.MySquareImageView
+        android:id="@+id/dir_thumbnail"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"/>
 
-        <include layout="@layout/directory_tmb"/>
-
-    </FrameLayout>
+    <ImageView
+        android:id="@+id/dir_check"
+        android:layout_width="@dimen/pin_size"
+        android:layout_height="@dimen/pin_size"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="@dimen/small_margin"
+        android:src="@drawable/ic_check"/>
 
     <ImageView
         android:id="@+id/dir_pin"
@@ -36,9 +42,9 @@
         android:id="@+id/dir_bottom_holder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tmb_wrapper"
+        android:layout_alignLeft="@+id/dir_thumbnail"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/tmb_wrapper"
+        android:layout_alignRight="@+id/dir_thumbnail"
         android:gravity="bottom"
         android:orientation="vertical"
         android:paddingBottom="@dimen/small_margin"

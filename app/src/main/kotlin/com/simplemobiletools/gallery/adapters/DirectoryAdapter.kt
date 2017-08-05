@@ -1,11 +1,9 @@
 package com.simplemobiletools.gallery.adapters
 
-import android.os.Build
 import android.support.v7.view.ActionMode
 import android.support.v7.widget.RecyclerView
 import android.util.SparseArray
 import android.view.*
-import android.widget.FrameLayout
 import com.bignerdranch.android.multiselector.ModalMultiSelectorCallback
 import com.bignerdranch.android.multiselector.MultiSelector
 import com.bignerdranch.android.multiselector.SwappingHolder
@@ -23,7 +21,6 @@ import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.models.AlbumCover
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.directory_item.view.*
-import kotlinx.android.synthetic.main.directory_tmb.view.*
 import java.io.File
 import java.util.*
 
@@ -42,7 +39,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
     fun toggleItemSelection(select: Boolean, pos: Int) {
         if (itemViews[pos] != null)
-            getProperView(itemViews[pos]!!).isSelected = select
+            itemViews[pos].dir_check.beVisibleIf(select)
 
         if (select)
             selectedPositions.add(pos)
@@ -57,13 +54,6 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         updateTitle(selectedPositions.size)
     }
 
-    fun getProperView(itemView: View): View {
-        return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-            itemView.dir_frame
-        else
-            itemView.dir_thumbnail
-    }
-
     fun updateTitle(cnt: Int) {
         actMode?.title = "$cnt / ${dirs.size}"
         actMode?.invalidate()
@@ -72,23 +62,14 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     fun updatePrimaryColor(color: Int) {
         foregroundColor = color
         (0..itemViews.size() - 1).mapNotNull { itemViews[it] }
-                .forEach { setupItemViewForeground(it) }
-    }
+                .forEach {
 
-    private fun setupItemViewForeground(itemView: View) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-            (getProperView(itemView) as FrameLayout).foreground = foregroundColor.createSelector()
-        else
-            getProperView(itemView).foreground = foregroundColor.createSelector()
+                }
     }
 
     val adapterListener = object : MyAdapterListener {
         override fun toggleItemSelectionAdapter(select: Boolean, position: Int) {
             toggleItemSelection(select, position)
-        }
-
-        override fun setupItemForeground(itemView: View) {
-            setupItemViewForeground(itemView)
         }
 
         override fun getSelectedPositions(): HashSet<Int> = selectedPositions
@@ -136,7 +117,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             super.onDestroyActionMode(actionMode)
             selectedPositions.forEach {
                 if (itemViews[it] != null)
-                    getProperView(itemViews[it]!!).isSelected = false
+                    itemViews[it].dir_check.beGone()
             }
             selectedPositions.clear()
             actMode = null
@@ -430,8 +411,6 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
                 setOnClickListener { viewClicked(directory) }
                 setOnLongClickListener { if (isPickIntent) viewClicked(directory) else viewLongClicked(); true }
-
-                adapterListener.setupItemForeground(this)
             }
             return itemView
         }
@@ -464,8 +443,6 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
     interface MyAdapterListener {
         fun toggleItemSelectionAdapter(select: Boolean, position: Int)
-
-        fun setupItemForeground(itemView: View)
 
         fun getSelectedPositions(): HashSet<Int>
     }
