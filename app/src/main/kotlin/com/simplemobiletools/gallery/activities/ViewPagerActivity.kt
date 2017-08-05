@@ -242,8 +242,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         return true
     }
 
-    private fun updatePagerItems() {
-        val pagerAdapter = MyPagerAdapter(this, supportFragmentManager, mMedia.toMutableList())
+    private fun updatePagerItems(media: MutableList<Medium>) {
+        val pagerAdapter = MyPagerAdapter(this, supportFragmentManager, media)
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1 || !isDestroyed) {
             view_pager.apply {
                 adapter = pagerAdapter
@@ -261,12 +261,14 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun startSlideshow() {
-        hideSystemUI()
-        mSlideshowInterval = config.slideshowInterval
-        mSlideshowMoveBackwards = config.slideshowMoveBackwards
-        mIsSlideshowActive = true
-        scheduleSwipe()
-        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        if (getMediaForSlideshow()) {
+            hideSystemUI()
+            mSlideshowInterval = config.slideshowInterval
+            mSlideshowMoveBackwards = config.slideshowMoveBackwards
+            mIsSlideshowActive = true
+            scheduleSwipe()
+            window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        }
     }
 
     private fun stopSlideshow() {
@@ -291,6 +293,29 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     }
                 }
             }, mSlideshowInterval * 1000L)
+        }
+    }
+
+    private fun getMediaForSlideshow(): Boolean {
+        var slideshowMedia = mMedia.toMutableList()
+        if (!config.slideshowIncludeVideos) {
+            slideshowMedia = slideshowMedia.filter { it.isImage() || it.isGif() } as MutableList
+        }
+
+        if (config.slideshowRandomOrder) {
+            Collections.shuffle(slideshowMedia)
+            mPos = 0
+        } else {
+            mPath = getCurrentPath()
+            mPos = getPositionInList(slideshowMedia)
+        }
+
+        return if (slideshowMedia.isEmpty()) {
+            toast(R.string.no_media_for_slideshow)
+            false
+        } else {
+            updatePagerItems(slideshowMedia)
+            true
         }
     }
 
@@ -527,21 +552,21 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         mPrevHashcode = media.hashCode()
         mMedia = media
         if (mPos == -1) {
-            mPos = getProperPosition()
+            mPos = getPositionInList(media)
         } else {
             mPos = Math.min(mPos, mMedia.size - 1)
         }
 
         updateActionbarTitle()
-        updatePagerItems()
+        updatePagerItems(mMedia.toMutableList())
         invalidateOptionsMenu()
         checkOrientation()
     }
 
-    private fun getProperPosition(): Int {
+    private fun getPositionInList(items: MutableList<Medium>): Int {
         mPos = 0
         var i = 0
-        for (medium in mMedia) {
+        for (medium in items) {
             if (medium.path == mPath) {
                 return i
             }

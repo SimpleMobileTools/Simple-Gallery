@@ -87,6 +87,7 @@
     <string name="use_fade">Používať miznúce animácie</string>
     <string name="move_backwards">Ísť opačným smerom</string>
     <string name="slideshow_ended">Prezentácia skončila</string>
+    <string name="no_media_for_slideshow">Pre prezentáciu sa nenašli žiadne vhodné súbory</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Zobraziť skryté médiá</string>

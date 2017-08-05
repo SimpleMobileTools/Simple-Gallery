@@ -87,6 +87,7 @@
     <string name="use_fade">Use fade animations</string>
     <string name="move_backwards">Move backwards</string>
     <string name="slideshow_ended">The slideshow ended</string>
+    <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Mostrar carpetas ocultas</string>
