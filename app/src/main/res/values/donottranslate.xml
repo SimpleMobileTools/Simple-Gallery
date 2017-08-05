@@ -2,6 +2,7 @@
 <resources>
 
     <!-- Release notes -->
+    <string name="release_122">Added slideshow at the fullscreen view</string>
     <string name="release_119">Added pattern/pin protection for showing hidden items</string>
     <string name="release_118">Added a toggle for replacing Share with Rotate at fullscreen media</string>
     <string name="release_115">
