@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 2.12.6 *(2017-08-05)*
+----------------------------
+
+ * Added slideshow at the fullscreen view
+ * Replaced the foreground color of selected items with a check
+ * Made copy/move to SD card a lot faster
+
 Version 2.12.5 *(2017-08-03)*
 ----------------------------
 
