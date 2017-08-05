@@ -82,6 +82,7 @@
     <!-- Slideshow -->
     <string name="slideshow">Prezentácia</string>
     <string name="interval">Interval (sekundy):</string>
+    <string name="include_photos">Zahrnúť fotky a GIF súbory</string>
     <string name="include_videos">Zahrnúť videá</string>
     <string name="random_order">Náhodné poradie</string>
     <string name="use_fade">Používať miznúce animácie</string>

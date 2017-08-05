@@ -36,6 +36,7 @@ val REPLACE_SHARE_WITH_ROTATE = "replace_share_with_rotate"
 
 // slideshow
 val SLIDESHOW_INTERVAL = "slideshow_interval"
+val SLIDESHOW_INCLUDE_PHOTOS = "slideshow_include_photos"
 val SLIDESHOW_INCLUDE_VIDEOS = "slideshow_include_videos"
 val SLIDESHOW_RANDOM_ORDER = "slideshow_random_order"
 val SLIDESHOW_USE_FADE = "slideshow_use_fade"
