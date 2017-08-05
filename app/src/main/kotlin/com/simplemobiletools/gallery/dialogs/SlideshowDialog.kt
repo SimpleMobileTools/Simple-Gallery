@@ -8,7 +8,7 @@ import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.helpers.SLIDESHOW_DEFAULT_DURATION
+import com.simplemobiletools.gallery.helpers.SLIDESHOW_DEFAULT_INTERVAL
 import kotlinx.android.synthetic.main.dialog_slideshow.view.*
 
 class SlideshowDialog(val activity: SimpleActivity, val callback: () -> Unit) {
@@ -61,7 +61,7 @@ class SlideshowDialog(val activity: SimpleActivity, val callback: () -> Unit) {
     private fun dialogConfirmed() {
         var interval = view.interval_value.text.toString()
         if (interval.trim('0').isEmpty())
-            interval = SLIDESHOW_DEFAULT_DURATION.toString()
+            interval = SLIDESHOW_DEFAULT_INTERVAL.toString()
 
         activity.config.apply {
             slideshowInterval = interval.toInt()

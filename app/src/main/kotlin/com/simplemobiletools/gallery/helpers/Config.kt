@@ -234,7 +234,7 @@ class Config(context: Context) : BaseConfig(context) {
         set(replaceShare) = prefs.edit().putBoolean(REPLACE_SHARE_WITH_ROTATE, replaceShare).apply()
 
     var slideshowInterval: Int
-        get() = prefs.getInt(SLIDESHOW_INTERVAL, SLIDESHOW_DEFAULT_DURATION)
+        get() = prefs.getInt(SLIDESHOW_INTERVAL, SLIDESHOW_DEFAULT_INTERVAL)
         set(slideshowInterval) = prefs.edit().putInt(SLIDESHOW_INTERVAL, slideshowInterval).apply()
 
     var slideshowIncludeVideos: Boolean

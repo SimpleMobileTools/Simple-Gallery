@@ -15,6 +15,7 @@ import android.media.ExifInterface
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.provider.MediaStore
 import android.support.v4.view.ViewPager
 import android.util.DisplayMetrics
@@ -51,6 +52,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mRotationDegrees = 0f
     private var mLastHandledOrientation = 0
     private var mPrevHashcode = 0
+    private var mSlideshowHandler = Handler()
+    private var mSlideshowInterval = SLIDESHOW_DEFAULT_INTERVAL
 
     companion object {
         var screenWidth = 0
@@ -189,6 +192,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun onPause() {
         super.onPause()
         mOrientationEventListener.disable()
+        stopSlideshow()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -256,13 +260,29 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun startSlideshow() {
         hideSystemUI()
+        mSlideshowInterval = config.slideshowInterval
         mIsSlideshowActive = true
+        scheduleSwipe()
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
     private fun stopSlideshow() {
         if (mIsSlideshowActive) {
             showSystemUI()
             mIsSlideshowActive = false
+            mSlideshowHandler.removeCallbacksAndMessages(null)
+            window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        }
+    }
+
+    private fun scheduleSwipe() {
+        mSlideshowHandler.removeCallbacksAndMessages(null)
+        if (mIsSlideshowActive) {
+            mSlideshowHandler.postDelayed({
+                if (mIsSlideshowActive && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && !isDestroyed) {
+                    view_pager.currentItem = ++view_pager.currentItem
+                }
+            }, mSlideshowInterval * 1000L)
         }
     }
 
@@ -587,6 +607,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         updateActionbarTitle()
         mRotationDegrees = 0f
         supportInvalidateOptionsMenu()
+        scheduleSwipe()
     }
 
     override fun onPageScrollStateChanged(state: Int) {
