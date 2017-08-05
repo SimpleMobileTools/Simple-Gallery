@@ -107,7 +107,8 @@
             android:paddingBottom="@dimen/activity_margin"
             android:paddingLeft="@dimen/medium_margin"
             android:paddingStart="@dimen/medium_margin"
-            android:paddingTop="@dimen/activity_margin">
+            android:paddingTop="@dimen/activity_margin"
+            android:visibility="gone">
 
             <com.simplemobiletools.commons.views.MySwitchCompat
                 android:id="@+id/use_fade"
