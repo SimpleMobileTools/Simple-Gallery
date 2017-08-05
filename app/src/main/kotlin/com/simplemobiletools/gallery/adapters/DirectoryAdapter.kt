@@ -109,8 +109,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         override fun onDestroyActionMode(actionMode: ActionMode?) {
             super.onDestroyActionMode(actionMode)
             selectedPositions.forEach {
-                if (itemViews[it] != null)
-                    itemViews[it].dir_check.beGone()
+                itemViews[it]?.dir_check?.beGone()
             }
             selectedPositions.clear()
             actMode = null

@@ -6,14 +6,22 @@
     android:layout_height="wrap_content"
     android:padding="1px">
 
-    <FrameLayout
-        android:id="@+id/tmb_wrapper"
+    <com.simplemobiletools.gallery.views.MySquareImageView
+        android:id="@+id/medium_thumbnail"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"/>
 
-        <include layout="@layout/photo_video_tmb"/>
-
-    </FrameLayout>
+    <ImageView
+        android:id="@+id/medium_check"
+        android:layout_width="@dimen/selection_check_size"
+        android:layout_height="@dimen/selection_check_size"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="@dimen/small_margin"
+        android:background="@drawable/circle_background"
+        android:padding="@dimen/tiny_margin"
+        android:src="@drawable/ic_check"/>
 
     <ImageView
         android:id="@+id/play_outline"
@@ -30,9 +38,9 @@
         android:id="@+id/photo_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tmb_wrapper"
+        android:layout_alignLeft="@+id/medium_thumbnail"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/tmb_wrapper"
+        android:layout_alignRight="@+id/medium_thumbnail"
         android:background="@drawable/gradient_background"
         android:gravity="bottom"
         android:maxLines="3"
