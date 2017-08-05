@@ -227,8 +227,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun checkIfColorChanged() {
-        if (directories_grid.adapter != null && getRecyclerAdapter().foregroundColor != config.primaryColor) {
-            getRecyclerAdapter().updatePrimaryColor(config.primaryColor)
+        if (directories_grid.adapter != null && getRecyclerAdapter().primaryColor != config.primaryColor) {
+            getRecyclerAdapter().primaryColor = config.primaryColor
             directories_vertical_fastscroller.updateHandleColor()
             directories_horizontal_fastscroller.updateHandleColor()
         }

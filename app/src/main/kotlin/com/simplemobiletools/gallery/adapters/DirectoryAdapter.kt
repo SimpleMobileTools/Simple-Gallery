@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.adapters
 
+import android.graphics.PorterDuff
 import android.support.v7.view.ActionMode
 import android.support.v7.widget.RecyclerView
 import android.util.SparseArray
@@ -33,18 +34,18 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     var actMode: ActionMode? = null
     var itemViews = SparseArray<View>()
     val selectedPositions = HashSet<Int>()
-    var foregroundColor = config.primaryColor
+    var primaryColor = config.primaryColor
     var pinnedFolders = config.pinnedFolders
     var scrollVertically = !config.scrollHorizontally
 
     fun toggleItemSelection(select: Boolean, pos: Int) {
-        if (itemViews[pos] != null)
-            itemViews[pos].dir_check.beVisibleIf(select)
-
-        if (select)
+        if (select) {
+            itemViews[pos].dir_check.background.setColorFilter(primaryColor, PorterDuff.Mode.SRC_IN)
             selectedPositions.add(pos)
-        else
+        } else
             selectedPositions.remove(pos)
+
+        itemViews[pos]?.dir_check?.beVisibleIf(select)
 
         if (selectedPositions.isEmpty()) {
             actMode?.finish()
@@ -57,14 +58,6 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     fun updateTitle(cnt: Int) {
         actMode?.title = "$cnt / ${dirs.size}"
         actMode?.invalidate()
-    }
-
-    fun updatePrimaryColor(color: Int) {
-        foregroundColor = color
-        (0..itemViews.size() - 1).mapNotNull { itemViews[it] }
-                .forEach {
-
-                }
     }
 
     val adapterListener = object : MyAdapterListener {
@@ -411,6 +404,8 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
                 setOnClickListener { viewClicked(directory) }
                 setOnLongClickListener { if (isPickIntent) viewClicked(directory) else viewLongClicked(); true }
+
+
             }
             return itemView
         }

@@ -3,6 +3,7 @@
     <dimen name="dir_tmb_size">150dp</dimen>
     <dimen name="medium_tmb_size">100dp</dimen>
     <dimen name="pin_size">20dp</dimen>
+    <dimen name="selection_check_size">26dp</dimen>
     <dimen name="play_outline_size">40dp</dimen>
     <dimen name="play_outline_size_big">150dp</dimen>
     <dimen name="timer_padding">24dp</dimen>
