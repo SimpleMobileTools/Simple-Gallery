@@ -98,9 +98,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
-        if (intent.extras?.containsKey(IS_VIEW_INTENT) == true) {
-            if (!config.isPasswordProtectionOn)
+        if (intent.extras?.containsKey(IS_VIEW_INTENT) == true && File(mPath).isHidden) {
+            if (!config.isPasswordProtectionOn) {
                 config.temporarilyShowHidden = true
+            }
         }
 
         showSystemUI()
