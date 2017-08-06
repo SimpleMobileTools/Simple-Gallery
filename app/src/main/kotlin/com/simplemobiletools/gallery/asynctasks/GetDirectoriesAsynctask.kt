@@ -43,8 +43,8 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                 cancel(true)
 
             val parentDir = File(path).parent ?: continue
-            if (directories.containsKey(parentDir)) {
-                val directory = directories[parentDir]!!
+            if (directories.containsKey(parentDir.toLowerCase())) {
+                val directory = directories[parentDir.toLowerCase()]!!
                 val newImageCnt = directory.mediaCnt + 1
                 directory.mediaCnt = newImageCnt
                 directory.addSize(size)
@@ -71,7 +71,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                 }
 
                 val directory = Directory(parentDir, thumbnail, dirName, 1, dateModified, dateTaken, size)
-                directories.put(parentDir, directory)
+                directories.put(parentDir.toLowerCase(), directory)
             }
         }
         return directories
