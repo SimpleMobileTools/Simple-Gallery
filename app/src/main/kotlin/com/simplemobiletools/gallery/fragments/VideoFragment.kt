@@ -51,6 +51,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private var mTouchDownY = 0f
     private var mTouchDownTime = 0L
     private var mTouchDownVolume = 0
+    private var mLastTouchY = 0f
 
     private var mSlideInfoText = ""
     private var mSlideInfoFadeHandler = Handler()
@@ -118,7 +119,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         }
     }
 
-    override fun onConfigurationChanged(newConfig: Configuration?) {
+    override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         setVideoSize()
         initTimeHolder()
@@ -133,6 +134,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             MotionEvent.ACTION_DOWN -> {
                 mTouchDownX = event.x
                 mTouchDownY = event.y
+                mLastTouchY = event.y
                 mTouchDownTime = System.currentTimeMillis()
                 mTouchDownVolume = getCurrentVolume()
                 mSlideInfoText = "${getString(R.string.volume)}:\n"
@@ -144,8 +146,15 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 if (Math.abs(diffY) > Math.abs(diffX)) {
                     var percent = ((diffY / ViewPagerActivity.screenHeight) * 100).toInt() * 3
                     percent = Math.min(100, Math.max(-100, percent))
+
+                    if ((percent == 100 && event.y > mLastTouchY) || (percent == -100 && event.y < mLastTouchY)) {
+                        mTouchDownY = event.y
+                        mTouchDownVolume = getCurrentVolume()
+                    }
+
                     volumePercentChanged(percent)
                 }
+                mLastTouchY = event.y
             }
             MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
                 if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
