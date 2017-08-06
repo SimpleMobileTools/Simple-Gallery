@@ -18,6 +18,7 @@ import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
+import com.simplemobiletools.gallery.extensions.audioManager
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getNavBarHeight
 import com.simplemobiletools.gallery.extensions.hasNavBar
@@ -25,6 +26,7 @@ import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.pager_video_item.view.*
 import java.io.IOException
+
 
 class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSeekBarChangeListener {
     private val CLICK_MAX_DURATION = 150
@@ -48,6 +50,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private var mTouchDownX = 0f
     private var mTouchDownY = 0f
     private var mTouchDownTime = 0L
+    private var mTouchDownVolume = 0
 
     lateinit var mView: View
     lateinit var medium: Medium
@@ -128,6 +131,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 mTouchDownX = event.x
                 mTouchDownY = event.y
                 mTouchDownTime = System.currentTimeMillis()
+                mTouchDownVolume = getCurrentVolume()
             }
             MotionEvent.ACTION_MOVE -> {
                 val diffX = mTouchDownX - event.x
@@ -147,8 +151,15 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         }
     }
 
-    private fun volumePercentChanged(percent: Int) {
+    private fun getCurrentVolume() = context.audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
 
+    private fun volumePercentChanged(percent: Int) {
+        val stream = AudioManager.STREAM_MUSIC
+        val maxVolume = context.audioManager.getStreamMaxVolume(stream)
+        val percentPerPoint = Math.ceil(100 / maxVolume.toDouble()).toInt()
+        val addPoints = percent / percentPerPoint
+        val newVolume = Math.min(maxVolume, Math.max(0, mTouchDownVolume + addPoints))
+        context.audioManager.setStreamVolume(stream, newVolume, 0)
     }
 
     private fun initTimeHolder() {

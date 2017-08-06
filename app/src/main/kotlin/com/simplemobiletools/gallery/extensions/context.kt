@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.database.Cursor
+import android.media.AudioManager
 import android.net.Uri
 import android.provider.MediaStore
 import com.simplemobiletools.commons.extensions.*
@@ -21,6 +22,7 @@ import java.io.File
 import java.util.*
 
 val Context.portrait get() = resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
+val Context.audioManager get() = getSystemService(Context.AUDIO_SERVICE) as AudioManager
 
 fun Context.getRealPathFromURI(uri: Uri): String? {
     var cursor: Cursor? = null
