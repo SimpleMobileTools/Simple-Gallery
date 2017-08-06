@@ -138,7 +138,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 val diffY = mTouchDownY - event.y
 
                 if (Math.abs(diffY) > Math.abs(diffX)) {
-                    var percent = ((diffY / ViewPagerActivity.screenHeight) * 100).toInt() * 2
+                    var percent = ((diffY / ViewPagerActivity.screenHeight) * 100).toInt() * 3
                     percent = Math.min(100, Math.max(-100, percent))
                     volumePercentChanged(percent)
                 }
@@ -156,7 +156,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private fun volumePercentChanged(percent: Int) {
         val stream = AudioManager.STREAM_MUSIC
         val maxVolume = context.audioManager.getStreamMaxVolume(stream)
-        val percentPerPoint = Math.ceil(100 / maxVolume.toDouble()).toInt()
+        val percentPerPoint = 100 / maxVolume
         val addPoints = percent / percentPerPoint
         val newVolume = Math.min(maxVolume, Math.max(0, mTouchDownVolume + addPoints))
         context.audioManager.setStreamVolume(stream, newVolume, 0)
