@@ -23,6 +23,8 @@
     <string name="select_photo">Select photo</string>
     <string name="use_default">Use default</string>
     <string name="set_as">Nastavit jako</string>
+    <string name="volume">Volume</string>
+    <string name="brightness">Brightness</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Tato funkce skryje složku, včetně podsložek, přidáním souboru \'.nomedia\'. Zobrazíte je zvolením možnosti \'Zobrazit skryté složky\' v nastavení. Pokračovat?</string>

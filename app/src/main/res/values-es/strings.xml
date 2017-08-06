@@ -23,6 +23,8 @@
     <string name="select_photo">Seleccionar imagen</string>
     <string name="use_default">Uso por defecto</string>
     <string name="set_as">Establecer como</string>
+    <string name="volume">Volume</string>
+    <string name="brightness">Brightness</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Esta función oculta la carpeta agregando un archivo \'.nomedia\' en ella, y ocultará también las subcarpetas. Puede mostrarlas cambiando la opción \'Mostrar carpetas ocultas\' en los Ajustes. ¿Continuar?</string>

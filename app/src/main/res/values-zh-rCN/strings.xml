@@ -23,6 +23,8 @@
     <string name="select_photo">选择图片</string>
     <string name="use_default">使用默认</string>
     <string name="set_as">设置为</string>
+    <string name="volume">Volume</string>
+    <string name="brightness">Brightness</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">通过添加文件 \'.nomedia\' 到目录，可以防止目录及其子目录下的所有媒体被扫描。您可以通过设置中的 \'显示隐藏目录\' 选项改变设置，是否继续？</string>

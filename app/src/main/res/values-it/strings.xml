@@ -23,6 +23,8 @@
     <string name="select_photo">Seleziona foto</string>
     <string name="use_default">Usa predefinita</string>
     <string name="set_as">Imposta come</string>
+    <string name="volume">Volume</string>
+    <string name="brightness">Brightness</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Questa funzione nasconde la cartella aggiungendo un file \'.nomedia\' all\'interno, nasconderà anche tutte le sottocartelle. Puoi vederle attivando l\'opzione \'Mostra cartelle nascoste\' nelle impostazioni. Continuare?</string>

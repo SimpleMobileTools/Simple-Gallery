@@ -23,6 +23,8 @@
     <string name="select_photo">Select photo</string>
     <string name="use_default">Use default</string>
     <string name="set_as">Set as</string>
+    <string name="volume">Volume</string>
+    <string name="brightness">Brightness</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Bu işlev, klasöre\'.medya yok\'dosyası ekleyerek gizler; tüm alt klasörleri de gizler. Bunları Ayarlar\'da\'Gizli klasörleri göster\'seçeneğine basarak görebilirsiniz. Devam et?</string>

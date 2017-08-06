@@ -23,6 +23,8 @@
     <string name="select_photo">Select photo</string>
     <string name="use_default">Use default</string>
     <string name="set_as">Set as</string>
+    <string name="volume">Volume</string>
+    <string name="brightness">Brightness</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Эта опция скрывает папку, добавляя в неё файл \'.nomedia\'; будут скрыты все подпапки. Можно показывать их, переключая \'Показать скрытые папки\' в настройках. Продолжить?</string>

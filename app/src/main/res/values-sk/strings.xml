@@ -23,6 +23,8 @@
     <string name="select_photo">Zvoliť foto</string>
     <string name="use_default">Použiť predvolený</string>
     <string name="set_as">Nastaviť ako</string>
+    <string name="volume">Hlasitosť</string>
+    <string name="brightness">Jas</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Táto funkcia skryje priečinok pridaním súboru \'.nomedia\', skryté budú aj podpriečinky. Môžete ich vidieť zvolením možnosti \'Zobraziť skryté priečinky\' v nastaveniach. Pokračovať?</string>

@@ -23,6 +23,8 @@
     <string name="select_photo">Selecionar foto</string>
     <string name="use_default">Predefinição</string>
     <string name="set_as">Definir como</string>
+    <string name="volume">Volume</string>
+    <string name="brightness">Brightness</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Esta opção oculta uma pasta com a adição de um ficheiro \'.nomedia\' na pasta, e irá ocultar todas as subpastas existentes. Pode ver as pastas com a opção \'Mostrar pastas ocultas\'. Continuar?</string>

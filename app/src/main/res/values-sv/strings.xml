@@ -23,6 +23,8 @@
     <string name="select_photo">Välj foto</string>
     <string name="use_default">Använd standard</string>
     <string name="set_as">Ange som</string>
+    <string name="volume">Volume</string>
+    <string name="brightness">Brightness</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Denna funktion döljer mappen och alla dess undermappar genom att lägga till en \'.nomedia\'-fil i den. Du kan se dem genom att växla \'Visa dolda mappar\'-alternativet i Inställningar. Vill du fortsätta?</string>

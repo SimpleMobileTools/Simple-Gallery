@@ -23,6 +23,8 @@
     <string name="select_photo">Wybierz obraz</string>
     <string name="use_default">Użyj domyślnej</string>
     <string name="set_as">Ustaw jako</string>
+    <string name="volume">Volume</string>
+    <string name="brightness">Brightness</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Ta funkcja ukrywa foldery dodając do nich pusty plik .nomedia. Aby móc je zobaczyć, należy włączyć opcję \'Pokazuj ukryte foldery\' w ustawieniach. Kontyntynuować?</string>
