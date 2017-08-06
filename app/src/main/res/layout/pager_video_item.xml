@@ -12,6 +12,13 @@
         android:layout_centerInParent="true"
         android:background="@android:color/transparent"/>
 
+    <RelativeLayout
+        android:id="@+id/video_volume_controller"
+        android:layout_width="@dimen/video_side_slider_width"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"/>
+
     <ImageView
         android:id="@+id/video_play_outline"
         android:layout_width="@dimen/play_outline_size_big"

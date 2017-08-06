@@ -17,6 +17,7 @@ import com.simplemobiletools.commons.extensions.getFormattedDuration
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getNavBarHeight
 import com.simplemobiletools.gallery.extensions.hasNavBar
@@ -26,6 +27,7 @@ import kotlinx.android.synthetic.main.pager_video_item.view.*
 import java.io.IOException
 
 class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSeekBarChangeListener {
+    private val CLICK_MAX_DURATION = 150
 
     private var mMediaPlayer: MediaPlayer? = null
     private var mSurfaceView: SurfaceView? = null
@@ -42,6 +44,10 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private var mPlayOnPrepare = false
     private var mCurrTime = 0
     private var mDuration = 0
+
+    private var mTouchDownX = 0f
+    private var mTouchDownY = 0f
+    private var mTouchDownTime = 0L
 
     lateinit var mView: View
     lateinit var medium: Medium
@@ -82,6 +88,10 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mSurfaceHolder!!.addCallback(this)
         mSurfaceView!!.setOnClickListener({ toggleFullscreen() })
         mView.video_holder.setOnClickListener { toggleFullscreen() }
+        mView.video_volume_controller.setOnTouchListener { v, event ->
+            handleVolumeTouched(event)
+            true
+        }
 
         initTimeHolder()
     }
@@ -110,6 +120,35 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
     private fun toggleFullscreen() {
         listener?.fragmentClicked()
+    }
+
+    private fun handleVolumeTouched(event: MotionEvent) {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+                mTouchDownX = event.x
+                mTouchDownY = event.y
+                mTouchDownTime = System.currentTimeMillis()
+            }
+            MotionEvent.ACTION_MOVE -> {
+                val diffX = mTouchDownX - event.x
+                val diffY = mTouchDownY - event.y
+
+                if (Math.abs(diffY) > Math.abs(diffX)) {
+                    var percent = ((diffY / ViewPagerActivity.screenHeight) * 100).toInt() * 2
+                    percent = Math.min(100, Math.max(-100, percent))
+                    volumePercentChanged(percent)
+                }
+            }
+            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
+                    mView.video_holder.performClick()
+                }
+            }
+        }
+    }
+
+    private fun volumePercentChanged(percent: Int) {
+
     }
 
     private fun initTimeHolder() {
