@@ -27,9 +27,9 @@ import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.pager_video_item.view.*
 import java.io.IOException
 
-
 class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSeekBarChangeListener {
     private val CLICK_MAX_DURATION = 150
+    private val SLIDE_INFO_FADE_DELAY = 1000L
 
     private var mMediaPlayer: MediaPlayer? = null
     private var mSurfaceView: SurfaceView? = null
@@ -51,6 +51,9 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private var mTouchDownY = 0f
     private var mTouchDownTime = 0L
     private var mTouchDownVolume = 0
+
+    private var mSlideInfoText = ""
+    private var mSlideInfoFadeHandler = Handler()
 
     lateinit var mView: View
     lateinit var medium: Medium
@@ -132,6 +135,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 mTouchDownY = event.y
                 mTouchDownTime = System.currentTimeMillis()
                 mTouchDownVolume = getCurrentVolume()
+                mSlideInfoText = "${getString(R.string.volume)}:\n"
             }
             MotionEvent.ACTION_MOVE -> {
                 val diffX = mTouchDownX - event.x
@@ -160,6 +164,17 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         val addPoints = percent / percentPerPoint
         val newVolume = Math.min(maxVolume, Math.max(0, mTouchDownVolume + addPoints))
         context.audioManager.setStreamVolume(stream, newVolume, 0)
+
+        val absolutePercent = ((newVolume / maxVolume.toFloat()) * 100).toInt()
+        mView.slide_info.apply {
+            text = "$mSlideInfoText$absolutePercent%"
+            alpha = 1f
+        }
+
+        mSlideInfoFadeHandler.removeCallbacksAndMessages(null)
+        mSlideInfoFadeHandler.postDelayed({
+            mView.slide_info.animate().alpha(0f)
+        }, SLIDE_INFO_FADE_DELAY)
     }
 
     private fun initTimeHolder() {
