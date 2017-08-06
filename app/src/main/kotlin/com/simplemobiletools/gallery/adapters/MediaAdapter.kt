@@ -37,7 +37,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
     fun toggleItemSelection(select: Boolean, pos: Int) {
         if (select) {
-            itemViews[pos].medium_check.background.setColorFilter(primaryColor, PorterDuff.Mode.SRC_IN)
+            itemViews[pos]?.medium_check?.background?.setColorFilter(primaryColor, PorterDuff.Mode.SRC_IN)
             selectedPositions.add(pos)
         } else
             selectedPositions.remove(pos)

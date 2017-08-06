@@ -40,7 +40,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
     fun toggleItemSelection(select: Boolean, pos: Int) {
         if (select) {
-            itemViews[pos].dir_check.background.setColorFilter(primaryColor, PorterDuff.Mode.SRC_IN)
+            itemViews[pos]?.dir_check?.background?.setColorFilter(primaryColor, PorterDuff.Mode.SRC_IN)
             selectedPositions.add(pos)
         } else
             selectedPositions.remove(pos)
