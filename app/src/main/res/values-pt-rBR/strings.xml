@@ -105,7 +105,6 @@
     <string name="images_and_videos">Imagens e vídeos</string>
     <string name="loop_videos">Reproduzir vídeos em ciclo</string>
     <string name="animate_gifs">Animação de GIFs nas miniaturas</string>
-       
     <string name="max_brightness">Brilho máximo ao visualizar mídia</string>
     <string name="crop_thumbnails">Recortar miniaturas em quadrados</string>
     <string name="screen_rotation_by">Critério para rotação de tela</string>
@@ -116,7 +115,6 @@
     <string name="scroll_thumbnails_horizontally">Rolar miniaturas horizontalmente</string>
     <string name="hide_system_ui_at_fullscreen">Automatically hide system UI at fullscreen media</string>
     <string name="replace_share_with_rotate">Replace Share with Rotate at fullscreen menu</string>
-    <string name="password_protect_hidden_folders">Password protect hidden folders</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

@@ -284,7 +284,7 @@
                 android:clickable="false"
                 android:paddingLeft="@dimen/medium_margin"
                 android:paddingStart="@dimen/medium_margin"
-                android:text="@string/password_protect_hidden_folders"/>
+                android:text="@string/password_protect_hidden_items"/>
 
         </RelativeLayout>
 

@@ -114,7 +114,6 @@
     <string name="scroll_thumbnails_horizontally">Przewijaj miniatury poziomo</string>
     <string name="hide_system_ui_at_fullscreen">Ukrywaj interfejs przy pełnoekranowym podglądzie</string>
     <string name="replace_share_with_rotate">Zamień funkcję udostępniania na obracanie w menu pełnoekranowym</string>
-    <string name="password_protect_hidden_folders">Zabezpiecz ukryte foldery</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

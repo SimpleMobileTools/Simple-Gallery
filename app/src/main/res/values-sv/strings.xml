@@ -114,7 +114,6 @@
     <string name="scroll_thumbnails_horizontally">Rulla horisontellt genom miniatyrer</string>
     <string name="hide_system_ui_at_fullscreen">Dölj systemanvändargränssnittet automatiskt när media visas i helskärmsläge</string>
     <string name="replace_share_with_rotate">Replace Share with Rotate at fullscreen menu</string>
-    <string name="password_protect_hidden_folders">Password protect hidden folders</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
