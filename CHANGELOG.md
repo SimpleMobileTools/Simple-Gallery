@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 2.13.0 *(2017-08-07)*
+----------------------------
+
+ * Allow changing the screen brightness and volume at videos by vertically dragging the screen sides
+ * Fixed sorting of numbers in filenames
+ * Fixed a glitch with hidden files sometimes temporarily visible
+ * Unified thumbnail corner icon sizes and style
+
 Version 2.12.6 *(2017-08-05)*
 ----------------------------
 
