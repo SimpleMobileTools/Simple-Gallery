@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.provider.Settings
 import android.util.DisplayMetrics
 import android.util.Log
 import android.view.*
@@ -51,6 +52,8 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private var mTouchDownY = 0f
     private var mTouchDownTime = 0L
     private var mTouchDownVolume = 0
+    private var mTouchDownBrightness = -1
+    private var mTempBrightness = 0
     private var mLastTouchY = 0f
 
     private var mSlideInfoText = ""
@@ -97,6 +100,11 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mView.video_holder.setOnClickListener { toggleFullscreen() }
         mView.video_volume_controller.setOnTouchListener { v, event ->
             handleVolumeTouched(event)
+            true
+        }
+
+        mView.video_brightness_controller.setOnTouchListener { v, event ->
+            handleBrightnessTouched(event)
             true
         }
 
@@ -164,7 +172,47 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         }
     }
 
+    private fun handleBrightnessTouched(event: MotionEvent) {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+                mTouchDownX = event.x
+                mTouchDownY = event.y
+                mLastTouchY = event.y
+                mTouchDownTime = System.currentTimeMillis()
+                mSlideInfoText = "${getString(R.string.brightness)}:\n"
+                if (mTouchDownBrightness == -1)
+                    mTouchDownBrightness = getCurrentBrightness()
+            }
+            MotionEvent.ACTION_MOVE -> {
+                val diffX = mTouchDownX - event.x
+                val diffY = mTouchDownY - event.y
+
+                if (Math.abs(diffY) > Math.abs(diffX)) {
+                    var percent = ((diffY / ViewPagerActivity.screenHeight) * 100).toInt() * 3
+                    percent = Math.min(100, Math.max(-100, percent))
+
+                    if ((percent == 100 && event.y > mLastTouchY) || (percent == -100 && event.y < mLastTouchY)) {
+                        mTouchDownY = event.y
+                        mTouchDownBrightness = mTempBrightness
+                    }
+
+                    brightnessPercentChanged(percent)
+                }
+                mLastTouchY = event.y
+            }
+            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
+                    mView.video_holder.performClick()
+                }
+                mTouchDownBrightness = mTempBrightness
+            }
+        }
+        mView.video_holder
+    }
+
     private fun getCurrentVolume() = context.audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
+
+    private fun getCurrentBrightness() = Settings.System.getInt(activity.contentResolver, Settings.System.SCREEN_BRIGHTNESS)
 
     private fun volumePercentChanged(percent: Int) {
         val stream = AudioManager.STREAM_MUSIC
@@ -179,6 +227,28 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             text = "$mSlideInfoText$absolutePercent%"
             alpha = 1f
         }
+
+        mSlideInfoFadeHandler.removeCallbacksAndMessages(null)
+        mSlideInfoFadeHandler.postDelayed({
+            mView.slide_info.animate().alpha(0f)
+        }, SLIDE_INFO_FADE_DELAY)
+    }
+
+    private fun brightnessPercentChanged(percent: Int) {
+        val maxBrightness = 255f
+        var newBrightness = (mTouchDownBrightness + 2.55 * percent).toFloat()
+        newBrightness = Math.min(maxBrightness, Math.max(0f, newBrightness))
+        mTempBrightness = newBrightness.toInt()
+
+        val absolutePercent = ((newBrightness / maxBrightness) * 100).toInt()
+        mView.slide_info.apply {
+            text = "$mSlideInfoText$absolutePercent%"
+            alpha = 1f
+        }
+
+        val attributes = activity.window.attributes
+        attributes.screenBrightness = absolutePercent / 100f
+        activity.window.attributes = attributes
 
         mSlideInfoFadeHandler.removeCallbacksAndMessages(null)
         mSlideInfoFadeHandler.postDelayed({

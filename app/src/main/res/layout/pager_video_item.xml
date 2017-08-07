@@ -19,6 +19,11 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"/>
 
+    <RelativeLayout
+        android:id="@+id/video_brightness_controller"
+        android:layout_width="@dimen/video_side_slider_width"
+        android:layout_height="match_parent"/>
+
     <ImageView
         android:id="@+id/video_play_outline"
         android:layout_width="@dimen/play_outline_size_big"
