@@ -25,12 +25,12 @@
 
     <ImageView
         android:id="@+id/play_outline"
-        android:layout_width="@dimen/play_outline_size"
-        android:layout_height="@dimen/play_outline_size"
+        android:layout_width="@dimen/selection_check_size"
+        android:layout_height="@dimen/selection_check_size"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_margin="@dimen/tiny_margin"
+        android:layout_margin="@dimen/small_margin"
         android:src="@drawable/img_play_outline"
         android:visibility="gone"/>
 
@@ -44,7 +44,6 @@
         android:background="@drawable/gradient_background"
         android:gravity="bottom"
         android:maxLines="3"
-        android:minHeight="@dimen/play_outline_size"
         android:paddingBottom="@dimen/small_margin"
         android:paddingLeft="@dimen/small_margin"
         android:paddingRight="@dimen/small_margin"
