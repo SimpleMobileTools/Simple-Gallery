@@ -25,12 +25,13 @@
 
     <ImageView
         android:id="@+id/dir_pin"
-        android:layout_width="@dimen/pin_size"
-        android:layout_height="@dimen/pin_size"
+        android:layout_width="@dimen/selection_check_size"
+        android:layout_height="@dimen/selection_check_size"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_margin="@dimen/small_margin"
+        android:padding="@dimen/tiny_margin"
         android:src="@drawable/ic_pin"/>
 
     <ImageView
@@ -75,8 +76,8 @@
 
     <ImageView
         android:id="@+id/dir_sd_card"
-        android:layout_width="@dimen/pin_size"
-        android:layout_height="@dimen/pin_size"
+        android:layout_width="@dimen/sd_card_icon_size"
+        android:layout_height="@dimen/sd_card_icon_size"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
