@@ -27,13 +27,13 @@
     <string name="brightness">亮度</string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">這功能藉由添加一個\'.nomedia\'檔案，來隱藏資料夾和所有子資料夾。您可以透過設定中的&#8968;顯示隱藏的資料夾&#8971;選項來查看。\n是否繼續?</string>
+    <string name="hide_folder_description">這功能藉由添加一個\'.nomedia\'檔案，來隱藏資料夾和所有子資料夾。您可以透過設定中的「顯示隱藏的資料夾」選項來查看。\n是否繼續?</string>
     <string name="exclude">排除</string>
     <string name="excluded_folders">排除資料夾</string>
     <string name="manage_excluded_folders">管理排除資料夾</string>
     <string name="exclude_folder_description">此資料夾與子資料夾將只會都從簡易相簿中排除。您可以在設定中進行管理。</string>
     <string name="exclude_folder_parent">是否排除上層資料夾?</string>
-    <string name="excluded_activity_placeholder">&#8968;排除資料夾&#8971;只會將選擇的資料夾與子資料夾一起從簡易相簿中隱藏，他們仍會出現在其他應用程式中。\n\n如果您要在其他應用程式中也隱藏，請使用&#8968;隱藏&#8971;功能。</string>
+    <string name="excluded_activity_placeholder">「排除資料夾」只會將選擇的資料夾與子資料夾一起從簡易相簿中隱藏，他們仍會出現在其他應用程式中。\n\n如果您要在其他應用程式中也隱藏，請使用「隱藏」功能。</string>
     <string name="remove_all">移除全部</string>
     <string name="remove_all_description">是否將排除列表中的所有資料夾都移除?這不會刪除資料夾。</string>
 
