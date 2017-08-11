@@ -144,7 +144,7 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
         }
     }
 
-    config.includedFolders.filter { it.isEmpty() || it == curPath }.mapNotNull { File(it).listFiles() }.forEach {
+    config.includedFolders.filter { it.isNotEmpty() || it == curPath }.mapNotNull { File(it).listFiles() }.forEach {
         for (file in it) {
             val size = file.length()
             if (size <= 0L) {
