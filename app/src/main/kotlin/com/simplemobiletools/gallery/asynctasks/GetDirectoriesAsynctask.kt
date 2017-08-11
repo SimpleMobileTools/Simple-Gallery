@@ -27,8 +27,11 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
 
         val media = context.getFilesFrom("", isPickImage, isPickVideo)
         val excludedPaths = config.excludedFolders
+        val includedPaths = config.includedFolders
         val directories = groupDirectories(media)
-        val dirs = ArrayList(directories.values.filter { File(it.path).exists() }).filter { shouldFolderBeVisible(it.path, excludedPaths) } as ArrayList<Directory>
+        val dirs = ArrayList(directories.values
+                .filter { File(it.path).exists() })
+                .filter { shouldFolderBeVisible(it.path, excludedPaths, includedPaths) } as ArrayList<Directory>
         Directory.sorting = config.directorySorting
         dirs.sort()
         return movePinnedToFront(dirs)
@@ -77,11 +80,11 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         return directories
     }
 
-    private fun shouldFolderBeVisible(path: String, excludedPaths: MutableSet<String>): Boolean {
+    private fun shouldFolderBeVisible(path: String, excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>): Boolean {
         val file = File(path)
-        return if (isThisOrParentExcluded(path, excludedPaths))
+        return if (isThisOrParentExcluded(path, excludedPaths, includedPaths)) {
             false
-        else if (!config.shouldShowHidden && file.isDirectory && file.canonicalFile == file.absoluteFile) {
+        } else if (!config.shouldShowHidden && file.isDirectory && file.canonicalFile == file.absoluteFile) {
             var containsNoMediaOrDot = file.containsNoMedia() || path.contains("/.")
             if (!containsNoMediaOrDot) {
                 containsNoMediaOrDot = checkParentHasNoMedia(file.parentFile)
@@ -105,7 +108,8 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         return false
     }
 
-    private fun isThisOrParentExcluded(path: String, excludedPaths: MutableSet<String>) = excludedPaths.any { path.startsWith(it) }
+    private fun isThisOrParentExcluded(path: String, excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>) =
+            includedPaths.none { path.startsWith(it) } && excludedPaths.any { path.startsWith(it) }
 
     private fun movePinnedToFront(dirs: ArrayList<Directory>): ArrayList<Directory> {
         val foundFolders = ArrayList<Directory>()

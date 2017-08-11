@@ -75,6 +75,7 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
     val config = context.config
     val showMedia = config.showMedia
     val showHidden = config.shouldShowHidden
+    val includedFolders = config.includedFolders
     val excludedFolders = config.excludedFolders
     val noMediaFolders = context.getNoMediaFolders()
 
@@ -113,14 +114,19 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
 
                     var isExcluded = false
                     excludedFolders.forEach {
-                        if (path.startsWith(it)) {
+                        if (path.startsWith("$it/")) {
                             isExcluded = true
+                            includedFolders.forEach {
+                                if (path.startsWith("$it/")) {
+                                    isExcluded = false
+                                }
+                            }
                         }
                     }
 
                     if (!isExcluded && !showHidden) {
                         noMediaFolders.forEach {
-                            if (path.startsWith(it)) {
+                            if (path.startsWith("$it/")) {
                                 isExcluded = true
                             }
                         }
