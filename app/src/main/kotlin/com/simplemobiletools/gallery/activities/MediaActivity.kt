@@ -9,18 +9,19 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.widget.GridLayoutManager
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.animation.GlideAnimation
+import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.SimpleTarget
+import com.bumptech.glide.request.transition.Transition
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.views.MyScalableRecyclerView
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.MediaAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
@@ -29,7 +30,6 @@ import com.simplemobiletools.gallery.dialogs.ExcludeFolderDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
-import com.simplemobiletools.gallery.views.MyScalableRecyclerView
 import kotlinx.android.synthetic.main.activity_media.*
 import java.io.File
 import java.io.IOException
@@ -79,16 +79,19 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     override fun onResume() {
         super.onResume()
         if (mShowAll && mStoredAnimateGifs != config.animateGifs) {
-            media_grid.adapter.notifyDataSetChanged()
+            media_grid.adapter?.notifyDataSetChanged()
         }
 
         if (mStoredCropThumbnails != config.cropThumbnails) {
-            media_grid.adapter.notifyDataSetChanged()
+            media_grid.adapter?.notifyDataSetChanged()
         }
 
         if (mStoredScrollHorizontally != config.scrollHorizontally) {
-            (media_grid.adapter as MediaAdapter).scrollVertically = !config.scrollHorizontally
-            media_grid.adapter.notifyDataSetChanged()
+            media_grid.adapter?.let {
+                (it as MediaAdapter).scrollVertically = !config.scrollHorizontally
+                it.notifyDataSetChanged()
+            }
+            setupScrollDirection()
         }
 
         tryloadGallery()
@@ -102,7 +105,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         mStoredAnimateGifs = config.animateGifs
         mStoredCropThumbnails = config.cropThumbnails
         mStoredScrollHorizontally = config.scrollHorizontally
-        MyScalableRecyclerView.mListener = null
+        media_grid.listener = null
         mLastMediaHandler.removeCallbacksAndMessages(null)
     }
 
@@ -126,9 +129,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun checkIfColorChanged() {
-        if (media_grid.adapter != null && getRecyclerAdapter().foregroundColor != config.primaryColor) {
-            getRecyclerAdapter().updatePrimaryColor(config.primaryColor)
-            media_fastscroller.updateHandleColor()
+        if (media_grid.adapter != null && getRecyclerAdapter().primaryColor != config.primaryColor) {
+            getRecyclerAdapter().primaryColor = config.primaryColor
+            media_horizontal_fastscroller.updateHandleColor()
+            media_vertical_fastscroller.updateHandleColor()
         }
     }
 
@@ -136,17 +140,29 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         if (isDirEmpty())
             return
 
-        val adapter = MediaAdapter(this, mMedia, this) {
-            itemClicked(it.path)
-        }
-
         val currAdapter = media_grid.adapter
-        if (currAdapter != null) {
-            (currAdapter as MediaAdapter).updateMedia(mMedia)
+        if (currAdapter == null) {
+            media_grid.adapter = MediaAdapter(this, mMedia, this, mIsGetAnyIntent) {
+                itemClicked(it.path)
+            }
         } else {
-            media_grid.adapter = adapter
+            (currAdapter as MediaAdapter).updateMedia(mMedia)
         }
-        media_fastscroller.setViews(media_grid, media_refresh_layout)
+        setupScrollDirection()
+    }
+
+    private fun setupScrollDirection() {
+        media_vertical_fastscroller.isHorizontal = false
+        media_vertical_fastscroller.beGoneIf(config.scrollHorizontally)
+
+        media_horizontal_fastscroller.isHorizontal = true
+        media_horizontal_fastscroller.beVisibleIf(config.scrollHorizontally)
+
+        if (config.scrollHorizontally) {
+            media_horizontal_fastscroller.setViews(media_grid, media_refresh_layout)
+        } else {
+            media_vertical_fastscroller.setViews(media_grid, media_refresh_layout)
+        }
     }
 
     private fun checkLastMediaChanged() {
@@ -181,7 +197,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             findItem(R.id.open_camera).isVisible = mShowAll
             findItem(R.id.about).isVisible = mShowAll
 
-            findItem(R.id.temporarily_show_hidden).isVisible = !config.showHiddenMedia
+            findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden
+            findItem(R.id.stop_showing_hidden).isVisible = config.temporarilyShowHidden
 
             findItem(R.id.increase_column_count).isVisible = config.mediaColumnCnt < 10
             findItem(R.id.reduce_column_count).isVisible = config.mediaColumnCnt > 1
@@ -199,7 +216,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             R.id.hide_folder -> tryHideFolder()
             R.id.unhide_folder -> unhideFolder()
             R.id.exclude_folder -> tryExcludeFolder()
-            R.id.temporarily_show_hidden -> temporarilyShowHidden()
+            R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden()
+            R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
             R.id.increase_column_count -> increaseColumnCount()
             R.id.reduce_column_count -> reduceColumnCount()
             R.id.settings -> launchSettings()
@@ -298,9 +316,20 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             false
     }
 
-    private fun temporarilyShowHidden() {
-        config.temporarilyShowHidden = true
+    private fun tryToggleTemporarilyShowHidden() {
+        if (config.temporarilyShowHidden) {
+            toggleTemporarilyShowHidden(false)
+        } else {
+            handleHiddenFolderPasswordProtection {
+                toggleTemporarilyShowHidden(true)
+            }
+        }
+    }
+
+    private fun toggleTemporarilyShowHidden(show: Boolean) {
+        config.temporarilyShowHidden = show
         getMedia()
+        invalidateOptionsMenu()
     }
 
     private fun getRecyclerAdapter() = (media_grid.adapter as MediaAdapter)
@@ -315,8 +344,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             media_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         }
 
+        media_grid.isDragSelectionEnabled = true
+        media_grid.isZoomingEnabled = true
         layoutManager.spanCount = config.mediaColumnCnt
-        MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.MyScalableRecyclerViewListener {
+        media_grid.listener = object : MyScalableRecyclerView.MyScalableRecyclerViewListener {
             override fun zoomIn() {
                 if (layoutManager.spanCount > 1) {
                     reduceColumnCount()
@@ -344,13 +375,13 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun increaseColumnCount() {
         config.mediaColumnCnt = ++(media_grid.layoutManager as GridLayoutManager).spanCount
         invalidateOptionsMenu()
-        media_grid.adapter.notifyDataSetChanged()
+        media_grid.adapter?.notifyDataSetChanged()
     }
 
     private fun reduceColumnCount() {
         config.mediaColumnCnt = --(media_grid.layoutManager as GridLayoutManager).spanCount
         invalidateOptionsMenu()
-        media_grid.adapter.notifyDataSetChanged()
+        media_grid.adapter?.notifyDataSetChanged()
     }
 
     private fun isSetWallpaperIntent() = intent.getBooleanExtra(SET_WALLPAPER_INTENT, false)
@@ -372,18 +403,22 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             val wantedWidth = wallpaperDesiredMinimumWidth
             val wantedHeight = wallpaperDesiredMinimumHeight
             val ratio = wantedWidth.toFloat() / wantedHeight
-            Glide.with(this)
-                    .load(File(path))
-                    .asBitmap()
+
+            val options = RequestOptions()
                     .override((wantedWidth * ratio).toInt(), wantedHeight)
                     .fitCenter()
+
+            Glide.with(this)
+                    .asBitmap()
+                    .load(File(path))
+                    .apply(options)
                     .into(object : SimpleTarget<Bitmap>() {
-                        override fun onResourceReady(bitmap: Bitmap?, glideAnimation: GlideAnimation<in Bitmap>?) {
+                        override fun onResourceReady(resource: Bitmap?, transition: Transition<in Bitmap>?) {
                             try {
-                                WallpaperManager.getInstance(applicationContext).setBitmap(bitmap)
+                                WallpaperManager.getInstance(applicationContext).setBitmap(resource)
                                 setResult(Activity.RESULT_OK)
-                            } catch (e: IOException) {
-                                Log.e(TAG, "item click $e")
+                            } catch (ignored: IOException) {
+
                             }
 
                             finish()
@@ -424,7 +459,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         mLastDrawnHashCode = media.hashCode()
         mMedia = media
-        setupAdapter()
+        runOnUiThread {
+            setupAdapter()
+        }
         storeFolder()
     }
 

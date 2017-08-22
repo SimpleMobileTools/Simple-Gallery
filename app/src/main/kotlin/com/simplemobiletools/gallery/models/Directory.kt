@@ -1,9 +1,6 @@
 package com.simplemobiletools.gallery.models
 
-import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
-import com.simplemobiletools.commons.helpers.SORT_BY_NAME
-import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
-import com.simplemobiletools.commons.helpers.SORT_DESCENDING
+import com.simplemobiletools.commons.helpers.*
 import java.io.Serializable
 
 data class Directory(val path: String, val tmb: String, val name: String, var mediaCnt: Int, val modified: Long, val taken: Long,
@@ -20,7 +17,7 @@ data class Directory(val path: String, val tmb: String, val name: String, var me
     override fun compareTo(other: Directory): Int {
         var result: Int
         if (sorting and SORT_BY_NAME != 0) {
-            result = name.toLowerCase().compareTo(other.name.toLowerCase())
+            result = AlphanumComparator().compare(name.toLowerCase(), other.name.toLowerCase())
         } else if (sorting and SORT_BY_SIZE != 0) {
             result = if (size == other.size)
                 0

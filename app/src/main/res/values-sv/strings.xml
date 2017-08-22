@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Simple Gallery</string>
-    <string name="app_launcher_name">Gallery</string>
+    <string name="app_launcher_name">Galleri</string>
     <string name="edit">Redigera</string>
     <string name="open_camera">Starta kameran</string>
     <string name="open_with">Öppna med</string>
@@ -13,34 +13,35 @@
     <string name="all_folders">Alla mappar</string>
     <string name="folder_view">Byt till mappvy</string>
     <string name="other_folder">Andra mappar</string>
-    <string name="show_on_map">Show on map</string>
-    <string name="unknown_location">Unknown location</string>
-    <string name="no_map_application">No application with maps has been found</string>
-    <string name="no_camera_app_found">No Camera app has been found</string>
-    <string name="increase_column_count">Increase column count</string>
-    <string name="reduce_column_count">Reduce column count</string>
-    <string name="temporarily_show_hidden">Temporarily show hidden</string>
-    <string name="change_cover_image">Change cover image</string>
-    <string name="select_photo">Select photo</string>
-    <string name="use_default">Use default</string>
-    <string name="set_as">Set as</string>
+    <string name="show_on_map">Visa på karta</string>
+    <string name="unknown_location">Okänd plats</string>
+    <string name="no_map_application">Ingen app med kartor hittades</string>
+    <string name="no_camera_app_found">Ingen Kamera-app hittades</string>
+    <string name="increase_column_count">Öka antalet kolumner</string>
+    <string name="reduce_column_count">Minska antalet kolumner</string>
+    <string name="change_cover_image">Byt omslagsbild</string>
+    <string name="select_photo">Välj foto</string>
+    <string name="use_default">Använd standard</string>
+    <string name="set_as">Ange som</string>
+    <string name="volume">Volume</string>
+    <string name="brightness">Brightness</string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden folders\' option in Settings. Continue?</string>
-    <string name="exclude">Exclude</string>
-    <string name="excluded_folders">Excluded folders</string>
-    <string name="manage_excluded_folders">Manage excluded folders</string>
-    <string name="exclude_folder_description">This will exclude the selection together with its subfolders from Simple Gallery only. You can manage excluded folders in Settings.</string>
-    <string name="exclude_folder_parent">Exclude a parent instead?</string>
-    <string name="excluded_activity_placeholder">Excluding folders will make them together with their subfolders hidden just in Simple Gallery, they will still be visible in other applications.\\n\\nIf you want to hide them from other apps too, use the Hide function.</string>
-    <string name="remove_all">Remove all</string>
-    <string name="remove_all_description">Remove all folders from the list of excluded? This will not delete the folders.</string>
+    <string name="hide_folder_description">Denna funktion döljer mappen och alla dess undermappar genom att lägga till en \'.nomedia\'-fil i den. Du kan se dem genom att växla \'Visa dolda mappar\'-alternativet i Inställningar. Vill du fortsätta?</string>
+    <string name="exclude">Uteslut</string>
+    <string name="excluded_folders">Uteslutna mappar</string>
+    <string name="manage_excluded_folders">Hantera uteslutna mappar</string>
+    <string name="exclude_folder_description">Detta utesluter bara den markerade mappen och dess undermappar från Simple Gallery. Du kan hantera uteslutna mappar i Inställningar.</string>
+    <string name="exclude_folder_parent">Vill du utesluta en överordnad mapp istället?</string>
+    <string name="excluded_activity_placeholder">Uteslutning av mappar döljer bara dem och deras undermappar i Simple Gallery, de visas fortfarande i andra appar.\\n\\nAnvänd Dölj-funktionen om du även vill dölja dem från andra appar.</string>
+    <string name="remove_all">Ta bort alla</string>
+    <string name="remove_all_description">Vill du ta bort alla mappar från uteslutningslistan? Detta raderar inte mapparna.</string>
 
     <!-- Include folders -->
-    <string name="include_folders">Included folders</string>
-    <string name="manage_included_folders">Manage included folders</string>
-    <string name="add_folder">Add folder</string>
-    <string name="included_activity_placeholder">If you have some folders which contain media, but were not recognized by the app, you can add them manually here.</string>
+    <string name="include_folders">Inkluderade mappar</string>
+    <string name="manage_included_folders">Hantera inkluderade mappar</string>
+    <string name="add_folder">Lägg till mapp</string>
+    <string name="included_activity_placeholder">Om du har vissa mappar som innehåller media men som inte känns igen av appen kan du lägga till dem manuellt här.</string>
 
     <!-- Resizing -->
     <string name="resize">Ändra storlek</string>
@@ -56,19 +57,18 @@
     <string name="rotate">Rotera</string>
     <string name="path">Sökväg</string>
     <string name="invalid_image_path">Ogiltig bildsökväg</string>
-    <string name="image_editing_failed">Image editing failed</string>
+    <string name="image_editing_failed">Bilden kunde inte redigeras</string>
     <string name="edit_image_with">Redigera bilden med:</string>
     <string name="no_editor_found">Hittade ingen bildredigerare</string>
     <string name="unknown_file_location">Okänd filplats</string>
     <string name="error_saving_file">Det gick inte att skriva över källfilen</string>
-    <string name="rotate_left">Rotate left</string>
-    <string name="rotate_right">Rotate right</string>
-    <string name="rotate_one_eighty">Rotate by 180º</string>
-    <string name="flip">Flip</string>
-    <string name="flip_horizontally">Flip horizontally</string>
-    <string name="flip_vertically">Flip vertically</string>
-    <string name="out_of_memory_error">Out of memory error</string>
-    <string name="edit_with">Edit with</string>
+    <string name="rotate_left">Rotera åt vänster</string>
+    <string name="rotate_right">Rotera åt höger</string>
+    <string name="rotate_one_eighty">Rotera 180º</string>
+    <string name="flip">Vänd</string>
+    <string name="flip_horizontally">Vänd horisontellt</string>
+    <string name="flip_vertically">Vänd vertikalt</string>
+    <string name="edit_with">Redigera med</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Bakgrundsbild</string>
@@ -78,8 +78,19 @@
     <string name="no_capable_app_found">Hittade ingen app som klarar av detta</string>
     <string name="setting_wallpaper">Inställningar för bakgrundsbild&#8230;</string>
     <string name="wallpaper_set_successfully">Bakgrundsbilden är ändrad</string>
-    <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
-    <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
+    <string name="portrait_aspect_ratio">Stående bildförhållande</string>
+    <string name="landscape_aspect_ratio">Liggande bildförhållande</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">Slideshow</string>
+    <string name="interval">Interval (seconds):</string>
+    <string name="include_photos">Include photos and GIFs</string>
+    <string name="include_videos">Include videos</string>
+    <string name="random_order">Random order</string>
+    <string name="use_fade">Use fade animations</string>
+    <string name="move_backwards">Move backwards</string>
+    <string name="slideshow_ended">The slideshow ended</string>
+    <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Visa dolda mappar</string>
@@ -88,19 +99,21 @@
     <string name="show_media">Visa media</string>
     <string name="images">Endast bilder</string>
     <string name="videos">Endast videos</string>
-    <string name="gifs">GIFs only</string>
-    <string name="images_videos_gifs">Images, videos, GIFs</string>
+    <string name="gifs">Bara GIF-bilder</string>
+    <string name="images_videos_gifs">Bilder, videor, GIF-bilder</string>
     <string name="images_and_videos">Bilder och videos</string>
     <string name="loop_videos">Återspela videos</string>
-    <string name="animate_gifs">Animate GIFs at thumbnails</string>
-    <string name="max_brightness">Max brightness when viewing media</string>
-    <string name="crop_thumbnails">Crop thumbnails into squares</string>
-    <string name="screen_rotation_by">Rotate fullscreen media by</string>
-    <string name="screen_rotation_system_setting">System setting</string>
-    <string name="screen_rotation_device_rotation">Device rotation</string>
-    <string name="screen_rotation_aspect_ratio">Aspect ratio</string>
-    <string name="dark_background_at_fullscreen">Dark background at fullscreen media</string>
-    <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
+    <string name="animate_gifs">Animera GIF-bilders miniatyrer</string>
+    <string name="max_brightness">Maximal ljusstyrka när media visas</string>
+    <string name="crop_thumbnails">Beskär miniatyrer till kvadrater</string>
+    <string name="screen_rotation_by">Rotera media i helskärmsläge</string>
+    <string name="screen_rotation_system_setting">Systeminställning</string>
+    <string name="screen_rotation_device_rotation">Enhetens rotation</string>
+    <string name="screen_rotation_aspect_ratio">Bildförhållande</string>
+    <string name="dark_background_at_fullscreen">Mörk bakgrund när media visas i helskärmsläge</string>
+    <string name="scroll_thumbnails_horizontally">Rulla horisontellt genom miniatyrer</string>
+    <string name="hide_system_ui_at_fullscreen">Dölj systemanvändargränssnittet automatiskt när media visas i helskärmsläge</string>
+    <string name="replace_share_with_rotate">Replace Share with Rotate at fullscreen menu</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

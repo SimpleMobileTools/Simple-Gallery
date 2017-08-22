@@ -84,7 +84,7 @@ class ResizeDialog(val activity: SimpleActivity, val size: Point, val callback: 
                 }
 
                 val newSize = Point(getViewValue(widthView), getViewValue(heightView))
-                callback.invoke(newSize)
+                callback(newSize)
                 dismiss()
             })
         }

@@ -15,7 +15,8 @@ import android.view.ViewConfiguration
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.signature.StringSignature
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestOptions
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.extensions.*
@@ -194,7 +195,7 @@ fun Activity.launchCamera() {
 
 fun SimpleActivity.launchAbout() {
     startAboutActivity(R.string.app_name, LICENSE_KOTLIN or LICENSE_GLIDE or LICENSE_CROPPER or LICENSE_MULTISELECT or LICENSE_RTL
-            or LICENSE_PHOTOVIEW or LICENSE_SUBSAMPLING, BuildConfig.VERSION_NAME)
+            or LICENSE_PHOTOVIEW or LICENSE_SUBSAMPLING or LICENSE_PATTERN, BuildConfig.VERSION_NAME)
 }
 
 fun AppCompatActivity.showSystemUI() {
@@ -262,8 +263,6 @@ fun SimpleActivity.toggleFileVisibility(oldFile: File, hide: Boolean, callback: 
     }
 }
 
-fun Activity.getFileSignature(path: String) = StringSignature(File(path).lastModified().toString())
-
 fun Activity.loadImage(path: String, target: MySquareImageView, verticalScroll: Boolean) {
     target.isVerticalScrolling = verticalScroll
     if (path.isImageFast() || path.isVideoFast()) {
@@ -282,49 +281,55 @@ fun Activity.loadImage(path: String, target: MySquareImageView, verticalScroll: 
 }
 
 fun Activity.loadPng(path: String, target: MySquareImageView) {
-    val builder = Glide.with(applicationContext)
-            .load(path)
-            .asBitmap()
-            .signature(getFileSignature(path))
-            .diskCacheStrategy(DiskCacheStrategy.RESULT)
+    val options = RequestOptions()
+            .signature(path.getFileSignature())
+            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
             .format(DecodeFormat.PREFER_ARGB_8888)
 
-    if (config.cropThumbnails) builder.centerCrop() else builder.fitCenter()
-    builder.into(target)
+    val builder = Glide.with(applicationContext)
+            .asBitmap()
+            .load(path)
+
+    if (config.cropThumbnails) options.centerCrop() else options.fitCenter()
+    builder.apply(options).into(target)
 }
 
 fun Activity.loadJpg(path: String, target: MySquareImageView) {
+    val options = RequestOptions()
+            .signature(path.getFileSignature())
+            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+
     val builder = Glide.with(applicationContext)
             .load(path)
-            .signature(getFileSignature(path))
-            .diskCacheStrategy(DiskCacheStrategy.RESULT)
-            .crossFade()
 
-    if (config.cropThumbnails) builder.centerCrop() else builder.fitCenter()
-    builder.into(target)
+    if (config.cropThumbnails) options.centerCrop() else options.fitCenter()
+    builder.apply(options).transition(DrawableTransitionOptions.withCrossFade()).into(target)
 }
 
 fun Activity.loadAnimatedGif(path: String, target: MySquareImageView) {
-    val builder = Glide.with(applicationContext)
-            .load(path)
-            .asGif()
-            .signature(getFileSignature(path))
+    val options = RequestOptions()
+            .signature(path.getFileSignature())
             .diskCacheStrategy(DiskCacheStrategy.NONE)
-            .crossFade()
 
-    if (config.cropThumbnails) builder.centerCrop() else builder.fitCenter()
-    builder.into(target)
+    val builder = Glide.with(applicationContext)
+            .asGif()
+            .load(path)
+
+    if (config.cropThumbnails) options.centerCrop() else options.fitCenter()
+    builder.apply(options).transition(DrawableTransitionOptions.withCrossFade()).into(target)
 }
 
 fun Activity.loadStaticGif(path: String, target: MySquareImageView) {
-    val builder = Glide.with(applicationContext)
-            .load(path)
-            .asBitmap()
-            .signature(getFileSignature(path))
-            .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+    val options = RequestOptions()
+            .signature(path.getFileSignature())
+            .diskCacheStrategy(DiskCacheStrategy.DATA)
 
-    if (config.cropThumbnails) builder.centerCrop() else builder.fitCenter()
-    builder.into(target)
+    val builder = Glide.with(applicationContext)
+            .asBitmap()
+            .load(path)
+
+    if (config.cropThumbnails) options.centerCrop() else options.fitCenter()
+    builder.apply(options).into(target)
 }
 
 fun Activity.getCachedDirectories(): ArrayList<Directory> {

@@ -1,6 +1,73 @@
 Changelog
 ==========
 
+Version 2.13.0 *(2017-08-07)*
+----------------------------
+
+ * Allow changing the screen brightness and volume at videos by vertically dragging the screen sides
+ * Fixed sorting of numbers in filenames
+ * Fixed a glitch with hidden files sometimes temporarily visible
+ * Unified thumbnail corner icon sizes and style
+
+Version 2.12.6 *(2017-08-05)*
+----------------------------
+
+ * Added slideshow at the fullscreen view
+ * Replaced the foreground color of selected items with a check
+ * Made copy/move to SD card a lot faster
+
+Version 2.12.5 *(2017-08-03)*
+----------------------------
+
+ * Updating file operation on SD card
+
+Version 2.12.4 *(2017-08-03)*
+----------------------------
+
+ * Fixed SD card file operations
+
+Version 2.12.3 *(2017-08-02)*
+----------------------------
+
+ * Added pattern/pin protection for showing hidden items
+ * Hopefully fixed unintentional SD card file deleting
+
+Version 2.12.2 *(2017-07-09)*
+----------------------------
+
+ * Added a toggle for replacing Share with Rotate at fullscreen media
+ * Some crashfixes and translation updates
+
+Version 2.12.1 *(2017-07-02)*
+----------------------------
+
+ * Couple crashfixes
+
+Version 2.12.0 *(2017-07-01)*
+----------------------------
+
+ * Added a button for disabling "Temporarily show hidden"
+ * Updated Glide (library used for loading images) to 4.0.0
+ * Made playing gifs smooth
+
+Version 2.11.5 *(2017-06-29)*
+----------------------------
+
+ * Added an indicator of folders located on SD cards
+ * Improved the way of rotating jpg images on the internal storage by modifying the exif tags + added autosave
+
+Version 2.11.4 *(2017-06-26)*
+----------------------------
+
+ * Added an option for automatically hiding the system UI at entering fullscreen mode
+ * Fix deleting SD card files on some devices
+ * Couple crashfixes
+
+Version 2.11.3 *(2017-06-24)*
+----------------------------
+
+ * Added optional horizontal scrolling
+
 Version 2.11.1 *(2017-06-19)*
 ----------------------------
 

@@ -15,4 +15,5 @@
     <style name="MyFullScreenActionBar" parent="Widget.AppCompat.Light.ActionBar">
         <item name="titleTextStyle">@style/AppTheme.ActionBar.TitleTextStyle</item>
     </style>
+
 </resources>

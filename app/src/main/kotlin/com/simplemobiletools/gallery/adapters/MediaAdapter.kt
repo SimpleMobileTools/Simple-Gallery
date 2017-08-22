@@ -1,11 +1,10 @@
 package com.simplemobiletools.gallery.adapters
 
-import android.os.Build
+import android.graphics.PorterDuff
 import android.support.v7.view.ActionMode
 import android.support.v7.widget.RecyclerView
 import android.util.SparseArray
 import android.view.*
-import android.widget.FrameLayout
 import com.bignerdranch.android.multiselector.ModalMultiSelectorCallback
 import com.bignerdranch.android.multiselector.MultiSelector
 import com.bignerdranch.android.multiselector.SwappingHolder
@@ -13,18 +12,18 @@ import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
+import com.simplemobiletools.commons.extensions.beGone
 import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.photo_video_item.view.*
-import kotlinx.android.synthetic.main.photo_video_tmb.view.*
 import java.io.File
 import java.util.*
 
-class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>, val listener: MediaOperationsListener?, val itemClick: (Medium) -> Unit) :
-        RecyclerView.Adapter<MediaAdapter.ViewHolder>() {
+class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>, val listener: MediaOperationsListener?, val isPickIntent: Boolean,
+                   val itemClick: (Medium) -> Unit) : RecyclerView.Adapter<MediaAdapter.ViewHolder>() {
 
     val multiSelector = MultiSelector()
     val config = activity.config
@@ -32,18 +31,18 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     var actMode: ActionMode? = null
     var itemViews = SparseArray<View>()
     val selectedPositions = HashSet<Int>()
-    var foregroundColor = 0
+    var primaryColor = config.primaryColor
     var displayFilenames = config.displayFileNames
     var scrollVertically = !config.scrollHorizontally
 
     fun toggleItemSelection(select: Boolean, pos: Int) {
-        if (itemViews[pos] != null)
-            getProperView(itemViews[pos]!!).isSelected = select
-
-        if (select)
+        if (select) {
+            itemViews[pos]?.medium_check?.background?.setColorFilter(primaryColor, PorterDuff.Mode.SRC_IN)
             selectedPositions.add(pos)
-        else
+        } else
             selectedPositions.remove(pos)
+
+        itemViews[pos]?.medium_check?.beVisibleIf(select)
 
         if (selectedPositions.isEmpty()) {
             actMode?.finish()
@@ -51,31 +50,11 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         }
 
         updateTitle(selectedPositions.size)
-        actMode?.invalidate()
-    }
-
-    fun getProperView(itemView: View): View {
-        return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-            itemView.medium_thumbnail_holder
-        else
-            itemView.medium_thumbnail
     }
 
     fun updateTitle(cnt: Int) {
         actMode?.title = "$cnt / ${media.size}"
-    }
-
-    fun updatePrimaryColor(color: Int) {
-        foregroundColor = color
-        (0..itemViews.size() - 1).mapNotNull { itemViews[it] }
-                .forEach { setupItemViewForeground(it) }
-    }
-
-    private fun setupItemViewForeground(itemView: View) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-            (getProperView(itemView) as FrameLayout).foreground = foregroundColor.createSelector()
-        else
-            getProperView(itemView).foreground = foregroundColor.createSelector()
+        actMode?.invalidate()
     }
 
     val adapterListener = object : MyAdapterListener {
@@ -83,15 +62,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             toggleItemSelection(select, position)
         }
 
-        override fun setupItemForeground(itemView: View) {
-            setupItemViewForeground(itemView)
-        }
-
         override fun getSelectedPositions(): HashSet<Int> = selectedPositions
-    }
-
-    init {
-        foregroundColor = config.primaryColor
     }
 
     val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
@@ -131,8 +102,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         override fun onDestroyActionMode(actionMode: ActionMode?) {
             super.onDestroyActionMode(actionMode)
             selectedPositions.forEach {
-                if (itemViews[it] != null)
-                    getProperView(itemViews[it]!!).isSelected = false
+                itemViews[it]?.medium_check?.beGone()
             }
             selectedPositions.clear()
             actMode = null
@@ -218,7 +188,6 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             notifyItemChanged(i)
         }
         updateTitle(cnt)
-        actMode?.invalidate()
     }
 
     private fun askConfirmDelete() {
@@ -236,6 +205,11 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
         val files = ArrayList<File>(selectedPositions.size)
         val removeMedia = ArrayList<Medium>(selectedPositions.size)
+
+        if (media.size <= selectedPositions.first()) {
+            actMode?.finish()
+            return
+        }
 
         activity.handleSAFDialog(File(media[selectedPositions.first()].path)) {
             selectedPositions.sortedDescending().forEach {
@@ -271,7 +245,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent?.context).inflate(R.layout.photo_video_item, parent, false)
-        return ViewHolder(view, adapterListener, activity, multiSelectorMode, multiSelector, listener, itemClick)
+        return ViewHolder(view, adapterListener, activity, multiSelectorMode, multiSelector, listener, isPickIntent, itemClick)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -336,8 +310,9 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         }
     }
 
-    class ViewHolder(val view: View, val adapter: MyAdapterListener, val activity: SimpleActivity, val multiSelectorCallback: ModalMultiSelectorCallback,
-                     val multiSelector: MultiSelector, val listener: MediaOperationsListener?, val itemClick: (Medium) -> (Unit)) : SwappingHolder(view, MultiSelector()) {
+    class ViewHolder(val view: View, val adapterListener: MyAdapterListener, val activity: SimpleActivity, val multiSelectorCallback: ModalMultiSelectorCallback,
+                     val multiSelector: MultiSelector, val listener: MediaOperationsListener?, val isPickIntent: Boolean, val itemClick: (Medium) -> (Unit)) :
+            SwappingHolder(view, MultiSelector()) {
         fun bindView(medium: Medium, displayFilenames: Boolean, scrollVertically: Boolean): View {
             itemView.apply {
                 play_outline.visibility = if (medium.video) View.VISIBLE else View.GONE
@@ -346,17 +321,15 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 activity.loadImage(medium.path, medium_thumbnail, scrollVertically)
 
                 setOnClickListener { viewClicked(medium) }
-                setOnLongClickListener { viewLongClicked(); true }
-
-                adapter.setupItemForeground(this)
+                setOnLongClickListener { if (isPickIntent) viewClicked(medium) else viewLongClicked(); true }
             }
             return itemView
         }
 
         fun viewClicked(medium: Medium) {
             if (multiSelector.isSelectable) {
-                val isSelected = adapter.getSelectedPositions().contains(layoutPosition)
-                adapter.toggleItemSelectionAdapter(!isSelected, layoutPosition)
+                val isSelected = adapterListener.getSelectedPositions().contains(layoutPosition)
+                adapterListener.toggleItemSelectionAdapter(!isSelected, layoutPosition)
             } else {
                 itemClick(medium)
             }
@@ -366,7 +339,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             if (listener != null) {
                 if (!multiSelector.isSelectable) {
                     activity.startSupportActionMode(multiSelectorCallback)
-                    adapter.toggleItemSelectionAdapter(true, layoutPosition)
+                    adapterListener.toggleItemSelectionAdapter(true, layoutPosition)
                 }
 
                 listener.itemLongClicked(layoutPosition)
@@ -374,14 +347,13 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         }
 
         fun stopLoad() {
-            Glide.clear(view.medium_thumbnail)
+            if (!activity.isDestroyed)
+                Glide.with(activity).clear(view.medium_thumbnail)
         }
     }
 
     interface MyAdapterListener {
         fun toggleItemSelectionAdapter(select: Boolean, position: Int)
-
-        fun setupItemForeground(itemView: View)
 
         fun getSelectedPositions(): HashSet<Int>
     }

@@ -19,11 +19,12 @@
     <string name="no_camera_app_found">No Camera app has been found</string>
     <string name="increase_column_count">Increase column count</string>
     <string name="reduce_column_count">Reduce column count</string>
-    <string name="temporarily_show_hidden">Temporarily show hidden</string>
     <string name="change_cover_image">Change cover image</string>
     <string name="select_photo">Select photo</string>
     <string name="use_default">Use default</string>
     <string name="set_as">Set as</string>
+    <string name="volume">Volume</string>
+    <string name="brightness">Brightness</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden folders\' option in Settings. Continue?</string>
@@ -67,7 +68,6 @@
     <string name="flip">Flip</string>
     <string name="flip_horizontally">Flip horizontally</string>
     <string name="flip_vertically">Flip vertically</string>
-    <string name="out_of_memory_error">Out of memory error</string>
     <string name="edit_with">Edit with</string>
 
     <!-- Set wallpaper -->
@@ -80,6 +80,17 @@
     <string name="wallpaper_set_successfully">壁紙を正常に設定しました</string>
     <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
     <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">Slideshow</string>
+    <string name="interval">Interval (seconds):</string>
+    <string name="include_photos">Include photos and GIFs</string>
+    <string name="include_videos">Include videos</string>
+    <string name="random_order">Random order</string>
+    <string name="use_fade">Use fade animations</string>
+    <string name="move_backwards">Move backwards</string>
+    <string name="slideshow_ended">The slideshow ended</string>
+    <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">非表示フォルダーを表示</string>
@@ -101,6 +112,8 @@
     <string name="screen_rotation_aspect_ratio">Aspect ratio</string>
     <string name="dark_background_at_fullscreen">Dark background at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
+    <string name="hide_system_ui_at_fullscreen">Automatically hide system UI at fullscreen media</string>
+    <string name="replace_share_with_rotate">Replace Share with Rotate at fullscreen menu</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

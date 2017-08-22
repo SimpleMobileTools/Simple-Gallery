@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.PagerAdapter
-import android.util.SparseArray
 import android.view.ViewGroup
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.fragments.PhotoFragment
@@ -15,7 +14,7 @@ import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 
 class MyPagerAdapter(val activity: ViewPagerActivity, fm: FragmentManager, val media: MutableList<Medium>) : FragmentStatePagerAdapter(fm) {
-    private val mFragments = SparseArray<ViewPagerFragment>()
+    private val mFragments = HashMap<Int, ViewPagerFragment>()
     override fun getCount() = media.size
 
     override fun getItem(position: Int): Fragment {
@@ -43,10 +42,16 @@ class MyPagerAdapter(val activity: ViewPagerActivity, fm: FragmentManager, val m
         return fragment
     }
 
-    override fun destroyItem(container: ViewGroup?, position: Int, `object`: Any?) {
+    override fun destroyItem(container: ViewGroup?, position: Int, any: Any?) {
         mFragments.remove(position)
-        super.destroyItem(container, position, `object`)
+        super.destroyItem(container, position, any)
     }
 
     fun getCurrentFragment(position: Int) = mFragments.get(position)
+
+    fun toggleFullscreen(isFullscreen: Boolean) {
+        for ((pos, fragment) in mFragments) {
+            fragment.fullscreenToggled(isFullscreen)
+        }
+    }
 }

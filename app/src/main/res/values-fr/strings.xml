@@ -3,7 +3,7 @@
     <string name="app_name">Simple Galerie</string>
     <string name="app_launcher_name">Galerie</string>
     <string name="edit">Édition</string>
-    <string name="open_camera">Ouvrir caméra</string>
+    <string name="open_camera">Ouvrir appareil photo</string>
     <string name="open_with">Ouvrir avec</string>
     <string name="no_app_found">Aucune application valide trouvée</string>
     <string name="hidden">(caché)</string>
@@ -16,14 +16,15 @@
     <string name="show_on_map">Afficher sur la carte</string>
     <string name="unknown_location">Position inconnue</string>
     <string name="no_map_application">Aucune application de cartes n\'a été trouvée</string>
-    <string name="no_camera_app_found">Aucune application d\appareil photo n\'a été trouvée</string>
+    <string name="no_camera_app_found">Aucune application d\\appareil photo n\'a été trouvée</string>
     <string name="increase_column_count">Augmenter le nombre de colonnes</string>
     <string name="reduce_column_count">Réduire le nombre de colonnes</string>
-    <string name="temporarily_show_hidden">Afficher temporairement les fichiers masqués</string>
     <string name="change_cover_image">Change cover image</string>
-    <string name="select_photo">Select photo</string>
+    <string name="select_photo">Sélectionner une photo</string>
     <string name="use_default">Use default</string>
     <string name="set_as">Set as</string>
+    <string name="volume">Volume</string>
+    <string name="brightness">Luminosité</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Cette option masque le dossier en ajoutant un fichier \'.nomedia\' à l\'intérieur, cela masquera aussi tous les sous-dossiers. Vous pouvez les voir en modifiant l\'option \'Afficher les dossiers cachés\' dans les Paramètres. Continuer ?</string>
@@ -66,9 +67,8 @@
     <string name="rotate_one_eighty">Pivoter à 180º</string>
     <string name="flip">Retourner</string>
     <string name="flip_horizontally">Retourner horizontalement</string>
-    <string name="flip_vertically">Retourner verticallement</string>
-    <string name="out_of_memory_error">Erreur excès de mémoire</string>
-    <string name="edit_with">Edit with</string>
+    <string name="flip_vertically">Retourner verticalement</string>
+    <string name="edit_with">Éditer avec</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple fond d\'écran</string>
@@ -76,44 +76,49 @@
     <string name="set_as_wallpaper_failed">Échec de la définition en tant que fond d\'écran.</string>
     <string name="set_as_wallpaper_with">Définir comme fond d\'écran avec :</string>
     <string name="no_capable_app_found">Aucune application trouvée pour continuer cette action</string>
-    <string name="setting_wallpaper">Paramètre de fond d\'écran…</string>
-    <string name="wallpaper_set_successfully">Fond d\'écran défini avec succès.</string>
+    <string name="setting_wallpaper">Paramètres de fond d\'écran…</string>
+    <string name="wallpaper_set_successfully">Fond d\'écran défini avec succès</string>
     <string name="portrait_aspect_ratio">Ratio aspect Portrait</string>
     <string name="landscape_aspect_ratio">Ratio aspect Paysage</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">Diaporama</string>
+    <string name="interval">Intervalle​ (secondes):</string>
+    <string name="include_photos">Inclure photos et GIFs</string>
+    <string name="include_videos">Inclure vidéos</string>
+    <string name="random_order">Ordre aléatoire</string>
+    <string name="use_fade">Utiliser un fondu</string>
+    <string name="move_backwards">Move backwards</string>
+    <string name="slideshow_ended">Diaporama terminé</string>
+    <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Afficher les dossiers cachés</string>
     <string name="autoplay_videos">Lecture automatique des vidéos</string>
-    <string name="toggle_filename">Permutter la visibilité des noms de fichier</string>
+    <string name="toggle_filename">Permuter la visibilité des noms de fichier</string>
     <string name="show_media">Afficher les médias</string>
     <string name="images">Seulement les images</string>
     <string name="videos">Vidéos uniquement</string>
-    <string name="gifs">GIFs only</string>
-    <string name="images_videos_gifs">Images, videos, GIFs</string>
+    <string name="gifs">GIFs seulement</string>
+    <string name="images_videos_gifs">Images, vidéos, GIFs</string>
     <string name="images_and_videos">Images et vidéos</string>
     <string name="loop_videos">Tourner en boucle les vidéos</string>
     <string name="animate_gifs">GIFs animés sur les miniatures</string>
     <string name="max_brightness">Luminosité maximale lors de l\'affichage de media</string>
     <string name="crop_thumbnails">Rogner les miniatures en carrés</string>
-    <string name="screen_rotation_by">Pivoter les medias plen écran selon</string>
+    <string name="screen_rotation_by">Pivoter les medias plein écran selon</string>
     <string name="screen_rotation_system_setting">Paramètres système</string>
     <string name="screen_rotation_device_rotation">Rotation de l\'appareil</string>
     <string name="screen_rotation_aspect_ratio">Ratio d\'aspect</string>
     <string name="dark_background_at_fullscreen">Dark background at fullscreen media</string>
-    <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
+    <string name="scroll_thumbnails_horizontally">Défilement des mignatures horizontalement</string>
+    <string name="hide_system_ui_at_fullscreen">Automatically hide system UI at fullscreen media</string>
+    <string name="replace_share_with_rotate">Replace Share with Rotate at fullscreen menu</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Un album pour visionner photos et vidéos sans publicité.</string>
-    <string name="app_long_description">
-        Un simple outil pour visionner les photos et les vidéos. Elles peuvent être triées par dates, tailles, noms dans les deux sens (alphabétique comme désalphabétique), il est possible de zoomer sur les photos. Les fichiers sont affichés sur de multiple colonnes en fonction de la taille de l\'écran, vous pouvez changer le nombre de colonnes par pincement. Elles peuvent être renommées, partagées, supprimées, copiées et déplacées. Les images peuvent en plus être tournées, rognées ou être définies comme fond d\'écran directement depuis l\'application.
-
-        La galerie est aussi offerte pour l\'utiliser comme une tierce partie pour de la prévisualisation des images/vidéos, joindre aux clients mail etc. C\'est parfait pour un usage au quotidien.
-      
-        L\'application ne contient ni de publicité ni d\'autorisation inutile. Elle est totalement OpenSource et est aussi fournie avec un thème sombre.
-      
-        Cette application est juste l\'une des applications d\'une plus grande suite. Vous pouvez trouver les autres sur http://www.simplemobiletools.com
-    </string>
+    <string name="app_long_description">Un simple outil pour visionner les photos et les vidéos. Elles peuvent être triées par dates, tailles, noms dans les deux sens (alphabétique comme désalphabétique), il est possible de zoomer sur les photos. Les fichiers sont affichés sur de multiple colonnes en fonction de la taille de l\'écran, vous pouvez changer le nombre de colonnes par pincement. Elles peuvent être renommées, partagées, supprimées, copiées et déplacées. Les images peuvent en plus être tournées, rognées ou être définies comme fond d\'écran directement depuis l\'application.          La galerie est aussi offerte pour l\'utiliser comme une tierce partie pour de la prévisualisation des images/vidéos, joindre aux clients mail etc. C\'est parfait pour un usage au quotidien.                L\'application ne contient ni de publicité ni d\'autorisation inutile. Elle est totalement OpenSource et est aussi fournie avec un thème sombre.                Cette application est juste l\'une des applications d\'une plus grande suite. Vous pouvez trouver les autres sur http://www.simplemobiletools.com</string>
 
     <!--
         Haven't found some strings? There's more at

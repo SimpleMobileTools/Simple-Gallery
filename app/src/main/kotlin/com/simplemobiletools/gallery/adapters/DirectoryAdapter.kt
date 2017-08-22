@@ -1,11 +1,10 @@
 package com.simplemobiletools.gallery.adapters
 
-import android.os.Build
+import android.graphics.PorterDuff
 import android.support.v7.view.ActionMode
 import android.support.v7.widget.RecyclerView
 import android.util.SparseArray
 import android.view.*
-import android.widget.FrameLayout
 import com.bignerdranch.android.multiselector.ModalMultiSelectorCallback
 import com.bignerdranch.android.multiselector.MultiSelector
 import com.bignerdranch.android.multiselector.SwappingHolder
@@ -14,10 +13,7 @@ import com.google.gson.Gson
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
-import com.simplemobiletools.commons.extensions.isAStorageRootFolder
-import com.simplemobiletools.commons.extensions.isImageVideoGif
-import com.simplemobiletools.commons.extensions.needsStupidWritePermissions
-import com.simplemobiletools.commons.extensions.toast
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.ExcludeFolderDialog
@@ -26,12 +22,11 @@ import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.models.AlbumCover
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.directory_item.view.*
-import kotlinx.android.synthetic.main.directory_tmb.view.*
 import java.io.File
 import java.util.*
 
-class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Directory>, val listener: DirOperationsListener?, val itemClick: (Directory) -> Unit) :
-        RecyclerView.Adapter<DirectoryAdapter.ViewHolder>() {
+class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Directory>, val listener: DirOperationsListener?, val isPickIntent: Boolean,
+                       val itemClick: (Directory) -> Unit) : RecyclerView.Adapter<DirectoryAdapter.ViewHolder>() {
 
     val multiSelector = MultiSelector()
     val config = activity.config
@@ -39,18 +34,18 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     var actMode: ActionMode? = null
     var itemViews = SparseArray<View>()
     val selectedPositions = HashSet<Int>()
-    var foregroundColor = 0
+    var primaryColor = config.primaryColor
     var pinnedFolders = config.pinnedFolders
     var scrollVertically = !config.scrollHorizontally
 
     fun toggleItemSelection(select: Boolean, pos: Int) {
-        if (itemViews[pos] != null)
-            getProperView(itemViews[pos]!!).isSelected = select
-
-        if (select)
+        if (select) {
+            itemViews[pos]?.dir_check?.background?.setColorFilter(primaryColor, PorterDuff.Mode.SRC_IN)
             selectedPositions.add(pos)
-        else
+        } else
             selectedPositions.remove(pos)
+
+        itemViews[pos]?.dir_check?.beVisibleIf(select)
 
         if (selectedPositions.isEmpty()) {
             actMode?.finish()
@@ -58,31 +53,11 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         }
 
         updateTitle(selectedPositions.size)
-        actMode?.invalidate()
-    }
-
-    fun getProperView(itemView: View): View {
-        return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-            itemView.dir_frame
-        else
-            itemView.dir_thumbnail
     }
 
     fun updateTitle(cnt: Int) {
         actMode?.title = "$cnt / ${dirs.size}"
-    }
-
-    fun updatePrimaryColor(color: Int) {
-        foregroundColor = color
-        (0..itemViews.size() - 1).mapNotNull { itemViews[it] }
-                .forEach { setupItemViewForeground(it) }
-    }
-
-    private fun setupItemViewForeground(itemView: View) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-            (getProperView(itemView) as FrameLayout).foreground = foregroundColor.createSelector()
-        else
-            getProperView(itemView).foreground = foregroundColor.createSelector()
+        actMode?.invalidate()
     }
 
     val adapterListener = object : MyAdapterListener {
@@ -90,15 +65,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             toggleItemSelection(select, position)
         }
 
-        override fun setupItemForeground(itemView: View) {
-            setupItemViewForeground(itemView)
-        }
-
         override fun getSelectedPositions(): HashSet<Int> = selectedPositions
-    }
-
-    init {
-        foregroundColor = config.primaryColor
     }
 
     val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
@@ -142,8 +109,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         override fun onDestroyActionMode(actionMode: ActionMode?) {
             super.onDestroyActionMode(actionMode)
             selectedPositions.forEach {
-                if (itemViews[it] != null)
-                    getProperView(itemViews[it]!!).isSelected = false
+                itemViews[it]?.dir_check?.beGone()
             }
             selectedPositions.clear()
             actMode = null
@@ -279,7 +245,6 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             notifyItemChanged(i)
         }
         updateTitle(cnt)
-        actMode?.invalidate()
     }
 
     private fun askConfirmDelete() {
@@ -305,11 +270,13 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
         activity.handleSAFDialog(File(needPermissionForPath)) {
             selectedPositions.sortedDescending().forEach {
-                val directory = dirs[it]
-                folders.add(File(directory.path))
-                removeFolders.add(directory)
-                notifyItemRemoved(it)
-                itemViews.put(it, null)
+                if (dirs.size > it) {
+                    val directory = dirs[it]
+                    folders.add(File(directory.path))
+                    removeFolders.add(directory)
+                    notifyItemRemoved(it)
+                    itemViews.put(it, null)
+                }
             }
 
             dirs.removeAll(removeFolders)
@@ -362,7 +329,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent?.context).inflate(R.layout.directory_item, parent, false)
-        return ViewHolder(view, adapterListener, activity, multiSelectorMode, multiSelector, listener, itemClick)
+        return ViewHolder(view, adapterListener, activity, multiSelectorMode, multiSelector, listener, isPickIntent, itemClick)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -423,28 +390,29 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         }
     }
 
-    class ViewHolder(val view: View, val adapter: MyAdapterListener, val activity: SimpleActivity, val multiSelectorCallback: ModalMultiSelectorCallback,
-                     val multiSelector: MultiSelector, val listener: DirOperationsListener?, val itemClick: (Directory) -> (Unit)) :
+    class ViewHolder(val view: View, val adapterListener: MyAdapterListener, val activity: SimpleActivity, val multiSelectorCallback: ModalMultiSelectorCallback,
+                     val multiSelector: MultiSelector, val listener: DirOperationsListener?, val isPickIntent: Boolean, val itemClick: (Directory) -> (Unit)) :
             SwappingHolder(view, MultiSelector()) {
         fun bindView(directory: Directory, isPinned: Boolean, scrollVertically: Boolean): View {
             itemView.apply {
                 dir_name.text = directory.name
                 photo_cnt.text = directory.mediaCnt.toString()
-                dir_pin.visibility = if (isPinned) View.VISIBLE else View.GONE
                 activity.loadImage(directory.tmb, dir_thumbnail, scrollVertically)
+                dir_pin.beVisibleIf(isPinned)
+                dir_sd_card.beVisibleIf(activity.isPathOnSD(directory.path))
 
                 setOnClickListener { viewClicked(directory) }
-                setOnLongClickListener { viewLongClicked(); true }
+                setOnLongClickListener { if (isPickIntent) viewClicked(directory) else viewLongClicked(); true }
 
-                adapter.setupItemForeground(this)
+
             }
             return itemView
         }
 
         fun viewClicked(directory: Directory) {
             if (multiSelector.isSelectable) {
-                val isSelected = adapter.getSelectedPositions().contains(layoutPosition)
-                adapter.toggleItemSelectionAdapter(!isSelected, layoutPosition)
+                val isSelected = adapterListener.getSelectedPositions().contains(layoutPosition)
+                adapterListener.toggleItemSelectionAdapter(!isSelected, layoutPosition)
             } else {
                 itemClick(directory)
             }
@@ -454,7 +422,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             if (listener != null) {
                 if (!multiSelector.isSelectable) {
                     activity.startSupportActionMode(multiSelectorCallback)
-                    adapter.toggleItemSelectionAdapter(true, layoutPosition)
+                    adapterListener.toggleItemSelectionAdapter(true, layoutPosition)
                 }
 
                 listener.itemLongClicked(layoutPosition)
@@ -462,14 +430,13 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         }
 
         fun stopLoad() {
-            Glide.clear(view.dir_thumbnail)
+            if (!activity.isDestroyed)
+                Glide.with(activity).clear(view.dir_thumbnail)
         }
     }
 
     interface MyAdapterListener {
         fun toggleItemSelectionAdapter(select: Boolean, position: Int)
-
-        fun setupItemForeground(itemView: View)
 
         fun getSelectedPositions(): HashSet<Int>
     }

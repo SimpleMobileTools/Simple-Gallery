@@ -224,4 +224,36 @@ class Config(context: Context) : BaseConfig(context) {
     var scrollHorizontally: Boolean
         get() = prefs.getBoolean(SCROLL_HORIZONTALLY, false)
         set(scrollHorizontally) = prefs.edit().putBoolean(SCROLL_HORIZONTALLY, scrollHorizontally).apply()
+
+    var hideSystemUI: Boolean
+        get() = prefs.getBoolean(HIDE_SYSTEM_UI, false)
+        set(hideSystemUI) = prefs.edit().putBoolean(HIDE_SYSTEM_UI, hideSystemUI).apply()
+
+    var replaceShare: Boolean
+        get() = prefs.getBoolean(REPLACE_SHARE_WITH_ROTATE, false)
+        set(replaceShare) = prefs.edit().putBoolean(REPLACE_SHARE_WITH_ROTATE, replaceShare).apply()
+
+    var slideshowInterval: Int
+        get() = prefs.getInt(SLIDESHOW_INTERVAL, SLIDESHOW_DEFAULT_INTERVAL)
+        set(slideshowInterval) = prefs.edit().putInt(SLIDESHOW_INTERVAL, slideshowInterval).apply()
+
+    var slideshowIncludePhotos: Boolean
+        get() = prefs.getBoolean(SLIDESHOW_INCLUDE_PHOTOS, true)
+        set(slideshowIncludePhotos) = prefs.edit().putBoolean(SLIDESHOW_INCLUDE_PHOTOS, slideshowIncludePhotos).apply()
+
+    var slideshowIncludeVideos: Boolean
+        get() = prefs.getBoolean(SLIDESHOW_INCLUDE_VIDEOS, false)
+        set(slideshowIncludeVideos) = prefs.edit().putBoolean(SLIDESHOW_INCLUDE_VIDEOS, slideshowIncludeVideos).apply()
+
+    var slideshowRandomOrder: Boolean
+        get() = prefs.getBoolean(SLIDESHOW_RANDOM_ORDER, false)
+        set(slideshowRandomOrder) = prefs.edit().putBoolean(SLIDESHOW_RANDOM_ORDER, slideshowRandomOrder).apply()
+
+    var slideshowUseFade: Boolean
+        get() = prefs.getBoolean(SLIDESHOW_USE_FADE, false)
+        set(slideshowUseFade) = prefs.edit().putBoolean(SLIDESHOW_USE_FADE, slideshowUseFade).apply()
+
+    var slideshowMoveBackwards: Boolean
+        get() = prefs.getBoolean(SLIDESHOW_MOVE_BACKWARDS, false)
+        set(slideshowMoveBackwards) = prefs.edit().putBoolean(SLIDESHOW_MOVE_BACKWARDS, slideshowMoveBackwards).apply()
 }

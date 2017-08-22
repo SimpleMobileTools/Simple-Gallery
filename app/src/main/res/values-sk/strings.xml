@@ -19,11 +19,12 @@
     <string name="no_camera_app_found">Nenašla sa žiadna aplikácia pre fotoaparát</string>
     <string name="increase_column_count">Zvýšiť počet stĺpcov</string>
     <string name="reduce_column_count">Znížiť počet stĺpcov</string>
-    <string name="temporarily_show_hidden">Dočasne zobraziť skryté</string>
     <string name="change_cover_image">Zmeniť obal albumu</string>
     <string name="select_photo">Zvoliť foto</string>
     <string name="use_default">Použiť predvolený</string>
     <string name="set_as">Nastaviť ako</string>
+    <string name="volume">Hlasitosť</string>
+    <string name="brightness">Jas</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Táto funkcia skryje priečinok pridaním súboru \'.nomedia\', skryté budú aj podpriečinky. Môžete ich vidieť zvolením možnosti \'Zobraziť skryté priečinky\' v nastaveniach. Pokračovať?</string>
@@ -67,7 +68,6 @@
     <string name="flip">Preklopiť</string>
     <string name="flip_horizontally">Preklopiť vodorovne</string>
     <string name="flip_vertically">Preklopiť zvisle</string>
-    <string name="out_of_memory_error">Došlo k chybe s nedostatkom pamäte</string>
     <string name="edit_with">Upraviť s</string>
 
     <!-- Set wallpaper -->
@@ -80,6 +80,17 @@
     <string name="wallpaper_set_successfully">Tapeta bola úspešne zmenená</string>
     <string name="portrait_aspect_ratio">Orientácia nastojato</string>
     <string name="landscape_aspect_ratio">Orientácia naležato</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">Prezentácia</string>
+    <string name="interval">Interval (sekundy):</string>
+    <string name="include_photos">Zahrnúť fotky a GIF súbory</string>
+    <string name="include_videos">Zahrnúť videá</string>
+    <string name="random_order">Náhodné poradie</string>
+    <string name="use_fade">Používať miznúce animácie</string>
+    <string name="move_backwards">Ísť opačným smerom</string>
+    <string name="slideshow_ended">Prezentácia skončila</string>
+    <string name="no_media_for_slideshow">Pre prezentáciu sa nenašli žiadne vhodné súbory</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Zobraziť skryté médiá</string>
@@ -101,6 +112,8 @@
     <string name="screen_rotation_aspect_ratio">Pomeru strán</string>
     <string name="dark_background_at_fullscreen">Tmavé pozadie pri médiách na celú obrazovku</string>
     <string name="scroll_thumbnails_horizontally">Prehliadať miniatúry vodorovne</string>
+    <string name="hide_system_ui_at_fullscreen">Automaticky skrývať systémové lišty pri celoobrazovkových médiách</string>
+    <string name="replace_share_with_rotate">Nahradiť Zdieľanie s Otočením v celoobrazovkovom menu</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

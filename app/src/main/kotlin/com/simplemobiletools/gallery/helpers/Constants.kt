@@ -31,6 +31,17 @@ val EXCLUDED_FOLDERS = "excluded_folders"
 val INCLUDED_FOLDERS = "included_folders"
 val ALBUM_COVERS = "album_covers"
 val SCROLL_HORIZONTALLY = "scroll_horizontally"
+val HIDE_SYSTEM_UI = "hide_system_ui"
+val REPLACE_SHARE_WITH_ROTATE = "replace_share_with_rotate"
+
+// slideshow
+val SLIDESHOW_INTERVAL = "slideshow_interval"
+val SLIDESHOW_INCLUDE_PHOTOS = "slideshow_include_photos"
+val SLIDESHOW_INCLUDE_VIDEOS = "slideshow_include_videos"
+val SLIDESHOW_RANDOM_ORDER = "slideshow_random_order"
+val SLIDESHOW_USE_FADE = "slideshow_use_fade"
+val SLIDESHOW_MOVE_BACKWARDS = "slideshow_move_backwards"
+val SLIDESHOW_DEFAULT_INTERVAL = 5
 
 val NOMEDIA = ".nomedia"
 

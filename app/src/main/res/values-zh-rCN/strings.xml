@@ -19,11 +19,12 @@
     <string name="no_camera_app_found">未找到相机应用</string>
     <string name="increase_column_count">增加一栏</string>
     <string name="reduce_column_count">减少一栏</string>
-    <string name="temporarily_show_hidden">显示／隐藏缓存内容</string>
     <string name="change_cover_image">更改封面图片</string>
     <string name="select_photo">选择图片</string>
     <string name="use_default">使用默认</string>
     <string name="set_as">设置为</string>
+    <string name="volume">Volume</string>
+    <string name="brightness">Brightness</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">通过添加文件 \'.nomedia\' 到目录，可以防止目录及其子目录下的所有媒体被扫描。您可以通过设置中的 \'显示隐藏目录\' 选项改变设置，是否继续？</string>
@@ -67,7 +68,6 @@
     <string name="flip">翻转</string>
     <string name="flip_horizontally">水平翻转</string>
     <string name="flip_vertically">垂直翻转</string>
-    <string name="out_of_memory_error">内存不足</string>
     <string name="edit_with">编辑方式</string>
 
     <!-- Set wallpaper -->
@@ -80,6 +80,17 @@
     <string name="wallpaper_set_successfully">壁纸设置成功</string>
     <string name="portrait_aspect_ratio">纵向长宽比</string>
     <string name="landscape_aspect_ratio">横向长宽比</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">Slideshow</string>
+    <string name="interval">Interval (seconds):</string>
+    <string name="include_photos">Include photos and GIFs</string>
+    <string name="include_videos">Include videos</string>
+    <string name="random_order">Random order</string>
+    <string name="use_fade">Use fade animations</string>
+    <string name="move_backwards">Move backwards</string>
+    <string name="slideshow_ended">The slideshow ended</string>
+    <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">显示所有</string>
@@ -101,6 +112,8 @@
     <string name="screen_rotation_aspect_ratio">根据长宽比</string>
     <string name="dark_background_at_fullscreen">全屏时黑色背景</string>
     <string name="scroll_thumbnails_horizontally">水平滚动缩略图</string>
+    <string name="hide_system_ui_at_fullscreen">Automatically hide system UI at fullscreen media</string>
+    <string name="replace_share_with_rotate">Replace Share with Rotate at fullscreen menu</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

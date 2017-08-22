@@ -19,11 +19,12 @@
     <string name="no_camera_app_found">Keine Kamera-App gefunden</string>
     <string name="increase_column_count">Kacheln verkleinern</string>
     <string name="reduce_column_count">Kacheln vergrößern</string>
-    <string name="temporarily_show_hidden">Verstecktes temporär zeigen</string>
-    <string name="change_cover_image">Change cover image</string>
-    <string name="select_photo">Bild auswählen</string>
-    <string name="use_default">Standard verwenden</string>
+    <string name="change_cover_image">Cover-Bild ändern</string>
+    <string name="select_photo">Auswählen</string>
+    <string name="use_default">Standard</string>
     <string name="set_as">Festlegen als</string>
+    <string name="volume">Lautstärke</string>
+    <string name="brightness">Helligkeit</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Diese Funktion versteckt ausgewählte Ordner (auch für andere Apps), indem dort im Dateisystem eine \'.nomedia\'-Datei abgelegt wird. Dadurch werden auch deren Unterordner versteckt. Solche Ordner werden nur gezeigt, wenn die Einstellung \'Versteckte Ordner zeigen\' aktiv ist (auch andere Apps bieten üblicherweise eine solche Option). Fortfahren?</string>
@@ -57,7 +58,7 @@
     <string name="path">Pfad</string>
     <string name="invalid_image_path">Ungültiger Dateipfad</string>
     <string name="image_editing_failed">Bildbearbeitung fehlgeschlagen</string>
-    <string name="edit_image_with">Bild bearbeiten mit:</string>
+    <string name="edit_image_with">Bild bearbeiten mit</string>
     <string name="no_editor_found">Keine Bildeditor-App gefunden</string>
     <string name="unknown_file_location">Unbekannter Dateiort</string>
     <string name="error_saving_file">Konnte Quelldatei nicht überschreiben</string>
@@ -67,19 +68,29 @@
     <string name="flip">Spiegeln</string>
     <string name="flip_horizontally">Horizontal spiegeln</string>
     <string name="flip_vertically">Vertikal spiegeln</string>
-    <string name="out_of_memory_error">Fehler: Zuwenig Speicher</string>
-    <string name="edit_with">Edit with</string>
+    <string name="edit_with">Bearbeiten mit</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Schlichter Hintergrund</string>
     <string name="set_as_wallpaper">Als Hintergrund festlegen</string>
     <string name="set_as_wallpaper_failed">Hintergrundbild festlegen fehlgeschlagen</string>
-    <string name="set_as_wallpaper_with">Als Hintergrund festlegen mit:</string>
+    <string name="set_as_wallpaper_with">Als Hintergrund festlegen mit</string>
     <string name="no_capable_app_found">Keine Hintergrundbild-App gefunden</string>
     <string name="setting_wallpaper">Hintergrund festlegen&#8230;</string>
     <string name="wallpaper_set_successfully">Hintergrundbild erfolgreich festgelegt</string>
     <string name="portrait_aspect_ratio">Hochformat</string>
     <string name="landscape_aspect_ratio">Querformat</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">Diashow</string>
+    <string name="interval">Intervall (Sekunden):</string>
+    <string name="include_photos">Bilder/GIFs verwenden</string>
+    <string name="include_videos">Videos verwenden</string>
+    <string name="random_order">Zufällige Reihenfolge</string>
+    <string name="use_fade">Übergänge animieren</string>
+    <string name="move_backwards">Rückwärts abspielen</string>
+    <string name="slideshow_ended">Diashow beendet</string>
+    <string name="no_media_for_slideshow">Keine Medien für Diashow gefunden</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Versteckte Ordner zeigen</string>
@@ -92,7 +103,7 @@
     <string name="images_videos_gifs">Bilder, Videos und GIFs</string>
     <string name="images_and_videos">Bilder und Videos</string>
     <string name="loop_videos">Videos in Endlosschleife spielen</string>
-    <string name="animate_gifs">Kacheln bei GIFs animieren</string>
+    <string name="animate_gifs">Kacheln von GIFs animieren</string>
     <string name="max_brightness">Helligkeit beim Betrachten maximieren</string>
     <string name="crop_thumbnails">Kacheln quadratisch zuschneiden</string>
     <string name="screen_rotation_by">Im Vollbild ausrichten nach</string>
@@ -101,6 +112,8 @@
     <string name="screen_rotation_aspect_ratio">Seitenverhältnis</string>
     <string name="dark_background_at_fullscreen">Schwarzer Hintergrund im Vollbild</string>
     <string name="scroll_thumbnails_horizontally">Kacheln horizontal scrollen</string>
+    <string name="hide_system_ui_at_fullscreen">Systemleisten ausblenden im Vollbild</string>
+    <string name="replace_share_with_rotate">Teilen/Drehen im Vollbild-Menü vertauschen</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

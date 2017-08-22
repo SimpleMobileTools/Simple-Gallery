@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Simple Gallery</string>
-    <string name="app_launcher_name">Gallery</string>
+    <string name="app_launcher_name">Galería</string>
     <string name="edit">Editar</string>
     <string name="open_camera">Abrir cámara</string>
     <string name="open_with">Abrir con&#8230;</string>
@@ -19,11 +19,12 @@
     <string name="no_camera_app_found">No se encontró aplicación de cámara</string>
     <string name="increase_column_count">Aumentar el número de columnas</string>
     <string name="reduce_column_count">Reducir el número de columnas</string>
-    <string name="temporarily_show_hidden">Mostrar ocultos temporalmente</string>
-    <string name="change_cover_image">Change cover image</string>
-    <string name="select_photo">Select photo</string>
-    <string name="use_default">Use default</string>
-    <string name="set_as">Set as</string>
+    <string name="change_cover_image">Cambiar imagen de portada</string>
+    <string name="select_photo">Seleccionar imagen</string>
+    <string name="use_default">Uso por defecto</string>
+    <string name="set_as">Establecer como</string>
+    <string name="volume">Volume</string>
+    <string name="brightness">Brightness</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Esta función oculta la carpeta agregando un archivo \'.nomedia\' en ella, y ocultará también las subcarpetas. Puede mostrarlas cambiando la opción \'Mostrar carpetas ocultas\' en los Ajustes. ¿Continuar?</string>
@@ -32,7 +33,7 @@
     <string name="manage_excluded_folders">Gestionar carpetas excluidas</string>
     <string name="exclude_folder_description">Esto excluirá la selección junto con sus subcarpetas, solamente de Simple Gallery. Puede gestionar las carpetas excluidas en los Ajustes.</string>
     <string name="exclude_folder_parent">¿Excluir mejor la carpeta superior?</string>
-    <string name="excluded_activity_placeholder">Excluding folders will make them together with their subfolders hidden just in Simple Gallery, they will still be visible in other applications.\\n\\nIf you want to hide them from other apps too, use the Hide function.</string>
+    <string name="excluded_activity_placeholder">Excluir las carpetas las hará junto a sus subcarpetas ocultas sólo en Simple Gallery, estas seguirán siendo visibles en otras aplicaciones.\\n\\nSi desea ocultarlo de otras aplicaciones, utilice la función de Ocultar.</string>
     <string name="remove_all">Eliminar todo</string>
     <string name="remove_all_description">¿Eliminar todas las carpetas de la lista de excluidas? Esto no borrará las carpetas.</string>
 
@@ -67,8 +68,7 @@
     <string name="flip">Girar</string>
     <string name="flip_horizontally">Horizontalmente</string>
     <string name="flip_vertically">Verticalmente</string>
-    <string name="out_of_memory_error">Error: sin memoria</string>
-    <string name="edit_with">Edit with</string>
+    <string name="edit_with">Editar con</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Fondos de pantalla Simple Gallery</string>
@@ -81,6 +81,17 @@
     <string name="portrait_aspect_ratio">Relación de aspecto tipo retrato</string>
     <string name="landscape_aspect_ratio">Relación de aspecto tipo paisaje</string>
 
+    <!-- Slideshow -->
+    <string name="slideshow">Slideshow</string>
+    <string name="interval">Interval (seconds):</string>
+    <string name="include_photos">Include photos and GIFs</string>
+    <string name="include_videos">Include videos</string>
+    <string name="random_order">Random order</string>
+    <string name="use_fade">Use fade animations</string>
+    <string name="move_backwards">Move backwards</string>
+    <string name="slideshow_ended">The slideshow ended</string>
+    <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
+
     <!-- Settings -->
     <string name="show_hidden_media">Mostrar carpetas ocultas</string>
     <string name="autoplay_videos">Reproducir vídeos automáticamente</string>
@@ -88,8 +99,8 @@
     <string name="show_media">Mostrar multimedia</string>
     <string name="images">Solo imágenes</string>
     <string name="videos">Solo vídeos</string>
-    <string name="gifs">GIFs only</string>
-    <string name="images_videos_gifs">Images, videos, GIFs</string>
+    <string name="gifs">solo GIFs</string>
+    <string name="images_videos_gifs">Imágenes, vídeos, GIFs</string>
     <string name="images_and_videos">Imágenes y vídeos</string>
     <string name="loop_videos">Reproducción continua de vídeos</string>
     <string name="animate_gifs">Animar las miniaturas de GIFs</string>
@@ -100,7 +111,9 @@
     <string name="screen_rotation_device_rotation">Rotación del dispositivo</string>
     <string name="screen_rotation_aspect_ratio">Relación de aspecto</string>
     <string name="dark_background_at_fullscreen">Utilizar siempre fondo oscuro en pantalla completa</string>
-    <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
+    <string name="scroll_thumbnails_horizontally">Desplazar miniaturas horizontalmente</string>
+    <string name="hide_system_ui_at_fullscreen">Ocultar automáticamente la interfaz de usuario del sistema en medios de pantalla completa</string>
+    <string name="replace_share_with_rotate">Reemplazar Compartir con Girar en el menú de pantalla completa</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

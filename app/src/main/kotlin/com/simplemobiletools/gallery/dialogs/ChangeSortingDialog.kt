@@ -10,14 +10,13 @@ import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.helpers.Config
 import kotlinx.android.synthetic.main.dialog_change_sorting.view.*
 
 class ChangeSortingDialog(val activity: SimpleActivity, val isDirectorySorting: Boolean, showFolderCheckbox: Boolean,
                           val path: String = "", val callback: () -> Unit) :
         DialogInterface.OnClickListener {
     private var currSorting = 0
-    private var config: Config = activity.config
+    private var config = activity.config
     private var view: View
 
     init {
@@ -85,6 +84,6 @@ class ChangeSortingDialog(val activity: SimpleActivity, val isDirectorySorting: 
                 config.fileSorting = sorting
             }
         }
-        callback.invoke()
+        callback()
     }
 }

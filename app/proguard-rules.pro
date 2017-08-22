@@ -2,4 +2,4 @@
 -dontwarn com.simplemobiletools.**
 
 -renamesourcefileattribute SourceFile
--keepattributes SourceFile, LineNumberTable
+-keepattributes SourceFile,LineNumberTable

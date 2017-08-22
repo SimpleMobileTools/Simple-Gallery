@@ -19,6 +19,7 @@ import android.widget.FrameLayout
 import com.google.gson.Gson
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.models.Release
+import com.simplemobiletools.commons.views.MyScalableRecyclerView
 import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
@@ -27,7 +28,6 @@ import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Directory
-import com.simplemobiletools.gallery.views.MyScalableRecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.*
 import java.util.*
@@ -87,7 +87,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             menu.findItem(R.id.increase_column_count).isVisible = config.dirColumnCnt < 10
             menu.findItem(R.id.reduce_column_count).isVisible = config.dirColumnCnt > 1
         }
-        menu.findItem(R.id.temporarily_show_hidden).isVisible = !config.showHiddenMedia
+        menu.findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden
+        menu.findItem(R.id.stop_showing_hidden).isVisible = config.temporarilyShowHidden
         return true
     }
 
@@ -96,7 +97,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             R.id.sort -> showSortingDialog()
             R.id.open_camera -> launchCamera()
             R.id.show_all -> showAllMedia()
-            R.id.temporarily_show_hidden -> temporarilyShowHidden()
+            R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden()
+            R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
             R.id.increase_column_count -> increaseColumnCount()
             R.id.reduce_column_count -> reduceColumnCount()
             R.id.settings -> launchSettings()
@@ -109,16 +111,19 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     override fun onResume() {
         super.onResume()
         if (mStoredAnimateGifs != config.animateGifs) {
-            directories_grid.adapter.notifyDataSetChanged()
+            directories_grid.adapter?.notifyDataSetChanged()
         }
 
         if (mStoredCropThumbnails != config.cropThumbnails) {
-            directories_grid.adapter.notifyDataSetChanged()
+            directories_grid.adapter?.notifyDataSetChanged()
         }
 
         if (mStoredScrollHorizontally != config.scrollHorizontally) {
-            (directories_grid.adapter as DirectoryAdapter).scrollVertically = !config.scrollHorizontally
-            directories_grid.adapter.notifyDataSetChanged()
+            directories_grid.adapter?.let {
+                (it as DirectoryAdapter).scrollVertically = !config.scrollHorizontally
+                it.notifyDataSetChanged()
+            }
+            setupScrollDirection()
         }
 
         tryloadGallery()
@@ -134,7 +139,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mStoredAnimateGifs = config.animateGifs
         mStoredCropThumbnails = config.cropThumbnails
         mStoredScrollHorizontally = config.scrollHorizontally
-        MyScalableRecyclerView.mListener = null
+        directories_grid.listener = null
         mLastMediaHandler.removeCallbacksAndMessages(null)
     }
 
@@ -205,15 +210,27 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         finish()
     }
 
-    private fun temporarilyShowHidden() {
-        config.temporarilyShowHidden = true
+    private fun tryToggleTemporarilyShowHidden() {
+        if (config.temporarilyShowHidden) {
+            toggleTemporarilyShowHidden(false)
+        } else {
+            handleHiddenFolderPasswordProtection {
+                toggleTemporarilyShowHidden(true)
+            }
+        }
+    }
+
+    private fun toggleTemporarilyShowHidden(show: Boolean) {
+        config.temporarilyShowHidden = show
         getDirectories()
+        invalidateOptionsMenu()
     }
 
     private fun checkIfColorChanged() {
-        if (directories_grid.adapter != null && getRecyclerAdapter().foregroundColor != config.primaryColor) {
-            getRecyclerAdapter().updatePrimaryColor(config.primaryColor)
-            directories_fastscroller.updateHandleColor()
+        if (directories_grid.adapter != null && getRecyclerAdapter().primaryColor != config.primaryColor) {
+            getRecyclerAdapter().primaryColor = config.primaryColor
+            directories_vertical_fastscroller.updateHandleColor()
+            directories_horizontal_fastscroller.updateHandleColor()
         }
     }
 
@@ -239,8 +256,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         }
 
+        directories_grid.isDragSelectionEnabled = true
+        directories_grid.isZoomingEnabled = true
         layoutManager.spanCount = config.dirColumnCnt
-        MyScalableRecyclerView.mListener = object : MyScalableRecyclerView.MyScalableRecyclerViewListener {
+        directories_grid.listener = object : MyScalableRecyclerView.MyScalableRecyclerViewListener {
             override fun zoomIn() {
                 if (layoutManager.spanCount > 1) {
                     reduceColumnCount()
@@ -268,13 +287,13 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun increaseColumnCount() {
         config.dirColumnCnt = ++(directories_grid.layoutManager as GridLayoutManager).spanCount
         invalidateOptionsMenu()
-        directories_grid.adapter.notifyDataSetChanged()
+        directories_grid.adapter?.notifyDataSetChanged()
     }
 
     private fun reduceColumnCount() {
         config.dirColumnCnt = --(directories_grid.layoutManager as GridLayoutManager).spanCount
         invalidateOptionsMenu()
-        directories_grid.adapter.notifyDataSetChanged()
+        directories_grid.adapter?.notifyDataSetChanged()
     }
 
     private fun isPickImageIntent(intent: Intent) = isPickIntent(intent) && (hasImageContentData(intent) || isImageType(intent))
@@ -373,7 +392,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
         mDirs = dirs
 
-        setupAdapter()
+        runOnUiThread {
+            setupAdapter()
+        }
         storeDirectories()
     }
 
@@ -385,17 +406,29 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun setupAdapter() {
-        val adapter = DirectoryAdapter(this, mDirs, this) {
-            itemClicked(it.path)
-        }
-
         val currAdapter = directories_grid.adapter
-        if (currAdapter != null) {
-            (currAdapter as DirectoryAdapter).updateDirs(mDirs)
+        if (currAdapter == null) {
+            directories_grid.adapter = DirectoryAdapter(this, mDirs, this, isPickIntent(intent) || isGetAnyContentIntent(intent)) {
+                itemClicked(it.path)
+            }
         } else {
-            directories_grid.adapter = adapter
+            (currAdapter as DirectoryAdapter).updateDirs(mDirs)
         }
-        directories_fastscroller.setViews(directories_grid, directories_refresh_layout)
+        setupScrollDirection()
+    }
+
+    private fun setupScrollDirection() {
+        directories_vertical_fastscroller.isHorizontal = false
+        directories_vertical_fastscroller.beGoneIf(config.scrollHorizontally)
+
+        directories_horizontal_fastscroller.isHorizontal = true
+        directories_horizontal_fastscroller.beVisibleIf(config.scrollHorizontally)
+
+        if (config.scrollHorizontally) {
+            directories_horizontal_fastscroller.setViews(directories_grid, directories_refresh_layout)
+        } else {
+            directories_vertical_fastscroller.setViews(directories_grid, directories_refresh_layout)
+        }
     }
 
     private fun checkLastMediaChanged() {
@@ -454,6 +487,13 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             add(Release(97, R.string.release_97))
             add(Release(98, R.string.release_98))
             add(Release(108, R.string.release_108))
+            add(Release(112, R.string.release_112))
+            add(Release(114, R.string.release_114))
+            add(Release(115, R.string.release_115))
+            add(Release(118, R.string.release_118))
+            add(Release(119, R.string.release_119))
+            add(Release(122, R.string.release_122))
+            add(Release(123, R.string.release_123))
             checkWhatsNew(this, BuildConfig.VERSION_CODE)
         }
     }

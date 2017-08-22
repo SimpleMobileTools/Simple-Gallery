@@ -1,9 +1,12 @@
 package com.simplemobiletools.gallery.dialogs
 
 import android.support.v7.app.AlertDialog
-import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.GridLayoutManager
 import android.view.LayoutInflater
+import android.view.View
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
+import com.simplemobiletools.commons.extensions.beGoneIf
+import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
@@ -17,12 +20,14 @@ import kotlinx.android.synthetic.main.dialog_directory_picker.view.*
 
 class PickDirectoryDialog(val activity: SimpleActivity, val sourcePath: String, val callback: (path: String) -> Unit) {
     var dialog: AlertDialog
-    var directoriesGrid: RecyclerView
     var shownDirectories: ArrayList<Directory> = ArrayList()
+    var view: View = LayoutInflater.from(activity).inflate(R.layout.dialog_directory_picker, null)
 
     init {
-        val view = LayoutInflater.from(activity).inflate(R.layout.dialog_directory_picker, null)
-        directoriesGrid = view.directories_grid
+        (view.directories_grid.layoutManager as GridLayoutManager).apply {
+            orientation = if (activity.config.scrollHorizontally) GridLayoutManager.HORIZONTAL else GridLayoutManager.VERTICAL
+            spanCount = activity.config.dirColumnCnt
+        }
 
         dialog = AlertDialog.Builder(activity)
                 .setPositiveButton(R.string.ok, null)
@@ -45,7 +50,7 @@ class PickDirectoryDialog(val activity: SimpleActivity, val sourcePath: String, 
     fun showOtherFolder() {
         val showHidden = activity.config.shouldShowHidden
         FilePickerDialog(activity, sourcePath, false, showHidden, true) {
-            callback.invoke(it)
+            callback(it)
         }
     }
 
@@ -54,15 +59,31 @@ class PickDirectoryDialog(val activity: SimpleActivity, val sourcePath: String, 
             return
 
         shownDirectories = directories
-        val adapter = DirectoryAdapter(activity, directories, null) {
+        val adapter = DirectoryAdapter(activity, directories, null, true) {
             if (it.path.trimEnd('/') == sourcePath) {
                 activity.toast(R.string.source_and_destination_same)
                 return@DirectoryAdapter
             } else {
-                callback.invoke(it.path)
+                callback(it.path)
                 dialog.dismiss()
             }
         }
-        directoriesGrid.adapter = adapter
+
+        val scrollHorizontally = activity.config.scrollHorizontally
+        view.apply {
+            directories_grid.adapter = adapter
+
+            directories_vertical_fastscroller.isHorizontal = false
+            directories_vertical_fastscroller.beGoneIf(scrollHorizontally)
+
+            directories_horizontal_fastscroller.isHorizontal = true
+            directories_horizontal_fastscroller.beVisibleIf(scrollHorizontally)
+
+            if (scrollHorizontally) {
+                directories_horizontal_fastscroller.setViews(directories_grid)
+            } else {
+                directories_vertical_fastscroller.setViews(directories_grid)
+            }
+        }
     }
 }
