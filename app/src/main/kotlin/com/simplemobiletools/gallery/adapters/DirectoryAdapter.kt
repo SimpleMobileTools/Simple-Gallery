@@ -1,6 +1,7 @@
 package com.simplemobiletools.gallery.adapters
 
 import android.graphics.PorterDuff
+import android.os.Build
 import android.support.v7.view.ActionMode
 import android.support.v7.widget.RecyclerView
 import android.util.SparseArray
@@ -430,8 +431,10 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         }
 
         fun stopLoad() {
-            if (!activity.isDestroyed)
-                Glide.with(activity).clear(view.dir_thumbnail)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && activity.isDestroyed)
+                return
+
+            Glide.with(activity).clear(view.dir_thumbnail)
         }
     }
 
