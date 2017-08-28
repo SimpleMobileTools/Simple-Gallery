@@ -73,13 +73,13 @@ fun Context.getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boo
 private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isPickVideo: Boolean, curPath: String): ArrayList<Medium> {
     val curMedia = ArrayList<Medium>()
     val config = context.config
-    val showMedia = config.showMedia
+    val filterMedia = config.filterMedia
     val showHidden = config.shouldShowHidden
     val includedFolders = config.includedFolders
     val excludedFolders = config.excludedFolders
     val noMediaFolders = context.getNoMediaFolders()
 
-    cur.use { cur ->
+    cur.use {
         if (cur.moveToFirst()) {
             do {
                 try {
@@ -103,10 +103,10 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
                     if (!isImage && !isVideo)
                         continue
 
-                    if (isVideo && (isPickImage || showMedia == IMAGES))
+                    if (isVideo && (isPickImage || filterMedia and VIDEOS == 0))
                         continue
 
-                    if (isImage && (isPickVideo || showMedia == VIDEOS))
+                    if (isImage && (isPickVideo || filterMedia and IMAGES == 0))
                         continue
 
                     if (!showHidden && filename.startsWith('.'))
@@ -164,10 +164,10 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
             if (!isImage && !isVideo)
                 continue
 
-            if (isVideo && (isPickImage || showMedia == IMAGES))
+            if (isVideo && (isPickImage || filterMedia and VIDEOS == 0))
                 continue
 
-            if (isImage && (isPickVideo || showMedia == VIDEOS))
+            if (isImage && (isPickVideo || filterMedia and IMAGES == 0))
                 continue
 
             val dateTaken = file.lastModified()

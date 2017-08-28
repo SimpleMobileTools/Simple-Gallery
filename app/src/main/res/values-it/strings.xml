@@ -26,6 +26,12 @@
     <string name="volume">Volume</string>
     <string name="brightness">Luminosità</string>
 
+    <!-- Filter -->
+    <string name="filter_media">Filter media</string>
+    <string name="images">Images</string>
+    <string name="videos">Videos</string>
+    <string name="gifs">GIFs</string>
+
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Questa funzione nasconde la cartella aggiungendo un file \'.nomedia\' all\'interno, nasconderà anche tutte le sottocartelle. Puoi vederle attivando l\'opzione \'Mostra cartelle nascoste\' nelle impostazioni. Continuare?</string>
     <string name="exclude">Escludi</string>
@@ -96,12 +102,6 @@
     <string name="show_hidden_media">Mostra cartelle nascoste</string>
     <string name="autoplay_videos">Riproduci video automaticamente</string>
     <string name="toggle_filename">Visibilità nome del file</string>
-    <string name="show_media">Mostra tipo di media</string>
-    <string name="images">Solo immagini</string>
-    <string name="videos">Solo video</string>
-    <string name="gifs">Solo GIF</string>
-    <string name="images_videos_gifs">Immagini, video, GIF</string>
-    <string name="images_and_videos">Immagini e video</string>
     <string name="loop_videos">Ripeti i video</string>
     <string name="animate_gifs">Anima le GIF in miniatura</string>
     <string name="max_brightness">Luminosità max durante visualizzazione</string>

@@ -26,6 +26,12 @@
     <string name="volume">Volume</string>
     <string name="brightness">Brightness</string>
 
+    <!-- Filter -->
+    <string name="filter_media">Filter media</string>
+    <string name="images">Images</string>
+    <string name="videos">Videos</string>
+    <string name="gifs">GIFs</string>
+
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Bu işlev, klasöre\'.medya yok\'dosyası ekleyerek gizler; tüm alt klasörleri de gizler. Bunları Ayarlar\'da\'Gizli klasörleri göster\'seçeneğine basarak görebilirsiniz. Devam et?</string>
     <string name="exclude">Dışlama</string>
@@ -96,12 +102,6 @@
     <string name="show_hidden_media">Gizli klasörleri göster</string>
     <string name="autoplay_videos">Videoları otomatik olarak oynat</string>
     <string name="toggle_filename">Dosya adı görünürlüğünü değiştir</string>
-    <string name="show_media">Medyayı göster</string>
-    <string name="images">Yalnızca resimler</string>
-    <string name="videos">Yalnızca videolar</string>
-    <string name="gifs">GIFs only</string>
-    <string name="images_videos_gifs">Images, videos, GIFs</string>
-    <string name="images_and_videos">Resimler ve videolar</string>
     <string name="loop_videos">Videolar döngüsü</string>
     <string name="animate_gifs">Küçük resimlerde GIF\'leri canlandırın</string>
     <string name="max_brightness">Ortam görüntülerken azami parlaklık</string>

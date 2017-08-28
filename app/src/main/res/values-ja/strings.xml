@@ -26,6 +26,12 @@
     <string name="volume">Volume</string>
     <string name="brightness">Brightness</string>
 
+    <!-- Filter -->
+    <string name="filter_media">Filter media</string>
+    <string name="images">Images</string>
+    <string name="videos">Videos</string>
+    <string name="gifs">GIFs</string>
+
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden folders\' option in Settings. Continue?</string>
     <string name="exclude">Exclude</string>
@@ -96,12 +102,6 @@
     <string name="show_hidden_media">非表示フォルダーを表示</string>
     <string name="autoplay_videos">自動的にビデオを再生</string>
     <string name="toggle_filename">ファイル名の表示を切り替え</string>
-    <string name="show_media">Show media</string>
-    <string name="images">Images only</string>
-    <string name="videos">Videos only</string>
-    <string name="gifs">GIFs only</string>
-    <string name="images_videos_gifs">Images, videos, GIFs</string>
-    <string name="images_and_videos">Images and videos</string>
     <string name="loop_videos">Loop videos</string>
     <string name="animate_gifs">Animate GIFs at thumbnails</string>
     <string name="max_brightness">Max brightness when viewing media</string>

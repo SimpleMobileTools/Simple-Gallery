@@ -26,6 +26,12 @@
     <string name="volume">Volume</string>
     <string name="brightness">Brilho</string>
 
+    <!-- Filter -->
+    <string name="filter_media">Filter media</string>
+    <string name="images">Images</string>
+    <string name="videos">Videos</string>
+    <string name="gifs">GIFs</string>
+
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Esta opção oculta uma pasta com a adição de um ficheiro \'.nomedia\' na pasta, e irá ocultar todas as subpastas existentes. Pode ver as pastas com a opção \'Mostrar pastas ocultas\'. Continuar?</string>
     <string name="exclude">Exclusão</string>
@@ -96,12 +102,6 @@
     <string name="show_hidden_media">Mostrar pastas ocultas</string>
     <string name="autoplay_videos">Reproduzir vídeos automaticamente</string>
     <string name="toggle_filename">Mostrar/ocultar nome do ficheiro</string>
-    <string name="show_media">Mostrar multimédia</string>
-    <string name="images">Apenas imagens</string>
-    <string name="videos">Apenas vídeos</string>
-    <string name="gifs">Apenas GIFs</string>
-    <string name="images_videos_gifs">Imagens, vídeos e GIFs</string>
-    <string name="images_and_videos">Imagens e vídeos</string>
     <string name="loop_videos">Vídeos em ciclo</string>
     <string name="animate_gifs">Animação de GIFs nas miniaturas</string>
     <string name="max_brightness">Brilho máximo permitido</string>

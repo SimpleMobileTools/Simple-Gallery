@@ -26,6 +26,12 @@
     <string name="volume">Volume</string>
     <string name="brightness">Luminosité</string>
 
+    <!-- Filter -->
+    <string name="filter_media">Filter media</string>
+    <string name="images">Images</string>
+    <string name="videos">Videos</string>
+    <string name="gifs">GIFs</string>
+
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Cette option masque le dossier en ajoutant un fichier \'.nomedia\' à l\'intérieur, cela masquera aussi tous les sous-dossiers. Vous pouvez les voir en modifiant l\'option \'Afficher les dossiers cachés\' dans les Paramètres. Continuer ?</string>
     <string name="exclude">Exclure</string>
@@ -96,12 +102,6 @@
     <string name="show_hidden_media">Afficher les dossiers cachés</string>
     <string name="autoplay_videos">Lecture automatique des vidéos</string>
     <string name="toggle_filename">Permuter la visibilité des noms de fichier</string>
-    <string name="show_media">Afficher les médias</string>
-    <string name="images">Seulement les images</string>
-    <string name="videos">Vidéos uniquement</string>
-    <string name="gifs">GIFs seulement</string>
-    <string name="images_videos_gifs">Images, vidéos, GIFs</string>
-    <string name="images_and_videos">Images et vidéos</string>
     <string name="loop_videos">Tourner en boucle les vidéos</string>
     <string name="animate_gifs">GIFs animés sur les miniatures</string>
     <string name="max_brightness">Luminosité maximale lors de l\'affichage de media</string>

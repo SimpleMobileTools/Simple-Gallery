@@ -11,7 +11,9 @@ import com.simplemobiletools.commons.helpers.SHOW_ALL_TABS
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.helpers.*
+import com.simplemobiletools.gallery.helpers.ROTATE_BY_ASPECT_RATIO
+import com.simplemobiletools.gallery.helpers.ROTATE_BY_DEVICE_ROTATION
+import com.simplemobiletools.gallery.helpers.ROTATE_BY_SYSTEM_SETTING
 import kotlinx.android.synthetic.main.activity_settings.*
 
 class SettingsActivity : SimpleActivity() {
@@ -40,7 +42,6 @@ class SettingsActivity : SimpleActivity() {
         setupScreenRotation()
         setupReplaceShare()
         setupPasswordProtection()
-        setupShowMedia()
         setupHideSystemUI()
         updateTextColors(settings_holder)
     }
@@ -186,26 +187,5 @@ class SettingsActivity : SimpleActivity() {
         ROTATE_BY_SYSTEM_SETTING -> R.string.screen_rotation_system_setting
         ROTATE_BY_DEVICE_ROTATION -> R.string.screen_rotation_device_rotation
         else -> R.string.screen_rotation_aspect_ratio
-    })
-
-    private fun setupShowMedia() {
-        settings_show_media.text = getShowMediaText()
-        settings_show_media_holder.setOnClickListener {
-            val items = arrayListOf(
-                    RadioItem(IMAGES_AND_VIDEOS, res.getString(R.string.images_and_videos)),
-                    RadioItem(IMAGES, res.getString(R.string.images)),
-                    RadioItem(VIDEOS, res.getString(R.string.videos)))
-
-            RadioGroupDialog(this@SettingsActivity, items, config.showMedia) {
-                config.showMedia = it as Int
-                settings_show_media.text = getShowMediaText()
-            }
-        }
-    }
-
-    private fun getShowMediaText() = getString(when (config.showMedia) {
-        IMAGES_AND_VIDEOS -> R.string.images_and_videos
-        IMAGES -> R.string.images
-        else -> R.string.videos
     })
 }

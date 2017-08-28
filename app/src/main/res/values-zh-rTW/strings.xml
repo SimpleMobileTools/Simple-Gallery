@@ -26,6 +26,12 @@
     <string name="volume">音量</string>
     <string name="brightness">亮度</string>
 
+    <!-- Filter -->
+    <string name="filter_media">Filter media</string>
+    <string name="images">Images</string>
+    <string name="videos">Videos</string>
+    <string name="gifs">GIFs</string>
+
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">這功能藉由添加一個\'.nomedia\'檔案，來隱藏資料夾和所有子資料夾。您可以透過設定中的「顯示隱藏的資料夾」選項來查看。\n是否繼續?</string>
     <string name="exclude">排除</string>
@@ -96,12 +102,6 @@
     <string name="show_hidden_media">顯示隱藏的媒體檔案</string>
     <string name="autoplay_videos">自動播放影片</string>
     <string name="toggle_filename">顯示檔案名稱</string>
-    <string name="show_media">顯示媒體檔案</string>
-    <string name="images">只有圖片</string>
-    <string name="videos">只有影片</string>
-    <string name="gifs">只有GIF</string>
-    <string name="images_videos_gifs">圖片、影片、GIF</string>
-    <string name="images_and_videos">圖片和影片</string>
     <string name="loop_videos">影片循環播放</string>
     <string name="animate_gifs">縮圖顯示GIF動畫</string>
     <string name="max_brightness">瀏覽時最大亮度</string>

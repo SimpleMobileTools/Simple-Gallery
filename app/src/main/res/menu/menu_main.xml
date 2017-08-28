@@ -12,6 +12,11 @@
         android:title="@string/open_camera"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/filter"
+        android:icon="@drawable/ic_filter"
+        android:title="@string/filter_media"
+        app:showAsAction="ifRoom"/>
+    <item
         android:id="@+id/show_all"
         android:title="@string/show_all"
         app:showAsAction="never"/>

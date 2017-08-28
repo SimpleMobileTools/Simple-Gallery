@@ -26,6 +26,12 @@
     <string name="volume">Volume</string>
     <string name="brightness">Brightness</string>
 
+    <!-- Filter -->
+    <string name="filter_media">Filter media</string>
+    <string name="images">Images</string>
+    <string name="videos">Videos</string>
+    <string name="gifs">GIFs</string>
+
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Tato funkce skryje složku, včetně podsložek, přidáním souboru \'.nomedia\'. Zobrazíte je zvolením možnosti \'Zobrazit skryté složky\' v nastavení. Pokračovat?</string>
     <string name="exclude">Vyloučit</string>
@@ -96,12 +102,6 @@
     <string name="show_hidden_media">Zobrazit skryté média</string>
     <string name="autoplay_videos">Automaticky přehrávat videa</string>
     <string name="toggle_filename">Přepnout viditelnost názvů souborů</string>
-    <string name="show_media">Zobrazit média</string>
-    <string name="images">Jen obrázky</string>
-    <string name="videos">Jen videa</string>
-    <string name="gifs">GIFs only</string>
-    <string name="images_videos_gifs">Images, videos, GIFs</string>
-    <string name="images_and_videos">Obrázky i videa</string>
     <string name="loop_videos">Přehrávat videa ve smyčce</string>
     <string name="animate_gifs">Animovat náhledy souborů GIF</string>
     <string name="max_brightness">Nastavit jas obrazovky na max při zobrazení médií</string>

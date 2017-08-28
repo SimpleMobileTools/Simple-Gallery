@@ -156,9 +156,9 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(DARK_BACKGROUND, false)
         set(darkBackground) = prefs.edit().putBoolean(DARK_BACKGROUND, darkBackground).apply()
 
-    var showMedia: Int
-        get() = prefs.getInt(SHOW_MEDIA, IMAGES_AND_VIDEOS)
-        set(showMedia) = prefs.edit().putInt(SHOW_MEDIA, showMedia).apply()
+    var filterMedia: Int
+        get() = prefs.getInt(FILTER_MEDIA, IMAGES or VIDEOS or GIFS)
+        set(filterMedia) = prefs.edit().putInt(FILTER_MEDIA, filterMedia).apply()
 
     var dirColumnCnt: Int
         get() = prefs.getInt(getDirectoryColumnsField(), getDefaultDirectoryColumnCount())

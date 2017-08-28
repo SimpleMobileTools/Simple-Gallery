@@ -26,6 +26,12 @@
     <string name="volume">Hlasitosť</string>
     <string name="brightness">Jas</string>
 
+    <!-- Filter -->
+    <string name="filter_media">Filter médií</string>
+    <string name="images">Obrázky</string>
+    <string name="videos">Videá</string>
+    <string name="gifs">GIFká</string>
+
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Táto funkcia skryje priečinok pridaním súboru \'.nomedia\', skryté budú aj podpriečinky. Môžete ich vidieť zvolením možnosti \'Zobraziť skryté priečinky\' v nastaveniach. Pokračovať?</string>
     <string name="exclude">Vylúčiť</string>
@@ -96,12 +102,6 @@
     <string name="show_hidden_media">Zobraziť skryté médiá</string>
     <string name="autoplay_videos">Spúšťať videá automaticky</string>
     <string name="toggle_filename">Prepnúť viditeľnosť názvov súborov</string>
-    <string name="show_media">Zobraziť médiá</string>
-    <string name="images">Iba obrázky</string>
-    <string name="videos">Iba videá</string>
-    <string name="gifs">Iba GIFká</string>
-    <string name="images_videos_gifs">Obrázky, videá, GIFká</string>
-    <string name="images_and_videos">Obrázky aj videá</string>
     <string name="loop_videos">Automaticky reštartovať videá</string>
     <string name="animate_gifs">Animovať GIF súbory pri náhľade</string>
     <string name="max_brightness">Maximálny jas pri prezeraní médií</string>

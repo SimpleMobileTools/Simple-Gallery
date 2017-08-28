@@ -15,6 +15,7 @@ val SCREEN_ROTATION = "screen_rotation"
 val DISPLAY_FILE_NAMES = "display_file_names"
 val DARK_BACKGROUND = "dark_background"
 val PINNED_FOLDERS = "pinned_folders"
+val FILTER_MEDIA = "filter_media"
 val DIR_COLUMN_CNT = "dir_column_cnt"
 val DIR_LANDSCAPE_COLUMN_CNT = "dir_landscape_column_cnt"
 val DIR_HORIZONTAL_COLUMN_CNT = "dir_horizontal_column_cnt"
@@ -24,7 +25,6 @@ val MEDIA_LANDSCAPE_COLUMN_CNT = "media_landscape_column_cnt"
 val MEDIA_HORIZONTAL_COLUMN_CNT = "media_horizontal_column_cnt"
 val MEDIA_LANDSCAPE_HORIZONTAL_COLUMN_CNT = "media_landscape_horizontal_column_cnt"
 val SHOW_ALL = "show_all"                           // display images and videos from all folders together
-val SHOW_MEDIA = "show_media"
 val SAVE_FOLDER_PREFIX = "folder2_"
 val HIDE_FOLDER_TOOLTIP_SHOWN = "hide_folder_tooltip_shown"
 val EXCLUDED_FOLDERS = "excluded_folders"
@@ -57,11 +57,6 @@ val IS_VIEW_INTENT = "is_view_intent"
 val REQUEST_EDIT_IMAGE = 1
 val REQUEST_SET_AS = 2
 
-// show media
-val IMAGES_AND_VIDEOS = 0
-val IMAGES = 1
-val VIDEOS = 2
-
 // rotations
 val ROTATE_BY_SYSTEM_SETTING = 0
 val ROTATE_BY_DEVICE_ROTATION = 1
@@ -70,4 +65,8 @@ val ROTATE_BY_ASPECT_RATIO = 2
 val ORIENT_PORTRAIT = 0
 val ORIENT_LANDSCAPE_LEFT = 1
 val ORIENT_LANDSCAPE_RIGHT = 2
-val ORIENT_UPSIDE_DOWN = 3
+
+// filter media
+val IMAGES = 1
+val VIDEOS = 2
+val GIFS = 4

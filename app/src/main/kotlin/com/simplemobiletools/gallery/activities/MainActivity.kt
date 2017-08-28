@@ -95,6 +95,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.sort -> showSortingDialog()
+            R.id.filter -> showFilterMediaDialog()
             R.id.open_camera -> launchCamera()
             R.id.show_all -> showAllMedia()
             R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden()
@@ -199,6 +200,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         ChangeSortingDialog(this, true, false) {
             getDirectories()
         }
+    }
+
+    private fun showFilterMediaDialog() {
+
     }
 
     private fun showAllMedia() {

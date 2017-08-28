@@ -12,6 +12,11 @@
         android:title="@string/toggle_filename"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/filter"
+        android:icon="@drawable/ic_filter"
+        android:title="@string/filter_media"
+        app:showAsAction="ifRoom"/>
+    <item
         android:id="@+id/folder_view"
         android:title="@string/folder_view"
         app:showAsAction="never"/>

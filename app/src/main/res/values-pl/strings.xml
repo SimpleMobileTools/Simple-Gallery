@@ -26,6 +26,12 @@
     <string name="volume">Głośność</string>
     <string name="brightness">Jasność</string>
 
+    <!-- Filter -->
+    <string name="filter_media">Filter media</string>
+    <string name="images">Images</string>
+    <string name="videos">Videos</string>
+    <string name="gifs">GIFs</string>
+
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Ta funkcja ukrywa foldery dodając do nich pusty plik .nomedia. Aby móc je zobaczyć, należy włączyć opcję \'Pokazuj ukryte foldery\' w ustawieniach. Kontyntynuować?</string>
     <string name="exclude">Wyklucz</string>
@@ -96,12 +102,6 @@
     <string name="show_hidden_media">Pokazuj ukryte foldery</string>
     <string name="autoplay_videos">Odtwarzaj filmy automatycznie</string>
     <string name="toggle_filename">Pokazuj / ukrywaj nazwy plików</string>
-    <string name="show_media">Pokazywane typy multimediów</string>
-    <string name="images">Tylko obrazy</string>
-    <string name="videos">Tylko filmy</string>
-    <string name="gifs">Tylko GIFy</string>
-    <string name="images_videos_gifs">Obrazy, filmy i GIFy</string>
-    <string name="images_and_videos">Obrazy i filmy</string>
     <string name="loop_videos">Zapętlaj odtwarzanie filmów</string>
     <string name="animate_gifs">Animowane miniatury GIFów</string>
     <string name="max_brightness">Maksymalna jasność podczas wyświetlania multimediów</string>

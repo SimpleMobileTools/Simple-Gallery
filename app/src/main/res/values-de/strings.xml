@@ -26,6 +26,12 @@
     <string name="volume">Lautstärke</string>
     <string name="brightness">Helligkeit</string>
 
+    <!-- Filter -->
+    <string name="filter_media">Filter media</string>
+    <string name="images">Images</string>
+    <string name="videos">Videos</string>
+    <string name="gifs">GIFs</string>
+
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Diese Funktion versteckt ausgewählte Ordner (auch für andere Apps), indem dort im Dateisystem eine \'.nomedia\'-Datei abgelegt wird. Dadurch werden auch deren Unterordner versteckt. Solche Ordner werden nur gezeigt, wenn die Einstellung \'Versteckte Ordner zeigen\' aktiv ist (auch andere Apps bieten üblicherweise eine solche Option). Fortfahren?</string>
     <string name="exclude">Ordner ausblenden</string>
@@ -96,12 +102,6 @@
     <string name="show_hidden_media">Versteckte Ordner zeigen</string>
     <string name="autoplay_videos">Videos automatisch abspielen</string>
     <string name="toggle_filename">Beschriftungen ein/aus</string>
-    <string name="show_media">Medien auswählen</string>
-    <string name="images">Nur Bilder</string>
-    <string name="videos">Nur Videos</string>
-    <string name="gifs">Nur GIFs</string>
-    <string name="images_videos_gifs">Bilder, Videos und GIFs</string>
-    <string name="images_and_videos">Bilder und Videos</string>
     <string name="loop_videos">Videos in Endlosschleife spielen</string>
     <string name="animate_gifs">Kacheln von GIFs animieren</string>
     <string name="max_brightness">Helligkeit beim Betrachten maximieren</string>

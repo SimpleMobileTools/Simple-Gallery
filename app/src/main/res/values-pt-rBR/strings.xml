@@ -5,8 +5,7 @@
     <string name="edit">Editar</string>
     <string name="open_camera">Abrir câmera</string>
     <string name="open_with">Abrir com</string>
-    <string name="no_app_found">Nenhum aplicativo encontrado</string>
-       
+    <string name="no_app_found">Nenhum aplicativo encontrado</string>       
     <string name="hidden">(oculto)</string>
     <string name="pin_folder">Fixar pasta</string>
     <string name="unpin_folder">Desfixar pasta</string>
@@ -26,6 +25,12 @@
     <string name="set_as">Set as</string>
     <string name="volume">Volume</string>
     <string name="brightness">Brightness</string>
+
+    <!-- Filter -->
+    <string name="filter_media">Filter media</string>
+    <string name="images">Images</string>
+    <string name="videos">Videos</string>
+    <string name="gifs">GIFs</string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Esta opção oculta uma pasta com a adição de um arquivo \'.nomedia\' dentro dela, e irá ocultar todas as subpastas que estejam dentro da mesma. Você poderá rever essas pastas com a opção \'Mostrar pastas ocultas\'. Continuar?</string>
@@ -97,12 +102,6 @@
     <string name="show_hidden_media">Mostrar pastas ocultas</string>
     <string name="autoplay_videos">Reproduzir vídeos automaticamente</string>
     <string name="toggle_filename">Mostrar/ocultar nome do arquivo</string>
-    <string name="show_media">Mostrar mídia</string>
-    <string name="images">Apenas imagens</string>
-    <string name="videos">Apenas vídeos</string>
-    <string name="gifs">Apenas GIFS</string>
-    <string name="images_videos_gifs">Imagens, vídeos, GIFs</string>
-    <string name="images_and_videos">Imagens e vídeos</string>
     <string name="loop_videos">Reproduzir vídeos em ciclo</string>
     <string name="animate_gifs">Animação de GIFs nas miniaturas</string>
     <string name="max_brightness">Brilho máximo ao visualizar mídia</string>

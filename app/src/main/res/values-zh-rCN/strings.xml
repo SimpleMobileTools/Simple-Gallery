@@ -26,6 +26,12 @@
     <string name="volume">音量</string>
     <string name="brightness">亮度</string>
 
+    <!-- Filter -->
+    <string name="filter_media">Filter media</string>
+    <string name="images">Images</string>
+    <string name="videos">Videos</string>
+    <string name="gifs">GIFs</string>
+
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">通过添加文件 \'.nomedia\' 到目录，可以防止目录及其子目录下的所有媒体被扫描。您可以通过设置中的 \'显示隐藏目录\' 选项改变设置，是否继续？</string>
     <string name="exclude">排除</string>
@@ -96,12 +102,6 @@
     <string name="show_hidden_media">显示所有</string>
     <string name="autoplay_videos">自动播放</string>
     <string name="toggle_filename">显示文件名</string>
-    <string name="show_media">显示多媒体文件</string>
-    <string name="images">仅图片</string>
-    <string name="videos">仅视频</string>
-    <string name="gifs">仅 GIF </string>
-    <string name="images_videos_gifs">图片，视频，GIF</string>
-    <string name="images_and_videos">图片和视频</string>
     <string name="loop_videos">循环播放视频</string>
     <string name="animate_gifs">GIF 缩略图</string>
     <string name="max_brightness">浏览时最大亮度</string>

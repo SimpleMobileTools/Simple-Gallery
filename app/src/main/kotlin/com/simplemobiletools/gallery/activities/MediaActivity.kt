@@ -210,6 +210,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.sort -> showSortingDialog()
+            R.id.filter -> showFilterMediaDialog()
             R.id.toggle_filename -> toggleFilenameVisibility()
             R.id.open_camera -> launchCamera()
             R.id.folder_view -> switchToFolderView()
@@ -227,16 +228,20 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         return true
     }
 
-    private fun toggleFilenameVisibility() {
-        config.displayFileNames = !config.displayFileNames
-        if (media_grid.adapter != null)
-            getRecyclerAdapter().updateDisplayFilenames(config.displayFileNames)
-    }
-
     private fun showSortingDialog() {
         ChangeSortingDialog(this, false, !config.showAll, mPath) {
             getMedia()
         }
+    }
+
+    private fun showFilterMediaDialog() {
+
+    }
+
+    private fun toggleFilenameVisibility() {
+        config.displayFileNames = !config.displayFileNames
+        if (media_grid.adapter != null)
+            getRecyclerAdapter().updateDisplayFilenames(config.displayFileNames)
     }
 
     private fun switchToFolderView() {

@@ -26,6 +26,12 @@
     <string name="volume">Volume</string>
     <string name="brightness">Brightness</string>
 
+    <!-- Filter -->
+    <string name="filter_media">Filter media</string>
+    <string name="images">Images</string>
+    <string name="videos">Videos</string>
+    <string name="gifs">GIFs</string>
+
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Denna funktion döljer mappen och alla dess undermappar genom att lägga till en \'.nomedia\'-fil i den. Du kan se dem genom att växla \'Visa dolda mappar\'-alternativet i Inställningar. Vill du fortsätta?</string>
     <string name="exclude">Uteslut</string>
@@ -96,12 +102,6 @@
     <string name="show_hidden_media">Visa dolda mappar</string>
     <string name="autoplay_videos">Spela upp videos automatiskt</string>
     <string name="toggle_filename">Visa/dölj filnamnen</string>
-    <string name="show_media">Visa media</string>
-    <string name="images">Endast bilder</string>
-    <string name="videos">Endast videos</string>
-    <string name="gifs">Bara GIF-bilder</string>
-    <string name="images_videos_gifs">Bilder, videor, GIF-bilder</string>
-    <string name="images_and_videos">Bilder och videos</string>
     <string name="loop_videos">Återspela videos</string>
     <string name="animate_gifs">Animera GIF-bilders miniatyrer</string>
     <string name="max_brightness">Maximal ljusstyrka när media visas</string>
