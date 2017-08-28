@@ -31,6 +31,8 @@
     <string name="images">Images</string>
     <string name="videos">Videos</string>
     <string name="gifs">GIFs</string>
+    <string name="no_media_with_filters">No media files have been found with the selected filters.</string>
+    <string name="change_filters_underlined"><u>Change filters</u></string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Denna funktion döljer mappen och alla dess undermappar genom att lägga till en \'.nomedia\'-fil i den. Du kan se dem genom att växla \'Visa dolda mappar\'-alternativet i Inställningar. Vill du fortsätta?</string>

@@ -31,6 +31,8 @@
     <string name="images">Obrázky</string>
     <string name="videos">Videá</string>
     <string name="gifs">GIFká</string>
+    <string name="no_media_with_filters">So zvolenými filtrami sa nenašli žiadne média súbory.</string>
+    <string name="change_filters_underlined"><u>Zmeniť filtre</u></string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Táto funkcia skryje priečinok pridaním súboru \'.nomedia\', skryté budú aj podpriečinky. Môžete ich vidieť zvolením možnosti \'Zobraziť skryté priečinky\' v nastaveniach. Pokračovať?</string>

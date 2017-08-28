@@ -75,6 +75,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         mShowAll = config.showAll
         if (mShowAll)
             supportActionBar?.setDisplayHomeAsUpEnabled(false)
+
+        media_empty_text.setOnClickListener {
+            showFilterMediaDialog()
+        }
     }
 
     override fun onResume() {
@@ -97,6 +101,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         tryloadGallery()
         invalidateOptionsMenu()
+        media_empty_text_label.setTextColor(config.textColor)
+        media_empty_text.setTextColor(config.primaryColor)
     }
 
     override fun onPause() {
@@ -317,7 +323,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun isDirEmpty(): Boolean {
-        return if (mMedia.size <= 0) {
+        return if (mMedia.size <= 0 && config.filterMedia > 0) {
             deleteDirectoryIfEmpty()
             finish()
             true
@@ -458,6 +464,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         mLastMediaModified = getLastMediaModified()
         mIsGettingMedia = false
         media_refresh_layout.isRefreshing = false
+
+        media_empty_text_label.beVisibleIf(media.isEmpty() && !isFromCache)
+        media_empty_text.beVisibleIf(media.isEmpty() && !isFromCache)
 
         checkLastMediaChanged()
         if (mLastDrawnHashCode == 0)

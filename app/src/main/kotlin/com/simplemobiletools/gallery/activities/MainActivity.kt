@@ -78,6 +78,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mStoredScrollHorizontally = config.scrollHorizontally
         storeStoragePaths()
         checkWhatsNewDialog()
+
+        directories_empty_text.setOnClickListener {
+            showFilterMediaDialog()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -130,6 +134,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
         tryloadGallery()
         invalidateOptionsMenu()
+        directories_empty_text_label.setTextColor(config.textColor)
+        directories_empty_text.setTextColor(config.primaryColor)
     }
 
     override fun onPause() {
@@ -394,6 +400,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mLastMediaModified = getLastMediaModified()
         directories_refresh_layout.isRefreshing = false
         mIsGettingDirs = false
+
+        directories_empty_text_label.beVisibleIf(dirs.isEmpty() && !isFromCache)
+        directories_empty_text.beVisibleIf(dirs.isEmpty() && !isFromCache)
 
         checkLastMediaChanged()
         if (dirs.hashCode() == mDirs.hashCode())
