@@ -98,7 +98,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
-        if (intent.extras?.containsKey(IS_VIEW_INTENT) == true && File(mPath).isHidden) {
+        if (intent.extras?.containsKey(IS_VIEW_INTENT) == true && isShowHiddenFlagNeeded()) {
             if (!config.isPasswordProtectionOn) {
                 config.temporarilyShowHidden = true
             }
@@ -441,6 +441,27 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         out.flush()
         toast(R.string.file_saved)
         out.close()
+    }
+
+
+    private fun isShowHiddenFlagNeeded(): Boolean {
+        val file = File(mPath)
+        if (file.isHidden)
+            return true
+
+        var parent = file.parentFile
+        while (true) {
+            if (parent.isHidden || parent.listFiles()?.contains(File(NOMEDIA)) == true) {
+                return true
+            }
+
+            if (parent.absolutePath == "/") {
+                break
+            }
+            parent = parent.parentFile
+        }
+
+        return false
     }
 
     private fun getCurrentFragment() = (view_pager.adapter as MyPagerAdapter).getCurrentFragment(view_pager.currentItem)

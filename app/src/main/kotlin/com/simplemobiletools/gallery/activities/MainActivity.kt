@@ -72,7 +72,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 mIsGetAnyContentIntent || mIsSetWallpaperIntent
 
         directories_refresh_layout.setOnRefreshListener({ getDirectories() })
-        mDirs = ArrayList<Directory>()
+        mDirs = ArrayList()
         mStoredAnimateGifs = config.animateGifs
         mStoredCropThumbnails = config.cropThumbnails
         mStoredScrollHorizontally = config.scrollHorizontally
