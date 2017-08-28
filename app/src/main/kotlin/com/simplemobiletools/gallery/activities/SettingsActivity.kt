@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.activities
 import android.content.Intent
 import android.content.res.Resources
 import android.os.Bundle
+import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.dialogs.SecurityDialog
 import com.simplemobiletools.commons.extensions.handleHiddenFolderPasswordProtection
@@ -164,6 +165,10 @@ class SettingsActivity : SimpleActivity() {
                 config.isPasswordProtectionOn = !hasPasswordProtection
                 config.passwordHash = if (hasPasswordProtection) "" else hash
                 config.protectionType = type
+
+                if (config.isPasswordProtectionOn) {
+                    ConfirmationDialog(this, "", R.string.protection_setup_successfully, R.string.ok, 0) { }
+                }
             }
         }
     }
