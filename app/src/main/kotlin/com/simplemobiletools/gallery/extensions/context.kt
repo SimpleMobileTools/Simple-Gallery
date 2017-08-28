@@ -13,10 +13,7 @@ import com.simplemobiletools.commons.helpers.SORT_BY_NAME
 import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
 import com.simplemobiletools.commons.helpers.SORT_DESCENDING
 import com.simplemobiletools.gallery.activities.SettingsActivity
-import com.simplemobiletools.gallery.helpers.Config
-import com.simplemobiletools.gallery.helpers.IMAGES
-import com.simplemobiletools.gallery.helpers.NOMEDIA
-import com.simplemobiletools.gallery.helpers.VIDEOS
+import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 import java.util.*
@@ -97,16 +94,20 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
                     if (filename.isEmpty())
                         filename = path.getFilenameFromPath()
 
-                    val isImage = filename.isImageFast() || filename.isGif()
+                    val isImage = filename.isImageFast()
                     val isVideo = if (isImage) false else filename.isVideoFast()
+                    val isGif = filename.isGif()
 
-                    if (!isImage && !isVideo)
+                    if (!isImage && !isVideo && !isGif)
                         continue
 
                     if (isVideo && (isPickImage || filterMedia and VIDEOS == 0))
                         continue
 
                     if (isImage && (isPickVideo || filterMedia and IMAGES == 0))
+                        continue
+
+                    if (isGif && filterMedia and GIFS == 0)
                         continue
 
                     if (!showHidden && filename.startsWith('.'))
@@ -158,8 +159,9 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
             }
 
             val filename = file.name
-            val isImage = filename.isImageFast() || filename.isGif()
+            val isImage = filename.isImageFast()
             val isVideo = if (isImage) false else filename.isVideoFast()
+            val isGif = filename.isGif()
 
             if (!isImage && !isVideo)
                 continue
@@ -168,6 +170,9 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
                 continue
 
             if (isImage && (isPickVideo || filterMedia and IMAGES == 0))
+                continue
+
+            if (isGif && filterMedia and GIFS == 0)
                 continue
 
             val dateTaken = file.lastModified()
