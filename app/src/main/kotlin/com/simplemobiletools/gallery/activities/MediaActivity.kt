@@ -237,6 +237,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun showFilterMediaDialog() {
         FilterMediaDialog(this) {
+            media_refresh_layout.isRefreshing = true
             getMedia()
         }
     }
@@ -304,7 +305,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         val token = object : TypeToken<List<Medium>>() {}.type
         val media = Gson().fromJson<ArrayList<Medium>>(config.loadFolderMedia(mPath), token) ?: ArrayList<Medium>(1)
         if (media.isNotEmpty() && !mLoadedInitialPhotos) {
-            gotMedia(media)
+            gotMedia(media, true)
         } else {
             media_refresh_layout.isRefreshing = true
         }
@@ -453,7 +454,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
     }
 
-    private fun gotMedia(media: ArrayList<Medium>) {
+    private fun gotMedia(media: ArrayList<Medium>, isFromCache: Boolean = false) {
         mLastMediaModified = getLastMediaModified()
         mIsGettingMedia = false
         media_refresh_layout.isRefreshing = false

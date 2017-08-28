@@ -183,7 +183,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mIsGettingDirs = true
         val dirs = getCachedDirectories()
         if (dirs.isNotEmpty() && !mLoadedInitialPhotos) {
-            gotDirectories(dirs)
+            gotDirectories(dirs, true)
         }
 
         if (!mLoadedInitialPhotos) {
@@ -205,6 +205,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun showFilterMediaDialog() {
         FilterMediaDialog(this) {
+            directories_refresh_layout.isRefreshing = true
             getDirectories()
         }
     }
@@ -389,7 +390,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
     }
 
-    private fun gotDirectories(dirs: ArrayList<Directory>) {
+    private fun gotDirectories(dirs: ArrayList<Directory>, isFromCache: Boolean = false) {
         mLastMediaModified = getLastMediaModified()
         directories_refresh_layout.isRefreshing = false
         mIsGettingDirs = false
