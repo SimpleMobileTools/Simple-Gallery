@@ -1,6 +1,20 @@
 Changelog
 ==========
 
+Version 2.13.2 *(2017-08-28)*
+----------------------------
+
+ * Moved media type filter from Settings to the Action menu
+ * Allow filtering GIFs out
+ * Make sure we always show manually included folders
+ * Properly show hidden files, when open from some File Manager
+
+Version 2.13.1 *(2017-08-16)*
+----------------------------
+
+ * Show a folder if its both excluded and included
+ * Many translation improvements
+
 Version 2.13.0 *(2017-08-07)*
 ----------------------------
 
