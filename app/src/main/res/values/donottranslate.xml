@@ -2,6 +2,7 @@
 <resources>
 
     <!-- Release notes -->
+    <string name="release_125">Moved media type filter from Settings to the Action menu</string>
     <string name="release_123">Allow changing the screen brightness and volume at videos by vertically dragging the screen sides</string>
     <string name="release_122">Added slideshow at the fullscreen view</string>
     <string name="release_119">Added pattern/pin protection for showing hidden items</string>
