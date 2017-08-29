@@ -449,7 +449,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (file.isHidden)
             return true
 
-        var parent = file.parentFile
+        var parent = file.parentFile ?: return false
         while (true) {
             if (parent.isHidden || parent.listFiles()?.contains(File(NOMEDIA)) == true) {
                 return true
@@ -458,7 +458,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             if (parent.absolutePath == "/") {
                 break
             }
-            parent = parent.parentFile
+            parent = parent.parentFile ?: return false
         }
 
         return false
