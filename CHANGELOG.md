@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 2.13.3 *(2017-08-29)*
+----------------------------
+
+ * Fixing copy/move actions on some devices
+
 Version 2.13.2 *(2017-08-28)*
 ----------------------------
 
