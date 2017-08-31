@@ -127,7 +127,7 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
 
                     if (!isExcluded && !showHidden) {
                         noMediaFolders.forEach {
-                            if (path.startsWith("$it/")) {
+                            if (path.startsWith(it)) {
                                 isExcluded = true
                             }
                         }
@@ -225,7 +225,7 @@ fun Context.getNoMediaFolders(): ArrayList<String> {
                 val path = cursor.getString(cursor.getColumnIndex(MediaStore.Files.FileColumns.DATA)) ?: continue
                 val noMediaFile = File(path)
                 if (noMediaFile.exists())
-                    folders.add(noMediaFile.parent)
+                    folders.add("${noMediaFile.parent}/")
             } while (cursor.moveToNext())
         }
     } finally {
