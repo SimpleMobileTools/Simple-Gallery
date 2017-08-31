@@ -150,23 +150,19 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun setupOrientationEventListener() {
         mOrientationEventListener = object : OrientationEventListener(this, SensorManager.SENSOR_DELAY_NORMAL) {
             override fun onOrientationChanged(orientation: Int) {
-                val currOrient = if (orientation in 45..134) {
-                    ORIENT_LANDSCAPE_RIGHT
-                } else if (orientation in 225..314) {
-                    ORIENT_LANDSCAPE_LEFT
-                } else {
-                    ORIENT_PORTRAIT
+                val currOrient = when (orientation) {
+                    in 45..134 -> ORIENT_LANDSCAPE_RIGHT
+                    in 225..314 -> ORIENT_LANDSCAPE_LEFT
+                    else -> ORIENT_PORTRAIT
                 }
 
                 if (mLastHandledOrientation != currOrient) {
                     mLastHandledOrientation = currOrient
 
-                    if (currOrient == ORIENT_LANDSCAPE_LEFT) {
-                        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-                    } else if (currOrient == ORIENT_LANDSCAPE_RIGHT) {
-                        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE
-                    } else {
-                        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                    requestedOrientation = when (currOrient) {
+                        ORIENT_LANDSCAPE_LEFT -> ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                        ORIENT_LANDSCAPE_RIGHT -> ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE
+                        else -> ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
                     }
                 }
             }
@@ -597,10 +593,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         mPrevHashcode = media.hashCode()
         mMedia = media
-        if (mPos == -1) {
-            mPos = getPositionInList(media)
+        mPos = if (mPos == -1) {
+            getPositionInList(media)
         } else {
-            mPos = Math.min(mPos, mMedia.size - 1)
+            Math.min(mPos, mMedia.size - 1)
         }
 
         updateActionbarTitle()
@@ -611,12 +607,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun getPositionInList(items: MutableList<Medium>): Int {
         mPos = 0
-        var i = 0
-        for (medium in items) {
+        for ((i, medium) in items.withIndex()) {
             if (medium.path == mPath) {
                 return i
             }
-            i++
         }
         return mPos
     }
