@@ -96,7 +96,7 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
 
                     val isImage = filename.isImageFast()
                     val isVideo = if (isImage) false else filename.isVideoFast()
-                    val isGif = filename.isGif()
+                    val isGif = if (isImage || isVideo) false else filename.isGif()
 
                     if (!isImage && !isVideo && !isGif)
                         continue
@@ -161,7 +161,7 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
             val filename = file.name
             val isImage = filename.isImageFast()
             val isVideo = if (isImage) false else filename.isVideoFast()
-            val isGif = filename.isGif()
+            val isGif = if (isImage || isVideo) false else filename.isGif()
 
             if (!isImage && !isVideo)
                 continue
