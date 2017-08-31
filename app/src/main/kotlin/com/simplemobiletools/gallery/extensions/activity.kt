@@ -48,6 +48,7 @@ fun Activity.shareMedium(medium: Medium) {
     val shareTitle = resources.getString(R.string.share_via)
     val file = File(medium.path)
     val uri = Uri.fromFile(file)
+
     Intent().apply {
         action = Intent.ACTION_SEND
         putExtra(Intent.EXTRA_STREAM, uri)
@@ -59,14 +60,12 @@ fun Activity.shareMedium(medium: Medium) {
 
 fun Activity.shareMedia(media: List<Medium>) {
     val shareTitle = resources.getString(R.string.share_via)
-    val uris = ArrayList<Uri>(media.size)
+    val uris = media.map { Uri.fromFile(File(it.path)) } as ArrayList
+
     Intent().apply {
         action = Intent.ACTION_SEND_MULTIPLE
         type = "image/* video/*"
         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        media.map { File(it.path) }
-                .mapTo(uris) { Uri.fromFile(it) }
-
         putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris)
         startActivity(Intent.createChooser(this, shareTitle))
     }
