@@ -59,11 +59,11 @@ fun Context.getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boo
     val selection = if (curPath.isEmpty()) null else "(${MediaStore.Images.Media.DATA} LIKE ? AND ${MediaStore.Images.Media.DATA} NOT LIKE ?)"
     val selectionArgs = if (curPath.isEmpty()) null else arrayOf("$curPath/%", "$curPath/%/%")
 
-    try {
+    return try {
         val cur = contentResolver.query(uri, projection, selection, selectionArgs, getSortingForFolder(curPath))
-        return parseCursor(this, cur, isPickImage, isPickVideo, curPath)
+        parseCursor(this, cur, isPickImage, isPickVideo, curPath)
     } catch (e: Exception) {
-        return ArrayList()
+        ArrayList()
     }
 }
 
@@ -72,8 +72,8 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
     val config = context.config
     val filterMedia = config.filterMedia
     val showHidden = config.shouldShowHidden
-    val includedFolders = config.includedFolders
-    val excludedFolders = config.excludedFolders
+    val includedFolders = config.includedFolders.map { "$it/" }
+    val excludedFolders = config.excludedFolders.map { "$it/" }
     val noMediaFolders = context.getNoMediaFolders()
 
     cur.use {
@@ -115,10 +115,10 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
 
                     var isExcluded = false
                     excludedFolders.forEach {
-                        if (path.startsWith("$it/")) {
+                        if (path.startsWith(it)) {
                             isExcluded = true
                             includedFolders.forEach {
-                                if (path.startsWith("$it/")) {
+                                if (path.startsWith(it)) {
                                     isExcluded = false
                                 }
                             }
@@ -193,14 +193,12 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
 
 fun Context.getSortingForFolder(path: String): String {
     val sorting = config.getFileSorting(path)
-    val sortValue = if (sorting and SORT_BY_NAME > 0)
-        MediaStore.Images.Media.DISPLAY_NAME
-    else if (sorting and SORT_BY_SIZE > 0)
-        MediaStore.Images.Media.SIZE
-    else if (sorting and SORT_BY_DATE_MODIFIED > 0)
-        MediaStore.Images.Media.DATE_MODIFIED
-    else
-        MediaStore.Images.Media.DATE_TAKEN
+    val sortValue = when {
+        sorting and SORT_BY_NAME > 0 -> MediaStore.Images.Media.DISPLAY_NAME
+        sorting and SORT_BY_SIZE > 0 -> MediaStore.Images.Media.SIZE
+        sorting and SORT_BY_DATE_MODIFIED > 0 -> MediaStore.Images.Media.DATE_MODIFIED
+        else -> MediaStore.Images.Media.DATE_TAKEN
+    }
 
     return if (sorting and SORT_DESCENDING > 0)
         "$sortValue DESC"
