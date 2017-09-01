@@ -98,9 +98,17 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
-        if (intent.extras?.containsKey(IS_VIEW_INTENT) == true && isShowHiddenFlagNeeded()) {
-            if (!config.isPasswordProtectionOn) {
-                config.temporarilyShowHidden = true
+        if (intent.extras?.containsKey(IS_VIEW_INTENT) == true) {
+            if (isShowHiddenFlagNeeded()) {
+                if (!config.isPasswordProtectionOn) {
+                    config.temporarilyShowHidden = true
+                }
+            }
+
+            config.excludedFolders.map { "$it/" }.forEach {
+                if (mPath.startsWith(it)) {
+                    config.temporarilyShowExcluded = true
+                }
             }
         }
 
@@ -145,6 +153,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (intent.extras?.containsKey(IS_VIEW_INTENT) == true) {
             config.temporarilyShowHidden = false
         }
+        config.temporarilyShowExcluded = false
     }
 
     private fun setupOrientationEventListener() {

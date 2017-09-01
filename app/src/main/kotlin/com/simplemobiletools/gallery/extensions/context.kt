@@ -72,6 +72,7 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
     val config = context.config
     val filterMedia = config.filterMedia
     val showHidden = config.shouldShowHidden
+    val showExcluded = config.temporarilyShowExcluded
     val includedFolders = config.includedFolders.map { "$it/" }
     val excludedFolders = config.excludedFolders.map { "$it/" }
     val noMediaFolders = context.getNoMediaFolders()
@@ -137,7 +138,7 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
                         isExcluded = true
                     }
 
-                    if (!isExcluded) {
+                    if (!isExcluded || showExcluded) {
                         val dateTaken = cur.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
                         val dateModified = cur.getIntValue(MediaStore.Images.Media.DATE_MODIFIED) * 1000L
 
