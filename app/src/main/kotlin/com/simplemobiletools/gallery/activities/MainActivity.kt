@@ -116,6 +116,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     override fun onResume() {
         super.onResume()
+        config.isThirdPartyIntent = false
         if (mStoredAnimateGifs != config.animateGifs) {
             directories_grid.adapter?.notifyDataSetChanged()
         }

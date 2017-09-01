@@ -105,11 +105,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 }
             }
 
-            config.excludedFolders.map { "$it/" }.forEach {
-                if (mPath.startsWith(it)) {
-                    config.temporarilyShowExcluded = true
-                }
-            }
+            config.isThirdPartyIntent = true
         }
 
         showSystemUI()
@@ -153,7 +149,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (intent.extras?.containsKey(IS_VIEW_INTENT) == true) {
             config.temporarilyShowHidden = false
         }
-        config.temporarilyShowExcluded = false
+
+        if (config.isThirdPartyIntent) {
+            mMedia.clear()
+            config.isThirdPartyIntent = false
+        }
     }
 
     private fun setupOrientationEventListener() {

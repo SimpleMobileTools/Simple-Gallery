@@ -16,7 +16,6 @@ import com.simplemobiletools.gallery.activities.SettingsActivity
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
-import java.util.*
 
 val Context.portrait get() = resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
 val Context.audioManager get() = getSystemService(Context.AUDIO_SERVICE) as AudioManager
@@ -72,10 +71,10 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
     val config = context.config
     val filterMedia = config.filterMedia
     val showHidden = config.shouldShowHidden
-    val showExcluded = config.temporarilyShowExcluded
     val includedFolders = config.includedFolders.map { "$it/" }
     val excludedFolders = config.excludedFolders.map { "$it/" }
     val noMediaFolders = context.getNoMediaFolders()
+    val isThirdPartyIntent = config.isThirdPartyIntent
 
     cur.use {
         if (cur.moveToFirst()) {
@@ -138,7 +137,7 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
                         isExcluded = true
                     }
 
-                    if (!isExcluded || showExcluded) {
+                    if (!isExcluded || isThirdPartyIntent) {
                         val dateTaken = cur.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
                         val dateModified = cur.getIntValue(MediaStore.Images.Media.DATE_MODIFIED) * 1000L
 
@@ -152,44 +151,53 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
         }
     }
 
-    config.includedFolders.filter { it.isNotEmpty() && (curPath.isEmpty() || it == curPath) }.mapNotNull { File(it).listFiles() }.forEach {
-        for (file in it) {
-            val size = file.length()
-            if (size <= 0L) {
-                continue
-            }
+    config.includedFolders.filter { it.isNotEmpty() && (curPath.isEmpty() || it == curPath) }.forEach {
+        getMediaInFolder(it, curMedia, isPickImage, isPickVideo, filterMedia)
+    }
 
-            val filename = file.name
-            val isImage = filename.isImageFast()
-            val isVideo = if (isImage) false else filename.isVideoFast()
-            val isGif = if (isImage || isVideo) false else filename.isGif()
-
-            if (!isImage && !isVideo)
-                continue
-
-            if (isVideo && (isPickImage || filterMedia and VIDEOS == 0))
-                continue
-
-            if (isImage && (isPickVideo || filterMedia and IMAGES == 0))
-                continue
-
-            if (isGif && filterMedia and GIFS == 0)
-                continue
-
-            val dateTaken = file.lastModified()
-            val dateModified = file.lastModified()
-
-            val medium = Medium(filename, file.absolutePath, isVideo, dateModified, dateTaken, size)
-            val isAlreadyAdded = curMedia.any { it.path == file.absolutePath }
-            if (!isAlreadyAdded)
-                curMedia.add(medium)
-        }
+    if (isThirdPartyIntent && curPath.isNotEmpty() && curMedia.isEmpty()) {
+        getMediaInFolder(curPath, curMedia, isPickImage, isPickVideo, filterMedia)
     }
 
     Medium.sorting = config.getFileSorting(curPath)
     curMedia.sort()
 
     return curMedia
+}
+
+private fun getMediaInFolder(folder: String, curMedia: ArrayList<Medium>, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int) {
+    val files = File(folder).listFiles() ?: return
+    for (file in files) {
+        val size = file.length()
+        if (size <= 0L) {
+            continue
+        }
+
+        val filename = file.name
+        val isImage = filename.isImageFast()
+        val isVideo = if (isImage) false else filename.isVideoFast()
+        val isGif = if (isImage || isVideo) false else filename.isGif()
+
+        if (!isImage && !isVideo)
+            continue
+
+        if (isVideo && (isPickImage || filterMedia and VIDEOS == 0))
+            continue
+
+        if (isImage && (isPickVideo || filterMedia and IMAGES == 0))
+            continue
+
+        if (isGif && filterMedia and GIFS == 0)
+            continue
+
+        val dateTaken = file.lastModified()
+        val dateModified = file.lastModified()
+
+        val medium = Medium(filename, file.absolutePath, isVideo, dateModified, dateTaken, size)
+        val isAlreadyAdded = curMedia.any { it.path == file.absolutePath }
+        if (!isAlreadyAdded)
+            curMedia.add(medium)
+    }
 }
 
 fun Context.getSortingForFolder(path: String): String {
