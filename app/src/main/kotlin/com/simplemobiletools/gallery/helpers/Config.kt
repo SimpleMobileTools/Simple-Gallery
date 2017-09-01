@@ -241,6 +241,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(DELETE_EMPTY_FOLDERS, true)
         set(deleteEmptyFolders) = prefs.edit().putBoolean(DELETE_EMPTY_FOLDERS, deleteEmptyFolders).apply()
 
+    var allowVideoGestures: Boolean
+        get() = prefs.getBoolean(ALLOW_VIDEO_GESTURES, true)
+        set(allowVideoGestures) = prefs.edit().putBoolean(ALLOW_VIDEO_GESTURES, allowVideoGestures).apply()
+
     var slideshowInterval: Int
         get() = prefs.getInt(SLIDESHOW_INTERVAL, SLIDESHOW_DEFAULT_INTERVAL)
         set(slideshowInterval) = prefs.edit().putInt(SLIDESHOW_INTERVAL, slideshowInterval).apply()

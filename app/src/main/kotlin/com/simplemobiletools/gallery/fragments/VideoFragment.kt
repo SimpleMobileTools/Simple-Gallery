@@ -14,6 +14,7 @@ import android.view.*
 import android.view.animation.AnimationUtils
 import android.widget.SeekBar
 import android.widget.TextView
+import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.getFormattedDuration
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.commons.extensions.updateTextColors
@@ -85,6 +86,8 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     override fun onResume() {
         super.onResume()
         activity.updateTextColors(mView.video_holder)
+        mView.video_volume_controller.beVisibleIf(context.config.allowVideoGestures)
+        mView.video_brightness_controller.beVisibleIf(context.config.allowVideoGestures)
     }
 
     private fun setupPlayer() {

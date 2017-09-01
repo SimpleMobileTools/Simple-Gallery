@@ -45,6 +45,7 @@ class SettingsActivity : SimpleActivity() {
         setupReplaceShare()
         setupPasswordProtection()
         setupDeleteEmptyFolders()
+        setupAllowVideoGestures()
         updateTextColors(settings_holder)
     }
 
@@ -179,6 +180,14 @@ class SettingsActivity : SimpleActivity() {
         settings_delete_empty_folders_holder.setOnClickListener {
             settings_delete_empty_folders.toggle()
             config.deleteEmptyFolders = settings_delete_empty_folders.isChecked
+        }
+    }
+
+    private fun setupAllowVideoGestures() {
+        settings_allow_video_gestures.isChecked = config.allowVideoGestures
+        settings_allow_video_gestures_holder.setOnClickListener {
+            settings_allow_video_gestures.toggle()
+            config.allowVideoGestures = settings_allow_video_gestures.isChecked
         }
     }
 

@@ -116,6 +116,7 @@
     <string name="scroll_thumbnails_horizontally">水平滚动缩略图</string>
     <string name="hide_system_ui_at_fullscreen">全屏时自动隐藏状态栏</string>
     <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
+    <string name="allow_video_gestures">Allow controlling video volume and brightness with vertical gestures</string>
     <string name="replace_share_with_rotate">替换全屏时菜单栏的“分享”为“旋转”</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
