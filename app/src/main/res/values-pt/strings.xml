@@ -28,7 +28,7 @@
 
     <!-- Filter -->
     <string name="filter_media">Filtrar multimédia</string>
-    <string name="images">Imagenss</string>
+    <string name="images">Imagens</string>
     <string name="videos">Vídeos</string>
     <string name="gifs">GIFs</string>
     <string name="no_media_with_filters">Naõ foram encontrados ficheiros que cumpram os requisitos.</string>
