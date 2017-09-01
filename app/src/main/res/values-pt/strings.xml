@@ -27,21 +27,21 @@
     <string name="brightness">Brilho</string>
 
     <!-- Filter -->
-    <string name="filter_media">Filter media</string>
-    <string name="images">Images</string>
-    <string name="videos">Videos</string>
+    <string name="filter_media">Filtrar multimédia</string>
+    <string name="images">Imagenss</string>
+    <string name="videos">Vídeos</string>
     <string name="gifs">GIFs</string>
-    <string name="no_media_with_filters">No media files have been found with the selected filters.</string>
-    <string name="change_filters_underlined"><u>Change filters</u></string>
+    <string name="no_media_with_filters">Naõ foram encontrados ficheiros que cumpram os requisitos.</string>
+    <string name="change_filters_underlined"><u>Alterar filtros</u></string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Esta opção oculta uma pasta com a adição de um ficheiro \'.nomedia\' na pasta, e irá ocultar todas as subpastas existentes. Pode ver as pastas com a opção \'Mostrar pastas ocultas\'. Continuar?</string>
     <string name="exclude">Exclusão</string>
     <string name="excluded_folders">Pastas excluídas</string>
     <string name="manage_excluded_folders">Gerir pastas excluídas</string>
-    <string name="exclude_folder_description">Esta ação apenas exclui as pastas selecionadas da lista de pastas desta aplicação. Pode gerir as pastas excuídas nas Definições.</string>
+    <string name="exclude_folder_description">Esta ação apenas exclui as pastas selecionadas da lista de pastas desta aplicação. Pode gerir as pastas excluídas nas Definições.</string>
     <string name="exclude_folder_parent">Excluir antes a pasta superior?</string>
-    <string name="excluded_activity_placeholder">A exlusão de uma pasta apenas oculta o seu conteúdo do Simple Gallery uma vez que as outras aplicações continuarão a poder aceder-lhes.\\n\\nSe quiser ocultar também das outras aplicações, utilize a função Ocultar.</string>
+    <string name="excluded_activity_placeholder">A exclusão de uma pasta apenas oculta o seu conteúdo do Simple Gallery porque as outras aplicações continuarão a poder aceder-lhes.\\n\\nSe quiser ocultar também das outras aplicações, utilize a função Ocultar.</string>
     <string name="remove_all">Remover todas</string>
     <string name="remove_all_description">Remover todas as pastas de lista de exclusões? Esta ação não apaga as pastas.</string>
 
@@ -115,8 +115,8 @@
     <string name="dark_background_at_fullscreen">Usar sempre um fundo escuro se em ecrã completo</string>
     <string name="scroll_thumbnails_horizontally">Deslocação horizontal de miniaturas</string>
     <string name="hide_system_ui_at_fullscreen">Ocultar interface do sistema se em ecrã completo</string>
-    <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
-    <string name="allow_video_gestures">Allow controlling video volume and brightness with vertical gestures</string>
+    <string name="delete_empty_folders">Apagar as pastas vazias depois de remover o seu conteúdo</string>
+    <string name="allow_video_gestures">Permitir controlo do volume e brilho dos vídeos através de gestos verticais</string>
     <string name="replace_share_with_rotate">Substituir a opção Partilhar pela opção Rodar se em ecrã completo</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
