@@ -123,13 +123,11 @@ class PhotoFragment : ViewPagerFragment() {
         }
     }
 
-    private fun degreesForRotation(orientation: Int): Int {
-        return when (orientation) {
-            8 -> 270
-            3 -> 180
-            6 -> 90
-            else -> 0
-        }
+    private fun degreesForRotation(orientation: Int) = when (orientation) {
+        8 -> 270
+        3 -> 180
+        6 -> 90
+        else -> 0
     }
 
     private fun rotateViaMatrix(original: Bitmap, orientation: Int): Bitmap {
@@ -176,9 +174,7 @@ class PhotoFragment : ViewPagerFragment() {
                     .load(medium.path)
                     .apply(options)
                     .listener(object : RequestListener<Bitmap> {
-                        override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
-                            return false
-                        }
+                        override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean) = false
 
                         override fun onResourceReady(resource: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
                             if (isFragmentVisible)
