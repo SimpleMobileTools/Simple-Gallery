@@ -41,9 +41,10 @@ class SettingsActivity : SimpleActivity() {
         setupDarkBackground()
         setupScrollHorizontally()
         setupScreenRotation()
+        setupHideSystemUI()
         setupReplaceShare()
         setupPasswordProtection()
-        setupHideSystemUI()
+        setupDeleteEmptyFolders()
         updateTextColors(settings_holder)
     }
 
@@ -170,6 +171,14 @@ class SettingsActivity : SimpleActivity() {
                     ConfirmationDialog(this, "", R.string.protection_setup_successfully, R.string.ok, 0) { }
                 }
             }
+        }
+    }
+
+    private fun setupDeleteEmptyFolders() {
+        settings_delete_empty_folders.isChecked = config.deleteEmptyFolders
+        settings_delete_empty_folders_holder.setOnClickListener {
+            settings_delete_empty_folders.toggle()
+            config.deleteEmptyFolders = settings_delete_empty_folders.isChecked
         }
     }
 

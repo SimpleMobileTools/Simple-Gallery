@@ -115,6 +115,7 @@
     <string name="dark_background_at_fullscreen">Usar sempre um fundo escuro se em ecrã completo</string>
     <string name="scroll_thumbnails_horizontally">Deslocação horizontal de miniaturas</string>
     <string name="hide_system_ui_at_fullscreen">Ocultar interface do sistema se em ecrã completo</string>
+    <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
     <string name="replace_share_with_rotate">Substituir a opção Partilhar pela opção Rodar se em ecrã completo</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->

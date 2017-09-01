@@ -115,6 +115,7 @@
     <string name="dark_background_at_fullscreen">Utilizar siempre fondo oscuro en pantalla completa</string>
     <string name="scroll_thumbnails_horizontally">Desplazar miniaturas horizontalmente</string>
     <string name="hide_system_ui_at_fullscreen">Ocultar automáticamente la interfaz de usuario del sistema en medios de pantalla completa</string>
+    <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
     <string name="replace_share_with_rotate">Reemplazar Compartir con Girar en el menú de pantalla completa</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->

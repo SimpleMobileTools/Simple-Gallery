@@ -115,12 +115,21 @@
     <string name="dark_background_at_fullscreen">Dark background at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">Défilement des mignatures horizontalement</string>
     <string name="hide_system_ui_at_fullscreen">Automatically hide system UI at fullscreen media</string>
+    <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
     <string name="replace_share_with_rotate">Replace Share with Rotate at fullscreen menu</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Un album pour visionner photos et vidéos sans publicité.</string>
-    <string name="app_long_description">Un simple outil pour visionner les photos et les vidéos. Elles peuvent être triées par dates, tailles, noms dans les deux sens (alphabétique comme désalphabétique), il est possible de zoomer sur les photos. Les fichiers sont affichés sur de multiple colonnes en fonction de la taille de l\'écran, vous pouvez changer le nombre de colonnes par pincement. Elles peuvent être renommées, partagées, supprimées, copiées et déplacées. Les images peuvent en plus être tournées, rognées ou être définies comme fond d\'écran directement depuis l\'application.          La galerie est aussi offerte pour l\'utiliser comme une tierce partie pour de la prévisualisation des images/vidéos, joindre aux clients mail etc. C\'est parfait pour un usage au quotidien.                L\'application ne contient ni de publicité ni d\'autorisation inutile. Elle est totalement OpenSource et est aussi fournie avec un thème sombre.                Cette application est juste l\'une des applications d\'une plus grande suite. Vous pouvez trouver les autres sur http://www.simplemobiletools.com</string>
+    <string name="app_long_description">
+        Un simple outil pour visionner les photos et les vidéos. Elles peuvent être triées par dates, tailles, noms dans les deux sens (alphabétique comme désalphabétique), il est possible de zoomer sur les photos. Les fichiers sont affichés sur de multiple colonnes en fonction de la taille de l\'écran, vous pouvez changer le nombre de colonnes par pincement. Elles peuvent être renommées, partagées, supprimées, copiées et déplacées. Les images peuvent en plus être tournées, rognées ou être définies comme fond d\'écran directement depuis l\'application.          La galerie est aussi offerte pour l\'utiliser comme une tierce partie pour de la prévisualisation des images/vidéos, joindre aux clients mail etc. C\'est parfait pour un usage au quotidien.
+
+        L\'application ne contient ni de publicité ni d\'autorisation inutile. Elle est totalement OpenSource et est aussi fournie avec un thème sombre.
+
+        Cette application est juste l\'une des applications d\'une plus grande suite.
+
+        Vous pouvez trouver les autres sur http://www.simplemobiletools.com
+    </string>
 
     <!--
         Haven't found some strings? There's more at

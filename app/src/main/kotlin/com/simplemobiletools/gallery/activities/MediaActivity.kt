@@ -298,7 +298,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun deleteDirectoryIfEmpty() {
         val file = File(mPath)
-        if (!file.isDownloadsFolder() && file.isDirectory && file.listFiles()?.isEmpty() == true) {
+        if (config.deleteEmptyFolders && !file.isDownloadsFolder() && file.isDirectory && file.listFiles()?.isEmpty() == true) {
             file.delete()
         }
     }
@@ -497,6 +497,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             if (!it) {
                 toast(R.string.unknown_error_occurred)
             } else if (mMedia.isEmpty()) {
+                deleteDirectoryIfEmpty()
                 finish()
             }
         }

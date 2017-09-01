@@ -115,6 +115,7 @@
     <string name="dark_background_at_fullscreen">全螢幕時黑背景</string>
     <string name="scroll_thumbnails_horizontally">橫向滑動縮圖</string>
     <string name="hide_system_ui_at_fullscreen">全螢幕時自動隱藏系統介面</string>
+    <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
     <string name="replace_share_with_rotate">將全螢幕選單的分享取代為旋轉</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
