@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 2.13.4 *(2017-09-01)*
+----------------------------
+
+ * Improved the image loading performance
+ * Added a switch for disabling video gestures
+ * Added a switch for deleting empty folders after deleting content
+ * Show excluded folder content at third party intent if needed
+
 Version 2.13.3 *(2017-08-29)*
 ----------------------------
 
