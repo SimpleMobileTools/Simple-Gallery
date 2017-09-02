@@ -125,6 +125,6 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
 
     override fun onPostExecute(dirs: ArrayList<Directory>) {
         super.onPostExecute(dirs)
-        callback.invoke(dirs)
+        callback(dirs)
     }
 }

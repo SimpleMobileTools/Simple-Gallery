@@ -17,6 +17,6 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
 
     override fun onPostExecute(media: ArrayList<Medium>) {
         super.onPostExecute(media)
-        callback.invoke(media)
+        callback(media)
     }
 }

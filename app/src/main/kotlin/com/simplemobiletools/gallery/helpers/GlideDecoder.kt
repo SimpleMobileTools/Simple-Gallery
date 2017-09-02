@@ -12,7 +12,6 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.davemorrissey.labs.subscaleview.decoder.ImageDecoder
 
-
 class GlideDecoder : ImageDecoder {
     override fun decode(context: Context, uri: Uri): Bitmap {
         val options = RequestOptions()
