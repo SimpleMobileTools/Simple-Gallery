@@ -27,12 +27,12 @@
     <string name="brightness">亮度</string>
 
     <!-- Filter -->
-    <string name="filter_media">Filter media</string>
-    <string name="images">Images</string>
-    <string name="videos">Videos</string>
-    <string name="gifs">GIFs</string>
-    <string name="no_media_with_filters">No media files have been found with the selected filters.</string>
-    <string name="change_filters_underlined"><u>Change filters</u></string>
+    <string name="filter_media">篩選媒體檔案</string>
+    <string name="images">圖片</string>
+    <string name="videos">影片</string>
+    <string name="gifs">GIF</string>
+    <string name="no_media_with_filters">選擇的篩選條件未發現媒體檔案。</string>
+    <string name="change_filters_underlined"><u>更改篩選條件</u></string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">這功能藉由添加一個\'.nomedia\'檔案，來隱藏資料夾和所有子資料夾。您可以透過設定中的「顯示隱藏的資料夾」選項來查看。\n是否繼續?</string>
@@ -115,8 +115,8 @@
     <string name="dark_background_at_fullscreen">全螢幕時黑背景</string>
     <string name="scroll_thumbnails_horizontally">橫向滑動縮圖</string>
     <string name="hide_system_ui_at_fullscreen">全螢幕時自動隱藏系統介面</string>
-    <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
-    <string name="allow_video_gestures">Allow controlling video volume and brightness with vertical gestures</string>
+    <string name="delete_empty_folders">刪除內容後刪除空白資料夾</string>
+    <string name="allow_video_gestures">允許用上下手勢來控制影片的音量和亮度</string>
     <string name="replace_share_with_rotate">將全螢幕選單的分享取代為旋轉</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
