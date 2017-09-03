@@ -27,12 +27,12 @@
     <string name="brightness">Jasność</string>
 
     <!-- Filter -->
-    <string name="filter_media">Filter media</string>
-    <string name="images">Images</string>
-    <string name="videos">Videos</string>
-    <string name="gifs">GIFs</string>
-    <string name="no_media_with_filters">No media files have been found with the selected filters.</string>
-    <string name="change_filters_underlined"><u>Change filters</u></string>
+    <string name="filter_media">Filtruj multimedia</string>
+    <string name="images">Obrazy</string>
+    <string name="videos">Filmy</string>
+    <string name="gifs">GIFy</string>
+    <string name="no_media_with_filters">Nie znalazłem multimediów z wybranymi filtrami.</string>
+    <string name="change_filters_underlined"><u>Zmień filtry</u></string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Ta funkcja ukrywa foldery dodając do nich pusty plik .nomedia. Aby móc je zobaczyć, należy włączyć opcję \'Pokazuj ukryte foldery\' w ustawieniach. Kontyntynuować?</string>
@@ -115,15 +115,15 @@
     <string name="dark_background_at_fullscreen">Czarne tło przy podglądzie pełnoekranowym</string>
     <string name="scroll_thumbnails_horizontally">Przewijaj miniatury poziomo</string>
     <string name="hide_system_ui_at_fullscreen">Ukrywaj interfejs przy pełnoekranowym podglądzie</string>
-    <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
-    <string name="allow_video_gestures">Allow controlling video volume and brightness with vertical gestures</string>
+    <string name="delete_empty_folders">Usuwaj puste foldery po usunięciu ich zawartości</string>
+    <string name="allow_video_gestures">Zezwalaj na kontrolę jasności i głośności filmów pionowymi gestami</string>
     <string name="replace_share_with_rotate">Zamień funkcję udostępniania na obracanie w menu pełnoekranowym</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Darmowa galeria bez reklam do przeglądania obrazów i filmów.</string>
     <string name="app_long_description">
-        Prosta aplikacja galerii do oglądania obrazów i filmów. Pliki mogą być sortowane według daty, rozmiaru i nazwy, zarówno w porządku rosnącym jak i malejącym. W zależności od wielkości ekranu wyświetlane mogą być w wielu kolumnach. Liczbę kolumn można zmieniać za pomocą gestów. Zdjęcia mogą być powiększane, przycinane, obracane lub ustawiane jako tapeta bezpośrednio z poziomu aplikacji. Kolory aplikacji można dowolnie ustawiać.
+        Prosta aplikacja galerii do oglądania obrazów i filmów. Pliki mogą być sortowane według daty, rozmiaru i nazwy, zarówno w porządku rosnącym, jak i malejącym. W zależności od wielkości ekranu wyświetlane mogą być w wielu kolumnach. Liczbę kolumn można zmieniać za pomocą gestów. Zdjęcia mogą być powiększane, przycinane, obracane lub ustawiane jako tapeta bezpośrednio z poziomu aplikacji. Kolory aplikacji można dowolnie ustawiać.
 
         Aplikacja nie zawiera żadnych reklam ani niepotrzebnych uprawnień. Jest też w pełni otawrtoźrodłowa.
         
