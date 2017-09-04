@@ -418,6 +418,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 try {
                     val bitmap = BitmapFactory.decodeFile(currPath)
                     getFileOutputStream(tmpFile) {
+                        if (it == null) {
+                            toast(R.string.unknown_error_occurred)
+                            deleteFile(tmpFile) {}
+                            return@getFileOutputStream
+                        }
+
                         saveFile(tmpFile, bitmap, it)
                         if (needsStupidWritePermissions(selectedFile.absolutePath)) {
                             deleteFile(selectedFile) {}

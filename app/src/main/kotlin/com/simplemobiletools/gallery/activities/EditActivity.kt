@@ -172,7 +172,11 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
         try {
             getFileOutputStream(file) {
-                saveBitmap(file, bitmap, it)
+                if (it != null) {
+                    saveBitmap(file, bitmap, it)
+                } else {
+                    toast(R.string.image_editing_failed)
+                }
             }
         } catch (e: Exception) {
             Log.e(TAG, "Crop compressing failed $path $e")
