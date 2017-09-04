@@ -71,8 +71,8 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
     val config = context.config
     val filterMedia = config.filterMedia
     val showHidden = config.shouldShowHidden
-    val includedFolders = config.includedFolders.map { "$it/" }
-    val excludedFolders = config.excludedFolders.map { "$it/" }
+    val includedFolders = config.includedFolders.map { "${it.trimEnd('/')}/" }
+    val excludedFolders = config.excludedFolders.map { "${it.trimEnd('/')}/" }
     val noMediaFolders = context.getNoMediaFolders()
     val isThirdPartyIntent = config.isThirdPartyIntent
 
