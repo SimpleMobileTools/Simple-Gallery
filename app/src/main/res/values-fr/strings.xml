@@ -27,12 +27,12 @@
     <string name="brightness">Luminosité</string>
 
     <!-- Filter -->
-    <string name="filter_media">Filter media</string>
+    <string name="filter_media">Filtrer medias</string>
     <string name="images">Images</string>
-    <string name="videos">Videos</string>
+    <string name="videos">Vidéos</string>
     <string name="gifs">GIFs</string>
-    <string name="no_media_with_filters">No media files have been found with the selected filters.</string>
-    <string name="change_filters_underlined"><u>Change filters</u></string>
+    <string name="no_media_with_filters">Aucun fichier média trouvé avec les filtres sélectionnés.</string>
+    <string name="change_filters_underlined"><u>Changer les filtres</u></string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Cette option masque le dossier en ajoutant un fichier \'.nomedia\' à l\'intérieur, cela masquera aussi tous les sous-dossiers. Vous pouvez les voir en modifiant l\'option \'Afficher les dossiers cachés\' dans les Paramètres. Continuer ?</string>
@@ -96,9 +96,9 @@
     <string name="include_videos">Inclure vidéos</string>
     <string name="random_order">Ordre aléatoire</string>
     <string name="use_fade">Utiliser un fondu</string>
-    <string name="move_backwards">Move backwards</string>
+    <string name="move_backwards">Revenir en arrière</string>
     <string name="slideshow_ended">Diaporama terminé</string>
-    <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
+    <string name="no_media_for_slideshow">Aucun média trouvé pour le diaporama</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Afficher les dossiers cachés</string>
@@ -112,12 +112,12 @@
     <string name="screen_rotation_system_setting">Paramètres système</string>
     <string name="screen_rotation_device_rotation">Rotation de l\'appareil</string>
     <string name="screen_rotation_aspect_ratio">Ratio d\'aspect</string>
-    <string name="dark_background_at_fullscreen">Dark background at fullscreen media</string>
+    <string name="dark_background_at_fullscreen">Arrière-plan sombre pour média plein écran</string>
     <string name="scroll_thumbnails_horizontally">Défilement des mignatures horizontalement</string>
-    <string name="hide_system_ui_at_fullscreen">Automatically hide system UI at fullscreen media</string>
-    <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
-    <string name="allow_video_gestures">Allow controlling video volume and brightness with vertical gestures</string>
-    <string name="replace_share_with_rotate">Replace Share with Rotate at fullscreen menu</string>
+    <string name="hide_system_ui_at_fullscreen">Masquer automatiquement l\'interface utilisateur si média plein écran</string>
+    <string name="delete_empty_folders">Supprimer les dossiers vides après avoir supprimé leur contenu</string>
+    <string name="allow_video_gestures">Permettre le contrôle du volume vidéo et de la luminosité avec des gestes verticaux</string>
+    <string name="replace_share_with_rotate">Remplacer Partager par Pivoter si menu en plein écran</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
