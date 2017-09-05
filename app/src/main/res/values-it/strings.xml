@@ -98,6 +98,7 @@
     <string name="random_order">Ordine sparso</string>
     <string name="use_fade">Usa animazioni a dissolvenza</string>
     <string name="move_backwards">Scorri al contrario</string>
+    <string name="loop_slideshow">Loop slideshow</string>
     <string name="slideshow_ended">La presentazione è terminata</string>
     <string name="no_media_for_slideshow">Nessun media trovato per la presentazione</string>
 

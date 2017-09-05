@@ -98,6 +98,7 @@
     <string name="random_order">Ordre aléatoire</string>
     <string name="use_fade">Utiliser un fondu</string>
     <string name="move_backwards">Revenir en arrière</string>
+    <string name="loop_slideshow">Loop slideshow</string>
     <string name="slideshow_ended">Diaporama terminé</string>
     <string name="no_media_for_slideshow">Aucun média trouvé pour le diaporama</string>
 

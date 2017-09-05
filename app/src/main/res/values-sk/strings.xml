@@ -98,6 +98,7 @@
     <string name="random_order">Náhodné poradie</string>
     <string name="use_fade">Používať miznúce animácie</string>
     <string name="move_backwards">Ísť opačným smerom</string>
+    <string name="loop_slideshow">Automaticky reštartovať prezentáciu</string>
     <string name="slideshow_ended">Prezentácia skončila</string>
     <string name="no_media_for_slideshow">Pre prezentáciu sa nenašli žiadne vhodné súbory</string>
 
