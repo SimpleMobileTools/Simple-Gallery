@@ -57,7 +57,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mLoadedInitialPhotos = false
     private var mLastMediaModified = 0
     private var mLastMediaHandler = Handler()
-    private var mNewFolderPath = ""
 
     private var mCurrAsyncTask: GetDirectoriesAsynctask? = null
 
@@ -74,6 +73,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mIsThirdPartyIntent = mIsPickImageIntent || mIsPickVideoIntent || mIsGetImageContentIntent || mIsGetVideoContentIntent ||
                 mIsGetAnyContentIntent || mIsSetWallpaperIntent
 
+        config.tempFolderPath = ""
         directories_refresh_layout.setOnRefreshListener({ getDirectories() })
         mDirs = ArrayList()
         mStoredAnimateGifs = config.animateGifs
@@ -160,12 +160,13 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         super.onDestroy()
         config.temporarilyShowHidden = false
 
-        val newFolder = File(mNewFolderPath)
+        val newFolder = File(config.tempFolderPath)
         if (newFolder.exists() && newFolder.isDirectory) {
             if (newFolder.list()?.isEmpty() == true) {
                 deleteFileBg(newFolder, true) { }
             }
         }
+        config.tempFolderPath = ""
     }
 
     private fun tryloadGallery() {
@@ -314,7 +315,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun createNewFolder() {
         FilePickerDialog(this, internalStoragePath, false, config.shouldShowHidden) {
             CreateNewFolderDialog(this, it) {
-                mNewFolderPath = it
+                config.tempFolderPath = it
                 addTempFolderIfNeeded(mDirs, true)
             }
         }
@@ -322,8 +323,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun addTempFolderIfNeeded(dirs: ArrayList<Directory>, isFromCache: Boolean) {
         val directories = ArrayList<Directory>()
-        if (mNewFolderPath.isNotEmpty()) {
-            val newFolder = Directory(mNewFolderPath, "", mNewFolderPath.getFilenameFromPath(), 0, 0, 0, 0L)
+        val tempFolderPath = config.tempFolderPath
+        if (tempFolderPath.isNotEmpty()) {
+            val newFolder = Directory(tempFolderPath, "", tempFolderPath.getFilenameFromPath(), 0, 0, 0, 0L)
             directories.add(newFolder)
         }
         directories.addAll(dirs)
@@ -449,7 +451,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun storeDirectories() {
-        if (!config.temporarilyShowHidden && mNewFolderPath.isEmpty()) {
+        if (!config.temporarilyShowHidden && config.tempFolderPath.isEmpty()) {
             val directories = Gson().toJson(mDirs)
             config.directories = directories
         }

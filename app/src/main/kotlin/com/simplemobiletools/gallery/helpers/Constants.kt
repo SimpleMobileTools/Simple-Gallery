@@ -36,6 +36,7 @@ val HIDE_SYSTEM_UI = "hide_system_ui"
 val REPLACE_SHARE_WITH_ROTATE = "replace_share_with_rotate"
 val DELETE_EMPTY_FOLDERS = "delete_empty_folders"
 val ALLOW_VIDEO_GESTURES = "allow_video_gestures"
+val TEMP_FOLDER_PATH = "temp_folder_path"
 
 // slideshow
 val SLIDESHOW_INTERVAL = "slideshow_interval"

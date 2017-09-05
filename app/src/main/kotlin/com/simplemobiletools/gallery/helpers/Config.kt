@@ -276,4 +276,8 @@ class Config(context: Context) : BaseConfig(context) {
     var loopSlideshow: Boolean
         get() = prefs.getBoolean(SLIDESHOW_LOOP, false)
         set(loopSlideshow) = prefs.edit().putBoolean(SLIDESHOW_LOOP, loopSlideshow).apply()
+
+    var tempFolderPath: String
+        get() = prefs.getString(TEMP_FOLDER_PATH, "")
+        set(tempFolderPath) = prefs.edit().putString(TEMP_FOLDER_PATH, tempFolderPath).apply()
 }
