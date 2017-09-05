@@ -211,7 +211,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
         mLoadedInitialPhotos = true
         mCurrAsyncTask = GetDirectoriesAsynctask(applicationContext, mIsPickVideoIntent || mIsGetVideoContentIntent, mIsPickImageIntent || mIsGetImageContentIntent) {
-            addTempFolderIfNeeded(it, false)
+            gotDirectories(addTempFolderIfNeeded(it), false)
         }
         mCurrAsyncTask!!.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR)
     }
@@ -316,20 +316,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         FilePickerDialog(this, internalStoragePath, false, config.shouldShowHidden) {
             CreateNewFolderDialog(this, it) {
                 config.tempFolderPath = it
-                addTempFolderIfNeeded(mDirs, true)
+                gotDirectories(addTempFolderIfNeeded(mDirs), true)
             }
         }
-    }
-
-    private fun addTempFolderIfNeeded(dirs: ArrayList<Directory>, isFromCache: Boolean) {
-        val directories = ArrayList<Directory>()
-        val tempFolderPath = config.tempFolderPath
-        if (tempFolderPath.isNotEmpty()) {
-            val newFolder = Directory(tempFolderPath, "", tempFolderPath.getFilenameFromPath(), 0, 0, 0, 0L)
-            directories.add(newFolder)
-        }
-        directories.addAll(dirs)
-        gotDirectories(directories, isFromCache)
     }
 
     private fun increaseColumnCount() {

@@ -174,6 +174,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         selectedPositions.forEach { files.add(File(media[it].path)) }
 
         activity.tryCopyMoveFilesTo(files, isCopyOperation) {
+            config.tempFolderPath = ""
             if (!isCopyOperation) {
                 listener?.refreshItems()
             }

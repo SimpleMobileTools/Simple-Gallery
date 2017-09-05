@@ -405,6 +405,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun copyMoveTo(isCopyOperation: Boolean) {
         val files = ArrayList<File>(1).apply { add(getCurrentFile()) }
         tryCopyMoveFilesTo(files, isCopyOperation) {
+            config.tempFolderPath = ""
             if (!isCopyOperation) {
                 reloadViewPager()
             }

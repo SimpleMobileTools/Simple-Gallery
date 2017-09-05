@@ -234,6 +234,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         }
 
         activity.tryCopyMoveFilesTo(files, isCopyOperation) {
+            config.tempFolderPath = ""
             listener?.refreshItems()
             actMode?.finish()
         }

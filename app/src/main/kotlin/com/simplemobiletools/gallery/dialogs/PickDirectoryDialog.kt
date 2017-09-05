@@ -38,11 +38,11 @@ class PickDirectoryDialog(val activity: SimpleActivity, val sourcePath: String, 
 
             val dirs = activity.getCachedDirectories()
             if (dirs.isNotEmpty()) {
-                gotDirectories(dirs)
+                gotDirectories(activity.addTempFolderIfNeeded(dirs))
             }
 
             GetDirectoriesAsynctask(activity, false, false) {
-                gotDirectories(it)
+                gotDirectories(activity.addTempFolderIfNeeded(it))
             }.execute()
         }
     }
