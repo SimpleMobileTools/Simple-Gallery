@@ -45,6 +45,7 @@ val SLIDESHOW_INCLUDE_GIFS = "slideshow_include_gifs"
 val SLIDESHOW_RANDOM_ORDER = "slideshow_random_order"
 val SLIDESHOW_USE_FADE = "slideshow_use_fade"
 val SLIDESHOW_MOVE_BACKWARDS = "slideshow_move_backwards"
+val SLIDESHOW_LOOP = "loop_slideshow"
 val SLIDESHOW_DEFAULT_INTERVAL = 5
 val SLIDESHOW_SCROLL_DURATION = 500L
 

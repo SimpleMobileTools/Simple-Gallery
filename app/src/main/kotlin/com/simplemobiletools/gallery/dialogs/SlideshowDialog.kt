@@ -61,6 +61,11 @@ class SlideshowDialog(val activity: SimpleActivity, val callback: () -> Unit) {
                 interval_value.clearFocus()
                 move_backwards.toggle()
             }
+
+            loop_slideshow_holder.setOnClickListener {
+                interval_value.clearFocus()
+                loop_slideshow.toggle()
+            }
         }
         setupValues()
 
@@ -93,6 +98,7 @@ class SlideshowDialog(val activity: SimpleActivity, val callback: () -> Unit) {
             random_order.isChecked = config.slideshowRandomOrder
             use_fade.isChecked = config.slideshowUseFade
             move_backwards.isChecked = config.slideshowMoveBackwards
+            loop_slideshow.isChecked = config.loopSlideshow
         }
     }
 
@@ -109,6 +115,7 @@ class SlideshowDialog(val activity: SimpleActivity, val callback: () -> Unit) {
             slideshowRandomOrder = view.random_order.isChecked
             slideshowUseFade = view.use_fade.isChecked
             slideshowMoveBackwards = view.move_backwards.isChecked
+            loopSlideshow = view.loop_slideshow.isChecked
         }
     }
 }

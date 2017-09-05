@@ -161,5 +161,26 @@
                 android:text="@string/move_backwards"/>
 
         </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/loop_slideshow_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/move_backwards_holder"
+            android:background="?attr/selectableItemBackground"
+            android:paddingBottom="@dimen/activity_margin"
+            android:paddingLeft="@dimen/medium_margin"
+            android:paddingStart="@dimen/medium_margin"
+            android:paddingTop="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/loop_slideshow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:text="@string/loop_slideshow"/>
+
+        </RelativeLayout>
     </RelativeLayout>
 </ScrollView>

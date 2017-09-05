@@ -301,8 +301,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 view_pager.endFakeDrag()
 
                 if (view_pager.currentItem == oldPosition) {
-                    stopSlideshow()
-                    toast(R.string.slideshow_ended)
+                    slideshowEnded(forward)
                 }
             }
 
@@ -328,6 +327,19 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         animator.duration = SLIDESHOW_SCROLL_DURATION
         view_pager.beginFakeDrag()
         animator.start()
+    }
+
+    private fun slideshowEnded(forward: Boolean) {
+        if (config.loopSlideshow) {
+            if (forward) {
+                view_pager.setCurrentItem(0, false)
+            } else {
+                view_pager.setCurrentItem(view_pager.adapter!!.count - 1, false)
+            }
+        } else {
+            stopSlideshow()
+            toast(R.string.slideshow_ended)
+        }
     }
 
     private fun stopSlideshow() {
