@@ -154,7 +154,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 val diffX = mTouchDownX - event.x
                 val diffY = mTouchDownY - event.y
 
-                if (Math.abs(diffY) > Math.abs(diffX)) {
+                if (Math.abs(diffY) > 20 && Math.abs(diffY) > Math.abs(diffX)) {
                     var percent = ((diffY / ViewPagerActivity.screenHeight) * 100).toInt() * 3
                     percent = Math.min(100, Math.max(-100, percent))
 
@@ -190,7 +190,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 val diffX = mTouchDownX - event.x
                 val diffY = mTouchDownY - event.y
 
-                if (Math.abs(diffY) > Math.abs(diffX)) {
+                if (Math.abs(diffY) > 20 && Math.abs(diffY) > Math.abs(diffX)) {
                     var percent = ((diffY / ViewPagerActivity.screenHeight) * 100).toInt() * 3
                     percent = Math.min(100, Math.max(-100, percent))
 
