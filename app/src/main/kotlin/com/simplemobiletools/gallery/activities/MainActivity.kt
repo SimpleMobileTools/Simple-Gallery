@@ -17,6 +17,8 @@ import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import com.google.gson.Gson
+import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
+import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.models.Release
 import com.simplemobiletools.commons.views.MyScalableRecyclerView
@@ -55,6 +57,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mLoadedInitialPhotos = false
     private var mLastMediaModified = 0
     private var mLastMediaHandler = Handler()
+    private var mNewFolderPath = ""
 
     private var mCurrAsyncTask: GetDirectoriesAsynctask? = null
 
@@ -105,6 +108,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             R.id.show_all -> showAllMedia()
             R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden()
             R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
+            R.id.create_new_folder -> createNewFolder()
             R.id.increase_column_count -> increaseColumnCount()
             R.id.reduce_column_count -> reduceColumnCount()
             R.id.settings -> launchSettings()
@@ -155,6 +159,13 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     override fun onDestroy() {
         super.onDestroy()
         config.temporarilyShowHidden = false
+
+        val newFolder = File(mNewFolderPath)
+        if (newFolder.exists() && newFolder.isDirectory) {
+            if (newFolder.list()?.isEmpty() == true) {
+                deleteFileBg(newFolder, true) { }
+            }
+        }
     }
 
     private fun tryloadGallery() {
@@ -296,6 +307,14 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
             override fun selectRange(initialSelection: Int, lastDraggedIndex: Int, minReached: Int, maxReached: Int) {
                 getRecyclerAdapter().selectRange(initialSelection, lastDraggedIndex, minReached, maxReached)
+            }
+        }
+    }
+
+    private fun createNewFolder() {
+        FilePickerDialog(this, internalStoragePath, false, config.shouldShowHidden) {
+            CreateNewFolderDialog(this, it) {
+                mNewFolderPath = it
             }
         }
     }

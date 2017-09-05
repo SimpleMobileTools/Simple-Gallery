@@ -29,6 +29,10 @@
         android:title="@string/stop_showing_hidden"
         app:showAsAction="never"/>
     <item
+        android:id="@+id/create_new_folder"
+        android:title="@string/create_new_folder"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/increase_column_count"
         android:title="@string/increase_column_count"
         app:showAsAction="never"/>
