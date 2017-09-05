@@ -210,7 +210,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
         mLoadedInitialPhotos = true
         mCurrAsyncTask = GetDirectoriesAsynctask(applicationContext, mIsPickVideoIntent || mIsGetVideoContentIntent, mIsPickImageIntent || mIsGetImageContentIntent) {
-            gotDirectories(it)
+            addTempFolderIfNeeded(it, false)
         }
         mCurrAsyncTask!!.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR)
     }
@@ -315,8 +315,19 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         FilePickerDialog(this, internalStoragePath, false, config.shouldShowHidden) {
             CreateNewFolderDialog(this, it) {
                 mNewFolderPath = it
+                addTempFolderIfNeeded(mDirs, true)
             }
         }
+    }
+
+    private fun addTempFolderIfNeeded(dirs: ArrayList<Directory>, isFromCache: Boolean) {
+        val directories = ArrayList<Directory>()
+        if (mNewFolderPath.isNotEmpty()) {
+            val newFolder = Directory(mNewFolderPath, "", mNewFolderPath.getFilenameFromPath(), 0, 0, 0, 0L)
+            directories.add(newFolder)
+        }
+        directories.addAll(dirs)
+        gotDirectories(directories, isFromCache)
     }
 
     private fun increaseColumnCount() {
@@ -416,7 +427,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
     }
 
-    private fun gotDirectories(dirs: ArrayList<Directory>, isFromCache: Boolean = false) {
+    private fun gotDirectories(dirs: ArrayList<Directory>, isFromCache: Boolean) {
         mLastMediaModified = getLastMediaModified()
         directories_refresh_layout.isRefreshing = false
         mIsGettingDirs = false
@@ -433,11 +444,12 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         runOnUiThread {
             setupAdapter()
         }
+
         storeDirectories()
     }
 
     private fun storeDirectories() {
-        if (!config.temporarilyShowHidden) {
+        if (!config.temporarilyShowHidden && mNewFolderPath.isEmpty()) {
             val directories = Gson().toJson(mDirs)
             config.directories = directories
         }
