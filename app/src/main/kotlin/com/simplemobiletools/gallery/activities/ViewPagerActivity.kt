@@ -383,15 +383,15 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun rotateByExif() {
         val exif = ExifInterface(getCurrentPath())
-        val rotation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
-        val newRotation = getNewRotation(rotation)
-        exif.setAttribute(ExifInterface.TAG_ORIENTATION, newRotation)
+        val orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
+        val newOrientation = getNewOrientation(orientation)
+        exif.setAttribute(ExifInterface.TAG_ORIENTATION, newOrientation)
         exif.saveAttributes()
         File(getCurrentPath()).setLastModified(System.currentTimeMillis())
         (getCurrentFragment() as? PhotoFragment)?.refreshBitmap()
     }
 
-    private fun getNewRotation(rotation: Int): String {
+    private fun getNewOrientation(rotation: Int): String {
         return when (rotation) {
             ExifInterface.ORIENTATION_ROTATE_90 -> ExifInterface.ORIENTATION_ROTATE_180
             ExifInterface.ORIENTATION_ROTATE_180 -> ExifInterface.ORIENTATION_ROTATE_270
