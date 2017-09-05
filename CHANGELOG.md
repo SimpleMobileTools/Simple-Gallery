@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 2.14.0 *(2017-09-05)*
+----------------------------
+
+ * Simplified the way of creating new folders
+ * Added a loop option to slideshows, slowed down the swipe animation
+ * Added an option to filter out gifs from slideshows
+ * Improved the quality of fullscreen images
+ * Properly allow excluding the root folder
+
 Version 2.13.4 *(2017-09-01)*
 ----------------------------
 
