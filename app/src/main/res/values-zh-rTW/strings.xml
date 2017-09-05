@@ -92,8 +92,9 @@
     <!-- Slideshow -->
     <string name="slideshow">投影片</string>
     <string name="interval">間隔 (秒):</string>
-    <string name="include_photos">包含照片和GIF</string>
+    <string name="include_photos">Include photos</string>
     <string name="include_videos">包含影片</string>
+    <string name="include_gifs">Include GIFs</string>
     <string name="random_order">隨機順序</string>
     <string name="use_fade">使用淡入淡出動畫</string>
     <string name="move_backwards">反向播放</string>

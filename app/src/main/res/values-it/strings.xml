@@ -92,8 +92,9 @@
     <!-- Slideshow -->
     <string name="slideshow">Presentazione</string>
     <string name="interval">Intervallo (secondi):</string>
-    <string name="include_photos">Includi foto e GIF</string>
+    <string name="include_photos">Includi foto</string>
     <string name="include_videos">Includi video</string>
+    <string name="include_gifs">Includi GIF</string>
     <string name="random_order">Ordine sparso</string>
     <string name="use_fade">Usa animazioni a dissolvenza</string>
     <string name="move_backwards">Scorri al contrario</string>

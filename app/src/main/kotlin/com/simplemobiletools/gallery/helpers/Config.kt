@@ -257,6 +257,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(SLIDESHOW_INCLUDE_VIDEOS, false)
         set(slideshowIncludeVideos) = prefs.edit().putBoolean(SLIDESHOW_INCLUDE_VIDEOS, slideshowIncludeVideos).apply()
 
+    var slideshowIncludeGIFs: Boolean
+        get() = prefs.getBoolean(SLIDESHOW_INCLUDE_GIFS, false)
+        set(slideshowIncludeGIFs) = prefs.edit().putBoolean(SLIDESHOW_INCLUDE_GIFS, slideshowIncludeGIFs).apply()
+
     var slideshowRandomOrder: Boolean
         get() = prefs.getBoolean(SLIDESHOW_RANDOM_ORDER, false)
         set(slideshowRandomOrder) = prefs.edit().putBoolean(SLIDESHOW_RANDOM_ORDER, slideshowRandomOrder).apply()

@@ -92,8 +92,9 @@
     <!-- Slideshow -->
     <string name="slideshow">Diashow</string>
     <string name="interval">Intervall (Sekunden):</string>
-    <string name="include_photos">Bilder/GIFs verwenden</string>
+    <string name="include_photos">Bilder verwenden</string>
     <string name="include_videos">Videos verwenden</string>
+    <string name="include_gifs">GIF verwenden</string>
     <string name="random_order">Zufällige Reihenfolge</string>
     <string name="use_fade">Übergänge animieren</string>
     <string name="move_backwards">Rückwärts abspielen</string>

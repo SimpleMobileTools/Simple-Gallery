@@ -78,10 +78,31 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/random_order_holder"
+            android:id="@+id/include_gifs_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/include_videos_holder"
+            android:background="?attr/selectableItemBackground"
+            android:paddingBottom="@dimen/activity_margin"
+            android:paddingLeft="@dimen/medium_margin"
+            android:paddingStart="@dimen/medium_margin"
+            android:paddingTop="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/include_gifs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:text="@string/include_gifs"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/random_order_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/include_gifs_holder"
             android:background="?attr/selectableItemBackground"
             android:paddingBottom="@dimen/activity_margin"
             android:paddingLeft="@dimen/medium_margin"

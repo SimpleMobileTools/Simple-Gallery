@@ -92,8 +92,9 @@
     <!-- Slideshow -->
     <string name="slideshow">Pokaz slajdów</string>
     <string name="interval">Przedział (sekundy):</string>
-    <string name="include_photos">Dołączaj zdjęcia i GIFy</string>
+    <string name="include_photos">Dołączaj zdjęcia</string>
     <string name="include_videos">Dołączaj filmy</string>
+    <string name="include_gifs">Dołączaj GIFy</string>
     <string name="random_order">Losowa kolejność</string>
     <string name="use_fade">Używaj płynnych przejść</string>
     <string name="move_backwards">Odwrotna kolejność</string>
