@@ -154,7 +154,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         if (config.isThirdPartyIntent) {
-            mMedia.clear()
             config.isThirdPartyIntent = false
         }
     }
