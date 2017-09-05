@@ -162,9 +162,9 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     }
 
     private fun shareMedia() {
-        if (selectedPositions.size <= 1) {
+        if (selectedPositions.size == 1 && selectedPositions.first() != -1) {
             activity.shareMedium(getSelectedMedia()[0])
-        } else {
+        } else if (selectedPositions.size > 1) {
             activity.shareMedia(getSelectedMedia())
         }
     }
