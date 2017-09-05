@@ -6,6 +6,7 @@ import android.view.View
 import android.view.WindowManager
 import com.simplemobiletools.commons.extensions.hideKeyboard
 import com.simplemobiletools.commons.extensions.setupDialogStuff
+import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.extensions.config
@@ -14,7 +15,6 @@ import kotlinx.android.synthetic.main.dialog_slideshow.view.*
 
 
 class SlideshowDialog(val activity: SimpleActivity, val callback: () -> Unit) {
-    val dialog: AlertDialog
     val view: View
 
     init {
@@ -64,12 +64,22 @@ class SlideshowDialog(val activity: SimpleActivity, val callback: () -> Unit) {
         }
         setupValues()
 
-        dialog = AlertDialog.Builder(activity)
-                .setPositiveButton(R.string.ok, { dialog, which -> dialogConfirmed() })
+        AlertDialog.Builder(activity)
+                .setPositiveButton(R.string.ok, null)
                 .setNegativeButton(R.string.cancel, null)
                 .create().apply {
             window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
             activity.setupDialogStuff(view, this)
+            getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener({
+                if (!view.include_photos.isChecked && !view.include_videos.isChecked && !view.include_gifs.isChecked) {
+                    activity.toast(R.string.no_media_for_slideshow)
+                    return@setOnClickListener
+                }
+
+                storeValues()
+                callback()
+                dismiss()
+            })
         }
     }
 
@@ -86,7 +96,7 @@ class SlideshowDialog(val activity: SimpleActivity, val callback: () -> Unit) {
         }
     }
 
-    private fun dialogConfirmed() {
+    private fun storeValues() {
         var interval = view.interval_value.text.toString()
         if (interval.trim('0').isEmpty())
             interval = SLIDESHOW_DEFAULT_INTERVAL.toString()
@@ -100,7 +110,5 @@ class SlideshowDialog(val activity: SimpleActivity, val callback: () -> Unit) {
             slideshowUseFade = view.use_fade.isChecked
             slideshowMoveBackwards = view.move_backwards.isChecked
         }
-        dialog.dismiss()
-        callback()
     }
 }
