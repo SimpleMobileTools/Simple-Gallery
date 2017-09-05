@@ -1,5 +1,7 @@
 package com.simplemobiletools.gallery.activities
 
+import android.animation.Animator
+import android.animation.ValueAnimator
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.ActivityInfo
@@ -20,6 +22,7 @@ import android.provider.MediaStore
 import android.support.v4.view.ViewPager
 import android.util.DisplayMetrics
 import android.view.*
+import android.view.animation.DecelerateInterpolator
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
@@ -288,6 +291,46 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
+    private fun animatePagerTransition(forward: Boolean) {
+        val oldPosition = view_pager.currentItem
+        val animator = ValueAnimator.ofInt(0, view_pager.width)
+        animator.addListener(object : Animator.AnimatorListener {
+            override fun onAnimationRepeat(animation: Animator?) {
+            }
+
+            override fun onAnimationEnd(animation: Animator?) {
+                view_pager.endFakeDrag()
+
+                if (view_pager.currentItem == oldPosition) {
+                    stopSlideshow()
+                    toast(R.string.slideshow_ended)
+                }
+            }
+
+            override fun onAnimationCancel(animation: Animator?) {
+                view_pager.endFakeDrag()
+            }
+
+            override fun onAnimationStart(animation: Animator?) {
+            }
+        })
+
+        animator.interpolator = DecelerateInterpolator()
+        animator.addUpdateListener(object : ValueAnimator.AnimatorUpdateListener {
+            var oldDragPosition = 0
+            override fun onAnimationUpdate(animation: ValueAnimator) {
+                val dragPosition = animation.animatedValue as Int
+                val dragOffset = dragPosition - oldDragPosition
+                oldDragPosition = dragPosition
+                view_pager.fakeDragBy(dragOffset * (if (forward) 1f else -1f))
+            }
+        })
+
+        animator.duration = SLIDESHOW_SCROLL_DURATION
+        view_pager.beginFakeDrag()
+        animator.start()
+    }
+
     private fun stopSlideshow() {
         if (mIsSlideshowActive) {
             showSystemUI()
@@ -313,12 +356,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun swipeToNextMedium() {
-        val before = view_pager.currentItem
-        view_pager.currentItem = if (mSlideshowMoveBackwards) --view_pager.currentItem else ++view_pager.currentItem
-        if (before == view_pager.currentItem) {
-            stopSlideshow()
-            toast(R.string.slideshow_ended)
-        }
+        animatePagerTransition(!mSlideshowMoveBackwards)
     }
 
     private fun getMediaForSlideshow(): Boolean {

@@ -45,6 +45,7 @@ val SLIDESHOW_RANDOM_ORDER = "slideshow_random_order"
 val SLIDESHOW_USE_FADE = "slideshow_use_fade"
 val SLIDESHOW_MOVE_BACKWARDS = "slideshow_move_backwards"
 val SLIDESHOW_DEFAULT_INTERVAL = 5
+val SLIDESHOW_SCROLL_DURATION = 500L
 
 val NOMEDIA = ".nomedia"
 
