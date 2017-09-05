@@ -73,7 +73,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mIsThirdPartyIntent = mIsPickImageIntent || mIsPickVideoIntent || mIsGetImageContentIntent || mIsGetVideoContentIntent ||
                 mIsGetAnyContentIntent || mIsSetWallpaperIntent
 
-        config.tempFolderPath = ""
+        removeTempFolder()
         directories_refresh_layout.setOnRefreshListener({ getDirectories() })
         mDirs = ArrayList()
         mStoredAnimateGifs = config.animateGifs
@@ -159,7 +159,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     override fun onDestroy() {
         super.onDestroy()
         config.temporarilyShowHidden = false
+        removeTempFolder()
+    }
 
+    private fun removeTempFolder() {
         val newFolder = File(config.tempFolderPath)
         if (newFolder.exists() && newFolder.isDirectory) {
             if (newFolder.list()?.isEmpty() == true) {
