@@ -13,7 +13,6 @@ import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.helpers.SLIDESHOW_DEFAULT_INTERVAL
 import kotlinx.android.synthetic.main.dialog_slideshow.view.*
 
-
 class SlideshowDialog(val activity: SimpleActivity, val callback: () -> Unit) {
     val view: View
 

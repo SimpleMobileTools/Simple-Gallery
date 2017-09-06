@@ -11,17 +11,25 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.Target
 import com.davemorrissey.labs.subscaleview.decoder.ImageDecoder
+import com.simplemobiletools.gallery.activities.ViewPagerActivity
+import com.simplemobiletools.gallery.extensions.getFileSignature
 
 class GlideDecoder : ImageDecoder {
     override fun decode(context: Context, uri: Uri): Bitmap {
         val exif = android.media.ExifInterface(uri.path)
         val orientation = exif.getAttributeInt(android.media.ExifInterface.TAG_ORIENTATION, android.media.ExifInterface.ORIENTATION_NORMAL)
 
+        val targetWidth = if (ViewPagerActivity.screenWidth == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenWidth
+        val targetHeight = if (ViewPagerActivity.screenHeight == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenHeight
+
         val options = RequestOptions()
+                .signature(uri.path.getFileSignature())
                 .format(DecodeFormat.PREFER_ARGB_8888)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                 .transform(GlideRotateTransformation(context, getRotationDegrees(orientation)))
+                .override(targetWidth, targetHeight)
 
         val drawable = Glide.with(context)
                 .load(uri)

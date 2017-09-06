@@ -167,7 +167,7 @@ class PhotoFragment : ViewPagerFragment() {
             val options = RequestOptions()
                     .signature(medium.path.getFileSignature())
                     .format(DecodeFormat.PREFER_ARGB_8888)
-                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                     .override(targetWidth, targetHeight)
 
             Glide.with(this)
@@ -201,6 +201,7 @@ class PhotoFragment : ViewPagerFragment() {
         if ((medium.isImage()) && isFragmentVisible && view.subsampling_view.visibility == View.GONE) {
             view.subsampling_view.apply {
                 setBitmapDecoderClass(GlideDecoder::class.java)
+                setMaxTileSize(10000)
                 maxScale = 10f
                 beVisible()
                 setImage(ImageSource.uri(medium.path))
