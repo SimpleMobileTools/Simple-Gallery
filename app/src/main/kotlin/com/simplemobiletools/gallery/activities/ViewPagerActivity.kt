@@ -91,8 +91,14 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 cursor?.close()
             }
         } else {
-            mPath = intent.getStringExtra(MEDIUM)
-            mShowAll = config.showAll
+            try {
+                mPath = intent.getStringExtra(MEDIUM)
+                mShowAll = config.showAll
+            } catch (e: Exception) {
+                showErrorToast(e)
+                finish()
+                return
+            }
         }
 
         if (mPath.isEmpty()) {
