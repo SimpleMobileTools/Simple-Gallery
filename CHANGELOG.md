@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 2.14.1 *(2017-09-07)*
+----------------------------
+
+ * Fixing some glitches around fullscreen view
+
 Version 2.14.0 *(2017-09-05)*
 ----------------------------
 
