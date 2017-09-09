@@ -19,7 +19,7 @@
     <string name="no_camera_app_found">Keine Kamera-App gefunden</string>
     <string name="increase_column_count">Kacheln verkleinern</string>
     <string name="reduce_column_count">Kacheln vergrößern</string>
-    <string name="change_cover_image">Cover-Bild ändern</string>
+    <string name="change_cover_image">Coverbild ändern</string>
     <string name="select_photo">Auswählen</string>
     <string name="use_default">Standard</string>
     <string name="set_as">Festlegen als</string>
@@ -27,11 +27,11 @@
     <string name="brightness">Helligkeit</string>
 
     <!-- Filter -->
-    <string name="filter_media">Filter media</string>
+    <string name="filter_media">Medienfilter</string>
     <string name="images">Bilder</string>
     <string name="videos">Videos</string>
     <string name="gifs">GIFs</string>
-    <string name="no_media_with_filters">Keine entsprechenden Medien gefunden.</string>
+    <string name="no_media_with_filters">Keine Medien für die ausgewählten Filter gefunden</string>
     <string name="change_filters_underlined"><u>Filter ändern</u></string>
 
     <!-- Hide / Exclude -->
@@ -118,7 +118,7 @@
     <string name="scroll_thumbnails_horizontally">Kacheln horizontal scrollen</string>
     <string name="hide_system_ui_at_fullscreen">Systemleisten ausblenden im Vollbild</string>
     <string name="delete_empty_folders">Nach Löschen leere Ordner löschen</string>
-    <string name="allow_video_gestures">Gesten für Video-Lautstärke/Helligkeit</string>
+    <string name="allow_video_gestures">Gesten für Videolautstärke/Helligkeit</string>
     <string name="replace_share_with_rotate">Teilen/Drehen im Vollbild-Menü vertauschen</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
