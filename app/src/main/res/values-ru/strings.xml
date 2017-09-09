@@ -19,7 +19,7 @@
     <string name="no_camera_app_found">Не найдено приложения камеры</string>
     <string name="increase_column_count">Добавить 1 столбец</string>
     <string name="reduce_column_count">Убрать 1 столбец</string>
-    <string name="change_cover_image">Change cover image</string>
+    <string name="change_cover_image">Изменить обложку</string>
     <string name="select_photo">Выбрать изображение</string>
     <string name="use_default">Использовать по умолчанию</string>
     <string name="set_as">Установить как</string>
@@ -72,7 +72,7 @@
     <string name="error_saving_file">Не удалось перезаписать исходный файл</string>
     <string name="rotate_left">Повернуть влево</string>
     <string name="rotate_right">Повернуть вправо</string>
-    <string name="rotate_one_eighty">Перевернуть на 180º</string>
+    <string name="rotate_one_eighty">Перевернуть на 180°</string>
     <string name="flip">Отразить</string>
     <string name="flip_horizontally">По горизонтали</string>
     <string name="flip_vertically">По вертикали</string>
