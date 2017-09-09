@@ -46,8 +46,8 @@
     <string name="remove_all_description">Очистить список исключённых? Сами папки не будут удалены.</string>
 
     <!-- Include folders -->
-    <string name="include_folders">Включенные папки</string>
-    <string name="manage_included_folders">Управление включенными папками</string>
+    <string name="include_folders">Включённые папки</string>
+    <string name="manage_included_folders">Управление включёнными папками</string>
     <string name="add_folder">Добавление папки</string>
     <string name="included_activity_placeholder">Если у вас есть папки содержащие медиа, но не распознанные Simple Gallery. Вы можете добавить их вручную.</string>
 
@@ -72,7 +72,7 @@
     <string name="error_saving_file">Не удалось перезаписать исходный файл</string>
     <string name="rotate_left">Повернуть влево</string>
     <string name="rotate_right">Повернуть вправо</string>
-    <string name="rotate_one_eighty">Перевернуть на 180°</string>
+    <string name="rotate_one_eighty">Перевернуть на 180º</string>
     <string name="flip">Отразить</string>
     <string name="flip_horizontally">По горизонтали</string>
     <string name="flip_vertically">По вертикали</string>
@@ -99,7 +99,7 @@
     <string name="use_fade">Эффект затухания</string>
     <string name="move_backwards">В обратном направлении</string>
     <string name="loop_slideshow">Закольцевать слайдшоу</string>
-    <string name="slideshow_ended">Слайдшоу закончилось</string>
+    <string name="slideshow_ended">Слайдшоу завершилось</string>
     <string name="no_media_for_slideshow">Никаких медиафайлов для слайдшоу не было найдено.</string>
 
     <!-- Settings -->
