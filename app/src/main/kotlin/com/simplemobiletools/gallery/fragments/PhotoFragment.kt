@@ -26,8 +26,10 @@ import com.davemorrissey.labs.subscaleview.ImageSource
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import com.simplemobiletools.commons.extensions.beGone
 import com.simplemobiletools.commons.extensions.beVisible
+import com.simplemobiletools.commons.extensions.showErrorToast
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getFileSignature
@@ -221,9 +223,10 @@ class PhotoFragment : ViewPagerFragment() {
                     override fun onPreviewReleased() {
                     }
 
-                    override fun onImageLoadError(e: Exception?) {
+                    override fun onImageLoadError(e: Exception) {
                         background = ColorDrawable(Color.TRANSPARENT)
                         beGone()
+                        (activity as SimpleActivity).showErrorToast(e)
                     }
 
                     override fun onPreviewLoadError(e: Exception?) {
