@@ -203,7 +203,6 @@ class PhotoFragment : ViewPagerFragment() {
         if ((medium.isImage()) && isFragmentVisible && view.subsampling_view.visibility == View.GONE) {
             view.subsampling_view.apply {
                 setBitmapDecoderClass(GlideDecoder::class.java)
-                setMaxTileSize(10000)
                 maxScale = 10f
                 beVisible()
                 setImage(ImageSource.uri(medium.path))
