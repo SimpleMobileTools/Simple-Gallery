@@ -139,6 +139,9 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
                     }
 
                     if (!isExcluded || isThirdPartyIntent) {
+                        if (!file.exists())
+                            continue
+
                         val dateTaken = cur.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
                         val dateModified = cur.getIntValue(MediaStore.Images.Media.DATE_MODIFIED) * 1000L
 
