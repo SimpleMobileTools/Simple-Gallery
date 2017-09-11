@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 2.14.2 *(2017-09-11)*
+----------------------------
+
+ * Fixing some glitches with fullscreen images
+ * Add an extra check to avoid displaying non-existing media
+ * Fix opening media from third party intents
+
 Version 2.14.1 *(2017-09-07)*
 ----------------------------
 
