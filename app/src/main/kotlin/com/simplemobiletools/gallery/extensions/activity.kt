@@ -250,10 +250,10 @@ fun SimpleActivity.removeNoMedia(path: String, callback: () -> Unit) {
 fun SimpleActivity.toggleFileVisibility(oldFile: File, hide: Boolean, callback: (newFile: File) -> Unit) {
     val path = oldFile.parent
     var filename = oldFile.name
-    if (hide) {
-        filename = ".${filename.trimStart('.')}"
+    filename = if (hide) {
+        ".${filename.trimStart('.')}"
     } else {
-        filename = filename.substring(1, filename.length)
+        filename.substring(1, filename.length)
     }
     val newFile = File(path, filename)
     renameFile(oldFile, newFile) {
