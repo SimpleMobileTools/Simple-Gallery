@@ -309,7 +309,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         mIsGettingMedia = true
         val token = object : TypeToken<List<Medium>>() {}.type
-        val media = Gson().fromJson<ArrayList<Medium>>(config.loadFolderMedia(mPath), token) ?: ArrayList<Medium>(1)
+        val media = Gson().fromJson<ArrayList<Medium>>(config.loadFolderMedia(mPath), token) ?: ArrayList(1)
         if (media.isNotEmpty() && !mLoadedInitialPhotos) {
             gotMedia(media, true)
         } else {
