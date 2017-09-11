@@ -81,14 +81,6 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
             do {
                 try {
                     val path = cur.getStringValue(MediaStore.Images.Media.DATA)
-                    var size = cur.getLongValue(MediaStore.Images.Media.SIZE)
-                    if (size == 0L) {
-                        size = File(path).length()
-                    }
-
-                    if (size <= 0L) {
-                        continue
-                    }
 
                     var filename = cur.getStringValue(MediaStore.Images.Media.DISPLAY_NAME) ?: ""
                     if (filename.isEmpty())
@@ -111,6 +103,15 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
                         continue
 
                     if (!showHidden && filename.startsWith('.'))
+                        continue
+
+                    var size = cur.getLongValue(MediaStore.Images.Media.SIZE)
+                    val file = File(path)
+                    if (size == 0L) {
+                        size = file.length()
+                    }
+
+                    if (size <= 0L)
                         continue
 
                     var isExcluded = false
@@ -168,11 +169,6 @@ private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isP
 private fun getMediaInFolder(folder: String, curMedia: ArrayList<Medium>, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int) {
     val files = File(folder).listFiles() ?: return
     for (file in files) {
-        val size = file.length()
-        if (size <= 0L) {
-            continue
-        }
-
         val filename = file.name
         val isImage = filename.isImageFast()
         val isVideo = if (isImage) false else filename.isVideoFast()
@@ -188,6 +184,10 @@ private fun getMediaInFolder(folder: String, curMedia: ArrayList<Medium>, isPick
             continue
 
         if (isGif && filterMedia and GIFS == 0)
+            continue
+
+        val size = file.length()
+        if (size <= 0L)
             continue
 
         val dateTaken = file.lastModified()
