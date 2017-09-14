@@ -28,8 +28,11 @@ class GlideDecoder : ImageDecoder {
                 .signature(uri.path.getFileSignature())
                 .format(DecodeFormat.PREFER_ARGB_8888)
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-                .transform(GlideRotateTransformation(context, getRotationDegrees(orientation)))
                 .override(targetWidth, targetHeight)
+
+        val degrees = getRotationDegrees(orientation)
+        if (degrees != 0f)
+            options.transform(GlideRotateTransformation(context, getRotationDegrees(orientation)))
 
         val drawable = Glide.with(context)
                 .load(uri)
