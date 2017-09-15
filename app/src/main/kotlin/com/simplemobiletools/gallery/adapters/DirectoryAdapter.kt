@@ -405,8 +405,6 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
                 setOnClickListener { viewClicked(directory) }
                 setOnLongClickListener { if (isPickIntent) viewClicked(directory) else viewLongClicked(); true }
-
-
             }
             return itemView
         }
