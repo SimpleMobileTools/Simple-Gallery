@@ -462,6 +462,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun setupScrollDirection() {
+        directories_refresh_layout.isEnabled = !config.scrollHorizontally
+
         directories_vertical_fastscroller.isHorizontal = false
         directories_vertical_fastscroller.beGoneIf(config.scrollHorizontally)
 

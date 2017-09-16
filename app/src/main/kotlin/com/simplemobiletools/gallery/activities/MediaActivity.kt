@@ -159,6 +159,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun setupScrollDirection() {
+        media_refresh_layout.isEnabled = !config.scrollHorizontally
+
         media_vertical_fastscroller.isHorizontal = false
         media_vertical_fastscroller.beGoneIf(config.scrollHorizontally)
 
