@@ -4,9 +4,12 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.database.Cursor
+import android.graphics.Point
 import android.media.AudioManager
 import android.net.Uri
+import android.os.Build
 import android.provider.MediaStore
+import android.view.WindowManager
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.commons.helpers.SORT_BY_NAME
@@ -19,6 +22,32 @@ import java.io.File
 
 val Context.portrait get() = resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
 val Context.audioManager get() = getSystemService(Context.AUDIO_SERVICE) as AudioManager
+val Context.windowManager: WindowManager get() = getSystemService(Context.WINDOW_SERVICE) as WindowManager
+val Context.navigationBarRight: Boolean get() = usableScreenSize.x < realScreenSize.x
+val Context.navigationBarBottom: Boolean get() = usableScreenSize.y < realScreenSize.y
+val Context.navigationBarHeight: Int get() = if (navigationBarBottom) navigationBarSize.y else 0
+
+internal val Context.navigationBarSize: Point
+    get() = when {
+        navigationBarRight -> Point(realScreenSize.x - usableScreenSize.x, usableScreenSize.y)
+        navigationBarBottom -> Point(usableScreenSize.x, realScreenSize.y - usableScreenSize.y)
+        else -> Point()
+    }
+
+val Context.usableScreenSize: Point
+    get() {
+        val size = Point()
+        windowManager.defaultDisplay.getSize(size)
+        return size
+    }
+
+val Context.realScreenSize: Point
+    get() {
+        val size = Point()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
+            windowManager.defaultDisplay.getRealSize(size)
+        return size
+    }
 
 fun Context.getRealPathFromURI(uri: Uri): String? {
     var cursor: Cursor? = null
