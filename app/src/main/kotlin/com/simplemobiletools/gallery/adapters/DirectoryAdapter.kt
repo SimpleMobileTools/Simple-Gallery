@@ -336,7 +336,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val dir = dirs[position]
-        itemViews.put(position, holder.bindView(dir, pinnedFolders.contains(dir.path), scrollVertically))
+        itemViews.put(position, holder.bindView(dir, pinnedFolders.contains(dir.path), scrollVertically, position))
         toggleItemSelection(selectedPositions.contains(position), position)
         holder.itemView.tag = holder
     }
@@ -369,7 +369,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
                 toggleItemSelection(true, i)
 
             if (min > -1 && min < to) {
-                (min..to - 1).filter { it != from }
+                (min until to).filter { it != from }
                         .forEach { toggleItemSelection(false, it) }
             }
             if (max > -1) {
@@ -386,7 +386,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             }
 
             if (min > -1) {
-                for (i in min..from - 1)
+                for (i in min until from)
                     toggleItemSelection(false, i)
             }
         }
@@ -395,7 +395,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     class ViewHolder(val view: View, val adapterListener: MyAdapterListener, val activity: SimpleActivity, val multiSelectorCallback: ModalMultiSelectorCallback,
                      val multiSelector: MultiSelector, val listener: DirOperationsListener?, val isPickIntent: Boolean, val itemClick: (Directory) -> (Unit)) :
             SwappingHolder(view, MultiSelector()) {
-        fun bindView(directory: Directory, isPinned: Boolean, scrollVertically: Boolean): View {
+        fun bindView(directory: Directory, isPinned: Boolean, scrollVertically: Boolean, position: Int): View {
             itemView.apply {
                 dir_name.text = directory.name
                 photo_cnt.text = directory.mediaCnt.toString()
@@ -403,29 +403,29 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
                 dir_pin.beVisibleIf(isPinned)
                 dir_sd_card.beVisibleIf(activity.isPathOnSD(directory.path))
 
-                setOnClickListener { viewClicked(directory) }
-                setOnLongClickListener { if (isPickIntent) viewClicked(directory) else viewLongClicked(); true }
+                setOnClickListener { viewClicked(directory, position) }
+                setOnLongClickListener { if (isPickIntent) viewClicked(directory, position) else viewLongClicked(position); true }
             }
             return itemView
         }
 
-        fun viewClicked(directory: Directory) {
+        private fun viewClicked(directory: Directory, position: Int) {
             if (multiSelector.isSelectable) {
-                val isSelected = adapterListener.getSelectedPositions().contains(layoutPosition)
-                adapterListener.toggleItemSelectionAdapter(!isSelected, layoutPosition)
+                val isSelected = adapterListener.getSelectedPositions().contains(position)
+                adapterListener.toggleItemSelectionAdapter(!isSelected, position)
             } else {
                 itemClick(directory)
             }
         }
 
-        fun viewLongClicked() {
+        private fun viewLongClicked(position: Int) {
             if (listener != null) {
                 if (!multiSelector.isSelectable) {
                     activity.startSupportActionMode(multiSelectorCallback)
-                    adapterListener.toggleItemSelectionAdapter(true, layoutPosition)
+                    adapterListener.toggleItemSelectionAdapter(true, position)
                 }
 
-                listener.itemLongClicked(layoutPosition)
+                listener.itemLongClicked(position)
             }
         }
 
