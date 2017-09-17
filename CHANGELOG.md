@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 2.14.3 *(2017-09-17)*
+----------------------------
+
+ * Removed some error toast messages after delete, or if image loading failed
+ * Fixed some visual glitches at horizontal scrolling
+ * Disable pull-to-refresh at horizontal scrolling
+ * Many other smaller bugfixes and improvements
+
 Version 2.14.2 *(2017-09-11)*
 ----------------------------
 
