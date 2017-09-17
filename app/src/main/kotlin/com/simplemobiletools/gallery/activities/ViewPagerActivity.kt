@@ -511,8 +511,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val bmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
         bmp.compress(file.getCompressionFormat(), 90, out)
         out.flush()
-        toast(R.string.file_saved)
         out.close()
+        toast(R.string.file_saved)
     }
 
 
