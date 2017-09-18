@@ -200,7 +200,7 @@ class PhotoFragment : ViewPagerFragment() {
     private fun addZoomableView() {
         if ((medium.isImage()) && isFragmentVisible && view.subsampling_view.visibility == View.GONE) {
             view.subsampling_view.apply {
-                setBitmapDecoderClass(GlideDecoder::class.java)
+                //setBitmapDecoderClass(GlideDecoder::class.java)   // causing random crashes on Android 7+
                 maxScale = 10f
                 beVisible()
                 setImage(ImageSource.uri(medium.path))
