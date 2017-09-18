@@ -336,7 +336,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val dir = dirs[position]
-        itemViews.put(position, holder.bindView(dir, pinnedFolders.contains(dir.path), scrollVertically, position))
+        itemViews.put(position, holder.bindView(dir, pinnedFolders.contains(dir.path), scrollVertically))
         toggleItemSelection(selectedPositions.contains(position), position)
         holder.itemView.tag = holder
     }
@@ -395,7 +395,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     class ViewHolder(val view: View, val adapterListener: MyAdapterListener, val activity: SimpleActivity, val multiSelectorCallback: ModalMultiSelectorCallback,
                      val multiSelector: MultiSelector, val listener: DirOperationsListener?, val isPickIntent: Boolean, val itemClick: (Directory) -> (Unit)) :
             SwappingHolder(view, MultiSelector()) {
-        fun bindView(directory: Directory, isPinned: Boolean, scrollVertically: Boolean, position: Int): View {
+        fun bindView(directory: Directory, isPinned: Boolean, scrollVertically: Boolean): View {
             itemView.apply {
                 dir_name.text = directory.name
                 photo_cnt.text = directory.mediaCnt.toString()
@@ -403,29 +403,29 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
                 dir_pin.beVisibleIf(isPinned)
                 dir_sd_card.beVisibleIf(activity.isPathOnSD(directory.path))
 
-                setOnClickListener { viewClicked(directory, position) }
-                setOnLongClickListener { if (isPickIntent) viewClicked(directory, position) else viewLongClicked(position); true }
+                setOnClickListener { viewClicked(directory) }
+                setOnLongClickListener { if (isPickIntent) viewClicked(directory) else viewLongClicked(); true }
             }
             return itemView
         }
 
-        private fun viewClicked(directory: Directory, position: Int) {
+        private fun viewClicked(directory: Directory) {
             if (multiSelector.isSelectable) {
-                val isSelected = adapterListener.getSelectedPositions().contains(position)
-                adapterListener.toggleItemSelectionAdapter(!isSelected, position)
+                val isSelected = adapterListener.getSelectedPositions().contains(layoutPosition)
+                adapterListener.toggleItemSelectionAdapter(!isSelected, layoutPosition)
             } else {
                 itemClick(directory)
             }
         }
 
-        private fun viewLongClicked(position: Int) {
+        private fun viewLongClicked() {
             if (listener != null) {
                 if (!multiSelector.isSelectable) {
                     activity.startSupportActionMode(multiSelectorCallback)
-                    adapterListener.toggleItemSelectionAdapter(true, position)
+                    adapterListener.toggleItemSelectionAdapter(true, layoutPosition)
                 }
 
-                listener.itemLongClicked(position)
+                listener.itemLongClicked(layoutPosition)
             }
         }
 

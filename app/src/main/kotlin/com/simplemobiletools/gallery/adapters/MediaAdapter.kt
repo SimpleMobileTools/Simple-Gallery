@@ -251,7 +251,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        itemViews.put(position, holder.bindView(media[position], displayFilenames, scrollVertically, position))
+        itemViews.put(position, holder.bindView(media[position], displayFilenames, scrollVertically))
         toggleItemSelection(selectedPositions.contains(position), position)
         holder.itemView.tag = holder
     }
@@ -315,36 +315,36 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     class ViewHolder(val view: View, val adapterListener: MyAdapterListener, val activity: SimpleActivity, val multiSelectorCallback: ModalMultiSelectorCallback,
                      val multiSelector: MultiSelector, val listener: MediaOperationsListener?, val isPickIntent: Boolean, val itemClick: (Medium) -> (Unit)) :
             SwappingHolder(view, MultiSelector()) {
-        fun bindView(medium: Medium, displayFilenames: Boolean, scrollVertically: Boolean, position: Int): View {
+        fun bindView(medium: Medium, displayFilenames: Boolean, scrollVertically: Boolean): View {
             itemView.apply {
                 play_outline.visibility = if (medium.video) View.VISIBLE else View.GONE
                 photo_name.beVisibleIf(displayFilenames)
                 photo_name.text = medium.name
                 activity.loadImage(medium.path, medium_thumbnail, scrollVertically)
 
-                setOnClickListener { viewClicked(medium, position) }
-                setOnLongClickListener { if (isPickIntent) viewClicked(medium, position) else viewLongClicked(position); true }
+                setOnClickListener { viewClicked(medium) }
+                setOnLongClickListener { if (isPickIntent) viewClicked(medium) else viewLongClicked(); true }
             }
             return itemView
         }
 
-        private fun viewClicked(medium: Medium, position: Int) {
+        private fun viewClicked(medium: Medium) {
             if (multiSelector.isSelectable) {
-                val isSelected = adapterListener.getSelectedPositions().contains(position)
-                adapterListener.toggleItemSelectionAdapter(!isSelected, position)
+                val isSelected = adapterListener.getSelectedPositions().contains(layoutPosition)
+                adapterListener.toggleItemSelectionAdapter(!isSelected, layoutPosition)
             } else {
                 itemClick(medium)
             }
         }
 
-        private fun viewLongClicked(position: Int) {
+        private fun viewLongClicked() {
             if (listener != null) {
                 if (!multiSelector.isSelectable) {
                     activity.startSupportActionMode(multiSelectorCallback)
-                    adapterListener.toggleItemSelectionAdapter(true, position)
+                    adapterListener.toggleItemSelectionAdapter(true, layoutPosition)
                 }
 
-                listener.itemLongClicked(position)
+                listener.itemLongClicked(layoutPosition)
             }
         }
 
