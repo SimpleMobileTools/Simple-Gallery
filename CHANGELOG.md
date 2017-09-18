@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 2.14.4 *(2017-09-18)*
+----------------------------
+
+ * Revert to the old way of loading fullscreen images to avoid issues on Android 7+
+
 Version 2.14.3 *(2017-09-17)*
 ----------------------------
 
