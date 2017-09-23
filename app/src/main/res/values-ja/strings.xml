@@ -9,7 +9,7 @@
     <string name="hidden">(非表示)</string>
     <string name="pin_folder">フォルダーをピン留めする</string>
     <string name="unpin_folder">フォルダーのピン留めを外す</string>
-    <string name="show_all">すべてのフォルダーの内容を表示</string>
+    <string name="show_all">全てを表示</string>
     <string name="all_folders">すべてのフォルダー</string>
     <string name="folder_view">フォルダーを選択する</string>
     <string name="other_folder">その他のフォルダー</string>
@@ -17,8 +17,8 @@
     <string name="unknown_location">位置情報がありません</string>
     <string name="no_map_application">地図アプリが見つかりません</string>
     <string name="no_camera_app_found">カメラアプリが見つかりません</string>
-    <string name="increase_column_count">表示列数を増やす</string>
-    <string name="reduce_column_count">表示列数を減らす</string>
+    <string name="increase_column_count">列数を増やす</string>
+    <string name="reduce_column_count">列数を減らす</string>
     <string name="change_cover_image">カバー画像を変更</string>
     <string name="select_photo">写真を選択</string>
     <string name="use_default">デフォルトに戻す</string>
@@ -27,7 +27,7 @@
     <string name="brightness">明るさ</string>
 
     <!-- Filter -->
-    <string name="filter_media">絞り込み</string>
+    <string name="filter_media">表示メディア種</string>
     <string name="images">画像</string>
     <string name="videos">ビデオ</string>
     <string name="gifs">GIF</string>
