@@ -77,9 +77,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
             dirs.add(directory)
         }
 
-        Directory.sorting = config.directorySorting
-        dirs.sort()
-        return movePinnedToFront(dirs)
+        return dirs
     }
 
     private fun groupDirectories(media: ArrayList<Medium>): HashMap<String, ArrayList<Medium>> {
@@ -132,16 +130,6 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
 
     private fun isThisOrParentExcluded(path: String, excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>) =
             includedPaths.none { path.startsWith(it) } && excludedPaths.any { path.startsWith(it) }
-
-    private fun movePinnedToFront(dirs: ArrayList<Directory>): ArrayList<Directory> {
-        val foundFolders = ArrayList<Directory>()
-        val pinnedFolders = config.pinnedFolders
-
-        dirs.forEach { if (pinnedFolders.contains(it.path)) foundFolders.add(it) }
-        dirs.removeAll(foundFolders)
-        dirs.addAll(0, foundFolders)
-        return dirs
-    }
 
     override fun onPostExecute(dirs: ArrayList<Directory>) {
         super.onPostExecute(dirs)

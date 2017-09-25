@@ -19,6 +19,8 @@ import com.google.gson.Gson
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
+import com.simplemobiletools.commons.helpers.SORT_BY_DATE_TAKEN
 import com.simplemobiletools.commons.models.Release
 import com.simplemobiletools.commons.views.MyScalableRecyclerView
 import com.simplemobiletools.gallery.BuildConfig
@@ -220,7 +222,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun showSortingDialog() {
         ChangeSortingDialog(this, true, false) {
-            getDirectories()
+            if (config.directorySorting and SORT_BY_DATE_MODIFIED > 0 || config.directorySorting and SORT_BY_DATE_TAKEN > 0) {
+                getDirectories()
+            } else {
+                gotDirectories(mDirs, true)
+            }
         }
     }
 
@@ -420,7 +426,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
     }
 
-    private fun gotDirectories(dirs: ArrayList<Directory>, isFromCache: Boolean) {
+    private fun gotDirectories(newDirs: ArrayList<Directory>, isFromCache: Boolean) {
+        val dirs = getSortedDirectories(newDirs)
+
         mLastMediaModified = getLastMediaModified()
         directories_refresh_layout.isRefreshing = false
         mIsGettingDirs = false
@@ -429,8 +437,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         directories_empty_text.beVisibleIf(dirs.isEmpty() && !isFromCache)
 
         checkLastMediaChanged()
-        if (dirs.hashCode() == mDirs.hashCode())
+        if (dirs.hashCode() == mDirs.hashCode()) {
             return
+        }
 
         mDirs = dirs
 

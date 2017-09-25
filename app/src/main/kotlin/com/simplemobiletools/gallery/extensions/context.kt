@@ -17,6 +17,7 @@ import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
 import com.simplemobiletools.commons.helpers.SORT_DESCENDING
 import com.simplemobiletools.gallery.activities.SettingsActivity
 import com.simplemobiletools.gallery.helpers.*
+import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 
@@ -288,4 +289,22 @@ fun Context.getLastMediaModified(): Int {
         cursor?.close()
     }
     return 0
+}
+
+fun Context.movePinnedDirectoriesToFront(dirs: ArrayList<Directory>): ArrayList<Directory> {
+    val foundFolders = ArrayList<Directory>()
+    val pinnedFolders = config.pinnedFolders
+
+    dirs.forEach { if (pinnedFolders.contains(it.path)) foundFolders.add(it) }
+    dirs.removeAll(foundFolders)
+    dirs.addAll(0, foundFolders)
+    return dirs
+}
+
+@Suppress("UNCHECKED_CAST")
+fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Directory> {
+    Directory.sorting = config.directorySorting
+    val dirs = source.clone() as ArrayList<Directory>
+    dirs.sort()
+    return movePinnedDirectoriesToFront(dirs)
 }

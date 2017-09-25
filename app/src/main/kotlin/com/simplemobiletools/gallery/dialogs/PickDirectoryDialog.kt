@@ -15,6 +15,7 @@ import com.simplemobiletools.gallery.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getCachedDirectories
+import com.simplemobiletools.gallery.extensions.getSortedDirectories
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.dialog_directory_picker.view.*
 
@@ -47,19 +48,20 @@ class PickDirectoryDialog(val activity: SimpleActivity, val sourcePath: String, 
         }
     }
 
-    fun showOtherFolder() {
+    private fun showOtherFolder() {
         val showHidden = activity.config.shouldShowHidden
         FilePickerDialog(activity, sourcePath, false, showHidden, true) {
             callback(it)
         }
     }
 
-    private fun gotDirectories(directories: ArrayList<Directory>) {
-        if (directories.hashCode() == shownDirectories.hashCode())
+    private fun gotDirectories(newDirs: ArrayList<Directory>) {
+        val dirs = activity.getSortedDirectories(newDirs)
+        if (dirs.hashCode() == shownDirectories.hashCode())
             return
 
-        shownDirectories = directories
-        val adapter = DirectoryAdapter(activity, directories, null, true) {
+        shownDirectories = dirs
+        val adapter = DirectoryAdapter(activity, dirs, null, true) {
             if (it.path.trimEnd('/') == sourcePath) {
                 activity.toast(R.string.source_and_destination_same)
                 return@DirectoryAdapter
