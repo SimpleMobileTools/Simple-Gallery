@@ -38,7 +38,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
             // make sure the path has uppercase letters wherever appropriate
             val groupPath = File(curMedia.first().path).parent
             if (!File(groupPath).exists() || !shouldFolderBeVisible(groupPath, excludedPaths, includedPaths)) {
-                removePaths.add(groupPath)
+                removePaths.add(groupPath.toLowerCase())
             }
         }
 
