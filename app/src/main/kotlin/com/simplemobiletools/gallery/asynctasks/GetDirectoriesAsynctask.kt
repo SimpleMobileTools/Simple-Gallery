@@ -34,9 +34,11 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         val directories = groupDirectories(media)
 
         val removePaths = ArrayList<String>()
-        directories.keys.forEach {
-            if (!File(it).exists() || !shouldFolderBeVisible(it, excludedPaths, includedPaths)) {
-                removePaths.add(it)
+        for ((path, curMedia) in directories) {
+            // make sure the path has uppercase letters wherever appropriate
+            val groupPath = File(curMedia.first().path).parent
+            if (!File(groupPath).exists() || !shouldFolderBeVisible(groupPath, excludedPaths, includedPaths)) {
+                removePaths.add(groupPath)
             }
         }
 
@@ -66,7 +68,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                 else -> parentDir.getFilenameFromPath()
             }
 
-            if (File(path).containsNoMedia()) {
+            if (File(parentDir).containsNoMedia()) {
                 dirName += " $hidden"
             }
 
