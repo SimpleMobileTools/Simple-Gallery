@@ -5,7 +5,6 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.AsyncTask
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -216,7 +215,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mCurrAsyncTask = GetDirectoriesAsynctask(applicationContext, mIsPickVideoIntent || mIsGetVideoContentIntent, mIsPickImageIntent || mIsGetImageContentIntent) {
             gotDirectories(addTempFolderIfNeeded(it), false)
         }
-        mCurrAsyncTask!!.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR)
+        mCurrAsyncTask!!.execute()
     }
 
     private fun showSortingDialog() {
