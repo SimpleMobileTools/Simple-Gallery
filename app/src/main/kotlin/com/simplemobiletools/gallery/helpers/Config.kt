@@ -28,17 +28,17 @@ class Config(context: Context) : BaseConfig(context) {
         if (path.isEmpty()) {
             fileSorting = value
         } else {
-            prefs.edit().putInt(SORT_FOLDER_PREFIX + path, value).apply()
+            prefs.edit().putInt(SORT_FOLDER_PREFIX + path.toLowerCase(), value).apply()
         }
     }
 
-    fun getFileSorting(path: String) = prefs.getInt(SORT_FOLDER_PREFIX + path, fileSorting)
+    fun getFileSorting(path: String) = prefs.getInt(SORT_FOLDER_PREFIX + path.toLowerCase(), fileSorting)
 
     fun removeFileSorting(path: String) {
-        prefs.edit().remove(SORT_FOLDER_PREFIX + path).apply()
+        prefs.edit().remove(SORT_FOLDER_PREFIX + path.toLowerCase()).apply()
     }
 
-    fun hasCustomSorting(path: String) = prefs.contains(SORT_FOLDER_PREFIX + path)
+    fun hasCustomSorting(path: String) = prefs.contains(SORT_FOLDER_PREFIX + path.toLowerCase())
 
     var wasHideFolderTooltipShown: Boolean
         get() = prefs.getBoolean(HIDE_FOLDER_TOOLTIP_SHOWN, false)

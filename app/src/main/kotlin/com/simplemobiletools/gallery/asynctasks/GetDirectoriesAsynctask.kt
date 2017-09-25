@@ -6,10 +6,12 @@ import com.simplemobiletools.commons.extensions.getFilenameFromPath
 import com.simplemobiletools.commons.extensions.hasWriteStoragePermission
 import com.simplemobiletools.commons.extensions.internalStoragePath
 import com.simplemobiletools.commons.extensions.sdCardPath
+import com.simplemobiletools.commons.helpers.SORT_DESCENDING
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.containsNoMedia
 import com.simplemobiletools.gallery.extensions.getFilesFrom
+import com.simplemobiletools.gallery.extensions.sumByLong
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
@@ -19,7 +21,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                               val callback: (dirs: ArrayList<Directory>) -> Unit) : AsyncTask<Void, Void, ArrayList<Directory>>() {
     var config = context.config
     var shouldStop = false
-    val showHidden = config.shouldShowHidden
+    private val showHidden = config.shouldShowHidden
 
     override fun doInBackground(vararg params: Void): ArrayList<Directory> {
         if (!context.hasWriteStoragePermission())
@@ -28,53 +30,71 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         val media = context.getFilesFrom("", isPickImage, isPickVideo)
         val excludedPaths = config.excludedFolders
         val includedPaths = config.includedFolders
+        val hidden = context.resources.getString(R.string.hidden)
         val directories = groupDirectories(media)
-        val dirs = ArrayList(directories.values
-                .filter { File(it.path).exists() })
-                .filter { shouldFolderBeVisible(it.path, excludedPaths, includedPaths) } as ArrayList<Directory>
+
+        val removePaths = ArrayList<String>()
+        directories.keys.forEach {
+            if (!File(it).exists() || !shouldFolderBeVisible(it, excludedPaths, includedPaths)) {
+                removePaths.add(it)
+            }
+        }
+
+        removePaths.forEach {
+            directories.remove(it)
+        }
+
+        val dirs = ArrayList<Directory>()
+        val albumCovers = config.parseAlbumCovers()
+        for ((path, curMedia) in directories) {
+            Medium.sorting = config.getFileSorting(path)
+            curMedia.sort()
+
+            val firstItem = curMedia.first()
+            val lastItem = curMedia.last()
+            val parentDir = File(firstItem.path).parent
+            var thumbnail = firstItem.path
+            albumCovers.forEach {
+                if (it.path == parentDir && File(it.tmb).exists()) {
+                    thumbnail = it.tmb
+                }
+            }
+
+            var dirName = when (parentDir) {
+                context.internalStoragePath -> context.getString(R.string.internal)
+                context.sdCardPath -> context.getString(R.string.sd_card)
+                else -> parentDir.getFilenameFromPath()
+            }
+
+            if (File(path).containsNoMedia()) {
+                dirName += " $hidden"
+            }
+
+            val lastModified = if (config.directorySorting and SORT_DESCENDING > 0) Math.max(firstItem.modified, lastItem.modified) else Math.min(firstItem.modified, lastItem.modified)
+            val dateTaken = if (config.directorySorting and SORT_DESCENDING > 0) Math.max(firstItem.taken, lastItem.taken) else Math.min(firstItem.taken, lastItem.taken)
+            val size = curMedia.sumByLong { it.size }
+            val directory = Directory(parentDir, thumbnail, dirName, curMedia.size, lastModified, dateTaken, size)
+            dirs.add(directory)
+        }
+
         Directory.sorting = config.directorySorting
         dirs.sort()
         return movePinnedToFront(dirs)
     }
 
-    private fun groupDirectories(media: ArrayList<Medium>): Map<String, Directory> {
-        val albumCovers = config.parseAlbumCovers()
-        val hidden = context.resources.getString(R.string.hidden)
-        val directories = LinkedHashMap<String, Directory>()
-        for ((name, path, isVideo, dateModified, dateTaken, size) in media) {
-            if (shouldStop)
+    private fun groupDirectories(media: ArrayList<Medium>): HashMap<String, ArrayList<Medium>> {
+        val directories = LinkedHashMap<String, ArrayList<Medium>>()
+        for (medium in media) {
+            if (shouldStop) {
                 cancel(true)
+                break
+            }
 
-            val parentDir = File(path).parent ?: continue
-            if (directories.containsKey(parentDir.toLowerCase())) {
-                val directory = directories[parentDir.toLowerCase()]!!
-                val newImageCnt = directory.mediaCnt + 1
-                directory.mediaCnt = newImageCnt
-                directory.addSize(size)
+            val parentDir = File(medium.path).parent?.toLowerCase() ?: continue
+            if (directories.containsKey(parentDir)) {
+                directories[parentDir]!!.add(medium)
             } else {
-                var dirName = parentDir.getFilenameFromPath()
-                if (parentDir == context.internalStoragePath) {
-                    dirName = context.getString(R.string.internal)
-                } else if (parentDir == context.sdCardPath) {
-                    dirName = context.getString(R.string.sd_card)
-                }
-
-                if (File(parentDir).containsNoMedia()) {
-                    dirName += " $hidden"
-
-                    if (!showHidden)
-                        continue
-                }
-
-                var thumbnail = path
-                albumCovers.forEach {
-                    if (it.path == parentDir && File(it.tmb).exists()) {
-                        thumbnail = it.tmb
-                    }
-                }
-
-                val directory = Directory(parentDir, thumbnail, dirName, 1, dateModified, dateTaken, size)
-                directories.put(parentDir.toLowerCase(), directory)
+                directories.put(parentDir, arrayListOf(medium))
             }
         }
         return directories
@@ -86,7 +106,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
             true
         } else if (isThisOrParentExcluded(path, excludedPaths, includedPaths)) {
             false
-        } else if (!config.shouldShowHidden && file.isDirectory && file.canonicalFile == file.absoluteFile) {
+        } else if (!showHidden && file.isDirectory && file.canonicalFile == file.absoluteFile) {
             var containsNoMediaOrDot = file.containsNoMedia() || path.contains("/.")
             if (!containsNoMediaOrDot) {
                 containsNoMediaOrDot = checkParentHasNoMedia(file.parentFile)
