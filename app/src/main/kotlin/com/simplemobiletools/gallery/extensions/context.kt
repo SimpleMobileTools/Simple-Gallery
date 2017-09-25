@@ -20,6 +20,10 @@ import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
+import java.util.LinkedHashMap
+import kotlin.collections.ArrayList
+import kotlin.collections.component1
+import kotlin.collections.component2
 
 val Context.portrait get() = resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
 val Context.audioManager get() = getSystemService(Context.AUDIO_SERVICE) as AudioManager
@@ -300,6 +304,75 @@ fun Context.movePinnedDirectoriesToFront(dirs: ArrayList<Directory>): ArrayList<
     dirs.addAll(0, foundFolders)
     return dirs
 }
+
+fun Context.getMediaByDirectories(isPickVideo: Boolean, isPickImage: Boolean): HashMap<String, ArrayList<Medium>> {
+    val media = getFilesFrom("", isPickImage, isPickVideo)
+    val excludedPaths = config.excludedFolders
+    val includedPaths = config.includedFolders
+    val showHidden = config.shouldShowHidden
+    val directories = groupDirectories(media)
+
+    val removePaths = ArrayList<String>()
+    for ((path, curMedia) in directories) {
+        // make sure the path has uppercase letters wherever appropriate
+        val groupPath = File(curMedia.first().path).parent
+        if (!File(groupPath).exists() || !shouldFolderBeVisible(groupPath, excludedPaths, includedPaths, showHidden)) {
+            removePaths.add(groupPath.toLowerCase())
+        }
+    }
+
+    removePaths.forEach {
+        directories.remove(it)
+    }
+
+    return directories
+}
+
+private fun groupDirectories(media: ArrayList<Medium>): HashMap<String, ArrayList<Medium>> {
+    val directories = LinkedHashMap<String, ArrayList<Medium>>()
+    for (medium in media) {
+        val parentDir = File(medium.path).parent?.toLowerCase() ?: continue
+        if (directories.containsKey(parentDir)) {
+            directories[parentDir]!!.add(medium)
+        } else {
+            directories.put(parentDir, arrayListOf(medium))
+        }
+    }
+    return directories
+}
+
+private fun shouldFolderBeVisible(path: String, excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>, showHidden: Boolean): Boolean {
+    val file = File(path)
+    return if (includedPaths.contains(path)) {
+        true
+    } else if (isThisOrParentExcluded(path, excludedPaths, includedPaths)) {
+        false
+    } else if (!showHidden && file.isDirectory && file.canonicalFile == file.absoluteFile) {
+        var containsNoMediaOrDot = file.containsNoMedia() || path.contains("/.")
+        if (!containsNoMediaOrDot) {
+            containsNoMediaOrDot = checkParentHasNoMedia(file.parentFile)
+        }
+        !containsNoMediaOrDot
+    } else {
+        true
+    }
+}
+
+private fun checkParentHasNoMedia(file: File): Boolean {
+    var curFile = file
+    while (true) {
+        if (curFile.containsNoMedia()) {
+            return true
+        }
+        curFile = curFile.parentFile
+        if (curFile.absolutePath == "/")
+            break
+    }
+    return false
+}
+
+private fun isThisOrParentExcluded(path: String, excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>) =
+        includedPaths.none { path.startsWith(it) } && excludedPaths.any { path.startsWith(it) }
 
 @Suppress("UNCHECKED_CAST")
 fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Directory> {
