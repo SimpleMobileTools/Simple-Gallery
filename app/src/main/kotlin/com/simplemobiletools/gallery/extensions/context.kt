@@ -300,22 +300,6 @@ fun Context.getNoMediaFolders(): ArrayList<String> {
     return folders
 }
 
-fun Context.getLastMediaModified(): Int {
-    val max = "max"
-    val uri = MediaStore.Files.getContentUri("external")
-    val projection = arrayOf(MediaStore.Images.Media._ID, "MAX(${MediaStore.Images.Media.DATE_MODIFIED}) AS $max")
-    var cursor: Cursor? = null
-    try {
-        cursor = contentResolver.query(uri, projection, null, null, null)
-        if (cursor?.moveToFirst() == true) {
-            return cursor.getIntValue(max)
-        }
-    } finally {
-        cursor?.close()
-    }
-    return 0
-}
-
 fun Context.movePinnedDirectoriesToFront(dirs: ArrayList<Directory>): ArrayList<Directory> {
     val foundFolders = ArrayList<Directory>()
     val pinnedFolders = config.pinnedFolders

@@ -56,7 +56,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
     private var mLoadedInitialPhotos = false
-    private var mLastMediaModified = 0
+    private var mLatestMediaId = 0L
     private var mLastMediaHandler = Handler()
 
     private var mCurrAsyncTask: GetDirectoriesAsynctask? = null
@@ -428,7 +428,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun gotDirectories(newDirs: ArrayList<Directory>, isFromCache: Boolean) {
         val dirs = getSortedDirectories(newDirs)
 
-        mLastMediaModified = getLastMediaModified()
+        mLatestMediaId = getLatestMediaId()
         directories_refresh_layout.isRefreshing = false
         mIsGettingDirs = false
 
@@ -491,9 +491,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mLastMediaHandler.removeCallbacksAndMessages(null)
         mLastMediaHandler.postDelayed({
             Thread({
-                val lastModified = getLastMediaModified()
-                if (mLastMediaModified != lastModified) {
-                    mLastMediaModified = lastModified
+                val mediaId = getLatestMediaId()
+                if (mLatestMediaId != mediaId) {
+                    mLatestMediaId = mediaId
                     runOnUiThread {
                         getDirectories()
                     }

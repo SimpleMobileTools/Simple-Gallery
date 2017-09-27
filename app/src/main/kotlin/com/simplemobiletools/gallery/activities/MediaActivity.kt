@@ -51,7 +51,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
     private var mLastDrawnHashCode = 0
-    private var mLastMediaModified = 0
+    private var mLatestMediaId = 0L
     private var mLastMediaHandler = Handler()
 
     companion object {
@@ -181,9 +181,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         mLastMediaHandler.removeCallbacksAndMessages(null)
         mLastMediaHandler.postDelayed({
             Thread({
-                val lastModified = getLastMediaModified()
-                if (mLastMediaModified != lastModified) {
-                    mLastMediaModified = lastModified
+                val mediaId = getLatestMediaId()
+                if (mLatestMediaId != mediaId) {
+                    mLatestMediaId = mediaId
                     runOnUiThread {
                         getMedia()
                     }
@@ -463,7 +463,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun gotMedia(media: ArrayList<Medium>, isFromCache: Boolean = false) {
-        mLastMediaModified = getLastMediaModified()
+        mLatestMediaId = getLatestMediaId()
         mIsGettingMedia = false
         media_refresh_layout.isRefreshing = false
 
