@@ -26,7 +26,7 @@ data class Medium(var name: String, var path: String, val video: Boolean, val mo
     override fun compareTo(other: Medium): Int {
         var result: Int
         when {
-            sorting and SORT_BY_NAME != 0 -> result = AlphanumComparator().compare(name.toLowerCase(), other.name.toLowerCase())
+            sorting and SORT_BY_NAME != 0 -> result = AlphanumericComparator().compare(name.toLowerCase(), other.name.toLowerCase())
             sorting and SORT_BY_SIZE != 0 -> result = when {
                 size == other.size -> 0
                 size > other.size -> 1

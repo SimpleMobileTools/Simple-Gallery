@@ -17,7 +17,7 @@ data class Directory(val path: String, val tmb: String, val name: String, var me
     override fun compareTo(other: Directory): Int {
         var result: Int
         when {
-            sorting and SORT_BY_NAME != 0 -> result = AlphanumComparator().compare(name.toLowerCase(), other.name.toLowerCase())
+            sorting and SORT_BY_NAME != 0 -> result = AlphanumericComparator().compare(name.toLowerCase(), other.name.toLowerCase())
             sorting and SORT_BY_SIZE != 0 -> result = when {
                 size == other.size -> 0
                 size > other.size -> 1
