@@ -89,14 +89,35 @@ fun Context.getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boo
             MediaStore.Images.Media.DATA,
             MediaStore.Images.Media.SIZE)
     val uri = MediaStore.Files.getContentUri("external")
-    val selection = if (curPath.isEmpty()) null else "(${MediaStore.Images.Media.DATA} LIKE ? AND ${MediaStore.Images.Media.DATA} NOT LIKE ?)"
-    val selectionArgs = if (curPath.isEmpty()) null else arrayOf("$curPath/%", "$curPath/%/%")
+    val selection = getSelectionQuery(curPath)
+    val selectionArgs = getSelectionArgsQuery(curPath)
 
     return try {
         val cur = contentResolver.query(uri, projection, selection, selectionArgs, getSortingForFolder(curPath))
         parseCursor(this, cur, isPickImage, isPickVideo, curPath)
     } catch (e: Exception) {
         ArrayList()
+    }
+}
+
+fun Context.getSelectionQuery(path: String): String {
+    val dataQuery = "${MediaStore.Images.Media.DATA} LIKE ?"
+    return if (path.isEmpty()) {
+        var query = "($dataQuery)"
+        if (hasExternalSDCard()) {
+            query += " OR ($dataQuery)"
+        }
+        query
+    } else {
+        "($dataQuery AND ${MediaStore.Images.Media.DATA} NOT LIKE ?)"
+    }
+}
+
+fun Context.getSelectionArgsQuery(path: String): Array<String> {
+    return if (path.isEmpty()) {
+        if (hasExternalSDCard()) arrayOf("$internalStoragePath/%", "$sdCardPath/%") else arrayOf("$internalStoragePath/%")
+    } else {
+        arrayOf("$path/%", "$path/%/%")
     }
 }
 
