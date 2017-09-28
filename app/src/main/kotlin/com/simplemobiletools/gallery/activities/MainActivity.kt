@@ -181,7 +181,12 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 showAllMedia()
             else
                 getDirectories()
-            setupLayoutManager()
+
+            if (config.viewTypeFolders == VIEW_TYPE_GRID)
+                setupGridLayoutManager()
+            else
+                setupListLayoutManager()
+
             checkIfColorChanged()
         } else {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), STORAGE_PERMISSION)
@@ -295,7 +300,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun getRecyclerAdapter() = (directories_grid.adapter as DirectoryAdapter)
 
-    private fun setupLayoutManager() {
+    private fun setupGridLayoutManager() {
         val layoutManager = directories_grid.layoutManager as GridLayoutManager
         if (config.scrollHorizontally) {
             layoutManager.orientation = GridLayoutManager.HORIZONTAL
@@ -331,6 +336,14 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 getRecyclerAdapter().selectRange(initialSelection, lastDraggedIndex, minReached, maxReached)
             }
         }
+    }
+
+    private fun setupListLayoutManager() {
+        directories_grid.isDragSelectionEnabled = true
+        directories_grid.isZoomingEnabled = false
+
+        val layoutManager = directories_grid.layoutManager as GridLayoutManager
+        layoutManager.spanCount = 1
     }
 
     private fun createNewFolder() {
