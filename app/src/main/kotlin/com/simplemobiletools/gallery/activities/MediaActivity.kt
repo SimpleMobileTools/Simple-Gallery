@@ -95,7 +95,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         if (mStoredScrollHorizontally != config.scrollHorizontally) {
             media_grid.adapter?.let {
-                (it as MediaAdapter).scrollVertically = !config.scrollHorizontally
+                (it as MediaAdapter).scrollVertically = config.viewTypeFiles == VIEW_TYPE_LIST || !config.scrollHorizontally
                 it.notifyDataSetChanged()
             }
             setupScrollDirection()

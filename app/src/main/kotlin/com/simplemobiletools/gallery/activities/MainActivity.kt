@@ -135,7 +135,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
         if (mStoredScrollHorizontally != config.scrollHorizontally) {
             directories_grid.adapter?.let {
-                (it as DirectoryAdapter).scrollVertically = !config.scrollHorizontally
+                (it as DirectoryAdapter).scrollVertically = config.viewTypeFolders == VIEW_TYPE_LIST || !config.scrollHorizontally
                 it.notifyDataSetChanged()
             }
             setupScrollDirection()

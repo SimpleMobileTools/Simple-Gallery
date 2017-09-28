@@ -53,12 +53,12 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         updateTitle(selectedPositions.size)
     }
 
-    fun updateTitle(cnt: Int) {
+    private fun updateTitle(cnt: Int) {
         actMode?.title = "$cnt / ${media.size}"
         actMode?.invalidate()
     }
 
-    val adapterListener = object : MyAdapterListener {
+    private val adapterListener = object : MyAdapterListener {
         override fun toggleItemSelectionAdapter(select: Boolean, position: Int) {
             toggleItemSelection(select, position)
         }
@@ -66,7 +66,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         override fun getSelectedPositions(): HashSet<Int> = selectedPositions
     }
 
-    val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
+    private val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
         override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
             when (item.itemId) {
                 R.id.cab_properties -> showProperties()
@@ -112,7 +112,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         fun checkHideBtnVisibility(menu: Menu) {
             var hiddenCnt = 0
             var unhiddenCnt = 0
-            selectedPositions.map { media.getOrNull(it) }.filterNotNull().forEach {
+            selectedPositions.mapNotNull { media.getOrNull(it) }.forEach {
                 if (it.name.startsWith('.'))
                     hiddenCnt++
                 else
@@ -184,7 +184,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
     fun selectAll() {
         val cnt = media.size
-        for (i in 0..cnt - 1) {
+        for (i in 0 until cnt) {
             selectedPositions.add(i)
             multiSelector.setSelected(i, 0, true)
             notifyItemChanged(i)
@@ -227,13 +227,9 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             listener?.deleteFiles(files)
 
             val newItems = SparseArray<View>()
-            var curIndex = 0
-            for (i in 0..itemViews.size() - 1) {
-                if (itemViews[i] != null) {
-                    newItems.put(curIndex, itemViews[i])
-                    curIndex++
-                }
-            }
+            (0 until itemViews.size())
+                    .filter { itemViews[it] != null }
+                    .forEachIndexed { curIndex, i -> newItems.put(curIndex, itemViews[i]) }
 
             itemViews = newItems
         }

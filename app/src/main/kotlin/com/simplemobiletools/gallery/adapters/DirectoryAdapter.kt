@@ -56,12 +56,12 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         updateTitle(selectedPositions.size)
     }
 
-    fun updateTitle(cnt: Int) {
+    private fun updateTitle(cnt: Int) {
         actMode?.title = "$cnt / ${dirs.size}"
         actMode?.invalidate()
     }
 
-    val adapterListener = object : MyAdapterListener {
+    private val adapterListener = object : MyAdapterListener {
         override fun toggleItemSelectionAdapter(select: Boolean, position: Int) {
             toggleItemSelection(select, position)
         }
@@ -69,7 +69,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         override fun getSelectedPositions(): HashSet<Int> = selectedPositions
     }
 
-    val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
+    private val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
         override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
             when (item.itemId) {
                 R.id.cab_properties -> showProperties()
@@ -119,7 +119,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         fun checkHideBtnVisibility(menu: Menu) {
             var hiddenCnt = 0
             var unhiddenCnt = 0
-            selectedPositions.map { dirs.getOrNull(it)?.path }.filterNotNull().forEach {
+            selectedPositions.mapNotNull { dirs.getOrNull(it)?.path }.forEach {
                 if (File(it).containsNoMedia())
                     hiddenCnt++
                 else
@@ -134,7 +134,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             val pinnedFolders = config.pinnedFolders
             var pinnedCnt = 0
             var unpinnedCnt = 0
-            selectedPositions.map { dirs.getOrNull(it)?.path }.filterNotNull().forEach {
+            selectedPositions.mapNotNull { dirs.getOrNull(it)?.path }.forEach {
                 if (pinnedFolders.contains(it))
                     pinnedCnt++
                 else
@@ -242,7 +242,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
     fun selectAll() {
         val cnt = dirs.size
-        for (i in 0..cnt - 1) {
+        for (i in 0 until cnt) {
             selectedPositions.add(i)
             notifyItemChanged(i)
         }
@@ -286,13 +286,9 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             listener?.tryDeleteFolders(folders)
 
             val newItems = SparseArray<View>()
-            var curIndex = 0
-            for (i in 0..itemViews.size() - 1) {
-                if (itemViews[i] != null) {
-                    newItems.put(curIndex, itemViews[i])
-                    curIndex++
-                }
-            }
+            (0 until itemViews.size())
+                    .filter { itemViews[it] != null }
+                    .forEachIndexed { curIndex, i -> newItems.put(curIndex, itemViews[i]) }
 
             itemViews = newItems
         }
@@ -330,7 +326,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent?.context).inflate(R.layout.directory_item_grid, parent, false)
+        val view = LayoutInflater.from(parent?.context).inflate(R.layout.directory_item_list, parent, false)
         return ViewHolder(view, adapterListener, activity, multiSelectorMode, multiSelector, listener, isPickIntent, itemClick)
     }
 
