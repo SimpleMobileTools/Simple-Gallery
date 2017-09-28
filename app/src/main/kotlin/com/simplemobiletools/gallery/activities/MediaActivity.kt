@@ -38,7 +38,6 @@ import java.io.File
 import java.io.IOException
 
 class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
-    private val TAG = MediaActivity::class.java.simpleName
     private val SAVE_MEDIA_CNT = 40
     private val LAST_MEDIA_CHECK_PERIOD = 3000L
 
