@@ -210,8 +210,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden
             findItem(R.id.stop_showing_hidden).isVisible = config.temporarilyShowHidden
 
-            findItem(R.id.increase_column_count).isVisible = config.mediaColumnCnt < 10
-            findItem(R.id.reduce_column_count).isVisible = config.mediaColumnCnt > 1
+            findItem(R.id.increase_column_count).isVisible = config.viewTypeFiles == VIEW_TYPE_GRID && config.mediaColumnCnt < 10
+            findItem(R.id.reduce_column_count).isVisible = config.viewTypeFiles == VIEW_TYPE_GRID && config.mediaColumnCnt > 1
         }
 
         return true
@@ -271,6 +271,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         RadioGroupDialog(this, items, config.viewTypeFiles) {
             config.viewTypeFiles = it as Int
+            invalidateOptionsMenu()
         }
     }
 
