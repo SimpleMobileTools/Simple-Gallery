@@ -102,6 +102,11 @@
     <string name="slideshow_ended">Diaporama terminé</string>
     <string name="no_media_for_slideshow">Aucun média trouvé pour le diaporama</string>
 
+    <!-- View types -->
+    <string name="change_view_type">Change view type</string>
+    <string name="grid">Grid</string>
+    <string name="list">List</string>
+
     <!-- Settings -->
     <string name="show_hidden_media">Afficher les dossiers cachés</string>
     <string name="autoplay_videos">Lecture automatique des vidéos</string>

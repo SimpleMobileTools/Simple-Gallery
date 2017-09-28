@@ -18,9 +18,11 @@ import android.widget.FrameLayout
 import com.google.gson.Gson
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
+import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_TAKEN
+import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.models.Release
 import com.simplemobiletools.commons.views.MyScalableRecyclerView
 import com.simplemobiletools.gallery.BuildConfig
@@ -107,6 +109,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             R.id.filter -> showFilterMediaDialog()
             R.id.open_camera -> launchCamera()
             R.id.show_all -> showAllMedia()
+            R.id.change_view_type -> changeViewType()
             R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden()
             R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
             R.id.create_new_folder -> createNewFolder()
@@ -243,6 +246,16 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             startActivity(this)
         }
         finish()
+    }
+
+    private fun changeViewType() {
+        val items = arrayListOf(
+                RadioItem(VIEW_TYPE_GRID, getString(R.string.grid)),
+                RadioItem(VIEW_TYPE_LIST, getString(R.string.list)))
+
+        RadioGroupDialog(this, items, config.viewTypeFolders) {
+            config.viewTypeFolders = it as Int
+        }
     }
 
     private fun tryToggleTemporarilyShowHidden() {

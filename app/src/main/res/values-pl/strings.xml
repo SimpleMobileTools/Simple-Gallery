@@ -102,6 +102,11 @@
     <string name="slideshow_ended">Pokaz slajdów zakończony</string>
     <string name="no_media_for_slideshow">Nie znalazłem multimediów do pokazu slajdów</string>
 
+    <!-- View types -->
+    <string name="change_view_type">Change view type</string>
+    <string name="grid">Grid</string>
+    <string name="list">List</string>
+
     <!-- Settings -->
     <string name="show_hidden_media">Pokazuj ukryte foldery</string>
     <string name="autoplay_videos">Odtwarzaj filmy automatycznie</string>

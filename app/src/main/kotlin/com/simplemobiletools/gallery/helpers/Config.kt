@@ -280,4 +280,12 @@ class Config(context: Context) : BaseConfig(context) {
     var tempFolderPath: String
         get() = prefs.getString(TEMP_FOLDER_PATH, "")
         set(tempFolderPath) = prefs.edit().putString(TEMP_FOLDER_PATH, tempFolderPath).apply()
+
+    var viewTypeFolders: Int
+        get() = prefs.getInt(VIEW_TYPE_FOLDERS, VIEW_TYPE_GRID)
+        set(viewTypeFolders) = prefs.edit().putInt(VIEW_TYPE_FOLDERS, viewTypeFolders).apply()
+
+    var viewTypeFiles: Int
+        get() = prefs.getInt(VIEW_TYPE_FILES, VIEW_TYPE_GRID)
+        set(viewTypeFiles) = prefs.edit().putInt(VIEW_TYPE_FILES, viewTypeFiles).apply()
 }

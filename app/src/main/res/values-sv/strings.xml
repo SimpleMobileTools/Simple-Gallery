@@ -102,6 +102,11 @@
     <string name="slideshow_ended">Bildspelet har avslutats</string>
     <string name="no_media_for_slideshow">Ingen media hittades för bildspelet</string>
 
+    <!-- View types -->
+    <string name="change_view_type">Change view type</string>
+    <string name="grid">Grid</string>
+    <string name="list">List</string>
+
     <!-- Settings -->
     <string name="show_hidden_media">Visa dolda mappar</string>
     <string name="autoplay_videos">Spela upp videos automatiskt</string>

@@ -20,7 +20,9 @@ import com.bumptech.glide.request.transition.Transition
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
+import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.views.MyScalableRecyclerView
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.MediaAdapter
@@ -223,6 +225,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             R.id.toggle_filename -> toggleFilenameVisibility()
             R.id.open_camera -> launchCamera()
             R.id.folder_view -> switchToFolderView()
+            R.id.change_view_type -> changeViewType()
             R.id.hide_folder -> tryHideFolder()
             R.id.unhide_folder -> unhideFolder()
             R.id.exclude_folder -> tryExcludeFolder()
@@ -260,6 +263,16 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         config.showAll = false
         startActivity(Intent(this, MainActivity::class.java))
         finish()
+    }
+
+    private fun changeViewType() {
+        val items = arrayListOf(
+                RadioItem(VIEW_TYPE_GRID, getString(R.string.grid)),
+                RadioItem(VIEW_TYPE_LIST, getString(R.string.list)))
+
+        RadioGroupDialog(this, items, config.viewTypeFiles) {
+            config.viewTypeFiles = it as Int
+        }
     }
 
     private fun tryHideFolder() {

@@ -17,6 +17,10 @@
         android:title="@string/filter_media"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/change_view_type"
+        android:title="@string/change_view_type"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/show_all"
         android:title="@string/show_all"
         app:showAsAction="never"/>
