@@ -22,7 +22,7 @@ import com.simplemobiletools.gallery.dialogs.PickMediumDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.models.AlbumCover
 import com.simplemobiletools.gallery.models.Directory
-import kotlinx.android.synthetic.main.directory_item.view.*
+import kotlinx.android.synthetic.main.directory_item_grid.view.*
 import java.io.File
 import java.util.*
 
@@ -330,7 +330,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent?.context).inflate(R.layout.directory_item, parent, false)
+        val view = LayoutInflater.from(parent?.context).inflate(R.layout.directory_item_grid, parent, false)
         return ViewHolder(view, adapterListener, activity, multiSelectorMode, multiSelector, listener, isPickIntent, itemClick)
     }
 
