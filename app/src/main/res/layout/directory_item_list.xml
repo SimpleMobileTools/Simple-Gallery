@@ -37,6 +37,20 @@
         android:textSize="@dimen/bigger_text_size"/>
 
     <TextView
+        android:id="@+id/dir_path"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/dir_name"
+        android:layout_below="@+id/dir_name"
+        android:layout_marginRight="@dimen/activity_margin"
+        android:alpha="0.4"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:paddingLeft="6dp"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/smaller_text_size"/>
+
+    <TextView
         android:id="@+id/photo_cnt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -79,8 +93,8 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_alignBottom="@+id/dir_thumbnail"
-        android:layout_toRightOf="@+id/dir_thumbnail"
         android:layout_marginTop="2dp"
+        android:layout_toRightOf="@+id/dir_thumbnail"
         android:background="@drawable/divider"/>
 
 </RelativeLayout>

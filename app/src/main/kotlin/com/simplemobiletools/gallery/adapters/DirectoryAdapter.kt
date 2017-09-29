@@ -23,7 +23,7 @@ import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.VIEW_TYPE_LIST
 import com.simplemobiletools.gallery.models.AlbumCover
 import com.simplemobiletools.gallery.models.Directory
-import kotlinx.android.synthetic.main.directory_item_grid.view.*
+import kotlinx.android.synthetic.main.directory_item_list.view.*
 import java.io.File
 import java.util.*
 
@@ -397,6 +397,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         fun bindView(directory: Directory, isPinned: Boolean, scrollVertically: Boolean): View {
             itemView.apply {
                 dir_name.text = directory.name
+                dir_path?.text = "${directory.path.substringBeforeLast("/")}/"
                 photo_cnt.text = directory.mediaCnt.toString()
                 activity.loadImage(directory.tmb, dir_thumbnail, scrollVertically)
                 dir_pin.beVisibleIf(isPinned)
