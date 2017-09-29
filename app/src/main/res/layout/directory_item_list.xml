@@ -31,10 +31,10 @@
         android:layout_toRightOf="@+id/dir_thumbnail"
         android:ellipsize="end"
         android:maxLines="1"
-        android:paddingLeft="@dimen/small_margin"
-        android:paddingRight="@dimen/small_margin"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/normal_text_size"/>
+        android:textSize="@dimen/bigger_text_size"/>
 
     <TextView
         android:id="@+id/photo_cnt"
@@ -46,28 +46,31 @@
         android:textColor="@android:color/white"
         android:textSize="@dimen/smaller_text_size"/>
 
-    <ImageView
-        android:id="@+id/dir_pin"
-        android:layout_width="@dimen/selection_check_size"
-        android:layout_height="@dimen/selection_check_size"
+    <LinearLayout
+        android:id="@+id/dir_icon_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_margin="@dimen/small_margin"
-        android:background="@drawable/circle_black_background"
-        android:padding="@dimen/small_margin"
-        android:src="@drawable/ic_pin"/>
+        android:layout_marginRight="@dimen/small_margin"
+        android:gravity="end"
+        android:orientation="horizontal">
 
-    <ImageView
-        android:id="@+id/dir_sd_card"
-        android:layout_width="@dimen/sd_card_icon_size"
-        android:layout_height="@dimen/sd_card_icon_size"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/dir_pin"
-        android:paddingBottom="@dimen/small_margin"
-        android:paddingEnd="@dimen/small_margin"
-        android:paddingRight="@dimen/small_margin"
-        android:src="@drawable/ic_sd_card"
-        android:visibility="gone"/>
+        <ImageView
+            android:id="@+id/dir_sd_card"
+            android:layout_width="@dimen/sd_card_icon_size"
+            android:layout_height="@dimen/sd_card_icon_size"
+            android:paddingBottom="@dimen/small_margin"
+            android:src="@drawable/ic_sd_card"
+            android:visibility="gone"/>
 
+        <ImageView
+            android:id="@+id/dir_pin"
+            android:layout_width="@dimen/sd_card_icon_size"
+            android:layout_height="@dimen/sd_card_icon_size"
+            android:paddingBottom="@dimen/small_margin"
+            android:src="@drawable/ic_pin"
+            android:visibility="gone"/>
+    </LinearLayout>
 </RelativeLayout>
