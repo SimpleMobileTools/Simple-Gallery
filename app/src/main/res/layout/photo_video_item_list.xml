@@ -47,7 +47,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="@dimen/small_margin"
         android:paddingBottom="6dp"
-        android:src="@drawable/img_play_outline"
+        android:src="@drawable/img_play_outline_empty"
         android:visibility="gone"/>
 
     <TextView

@@ -406,6 +406,8 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
                 if (isListView) {
                     dir_name.setTextColor(textColor)
+                    dir_path.setTextColor(textColor)
+                    photo_cnt.setTextColor(textColor)
                     dir_pin.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
                     dir_sd_card.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
                 }
