@@ -69,7 +69,8 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="@dimen/small_margin"
         android:gravity="end"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/tiny_margin">
 
         <ImageView
             android:id="@+id/dir_sd_card"

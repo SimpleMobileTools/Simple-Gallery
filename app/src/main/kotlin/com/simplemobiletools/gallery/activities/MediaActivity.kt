@@ -212,6 +212,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
             findItem(R.id.increase_column_count).isVisible = config.viewTypeFiles == VIEW_TYPE_GRID && config.mediaColumnCnt < 10
             findItem(R.id.reduce_column_count).isVisible = config.viewTypeFiles == VIEW_TYPE_GRID && config.mediaColumnCnt > 1
+
+            findItem(R.id.toggle_filename).isVisible = config.viewTypeFiles == VIEW_TYPE_GRID
         }
 
         return true
@@ -272,6 +274,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         RadioGroupDialog(this, items, config.viewTypeFiles) {
             config.viewTypeFiles = it as Int
             invalidateOptionsMenu()
+            setupLayoutManager()
+            media_grid.adapter = null
+            setupAdapter()
         }
     }
 
@@ -365,6 +370,13 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun getRecyclerAdapter() = (media_grid.adapter as MediaAdapter)
 
     private fun setupLayoutManager() {
+        if (config.viewTypeFiles == VIEW_TYPE_GRID)
+            setupGridLayoutManager()
+        else
+            setupListLayoutManager()
+    }
+
+    private fun setupGridLayoutManager() {
         val layoutManager = media_grid.layoutManager as GridLayoutManager
         if (config.scrollHorizontally) {
             layoutManager.orientation = GridLayoutManager.HORIZONTAL
@@ -400,6 +412,14 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                 getRecyclerAdapter().selectRange(initialSelection, lastDraggedIndex, minReached, maxReached)
             }
         }
+    }
+
+    private fun setupListLayoutManager() {
+        media_grid.isDragSelectionEnabled = true
+        media_grid.isZoomingEnabled = false
+
+        val layoutManager = media_grid.layoutManager as GridLayoutManager
+        layoutManager.spanCount = 1
     }
 
     private fun increaseColumnCount() {

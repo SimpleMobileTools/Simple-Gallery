@@ -250,7 +250,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        itemViews.put(position, holder.bindView(media[position], displayFilenames, scrollVertically))
+        itemViews.put(position, holder.bindView(media[position], displayFilenames || isListViewType, scrollVertically))
         toggleItemSelection(selectedPositions.contains(position), position)
         holder.itemView.tag = holder
     }
