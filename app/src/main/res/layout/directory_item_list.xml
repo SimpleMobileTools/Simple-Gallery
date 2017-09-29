@@ -73,4 +73,14 @@
             android:src="@drawable/ic_pin"
             android:visibility="gone"/>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/dir_list_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignBottom="@+id/dir_thumbnail"
+        android:layout_toRightOf="@+id/dir_thumbnail"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/divider"/>
+
 </RelativeLayout>

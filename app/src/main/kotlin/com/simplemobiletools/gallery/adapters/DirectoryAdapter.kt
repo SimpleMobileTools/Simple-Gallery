@@ -20,6 +20,7 @@ import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.ExcludeFolderDialog
 import com.simplemobiletools.gallery.dialogs.PickMediumDialog
 import com.simplemobiletools.gallery.extensions.*
+import com.simplemobiletools.gallery.helpers.VIEW_TYPE_LIST
 import com.simplemobiletools.gallery.models.AlbumCover
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.directory_item_grid.view.*
@@ -31,6 +32,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
     val multiSelector = MultiSelector()
     val config = activity.config
+    val isListViewType = config.viewTypeFolders == VIEW_TYPE_LIST
 
     var actMode: ActionMode? = null
     var itemViews = SparseArray<View>()
@@ -326,7 +328,8 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent?.context).inflate(R.layout.directory_item_grid, parent, false)
+        val layoutType = if (isListViewType) R.layout.directory_item_list else R.layout.directory_item_grid
+        val view = LayoutInflater.from(parent?.context).inflate(layoutType, parent, false)
         return ViewHolder(view, adapterListener, activity, multiSelectorMode, multiSelector, listener, isPickIntent, itemClick)
     }
 
