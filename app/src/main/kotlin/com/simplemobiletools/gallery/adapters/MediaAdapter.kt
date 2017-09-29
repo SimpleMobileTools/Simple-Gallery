@@ -35,6 +35,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     var itemViews = SparseArray<View>()
     val selectedPositions = HashSet<Int>()
     var primaryColor = config.primaryColor
+    var textColor = config.textColor
     var displayFilenames = config.displayFileNames
     var scrollVertically = !config.scrollHorizontally
 
@@ -250,7 +251,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        itemViews.put(position, holder.bindView(media[position], displayFilenames || isListViewType, scrollVertically))
+        itemViews.put(position, holder.bindView(media[position], displayFilenames, scrollVertically, isListViewType, textColor))
         toggleItemSelection(selectedPositions.contains(position), position)
         holder.itemView.tag = holder
     }
@@ -314,12 +315,17 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     class ViewHolder(val view: View, val adapterListener: MyAdapterListener, val activity: SimpleActivity, val multiSelectorCallback: ModalMultiSelectorCallback,
                      val multiSelector: MultiSelector, val listener: MediaOperationsListener?, val isPickIntent: Boolean, val itemClick: (Medium) -> (Unit)) :
             SwappingHolder(view, MultiSelector()) {
-        fun bindView(medium: Medium, displayFilenames: Boolean, scrollVertically: Boolean): View {
+        fun bindView(medium: Medium, displayFilenames: Boolean, scrollVertically: Boolean, isListViewType: Boolean, textColor: Int): View {
             itemView.apply {
                 play_outline.visibility = if (medium.video) View.VISIBLE else View.GONE
-                photo_name.beVisibleIf(displayFilenames)
+                photo_name.beVisibleIf(displayFilenames || isListViewType)
                 photo_name.text = medium.name
                 activity.loadImage(medium.path, medium_thumbnail, scrollVertically)
+
+                if (isListViewType) {
+                    photo_name.setTextColor(textColor)
+                    play_outline.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
+                }
 
                 setOnClickListener { viewClicked(medium) }
                 setOnLongClickListener { if (isPickIntent) viewClicked(medium) else viewLongClicked(); true }
