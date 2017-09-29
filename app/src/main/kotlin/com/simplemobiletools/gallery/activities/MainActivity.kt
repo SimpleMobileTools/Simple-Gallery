@@ -182,11 +182,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             else
                 getDirectories()
 
-            if (config.viewTypeFolders == VIEW_TYPE_GRID)
-                setupGridLayoutManager()
-            else
-                setupListLayoutManager()
-
+            setupLayoutManager()
             checkIfColorChanged()
         } else {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), STORAGE_PERMISSION)
@@ -261,6 +257,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         RadioGroupDialog(this, items, config.viewTypeFolders) {
             config.viewTypeFolders = it as Int
             invalidateOptionsMenu()
+            setupLayoutManager()
+            directories_grid.adapter = null
+            setupAdapter()
         }
     }
 
@@ -299,6 +298,13 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun getRecyclerAdapter() = (directories_grid.adapter as DirectoryAdapter)
+
+    private fun setupLayoutManager() {
+        if (config.viewTypeFolders == VIEW_TYPE_GRID)
+            setupGridLayoutManager()
+        else
+            setupListLayoutManager()
+    }
 
     private fun setupGridLayoutManager() {
         val layoutManager = directories_grid.layoutManager as GridLayoutManager
