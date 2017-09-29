@@ -18,8 +18,9 @@ import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.extensions.*
+import com.simplemobiletools.gallery.helpers.VIEW_TYPE_LIST
 import com.simplemobiletools.gallery.models.Medium
-import kotlinx.android.synthetic.main.photo_video_item.view.*
+import kotlinx.android.synthetic.main.photo_video_item_grid.view.*
 import java.io.File
 import java.util.*
 
@@ -28,6 +29,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
     val multiSelector = MultiSelector()
     val config = activity.config
+    val isListViewType = config.viewTypeFiles == VIEW_TYPE_LIST
 
     var actMode: ActionMode? = null
     var itemViews = SparseArray<View>()
@@ -242,7 +244,8 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent?.context).inflate(R.layout.photo_video_item, parent, false)
+        val layoutType = if (isListViewType) R.layout.photo_video_item_list else R.layout.photo_video_item_grid
+        val view = LayoutInflater.from(parent?.context).inflate(layoutType, parent, false)
         return ViewHolder(view, adapterListener, activity, multiSelectorMode, multiSelector, listener, isPickIntent, itemClick)
     }
 
@@ -345,10 +348,8 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         }
 
         fun stopLoad() {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && activity.isDestroyed)
-                return
-
-            Glide.with(activity).clear(view.medium_thumbnail)
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1 || !activity.isDestroyed)
+                Glide.with(activity).clear(view.medium_thumbnail)
         }
     }
 

@@ -430,10 +430,8 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         }
 
         fun stopLoad() {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && activity.isDestroyed)
-                return
-
-            Glide.with(activity).clear(view.dir_thumbnail)
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1 || !activity.isDestroyed)
+                Glide.with(activity).clear(view.dir_thumbnail)
         }
     }
 
