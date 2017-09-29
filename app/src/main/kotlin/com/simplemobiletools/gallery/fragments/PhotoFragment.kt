@@ -33,7 +33,6 @@ import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getFileSignature
 import com.simplemobiletools.gallery.extensions.getRealPathFromURI
 import com.simplemobiletools.gallery.extensions.portrait
-import com.simplemobiletools.gallery.helpers.GlideDecoder
 import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
@@ -252,11 +251,6 @@ class PhotoFragment : ViewPagerFragment() {
         } else {
             2f
         }
-    }
-
-    fun refreshBitmap() {
-        view.subsampling_view.beGone()
-        loadBitmap()
     }
 
     fun rotateImageViewBy(degrees: Float) {
