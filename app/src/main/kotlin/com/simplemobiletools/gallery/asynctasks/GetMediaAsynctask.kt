@@ -3,8 +3,7 @@ package com.simplemobiletools.gallery.asynctasks
 import android.content.Context
 import android.os.AsyncTask
 import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.extensions.getFilesFrom
-import com.simplemobiletools.gallery.extensions.getMediaByDirectories
+import com.simplemobiletools.gallery.helpers.MediaFetcher
 import com.simplemobiletools.gallery.models.Medium
 import java.util.*
 
@@ -14,7 +13,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
 
     override fun doInBackground(vararg params: Void): ArrayList<Medium> {
         return if (showAll) {
-            val mediaMap = context.getMediaByDirectories(isPickVideo, isPickImage)
+            val mediaMap = MediaFetcher(context).getMediaByDirectories(isPickVideo, isPickImage)
             val media = ArrayList<Medium>()
             for ((path, curMedia) in mediaMap) {
                 media.addAll(curMedia)
@@ -24,7 +23,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
             media.sort()
             media
         } else {
-            context.getFilesFrom(mPath, isPickImage, isPickVideo)
+            MediaFetcher(context).getFilesFrom(mPath, isPickImage, isPickVideo)
         }
     }
 
