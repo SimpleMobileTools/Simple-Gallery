@@ -3,7 +3,6 @@ package com.simplemobiletools.gallery.helpers
 import android.content.Context
 import android.database.Cursor
 import android.provider.MediaStore
-import android.util.Log
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.commons.helpers.SORT_BY_NAME
@@ -19,6 +18,8 @@ import kotlin.collections.component1
 import kotlin.collections.component2
 
 class MediaFetcher(val context: Context) {
+    var shouldStop = false
+
     fun getMediaByDirectories(isPickVideo: Boolean, isPickImage: Boolean): HashMap<String, ArrayList<Medium>> {
         val media = getFilesFrom("", isPickImage, isPickVideo)
         val excludedPaths = context.config.excludedFolders
@@ -96,9 +97,10 @@ class MediaFetcher(val context: Context) {
             if (cur.moveToFirst()) {
                 do {
                     try {
-                        val path = cur.getStringValue(MediaStore.Images.Media.DATA)
+                        if (shouldStop)
+                            break
 
-                        Log.e("DEBUG", "checking $path")
+                        val path = cur.getStringValue(MediaStore.Images.Media.DATA)
                         var filename = cur.getStringValue(MediaStore.Images.Media.DISPLAY_NAME) ?: ""
                         if (filename.isEmpty())
                             filename = path.getFilenameFromPath()
@@ -189,6 +191,9 @@ class MediaFetcher(val context: Context) {
     private fun groupDirectories(media: ArrayList<Medium>): HashMap<String, ArrayList<Medium>> {
         val directories = LinkedHashMap<String, ArrayList<Medium>>()
         for (medium in media) {
+            if (shouldStop)
+                break
+
             val parentDir = File(medium.path).parent?.toLowerCase() ?: continue
             if (directories.containsKey(parentDir)) {
                 directories[parentDir]!!.add(medium)
@@ -236,6 +241,9 @@ class MediaFetcher(val context: Context) {
     private fun getMediaInFolder(folder: String, curMedia: ArrayList<Medium>, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int) {
         val files = File(folder).listFiles() ?: return
         for (file in files) {
+            if (shouldStop)
+                break
+
             val filename = file.name
             val isImage = filename.isImageFast()
             val isVideo = if (isImage) false else filename.isVideoFast()

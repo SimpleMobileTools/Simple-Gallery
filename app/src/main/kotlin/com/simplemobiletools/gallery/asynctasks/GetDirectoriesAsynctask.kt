@@ -18,13 +18,14 @@ import java.io.File
 
 class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, val isPickImage: Boolean,
                               val callback: (dirs: ArrayList<Directory>) -> Unit) : AsyncTask<Void, Void, ArrayList<Directory>>() {
+    val mediaFetcher = MediaFetcher(context)
 
     override fun doInBackground(vararg params: Void): ArrayList<Directory> {
         if (!context.hasWriteStoragePermission())
             return ArrayList()
 
         val config = context.config
-        val groupedMedia = MediaFetcher(context).getMediaByDirectories(isPickVideo, isPickImage)
+        val groupedMedia = mediaFetcher.getMediaByDirectories(isPickVideo, isPickImage)
         val directories = ArrayList<Directory>()
         val hidden = context.resources.getString(R.string.hidden)
         val albumCovers = config.parseAlbumCovers()
@@ -65,5 +66,10 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
     override fun onPostExecute(dirs: ArrayList<Directory>) {
         super.onPostExecute(dirs)
         callback(dirs)
+    }
+
+    fun stopFetching() {
+        mediaFetcher.shouldStop = true
+        cancel(true)
     }
 }

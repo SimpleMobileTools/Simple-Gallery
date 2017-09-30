@@ -61,7 +61,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mLoadedInitialPhotos = false
     private var mLatestMediaId = 0L
     private var mLastMediaHandler = Handler()
-
     private var mCurrAsyncTask: GetDirectoriesAsynctask? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -164,6 +163,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mStoredTextColor = config.textColor
         directories_grid.listener = null
         mLastMediaHandler.removeCallbacksAndMessages(null)
+        mCurrAsyncTask?.stopFetching()
     }
 
     override fun onDestroy() {

@@ -55,6 +55,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mLastDrawnHashCode = 0
     private var mLatestMediaId = 0L
     private var mLastMediaHandler = Handler()
+    private var mCurrAsyncTask: GetMediaAsynctask? = null
 
     companion object {
         var mMedia = ArrayList<Medium>()
@@ -122,6 +123,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         mStoredTextColor = config.textColor
         media_grid.listener = null
         mLastMediaHandler.removeCallbacksAndMessages(null)
+        mCurrAsyncTask?.stopFetching()
     }
 
     override fun onDestroy() {
@@ -344,9 +346,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
 
         mLoadedInitialPhotos = true
-        GetMediaAsynctask(applicationContext, mPath, mIsGetVideoIntent, mIsGetImageIntent, mShowAll) {
+        mCurrAsyncTask = GetMediaAsynctask(applicationContext, mPath, mIsGetVideoIntent, mIsGetImageIntent, mShowAll) {
             gotMedia(it)
-        }.execute()
+        }
+        mCurrAsyncTask!!.execute()
     }
 
     private fun isDirEmpty(): Boolean {
