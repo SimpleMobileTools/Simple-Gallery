@@ -165,7 +165,9 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 mLastTouchY = event.y
             }
             MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
+                val diffX = Math.abs(event.x - mTouchDownX)
+                val diffY = Math.abs(event.y - mTouchDownY)
+                if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION && diffX < 20 && diffY < 20) {
                     mView.video_holder.performClick()
                 }
             }
@@ -201,7 +203,9 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 mLastTouchY = event.y
             }
             MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
+                val diffX = Math.abs(event.x - mTouchDownX)
+                val diffY = Math.abs(event.y - mTouchDownY)
+                if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION && diffX < 20 && diffY < 20) {
                     mView.video_holder.performClick()
                 }
                 mTouchDownBrightness = mTempBrightness
