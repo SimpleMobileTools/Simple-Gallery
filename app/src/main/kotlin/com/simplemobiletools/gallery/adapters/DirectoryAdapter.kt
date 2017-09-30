@@ -351,6 +351,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     fun updateDirs(newDirs: ArrayList<Directory>) {
         dirs = newDirs
         notifyDataSetChanged()
+        actMode?.finish()
     }
 
     fun updateTextColor(textColor: Int) {

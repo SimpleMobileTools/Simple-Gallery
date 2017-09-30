@@ -266,6 +266,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     fun updateMedia(newMedia: ArrayList<Medium>) {
         media = newMedia
         notifyDataSetChanged()
+        actMode?.finish()
     }
 
     fun updateDisplayFilenames(display: Boolean) {
