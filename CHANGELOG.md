@@ -1,6 +1,16 @@
 Changelog
 ==========
 
+Version 2.15.0 *(2017-10-01)*
+----------------------------
+
+ * Added fingerprint to hidden item protection
+ * Added a new List view type
+ * Fixed an issue with some hidden items being shown at "Show all folders content"
+ * Fixed typing in color hex codes manually with some keyboards
+ * Do not autosave rotated images in any case
+ * Tons of other performance, stability and UX improvements
+
 Version 2.14.4 *(2017-09-18)*
 ----------------------------
 
