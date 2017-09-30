@@ -160,8 +160,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         if (config.isThirdPartyIntent) {
-            mMedia.clear()
             config.isThirdPartyIntent = false
+
+            if (intent.extras == null || !intent.getBooleanExtra(IS_FROM_GALLERY, false)) {
+                mMedia.clear()
+            }
         }
     }
 
