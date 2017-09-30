@@ -57,6 +57,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
+    private var mStoredTextColor = 0
     private var mLoadedInitialPhotos = false
     private var mLatestMediaId = 0L
     private var mLastMediaHandler = Handler()
@@ -82,6 +83,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mStoredAnimateGifs = config.animateGifs
         mStoredCropThumbnails = config.cropThumbnails
         mStoredScrollHorizontally = config.scrollHorizontally
+        mStoredTextColor = config.textColor
         storeStoragePaths()
         checkWhatsNewDialog()
 
@@ -134,11 +136,15 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         if (mStoredScrollHorizontally != config.scrollHorizontally) {
-            directories_grid.adapter?.let {
-                (it as DirectoryAdapter).scrollVertically = config.viewTypeFolders == VIEW_TYPE_LIST || !config.scrollHorizontally
-                it.notifyDataSetChanged()
+            (directories_grid.adapter as? DirectoryAdapter)?.apply {
+                scrollVertically = config.viewTypeFolders == VIEW_TYPE_LIST || !config.scrollHorizontally
+                notifyDataSetChanged()
             }
             setupScrollDirection()
+        }
+
+        if (mStoredTextColor != config.textColor) {
+            (directories_grid.adapter as? DirectoryAdapter)?.updateTextColor(config.textColor)
         }
 
         tryloadGallery()
@@ -155,6 +161,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mStoredAnimateGifs = config.animateGifs
         mStoredCropThumbnails = config.cropThumbnails
         mStoredScrollHorizontally = config.scrollHorizontally
+        mStoredTextColor = config.textColor
         directories_grid.listener = null
         mLastMediaHandler.removeCallbacksAndMessages(null)
     }

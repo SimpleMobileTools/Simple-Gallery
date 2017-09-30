@@ -273,6 +273,11 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         notifyDataSetChanged()
     }
 
+    fun updateTextColor(textColor: Int) {
+        this.textColor = textColor
+        notifyDataSetChanged()
+    }
+
     fun selectItem(pos: Int) {
         toggleItemSelection(true, pos)
     }

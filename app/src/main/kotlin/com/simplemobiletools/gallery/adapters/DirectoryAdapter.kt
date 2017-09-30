@@ -353,6 +353,11 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         notifyDataSetChanged()
     }
 
+    fun updateTextColor(textColor: Int) {
+        this.textColor = textColor
+        notifyDataSetChanged()
+    }
+
     fun selectItem(pos: Int) {
         toggleItemSelection(true, pos)
     }

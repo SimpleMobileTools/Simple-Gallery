@@ -51,6 +51,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
+    private var mStoredTextColor = 0
     private var mLastDrawnHashCode = 0
     private var mLatestMediaId = 0L
     private var mLastMediaHandler = Handler()
@@ -73,6 +74,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         mStoredAnimateGifs = config.animateGifs
         mStoredCropThumbnails = config.cropThumbnails
         mStoredScrollHorizontally = config.scrollHorizontally
+        mStoredTextColor = config.textColor
         mShowAll = config.showAll
         if (mShowAll)
             supportActionBar?.setDisplayHomeAsUpEnabled(false)
@@ -93,11 +95,15 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
 
         if (mStoredScrollHorizontally != config.scrollHorizontally) {
-            media_grid.adapter?.let {
-                (it as MediaAdapter).scrollVertically = config.viewTypeFiles == VIEW_TYPE_LIST || !config.scrollHorizontally
-                it.notifyDataSetChanged()
+            (media_grid.adapter as? MediaAdapter)?.apply {
+                scrollVertically = config.viewTypeFiles == VIEW_TYPE_LIST || !config.scrollHorizontally
+                notifyDataSetChanged()
             }
             setupScrollDirection()
+        }
+
+        if (mStoredTextColor != config.textColor) {
+            (media_grid.adapter as? MediaAdapter)?.updateTextColor(config.textColor)
         }
 
         tryloadGallery()
@@ -113,6 +119,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         mStoredAnimateGifs = config.animateGifs
         mStoredCropThumbnails = config.cropThumbnails
         mStoredScrollHorizontally = config.scrollHorizontally
+        mStoredTextColor = config.textColor
         media_grid.listener = null
         mLastMediaHandler.removeCallbacksAndMessages(null)
     }
