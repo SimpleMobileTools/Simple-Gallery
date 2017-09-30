@@ -327,7 +327,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 val dragPosition = animation.animatedValue as Int
                 val dragOffset = dragPosition - oldDragPosition
                 oldDragPosition = dragPosition
-                view_pager.fakeDragBy(dragOffset * (if (forward) 1f else -1f))
+                view_pager?.fakeDragBy(dragOffset * (if (forward) 1f else -1f))
             }
         })
 
