@@ -38,7 +38,7 @@ import java.io.File
 import java.io.IOException
 
 class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
-    private val SAVE_MEDIA_CNT = 40
+    private val SAVE_MEDIA_CNT = 100
     private val LAST_MEDIA_CHECK_PERIOD = 3000L
 
     private var mPath = ""
