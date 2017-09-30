@@ -509,15 +509,16 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun setupScrollDirection() {
+        val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFolders == VIEW_TYPE_GRID
         directories_refresh_layout.isEnabled = !config.scrollHorizontally
 
         directories_vertical_fastscroller.isHorizontal = false
-        directories_vertical_fastscroller.beGoneIf(config.scrollHorizontally)
+        directories_vertical_fastscroller.beGoneIf(allowHorizontalScroll)
 
         directories_horizontal_fastscroller.isHorizontal = true
-        directories_horizontal_fastscroller.beVisibleIf(config.scrollHorizontally)
+        directories_horizontal_fastscroller.beVisibleIf(allowHorizontalScroll)
 
-        if (config.scrollHorizontally) {
+        if (allowHorizontalScroll) {
             directories_horizontal_fastscroller.setViews(directories_grid, directories_refresh_layout)
         } else {
             directories_vertical_fastscroller.setViews(directories_grid, directories_refresh_layout)

@@ -169,15 +169,16 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun setupScrollDirection() {
+        val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFiles == VIEW_TYPE_GRID
         media_refresh_layout.isEnabled = !config.scrollHorizontally
 
         media_vertical_fastscroller.isHorizontal = false
-        media_vertical_fastscroller.beGoneIf(config.scrollHorizontally)
+        media_vertical_fastscroller.beGoneIf(allowHorizontalScroll)
 
         media_horizontal_fastscroller.isHorizontal = true
-        media_horizontal_fastscroller.beVisibleIf(config.scrollHorizontally)
+        media_horizontal_fastscroller.beVisibleIf(allowHorizontalScroll)
 
-        if (config.scrollHorizontally) {
+        if (allowHorizontalScroll) {
             media_horizontal_fastscroller.setViews(media_grid, media_refresh_layout)
         } else {
             media_vertical_fastscroller.setViews(media_grid, media_refresh_layout)

@@ -16,6 +16,7 @@ import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getCachedDirectories
 import com.simplemobiletools.gallery.extensions.getSortedDirectories
+import com.simplemobiletools.gallery.helpers.VIEW_TYPE_GRID
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.dialog_directory_picker.view.*
 
@@ -23,11 +24,12 @@ class PickDirectoryDialog(val activity: SimpleActivity, val sourcePath: String, 
     var dialog: AlertDialog
     var shownDirectories: ArrayList<Directory> = ArrayList()
     var view: View = LayoutInflater.from(activity).inflate(R.layout.dialog_directory_picker, null)
+    var isGridViewType = activity.config.viewTypeFolders == VIEW_TYPE_GRID
 
     init {
         (view.directories_grid.layoutManager as GridLayoutManager).apply {
-            orientation = if (activity.config.scrollHorizontally) GridLayoutManager.HORIZONTAL else GridLayoutManager.VERTICAL
-            spanCount = activity.config.dirColumnCnt
+            orientation = if (activity.config.scrollHorizontally && isGridViewType) GridLayoutManager.HORIZONTAL else GridLayoutManager.VERTICAL
+            spanCount = if (isGridViewType) activity.config.dirColumnCnt else 1
         }
 
         dialog = AlertDialog.Builder(activity)
@@ -71,7 +73,7 @@ class PickDirectoryDialog(val activity: SimpleActivity, val sourcePath: String, 
             }
         }
 
-        val scrollHorizontally = activity.config.scrollHorizontally
+        val scrollHorizontally = activity.config.scrollHorizontally && isGridViewType
         view.apply {
             directories_grid.adapter = adapter
 
