@@ -335,8 +335,8 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
         private fun viewClicked(medium: Medium) {
             if (multiSelector.isSelectable) {
-                val isSelected = adapterListener.getSelectedPositions().contains(layoutPosition)
-                adapterListener.toggleItemSelectionAdapter(!isSelected, layoutPosition)
+                val isSelected = adapterListener.getSelectedPositions().contains(adapterPosition)
+                adapterListener.toggleItemSelectionAdapter(!isSelected, adapterPosition)
             } else {
                 itemClick(medium)
             }
@@ -346,10 +346,10 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             if (listener != null) {
                 if (!multiSelector.isSelectable) {
                     activity.startSupportActionMode(multiSelectorCallback)
-                    adapterListener.toggleItemSelectionAdapter(true, layoutPosition)
+                    adapterListener.toggleItemSelectionAdapter(true, adapterPosition)
                 }
 
-                listener.itemLongClicked(layoutPosition)
+                listener.itemLongClicked(adapterPosition)
             }
         }
 

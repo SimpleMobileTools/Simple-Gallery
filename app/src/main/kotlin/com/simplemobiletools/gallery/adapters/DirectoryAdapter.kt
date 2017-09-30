@@ -420,8 +420,8 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
         private fun viewClicked(directory: Directory) {
             if (multiSelector.isSelectable) {
-                val isSelected = adapterListener.getSelectedPositions().contains(layoutPosition)
-                adapterListener.toggleItemSelectionAdapter(!isSelected, layoutPosition)
+                val isSelected = adapterListener.getSelectedPositions().contains(adapterPosition)
+                adapterListener.toggleItemSelectionAdapter(!isSelected, adapterPosition)
             } else {
                 itemClick(directory)
             }
@@ -431,10 +431,10 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             if (listener != null) {
                 if (!multiSelector.isSelectable) {
                     activity.startSupportActionMode(multiSelectorCallback)
-                    adapterListener.toggleItemSelectionAdapter(true, layoutPosition)
+                    adapterListener.toggleItemSelectionAdapter(true, adapterPosition)
                 }
 
-                listener.itemLongClicked(layoutPosition)
+                listener.itemLongClicked(adapterPosition)
             }
         }
 
