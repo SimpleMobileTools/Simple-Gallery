@@ -357,6 +357,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
         val layoutManager = directories_grid.layoutManager as GridLayoutManager
         layoutManager.spanCount = 1
+        layoutManager.orientation = GridLayoutManager.VERTICAL
+        directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
     private fun createNewFolder() {
