@@ -221,7 +221,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             config.removePinnedFolders(getSelectedPaths())
 
         pinnedFolders = config.pinnedFolders
-        listener?.refreshItems()
+        listener?.recheckPinnedFolders()
         notifyDataSetChanged()
         actMode?.finish()
     }
@@ -462,5 +462,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         fun tryDeleteFolders(folders: ArrayList<File>)
 
         fun itemLongClicked(position: Int)
+
+        fun recheckPinnedFolders()
     }
 }

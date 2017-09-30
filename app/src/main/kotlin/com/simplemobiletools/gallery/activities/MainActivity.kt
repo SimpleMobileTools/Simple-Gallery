@@ -552,6 +552,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         directories_grid.setDragSelectActive(position)
     }
 
+    override fun recheckPinnedFolders() {
+        gotDirectories(movePinnedDirectoriesToFront(mDirs), true)
+    }
+
     private fun checkWhatsNewDialog() {
         arrayListOf<Release>().apply {
             add(Release(46, R.string.release_46))
