@@ -270,8 +270,10 @@ class MediaFetcher(val context: Context) {
 
             val medium = Medium(filename, file.absolutePath, isVideo, dateModified, dateTaken, size)
             val isAlreadyAdded = curMedia.any { it.path == file.absolutePath }
-            if (!isAlreadyAdded)
+            if (!isAlreadyAdded) {
                 curMedia.add(medium)
+                context.scanPath(file.absolutePath) {}
+            }
         }
     }
 
