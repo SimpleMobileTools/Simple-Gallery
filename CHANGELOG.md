@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 2.15.1 *(2017-10-01)*
+----------------------------
+
+ * Updated commons library with minor fixes
+
 Version 2.15.0 *(2017-10-01)*
 ----------------------------
 
