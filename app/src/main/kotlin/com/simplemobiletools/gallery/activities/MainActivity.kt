@@ -252,9 +252,14 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         config.showAll = true
         Intent(this, MediaActivity::class.java).apply {
             putExtra(DIRECTORY, "/")
-            startActivity(this)
+
+            if (mIsThirdPartyIntent) {
+                handleMediaIntent(this)
+            } else {
+                startActivity(this)
+                finish()
+            }
         }
-        finish()
     }
 
     private fun changeViewType() {
@@ -477,7 +482,12 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun itemClicked(path: String) {
         Intent(this, MediaActivity::class.java).apply {
             putExtra(DIRECTORY, path)
+            handleMediaIntent(this)
+        }
+    }
 
+    private fun handleMediaIntent(intent: Intent) {
+        intent.apply {
             if (mIsSetWallpaperIntent) {
                 putExtra(SET_WALLPAPER_INTENT, true)
                 startActivityForResult(this, PICK_WALLPAPER)
