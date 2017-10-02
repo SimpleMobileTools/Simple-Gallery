@@ -25,7 +25,7 @@ import java.io.File
 import java.util.*
 
 class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>, val listener: MediaOperationsListener?, val isPickIntent: Boolean,
-                   val itemClick: (Medium) -> Unit) : RecyclerView.Adapter<MediaAdapter.ViewHolder>() {
+                   val allowMultiplePicks: Boolean, val itemClick: (Medium) -> Unit) : RecyclerView.Adapter<MediaAdapter.ViewHolder>() {
 
     val multiSelector = MultiSelector()
     val config = activity.config
@@ -72,6 +72,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     private val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
         override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
             when (item.itemId) {
+                R.id.cab_confirm_selection -> confirmSelection()
                 R.id.cab_properties -> showProperties()
                 R.id.cab_rename -> renameFile()
                 R.id.cab_edit -> editFile()
@@ -97,6 +98,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu): Boolean {
             menu.findItem(R.id.cab_rename).isVisible = selectedPositions.size <= 1
             menu.findItem(R.id.cab_edit).isVisible = selectedPositions.size == 1 && media.size > selectedPositions.first() && media[selectedPositions.first()].isImage()
+            menu.findItem(R.id.cab_confirm_selection).isVisible = isPickIntent && allowMultiplePicks && selectedPositions.size > 0
 
             checkHideBtnVisibility(menu)
 
@@ -125,6 +127,11 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             menu.findItem(R.id.cab_hide).isVisible = unhiddenCnt > 0
             menu.findItem(R.id.cab_unhide).isVisible = hiddenCnt > 0
         }
+    }
+
+    private fun confirmSelection() {
+        val paths = getSelectedMedia().map { it.path } as ArrayList<String>
+        listener?.selectedPaths(paths)
     }
 
     private fun showProperties() {
@@ -247,7 +254,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val layoutType = if (isListViewType) R.layout.photo_video_item_list else R.layout.photo_video_item_grid
         val view = LayoutInflater.from(parent?.context).inflate(layoutType, parent, false)
-        return ViewHolder(view, adapterListener, activity, multiSelectorMode, multiSelector, listener, isPickIntent, itemClick)
+        return ViewHolder(view, adapterListener, activity, multiSelectorMode, multiSelector, listener, allowMultiplePicks || !isPickIntent, itemClick)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -319,7 +326,8 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     }
 
     class ViewHolder(val view: View, val adapterListener: MyAdapterListener, val activity: SimpleActivity, val multiSelectorCallback: ModalMultiSelectorCallback,
-                     val multiSelector: MultiSelector, val listener: MediaOperationsListener?, val isPickIntent: Boolean, val itemClick: (Medium) -> (Unit)) :
+                     val multiSelector: MultiSelector, val listener: MediaOperationsListener?, val allowMultiplePicks: Boolean,
+                     val itemClick: (Medium) -> (Unit)) :
             SwappingHolder(view, MultiSelector()) {
         fun bindView(medium: Medium, displayFilenames: Boolean, scrollVertically: Boolean, isListViewType: Boolean, textColor: Int): View {
             itemView.apply {
@@ -334,7 +342,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 }
 
                 setOnClickListener { viewClicked(medium) }
-                setOnLongClickListener { if (isPickIntent) viewClicked(medium) else viewLongClicked(); true }
+                setOnLongClickListener { if (allowMultiplePicks) viewLongClicked() else viewClicked(medium); true }
             }
             return itemView
         }
@@ -377,5 +385,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         fun deleteFiles(files: ArrayList<File>)
 
         fun itemLongClicked(position: Int)
+
+        fun selectedPaths(paths: ArrayList<String>)
     }
 }

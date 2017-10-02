@@ -63,6 +63,7 @@ val SET_WALLPAPER_INTENT = "set_wallpaper_intent"
 val DIRECTORIES = "directories2"
 val IS_VIEW_INTENT = "is_view_intent"
 val IS_FROM_GALLERY = "is_from_gallery"
+val PICKED_PATHS = "picked_paths"
 
 val REQUEST_EDIT_IMAGE = 1
 val REQUEST_SET_AS = 2

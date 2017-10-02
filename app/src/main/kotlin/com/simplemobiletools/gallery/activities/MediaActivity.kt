@@ -46,6 +46,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mIsGetVideoIntent = false
     private var mIsGetAnyIntent = false
     private var mIsGettingMedia = false
+    private var mAllowPickingMultiple = false
     private var mShowAll = false
     private var mLoadedInitialPhotos = false
     private var mStoredAnimateGifs = true
@@ -68,6 +69,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             mIsGetImageIntent = getBooleanExtra(GET_IMAGE_INTENT, false)
             mIsGetVideoIntent = getBooleanExtra(GET_VIDEO_INTENT, false)
             mIsGetAnyIntent = getBooleanExtra(GET_ANY_INTENT, false)
+            mAllowPickingMultiple = getBooleanExtra(Intent.EXTRA_ALLOW_MULTIPLE, false)
         }
 
         media_refresh_layout.setOnRefreshListener({ getMedia() })
@@ -159,7 +161,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         val currAdapter = media_grid.adapter
         if (currAdapter == null) {
-            media_grid.adapter = MediaAdapter(this, mMedia, this, mIsGetAnyIntent) {
+            media_grid.adapter = MediaAdapter(this, mMedia, this, mIsGetAnyIntent, mAllowPickingMultiple) {
                 itemClicked(it.path)
             }
         } else {
@@ -560,5 +562,13 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     override fun itemLongClicked(position: Int) {
         media_grid.setDragSelectActive(position)
+    }
+
+    override fun selectedPaths(paths: ArrayList<String>) {
+        Intent().apply {
+            putExtra(PICKED_PATHS, paths)
+            setResult(Activity.RESULT_OK, this)
+        }
+        finish()
     }
 }

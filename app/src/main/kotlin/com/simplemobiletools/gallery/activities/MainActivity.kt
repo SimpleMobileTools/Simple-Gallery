@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.activities
 
 import android.Manifest
 import android.app.Activity
+import android.content.ClipData
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -412,36 +413,22 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
         if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == PICK_MEDIA && resultData?.data != null) {
-                Intent().apply {
+            if (requestCode == PICK_MEDIA && resultData != null) {
+                val resultIntent = Intent()
+                if (mIsGetImageContentIntent || mIsGetVideoContentIntent || mIsGetAnyContentIntent) {
+                    when {
+                        intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true -> fillExtraOutput(resultData)
+                        resultData.extras?.containsKey(PICKED_PATHS) == true -> fillPickedPaths(resultData, resultIntent)
+                        else -> fillIntentPath(resultData, resultIntent)
+                    }
+                } else if ((mIsPickImageIntent || mIsPickVideoIntent)) {
                     val path = resultData.data.path
                     val uri = Uri.fromFile(File(path))
-                    if (mIsGetImageContentIntent || mIsGetVideoContentIntent || mIsGetAnyContentIntent) {
-                        if (intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true) {
-                            var inputStream: InputStream? = null
-                            var outputStream: OutputStream? = null
-                            try {
-                                val output = intent.extras.get(MediaStore.EXTRA_OUTPUT) as Uri
-                                inputStream = FileInputStream(File(path))
-                                outputStream = contentResolver.openOutputStream(output)
-                                inputStream.copyTo(outputStream)
-                            } catch (ignored: FileNotFoundException) {
-                            } finally {
-                                inputStream?.close()
-                                outputStream?.close()
-                            }
-                        } else {
-                            val type = File(path).getMimeType("image/jpeg")
-                            setDataAndTypeAndNormalize(uri, type)
-                            flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
-                        }
-                    } else if (mIsPickImageIntent || mIsPickVideoIntent) {
-                        data = uri
-                        flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
-                    }
-
-                    setResult(Activity.RESULT_OK, this)
+                    resultIntent.data = uri
+                    resultIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
                 }
+
+                setResult(Activity.RESULT_OK, resultIntent)
                 finish()
             } else if (requestCode == PICK_WALLPAPER) {
                 setResult(Activity.RESULT_OK)
@@ -449,6 +436,42 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             }
         }
         super.onActivityResult(requestCode, resultCode, resultData)
+    }
+
+    private fun fillExtraOutput(resultData: Intent) {
+        val path = resultData.data.path
+        var inputStream: InputStream? = null
+        var outputStream: OutputStream? = null
+        try {
+            val output = intent.extras.get(MediaStore.EXTRA_OUTPUT) as Uri
+            inputStream = FileInputStream(File(path))
+            outputStream = contentResolver.openOutputStream(output)
+            inputStream.copyTo(outputStream)
+        } catch (ignored: FileNotFoundException) {
+        } finally {
+            inputStream?.close()
+            outputStream?.close()
+        }
+    }
+
+    private fun fillPickedPaths(resultData: Intent, resultIntent: Intent) {
+        val paths = resultData.extras.getStringArrayList(PICKED_PATHS)
+        val uris = paths.map { Uri.fromFile(File(it)) } as ArrayList
+        val clipData = ClipData("Attachment", arrayOf("image/*", "video/*"), ClipData.Item(uris.removeAt(0)))
+
+        uris.forEach {
+            clipData.addItem(ClipData.Item(it))
+        }
+
+        resultIntent.clipData = clipData
+    }
+
+    private fun fillIntentPath(resultData: Intent, resultIntent: Intent) {
+        val path = resultData.data.path
+        val uri = Uri.fromFile(File(path))
+        val type = File(path).getMimeType("image/jpeg")
+        resultIntent.setDataAndTypeAndNormalize(uri, type)
+        resultIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
     }
 
     private fun itemClicked(path: String) {
@@ -462,6 +485,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 putExtra(GET_IMAGE_INTENT, mIsPickImageIntent || mIsGetImageContentIntent)
                 putExtra(GET_VIDEO_INTENT, mIsPickVideoIntent || mIsGetVideoContentIntent)
                 putExtra(GET_ANY_INTENT, mIsGetAnyContentIntent)
+                putExtra(Intent.EXTRA_ALLOW_MULTIPLE, intent.getBooleanExtra(Intent.EXTRA_ALLOW_MULTIPLE, false))
                 startActivityForResult(this, PICK_MEDIA)
             }
         }
