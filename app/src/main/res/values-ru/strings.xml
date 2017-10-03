@@ -35,7 +35,7 @@
     <string name="change_filters_underlined"><u>Изменить фильтры</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Эта функция скрывает папку, добавляя в неё файл \'.nomedia\'; будут скрыты все подпапки. Можно показывать их, переключая \'Показать скрытые папки\' в настройках. Продолжить?</string>
+    <string name="hide_folder_description">Эта функция скрывает папку, добавляя в неё файл \'.nomedia\'; будут скрыты все подпапки. Можно показывать их, переключая \'Показывать скрытые папки\' в настройках. Продолжить?</string>
     <string name="exclude">Исключить</string>
     <string name="excluded_folders">Исключённые папки</string>
     <string name="manage_excluded_folders">Управление исключёнными папками</string>
@@ -49,7 +49,7 @@
     <string name="include_folders">Включённые папки</string>
     <string name="manage_included_folders">Управление включёнными папками</string>
     <string name="add_folder">Добавление папки</string>
-    <string name="included_activity_placeholder">Если у вас есть папки содержащие медиа, но не распознанные Simple Gallery. Вы можете добавить их вручную.</string>
+    <string name="included_activity_placeholder">Если у вас есть папки, содержащие медиафайлы, но не распознанные Simple Gallery. Вы можете добавить их вручную.</string>
 
     <!-- Resizing -->
     <string name="resize">Изменить размер</string>
@@ -103,9 +103,9 @@
     <string name="no_media_for_slideshow">Никаких медиафайлов для слайдшоу не было найдено.</string>
 
     <!-- View types -->
-    <string name="change_view_type">Change view type</string>
-    <string name="grid">Grid</string>
-    <string name="list">List</string>
+    <string name="change_view_type">Режим отображения</string>
+    <string name="grid">Сетка</string>
+    <string name="list">Список</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Показать скрытые папки</string>
