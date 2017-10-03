@@ -22,7 +22,7 @@
     <string name="change_cover_image">Изменить обложку</string>
     <string name="select_photo">Выбрать изображение</string>
     <string name="use_default">Использовать по умолчанию</string>
-    <string name="set_as">Установить как</string>
+    <string name="set_as">Установить как...</string>
     <string name="volume">Громкость</string>
     <string name="brightness">Яркость</string>
 
@@ -108,7 +108,7 @@
     <string name="list">Список</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">Показать скрытые папки</string>
+    <string name="show_hidden_media">Показывать скрытые папки</string>
     <string name="autoplay_videos">Воспроизводить видео автоматически</string>
     <string name="toggle_filename">Переключить отображение имени файла</string>
     <string name="loop_videos">Повторять видео</string>
