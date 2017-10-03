@@ -37,6 +37,8 @@ val REPLACE_SHARE_WITH_ROTATE = "replace_share_with_rotate"
 val DELETE_EMPTY_FOLDERS = "delete_empty_folders"
 val ALLOW_VIDEO_GESTURES = "allow_video_gestures"
 val TEMP_FOLDER_PATH = "temp_folder_path"
+val VIEW_TYPE_FOLDERS = "view_type_folders"
+val VIEW_TYPE_FILES = "view_type_files"
 
 // slideshow
 val SLIDESHOW_INTERVAL = "slideshow_interval"
@@ -60,6 +62,8 @@ val GET_ANY_INTENT = "get_any_intent"
 val SET_WALLPAPER_INTENT = "set_wallpaper_intent"
 val DIRECTORIES = "directories2"
 val IS_VIEW_INTENT = "is_view_intent"
+val IS_FROM_GALLERY = "is_from_gallery"
+val PICKED_PATHS = "picked_paths"
 
 val REQUEST_EDIT_IMAGE = 1
 val REQUEST_SET_AS = 2
@@ -77,3 +81,7 @@ val ORIENT_LANDSCAPE_RIGHT = 2
 val IMAGES = 1
 val VIDEOS = 2
 val GIFS = 4
+
+// view types
+val VIEW_TYPE_GRID = 1
+val VIEW_TYPE_LIST = 2

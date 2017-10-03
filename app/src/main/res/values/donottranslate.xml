@@ -2,6 +2,10 @@
 <resources>
 
     <!-- Release notes -->
+    <string name="release_133">
+         Added fingerprint to hidden item protection\n
+         Added a new List view type
+    </string>
     <string name="release_127">
          Added a switch for disabling video gestures\n
          Added a switch for deleting empty folders after deleting content

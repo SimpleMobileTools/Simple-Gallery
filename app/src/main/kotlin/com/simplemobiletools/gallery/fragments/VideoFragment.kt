@@ -20,10 +20,7 @@ import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.commons.extensions.updateTextColors
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
-import com.simplemobiletools.gallery.extensions.audioManager
-import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.extensions.getNavBarHeight
-import com.simplemobiletools.gallery.extensions.hasNavBar
+import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.pager_video_item.view.*
@@ -168,7 +165,9 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 mLastTouchY = event.y
             }
             MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
+                val diffX = Math.abs(event.x - mTouchDownX)
+                val diffY = Math.abs(event.y - mTouchDownY)
+                if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION && diffX < 20 && diffY < 20) {
                     mView.video_holder.performClick()
                 }
             }
@@ -204,7 +203,9 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 mLastTouchY = event.y
             }
             MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
+                val diffX = Math.abs(event.x - mTouchDownX)
+                val diffY = Math.abs(event.y - mTouchDownY)
+                if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION && diffX < 20 && diffY < 20) {
                     mView.video_holder.performClick()
                 }
                 mTouchDownBrightness = mTempBrightness
@@ -273,6 +274,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 bottom += height
             } else {
                 right += height
+                bottom += context.navigationBarHeight
             }
             mTimeHolder!!.setPadding(left, top, right, bottom)
         }

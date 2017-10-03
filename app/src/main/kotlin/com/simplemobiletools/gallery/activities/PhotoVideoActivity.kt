@@ -21,6 +21,7 @@ import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.fragments.PhotoFragment
 import com.simplemobiletools.gallery.fragments.VideoFragment
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment
+import com.simplemobiletools.gallery.helpers.IS_FROM_GALLERY
 import com.simplemobiletools.gallery.helpers.IS_VIEW_INTENT
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
@@ -31,6 +32,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     private val STORAGE_PERMISSION = 1
     private var mMedium: Medium? = null
     private var mIsFullScreen = false
+    private var mIsFromGallery = false
     private var mFragment: ViewPagerFragment? = null
 
     lateinit var mUri: Uri
@@ -52,6 +54,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
     private fun checkIntent(savedInstanceState: Bundle? = null) {
         mUri = intent.data ?: return
+        mIsFromGallery = intent.getBooleanExtra(IS_FROM_GALLERY, false)
 
         if (mUri.scheme == "file") {
             scanPath(mUri.path) {}
@@ -126,6 +129,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     private fun sendViewPagerIntent(path: String) {
         Intent(this, ViewPagerActivity::class.java).apply {
             putExtra(IS_VIEW_INTENT, true)
+            putExtra(IS_FROM_GALLERY, mIsFromGallery)
             putExtra(MEDIUM, path)
             startActivity(this)
         }

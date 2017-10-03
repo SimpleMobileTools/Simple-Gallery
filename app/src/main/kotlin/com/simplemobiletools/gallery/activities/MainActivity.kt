@@ -2,10 +2,10 @@ package com.simplemobiletools.gallery.activities
 
 import android.Manifest
 import android.app.Activity
+import android.content.ClipData
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.AsyncTask
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -19,7 +19,11 @@ import android.widget.FrameLayout
 import com.google.gson.Gson
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
+import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
+import com.simplemobiletools.commons.helpers.SORT_BY_DATE_TAKEN
+import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.models.Release
 import com.simplemobiletools.commons.views.MyScalableRecyclerView
 import com.simplemobiletools.gallery.BuildConfig
@@ -54,10 +58,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
+    private var mStoredTextColor = 0
     private var mLoadedInitialPhotos = false
-    private var mLastMediaModified = 0
+    private var mLatestMediaId = 0L
     private var mLastMediaHandler = Handler()
-
     private var mCurrAsyncTask: GetDirectoriesAsynctask? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,6 +83,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mStoredAnimateGifs = config.animateGifs
         mStoredCropThumbnails = config.cropThumbnails
         mStoredScrollHorizontally = config.scrollHorizontally
+        mStoredTextColor = config.textColor
         storeStoragePaths()
         checkWhatsNewDialog()
 
@@ -92,8 +97,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             menuInflater.inflate(R.menu.menu_main_intent, menu)
         } else {
             menuInflater.inflate(R.menu.menu_main, menu)
-            menu.findItem(R.id.increase_column_count).isVisible = config.dirColumnCnt < 10
-            menu.findItem(R.id.reduce_column_count).isVisible = config.dirColumnCnt > 1
+            menu.findItem(R.id.increase_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt < 10
+            menu.findItem(R.id.reduce_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt > 1
         }
         menu.findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden
         menu.findItem(R.id.stop_showing_hidden).isVisible = config.temporarilyShowHidden
@@ -106,6 +111,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             R.id.filter -> showFilterMediaDialog()
             R.id.open_camera -> launchCamera()
             R.id.show_all -> showAllMedia()
+            R.id.change_view_type -> changeViewType()
             R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden()
             R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
             R.id.create_new_folder -> createNewFolder()
@@ -130,11 +136,15 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         if (mStoredScrollHorizontally != config.scrollHorizontally) {
-            directories_grid.adapter?.let {
-                (it as DirectoryAdapter).scrollVertically = !config.scrollHorizontally
-                it.notifyDataSetChanged()
+            (directories_grid.adapter as? DirectoryAdapter)?.apply {
+                scrollVertically = config.viewTypeFolders == VIEW_TYPE_LIST || !config.scrollHorizontally
+                notifyDataSetChanged()
             }
             setupScrollDirection()
+        }
+
+        if (mStoredTextColor != config.textColor) {
+            (directories_grid.adapter as? DirectoryAdapter)?.updateTextColor(config.textColor)
         }
 
         tryloadGallery()
@@ -145,15 +155,16 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     override fun onPause() {
         super.onPause()
-        mCurrAsyncTask?.shouldStop = true
         storeDirectories()
         directories_refresh_layout.isRefreshing = false
         mIsGettingDirs = false
         mStoredAnimateGifs = config.animateGifs
         mStoredCropThumbnails = config.cropThumbnails
         mStoredScrollHorizontally = config.scrollHorizontally
+        mStoredTextColor = config.textColor
         directories_grid.listener = null
         mLastMediaHandler.removeCallbacksAndMessages(null)
+        mCurrAsyncTask?.stopFetching()
     }
 
     override fun onDestroy() {
@@ -178,6 +189,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 showAllMedia()
             else
                 getDirectories()
+
             setupLayoutManager()
             checkIfColorChanged()
         } else {
@@ -216,12 +228,16 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mCurrAsyncTask = GetDirectoriesAsynctask(applicationContext, mIsPickVideoIntent || mIsGetVideoContentIntent, mIsPickImageIntent || mIsGetImageContentIntent) {
             gotDirectories(addTempFolderIfNeeded(it), false)
         }
-        mCurrAsyncTask!!.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR)
+        mCurrAsyncTask!!.execute()
     }
 
     private fun showSortingDialog() {
         ChangeSortingDialog(this, true, false) {
-            getDirectories()
+            if (config.directorySorting and SORT_BY_DATE_MODIFIED > 0 || config.directorySorting and SORT_BY_DATE_TAKEN > 0) {
+                getDirectories()
+            } else {
+                gotDirectories(mDirs, true)
+            }
         }
     }
 
@@ -236,9 +252,28 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         config.showAll = true
         Intent(this, MediaActivity::class.java).apply {
             putExtra(DIRECTORY, "/")
-            startActivity(this)
+
+            if (mIsThirdPartyIntent) {
+                handleMediaIntent(this)
+            } else {
+                startActivity(this)
+                finish()
+            }
         }
-        finish()
+    }
+
+    private fun changeViewType() {
+        val items = arrayListOf(
+                RadioItem(VIEW_TYPE_GRID, getString(R.string.grid)),
+                RadioItem(VIEW_TYPE_LIST, getString(R.string.list)))
+
+        RadioGroupDialog(this, items, config.viewTypeFolders) {
+            config.viewTypeFolders = it as Int
+            invalidateOptionsMenu()
+            setupLayoutManager()
+            directories_grid.adapter = null
+            setupAdapter()
+        }
     }
 
     private fun tryToggleTemporarilyShowHidden() {
@@ -278,6 +313,13 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun getRecyclerAdapter() = (directories_grid.adapter as DirectoryAdapter)
 
     private fun setupLayoutManager() {
+        if (config.viewTypeFolders == VIEW_TYPE_GRID)
+            setupGridLayoutManager()
+        else
+            setupListLayoutManager()
+    }
+
+    private fun setupGridLayoutManager() {
         val layoutManager = directories_grid.layoutManager as GridLayoutManager
         if (config.scrollHorizontally) {
             layoutManager.orientation = GridLayoutManager.HORIZONTAL
@@ -313,6 +355,16 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 getRecyclerAdapter().selectRange(initialSelection, lastDraggedIndex, minReached, maxReached)
             }
         }
+    }
+
+    private fun setupListLayoutManager() {
+        directories_grid.isDragSelectionEnabled = true
+        directories_grid.isZoomingEnabled = false
+
+        val layoutManager = directories_grid.layoutManager as GridLayoutManager
+        layoutManager.spanCount = 1
+        layoutManager.orientation = GridLayoutManager.VERTICAL
+        directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
     private fun createNewFolder() {
@@ -366,36 +418,22 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
         if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == PICK_MEDIA && resultData?.data != null) {
-                Intent().apply {
+            if (requestCode == PICK_MEDIA && resultData != null) {
+                val resultIntent = Intent()
+                if (mIsGetImageContentIntent || mIsGetVideoContentIntent || mIsGetAnyContentIntent) {
+                    when {
+                        intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true -> fillExtraOutput(resultData)
+                        resultData.extras?.containsKey(PICKED_PATHS) == true -> fillPickedPaths(resultData, resultIntent)
+                        else -> fillIntentPath(resultData, resultIntent)
+                    }
+                } else if ((mIsPickImageIntent || mIsPickVideoIntent)) {
                     val path = resultData.data.path
                     val uri = Uri.fromFile(File(path))
-                    if (mIsGetImageContentIntent || mIsGetVideoContentIntent || mIsGetAnyContentIntent) {
-                        if (intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true) {
-                            var inputStream: InputStream? = null
-                            var outputStream: OutputStream? = null
-                            try {
-                                val output = intent.extras.get(MediaStore.EXTRA_OUTPUT) as Uri
-                                inputStream = FileInputStream(File(path))
-                                outputStream = contentResolver.openOutputStream(output)
-                                inputStream.copyTo(outputStream)
-                            } catch (ignored: FileNotFoundException) {
-                            } finally {
-                                inputStream?.close()
-                                outputStream?.close()
-                            }
-                        } else {
-                            val type = File(path).getMimeType("image/jpeg")
-                            setDataAndTypeAndNormalize(uri, type)
-                            flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
-                        }
-                    } else if (mIsPickImageIntent || mIsPickVideoIntent) {
-                        data = uri
-                        flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
-                    }
-
-                    setResult(Activity.RESULT_OK, this)
+                    resultIntent.data = uri
+                    resultIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
                 }
+
+                setResult(Activity.RESULT_OK, resultIntent)
                 finish()
             } else if (requestCode == PICK_WALLPAPER) {
                 setResult(Activity.RESULT_OK)
@@ -405,10 +443,51 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         super.onActivityResult(requestCode, resultCode, resultData)
     }
 
+    private fun fillExtraOutput(resultData: Intent) {
+        val path = resultData.data.path
+        var inputStream: InputStream? = null
+        var outputStream: OutputStream? = null
+        try {
+            val output = intent.extras.get(MediaStore.EXTRA_OUTPUT) as Uri
+            inputStream = FileInputStream(File(path))
+            outputStream = contentResolver.openOutputStream(output)
+            inputStream.copyTo(outputStream)
+        } catch (ignored: FileNotFoundException) {
+        } finally {
+            inputStream?.close()
+            outputStream?.close()
+        }
+    }
+
+    private fun fillPickedPaths(resultData: Intent, resultIntent: Intent) {
+        val paths = resultData.extras.getStringArrayList(PICKED_PATHS)
+        val uris = paths.map { Uri.fromFile(File(it)) } as ArrayList
+        val clipData = ClipData("Attachment", arrayOf("image/*", "video/*"), ClipData.Item(uris.removeAt(0)))
+
+        uris.forEach {
+            clipData.addItem(ClipData.Item(it))
+        }
+
+        resultIntent.clipData = clipData
+    }
+
+    private fun fillIntentPath(resultData: Intent, resultIntent: Intent) {
+        val path = resultData.data.path
+        val uri = Uri.fromFile(File(path))
+        val type = File(path).getMimeType("image/jpeg")
+        resultIntent.setDataAndTypeAndNormalize(uri, type)
+        resultIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+    }
+
     private fun itemClicked(path: String) {
         Intent(this, MediaActivity::class.java).apply {
             putExtra(DIRECTORY, path)
+            handleMediaIntent(this)
+        }
+    }
 
+    private fun handleMediaIntent(intent: Intent) {
+        intent.apply {
             if (mIsSetWallpaperIntent) {
                 putExtra(SET_WALLPAPER_INTENT, true)
                 startActivityForResult(this, PICK_WALLPAPER)
@@ -416,13 +495,16 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 putExtra(GET_IMAGE_INTENT, mIsPickImageIntent || mIsGetImageContentIntent)
                 putExtra(GET_VIDEO_INTENT, mIsPickVideoIntent || mIsGetVideoContentIntent)
                 putExtra(GET_ANY_INTENT, mIsGetAnyContentIntent)
+                putExtra(Intent.EXTRA_ALLOW_MULTIPLE, intent.getBooleanExtra(Intent.EXTRA_ALLOW_MULTIPLE, false))
                 startActivityForResult(this, PICK_MEDIA)
             }
         }
     }
 
-    private fun gotDirectories(dirs: ArrayList<Directory>, isFromCache: Boolean) {
-        mLastMediaModified = getLastMediaModified()
+    private fun gotDirectories(newDirs: ArrayList<Directory>, isFromCache: Boolean) {
+        val dirs = getSortedDirectories(newDirs)
+
+        mLatestMediaId = getLatestMediaId()
         directories_refresh_layout.isRefreshing = false
         mIsGettingDirs = false
 
@@ -430,8 +512,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         directories_empty_text.beVisibleIf(dirs.isEmpty() && !isFromCache)
 
         checkLastMediaChanged()
-        if (dirs.hashCode() == mDirs.hashCode())
+        if (dirs.hashCode() == mDirs.hashCode()) {
             return
+        }
 
         mDirs = dirs
 
@@ -462,13 +545,16 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun setupScrollDirection() {
+        val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFolders == VIEW_TYPE_GRID
+        directories_refresh_layout.isEnabled = !config.scrollHorizontally
+
         directories_vertical_fastscroller.isHorizontal = false
-        directories_vertical_fastscroller.beGoneIf(config.scrollHorizontally)
+        directories_vertical_fastscroller.beGoneIf(allowHorizontalScroll)
 
         directories_horizontal_fastscroller.isHorizontal = true
-        directories_horizontal_fastscroller.beVisibleIf(config.scrollHorizontally)
+        directories_horizontal_fastscroller.beVisibleIf(allowHorizontalScroll)
 
-        if (config.scrollHorizontally) {
+        if (allowHorizontalScroll) {
             directories_horizontal_fastscroller.setViews(directories_grid, directories_refresh_layout)
         } else {
             directories_vertical_fastscroller.setViews(directories_grid, directories_refresh_layout)
@@ -482,9 +568,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mLastMediaHandler.removeCallbacksAndMessages(null)
         mLastMediaHandler.postDelayed({
             Thread({
-                val lastModified = getLastMediaModified()
-                if (mLastMediaModified != lastModified) {
-                    mLastMediaModified = lastModified
+                val mediaId = getLatestMediaId()
+                if (mLatestMediaId != mediaId) {
+                    mLatestMediaId = mediaId
                     runOnUiThread {
                         getDirectories()
                     }
@@ -501,6 +587,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     override fun itemLongClicked(position: Int) {
         directories_grid.setDragSelectActive(position)
+    }
+
+    override fun recheckPinnedFolders() {
+        gotDirectories(movePinnedDirectoriesToFront(mDirs), true)
     }
 
     private fun checkWhatsNewDialog() {
@@ -540,6 +630,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             add(Release(123, R.string.release_123))
             add(Release(125, R.string.release_125))
             add(Release(127, R.string.release_127))
+            add(Release(133, R.string.release_133))
             checkWhatsNew(this, BuildConfig.VERSION_CODE)
         }
     }

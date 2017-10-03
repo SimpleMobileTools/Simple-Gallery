@@ -24,6 +24,7 @@ import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
+import com.simplemobiletools.gallery.helpers.IS_FROM_GALLERY
 import com.simplemobiletools.gallery.helpers.NOMEDIA
 import com.simplemobiletools.gallery.helpers.REQUEST_EDIT_IMAGE
 import com.simplemobiletools.gallery.helpers.REQUEST_SET_AS
@@ -91,14 +92,14 @@ fun Activity.setAs(uri: Uri, file: File, showToast: Boolean = true): Boolean {
         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         val chooser = Intent.createChooser(this, getString(R.string.set_as))
 
-        if (resolveActivity(packageManager) != null) {
+        success = if (resolveActivity(packageManager) != null) {
             startActivityForResult(chooser, REQUEST_SET_AS)
-            success = true
+            true
         } else {
             if (showToast) {
                 toast(R.string.no_capable_app_found)
             }
-            success = false
+            false
         }
     }
 
@@ -130,6 +131,7 @@ fun Activity.openWith(file: File, forceChooser: Boolean = true) {
         action = Intent.ACTION_VIEW
         setDataAndType(uri, file.getMimeType())
         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        putExtra(IS_FROM_GALLERY, true)
 
         if (resolveActivity(packageManager) != null) {
             val chooser = Intent.createChooser(this, getString(R.string.open_with))
@@ -250,10 +252,10 @@ fun SimpleActivity.removeNoMedia(path: String, callback: () -> Unit) {
 fun SimpleActivity.toggleFileVisibility(oldFile: File, hide: Boolean, callback: (newFile: File) -> Unit) {
     val path = oldFile.parent
     var filename = oldFile.name
-    if (hide) {
-        filename = ".${filename.trimStart('.')}"
+    filename = if (hide) {
+        ".${filename.trimStart('.')}"
     } else {
-        filename = filename.substring(1, filename.length)
+        filename.substring(1, filename.length)
     }
     val newFile = File(path, filename)
     renameFile(oldFile, newFile) {

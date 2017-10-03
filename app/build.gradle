@@ -10,8 +10,8 @@ android {
         applicationId "com.simplemobiletools.gallery"
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 129
-        versionName "2.14.1"
+        versionCode 134
+        versionName "2.15.1"
     }
 
     signingConfigs {
@@ -37,7 +37,7 @@ android {
 }
 
 dependencies {
-    compile 'com.simplemobiletools:commons:2.27.9'
+    compile 'com.simplemobiletools:commons:2.29.1'
     compile 'com.davemorrissey.labs:subsampling-scale-image-view:3.6.0'
     compile 'com.theartofdev.edmodo:android-image-cropper:2.4.0'
     compile 'com.bignerdranch.android:recyclerview-multiselect:0.2'
@@ -52,7 +52,7 @@ dependencies {
 }
 
 buildscript {
-    ext.kotlin_version = '1.1.4-3'
+    ext.kotlin_version = '1.1.51'
     repositories {
         mavenCentral()
     }

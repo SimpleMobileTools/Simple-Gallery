@@ -14,8 +14,7 @@ class MySquareImageView : ImageView {
     constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle)
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        val spec = if (isVerticalScrolling) measuredWidth else measuredHeight
-        setMeasuredDimension(spec, spec)
+        val spec = if (isVerticalScrolling) widthMeasureSpec else heightMeasureSpec
+        super.onMeasure(spec, spec)
     }
 }

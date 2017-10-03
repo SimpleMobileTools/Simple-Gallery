@@ -19,7 +19,7 @@
     <string name="no_camera_app_found">Keine Kamera-App gefunden</string>
     <string name="increase_column_count">Kacheln verkleinern</string>
     <string name="reduce_column_count">Kacheln vergrößern</string>
-    <string name="change_cover_image">Cover-Bild ändern</string>
+    <string name="change_cover_image">Coverbild ändern</string>
     <string name="select_photo">Auswählen</string>
     <string name="use_default">Standard</string>
     <string name="set_as">Festlegen als</string>
@@ -27,12 +27,12 @@
     <string name="brightness">Helligkeit</string>
 
     <!-- Filter -->
-    <string name="filter_media">Filter media</string>
-    <string name="images">Images</string>
+    <string name="filter_media">Medienfilter</string>
+    <string name="images">Bilder</string>
     <string name="videos">Videos</string>
     <string name="gifs">GIFs</string>
-    <string name="no_media_with_filters">No media files have been found with the selected filters.</string>
-    <string name="change_filters_underlined"><u>Change filters</u></string>
+    <string name="no_media_with_filters">Keine Medien für die ausgewählten Filter gefunden</string>
+    <string name="change_filters_underlined"><u>Filter ändern</u></string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Diese Funktion versteckt ausgewählte Ordner (auch für andere Apps), indem dort im Dateisystem eine \'.nomedia\'-Datei abgelegt wird. Dadurch werden auch deren Unterordner versteckt. Solche Ordner werden nur gezeigt, wenn die Einstellung \'Versteckte Ordner zeigen\' aktiv ist (auch andere Apps bieten üblicherweise eine solche Option). Fortfahren?</string>
@@ -94,13 +94,18 @@
     <string name="interval">Intervall (Sekunden):</string>
     <string name="include_photos">Bilder verwenden</string>
     <string name="include_videos">Videos verwenden</string>
-    <string name="include_gifs">GIF verwenden</string>
+    <string name="include_gifs">GIFs verwenden</string>
     <string name="random_order">Zufällige Reihenfolge</string>
     <string name="use_fade">Übergänge animieren</string>
     <string name="move_backwards">Rückwärts abspielen</string>
-    <string name="loop_slideshow">Loop slideshow</string>
+    <string name="loop_slideshow">Endlos abspielen</string>
     <string name="slideshow_ended">Diashow beendet</string>
     <string name="no_media_for_slideshow">Keine Medien für Diashow gefunden</string>
+
+    <!-- View types -->
+    <string name="change_view_type">Change view type</string>
+    <string name="grid">Grid</string>
+    <string name="list">List</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Versteckte Ordner zeigen</string>
@@ -117,8 +122,8 @@
     <string name="dark_background_at_fullscreen">Schwarzer Hintergrund im Vollbild</string>
     <string name="scroll_thumbnails_horizontally">Kacheln horizontal scrollen</string>
     <string name="hide_system_ui_at_fullscreen">Systemleisten ausblenden im Vollbild</string>
-    <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
-    <string name="allow_video_gestures">Allow controlling video volume and brightness with vertical gestures</string>
+    <string name="delete_empty_folders">Nach Löschen leere Ordner löschen</string>
+    <string name="allow_video_gestures">Gesten für Videolautstärke/Helligkeit</string>
     <string name="replace_share_with_rotate">Teilen/Drehen im Vollbild-Menü vertauschen</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->

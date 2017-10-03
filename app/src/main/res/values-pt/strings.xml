@@ -31,7 +31,7 @@
     <string name="images">Imagens</string>
     <string name="videos">Vídeos</string>
     <string name="gifs">GIFs</string>
-    <string name="no_media_with_filters">Naõ foram encontrados ficheiros que cumpram os requisitos.</string>
+    <string name="no_media_with_filters">Não foram encontrados ficheiros que cumpram os requisitos.</string>
     <string name="change_filters_underlined"><u>Alterar filtros</u></string>
 
     <!-- Hide / Exclude -->
@@ -98,9 +98,14 @@
     <string name="random_order">Ordem aleatória</string>
     <string name="use_fade">Usar animações</string>
     <string name="move_backwards">Mover para trás</string>
-    <string name="loop_slideshow">Loop slideshow</string>
+    <string name="loop_slideshow">Apresentação em ciclo</string>
     <string name="slideshow_ended">Apresentação terminada</string>
     <string name="no_media_for_slideshow">Não foram encontrados ficheiros para a apresentação</string>
+
+    <!-- View types -->
+    <string name="change_view_type">Change view type</string>
+    <string name="grid">Grid</string>
+    <string name="list">List</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Mostrar pastas ocultas</string>

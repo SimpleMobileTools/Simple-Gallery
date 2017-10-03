@@ -8,6 +8,7 @@ import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.dialogs.SecurityDialog
 import com.simplemobiletools.commons.extensions.handleHiddenFolderPasswordProtection
 import com.simplemobiletools.commons.extensions.updateTextColors
+import com.simplemobiletools.commons.helpers.PROTECTION_FINGERPRINT
 import com.simplemobiletools.commons.helpers.SHOW_ALL_TABS
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.R
@@ -169,7 +170,9 @@ class SettingsActivity : SimpleActivity() {
                 config.protectionType = type
 
                 if (config.isPasswordProtectionOn) {
-                    ConfirmationDialog(this, "", R.string.protection_setup_successfully, R.string.ok, 0) { }
+                    val confirmationTextId = if (config.protectionType == PROTECTION_FINGERPRINT)
+                        R.string.fingerprint_setup_successfully else R.string.protection_setup_successfully
+                    ConfirmationDialog(this, "", confirmationTextId, R.string.ok, 0) { }
                 }
             }
         }

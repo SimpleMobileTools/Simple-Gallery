@@ -39,7 +39,9 @@
         android:id="@+id/dir_shadow_holder"
         android:layout_width="match_parent"
         android:layout_height="@dimen/tmb_shadow_height"
+        android:layout_alignLeft="@+id/dir_bottom_holder"
         android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/dir_bottom_holder"
         android:background="@drawable/gradient_background"/>
 
     <LinearLayout
@@ -80,8 +82,7 @@
         android:layout_width="@dimen/sd_card_icon_size"
         android:layout_height="@dimen/sd_card_icon_size"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignRight="@+id/dir_bottom_holder"
         android:alpha="0.8"
         android:paddingBottom="@dimen/small_margin"
         android:paddingEnd="@dimen/small_margin"

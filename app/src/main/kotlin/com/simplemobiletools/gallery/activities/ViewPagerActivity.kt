@@ -161,6 +161,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         if (config.isThirdPartyIntent) {
             config.isThirdPartyIntent = false
+
+            if (intent.extras == null || !intent.getBooleanExtra(IS_FROM_GALLERY, false)) {
+                mMedia.clear()
+            }
         }
     }
 
@@ -326,7 +330,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 val dragPosition = animation.animatedValue as Int
                 val dragOffset = dragPosition - oldDragPosition
                 oldDragPosition = dragPosition
-                view_pager.fakeDragBy(dragOffset * (if (forward) 1f else -1f))
+                view_pager?.fakeDragBy(dragOffset * (if (forward) 1f else -1f))
             }
         })
 
@@ -433,34 +437,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun rotateImage() {
-        val currentMedium = getCurrentMedium() ?: return
-        if (currentMedium.isJpg() && !isPathOnSD(currentMedium.path)) {
-            rotateByExif()
-        } else {
-            rotateByDegrees()
-        }
-    }
-
-    private fun rotateByExif() {
-        val exif = ExifInterface(getCurrentPath())
-        val orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
-        val newOrientation = getNewOrientation(orientation)
-        exif.setAttribute(ExifInterface.TAG_ORIENTATION, newOrientation)
-        exif.saveAttributes()
-        File(getCurrentPath()).setLastModified(System.currentTimeMillis())
-        (getCurrentFragment() as? PhotoFragment)?.refreshBitmap()
-    }
-
-    private fun getNewOrientation(rotation: Int): String {
-        return when (rotation) {
-            ExifInterface.ORIENTATION_ROTATE_90 -> ExifInterface.ORIENTATION_ROTATE_180
-            ExifInterface.ORIENTATION_ROTATE_180 -> ExifInterface.ORIENTATION_ROTATE_270
-            ExifInterface.ORIENTATION_ROTATE_270 -> ExifInterface.ORIENTATION_NORMAL
-            else -> ExifInterface.ORIENTATION_ROTATE_90
-        }.toString()
-    }
-
-    private fun rotateByDegrees() {
         mRotationDegrees = (mRotationDegrees + 90) % 360
         getCurrentFragment()?.let {
             (it as? PhotoFragment)?.rotateImageViewBy(mRotationDegrees)
@@ -474,7 +450,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             Thread({
                 toast(R.string.saving)
                 val selectedFile = File(it)
-                val tmpFile = File(selectedFile.parent, "tmp_${it.getFilenameFromPath()}")
+                val tmpFile = File(selectedFile.parent, ".tmp_${it.getFilenameFromPath()}")
                 try {
                     val bitmap = BitmapFactory.decodeFile(currPath)
                     getFileOutputStream(tmpFile) {
@@ -497,7 +473,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     toast(R.string.out_of_memory_error)
                     deleteFile(tmpFile) {}
                 } catch (e: Exception) {
-                    toast(R.string.unknown_error_occurred)
+                    showErrorToast(e)
                     deleteFile(tmpFile) {}
                 }
             }).start()
@@ -510,10 +486,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val bmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
         bmp.compress(file.getCompressionFormat(), 90, out)
         out.flush()
-        toast(R.string.file_saved)
         out.close()
+        toast(R.string.file_saved)
+        mRotationDegrees = 0f
+        invalidateOptionsMenu()
     }
-
 
     private fun isShowHiddenFlagNeeded(): Boolean {
         val file = File(mPath)

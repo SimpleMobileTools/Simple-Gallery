@@ -1,6 +1,41 @@
 Changelog
 ==========
 
+Version 2.15.1 *(2017-10-01)*
+----------------------------
+
+ * Updated commons library with minor fixes
+
+Version 2.15.0 *(2017-10-01)*
+----------------------------
+
+ * Added fingerprint to hidden item protection
+ * Added a new List view type
+ * Fixed an issue with some hidden items being shown at "Show all folders content"
+ * Fixed typing in color hex codes manually with some keyboards
+ * Do not autosave rotated images in any case
+ * Tons of other performance, stability and UX improvements
+
+Version 2.14.4 *(2017-09-18)*
+----------------------------
+
+ * Revert to the old way of loading fullscreen images to avoid issues on Android 7+
+
+Version 2.14.3 *(2017-09-17)*
+----------------------------
+
+ * Removed some error toast messages after delete, or if image loading failed
+ * Fixed some visual glitches at horizontal scrolling
+ * Disable pull-to-refresh at horizontal scrolling
+ * Many other smaller bugfixes and improvements
+
+Version 2.14.2 *(2017-09-11)*
+----------------------------
+
+ * Fixing some glitches with fullscreen images
+ * Add an extra check to avoid displaying non-existing media
+ * Fix opening media from third party intents
+
 Version 2.14.1 *(2017-09-07)*
 ----------------------------
 

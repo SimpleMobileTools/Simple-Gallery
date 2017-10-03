@@ -33,7 +33,6 @@ import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getFileSignature
 import com.simplemobiletools.gallery.extensions.getRealPathFromURI
 import com.simplemobiletools.gallery.extensions.portrait
-import com.simplemobiletools.gallery.helpers.GlideDecoder
 import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
@@ -200,8 +199,7 @@ class PhotoFragment : ViewPagerFragment() {
     private fun addZoomableView() {
         if ((medium.isImage()) && isFragmentVisible && view.subsampling_view.visibility == View.GONE) {
             view.subsampling_view.apply {
-                setBitmapDecoderClass(GlideDecoder::class.java)
-                setMaxTileSize(10000)
+                //setBitmapDecoderClass(GlideDecoder::class.java)   // causing random crashes on Android 7+
                 maxScale = 10f
                 beVisible()
                 setImage(ImageSource.uri(medium.path))
@@ -221,7 +219,7 @@ class PhotoFragment : ViewPagerFragment() {
                     override fun onPreviewReleased() {
                     }
 
-                    override fun onImageLoadError(e: Exception?) {
+                    override fun onImageLoadError(e: Exception) {
                         background = ColorDrawable(Color.TRANSPARENT)
                         beGone()
                     }
@@ -253,11 +251,6 @@ class PhotoFragment : ViewPagerFragment() {
         } else {
             2f
         }
-    }
-
-    fun refreshBitmap() {
-        view.subsampling_view.beGone()
-        loadBitmap()
     }
 
     fun rotateImageViewBy(degrees: Float) {

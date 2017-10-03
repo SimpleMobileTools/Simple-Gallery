@@ -8,7 +8,6 @@ import android.graphics.drawable.Drawable
 import android.media.ExifInterface
 import android.net.Uri
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
@@ -26,10 +25,12 @@ class GlideDecoder : ImageDecoder {
 
         val options = RequestOptions()
                 .signature(uri.path.getFileSignature())
-                .format(DecodeFormat.PREFER_ARGB_8888)
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-                .transform(GlideRotateTransformation(context, getRotationDegrees(orientation)))
                 .override(targetWidth, targetHeight)
+
+        val degrees = getRotationDegrees(orientation)
+        if (degrees != 0f)
+            options.transform(GlideRotateTransformation(context, getRotationDegrees(orientation)))
 
         val drawable = Glide.with(context)
                 .load(uri)
