@@ -53,6 +53,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mIsGetVideoContentIntent = false
     private var mIsGetAnyContentIntent = false
     private var mIsSetWallpaperIntent = false
+    private var mAllowPickingMultiple = false
     private var mIsThirdPartyIntent = false
     private var mIsGettingDirs = false
     private var mStoredAnimateGifs = true
@@ -74,6 +75,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mIsGetVideoContentIntent = isGetVideoContentIntent(intent)
         mIsGetAnyContentIntent = isGetAnyContentIntent(intent)
         mIsSetWallpaperIntent = isSetWallpaperIntent(intent)
+        mAllowPickingMultiple = intent.getBooleanExtra(Intent.EXTRA_ALLOW_MULTIPLE, false)
         mIsThirdPartyIntent = mIsPickImageIntent || mIsPickVideoIntent || mIsGetImageContentIntent || mIsGetVideoContentIntent ||
                 mIsGetAnyContentIntent || mIsSetWallpaperIntent
 
@@ -495,7 +497,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 putExtra(GET_IMAGE_INTENT, mIsPickImageIntent || mIsGetImageContentIntent)
                 putExtra(GET_VIDEO_INTENT, mIsPickVideoIntent || mIsGetVideoContentIntent)
                 putExtra(GET_ANY_INTENT, mIsGetAnyContentIntent)
-                putExtra(Intent.EXTRA_ALLOW_MULTIPLE, intent.getBooleanExtra(Intent.EXTRA_ALLOW_MULTIPLE, false))
+                putExtra(Intent.EXTRA_ALLOW_MULTIPLE, mAllowPickingMultiple)
                 startActivityForResult(this, PICK_MEDIA)
             }
         }
