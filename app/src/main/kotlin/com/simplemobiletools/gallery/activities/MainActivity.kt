@@ -68,6 +68,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        storeStoragePaths()
 
         mIsPickImageIntent = isPickImageIntent(intent)
         mIsPickVideoIntent = isPickVideoIntent(intent)
@@ -86,7 +87,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mStoredCropThumbnails = config.cropThumbnails
         mStoredScrollHorizontally = config.scrollHorizontally
         mStoredTextColor = config.textColor
-        storeStoragePaths()
         checkWhatsNewDialog()
 
         directories_empty_text.setOnClickListener {
