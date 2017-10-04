@@ -125,7 +125,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         mStoredTextColor = config.textColor
         media_grid.listener = null
         mLastMediaHandler.removeCallbacksAndMessages(null)
-        mCurrAsyncTask?.stopFetching()
+
+        if (!mMedia.isEmpty()) {
+            mCurrAsyncTask?.stopFetching()
+        }
     }
 
     override fun onDestroy() {

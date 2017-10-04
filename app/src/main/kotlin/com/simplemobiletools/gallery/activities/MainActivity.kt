@@ -166,7 +166,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mStoredTextColor = config.textColor
         directories_grid.listener = null
         mLastMediaHandler.removeCallbacksAndMessages(null)
-        mCurrAsyncTask?.stopFetching()
+
+        if (!mDirs.isEmpty()) {
+            mCurrAsyncTask?.stopFetching()
+        }
     }
 
     override fun onDestroy() {
