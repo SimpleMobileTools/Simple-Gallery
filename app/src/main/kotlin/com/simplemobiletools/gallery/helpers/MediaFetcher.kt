@@ -77,7 +77,11 @@ class MediaFetcher(val context: Context) {
 
     private fun getSelectionArgsQuery(path: String): Array<String> {
         return if (path.isEmpty()) {
-            if (context.hasExternalSDCard()) arrayOf("${context.internalStoragePath}/%", "${context.sdCardPath}/%") else arrayOf("${context.internalStoragePath}/%")
+            if (context.hasExternalSDCard()) {
+                arrayOf("${context.internalStoragePath}/%", "${context.sdCardPath}/%")
+            } else {
+                arrayOf("${context.internalStoragePath}/%")
+            }
         } else {
             arrayOf("$path/%", "$path/%/%")
         }
