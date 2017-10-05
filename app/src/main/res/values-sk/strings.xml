@@ -49,7 +49,7 @@
     <string name="include_folders">Pridané priečinky</string>
     <string name="manage_included_folders">Spravovať pridané priečinky</string>
     <string name="add_folder">Pridať priečinok</string>
-    <string name="included_activity_placeholder">Ak máte nejaké priečinky obsahujúce médiá, ale neboli rozpoznané aplikáciou, môžete ich tu manuálne pridať.</string>
+    <string name="included_activity_placeholder">Ak máte nejaké priečinky obsahujúce médiá, ale neboli rozpoznané aplikáciou, môžete ich tu manuálne pridať.\n\nPridanie nových položiek sem nevylúči žiadny iný priečinok.</string>
 
     <!-- Resizing -->
     <string name="resize">Zmeniť veľkosť</string>
