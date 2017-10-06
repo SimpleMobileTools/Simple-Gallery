@@ -80,7 +80,8 @@ class MediaFetcher(val context: Context) {
             if (context.hasExternalSDCard()) {
                 arrayOf("${context.internalStoragePath}/%", "${context.sdCardPath}/%")
             } else {
-                arrayOf("${context.internalStoragePath}/%")
+                val internalPath = if (context.isAndroidFour()) "" else context.internalStoragePath
+                arrayOf("$internalPath/%")
             }
         } else {
             arrayOf("$path/%", "$path/%/%")
