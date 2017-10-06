@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 2.15.2 *(2017-10-06)*
+----------------------------
+
+ * Properly display SD card content to Android 4 users
+ * Fix displaying some third party media, like Bluemail attachments
+ * Fix media picking intents if "Show all folders content" is enabled
+
 Version 2.15.1 *(2017-10-01)*
 ----------------------------
 
