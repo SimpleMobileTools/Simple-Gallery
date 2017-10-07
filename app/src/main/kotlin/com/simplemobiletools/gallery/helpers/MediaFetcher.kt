@@ -62,9 +62,12 @@ class MediaFetcher(val context: Context) {
         }
     }
 
-    private fun getSelectionQuery(path: String): String {
+    private fun getSelectionQuery(path: String): String? {
         val dataQuery = "${MediaStore.Images.Media.DATA} LIKE ?"
         return if (path.isEmpty()) {
+            if (context.isAndroidFour())
+                return null
+
             var query = "($dataQuery)"
             if (context.hasExternalSDCard()) {
                 query += " OR ($dataQuery)"
@@ -75,13 +78,15 @@ class MediaFetcher(val context: Context) {
         }
     }
 
-    private fun getSelectionArgsQuery(path: String): Array<String> {
+    private fun getSelectionArgsQuery(path: String): Array<String>? {
         return if (path.isEmpty()) {
+            if (context.isAndroidFour())
+                return null
+
             if (context.hasExternalSDCard()) {
                 arrayOf("${context.internalStoragePath}/%", "${context.sdCardPath}/%")
             } else {
-                val internalPath = if (context.isAndroidFour()) "" else context.internalStoragePath
-                arrayOf("$internalPath/%")
+                arrayOf("${context.internalStoragePath}/%")
             }
         } else {
             arrayOf("$path/%", "$path/%/%")
