@@ -103,9 +103,9 @@
     <string name="no_media_for_slideshow">Nessun media trovato per la presentazione</string>
 
     <!-- View types -->
-    <string name="change_view_type">Change view type</string>
-    <string name="grid">Grid</string>
-    <string name="list">List</string>
+    <string name="change_view_type">Cambia modalità visualizzazione</string>
+    <string name="grid">Griglia</string>
+    <string name="list">Elenco</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Mostra cartelle nascoste</string>
