@@ -7,7 +7,7 @@
     <string name="open_with">Ouvrir avec</string>
     <string name="no_app_found">Aucune application valide trouvée</string>
     <string name="hidden">(caché)</string>
-    <string name="pin_folder">Épingler les dossiers</string>
+    <string name="pin_folder">Épingler le dossier</string>
     <string name="unpin_folder">Désépingler le dossier</string>
     <string name="show_all">Afficher le contenu de tous les dossiers</string>
     <string name="all_folders">Tous les dossiers</string>
@@ -15,22 +15,22 @@
     <string name="other_folder">Autre dossier</string>
     <string name="show_on_map">Afficher sur la carte</string>
     <string name="unknown_location">Position inconnue</string>
-    <string name="no_map_application">Aucune application de cartes n\'a été trouvée</string>
-    <string name="no_camera_app_found">Aucune application d\\appareil photo n\'a été trouvée</string>
+    <string name="no_map_application">Aucune application de carte n\'a été trouvée</string>
+    <string name="no_camera_app_found">Aucune application d\'appareil photo n\'a été trouvée</string>
     <string name="increase_column_count">Augmenter le nombre de colonnes</string>
     <string name="reduce_column_count">Réduire le nombre de colonnes</string>
-    <string name="change_cover_image">Change cover image</string>
+    <string name="change_cover_image">Changer l\'image de couverture</string>
     <string name="select_photo">Sélectionner une photo</string>
-    <string name="use_default">Use default</string>
-    <string name="set_as">Set as</string>
+    <string name="use_default">Utiliser par défaut</string>
+    <string name="set_as">Définir comme</string>
     <string name="volume">Volume</string>
     <string name="brightness">Luminosité</string>
 
     <!-- Filter -->
-    <string name="filter_media">Filtrer medias</string>
+    <string name="filter_media">Filtrer les médias</string>
     <string name="images">Images</string>
     <string name="videos">Vidéos</string>
-    <string name="gifs">GIFs</string>
+    <string name="gifs">GIF</string>
     <string name="no_media_with_filters">Aucun fichier média trouvé avec les filtres sélectionnés.</string>
     <string name="change_filters_underlined"><u>Changer les filtres</u></string>
 
@@ -49,7 +49,7 @@
     <string name="include_folders">Dossiers inclus</string>
     <string name="manage_included_folders">Gérer les dossiers inclus</string>
     <string name="add_folder">Ajouter un dossier</string>
-    <string name="included_activity_placeholder">Si vous avez des dossiers contenant du media et qui ne sont pas reconnus par l\'application alors, vous pouvez les ajouter manuellement ici.</string>
+    <string name="included_activity_placeholder">Si vous avez des dossiers contenant des medias et qui ne sont pas reconnus par l\'application alors, vous pouvez les ajouter manuellement ici.</string>
 
     <!-- Resizing -->
     <string name="resize">Redimensionner</string>
@@ -57,7 +57,7 @@
     <string name="width">Largeur</string>
     <string name="height">Hauteur</string>
     <string name="keep_aspect_ratio">Garder le ratio</string>
-    <string name="invalid_values">Veuillez entrez une résolution valide</string>
+    <string name="invalid_values">Veuillez entrer une résolution valide</string>
 
     <!-- Editor -->
     <string name="editor">Éditeur</string>
@@ -86,33 +86,33 @@
     <string name="no_capable_app_found">Aucune application trouvée pour continuer cette action</string>
     <string name="setting_wallpaper">Paramètres de fond d\'écran…</string>
     <string name="wallpaper_set_successfully">Fond d\'écran défini avec succès</string>
-    <string name="portrait_aspect_ratio">Ratio aspect Portrait</string>
-    <string name="landscape_aspect_ratio">Ratio aspect Paysage</string>
+    <string name="portrait_aspect_ratio">Ratio d\'aspect portrait</string>
+    <string name="landscape_aspect_ratio">Ratio d\'aspect paysage</string>
 
     <!-- Slideshow -->
     <string name="slideshow">Diaporama</string>
-    <string name="interval">Intervalle​ (secondes):</string>
+    <string name="interval">Intervalle (secondes) :</string>
     <string name="include_photos">Inclure photos</string>
     <string name="include_videos">Inclure vidéos</string>
-    <string name="include_gifs">Inclure GIFs</string>
+    <string name="include_gifs">Inclure GIF</string>
     <string name="random_order">Ordre aléatoire</string>
     <string name="use_fade">Utiliser un fondu</string>
     <string name="move_backwards">Revenir en arrière</string>
-    <string name="loop_slideshow">Loop slideshow</string>
+    <string name="loop_slideshow">Diaporama en boucle</string>
     <string name="slideshow_ended">Diaporama terminé</string>
     <string name="no_media_for_slideshow">Aucun média trouvé pour le diaporama</string>
 
     <!-- View types -->
-    <string name="change_view_type">Change view type</string>
-    <string name="grid">Grid</string>
-    <string name="list">List</string>
+    <string name="change_view_type">Changer le type de vue</string>
+    <string name="grid">Grille</string>
+    <string name="list">Liste</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Afficher les dossiers cachés</string>
     <string name="autoplay_videos">Lecture automatique des vidéos</string>
     <string name="toggle_filename">Permuter la visibilité des noms de fichier</string>
-    <string name="loop_videos">Tourner en boucle les vidéos</string>
-    <string name="animate_gifs">GIFs animés sur les miniatures</string>
+    <string name="loop_videos">Lire en boucle les vidéos</string>
+    <string name="animate_gifs">GIF animés sur les miniatures</string>
     <string name="max_brightness">Luminosité maximale lors de l\'affichage de media</string>
     <string name="crop_thumbnails">Rogner les miniatures en carrés</string>
     <string name="screen_rotation_by">Pivoter les medias plein écran selon</string>
@@ -120,7 +120,7 @@
     <string name="screen_rotation_device_rotation">Rotation de l\'appareil</string>
     <string name="screen_rotation_aspect_ratio">Ratio d\'aspect</string>
     <string name="dark_background_at_fullscreen">Arrière-plan sombre pour média plein écran</string>
-    <string name="scroll_thumbnails_horizontally">Défilement des mignatures horizontalement</string>
+    <string name="scroll_thumbnails_horizontally">Défilement des miniatures horizontalement</string>
     <string name="hide_system_ui_at_fullscreen">Masquer automatiquement l\'interface utilisateur si média plein écran</string>
     <string name="delete_empty_folders">Supprimer les dossiers vides après avoir supprimé leur contenu</string>
     <string name="allow_video_gestures">Permettre le contrôle du volume vidéo et de la luminosité avec des gestes verticaux</string>
@@ -132,9 +132,9 @@
     <string name="app_long_description">
         Un simple outil pour visionner les photos et les vidéos. Elles peuvent être triées par dates, tailles, noms dans les deux sens (alphabétique comme désalphabétique), il est possible de zoomer sur les photos. Les fichiers sont affichés sur de multiple colonnes en fonction de la taille de l\'écran, vous pouvez changer le nombre de colonnes par pincement. Elles peuvent être renommées, partagées, supprimées, copiées et déplacées. Les images peuvent en plus être tournées, rognées ou être définies comme fond d\'écran directement depuis l\'application.
 
-        La galerie est aussi offerte pour l\'utiliser comme une tierce partie pour de la prévisualisation des images/vidéos, joindre aux clients mail etc. C\'est parfait pour un usage au quotidien.
+        La galerie est également proposée pour une utilisation comme tierce partie pour la prévisualisation des images/vidéos, ajouter des pièces jointes aux clients email etc. C\'est parfait pour un usage au quotidien.
 
-        L\'application ne contient ni de publicité ni d\'autorisation inutile. Elle est totalement OpenSource et est aussi fournie avec un thème sombre.
+        L\'application ne contient ni publicité ni autorisation inutile. Elle est totalement opensource et est aussi fournie avec des couleurs personnalisables.
 
         Cette application est juste l\'une des applications d\'une plus grande suite. Vous pouvez trouver les autres sur http://www.simplemobiletools.com
     </string>
