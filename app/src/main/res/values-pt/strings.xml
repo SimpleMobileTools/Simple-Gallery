@@ -19,7 +19,7 @@
     <string name="no_camera_app_found">Não existe uma aplicação adequeada</string>
     <string name="increase_column_count">Aumentar número de colunas</string>
     <string name="reduce_column_count">Diminuir número de colunas</string>
-    <string name="change_cover_image">Alterar imagem da capa</string>
+    <string name="change_cover_image">Alterar imagem de capa</string>
     <string name="select_photo">Selecionar foto</string>
     <string name="use_default">Predefinição</string>
     <string name="set_as">Definir como</string>
@@ -103,9 +103,9 @@
     <string name="no_media_for_slideshow">Não foram encontrados ficheiros para a apresentação</string>
 
     <!-- View types -->
-    <string name="change_view_type">Change view type</string>
-    <string name="grid">Grid</string>
-    <string name="list">List</string>
+    <string name="change_view_type">Tipo de exibição</string>
+    <string name="grid">Grelha</string>
+    <string name="list">Lista</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Mostrar pastas ocultas</string>
