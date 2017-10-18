@@ -126,6 +126,7 @@
     <string name="allow_video_gestures">Tillåt styrning av videovolym och videoljusstyrka med vertikala gester</string>
     <string name="replace_share_with_rotate">Ersätt Dela med Rotera i helskärmsmenyn</string>
     <string name="show_extended_details">Show extended details over fullscreen media</string>
+    <string name="manage_extended_details">Manage extended details</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

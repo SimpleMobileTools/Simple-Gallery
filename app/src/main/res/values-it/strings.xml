@@ -126,6 +126,7 @@
     <string name="allow_video_gestures">Gestisci il volume e la luminosità dei video con gesti verticali</string>
     <string name="replace_share_with_rotate">Sostituisci Condividi con Ruota a schermo intero</string>
     <string name="show_extended_details">Show extended details over fullscreen media</string>
+    <string name="manage_extended_details">Manage extended details</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

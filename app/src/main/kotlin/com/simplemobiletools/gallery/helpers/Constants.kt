@@ -40,6 +40,7 @@ val TEMP_FOLDER_PATH = "temp_folder_path"
 val VIEW_TYPE_FOLDERS = "view_type_folders"
 val VIEW_TYPE_FILES = "view_type_files"
 val SHOW_EXTENDED_DETAILS = "show_extended_details"
+val EXTENDED_DETAILS = "extended_details"
 
 // slideshow
 val SLIDESHOW_INTERVAL = "slideshow_interval"
@@ -86,3 +87,16 @@ val GIFS = 4
 // view types
 val VIEW_TYPE_GRID = 1
 val VIEW_TYPE_LIST = 2
+
+// extended details values
+val EXT_NAME = 1
+val EXT_PATH = 2
+val EXT_SIZE = 4
+val EXT_RESOLUTION = 8
+val EXT_LAST_MODIFIED = 16
+val EXT_DATE_TAKEN = 32
+val EXT_CAMERA_MODEL = 64
+val EXT_EXIF_PROPERTIES = 128
+val EXT_DURATION = 256
+val EXT_ARTIST = 512
+val EXT_ALBUM = 1024

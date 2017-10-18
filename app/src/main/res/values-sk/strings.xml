@@ -126,12 +126,13 @@
     <string name="allow_video_gestures">Povoliť ovládanie hlasitosti a jasu videí vertikálnymi ťahmi</string>
     <string name="replace_share_with_rotate">Nahradiť Zdieľanie s Otočením v celoobrazovkovom menu</string>
     <string name="show_extended_details">Zobraziť rozšírené vlastnosti ponad celoobrazovkové médiá</string>
+    <string name="manage_extended_details">Spravovať rozšírené vlastnosti</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Galéria na prezeranie obrázkov a videí bez reklám.</string>
     <string name="app_long_description">
-        Jednoduchá nástroj použiteľný na prezeranie obrázkov a videí. Položky môžu byť zoradené podľa dátumu, veľkosti, názvu oboma smermi, obrázky je možné aj priblížiť. Položky sú zobrazované vo viacerých stĺpcoch v závislosti od veľkosti displeja, počet stĺpcov je možné meniť pomocou gesta prstami. Súbory môžete premenovať, zdieľať, mazať, kopírovať, premiestňovaŤ. Obrázky môžete orezať, otočiť, alebo nastaviť ako tapeta priamo v aplikácií.
+        Jednoduchá nástroj použiteľný na prezeranie obrázkov a videí. Položky môžu byť zoradené podľa dátumu, veľkosti, názvu oboma smermi, obrázky je možné aj priblížiť. Položky sú zobrazované vo viacerých stĺpcoch v závislosti od veľkosti displeja, počet stĺpcov je možné meniť pomocou gesta prstami. Súbory môžete premenovať, zdieľať, mazať, kopírovať, premiestňovať. Obrázky môžete orezať, otočiť, alebo nastaviť ako tapeta priamo v aplikácií.
 
         Galéria je tiež poskytovaná pre použitie treťou stranou pre prehliadanie fotiek a videí, pridávanie príloh v emailových klientoch. Je perfektná na každodenné použitie.
 

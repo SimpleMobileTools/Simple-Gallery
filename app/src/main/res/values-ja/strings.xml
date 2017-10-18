@@ -126,6 +126,7 @@
     <string name="allow_video_gestures">ビデオ再生中に、音量と明るさを縦方向のジェスチャーで変更する</string>
     <string name="replace_share_with_rotate">フルスクリーンメニューの「共有」を「回転」に置き換える</string>
     <string name="show_extended_details">Show extended details over fullscreen media</string>
+    <string name="manage_extended_details">Manage extended details</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

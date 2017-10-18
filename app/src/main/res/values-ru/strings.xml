@@ -126,6 +126,7 @@
     <string name="allow_video_gestures">Управлять громкостью и яркостью видео с помощью вертикальных жестов</string>
     <string name="replace_share_with_rotate">Заменить \'Поделиться\' на \'Повернуть\' в меню полноэкранного режима</string>
     <string name="show_extended_details">Show extended details over fullscreen media</string>
+    <string name="manage_extended_details">Manage extended details</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
