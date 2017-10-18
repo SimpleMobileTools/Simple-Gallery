@@ -43,6 +43,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private var mIsFullscreen = false
     private var mIsFragmentVisible = false
     private var mPlayOnPrepare = false
+    private var mStoredShowExtendedDetails = false
     private var mCurrTime = 0
     private var mDuration = 0
 
@@ -87,6 +88,24 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         activity.updateTextColors(mView.video_holder)
         mView.video_volume_controller.beVisibleIf(context.config.allowVideoGestures)
         mView.video_brightness_controller.beVisibleIf(context.config.allowVideoGestures)
+
+        if (context.config.showExtendedDetails != mStoredShowExtendedDetails) {
+            checkExtendedDetails()
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        pauseVideo()
+        mIsFragmentVisible = false
+        mStoredShowExtendedDetails = context.config.showExtendedDetails
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (activity?.isChangingConfigurations == false) {
+            cleanup()
+        }
     }
 
     private fun setupPlayer() {
@@ -394,19 +413,6 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private fun addPreviewImage() {
         mMediaPlayer!!.start()
         mMediaPlayer!!.pause()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        pauseVideo()
-        mIsFragmentVisible = false
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        if (activity?.isChangingConfigurations == false) {
-            cleanup()
-        }
     }
 
     private fun cleanup() {

@@ -39,10 +39,12 @@ import java.io.FileOutputStream
 import java.io.IOException
 
 class PhotoFragment : ViewPagerFragment() {
-    lateinit var medium: Medium
-    lateinit var view: ViewGroup
     private var isFragmentVisible = false
     private var wasInit = false
+    private var storedShowExtendedDetails = false
+
+    lateinit var view: ViewGroup
+    lateinit var medium: Medium
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         view = inflater.inflate(R.layout.pager_photo_item, container, false) as ViewGroup
@@ -102,6 +104,18 @@ class PhotoFragment : ViewPagerFragment() {
         wasInit = true
 
         return view
+    }
+
+    override fun onPause() {
+        super.onPause()
+        storedShowExtendedDetails = context.config.showExtendedDetails
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (wasInit && context.config.showExtendedDetails != storedShowExtendedDetails) {
+            checkExtendedDetails()
+        }
     }
 
     override fun setMenuVisibility(menuVisible: Boolean) {
