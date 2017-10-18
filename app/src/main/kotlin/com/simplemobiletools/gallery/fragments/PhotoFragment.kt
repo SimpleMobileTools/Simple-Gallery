@@ -12,6 +12,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
 import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
 import com.bumptech.glide.load.DataSource
@@ -24,15 +25,10 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.davemorrissey.labs.subscaleview.ImageSource
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
-import com.simplemobiletools.commons.extensions.beGone
-import com.simplemobiletools.commons.extensions.beVisible
-import com.simplemobiletools.commons.extensions.toast
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
-import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.extensions.getFileSignature
-import com.simplemobiletools.gallery.extensions.getRealPathFromURI
-import com.simplemobiletools.gallery.extensions.portrait
+import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
@@ -101,6 +97,7 @@ class PhotoFragment : ViewPagerFragment() {
             }
         }
         loadImage()
+        checkExtendedDetails()
 
         wasInit = true
 
@@ -258,6 +255,29 @@ class PhotoFragment : ViewPagerFragment() {
         loadBitmap(degrees)
     }
 
+    private fun checkExtendedDetails() {
+        if (context.config.showExtendedDetails) {
+            val file = File(medium.path)
+            val name = medium.name
+            val path = "${File(medium.path).parent.trimEnd('/')}/"
+            val exif = android.media.ExifInterface(medium.path)
+            val size = file.length().formatSize()
+            val resolution = file.getResolution().formatAsResolution()
+            val lastModified = file.lastModified().formatLastModified()
+            val dateTaken = path.getExifDateTaken(exif)
+            val cameraModel = path.getExifCameraModel(exif)
+            val exifProperties = path.getExifProperties(exif)
+            view.photo_details.apply {
+                beVisible()
+                setTextColor(context.config.textColor)
+                text = "$name\n$path\n$size\n$resolution\n$lastModified\n$dateTaken\n$cameraModel\n$exifProperties"
+                (layoutParams as RelativeLayout.LayoutParams).bottomMargin = (resources.getDimension(R.dimen.small_margin) + context.navigationBarHeight).toInt()
+            }
+        } else {
+            view.photo_details.beGone()
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && !activity.isDestroyed) {
@@ -268,6 +288,7 @@ class PhotoFragment : ViewPagerFragment() {
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         loadImage()
+        checkExtendedDetails()
     }
 
     private fun photoClicked() {

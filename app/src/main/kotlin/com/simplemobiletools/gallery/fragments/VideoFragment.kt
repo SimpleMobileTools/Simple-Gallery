@@ -14,16 +14,17 @@ import android.view.*
 import android.view.animation.AnimationUtils
 import android.widget.SeekBar
 import android.widget.TextView
-import com.simplemobiletools.commons.extensions.beVisibleIf
-import com.simplemobiletools.commons.extensions.getFormattedDuration
-import com.simplemobiletools.commons.extensions.toast
-import com.simplemobiletools.commons.extensions.updateTextColors
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
-import com.simplemobiletools.gallery.extensions.*
+import com.simplemobiletools.gallery.extensions.audioManager
+import com.simplemobiletools.gallery.extensions.config
+import com.simplemobiletools.gallery.extensions.hasNavBar
+import com.simplemobiletools.gallery.extensions.navigationBarHeight
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.pager_video_item.view.*
+import java.io.File
 import java.io.IOException
 
 class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSeekBarChangeListener {
@@ -36,7 +37,6 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private var mCurrTimeView: TextView? = null
     private var mTimerHandler: Handler? = null
     private var mSeekBar: SeekBar? = null
-    private var mTimeHolder: View? = null
 
     private var mIsPlaying = false
     private var mIsDragged = false
@@ -59,6 +59,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
     lateinit var mView: View
     lateinit var medium: Medium
+    lateinit var mTimeHolder: View
 
     companion object {
         private val TAG = VideoFragment::class.java.simpleName
@@ -67,9 +68,10 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mView = inflater.inflate(R.layout.pager_video_item, container, false)
-        setupPlayer()
-
+        mTimeHolder = mView.video_time_holder
         medium = arguments.getSerializable(MEDIUM) as Medium
+
+        setupPlayer()
         if (savedInstanceState != null) {
             mCurrTime = savedInstanceState.getInt(PROGRESS)
         }
@@ -109,6 +111,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         }
 
         initTimeHolder()
+        checkExtendedDetails()
     }
 
     override fun setMenuVisibility(menuVisible: Boolean) {
@@ -131,6 +134,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         super.onConfigurationChanged(newConfig)
         setVideoSize()
         initTimeHolder()
+        checkExtendedDetails()
     }
 
     private fun toggleFullscreen() {
@@ -261,11 +265,10 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     }
 
     private fun initTimeHolder() {
-        mTimeHolder = mView.video_time_holder
         val res = resources
-        val height = res.getNavBarHeight()
-        val left = mTimeHolder!!.paddingLeft
-        val top = mTimeHolder!!.paddingTop
+        val height = context.navigationBarHeight
+        val left = mTimeHolder.paddingLeft
+        val top = mTimeHolder.paddingTop
         var right = res.getDimension(R.dimen.timer_padding).toInt()
         var bottom = 0
 
@@ -276,7 +279,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 right += height
                 bottom += context.navigationBarHeight
             }
-            mTimeHolder!!.setPadding(left, top, right, bottom)
+            mTimeHolder.setPadding(left, top, right, bottom)
         }
 
         mCurrTimeView = mView.video_curr_time
@@ -284,7 +287,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mSeekBar!!.setOnSeekBarChangeListener(this)
 
         if (mIsFullscreen)
-            mTimeHolder!!.visibility = View.INVISIBLE
+            mTimeHolder.beInvisible()
     }
 
     private fun setupTimeHolder() {
@@ -328,7 +331,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         AnimationUtils.loadAnimation(activity, anim).apply {
             duration = 150
             fillAfter = true
-            mTimeHolder!!.startAnimation(this)
+            mTimeHolder.startAnimation(this)
         }
     }
 
@@ -491,6 +494,31 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 height = screenHeight
             }
             mSurfaceView!!.layoutParams = this
+        }
+    }
+
+    private fun checkExtendedDetails() {
+        if (context.config.showExtendedDetails) {
+            val file = File(medium.path)
+            val name = medium.name
+            val path = "${File(medium.path).parent.trimEnd('/')}/"
+            val exif = android.media.ExifInterface(medium.path)
+            val size = file.length().formatSize()
+            val resolution = file.getResolution().formatAsResolution()
+            val duration = file.getDuration()
+            val artist = file.getArtist() ?: ""
+            val album = file.getAlbum() ?: ""
+            val lastModified = file.lastModified().formatLastModified()
+            val dateTaken = path.getExifDateTaken(exif)
+            val cameraModel = path.getExifCameraModel(exif)
+            val exifProperties = path.getExifProperties(exif)
+            mView.video_details.apply {
+                beVisible()
+                setTextColor(context.config.textColor)
+                text = "$name\n$path\n$size\n$resolution\n$duration\n$artist\n$album\n$lastModified\n$dateTaken\n$cameraModel\n$exifProperties"
+            }
+        } else {
+            mView.video_details.beGone()
         }
     }
 
