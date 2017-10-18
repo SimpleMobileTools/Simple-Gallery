@@ -30,7 +30,7 @@ class PickMediumDialog(val activity: SimpleActivity, val path: String, val callb
             activity.setupDialogStuff(view, this, R.string.select_photo)
 
             val token = object : TypeToken<List<Medium>>() {}.type
-            val media = Gson().fromJson<ArrayList<Medium>>(activity.config.loadFolderMedia(path), token) ?: ArrayList<Medium>(1)
+            val media = Gson().fromJson<ArrayList<Medium>>(activity.config.loadFolderMedia(path), token) ?: ArrayList(1)
 
             if (media.isNotEmpty()) {
                 gotMedia(media)

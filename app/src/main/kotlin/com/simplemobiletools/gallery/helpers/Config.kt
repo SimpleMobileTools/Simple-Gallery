@@ -288,4 +288,8 @@ class Config(context: Context) : BaseConfig(context) {
     var viewTypeFiles: Int
         get() = prefs.getInt(VIEW_TYPE_FILES, VIEW_TYPE_GRID)
         set(viewTypeFiles) = prefs.edit().putInt(VIEW_TYPE_FILES, viewTypeFiles).apply()
+
+    var showExtendedDetails: Boolean
+        get() = prefs.getBoolean(SHOW_EXTENDED_DETAILS, false)
+        set(showExtendedDetails) = prefs.edit().putBoolean(SHOW_EXTENDED_DETAILS, showExtendedDetails).apply()
 }

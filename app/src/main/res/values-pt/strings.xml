@@ -125,6 +125,7 @@
     <string name="delete_empty_folders">Apagar as pastas vazias depois de remover o seu conteúdo</string>
     <string name="allow_video_gestures">Permitir controlo do volume e brilho dos vídeos através de gestos verticais</string>
     <string name="replace_share_with_rotate">Substituir a opção Partilhar pela opção Rodar se em ecrã completo</string>
+    <string name="show_extended_details">Show extended details over fullscreen media</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

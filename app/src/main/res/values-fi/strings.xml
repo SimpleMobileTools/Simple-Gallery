@@ -125,6 +125,7 @@
     <string name="delete_empty_folders">Poista tyhjät kansiot kansion tyhjennyksen jälkeen</string>
     <string name="allow_video_gestures">Salli videon äänenvoimakkuuden ja kirkkauden säätö pystysuorilla eleillä</string>
     <string name="replace_share_with_rotate">Korvaa jakaminen kääntämisellä koko näytön tilassa</string>
+    <string name="show_extended_details">Show extended details over fullscreen media</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

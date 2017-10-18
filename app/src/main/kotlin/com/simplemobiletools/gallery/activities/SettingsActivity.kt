@@ -47,6 +47,7 @@ class SettingsActivity : SimpleActivity() {
         setupPasswordProtection()
         setupDeleteEmptyFolders()
         setupAllowVideoGestures()
+        setupShowExtendedDetails()
         updateTextColors(settings_holder)
     }
 
@@ -214,4 +215,12 @@ class SettingsActivity : SimpleActivity() {
         ROTATE_BY_DEVICE_ROTATION -> R.string.screen_rotation_device_rotation
         else -> R.string.screen_rotation_aspect_ratio
     })
+
+    private fun setupShowExtendedDetails() {
+        settings_show_extended_details.isChecked = config.showExtendedDetails
+        settings_show_extended_details_holder.setOnClickListener {
+            settings_show_extended_details.toggle()
+            config.showExtendedDetails = settings_show_extended_details.isChecked
+        }
+    }
 }

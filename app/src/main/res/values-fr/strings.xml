@@ -125,6 +125,7 @@
     <string name="delete_empty_folders">Supprimer les dossiers vides après avoir supprimé leur contenu</string>
     <string name="allow_video_gestures">Permettre le contrôle du volume vidéo et de la luminosité avec des gestes verticaux</string>
     <string name="replace_share_with_rotate">Remplacer Partager par Pivoter si menu en plein écran</string>
+    <string name="show_extended_details">Show extended details over fullscreen media</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

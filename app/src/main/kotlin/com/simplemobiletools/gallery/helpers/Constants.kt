@@ -39,6 +39,7 @@ val ALLOW_VIDEO_GESTURES = "allow_video_gestures"
 val TEMP_FOLDER_PATH = "temp_folder_path"
 val VIEW_TYPE_FOLDERS = "view_type_folders"
 val VIEW_TYPE_FILES = "view_type_files"
+val SHOW_EXTENDED_DETAILS = "show_extended_details"
 
 // slideshow
 val SLIDESHOW_INTERVAL = "slideshow_interval"
