@@ -4,14 +4,10 @@ import com.simplemobiletools.commons.helpers.*
 import java.io.Serializable
 
 data class Directory(val path: String, val tmb: String, val name: String, var mediaCnt: Int, val modified: Long, val taken: Long,
-                     var size: Long) : Serializable, Comparable<Directory> {
+                     val size: Long) : Serializable, Comparable<Directory> {
     companion object {
         private val serialVersionUID = -6553345863555455L
         var sorting: Int = 0
-    }
-
-    fun addSize(bytes: Long) {
-        size += bytes
     }
 
     override fun compareTo(other: Directory): Int {
