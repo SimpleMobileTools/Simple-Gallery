@@ -24,7 +24,6 @@ import com.simplemobiletools.gallery.extensions.navigationBarHeight
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.pager_video_item.view.*
-import java.io.File
 import java.io.IOException
 
 class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSeekBarChangeListener {
@@ -505,23 +504,10 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
     private fun checkExtendedDetails() {
         if (context.config.showExtendedDetails) {
-            val file = File(medium.path)
-            val name = medium.name
-            val path = "${File(medium.path).parent.trimEnd('/')}/"
-            val exif = android.media.ExifInterface(medium.path)
-            val size = file.length().formatSize()
-            val resolution = file.getResolution().formatAsResolution()
-            val duration = file.getDuration()
-            val artist = file.getArtist() ?: ""
-            val album = file.getAlbum() ?: ""
-            val lastModified = file.lastModified().formatLastModified()
-            val dateTaken = path.getExifDateTaken(exif)
-            val cameraModel = path.getExifCameraModel(exif)
-            val exifProperties = path.getExifProperties(exif)
             mView.video_details.apply {
                 beVisible()
                 setTextColor(context.config.textColor)
-                text = "$name\n$path\n$size\n$resolution\n$duration\n$artist\n$album\n$lastModified\n$dateTaken\n$cameraModel\n$exifProperties"
+                text = getMediumExtendedDetails(medium)
             }
         } else {
             mView.video_details.beGone()

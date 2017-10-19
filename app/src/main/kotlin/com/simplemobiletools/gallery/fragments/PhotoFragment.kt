@@ -25,7 +25,9 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.davemorrissey.labs.subscaleview.ImageSource
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
-import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.extensions.beGone
+import com.simplemobiletools.commons.extensions.beVisible
+import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.*
@@ -271,20 +273,10 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun checkExtendedDetails() {
         if (context.config.showExtendedDetails) {
-            val file = File(medium.path)
-            val name = medium.name
-            val path = "${File(medium.path).parent.trimEnd('/')}/"
-            val exif = android.media.ExifInterface(medium.path)
-            val size = file.length().formatSize()
-            val resolution = file.getResolution().formatAsResolution()
-            val lastModified = file.lastModified().formatLastModified()
-            val dateTaken = path.getExifDateTaken(exif)
-            val cameraModel = path.getExifCameraModel(exif)
-            val exifProperties = path.getExifProperties(exif)
             view.photo_details.apply {
                 beVisible()
                 setTextColor(context.config.textColor)
-                text = "$name\n$path\n$size\n$resolution\n$lastModified\n$dateTaken\n$cameraModel\n$exifProperties"
+                text = getMediumExtendedDetails(medium)
                 (layoutParams as RelativeLayout.LayoutParams).bottomMargin = (resources.getDimension(R.dimen.small_margin) + context.navigationBarHeight).toInt()
             }
         } else {

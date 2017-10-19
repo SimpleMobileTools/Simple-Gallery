@@ -110,8 +110,8 @@ class MediaFetcher(val context: Context) {
                         if (shouldStop)
                             break
 
-                        val path = cur.getStringValue(MediaStore.Images.Media.DATA)
-                        var filename = cur.getStringValue(MediaStore.Images.Media.DISPLAY_NAME) ?: ""
+                        val path = cur.getStringValue(MediaStore.Images.Media.DATA).trim()
+                        var filename = cur.getStringValue(MediaStore.Images.Media.DISPLAY_NAME)?.trim() ?: ""
                         if (filename.isEmpty())
                             filename = path.getFilenameFromPath()
 
