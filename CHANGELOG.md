@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 2.16.0 *(2017-10-19)*
+----------------------------
+
+ * Added sorting by path
+ * Added an option to show customizable extended details over fullscreen media
+ * Allow selecting Album cover photos from any folders
+ * Added a checkbox for skipping Delete confirmation dialog
+
 Version 2.15.2 *(2017-10-06)*
 ----------------------------
 
