@@ -227,16 +227,18 @@ fun SimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
             val fileDocument = getFileDocument(path)
             if (fileDocument?.exists() == true && fileDocument.isDirectory) {
                 fileDocument.createFile("", NOMEDIA)
-            } else
+            } else {
                 toast(R.string.unknown_error_occurred)
+            }
         }
     } else {
         try {
             file.createNewFile()
         } catch (e: Exception) {
-            toast(R.string.unknown_error_occurred)
+            showErrorToast(e)
         }
     }
+
     scanFile(file) {
         callback()
     }
