@@ -43,6 +43,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private var mIsFragmentVisible = false
     private var mPlayOnPrepare = false
     private var mStoredShowExtendedDetails = false
+    private var mStoredExtendedDetails = 0
     private var mCurrTime = 0
     private var mDuration = 0
 
@@ -88,7 +89,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mView.video_volume_controller.beVisibleIf(context.config.allowVideoGestures)
         mView.video_brightness_controller.beVisibleIf(context.config.allowVideoGestures)
 
-        if (context.config.showExtendedDetails != mStoredShowExtendedDetails) {
+        if (context.config.showExtendedDetails != mStoredShowExtendedDetails || context.config.extendedDetails != mStoredExtendedDetails) {
             checkExtendedDetails()
         }
     }
@@ -98,6 +99,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         pauseVideo()
         mIsFragmentVisible = false
         mStoredShowExtendedDetails = context.config.showExtendedDetails
+        mStoredExtendedDetails = context.config.extendedDetails
     }
 
     override fun onDestroy() {

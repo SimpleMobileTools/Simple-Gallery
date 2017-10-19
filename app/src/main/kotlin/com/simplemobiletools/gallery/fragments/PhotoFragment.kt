@@ -44,6 +44,7 @@ class PhotoFragment : ViewPagerFragment() {
     private var isFragmentVisible = false
     private var wasInit = false
     private var storedShowExtendedDetails = false
+    private var storedExtendedDetails = 0
 
     lateinit var view: ViewGroup
     lateinit var medium: Medium
@@ -111,11 +112,12 @@ class PhotoFragment : ViewPagerFragment() {
     override fun onPause() {
         super.onPause()
         storedShowExtendedDetails = context.config.showExtendedDetails
+        storedExtendedDetails = context.config.extendedDetails
     }
 
     override fun onResume() {
         super.onResume()
-        if (wasInit && context.config.showExtendedDetails != storedShowExtendedDetails) {
+        if (wasInit && (context.config.showExtendedDetails != storedShowExtendedDetails || context.config.extendedDetails != storedExtendedDetails)) {
             checkExtendedDetails()
         }
     }
