@@ -224,11 +224,11 @@ fun SimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
 
     if (needsStupidWritePermissions(path)) {
         handleSAFDialog(file) {
-            try {
-                getFileDocument(path)?.createFile("", NOMEDIA)
-            } catch (e: Exception) {
+            val fileDocument = getFileDocument(path)
+            if (fileDocument?.exists() == true && fileDocument.isDirectory) {
+                fileDocument.createFile("", NOMEDIA)
+            } else
                 toast(R.string.unknown_error_occurred)
-            }
         }
     } else {
         try {

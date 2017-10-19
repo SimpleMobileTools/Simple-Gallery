@@ -123,10 +123,11 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             var hiddenCnt = 0
             var unhiddenCnt = 0
             selectedPositions.mapNotNull { dirs.getOrNull(it)?.path }.forEach {
-                if (File(it).containsNoMedia())
+                if (File(it).containsNoMedia()) {
                     hiddenCnt++
-                else
+                } else {
                     unhiddenCnt++
+                }
             }
 
             menu.findItem(R.id.cab_hide).isVisible = unhiddenCnt > 0
@@ -138,10 +139,11 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             var pinnedCnt = 0
             var unpinnedCnt = 0
             selectedPositions.mapNotNull { dirs.getOrNull(it)?.path }.forEach {
-                if (pinnedFolders.contains(it))
+                if (pinnedFolders.contains(it)) {
                     pinnedCnt++
-                else
+                } else {
                     unpinnedCnt++
+                }
             }
 
             menu.findItem(R.id.cab_pin).isVisible = unpinnedCnt > 0
