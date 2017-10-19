@@ -7,7 +7,7 @@ import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.gallery.R
 import kotlinx.android.synthetic.main.dialog_delete_with_remember.view.*
 
-class DeleteWithRememberDialog(val context: Context, val callback: (Boolean) -> Unit) {
+class DeleteWithRememberDialog(val context: Context, val callback: (remember: Boolean) -> Unit) {
     var dialog: AlertDialog
     val view = LayoutInflater.from(context).inflate(R.layout.dialog_delete_with_remember, null)
 
