@@ -31,17 +31,25 @@ class PickMediumDialog(val activity: SimpleActivity, val path: String, val callb
         dialog = AlertDialog.Builder(activity)
                 .setPositiveButton(R.string.ok, null)
                 .setNegativeButton(R.string.cancel, null)
+                .setNeutralButton(R.string.other_folder, { dialogInterface, i -> showOtherFolder() })
                 .create().apply {
             activity.setupDialogStuff(view, this, R.string.select_photo)
+        }
 
-            val media = activity.getCachedMedia(path).filter { !it.video } as ArrayList
-            if (media.isNotEmpty()) {
-                gotMedia(media)
-            }
+        val media = activity.getCachedMedia(path).filter { !it.video } as ArrayList
+        if (media.isNotEmpty()) {
+            gotMedia(media)
+        }
 
-            GetMediaAsynctask(activity, path, false, true, false) {
-                gotMedia(it)
-            }.execute()
+        GetMediaAsynctask(activity, path, false, true, false) {
+            gotMedia(it)
+        }.execute()
+    }
+
+    private fun showOtherFolder() {
+        PickDirectoryDialog(activity, path) {
+            callback(it)
+            dialog.dismiss()
         }
     }
 

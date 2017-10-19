@@ -37,16 +37,16 @@ class PickDirectoryDialog(val activity: SimpleActivity, val sourcePath: String, 
                 .setNeutralButton(R.string.other_folder, { dialogInterface, i -> showOtherFolder() })
                 .create().apply {
             activity.setupDialogStuff(view, this, R.string.select_destination)
-
-            val dirs = activity.getCachedDirectories()
-            if (dirs.isNotEmpty()) {
-                gotDirectories(activity.addTempFolderIfNeeded(dirs))
-            }
-
-            GetDirectoriesAsynctask(activity, false, false) {
-                gotDirectories(activity.addTempFolderIfNeeded(it))
-            }.execute()
         }
+
+        val dirs = activity.getCachedDirectories()
+        if (dirs.isNotEmpty()) {
+            gotDirectories(activity.addTempFolderIfNeeded(dirs))
+        }
+
+        GetDirectoriesAsynctask(activity, false, false) {
+            gotDirectories(activity.addTempFolderIfNeeded(it))
+        }.execute()
     }
 
     private fun showOtherFolder() {

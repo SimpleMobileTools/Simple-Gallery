@@ -215,10 +215,11 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     }
 
     private fun pinFolders(pin: Boolean) {
-        if (pin)
+        if (pin) {
             config.addPinnedFolders(getSelectedPaths())
-        else
+        } else {
             config.removePinnedFolders(getSelectedPaths())
+        }
 
         pinnedFolders = config.pinnedFolders
         listener?.recheckPinnedFolders()
@@ -302,19 +303,29 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             return
 
         val path = dirs[selectedPositions.first()].path
-        var albumCovers = config.parseAlbumCovers()
 
         if (useDefault) {
-            albumCovers = albumCovers.filterNot { it.path == path } as ArrayList
+            val albumCovers = getAlbumCoversWithout(path)
             storeCovers(albumCovers)
         } else {
-            PickMediumDialog(activity, path) {
-                albumCovers = albumCovers.filterNot { it.path == path } as ArrayList
-                albumCovers.add(AlbumCover(path, it))
+            pickMediumFrom(path, path)
+        }
+    }
+
+    private fun pickMediumFrom(targetFolder: String, path: String) {
+        PickMediumDialog(activity, path) {
+            if (File(it).isDirectory) {
+                pickMediumFrom(targetFolder, it)
+            } else {
+                val albumCovers = getAlbumCoversWithout(path)
+                val cover = AlbumCover(targetFolder, it)
+                albumCovers.add(cover)
                 storeCovers(albumCovers)
             }
         }
     }
+
+    private fun getAlbumCoversWithout(path: String) = config.parseAlbumCovers().filterNot { it.path == path } as ArrayList
 
     private fun storeCovers(albumCovers: ArrayList<AlbumCover>) {
         activity.config.albumCovers = Gson().toJson(albumCovers)
