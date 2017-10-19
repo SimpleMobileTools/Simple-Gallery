@@ -337,3 +337,8 @@ fun Activity.getCachedDirectories(): ArrayList<Directory> {
     val token = object : TypeToken<List<Directory>>() {}.type
     return Gson().fromJson<ArrayList<Directory>>(config.directories, token) ?: ArrayList<Directory>(1)
 }
+
+fun Activity.getCachedMedia(path: String): ArrayList<Medium> {
+    val token = object : TypeToken<List<Medium>>() {}.type
+    return Gson().fromJson<ArrayList<Medium>>(config.loadFolderMedia(path), token) ?: ArrayList(1)
+}

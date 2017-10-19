@@ -1,10 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.RecyclerView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/media_grid"
+    android:id="@+id/media_grid_holder"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="@dimen/activity_margin"
-    app:layoutManager="android.support.v7.widget.GridLayoutManager"
-    app:spanCount="@integer/media_columns_vertical_scroll"/>
+    android:paddingTop="@dimen/activity_margin">
+
+    <com.simplemobiletools.commons.views.MyScalableRecyclerView
+        android:id="@+id/media_grid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        app:layoutManager="android.support.v7.widget.GridLayoutManager"
+        app:spanCount="@integer/media_columns_vertical_scroll"/>
+
+    <com.simplemobiletools.commons.views.FastScroller
+        android:id="@+id/media_vertical_fastscroller"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:paddingLeft="@dimen/normal_margin"
+        android:paddingStart="@dimen/normal_margin">
+
+        <ImageView
+            android:id="@+id/fastscroller_handle_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:alpha="0"
+            android:background="@drawable/fastscroller_handle_vertical"/>
+
+    </com.simplemobiletools.commons.views.FastScroller>
+
+    <com.simplemobiletools.commons.views.FastScroller
+        android:id="@+id/media_horizontal_fastscroller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingTop="@dimen/normal_margin">
+
+        <ImageView
+            android:id="@+id/fastscroller_handle_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:alpha="0"
+            android:background="@drawable/fastscroller_handle_horizontal"/>
+
+    </com.simplemobiletools.commons.views.FastScroller>
+</RelativeLayout>

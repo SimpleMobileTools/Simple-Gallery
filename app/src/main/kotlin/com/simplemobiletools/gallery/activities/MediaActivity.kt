@@ -18,7 +18,6 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
@@ -343,8 +342,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             return
 
         mIsGettingMedia = true
-        val token = object : TypeToken<List<Medium>>() {}.type
-        val media = Gson().fromJson<ArrayList<Medium>>(config.loadFolderMedia(mPath), token) ?: ArrayList(1)
+        val media = getCachedMedia(mPath)
         if (media.isNotEmpty() && !mLoadedInitialPhotos) {
             gotMedia(media, true)
         } else {

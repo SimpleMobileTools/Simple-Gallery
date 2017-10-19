@@ -3,7 +3,6 @@ package com.simplemobiletools.gallery.dialogs
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.GridLayoutManager
 import android.view.LayoutInflater
-import android.view.View
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.beGoneIf
 import com.simplemobiletools.commons.extensions.beVisibleIf
@@ -22,8 +21,8 @@ import kotlinx.android.synthetic.main.dialog_directory_picker.view.*
 
 class PickDirectoryDialog(val activity: SimpleActivity, val sourcePath: String, val callback: (path: String) -> Unit) {
     var dialog: AlertDialog
-    var shownDirectories: ArrayList<Directory> = ArrayList()
-    var view: View = LayoutInflater.from(activity).inflate(R.layout.dialog_directory_picker, null)
+    var shownDirectories = ArrayList<Directory>()
+    var view = LayoutInflater.from(activity).inflate(R.layout.dialog_directory_picker, null)
     var isGridViewType = activity.config.viewTypeFolders == VIEW_TYPE_GRID
 
     init {
