@@ -25,6 +25,7 @@
     <string name="set_as">Nastaviť ako</string>
     <string name="volume">Hlasitosť</string>
     <string name="brightness">Jas</string>
+    <string name="do_not_ask_again">Nepýtať sa už v tomto spustení</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter médií</string>

@@ -25,6 +25,7 @@
     <string name="set_as">Aseta</string>
     <string name="volume">Äänenvoimakkuus</string>
     <string name="brightness">Kirkkaus</string>
+    <string name="do_not_ask_again">Do not ask again in this session</string>
 
     <!-- Filter -->
     <string name="filter_media">Suodata media</string>

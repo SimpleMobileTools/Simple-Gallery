@@ -22,9 +22,10 @@
     <string name="change_cover_image">Изменить обложку</string>
     <string name="select_photo">Выбрать изображение</string>
     <string name="use_default">Использовать по умолчанию</string>
-    <string name="set_as">Установить как...</string>
+    <string name="set_as">Установить как…</string>
     <string name="volume">Громкость</string>
     <string name="brightness">Яркость</string>
+    <string name="do_not_ask_again">Do not ask again in this session</string>
 
     <!-- Filter -->
     <string name="filter_media">Фильтр медиа</string>
@@ -84,7 +85,7 @@
     <string name="set_as_wallpaper_failed">Установить не удалось</string>
     <string name="set_as_wallpaper_with">Установить в качестве обоев в:</string>
     <string name="no_capable_app_found">Приложение не найдено</string>
-    <string name="setting_wallpaper">Установка обоев&#8230;</string>
+    <string name="setting_wallpaper">Установка обоев…</string>
     <string name="wallpaper_set_successfully">Обои успешно установлены</string>
     <string name="portrait_aspect_ratio">Формат изображения</string>
     <string name="landscape_aspect_ratio">Пейзажное соотношение сторон</string>

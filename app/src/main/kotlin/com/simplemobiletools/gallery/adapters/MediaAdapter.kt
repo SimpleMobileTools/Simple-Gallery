@@ -10,13 +10,13 @@ import com.bignerdranch.android.multiselector.ModalMultiSelectorCallback
 import com.bignerdranch.android.multiselector.MultiSelector
 import com.bignerdranch.android.multiselector.SwappingHolder
 import com.bumptech.glide.Glide
-import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.beGone
 import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
+import com.simplemobiletools.gallery.dialogs.DeleteWithRememberDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.VIEW_TYPE_LIST
 import com.simplemobiletools.gallery.models.Medium
@@ -30,6 +30,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     val multiSelector = MultiSelector()
     val config = activity.config
     val isListViewType = config.viewTypeFiles == VIEW_TYPE_LIST
+    var skipConfirmationDialog = false
 
     var actMode: ActionMode? = null
     var itemViews = SparseArray<View>()
@@ -83,7 +84,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 R.id.cab_copy_to -> copyMoveTo(true)
                 R.id.cab_move_to -> copyMoveTo(false)
                 R.id.cab_select_all -> selectAll()
-                R.id.cab_delete -> askConfirmDelete()
+                R.id.cab_delete -> checkDeleteConfirmation()
                 else -> return false
             }
             return true
@@ -204,10 +205,23 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         updateTitle(cnt)
     }
 
-    private fun askConfirmDelete() {
-        ConfirmationDialog(activity) {
-            deleteFiles()
+    private fun checkDeleteConfirmation() {
+        if (skipConfirmationDialog) {
+            deleteConfirmed()
+        } else {
+            askConfirmDelete()
         }
+    }
+
+    private fun askConfirmDelete() {
+        DeleteWithRememberDialog(activity) {
+            skipConfirmationDialog = it
+            deleteConfirmed()
+        }
+    }
+
+    private fun deleteConfirmed() {
+        deleteFiles()
     }
 
     private fun getCurrentFile() = File(media[selectedPositions.first()].path)
@@ -244,6 +258,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                     .forEachIndexed { curIndex, i -> newItems.put(curIndex, itemViews[i]) }
 
             itemViews = newItems
+            actMode?.finish()
         }
     }
 

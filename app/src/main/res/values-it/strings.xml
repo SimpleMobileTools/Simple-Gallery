@@ -25,6 +25,7 @@
     <string name="set_as">Imposta come</string>
     <string name="volume">Volume</string>
     <string name="brightness">Luminosità</string>
+    <string name="do_not_ask_again">Do not ask again in this session</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtra i media</string>

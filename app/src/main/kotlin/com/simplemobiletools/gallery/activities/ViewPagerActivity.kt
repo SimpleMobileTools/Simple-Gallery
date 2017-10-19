@@ -23,7 +23,6 @@ import android.support.v4.view.ViewPager
 import android.util.DisplayMetrics
 import android.view.*
 import android.view.animation.DecelerateInterpolator
-import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
@@ -31,6 +30,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.MediaActivity.Companion.mMedia
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
+import com.simplemobiletools.gallery.dialogs.DeleteWithRememberDialog
 import com.simplemobiletools.gallery.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.dialogs.SlideshowDialog
 import com.simplemobiletools.gallery.extensions.*
@@ -53,6 +53,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mPos = -1
     private var mShowAll = false
     private var mIsSlideshowActive = false
+    private var mSkipConfirmationDialog = false
     private var mRotationDegrees = 0f
     private var mLastHandledOrientation = 0
     private var mPrevHashcode = 0
@@ -250,7 +251,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_unhide -> toggleFileVisibility(false)
             R.id.menu_share_1 -> shareMedium(getCurrentMedium()!!)
             R.id.menu_share_2 -> shareMedium(getCurrentMedium()!!)
-            R.id.menu_delete -> askConfirmDelete()
+            R.id.menu_delete -> checkDeleteConfirmation()
             R.id.menu_rename -> renameFile()
             R.id.menu_edit -> openFileEditor(getCurrentFile())
             R.id.menu_properties -> showProperties()
@@ -590,11 +591,24 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         super.onActivityResult(requestCode, resultCode, resultData)
     }
 
+    private fun checkDeleteConfirmation() {
+        if (mSkipConfirmationDialog) {
+            deleteConfirmed()
+        } else {
+            askConfirmDelete()
+        }
+    }
+
     private fun askConfirmDelete() {
-        ConfirmationDialog(this) {
-            deleteFileBg(File(getCurrentMedia()[mPos].path)) {
-                reloadViewPager()
-            }
+        DeleteWithRememberDialog(this) {
+            mSkipConfirmationDialog = it
+            deleteConfirmed()
+        }
+    }
+
+    private fun deleteConfirmed() {
+        deleteFileBg(File(getCurrentMedia()[mPos].path)) {
+            reloadViewPager()
         }
     }
 
@@ -603,8 +617,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             deleteDirectoryIfEmpty()
             finish()
             true
-        } else
+        } else {
             false
+        }
     }
 
     private fun renameFile() {

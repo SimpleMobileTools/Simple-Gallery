@@ -25,6 +25,7 @@
     <string name="set_as">他で使う</string>
     <string name="volume">音量</string>
     <string name="brightness">明るさ</string>
+    <string name="do_not_ask_again">Do not ask again in this session</string>
 
     <!-- Filter -->
     <string name="filter_media">表示メディア種</string>

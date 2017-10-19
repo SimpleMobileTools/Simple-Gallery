@@ -25,6 +25,7 @@
     <string name="set_as">设置为</string>
     <string name="volume">音量</string>
     <string name="brightness">亮度</string>
+    <string name="do_not_ask_again">Do not ask again in this session</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter media</string>
