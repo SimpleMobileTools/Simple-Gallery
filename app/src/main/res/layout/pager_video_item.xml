@@ -55,7 +55,6 @@
         android:id="@+id/video_details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/video_time_holder"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="@dimen/small_margin"
         android:layout_marginRight="@dimen/small_margin"

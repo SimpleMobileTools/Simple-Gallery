@@ -12,7 +12,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RelativeLayout
 import com.bumptech.glide.Glide
 import com.bumptech.glide.Priority
 import com.bumptech.glide.load.DataSource
@@ -25,9 +24,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.davemorrissey.labs.subscaleview.ImageSource
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
-import com.simplemobiletools.commons.extensions.beGone
-import com.simplemobiletools.commons.extensions.beVisible
-import com.simplemobiletools.commons.extensions.toast
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.*
@@ -276,10 +273,15 @@ class PhotoFragment : ViewPagerFragment() {
     private fun checkExtendedDetails() {
         if (context.config.showExtendedDetails) {
             view.photo_details.apply {
-                beVisible()
-                setTextColor(context.config.textColor)
                 text = getMediumExtendedDetails(medium)
-                (layoutParams as RelativeLayout.LayoutParams).bottomMargin = (resources.getDimension(R.dimen.small_margin) + context.navigationBarHeight).toInt()
+                setTextColor(context.config.textColor)
+                beVisible()
+                onGlobalLayout {
+                    if (height != 0) {
+                        val smallMargin = resources.getDimension(R.dimen.small_margin)
+                        y = context.usableScreenSize.y - height - if (context.navigationBarHeight == 0) smallMargin else 0f
+                    }
+                }
             }
         } else {
             view.photo_details.beGone()
@@ -288,6 +290,7 @@ class PhotoFragment : ViewPagerFragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        context.isKitkatPlus()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && !activity.isDestroyed) {
             Glide.with(context).clear(view.photo_view)
         }
@@ -304,6 +307,13 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     override fun fullscreenToggled(isFullscreen: Boolean) {
-
+        view.photo_details.apply {
+            if (visibility == View.VISIBLE) {
+                val smallMargin = resources.getDimension(R.dimen.small_margin)
+                val fullscreenOffset = context.navigationBarHeight.toFloat() - smallMargin
+                val newY = context.usableScreenSize.y - height + if (isFullscreen) fullscreenOffset else -(if (context.navigationBarHeight == 0) smallMargin else 0f)
+                animate().y(newY)
+            }
+        }
     }
 }

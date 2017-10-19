@@ -17,10 +17,7 @@ import android.widget.TextView
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
-import com.simplemobiletools.gallery.extensions.audioManager
-import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.extensions.hasNavBar
-import com.simplemobiletools.gallery.extensions.navigationBarHeight
+import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.pager_video_item.view.*
@@ -507,9 +504,16 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private fun checkExtendedDetails() {
         if (context.config.showExtendedDetails) {
             mView.video_details.apply {
-                beVisible()
-                setTextColor(context.config.textColor)
                 text = getMediumExtendedDetails(medium)
+                setTextColor(context.config.textColor)
+                beVisible()
+                onGlobalLayout {
+                    if (height != 0) {
+                        val smallMargin = resources.getDimension(R.dimen.small_margin)
+                        val timeHolderHeight = mTimeHolder.height - context.navigationBarHeight
+                        y = context.usableScreenSize.y - height - timeHolderHeight - if (context.navigationBarHeight == 0) smallMargin else 0f
+                    }
+                }
             }
         } else {
             mView.video_details.beGone()
@@ -544,5 +548,14 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     override fun fullscreenToggled(isFullscreen: Boolean) {
         mIsFullscreen = isFullscreen
         checkFullscreen()
+        mView.video_details.apply {
+            if (visibility == View.VISIBLE) {
+                val smallMargin = resources.getDimension(R.dimen.small_margin)
+                val timeHolderHeight = mTimeHolder.height - context.navigationBarHeight.toFloat()
+                val fullscreenOffset = context.navigationBarHeight.toFloat() - smallMargin
+                val newY = context.usableScreenSize.y - height + if (mIsFullscreen) fullscreenOffset else -(timeHolderHeight + if (context.navigationBarHeight == 0) smallMargin else 0f)
+                animate().y(newY)
+            }
+        }
     }
 }
