@@ -43,8 +43,9 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         if (select) {
             itemViews[pos]?.medium_check?.background?.setColorFilter(primaryColor, PorterDuff.Mode.SRC_IN)
             selectedPositions.add(pos)
-        } else
+        } else {
             selectedPositions.remove(pos)
+        }
 
         itemViews[pos]?.medium_check?.beVisibleIf(select)
 
@@ -118,10 +119,11 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             var hiddenCnt = 0
             var unhiddenCnt = 0
             selectedPositions.mapNotNull { media.getOrNull(it) }.forEach {
-                if (it.name.startsWith('.'))
+                if (it.name.startsWith('.')) {
                     hiddenCnt++
-                else
+                } else {
                     unhiddenCnt++
+                }
             }
 
             menu.findItem(R.id.cab_hide).isVisible = unhiddenCnt > 0
@@ -205,15 +207,15 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     private fun askConfirmDelete() {
         ConfirmationDialog(activity) {
             deleteFiles()
-            actMode?.finish()
         }
     }
 
     private fun getCurrentFile() = File(media[selectedPositions.first()].path)
 
     private fun deleteFiles() {
-        if (selectedPositions.isEmpty())
+        if (selectedPositions.isEmpty()) {
             return
+        }
 
         val files = ArrayList<File>(selectedPositions.size)
         val removeMedia = ArrayList<Medium>(selectedPositions.size)

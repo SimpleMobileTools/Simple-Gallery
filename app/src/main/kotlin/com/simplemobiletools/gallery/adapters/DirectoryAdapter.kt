@@ -46,8 +46,9 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         if (select) {
             itemViews[pos]?.dir_check?.background?.setColorFilter(primaryColor, PorterDuff.Mode.SRC_IN)
             selectedPositions.add(pos)
-        } else
+        } else {
             selectedPositions.remove(pos)
+        }
 
         itemViews[pos]?.dir_check?.beVisibleIf(select)
 
@@ -258,7 +259,6 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     private fun askConfirmDelete() {
         ConfirmationDialog(activity) {
             deleteFiles()
-            actMode?.finish()
         }
     }
 
@@ -297,6 +297,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
                     .forEachIndexed { curIndex, i -> newItems.put(curIndex, itemViews[i]) }
 
             itemViews = newItems
+            actMode?.finish()
         }
     }
 
