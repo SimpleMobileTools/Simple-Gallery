@@ -123,17 +123,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         mDirectory = File(mPath).parent
         title = mPath.getFilenameFromPath()
 
-        view_pager.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
-            override fun onGlobalLayout() {
-                view_pager.viewTreeObserver.removeOnGlobalLayoutListener(this)
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && isDestroyed)
-                    return
-
+        view_pager.onGlobalLayout {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1 || !isDestroyed) {
                 if (mMedia.isNotEmpty()) {
                     gotMedia(mMedia)
                 }
             }
-        })
+        }
 
         reloadViewPager()
         scanPath(mPath) {}
@@ -284,12 +280,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun startSlideshow() {
         if (getMediaForSlideshow()) {
-            view_pager.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
-                override fun onGlobalLayout() {
-                    view_pager.viewTreeObserver.removeOnGlobalLayoutListener(this)
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && isDestroyed)
-                        return
-
+            view_pager.onGlobalLayout {
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1 || !isDestroyed) {
                     hideSystemUI()
                     mSlideshowInterval = config.slideshowInterval
                     mSlideshowMoveBackwards = config.slideshowMoveBackwards
@@ -297,7 +289,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
                     scheduleSwipe()
                 }
-            })
+            }
         }
     }
 
