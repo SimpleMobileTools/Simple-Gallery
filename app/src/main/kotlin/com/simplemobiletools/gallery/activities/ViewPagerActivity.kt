@@ -26,6 +26,7 @@ import android.view.animation.DecelerateInterpolator
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.MediaActivity.Companion.mMedia
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter
@@ -73,11 +74,17 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medium)
 
-        if (!hasWriteStoragePermission()) {
-            finish()
-            return
+        handlePermission(PERMISSION_WRITE_STORAGE) {
+            if (it) {
+                initViewPager()
+            } else {
+                toast(R.string.no_storage_permissions)
+                finish()
+            }
         }
+    }
 
+    private fun initViewPager() {
         measureScreen()
         val uri = intent.data
         if (uri != null) {
@@ -189,8 +196,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     override fun onResume() {
         super.onResume()
-        if (!hasWriteStoragePermission()) {
+        if (!hasPermission(PERMISSION_WRITE_STORAGE)) {
             finish()
+            return
         }
         supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.actionbar_gradient_background))
 

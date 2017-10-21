@@ -21,6 +21,7 @@ import com.google.gson.Gson
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.views.MyScalableRecyclerView
 import com.simplemobiletools.gallery.R
@@ -138,14 +139,17 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun tryloadGallery() {
-        if (hasWriteStoragePermission()) {
-            val dirName = getHumanizedFilename(mPath)
-            title = if (mShowAll) resources.getString(R.string.all_folders) else dirName
-            getMedia()
-            setupLayoutManager()
-            checkIfColorChanged()
-        } else {
-            finish()
+        handlePermission(PERMISSION_WRITE_STORAGE) {
+            if (it) {
+                val dirName = getHumanizedFilename(mPath)
+                title = if (mShowAll) resources.getString(R.string.all_folders) else dirName
+                getMedia()
+                setupLayoutManager()
+                checkIfColorChanged()
+            } else {
+                toast(R.string.no_storage_permissions)
+                finish()
+            }
         }
     }
 
