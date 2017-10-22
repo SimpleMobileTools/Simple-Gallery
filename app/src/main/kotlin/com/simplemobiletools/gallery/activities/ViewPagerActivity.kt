@@ -1,5 +1,7 @@
 package com.simplemobiletools.gallery.activities
 
+import android.animation.Animator
+import android.animation.ValueAnimator
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.ActivityInfo
@@ -20,14 +22,16 @@ import android.provider.MediaStore
 import android.support.v4.view.ViewPager
 import android.util.DisplayMetrics
 import android.view.*
-import com.simplemobiletools.commons.dialogs.ConfirmationDialog
+import android.view.animation.DecelerateInterpolator
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.MediaActivity.Companion.mMedia
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
+import com.simplemobiletools.gallery.dialogs.DeleteWithRememberDialog
 import com.simplemobiletools.gallery.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.dialogs.SlideshowDialog
 import com.simplemobiletools.gallery.extensions.*
@@ -50,6 +54,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mPos = -1
     private var mShowAll = false
     private var mIsSlideshowActive = false
+    private var mSkipConfirmationDialog = false
     private var mRotationDegrees = 0f
     private var mLastHandledOrientation = 0
     private var mPrevHashcode = 0
@@ -69,11 +74,17 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medium)
 
-        if (!hasWriteStoragePermission()) {
-            finish()
-            return
+        handlePermission(PERMISSION_WRITE_STORAGE) {
+            if (it) {
+                initViewPager()
+            } else {
+                toast(R.string.no_storage_permissions)
+                finish()
+            }
         }
+    }
 
+    private fun initViewPager() {
         measureScreen()
         val uri = intent.data
         if (uri != null) {
@@ -88,8 +99,14 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 cursor?.close()
             }
         } else {
-            mPath = intent.getStringExtra(MEDIUM)
-            mShowAll = config.showAll
+            try {
+                mPath = intent.getStringExtra(MEDIUM)
+                mShowAll = config.showAll
+            } catch (e: Exception) {
+                showErrorToast(e)
+                finish()
+                return
+            }
         }
 
         if (mPath.isEmpty()) {
@@ -98,10 +115,14 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
-        if (intent.extras?.containsKey(IS_VIEW_INTENT) == true && File(mPath).isHidden) {
-            if (!config.isPasswordProtectionOn) {
-                config.temporarilyShowHidden = true
+        if (intent.extras?.containsKey(IS_VIEW_INTENT) == true) {
+            if (isShowHiddenFlagNeeded()) {
+                if (!config.isPasswordProtectionOn) {
+                    config.temporarilyShowHidden = true
+                }
             }
+
+            config.isThirdPartyIntent = true
         }
 
         showSystemUI()
@@ -109,17 +130,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         mDirectory = File(mPath).parent
         title = mPath.getFilenameFromPath()
 
-        view_pager.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
-            override fun onGlobalLayout() {
-                view_pager.viewTreeObserver.removeOnGlobalLayoutListener(this)
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && isDestroyed)
-                    return
-
+        view_pager.onGlobalLayout {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1 || !isDestroyed) {
                 if (mMedia.isNotEmpty()) {
                     gotMedia(mMedia)
                 }
             }
-        })
+        }
 
         reloadViewPager()
         scanPath(mPath) {}
@@ -145,28 +162,32 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (intent.extras?.containsKey(IS_VIEW_INTENT) == true) {
             config.temporarilyShowHidden = false
         }
+
+        if (config.isThirdPartyIntent) {
+            config.isThirdPartyIntent = false
+
+            if (intent.extras == null || !intent.getBooleanExtra(IS_FROM_GALLERY, false)) {
+                mMedia.clear()
+            }
+        }
     }
 
     private fun setupOrientationEventListener() {
         mOrientationEventListener = object : OrientationEventListener(this, SensorManager.SENSOR_DELAY_NORMAL) {
             override fun onOrientationChanged(orientation: Int) {
-                val currOrient = if (orientation in 45..134) {
-                    ORIENT_LANDSCAPE_RIGHT
-                } else if (orientation in 225..314) {
-                    ORIENT_LANDSCAPE_LEFT
-                } else {
-                    ORIENT_PORTRAIT
+                val currOrient = when (orientation) {
+                    in 45..134 -> ORIENT_LANDSCAPE_RIGHT
+                    in 225..314 -> ORIENT_LANDSCAPE_LEFT
+                    else -> ORIENT_PORTRAIT
                 }
 
                 if (mLastHandledOrientation != currOrient) {
                     mLastHandledOrientation = currOrient
 
-                    if (currOrient == ORIENT_LANDSCAPE_LEFT) {
-                        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-                    } else if (currOrient == ORIENT_LANDSCAPE_RIGHT) {
-                        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE
-                    } else {
-                        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                    requestedOrientation = when (currOrient) {
+                        ORIENT_LANDSCAPE_LEFT -> ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                        ORIENT_LANDSCAPE_RIGHT -> ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE
+                        else -> ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
                     }
                 }
             }
@@ -175,8 +196,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     override fun onResume() {
         super.onResume()
-        if (!hasWriteStoragePermission()) {
+        if (!hasPermission(PERMISSION_WRITE_STORAGE)) {
             finish()
+            return
         }
         supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.actionbar_gradient_background))
 
@@ -233,7 +255,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_unhide -> toggleFileVisibility(false)
             R.id.menu_share_1 -> shareMedium(getCurrentMedium()!!)
             R.id.menu_share_2 -> shareMedium(getCurrentMedium()!!)
-            R.id.menu_delete -> askConfirmDelete()
+            R.id.menu_delete -> checkDeleteConfirmation()
             R.id.menu_rename -> renameFile()
             R.id.menu_edit -> openFileEditor(getCurrentFile())
             R.id.menu_properties -> showProperties()
@@ -266,12 +288,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun startSlideshow() {
         if (getMediaForSlideshow()) {
-            view_pager.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
-                override fun onGlobalLayout() {
-                    view_pager.viewTreeObserver.removeOnGlobalLayoutListener(this)
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && isDestroyed)
-                        return
-
+            view_pager.onGlobalLayout {
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1 || !isDestroyed) {
                     hideSystemUI()
                     mSlideshowInterval = config.slideshowInterval
                     mSlideshowMoveBackwards = config.slideshowMoveBackwards
@@ -279,7 +297,59 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
                     scheduleSwipe()
                 }
-            })
+            }
+        }
+    }
+
+    private fun animatePagerTransition(forward: Boolean) {
+        val oldPosition = view_pager.currentItem
+        val animator = ValueAnimator.ofInt(0, view_pager.width)
+        animator.addListener(object : Animator.AnimatorListener {
+            override fun onAnimationRepeat(animation: Animator?) {
+            }
+
+            override fun onAnimationEnd(animation: Animator?) {
+                view_pager.endFakeDrag()
+
+                if (view_pager.currentItem == oldPosition) {
+                    slideshowEnded(forward)
+                }
+            }
+
+            override fun onAnimationCancel(animation: Animator?) {
+                view_pager.endFakeDrag()
+            }
+
+            override fun onAnimationStart(animation: Animator?) {
+            }
+        })
+
+        animator.interpolator = DecelerateInterpolator()
+        animator.addUpdateListener(object : ValueAnimator.AnimatorUpdateListener {
+            var oldDragPosition = 0
+            override fun onAnimationUpdate(animation: ValueAnimator) {
+                val dragPosition = animation.animatedValue as Int
+                val dragOffset = dragPosition - oldDragPosition
+                oldDragPosition = dragPosition
+                view_pager?.fakeDragBy(dragOffset * (if (forward) 1f else -1f))
+            }
+        })
+
+        animator.duration = SLIDESHOW_SCROLL_DURATION
+        view_pager.beginFakeDrag()
+        animator.start()
+    }
+
+    private fun slideshowEnded(forward: Boolean) {
+        if (config.loopSlideshow) {
+            if (forward) {
+                view_pager.setCurrentItem(0, false)
+            } else {
+                view_pager.setCurrentItem(view_pager.adapter!!.count - 1, false)
+            }
+        } else {
+            stopSlideshow()
+            toast(R.string.slideshow_ended)
         }
     }
 
@@ -308,22 +378,21 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun swipeToNextMedium() {
-        val before = view_pager.currentItem
-        view_pager.currentItem = if (mSlideshowMoveBackwards) --view_pager.currentItem else ++view_pager.currentItem
-        if (before == view_pager.currentItem) {
-            stopSlideshow()
-            toast(R.string.slideshow_ended)
-        }
+        animatePagerTransition(!mSlideshowMoveBackwards)
     }
 
     private fun getMediaForSlideshow(): Boolean {
         mSlideshowMedia = mMedia.toMutableList()
         if (!config.slideshowIncludePhotos) {
-            mSlideshowMedia = mSlideshowMedia.filter { !it.isImage() && !it.isGif() } as MutableList
+            mSlideshowMedia = mSlideshowMedia.filter { !it.isImage() } as MutableList
         }
 
         if (!config.slideshowIncludeVideos) {
             mSlideshowMedia = mSlideshowMedia.filter { it.isImage() || it.isGif() } as MutableList
+        }
+
+        if (!config.slideshowIncludeGIFs) {
+            mSlideshowMedia = mSlideshowMedia.filter { !it.isGif() } as MutableList
         }
 
         if (config.slideshowRandomOrder) {
@@ -347,6 +416,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun copyMoveTo(isCopyOperation: Boolean) {
         val files = ArrayList<File>(1).apply { add(getCurrentFile()) }
         tryCopyMoveFilesTo(files, isCopyOperation) {
+            config.tempFolderPath = ""
             if (!isCopyOperation) {
                 reloadViewPager()
             }
@@ -368,34 +438,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun rotateImage() {
-        val currentMedium = getCurrentMedium() ?: return
-        if (currentMedium.isJpg() && !isPathOnSD(currentMedium.path)) {
-            rotateByExif()
-        } else {
-            rotateByDegrees()
-        }
-    }
-
-    private fun rotateByExif() {
-        val exif = ExifInterface(getCurrentPath())
-        val rotation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
-        val newRotation = getNewRotation(rotation)
-        exif.setAttribute(ExifInterface.TAG_ORIENTATION, newRotation)
-        exif.saveAttributes()
-        File(getCurrentPath()).setLastModified(System.currentTimeMillis())
-        (getCurrentFragment() as? PhotoFragment)?.refreshBitmap()
-    }
-
-    private fun getNewRotation(rotation: Int): String {
-        return when (rotation) {
-            ExifInterface.ORIENTATION_ROTATE_90 -> ExifInterface.ORIENTATION_ROTATE_180
-            ExifInterface.ORIENTATION_ROTATE_180 -> ExifInterface.ORIENTATION_ROTATE_270
-            ExifInterface.ORIENTATION_ROTATE_270 -> ExifInterface.ORIENTATION_NORMAL
-            else -> ExifInterface.ORIENTATION_ROTATE_90
-        }.toString()
-    }
-
-    private fun rotateByDegrees() {
         mRotationDegrees = (mRotationDegrees + 90) % 360
         getCurrentFragment()?.let {
             (it as? PhotoFragment)?.rotateImageViewBy(mRotationDegrees)
@@ -409,10 +451,16 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             Thread({
                 toast(R.string.saving)
                 val selectedFile = File(it)
-                val tmpFile = File(selectedFile.parent, "tmp_${it.getFilenameFromPath()}")
+                val tmpFile = File(selectedFile.parent, ".tmp_${it.getFilenameFromPath()}")
                 try {
                     val bitmap = BitmapFactory.decodeFile(currPath)
                     getFileOutputStream(tmpFile) {
+                        if (it == null) {
+                            toast(R.string.unknown_error_occurred)
+                            deleteFile(tmpFile) {}
+                            return@getFileOutputStream
+                        }
+
                         saveFile(tmpFile, bitmap, it)
                         if (needsStupidWritePermissions(selectedFile.absolutePath)) {
                             deleteFile(selectedFile) {}
@@ -426,7 +474,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     toast(R.string.out_of_memory_error)
                     deleteFile(tmpFile) {}
                 } catch (e: Exception) {
-                    toast(R.string.unknown_error_occurred)
+                    showErrorToast(e)
                     deleteFile(tmpFile) {}
                 }
             }).start()
@@ -439,8 +487,30 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val bmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
         bmp.compress(file.getCompressionFormat(), 90, out)
         out.flush()
-        toast(R.string.file_saved)
         out.close()
+        toast(R.string.file_saved)
+        mRotationDegrees = 0f
+        invalidateOptionsMenu()
+    }
+
+    private fun isShowHiddenFlagNeeded(): Boolean {
+        val file = File(mPath)
+        if (file.isHidden)
+            return true
+
+        var parent = file.parentFile ?: return false
+        while (true) {
+            if (parent.isHidden || parent.listFiles()?.contains(File(NOMEDIA)) == true) {
+                return true
+            }
+
+            if (parent.absolutePath == "/") {
+                break
+            }
+            parent = parent.parentFile ?: return false
+        }
+
+        return false
     }
 
     private fun getCurrentFragment() = (view_pager.adapter as MyPagerAdapter).getCurrentFragment(view_pager.currentItem)
@@ -521,11 +591,24 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         super.onActivityResult(requestCode, resultCode, resultData)
     }
 
+    private fun checkDeleteConfirmation() {
+        if (mSkipConfirmationDialog) {
+            deleteConfirmed()
+        } else {
+            askConfirmDelete()
+        }
+    }
+
     private fun askConfirmDelete() {
-        ConfirmationDialog(this) {
-            deleteFileBg(File(getCurrentMedia()[mPos].path)) {
-                reloadViewPager()
-            }
+        DeleteWithRememberDialog(this) {
+            mSkipConfirmationDialog = it
+            deleteConfirmed()
+        }
+    }
+
+    private fun deleteConfirmed() {
+        deleteFileBg(File(getCurrentMedia()[mPos].path)) {
+            reloadViewPager()
         }
     }
 
@@ -534,8 +617,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             deleteDirectoryIfEmpty()
             finish()
             true
-        } else
+        } else {
             false
+        }
     }
 
     private fun renameFile() {
@@ -576,10 +660,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         mPrevHashcode = media.hashCode()
         mMedia = media
-        if (mPos == -1) {
-            mPos = getPositionInList(media)
+        mPos = if (mPos == -1) {
+            getPositionInList(media)
         } else {
-            mPos = Math.min(mPos, mMedia.size - 1)
+            Math.min(mPos, mMedia.size - 1)
         }
 
         updateActionbarTitle()
@@ -590,20 +674,18 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun getPositionInList(items: MutableList<Medium>): Int {
         mPos = 0
-        var i = 0
-        for (medium in items) {
+        for ((i, medium) in items.withIndex()) {
             if (medium.path == mPath) {
                 return i
             }
-            i++
         }
         return mPos
     }
 
     private fun deleteDirectoryIfEmpty() {
         val file = File(mDirectory)
-        if (!file.isDownloadsFolder() && file.isDirectory && file.listFiles()?.isEmpty() == true) {
-            file.delete()
+        if (config.deleteEmptyFolders && !file.isDownloadsFolder() && file.isDirectory && file.listFiles()?.isEmpty() == true) {
+            deleteFile(file, true) {}
         }
 
         scanPath(mDirectory) {}

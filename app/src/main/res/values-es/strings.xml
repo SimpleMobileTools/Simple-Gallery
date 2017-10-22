@@ -25,6 +25,15 @@
     <string name="set_as">Establecer como</string>
     <string name="volume">Volume</string>
     <string name="brightness">Brightness</string>
+    <string name="do_not_ask_again">Do not ask again in this session</string>
+
+    <!-- Filter -->
+    <string name="filter_media">Filter media</string>
+    <string name="images">Images</string>
+    <string name="videos">Videos</string>
+    <string name="gifs">GIFs</string>
+    <string name="no_media_with_filters">No media files have been found with the selected filters.</string>
+    <string name="change_filters_underlined"><u>Change filters</u></string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Esta función oculta la carpeta agregando un archivo \'.nomedia\' en ella, y ocultará también las subcarpetas. Puede mostrarlas cambiando la opción \'Mostrar carpetas ocultas\' en los Ajustes. ¿Continuar?</string>
@@ -84,24 +93,25 @@
     <!-- Slideshow -->
     <string name="slideshow">Slideshow</string>
     <string name="interval">Interval (seconds):</string>
-    <string name="include_photos">Include photos and GIFs</string>
+    <string name="include_photos">Include photos</string>
     <string name="include_videos">Include videos</string>
+    <string name="include_gifs">Include GIFs</string>
     <string name="random_order">Random order</string>
     <string name="use_fade">Use fade animations</string>
     <string name="move_backwards">Move backwards</string>
+    <string name="loop_slideshow">Loop slideshow</string>
     <string name="slideshow_ended">The slideshow ended</string>
     <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
+
+    <!-- View types -->
+    <string name="change_view_type">Change view type</string>
+    <string name="grid">Grid</string>
+    <string name="list">List</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Mostrar carpetas ocultas</string>
     <string name="autoplay_videos">Reproducir vídeos automáticamente</string>
     <string name="toggle_filename">Cambiar la visibilidad del nombre de archivo</string>
-    <string name="show_media">Mostrar multimedia</string>
-    <string name="images">Solo imágenes</string>
-    <string name="videos">Solo vídeos</string>
-    <string name="gifs">solo GIFs</string>
-    <string name="images_videos_gifs">Imágenes, vídeos, GIFs</string>
-    <string name="images_and_videos">Imágenes y vídeos</string>
     <string name="loop_videos">Reproducción continua de vídeos</string>
     <string name="animate_gifs">Animar las miniaturas de GIFs</string>
     <string name="max_brightness">Brillo máximo cuando se muestra multimedia</string>
@@ -113,7 +123,11 @@
     <string name="dark_background_at_fullscreen">Utilizar siempre fondo oscuro en pantalla completa</string>
     <string name="scroll_thumbnails_horizontally">Desplazar miniaturas horizontalmente</string>
     <string name="hide_system_ui_at_fullscreen">Ocultar automáticamente la interfaz de usuario del sistema en medios de pantalla completa</string>
+    <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
+    <string name="allow_video_gestures">Allow controlling video volume and brightness with vertical gestures</string>
     <string name="replace_share_with_rotate">Reemplazar Compartir con Girar en el menú de pantalla completa</string>
+    <string name="show_extended_details">Show extended details over fullscreen media</string>
+    <string name="manage_extended_details">Manage extended details</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

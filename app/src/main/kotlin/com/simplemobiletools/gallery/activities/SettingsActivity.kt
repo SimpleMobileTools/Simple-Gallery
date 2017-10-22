@@ -3,15 +3,21 @@ package com.simplemobiletools.gallery.activities
 import android.content.Intent
 import android.content.res.Resources
 import android.os.Bundle
+import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.dialogs.SecurityDialog
+import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.handleHiddenFolderPasswordProtection
 import com.simplemobiletools.commons.extensions.updateTextColors
+import com.simplemobiletools.commons.helpers.PROTECTION_FINGERPRINT
 import com.simplemobiletools.commons.helpers.SHOW_ALL_TABS
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.dialogs.ManageExtendedDetailsDialog
 import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.helpers.*
+import com.simplemobiletools.gallery.helpers.ROTATE_BY_ASPECT_RATIO
+import com.simplemobiletools.gallery.helpers.ROTATE_BY_DEVICE_ROTATION
+import com.simplemobiletools.gallery.helpers.ROTATE_BY_SYSTEM_SETTING
 import kotlinx.android.synthetic.main.activity_settings.*
 
 class SettingsActivity : SimpleActivity() {
@@ -38,10 +44,13 @@ class SettingsActivity : SimpleActivity() {
         setupDarkBackground()
         setupScrollHorizontally()
         setupScreenRotation()
+        setupHideSystemUI()
         setupReplaceShare()
         setupPasswordProtection()
-        setupShowMedia()
-        setupHideSystemUI()
+        setupDeleteEmptyFolders()
+        setupAllowVideoGestures()
+        setupShowExtendedDetails()
+        setupManageExtendedDetails()
         updateTextColors(settings_holder)
     }
 
@@ -163,7 +172,29 @@ class SettingsActivity : SimpleActivity() {
                 config.isPasswordProtectionOn = !hasPasswordProtection
                 config.passwordHash = if (hasPasswordProtection) "" else hash
                 config.protectionType = type
+
+                if (config.isPasswordProtectionOn) {
+                    val confirmationTextId = if (config.protectionType == PROTECTION_FINGERPRINT)
+                        R.string.fingerprint_setup_successfully else R.string.protection_setup_successfully
+                    ConfirmationDialog(this, "", confirmationTextId, R.string.ok, 0) { }
+                }
             }
+        }
+    }
+
+    private fun setupDeleteEmptyFolders() {
+        settings_delete_empty_folders.isChecked = config.deleteEmptyFolders
+        settings_delete_empty_folders_holder.setOnClickListener {
+            settings_delete_empty_folders.toggle()
+            config.deleteEmptyFolders = settings_delete_empty_folders.isChecked
+        }
+    }
+
+    private fun setupAllowVideoGestures() {
+        settings_allow_video_gestures.isChecked = config.allowVideoGestures
+        settings_allow_video_gestures_holder.setOnClickListener {
+            settings_allow_video_gestures.toggle()
+            config.allowVideoGestures = settings_allow_video_gestures.isChecked
         }
     }
 
@@ -188,24 +219,23 @@ class SettingsActivity : SimpleActivity() {
         else -> R.string.screen_rotation_aspect_ratio
     })
 
-    private fun setupShowMedia() {
-        settings_show_media.text = getShowMediaText()
-        settings_show_media_holder.setOnClickListener {
-            val items = arrayListOf(
-                    RadioItem(IMAGES_AND_VIDEOS, res.getString(R.string.images_and_videos)),
-                    RadioItem(IMAGES, res.getString(R.string.images)),
-                    RadioItem(VIDEOS, res.getString(R.string.videos)))
-
-            RadioGroupDialog(this@SettingsActivity, items, config.showMedia) {
-                config.showMedia = it as Int
-                settings_show_media.text = getShowMediaText()
-            }
+    private fun setupShowExtendedDetails() {
+        settings_show_extended_details.isChecked = config.showExtendedDetails
+        settings_show_extended_details_holder.setOnClickListener {
+            settings_show_extended_details.toggle()
+            config.showExtendedDetails = settings_show_extended_details.isChecked
+            settings_manage_extended_details_holder.beVisibleIf(config.showExtendedDetails)
         }
     }
 
-    private fun getShowMediaText() = getString(when (config.showMedia) {
-        IMAGES_AND_VIDEOS -> R.string.images_and_videos
-        IMAGES -> R.string.images
-        else -> R.string.videos
-    })
+    private fun setupManageExtendedDetails() {
+        settings_manage_extended_details_holder.beVisibleIf(config.showExtendedDetails)
+        settings_manage_extended_details_holder.setOnClickListener {
+            ManageExtendedDetailsDialog(this) {
+                if (config.extendedDetails == 0) {
+                    settings_show_extended_details_holder.callOnClick()
+                }
+            }
+        }
+    }
 }

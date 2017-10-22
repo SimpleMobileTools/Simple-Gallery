@@ -24,15 +24,10 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.davemorrissey.labs.subscaleview.ImageSource
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
-import com.simplemobiletools.commons.extensions.beGone
-import com.simplemobiletools.commons.extensions.beVisible
-import com.simplemobiletools.commons.extensions.toast
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
-import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.extensions.getFileSignature
-import com.simplemobiletools.gallery.extensions.getRealPathFromURI
-import com.simplemobiletools.gallery.extensions.portrait
+import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
@@ -43,10 +38,13 @@ import java.io.FileOutputStream
 import java.io.IOException
 
 class PhotoFragment : ViewPagerFragment() {
-    lateinit var medium: Medium
-    lateinit var view: ViewGroup
     private var isFragmentVisible = false
     private var wasInit = false
+    private var storedShowExtendedDetails = false
+    private var storedExtendedDetails = 0
+
+    lateinit var view: ViewGroup
+    lateinit var medium: Medium
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         view = inflater.inflate(R.layout.pager_photo_item, container, false) as ViewGroup
@@ -101,10 +99,24 @@ class PhotoFragment : ViewPagerFragment() {
             }
         }
         loadImage()
+        checkExtendedDetails()
 
         wasInit = true
 
         return view
+    }
+
+    override fun onPause() {
+        super.onPause()
+        storedShowExtendedDetails = context.config.showExtendedDetails
+        storedExtendedDetails = context.config.extendedDetails
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (wasInit && (context.config.showExtendedDetails != storedShowExtendedDetails || context.config.extendedDetails != storedExtendedDetails)) {
+            checkExtendedDetails()
+        }
     }
 
     override fun setMenuVisibility(menuVisible: Boolean) {
@@ -123,13 +135,11 @@ class PhotoFragment : ViewPagerFragment() {
         }
     }
 
-    private fun degreesForRotation(orientation: Int): Int {
-        return when (orientation) {
-            8 -> 270
-            3 -> 180
-            6 -> 90
-            else -> 0
-        }
+    private fun degreesForRotation(orientation: Int) = when (orientation) {
+        8 -> 270
+        3 -> 180
+        6 -> 90
+        else -> 0
     }
 
     private fun rotateViaMatrix(original: Bitmap, orientation: Int): Bitmap {
@@ -168,7 +178,7 @@ class PhotoFragment : ViewPagerFragment() {
             val options = RequestOptions()
                     .signature(medium.path.getFileSignature())
                     .format(DecodeFormat.PREFER_ARGB_8888)
-                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                     .override(targetWidth, targetHeight)
 
             Glide.with(this)
@@ -176,9 +186,7 @@ class PhotoFragment : ViewPagerFragment() {
                     .load(medium.path)
                     .apply(options)
                     .listener(object : RequestListener<Bitmap> {
-                        override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
-                            return false
-                        }
+                        override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean) = false
 
                         override fun onResourceReady(resource: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
                             if (isFragmentVisible)
@@ -203,6 +211,7 @@ class PhotoFragment : ViewPagerFragment() {
     private fun addZoomableView() {
         if ((medium.isImage()) && isFragmentVisible && view.subsampling_view.visibility == View.GONE) {
             view.subsampling_view.apply {
+                //setBitmapDecoderClass(GlideDecoder::class.java)   // causing random crashes on Android 7+
                 maxScale = 10f
                 beVisible()
                 setImage(ImageSource.uri(medium.path))
@@ -222,7 +231,7 @@ class PhotoFragment : ViewPagerFragment() {
                     override fun onPreviewReleased() {
                     }
 
-                    override fun onImageLoadError(e: Exception?) {
+                    override fun onImageLoadError(e: Exception) {
                         background = ColorDrawable(Color.TRANSPARENT)
                         beGone()
                     }
@@ -256,18 +265,32 @@ class PhotoFragment : ViewPagerFragment() {
         }
     }
 
-    fun refreshBitmap() {
-        view.subsampling_view.beGone()
-        loadBitmap()
-    }
-
     fun rotateImageViewBy(degrees: Float) {
         view.subsampling_view.beGone()
         loadBitmap(degrees)
     }
 
+    private fun checkExtendedDetails() {
+        if (context.config.showExtendedDetails) {
+            view.photo_details.apply {
+                text = getMediumExtendedDetails(medium)
+                setTextColor(context.config.textColor)
+                beVisible()
+                onGlobalLayout {
+                    if (height != 0) {
+                        val smallMargin = resources.getDimension(R.dimen.small_margin)
+                        y = context.usableScreenSize.y - height - if (context.navigationBarHeight == 0) smallMargin else 0f
+                    }
+                }
+            }
+        } else {
+            view.photo_details.beGone()
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
+        context.isKitkatPlus()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && !activity.isDestroyed) {
             Glide.with(context).clear(view.photo_view)
         }
@@ -276,6 +299,7 @@ class PhotoFragment : ViewPagerFragment() {
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         loadImage()
+        checkExtendedDetails()
     }
 
     private fun photoClicked() {
@@ -283,6 +307,13 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     override fun fullscreenToggled(isFullscreen: Boolean) {
-
+        view.photo_details.apply {
+            if (visibility == View.VISIBLE) {
+                val smallMargin = resources.getDimension(R.dimen.small_margin)
+                val fullscreenOffset = context.navigationBarHeight.toFloat() - smallMargin
+                val newY = context.usableScreenSize.y - height + if (isFullscreen) fullscreenOffset else -(if (context.navigationBarHeight == 0) smallMargin else 0f)
+                animate().y(newY)
+            }
+        }
     }
 }

@@ -23,8 +23,17 @@
     <string name="select_photo">Välj foto</string>
     <string name="use_default">Använd standard</string>
     <string name="set_as">Ange som</string>
-    <string name="volume">Volume</string>
-    <string name="brightness">Brightness</string>
+    <string name="volume">Volym</string>
+    <string name="brightness">Ljusstyrka</string>
+    <string name="do_not_ask_again">Do not ask again in this session</string>
+
+    <!-- Filter -->
+    <string name="filter_media">Filtrera media</string>
+    <string name="images">Bilder</string>
+    <string name="videos">Videor</string>
+    <string name="gifs">GIF-bilder</string>
+    <string name="no_media_with_filters">Inga mediefiler hittades med valda filter.</string>
+    <string name="change_filters_underlined"><u>Ändra filter</u></string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Denna funktion döljer mappen och alla dess undermappar genom att lägga till en \'.nomedia\'-fil i den. Du kan se dem genom att växla \'Visa dolda mappar\'-alternativet i Inställningar. Vill du fortsätta?</string>
@@ -41,7 +50,7 @@
     <string name="include_folders">Inkluderade mappar</string>
     <string name="manage_included_folders">Hantera inkluderade mappar</string>
     <string name="add_folder">Lägg till mapp</string>
-    <string name="included_activity_placeholder">Om du har vissa mappar som innehåller media men som inte känns igen av appen kan du lägga till dem manuellt här.</string>
+    <string name="included_activity_placeholder">Om du har vissa mappar som innehåller media men som inte känns igen av appen, kan du lägga till dem manuellt här.</string>
 
     <!-- Resizing -->
     <string name="resize">Ändra storlek</string>
@@ -82,26 +91,27 @@
     <string name="landscape_aspect_ratio">Liggande bildförhållande</string>
 
     <!-- Slideshow -->
-    <string name="slideshow">Slideshow</string>
-    <string name="interval">Interval (seconds):</string>
-    <string name="include_photos">Include photos and GIFs</string>
-    <string name="include_videos">Include videos</string>
-    <string name="random_order">Random order</string>
-    <string name="use_fade">Use fade animations</string>
-    <string name="move_backwards">Move backwards</string>
-    <string name="slideshow_ended">The slideshow ended</string>
-    <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
+    <string name="slideshow">Bildspel</string>
+    <string name="interval">Intervall (sekunder):</string>
+    <string name="include_photos">Inkludera foton</string>
+    <string name="include_videos">Inkludera videor</string>
+    <string name="include_gifs">Inkludera GIF-bilder</string>
+    <string name="random_order">Spela upp i slumpmässig ordning</string>
+    <string name="use_fade">Använd toningsanimationer</string>
+    <string name="move_backwards">Spela upp i omvänd ordning</string>
+    <string name="loop_slideshow">Spela upp i en slinga</string>
+    <string name="slideshow_ended">Bildspelet har avslutats</string>
+    <string name="no_media_for_slideshow">Ingen media hittades för bildspelet</string>
+
+    <!-- View types -->
+    <string name="change_view_type">Change view type</string>
+    <string name="grid">Grid</string>
+    <string name="list">List</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Visa dolda mappar</string>
     <string name="autoplay_videos">Spela upp videos automatiskt</string>
     <string name="toggle_filename">Visa/dölj filnamnen</string>
-    <string name="show_media">Visa media</string>
-    <string name="images">Endast bilder</string>
-    <string name="videos">Endast videos</string>
-    <string name="gifs">Bara GIF-bilder</string>
-    <string name="images_videos_gifs">Bilder, videor, GIF-bilder</string>
-    <string name="images_and_videos">Bilder och videos</string>
     <string name="loop_videos">Återspela videos</string>
     <string name="animate_gifs">Animera GIF-bilders miniatyrer</string>
     <string name="max_brightness">Maximal ljusstyrka när media visas</string>
@@ -113,15 +123,19 @@
     <string name="dark_background_at_fullscreen">Mörk bakgrund när media visas i helskärmsläge</string>
     <string name="scroll_thumbnails_horizontally">Rulla horisontellt genom miniatyrer</string>
     <string name="hide_system_ui_at_fullscreen">Dölj systemanvändargränssnittet automatiskt när media visas i helskärmsläge</string>
-    <string name="replace_share_with_rotate">Replace Share with Rotate at fullscreen menu</string>
+    <string name="delete_empty_folders">Ta bort tomma mappar när deras innehåll tas bort</string>
+    <string name="allow_video_gestures">Tillåt styrning av videovolym och videoljusstyrka med vertikala gester</string>
+    <string name="replace_share_with_rotate">Ersätt Dela med Rotera i helskärmsmenyn</string>
+    <string name="show_extended_details">Show extended details over fullscreen media</string>
+    <string name="manage_extended_details">Manage extended details</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Ett Galleri för att visa bilder och videos utan en massa reklam.</string>
     <string name="app_long_description">
-        Ett enkelt verktyg för att visa bilder och vdeos. Objekten kan sorteras efter datum, storlek, namn både stigande och fallande, bilder kan zoomas in. Mediafiler visas i flera kolumner beroende av skärmens storlek, du kan ändra antalet kolumner genom en nyp-rörelse. De går att döpa om, dela, ta bort, kopiera, flytta. Bilder kan också beskäras, roteras och anges som bakgrundsbild direkt från appen.
+        Ett enkelt verktyg för att visa bilder och videos. Objekten kan sorteras efter datum, storlek, namn både stigande och fallande, bilder kan zoomas in. Mediafiler visas i flera kolumner beroende av skärmens storlek, du kan ändra antalet kolumner genom en nyp-rörelse. De går att döpa om, dela, ta bort, kopiera, flytta. Bilder kan också beskäras, roteras och anges som bakgrundsbild direkt från appen.
 
-        Galleriet kan också användas av tredjeparts för förhandsgranskning av bilder / videos, bifoga bilagor i e-postklienter etc. Den är perfekt för det dagliga användandet.
+        Galleriet kan också användas av tredjepartsappar för förhandsgranskning av bilder / videos, bifoga bilagor i e-postklienter etc. Den är perfekt för det dagliga användandet.
 
         Innehåller ingen reklam eller onödiga behörigheter. Det är helt och hållet opensource, innehåller anpassningsbara färger.
 

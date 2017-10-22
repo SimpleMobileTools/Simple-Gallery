@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Simple Gallery</string>
+    <string name="app_launcher_name">Galleria</string>
+    <string name="edit">Muokkaa</string>
+    <string name="open_camera">Avaa kamera</string>
+    <string name="open_with">Avaa</string>
+    <string name="no_app_found">Sovelluksia ei löydetty</string>
+    <string name="hidden">(piilotettu)</string>
+    <string name="pin_folder">Kiinnitä kansio</string>
+    <string name="unpin_folder">Poista kiinnitys</string>
+    <string name="show_all">Näytä kaikkien kansioiden sisältö</string>
+    <string name="all_folders">Kaikki kansiot</string>
+    <string name="folder_view">Vaihda kansionäkymään</string>
+    <string name="other_folder">Muu kansio</string>
+    <string name="show_on_map">Näytä kartalla</string>
+    <string name="unknown_location">Tuntematon sijainti</string>
+    <string name="no_map_application">Karttasovellusta ei löytynyt</string>
+    <string name="no_camera_app_found">Kamerasovellusta ei löytynyt</string>
+    <string name="increase_column_count">Increase column count</string>
+    <string name="reduce_column_count">Reduce column count</string>
+    <string name="change_cover_image">Vaihda kansikuva</string>
+    <string name="select_photo">Valitse kuva</string>
+    <string name="use_default">Käytä oletuksia</string>
+    <string name="set_as">Aseta</string>
+    <string name="volume">Äänenvoimakkuus</string>
+    <string name="brightness">Kirkkaus</string>
+    <string name="do_not_ask_again">Do not ask again in this session</string>
+
+    <!-- Filter -->
+    <string name="filter_media">Suodata media</string>
+    <string name="images">Kuvat</string>
+    <string name="videos">Videot</string>
+    <string name="gifs">GIFit</string>
+    <string name="no_media_with_filters">Mediaa ei löytynyt valituilla suotimilla.</string>
+    <string name="change_filters_underlined"><u>Muuta suotimia</u></string>
+
+    <!-- Hide / Exclude -->
+    <string name="hide_folder_description">Tämä piilottaa kansion ja alikansiot lisäämällä \'.nomedia\' tiedoston kansioon. Näet ne valitsemalla \'Näytä piilotetut kansiot\' asetuksissa. Continue?</string>
+    <string name="exclude">Poissulje</string>
+    <string name="excluded_folders">Poissuljetut kansiot</string>
+    <string name="manage_excluded_folders">Hallitse poissuljettuja kansioita</string>
+    <string name="exclude_folder_description">Tämä poissulkee valitun ja alikansiot vain Simple Gallerysta. Voit hallinnoida poissuljettuja kansioita asetuksista.</string>
+    <string name="exclude_folder_parent">Poissulje yläkansio tämän sijaan?</string>
+    <string name="excluded_activity_placeholder">Kansion poissulkeminen piilottaa kansion alikansioineen vain Simple Galleryssa, ne jäävät näkyviin muihin sovelluksiin.\n\nJos haluat piilottaa kansion myös muissa sovelluksissa, käytä piilota-funktiota.</string>
+    <string name="remove_all">Poista kaikki</string>
+    <string name="remove_all_description">Poista kaikki kansiot poissuljettujen listasta? Tämä ei poista kansioita.</string>
+
+    <!-- Include folders -->
+    <string name="include_folders">Sisällytä kansiot</string>
+    <string name="manage_included_folders">Hallitse sisällettyjä kansioita</string>
+    <string name="add_folder">Lisää kansio</string>
+    <string name="included_activity_placeholder">Jos sinulla on kansioita, jotka sisältää mediaa, mutta sovellus ei tunnistanut, voit lisätä ne manuaalisesti tähän.\n\Lisääminen ei poissulje muita kansioita.</string>
+
+    <!-- Resizing -->
+    <string name="resize">Rajaa</string>
+    <string name="resize_and_save">Rajaa valinta ja tallenna</string>
+    <string name="width">Leveys</string>
+    <string name="height">Korkeus</string>
+    <string name="keep_aspect_ratio">Säilytä kuvasuhde</string>
+    <string name="invalid_values">Aseta oikea resoluutio.</string>
+
+    <!-- Editor -->
+    <string name="editor">Editori</string>
+    <string name="save">Tallenna</string>
+    <string name="rotate">Käännä</string>
+    <string name="path">Polku</string>
+    <string name="invalid_image_path">Kuvan polkua ei ole</string>
+    <string name="image_editing_failed">Kuvan muokkaus epäonnistui</string>
+    <string name="edit_image_with">Muokkaa kuvaa:</string>
+    <string name="no_editor_found">Kuvamuokkainta ei löytynyt</string>
+    <string name="unknown_file_location">Tuntematon tiedostosijainti</string>
+    <string name="error_saving_file">Lähdetiedoston ylikirjoitus epäonnistui</string>
+    <string name="rotate_left">Käännä vasemmalle</string>
+    <string name="rotate_right">Käännä oikealle</string>
+    <string name="rotate_one_eighty">Käännä 180º</string>
+    <string name="flip">Pyöräytä</string>
+    <string name="flip_horizontally">Pyöräytä vaakasuoraan</string>
+    <string name="flip_vertically">Pyöräytä pystysuoraan</string>
+    <string name="edit_with">Muokkaa sovelluksella</string>
+
+    <!-- Set wallpaper -->
+    <string name="simple_wallpaper">Simple Wallpaper</string>
+    <string name="set_as_wallpaper">Aseta taustakuvaksi</string>
+    <string name="set_as_wallpaper_failed">Taustakuvan asetus epäonnistui</string>
+    <string name="set_as_wallpaper_with">Aseta taustakuvaksi sovelluksella:</string>
+    <string name="no_capable_app_found">Toimivaa sovellusta ei löydetty</string>
+    <string name="setting_wallpaper">Asetetaan taustakuvaa&#8230;</string>
+    <string name="wallpaper_set_successfully">Taustakuva asetettu onnistuneesti</string>
+    <string name="portrait_aspect_ratio">Kuvasuhde pystyssä</string>
+    <string name="landscape_aspect_ratio">Kuvasuhde vaakatasossa</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">Diaesitys</string>
+    <string name="interval">Aikaväli (sekunteja):</string>
+    <string name="include_photos">Sisällytä Kuvat</string>
+    <string name="include_videos">Sisällytä Videot</string>
+    <string name="include_gifs">Sisällytä GIFit</string>
+    <string name="random_order">Satunnainen järjestys</string>
+    <string name="use_fade">Käytä häivitys-animaatiota</string>
+    <string name="move_backwards">Liiku takaisinpäin</string>
+    <string name="loop_slideshow">Jatkuva diaesitys</string>
+    <string name="slideshow_ended">Diaesitys päättyi</string>
+    <string name="no_media_for_slideshow">Mediaa diaesitykseen ei löytynyt</string>
+
+    <!-- View types -->
+    <string name="change_view_type">Vaihda näkymää</string>
+    <string name="grid">Ruudukko</string>
+    <string name="list">Lista</string>
+
+    <!-- Settings -->
+    <string name="show_hidden_media">Näytä piilotettu media</string>
+    <string name="autoplay_videos">Toista videot automaattisesti</string>
+    <string name="toggle_filename">Tiedostonimien näkyvyys</string>
+    <string name="loop_videos">Jatkuvat videot</string>
+    <string name="animate_gifs">Animoi GIFit pienoiskuvissa</string>
+    <string name="max_brightness">Täysi kirkkaus mediaa katsoessa</string>
+    <string name="crop_thumbnails">Leikkaa pienoiskuvat neliöiksi</string>
+    <string name="screen_rotation_by">Käännä koko ruudun mediaa</string>
+    <string name="screen_rotation_system_setting">Järjestelmän asetukset</string>
+    <string name="screen_rotation_device_rotation">Laitteen kierto</string>
+    <string name="screen_rotation_aspect_ratio">Kuvasuhde</string>
+    <string name="dark_background_at_fullscreen">Tumma tausta koko ruudun medioissa</string>
+    <string name="scroll_thumbnails_horizontally">Vieritä pienoiskuvia vaakasuorassa</string>
+    <string name="hide_system_ui_at_fullscreen">Piilota järjestelmän UI automaattisesti koko näytön mediassa</string>
+    <string name="delete_empty_folders">Poista tyhjät kansiot kansion tyhjennyksen jälkeen</string>
+    <string name="allow_video_gestures">Salli videon äänenvoimakkuuden ja kirkkauden säätö pystysuorilla eleillä</string>
+    <string name="replace_share_with_rotate">Korvaa jakaminen kääntämisellä koko näytön tilassa</string>
+    <string name="show_extended_details">Show extended details over fullscreen media</string>
+    <string name="manage_extended_details">Manage extended details</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">Galleria kuvien ja videoiden katsomiseen ilman mainoksia.</string>
+    <string name="app_long_description">
+        Yksinkertainen työkalu kuvien ja videoiden katsomiseen. Kohteita voidaan lajitella päivän, koon, nimen mukaan, nousevassa ja laskevassa järjestyksessä. Kuvia voidaan zoomata. Mediatiedostot näkyvät useissa sarakkeissa joiden määrää muutetaan nipistys-eleellä. Tiedostoja voidaan uudelleennimetä, jakaa, poistaa, kopioida. Kuvia voi rajata, pyörittää tai asettaa taustakuvaksi suoraan sovelluksesta.
+
+        Galleriaa tarjotaan myös kolmansille osapuolille kuvien / videoiden tarkasteluun, liitteiden lisäämiseksi sähköpostiin yms. Täydellinen jokapäiväiseen käyttöön.
+
+        Ei sisällä mainoksia tai turhia käyttöoikeuksia. Täysin avointa lähdekoodia, tarjoaa muokattavat värit.
+
+        Tämä sovellus on vain yksi osa suurempaa kokoelmaa. Löydät loput osoitteesta http://www.simplemobiletools.com
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>

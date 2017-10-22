@@ -1,6 +1,7 @@
 package com.simplemobiletools.gallery.adapters
 
 import android.graphics.PorterDuff
+import android.os.Build
 import android.support.v7.view.ActionMode
 import android.support.v7.widget.RecyclerView
 import android.util.SparseArray
@@ -19,9 +20,10 @@ import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.ExcludeFolderDialog
 import com.simplemobiletools.gallery.dialogs.PickMediumDialog
 import com.simplemobiletools.gallery.extensions.*
+import com.simplemobiletools.gallery.helpers.VIEW_TYPE_LIST
 import com.simplemobiletools.gallery.models.AlbumCover
 import com.simplemobiletools.gallery.models.Directory
-import kotlinx.android.synthetic.main.directory_item.view.*
+import kotlinx.android.synthetic.main.directory_item_list.view.*
 import java.io.File
 import java.util.*
 
@@ -30,11 +32,13 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
     val multiSelector = MultiSelector()
     val config = activity.config
+    val isListViewType = config.viewTypeFolders == VIEW_TYPE_LIST
 
     var actMode: ActionMode? = null
     var itemViews = SparseArray<View>()
     val selectedPositions = HashSet<Int>()
     var primaryColor = config.primaryColor
+    var textColor = config.textColor
     var pinnedFolders = config.pinnedFolders
     var scrollVertically = !config.scrollHorizontally
 
@@ -42,8 +46,9 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         if (select) {
             itemViews[pos]?.dir_check?.background?.setColorFilter(primaryColor, PorterDuff.Mode.SRC_IN)
             selectedPositions.add(pos)
-        } else
+        } else {
             selectedPositions.remove(pos)
+        }
 
         itemViews[pos]?.dir_check?.beVisibleIf(select)
 
@@ -55,12 +60,12 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         updateTitle(selectedPositions.size)
     }
 
-    fun updateTitle(cnt: Int) {
+    private fun updateTitle(cnt: Int) {
         actMode?.title = "$cnt / ${dirs.size}"
         actMode?.invalidate()
     }
 
-    val adapterListener = object : MyAdapterListener {
+    private val adapterListener = object : MyAdapterListener {
         override fun toggleItemSelectionAdapter(select: Boolean, position: Int) {
             toggleItemSelection(select, position)
         }
@@ -68,7 +73,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         override fun getSelectedPositions(): HashSet<Int> = selectedPositions
     }
 
-    val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
+    private val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
         override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
             when (item.itemId) {
                 R.id.cab_properties -> showProperties()
@@ -118,11 +123,12 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         fun checkHideBtnVisibility(menu: Menu) {
             var hiddenCnt = 0
             var unhiddenCnt = 0
-            selectedPositions.map { dirs.getOrNull(it)?.path }.filterNotNull().forEach {
-                if (File(it).containsNoMedia())
+            selectedPositions.mapNotNull { dirs.getOrNull(it)?.path }.forEach {
+                if (File(it).containsNoMedia()) {
                     hiddenCnt++
-                else
+                } else {
                     unhiddenCnt++
+                }
             }
 
             menu.findItem(R.id.cab_hide).isVisible = unhiddenCnt > 0
@@ -133,11 +139,12 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             val pinnedFolders = config.pinnedFolders
             var pinnedCnt = 0
             var unpinnedCnt = 0
-            selectedPositions.map { dirs.getOrNull(it)?.path }.filterNotNull().forEach {
-                if (pinnedFolders.contains(it))
+            selectedPositions.mapNotNull { dirs.getOrNull(it)?.path }.forEach {
+                if (pinnedFolders.contains(it)) {
                     pinnedCnt++
-                else
+                } else {
                     unpinnedCnt++
+                }
             }
 
             menu.findItem(R.id.cab_pin).isVisible = unpinnedCnt > 0
@@ -211,13 +218,14 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     }
 
     private fun pinFolders(pin: Boolean) {
-        if (pin)
+        if (pin) {
             config.addPinnedFolders(getSelectedPaths())
-        else
+        } else {
             config.removePinnedFolders(getSelectedPaths())
+        }
 
         pinnedFolders = config.pinnedFolders
-        listener?.refreshItems()
+        listener?.recheckPinnedFolders()
         notifyDataSetChanged()
         actMode?.finish()
     }
@@ -233,6 +241,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         }
 
         activity.tryCopyMoveFilesTo(files, isCopyOperation) {
+            config.tempFolderPath = ""
             listener?.refreshItems()
             actMode?.finish()
         }
@@ -240,7 +249,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
     fun selectAll() {
         val cnt = dirs.size
-        for (i in 0..cnt - 1) {
+        for (i in 0 until cnt) {
             selectedPositions.add(i)
             notifyItemChanged(i)
         }
@@ -250,7 +259,6 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     private fun askConfirmDelete() {
         ConfirmationDialog(activity) {
             deleteFiles()
-            actMode?.finish()
         }
     }
 
@@ -284,15 +292,12 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             listener?.tryDeleteFolders(folders)
 
             val newItems = SparseArray<View>()
-            var curIndex = 0
-            for (i in 0..itemViews.size() - 1) {
-                if (itemViews[i] != null) {
-                    newItems.put(curIndex, itemViews[i])
-                    curIndex++
-                }
-            }
+            (0 until itemViews.size())
+                    .filter { itemViews[it] != null }
+                    .forEachIndexed { curIndex, i -> newItems.put(curIndex, itemViews[i]) }
 
             itemViews = newItems
+            actMode?.finish()
         }
     }
 
@@ -301,19 +306,29 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             return
 
         val path = dirs[selectedPositions.first()].path
-        var albumCovers = config.parseAlbumCovers()
 
         if (useDefault) {
-            albumCovers = albumCovers.filterNot { it.path == path } as ArrayList
+            val albumCovers = getAlbumCoversWithout(path)
             storeCovers(albumCovers)
         } else {
-            PickMediumDialog(activity, path) {
-                albumCovers = albumCovers.filterNot { it.path == path } as ArrayList
-                albumCovers.add(AlbumCover(path, it))
+            pickMediumFrom(path, path)
+        }
+    }
+
+    private fun pickMediumFrom(targetFolder: String, path: String) {
+        PickMediumDialog(activity, path) {
+            if (File(it).isDirectory) {
+                pickMediumFrom(targetFolder, it)
+            } else {
+                val albumCovers = getAlbumCoversWithout(path)
+                val cover = AlbumCover(targetFolder, it)
+                albumCovers.add(cover)
                 storeCovers(albumCovers)
             }
         }
     }
+
+    private fun getAlbumCoversWithout(path: String) = config.parseAlbumCovers().filterNot { it.path == path } as ArrayList
 
     private fun storeCovers(albumCovers: ArrayList<AlbumCover>) {
         activity.config.albumCovers = Gson().toJson(albumCovers)
@@ -328,13 +343,14 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent?.context).inflate(R.layout.directory_item, parent, false)
+        val layoutType = if (isListViewType) R.layout.directory_item_list else R.layout.directory_item_grid
+        val view = LayoutInflater.from(parent?.context).inflate(layoutType, parent, false)
         return ViewHolder(view, adapterListener, activity, multiSelectorMode, multiSelector, listener, isPickIntent, itemClick)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val dir = dirs[position]
-        itemViews.put(position, holder.bindView(dir, pinnedFolders.contains(dir.path), scrollVertically))
+        itemViews.put(position, holder.bindView(dir, pinnedFolders.contains(dir.path), scrollVertically, isListViewType, textColor))
         toggleItemSelection(selectedPositions.contains(position), position)
         holder.itemView.tag = holder
     }
@@ -348,6 +364,12 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
     fun updateDirs(newDirs: ArrayList<Directory>) {
         dirs = newDirs
+        notifyDataSetChanged()
+        actMode?.finish()
+    }
+
+    fun updateTextColor(textColor: Int) {
+        this.textColor = textColor
         notifyDataSetChanged()
     }
 
@@ -367,7 +389,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
                 toggleItemSelection(true, i)
 
             if (min > -1 && min < to) {
-                (min..to - 1).filter { it != from }
+                (min until to).filter { it != from }
                         .forEach { toggleItemSelection(false, it) }
             }
             if (max > -1) {
@@ -384,7 +406,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             }
 
             if (min > -1) {
-                for (i in min..from - 1)
+                for (i in min until from)
                     toggleItemSelection(false, i)
             }
         }
@@ -393,44 +415,51 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     class ViewHolder(val view: View, val adapterListener: MyAdapterListener, val activity: SimpleActivity, val multiSelectorCallback: ModalMultiSelectorCallback,
                      val multiSelector: MultiSelector, val listener: DirOperationsListener?, val isPickIntent: Boolean, val itemClick: (Directory) -> (Unit)) :
             SwappingHolder(view, MultiSelector()) {
-        fun bindView(directory: Directory, isPinned: Boolean, scrollVertically: Boolean): View {
+        fun bindView(directory: Directory, isPinned: Boolean, scrollVertically: Boolean, isListView: Boolean, textColor: Int): View {
             itemView.apply {
                 dir_name.text = directory.name
+                dir_path?.text = "${directory.path.substringBeforeLast("/")}/"
                 photo_cnt.text = directory.mediaCnt.toString()
                 activity.loadImage(directory.tmb, dir_thumbnail, scrollVertically)
                 dir_pin.beVisibleIf(isPinned)
                 dir_sd_card.beVisibleIf(activity.isPathOnSD(directory.path))
 
+                if (isListView) {
+                    dir_name.setTextColor(textColor)
+                    dir_path.setTextColor(textColor)
+                    photo_cnt.setTextColor(textColor)
+                    dir_pin.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
+                    dir_sd_card.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
+                }
+
                 setOnClickListener { viewClicked(directory) }
                 setOnLongClickListener { if (isPickIntent) viewClicked(directory) else viewLongClicked(); true }
-
-
             }
             return itemView
         }
 
-        fun viewClicked(directory: Directory) {
+        private fun viewClicked(directory: Directory) {
             if (multiSelector.isSelectable) {
-                val isSelected = adapterListener.getSelectedPositions().contains(layoutPosition)
-                adapterListener.toggleItemSelectionAdapter(!isSelected, layoutPosition)
+                val isSelected = adapterListener.getSelectedPositions().contains(adapterPosition)
+                adapterListener.toggleItemSelectionAdapter(!isSelected, adapterPosition)
             } else {
                 itemClick(directory)
             }
         }
 
-        fun viewLongClicked() {
+        private fun viewLongClicked() {
             if (listener != null) {
                 if (!multiSelector.isSelectable) {
                     activity.startSupportActionMode(multiSelectorCallback)
-                    adapterListener.toggleItemSelectionAdapter(true, layoutPosition)
+                    adapterListener.toggleItemSelectionAdapter(true, adapterPosition)
                 }
 
-                listener.itemLongClicked(layoutPosition)
+                listener.itemLongClicked(adapterPosition)
             }
         }
 
         fun stopLoad() {
-            if (!activity.isDestroyed)
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1 || !activity.isDestroyed)
                 Glide.with(activity).clear(view.dir_thumbnail)
         }
     }
@@ -447,5 +476,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         fun tryDeleteFolders(folders: ArrayList<File>)
 
         fun itemLongClicked(position: Int)
+
+        fun recheckPinnedFolders()
     }
 }

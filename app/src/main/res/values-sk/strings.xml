@@ -25,6 +25,15 @@
     <string name="set_as">Nastaviť ako</string>
     <string name="volume">Hlasitosť</string>
     <string name="brightness">Jas</string>
+    <string name="do_not_ask_again">Nepýtať sa už v tomto spustení</string>
+
+    <!-- Filter -->
+    <string name="filter_media">Filter médií</string>
+    <string name="images">Obrázky</string>
+    <string name="videos">Videá</string>
+    <string name="gifs">GIFká</string>
+    <string name="no_media_with_filters">So zvolenými filtrami sa nenašli žiadne média súbory.</string>
+    <string name="change_filters_underlined"><u>Zmeniť filtre</u></string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Táto funkcia skryje priečinok pridaním súboru \'.nomedia\', skryté budú aj podpriečinky. Môžete ich vidieť zvolením možnosti \'Zobraziť skryté priečinky\' v nastaveniach. Pokračovať?</string>
@@ -41,7 +50,7 @@
     <string name="include_folders">Pridané priečinky</string>
     <string name="manage_included_folders">Spravovať pridané priečinky</string>
     <string name="add_folder">Pridať priečinok</string>
-    <string name="included_activity_placeholder">Ak máte nejaké priečinky obsahujúce médiá, ale neboli rozpoznané aplikáciou, môžete ich tu manuálne pridať.</string>
+    <string name="included_activity_placeholder">Ak máte nejaké priečinky obsahujúce médiá, ale neboli rozpoznané aplikáciou, môžete ich tu manuálne pridať.\n\nPridanie nových položiek sem nevylúči žiadny iný priečinok.</string>
 
     <!-- Resizing -->
     <string name="resize">Zmeniť veľkosť</string>
@@ -84,24 +93,25 @@
     <!-- Slideshow -->
     <string name="slideshow">Prezentácia</string>
     <string name="interval">Interval (sekundy):</string>
-    <string name="include_photos">Zahrnúť fotky a GIF súbory</string>
+    <string name="include_photos">Zahrnúť fotky</string>
     <string name="include_videos">Zahrnúť videá</string>
+    <string name="include_gifs">Zahrnúť GIFy</string>
     <string name="random_order">Náhodné poradie</string>
     <string name="use_fade">Používať miznúce animácie</string>
     <string name="move_backwards">Ísť opačným smerom</string>
+    <string name="loop_slideshow">Automaticky reštartovať prezentáciu</string>
     <string name="slideshow_ended">Prezentácia skončila</string>
     <string name="no_media_for_slideshow">Pre prezentáciu sa nenašli žiadne vhodné súbory</string>
+
+    <!-- View types -->
+    <string name="change_view_type">Zmeniť typ zobrazenia</string>
+    <string name="grid">Mriežka</string>
+    <string name="list">Zoznam</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Zobraziť skryté médiá</string>
     <string name="autoplay_videos">Spúšťať videá automaticky</string>
     <string name="toggle_filename">Prepnúť viditeľnosť názvov súborov</string>
-    <string name="show_media">Zobraziť médiá</string>
-    <string name="images">Iba obrázky</string>
-    <string name="videos">Iba videá</string>
-    <string name="gifs">Iba GIFká</string>
-    <string name="images_videos_gifs">Obrázky, videá, GIFká</string>
-    <string name="images_and_videos">Obrázky aj videá</string>
     <string name="loop_videos">Automaticky reštartovať videá</string>
     <string name="animate_gifs">Animovať GIF súbory pri náhľade</string>
     <string name="max_brightness">Maximálny jas pri prezeraní médií</string>
@@ -113,13 +123,17 @@
     <string name="dark_background_at_fullscreen">Tmavé pozadie pri médiách na celú obrazovku</string>
     <string name="scroll_thumbnails_horizontally">Prehliadať miniatúry vodorovne</string>
     <string name="hide_system_ui_at_fullscreen">Automaticky skrývať systémové lišty pri celoobrazovkových médiách</string>
+    <string name="delete_empty_folders">Odstrániť prázdne priečinky po vymazaní ich obsahu</string>
+    <string name="allow_video_gestures">Povoliť ovládanie hlasitosti a jasu videí vertikálnymi ťahmi</string>
     <string name="replace_share_with_rotate">Nahradiť Zdieľanie s Otočením v celoobrazovkovom menu</string>
+    <string name="show_extended_details">Zobraziť rozšírené vlastnosti ponad celoobrazovkové médiá</string>
+    <string name="manage_extended_details">Spravovať rozšírené vlastnosti</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Galéria na prezeranie obrázkov a videí bez reklám.</string>
     <string name="app_long_description">
-        Jednoduchá nástroj použiteľný na prezeranie obrázkov a videí. Položky môžu byť zoradené podľa dátumu, veľkosti, názvu oboma smermi, obrázky je možné aj priblížiť. Položky sú zobrazované vo viacerých stĺpcoch v závislosti od veľkosti displeja, počet stĺpcov je možné meniť pomocou gesta prstami. Súbory môžete premenovať, zdieľať, mazať, kopírovať, premiestňovaŤ. Obrázky môžete orezať, otočiť, alebo nastaviť ako tapeta priamo v aplikácií.
+        Jednoduchá nástroj použiteľný na prezeranie obrázkov a videí. Položky môžu byť zoradené podľa dátumu, veľkosti, názvu oboma smermi, obrázky je možné aj priblížiť. Položky sú zobrazované vo viacerých stĺpcoch v závislosti od veľkosti displeja, počet stĺpcov je možné meniť pomocou gesta prstami. Súbory môžete premenovať, zdieľať, mazať, kopírovať, premiestňovať. Obrázky môžete orezať, otočiť, alebo nastaviť ako tapeta priamo v aplikácií.
 
         Galéria je tiež poskytovaná pre použitie treťou stranou pre prehliadanie fotiek a videí, pridávanie príloh v emailových klientoch. Je perfektná na každodenné použitie.
 

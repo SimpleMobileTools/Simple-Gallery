@@ -42,12 +42,12 @@ class ChangeSortingDialog(val activity: SimpleActivity, val isDirectorySorting: 
         val sortingRadio = view.sorting_dialog_radio_sorting
         var sortBtn = sortingRadio.sorting_dialog_radio_name
 
-        if (currSorting and SORT_BY_SIZE != 0) {
-            sortBtn = sortingRadio.sorting_dialog_radio_size
-        } else if (currSorting and SORT_BY_DATE_MODIFIED != 0) {
-            sortBtn = sortingRadio.sorting_dialog_radio_last_modified
-        } else if (currSorting and SORT_BY_DATE_TAKEN != 0)
-            sortBtn = sortingRadio.sorting_dialog_radio_date_taken
+        when {
+            currSorting and SORT_BY_PATH != 0 -> sortBtn = sortingRadio.sorting_dialog_radio_path
+            currSorting and SORT_BY_SIZE != 0 -> sortBtn = sortingRadio.sorting_dialog_radio_size
+            currSorting and SORT_BY_DATE_MODIFIED != 0 -> sortBtn = sortingRadio.sorting_dialog_radio_last_modified
+            currSorting and SORT_BY_DATE_TAKEN != 0 -> sortBtn = sortingRadio.sorting_dialog_radio_date_taken
+        }
         sortBtn.isChecked = true
     }
 
@@ -65,6 +65,7 @@ class ChangeSortingDialog(val activity: SimpleActivity, val isDirectorySorting: 
         val sortingRadio = view.sorting_dialog_radio_sorting
         var sorting = when (sortingRadio.checkedRadioButtonId) {
             R.id.sorting_dialog_radio_name -> SORT_BY_NAME
+            R.id.sorting_dialog_radio_path -> SORT_BY_PATH
             R.id.sorting_dialog_radio_size -> SORT_BY_SIZE
             R.id.sorting_dialog_radio_last_modified -> SORT_BY_DATE_MODIFIED
             else -> SORT_BY_DATE_TAKEN

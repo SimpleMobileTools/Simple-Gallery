@@ -2,12 +2,22 @@
 <resources>
 
     <!-- Release notes -->
+    <string name="release_136">Added an option to show customizable extended details over fullscreen media</string>
+    <string name="release_133">
+         Added fingerprint to hidden item protection\n
+         Added a new List view type
+    </string>
+    <string name="release_127">
+         Added a switch for disabling video gestures\n
+         Added a switch for deleting empty folders after deleting content
+    </string>
+    <string name="release_125">Moved media type filter from Settings to the Action menu</string>
     <string name="release_123">Allow changing the screen brightness and volume at videos by vertically dragging the screen sides</string>
     <string name="release_122">Added slideshow at the fullscreen view</string>
     <string name="release_119">Added pattern/pin protection for showing hidden items</string>
     <string name="release_118">Added a toggle for replacing Share with Rotate at fullscreen media</string>
     <string name="release_115">
-        Added an indicator of folders located on SD cards
+        Added an indicator of folders located on SD cards\n
         Improved the way of rotating jpg images on the internal storage by modifying the exif tags + added autosave
     </string>
     <string name="release_114">Added an option for automatically hiding the system UI at entering fullscreen mode</string>

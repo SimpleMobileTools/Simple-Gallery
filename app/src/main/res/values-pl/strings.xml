@@ -25,6 +25,15 @@
     <string name="set_as">Ustaw jako</string>
     <string name="volume">Głośność</string>
     <string name="brightness">Jasność</string>
+    <string name="do_not_ask_again">Do not ask again in this session</string>
+
+    <!-- Filter -->
+    <string name="filter_media">Filtruj multimedia</string>
+    <string name="images">Obrazy</string>
+    <string name="videos">Filmy</string>
+    <string name="gifs">GIFy</string>
+    <string name="no_media_with_filters">Nie znalazłem multimediów z wybranymi filtrami.</string>
+    <string name="change_filters_underlined"><u>Zmień filtry</u></string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Ta funkcja ukrywa foldery dodając do nich pusty plik .nomedia. Aby móc je zobaczyć, należy włączyć opcję \'Pokazuj ukryte foldery\' w ustawieniach. Kontyntynuować?</string>
@@ -49,7 +58,7 @@
     <string name="width">Szerokość</string>
     <string name="height">Wysokość</string>
     <string name="keep_aspect_ratio">Zachowaj proporcje</string>
-    <string name="invalid_values">Wpisz poprawną rozdzielczość</string>
+    <string name="invalid_values">Podaj poprawną rozdzielczość</string>
 
     <!-- Editor -->
     <string name="editor">Edycja</string>
@@ -84,24 +93,25 @@
     <!-- Slideshow -->
     <string name="slideshow">Pokaz slajdów</string>
     <string name="interval">Przedział (sekundy):</string>
-    <string name="include_photos">Dołączaj zdjęcia i GIFy</string>
+    <string name="include_photos">Dołączaj zdjęcia</string>
     <string name="include_videos">Dołączaj filmy</string>
+    <string name="include_gifs">Dołączaj GIFy</string>
     <string name="random_order">Losowa kolejność</string>
     <string name="use_fade">Używaj płynnych przejść</string>
     <string name="move_backwards">Odwrotna kolejność</string>
+    <string name="loop_slideshow">Zapętlaj</string>
     <string name="slideshow_ended">Pokaz slajdów zakończony</string>
     <string name="no_media_for_slideshow">Nie znalazłem multimediów do pokazu slajdów</string>
+
+    <!-- View types -->
+    <string name="change_view_type">Zmień typ widoku</string>
+    <string name="grid">Siatka</string>
+    <string name="list">Lista</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Pokazuj ukryte foldery</string>
     <string name="autoplay_videos">Odtwarzaj filmy automatycznie</string>
     <string name="toggle_filename">Pokazuj / ukrywaj nazwy plików</string>
-    <string name="show_media">Pokazywane typy multimediów</string>
-    <string name="images">Tylko obrazy</string>
-    <string name="videos">Tylko filmy</string>
-    <string name="gifs">Tylko GIFy</string>
-    <string name="images_videos_gifs">Obrazy, filmy i GIFy</string>
-    <string name="images_and_videos">Obrazy i filmy</string>
     <string name="loop_videos">Zapętlaj odtwarzanie filmów</string>
     <string name="animate_gifs">Animowane miniatury GIFów</string>
     <string name="max_brightness">Maksymalna jasność podczas wyświetlania multimediów</string>
@@ -113,13 +123,17 @@
     <string name="dark_background_at_fullscreen">Czarne tło przy podglądzie pełnoekranowym</string>
     <string name="scroll_thumbnails_horizontally">Przewijaj miniatury poziomo</string>
     <string name="hide_system_ui_at_fullscreen">Ukrywaj interfejs przy pełnoekranowym podglądzie</string>
+    <string name="delete_empty_folders">Usuwaj puste foldery po usunięciu ich zawartości</string>
+    <string name="allow_video_gestures">Zezwalaj na kontrolę jasności i głośności filmów pionowymi gestami</string>
     <string name="replace_share_with_rotate">Zamień funkcję udostępniania na obracanie w menu pełnoekranowym</string>
+    <string name="show_extended_details">Show extended details over fullscreen media</string>
+    <string name="manage_extended_details">Manage extended details</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Darmowa galeria bez reklam do przeglądania obrazów i filmów.</string>
     <string name="app_long_description">
-        Prosta aplikacja galerii do oglądania obrazów i filmów. Pliki mogą być sortowane według daty, rozmiaru i nazwy, zarówno w porządku rosnącym jak i malejącym. W zależności od wielkości ekranu wyświetlane mogą być w wielu kolumnach. Liczbę kolumn można zmieniać za pomocą gestów. Zdjęcia mogą być powiększane, przycinane, obracane lub ustawiane jako tapeta bezpośrednio z poziomu aplikacji. Kolory aplikacji można dowolnie ustawiać.
+        Prosta aplikacja galerii do oglądania obrazów i filmów. Pliki mogą być sortowane według daty, rozmiaru i nazwy, zarówno w porządku rosnącym, jak i malejącym. W zależności od wielkości ekranu wyświetlane mogą być w wielu kolumnach. Liczbę kolumn można zmieniać za pomocą gestów. Zdjęcia mogą być powiększane, przycinane, obracane lub ustawiane jako tapeta bezpośrednio z poziomu aplikacji. Kolory aplikacji można dowolnie ustawiać.
 
         Aplikacja nie zawiera żadnych reklam ani niepotrzebnych uprawnień. Jest też w pełni otawrtoźrodłowa.
         

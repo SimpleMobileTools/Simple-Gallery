@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dir_holder"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/small_margin"
+    android:paddingTop="@dimen/small_margin">
+
+    <com.simplemobiletools.gallery.views.MySquareImageView
+        android:id="@+id/dir_thumbnail"
+        android:layout_width="@dimen/list_view_folder_thumbnail_size"
+        android:layout_height="@dimen/list_view_folder_thumbnail_size"/>
+
+    <ImageView
+        android:id="@+id/dir_check"
+        android:layout_width="@dimen/selection_check_size"
+        android:layout_height="@dimen/selection_check_size"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="@dimen/small_margin"
+        android:background="@drawable/circle_background"
+        android:padding="@dimen/tiny_margin"
+        android:src="@drawable/ic_check"/>
+
+    <TextView
+        android:id="@+id/dir_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/dir_thumbnail"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/bigger_text_size"/>
+
+    <TextView
+        android:id="@+id/dir_path"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/dir_name"
+        android:layout_below="@+id/dir_name"
+        android:layout_marginRight="@dimen/activity_margin"
+        android:alpha="0.4"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:paddingLeft="6dp"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/smaller_text_size"/>
+
+    <TextView
+        android:id="@+id/photo_cnt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/dir_name"
+        android:layout_toRightOf="@+id/dir_name"
+        android:alpha="0.4"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/smaller_text_size"/>
+
+    <LinearLayout
+        android:id="@+id/dir_icon_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/small_margin"
+        android:gravity="end"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/tiny_margin">
+
+        <ImageView
+            android:id="@+id/dir_sd_card"
+            android:layout_width="@dimen/sd_card_icon_size"
+            android:layout_height="@dimen/sd_card_icon_size"
+            android:paddingBottom="@dimen/small_margin"
+            android:src="@drawable/ic_sd_card"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/dir_pin"
+            android:layout_width="@dimen/sd_card_icon_size"
+            android:layout_height="@dimen/sd_card_icon_size"
+            android:paddingBottom="@dimen/small_margin"
+            android:src="@drawable/ic_pin"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/dir_list_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignBottom="@+id/dir_thumbnail"
+        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@+id/dir_thumbnail"
+        android:background="@drawable/divider"/>
+
+</RelativeLayout>

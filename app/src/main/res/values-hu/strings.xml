@@ -25,6 +25,15 @@
     <string name="set_as">Set as</string>
     <string name="volume">Volume</string>
     <string name="brightness">Brightness</string>
+    <string name="do_not_ask_again">Do not ask again in this session</string>
+
+    <!-- Filter -->
+    <string name="filter_media">Filter media</string>
+    <string name="images">Images</string>
+    <string name="videos">Videos</string>
+    <string name="gifs">GIFs</string>
+    <string name="no_media_with_filters">No media files have been found with the selected filters.</string>
+    <string name="change_filters_underlined"><u>Change filters</u></string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden folders\' option in Settings. Continue?</string>
@@ -41,7 +50,7 @@
     <string name="include_folders">Included folders</string>
     <string name="manage_included_folders">Manage included folders</string>
     <string name="add_folder">Add folder</string>
-    <string name="included_activity_placeholder">If you have some folders which contain media, but were not recognized by the app, you can add them manually here.</string>
+    <string name="included_activity_placeholder">If you have some folders which contain media, but were not recognized by the app, you can add them manually here.\n\nAdding some items here will not exclude any other folder.</string>
 
     <!-- Resizing -->
     <string name="resize">Resize</string>
@@ -84,24 +93,25 @@
     <!-- Slideshow -->
     <string name="slideshow">Slideshow</string>
     <string name="interval">Interval (seconds):</string>
-    <string name="include_photos">Include photos and GIFs</string>
+    <string name="include_photos">Include photos</string>
     <string name="include_videos">Include videos</string>
+    <string name="include_gifs">Include GIFs</string>
     <string name="random_order">Random order</string>
     <string name="use_fade">Use fade animations</string>
     <string name="move_backwards">Move backwards</string>
+    <string name="loop_slideshow">Loop slideshow</string>
     <string name="slideshow_ended">The slideshow ended</string>
     <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
+
+    <!-- View types -->
+    <string name="change_view_type">Change view type</string>
+    <string name="grid">Grid</string>
+    <string name="list">List</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Show hidden media</string>
     <string name="autoplay_videos">Play videos automatically</string>
     <string name="toggle_filename">Toggle filename visibility</string>
-    <string name="show_media">Show media</string>
-    <string name="images">Images only</string>
-    <string name="videos">Videos only</string>
-    <string name="gifs">GIFs only</string>
-    <string name="images_videos_gifs">Images, videos, GIFs</string>
-    <string name="images_and_videos">Images and videos</string>
     <string name="loop_videos">Loop videos</string>
     <string name="animate_gifs">Animate GIFs at thumbnails</string>
     <string name="max_brightness">Max brightness when viewing media</string>
@@ -113,7 +123,11 @@
     <string name="dark_background_at_fullscreen">Dark background at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
     <string name="hide_system_ui_at_fullscreen">Automatically hide system UI at fullscreen media</string>
+    <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
+    <string name="allow_video_gestures">Allow controlling video volume and brightness with vertical gestures</string>
     <string name="replace_share_with_rotate">Replace Share with Rotate at fullscreen menu</string>
+    <string name="show_extended_details">Show extended details over fullscreen media</string>
+    <string name="manage_extended_details">Manage extended details</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

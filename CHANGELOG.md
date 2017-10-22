@@ -1,6 +1,97 @@
 Changelog
 ==========
 
+Version 2.16.0 *(2017-10-19)*
+----------------------------
+
+ * Added sorting by path
+ * Added an option to show customizable extended details over fullscreen media
+ * Allow selecting Album cover photos from any folders
+ * Added a checkbox for skipping Delete confirmation dialog
+
+Version 2.15.2 *(2017-10-06)*
+----------------------------
+
+ * Properly display SD card content to Android 4 users
+ * Fix displaying some third party media, like Bluemail attachments
+ * Fix media picking intents if "Show all folders content" is enabled
+
+Version 2.15.1 *(2017-10-01)*
+----------------------------
+
+ * Updated commons library with minor fixes
+
+Version 2.15.0 *(2017-10-01)*
+----------------------------
+
+ * Added fingerprint to hidden item protection
+ * Added a new List view type
+ * Fixed an issue with some hidden items being shown at "Show all folders content"
+ * Fixed typing in color hex codes manually with some keyboards
+ * Do not autosave rotated images in any case
+ * Tons of other performance, stability and UX improvements
+
+Version 2.14.4 *(2017-09-18)*
+----------------------------
+
+ * Revert to the old way of loading fullscreen images to avoid issues on Android 7+
+
+Version 2.14.3 *(2017-09-17)*
+----------------------------
+
+ * Removed some error toast messages after delete, or if image loading failed
+ * Fixed some visual glitches at horizontal scrolling
+ * Disable pull-to-refresh at horizontal scrolling
+ * Many other smaller bugfixes and improvements
+
+Version 2.14.2 *(2017-09-11)*
+----------------------------
+
+ * Fixing some glitches with fullscreen images
+ * Add an extra check to avoid displaying non-existing media
+ * Fix opening media from third party intents
+
+Version 2.14.1 *(2017-09-07)*
+----------------------------
+
+ * Fixing some glitches around fullscreen view
+
+Version 2.14.0 *(2017-09-05)*
+----------------------------
+
+ * Simplified the way of creating new folders
+ * Added a loop option to slideshows, slowed down the swipe animation
+ * Added an option to filter out gifs from slideshows
+ * Improved the quality of fullscreen images
+ * Properly allow excluding the root folder
+
+Version 2.13.4 *(2017-09-01)*
+----------------------------
+
+ * Improved the image loading performance
+ * Added a switch for disabling video gestures
+ * Added a switch for deleting empty folders after deleting content
+ * Show excluded folder content at third party intent if needed
+
+Version 2.13.3 *(2017-08-29)*
+----------------------------
+
+ * Fixing copy/move actions on some devices
+
+Version 2.13.2 *(2017-08-28)*
+----------------------------
+
+ * Moved media type filter from Settings to the Action menu
+ * Allow filtering GIFs out
+ * Make sure we always show manually included folders
+ * Properly show hidden files, when open from some File Manager
+
+Version 2.13.1 *(2017-08-16)*
+----------------------------
+
+ * Show a folder if its both excluded and included
+ * Many translation improvements
+
 Version 2.13.0 *(2017-08-07)*
 ----------------------------
 

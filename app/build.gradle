@@ -4,14 +4,14 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion "25.0.3"
 
     defaultConfig {
         applicationId "com.simplemobiletools.gallery"
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 124
-        versionName "2.13.1"
+        versionCode 136
+        versionName "2.16.0"
     }
 
     signingConfigs {
@@ -37,7 +37,7 @@ android {
 }
 
 dependencies {
-    compile 'com.simplemobiletools:commons:2.25.4'
+    compile 'com.simplemobiletools:commons:2.30.6'
     compile 'com.davemorrissey.labs:subsampling-scale-image-view:3.6.0'
     compile 'com.theartofdev.edmodo:android-image-cropper:2.4.0'
     compile 'com.bignerdranch.android:recyclerview-multiselect:0.2'
@@ -52,7 +52,7 @@ dependencies {
 }
 
 buildscript {
-    ext.kotlin_version = '1.1.4-2'
+    ext.kotlin_version = '1.1.51'
     repositories {
         mavenCentral()
     }

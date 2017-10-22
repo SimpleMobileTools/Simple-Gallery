@@ -12,6 +12,11 @@
         android:title="@string/toggle_filename"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/filter"
+        android:icon="@drawable/ic_filter"
+        android:title="@string/filter_media"
+        app:showAsAction="ifRoom"/>
+    <item
         android:id="@+id/folder_view"
         android:title="@string/folder_view"
         app:showAsAction="never"/>
@@ -20,6 +25,10 @@
         android:icon="@drawable/ic_camera"
         android:title="@string/open_camera"
         app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/change_view_type"
+        android:title="@string/change_view_type"
+        app:showAsAction="never"/>
     <item
         android:id="@+id/hide_folder"
         android:title="@string/hide_folder"

@@ -6,15 +6,14 @@ import android.view.View
 import android.view.WindowManager
 import com.simplemobiletools.commons.extensions.hideKeyboard
 import com.simplemobiletools.commons.extensions.setupDialogStuff
+import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.helpers.SLIDESHOW_DEFAULT_INTERVAL
 import kotlinx.android.synthetic.main.dialog_slideshow.view.*
 
-
 class SlideshowDialog(val activity: SimpleActivity, val callback: () -> Unit) {
-    val dialog: AlertDialog
     val view: View
 
     init {
@@ -42,6 +41,11 @@ class SlideshowDialog(val activity: SimpleActivity, val callback: () -> Unit) {
                 include_videos.toggle()
             }
 
+            include_gifs_holder.setOnClickListener {
+                interval_value.clearFocus()
+                include_gifs.toggle()
+            }
+
             random_order_holder.setOnClickListener {
                 interval_value.clearFocus()
                 random_order.toggle()
@@ -56,15 +60,30 @@ class SlideshowDialog(val activity: SimpleActivity, val callback: () -> Unit) {
                 interval_value.clearFocus()
                 move_backwards.toggle()
             }
+
+            loop_slideshow_holder.setOnClickListener {
+                interval_value.clearFocus()
+                loop_slideshow.toggle()
+            }
         }
         setupValues()
 
-        dialog = AlertDialog.Builder(activity)
-                .setPositiveButton(R.string.ok, { dialog, which -> dialogConfirmed() })
+        AlertDialog.Builder(activity)
+                .setPositiveButton(R.string.ok, null)
                 .setNegativeButton(R.string.cancel, null)
                 .create().apply {
             window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
             activity.setupDialogStuff(view, this)
+            getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener({
+                if (!view.include_photos.isChecked && !view.include_videos.isChecked && !view.include_gifs.isChecked) {
+                    activity.toast(R.string.no_media_for_slideshow)
+                    return@setOnClickListener
+                }
+
+                storeValues()
+                callback()
+                dismiss()
+            })
         }
     }
 
@@ -74,13 +93,15 @@ class SlideshowDialog(val activity: SimpleActivity, val callback: () -> Unit) {
             interval_value.setText(config.slideshowInterval.toString())
             include_photos.isChecked = config.slideshowIncludePhotos
             include_videos.isChecked = config.slideshowIncludeVideos
+            include_gifs.isChecked = config.slideshowIncludeGIFs
             random_order.isChecked = config.slideshowRandomOrder
             use_fade.isChecked = config.slideshowUseFade
             move_backwards.isChecked = config.slideshowMoveBackwards
+            loop_slideshow.isChecked = config.loopSlideshow
         }
     }
 
-    private fun dialogConfirmed() {
+    private fun storeValues() {
         var interval = view.interval_value.text.toString()
         if (interval.trim('0').isEmpty())
             interval = SLIDESHOW_DEFAULT_INTERVAL.toString()
@@ -89,11 +110,11 @@ class SlideshowDialog(val activity: SimpleActivity, val callback: () -> Unit) {
             slideshowInterval = interval.toInt()
             slideshowIncludePhotos = view.include_photos.isChecked
             slideshowIncludeVideos = view.include_videos.isChecked
+            slideshowIncludeGIFs = view.include_gifs.isChecked
             slideshowRandomOrder = view.random_order.isChecked
             slideshowUseFade = view.use_fade.isChecked
             slideshowMoveBackwards = view.move_backwards.isChecked
+            loopSlideshow = view.loop_slideshow.isChecked
         }
-        dialog.dismiss()
-        callback()
     }
 }

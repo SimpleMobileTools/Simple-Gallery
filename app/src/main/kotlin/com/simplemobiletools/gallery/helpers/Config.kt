@@ -28,17 +28,17 @@ class Config(context: Context) : BaseConfig(context) {
         if (path.isEmpty()) {
             fileSorting = value
         } else {
-            prefs.edit().putInt(SORT_FOLDER_PREFIX + path, value).apply()
+            prefs.edit().putInt(SORT_FOLDER_PREFIX + path.toLowerCase(), value).apply()
         }
     }
 
-    fun getFileSorting(path: String) = prefs.getInt(SORT_FOLDER_PREFIX + path, fileSorting)
+    fun getFileSorting(path: String) = prefs.getInt(SORT_FOLDER_PREFIX + path.toLowerCase(), fileSorting)
 
     fun removeFileSorting(path: String) {
-        prefs.edit().remove(SORT_FOLDER_PREFIX + path).apply()
+        prefs.edit().remove(SORT_FOLDER_PREFIX + path.toLowerCase()).apply()
     }
 
-    fun hasCustomSorting(path: String) = prefs.contains(SORT_FOLDER_PREFIX + path)
+    fun hasCustomSorting(path: String) = prefs.contains(SORT_FOLDER_PREFIX + path.toLowerCase())
 
     var wasHideFolderTooltipShown: Boolean
         get() = prefs.getBoolean(HIDE_FOLDER_TOOLTIP_SHOWN, false)
@@ -53,6 +53,10 @@ class Config(context: Context) : BaseConfig(context) {
     var temporarilyShowHidden: Boolean
         get() = prefs.getBoolean(TEMPORARILY_SHOW_HIDDEN, false)
         set(temporarilyShowHidden) = prefs.edit().putBoolean(TEMPORARILY_SHOW_HIDDEN, temporarilyShowHidden).apply()
+
+    var isThirdPartyIntent: Boolean
+        get() = prefs.getBoolean(IS_THIRD_PARTY_INTENT, false)
+        set(isThirdPartyIntent) = prefs.edit().putBoolean(IS_THIRD_PARTY_INTENT, isThirdPartyIntent).apply()
 
     var pinnedFolders: Set<String>
         get() = prefs.getStringSet(PINNED_FOLDERS, HashSet<String>())
@@ -156,9 +160,9 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(DARK_BACKGROUND, false)
         set(darkBackground) = prefs.edit().putBoolean(DARK_BACKGROUND, darkBackground).apply()
 
-    var showMedia: Int
-        get() = prefs.getInt(SHOW_MEDIA, IMAGES_AND_VIDEOS)
-        set(showMedia) = prefs.edit().putInt(SHOW_MEDIA, showMedia).apply()
+    var filterMedia: Int
+        get() = prefs.getInt(FILTER_MEDIA, IMAGES or VIDEOS or GIFS)
+        set(filterMedia) = prefs.edit().putInt(FILTER_MEDIA, filterMedia).apply()
 
     var dirColumnCnt: Int
         get() = prefs.getInt(getDirectoryColumnsField(), getDefaultDirectoryColumnCount())
@@ -233,6 +237,14 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(REPLACE_SHARE_WITH_ROTATE, false)
         set(replaceShare) = prefs.edit().putBoolean(REPLACE_SHARE_WITH_ROTATE, replaceShare).apply()
 
+    var deleteEmptyFolders: Boolean
+        get() = prefs.getBoolean(DELETE_EMPTY_FOLDERS, true)
+        set(deleteEmptyFolders) = prefs.edit().putBoolean(DELETE_EMPTY_FOLDERS, deleteEmptyFolders).apply()
+
+    var allowVideoGestures: Boolean
+        get() = prefs.getBoolean(ALLOW_VIDEO_GESTURES, true)
+        set(allowVideoGestures) = prefs.edit().putBoolean(ALLOW_VIDEO_GESTURES, allowVideoGestures).apply()
+
     var slideshowInterval: Int
         get() = prefs.getInt(SLIDESHOW_INTERVAL, SLIDESHOW_DEFAULT_INTERVAL)
         set(slideshowInterval) = prefs.edit().putInt(SLIDESHOW_INTERVAL, slideshowInterval).apply()
@@ -245,6 +257,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(SLIDESHOW_INCLUDE_VIDEOS, false)
         set(slideshowIncludeVideos) = prefs.edit().putBoolean(SLIDESHOW_INCLUDE_VIDEOS, slideshowIncludeVideos).apply()
 
+    var slideshowIncludeGIFs: Boolean
+        get() = prefs.getBoolean(SLIDESHOW_INCLUDE_GIFS, false)
+        set(slideshowIncludeGIFs) = prefs.edit().putBoolean(SLIDESHOW_INCLUDE_GIFS, slideshowIncludeGIFs).apply()
+
     var slideshowRandomOrder: Boolean
         get() = prefs.getBoolean(SLIDESHOW_RANDOM_ORDER, false)
         set(slideshowRandomOrder) = prefs.edit().putBoolean(SLIDESHOW_RANDOM_ORDER, slideshowRandomOrder).apply()
@@ -256,4 +272,28 @@ class Config(context: Context) : BaseConfig(context) {
     var slideshowMoveBackwards: Boolean
         get() = prefs.getBoolean(SLIDESHOW_MOVE_BACKWARDS, false)
         set(slideshowMoveBackwards) = prefs.edit().putBoolean(SLIDESHOW_MOVE_BACKWARDS, slideshowMoveBackwards).apply()
+
+    var loopSlideshow: Boolean
+        get() = prefs.getBoolean(SLIDESHOW_LOOP, false)
+        set(loopSlideshow) = prefs.edit().putBoolean(SLIDESHOW_LOOP, loopSlideshow).apply()
+
+    var tempFolderPath: String
+        get() = prefs.getString(TEMP_FOLDER_PATH, "")
+        set(tempFolderPath) = prefs.edit().putString(TEMP_FOLDER_PATH, tempFolderPath).apply()
+
+    var viewTypeFolders: Int
+        get() = prefs.getInt(VIEW_TYPE_FOLDERS, VIEW_TYPE_GRID)
+        set(viewTypeFolders) = prefs.edit().putInt(VIEW_TYPE_FOLDERS, viewTypeFolders).apply()
+
+    var viewTypeFiles: Int
+        get() = prefs.getInt(VIEW_TYPE_FILES, VIEW_TYPE_GRID)
+        set(viewTypeFiles) = prefs.edit().putInt(VIEW_TYPE_FILES, viewTypeFiles).apply()
+
+    var showExtendedDetails: Boolean
+        get() = prefs.getBoolean(SHOW_EXTENDED_DETAILS, false)
+        set(showExtendedDetails) = prefs.edit().putBoolean(SHOW_EXTENDED_DETAILS, showExtendedDetails).apply()
+
+    var extendedDetails: Int
+        get() = prefs.getInt(EXTENDED_DETAILS, EXT_RESOLUTION or EXT_LAST_MODIFIED or EXT_EXIF_PROPERTIES)
+        set(extendedDetails) = prefs.edit().putInt(EXTENDED_DETAILS, extendedDetails).apply()
 }

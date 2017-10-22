@@ -2,6 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/cab_confirm_selection"
+        android:icon="@drawable/ic_check"
+        android:title="@string/confirm_selection"
+        app:showAsAction="ifRoom"/>
+    <item
         android:id="@+id/cab_delete"
         android:icon="@drawable/ic_delete"
         android:title="@string/delete"

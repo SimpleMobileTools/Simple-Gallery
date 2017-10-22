@@ -25,6 +25,15 @@
     <string name="set_as">Nastavit jako</string>
     <string name="volume">Volume</string>
     <string name="brightness">Brightness</string>
+    <string name="do_not_ask_again">Do not ask again in this session</string>
+
+    <!-- Filter -->
+    <string name="filter_media">Filter media</string>
+    <string name="images">Images</string>
+    <string name="videos">Videos</string>
+    <string name="gifs">GIFs</string>
+    <string name="no_media_with_filters">No media files have been found with the selected filters.</string>
+    <string name="change_filters_underlined"><u>Change filters</u></string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Tato funkce skryje složku, včetně podsložek, přidáním souboru \'.nomedia\'. Zobrazíte je zvolením možnosti \'Zobrazit skryté složky\' v nastavení. Pokračovat?</string>
@@ -84,24 +93,25 @@
     <!-- Slideshow -->
     <string name="slideshow">Slideshow</string>
     <string name="interval">Interval (seconds):</string>
-    <string name="include_photos">Include photos and GIFs</string>
+    <string name="include_photos">Include photos</string>
     <string name="include_videos">Include videos</string>
+    <string name="include_gifs">Include GIFs</string>
     <string name="random_order">Random order</string>
     <string name="use_fade">Use fade animations</string>
     <string name="move_backwards">Move backwards</string>
+    <string name="loop_slideshow">Loop slideshow</string>
     <string name="slideshow_ended">The slideshow ended</string>
     <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
+
+    <!-- View types -->
+    <string name="change_view_type">Change view type</string>
+    <string name="grid">Grid</string>
+    <string name="list">List</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Zobrazit skryté média</string>
     <string name="autoplay_videos">Automaticky přehrávat videa</string>
     <string name="toggle_filename">Přepnout viditelnost názvů souborů</string>
-    <string name="show_media">Zobrazit média</string>
-    <string name="images">Jen obrázky</string>
-    <string name="videos">Jen videa</string>
-    <string name="gifs">GIFs only</string>
-    <string name="images_videos_gifs">Images, videos, GIFs</string>
-    <string name="images_and_videos">Obrázky i videa</string>
     <string name="loop_videos">Přehrávat videa ve smyčce</string>
     <string name="animate_gifs">Animovat náhledy souborů GIF</string>
     <string name="max_brightness">Nastavit jas obrazovky na max při zobrazení médií</string>
@@ -113,7 +123,11 @@
     <string name="dark_background_at_fullscreen">Dark background at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
     <string name="hide_system_ui_at_fullscreen">Automatically hide system UI at fullscreen media</string>
+    <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
+    <string name="allow_video_gestures">Allow controlling video volume and brightness with vertical gestures</string>
     <string name="replace_share_with_rotate">Replace Share with Rotate at fullscreen menu</string>
+    <string name="show_extended_details">Show extended details over fullscreen media</string>
+    <string name="manage_extended_details">Manage extended details</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

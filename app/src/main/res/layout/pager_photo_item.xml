@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/photo_holder"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -15,5 +16,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone"/>
+
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/photo_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/small_margin"
+        android:layout_marginRight="@dimen/small_margin"
+        android:background="@color/gradient_grey_start"
+        android:padding="@dimen/small_margin"
+        android:textSize="@dimen/smaller_text_size"
+        android:visibility="gone"
+        tools:text="My image\nAnother line"/>
 
 </RelativeLayout>

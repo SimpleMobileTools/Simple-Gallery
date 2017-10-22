@@ -19,29 +19,38 @@
     <string name="no_camera_app_found">Не найдено приложения камеры</string>
     <string name="increase_column_count">Добавить 1 столбец</string>
     <string name="reduce_column_count">Убрать 1 столбец</string>
-    <string name="change_cover_image">Change cover image</string>
-    <string name="select_photo">Select photo</string>
-    <string name="use_default">Use default</string>
-    <string name="set_as">Set as</string>
-    <string name="volume">Volume</string>
-    <string name="brightness">Brightness</string>
+    <string name="change_cover_image">Изменить обложку</string>
+    <string name="select_photo">Выбрать изображение</string>
+    <string name="use_default">Использовать по умолчанию</string>
+    <string name="set_as">Установить как…</string>
+    <string name="volume">Громкость</string>
+    <string name="brightness">Яркость</string>
+    <string name="do_not_ask_again">Do not ask again in this session</string>
+
+    <!-- Filter -->
+    <string name="filter_media">Фильтр медиа</string>
+    <string name="images">Изображения</string>
+    <string name="videos">Видео</string>
+    <string name="gifs">GIF</string>
+    <string name="no_media_with_filters">При заданных фильтрах медиафайлы не найдены.</string>
+    <string name="change_filters_underlined"><u>Изменить фильтры</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Эта опция скрывает папку, добавляя в неё файл \'.nomedia\'; будут скрыты все подпапки. Можно показывать их, переключая \'Показать скрытые папки\' в настройках. Продолжить?</string>
+    <string name="hide_folder_description">Эта функция скрывает папку, добавляя в неё файл \'.nomedia\'; будут скрыты все подпапки. Можно показывать их, переключая \'Показывать скрытые папки\' в настройках. Продолжить?</string>
     <string name="exclude">Исключить</string>
     <string name="excluded_folders">Исключённые папки</string>
     <string name="manage_excluded_folders">Управление исключёнными папками</string>
-    <string name="exclude_folder_description">Эта опция исключит выбранные папки вместе с подпапками только для Simple Gallery. Можно управлять исключёнными папками из настроек.</string>
+    <string name="exclude_folder_description">Эта функция исключит выбранные папки вместе с подпапками только для Simple Gallery. Можно управлять исключёнными папками из настроек.</string>
     <string name="exclude_folder_parent">Исключить только родительский каталог?</string>
     <string name="excluded_activity_placeholder">Исключая папки, вы сделаете их скрытыми вместе с подпапками в Simple Gallery, но они будут видны в других приложениях. Если вы хотите скрыть их в других приложениях, используйте функцию Скрыть. </string>
     <string name="remove_all">Удалить всё</string>
     <string name="remove_all_description">Очистить список исключённых? Сами папки не будут удалены.</string>
 
     <!-- Include folders -->
-    <string name="include_folders">Включенные папки</string>
-    <string name="manage_included_folders">Управление включенными папками</string>
+    <string name="include_folders">Включённые папки</string>
+    <string name="manage_included_folders">Управление включёнными папками</string>
     <string name="add_folder">Добавление папки</string>
-    <string name="included_activity_placeholder">Если у вас есть папки содержащие медиа, но не распознанные Simple Gallery. Вы можете добавить их вручную.</string>
+    <string name="included_activity_placeholder">Если у вас есть папки, содержащие медиафайлы, но не распознанные Simple Gallery. Вы можете добавить их вручную.</string>
 
     <!-- Resizing -->
     <string name="resize">Изменить размер</string>
@@ -64,11 +73,11 @@
     <string name="error_saving_file">Не удалось перезаписать исходный файл</string>
     <string name="rotate_left">Повернуть влево</string>
     <string name="rotate_right">Повернуть вправо</string>
-    <string name="rotate_one_eighty">Перевернуть на 180º</string>
+    <string name="rotate_one_eighty">Перевернуть на 180°</string>
     <string name="flip">Отразить</string>
     <string name="flip_horizontally">По горизонтали</string>
     <string name="flip_vertically">По вертикали</string>
-    <string name="edit_with">Edit with</string>
+    <string name="edit_with">Редактировать в</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Простые обои</string>
@@ -76,44 +85,49 @@
     <string name="set_as_wallpaper_failed">Установить не удалось</string>
     <string name="set_as_wallpaper_with">Установить в качестве обоев в:</string>
     <string name="no_capable_app_found">Приложение не найдено</string>
-    <string name="setting_wallpaper">Установка обоев&#8230;</string>
+    <string name="setting_wallpaper">Установка обоев…</string>
     <string name="wallpaper_set_successfully">Обои успешно установлены</string>
     <string name="portrait_aspect_ratio">Формат изображения</string>
     <string name="landscape_aspect_ratio">Пейзажное соотношение сторон</string>
 
     <!-- Slideshow -->
-    <string name="slideshow">Slideshow</string>
-    <string name="interval">Interval (seconds):</string>
-    <string name="include_photos">Include photos and GIFs</string>
-    <string name="include_videos">Include videos</string>
-    <string name="random_order">Random order</string>
-    <string name="use_fade">Use fade animations</string>
-    <string name="move_backwards">Move backwards</string>
-    <string name="slideshow_ended">The slideshow ended</string>
-    <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
+    <string name="slideshow">Слайдшоу</string>
+    <string name="interval">Интервал (секунды):</string>
+    <string name="include_photos">Включать изображения</string>
+    <string name="include_videos">Включать видео</string>
+    <string name="include_gifs">Включать GIF</string>
+    <string name="random_order">Случайный порядок</string>
+    <string name="use_fade">Эффект затухания</string>
+    <string name="move_backwards">В обратном направлении</string>
+    <string name="loop_slideshow">Закольцевать слайдшоу</string>
+    <string name="slideshow_ended">Слайдшоу завершилось</string>
+    <string name="no_media_for_slideshow">Никаких медиафайлов для слайдшоу не было найдено.</string>
+
+    <!-- View types -->
+    <string name="change_view_type">Режим отображения</string>
+    <string name="grid">Сетка</string>
+    <string name="list">Список</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">Показать скрытые папки</string>
+    <string name="show_hidden_media">Показывать скрытые папки</string>
     <string name="autoplay_videos">Воспроизводить видео автоматически</string>
     <string name="toggle_filename">Переключить отображение имени файла</string>
-    <string name="show_media">Отображать</string>
-    <string name="images">Только изображения</string>
-    <string name="videos">Только видео</string>
-    <string name="gifs">GIFs only</string>
-    <string name="images_videos_gifs">Images, videos, GIFs</string>
-    <string name="images_and_videos">Изображения и видео</string>
     <string name="loop_videos">Повторять видео</string>
-    <string name="animate_gifs">Анимировать эскизы GIF-файлов</string>
+    <string name="animate_gifs">Анимировать эскизы GIF</string>
     <string name="max_brightness">Максимальная яркость при просмотре файлов</string>
     <string name="crop_thumbnails">Нарезать миниатюры в квадраты</string>
     <string name="screen_rotation_by">Полноэкранный поворот</string>
     <string name="screen_rotation_system_setting">Системные настройки</string>
     <string name="screen_rotation_device_rotation">Поворот устройства</string>
     <string name="screen_rotation_aspect_ratio">Соотношение сторон</string>
-    <string name="dark_background_at_fullscreen">Dark background at fullscreen media</string>
-    <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
-    <string name="hide_system_ui_at_fullscreen">Automatically hide system UI at fullscreen media</string>
-    <string name="replace_share_with_rotate">Replace Share with Rotate at fullscreen menu</string>
+    <string name="dark_background_at_fullscreen">Тёмный фон в полноэкранном режиме</string>
+    <string name="scroll_thumbnails_horizontally">Прокрутка эскизов по горизонтали</string>
+    <string name="hide_system_ui_at_fullscreen">Автоматически скрывать системный интерфейс в полноэкранном режиме</string>
+    <string name="delete_empty_folders">Удалять пустые папки после удаления их содержимого</string>
+    <string name="allow_video_gestures">Управлять громкостью и яркостью видео с помощью вертикальных жестов</string>
+    <string name="replace_share_with_rotate">Заменить \'Поделиться\' на \'Повернуть\' в меню полноэкранного режима</string>
+    <string name="show_extended_details">Show extended details over fullscreen media</string>
+    <string name="manage_extended_details">Manage extended details</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

@@ -19,19 +19,28 @@
     <string name="no_camera_app_found">Keine Kamera-App gefunden</string>
     <string name="increase_column_count">Kacheln verkleinern</string>
     <string name="reduce_column_count">Kacheln vergrößern</string>
-    <string name="change_cover_image">Cover-Bild ändern</string>
+    <string name="change_cover_image">Coverbild ändern</string>
     <string name="select_photo">Auswählen</string>
     <string name="use_default">Standard</string>
     <string name="set_as">Festlegen als</string>
     <string name="volume">Lautstärke</string>
     <string name="brightness">Helligkeit</string>
+    <string name="do_not_ask_again">Nicht erneut fragen (in dieser Session)</string>
+
+    <!-- Filter -->
+    <string name="filter_media">Filter</string>
+    <string name="images">Bilder</string>
+    <string name="videos">Videos</string>
+    <string name="gifs">GIFs</string>
+    <string name="no_media_with_filters">Keine Medien für die ausgewählten Filter gefunden</string>
+    <string name="change_filters_underlined"><u>Filter ändern</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Diese Funktion versteckt ausgewählte Ordner (auch für andere Apps), indem dort im Dateisystem eine \'.nomedia\'-Datei abgelegt wird. Dadurch werden auch deren Unterordner versteckt. Solche Ordner werden nur gezeigt, wenn die Einstellung \'Versteckte Ordner zeigen\' aktiv ist (auch andere Apps bieten üblicherweise eine solche Option). Fortfahren?</string>
+    <string name="hide_folder_description">Diese Funktion versteckt die ausgewählten Ordner (auch für andere Apps), indem dort im Dateisystem eine \'.nomedia\'-Datei abgelegt wird. Dadurch werden auch deren Unterordner versteckt. Solche Ordner werden nur gezeigt, wenn die Einstellung \'Versteckte Ordner zeigen\' aktiv ist (auch andere Apps bieten üblicherweise eine solche Option). Fortfahren?</string>
     <string name="exclude">Ordner ausblenden</string>
     <string name="excluded_folders">Ausgeblendete Ordner</string>
     <string name="manage_excluded_folders">Ausgeblendete Ordner verwalten</string>
-    <string name="exclude_folder_description">Diese Funktion blendet ausgewählte Ordner und deren Unterordner aus (nur in dieser App). Ausgeblendete Ordner können in den Einstellungen verwaltet werden.</string>
+    <string name="exclude_folder_description">Diese Funktion blendet die ausgewählten Ordner und deren Unterordner aus (nur in dieser App). Ausgeblendete Ordner können in den Einstellungen verwaltet werden.</string>
     <string name="exclude_folder_parent">Möchten Sie stattdessen einen höherliegenden Ordner ausblenden?</string>
     <string name="excluded_activity_placeholder">\'Ordner ausblenden\' wird ausgewählte Ordner und deren Unterordner nur in dieser App ausblenden. Andere Apps werden solche Ordner weiterhin anzeigen.\\n\\nWenn Sie Ordner auch für andere Apps verstecken wollen, verwenden Sie dafür die Funktion \'Ordner verstecken\'.</string>
     <string name="remove_all">Alle entfernen</string>
@@ -84,24 +93,25 @@
     <!-- Slideshow -->
     <string name="slideshow">Diashow</string>
     <string name="interval">Intervall (Sekunden):</string>
-    <string name="include_photos">Bilder/GIFs verwenden</string>
+    <string name="include_photos">Bilder verwenden</string>
     <string name="include_videos">Videos verwenden</string>
+    <string name="include_gifs">GIFs verwenden</string>
     <string name="random_order">Zufällige Reihenfolge</string>
     <string name="use_fade">Übergänge animieren</string>
     <string name="move_backwards">Rückwärts abspielen</string>
+    <string name="loop_slideshow">Endlos abspielen</string>
     <string name="slideshow_ended">Diashow beendet</string>
     <string name="no_media_for_slideshow">Keine Medien für Diashow gefunden</string>
+
+    <!-- View types -->
+    <string name="change_view_type">Darstellung ändern</string>
+    <string name="grid">Gitter</string>
+    <string name="list">Liste</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Versteckte Ordner zeigen</string>
     <string name="autoplay_videos">Videos automatisch abspielen</string>
     <string name="toggle_filename">Beschriftungen ein/aus</string>
-    <string name="show_media">Medien auswählen</string>
-    <string name="images">Nur Bilder</string>
-    <string name="videos">Nur Videos</string>
-    <string name="gifs">Nur GIFs</string>
-    <string name="images_videos_gifs">Bilder, Videos und GIFs</string>
-    <string name="images_and_videos">Bilder und Videos</string>
     <string name="loop_videos">Videos in Endlosschleife spielen</string>
     <string name="animate_gifs">Kacheln von GIFs animieren</string>
     <string name="max_brightness">Helligkeit beim Betrachten maximieren</string>
@@ -113,7 +123,11 @@
     <string name="dark_background_at_fullscreen">Schwarzer Hintergrund im Vollbild</string>
     <string name="scroll_thumbnails_horizontally">Kacheln horizontal scrollen</string>
     <string name="hide_system_ui_at_fullscreen">Systemleisten ausblenden im Vollbild</string>
+    <string name="delete_empty_folders">Nach Löschen leere Ordner löschen</string>
+    <string name="allow_video_gestures">Gesten für Videolautstärke/Helligkeit</string>
     <string name="replace_share_with_rotate">Teilen/Drehen im Vollbild-Menü vertauschen</string>
+    <string name="show_extended_details">Eigenschaften anzeigen im Vollbild</string>
+    <string name="manage_extended_details">Eigenschaften auswählen</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
