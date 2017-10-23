@@ -261,7 +261,6 @@ fun SimpleActivity.toggleFileVisibility(oldFile: File, hide: Boolean, callback: 
     }
     val newFile = File(path, filename)
     renameFile(oldFile, newFile) {
-        newFile.setLastModified(System.currentTimeMillis())
         callback(newFile)
     }
 }
