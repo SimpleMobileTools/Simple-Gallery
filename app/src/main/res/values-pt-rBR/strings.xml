@@ -22,18 +22,18 @@
     <string name="change_cover_image">Trocar imagem de capa</string>
     <string name="select_photo">Selecionar foto</string>
     <string name="use_default">Usar padrão</string>
-    <string name="set_as">Set as</string>
+    <string name="set_as">Definir como</string>
     <string name="volume">Volume</string>
-    <string name="brightness">Brightness</string>
-    <string name="do_not_ask_again">Do not ask again in this session</string>
+    <string name="brightness">Brilho</string>
+    <string name="do_not_ask_again">Não perguntar novamente por enquanto</string>
 
     <!-- Filter -->
-    <string name="filter_media">Filter media</string>
-    <string name="images">Images</string>
-    <string name="videos">Videos</string>
+    <string name="filter_media">Filtrar mídia</string>
+    <string name="images">Imagens</string>
+    <string name="videos">Vídeos</string>
     <string name="gifs">GIFs</string>
-    <string name="no_media_with_filters">No media files have been found with the selected filters.</string>
-    <string name="change_filters_underlined"><u>Change filters</u></string>
+    <string name="no_media_with_filters">Nenhum arquivo de mídia encontrado a partir dos filtros selecionados.</string>
+    <string name="change_filters_underlined"><u>Mudar filtros</u></string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Esta opção oculta uma pasta com a adição de um arquivo \'.nomedia\' dentro dela, e irá ocultar todas as subpastas que estejam dentro da mesma. Você poderá rever essas pastas com a opção \'Mostrar pastas ocultas\'. Continuar?</string>
@@ -77,7 +77,7 @@
     <string name="flip">Inverter</string>
     <string name="flip_horizontally">Horizontalmente</string>
     <string name="flip_vertically">Verticalmente</string>
-    <string name="edit_with">Edit with</string>
+    <string name="edit_with">Editar com</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
@@ -92,21 +92,21 @@
 
     <!-- Slideshow -->
     <string name="slideshow">Slideshow</string>
-    <string name="interval">Interval (seconds):</string>
-    <string name="include_photos">Include photos</string>
-    <string name="include_videos">Include videos</string>
-    <string name="include_gifs">Include GIFs</string>
-    <string name="random_order">Random order</string>
-    <string name="use_fade">Use fade animations</string>
-    <string name="move_backwards">Move backwards</string>
-    <string name="loop_slideshow">Loop slideshow</string>
-    <string name="slideshow_ended">The slideshow ended</string>
-    <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
+    <string name="interval">Intervalo (segundos):</string>
+    <string name="include_photos">Incluir fotos</string>
+    <string name="include_videos">Incluir videos</string>
+    <string name="include_gifs">Incluir GIFs</string>
+    <string name="random_order">Ordem aleatória</string>
+    <string name="use_fade">Usar animação de esmaecimento</string>
+    <string name="move_backwards">Retroceder</string>
+    <string name="loop_slideshow">Apresentação em ciclo</string>
+    <string name="slideshow_ended">Fim da apresentação</string>
+    <string name="no_media_for_slideshow">Nenhuma mídia encontrada para a apresentação</string>
 
     <!-- View types -->
     <string name="change_view_type">Alterar modo de visualização</string>
-    <string name="grid">Grid</string>
-    <string name="list">List</string>
+    <string name="grid">Grade</string>
+    <string name="list">Lista</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">Mostrar pastas ocultas</string>
@@ -122,12 +122,12 @@
     <string name="screen_rotation_aspect_ratio">Proporção da mídia</string>
     <string name="dark_background_at_fullscreen">Fundo de tela escuro em mídia tela cheia</string>
     <string name="scroll_thumbnails_horizontally">Rolar miniaturas horizontalmente</string>
-    <string name="hide_system_ui_at_fullscreen">Automatically hide system UI at fullscreen media</string>
-    <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
-    <string name="allow_video_gestures">Allow controlling video volume and brightness with vertical gestures</string>
-    <string name="replace_share_with_rotate">Replace Share with Rotate at fullscreen menu</string>
-    <string name="show_extended_details">Show extended details over fullscreen media</string>
-    <string name="manage_extended_details">Manage extended details</string>
+    <string name="hide_system_ui_at_fullscreen">Esconder interface do sistema automaticamente quando em tela cheia</string>
+    <string name="delete_empty_folders">Apagar pastas vazias após deleter seu conteúdo</string>
+    <string name="allow_video_gestures">Permitir controle do volume e brilho com gestos na vertical</string>
+    <string name="replace_share_with_rotate">Substituir botão "Compartilhar" por "Rotação de tela" quando em tela cheia</string>
+    <string name="show_extended_details">Exibir detalhes extendidos quando em tela cheia</string>
+    <string name="manage_extended_details">Gerenciar detalhes extendidos</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
