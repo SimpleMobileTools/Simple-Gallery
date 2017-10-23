@@ -9,7 +9,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.provider.Settings
 import android.util.DisplayMetrics
-import android.util.Log
 import android.view.*
 import android.view.animation.AnimationUtils
 import android.widget.SeekBar
@@ -26,6 +25,7 @@ import java.io.IOException
 class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSeekBarChangeListener {
     private val CLICK_MAX_DURATION = 150
     private val SLIDE_INFO_FADE_DELAY = 1000L
+    private val PROGRESS = "progress"
 
     private var mMediaPlayer: MediaPlayer? = null
     private var mSurfaceView: SurfaceView? = null
@@ -58,11 +58,6 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     lateinit var mView: View
     lateinit var medium: Medium
     lateinit var mTimeHolder: View
-
-    companion object {
-        private val TAG = VideoFragment::class.java.simpleName
-        private val PROGRESS = "progress"
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mView = inflater.inflate(R.layout.pager_video_item, container, false)
@@ -397,7 +392,6 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 prepareAsync()
             }
         } catch (e: IOException) {
-            Log.e(TAG, "init media player failed $e")
             releaseMediaPlayer()
         }
     }

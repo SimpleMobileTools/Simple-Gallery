@@ -273,7 +273,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1 || !isDestroyed) {
             view_pager.apply {
                 adapter = pagerAdapter
-                adapter!!.notifyDataSetChanged()
                 currentItem = mPos
                 addOnPageChangeListener(this@ViewPagerActivity)
             }
