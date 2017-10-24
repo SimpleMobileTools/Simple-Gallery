@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 2.16.1 *(2017-10-24)*
+----------------------------
+
+ * Added a toggle for hiding folder media count on the main screen
+ * Fixed SD card folders not being visible on some devices
+ * Fixed videos not playing properly in some cases
+ * Do not modify last_modified at copy/move/rename
+ * Added support for 3gpp videos
+
 Version 2.16.0 *(2017-10-19)*
 ----------------------------
 
