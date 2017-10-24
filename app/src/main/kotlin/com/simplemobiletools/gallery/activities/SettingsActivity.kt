@@ -49,6 +49,7 @@ class SettingsActivity : SimpleActivity() {
         setupPasswordProtection()
         setupDeleteEmptyFolders()
         setupAllowVideoGestures()
+        setupShowMediaCount()
         setupShowExtendedDetails()
         setupManageExtendedDetails()
         updateTextColors(settings_holder)
@@ -195,6 +196,14 @@ class SettingsActivity : SimpleActivity() {
         settings_allow_video_gestures_holder.setOnClickListener {
             settings_allow_video_gestures.toggle()
             config.allowVideoGestures = settings_allow_video_gestures.isChecked
+        }
+    }
+
+    private fun setupShowMediaCount() {
+        settings_show_media_count.isChecked = config.showMediaCount
+        settings_show_media_count_holder.setOnClickListener {
+            settings_show_media_count.toggle()
+            config.showMediaCount = settings_show_media_count.isChecked
         }
     }
 

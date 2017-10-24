@@ -3,9 +3,10 @@ package com.simplemobiletools.gallery.asynctasks
 import android.content.Context
 import android.os.AsyncTask
 import com.simplemobiletools.commons.extensions.getFilenameFromPath
-import com.simplemobiletools.commons.extensions.hasWriteStoragePermission
+import com.simplemobiletools.commons.extensions.hasPermission
 import com.simplemobiletools.commons.extensions.internalStoragePath
 import com.simplemobiletools.commons.extensions.sdCardPath
+import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.SORT_DESCENDING
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
@@ -21,7 +22,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
     val mediaFetcher = MediaFetcher(context)
 
     override fun doInBackground(vararg params: Void): ArrayList<Directory> {
-        if (!context.hasWriteStoragePermission())
+        if (!context.hasPermission(PERMISSION_WRITE_STORAGE))
             return ArrayList()
 
         val config = context.config

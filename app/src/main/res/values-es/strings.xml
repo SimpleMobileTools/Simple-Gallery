@@ -125,6 +125,7 @@
     <string name="hide_system_ui_at_fullscreen">Ocultar automáticamente la interfaz de usuario del sistema en medios de pantalla completa</string>
     <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
     <string name="allow_video_gestures">Allow controlling video volume and brightness with vertical gestures</string>
+    <string name="show_media_count">Show folder media count on the main view</string>
     <string name="replace_share_with_rotate">Reemplazar Compartir con Girar en el menú de pantalla completa</string>
     <string name="show_extended_details">Show extended details over fullscreen media</string>
     <string name="manage_extended_details">Manage extended details</string>

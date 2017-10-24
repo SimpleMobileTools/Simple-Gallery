@@ -125,6 +125,7 @@
     <string name="hide_system_ui_at_fullscreen">Piilota järjestelmän UI automaattisesti koko näytön mediassa</string>
     <string name="delete_empty_folders">Poista tyhjät kansiot kansion tyhjennyksen jälkeen</string>
     <string name="allow_video_gestures">Salli videon äänenvoimakkuuden ja kirkkauden säätö pystysuorilla eleillä</string>
+    <string name="show_media_count">Show folder media count on the main view</string>
     <string name="replace_share_with_rotate">Korvaa jakaminen kääntämisellä koko näytön tilassa</string>
     <string name="show_extended_details">Show extended details over fullscreen media</string>
     <string name="manage_extended_details">Manage extended details</string>

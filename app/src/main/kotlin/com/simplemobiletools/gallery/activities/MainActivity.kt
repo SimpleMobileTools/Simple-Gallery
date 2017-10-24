@@ -1,16 +1,13 @@
 package com.simplemobiletools.gallery.activities
 
-import android.Manifest
 import android.app.Activity
 import android.content.ClipData
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
-import android.support.v4.app.ActivityCompat
 import android.support.v7.widget.GridLayoutManager
 import android.view.Menu
 import android.view.MenuItem
@@ -21,6 +18,7 @@ import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_TAKEN
 import com.simplemobiletools.commons.models.RadioItem
@@ -40,7 +38,6 @@ import java.io.*
 import java.util.*
 
 class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
-    private val STORAGE_PERMISSION = 1
     private val PICK_MEDIA = 2
     private val PICK_WALLPAPER = 3
     private val LAST_MEDIA_CHECK_PERIOD = 3000L
@@ -59,6 +56,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
+    private var mStoredShowMediaCount = true
     private var mStoredTextColor = 0
     private var mLoadedInitialPhotos = false
     private var mLatestMediaId = 0L
@@ -83,10 +81,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         removeTempFolder()
         directories_refresh_layout.setOnRefreshListener({ getDirectories() })
         mDirs = ArrayList()
-        mStoredAnimateGifs = config.animateGifs
-        mStoredCropThumbnails = config.cropThumbnails
-        mStoredScrollHorizontally = config.scrollHorizontally
-        mStoredTextColor = config.textColor
+        storeStateVariables()
         checkWhatsNewDialog()
 
         directories_empty_text.setOnClickListener {
@@ -137,6 +132,13 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             directories_grid.adapter?.notifyDataSetChanged()
         }
 
+        if (mStoredShowMediaCount != config.showMediaCount) {
+            (directories_grid.adapter as? DirectoryAdapter)?.apply {
+                showMediaCount = config.showMediaCount
+                notifyDataSetChanged()
+            }
+        }
+
         if (mStoredScrollHorizontally != config.scrollHorizontally) {
             (directories_grid.adapter as? DirectoryAdapter)?.apply {
                 scrollVertically = config.viewTypeFolders == VIEW_TYPE_LIST || !config.scrollHorizontally
@@ -160,10 +162,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         storeDirectories()
         directories_refresh_layout.isRefreshing = false
         mIsGettingDirs = false
-        mStoredAnimateGifs = config.animateGifs
-        mStoredCropThumbnails = config.cropThumbnails
-        mStoredScrollHorizontally = config.scrollHorizontally
-        mStoredTextColor = config.textColor
+        storeStateVariables()
         directories_grid.listener = null
         mLastMediaHandler.removeCallbacksAndMessages(null)
 
@@ -178,6 +177,16 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         removeTempFolder()
     }
 
+    private fun storeStateVariables() {
+        config.apply {
+            mStoredAnimateGifs = animateGifs
+            mStoredCropThumbnails = cropThumbnails
+            mStoredScrollHorizontally = scrollHorizontally
+            mStoredShowMediaCount = showMediaCount
+            mStoredTextColor = textColor
+        }
+    }
+
     private fun removeTempFolder() {
         val newFolder = File(config.tempFolderPath)
         if (newFolder.exists() && newFolder.isDirectory) {
@@ -189,25 +198,16 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun tryloadGallery() {
-        if (hasWriteStoragePermission()) {
-            if (config.showAll)
-                showAllMedia()
-            else
-                getDirectories()
+        handlePermission(PERMISSION_WRITE_STORAGE) {
+            if (it) {
+                if (config.showAll) {
+                    showAllMedia()
+                } else {
+                    getDirectories()
+                }
 
-            setupLayoutManager()
-            checkIfColorChanged()
-        } else {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), STORAGE_PERMISSION)
-        }
-    }
-
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-
-        if (requestCode == STORAGE_PERMISSION) {
-            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                getDirectories()
+                setupLayoutManager()
+                checkIfColorChanged()
             } else {
                 toast(R.string.no_storage_permissions)
                 finish()
@@ -318,10 +318,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun getRecyclerAdapter() = (directories_grid.adapter as DirectoryAdapter)
 
     private fun setupLayoutManager() {
-        if (config.viewTypeFolders == VIEW_TYPE_GRID)
+        if (config.viewTypeFolders == VIEW_TYPE_GRID) {
             setupGridLayoutManager()
-        else
+        } else {
             setupListLayoutManager()
+        }
     }
 
     private fun setupGridLayoutManager() {

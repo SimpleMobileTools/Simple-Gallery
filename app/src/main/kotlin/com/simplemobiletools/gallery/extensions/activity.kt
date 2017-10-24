@@ -65,7 +65,7 @@ fun Activity.shareMedia(media: List<Medium>) {
 
     Intent().apply {
         action = Intent.ACTION_SEND_MULTIPLE
-        type = "image/* video/*"
+        type = uris.getMimeType()
         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris)
         startActivity(Intent.createChooser(this, shareTitle))
@@ -261,7 +261,6 @@ fun SimpleActivity.toggleFileVisibility(oldFile: File, hide: Boolean, callback: 
     }
     val newFile = File(path, filename)
     renameFile(oldFile, newFile) {
-        newFile.setLastModified(System.currentTimeMillis())
         callback(newFile)
     }
 }

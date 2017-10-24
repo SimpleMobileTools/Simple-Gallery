@@ -25,7 +25,7 @@
     <string name="set_as">Définir comme</string>
     <string name="volume">Volume</string>
     <string name="brightness">Luminosité</string>
-    <string name="do_not_ask_again">Do not ask again in this session</string>
+    <string name="do_not_ask_again">Ne pas redemander pour cette session</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrer les médias</string>
@@ -50,7 +50,7 @@
     <string name="include_folders">Dossiers inclus</string>
     <string name="manage_included_folders">Gérer les dossiers inclus</string>
     <string name="add_folder">Ajouter un dossier</string>
-    <string name="included_activity_placeholder">Si vous avez des dossiers contenant des medias et qui ne sont pas reconnus par l\'application alors, vous pouvez les ajouter manuellement ici.</string>
+    <string name="included_activity_placeholder">Si vous avez des dossiers contenant des médias et qui ne sont pas reconnus par l\'application alors, vous pouvez les ajouter manuellement ici.</string>
 
     <!-- Resizing -->
     <string name="resize">Redimensionner</string>
@@ -125,9 +125,10 @@
     <string name="hide_system_ui_at_fullscreen">Masquer automatiquement l\'interface utilisateur si média plein écran</string>
     <string name="delete_empty_folders">Supprimer les dossiers vides après avoir supprimé leur contenu</string>
     <string name="allow_video_gestures">Permettre le contrôle du volume vidéo et de la luminosité avec des gestes verticaux</string>
+    <string name="show_media_count">Show folder media count on the main view</string>
     <string name="replace_share_with_rotate">Remplacer Partager par Pivoter si menu en plein écran</string>
-    <string name="show_extended_details">Show extended details over fullscreen media</string>
-    <string name="manage_extended_details">Manage extended details</string>
+    <string name="show_extended_details">Afficher les détails supplémentaires par dessus le média en plein écran</string>
+    <string name="manage_extended_details">Gérer les détails supplémentaires</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
