@@ -480,7 +480,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun fillIntentPath(resultData: Intent, resultIntent: Intent) {
         val path = resultData.data.path
         val uri = Uri.fromFile(File(path))
-        val type = File(path).getMimeType("image/jpeg")
+        val type = path.getMimeTypeFromPath()
         resultIntent.setDataAndTypeAndNormalize(uri, type)
         resultIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
     }

@@ -88,7 +88,7 @@ fun Activity.setAs(uri: Uri, file: File, showToast: Boolean = true): Boolean {
     var success = false
     Intent().apply {
         action = Intent.ACTION_ATTACH_DATA
-        setDataAndType(uri, file.getMimeType("image/*"))
+        setDataAndType(uri, file.getMimeType())
         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         val chooser = Intent.createChooser(this, getString(R.string.set_as))
 
