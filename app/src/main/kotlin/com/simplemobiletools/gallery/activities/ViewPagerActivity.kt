@@ -730,10 +730,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun getCurrentMedium(): Medium? {
-        return if (getCurrentMedia().isEmpty() || mPos == -1)
+        return if (getCurrentMedia().isEmpty() || mPos == -1) {
             null
-        else
+        } else {
             getCurrentMedia()[Math.min(mPos, getCurrentMedia().size - 1)]
+        }
     }
 
     private fun getCurrentMedia() = if (mAreSlideShowMediaVisible) mSlideshowMedia else mMedia
@@ -756,7 +757,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     override fun onPageScrollStateChanged(state: Int) {
-        if (state == ViewPager.SCROLL_STATE_IDLE) {
+        if (state == ViewPager.SCROLL_STATE_IDLE && getCurrentMedium() != null) {
             checkOrientation()
         }
     }
