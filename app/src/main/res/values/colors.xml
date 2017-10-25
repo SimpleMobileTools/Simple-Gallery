@@ -8,5 +8,5 @@
     <color name="default_text_color">@color/default_dark_theme_text_color</color>
     <color name="default_background_color">@color/default_dark_theme_background_color</color>
 
-    <color name="ic_launcher_background">#f68630</color>
+    <color name="ic_launcher_background">@color/color_primary</color>
 </resources>
