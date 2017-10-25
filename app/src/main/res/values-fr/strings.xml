@@ -125,6 +125,7 @@
     <string name="hide_system_ui_at_fullscreen">Masquer automatiquement l\'interface utilisateur si média plein écran</string>
     <string name="delete_empty_folders">Supprimer les dossiers vides après avoir supprimé leur contenu</string>
     <string name="allow_video_gestures">Permettre le contrôle du volume vidéo et de la luminosité avec des gestes verticaux</string>
+    <string name="show_media_count">Show folder media count on the main view</string>
     <string name="replace_share_with_rotate">Remplacer Partager par Pivoter si menu en plein écran</string>
     <string name="show_extended_details">Afficher les détails supplémentaires par dessus le média en plein écran</string>
     <string name="manage_extended_details">Gérer les détails supplémentaires</string>

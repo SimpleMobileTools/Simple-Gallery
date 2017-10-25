@@ -9,7 +9,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.provider.Settings
 import android.util.DisplayMetrics
-import android.util.Log
 import android.view.*
 import android.view.animation.AnimationUtils
 import android.widget.SeekBar
@@ -21,11 +20,11 @@ import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.pager_video_item.view.*
-import java.io.IOException
 
 class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSeekBarChangeListener {
     private val CLICK_MAX_DURATION = 150
     private val SLIDE_INFO_FADE_DELAY = 1000L
+    private val PROGRESS = "progress"
 
     private var mMediaPlayer: MediaPlayer? = null
     private var mSurfaceView: SurfaceView? = null
@@ -40,6 +39,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private var mIsFragmentVisible = false
     private var mPlayOnPrepare = false
     private var mStoredShowExtendedDetails = false
+    private var wasInit = false
     private var mStoredExtendedDetails = 0
     private var mCurrTime = 0
     private var mDuration = 0
@@ -59,11 +59,6 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     lateinit var medium: Medium
     lateinit var mTimeHolder: View
 
-    companion object {
-        private val TAG = VideoFragment::class.java.simpleName
-        private val PROGRESS = "progress"
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mView = inflater.inflate(R.layout.pager_video_item, container, false)
         mTimeHolder = mView.video_time_holder
@@ -76,6 +71,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
         mIsFullscreen = activity.window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN == View.SYSTEM_UI_FLAG_FULLSCREEN
         checkFullscreen()
+        wasInit = true
 
         return mView
     }
@@ -129,21 +125,21 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
         initTimeHolder()
         checkExtendedDetails()
+        initMediaPlayer()
     }
 
     override fun setMenuVisibility(menuVisible: Boolean) {
         super.setMenuVisibility(menuVisible)
+        if (mIsFragmentVisible && !menuVisible) {
+            pauseVideo()
+            releaseMediaPlayer()
+        }
         mIsFragmentVisible = menuVisible
-        if (menuVisible) {
-            if (mSurfaceView != null && mSurfaceHolder!!.surface.isValid) {
-                initMediaPlayer()
-            }
-
+        if (menuVisible && wasInit) {
+            initMediaPlayer()
             if (context?.config?.autoplayVideos == true) {
                 playVideo()
             }
-        } else if (mIsPlaying) {
-            pauseVideo()
         }
     }
 
@@ -356,6 +352,8 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         if (activity == null || !isAdded)
             return
 
+        initMediaPlayer()
+
         mIsPlaying = !mIsPlaying
         if (mIsPlaying) {
             playVideo()
@@ -383,8 +381,9 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     }
 
     private fun initMediaPlayer() {
-        if (mMediaPlayer != null)
+        if (mMediaPlayer != null || !mIsFragmentVisible) {
             return
+        }
 
         try {
             mMediaPlayer = MediaPlayer().apply {
@@ -394,10 +393,9 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 setOnVideoSizeChangedListener({ mediaPlayer, width, height -> setVideoSize() })
                 setOnPreparedListener { videoPrepared(it) }
                 setAudioStreamType(AudioManager.STREAM_MUSIC)
-                prepareAsync()
+                prepare()
             }
-        } catch (e: IOException) {
-            Log.e(TAG, "init media player failed $e")
+        } catch (e: Exception) {
             releaseMediaPlayer()
         }
     }
@@ -447,7 +445,9 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     }
 
     override fun surfaceCreated(holder: SurfaceHolder) {
-
+        mSurfaceHolder = holder
+        if (mIsFragmentVisible)
+            initMediaPlayer()
     }
 
     override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {
@@ -468,7 +468,6 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
         initMediaPlayer()
         if (mMediaPlayer == null) {
-            activity.toast(R.string.unknown_error_occurred)
             return
         }
 
@@ -506,7 +505,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             mView.video_details.apply {
                 text = getMediumExtendedDetails(medium)
                 setTextColor(context.config.textColor)
-                beVisible()
+                beVisibleIf(text.isNotEmpty())
                 onGlobalLayout {
                     if (height != 0) {
                         val smallMargin = resources.getDimension(R.dimen.small_margin)

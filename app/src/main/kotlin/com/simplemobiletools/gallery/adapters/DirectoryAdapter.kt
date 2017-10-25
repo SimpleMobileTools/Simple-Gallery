@@ -30,22 +30,25 @@ import java.util.*
 class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Directory>, val listener: DirOperationsListener?, val isPickIntent: Boolean,
                        val itemClick: (Directory) -> Unit) : RecyclerView.Adapter<DirectoryAdapter.ViewHolder>() {
 
-    val multiSelector = MultiSelector()
     val config = activity.config
-    val isListViewType = config.viewTypeFolders == VIEW_TYPE_LIST
-
     var actMode: ActionMode? = null
-    var itemViews = SparseArray<View>()
-    val selectedPositions = HashSet<Int>()
     var primaryColor = config.primaryColor
-    var textColor = config.textColor
-    var pinnedFolders = config.pinnedFolders
     var scrollVertically = !config.scrollHorizontally
+    var showMediaCount = config.showMediaCount
+
+    private val multiSelector = MultiSelector()
+    private val isListViewType = config.viewTypeFolders == VIEW_TYPE_LIST
+    private var itemViews = SparseArray<View>()
+    private val selectedPositions = HashSet<Int>()
+    private var textColor = config.textColor
+    private var pinnedFolders = config.pinnedFolders
 
     fun toggleItemSelection(select: Boolean, pos: Int) {
         if (select) {
-            itemViews[pos]?.dir_check?.background?.setColorFilter(primaryColor, PorterDuff.Mode.SRC_IN)
-            selectedPositions.add(pos)
+            if (itemViews[pos] != null) {
+                itemViews[pos].dir_check?.background?.setColorFilter(primaryColor, PorterDuff.Mode.SRC_IN)
+                selectedPositions.add(pos)
+            }
         } else {
             selectedPositions.remove(pos)
         }
@@ -350,7 +353,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val dir = dirs[position]
-        itemViews.put(position, holder.bindView(dir, pinnedFolders.contains(dir.path), scrollVertically, isListViewType, textColor))
+        itemViews.put(position, holder.bindView(dir, pinnedFolders.contains(dir.path), scrollVertically, isListViewType, textColor, showMediaCount))
         toggleItemSelection(selectedPositions.contains(position), position)
         holder.itemView.tag = holder
     }
@@ -415,7 +418,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     class ViewHolder(val view: View, val adapterListener: MyAdapterListener, val activity: SimpleActivity, val multiSelectorCallback: ModalMultiSelectorCallback,
                      val multiSelector: MultiSelector, val listener: DirOperationsListener?, val isPickIntent: Boolean, val itemClick: (Directory) -> (Unit)) :
             SwappingHolder(view, MultiSelector()) {
-        fun bindView(directory: Directory, isPinned: Boolean, scrollVertically: Boolean, isListView: Boolean, textColor: Int): View {
+        fun bindView(directory: Directory, isPinned: Boolean, scrollVertically: Boolean, isListView: Boolean, textColor: Int, showMediaCount: Boolean): View {
             itemView.apply {
                 dir_name.text = directory.name
                 dir_path?.text = "${directory.path.substringBeforeLast("/")}/"
@@ -423,6 +426,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
                 activity.loadImage(directory.tmb, dir_thumbnail, scrollVertically)
                 dir_pin.beVisibleIf(isPinned)
                 dir_sd_card.beVisibleIf(activity.isPathOnSD(directory.path))
+                photo_cnt.beVisibleIf(showMediaCount)
 
                 if (isListView) {
                     dir_name.setTextColor(textColor)

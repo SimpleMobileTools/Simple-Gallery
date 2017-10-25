@@ -56,6 +56,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
+    private var mStoredShowMediaCount = true
     private var mStoredTextColor = 0
     private var mLoadedInitialPhotos = false
     private var mLatestMediaId = 0L
@@ -80,10 +81,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         removeTempFolder()
         directories_refresh_layout.setOnRefreshListener({ getDirectories() })
         mDirs = ArrayList()
-        mStoredAnimateGifs = config.animateGifs
-        mStoredCropThumbnails = config.cropThumbnails
-        mStoredScrollHorizontally = config.scrollHorizontally
-        mStoredTextColor = config.textColor
+        storeStateVariables()
         checkWhatsNewDialog()
 
         directories_empty_text.setOnClickListener {
@@ -134,6 +132,13 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             directories_grid.adapter?.notifyDataSetChanged()
         }
 
+        if (mStoredShowMediaCount != config.showMediaCount) {
+            (directories_grid.adapter as? DirectoryAdapter)?.apply {
+                showMediaCount = config.showMediaCount
+                notifyDataSetChanged()
+            }
+        }
+
         if (mStoredScrollHorizontally != config.scrollHorizontally) {
             (directories_grid.adapter as? DirectoryAdapter)?.apply {
                 scrollVertically = config.viewTypeFolders == VIEW_TYPE_LIST || !config.scrollHorizontally
@@ -157,10 +162,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         storeDirectories()
         directories_refresh_layout.isRefreshing = false
         mIsGettingDirs = false
-        mStoredAnimateGifs = config.animateGifs
-        mStoredCropThumbnails = config.cropThumbnails
-        mStoredScrollHorizontally = config.scrollHorizontally
-        mStoredTextColor = config.textColor
+        storeStateVariables()
         directories_grid.listener = null
         mLastMediaHandler.removeCallbacksAndMessages(null)
 
@@ -173,6 +175,16 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         super.onDestroy()
         config.temporarilyShowHidden = false
         removeTempFolder()
+    }
+
+    private fun storeStateVariables() {
+        config.apply {
+            mStoredAnimateGifs = animateGifs
+            mStoredCropThumbnails = cropThumbnails
+            mStoredScrollHorizontally = scrollHorizontally
+            mStoredShowMediaCount = showMediaCount
+            mStoredTextColor = textColor
+        }
     }
 
     private fun removeTempFolder() {
@@ -188,10 +200,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun tryloadGallery() {
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
-                if (config.showAll)
+                if (config.showAll) {
                     showAllMedia()
-                else
+                } else {
                     getDirectories()
+                }
 
                 setupLayoutManager()
                 checkIfColorChanged()
@@ -305,10 +318,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun getRecyclerAdapter() = (directories_grid.adapter as DirectoryAdapter)
 
     private fun setupLayoutManager() {
-        if (config.viewTypeFolders == VIEW_TYPE_GRID)
+        if (config.viewTypeFolders == VIEW_TYPE_GRID) {
             setupGridLayoutManager()
-        else
+        } else {
             setupListLayoutManager()
+        }
     }
 
     private fun setupGridLayoutManager() {
@@ -466,7 +480,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun fillIntentPath(resultData: Intent, resultIntent: Intent) {
         val path = resultData.data.path
         val uri = Uri.fromFile(File(path))
-        val type = File(path).getMimeType("image/jpeg")
+        val type = path.getMimeTypeFromPath()
         resultIntent.setDataAndTypeAndNormalize(uri, type)
         resultIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
     }
@@ -624,6 +638,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             add(Release(127, R.string.release_127))
             add(Release(133, R.string.release_133))
             add(Release(136, R.string.release_136))
+            add(Release(137, R.string.release_137))
             checkWhatsNew(this, BuildConfig.VERSION_CODE)
         }
     }

@@ -125,6 +125,7 @@
     <string name="hide_system_ui_at_fullscreen">Автоматически скрывать системный интерфейс в полноэкранном режиме</string>
     <string name="delete_empty_folders">Удалять пустые папки после удаления их содержимого</string>
     <string name="allow_video_gestures">Управлять громкостью и яркостью видео с помощью вертикальных жестов</string>
+    <string name="show_media_count">Show folder media count on the main view</string>
     <string name="replace_share_with_rotate">Заменить \'Поделиться\' на \'Повернуть\' в меню полноэкранного режима</string>
     <string name="show_extended_details">Show extended details over fullscreen media</string>
     <string name="manage_extended_details">Manage extended details</string>

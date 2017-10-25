@@ -125,6 +125,7 @@
     <string name="hide_system_ui_at_fullscreen">Systemleisten ausblenden im Vollbild</string>
     <string name="delete_empty_folders">Nach Löschen leere Ordner löschen</string>
     <string name="allow_video_gestures">Gesten für Videolautstärke/Helligkeit</string>
+    <string name="show_media_count">Show folder media count on the main view</string>
     <string name="replace_share_with_rotate">Teilen/Drehen im Vollbild-Menü vertauschen</string>
     <string name="show_extended_details">Eigenschaften anzeigen im Vollbild</string>
     <string name="manage_extended_details">Eigenschaften auswählen</string>

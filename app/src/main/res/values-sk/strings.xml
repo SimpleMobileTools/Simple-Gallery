@@ -125,6 +125,7 @@
     <string name="hide_system_ui_at_fullscreen">Automaticky skrývať systémové lišty pri celoobrazovkových médiách</string>
     <string name="delete_empty_folders">Odstrániť prázdne priečinky po vymazaní ich obsahu</string>
     <string name="allow_video_gestures">Povoliť ovládanie hlasitosti a jasu videí vertikálnymi ťahmi</string>
+    <string name="show_media_count">Zobraziť počet médií v priečinku na hlavnej obrazovke</string>
     <string name="replace_share_with_rotate">Nahradiť Zdieľanie s Otočením v celoobrazovkovom menu</string>
     <string name="show_extended_details">Zobraziť rozšírené vlastnosti ponad celoobrazovkové médiá</string>
     <string name="manage_extended_details">Spravovať rozšírené vlastnosti</string>

@@ -25,7 +25,7 @@
     <string name="set_as">Ustaw jako</string>
     <string name="volume">Głośność</string>
     <string name="brightness">Jasność</string>
-    <string name="do_not_ask_again">Do not ask again in this session</string>
+    <string name="do_not_ask_again">Nie pytaj więcej w tej sesji</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtruj multimedia</string>
@@ -125,9 +125,10 @@
     <string name="hide_system_ui_at_fullscreen">Ukrywaj interfejs przy pełnoekranowym podglądzie</string>
     <string name="delete_empty_folders">Usuwaj puste foldery po usunięciu ich zawartości</string>
     <string name="allow_video_gestures">Zezwalaj na kontrolę jasności i głośności filmów pionowymi gestami</string>
+    <string name="show_media_count">Pokazuj liczbę elementów w folderach w głównym widoku</string>
     <string name="replace_share_with_rotate">Zamień funkcję udostępniania na obracanie w menu pełnoekranowym</string>
-    <string name="show_extended_details">Show extended details over fullscreen media</string>
-    <string name="manage_extended_details">Manage extended details</string>
+    <string name="show_extended_details">Dodatkowe szczegóły przy podglądzie pełnoekranowym</string>
+    <string name="manage_extended_details">Zarządzaj dodatkowymi szczegółami</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

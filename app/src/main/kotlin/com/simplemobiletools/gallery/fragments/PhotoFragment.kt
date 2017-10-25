@@ -275,7 +275,7 @@ class PhotoFragment : ViewPagerFragment() {
             view.photo_details.apply {
                 text = getMediumExtendedDetails(medium)
                 setTextColor(context.config.textColor)
-                beVisible()
+                beVisibleIf(text.isNotEmpty())
                 onGlobalLayout {
                     if (height != 0) {
                         val smallMargin = resources.getDimension(R.dimen.small_margin)
