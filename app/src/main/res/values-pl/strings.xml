@@ -127,7 +127,7 @@
     <string name="allow_video_gestures">Zezwalaj na kontrolę jasności i głośności filmów pionowymi gestami</string>
     <string name="show_media_count">Pokazuj liczbę elementów w folderach w głównym widoku</string>
     <string name="replace_share_with_rotate">Zamień funkcję udostępniania na obracanie w menu pełnoekranowym</string>
-    <string name="show_extended_details">Dodatkowe szczegóły przy podglądzie pełnoekranowym<</string>
+    <string name="show_extended_details">Dodatkowe szczegóły przy podglądzie pełnoekranowym</string>
     <string name="manage_extended_details">Zarządzaj dodatkowymi szczegółami</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
