@@ -25,7 +25,7 @@
     <string name="set_as">Definir como</string>
     <string name="volume">Volume</string>
     <string name="brightness">Brilho</string>
-    <string name="do_not_ask_again">Do not ask again in this session</string>
+    <string name="do_not_ask_again">Não perguntar de novo para esta sessão</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrar multimédia</string>
@@ -127,8 +127,8 @@
     <string name="allow_video_gestures">Permitir controlo do volume e brilho dos vídeos através de gestos verticais</string>
     <string name="show_media_count">Show folder media count on the main view</string>
     <string name="replace_share_with_rotate">Substituir a opção Partilhar pela opção Rodar se em ecrã completo</string>
-    <string name="show_extended_details">Show extended details over fullscreen media</string>
-    <string name="manage_extended_details">Manage extended details</string>
+    <string name="show_extended_details">Mostrar detalhes se em ecrã completo</string>
+    <string name="manage_extended_details">Gerir detalhes exibidos</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
