@@ -5,12 +5,18 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Point
 import android.media.AudioManager
+import android.net.Uri
 import android.os.Build
 import android.view.WindowManager
+import com.simplemobiletools.commons.extensions.getFilePublicUri
+import com.simplemobiletools.commons.extensions.getMimeTypeFromPath
+import com.simplemobiletools.commons.extensions.getRealPathFromURI
 import com.simplemobiletools.commons.extensions.humanizePath
+import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.activities.SettingsActivity
 import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.models.Directory
+import java.io.File
 
 val Context.portrait get() = resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
 val Context.audioManager get() = getSystemService(Context.AUDIO_SERVICE) as AudioManager
@@ -72,4 +78,22 @@ fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Direct
     val dirs = source.clone() as ArrayList<Directory>
     dirs.sort()
     return movePinnedDirectoriesToFront(dirs)
+}
+
+fun Context.getMimeTypeFromUri(uri: Uri): String {
+    val path = getRealPathFromURI(uri)
+    var mimetype = uri.path.getMimeTypeFromPath()
+    if (mimetype.isEmpty()) {
+        mimetype = contentResolver.getType(uri)
+    }
+    return mimetype
+}
+
+fun Context.ensurePublicUri(uri: Uri): Uri {
+    return if (uri.scheme == "content") {
+        uri
+    } else {
+        val file = File(uri.path)
+        getFilePublicUri(file, BuildConfig.APPLICATION_ID)
+    }
 }

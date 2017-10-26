@@ -434,7 +434,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                     }
                 } else if ((mIsPickImageIntent || mIsPickVideoIntent)) {
                     val path = resultData.data.path
-                    val uri = Uri.fromFile(File(path))
+                    val uri = getFilePublicUri(File(path), BuildConfig.APPLICATION_ID)
                     resultIntent.data = uri
                     resultIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
                 }
@@ -467,7 +467,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun fillPickedPaths(resultData: Intent, resultIntent: Intent) {
         val paths = resultData.extras.getStringArrayList(PICKED_PATHS)
-        val uris = paths.map { Uri.fromFile(File(it)) } as ArrayList
+        val uris = paths.map { getFilePublicUri(File(it), BuildConfig.APPLICATION_ID) } as ArrayList
         val clipData = ClipData("Attachment", arrayOf("image/*", "video/*"), ClipData.Item(uris.removeAt(0)))
 
         uris.forEach {
@@ -479,7 +479,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun fillIntentPath(resultData: Intent, resultIntent: Intent) {
         val path = resultData.data.path
-        val uri = Uri.fromFile(File(path))
+        val uri = getFilePublicUri(File(path), BuildConfig.APPLICATION_ID)
         val type = path.getMimeTypeFromPath()
         resultIntent.setDataAndTypeAndNormalize(uri, type)
         resultIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION

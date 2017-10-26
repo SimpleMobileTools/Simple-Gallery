@@ -246,18 +246,18 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return true
 
         when (item.itemId) {
-            R.id.menu_set_as -> trySetAs(getCurrentFile())
+            R.id.menu_set_as -> setAs(Uri.fromFile(getCurrentFile()))
             R.id.slideshow -> initSlideshow()
             R.id.menu_copy_to -> copyMoveTo(true)
             R.id.menu_move_to -> copyMoveTo(false)
-            R.id.menu_open_with -> openWith(getCurrentFile())
+            R.id.menu_open_with -> openFile(Uri.fromFile(getCurrentFile()))
             R.id.menu_hide -> toggleFileVisibility(true)
             R.id.menu_unhide -> toggleFileVisibility(false)
             R.id.menu_share_1 -> shareMedium(getCurrentMedium()!!)
             R.id.menu_share_2 -> shareMedium(getCurrentMedium()!!)
             R.id.menu_delete -> checkDeleteConfirmation()
             R.id.menu_rename -> renameFile()
-            R.id.menu_edit -> openFileEditor(getCurrentFile())
+            R.id.menu_edit -> openEditor(Uri.fromFile(getCurrentFile()))
             R.id.menu_properties -> showProperties()
             R.id.show_on_map -> showOnMap()
             R.id.menu_rotate -> rotateImage()

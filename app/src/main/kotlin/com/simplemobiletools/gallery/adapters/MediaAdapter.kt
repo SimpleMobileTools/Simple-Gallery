@@ -1,6 +1,7 @@
 package com.simplemobiletools.gallery.adapters
 
 import android.graphics.PorterDuff
+import android.net.Uri
 import android.os.Build
 import android.support.v7.view.ActionMode
 import android.support.v7.widget.RecyclerView
@@ -159,7 +160,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     }
 
     private fun editFile() {
-        activity.openFileEditor(getCurrentFile())
+        activity.openEditor(Uri.fromFile(getCurrentFile()))
         actMode?.finish()
     }
 

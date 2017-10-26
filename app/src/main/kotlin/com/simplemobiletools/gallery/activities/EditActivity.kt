@@ -196,14 +196,15 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun flipImage(horizontally: Boolean) {
-        if (horizontally)
+        if (horizontally) {
             crop_image_view.flipImageHorizontally()
-        else
+        } else {
             crop_image_view.flipImageVertically()
+        }
     }
 
     private fun editWith() {
-        openEditor(uri, true)
+        openEditor(uri)
         isEditingWithThirdParty = true
     }
 

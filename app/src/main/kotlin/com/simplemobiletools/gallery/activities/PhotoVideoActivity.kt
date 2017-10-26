@@ -1,15 +1,14 @@
 package com.simplemobiletools.gallery.activities
 
 import android.content.Intent
-import android.database.Cursor
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import com.simplemobiletools.commons.extensions.getFilenameFromUri
 import com.simplemobiletools.commons.extensions.getRealPathFromURI
 import com.simplemobiletools.commons.extensions.scanPath
 import com.simplemobiletools.commons.extensions.toast
@@ -34,9 +33,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
     lateinit var mUri: Uri
 
-    companion object {
-        var mIsVideo = false
-    }
+    var mIsVideo = false
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,7 +72,8 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         showSystemUI()
         val bundle = Bundle()
         val file = File(mUri.toString())
-        mMedium = Medium(file.name, mUri.toString(), mIsVideo, 0, 0, file.length())
+        mMedium = Medium(getFilenameFromUri(mUri), mUri.toString(), mIsVideo, 0, 0, file.length())
+        title = mMedium!!.name
         bundle.putSerializable(MEDIUM, mMedium)
 
         if (savedInstanceState == null) {
@@ -85,22 +83,8 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             supportFragmentManager.beginTransaction().replace(R.id.fragment_holder, mFragment).commit()
         }
 
-        if (config.darkBackground)
+        if (config.darkBackground) {
             fragment_holder.background = ColorDrawable(Color.BLACK)
-
-        val proj = arrayOf(MediaStore.Images.Media.TITLE)
-        var cursor: Cursor? = null
-        try {
-            cursor = contentResolver.query(mUri, proj, null, null, null)
-            if (cursor != null && cursor.count != 0) {
-                val columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.TITLE)
-                cursor.moveToFirst()
-                title = cursor.getString(columnIndex)
-            }
-        } catch (e: Exception) {
-            title = mMedium?.name ?: ""
-        } finally {
-            cursor?.close()
         }
 
         window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
@@ -137,10 +121,10 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             return true
 
         when (item.itemId) {
-            R.id.menu_set_as -> trySetAs(File(mMedium!!.path))
-            R.id.menu_open_with -> openWith(File(mMedium!!.path))
-            R.id.menu_share -> shareUri(mMedium!!, mUri)
-            R.id.menu_edit -> openFileEditor(File(mMedium!!.path))
+            R.id.menu_set_as -> setAs(mUri)
+            R.id.menu_open_with -> openFile(mUri)
+            R.id.menu_share -> shareUri(mUri)
+            R.id.menu_edit -> openEditor(mUri)
             else -> return super.onOptionsItemSelected(item)
         }
         return true

@@ -24,6 +24,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.views.MyScalableRecyclerView
+import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.MediaAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
@@ -504,7 +505,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             val file = File(path)
             val isVideo = file.isVideoFast()
             if (isVideo) {
-                openWith(file, false)
+                val uri = getFilePublicUri(file, BuildConfig.APPLICATION_ID)
+                openFile(uri)
             } else {
                 Intent(this, ViewPagerActivity::class.java).apply {
                     putExtra(MEDIUM, path)

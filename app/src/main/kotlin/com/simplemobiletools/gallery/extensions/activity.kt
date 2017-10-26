@@ -2,16 +2,10 @@ package com.simplemobiletools.gallery.extensions
 
 import android.app.Activity
 import android.content.Intent
-import android.database.Cursor
 import android.net.Uri
-import android.os.Build
 import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
-import android.util.DisplayMetrics
-import android.view.KeyCharacterMap
-import android.view.KeyEvent
 import android.view.View
-import android.view.ViewConfiguration
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -34,12 +28,12 @@ import com.simplemobiletools.gallery.views.MySquareImageView
 import java.io.File
 import java.util.*
 
-fun Activity.shareUri(medium: Medium, uri: Uri) {
+fun Activity.shareUri(uri: Uri) {
     val shareTitle = resources.getString(R.string.share_via)
     Intent().apply {
         action = Intent.ACTION_SEND
-        putExtra(Intent.EXTRA_STREAM, uri)
-        type = medium.getMimeType()
+        putExtra(Intent.EXTRA_STREAM, ensurePublicUri(uri))
+        type = getMimeTypeFromUri(uri)
         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         startActivity(Intent.createChooser(this, shareTitle))
     }
@@ -48,12 +42,12 @@ fun Activity.shareUri(medium: Medium, uri: Uri) {
 fun Activity.shareMedium(medium: Medium) {
     val shareTitle = resources.getString(R.string.share_via)
     val file = File(medium.path)
-    val uri = Uri.fromFile(file)
+    val uri = getFilePublicUri(file, BuildConfig.APPLICATION_ID)
 
     Intent().apply {
         action = Intent.ACTION_SEND
         putExtra(Intent.EXTRA_STREAM, uri)
-        type = medium.getMimeType()
+        type = getMimeTypeFromUri(uri)
         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         startActivity(Intent.createChooser(this, shareTitle))
     }
@@ -61,7 +55,7 @@ fun Activity.shareMedium(medium: Medium) {
 
 fun Activity.shareMedia(media: List<Medium>) {
     val shareTitle = resources.getString(R.string.share_via)
-    val uris = media.map { Uri.fromFile(File(it.path)) } as ArrayList
+    val uris = media.map { getFilePublicUri(File(it.path), BuildConfig.APPLICATION_ID) } as ArrayList
 
     Intent().apply {
         action = Intent.ACTION_SEND_MULTIPLE
@@ -72,116 +66,52 @@ fun Activity.shareMedia(media: List<Medium>) {
     }
 }
 
-fun Activity.trySetAs(file: File) {
-    try {
-        var uri = Uri.fromFile(file)
-        if (!setAs(uri, file)) {
-            uri = getFileContentUri(file)
-            setAs(uri, file, false)
-        }
-    } catch (e: Exception) {
-        toast(R.string.unknown_error_occurred)
-    }
-}
-
-fun Activity.setAs(uri: Uri, file: File, showToast: Boolean = true): Boolean {
-    var success = false
+fun Activity.setAs(uri: Uri) {
+    val newUri = ensurePublicUri(uri)
     Intent().apply {
         action = Intent.ACTION_ATTACH_DATA
-        setDataAndType(uri, file.getMimeType())
+        setDataAndType(newUri, getMimeTypeFromUri(newUri))
         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         val chooser = Intent.createChooser(this, getString(R.string.set_as))
 
-        success = if (resolveActivity(packageManager) != null) {
+        if (resolveActivity(packageManager) != null) {
             startActivityForResult(chooser, REQUEST_SET_AS)
-            true
         } else {
-            if (showToast) {
-                toast(R.string.no_capable_app_found)
-            }
-            false
+            toast(R.string.no_capable_app_found)
         }
     }
-
-    return success
 }
 
-fun Activity.getFileContentUri(file: File): Uri? {
-    val uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-    val projection = arrayOf(MediaStore.Images.Media._ID)
-    val selection = "${MediaStore.Images.Media.DATA} = ?"
-    val selectionArgs = arrayOf(file.absolutePath)
-
-    var cursor: Cursor? = null
-    try {
-        cursor = contentResolver.query(uri, projection, selection, selectionArgs, null)
-        if (cursor?.moveToFirst() == true) {
-            val id = cursor.getIntValue(MediaStore.Images.Media._ID)
-            return Uri.withAppendedPath(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "$id")
-        }
-    } finally {
-        cursor?.close()
-    }
-    return null
-}
-
-fun Activity.openWith(file: File, forceChooser: Boolean = true) {
-    val uri = Uri.fromFile(file)
+fun Activity.openFile(uri: Uri) {
+    val newUri = ensurePublicUri(uri)
     Intent().apply {
         action = Intent.ACTION_VIEW
-        setDataAndType(uri, file.getMimeType())
+        setDataAndType(newUri, getMimeTypeFromUri(newUri))
         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         putExtra(IS_FROM_GALLERY, true)
 
         if (resolveActivity(packageManager) != null) {
             val chooser = Intent.createChooser(this, getString(R.string.open_with))
-            startActivity(if (forceChooser) chooser else this)
+            startActivity(chooser)
         } else {
             toast(R.string.no_app_found)
         }
     }
 }
 
-fun Activity.openFileEditor(file: File) {
-    openEditor(Uri.fromFile(file))
-}
-
-fun Activity.openEditor(uri: Uri, forceChooser: Boolean = false) {
+fun Activity.openEditor(uri: Uri) {
+    val newUri = ensurePublicUri(uri)
     Intent().apply {
         action = Intent.ACTION_EDIT
-        setDataAndType(uri, "image/*")
+        setDataAndType(newUri, getMimeTypeFromUri(newUri))
         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
 
         if (resolveActivity(packageManager) != null) {
             val chooser = Intent.createChooser(this, getString(R.string.edit_image_with))
-            startActivityForResult(if (forceChooser) chooser else this, REQUEST_EDIT_IMAGE)
+            startActivityForResult(chooser, REQUEST_EDIT_IMAGE)
         } else {
             toast(R.string.no_editor_found)
         }
-    }
-}
-
-fun Activity.hasNavBar(): Boolean {
-    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-        val display = windowManager.defaultDisplay
-
-        val realDisplayMetrics = DisplayMetrics()
-        display.getRealMetrics(realDisplayMetrics)
-
-        val realHeight = realDisplayMetrics.heightPixels
-        val realWidth = realDisplayMetrics.widthPixels
-
-        val displayMetrics = DisplayMetrics()
-        display.getMetrics(displayMetrics)
-
-        val displayHeight = displayMetrics.heightPixels
-        val displayWidth = displayMetrics.widthPixels
-
-        realWidth - displayWidth > 0 || realHeight - displayHeight > 0
-    } else {
-        val hasMenuKey = ViewConfiguration.get(applicationContext).hasPermanentMenuKey()
-        val hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK)
-        !hasMenuKey && !hasBackKey
     }
 }
 
