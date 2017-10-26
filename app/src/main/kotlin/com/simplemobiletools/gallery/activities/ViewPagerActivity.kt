@@ -446,7 +446,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun saveImageAs() {
         val currPath = getCurrentPath()
-        SaveAsDialog(this, currPath) {
+        SaveAsDialog(this, currPath, false) {
             Thread({
                 toast(R.string.saving)
                 val selectedFile = File(it)

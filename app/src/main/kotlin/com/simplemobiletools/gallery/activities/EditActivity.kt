@@ -141,13 +141,13 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 setResult(RESULT_OK)
                 finish()
             } else if (uri.scheme == "file") {
-                SaveAsDialog(this, uri.path) {
+                SaveAsDialog(this, uri.path, true) {
                     saveBitmapToFile(result.bitmap, it)
                 }
             } else if (uri.scheme == "content") {
                 val newPath = applicationContext.getRealPathFromURI(uri) ?: ""
                 if (!newPath.isEmpty()) {
-                    SaveAsDialog(this, newPath) {
+                    SaveAsDialog(this, newPath, true) {
                         saveBitmapToFile(result.bitmap, it)
                     }
                 } else {
