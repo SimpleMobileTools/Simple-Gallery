@@ -15,6 +15,7 @@ import android.widget.SeekBar
 import android.widget.TextView
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.activities.VideoActivity
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.MEDIUM
@@ -64,6 +65,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mTimeHolder = mView.video_time_holder
         medium = arguments.getSerializable(MEDIUM) as Medium
 
+        mIsFragmentVisible = activity is VideoActivity  // setMenuVisibility is not called at VideoActivity (third party intent)
         setupPlayer()
         if (savedInstanceState != null) {
             mCurrTime = savedInstanceState.getInt(PROGRESS)
