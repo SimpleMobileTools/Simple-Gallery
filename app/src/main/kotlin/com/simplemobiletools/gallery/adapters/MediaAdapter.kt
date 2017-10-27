@@ -88,6 +88,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 R.id.cab_move_to -> copyMoveTo(false)
                 R.id.cab_select_all -> selectAll()
                 R.id.cab_open_with -> activity.openFile(Uri.fromFile(getCurrentFile()))
+                R.id.cab_set_as -> activity.setAs(Uri.fromFile(getCurrentFile()))
                 R.id.cab_delete -> checkDeleteConfirmation()
                 else -> return false
             }
@@ -104,7 +105,8 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu): Boolean {
             menu.findItem(R.id.cab_rename).isVisible = selectedPositions.size == 1
             menu.findItem(R.id.cab_open_with).isVisible = selectedPositions.size == 1
-            menu.findItem(R.id.cab_edit).isVisible = selectedPositions.size == 1 && media.size > selectedPositions.first() && media[selectedPositions.first()].isImage()
+            menu.findItem(R.id.cab_edit).isVisible = isOneImageSelected()
+            menu.findItem(R.id.cab_set_as).isVisible = isOneImageSelected()
             menu.findItem(R.id.cab_confirm_selection).isVisible = isPickIntent && allowMultiplePicks && selectedPositions.size > 0
 
             checkHideBtnVisibility(menu)
@@ -135,6 +137,8 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             menu.findItem(R.id.cab_hide).isVisible = unhiddenCnt > 0
             menu.findItem(R.id.cab_unhide).isVisible = hiddenCnt > 0
         }
+
+        private fun isOneImageSelected() = selectedPositions.size == 1 && media.size > selectedPositions.first() && media[selectedPositions.first()].isImage()
     }
 
     private fun confirmSelection() {

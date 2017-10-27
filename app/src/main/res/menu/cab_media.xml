@@ -51,6 +51,10 @@
         android:title="@string/open_with"
         app:showAsAction="never"/>
     <item
+        android:id="@+id/cab_set_as"
+        android:title="@string/set_as"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/cab_copy_to"
         android:title="@string/copy_to"
         app:showAsAction="never"/>
