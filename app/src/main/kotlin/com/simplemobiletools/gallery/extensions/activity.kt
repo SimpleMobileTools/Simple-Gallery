@@ -112,8 +112,7 @@ fun Activity.openEditor(uri: Uri) {
         }
 
         if (resolveActivity(packageManager) != null) {
-            val chooser = Intent.createChooser(this, getString(R.string.edit_image_with))
-            startActivityForResult(chooser, REQUEST_EDIT_IMAGE)
+            startActivityForResult(this, REQUEST_EDIT_IMAGE)
         } else {
             toast(R.string.no_editor_found)
         }
