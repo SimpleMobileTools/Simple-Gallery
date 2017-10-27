@@ -51,7 +51,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
     private fun checkIntent(savedInstanceState: Bundle? = null) {
         mUri = intent.data ?: return
-        if (intent.extras.containsKey(REAL_FILE_PATH)) {
+        if (intent.extras?.containsKey(REAL_FILE_PATH) == true) {
             mUri = intent.extras.get(REAL_FILE_PATH) as Uri
         }
 
