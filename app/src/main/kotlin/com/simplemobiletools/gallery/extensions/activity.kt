@@ -18,7 +18,10 @@ import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
-import com.simplemobiletools.gallery.helpers.*
+import com.simplemobiletools.gallery.helpers.IS_FROM_GALLERY
+import com.simplemobiletools.gallery.helpers.NOMEDIA
+import com.simplemobiletools.gallery.helpers.REQUEST_EDIT_IMAGE
+import com.simplemobiletools.gallery.helpers.REQUEST_SET_AS
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
 import com.simplemobiletools.gallery.views.MySquareImageView
@@ -103,8 +106,8 @@ fun Activity.openEditor(uri: Uri) {
         setDataAndType(newUri, getMimeTypeFromUri(newUri))
         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
 
-        if (uri.scheme == "file" && isNougatPlus()) {
-            putExtra(REAL_FILE_PATH, uri.path)
+        if (isNougatPlus()) {
+            putExtra(MediaStore.EXTRA_OUTPUT, uri)
         }
 
         if (resolveActivity(packageManager) != null) {

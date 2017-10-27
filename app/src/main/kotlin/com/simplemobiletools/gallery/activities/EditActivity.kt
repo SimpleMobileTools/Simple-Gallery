@@ -14,7 +14,6 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.ResizeDialog
 import com.simplemobiletools.gallery.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.extensions.openEditor
-import com.simplemobiletools.gallery.helpers.REAL_FILE_PATH
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.view_crop_image.*
 import java.io.*
@@ -25,6 +24,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private val CROP = "crop"
 
     lateinit var uri: Uri
+    var saveUri: Uri? = null
     var resizeWidth = 0
     var resizeHeight = 0
     var isCropIntent = false
@@ -40,17 +40,15 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             return
         }
 
-        val realPath = intent.extras?.get(REAL_FILE_PATH)?.toString() ?: ""
-        if (realPath.isNotEmpty()) {
-            val file = File(realPath)
-            uri = Uri.fromFile(file)
-        } else {
-            uri = intent.data
-            if (uri.scheme != "file" && uri.scheme != "content") {
-                toast(R.string.unknown_file_location)
-                finish()
-                return
-            }
+        uri = intent.data
+        if (uri.scheme != "file" && uri.scheme != "content") {
+            toast(R.string.unknown_file_location)
+            finish()
+            return
+        }
+
+        if (intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true) {
+            saveUri = intent.extras!!.get(MediaStore.EXTRA_OUTPUT) as Uri
         }
 
         isCropIntent = intent.extras?.get(CROP) == "true"
@@ -130,15 +128,14 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     override fun onCropImageComplete(view: CropImageView, result: CropImageView.CropResult) {
         if (result.error == null) {
-            if (isCropIntent && intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true) {
-                val targetUri = intent.extras!!.get(MediaStore.EXTRA_OUTPUT) as Uri
+            if (isCropIntent && saveUri != null) {
                 var inputStream: InputStream? = null
                 var outputStream: OutputStream? = null
                 try {
                     val stream = ByteArrayOutputStream()
                     result.bitmap.compress(CompressFormat.JPEG, 100, stream)
                     inputStream = ByteArrayInputStream(stream.toByteArray())
-                    outputStream = contentResolver.openOutputStream(targetUri)
+                    outputStream = contentResolver.openOutputStream(saveUri)
                     inputStream.copyTo(outputStream)
                 } finally {
                     inputStream?.close()
@@ -146,12 +143,12 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 }
                 setResult(RESULT_OK)
                 finish()
-            } else if (uri.scheme == "file") {
-                SaveAsDialog(this, uri.path, true) {
+            } else if (saveUri?.scheme == "file") {
+                SaveAsDialog(this, saveUri!!.path, true) {
                     saveBitmapToFile(result.bitmap, it)
                 }
-            } else if (uri.scheme == "content") {
-                val newPath = applicationContext.getRealPathFromURI(uri) ?: ""
+            } else if (saveUri?.scheme == "content") {
+                val newPath = applicationContext.getRealPathFromURI(saveUri!!) ?: ""
                 if (!newPath.isEmpty()) {
                     SaveAsDialog(this, newPath, true) {
                         saveBitmapToFile(result.bitmap, it)
