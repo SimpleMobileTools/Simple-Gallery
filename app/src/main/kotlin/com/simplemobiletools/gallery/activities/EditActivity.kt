@@ -24,7 +24,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private val CROP = "crop"
 
     lateinit var uri: Uri
-    var saveUri: Uri? = null
+    lateinit var saveUri: Uri
     var resizeWidth = 0
     var resizeHeight = 0
     var isCropIntent = false
@@ -47,8 +47,10 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             return
         }
 
-        if (intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true) {
-            saveUri = intent.extras!!.get(MediaStore.EXTRA_OUTPUT) as Uri
+        saveUri = if (intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true) {
+            intent.extras!!.get(MediaStore.EXTRA_OUTPUT) as Uri
+        } else {
+            uri
         }
 
         isCropIntent = intent.extras?.get(CROP) == "true"
@@ -128,7 +130,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     override fun onCropImageComplete(view: CropImageView, result: CropImageView.CropResult) {
         if (result.error == null) {
-            if (isCropIntent && saveUri != null) {
+            if (isCropIntent) {
                 var inputStream: InputStream? = null
                 var outputStream: OutputStream? = null
                 try {
@@ -143,12 +145,12 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 }
                 setResult(RESULT_OK)
                 finish()
-            } else if (saveUri?.scheme == "file") {
-                SaveAsDialog(this, saveUri!!.path, true) {
+            } else if (saveUri.scheme == "file") {
+                SaveAsDialog(this, saveUri.path, true) {
                     saveBitmapToFile(result.bitmap, it)
                 }
-            } else if (saveUri?.scheme == "content") {
-                val newPath = applicationContext.getRealPathFromURI(saveUri!!) ?: ""
+            } else if (saveUri.scheme == "content") {
+                val newPath = applicationContext.getRealPathFromURI(saveUri) ?: ""
                 if (!newPath.isEmpty()) {
                     SaveAsDialog(this, newPath, true) {
                         saveBitmapToFile(result.bitmap, it)
