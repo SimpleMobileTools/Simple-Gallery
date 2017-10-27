@@ -246,18 +246,18 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return true
 
         when (item.itemId) {
-            R.id.menu_set_as -> trySetAs(getCurrentFile())
+            R.id.menu_set_as -> setAs(Uri.fromFile(getCurrentFile()))
             R.id.slideshow -> initSlideshow()
             R.id.menu_copy_to -> copyMoveTo(true)
             R.id.menu_move_to -> copyMoveTo(false)
-            R.id.menu_open_with -> openWith(getCurrentFile())
+            R.id.menu_open_with -> openFile(Uri.fromFile(getCurrentFile()))
             R.id.menu_hide -> toggleFileVisibility(true)
             R.id.menu_unhide -> toggleFileVisibility(false)
             R.id.menu_share_1 -> shareMedium(getCurrentMedium()!!)
             R.id.menu_share_2 -> shareMedium(getCurrentMedium()!!)
             R.id.menu_delete -> checkDeleteConfirmation()
             R.id.menu_rename -> renameFile()
-            R.id.menu_edit -> openFileEditor(getCurrentFile())
+            R.id.menu_edit -> openEditor(Uri.fromFile(getCurrentFile()))
             R.id.menu_properties -> showProperties()
             R.id.show_on_map -> showOnMap()
             R.id.menu_rotate -> rotateImage()
@@ -446,7 +446,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun saveImageAs() {
         val currPath = getCurrentPath()
-        SaveAsDialog(this, currPath) {
+        SaveAsDialog(this, currPath, false) {
             Thread({
                 toast(R.string.saving)
                 val selectedFile = File(it)
@@ -730,10 +730,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun getCurrentMedium(): Medium? {
-        return if (getCurrentMedia().isEmpty() || mPos == -1)
+        return if (getCurrentMedia().isEmpty() || mPos == -1) {
             null
-        else
+        } else {
             getCurrentMedia()[Math.min(mPos, getCurrentMedia().size - 1)]
+        }
     }
 
     private fun getCurrentMedia() = if (mAreSlideShowMediaVisible) mSlideshowMedia else mMedia
@@ -756,7 +757,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     override fun onPageScrollStateChanged(state: Int) {
-        if (state == ViewPager.SCROLL_STATE_IDLE) {
+        if (state == ViewPager.SCROLL_STATE_IDLE && getCurrentMedium() != null) {
             checkOrientation()
         }
     }

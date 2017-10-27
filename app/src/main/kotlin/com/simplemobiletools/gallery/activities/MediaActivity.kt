@@ -504,7 +504,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             val file = File(path)
             val isVideo = file.isVideoFast()
             if (isVideo) {
-                openWith(file, false)
+                openFile(Uri.fromFile(file))
             } else {
                 Intent(this, ViewPagerActivity::class.java).apply {
                     putExtra(MEDIUM, path)

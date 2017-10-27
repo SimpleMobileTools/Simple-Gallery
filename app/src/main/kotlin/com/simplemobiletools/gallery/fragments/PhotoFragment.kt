@@ -35,7 +35,6 @@ import it.sephiroth.android.library.exif2.ExifInterface
 import kotlinx.android.synthetic.main.pager_photo_item.view.*
 import java.io.File
 import java.io.FileOutputStream
-import java.io.IOException
 
 class PhotoFragment : ViewPagerFragment() {
     private var isFragmentVisible = false
@@ -50,10 +49,9 @@ class PhotoFragment : ViewPagerFragment() {
         view = inflater.inflate(R.layout.pager_photo_item, container, false) as ViewGroup
 
         medium = arguments.getSerializable(MEDIUM) as Medium
-
         if (medium.path.startsWith("content://")) {
             val originalPath = medium.path
-            medium.path = context.getRealPathFromURI(Uri.parse(medium.path)) ?: ""
+            medium.path = context.getRealPathFromURI(Uri.parse(originalPath)) ?: ""
 
             if (medium.path.isEmpty()) {
                 var out: FileOutputStream? = null
@@ -63,7 +61,6 @@ class PhotoFragment : ViewPagerFragment() {
                     exif.readExif(inputStream, ExifInterface.Options.OPTION_ALL)
                     val tag = exif.getTag(ExifInterface.TAG_ORIENTATION)
                     val orientation = tag?.getValueAsInt(-1) ?: -1
-
                     inputStream = context.contentResolver.openInputStream(Uri.parse(originalPath))
                     val original = BitmapFactory.decodeStream(inputStream)
                     val rotated = rotateViaMatrix(original, orientation)
@@ -78,10 +75,7 @@ class PhotoFragment : ViewPagerFragment() {
                     activity.toast(R.string.unknown_error_occurred)
                     return view
                 } finally {
-                    try {
-                        out?.close()
-                    } catch (e: IOException) {
-                    }
+                    out?.close()
                 }
             }
         }
@@ -275,7 +269,7 @@ class PhotoFragment : ViewPagerFragment() {
             view.photo_details.apply {
                 text = getMediumExtendedDetails(medium)
                 setTextColor(context.config.textColor)
-                beVisible()
+                beVisibleIf(text.isNotEmpty())
                 onGlobalLayout {
                     if (height != 0) {
                         val smallMargin = resources.getDimension(R.dimen.small_margin)

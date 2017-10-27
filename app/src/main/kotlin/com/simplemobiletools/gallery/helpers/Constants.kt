@@ -67,6 +67,7 @@ val DIRECTORIES = "directories2"
 val IS_VIEW_INTENT = "is_view_intent"
 val IS_FROM_GALLERY = "is_from_gallery"
 val PICKED_PATHS = "picked_paths"
+val REAL_FILE_PATH = "real_file_path"
 
 val REQUEST_EDIT_IMAGE = 1
 val REQUEST_SET_AS = 2

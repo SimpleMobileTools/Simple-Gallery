@@ -1,10 +1,9 @@
 package com.simplemobiletools.gallery.models
 
-import com.simplemobiletools.commons.extensions.getMimeType
+import com.simplemobiletools.commons.extensions.getMimeTypeFromPath
 import com.simplemobiletools.commons.extensions.isGif
 import com.simplemobiletools.commons.extensions.isPng
 import com.simplemobiletools.commons.helpers.*
-import java.io.File
 import java.io.Serializable
 
 data class Medium(var name: String, var path: String, val video: Boolean, val modified: Long, val taken: Long, val size: Long) : Serializable, Comparable<Medium> {
@@ -21,7 +20,7 @@ data class Medium(var name: String, var path: String, val video: Boolean, val mo
 
     fun isImage() = !isGif() && !video
 
-    fun getMimeType() = File(path).getMimeType()
+    fun getMimeType() = path.getMimeTypeFromPath()
 
     override fun compareTo(other: Medium): Int {
         var result: Int

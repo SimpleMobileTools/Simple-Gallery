@@ -15,6 +15,7 @@ import android.widget.SeekBar
 import android.widget.TextView
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.activities.VideoActivity
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.MEDIUM
@@ -63,6 +64,11 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mView = inflater.inflate(R.layout.pager_video_item, container, false)
         mTimeHolder = mView.video_time_holder
         medium = arguments.getSerializable(MEDIUM) as Medium
+
+        // setMenuVisibility is not called at VideoActivity (third party intent)
+        if (!mIsFragmentVisible && activity is VideoActivity) {
+            mIsFragmentVisible = true
+        }
 
         setupPlayer()
         if (savedInstanceState != null) {
@@ -285,7 +291,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         var right = res.getDimension(R.dimen.timer_padding).toInt()
         var bottom = 0
 
-        if (activity.hasNavBar()) {
+        if (hasNavBar()) {
             if (res.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
                 bottom += height
             } else {
@@ -301,6 +307,30 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
         if (mIsFullscreen)
             mTimeHolder.beInvisible()
+    }
+
+    private fun hasNavBar(): Boolean {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            val display = context.windowManager.defaultDisplay
+
+            val realDisplayMetrics = DisplayMetrics()
+            display.getRealMetrics(realDisplayMetrics)
+
+            val realHeight = realDisplayMetrics.heightPixels
+            val realWidth = realDisplayMetrics.widthPixels
+
+            val displayMetrics = DisplayMetrics()
+            display.getMetrics(displayMetrics)
+
+            val displayHeight = displayMetrics.heightPixels
+            val displayWidth = displayMetrics.widthPixels
+
+            realWidth - displayWidth > 0 || realHeight - displayHeight > 0
+        } else {
+            val hasMenuKey = ViewConfiguration.get(context).hasPermanentMenuKey()
+            val hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK)
+            !hasMenuKey && !hasBackKey
+        }
     }
 
     private fun setupTimeHolder() {
@@ -505,7 +535,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             mView.video_details.apply {
                 text = getMediumExtendedDetails(medium)
                 setTextColor(context.config.textColor)
-                beVisible()
+                beVisibleIf(text.isNotEmpty())
                 onGlobalLayout {
                     if (height != 0) {
                         val smallMargin = resources.getDimension(R.dimen.small_margin)
