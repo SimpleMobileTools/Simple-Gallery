@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.extensions.getFilenameFromUri
 import com.simplemobiletools.commons.extensions.getRealPathFromURI
 import com.simplemobiletools.commons.extensions.scanPath
@@ -25,6 +26,7 @@ import com.simplemobiletools.gallery.helpers.REAL_FILE_PATH
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.fragment_holder.*
 import java.io.File
+
 
 open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentListener {
     private var mMedium: Medium? = null
@@ -117,6 +119,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
         menu.findItem(R.id.menu_set_as).isVisible = mMedium?.isImage() == true
         menu.findItem(R.id.menu_edit).isVisible = mMedium?.isImage() == true
+        menu.findItem(R.id.menu_edit).isVisible = mUri.scheme == "file"
 
         return true
     }
@@ -130,9 +133,14 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             R.id.menu_open_with -> openFile(mUri)
             R.id.menu_share -> shareUri(mUri)
             R.id.menu_edit -> openEditor(mUri)
+            R.id.menu_properties -> showProperties()
             else -> return super.onOptionsItemSelected(item)
         }
         return true
+    }
+
+    private fun showProperties() {
+        PropertiesDialog(this, mUri.path)
     }
 
     override fun fragmentClicked() {
