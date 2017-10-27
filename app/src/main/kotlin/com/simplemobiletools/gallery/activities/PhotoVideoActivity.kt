@@ -130,7 +130,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
         when (item.itemId) {
             R.id.menu_set_as -> setAs(mUri)
-            R.id.menu_open_with -> openFile(mUri)
+            R.id.menu_open_with -> openFile(mUri, true)
             R.id.menu_share -> shareUri(mUri)
             R.id.menu_edit -> openEditor(mUri)
             R.id.menu_properties -> showProperties()

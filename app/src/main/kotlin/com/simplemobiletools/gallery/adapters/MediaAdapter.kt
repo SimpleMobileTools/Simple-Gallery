@@ -87,7 +87,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 R.id.cab_copy_to -> copyMoveTo(true)
                 R.id.cab_move_to -> copyMoveTo(false)
                 R.id.cab_select_all -> selectAll()
-                R.id.cab_open_with -> activity.openFile(Uri.fromFile(getCurrentFile()))
+                R.id.cab_open_with -> activity.openFile(Uri.fromFile(getCurrentFile()), true)
                 R.id.cab_set_as -> activity.setAs(Uri.fromFile(getCurrentFile()))
                 R.id.cab_delete -> checkDeleteConfirmation()
                 else -> return false

@@ -79,7 +79,7 @@ fun Activity.setAs(uri: Uri) {
     }
 }
 
-fun Activity.openFile(uri: Uri) {
+fun Activity.openFile(uri: Uri, forceChooser: Boolean) {
     val newUri = ensurePublicUri(uri)
     Intent().apply {
         action = Intent.ACTION_VIEW
@@ -93,7 +93,7 @@ fun Activity.openFile(uri: Uri) {
 
         if (resolveActivity(packageManager) != null) {
             val chooser = Intent.createChooser(this, getString(R.string.open_with))
-            startActivity(chooser)
+            startActivity(if (forceChooser) chooser else this)
         } else {
             toast(R.string.no_app_found)
         }
