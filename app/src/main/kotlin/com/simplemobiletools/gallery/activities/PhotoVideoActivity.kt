@@ -21,6 +21,7 @@ import com.simplemobiletools.gallery.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.helpers.IS_FROM_GALLERY
 import com.simplemobiletools.gallery.helpers.IS_VIEW_INTENT
 import com.simplemobiletools.gallery.helpers.MEDIUM
+import com.simplemobiletools.gallery.helpers.REAL_FILE_PATH
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.fragment_holder.*
 import java.io.File
@@ -50,6 +51,10 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
     private fun checkIntent(savedInstanceState: Bundle? = null) {
         mUri = intent.data ?: return
+        if (intent.extras.containsKey(REAL_FILE_PATH)) {
+            mUri = intent.extras.get(REAL_FILE_PATH) as Uri
+        }
+
         mIsFromGallery = intent.getBooleanExtra(IS_FROM_GALLERY, false)
 
         if (mUri.scheme == "file") {
