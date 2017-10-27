@@ -7,7 +7,6 @@ import android.graphics.Point
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.commons.extensions.*
@@ -15,15 +14,15 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.ResizeDialog
 import com.simplemobiletools.gallery.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.extensions.openEditor
+import com.simplemobiletools.gallery.helpers.REAL_FILE_PATH
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.view_crop_image.*
 import java.io.*
 
 class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener {
-    val TAG = EditActivity::class.java.simpleName
-    val ASPECT_X = "aspectX"
-    val ASPECT_Y = "aspectY"
-    val CROP = "crop"
+    private val ASPECT_X = "aspectX"
+    private val ASPECT_Y = "aspectY"
+    private val CROP = "crop"
 
     lateinit var uri: Uri
     var resizeWidth = 0
@@ -41,18 +40,24 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             return
         }
 
-        uri = intent.data
-        if (uri.scheme != "file" && uri.scheme != "content") {
-            toast(R.string.unknown_file_location)
-            finish()
-            return
+        val realPath = intent.extras?.get(REAL_FILE_PATH)?.toString() ?: ""
+        if (realPath.isNotEmpty()) {
+            val file = File(realPath)
+            uri = Uri.fromFile(file)
+        } else {
+            uri = intent.data
+            if (uri.scheme != "file" && uri.scheme != "content") {
+                toast(R.string.unknown_file_location)
+                finish()
+                return
+            }
         }
 
         isCropIntent = intent.extras?.get(CROP) == "true"
 
         crop_image_view.apply {
             setOnCropImageCompleteListener(this@EditActivity)
-            setImageUriAsync(intent.data)
+            setImageUriAsync(uri)
 
             if (isCropIntent && shouldCropSquare())
                 setFixedAspectRatio(true)
@@ -66,8 +71,9 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     override fun onStop() {
         super.onStop()
-        if (isEditingWithThirdParty)
+        if (isEditingWithThirdParty) {
             finish()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -152,11 +158,9 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     }
                 } else {
                     toast(R.string.image_editing_failed)
-                    finish()
                 }
             } else {
                 toast(R.string.unknown_file_location)
-                finish()
             }
         } else {
             toast("${getString(R.string.image_editing_failed)}: ${result.error.message}")
@@ -175,9 +179,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 }
             }
         } catch (e: Exception) {
-            Log.e(TAG, "Crop compressing failed $path $e")
-            toast(R.string.image_editing_failed)
-            finish()
+            showErrorToast(e)
         } catch (e: OutOfMemoryError) {
             toast(R.string.out_of_memory_error)
         }

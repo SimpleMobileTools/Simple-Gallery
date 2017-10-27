@@ -10,7 +10,6 @@ import android.os.Build
 import android.view.WindowManager
 import com.simplemobiletools.commons.extensions.getFilePublicUri
 import com.simplemobiletools.commons.extensions.getMimeTypeFromPath
-import com.simplemobiletools.commons.extensions.getRealPathFromURI
 import com.simplemobiletools.commons.extensions.humanizePath
 import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.activities.SettingsActivity
@@ -81,7 +80,6 @@ fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Direct
 }
 
 fun Context.getMimeTypeFromUri(uri: Uri): String {
-    val path = getRealPathFromURI(uri)
     var mimetype = uri.path.getMimeTypeFromPath()
     if (mimetype.isEmpty()) {
         mimetype = contentResolver.getType(uri)
