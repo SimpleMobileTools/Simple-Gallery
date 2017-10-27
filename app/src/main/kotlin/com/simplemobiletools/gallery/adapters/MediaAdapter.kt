@@ -87,6 +87,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 R.id.cab_copy_to -> copyMoveTo(true)
                 R.id.cab_move_to -> copyMoveTo(false)
                 R.id.cab_select_all -> selectAll()
+                R.id.cab_open_with -> activity.openFile(Uri.fromFile(getCurrentFile()))
                 R.id.cab_delete -> checkDeleteConfirmation()
                 else -> return false
             }
@@ -101,7 +102,8 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         }
 
         override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu): Boolean {
-            menu.findItem(R.id.cab_rename).isVisible = selectedPositions.size <= 1
+            menu.findItem(R.id.cab_rename).isVisible = selectedPositions.size == 1
+            menu.findItem(R.id.cab_open_with).isVisible = selectedPositions.size == 1
             menu.findItem(R.id.cab_edit).isVisible = selectedPositions.size == 1 && media.size > selectedPositions.first() && media[selectedPositions.first()].isImage()
             menu.findItem(R.id.cab_confirm_selection).isVisible = isPickIntent && allowMultiplePicks && selectedPositions.size > 0
 
