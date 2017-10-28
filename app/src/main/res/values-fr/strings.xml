@@ -129,6 +129,7 @@
     <string name="replace_share_with_rotate">Remplacer Partager par Pivoter si menu en plein écran</string>
     <string name="show_extended_details">Afficher les détails supplémentaires par dessus le média en plein écran</string>
     <string name="manage_extended_details">Gérer les détails supplémentaires</string>
+    <string name="keep_last_modified">Keep old last-modified value at file copy/move/rename</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

@@ -129,6 +129,7 @@
     <string name="replace_share_with_rotate">Zamień funkcję udostępniania na obracanie w menu pełnoekranowym</string>
     <string name="show_extended_details">Dodatkowe szczegóły przy podglądzie pełnoekranowym</string>
     <string name="manage_extended_details">Zarządzaj dodatkowymi szczegółami</string>
+    <string name="keep_last_modified">Keep old last-modified value at file copy/move/rename</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

@@ -129,6 +129,7 @@
     <string name="replace_share_with_rotate">Nahradiť Zdieľanie s Otočením v celoobrazovkovom menu</string>
     <string name="show_extended_details">Zobraziť rozšírené vlastnosti ponad celoobrazovkové médiá</string>
     <string name="manage_extended_details">Spravovať rozšírené vlastnosti</string>
+    <string name="keep_last_modified">Ponechať starú hodnotu naposledy-upravené pri kopírovaní/presúvaní/premenúvaní súborov</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
