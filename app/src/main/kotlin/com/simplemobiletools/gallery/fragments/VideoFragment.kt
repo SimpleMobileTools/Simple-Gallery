@@ -464,6 +464,10 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     }
 
     private fun videoCompleted() {
+        if (!isAdded) {
+            return
+        }
+
         if (listener?.videoEnded() == false && context.config.loopVideos) {
             playVideo()
         } else {
