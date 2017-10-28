@@ -327,10 +327,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         animator.addUpdateListener(object : ValueAnimator.AnimatorUpdateListener {
             var oldDragPosition = 0
             override fun onAnimationUpdate(animation: ValueAnimator) {
-                val dragPosition = animation.animatedValue as Int
-                val dragOffset = dragPosition - oldDragPosition
-                oldDragPosition = dragPosition
-                view_pager?.fakeDragBy(dragOffset * (if (forward) 1f else -1f))
+                if (view_pager?.isFakeDragging == true) {
+                    val dragPosition = animation.animatedValue as Int
+                    val dragOffset = dragPosition - oldDragPosition
+                    oldDragPosition = dragPosition
+                    view_pager.fakeDragBy(dragOffset * (if (forward) 1f else -1f))
+                }
             }
         })
 
