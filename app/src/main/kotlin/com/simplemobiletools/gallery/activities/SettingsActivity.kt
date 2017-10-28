@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.activities
 import android.content.Intent
 import android.content.res.Resources
 import android.os.Bundle
+import android.support.v4.content.ContextCompat.startActivity
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.dialogs.SecurityDialog
@@ -13,6 +14,7 @@ import com.simplemobiletools.commons.helpers.PROTECTION_FINGERPRINT
 import com.simplemobiletools.commons.helpers.SHOW_ALL_TABS
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.R.id.*
 import com.simplemobiletools.gallery.dialogs.ManageExtendedDetailsDialog
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.helpers.ROTATE_BY_ASPECT_RATIO
@@ -50,6 +52,7 @@ class SettingsActivity : SimpleActivity() {
         setupDeleteEmptyFolders()
         setupAllowVideoGestures()
         setupShowMediaCount()
+        setupKeepLastModified()
         setupShowExtendedDetails()
         setupManageExtendedDetails()
         updateTextColors(settings_holder)
@@ -204,6 +207,14 @@ class SettingsActivity : SimpleActivity() {
         settings_show_media_count_holder.setOnClickListener {
             settings_show_media_count.toggle()
             config.showMediaCount = settings_show_media_count.isChecked
+        }
+    }
+
+    private fun setupKeepLastModified() {
+        settings_keep_last_modified.isChecked = config.keepLastModified
+        settings_keep_last_modified_holder.setOnClickListener {
+            settings_keep_last_modified.toggle()
+            config.keepLastModified = settings_keep_last_modified.isChecked
         }
     }
 
