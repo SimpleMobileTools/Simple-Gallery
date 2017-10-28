@@ -85,6 +85,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun initViewPager() {
+        setupOrientationEventListener()
         measureScreen()
         val uri = intent.data
         if (uri != null) {
@@ -140,7 +141,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         reloadViewPager()
         scanPath(mPath) {}
-        setupOrientationEventListener()
 
         if (config.darkBackground)
             view_pager.background = ColorDrawable(Color.BLACK)
