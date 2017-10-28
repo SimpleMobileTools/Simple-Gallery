@@ -13,12 +13,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
-import com.bumptech.glide.Priority
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
@@ -33,6 +31,7 @@ import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 import it.sephiroth.android.library.exif2.ExifInterface
 import kotlinx.android.synthetic.main.pager_photo_item.view.*
+import pl.droidsonroids.gif.GifDrawable
 import java.io.File
 import java.io.FileOutputStream
 
@@ -41,6 +40,7 @@ class PhotoFragment : ViewPagerFragment() {
     private var wasInit = false
     private var storedShowExtendedDetails = false
     private var storedExtendedDetails = 0
+    private var gifDrawable: GifDrawable? = null
 
     lateinit var view: ViewGroup
     lateinit var medium: Medium
@@ -80,18 +80,8 @@ class PhotoFragment : ViewPagerFragment() {
             }
         }
 
-        view.subsampling_view.setOnClickListener({ photoClicked() })
-        view.photo_view.apply {
-            maximumScale = 8f
-            mediumScale = 3f
-            setOnOutsidePhotoTapListener {
-                photoClicked()
-            }
-
-            setOnPhotoTapListener { view, x, y ->
-                photoClicked()
-            }
-        }
+        view.subsampling_view.setOnClickListener { photoClicked() }
+        view.gif_view.setOnClickListener { photoClicked() }
         loadImage()
         checkExtendedDetails()
 
@@ -117,14 +107,30 @@ class PhotoFragment : ViewPagerFragment() {
         super.setMenuVisibility(menuVisible)
         isFragmentVisible = menuVisible
         if (wasInit) {
-            if (menuVisible) {
-                addZoomableView()
+            if (medium.isGif()) {
+                gifFragmentVisibilityChanged(menuVisible)
             } else {
-                view.subsampling_view.apply {
-                    recycle()
-                    beGone()
-                    background = ColorDrawable(Color.TRANSPARENT)
-                }
+                photoFragmentVisibilityChanged(menuVisible)
+            }
+        }
+    }
+
+    private fun gifFragmentVisibilityChanged(isVisible: Boolean) {
+        if (isVisible) {
+            gifDrawable?.start()
+        } else {
+            gifDrawable?.stop()
+        }
+    }
+
+    private fun photoFragmentVisibilityChanged(isVisible: Boolean) {
+        if (isVisible) {
+            addZoomableView()
+        } else {
+            view.subsampling_view.apply {
+                recycle()
+                beGone()
+                background = ColorDrawable(Color.TRANSPARENT)
             }
         }
     }
@@ -149,16 +155,11 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun loadImage() {
         if (medium.isGif()) {
-            val options = RequestOptions()
-                    .priority(if (isFragmentVisible) Priority.IMMEDIATE else Priority.LOW)
-                    .diskCacheStrategy(DiskCacheStrategy.DATA)
+            gifDrawable = GifDrawable(medium.path)
+            if (!isFragmentVisible)
+                gifDrawable!!.stop()
 
-            Glide.with(this)
-                    .asGif()
-                    .load(medium.path)
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .apply(options)
-                    .into(view.photo_view)
+            view.gif_view.setImageDrawable(gifDrawable)
         } else {
             loadBitmap()
         }
@@ -187,7 +188,7 @@ class PhotoFragment : ViewPagerFragment() {
                                 addZoomableView()
                             return false
                         }
-                    }).into(view.photo_view)
+                    }).into(view.gif_view)
         } else {
             val options = RequestOptions()
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
@@ -198,7 +199,7 @@ class PhotoFragment : ViewPagerFragment() {
                     .load(medium.path)
                     .thumbnail(0.2f)
                     .apply(options)
-                    .into(view.photo_view)
+                    .into(view.gif_view)
         }
     }
 
@@ -286,7 +287,7 @@ class PhotoFragment : ViewPagerFragment() {
         super.onDestroyView()
         context.isKitkatPlus()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && !activity.isDestroyed) {
-            Glide.with(context).clear(view.photo_view)
+            Glide.with(context).clear(view.gif_view)
         }
     }
 
