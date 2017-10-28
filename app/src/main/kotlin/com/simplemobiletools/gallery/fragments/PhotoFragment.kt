@@ -156,8 +156,9 @@ class PhotoFragment : ViewPagerFragment() {
     private fun loadImage() {
         if (medium.isGif()) {
             gifDrawable = GifDrawable(medium.path)
-            if (!isFragmentVisible)
+            if (!isFragmentVisible) {
                 gifDrawable!!.stop()
+            }
 
             view.gif_view.setImageDrawable(gifDrawable)
         } else {
