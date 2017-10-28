@@ -250,7 +250,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.slideshow -> initSlideshow()
             R.id.menu_copy_to -> copyMoveTo(true)
             R.id.menu_move_to -> copyMoveTo(false)
-            R.id.menu_open_with -> openFile(Uri.fromFile(getCurrentFile()))
+            R.id.menu_open_with -> openFile(Uri.fromFile(getCurrentFile()), true)
             R.id.menu_hide -> toggleFileVisibility(true)
             R.id.menu_unhide -> toggleFileVisibility(false)
             R.id.menu_share_1 -> shareMedium(getCurrentMedium()!!)
@@ -515,8 +515,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun getCurrentFragment() = (view_pager.adapter as MyPagerAdapter).getCurrentFragment(view_pager.currentItem)
 
     private fun showProperties() {
-        if (getCurrentMedium() != null)
+        if (getCurrentMedium() != null) {
             PropertiesDialog(this, getCurrentPath(), false)
+        }
     }
 
     private fun showOnMap() {
