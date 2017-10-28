@@ -96,7 +96,6 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     override fun onPause() {
         super.onPause()
         pauseVideo()
-        mIsFragmentVisible = false
         mStoredShowExtendedDetails = context.config.showExtendedDetails
         mStoredExtendedDetails = context.config.extendedDetails
     }
