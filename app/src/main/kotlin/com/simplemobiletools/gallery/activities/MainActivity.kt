@@ -125,11 +125,17 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         super.onResume()
         config.isThirdPartyIntent = false
         if (mStoredAnimateGifs != config.animateGifs) {
-            directories_grid.adapter?.notifyDataSetChanged()
+            (directories_grid.adapter as? DirectoryAdapter)?.apply {
+                animateGifs = config.animateGifs
+                notifyDataSetChanged()
+            }
         }
 
         if (mStoredCropThumbnails != config.cropThumbnails) {
-            directories_grid.adapter?.notifyDataSetChanged()
+            (directories_grid.adapter as? DirectoryAdapter)?.apply {
+                cropThumbnails = config.cropThumbnails
+                notifyDataSetChanged()
+            }
         }
 
         if (mStoredShowMediaCount != config.showMediaCount) {

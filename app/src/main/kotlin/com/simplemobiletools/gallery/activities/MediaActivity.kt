@@ -89,12 +89,18 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     override fun onResume() {
         super.onResume()
-        if (mShowAll && mStoredAnimateGifs != config.animateGifs) {
-            media_grid.adapter?.notifyDataSetChanged()
+        if (mStoredAnimateGifs != config.animateGifs) {
+            (media_grid.adapter as? MediaAdapter)?.apply {
+                animateGifs = config.animateGifs
+                notifyDataSetChanged()
+            }
         }
 
         if (mStoredCropThumbnails != config.cropThumbnails) {
-            media_grid.adapter?.notifyDataSetChanged()
+            (media_grid.adapter as? MediaAdapter)?.apply {
+                cropThumbnails = config.cropThumbnails
+                notifyDataSetChanged()
+            }
         }
 
         if (mStoredScrollHorizontally != config.scrollHorizontally) {

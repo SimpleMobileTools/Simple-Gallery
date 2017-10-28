@@ -28,18 +28,21 @@ import java.util.*
 class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>, val listener: MediaOperationsListener?, val isPickIntent: Boolean,
                    val allowMultiplePicks: Boolean, val itemClick: (Medium) -> Unit) : RecyclerView.Adapter<MediaAdapter.ViewHolder>() {
 
-    val multiSelector = MultiSelector()
-    val config = activity.config
-    val isListViewType = config.viewTypeFiles == VIEW_TYPE_LIST
-    var skipConfirmationDialog = false
-
+    private val config = activity.config
     var actMode: ActionMode? = null
-    var itemViews = SparseArray<View>()
-    val selectedPositions = HashSet<Int>()
     var primaryColor = config.primaryColor
-    var textColor = config.textColor
-    var displayFilenames = config.displayFileNames
     var scrollVertically = !config.scrollHorizontally
+    var animateGifs = config.animateGifs
+    var cropThumbnails = config.cropThumbnails
+
+    private val multiSelector = MultiSelector()
+    private val isListViewType = config.viewTypeFiles == VIEW_TYPE_LIST
+    private var skipConfirmationDialog = false
+
+    private var itemViews = SparseArray<View>()
+    private val selectedPositions = HashSet<Int>()
+    private var textColor = config.textColor
+    private var displayFilenames = config.displayFileNames
 
     fun toggleItemSelection(select: Boolean, pos: Int) {
         if (select) {
@@ -284,7 +287,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        itemViews.put(position, holder.bindView(media[position], displayFilenames, scrollVertically, isListViewType, textColor))
+        itemViews.put(position, holder.bindView(media[position], displayFilenames, scrollVertically, isListViewType, textColor, animateGifs, cropThumbnails))
         toggleItemSelection(selectedPositions.contains(position), position)
         holder.itemView.tag = holder
     }
@@ -355,12 +358,13 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                      val multiSelector: MultiSelector, val listener: MediaOperationsListener?, val allowMultiplePicks: Boolean,
                      val itemClick: (Medium) -> (Unit)) :
             SwappingHolder(view, MultiSelector()) {
-        fun bindView(medium: Medium, displayFilenames: Boolean, scrollVertically: Boolean, isListViewType: Boolean, textColor: Int): View {
+        fun bindView(medium: Medium, displayFilenames: Boolean, scrollVertically: Boolean, isListViewType: Boolean, textColor: Int,
+                     animateGifs: Boolean, cropThumbnails: Boolean): View {
             itemView.apply {
                 play_outline.visibility = if (medium.video) View.VISIBLE else View.GONE
                 photo_name.beVisibleIf(displayFilenames || isListViewType)
                 photo_name.text = medium.name
-                activity.loadImage(medium.path, medium_thumbnail, scrollVertically)
+                activity.loadImage(medium.path, medium_thumbnail, scrollVertically, animateGifs, cropThumbnails)
 
                 if (isListViewType) {
                     photo_name.setTextColor(textColor)

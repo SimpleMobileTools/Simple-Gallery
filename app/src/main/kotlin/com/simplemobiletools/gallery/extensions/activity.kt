@@ -6,6 +6,7 @@ import android.net.Uri
 import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -22,6 +23,7 @@ import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
 import com.simplemobiletools.gallery.views.MySquareImageView
+import pl.droidsonroids.gif.GifDrawable
 import java.io.File
 import java.util.*
 
@@ -199,24 +201,28 @@ fun SimpleActivity.toggleFileVisibility(oldFile: File, hide: Boolean, callback: 
     }
 }
 
-fun Activity.loadImage(path: String, target: MySquareImageView, verticalScroll: Boolean) {
+fun Activity.loadImage(path: String, target: MySquareImageView, verticalScroll: Boolean, animateGifs: Boolean, cropThumbnails: Boolean) {
     target.isVerticalScrolling = verticalScroll
     if (path.isImageFast() || path.isVideoFast()) {
         if (path.isPng()) {
-            loadPng(path, target)
+            loadPng(path, target, cropThumbnails)
         } else {
-            loadJpg(path, target)
+            loadJpg(path, target, cropThumbnails)
         }
     } else if (path.isGif()) {
-        if (config.animateGifs) {
-            loadAnimatedGif(path, target)
+        val gifDrawable = GifDrawable(path)
+        target.setImageDrawable(gifDrawable)
+        if (animateGifs) {
+            gifDrawable.start()
         } else {
-            loadStaticGif(path, target)
+            gifDrawable.stop()
         }
+
+        target.scaleType = if (cropThumbnails) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
     }
 }
 
-fun Activity.loadPng(path: String, target: MySquareImageView) {
+fun Activity.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boolean) {
     val options = RequestOptions()
             .signature(path.getFileSignature())
             .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
@@ -226,11 +232,11 @@ fun Activity.loadPng(path: String, target: MySquareImageView) {
             .asBitmap()
             .load(path)
 
-    if (config.cropThumbnails) options.centerCrop() else options.fitCenter()
+    if (cropThumbnails) options.centerCrop() else options.fitCenter()
     builder.apply(options).into(target)
 }
 
-fun Activity.loadJpg(path: String, target: MySquareImageView) {
+fun Activity.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boolean) {
     val options = RequestOptions()
             .signature(path.getFileSignature())
             .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
@@ -238,34 +244,8 @@ fun Activity.loadJpg(path: String, target: MySquareImageView) {
     val builder = Glide.with(applicationContext)
             .load(path)
 
-    if (config.cropThumbnails) options.centerCrop() else options.fitCenter()
+    if (cropThumbnails) options.centerCrop() else options.fitCenter()
     builder.apply(options).transition(DrawableTransitionOptions.withCrossFade()).into(target)
-}
-
-fun Activity.loadAnimatedGif(path: String, target: MySquareImageView) {
-    val options = RequestOptions()
-            .signature(path.getFileSignature())
-            .diskCacheStrategy(DiskCacheStrategy.NONE)
-
-    val builder = Glide.with(applicationContext)
-            .asGif()
-            .load(path)
-
-    if (config.cropThumbnails) options.centerCrop() else options.fitCenter()
-    builder.apply(options).transition(DrawableTransitionOptions.withCrossFade()).into(target)
-}
-
-fun Activity.loadStaticGif(path: String, target: MySquareImageView) {
-    val options = RequestOptions()
-            .signature(path.getFileSignature())
-            .diskCacheStrategy(DiskCacheStrategy.DATA)
-
-    val builder = Glide.with(applicationContext)
-            .asBitmap()
-            .load(path)
-
-    if (config.cropThumbnails) options.centerCrop() else options.fitCenter()
-    builder.apply(options).into(target)
 }
 
 fun Activity.getCachedDirectories(): ArrayList<Directory> {
