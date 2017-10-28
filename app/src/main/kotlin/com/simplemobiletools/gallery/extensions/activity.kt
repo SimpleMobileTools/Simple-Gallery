@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.extensions
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
+import android.os.TransactionTooLargeException
 import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -61,7 +62,11 @@ fun Activity.shareMedia(media: List<Medium>) {
         type = uris.getMimeType()
         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris)
-        startActivity(Intent.createChooser(this, shareTitle))
+        try {
+            startActivity(Intent.createChooser(this, shareTitle))
+        } catch (e: TransactionTooLargeException) {
+            toast(R.string.maximum_share_reached)
+        }
     }
 }
 
