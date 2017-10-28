@@ -201,8 +201,8 @@ fun SimpleActivity.toggleFileVisibility(oldFile: File, hide: Boolean, callback: 
     }
 }
 
-fun Activity.loadImage(path: String, target: MySquareImageView, verticalScroll: Boolean, animateGifs: Boolean, cropThumbnails: Boolean) {
-    target.isVerticalScrolling = verticalScroll
+fun Activity.loadImage(path: String, target: MySquareImageView, horizontalScroll: Boolean, animateGifs: Boolean, cropThumbnails: Boolean) {
+    target.isHorizontalScrolling = horizontalScroll
     if (path.isImageFast() || path.isVideoFast()) {
         if (path.isPng()) {
             loadPng(path, target, cropThumbnails)

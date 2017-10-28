@@ -125,36 +125,24 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         super.onResume()
         config.isThirdPartyIntent = false
         if (mStoredAnimateGifs != config.animateGifs) {
-            (directories_grid.adapter as? DirectoryAdapter)?.apply {
-                animateGifs = config.animateGifs
-                notifyDataSetChanged()
-            }
+            getDirectoryAdapter()?.updateAnimateGifs(config.animateGifs)
         }
 
         if (mStoredCropThumbnails != config.cropThumbnails) {
-            (directories_grid.adapter as? DirectoryAdapter)?.apply {
-                cropThumbnails = config.cropThumbnails
-                notifyDataSetChanged()
-            }
+            getDirectoryAdapter()?.updateCropThumbnails(config.cropThumbnails)
         }
 
         if (mStoredShowMediaCount != config.showMediaCount) {
-            (directories_grid.adapter as? DirectoryAdapter)?.apply {
-                showMediaCount = config.showMediaCount
-                notifyDataSetChanged()
-            }
+            getDirectoryAdapter()?.updateShowMediaCount(config.showMediaCount)
         }
 
         if (mStoredScrollHorizontally != config.scrollHorizontally) {
-            (directories_grid.adapter as? DirectoryAdapter)?.apply {
-                scrollVertically = config.viewTypeFolders == VIEW_TYPE_LIST || !config.scrollHorizontally
-                notifyDataSetChanged()
-            }
+            getDirectoryAdapter()?.updateScrollHorizontally(config.viewTypeFolders != VIEW_TYPE_LIST && config.scrollHorizontally)
             setupScrollDirection()
         }
 
         if (mStoredTextColor != config.textColor) {
-            (directories_grid.adapter as? DirectoryAdapter)?.updateTextColor(config.textColor)
+            getDirectoryAdapter()?.updateTextColor(config.textColor)
         }
 
         tryloadGallery()
@@ -182,6 +170,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         config.temporarilyShowHidden = false
         removeTempFolder()
     }
+
+    private fun getDirectoryAdapter() = directories_grid.adapter as? DirectoryAdapter
 
     private fun storeStateVariables() {
         config.apply {

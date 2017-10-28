@@ -90,29 +90,20 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     override fun onResume() {
         super.onResume()
         if (mStoredAnimateGifs != config.animateGifs) {
-            (media_grid.adapter as? MediaAdapter)?.apply {
-                animateGifs = config.animateGifs
-                notifyDataSetChanged()
-            }
+            getMediaAdapter()?.updateAnimateGifs(config.animateGifs)
         }
 
         if (mStoredCropThumbnails != config.cropThumbnails) {
-            (media_grid.adapter as? MediaAdapter)?.apply {
-                cropThumbnails = config.cropThumbnails
-                notifyDataSetChanged()
-            }
+            getMediaAdapter()?.updateCropThumbnails(config.cropThumbnails)
         }
 
         if (mStoredScrollHorizontally != config.scrollHorizontally) {
-            (media_grid.adapter as? MediaAdapter)?.apply {
-                scrollVertically = config.viewTypeFiles == VIEW_TYPE_LIST || !config.scrollHorizontally
-                notifyDataSetChanged()
-            }
+            getMediaAdapter()?.updateScrollHorizontally(config.viewTypeFiles != VIEW_TYPE_LIST || !config.scrollHorizontally)
             setupScrollDirection()
         }
 
         if (mStoredTextColor != config.textColor) {
-            (media_grid.adapter as? MediaAdapter)?.updateTextColor(config.textColor)
+            getMediaAdapter()?.updateTextColor(config.textColor)
         }
 
         tryloadGallery()
@@ -158,6 +149,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             }
         }
     }
+
+    private fun getMediaAdapter() = media_grid.adapter as? MediaAdapter
 
     private fun checkIfColorChanged() {
         if (media_grid.adapter != null && getRecyclerAdapter().primaryColor != config.primaryColor) {

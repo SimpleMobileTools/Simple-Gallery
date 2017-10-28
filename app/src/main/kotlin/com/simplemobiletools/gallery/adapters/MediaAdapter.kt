@@ -31,9 +31,6 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     private val config = activity.config
     var actMode: ActionMode? = null
     var primaryColor = config.primaryColor
-    var scrollVertically = !config.scrollHorizontally
-    var animateGifs = config.animateGifs
-    var cropThumbnails = config.cropThumbnails
 
     private val multiSelector = MultiSelector()
     private val isListViewType = config.viewTypeFiles == VIEW_TYPE_LIST
@@ -41,6 +38,9 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
     private var itemViews = SparseArray<View>()
     private val selectedPositions = HashSet<Int>()
+    private var scrollHorizontally = config.scrollHorizontally
+    private var animateGifs = config.animateGifs
+    private var cropThumbnails = config.cropThumbnails
     private var textColor = config.textColor
     private var displayFilenames = config.displayFileNames
 
@@ -287,7 +287,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        itemViews.put(position, holder.bindView(media[position], displayFilenames, scrollVertically, isListViewType, textColor, animateGifs, cropThumbnails))
+        itemViews.put(position, holder.bindView(media[position], displayFilenames, scrollHorizontally, isListViewType, textColor, animateGifs, cropThumbnails))
         toggleItemSelection(selectedPositions.contains(position), position)
         holder.itemView.tag = holder
     }
@@ -307,6 +307,21 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
     fun updateDisplayFilenames(display: Boolean) {
         displayFilenames = display
+        notifyDataSetChanged()
+    }
+
+    fun updateAnimateGifs(animateGifs: Boolean) {
+        this.animateGifs = animateGifs
+        notifyDataSetChanged()
+    }
+
+    fun updateCropThumbnails(cropThumbnails: Boolean) {
+        this.cropThumbnails = cropThumbnails
+        notifyDataSetChanged()
+    }
+
+    fun updateScrollHorizontally(scrollHorizontally: Boolean) {
+        this.scrollHorizontally = scrollHorizontally
         notifyDataSetChanged()
     }
 
@@ -358,13 +373,13 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                      val multiSelector: MultiSelector, val listener: MediaOperationsListener?, val allowMultiplePicks: Boolean,
                      val itemClick: (Medium) -> (Unit)) :
             SwappingHolder(view, MultiSelector()) {
-        fun bindView(medium: Medium, displayFilenames: Boolean, scrollVertically: Boolean, isListViewType: Boolean, textColor: Int,
+        fun bindView(medium: Medium, displayFilenames: Boolean, scrollHorizontally: Boolean, isListViewType: Boolean, textColor: Int,
                      animateGifs: Boolean, cropThumbnails: Boolean): View {
             itemView.apply {
                 play_outline.visibility = if (medium.video) View.VISIBLE else View.GONE
                 photo_name.beVisibleIf(displayFilenames || isListViewType)
                 photo_name.text = medium.name
-                activity.loadImage(medium.path, medium_thumbnail, scrollVertically, animateGifs, cropThumbnails)
+                activity.loadImage(medium.path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
 
                 if (isListViewType) {
                     photo_name.setTextColor(textColor)
