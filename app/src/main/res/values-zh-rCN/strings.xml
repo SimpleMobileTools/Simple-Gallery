@@ -30,7 +30,7 @@
     <!-- Filter -->
     <string name="filter_media">要显示的媒体文件</string>
     <string name="images">图片</string>
-    <string name="videos">适配</string>
+    <string name="videos">视频</string>
     <string name="gifs">GIFs</string>
     <string name="no_media_with_filters">所选的过滤器没有找到媒体文件。</string>
     <string name="change_filters_underlined"><u>更改过滤器</u></string>
@@ -44,7 +44,7 @@
     <string name="exclude_folder_parent">是否排除父目录？</string>
     <string name="excluded_activity_placeholder">此目录及其子目录中的媒体将不会在“简约图库”中显示，但是其它应用可以访问。如果您想对其它应用隐藏，请使用隐藏功能。</string>
     <string name="remove_all">移除全部</string>
-    <string name="remove_all_description">是否删除排除列表中的所有文件夹？此操作不会删除文件夹。</string>
+    <string name="remove_all_description">是否删除排除列表中的所有项目？此操作不会删除文件夹本身。</string>
 
     <!-- Include folders -->
     <string name="include_folders">包含目录</string>
@@ -116,7 +116,7 @@
     <string name="animate_gifs">GIF 缩略图</string>
     <string name="max_brightness">浏览时最大亮度</string>
     <string name="crop_thumbnails">裁剪缩略图</string>
-    <string name="screen_rotation_by">全屏时方向</string>
+    <string name="screen_rotation_by">全屏方向</string>
     <string name="screen_rotation_system_setting">系统设置</string>
     <string name="screen_rotation_device_rotation">设备方向</string>
     <string name="screen_rotation_aspect_ratio">根据长宽比</string>
@@ -141,6 +141,38 @@
         应用不包含广告与不必要的权限。它是完全开放源代码的，并内置自定义颜色主题。
 
         这个应用只是一系列应用中的一小部份。您可以在 http://www.simplemobiletools.com 找到其余的应用。
+
+    <!-- Add missing strings translation-->
+    <string name="add_fingerprint">添加指纹</string>
+    <string name="an_error_occurred">啊哦，出错啦: %s</string>
+    <string name="authentication_blocked">验证已被阻止，请稍后再试</string>
+    <string name="authentication_failed">验证失败</string>
+    <string name="confirm_selection">确认选择</string>
+    <string name="could_not_create_file">创建文件 %s 失败</string>
+    <string name="could_not_create_folder">创建文件夹 %s 失败</string>
+    <string name="enter_pin">输入密码</string>
+    <string name="extra_large">超大</string>
+    <string name="fingerprint">指纹</string>
+    <string name="fingerprint_setup_successfully">保护设置成功。请重新安装本应用，以防重设时出现问题。</string>
+    <string name="font_size">字体大小</string>
+    <string name="go_to_settings">去设置</string>
+    <string name="gruveo">"你在寻找一个简单而匿名的视频通话应用吗？请尝试我的另一个项目"</string>
+    <string name="insert_pattern">绘制图案</string>
+    <string name="large">大</string>
+    <string name="medium">中</string>
+    <string name="no_fingerprints_registered">您还没有注册指纹，请先给你的设备添加一些指纹</string>
+    <string name="password_protect_hidden_items">使用密码保护隐藏项</string>
+    <string name="pattern">图案</string>
+    <string name="pin">密码</string>
+    <string name="place_finger">请将手指放在指纹传感器上</string>
+    <string name="please_enter_pin">请输入密码</string>
+    <string name="protection_setup_successfully">密码设置成功。为防止遗忘，请重新安装本应用。</string>
+    <string name="repeat_pattern">重复图案</string>
+    <string name="repeat_pin">重复密码</string>
+    <string name="small">小</string>
+    <string name="stop_showing_hidden">不显示隐藏的媒体文件</string>
+    <string name="wrong_pattern">图案错误</string>
+    <string name="wrong_pin">密码错误</string>
     </string>
 
     <!--
