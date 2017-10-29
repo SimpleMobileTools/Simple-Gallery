@@ -82,7 +82,10 @@ fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Direct
 fun Context.getMimeTypeFromUri(uri: Uri): String {
     var mimetype = uri.path.getMimeTypeFromPath()
     if (mimetype.isEmpty()) {
-        mimetype = contentResolver.getType(uri)
+        try {
+            mimetype = contentResolver.getType(uri)
+        } catch (e: IllegalStateException) {
+        }
     }
     return mimetype
 }
