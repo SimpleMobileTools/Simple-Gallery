@@ -33,8 +33,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     private var mIsFullScreen = false
     private var mIsFromGallery = false
     private var mFragment: ViewPagerFragment? = null
-
-    lateinit var mUri: Uri
+    private var mUri: Uri? = null
 
     var mIsVideo = false
 
@@ -59,15 +58,15 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
         mIsFromGallery = intent.getBooleanExtra(IS_FROM_GALLERY, false)
 
-        if (mUri.scheme == "file") {
-            scanPath(mUri.path) {}
-            sendViewPagerIntent(mUri.path)
+        if (mUri!!.scheme == "file") {
+            scanPath(mUri!!.path) {}
+            sendViewPagerIntent(mUri!!.path)
             finish()
             return
         } else {
-            val path = applicationContext.getRealPathFromURI(mUri) ?: ""
+            val path = applicationContext.getRealPathFromURI(mUri!!) ?: ""
             if (path != mUri.toString()) {
-                scanPath(mUri.path) {}
+                scanPath(mUri!!.path) {}
                 if (path.isNotEmpty()) {
                     sendViewPagerIntent(path)
                     finish()
@@ -79,7 +78,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         showSystemUI()
         val bundle = Bundle()
         val file = File(mUri.toString())
-        mMedium = Medium(getFilenameFromUri(mUri), mUri.toString(), mIsVideo, 0, 0, file.length())
+        mMedium = Medium(getFilenameFromUri(mUri!!), mUri.toString(), mIsVideo, 0, 0, file.length())
         title = mMedium!!.name
         bundle.putSerializable(MEDIUM, mMedium)
 
@@ -119,7 +118,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
         menu.findItem(R.id.menu_set_as).isVisible = mMedium?.isImage() == true
         menu.findItem(R.id.menu_edit).isVisible = mMedium?.isImage() == true
-        menu.findItem(R.id.menu_edit).isVisible = mUri.scheme == "file"
+        menu.findItem(R.id.menu_edit).isVisible = mUri?.scheme == "file"
 
         return true
     }
@@ -129,10 +128,10 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             return true
 
         when (item.itemId) {
-            R.id.menu_set_as -> setAs(mUri)
-            R.id.menu_open_with -> openFile(mUri, true)
-            R.id.menu_share -> shareUri(mUri)
-            R.id.menu_edit -> openEditor(mUri)
+            R.id.menu_set_as -> setAs(mUri!!)
+            R.id.menu_open_with -> openFile(mUri!!, true)
+            R.id.menu_share -> shareUri(mUri!!)
+            R.id.menu_edit -> openEditor(mUri!!)
             R.id.menu_properties -> showProperties()
             else -> return super.onOptionsItemSelected(item)
         }
@@ -140,7 +139,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     }
 
     private fun showProperties() {
-        PropertiesDialog(this, mUri.path)
+        PropertiesDialog(this, mUri!!.path)
     }
 
     override fun fragmentClicked() {
