@@ -14,6 +14,7 @@ import com.simplemobiletools.commons.extensions.getRealPathFromURI
 import com.simplemobiletools.commons.extensions.scanPath
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
+import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.fragments.PhotoFragment
@@ -22,7 +23,6 @@ import com.simplemobiletools.gallery.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.helpers.IS_FROM_GALLERY
 import com.simplemobiletools.gallery.helpers.IS_VIEW_INTENT
 import com.simplemobiletools.gallery.helpers.MEDIUM
-import com.simplemobiletools.gallery.helpers.REAL_FILE_PATH
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.fragment_holder.*
 import java.io.File
