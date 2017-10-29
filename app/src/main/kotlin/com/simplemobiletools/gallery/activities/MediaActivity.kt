@@ -506,7 +506,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                 openFile(Uri.fromFile(file), false)
             } else {
                 Intent(this, ViewPagerActivity::class.java).apply {
-                    putExtra(MEDIUM, path)
+                    putExtra(PATH, path)
                     putExtra(SHOW_ALL, mShowAll)
                     startActivity(this)
                 }

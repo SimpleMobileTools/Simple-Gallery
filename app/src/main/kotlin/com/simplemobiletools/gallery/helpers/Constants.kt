@@ -59,6 +59,7 @@ val NOMEDIA = ".nomedia"
 
 val DIRECTORY = "directory"
 val MEDIUM = "medium"
+val PATH = "path"
 val GET_IMAGE_INTENT = "get_image_intent"
 val GET_VIDEO_INTENT = "get_video_intent"
 val GET_ANY_INTENT = "get_any_intent"

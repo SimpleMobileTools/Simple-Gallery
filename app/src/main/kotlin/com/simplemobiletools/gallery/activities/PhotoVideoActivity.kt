@@ -23,6 +23,7 @@ import com.simplemobiletools.gallery.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.helpers.IS_FROM_GALLERY
 import com.simplemobiletools.gallery.helpers.IS_VIEW_INTENT
 import com.simplemobiletools.gallery.helpers.MEDIUM
+import com.simplemobiletools.gallery.helpers.PATH
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.fragment_holder.*
 import java.io.File
@@ -108,7 +109,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         Intent(this, ViewPagerActivity::class.java).apply {
             putExtra(IS_VIEW_INTENT, true)
             putExtra(IS_FROM_GALLERY, mIsFromGallery)
-            putExtra(MEDIUM, path)
+            putExtra(PATH, path)
             startActivity(this)
         }
     }

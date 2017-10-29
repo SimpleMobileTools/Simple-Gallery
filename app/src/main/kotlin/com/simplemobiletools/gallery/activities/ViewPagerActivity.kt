@@ -101,7 +101,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         } else {
             try {
-                mPath = intent.getStringExtra(MEDIUM)
+                mPath = intent.getStringExtra(PATH)
                 mShowAll = config.showAll
             } catch (e: Exception) {
                 showErrorToast(e)
