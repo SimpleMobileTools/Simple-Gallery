@@ -4,8 +4,6 @@
     <string name="app_launcher_name">Галерея</string>
     <string name="edit">Редактировать</string>
     <string name="open_camera">Открыть камеру</string>
-    <string name="open_with">Открыть в</string>
-    <string name="no_app_found">Приложение не найдено</string>
     <string name="hidden">(Скрытый)</string>
     <string name="pin_folder">Закрепить папку</string>
     <string name="unpin_folder">Открепить папку</string>

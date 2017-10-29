@@ -4,8 +4,6 @@
     <string name="app_launcher_name">Galerie</string>
     <string name="edit">Upravit</string>
     <string name="open_camera">Spustit fotoaparát</string>
-    <string name="open_with">Otevřít pomocí</string>
-    <string name="no_app_found">Nebyla nalezena žádná vhodná aplikace</string>
     <string name="hidden">(skryté)</string>
     <string name="pin_folder">Připnout složku</string>
     <string name="unpin_folder">Odepnout složku</string>

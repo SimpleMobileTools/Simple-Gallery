@@ -4,8 +4,6 @@
     <string name="app_launcher_name">简约图库</string>
     <string name="edit">编辑</string>
     <string name="open_camera">打开相机</string>
-    <string name="open_with">打开方式</string>
-    <string name="no_app_found">未找到可用应用</string>
     <string name="hidden">（隐藏）</string>
     <string name="pin_folder">锁定目录</string>
     <string name="unpin_folder">解除锁定目录</string>

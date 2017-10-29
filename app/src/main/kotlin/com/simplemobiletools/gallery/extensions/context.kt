@@ -78,23 +78,3 @@ fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Direct
     dirs.sort()
     return movePinnedDirectoriesToFront(dirs)
 }
-
-fun Context.getMimeTypeFromUri(uri: Uri): String {
-    var mimetype = uri.path.getMimeTypeFromPath()
-    if (mimetype.isEmpty()) {
-        try {
-            mimetype = contentResolver.getType(uri)
-        } catch (e: IllegalStateException) {
-        }
-    }
-    return mimetype
-}
-
-fun Context.ensurePublicUri(uri: Uri): Uri {
-    return if (uri.scheme == "content") {
-        uri
-    } else {
-        val file = File(uri.path)
-        getFilePublicUri(file, BuildConfig.APPLICATION_ID)
-    }
-}

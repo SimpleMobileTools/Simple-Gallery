@@ -4,8 +4,6 @@
     <string name="app_launcher_name">Gallerij</string>
     <string name="edit">Bewerken</string>
     <string name="open_camera">Camera</string>
-    <string name="open_with">Openen met</string>
-    <string name="no_app_found">Geen app gevonden om dit bestand mee te openen</string>
     <string name="hidden">(verborgen)</string>
     <string name="pin_folder">Map vastzetten</string>
     <string name="unpin_folder">Map losmaken</string>

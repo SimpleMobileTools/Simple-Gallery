@@ -4,8 +4,6 @@
     <string name="app_launcher_name">Galería</string>
     <string name="edit">Editar</string>
     <string name="open_camera">Abrir cámara</string>
-    <string name="open_with">Abrir con&#8230;</string>
-    <string name="no_app_found">No se encontró una aplicación válida</string>
     <string name="hidden">(oculto)</string>
     <string name="pin_folder">Fijar carpeta</string>
     <string name="unpin_folder">No fijar carpeta</string>

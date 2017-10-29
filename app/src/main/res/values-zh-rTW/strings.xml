@@ -4,8 +4,6 @@
     <string name="app_launcher_name">簡易相簿</string>
     <string name="edit">編輯</string>
     <string name="open_camera">開啟相機</string>
-    <string name="open_with">以其他應用程式開啟</string>
-    <string name="no_app_found">找不到應用程式</string>
     <string name="hidden">(隱藏)</string>
     <string name="pin_folder">釘選資料夾</string>
     <string name="unpin_folder">取消釘選資料夾</string>

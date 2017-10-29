@@ -4,8 +4,6 @@
     <string name="app_launcher_name">Galerie</string>
     <string name="edit">Édition</string>
     <string name="open_camera">Ouvrir appareil photo</string>
-    <string name="open_with">Ouvrir avec</string>
-    <string name="no_app_found">Aucune application valide trouvée</string>
     <string name="hidden">(caché)</string>
     <string name="pin_folder">Épingler le dossier</string>
     <string name="unpin_folder">Désépingler le dossier</string>

@@ -4,8 +4,6 @@
     <string name="app_launcher_name">Galleri</string>
     <string name="edit">Redigera</string>
     <string name="open_camera">Starta kameran</string>
-    <string name="open_with">Öppna med</string>
-    <string name="no_app_found">Hittade ingen giltig app</string>
     <string name="hidden">(dold)</string>
     <string name="pin_folder">Fäst mappen</string>
     <string name="unpin_folder">Släpp mappen</string>

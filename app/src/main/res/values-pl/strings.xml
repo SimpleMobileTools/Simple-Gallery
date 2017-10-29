@@ -4,8 +4,6 @@
     <string name="app_launcher_name">Simple Gallery</string>
     <string name="edit">Edytuj</string>
     <string name="open_camera">Uruchom aplikację aparatu</string>
-    <string name="open_with">Otwórz w</string>
-    <string name="no_app_found">Nie znaleziono danych aplikacji</string>
     <string name="hidden">(ukryty)</string>
     <string name="pin_folder">Przypnij folder</string>
     <string name="unpin_folder">Wypakuj folder</string>

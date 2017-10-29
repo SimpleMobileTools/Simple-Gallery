@@ -26,6 +26,7 @@ import android.view.animation.DecelerateInterpolator
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.IS_FROM_GALLERY
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.MediaActivity.Companion.mMedia
