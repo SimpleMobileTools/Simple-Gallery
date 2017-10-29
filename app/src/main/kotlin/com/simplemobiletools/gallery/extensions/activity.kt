@@ -42,17 +42,8 @@ fun Activity.shareUri(uri: Uri) {
 }
 
 fun Activity.shareMedium(medium: Medium) {
-    val shareTitle = resources.getString(R.string.share_via)
     val file = File(medium.path)
-    val uri = getFilePublicUri(file, BuildConfig.APPLICATION_ID)
-
-    Intent().apply {
-        action = Intent.ACTION_SEND
-        putExtra(Intent.EXTRA_STREAM, uri)
-        type = getMimeTypeFromUri(uri)
-        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        startActivity(Intent.createChooser(this, shareTitle))
-    }
+    shareUri(Uri.fromFile(file))
 }
 
 fun Activity.shareMedia(media: List<Medium>) {
