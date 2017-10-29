@@ -24,6 +24,7 @@ import com.davemorrissey.labs.subscaleview.ImageSource
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.activities.PhotoActivity
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
@@ -48,10 +49,14 @@ class PhotoFragment : ViewPagerFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         view = inflater.inflate(R.layout.pager_photo_item, container, false) as ViewGroup
 
+        if (!isFragmentVisible && activity is PhotoActivity) {
+            isFragmentVisible = true
+        }
+
         medium = arguments.getSerializable(MEDIUM) as Medium
         if (medium.path.startsWith("content://")) {
             val originalPath = medium.path
-            medium.path = context.getRealPathFromURI(Uri.parse(originalPath)) ?: ""
+            medium.path = context.getRealPathFromURI(Uri.parse(originalPath)) ?: medium.path
 
             if (medium.path.isEmpty()) {
                 var out: FileOutputStream? = null
@@ -155,7 +160,12 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun loadImage() {
         if (medium.isGif()) {
-            gifDrawable = GifDrawable(medium.path)
+            gifDrawable = if (medium.path.startsWith("content://") || medium.path.startsWith("file://")) {
+                GifDrawable(context.contentResolver, Uri.parse(medium.path))
+            } else {
+                GifDrawable(medium.path)
+            }
+
             if (!isFragmentVisible) {
                 gifDrawable!!.stop()
             }
