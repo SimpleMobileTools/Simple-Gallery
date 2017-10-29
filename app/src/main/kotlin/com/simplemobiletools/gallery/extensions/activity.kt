@@ -41,15 +41,8 @@ fun Activity.shareUri(uri: Uri) {
     }
 }
 
-fun Activity.shareMedium(medium: Medium) {
-    val file = File(medium.path)
-    shareUri(Uri.fromFile(file))
-}
-
-fun Activity.shareMedia(media: List<Medium>) {
+fun Activity.shareUris(uris: ArrayList<Uri>) {
     val shareTitle = resources.getString(R.string.share_via)
-    val uris = media.map { getFilePublicUri(File(it.path), BuildConfig.APPLICATION_ID) } as ArrayList
-
     Intent().apply {
         action = Intent.ACTION_SEND_MULTIPLE
         type = uris.getMimeType()
@@ -61,6 +54,16 @@ fun Activity.shareMedia(media: List<Medium>) {
             toast(R.string.maximum_share_reached)
         }
     }
+}
+
+fun Activity.shareMedium(medium: Medium) {
+    val file = File(medium.path)
+    shareUri(Uri.fromFile(file))
+}
+
+fun Activity.shareMedia(media: List<Medium>) {
+    val uris = media.map { getFilePublicUri(File(it.path), BuildConfig.APPLICATION_ID) } as ArrayList
+    shareUris(uris)
 }
 
 fun Activity.setAs(uri: Uri) {
