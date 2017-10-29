@@ -233,8 +233,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         menu.apply {
             findItem(R.id.menu_share_1).isVisible = !config.replaceShare
             findItem(R.id.menu_share_2).isVisible = config.replaceShare
-            findItem(R.id.menu_set_as).isVisible = currentMedium.isImage()
-            findItem(R.id.menu_edit).isVisible = currentMedium.isImage()
             findItem(R.id.menu_rotate).isVisible = currentMedium.isImage()
             findItem(R.id.menu_save_as).isVisible = mRotationDegrees != 0f
             findItem(R.id.menu_hide).isVisible = !currentMedium.name.startsWith('.')
