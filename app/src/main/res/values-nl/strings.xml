@@ -126,7 +126,6 @@
     <string name="replace_share_with_rotate">Menu-item Draaien vastzetten in volledige weergave (in plaats van Delen)</string>
     <string name="show_extended_details">Uitgebreide informatie tonen in volledige weergave</string>
     <string name="manage_extended_details">Uitgebreide informatie</string>
-    <string name="keep_last_modified">Datum laatst gewijzigd behouden bij bestandsoperaties</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

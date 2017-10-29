@@ -126,7 +126,6 @@
     <string name="replace_share_with_rotate">Substituir a opção Partilhar pela opção Rodar se em ecrã completo</string>
     <string name="show_extended_details">Mostrar detalhes se em ecrã completo</string>
     <string name="manage_extended_details">Gerir detalhes exibidos</string>
-    <string name="keep_last_modified">Keep old last-modified value at file copy/move/rename</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
