@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 2.17.1 *(2017-10-29)*
+----------------------------
+
+ * Show "Set As" and "Edit" menu buttons at videos and gifs too
+ * Couple other smaller issues fixed
+
 Version 2.17.0 *(2017-10-28)*
 ----------------------------
 
