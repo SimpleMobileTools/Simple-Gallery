@@ -20,7 +20,6 @@
     <string name="change_cover_image">Change cover image</string>
     <string name="select_photo">Select photo</string>
     <string name="use_default">Use default</string>
-    <string name="set_as">Nastavit jako</string>
     <string name="volume">Volume</string>
     <string name="brightness">Brightness</string>
     <string name="do_not_ask_again">Do not ask again in this session</string>

@@ -20,7 +20,6 @@
     <string name="change_cover_image">Cambiar imagen de portada</string>
     <string name="select_photo">Seleccionar imagen</string>
     <string name="use_default">Uso por defecto</string>
-    <string name="set_as">Establecer como</string>
     <string name="volume">Volume</string>
     <string name="brightness">Brightness</string>
     <string name="do_not_ask_again">Do not ask again in this session</string>

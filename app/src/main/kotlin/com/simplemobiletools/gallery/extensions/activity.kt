@@ -3,7 +3,6 @@ package com.simplemobiletools.gallery.extensions
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
-import android.os.TransactionTooLargeException
 import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -21,8 +20,6 @@ import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.helpers.NOMEDIA
-import com.simplemobiletools.gallery.helpers.REQUEST_EDIT_IMAGE
-import com.simplemobiletools.gallery.helpers.REQUEST_SET_AS
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
 import com.simplemobiletools.gallery.views.MySquareImageView
@@ -31,29 +28,11 @@ import java.io.File
 import java.util.*
 
 fun Activity.shareUri(uri: Uri) {
-    val shareTitle = resources.getString(R.string.share_via)
-    Intent().apply {
-        action = Intent.ACTION_SEND
-        putExtra(Intent.EXTRA_STREAM, ensurePublicUri(uri, BuildConfig.APPLICATION_ID))
-        type = getMimeTypeFromUri(uri)
-        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        startActivity(Intent.createChooser(this, shareTitle))
-    }
+    shareUri(uri, BuildConfig.APPLICATION_ID)
 }
 
 fun Activity.shareUris(uris: ArrayList<Uri>) {
-    val shareTitle = resources.getString(R.string.share_via)
-    Intent().apply {
-        action = Intent.ACTION_SEND_MULTIPLE
-        type = uris.getMimeType()
-        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris)
-        try {
-            startActivity(Intent.createChooser(this, shareTitle))
-        } catch (e: TransactionTooLargeException) {
-            toast(R.string.maximum_share_reached)
-        }
-    }
+    shareUris(uris, BuildConfig.APPLICATION_ID)
 }
 
 fun Activity.shareMedium(medium: Medium) {
@@ -67,19 +46,7 @@ fun Activity.shareMedia(media: List<Medium>) {
 }
 
 fun Activity.setAs(uri: Uri) {
-    val newUri = ensurePublicUri(uri, BuildConfig.APPLICATION_ID)
-    Intent().apply {
-        action = Intent.ACTION_ATTACH_DATA
-        setDataAndType(newUri, getMimeTypeFromUri(newUri))
-        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        val chooser = Intent.createChooser(this, getString(R.string.set_as))
-
-        if (resolveActivity(packageManager) != null) {
-            startActivityForResult(chooser, REQUEST_SET_AS)
-        } else {
-            toast(R.string.no_capable_app_found)
-        }
-    }
+    setAs(uri, BuildConfig.APPLICATION_ID)
 }
 
 fun Activity.openFile(uri: Uri, forceChooser: Boolean) {
@@ -87,22 +54,7 @@ fun Activity.openFile(uri: Uri, forceChooser: Boolean) {
 }
 
 fun Activity.openEditor(uri: Uri) {
-    val newUri = ensurePublicUri(uri, BuildConfig.APPLICATION_ID)
-    Intent().apply {
-        action = Intent.ACTION_EDIT
-        setDataAndType(newUri, getMimeTypeFromUri(newUri))
-        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-
-        if (isNougatPlus()) {
-            putExtra(MediaStore.EXTRA_OUTPUT, uri)
-        }
-
-        if (resolveActivity(packageManager) != null) {
-            startActivityForResult(this, REQUEST_EDIT_IMAGE)
-        } else {
-            toast(R.string.no_editor_found)
-        }
-    }
+    openEditor(uri, BuildConfig.APPLICATION_ID)
 }
 
 fun Activity.launchCamera() {

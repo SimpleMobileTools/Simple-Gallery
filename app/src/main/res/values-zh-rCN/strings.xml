@@ -20,7 +20,6 @@
     <string name="change_cover_image">更改封面图片</string>
     <string name="select_photo">选择图片</string>
     <string name="use_default">使用默认</string>
-    <string name="set_as">设置为</string>
     <string name="volume">音量</string>
     <string name="brightness">亮度</string>
     <string name="do_not_ask_again">不再提醒</string>

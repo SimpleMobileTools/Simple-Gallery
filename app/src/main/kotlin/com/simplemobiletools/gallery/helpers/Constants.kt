@@ -68,9 +68,6 @@ val DIRECTORIES = "directories2"
 val IS_VIEW_INTENT = "is_view_intent"
 val PICKED_PATHS = "picked_paths"
 
-val REQUEST_EDIT_IMAGE = 1
-val REQUEST_SET_AS = 2
-
 // rotations
 val ROTATE_BY_SYSTEM_SETTING = 0
 val ROTATE_BY_DEVICE_ROTATION = 1

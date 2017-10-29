@@ -20,7 +20,6 @@
     <string name="change_cover_image">Coverbild ändern</string>
     <string name="select_photo">Auswählen</string>
     <string name="use_default">Standard</string>
-    <string name="set_as">Festlegen als</string>
     <string name="volume">Lautstärke</string>
     <string name="brightness">Helligkeit</string>
     <string name="do_not_ask_again">Nicht erneut fragen (in dieser Session)</string>

@@ -20,7 +20,6 @@
     <string name="change_cover_image">Vaihda kansikuva</string>
     <string name="select_photo">Valitse kuva</string>
     <string name="use_default">Käytä oletuksia</string>
-    <string name="set_as">Aseta</string>
     <string name="volume">Äänenvoimakkuus</string>
     <string name="brightness">Kirkkaus</string>
     <string name="do_not_ask_again">Do not ask again in this session</string>
