@@ -27,7 +27,7 @@
     <!-- Filter -->
     <string name="filter_media">要显示的媒体文件</string>
     <string name="images">图片</string>
-    <string name="videos">适配</string>
+    <string name="videos">视频</string>
     <string name="gifs">GIFs</string>
     <string name="no_media_with_filters">所选的过滤器没有找到媒体文件。</string>
     <string name="change_filters_underlined"><u>更改过滤器</u></string>
@@ -41,7 +41,7 @@
     <string name="exclude_folder_parent">是否排除父目录？</string>
     <string name="excluded_activity_placeholder">此目录及其子目录中的媒体将不会在“简约图库”中显示，但是其它应用可以访问。如果您想对其它应用隐藏，请使用隐藏功能。</string>
     <string name="remove_all">移除全部</string>
-    <string name="remove_all_description">是否删除排除列表中的所有文件夹？此操作不会删除文件夹。</string>
+    <string name="remove_all_description">是否删除排除列表中的所有项目？此操作不会删除文件夹本身。</string>
 
     <!-- Include folders -->
     <string name="include_folders">包含目录</string>
@@ -113,7 +113,7 @@
     <string name="animate_gifs">GIF 缩略图</string>
     <string name="max_brightness">浏览时最大亮度</string>
     <string name="crop_thumbnails">裁剪缩略图</string>
-    <string name="screen_rotation_by">全屏时方向</string>
+    <string name="screen_rotation_by">全屏方向</string>
     <string name="screen_rotation_system_setting">系统设置</string>
     <string name="screen_rotation_device_rotation">设备方向</string>
     <string name="screen_rotation_aspect_ratio">根据长宽比</string>
