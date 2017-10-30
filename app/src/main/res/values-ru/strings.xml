@@ -15,14 +15,14 @@
     <string name="unknown_location">Место съёмки не указано</string>
     <string name="no_map_application">Не найдено приложений с картами</string>
     <string name="no_camera_app_found">Не найдено приложения камеры</string>
-    <string name="increase_column_count">Добавить 1 столбец</string>
-    <string name="reduce_column_count">Убрать 1 столбец</string>
+    <string name="increase_column_count">Добавить столбец</string>
+    <string name="reduce_column_count">Убрать столбец</string>
     <string name="change_cover_image">Изменить обложку</string>
     <string name="select_photo">Выбрать изображение</string>
     <string name="use_default">Использовать по умолчанию</string>
     <string name="volume">Громкость</string>
     <string name="brightness">Яркость</string>
-    <string name="do_not_ask_again">Do not ask again in this session</string>
+    <string name="do_not_ask_again">Не спрашивать снова (до следующего запуска)</string>
 
     <!-- Filter -->
     <string name="filter_media">Фильтр медиа</string>
@@ -84,8 +84,8 @@
     <string name="no_capable_app_found">Приложение не найдено</string>
     <string name="setting_wallpaper">Установка обоев…</string>
     <string name="wallpaper_set_successfully">Обои успешно установлены</string>
-    <string name="portrait_aspect_ratio">Формат изображения</string>
-    <string name="landscape_aspect_ratio">Пейзажное соотношение сторон</string>
+    <string name="portrait_aspect_ratio">Портрет</string>
+    <string name="landscape_aspect_ratio">Ландшафт</string>
 
     <!-- Slideshow -->
     <string name="slideshow">Слайдшоу</string>
@@ -122,10 +122,10 @@
     <string name="hide_system_ui_at_fullscreen">Автоматически скрывать системный интерфейс в полноэкранном режиме</string>
     <string name="delete_empty_folders">Удалять пустые папки после удаления их содержимого</string>
     <string name="allow_video_gestures">Управлять громкостью и яркостью видео с помощью вертикальных жестов</string>
-    <string name="show_media_count">Show folder media count on the main view</string>
+    <string name="show_media_count">Показывать количество файлов в папках</string>
     <string name="replace_share_with_rotate">Заменить \'Поделиться\' на \'Повернуть\' в меню полноэкранного режима</string>
-    <string name="show_extended_details">Show extended details over fullscreen media</string>
-    <string name="manage_extended_details">Manage extended details</string>
+    <string name="show_extended_details">Показывать детали файла</string>
+    <string name="manage_extended_details">Выбрать детали файла</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
