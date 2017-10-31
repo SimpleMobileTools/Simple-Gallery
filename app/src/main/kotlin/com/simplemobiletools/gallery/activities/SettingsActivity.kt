@@ -50,6 +50,7 @@ class SettingsActivity : SimpleActivity() {
         setupDeleteEmptyFolders()
         setupAllowVideoGestures()
         setupShowMediaCount()
+        setupKeepLastModified()
         setupShowExtendedDetails()
         setupManageExtendedDetails()
         updateTextColors(settings_holder)
@@ -204,6 +205,14 @@ class SettingsActivity : SimpleActivity() {
         settings_show_media_count_holder.setOnClickListener {
             settings_show_media_count.toggle()
             config.showMediaCount = settings_show_media_count.isChecked
+        }
+    }
+
+    private fun setupKeepLastModified() {
+        settings_keep_last_modified.isChecked = config.keepLastModified
+        settings_keep_last_modified_holder.setOnClickListener {
+            settings_keep_last_modified.toggle()
+            config.keepLastModified = settings_keep_last_modified.isChecked
         }
     }
 

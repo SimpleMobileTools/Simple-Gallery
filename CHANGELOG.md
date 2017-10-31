@@ -1,6 +1,29 @@
 Changelog
 ==========
 
+Version 2.17.2 *(2017-10-29)*
+----------------------------
+
+ * Couple more minor fixes
+
+Version 2.17.1 *(2017-10-29)*
+----------------------------
+
+ * Show "Set As" and "Edit" menu buttons at videos and gifs too
+ * Couple other smaller issues fixed
+
+Version 2.17.0 *(2017-10-28)*
+----------------------------
+
+ * Added a toggle for keeping last-modified field at file copy/move/rename
+ * Improved GIF animation speed
+ * Implemented fileprovider support to third party intents
+ * Make rotation by "Device rotation" less sensitive
+ * Automatically append "_1" to filename after saving through the Editor
+ * Added support for Adaptive icons for Android 8 (by fiepi)
+ * Added Dutch translation (by ltGuillaume)
+ * Many other smaller improvements
+
 Version 2.16.1 *(2017-10-24)*
 ----------------------------
 

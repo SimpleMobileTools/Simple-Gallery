@@ -7,6 +7,11 @@
         android:title="@string/share"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/menu_properties"
+        android:icon="@drawable/ic_info"
+        android:title="@string/properties"
+        app:showAsAction="ifRoom"/>
+    <item
         android:id="@+id/menu_edit"
         android:icon="@drawable/ic_edit"
         android:title="@string/edit"

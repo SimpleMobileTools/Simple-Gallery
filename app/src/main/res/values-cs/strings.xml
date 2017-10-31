@@ -4,8 +4,6 @@
     <string name="app_launcher_name">Galerie</string>
     <string name="edit">Upravit</string>
     <string name="open_camera">Spustit fotoaparát</string>
-    <string name="open_with">Otevřít pomocí</string>
-    <string name="no_app_found">Nebyla nalezena žádná vhodná aplikace</string>
     <string name="hidden">(skryté)</string>
     <string name="pin_folder">Připnout složku</string>
     <string name="unpin_folder">Odepnout složku</string>
@@ -22,7 +20,6 @@
     <string name="change_cover_image">Change cover image</string>
     <string name="select_photo">Select photo</string>
     <string name="use_default">Use default</string>
-    <string name="set_as">Nastavit jako</string>
     <string name="volume">Volume</string>
     <string name="brightness">Brightness</string>
     <string name="do_not_ask_again">Do not ask again in this session</string>

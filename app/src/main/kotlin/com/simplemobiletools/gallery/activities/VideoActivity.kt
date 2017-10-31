@@ -5,7 +5,7 @@ import android.os.Bundle
 class VideoActivity : PhotoVideoActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        PhotoVideoActivity.mIsVideo = true
+        mIsVideo = true
         super.onCreate(savedInstanceState)
     }
 }

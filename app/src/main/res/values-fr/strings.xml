@@ -4,8 +4,6 @@
     <string name="app_launcher_name">Galerie</string>
     <string name="edit">Édition</string>
     <string name="open_camera">Ouvrir appareil photo</string>
-    <string name="open_with">Ouvrir avec</string>
-    <string name="no_app_found">Aucune application valide trouvée</string>
     <string name="hidden">(caché)</string>
     <string name="pin_folder">Épingler le dossier</string>
     <string name="unpin_folder">Désépingler le dossier</string>
@@ -22,7 +20,6 @@
     <string name="change_cover_image">Changer l\'image de couverture</string>
     <string name="select_photo">Sélectionner une photo</string>
     <string name="use_default">Utiliser par défaut</string>
-    <string name="set_as">Définir comme</string>
     <string name="volume">Volume</string>
     <string name="brightness">Luminosité</string>
     <string name="do_not_ask_again">Ne pas redemander pour cette session</string>

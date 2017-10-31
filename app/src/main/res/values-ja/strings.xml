@@ -4,8 +4,6 @@
     <string name="app_launcher_name">ギャラリー</string>
     <string name="edit">編集</string>
     <string name="open_camera">カメラを開く</string>
-    <string name="open_with">別のアプリで開く</string>
-    <string name="no_app_found">有効なアプリが見つかりません</string>
     <string name="hidden">(非表示)</string>
     <string name="pin_folder">フォルダーをピン留めする</string>
     <string name="unpin_folder">フォルダーのピン留めを外す</string>
@@ -22,7 +20,6 @@
     <string name="change_cover_image">カバー画像を変更</string>
     <string name="select_photo">写真を選択</string>
     <string name="use_default">デフォルトに戻す</string>
-    <string name="set_as">他で使う</string>
     <string name="volume">音量</string>
     <string name="brightness">明るさ</string>
     <string name="do_not_ask_again">Do not ask again in this session</string>

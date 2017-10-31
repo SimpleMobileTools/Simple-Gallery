@@ -6,10 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.github.chrisbanes.photoview.PhotoView
-        android:id="@+id/photo_view"
+    <ImageView
+        android:id="@+id/gif_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"/>
 
     <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
         android:id="@+id/subsampling_view"

@@ -13,12 +13,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
-import com.bumptech.glide.Priority
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
@@ -26,6 +24,7 @@ import com.davemorrissey.labs.subscaleview.ImageSource
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.activities.PhotoActivity
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
@@ -33,15 +32,16 @@ import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 import it.sephiroth.android.library.exif2.ExifInterface
 import kotlinx.android.synthetic.main.pager_photo_item.view.*
+import pl.droidsonroids.gif.GifDrawable
 import java.io.File
 import java.io.FileOutputStream
-import java.io.IOException
 
 class PhotoFragment : ViewPagerFragment() {
     private var isFragmentVisible = false
     private var wasInit = false
     private var storedShowExtendedDetails = false
     private var storedExtendedDetails = 0
+    private var gifDrawable: GifDrawable? = null
 
     lateinit var view: ViewGroup
     lateinit var medium: Medium
@@ -49,11 +49,14 @@ class PhotoFragment : ViewPagerFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         view = inflater.inflate(R.layout.pager_photo_item, container, false) as ViewGroup
 
-        medium = arguments.getSerializable(MEDIUM) as Medium
+        if (!isFragmentVisible && activity is PhotoActivity) {
+            isFragmentVisible = true
+        }
 
+        medium = arguments.getSerializable(MEDIUM) as Medium
         if (medium.path.startsWith("content://")) {
             val originalPath = medium.path
-            medium.path = context.getRealPathFromURI(Uri.parse(medium.path)) ?: ""
+            medium.path = context.getRealPathFromURI(Uri.parse(originalPath)) ?: medium.path
 
             if (medium.path.isEmpty()) {
                 var out: FileOutputStream? = null
@@ -63,7 +66,6 @@ class PhotoFragment : ViewPagerFragment() {
                     exif.readExif(inputStream, ExifInterface.Options.OPTION_ALL)
                     val tag = exif.getTag(ExifInterface.TAG_ORIENTATION)
                     val orientation = tag?.getValueAsInt(-1) ?: -1
-
                     inputStream = context.contentResolver.openInputStream(Uri.parse(originalPath))
                     val original = BitmapFactory.decodeStream(inputStream)
                     val rotated = rotateViaMatrix(original, orientation)
@@ -78,26 +80,13 @@ class PhotoFragment : ViewPagerFragment() {
                     activity.toast(R.string.unknown_error_occurred)
                     return view
                 } finally {
-                    try {
-                        out?.close()
-                    } catch (e: IOException) {
-                    }
+                    out?.close()
                 }
             }
         }
 
-        view.subsampling_view.setOnClickListener({ photoClicked() })
-        view.photo_view.apply {
-            maximumScale = 8f
-            mediumScale = 3f
-            setOnOutsidePhotoTapListener {
-                photoClicked()
-            }
-
-            setOnPhotoTapListener { view, x, y ->
-                photoClicked()
-            }
-        }
+        view.subsampling_view.setOnClickListener { photoClicked() }
+        view.gif_view.setOnClickListener { photoClicked() }
         loadImage()
         checkExtendedDetails()
 
@@ -123,14 +112,30 @@ class PhotoFragment : ViewPagerFragment() {
         super.setMenuVisibility(menuVisible)
         isFragmentVisible = menuVisible
         if (wasInit) {
-            if (menuVisible) {
-                addZoomableView()
+            if (medium.isGif()) {
+                gifFragmentVisibilityChanged(menuVisible)
             } else {
-                view.subsampling_view.apply {
-                    recycle()
-                    beGone()
-                    background = ColorDrawable(Color.TRANSPARENT)
-                }
+                photoFragmentVisibilityChanged(menuVisible)
+            }
+        }
+    }
+
+    private fun gifFragmentVisibilityChanged(isVisible: Boolean) {
+        if (isVisible) {
+            gifDrawable?.start()
+        } else {
+            gifDrawable?.stop()
+        }
+    }
+
+    private fun photoFragmentVisibilityChanged(isVisible: Boolean) {
+        if (isVisible) {
+            addZoomableView()
+        } else {
+            view.subsampling_view.apply {
+                recycle()
+                beGone()
+                background = ColorDrawable(Color.TRANSPARENT)
             }
         }
     }
@@ -155,16 +160,17 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun loadImage() {
         if (medium.isGif()) {
-            val options = RequestOptions()
-                    .priority(if (isFragmentVisible) Priority.IMMEDIATE else Priority.LOW)
-                    .diskCacheStrategy(DiskCacheStrategy.DATA)
+            gifDrawable = if (medium.path.startsWith("content://") || medium.path.startsWith("file://")) {
+                GifDrawable(context.contentResolver, Uri.parse(medium.path))
+            } else {
+                GifDrawable(medium.path)
+            }
 
-            Glide.with(this)
-                    .asGif()
-                    .load(medium.path)
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .apply(options)
-                    .into(view.photo_view)
+            if (!isFragmentVisible) {
+                gifDrawable!!.stop()
+            }
+
+            view.gif_view.setImageDrawable(gifDrawable)
         } else {
             loadBitmap()
         }
@@ -193,7 +199,7 @@ class PhotoFragment : ViewPagerFragment() {
                                 addZoomableView()
                             return false
                         }
-                    }).into(view.photo_view)
+                    }).into(view.gif_view)
         } else {
             val options = RequestOptions()
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
@@ -204,7 +210,7 @@ class PhotoFragment : ViewPagerFragment() {
                     .load(medium.path)
                     .thumbnail(0.2f)
                     .apply(options)
-                    .into(view.photo_view)
+                    .into(view.gif_view)
         }
     }
 
@@ -292,7 +298,7 @@ class PhotoFragment : ViewPagerFragment() {
         super.onDestroyView()
         context.isKitkatPlus()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && !activity.isDestroyed) {
-            Glide.with(context).clear(view.photo_view)
+            Glide.with(context).clear(view.gif_view)
         }
     }
 

@@ -47,6 +47,14 @@
         android:title="@string/select_all"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/cab_open_with"
+        android:title="@string/open_with"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/cab_set_as"
+        android:title="@string/set_as"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/cab_copy_to"
         android:title="@string/copy_to"
         app:showAsAction="never"/>

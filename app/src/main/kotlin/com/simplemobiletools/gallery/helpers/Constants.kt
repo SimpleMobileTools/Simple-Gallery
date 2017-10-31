@@ -59,17 +59,14 @@ val NOMEDIA = ".nomedia"
 
 val DIRECTORY = "directory"
 val MEDIUM = "medium"
+val PATH = "path"
 val GET_IMAGE_INTENT = "get_image_intent"
 val GET_VIDEO_INTENT = "get_video_intent"
 val GET_ANY_INTENT = "get_any_intent"
 val SET_WALLPAPER_INTENT = "set_wallpaper_intent"
 val DIRECTORIES = "directories2"
 val IS_VIEW_INTENT = "is_view_intent"
-val IS_FROM_GALLERY = "is_from_gallery"
 val PICKED_PATHS = "picked_paths"
-
-val REQUEST_EDIT_IMAGE = 1
-val REQUEST_SET_AS = 2
 
 // rotations
 val ROTATE_BY_SYSTEM_SETTING = 0

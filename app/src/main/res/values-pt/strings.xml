@@ -4,8 +4,6 @@
     <string name="app_launcher_name">Galeria</string>
     <string name="edit">Editar</string>
     <string name="open_camera">Abrir câmara</string>
-    <string name="open_with">Abrir com</string>
-    <string name="no_app_found">Nenhuma aplicação encontrada</string>
     <string name="hidden">(oculta)</string>
     <string name="pin_folder">Fixar pasta</string>
     <string name="unpin_folder">Desafixar pasta</string>
@@ -22,10 +20,9 @@
     <string name="change_cover_image">Alterar imagem de capa</string>
     <string name="select_photo">Selecionar foto</string>
     <string name="use_default">Predefinição</string>
-    <string name="set_as">Definir como</string>
     <string name="volume">Volume</string>
     <string name="brightness">Brilho</string>
-    <string name="do_not_ask_again">Do not ask again in this session</string>
+    <string name="do_not_ask_again">Não perguntar de novo para esta sessão</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrar multimédia</string>
@@ -127,8 +124,8 @@
     <string name="allow_video_gestures">Permitir controlo do volume e brilho dos vídeos através de gestos verticais</string>
     <string name="show_media_count">Show folder media count on the main view</string>
     <string name="replace_share_with_rotate">Substituir a opção Partilhar pela opção Rodar se em ecrã completo</string>
-    <string name="show_extended_details">Show extended details over fullscreen media</string>
-    <string name="manage_extended_details">Manage extended details</string>
+    <string name="show_extended_details">Mostrar detalhes se em ecrã completo</string>
+    <string name="manage_extended_details">Gerir detalhes exibidos</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

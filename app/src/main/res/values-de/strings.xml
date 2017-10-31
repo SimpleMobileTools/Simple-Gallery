@@ -4,8 +4,6 @@
     <string name="app_launcher_name">Galerie</string>
     <string name="edit">Bearbeiten</string>
     <string name="open_camera">Kamera öffnen</string>
-    <string name="open_with">Öffnen mit</string>
-    <string name="no_app_found">Keine passende App gefunden</string>
     <string name="hidden">(versteckt)</string>
     <string name="pin_folder">Ordner anheften</string>
     <string name="unpin_folder">Ordner loslösen</string>
@@ -14,7 +12,7 @@
     <string name="folder_view">Ansicht: Als Ordner</string>
     <string name="other_folder">Ordner wählen</string>
     <string name="show_on_map">Auf Karte zeigen</string>
-    <string name="unknown_location">Unbekannter Ort</string>
+    <string name="unknown_location">Unbekannter Pfad</string>
     <string name="no_map_application">Keine Karten-App gefunden</string>
     <string name="no_camera_app_found">Keine Kamera-App gefunden</string>
     <string name="increase_column_count">Kacheln verkleinern</string>
@@ -22,10 +20,9 @@
     <string name="change_cover_image">Coverbild ändern</string>
     <string name="select_photo">Auswählen</string>
     <string name="use_default">Standard</string>
-    <string name="set_as">Festlegen als</string>
     <string name="volume">Lautstärke</string>
     <string name="brightness">Helligkeit</string>
-    <string name="do_not_ask_again">Nicht erneut fragen (in dieser Session)</string>
+    <string name="do_not_ask_again">Nicht erneut fragen (in dieser Sitzung)</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter</string>
@@ -69,7 +66,7 @@
     <string name="image_editing_failed">Bildbearbeitung fehlgeschlagen</string>
     <string name="edit_image_with">Bild bearbeiten mit</string>
     <string name="no_editor_found">Keine Bildeditor-App gefunden</string>
-    <string name="unknown_file_location">Unbekannter Dateiort</string>
+    <string name="unknown_file_location">Unbekannter Dateipfad</string>
     <string name="error_saving_file">Konnte Quelldatei nicht überschreiben</string>
     <string name="rotate_left">Nach links drehen</string>
     <string name="rotate_right">Nach rechts drehen</string>
@@ -125,7 +122,7 @@
     <string name="hide_system_ui_at_fullscreen">Systemleisten ausblenden im Vollbild</string>
     <string name="delete_empty_folders">Nach Löschen leere Ordner löschen</string>
     <string name="allow_video_gestures">Gesten für Videolautstärke/Helligkeit</string>
-    <string name="show_media_count">Show folder media count on the main view</string>
+    <string name="show_media_count">Medienanzahl bei Ordnern anzeigen</string>
     <string name="replace_share_with_rotate">Teilen/Drehen im Vollbild-Menü vertauschen</string>
     <string name="show_extended_details">Eigenschaften anzeigen im Vollbild</string>
     <string name="manage_extended_details">Eigenschaften auswählen</string>
@@ -134,11 +131,11 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Eine schlichte Galerie zum Betrachten von Bildern und Videos ohne Werbung.</string>
     <string name="app_long_description">
-        Ein schlichtes Tool zum Betrachten von Bildern und Videos. Die Medien können nach Datum, Größe, Name sowie auf- oder absteigend sortiert angezeigt werden, in Bilder kann hineingezoomt werden. Die Vorschau-Kacheln werden in mehreren Spalten abhängig von der Displaygröße angezeigt, die Spaltenanzahl ist mit Zweifingergesten änderbar. Die Medien können umbenannt, geteilt, gelöscht, kopiert, verschoben werden. Bilder können zugeschnitten, gedreht oder als Hintergrund festgelegt werden, direkt aus der App heraus.
+        Eine schlichte App zum Betrachten von Bildern und Videos. Die Medien können nach Datum, Größe, Name sowie auf- oder absteigend sortiert werden, in Bilder kann auch hineingezoomt werden. Die Vorschau-Kacheln werden in mehreren Spalten abhängig von der Displaygröße angezeigt, die Spaltenanzahl ist mit Zweifingergesten änderbar. Die Medien können umbenannt, geteilt, gelöscht, kopiert und verschoben werden. Bilder können direkt aus der App heraus zugeschnitten, gedreht oder als Hintergrund festgelegt werden.
 
-        Die Galerie bietet auch für Drittparteien einige Funktionen an: zum Vorschauen von Bildern / Videos, zum Hinzufügen von Anhängen bei eMail-Clients, etc. Sie ist perfekt für den täglichen Gebrauch.
+        Diese Galerie bietet auch für Drittanbieter einige Funktionen an: zum Vorschauen von Bildern / Videos, zum Hinzufügen von Anhängen bei Email-Apps, etc. Sie ist perfekt für den täglichen Gebrauch.
 
-        Beinhaltet keine Werbung oder unnötige Berechtigungen. Sie ist komplett Open Source, verwendete Farben sind anpassbar.
+        Beinhaltet keine Werbung oder unnötigen Berechtigungen. Sie ist komplett Open Source, verwendete Farben sind anpassbar.
 
         Diese App ist nur eine aus einer größeren Serie von schlichten Apps. Der Rest davon findet sich auf http://www.simplemobiletools.com
     </string>

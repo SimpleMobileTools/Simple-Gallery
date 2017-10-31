@@ -22,6 +22,7 @@ import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
+import com.simplemobiletools.commons.helpers.REQUEST_EDIT_IMAGE
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.views.MyScalableRecyclerView
 import com.simplemobiletools.gallery.R
@@ -89,24 +90,21 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     override fun onResume() {
         super.onResume()
-        if (mShowAll && mStoredAnimateGifs != config.animateGifs) {
-            media_grid.adapter?.notifyDataSetChanged()
+        if (mStoredAnimateGifs != config.animateGifs) {
+            getMediaAdapter()?.updateAnimateGifs(config.animateGifs)
         }
 
         if (mStoredCropThumbnails != config.cropThumbnails) {
-            media_grid.adapter?.notifyDataSetChanged()
+            getMediaAdapter()?.updateCropThumbnails(config.cropThumbnails)
         }
 
         if (mStoredScrollHorizontally != config.scrollHorizontally) {
-            (media_grid.adapter as? MediaAdapter)?.apply {
-                scrollVertically = config.viewTypeFiles == VIEW_TYPE_LIST || !config.scrollHorizontally
-                notifyDataSetChanged()
-            }
+            getMediaAdapter()?.updateScrollHorizontally(config.viewTypeFiles != VIEW_TYPE_LIST || !config.scrollHorizontally)
             setupScrollDirection()
         }
 
         if (mStoredTextColor != config.textColor) {
-            (media_grid.adapter as? MediaAdapter)?.updateTextColor(config.textColor)
+            getMediaAdapter()?.updateTextColor(config.textColor)
         }
 
         tryloadGallery()
@@ -152,6 +150,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             }
         }
     }
+
+    private fun getMediaAdapter() = media_grid.adapter as? MediaAdapter
 
     private fun checkIfColorChanged() {
         if (media_grid.adapter != null && getRecyclerAdapter().primaryColor != config.primaryColor) {
@@ -504,10 +504,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             val file = File(path)
             val isVideo = file.isVideoFast()
             if (isVideo) {
-                openWith(file, false)
+                openFile(Uri.fromFile(file), false)
             } else {
                 Intent(this, ViewPagerActivity::class.java).apply {
-                    putExtra(MEDIUM, path)
+                    putExtra(PATH, path)
                     putExtra(SHOW_ALL, mShowAll)
                     startActivity(this)
                 }

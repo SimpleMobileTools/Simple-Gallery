@@ -1,6 +1,7 @@
 package com.simplemobiletools.gallery.adapters
 
 import android.graphics.PorterDuff
+import android.net.Uri
 import android.os.Build
 import android.support.v7.view.ActionMode
 import android.support.v7.widget.RecyclerView
@@ -27,18 +28,21 @@ import java.util.*
 class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>, val listener: MediaOperationsListener?, val isPickIntent: Boolean,
                    val allowMultiplePicks: Boolean, val itemClick: (Medium) -> Unit) : RecyclerView.Adapter<MediaAdapter.ViewHolder>() {
 
-    val multiSelector = MultiSelector()
-    val config = activity.config
-    val isListViewType = config.viewTypeFiles == VIEW_TYPE_LIST
-    var skipConfirmationDialog = false
-
+    private val config = activity.config
     var actMode: ActionMode? = null
-    var itemViews = SparseArray<View>()
-    val selectedPositions = HashSet<Int>()
     var primaryColor = config.primaryColor
-    var textColor = config.textColor
-    var displayFilenames = config.displayFileNames
-    var scrollVertically = !config.scrollHorizontally
+
+    private val multiSelector = MultiSelector()
+    private val isListViewType = config.viewTypeFiles == VIEW_TYPE_LIST
+    private var skipConfirmationDialog = false
+
+    private var itemViews = SparseArray<View>()
+    private val selectedPositions = HashSet<Int>()
+    private var scrollHorizontally = config.scrollHorizontally
+    private var animateGifs = config.animateGifs
+    private var cropThumbnails = config.cropThumbnails
+    private var textColor = config.textColor
+    private var displayFilenames = config.displayFileNames
 
     fun toggleItemSelection(select: Boolean, pos: Int) {
         if (select) {
@@ -86,6 +90,8 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                 R.id.cab_copy_to -> copyMoveTo(true)
                 R.id.cab_move_to -> copyMoveTo(false)
                 R.id.cab_select_all -> selectAll()
+                R.id.cab_open_with -> activity.openFile(Uri.fromFile(getCurrentFile()), true)
+                R.id.cab_set_as -> activity.setAs(Uri.fromFile(getCurrentFile()))
                 R.id.cab_delete -> checkDeleteConfirmation()
                 else -> return false
             }
@@ -100,8 +106,8 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         }
 
         override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu): Boolean {
-            menu.findItem(R.id.cab_rename).isVisible = selectedPositions.size <= 1
-            menu.findItem(R.id.cab_edit).isVisible = selectedPositions.size == 1 && media.size > selectedPositions.first() && media[selectedPositions.first()].isImage()
+            menu.findItem(R.id.cab_rename).isVisible = selectedPositions.size == 1
+            menu.findItem(R.id.cab_open_with).isVisible = selectedPositions.size == 1
             menu.findItem(R.id.cab_confirm_selection).isVisible = isPickIntent && allowMultiplePicks && selectedPositions.size > 0
 
             checkHideBtnVisibility(menu)
@@ -159,7 +165,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     }
 
     private fun editFile() {
-        activity.openFileEditor(getCurrentFile())
+        activity.openEditor(Uri.fromFile(getCurrentFile()))
         actMode?.finish()
     }
 
@@ -277,7 +283,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        itemViews.put(position, holder.bindView(media[position], displayFilenames, scrollVertically, isListViewType, textColor))
+        itemViews.put(position, holder.bindView(media[position], displayFilenames, scrollHorizontally, isListViewType, textColor, animateGifs, cropThumbnails))
         toggleItemSelection(selectedPositions.contains(position), position)
         holder.itemView.tag = holder
     }
@@ -297,6 +303,21 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
 
     fun updateDisplayFilenames(display: Boolean) {
         displayFilenames = display
+        notifyDataSetChanged()
+    }
+
+    fun updateAnimateGifs(animateGifs: Boolean) {
+        this.animateGifs = animateGifs
+        notifyDataSetChanged()
+    }
+
+    fun updateCropThumbnails(cropThumbnails: Boolean) {
+        this.cropThumbnails = cropThumbnails
+        notifyDataSetChanged()
+    }
+
+    fun updateScrollHorizontally(scrollHorizontally: Boolean) {
+        this.scrollHorizontally = scrollHorizontally
         notifyDataSetChanged()
     }
 
@@ -348,12 +369,13 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
                      val multiSelector: MultiSelector, val listener: MediaOperationsListener?, val allowMultiplePicks: Boolean,
                      val itemClick: (Medium) -> (Unit)) :
             SwappingHolder(view, MultiSelector()) {
-        fun bindView(medium: Medium, displayFilenames: Boolean, scrollVertically: Boolean, isListViewType: Boolean, textColor: Int): View {
+        fun bindView(medium: Medium, displayFilenames: Boolean, scrollHorizontally: Boolean, isListViewType: Boolean, textColor: Int,
+                     animateGifs: Boolean, cropThumbnails: Boolean): View {
             itemView.apply {
                 play_outline.visibility = if (medium.video) View.VISIBLE else View.GONE
                 photo_name.beVisibleIf(displayFilenames || isListViewType)
                 photo_name.text = medium.name
-                activity.loadImage(medium.path, medium_thumbnail, scrollVertically)
+                activity.loadImage(medium.path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
 
                 if (isListViewType) {
                     photo_name.setTextColor(textColor)

@@ -125,30 +125,24 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         super.onResume()
         config.isThirdPartyIntent = false
         if (mStoredAnimateGifs != config.animateGifs) {
-            directories_grid.adapter?.notifyDataSetChanged()
+            getDirectoryAdapter()?.updateAnimateGifs(config.animateGifs)
         }
 
         if (mStoredCropThumbnails != config.cropThumbnails) {
-            directories_grid.adapter?.notifyDataSetChanged()
+            getDirectoryAdapter()?.updateCropThumbnails(config.cropThumbnails)
         }
 
         if (mStoredShowMediaCount != config.showMediaCount) {
-            (directories_grid.adapter as? DirectoryAdapter)?.apply {
-                showMediaCount = config.showMediaCount
-                notifyDataSetChanged()
-            }
+            getDirectoryAdapter()?.updateShowMediaCount(config.showMediaCount)
         }
 
         if (mStoredScrollHorizontally != config.scrollHorizontally) {
-            (directories_grid.adapter as? DirectoryAdapter)?.apply {
-                scrollVertically = config.viewTypeFolders == VIEW_TYPE_LIST || !config.scrollHorizontally
-                notifyDataSetChanged()
-            }
+            getDirectoryAdapter()?.updateScrollHorizontally(config.viewTypeFolders != VIEW_TYPE_LIST && config.scrollHorizontally)
             setupScrollDirection()
         }
 
         if (mStoredTextColor != config.textColor) {
-            (directories_grid.adapter as? DirectoryAdapter)?.updateTextColor(config.textColor)
+            getDirectoryAdapter()?.updateTextColor(config.textColor)
         }
 
         tryloadGallery()
@@ -176,6 +170,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         config.temporarilyShowHidden = false
         removeTempFolder()
     }
+
+    private fun getDirectoryAdapter() = directories_grid.adapter as? DirectoryAdapter
 
     private fun storeStateVariables() {
         config.apply {
@@ -434,7 +430,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                     }
                 } else if ((mIsPickImageIntent || mIsPickVideoIntent)) {
                     val path = resultData.data.path
-                    val uri = Uri.fromFile(File(path))
+                    val uri = getFilePublicUri(File(path), BuildConfig.APPLICATION_ID)
                     resultIntent.data = uri
                     resultIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
                 }
@@ -467,7 +463,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun fillPickedPaths(resultData: Intent, resultIntent: Intent) {
         val paths = resultData.extras.getStringArrayList(PICKED_PATHS)
-        val uris = paths.map { Uri.fromFile(File(it)) } as ArrayList
+        val uris = paths.map { getFilePublicUri(File(it), BuildConfig.APPLICATION_ID) } as ArrayList
         val clipData = ClipData("Attachment", arrayOf("image/*", "video/*"), ClipData.Item(uris.removeAt(0)))
 
         uris.forEach {
@@ -479,7 +475,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun fillIntentPath(resultData: Intent, resultIntent: Intent) {
         val path = resultData.data.path
-        val uri = Uri.fromFile(File(path))
+        val uri = getFilePublicUri(File(path), BuildConfig.APPLICATION_ID)
         val type = path.getMimeTypeFromPath()
         resultIntent.setDataAndTypeAndNormalize(uri, type)
         resultIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
@@ -639,6 +635,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             add(Release(133, R.string.release_133))
             add(Release(136, R.string.release_136))
             add(Release(137, R.string.release_137))
+            add(Release(138, R.string.release_138))
             checkWhatsNew(this, BuildConfig.VERSION_CODE)
         }
     }

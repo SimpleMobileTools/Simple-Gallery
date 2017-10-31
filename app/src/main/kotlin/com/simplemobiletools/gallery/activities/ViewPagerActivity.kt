@@ -26,7 +26,10 @@ import android.view.animation.DecelerateInterpolator
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.IS_FROM_GALLERY
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
+import com.simplemobiletools.commons.helpers.REQUEST_EDIT_IMAGE
+import com.simplemobiletools.commons.helpers.REQUEST_SET_AS
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.MediaActivity.Companion.mMedia
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter
@@ -85,6 +88,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun initViewPager() {
+        setupOrientationEventListener()
         measureScreen()
         val uri = intent.data
         if (uri != null) {
@@ -100,7 +104,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         } else {
             try {
-                mPath = intent.getStringExtra(MEDIUM)
+                mPath = intent.getStringExtra(PATH)
                 mShowAll = config.showAll
             } catch (e: Exception) {
                 showErrorToast(e)
@@ -140,7 +144,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         reloadViewPager()
         scanPath(mPath) {}
-        setupOrientationEventListener()
 
         if (config.darkBackground)
             view_pager.background = ColorDrawable(Color.BLACK)
@@ -176,8 +179,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         mOrientationEventListener = object : OrientationEventListener(this, SensorManager.SENSOR_DELAY_NORMAL) {
             override fun onOrientationChanged(orientation: Int) {
                 val currOrient = when (orientation) {
-                    in 45..134 -> ORIENT_LANDSCAPE_RIGHT
-                    in 225..314 -> ORIENT_LANDSCAPE_LEFT
+                    in 75..134 -> ORIENT_LANDSCAPE_RIGHT
+                    in 225..289 -> ORIENT_LANDSCAPE_LEFT
                     else -> ORIENT_PORTRAIT
                 }
 
@@ -230,8 +233,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         menu.apply {
             findItem(R.id.menu_share_1).isVisible = !config.replaceShare
             findItem(R.id.menu_share_2).isVisible = config.replaceShare
-            findItem(R.id.menu_set_as).isVisible = currentMedium.isImage()
-            findItem(R.id.menu_edit).isVisible = currentMedium.isImage()
             findItem(R.id.menu_rotate).isVisible = currentMedium.isImage()
             findItem(R.id.menu_save_as).isVisible = mRotationDegrees != 0f
             findItem(R.id.menu_hide).isVisible = !currentMedium.name.startsWith('.')
@@ -246,18 +247,18 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return true
 
         when (item.itemId) {
-            R.id.menu_set_as -> trySetAs(getCurrentFile())
+            R.id.menu_set_as -> setAs(Uri.fromFile(getCurrentFile()))
             R.id.slideshow -> initSlideshow()
             R.id.menu_copy_to -> copyMoveTo(true)
             R.id.menu_move_to -> copyMoveTo(false)
-            R.id.menu_open_with -> openWith(getCurrentFile())
+            R.id.menu_open_with -> openFile(Uri.fromFile(getCurrentFile()), true)
             R.id.menu_hide -> toggleFileVisibility(true)
             R.id.menu_unhide -> toggleFileVisibility(false)
             R.id.menu_share_1 -> shareMedium(getCurrentMedium()!!)
             R.id.menu_share_2 -> shareMedium(getCurrentMedium()!!)
             R.id.menu_delete -> checkDeleteConfirmation()
             R.id.menu_rename -> renameFile()
-            R.id.menu_edit -> openFileEditor(getCurrentFile())
+            R.id.menu_edit -> openEditor(Uri.fromFile(getCurrentFile()))
             R.id.menu_properties -> showProperties()
             R.id.show_on_map -> showOnMap()
             R.id.menu_rotate -> rotateImage()
@@ -327,10 +328,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         animator.addUpdateListener(object : ValueAnimator.AnimatorUpdateListener {
             var oldDragPosition = 0
             override fun onAnimationUpdate(animation: ValueAnimator) {
-                val dragPosition = animation.animatedValue as Int
-                val dragOffset = dragPosition - oldDragPosition
-                oldDragPosition = dragPosition
-                view_pager?.fakeDragBy(dragOffset * (if (forward) 1f else -1f))
+                if (view_pager?.isFakeDragging == true) {
+                    val dragPosition = animation.animatedValue as Int
+                    val dragOffset = dragPosition - oldDragPosition
+                    oldDragPosition = dragPosition
+                    view_pager.fakeDragBy(dragOffset * (if (forward) 1f else -1f))
+                }
             }
         })
 
@@ -446,7 +449,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun saveImageAs() {
         val currPath = getCurrentPath()
-        SaveAsDialog(this, currPath) {
+        SaveAsDialog(this, currPath, false) {
             Thread({
                 toast(R.string.saving)
                 val selectedFile = File(it)
@@ -515,8 +518,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun getCurrentFragment() = (view_pager.adapter as MyPagerAdapter).getCurrentFragment(view_pager.currentItem)
 
     private fun showProperties() {
-        if (getCurrentMedium() != null)
+        if (getCurrentMedium() != null) {
             PropertiesDialog(this, getCurrentPath(), false)
+        }
     }
 
     private fun showOnMap() {
