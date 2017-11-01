@@ -122,7 +122,7 @@
     <string name="hide_system_ui_at_fullscreen">Ocultar interface do sistema se em ecrã completo</string>
     <string name="delete_empty_folders">Apagar as pastas vazias depois de remover o seu conteúdo</string>
     <string name="allow_video_gestures">Permitir controlo do volume e brilho dos vídeos através de gestos verticais</string>
-    <string name="show_media_count">Show folder media count on the main view</string>
+    <string name="show_media_count">Mostrar número de ficheiros na vista principal</string>
     <string name="replace_share_with_rotate">Substituir a opção Partilhar pela opção Rodar se em ecrã completo</string>
     <string name="show_extended_details">Mostrar detalhes se em ecrã completo</string>
     <string name="manage_extended_details">Gerir detalhes exibidos</string>
