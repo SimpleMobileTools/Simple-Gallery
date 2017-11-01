@@ -322,4 +322,9 @@ class PhotoFragment : ViewPagerFragment() {
             }
         }
     }
+
+    fun refreshBitmap() {
+        view.subsampling_view.beGone()
+        loadBitmap()
+    }
 }

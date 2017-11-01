@@ -46,8 +46,8 @@ import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_medium.*
 import java.io.File
 import java.io.FileInputStream
-import java.io.FileOutputStream
 import java.io.FileNotFoundException
+import java.io.FileOutputStream
 import java.util.*
 
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
@@ -454,45 +454,52 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         SaveAsDialog(this, currPath, false) {
             Thread({
                 toast(R.string.saving)
-                val selectedFile = File(it)
-                val tmpFile = File(selectedFile.parent, ".tmp_${it.getFilenameFromPath()}")
-                try {
-                    val bitmap = BitmapFactory.decodeFile(currPath)
-                    getFileOutputStream(tmpFile) {
-                        if (it == null) {
-                            toast(R.string.unknown_error_occurred)
-                            deleteFile(tmpFile) {}
-                            return@getFileOutputStream
+                if (it.isJpg() && !isPathOnSD(it)) {
+                    if (it == currPath) {
+                        rotateFileByExif(it)
+                        runOnUiThread {
+                            (getCurrentFragment() as? PhotoFragment)?.refreshBitmap()
                         }
-
-                        if (currPath.isJpg()) {
-                            saveRotation(currPath, tmpFile)
-                        } else {
-                            saveFile(tmpFile, bitmap, it as FileOutputStream)
-                        }
-
-                        if (needsStupidWritePermissions(selectedFile.absolutePath)) {
-                            deleteFile(selectedFile) {}
-                        }
-
-                        renameFile(tmpFile, selectedFile) {
-                            deleteFile(tmpFile) {}
-                        }
-
-                        it.flush()
-                        it.close()
-                        toast(R.string.file_saved)
-                        mRotationDegrees = 0f
-                        invalidateOptionsMenu()
+                    } else {
+                        copyFile(currPath, it)
+                        rotateFileByExif(it)
                     }
-                } catch (e: OutOfMemoryError) {
-                    toast(R.string.out_of_memory_error)
-                    deleteFile(tmpFile) {}
-                } catch (e: Exception) {
-                    showErrorToast(e)
-                    deleteFile(tmpFile) {}
+                } else {
+                    rotateFileByDegrees(currPath, it)
                 }
             }).start()
+        }
+    }
+
+    private fun rotateFileByDegrees(sourcePath: String, destinationPath: String) {
+        val tmpFile = File(File(destinationPath).parent, ".tmp_${destinationPath.getFilenameFromPath()}")
+        try {
+            getFileOutputStream(tmpFile) {
+                if (it == null) {
+                    toast(R.string.unknown_error_occurred)
+                    return@getFileOutputStream
+                }
+
+                val bitmap = BitmapFactory.decodeFile(sourcePath)
+                saveFile(tmpFile, bitmap, it as FileOutputStream)
+                it.flush()
+                it.close()
+
+                val destination = File(destinationPath)
+                deleteFile(destination) {
+                    renameFile(tmpFile, destination) {}
+                }
+
+                toast(R.string.file_saved)
+                mRotationDegrees = 0f
+                invalidateOptionsMenu()
+            }
+        } catch (e: OutOfMemoryError) {
+            toast(R.string.out_of_memory_error)
+            deleteFile(tmpFile) {}
+        } catch (e: Exception) {
+            showErrorToast(e)
+            deleteFile(tmpFile) {}
         }
     }
 
@@ -503,25 +510,34 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         bmp.compress(file.getCompressionFormat(), 90, out)
     }
 
-    private fun saveRotation(input: String, out: File) {
+    private fun copyFile(sourcePath: String, destinationPath: String) {
         var inputStream: FileInputStream? = null
         var outputStream: FileOutputStream? = null
         try {
-            inputStream = FileInputStream(input)
-            outputStream = FileOutputStream(out)
+            inputStream = FileInputStream(sourcePath)
+            outputStream = FileOutputStream(destinationPath)
             inputStream.copyTo(outputStream)
+            scanPath(destinationPath) {}
         } catch (ignored: FileNotFoundException) {
         } finally {
             inputStream?.close()
             outputStream?.close()
         }
-        if (out.exists()) {
-            val exif = ExifInterface(out.absolutePath)
-            var orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
-            var orientationDegrees = (degreesForRotation(orientation) + mRotationDegrees) % 360
-            exif.setAttribute(ExifInterface.TAG_ORIENTATION, rotationFromDegrees(orientationDegrees))
-            exif.saveAttributes()
+    }
+
+    private fun rotateFileByExif(path: String) {
+        val exif = ExifInterface(path)
+        val orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
+        val orientationDegrees = (degreesForRotation(orientation) + mRotationDegrees) % 360
+        exif.setAttribute(ExifInterface.TAG_ORIENTATION, rotationFromDegrees(orientationDegrees))
+        exif.saveAttributes()
+        if (!config.keepLastModified) {
+            File(getCurrentPath()).setLastModified(System.currentTimeMillis())
         }
+
+        mRotationDegrees = 0f
+        invalidateOptionsMenu()
+        toast(R.string.file_saved)
     }
 
     private fun degreesForRotation(orientation: Int) = when (orientation) {
