@@ -45,7 +45,9 @@ import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_medium.*
 import java.io.File
-import java.io.OutputStream
+import java.io.FileInputStream
+import java.io.FileOutputStream
+import java.io.FileNotFoundException
 import java.util.*
 
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
@@ -463,7 +465,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                             return@getFileOutputStream
                         }
 
-                        saveFile(tmpFile, bitmap, it)
+                        if (currPath.isImageFast() && !currPath.isPng()) {  // Is always JPEG?
+                            saveRotation(currPath, tmpFile)
+                        } else {
+                            saveFile(tmpFile, bitmap, it as FileOutputStream)
+                        }
+
                         if (needsStupidWritePermissions(selectedFile.absolutePath)) {
                             deleteFile(selectedFile) {}
                         }
@@ -471,6 +478,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                         renameFile(tmpFile, selectedFile) {
                             deleteFile(tmpFile) {}
                         }
+
+                        it.flush()
+                        it.close()
+                        toast(R.string.file_saved)
+                        mRotationDegrees = 0f
+                        invalidateOptionsMenu()
                     }
                 } catch (e: OutOfMemoryError) {
                     toast(R.string.out_of_memory_error)
@@ -483,18 +496,45 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
-    private fun saveFile(file: File, bitmap: Bitmap, out: OutputStream) {
+    private fun saveFile(file: File, bitmap: Bitmap, out: FileOutputStream) {
         val matrix = Matrix()
         matrix.postRotate(mRotationDegrees)
         val bmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
         bmp.compress(file.getCompressionFormat(), 90, out)
-        out.flush()
-        out.close()
-        toast(R.string.file_saved)
-        mRotationDegrees = 0f
-        invalidateOptionsMenu()
     }
 
+    private fun saveRotation(input: String, out: File) {
+        var inputStream: FileInputStream? = null
+        var outputStream: FileOutputStream? = null
+        try {
+            inputStream = FileInputStream(input)
+            outputStream = FileOutputStream(out)
+            inputStream.copyTo(outputStream)
+        } catch (ignored: FileNotFoundException) {
+        } finally {
+            inputStream?.close()
+            outputStream?.close()
+        }
+        if (mRotationDegrees != 0f) {
+            val exif = ExifInterface(out.absolutePath)
+            var orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
+            var orientationDegrees = when (orientation) {
+                8 -> 270f
+                3 -> 180f
+                6 -> 90f
+                else -> 0f
+            }
+            orientationDegrees = (orientationDegrees + mRotationDegrees) % 360
+            orientation = when (orientationDegrees) {
+                90f -> 6
+                180f -> 3
+                270f -> 8
+                else -> 1
+            }
+            exif.setAttribute(ExifInterface.TAG_ORIENTATION, ""+ orientation)
+            exif.saveAttributes()
+        }
+    }
     private fun isShowHiddenFlagNeeded(): Boolean {
         val file = File(mPath)
         if (file.isHidden)
