@@ -532,9 +532,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun rotationFromDegrees(degrees: Float) = when (degrees) {
-        90f -> ExifInterface.ORIENTATION_ROTATE_90
-        180f -> ExifInterface.ORIENTATION_ROTATE_180
         270f -> ExifInterface.ORIENTATION_ROTATE_270
+        180f -> ExifInterface.ORIENTATION_ROTATE_180
+        90f -> ExifInterface.ORIENTATION_ROTATE_90
         else -> ExifInterface.ORIENTATION_NORMAL
     }.toString()
 
