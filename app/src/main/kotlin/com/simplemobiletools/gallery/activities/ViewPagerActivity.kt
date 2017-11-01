@@ -465,7 +465,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                             return@getFileOutputStream
                         }
 
-                        if (currPath.isImageFast() && !currPath.isPng()) {  // Is always JPEG?
+                        if (currPath.isJpg()) {
                             saveRotation(currPath, tmpFile)
                         } else {
                             saveFile(tmpFile, bitmap, it as FileOutputStream)
