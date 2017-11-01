@@ -515,26 +515,29 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             inputStream?.close()
             outputStream?.close()
         }
-        if (mRotationDegrees != 0f) {
+        if (out.exists()) {
             val exif = ExifInterface(out.absolutePath)
             var orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
-            var orientationDegrees = when (orientation) {
-                8 -> 270f
-                3 -> 180f
-                6 -> 90f
-                else -> 0f
-            }
-            orientationDegrees = (orientationDegrees + mRotationDegrees) % 360
-            orientation = when (orientationDegrees) {
-                90f -> 6
-                180f -> 3
-                270f -> 8
-                else -> 1
-            }
-            exif.setAttribute(ExifInterface.TAG_ORIENTATION, ""+ orientation)
+            var orientationDegrees = (degreesForRotation(orientation) + mRotationDegrees) % 360
+            exif.setAttribute(ExifInterface.TAG_ORIENTATION, rotationFromDegrees(orientationDegrees))
             exif.saveAttributes()
         }
     }
+
+    private fun degreesForRotation(orientation: Int) = when (orientation) {
+        ExifInterface.ORIENTATION_ROTATE_270 -> 270f
+        ExifInterface.ORIENTATION_ROTATE_180 -> 180f
+        ExifInterface.ORIENTATION_ROTATE_90 -> 90f
+        else -> 0f
+    }
+
+    private fun rotationFromDegrees(degrees: Float) = when (degrees) {
+        90f -> ExifInterface.ORIENTATION_ROTATE_90
+        180f -> ExifInterface.ORIENTATION_ROTATE_180
+        270f -> ExifInterface.ORIENTATION_ROTATE_270
+        else -> ExifInterface.ORIENTATION_NORMAL
+    }.toString()
+
     private fun isShowHiddenFlagNeeded(): Boolean {
         val file = File(mPath)
         if (file.isHidden)
