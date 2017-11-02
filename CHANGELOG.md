@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 2.17.3 *(2017-11-02)*
+----------------------------
+
+ * Fixed some corrupt gif file related crashes
+ * Rotate jpgs on the internal storage by exif
+ * Fixed some invisible SD card content
+
 Version 2.17.2 *(2017-10-29)*
 ----------------------------
 
