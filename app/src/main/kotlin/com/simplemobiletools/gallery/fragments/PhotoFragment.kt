@@ -160,6 +160,14 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun loadImage() {
         if (medium.isGif()) {
+            loadGif()
+        } else {
+            loadBitmap()
+        }
+    }
+
+    private fun loadGif() {
+        try {
             gifDrawable = if (medium.path.startsWith("content://") || medium.path.startsWith("file://")) {
                 GifDrawable(context.contentResolver, Uri.parse(medium.path))
             } else {
@@ -171,7 +179,8 @@ class PhotoFragment : ViewPagerFragment() {
             }
 
             view.gif_view.setImageDrawable(gifDrawable)
-        } else {
+        } catch (e: Exception) {
+            gifDrawable = null
             loadBitmap()
         }
     }
