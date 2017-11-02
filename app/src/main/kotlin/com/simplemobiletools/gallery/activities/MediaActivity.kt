@@ -75,11 +75,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         media_refresh_layout.setOnRefreshListener({ getMedia() })
         mPath = intent.getStringExtra(DIRECTORY)
-        mStoredAnimateGifs = config.animateGifs
-        mStoredCropThumbnails = config.cropThumbnails
-        mStoredScrollHorizontally = config.scrollHorizontally
-        mStoredTextColor = config.textColor
-        mShowAll = config.showAll
+        storeStateVariables()
         if (mShowAll)
             supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
@@ -117,10 +113,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         super.onPause()
         mIsGettingMedia = false
         media_refresh_layout.isRefreshing = false
-        mStoredAnimateGifs = config.animateGifs
-        mStoredCropThumbnails = config.cropThumbnails
-        mStoredScrollHorizontally = config.scrollHorizontally
-        mStoredTextColor = config.textColor
+        storeStateVariables()
         media_grid.listener = null
         mLastMediaHandler.removeCallbacksAndMessages(null)
 
@@ -134,6 +127,16 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         if (config.showAll)
             config.temporarilyShowHidden = false
         mMedia.clear()
+    }
+
+    private fun storeStateVariables() {
+        config.apply {
+            mStoredAnimateGifs = animateGifs
+            mStoredCropThumbnails = cropThumbnails
+            mStoredScrollHorizontally = scrollHorizontally
+            mStoredTextColor = textColor
+            mShowAll = showAll
+        }
     }
 
     private fun tryloadGallery() {

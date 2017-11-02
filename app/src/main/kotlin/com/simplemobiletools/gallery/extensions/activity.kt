@@ -146,15 +146,19 @@ fun Activity.loadImage(path: String, target: MySquareImageView, horizontalScroll
             loadJpg(path, target, cropThumbnails)
         }
     } else if (path.isGif()) {
-        val gifDrawable = GifDrawable(path)
-        target.setImageDrawable(gifDrawable)
-        if (animateGifs) {
-            gifDrawable.start()
-        } else {
-            gifDrawable.stop()
-        }
+        try {
+            val gifDrawable = GifDrawable(path)
+            target.setImageDrawable(gifDrawable)
+            if (animateGifs) {
+                gifDrawable.start()
+            } else {
+                gifDrawable.stop()
+            }
 
-        target.scaleType = if (cropThumbnails) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
+            target.scaleType = if (cropThumbnails) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
+        } catch (e: Exception) {
+            showErrorToast(e)
+        }
     }
 }
 
