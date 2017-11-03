@@ -462,7 +462,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     getFileOutputStream(tmpFile) {
                         if (it == null) {
                             toast(R.string.unknown_error_occurred)
-                            deleteFile(tmpFile) {}
                             return@getFileOutputStream
                         }
 
