@@ -477,7 +477,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                         }
                         copyFile(tmpFile, selectedFile)
                         scanPath(selectedFile.absolutePath) {}
-                        deleteFile(tmpFile) {}  // Not necessary?
                         toast(R.string.file_saved)
 
                         it.flush()
@@ -487,9 +486,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     }
                 } catch (e: OutOfMemoryError) {
                     toast(R.string.out_of_memory_error)
-                    deleteFile(tmpFile) {}
                 } catch (e: Exception) {
                     showErrorToast(e)
+                } finally {
                     deleteFile(tmpFile) {}
                 }
             }).start()
@@ -500,9 +499,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         var inputStream: InputStream? = null
         var out: OutputStream? = null
         try {
-            if (needsStupidWritePermissions(destination.absolutePath)) {
-                getFileDocument(destination.parent)
-            }
             out = getFileOutputStreamSync(destination.absolutePath, source.getMimeType(), getFileDocument(destination.parent))
             inputStream = FileInputStream(source)
             inputStream.copyTo(out!!)
@@ -522,8 +518,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun saveRotation(input: File, output: File) {
         copyFile(input, output)
         val exif = ExifInterface(output.absolutePath)
-        var orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
-        var orientationDegrees = (degreesForRotation(orientation) + mRotationDegrees) % 360
+        val orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
+        val orientationDegrees = (degreesForRotation(orientation) + mRotationDegrees) % 360
         exif.setAttribute(ExifInterface.TAG_ORIENTATION, rotationFromDegrees(orientationDegrees))
         exif.saveAttributes()
     }
