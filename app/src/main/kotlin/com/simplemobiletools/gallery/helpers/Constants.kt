@@ -56,6 +56,7 @@ val SLIDESHOW_DEFAULT_INTERVAL = 5
 val SLIDESHOW_SCROLL_DURATION = 500L
 
 val NOMEDIA = ".nomedia"
+val MAX_COLUMN_COUNT = 20
 
 val DIRECTORY = "directory"
 val MEDIUM = "medium"
