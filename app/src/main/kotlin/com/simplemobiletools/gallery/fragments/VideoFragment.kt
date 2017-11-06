@@ -21,6 +21,7 @@ import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.pager_video_item.view.*
+import java.io.IOException
 
 class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSeekBarChangeListener {
     private val CLICK_MAX_DURATION = 150
@@ -40,6 +41,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private var mIsFragmentVisible = false
     private var mPlayOnPrepare = false
     private var mStoredShowExtendedDetails = false
+    private var wasEncoded = false
     private var wasInit = false
     private var mStoredExtendedDetails = 0
     private var mCurrTime = 0
@@ -423,6 +425,15 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 setOnPreparedListener { videoPrepared(it) }
                 setAudioStreamType(AudioManager.STREAM_MUSIC)
                 prepare()
+            }
+        } catch (e: IOException) {
+            medium.path = Uri.encode(medium.path)
+            if (wasEncoded) {
+                releaseMediaPlayer()
+            } else {
+                wasEncoded = true
+                mMediaPlayer = null
+                initMediaPlayer()
             }
         } catch (e: Exception) {
             releaseMediaPlayer()
