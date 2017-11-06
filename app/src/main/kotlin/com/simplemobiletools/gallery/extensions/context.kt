@@ -5,17 +5,12 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Point
 import android.media.AudioManager
-import android.net.Uri
 import android.os.Build
 import android.view.WindowManager
-import com.simplemobiletools.commons.extensions.getFilePublicUri
-import com.simplemobiletools.commons.extensions.getMimeTypeFromPath
 import com.simplemobiletools.commons.extensions.humanizePath
-import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.activities.SettingsActivity
 import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.models.Directory
-import java.io.File
 
 val Context.portrait get() = resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
 val Context.audioManager get() = getSystemService(Context.AUDIO_SERVICE) as AudioManager
@@ -55,7 +50,7 @@ fun Context.launchSettings() {
     startActivity(Intent(this, SettingsActivity::class.java))
 }
 
-val Context.config: Config get() = Config.newInstance(this)
+val Context.config: Config get() = Config.newInstance(applicationContext)
 
 fun Context.movePinnedDirectoriesToFront(dirs: ArrayList<Directory>): ArrayList<Directory> {
     val foundFolders = ArrayList<Directory>()
