@@ -478,7 +478,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         val uri = getFilePublicUri(File(path), BuildConfig.APPLICATION_ID)
         val type = path.getMimeTypeFromPath()
         resultIntent.setDataAndTypeAndNormalize(uri, type)
-        resultIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+        resultIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
     }
 
     private fun itemClicked(path: String) {
