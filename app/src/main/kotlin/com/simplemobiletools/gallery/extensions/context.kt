@@ -47,7 +47,7 @@ fun Context.getHumanizedFilename(path: String): String {
 }
 
 fun Context.launchSettings() {
-    startActivity(Intent(this, SettingsActivity::class.java))
+    startActivity(Intent(applicationContext, SettingsActivity::class.java))
 }
 
 val Context.config: Config get() = Config.newInstance(applicationContext)
