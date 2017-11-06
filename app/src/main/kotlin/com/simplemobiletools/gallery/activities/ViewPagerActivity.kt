@@ -516,9 +516,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         bmp.compress(file.getCompressionFormat(), 90, out)
     }
 
-    private fun saveRotation(input: File, output: File) {
-        copyFile(input, output)
-        val exif = ExifInterface(output.absolutePath)
+    private fun saveRotation(source: File, destination: File) {
+        copyFile(source, destination)
+        val exif = ExifInterface(destination.absolutePath)
         val orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
         val orientationDegrees = (degreesForRotation(orientation) + mRotationDegrees) % 360
         exif.setAttribute(ExifInterface.TAG_ORIENTATION, rotationFromDegrees(orientationDegrees))
