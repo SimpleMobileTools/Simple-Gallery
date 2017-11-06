@@ -44,15 +44,11 @@ import com.simplemobiletools.gallery.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_medium.*
-import java.io.File
-import java.io.FileInputStream
-import java.io.FileOutputStream
-import java.io.InputStream
-import java.io.OutputStream
+import java.io.*
 import java.util.*
 
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
-    lateinit var mOrientationEventListener: OrientationEventListener
+    private var mOrientationEventListener: OrientationEventListener? = null
     private var mPath = ""
     private var mDirectory = ""
 
@@ -214,8 +210,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             window.attributes = attributes
         }
 
-        if (config.screenRotation == ROTATE_BY_DEVICE_ROTATION && mOrientationEventListener.canDetectOrientation()) {
-            mOrientationEventListener.enable()
+        if (config.screenRotation == ROTATE_BY_DEVICE_ROTATION && mOrientationEventListener?.canDetectOrientation() == true) {
+            mOrientationEventListener?.enable()
         } else if (config.screenRotation == ROTATE_BY_SYSTEM_SETTING) {
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
         }
@@ -225,7 +221,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     override fun onPause() {
         super.onPause()
-        mOrientationEventListener.disable()
+        mOrientationEventListener?.disable()
         stopSlideshow()
     }
 
@@ -241,11 +237,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_hide).isVisible = !currentMedium.name.startsWith('.')
             findItem(R.id.menu_unhide).isVisible = currentMedium.name.startsWith('.')
             findItem(R.id.menu_rotate).setShowAsAction(
-                if (mRotationDegrees !== 0f) {
-                    MenuItem.SHOW_AS_ACTION_ALWAYS
-                } else {
-                    MenuItem.SHOW_AS_ACTION_IF_ROOM
-                })
+                    if (mRotationDegrees != 0f) {
+                        MenuItem.SHOW_AS_ACTION_ALWAYS
+                    } else {
+                        MenuItem.SHOW_AS_ACTION_IF_ROOM
+                    })
         }
 
         return true
