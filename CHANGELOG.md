@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 2.17.4 *(2017-11-06)*
+----------------------------
+
+ * Fixed some third party intent handling
+ * Increased max columns count to 20
+ * Allow rotating JPGs in a lossless way (by ltGuillaume)
+
 Version 2.17.3 *(2017-11-02)*
 ----------------------------
 
