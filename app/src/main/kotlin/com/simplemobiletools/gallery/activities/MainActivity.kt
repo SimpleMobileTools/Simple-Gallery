@@ -470,6 +470,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             clipData.addItem(ClipData.Item(it))
         }
 
+        resultIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
         resultIntent.clipData = clipData
     }
 

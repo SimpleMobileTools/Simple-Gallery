@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.photo_video_item_grid.view.*
 import java.io.File
 import java.util.*
 
-class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>, val listener: MediaOperationsListener?, val isPickIntent: Boolean,
+class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
                    val allowMultiplePicks: Boolean, val itemClick: (Medium) -> Unit) : RecyclerView.Adapter<MediaAdapter.ViewHolder>() {
 
     private val config = activity.config
@@ -108,7 +108,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu): Boolean {
             menu.findItem(R.id.cab_rename).isVisible = selectedPositions.size == 1
             menu.findItem(R.id.cab_open_with).isVisible = selectedPositions.size == 1
-            menu.findItem(R.id.cab_confirm_selection).isVisible = isPickIntent && allowMultiplePicks && selectedPositions.size > 0
+            menu.findItem(R.id.cab_confirm_selection).isVisible = isAGetIntent && allowMultiplePicks && selectedPositions.size > 0
 
             checkHideBtnVisibility(menu)
 
@@ -279,7 +279,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val layoutType = if (isListViewType) R.layout.photo_video_item_list else R.layout.photo_video_item_grid
         val view = LayoutInflater.from(parent?.context).inflate(layoutType, parent, false)
-        return ViewHolder(view, adapterListener, activity, multiSelectorMode, multiSelector, listener, allowMultiplePicks || !isPickIntent, itemClick)
+        return ViewHolder(view, adapterListener, activity, multiSelectorMode, multiSelector, listener, allowMultiplePicks || !isAGetIntent, itemClick)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
