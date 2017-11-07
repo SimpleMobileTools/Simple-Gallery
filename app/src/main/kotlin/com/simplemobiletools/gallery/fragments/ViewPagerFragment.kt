@@ -27,7 +27,7 @@ abstract class ViewPagerFragment : Fragment() {
         val path = "${file.parent.trimEnd('/')}/"
         val exif = android.media.ExifInterface(medium.path)
         val details = StringBuilder()
-        val detailsFlag = context.config.extendedDetails
+        val detailsFlag = context!!.config.extendedDetails
         if (detailsFlag and EXT_NAME != 0) {
             medium.name.let { if (it.isNotEmpty()) details.appendln(it) }
         }

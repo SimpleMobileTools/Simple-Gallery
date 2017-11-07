@@ -53,31 +53,31 @@ class PhotoFragment : ViewPagerFragment() {
             isFragmentVisible = true
         }
 
-        medium = arguments.getSerializable(MEDIUM) as Medium
+        medium = arguments!!.getSerializable(MEDIUM) as Medium
         if (medium.path.startsWith("content://")) {
             val originalPath = medium.path
-            medium.path = context.getRealPathFromURI(Uri.parse(originalPath)) ?: medium.path
+            medium.path = context!!.getRealPathFromURI(Uri.parse(originalPath)) ?: medium.path
 
             if (medium.path.isEmpty()) {
                 var out: FileOutputStream? = null
                 try {
-                    var inputStream = context.contentResolver.openInputStream(Uri.parse(originalPath))
+                    var inputStream = context!!.contentResolver.openInputStream(Uri.parse(originalPath))
                     val exif = ExifInterface()
                     exif.readExif(inputStream, ExifInterface.Options.OPTION_ALL)
                     val tag = exif.getTag(ExifInterface.TAG_ORIENTATION)
                     val orientation = tag?.getValueAsInt(-1) ?: -1
-                    inputStream = context.contentResolver.openInputStream(Uri.parse(originalPath))
+                    inputStream = context!!.contentResolver.openInputStream(Uri.parse(originalPath))
                     val original = BitmapFactory.decodeStream(inputStream)
                     val rotated = rotateViaMatrix(original, orientation)
                     exif.setTagValue(ExifInterface.TAG_ORIENTATION, 1)
                     exif.removeCompressedThumbnail()
 
-                    val file = File(context.externalCacheDir, Uri.parse(originalPath).lastPathSegment)
+                    val file = File(context!!.externalCacheDir, Uri.parse(originalPath).lastPathSegment)
                     out = FileOutputStream(file)
                     rotated.compress(Bitmap.CompressFormat.JPEG, 100, out)
                     medium.path = file.absolutePath
                 } catch (e: Exception) {
-                    activity.toast(R.string.unknown_error_occurred)
+                    activity!!.toast(R.string.unknown_error_occurred)
                     return view
                 } finally {
                     out?.close()
@@ -97,13 +97,13 @@ class PhotoFragment : ViewPagerFragment() {
 
     override fun onPause() {
         super.onPause()
-        storedShowExtendedDetails = context.config.showExtendedDetails
-        storedExtendedDetails = context.config.extendedDetails
+        storedShowExtendedDetails = context!!.config.showExtendedDetails
+        storedExtendedDetails = context!!.config.extendedDetails
     }
 
     override fun onResume() {
         super.onResume()
-        if (wasInit && (context.config.showExtendedDetails != storedShowExtendedDetails || context.config.extendedDetails != storedExtendedDetails)) {
+        if (wasInit && (context!!.config.showExtendedDetails != storedShowExtendedDetails || context!!.config.extendedDetails != storedExtendedDetails)) {
             checkExtendedDetails()
         }
     }
@@ -169,7 +169,7 @@ class PhotoFragment : ViewPagerFragment() {
     private fun loadGif() {
         try {
             gifDrawable = if (medium.path.startsWith("content://") || medium.path.startsWith("file://")) {
-                GifDrawable(context.contentResolver, Uri.parse(medium.path))
+                GifDrawable(context!!.contentResolver, Uri.parse(medium.path))
             } else {
                 GifDrawable(medium.path)
             }
@@ -212,7 +212,7 @@ class PhotoFragment : ViewPagerFragment() {
         } else {
             val options = RequestOptions()
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
-                    .transform(GlideRotateTransformation(context, degrees))
+                    .transform(GlideRotateTransformation(context!!, degrees))
 
             Glide.with(this)
                     .asBitmap()
@@ -271,9 +271,9 @@ class PhotoFragment : ViewPagerFragment() {
         if (context == null)
             return 2f
 
-        return if (context.portrait && bitmapAspectRatio <= 1f) {
+        return if (context!!.portrait && bitmapAspectRatio <= 1f) {
             ViewPagerActivity.screenHeight / height.toFloat()
-        } else if (!context.portrait && bitmapAspectRatio >= 1f) {
+        } else if (!context!!.portrait && bitmapAspectRatio >= 1f) {
             ViewPagerActivity.screenWidth / width.toFloat()
         } else {
             2f
@@ -286,7 +286,7 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun checkExtendedDetails() {
-        if (context.config.showExtendedDetails) {
+        if (context!!.config.showExtendedDetails) {
             view.photo_details.apply {
                 text = getMediumExtendedDetails(medium)
                 setTextColor(context.config.textColor)
@@ -305,8 +305,7 @@ class PhotoFragment : ViewPagerFragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        context.isKitkatPlus()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && !activity.isDestroyed) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && !activity!!.isDestroyed) {
             Glide.with(context).clear(view.gif_view)
         }
     }
@@ -330,10 +329,5 @@ class PhotoFragment : ViewPagerFragment() {
                 animate().y(newY)
             }
         }
-    }
-
-    fun refreshBitmap() {
-        view.subsampling_view.beGone()
-        loadBitmap()
     }
 }

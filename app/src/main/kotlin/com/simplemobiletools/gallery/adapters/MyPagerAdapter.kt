@@ -34,15 +34,15 @@ class MyPagerAdapter(val activity: ViewPagerActivity, fm: FragmentManager, val m
         return fragment
     }
 
-    override fun getItemPosition(item: Any?) = PagerAdapter.POSITION_NONE
+    override fun getItemPosition(item: Any) = PagerAdapter.POSITION_NONE
 
-    override fun instantiateItem(container: ViewGroup?, position: Int): Any {
+    override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val fragment = super.instantiateItem(container, position) as ViewPagerFragment
         mFragments.put(position, fragment)
         return fragment
     }
 
-    override fun destroyItem(container: ViewGroup?, position: Int, any: Any?) {
+    override fun destroyItem(container: ViewGroup, position: Int, any: Any) {
         mFragments.remove(position)
         super.destroyItem(container, position, any)
     }

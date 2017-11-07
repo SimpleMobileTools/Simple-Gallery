@@ -65,7 +65,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mView = inflater.inflate(R.layout.pager_video_item, container, false)
         mTimeHolder = mView.video_time_holder
-        medium = arguments.getSerializable(MEDIUM) as Medium
+        medium = arguments!!.getSerializable(MEDIUM) as Medium
 
         // setMenuVisibility is not called at VideoActivity (third party intent)
         if (!mIsFragmentVisible && activity is VideoActivity) {
@@ -77,7 +77,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             mCurrTime = savedInstanceState.getInt(PROGRESS)
         }
 
-        mIsFullscreen = activity.window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN == View.SYSTEM_UI_FLAG_FULLSCREEN
+        mIsFullscreen = activity!!.window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN == View.SYSTEM_UI_FLAG_FULLSCREEN
         checkFullscreen()
         wasInit = true
 
@@ -86,11 +86,11 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
     override fun onResume() {
         super.onResume()
-        activity.updateTextColors(mView.video_holder)
-        mView.video_volume_controller.beVisibleIf(context.config.allowVideoGestures)
-        mView.video_brightness_controller.beVisibleIf(context.config.allowVideoGestures)
+        activity!!.updateTextColors(mView.video_holder)
+        mView.video_volume_controller.beVisibleIf(context!!.config.allowVideoGestures)
+        mView.video_brightness_controller.beVisibleIf(context!!.config.allowVideoGestures)
 
-        if (context.config.showExtendedDetails != mStoredShowExtendedDetails || context.config.extendedDetails != mStoredExtendedDetails) {
+        if (context!!.config.showExtendedDetails != mStoredShowExtendedDetails || context!!.config.extendedDetails != mStoredExtendedDetails) {
             checkExtendedDetails()
         }
     }
@@ -98,8 +98,8 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     override fun onPause() {
         super.onPause()
         pauseVideo()
-        mStoredShowExtendedDetails = context.config.showExtendedDetails
-        mStoredExtendedDetails = context.config.extendedDetails
+        mStoredShowExtendedDetails = context!!.config.showExtendedDetails
+        mStoredExtendedDetails = context!!.config.extendedDetails
     }
 
     override fun onDestroy() {
@@ -238,17 +238,17 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mView.video_holder
     }
 
-    private fun getCurrentVolume() = context.audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
+    private fun getCurrentVolume() = context!!.audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
 
-    private fun getCurrentBrightness() = Settings.System.getInt(activity.contentResolver, Settings.System.SCREEN_BRIGHTNESS)
+    private fun getCurrentBrightness() = Settings.System.getInt(activity!!.contentResolver, Settings.System.SCREEN_BRIGHTNESS)
 
     private fun volumePercentChanged(percent: Int) {
         val stream = AudioManager.STREAM_MUSIC
-        val maxVolume = context.audioManager.getStreamMaxVolume(stream)
+        val maxVolume = context!!.audioManager.getStreamMaxVolume(stream)
         val percentPerPoint = 100 / maxVolume
         val addPoints = percent / percentPerPoint
         val newVolume = Math.min(maxVolume, Math.max(0, mTouchDownVolume + addPoints))
-        context.audioManager.setStreamVolume(stream, newVolume, 0)
+        context!!.audioManager.setStreamVolume(stream, newVolume, 0)
 
         val absolutePercent = ((newVolume / maxVolume.toFloat()) * 100).toInt()
         mView.slide_info.apply {
@@ -274,9 +274,9 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             alpha = 1f
         }
 
-        val attributes = activity.window.attributes
+        val attributes = activity!!.window.attributes
         attributes.screenBrightness = absolutePercent / 100f
-        activity.window.attributes = attributes
+        activity!!.window.attributes = attributes
 
         mSlideInfoFadeHandler.removeCallbacksAndMessages(null)
         mSlideInfoFadeHandler.postDelayed({
@@ -286,7 +286,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
     private fun initTimeHolder() {
         val res = resources
-        val height = context.navigationBarHeight
+        val height = context!!.navigationBarHeight
         val left = mTimeHolder.paddingLeft
         val top = mTimeHolder.paddingTop
         var right = res.getDimension(R.dimen.timer_padding).toInt()
@@ -297,7 +297,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 bottom += height
             } else {
                 right += height
-                bottom += context.navigationBarHeight
+                bottom += context!!.navigationBarHeight
             }
             mTimeHolder.setPadding(left, top, right, bottom)
         }
@@ -312,7 +312,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
     private fun hasNavBar(): Boolean {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            val display = context.windowManager.defaultDisplay
+            val display = context!!.windowManager.defaultDisplay
 
             val realDisplayMetrics = DisplayMetrics()
             display.getRealMetrics(realDisplayMetrics)
@@ -342,7 +342,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     }
 
     private fun setupTimer() {
-        activity.runOnUiThread(object : Runnable {
+        activity!!.runOnUiThread(object : Runnable {
             override fun run() {
                 if (mMediaPlayer != null && !mIsDragged && mIsPlaying) {
                     mCurrTime = mMediaPlayer!!.currentPosition / 1000
@@ -401,14 +401,14 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             mPlayOnPrepare = true
         }
         mView.video_play_outline.setImageDrawable(null)
-        activity.window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        activity!!.window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
     private fun pauseVideo() {
         mIsPlaying = false
         mMediaPlayer?.pause()
         mView.video_play_outline.setImageDrawable(resources.getDrawable(R.drawable.img_play_outline_big))
-        activity.window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        activity!!.window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
     private fun initMediaPlayer() {
@@ -470,7 +470,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         setupTimeHolder()
         setProgress(mCurrTime)
 
-        if (mIsFragmentVisible && (context.config.autoplayVideos || mPlayOnPrepare))
+        if (mIsFragmentVisible && (context!!.config.autoplayVideos || mPlayOnPrepare))
             playVideo()
     }
 
@@ -479,7 +479,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             return
         }
 
-        if (listener?.videoEnded() == false && context.config.loopVideos) {
+        if (listener?.videoEnded() == false && context!!.config.loopVideos) {
             playVideo()
         } else {
             mSeekBar!!.progress = mSeekBar!!.max
@@ -516,7 +516,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         }
 
         val videoProportion = mMediaPlayer!!.videoWidth.toFloat() / mMediaPlayer!!.videoHeight.toFloat()
-        val display = activity.windowManager.defaultDisplay
+        val display = activity!!.windowManager.defaultDisplay
         val screenWidth: Int
         val screenHeight: Int
 
@@ -545,7 +545,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     }
 
     private fun checkExtendedDetails() {
-        if (context.config.showExtendedDetails) {
+        if (context!!.config.showExtendedDetails) {
             mView.video_details.apply {
                 text = getMediumExtendedDetails(medium)
                 setTextColor(context.config.textColor)
