@@ -458,39 +458,41 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             Thread({
                 toast(R.string.saving)
                 val selectedFile = File(it)
-                val tmpFile = File(filesDir, ".tmp_${it.getFilenameFromPath()}")
-                try {
-                    val bitmap = BitmapFactory.decodeFile(currPath)
-                    getFileOutputStream(tmpFile) {
-                        if (it == null) {
-                            toast(R.string.unknown_error_occurred)
-                            return@getFileOutputStream
-                        }
+                handleSAFDialog(selectedFile) {
+                    val tmpFile = File(filesDir, ".tmp_${it.getFilenameFromPath()}")
+                    try {
+                        val bitmap = BitmapFactory.decodeFile(currPath)
+                        getFileOutputStream(tmpFile) {
+                            if (it == null) {
+                                toast(R.string.unknown_error_occurred)
+                                return@getFileOutputStream
+                            }
 
-                        if (currPath.isJpg()) {
-                            saveRotation(getCurrentFile(), tmpFile)
-                        } else {
-                            saveFile(tmpFile, bitmap, it as FileOutputStream)
-                        }
+                            if (currPath.isJpg()) {
+                                saveRotation(getCurrentFile(), tmpFile)
+                            } else {
+                                saveFile(tmpFile, bitmap, it as FileOutputStream)
+                            }
 
-                        if (tmpFile.length() > 0 && selectedFile.exists()) {
-                            deleteFile(selectedFile) {}
-                        }
-                        copyFile(tmpFile, selectedFile)
-                        scanPath(selectedFile.absolutePath) {}
-                        toast(R.string.file_saved)
+                            if (tmpFile.length() > 0 && selectedFile.exists()) {
+                                deleteFile(selectedFile) {}
+                            }
+                            copyFile(tmpFile, selectedFile)
+                            scanPath(selectedFile.absolutePath) {}
+                            toast(R.string.file_saved)
 
-                        it.flush()
-                        it.close()
-                        mRotationDegrees = 0f
-                        invalidateOptionsMenu()
+                            it.flush()
+                            it.close()
+                            mRotationDegrees = 0f
+                            invalidateOptionsMenu()
+                        }
+                    } catch (e: OutOfMemoryError) {
+                        toast(R.string.out_of_memory_error)
+                    } catch (e: Exception) {
+                        showErrorToast(e)
+                    } finally {
+                        deleteFile(tmpFile) {}
                     }
-                } catch (e: OutOfMemoryError) {
-                    toast(R.string.out_of_memory_error)
-                } catch (e: Exception) {
-                    showErrorToast(e)
-                } finally {
-                    deleteFile(tmpFile) {}
                 }
             }).start()
         }
