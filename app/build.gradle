@@ -19,10 +19,14 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField "boolean", "USE_LEAK_CANARY", "true"
+        }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+            buildConfigField "boolean", "USE_LEAK_CANARY", "false"
         }
     }
 
