@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Eenvoudige Gallerij</string>
-    <string name="app_launcher_name">Gallerij</string>
+    <string name="app_name">Eenvoudige Galerij</string>
+    <string name="app_launcher_name">Galerij</string>
     <string name="edit">Bewerken</string>
     <string name="open_camera">Camera</string>
     <string name="hidden">(verborgen)</string>
@@ -37,9 +37,9 @@
     <string name="exclude">Uitsluiten</string>
     <string name="excluded_folders">Uitgesloten mappen</string>
     <string name="manage_excluded_folders">Uitgesloten mappen beheren</string>
-    <string name="exclude_folder_description">De selectie en submappen uitsluiten van deze gallerij. Uitgesloten mappen kunnen worden beheerd in de instellingen.</string>
+    <string name="exclude_folder_description">De selectie en submappen uitsluiten van deze galerij. Uitgesloten mappen kunnen worden beheerd in de instellingen.</string>
     <string name="exclude_folder_parent">Map die dit item bevat uitsluiten?</string>
-    <string name="excluded_activity_placeholder">Uitsluiten zal mappen en hun submappen verbergen voor deze gallerij, maar niet voor andere apps.\n\nAls u de mappen ook in andere apps wilt verbergen, kies dan voor de functie Verbergen.</string>
+    <string name="excluded_activity_placeholder">Uitsluiten zal mappen en hun submappen verbergen voor deze galerij, maar niet voor andere apps.\n\nAls u de mappen ook in andere apps wilt verbergen, kies dan voor de functie Verbergen.</string>
     <string name="remove_all">Alles verwijderen</string>
     <string name="remove_all_description">Verwijder alles uit de lijst van uitgesloten mappen? Dit zal de mappen zelf niet verwijderen.</string>
 
@@ -47,7 +47,7 @@
     <string name="include_folders">Ingesloten mappen</string>
     <string name="manage_included_folders">Ingesloten mappen beheren</string>
     <string name="add_folder">Map toevoegen</string>
-    <string name="included_activity_placeholder">Als er mappen zijn die wel media bevatten, maar niet niet door de gallerij worden herkend, voeg deze mappen dan hier handmatig toe.\n\nHet hier toevoegen van mappen zal andere mappen niet uitsluiten.</string>
+    <string name="included_activity_placeholder">Als er mappen zijn die wel media bevatten, maar niet niet door de galerij worden herkend, voeg deze mappen dan hier handmatig toe.\n\nHet hier toevoegen van mappen zal andere mappen niet uitsluiten.</string>
 
     <!-- Resizing -->
     <string name="resize">Grootte aanpassen</string>
@@ -129,11 +129,11 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Een gallerij voor afbeeldingen en video\'s, zonder advertenties.</string>
+    <string name="app_short_description">Een galerij voor afbeeldingen en video\'s, zonder advertenties.</string>
     <string name="app_long_description">
-        Een eenvoudige gallerij voor afbeeldingen en video\'s. Bestanden kunnen worden gesorteerd op datum, grootte en naam. Afbeeldingen kunnen in- en uitgezoomd worden. Bestanden worden afhankelijk van de schermgrootte weergegeven in kolommen, waarbij het aantal kolommen kan worden aangepast via knijpgebaren. Bestanden kunnen worden gedeeld, hernoemd, gekopieerd, verplaatst en verwijderd. Afbeeldingen kunnen ook worden bijgesneden, gedraaid, gekanteld of direct vanuit de app als achtergrond worden ingesteld.
+        Een eenvoudige galerij voor afbeeldingen en video\'s. Bestanden kunnen worden gesorteerd op datum, grootte en naam. Afbeeldingen kunnen in- en uitgezoomd worden. Bestanden worden afhankelijk van de schermgrootte weergegeven in kolommen, waarbij het aantal kolommen kan worden aangepast via knijpgebaren. Bestanden kunnen worden gedeeld, hernoemd, gekopieerd, verplaatst en verwijderd. Afbeeldingen kunnen ook worden bijgesneden, gedraaid, gekanteld of direct vanuit de app als achtergrond worden ingesteld.
 
-        De gallerij kan ook worden gebruikt voor het bekijken van afbeeldingen of video\'s vanuit andere apps, om bijlagen toe te voegen in e-mail, etc. Perfect voor dagelijks gebruik.
+        De galerij kan ook worden gebruikt voor het bekijken van afbeeldingen of video\'s vanuit andere apps, om bijlagen toe te voegen in e-mail, etc. Perfect voor dagelijks gebruik.
 
         Bevat geen advertenties of onnodige permissies. Volledig open-source. Kleuren van de app kunnen worden aangepast.
 
