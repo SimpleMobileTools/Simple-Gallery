@@ -23,6 +23,8 @@
     <string name="volume">Громкость</string>
     <string name="brightness">Яркость</string>
     <string name="do_not_ask_again">Не спрашивать снова (до следующего запуска)</string>
+    <string name="lock_orientation">Lock orientation</string>
+    <string name="unlock_orientation">Unlock orientation</string>
 
     <!-- Filter -->
     <string name="filter_media">Фильтр медиа</string>

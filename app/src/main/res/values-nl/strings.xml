@@ -23,6 +23,8 @@
     <string name="volume">Volume</string>
     <string name="brightness">Helderheid</string>
     <string name="do_not_ask_again">Onthouden voor deze sessie</string>
+    <string name="lock_orientation">Lock orientation</string>
+    <string name="unlock_orientation">Unlock orientation</string>
 
     <!-- Filter -->
     <string name="filter_media">Media kiezen</string>

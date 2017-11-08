@@ -23,6 +23,8 @@
     <string name="volume">Głośność</string>
     <string name="brightness">Jasność</string>
     <string name="do_not_ask_again">Nie pytaj więcej w tej sesji</string>
+    <string name="lock_orientation">Lock orientation</string>
+    <string name="unlock_orientation">Unlock orientation</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtruj multimedia</string>
