@@ -21,7 +21,19 @@
         android:id="@+id/menu_rotate"
         android:icon="@drawable/ic_rotate_right"
         android:title="@string/rotate"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/menu_rotate_right"
+                android:title="@string/rotate_right"/>
+            <item
+                android:id="@+id/menu_rotate_left"
+                android:title="@string/rotate_left"/>
+            <item
+                android:id="@+id/menu_rotate_one_eighty"
+                android:title="@string/rotate_one_eighty"/>
+        </menu>
+    </item>
     <item
         android:id="@+id/menu_share_2"
         android:icon="@drawable/ic_share"

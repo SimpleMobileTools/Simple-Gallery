@@ -286,7 +286,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_edit -> openEditor(Uri.fromFile(getCurrentFile()))
             R.id.menu_properties -> showProperties()
             R.id.menu_show_on_map -> showOnMap()
-            R.id.menu_rotate -> rotateImage()
+            R.id.menu_rotate_right -> rotateImage(90)
+            R.id.menu_rotate_left -> rotateImage(270)
+            R.id.menu_rotate_one_eighty -> rotateImage(180)
             R.id.menu_lock_orientation -> toggleLockOrientation()
             R.id.menu_save_as -> saveImageAs()
             R.id.menu_settings -> launchSettings()
@@ -469,8 +471,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
-    private fun rotateImage() {
-        mRotationDegrees = (mRotationDegrees + 90) % 360
+    private fun rotateImage(degrees: Int) {
+        mRotationDegrees = (mRotationDegrees + degrees) % 360
         getCurrentFragment()?.let {
             (it as? PhotoFragment)?.rotateImageViewBy(mRotationDegrees)
         }
