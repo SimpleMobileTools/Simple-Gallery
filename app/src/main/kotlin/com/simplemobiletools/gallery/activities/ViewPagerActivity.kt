@@ -66,6 +66,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mSlideshowMoveBackwards = false
     private var mSlideshowMedia = mutableListOf<Medium>()
     private var mAreSlideShowMediaVisible = false
+    private var mIsOrientationLocked = false
 
     private var mStoredUseEnglish = false
 
@@ -110,12 +111,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             window.attributes = attributes
         }
 
-        if (config.screenRotation == ROTATE_BY_DEVICE_ROTATION && mOrientationEventListener?.canDetectOrientation() == true) {
-            mOrientationEventListener?.enable()
-        } else if (config.screenRotation == ROTATE_BY_SYSTEM_SETTING) {
-            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
-        }
-
+        setupRotation()
         invalidateOptionsMenu()
     }
 
@@ -214,6 +210,18 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
+    private fun setupRotation() {
+        if (mIsOrientationLocked) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LOCKED
+            }
+        } else if (config.screenRotation == ROTATE_BY_DEVICE_ROTATION && mOrientationEventListener?.canDetectOrientation() == true) {
+            mOrientationEventListener?.enable()
+        } else if (config.screenRotation == ROTATE_BY_SYSTEM_SETTING) {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+        }
+    }
+
     private fun setupOrientationEventListener() {
         mOrientationEventListener = object : OrientationEventListener(this, SensorManager.SENSOR_DELAY_NORMAL) {
             override fun onOrientationChanged(orientation: Int) {
@@ -223,7 +231,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     else -> ORIENT_PORTRAIT
                 }
 
-                if (mLastHandledOrientation != currOrient) {
+                if (!mIsOrientationLocked && mLastHandledOrientation != currOrient) {
                     mLastHandledOrientation = currOrient
 
                     requestedOrientation = when (currOrient) {
@@ -247,6 +255,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_save_as).isVisible = mRotationDegrees != 0f
             findItem(R.id.menu_hide).isVisible = !currentMedium.name.startsWith('.')
             findItem(R.id.menu_unhide).isVisible = currentMedium.name.startsWith('.')
+            findItem(R.id.menu_lock_orientation).title = getString(if (mIsOrientationLocked) R.string.unlock_orientation else R.string.lock_orientation)
             findItem(R.id.menu_rotate).setShowAsAction(
                     if (mRotationDegrees != 0f) {
                         MenuItem.SHOW_AS_ACTION_ALWAYS
@@ -264,7 +273,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         when (item.itemId) {
             R.id.menu_set_as -> setAs(Uri.fromFile(getCurrentFile()))
-            R.id.slideshow -> initSlideshow()
+            R.id.menu_slideshow -> initSlideshow()
             R.id.menu_copy_to -> copyMoveTo(true)
             R.id.menu_move_to -> copyMoveTo(false)
             R.id.menu_open_with -> openFile(Uri.fromFile(getCurrentFile()), true)
@@ -276,10 +285,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_rename -> renameFile()
             R.id.menu_edit -> openEditor(Uri.fromFile(getCurrentFile()))
             R.id.menu_properties -> showProperties()
-            R.id.show_on_map -> showOnMap()
+            R.id.menu_show_on_map -> showOnMap()
             R.id.menu_rotate -> rotateImage()
+            R.id.menu_lock_orientation -> toggleLockOrientation()
             R.id.menu_save_as -> saveImageAs()
-            R.id.settings -> launchSettings()
+            R.id.menu_settings -> launchSettings()
             else -> return super.onOptionsItemSelected(item)
         }
         return true
@@ -465,6 +475,18 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             (it as? PhotoFragment)?.rotateImageViewBy(mRotationDegrees)
         }
         supportInvalidateOptionsMenu()
+    }
+
+    private fun toggleLockOrientation() {
+        mIsOrientationLocked = !mIsOrientationLocked
+        if (mIsOrientationLocked) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LOCKED
+            }
+        } else {
+            setupRotation()
+        }
+        invalidateOptionsMenu()
     }
 
     private fun saveImageAs() {
@@ -756,7 +778,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun checkOrientation() {
-        if (config.screenRotation == ROTATE_BY_ASPECT_RATIO) {
+        if (!mIsOrientationLocked && config.screenRotation == ROTATE_BY_ASPECT_RATIO) {
             val res = getCurrentFile().getResolution()
             if (res.x > res.y) {
                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
