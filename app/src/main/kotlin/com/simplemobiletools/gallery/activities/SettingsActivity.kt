@@ -50,6 +50,7 @@ class SettingsActivity : SimpleActivity() {
         setupHideSystemUI()
         setupReplaceShare()
         setupPasswordProtection()
+        setupAppPasswordProtection()
         setupDeleteEmptyFolders()
         setupAllowVideoGestures()
         setupShowMediaCount()
@@ -181,17 +182,41 @@ class SettingsActivity : SimpleActivity() {
         settings_password_protection.isChecked = config.isPasswordProtectionOn
         settings_password_protection_holder.setOnClickListener {
             val tabToShow = if (config.isPasswordProtectionOn) config.protectionType else SHOW_ALL_TABS
-            SecurityDialog(this, config.passwordHash, tabToShow) { hash, type ->
-                val hasPasswordProtection = config.isPasswordProtectionOn
-                settings_password_protection.isChecked = !hasPasswordProtection
-                config.isPasswordProtectionOn = !hasPasswordProtection
-                config.passwordHash = if (hasPasswordProtection) "" else hash
-                config.protectionType = type
+            SecurityDialog(this, config.passwordHash, tabToShow) { hash, type, success ->
+                if (success) {
+                    val hasPasswordProtection = config.isPasswordProtectionOn
+                    settings_password_protection.isChecked = !hasPasswordProtection
+                    config.isPasswordProtectionOn = !hasPasswordProtection
+                    config.passwordHash = if (hasPasswordProtection) "" else hash
+                    config.protectionType = type
 
-                if (config.isPasswordProtectionOn) {
-                    val confirmationTextId = if (config.protectionType == PROTECTION_FINGERPRINT)
-                        R.string.fingerprint_setup_successfully else R.string.protection_setup_successfully
-                    ConfirmationDialog(this, "", confirmationTextId, R.string.ok, 0) { }
+                    if (config.isPasswordProtectionOn) {
+                        val confirmationTextId = if (config.protectionType == PROTECTION_FINGERPRINT)
+                            R.string.fingerprint_setup_successfully else R.string.protection_setup_successfully
+                        ConfirmationDialog(this, "", confirmationTextId, R.string.ok, 0) { }
+                    }
+                }
+            }
+        }
+    }
+
+    private fun setupAppPasswordProtection() {
+        settings_app_password_protection.isChecked = config.appPasswordProtectionOn
+        settings_app_password_protection_holder.setOnClickListener {
+            val tabToShow = if (config.appPasswordProtectionOn) config.appProtectionType else SHOW_ALL_TABS
+            SecurityDialog(this, config.appPasswordHash, tabToShow) { hash, type, success ->
+                if (success) {
+                    val hasPasswordProtection = config.appPasswordProtectionOn
+                    settings_app_password_protection.isChecked = !hasPasswordProtection
+                    config.appPasswordProtectionOn = !hasPasswordProtection
+                    config.appPasswordHash = if (hasPasswordProtection) "" else hash
+                    config.appProtectionType = type
+
+                    if (config.appPasswordProtectionOn) {
+                        val confirmationTextId = if (config.appProtectionType == PROTECTION_FINGERPRINT)
+                            R.string.fingerprint_setup_successfully else R.string.protection_setup_successfully
+                        ConfirmationDialog(this, "", confirmationTextId, R.string.ok, 0) { }
+                    }
                 }
             }
         }

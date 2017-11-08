@@ -60,6 +60,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mStoredShowMediaCount = true
     private var mStoredTextColor = 0
     private var mLoadedInitialPhotos = false
+    private var mIsPasswordProtectionPending = false
     private var mLatestMediaId = 0L
     private var mLastMediaHandler = Handler()
     private var mCurrAsyncTask: GetDirectoriesAsynctask? = null
@@ -88,6 +89,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         directories_empty_text.setOnClickListener {
             showFilterMediaDialog()
         }
+
+        mIsPasswordProtectionPending = config.appPasswordProtectionOn
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -151,10 +154,22 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             getDirectoryAdapter()?.updateTextColor(config.textColor)
         }
 
-        tryloadGallery()
         invalidateOptionsMenu()
         directories_empty_text_label.setTextColor(config.textColor)
         directories_empty_text.setTextColor(config.primaryColor)
+
+        if (mIsPasswordProtectionPending) {
+            handleAppPasswordProtection {
+                if (it) {
+                    mIsPasswordProtectionPending = false
+                    tryloadGallery()
+                } else {
+                    finish()
+                }
+            }
+        } else {
+            tryloadGallery()
+        }
     }
 
     override fun onPause() {

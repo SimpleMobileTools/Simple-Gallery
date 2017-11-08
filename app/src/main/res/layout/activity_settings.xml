@@ -309,6 +309,26 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/settings_app_password_protection_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/settings_app_password_protection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/password_protect_whole_app"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:id="@+id/settings_delete_empty_folders_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
