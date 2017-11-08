@@ -541,7 +541,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         var inputStream: InputStream? = null
         var out: OutputStream? = null
         try {
-            out = getFileOutputStreamSync(destination.absolutePath, source.getMimeType(), getFileDocument(destination.parent))
+            val fileDocument = if (isPathOnSD(destination.absolutePath)) getFileDocument(destination.parent) else null
+            out = getFileOutputStreamSync(destination.absolutePath, source.getMimeType(), fileDocument)
             inputStream = FileInputStream(source)
             inputStream.copyTo(out!!)
         } finally {
