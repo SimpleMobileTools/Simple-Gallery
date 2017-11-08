@@ -67,6 +67,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mSlideshowMedia = mutableListOf<Medium>()
     private var mAreSlideShowMediaVisible = false
 
+    private var mStoredUseEnglish = false
+
     companion object {
         var screenWidth = 0
         var screenHeight = 0
@@ -84,6 +86,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 finish()
             }
         }
+
+        storeStateVariables()
     }
 
     private fun initViewPager() {
@@ -202,6 +206,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             finish()
             return
         }
+
+        if (mStoredUseEnglish != config.useEnglish) {
+            restartActivity()
+            return
+        }
+
         supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.actionbar_gradient_background))
 
         if (config.maxBrightness) {
@@ -223,6 +233,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         super.onPause()
         mOrientationEventListener?.disable()
         stopSlideshow()
+        storeStateVariables()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -272,6 +283,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             else -> return super.onOptionsItemSelected(item)
         }
         return true
+    }
+
+    private fun storeStateVariables() {
+        mStoredUseEnglish = config.useEnglish
     }
 
     private fun updatePagerItems(media: MutableList<Medium>) {

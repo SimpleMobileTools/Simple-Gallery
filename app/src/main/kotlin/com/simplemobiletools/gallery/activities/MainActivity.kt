@@ -53,6 +53,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mAllowPickingMultiple = false
     private var mIsThirdPartyIntent = false
     private var mIsGettingDirs = false
+    private var mStoredUseEnglish = false
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
@@ -124,6 +125,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     override fun onResume() {
         super.onResume()
         config.isThirdPartyIntent = false
+        if (mStoredUseEnglish != config.useEnglish) {
+            restartActivity()
+            return
+        }
+
         if (mStoredAnimateGifs != config.animateGifs) {
             getDirectoryAdapter()?.updateAnimateGifs(config.animateGifs)
         }
@@ -175,6 +181,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun storeStateVariables() {
         config.apply {
+            mStoredUseEnglish = useEnglish
             mStoredAnimateGifs = animateGifs
             mStoredCropThumbnails = cropThumbnails
             mStoredScrollHorizontally = scrollHorizontally
