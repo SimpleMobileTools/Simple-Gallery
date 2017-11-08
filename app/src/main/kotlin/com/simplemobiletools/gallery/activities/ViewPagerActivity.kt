@@ -90,6 +90,57 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         storeStateVariables()
     }
 
+    override fun onResume() {
+        super.onResume()
+        if (!hasPermission(PERMISSION_WRITE_STORAGE)) {
+            finish()
+            return
+        }
+
+        if (mStoredUseEnglish != config.useEnglish) {
+            restartActivity()
+            return
+        }
+
+        supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.actionbar_gradient_background))
+
+        if (config.maxBrightness) {
+            val attributes = window.attributes
+            attributes.screenBrightness = 1f
+            window.attributes = attributes
+        }
+
+        if (config.screenRotation == ROTATE_BY_DEVICE_ROTATION && mOrientationEventListener?.canDetectOrientation() == true) {
+            mOrientationEventListener?.enable()
+        } else if (config.screenRotation == ROTATE_BY_SYSTEM_SETTING) {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+        }
+
+        invalidateOptionsMenu()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mOrientationEventListener?.disable()
+        stopSlideshow()
+        storeStateVariables()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (intent.extras?.containsKey(IS_VIEW_INTENT) == true) {
+            config.temporarilyShowHidden = false
+        }
+
+        if (config.isThirdPartyIntent) {
+            config.isThirdPartyIntent = false
+
+            if (intent.extras == null || !intent.getBooleanExtra(IS_FROM_GALLERY, false)) {
+                mMedia.clear()
+            }
+        }
+    }
+
     private fun initViewPager() {
         setupOrientationEventListener()
         measureScreen()
@@ -163,21 +214,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        if (intent.extras?.containsKey(IS_VIEW_INTENT) == true) {
-            config.temporarilyShowHidden = false
-        }
-
-        if (config.isThirdPartyIntent) {
-            config.isThirdPartyIntent = false
-
-            if (intent.extras == null || !intent.getBooleanExtra(IS_FROM_GALLERY, false)) {
-                mMedia.clear()
-            }
-        }
-    }
-
     private fun setupOrientationEventListener() {
         mOrientationEventListener = object : OrientationEventListener(this, SensorManager.SENSOR_DELAY_NORMAL) {
             override fun onOrientationChanged(orientation: Int) {
@@ -198,42 +234,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 }
             }
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        if (!hasPermission(PERMISSION_WRITE_STORAGE)) {
-            finish()
-            return
-        }
-
-        if (mStoredUseEnglish != config.useEnglish) {
-            restartActivity()
-            return
-        }
-
-        supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.actionbar_gradient_background))
-
-        if (config.maxBrightness) {
-            val attributes = window.attributes
-            attributes.screenBrightness = 1f
-            window.attributes = attributes
-        }
-
-        if (config.screenRotation == ROTATE_BY_DEVICE_ROTATION && mOrientationEventListener?.canDetectOrientation() == true) {
-            mOrientationEventListener?.enable()
-        } else if (config.screenRotation == ROTATE_BY_SYSTEM_SETTING) {
-            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
-        }
-
-        invalidateOptionsMenu()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        mOrientationEventListener?.disable()
-        stopSlideshow()
-        storeStateVariables()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
