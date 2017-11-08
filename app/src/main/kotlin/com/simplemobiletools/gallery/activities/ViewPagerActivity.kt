@@ -218,8 +218,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         mOrientationEventListener = object : OrientationEventListener(this, SensorManager.SENSOR_DELAY_NORMAL) {
             override fun onOrientationChanged(orientation: Int) {
                 val currOrient = when (orientation) {
-                    in 75..134 -> ORIENT_LANDSCAPE_RIGHT
-                    in 225..289 -> ORIENT_LANDSCAPE_LEFT
+                    in 60..134 -> ORIENT_LANDSCAPE_RIGHT
+                    in 225..299 -> ORIENT_LANDSCAPE_LEFT
                     else -> ORIENT_PORTRAIT
                 }
 
