@@ -27,7 +27,6 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.PhotoActivity
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.*
-import com.simplemobiletools.gallery.helpers.GlideDecoder
 import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
@@ -227,7 +226,7 @@ class PhotoFragment : ViewPagerFragment() {
     private fun addZoomableView() {
         if ((medium.isImage()) && isFragmentVisible && view.subsampling_view.visibility == View.GONE) {
             view.subsampling_view.apply {
-                setBitmapDecoderClass(GlideDecoder::class.java)   // was causing random crashes on Android 7+
+                //setBitmapDecoderClass(GlideDecoder::class.java)   // causing random crashes on Android 7+, at rotating
                 maxScale = 10f
                 beVisible()
                 setImage(ImageSource.uri(medium.path))
