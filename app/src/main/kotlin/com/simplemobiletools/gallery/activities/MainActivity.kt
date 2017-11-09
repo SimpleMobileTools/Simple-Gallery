@@ -451,7 +451,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                         else -> fillIntentPath(resultData, resultIntent)
                     }
                 } else if ((mIsPickImageIntent || mIsPickVideoIntent)) {
-                    val path = resultData.data.path
+                    val path = resultData.data?.path
                     val uri = getFilePublicUri(File(path), BuildConfig.APPLICATION_ID)
                     resultIntent.data = uri
                     resultIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
