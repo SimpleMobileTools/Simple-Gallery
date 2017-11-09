@@ -34,6 +34,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private var mCurrTimeView: TextView? = null
     private var mTimerHandler: Handler? = null
     private var mSeekBar: SeekBar? = null
+    private var mTimeHolder: View? = null
 
     private var mIsPlaying = false
     private var mIsDragged = false
@@ -60,7 +61,6 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
     lateinit var mView: View
     lateinit var medium: Medium
-    lateinit var mTimeHolder: View
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mView = inflater.inflate(R.layout.pager_video_item, container, false)
@@ -287,8 +287,8 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private fun initTimeHolder() {
         val res = resources
         val height = context!!.navigationBarHeight
-        val left = mTimeHolder.paddingLeft
-        val top = mTimeHolder.paddingTop
+        val left = mTimeHolder!!.paddingLeft
+        val top = mTimeHolder!!.paddingTop
         var right = res.getDimension(R.dimen.timer_padding).toInt()
         var bottom = 0
 
@@ -299,7 +299,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 right += height
                 bottom += context!!.navigationBarHeight
             }
-            mTimeHolder.setPadding(left, top, right, bottom)
+            mTimeHolder!!.setPadding(left, top, right, bottom)
         }
 
         mCurrTimeView = mView.video_curr_time
@@ -307,7 +307,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mSeekBar!!.setOnSeekBarChangeListener(this)
 
         if (mIsFullscreen)
-            mTimeHolder.beInvisible()
+            mTimeHolder!!.beInvisible()
     }
 
     private fun hasNavBar(): Boolean {
@@ -375,7 +375,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         AnimationUtils.loadAnimation(activity, anim).apply {
             duration = 150
             fillAfter = true
-            mTimeHolder.startAnimation(this)
+            mTimeHolder?.startAnimation(this)
         }
     }
 
@@ -557,7 +557,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 onGlobalLayout {
                     if (height != 0) {
                         val smallMargin = resources.getDimension(R.dimen.small_margin)
-                        val timeHolderHeight = mTimeHolder.height - context.navigationBarHeight
+                        val timeHolderHeight = mTimeHolder!!.height - context.navigationBarHeight
                         y = context.usableScreenSize.y - height - timeHolderHeight - if (context.navigationBarHeight == 0) smallMargin else 0f
                     }
                 }
@@ -598,7 +598,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mView.video_details.apply {
             if (visibility == View.VISIBLE) {
                 val smallMargin = resources.getDimension(R.dimen.small_margin)
-                val timeHolderHeight = mTimeHolder.height - context.navigationBarHeight.toFloat()
+                val timeHolderHeight = mTimeHolder!!.height - context.navigationBarHeight.toFloat()
                 val fullscreenOffset = context.navigationBarHeight.toFloat() - smallMargin
                 val newY = context.usableScreenSize.y - height + if (mIsFullscreen) fullscreenOffset else -(timeHolderHeight + if (context.navigationBarHeight == 0) smallMargin else 0f)
                 animate().y(newY)
