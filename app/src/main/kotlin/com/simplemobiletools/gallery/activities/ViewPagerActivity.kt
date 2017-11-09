@@ -507,6 +507,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                                 return@getFileOutputStream
                             }
 
+                            val oldLastModified = getCurrentFile().lastModified()
                             if (currPath.isJpg()) {
                                 saveRotation(getCurrentFile(), tmpFile)
                             } else {
@@ -517,8 +518,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                                 deleteFile(selectedFile) {}
                             }
                             copyFile(tmpFile, selectedFile)
-                            scanPath(selectedFile.absolutePath) {}
+                            scanFile(selectedFile) {}
                             toast(R.string.file_saved)
+
+                            if (config.keepLastModified) {
+                                selectedFile.setLastModified(oldLastModified)
+                                updateLastModified(selectedFile, oldLastModified)
+                            }
 
                             it.flush()
                             it.close()
