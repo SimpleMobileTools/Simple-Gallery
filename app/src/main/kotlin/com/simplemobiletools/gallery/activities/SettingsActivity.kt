@@ -6,17 +6,21 @@ import android.os.Bundle
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.dialogs.SecurityDialog
+import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.handleHiddenFolderPasswordProtection
 import com.simplemobiletools.commons.extensions.updateTextColors
+import com.simplemobiletools.commons.extensions.useEnglishToggled
 import com.simplemobiletools.commons.helpers.PROTECTION_FINGERPRINT
 import com.simplemobiletools.commons.helpers.SHOW_ALL_TABS
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.dialogs.ManageExtendedDetailsDialog
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.helpers.ROTATE_BY_ASPECT_RATIO
 import com.simplemobiletools.gallery.helpers.ROTATE_BY_DEVICE_ROTATION
 import com.simplemobiletools.gallery.helpers.ROTATE_BY_SYSTEM_SETTING
 import kotlinx.android.synthetic.main.activity_settings.*
+import java.util.*
 
 class SettingsActivity : SimpleActivity() {
     lateinit var res: Resources
@@ -31,6 +35,7 @@ class SettingsActivity : SimpleActivity() {
         super.onResume()
 
         setupCustomizeColors()
+        setupUseEnglish()
         setupManageIncludedFolders()
         setupManageExcludedFolders()
         setupShowHiddenFolders()
@@ -45,14 +50,29 @@ class SettingsActivity : SimpleActivity() {
         setupHideSystemUI()
         setupReplaceShare()
         setupPasswordProtection()
+        setupAppPasswordProtection()
         setupDeleteEmptyFolders()
         setupAllowVideoGestures()
+        setupShowMediaCount()
+        setupKeepLastModified()
+        setupShowExtendedDetails()
+        setupManageExtendedDetails()
         updateTextColors(settings_holder)
     }
 
     private fun setupCustomizeColors() {
         settings_customize_colors_holder.setOnClickListener {
             startCustomizationActivity()
+        }
+    }
+
+    private fun setupUseEnglish() {
+        settings_use_english_holder.beVisibleIf(Locale.getDefault().language != "en")
+        settings_use_english.isChecked = config.useEnglish
+        settings_use_english_holder.setOnClickListener {
+            settings_use_english.toggle()
+            config.useEnglish = settings_use_english.isChecked
+            useEnglishToggled()
         }
     }
 
@@ -162,17 +182,41 @@ class SettingsActivity : SimpleActivity() {
         settings_password_protection.isChecked = config.isPasswordProtectionOn
         settings_password_protection_holder.setOnClickListener {
             val tabToShow = if (config.isPasswordProtectionOn) config.protectionType else SHOW_ALL_TABS
-            SecurityDialog(this, config.passwordHash, tabToShow) { hash, type ->
-                val hasPasswordProtection = config.isPasswordProtectionOn
-                settings_password_protection.isChecked = !hasPasswordProtection
-                config.isPasswordProtectionOn = !hasPasswordProtection
-                config.passwordHash = if (hasPasswordProtection) "" else hash
-                config.protectionType = type
+            SecurityDialog(this, config.passwordHash, tabToShow) { hash, type, success ->
+                if (success) {
+                    val hasPasswordProtection = config.isPasswordProtectionOn
+                    settings_password_protection.isChecked = !hasPasswordProtection
+                    config.isPasswordProtectionOn = !hasPasswordProtection
+                    config.passwordHash = if (hasPasswordProtection) "" else hash
+                    config.protectionType = type
 
-                if (config.isPasswordProtectionOn) {
-                    val confirmationTextId = if (config.protectionType == PROTECTION_FINGERPRINT)
-                        R.string.fingerprint_setup_successfully else R.string.protection_setup_successfully
-                    ConfirmationDialog(this, "", confirmationTextId, R.string.ok, 0) { }
+                    if (config.isPasswordProtectionOn) {
+                        val confirmationTextId = if (config.protectionType == PROTECTION_FINGERPRINT)
+                            R.string.fingerprint_setup_successfully else R.string.protection_setup_successfully
+                        ConfirmationDialog(this, "", confirmationTextId, R.string.ok, 0) { }
+                    }
+                }
+            }
+        }
+    }
+
+    private fun setupAppPasswordProtection() {
+        settings_app_password_protection.isChecked = config.appPasswordProtectionOn
+        settings_app_password_protection_holder.setOnClickListener {
+            val tabToShow = if (config.appPasswordProtectionOn) config.appProtectionType else SHOW_ALL_TABS
+            SecurityDialog(this, config.appPasswordHash, tabToShow) { hash, type, success ->
+                if (success) {
+                    val hasPasswordProtection = config.appPasswordProtectionOn
+                    settings_app_password_protection.isChecked = !hasPasswordProtection
+                    config.appPasswordProtectionOn = !hasPasswordProtection
+                    config.appPasswordHash = if (hasPasswordProtection) "" else hash
+                    config.appProtectionType = type
+
+                    if (config.appPasswordProtectionOn) {
+                        val confirmationTextId = if (config.appProtectionType == PROTECTION_FINGERPRINT)
+                            R.string.fingerprint_setup_successfully else R.string.protection_setup_successfully
+                        ConfirmationDialog(this, "", confirmationTextId, R.string.ok, 0) { }
+                    }
                 }
             }
         }
@@ -191,6 +235,22 @@ class SettingsActivity : SimpleActivity() {
         settings_allow_video_gestures_holder.setOnClickListener {
             settings_allow_video_gestures.toggle()
             config.allowVideoGestures = settings_allow_video_gestures.isChecked
+        }
+    }
+
+    private fun setupShowMediaCount() {
+        settings_show_media_count.isChecked = config.showMediaCount
+        settings_show_media_count_holder.setOnClickListener {
+            settings_show_media_count.toggle()
+            config.showMediaCount = settings_show_media_count.isChecked
+        }
+    }
+
+    private fun setupKeepLastModified() {
+        settings_keep_last_modified.isChecked = config.keepLastModified
+        settings_keep_last_modified_holder.setOnClickListener {
+            settings_keep_last_modified.toggle()
+            config.keepLastModified = settings_keep_last_modified.isChecked
         }
     }
 
@@ -214,4 +274,24 @@ class SettingsActivity : SimpleActivity() {
         ROTATE_BY_DEVICE_ROTATION -> R.string.screen_rotation_device_rotation
         else -> R.string.screen_rotation_aspect_ratio
     })
+
+    private fun setupShowExtendedDetails() {
+        settings_show_extended_details.isChecked = config.showExtendedDetails
+        settings_show_extended_details_holder.setOnClickListener {
+            settings_show_extended_details.toggle()
+            config.showExtendedDetails = settings_show_extended_details.isChecked
+            settings_manage_extended_details_holder.beVisibleIf(config.showExtendedDetails)
+        }
+    }
+
+    private fun setupManageExtendedDetails() {
+        settings_manage_extended_details_holder.beVisibleIf(config.showExtendedDetails)
+        settings_manage_extended_details_holder.setOnClickListener {
+            ManageExtendedDetailsDialog(this) {
+                if (config.extendedDetails == 0) {
+                    settings_show_extended_details_holder.callOnClick()
+                }
+            }
+        }
+    }
 }

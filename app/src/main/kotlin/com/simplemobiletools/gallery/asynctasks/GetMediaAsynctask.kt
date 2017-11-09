@@ -10,14 +10,15 @@ import java.util.*
 class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo: Boolean = false, val isPickImage: Boolean = false,
                         val showAll: Boolean, val callback: (media: ArrayList<Medium>) -> Unit) :
         AsyncTask<Void, Void, ArrayList<Medium>>() {
-    val mediaFetcher = MediaFetcher(context)
+    private val mediaFetcher = MediaFetcher(context)
 
     override fun doInBackground(vararg params: Void): ArrayList<Medium> {
         return if (showAll) {
             val mediaMap = mediaFetcher.getMediaByDirectories(isPickVideo, isPickImage)
             val media = ArrayList<Medium>()
-            for ((path, curMedia) in mediaMap) {
-                media.addAll(curMedia)
+
+            mediaMap.values.forEach {
+                media.addAll(it)
             }
 
             Medium.sorting = context.config.getFileSorting("")

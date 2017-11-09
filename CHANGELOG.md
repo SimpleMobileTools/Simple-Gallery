@@ -1,6 +1,67 @@
 Changelog
 ==========
 
+Version 2.17.4 *(2017-11-06)*
+----------------------------
+
+ * Fixed some third party intent handling
+ * Increased max columns count to 20
+ * Allow rotating JPGs in a lossless way (by ltGuillaume)
+
+Version 2.17.3 *(2017-11-02)*
+----------------------------
+
+ * Fixed some corrupt gif file related crashes
+ * Rotate jpgs on the internal storage by exif
+ * Fixed some invisible SD card content
+
+Version 2.17.2 *(2017-10-29)*
+----------------------------
+
+ * Couple more minor fixes
+
+Version 2.17.1 *(2017-10-29)*
+----------------------------
+
+ * Show "Set As" and "Edit" menu buttons at videos and gifs too
+ * Couple other smaller issues fixed
+
+Version 2.17.0 *(2017-10-28)*
+----------------------------
+
+ * Added a toggle for keeping last-modified field at file copy/move/rename
+ * Improved GIF animation speed
+ * Implemented fileprovider support to third party intents
+ * Make rotation by "Device rotation" less sensitive
+ * Automatically append "_1" to filename after saving through the Editor
+ * Added support for Adaptive icons for Android 8 (by fiepi)
+ * Added Dutch translation (by ltGuillaume)
+ * Many other smaller improvements
+
+Version 2.16.1 *(2017-10-24)*
+----------------------------
+
+ * Added a toggle for hiding folder media count on the main screen
+ * Fixed SD card folders not being visible on some devices
+ * Fixed videos not playing properly in some cases
+ * Do not modify last_modified at copy/move/rename
+ * Added support for 3gpp videos
+
+Version 2.16.0 *(2017-10-19)*
+----------------------------
+
+ * Added sorting by path
+ * Added an option to show customizable extended details over fullscreen media
+ * Allow selecting Album cover photos from any folders
+ * Added a checkbox for skipping Delete confirmation dialog
+
+Version 2.15.2 *(2017-10-06)*
+----------------------------
+
+ * Properly display SD card content to Android 4 users
+ * Fix displaying some third party media, like Bluemail attachments
+ * Fix media picking intents if "Show all folders content" is enabled
+
 Version 2.15.1 *(2017-10-01)*
 ----------------------------
 

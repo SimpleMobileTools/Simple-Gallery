@@ -36,9 +36,12 @@ val HIDE_SYSTEM_UI = "hide_system_ui"
 val REPLACE_SHARE_WITH_ROTATE = "replace_share_with_rotate"
 val DELETE_EMPTY_FOLDERS = "delete_empty_folders"
 val ALLOW_VIDEO_GESTURES = "allow_video_gestures"
+val SHOW_MEDIA_COUNT = "show_media_count"
 val TEMP_FOLDER_PATH = "temp_folder_path"
 val VIEW_TYPE_FOLDERS = "view_type_folders"
 val VIEW_TYPE_FILES = "view_type_files"
+val SHOW_EXTENDED_DETAILS = "show_extended_details"
+val EXTENDED_DETAILS = "extended_details"
 
 // slideshow
 val SLIDESHOW_INTERVAL = "slideshow_interval"
@@ -53,20 +56,18 @@ val SLIDESHOW_DEFAULT_INTERVAL = 5
 val SLIDESHOW_SCROLL_DURATION = 500L
 
 val NOMEDIA = ".nomedia"
+val MAX_COLUMN_COUNT = 20
 
 val DIRECTORY = "directory"
 val MEDIUM = "medium"
+val PATH = "path"
 val GET_IMAGE_INTENT = "get_image_intent"
 val GET_VIDEO_INTENT = "get_video_intent"
 val GET_ANY_INTENT = "get_any_intent"
 val SET_WALLPAPER_INTENT = "set_wallpaper_intent"
 val DIRECTORIES = "directories2"
 val IS_VIEW_INTENT = "is_view_intent"
-val IS_FROM_GALLERY = "is_from_gallery"
 val PICKED_PATHS = "picked_paths"
-
-val REQUEST_EDIT_IMAGE = 1
-val REQUEST_SET_AS = 2
 
 // rotations
 val ROTATE_BY_SYSTEM_SETTING = 0
@@ -85,3 +86,16 @@ val GIFS = 4
 // view types
 val VIEW_TYPE_GRID = 1
 val VIEW_TYPE_LIST = 2
+
+// extended details values
+val EXT_NAME = 1
+val EXT_PATH = 2
+val EXT_SIZE = 4
+val EXT_RESOLUTION = 8
+val EXT_LAST_MODIFIED = 16
+val EXT_DATE_TAKEN = 32
+val EXT_CAMERA_MODEL = 64
+val EXT_EXIF_PROPERTIES = 128
+val EXT_DURATION = 256
+val EXT_ARTIST = 512
+val EXT_ALBUM = 1024

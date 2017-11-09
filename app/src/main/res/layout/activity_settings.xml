@@ -69,6 +69,26 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/settings_use_english_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/settings_use_english"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/use_english_language"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:id="@+id/settings_show_hidden_folders_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -289,6 +309,26 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/settings_app_password_protection_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/settings_app_password_protection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/password_protect_whole_app"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:id="@+id/settings_delete_empty_folders_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -325,6 +365,85 @@
                 android:paddingLeft="@dimen/medium_margin"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/allow_video_gestures"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/settings_show_media_count_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/settings_show_media_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/show_media_count"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/settings_keep_last_modified_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/settings_keep_last_modified"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/keep_last_modified"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/settings_show_extended_details_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/settings_show_extended_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/show_extended_details"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/settings_manage_extended_details_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MyTextView
+                android:id="@+id/settings_manage_extended_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/manage_extended_details"/>
 
         </RelativeLayout>
 

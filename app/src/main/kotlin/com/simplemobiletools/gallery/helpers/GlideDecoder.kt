@@ -42,10 +42,8 @@ class GlideDecoder : ImageDecoder {
     }
 
     private fun drawableToBitmap(drawable: Drawable): Bitmap {
-        if (drawable is BitmapDrawable) {
-            if (drawable.bitmap != null) {
-                return drawable.bitmap
-            }
+        if (drawable is BitmapDrawable && drawable.bitmap != null) {
+            return drawable.bitmap
         }
 
         val bitmap = if (drawable.intrinsicWidth <= 0 || drawable.intrinsicHeight <= 0) {

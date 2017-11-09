@@ -3,15 +3,15 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 27
+    buildToolsVersion "27.0.1"
 
     defaultConfig {
         applicationId "com.simplemobiletools.gallery"
         minSdkVersion 16
-        targetSdkVersion 23
-        versionCode 134
-        versionName "2.15.1"
+        targetSdkVersion 27
+        versionCode 142
+        versionName "2.17.4"
     }
 
     signingConfigs {
@@ -19,10 +19,14 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField "boolean", "USE_LEAK_CANARY", "true"
+        }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+            buildConfigField "boolean", "USE_LEAK_CANARY", "false"
         }
     }
 
@@ -36,19 +40,22 @@ android {
     }
 }
 
+ext {
+    leakCanaryVersion = '1.5.4'
+}
+
 dependencies {
-    compile 'com.simplemobiletools:commons:2.29.1'
-    compile 'com.davemorrissey.labs:subsampling-scale-image-view:3.6.0'
+    compile 'com.simplemobiletools:commons:2.37.12'
+    compile 'com.davemorrissey.labs:subsampling-scale-image-view:3.7.2'
     compile 'com.theartofdev.edmodo:android-image-cropper:2.4.0'
     compile 'com.bignerdranch.android:recyclerview-multiselect:0.2'
-    compile 'com.google.code.gson:gson:2.8.0'
-    compile 'com.github.chrisbanes:PhotoView:2.1.2'
+    compile 'com.google.code.gson:gson:2.8.2'
     compile 'it.sephiroth.android.exif:library:1.0.1'
+    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.8'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
-    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+    debugCompile "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
+    releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
 }
 
 buildscript {

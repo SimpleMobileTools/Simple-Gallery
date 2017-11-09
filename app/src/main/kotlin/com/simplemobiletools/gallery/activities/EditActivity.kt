@@ -7,29 +7,24 @@ import android.graphics.Point
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import com.simplemobiletools.commons.extensions.getCompressionFormat
-import com.simplemobiletools.commons.extensions.getFileOutputStream
-import com.simplemobiletools.commons.extensions.scanPath
-import com.simplemobiletools.commons.extensions.toast
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.ResizeDialog
 import com.simplemobiletools.gallery.dialogs.SaveAsDialog
-import com.simplemobiletools.gallery.extensions.getRealPathFromURI
 import com.simplemobiletools.gallery.extensions.openEditor
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.view_crop_image.*
 import java.io.*
 
 class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener {
-    val TAG = EditActivity::class.java.simpleName
-    val ASPECT_X = "aspectX"
-    val ASPECT_Y = "aspectY"
-    val CROP = "crop"
+    private val ASPECT_X = "aspectX"
+    private val ASPECT_Y = "aspectY"
+    private val CROP = "crop"
 
     lateinit var uri: Uri
+    lateinit var saveUri: Uri
     var resizeWidth = 0
     var resizeHeight = 0
     var isCropIntent = false
@@ -52,11 +47,17 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             return
         }
 
+        saveUri = if (intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true) {
+            intent.extras!!.get(MediaStore.EXTRA_OUTPUT) as Uri
+        } else {
+            uri
+        }
+
         isCropIntent = intent.extras?.get(CROP) == "true"
 
         crop_image_view.apply {
             setOnCropImageCompleteListener(this@EditActivity)
-            setImageUriAsync(intent.data)
+            setImageUriAsync(uri)
 
             if (isCropIntent && shouldCropSquare())
                 setFixedAspectRatio(true)
@@ -70,8 +71,9 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     override fun onStop() {
         super.onStop()
-        if (isEditingWithThirdParty)
+        if (isEditingWithThirdParty) {
             finish()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -128,15 +130,14 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     override fun onCropImageComplete(view: CropImageView, result: CropImageView.CropResult) {
         if (result.error == null) {
-            if (isCropIntent && intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true) {
-                val targetUri = intent.extras!!.get(MediaStore.EXTRA_OUTPUT) as Uri
+            if (isCropIntent) {
                 var inputStream: InputStream? = null
                 var outputStream: OutputStream? = null
                 try {
                     val stream = ByteArrayOutputStream()
                     result.bitmap.compress(CompressFormat.JPEG, 100, stream)
                     inputStream = ByteArrayInputStream(stream.toByteArray())
-                    outputStream = contentResolver.openOutputStream(targetUri)
+                    outputStream = contentResolver.openOutputStream(saveUri)
                     inputStream.copyTo(outputStream)
                 } finally {
                     inputStream?.close()
@@ -144,23 +145,21 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 }
                 setResult(RESULT_OK)
                 finish()
-            } else if (uri.scheme == "file") {
-                SaveAsDialog(this, uri.path) {
+            } else if (saveUri.scheme == "file") {
+                SaveAsDialog(this, saveUri.path, true) {
                     saveBitmapToFile(result.bitmap, it)
                 }
-            } else if (uri.scheme == "content") {
-                val newPath = applicationContext.getRealPathFromURI(uri) ?: ""
+            } else if (saveUri.scheme == "content") {
+                val newPath = applicationContext.getRealPathFromURI(saveUri) ?: ""
                 if (!newPath.isEmpty()) {
-                    SaveAsDialog(this, newPath) {
+                    SaveAsDialog(this, newPath, true) {
                         saveBitmapToFile(result.bitmap, it)
                     }
                 } else {
                     toast(R.string.image_editing_failed)
-                    finish()
                 }
             } else {
                 toast(R.string.unknown_file_location)
-                finish()
             }
         } else {
             toast("${getString(R.string.image_editing_failed)}: ${result.error.message}")
@@ -179,9 +178,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 }
             }
         } catch (e: Exception) {
-            Log.e(TAG, "Crop compressing failed $path $e")
-            toast(R.string.image_editing_failed)
-            finish()
+            showErrorToast(e)
         } catch (e: OutOfMemoryError) {
             toast(R.string.out_of_memory_error)
         }
@@ -200,14 +197,15 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun flipImage(horizontally: Boolean) {
-        if (horizontally)
+        if (horizontally) {
             crop_image_view.flipImageHorizontally()
-        else
+        } else {
             crop_image_view.flipImageVertically()
+        }
     }
 
     private fun editWith() {
-        openEditor(uri, true)
+        openEditor(uri)
         isEditingWithThirdParty = true
     }
 

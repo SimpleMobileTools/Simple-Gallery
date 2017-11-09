@@ -30,24 +30,30 @@ import java.util.*
 class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Directory>, val listener: DirOperationsListener?, val isPickIntent: Boolean,
                        val itemClick: (Directory) -> Unit) : RecyclerView.Adapter<DirectoryAdapter.ViewHolder>() {
 
-    val multiSelector = MultiSelector()
-    val config = activity.config
-    val isListViewType = config.viewTypeFolders == VIEW_TYPE_LIST
-
+    private val config = activity.config
     var actMode: ActionMode? = null
-    var itemViews = SparseArray<View>()
-    val selectedPositions = HashSet<Int>()
     var primaryColor = config.primaryColor
-    var textColor = config.textColor
-    var pinnedFolders = config.pinnedFolders
-    var scrollVertically = !config.scrollHorizontally
+
+    private val multiSelector = MultiSelector()
+    private val isListViewType = config.viewTypeFolders == VIEW_TYPE_LIST
+    private var itemViews = SparseArray<View>()
+    private val selectedPositions = HashSet<Int>()
+    private var textColor = config.textColor
+    private var pinnedFolders = config.pinnedFolders
+    private var scrollHorizontally = config.scrollHorizontally
+    private var showMediaCount = config.showMediaCount
+    private var animateGifs = config.animateGifs
+    private var cropThumbnails = config.cropThumbnails
 
     fun toggleItemSelection(select: Boolean, pos: Int) {
         if (select) {
-            itemViews[pos]?.dir_check?.background?.setColorFilter(primaryColor, PorterDuff.Mode.SRC_IN)
-            selectedPositions.add(pos)
-        } else
+            if (itemViews[pos] != null) {
+                itemViews[pos].dir_check?.background?.setColorFilter(primaryColor, PorterDuff.Mode.SRC_IN)
+                selectedPositions.add(pos)
+            }
+        } else {
             selectedPositions.remove(pos)
+        }
 
         itemViews[pos]?.dir_check?.beVisibleIf(select)
 
@@ -123,10 +129,11 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             var hiddenCnt = 0
             var unhiddenCnt = 0
             selectedPositions.mapNotNull { dirs.getOrNull(it)?.path }.forEach {
-                if (File(it).containsNoMedia())
+                if (File(it).containsNoMedia()) {
                     hiddenCnt++
-                else
+                } else {
                     unhiddenCnt++
+                }
             }
 
             menu.findItem(R.id.cab_hide).isVisible = unhiddenCnt > 0
@@ -138,10 +145,11 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             var pinnedCnt = 0
             var unpinnedCnt = 0
             selectedPositions.mapNotNull { dirs.getOrNull(it)?.path }.forEach {
-                if (pinnedFolders.contains(it))
+                if (pinnedFolders.contains(it)) {
                     pinnedCnt++
-                else
+                } else {
                     unpinnedCnt++
+                }
             }
 
             menu.findItem(R.id.cab_pin).isVisible = unpinnedCnt > 0
@@ -215,10 +223,11 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     }
 
     private fun pinFolders(pin: Boolean) {
-        if (pin)
+        if (pin) {
             config.addPinnedFolders(getSelectedPaths())
-        else
+        } else {
             config.removePinnedFolders(getSelectedPaths())
+        }
 
         pinnedFolders = config.pinnedFolders
         listener?.recheckPinnedFolders()
@@ -255,7 +264,6 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     private fun askConfirmDelete() {
         ConfirmationDialog(activity) {
             deleteFiles()
-            actMode?.finish()
         }
     }
 
@@ -294,6 +302,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
                     .forEachIndexed { curIndex, i -> newItems.put(curIndex, itemViews[i]) }
 
             itemViews = newItems
+            actMode?.finish()
         }
     }
 
@@ -302,19 +311,29 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             return
 
         val path = dirs[selectedPositions.first()].path
-        var albumCovers = config.parseAlbumCovers()
 
         if (useDefault) {
-            albumCovers = albumCovers.filterNot { it.path == path } as ArrayList
+            val albumCovers = getAlbumCoversWithout(path)
             storeCovers(albumCovers)
         } else {
-            PickMediumDialog(activity, path) {
-                albumCovers = albumCovers.filterNot { it.path == path } as ArrayList
-                albumCovers.add(AlbumCover(path, it))
+            pickMediumFrom(path, path)
+        }
+    }
+
+    private fun pickMediumFrom(targetFolder: String, path: String) {
+        PickMediumDialog(activity, path) {
+            if (File(it).isDirectory) {
+                pickMediumFrom(targetFolder, it)
+            } else {
+                val albumCovers = getAlbumCoversWithout(path)
+                val cover = AlbumCover(targetFolder, it)
+                albumCovers.add(cover)
                 storeCovers(albumCovers)
             }
         }
     }
+
+    private fun getAlbumCoversWithout(path: String) = config.parseAlbumCovers().filterNot { it.path == path } as ArrayList
 
     private fun storeCovers(albumCovers: ArrayList<AlbumCover>) {
         activity.config.albumCovers = Gson().toJson(albumCovers)
@@ -336,7 +355,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val dir = dirs[position]
-        itemViews.put(position, holder.bindView(dir, pinnedFolders.contains(dir.path), scrollVertically, isListViewType, textColor))
+        itemViews.put(position, holder.bindView(dir, pinnedFolders.contains(dir.path), scrollHorizontally, isListViewType, textColor, showMediaCount, animateGifs, cropThumbnails))
         toggleItemSelection(selectedPositions.contains(position), position)
         holder.itemView.tag = holder
     }
@@ -352,6 +371,26 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         dirs = newDirs
         notifyDataSetChanged()
         actMode?.finish()
+    }
+
+    fun updateAnimateGifs(animateGifs: Boolean) {
+        this.animateGifs = animateGifs
+        notifyDataSetChanged()
+    }
+
+    fun updateCropThumbnails(cropThumbnails: Boolean) {
+        this.cropThumbnails = cropThumbnails
+        notifyDataSetChanged()
+    }
+
+    fun updateShowMediaCount(showMediaCount: Boolean) {
+        this.showMediaCount = showMediaCount
+        notifyDataSetChanged()
+    }
+
+    fun updateScrollHorizontally(scrollHorizontally: Boolean) {
+        this.scrollHorizontally = scrollHorizontally
+        notifyDataSetChanged()
     }
 
     fun updateTextColor(textColor: Int) {
@@ -401,14 +440,16 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     class ViewHolder(val view: View, val adapterListener: MyAdapterListener, val activity: SimpleActivity, val multiSelectorCallback: ModalMultiSelectorCallback,
                      val multiSelector: MultiSelector, val listener: DirOperationsListener?, val isPickIntent: Boolean, val itemClick: (Directory) -> (Unit)) :
             SwappingHolder(view, MultiSelector()) {
-        fun bindView(directory: Directory, isPinned: Boolean, scrollVertically: Boolean, isListView: Boolean, textColor: Int): View {
+        fun bindView(directory: Directory, isPinned: Boolean, scrollHorizontally: Boolean, isListView: Boolean, textColor: Int, showMediaCount: Boolean,
+                     animateGifs: Boolean, cropThumbnails: Boolean): View {
             itemView.apply {
                 dir_name.text = directory.name
                 dir_path?.text = "${directory.path.substringBeforeLast("/")}/"
                 photo_cnt.text = directory.mediaCnt.toString()
-                activity.loadImage(directory.tmb, dir_thumbnail, scrollVertically)
+                activity.loadImage(directory.tmb, dir_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
                 dir_pin.beVisibleIf(isPinned)
                 dir_sd_card.beVisibleIf(activity.isPathOnSD(directory.path))
+                photo_cnt.beVisibleIf(showMediaCount)
 
                 if (isListView) {
                     dir_name.setTextColor(textColor)

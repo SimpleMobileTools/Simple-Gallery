@@ -11,7 +11,7 @@ import com.simplemobiletools.gallery.activities.SimpleActivity
 import kotlinx.android.synthetic.main.dialog_save_as.view.*
 import java.io.File
 
-class SaveAsDialog(val activity: SimpleActivity, val path: String, val callback: (savePath: String) -> Unit) {
+class SaveAsDialog(val activity: SimpleActivity, val path: String, val appendFilename: Boolean, val callback: (savePath: String) -> Unit) {
 
     init {
         var realPath = File(path).parent.trimEnd('/')
@@ -26,6 +26,10 @@ class SaveAsDialog(val activity: SimpleActivity, val path: String, val callback:
                 name = fullName.substring(0, dotAt)
                 val extension = fullName.substring(dotAt + 1)
                 save_as_extension.setText(extension)
+            }
+
+            if (appendFilename) {
+                name += "_1"
             }
 
             save_as_name.setText(name)

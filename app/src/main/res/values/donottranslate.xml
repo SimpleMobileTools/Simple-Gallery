@@ -2,6 +2,9 @@
 <resources>
 
     <!-- Release notes -->
+    <string name="release_138">Added an option to keep last-modified field at file copy/move/rename</string>
+    <string name="release_137">Added an option to hide folder media count on the main screen</string>
+    <string name="release_136">Added an option to show customizable extended details over fullscreen media</string>
     <string name="release_133">
          Added fingerprint to hidden item protection\n
          Added a new List view type

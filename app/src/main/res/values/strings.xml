@@ -4,8 +4,6 @@
     <string name="app_launcher_name">Gallery</string>
     <string name="edit">Edit</string>
     <string name="open_camera">Open camera</string>
-    <string name="open_with">Open with</string>
-    <string name="no_app_found">No valid app found</string>
     <string name="hidden">(hidden)</string>
     <string name="pin_folder">Pin folder</string>
     <string name="unpin_folder">Unpin folder</string>
@@ -22,9 +20,11 @@
     <string name="change_cover_image">Change cover image</string>
     <string name="select_photo">Select photo</string>
     <string name="use_default">Use default</string>
-    <string name="set_as">Set as</string>
     <string name="volume">Volume</string>
     <string name="brightness">Brightness</string>
+    <string name="do_not_ask_again">Do not ask again in this session</string>
+    <string name="lock_orientation">Lock orientation</string>
+    <string name="unlock_orientation">Unlock orientation</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter media</string>
@@ -49,7 +49,7 @@
     <string name="include_folders">Included folders</string>
     <string name="manage_included_folders">Manage included folders</string>
     <string name="add_folder">Add folder</string>
-    <string name="included_activity_placeholder">If you have some folders which contain media, but were not recognized by the app, you can add them manually here.</string>
+    <string name="included_activity_placeholder">If you have some folders which contain media, but were not recognized by the app, you can add them manually here.\n\nAdding some items here will not exclude any other folder.</string>
 
     <!-- Resizing -->
     <string name="resize">Resize</string>
@@ -124,7 +124,10 @@
     <string name="hide_system_ui_at_fullscreen">Automatically hide system UI at fullscreen media</string>
     <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
     <string name="allow_video_gestures">Allow controlling video volume and brightness with vertical gestures</string>
+    <string name="show_media_count">Show folder media count on the main view</string>
     <string name="replace_share_with_rotate">Replace Share with Rotate at fullscreen menu</string>
+    <string name="show_extended_details">Show extended details over fullscreen media</string>
+    <string name="manage_extended_details">Manage extended details</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

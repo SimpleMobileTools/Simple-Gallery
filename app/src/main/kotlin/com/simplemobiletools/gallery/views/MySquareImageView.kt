@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.widget.ImageView
 
 class MySquareImageView : ImageView {
-    var isVerticalScrolling = true
+    var isHorizontalScrolling = false
 
     constructor(context: Context) : super(context)
 
@@ -14,7 +14,7 @@ class MySquareImageView : ImageView {
     constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle)
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        val spec = if (isVerticalScrolling) widthMeasureSpec else heightMeasureSpec
+        val spec = if (isHorizontalScrolling) heightMeasureSpec else widthMeasureSpec
         super.onMeasure(spec, spec)
     }
 }

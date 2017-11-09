@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Eenvoudige Galerij</string>
+    <string name="app_launcher_name">Galerij</string>
+    <string name="edit">Bewerken</string>
+    <string name="open_camera">Camera</string>
+    <string name="hidden">(verborgen)</string>
+    <string name="pin_folder">Map vastzetten</string>
+    <string name="unpin_folder">Map losmaken</string>
+    <string name="show_all">Platte weergave</string>
+    <string name="all_folders">Alle mappen</string>
+    <string name="folder_view">Mapweergave</string>
+    <string name="other_folder">Andere map</string>
+    <string name="show_on_map">Op kaart tonen</string>
+    <string name="unknown_location">Locatie onbekend</string>
+    <string name="no_map_application">Geen app voor kaarten gevonden</string>
+    <string name="no_camera_app_found">Geen app voor camera gevonden</string>
+    <string name="increase_column_count">Meer kolommen</string>
+    <string name="reduce_column_count">Minder kolommen</string>
+    <string name="change_cover_image">Afbeelding voor omslag veranderen</string>
+    <string name="select_photo">Foto selecteren</string>
+    <string name="use_default">Standaard gebruiken</string>
+    <string name="volume">Volume</string>
+    <string name="brightness">Helderheid</string>
+    <string name="do_not_ask_again">Onthouden voor deze sessie</string>
+    <string name="lock_orientation">Schermrotatie vergrendelen</string>
+    <string name="unlock_orientation">Schermrotatie ontgrendelen</string>
+
+    <!-- Filter -->
+    <string name="filter_media">Media kiezen</string>
+    <string name="images">Afbeeldingen</string>
+    <string name="videos">Video\'s</string>
+    <string name="gifs">GIF-bestanden</string>
+    <string name="no_media_with_filters">Geen bestanden gevonden met de huidige filters.</string>
+    <string name="change_filters_underlined"><u>Media kiezen</u></string>
+
+    <!-- Hide / Exclude -->
+    <string name="hide_folder_description">Deze functie verbergt de map door het bestand \'.nomedia\' toe te voegen. Alle submappen zullen ook worden verborgen. Kies \'Verborgen mappen tonen\' in de instellingen om toch verborgen mappen te kunnen inzien. Doorgaan?</string>
+    <string name="exclude">Uitsluiten</string>
+    <string name="excluded_folders">Uitgesloten mappen</string>
+    <string name="manage_excluded_folders">Uitgesloten mappen beheren</string>
+    <string name="exclude_folder_description">De selectie en submappen uitsluiten van deze galerij. Uitgesloten mappen kunnen worden beheerd in de instellingen.</string>
+    <string name="exclude_folder_parent">Map die dit item bevat uitsluiten?</string>
+    <string name="excluded_activity_placeholder">Uitsluiten zal mappen en hun submappen verbergen voor deze galerij, maar niet voor andere apps.\n\nAls u de mappen ook in andere apps wilt verbergen, kies dan voor de functie Verbergen.</string>
+    <string name="remove_all">Alles verwijderen</string>
+    <string name="remove_all_description">Verwijder alles uit de lijst van uitgesloten mappen? Dit zal de mappen zelf niet verwijderen.</string>
+
+    <!-- Include folders -->
+    <string name="include_folders">Ingesloten mappen</string>
+    <string name="manage_included_folders">Ingesloten mappen beheren</string>
+    <string name="add_folder">Map toevoegen</string>
+    <string name="included_activity_placeholder">Als er mappen zijn die wel media bevatten, maar niet niet door de galerij worden herkend, voeg deze mappen dan hier handmatig toe.\n\nHet hier toevoegen van mappen zal andere mappen niet uitsluiten.</string>
+
+    <!-- Resizing -->
+    <string name="resize">Grootte aanpassen</string>
+    <string name="resize_and_save">Grootte aanpassen en opslaan</string>
+    <string name="width">Breedte</string>
+    <string name="height">Hoogte</string>
+    <string name="keep_aspect_ratio">Verhouding vergrendelen</string>
+    <string name="invalid_values">Voer geldige afmetingen in</string>
+
+    <!-- Editor -->
+    <string name="editor">Bewerken</string>
+    <string name="save">Opslaan</string>
+    <string name="rotate">Draaien</string>
+    <string name="path">Pad</string>
+    <string name="invalid_image_path">Ongeldig pad naar afbeelding</string>
+    <string name="image_editing_failed">Fout bij bewerken van afbeelding</string>
+    <string name="edit_image_with">Afbeelding bewerken met:</string>
+    <string name="no_editor_found">Geen app gevonden voor bewerking</string>
+    <string name="unknown_file_location">Onbekende bestandslocatie</string>
+    <string name="error_saving_file">Kan het bronbestand niet overschrijven</string>
+    <string name="rotate_left">Linksom draaien</string>
+    <string name="rotate_right">Rechtsom draaien</string>
+    <string name="rotate_one_eighty">180º draaien</string>
+    <string name="flip">Kantelen</string>
+    <string name="flip_horizontally">Horizontaal kantelen</string>
+    <string name="flip_vertically">Verticaal kantelen</string>
+    <string name="edit_with">Bewerken met</string>
+
+    <!-- Set wallpaper -->
+    <string name="simple_wallpaper">Achtergrond</string>
+    <string name="set_as_wallpaper">Als achtergrond instellen</string>
+    <string name="set_as_wallpaper_failed">Achtergrond instellen mislukt</string>
+    <string name="set_as_wallpaper_with">Achtergrond instellen met:</string>
+    <string name="no_capable_app_found">Geen app gevonden voor instellen achtergrond</string>
+    <string name="setting_wallpaper">Achtergrond instellen&#8230;</string>
+    <string name="wallpaper_set_successfully">Achtergrond is ingesteld</string>
+    <string name="portrait_aspect_ratio">Verhouding in portretmodus</string>
+    <string name="landscape_aspect_ratio">Verhouding in landschapsmodus</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">Diavoorstelling</string>
+    <string name="interval">Interval (seconden):</string>
+    <string name="include_photos">Afbeeldingen weergeven</string>
+    <string name="include_videos">Video\'s weergeven</string>
+    <string name="include_gifs">GIF-bestanden weergeven</string>
+    <string name="random_order">Willekeurige volgorde</string>
+    <string name="use_fade">Animaties gebruiken (vervagen)</string>
+    <string name="move_backwards">Omgekeerde volgorde</string>
+    <string name="loop_slideshow">Voorstelling herhalen</string>
+    <string name="slideshow_ended">De diavoorstelling is beëindigd</string>
+    <string name="no_media_for_slideshow">Geen media gevonden voor diavoorstelling</string>
+
+    <!-- View types -->
+    <string name="change_view_type">Weergave</string>
+    <string name="grid">Rooster</string>
+    <string name="list">Lijst</string>
+
+    <!-- Settings -->
+    <string name="show_hidden_media">Verborgen mappen tonen</string>
+    <string name="autoplay_videos">Video\'s automatisch afspelen</string>
+    <string name="toggle_filename">Bestandsnamen tonen</string>
+    <string name="loop_videos">Video\'s herhalen</string>
+    <string name="animate_gifs">GIF-bestanden afspelen in overzicht</string>
+    <string name="max_brightness">Maximale helderheid in volledige weergave</string>
+    <string name="crop_thumbnails">Voorbeelden vierkant bijsnijden</string>
+    <string name="screen_rotation_by">Media in volledige weergave roteren volgens</string>
+    <string name="screen_rotation_system_setting">Systeeminstelling</string>
+    <string name="screen_rotation_device_rotation">Rotatie van apparaat</string>
+    <string name="screen_rotation_aspect_ratio">Afmetingen van bestand</string>
+    <string name="dark_background_at_fullscreen">Donkere achtergrond bij volledige weergave</string>
+    <string name="scroll_thumbnails_horizontally">Horizontaal scrollen</string>
+    <string name="hide_system_ui_at_fullscreen">Automatisch de statusbalk verbergen in volledige weergave</string>
+    <string name="delete_empty_folders">Lege mappen verwijderen na het verwijderen van hun inhoud</string>
+    <string name="allow_video_gestures">Volume en helderheid aanpassen met verticale sleepgebaren</string>
+    <string name="show_media_count">Aantallen in mappen tonen</string>
+    <string name="replace_share_with_rotate">Menu-item Draaien vastzetten in volledige weergave (in plaats van Delen)</string>
+    <string name="show_extended_details">Uitgebreide informatie tonen in volledige weergave</string>
+    <string name="manage_extended_details">Uitgebreide informatie</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">Een galerij voor afbeeldingen en video\'s, zonder advertenties.</string>
+    <string name="app_long_description">
+        Een eenvoudige galerij voor afbeeldingen en video\'s. Bestanden kunnen worden gesorteerd op datum, grootte en naam. Afbeeldingen kunnen in- en uitgezoomd worden. Bestanden worden afhankelijk van de schermgrootte weergegeven in kolommen, waarbij het aantal kolommen kan worden aangepast via knijpgebaren. Bestanden kunnen worden gedeeld, hernoemd, gekopieerd, verplaatst en verwijderd. Afbeeldingen kunnen ook worden bijgesneden, gedraaid, gekanteld of direct vanuit de app als achtergrond worden ingesteld.
+
+        De galerij kan ook worden gebruikt voor het bekijken van afbeeldingen of video\'s vanuit andere apps, om bijlagen toe te voegen in e-mail, etc. Perfect voor dagelijks gebruik.
+
+        Bevat geen advertenties of onnodige permissies. Volledig open-source. Kleuren van de app kunnen worden aangepast.
+
+        Deze app is onderdeel van een grotere verzameling. Vind de andere apps op http://www.simplemobiletools.com
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>

@@ -245,6 +245,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(ALLOW_VIDEO_GESTURES, true)
         set(allowVideoGestures) = prefs.edit().putBoolean(ALLOW_VIDEO_GESTURES, allowVideoGestures).apply()
 
+    var showMediaCount: Boolean
+        get() = prefs.getBoolean(SHOW_MEDIA_COUNT, true)
+        set(showMediaCount) = prefs.edit().putBoolean(SHOW_MEDIA_COUNT, showMediaCount).apply()
+
     var slideshowInterval: Int
         get() = prefs.getInt(SLIDESHOW_INTERVAL, SLIDESHOW_DEFAULT_INTERVAL)
         set(slideshowInterval) = prefs.edit().putInt(SLIDESHOW_INTERVAL, slideshowInterval).apply()
@@ -288,4 +292,12 @@ class Config(context: Context) : BaseConfig(context) {
     var viewTypeFiles: Int
         get() = prefs.getInt(VIEW_TYPE_FILES, VIEW_TYPE_GRID)
         set(viewTypeFiles) = prefs.edit().putInt(VIEW_TYPE_FILES, viewTypeFiles).apply()
+
+    var showExtendedDetails: Boolean
+        get() = prefs.getBoolean(SHOW_EXTENDED_DETAILS, false)
+        set(showExtendedDetails) = prefs.edit().putBoolean(SHOW_EXTENDED_DETAILS, showExtendedDetails).apply()
+
+    var extendedDetails: Int
+        get() = prefs.getInt(EXTENDED_DETAILS, EXT_RESOLUTION or EXT_LAST_MODIFIED or EXT_EXIF_PROPERTIES)
+        set(extendedDetails) = prefs.edit().putInt(EXTENDED_DETAILS, extendedDetails).apply()
 }

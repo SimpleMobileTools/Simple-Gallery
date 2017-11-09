@@ -3,12 +3,9 @@ package com.simplemobiletools.gallery.extensions
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
-import android.database.Cursor
 import android.graphics.Point
 import android.media.AudioManager
-import android.net.Uri
 import android.os.Build
-import android.provider.MediaStore
 import android.view.WindowManager
 import com.simplemobiletools.commons.extensions.humanizePath
 import com.simplemobiletools.gallery.activities.SettingsActivity
@@ -44,32 +41,16 @@ val Context.realScreenSize: Point
         return size
     }
 
-fun Context.getRealPathFromURI(uri: Uri): String? {
-    var cursor: Cursor? = null
-    try {
-        val projection = arrayOf(MediaStore.Images.Media.DATA)
-        cursor = contentResolver.query(uri, projection, null, null, null)
-        if (cursor?.moveToFirst() == true) {
-            val index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
-            return cursor.getString(index)
-        }
-    } catch (e: Exception) {
-    } finally {
-        cursor?.close()
-    }
-    return null
-}
-
 fun Context.getHumanizedFilename(path: String): String {
     val humanized = humanizePath(path)
     return humanized.substring(humanized.lastIndexOf("/") + 1)
 }
 
 fun Context.launchSettings() {
-    startActivity(Intent(this, SettingsActivity::class.java))
+    startActivity(Intent(applicationContext, SettingsActivity::class.java))
 }
 
-val Context.config: Config get() = Config.newInstance(this)
+val Context.config: Config get() = Config.newInstance(applicationContext)
 
 fun Context.movePinnedDirectoriesToFront(dirs: ArrayList<Directory>): ArrayList<Directory> {
     val foundFolders = ArrayList<Directory>()
