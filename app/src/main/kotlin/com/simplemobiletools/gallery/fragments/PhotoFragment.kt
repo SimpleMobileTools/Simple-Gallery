@@ -39,6 +39,7 @@ import java.io.FileOutputStream
 
 class PhotoFragment : ViewPagerFragment() {
     private var isFragmentVisible = false
+    private var isFullscreen = false
     private var wasInit = false
     private var storedShowExtendedDetails = false
     private var storedExtendedDetails = 0
@@ -86,6 +87,7 @@ class PhotoFragment : ViewPagerFragment() {
             }
         }
 
+        isFullscreen = activity!!.window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN == View.SYSTEM_UI_FLAG_FULLSCREEN
         view.subsampling_view.setOnClickListener { photoClicked() }
         view.gif_view.setOnClickListener { photoClicked() }
         loadImage()
@@ -288,9 +290,8 @@ class PhotoFragment : ViewPagerFragment() {
                 setTextColor(context.config.textColor)
                 beVisibleIf(text.isNotEmpty())
                 onGlobalLayout {
-                    if (height != 0) {
-                        val smallMargin = resources.getDimension(R.dimen.small_margin)
-                        y = context.usableScreenSize.y - height - if (context.navigationBarHeight == 0) smallMargin else 0f
+                    if (height != 0 && isAdded) {
+                        y = getExtendedDetailsY(height)
                     }
                 }
             }
@@ -317,13 +318,17 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     override fun fullscreenToggled(isFullscreen: Boolean) {
+        this.isFullscreen = isFullscreen
         view.photo_details.apply {
             if (visibility == View.VISIBLE) {
-                val smallMargin = resources.getDimension(R.dimen.small_margin)
-                val fullscreenOffset = context.navigationBarHeight.toFloat() - smallMargin
-                val newY = context.usableScreenSize.y - height + if (isFullscreen) fullscreenOffset else -(if (context.navigationBarHeight == 0) smallMargin else 0f)
-                animate().y(newY)
+                animate().y(getExtendedDetailsY(height))
             }
         }
+    }
+
+    private fun getExtendedDetailsY(height: Int): Float {
+        val smallMargin = resources.getDimension(R.dimen.small_margin)
+        val fullscreenOffset = context!!.navigationBarHeight.toFloat() - smallMargin
+        return context!!.usableScreenSize.y - height + if (isFullscreen) fullscreenOffset else -(if (context!!.navigationBarHeight == 0) smallMargin else 0f)
     }
 }

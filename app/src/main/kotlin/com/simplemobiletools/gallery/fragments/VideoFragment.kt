@@ -555,10 +555,8 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 setTextColor(context.config.textColor)
                 beVisibleIf(text.isNotEmpty())
                 onGlobalLayout {
-                    if (height != 0) {
-                        val smallMargin = resources.getDimension(R.dimen.small_margin)
-                        val timeHolderHeight = mTimeHolder!!.height - context.navigationBarHeight
-                        y = context.usableScreenSize.y - height - timeHolderHeight - if (context.navigationBarHeight == 0) smallMargin else 0f
+                    if (height != 0 && isAdded) {
+                        y = getExtendedDetailsY(height)
                     }
                 }
             }
@@ -597,12 +595,15 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         checkFullscreen()
         mView.video_details.apply {
             if (visibility == View.VISIBLE) {
-                val smallMargin = resources.getDimension(R.dimen.small_margin)
-                val timeHolderHeight = mTimeHolder!!.height - context.navigationBarHeight.toFloat()
-                val fullscreenOffset = context.navigationBarHeight.toFloat() - smallMargin
-                val newY = context.usableScreenSize.y - height + if (mIsFullscreen) fullscreenOffset else -(timeHolderHeight + if (context.navigationBarHeight == 0) smallMargin else 0f)
-                animate().y(newY)
+                animate().y(getExtendedDetailsY(height))
             }
         }
+    }
+
+    private fun getExtendedDetailsY(height: Int): Float {
+        val smallMargin = resources.getDimension(R.dimen.small_margin)
+        val timeHolderHeight = mTimeHolder!!.height - context!!.navigationBarHeight.toFloat()
+        val fullscreenOffset = context!!.navigationBarHeight.toFloat() - smallMargin
+        return context!!.usableScreenSize.y - height + if (mIsFullscreen) fullscreenOffset else -(timeHolderHeight + if (context!!.navigationBarHeight == 0) smallMargin else 0f)
     }
 }
