@@ -27,6 +27,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.PhotoActivity
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.*
+import com.simplemobiletools.gallery.helpers.GlideDecoder
 import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
@@ -131,12 +132,6 @@ class PhotoFragment : ViewPagerFragment() {
     private fun photoFragmentVisibilityChanged(isVisible: Boolean) {
         if (isVisible) {
             addZoomableView()
-        } else {
-            view.subsampling_view.apply {
-                recycle()
-                beGone()
-                background = ColorDrawable(Color.TRANSPARENT)
-            }
         }
     }
 
@@ -226,7 +221,7 @@ class PhotoFragment : ViewPagerFragment() {
     private fun addZoomableView() {
         if ((medium.isImage()) && isFragmentVisible && view.subsampling_view.visibility == View.GONE) {
             view.subsampling_view.apply {
-                //setBitmapDecoderClass(GlideDecoder::class.java)   // causing random crashes on Android 7+, at rotating
+                setBitmapDecoderClass(GlideDecoder::class.java)
                 maxScale = 10f
                 beVisible()
                 setImage(ImageSource.uri(medium.path))
@@ -281,7 +276,8 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     fun rotateImageViewBy(degrees: Float) {
-        view.subsampling_view.beGone()
+        // do not make Subsampling view Gone, because it gets recycled and can crash with "Error, cannot access an invalid/free'd bitmap here!"
+        view.subsampling_view.beInvisible()
         loadBitmap(degrees)
     }
 
