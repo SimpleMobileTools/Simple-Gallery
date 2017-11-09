@@ -458,10 +458,12 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mSeekBar?.progress = 0
         mTimerHandler?.removeCallbacksAndMessages(null)
         mSurfaceView = null
+        mSurfaceHolder?.removeCallback(this)
         mSurfaceHolder = null
     }
 
     private fun releaseMediaPlayer() {
+        mMediaPlayer?.setSurface(null)
         mMediaPlayer?.release()
         mMediaPlayer = null
     }
