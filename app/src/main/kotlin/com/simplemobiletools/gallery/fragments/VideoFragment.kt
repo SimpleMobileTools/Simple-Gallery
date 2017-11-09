@@ -594,7 +594,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mIsFullscreen = isFullscreen
         checkFullscreen()
         mView.video_details.apply {
-            if (visibility == View.VISIBLE) {
+            if (isVisible()) {
                 animate().y(getExtendedDetailsY(height))
             }
         }

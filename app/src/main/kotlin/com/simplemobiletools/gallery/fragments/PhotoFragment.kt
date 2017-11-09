@@ -221,7 +221,7 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun addZoomableView() {
-        if ((medium.isImage()) && isFragmentVisible && view.subsampling_view.visibility == View.GONE) {
+        if ((medium.isImage()) && isFragmentVisible && view.subsampling_view.isGone()) {
             view.subsampling_view.apply {
                 setBitmapDecoderClass(GlideDecoder::class.java)
                 maxScale = 10f
@@ -320,7 +320,7 @@ class PhotoFragment : ViewPagerFragment() {
     override fun fullscreenToggled(isFullscreen: Boolean) {
         this.isFullscreen = isFullscreen
         view.photo_details.apply {
-            if (visibility == View.VISIBLE) {
+            if (isVisible()) {
                 animate().y(getExtendedDetailsY(height))
             }
         }

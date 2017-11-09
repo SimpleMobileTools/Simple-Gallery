@@ -372,7 +372,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         fun bindView(medium: Medium, displayFilenames: Boolean, scrollHorizontally: Boolean, isListViewType: Boolean, textColor: Int,
                      animateGifs: Boolean, cropThumbnails: Boolean): View {
             itemView.apply {
-                play_outline.visibility = if (medium.video) View.VISIBLE else View.GONE
+                play_outline.beVisibleIf(medium.video)
                 photo_name.beVisibleIf(displayFilenames || isListViewType)
                 photo_name.text = medium.name
                 activity.loadImage(medium.path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
