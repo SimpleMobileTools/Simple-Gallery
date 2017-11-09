@@ -23,8 +23,8 @@
     <string name="volume">Громкость</string>
     <string name="brightness">Яркость</string>
     <string name="do_not_ask_again">Не спрашивать снова (до следующего запуска)</string>
-    <string name="lock_orientation">Lock orientation</string>
-    <string name="unlock_orientation">Unlock orientation</string>
+    <string name="lock_orientation">Заблокировать ориентацию</string>
+    <string name="unlock_orientation">Разблокировать ориентацию</string>
 
     <!-- Filter -->
     <string name="filter_media">Фильтр медиа</string>
@@ -76,7 +76,7 @@
     <string name="flip">Отразить</string>
     <string name="flip_horizontally">По горизонтали</string>
     <string name="flip_vertically">По вертикали</string>
-    <string name="edit_with">Редактировать в</string>
+    <string name="edit_with">Редактировать в…</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Простые обои</string>
@@ -139,7 +139,7 @@
 
         Это приложение не будет показывать рекламу или запрашивать ненужные разрешения. У него полностью открытый исходный код и настраиваемые цвета оформления.
 
-        Simple Gallery - это приложение из серии Simple Mobile Tools. Остальные приложения из этой серии можно найти здесь: http://www.simplemobiletools.com
+        Simple Gallery — это приложение из серии Simple Mobile Tools. Остальные приложения из этой серии можно найти здесь: http://www.simplemobiletools.com
     </string>
 
     <!--
