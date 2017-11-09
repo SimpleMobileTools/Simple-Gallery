@@ -282,7 +282,7 @@ class MediaFetcher(val context: Context) {
             val isAlreadyAdded = curMedia.any { it.path == file.absolutePath }
             if (!isAlreadyAdded) {
                 curMedia.add(medium)
-                context.scanPath(file.absolutePath) {}
+                context.scanPath(file.absolutePath)
             }
         }
     }

@@ -194,7 +194,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         reloadViewPager()
-        scanPath(mPath) {}
+        scanPath(mPath)
 
         if (config.darkBackground)
             view_pager.background = ColorDrawable(Color.BLACK)
@@ -525,10 +525,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 }
 
                 if (tmpFile.length() > 0 && newFile.exists()) {
-                    deleteFile(newFile) {}
+                    deleteFile(newFile)
                 }
                 copyFile(tmpFile, newFile)
-                scanFile(newFile) {}
+                scanFile(newFile)
                 toast(R.string.file_saved)
 
                 if (config.keepLastModified) {
@@ -553,7 +553,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         } catch (e: Exception) {
             showErrorToast(e)
         } finally {
-            deleteFile(tmpFile) {}
+            deleteFile(tmpFile)
         }
     }
 
@@ -794,10 +794,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun deleteDirectoryIfEmpty() {
         val file = File(mDirectory)
         if (config.deleteEmptyFolders && !file.isDownloadsFolder() && file.isDirectory && file.listFiles()?.isEmpty() == true) {
-            deleteFile(file, true) {}
+            deleteFile(file, true)
         }
 
-        scanPath(mDirectory) {}
+        scanPath(mDirectory)
     }
 
     private fun checkOrientation() {

@@ -116,14 +116,14 @@ fun SimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
     }
 }
 
-fun SimpleActivity.removeNoMedia(path: String, callback: () -> Unit) {
+fun SimpleActivity.removeNoMedia(path: String, callback: (() -> Unit)? = null) {
     val file = File(path, NOMEDIA)
     deleteFile(file) {
-        callback()
+        callback?.invoke()
     }
 }
 
-fun SimpleActivity.toggleFileVisibility(oldFile: File, hide: Boolean, callback: (newFile: File) -> Unit) {
+fun SimpleActivity.toggleFileVisibility(oldFile: File, hide: Boolean, callback: ((newFile: File) -> Unit)? = null) {
     val path = oldFile.parent
     var filename = oldFile.name
     filename = if (hide) {
@@ -133,7 +133,7 @@ fun SimpleActivity.toggleFileVisibility(oldFile: File, hide: Boolean, callback: 
     }
     val newFile = File(path, filename)
     renameFile(oldFile, newFile) {
-        callback(newFile)
+        callback?.invoke(newFile)
     }
 }
 

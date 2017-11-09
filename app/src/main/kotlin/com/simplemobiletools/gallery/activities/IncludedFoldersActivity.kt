@@ -60,7 +60,7 @@ class IncludedFoldersActivity : SimpleActivity() {
         FilePickerDialog(this, pickFile = false, showHidden = config.shouldShowHidden) {
             config.addIncludedFolder(it)
             updateIncludedFolders()
-            scanPath(it) {}
+            scanPath(it)
         }
     }
 }

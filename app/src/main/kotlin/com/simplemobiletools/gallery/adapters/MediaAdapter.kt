@@ -173,7 +173,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         Thread({
             getSelectedMedia().forEach {
                 val oldFile = File(it.path)
-                activity.toggleFileVisibility(oldFile, hide) {}
+                activity.toggleFileVisibility(oldFile, hide)
             }
             activity.runOnUiThread {
                 listener?.refreshItems()
