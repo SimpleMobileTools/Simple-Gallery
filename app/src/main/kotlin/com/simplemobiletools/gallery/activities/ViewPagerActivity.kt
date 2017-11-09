@@ -23,6 +23,7 @@ import android.support.v4.view.ViewPager
 import android.util.DisplayMetrics
 import android.view.*
 import android.view.animation.DecelerateInterpolator
+import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
@@ -530,6 +531,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                             it.close()
                             mRotationDegrees = 0f
                             invalidateOptionsMenu()
+
+                            // we cannot refresh a specific image in Glide Cache, so just clear it all
+                            val glide = Glide.get(applicationContext)
+                            glide.clearDiskCache()
+                            runOnUiThread {
+                                glide.clearMemory()
+                            }
                         }
                     } catch (e: OutOfMemoryError) {
                         toast(R.string.out_of_memory_error)
