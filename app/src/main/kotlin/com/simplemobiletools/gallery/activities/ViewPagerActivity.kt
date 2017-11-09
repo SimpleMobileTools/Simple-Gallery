@@ -498,56 +498,62 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             Thread({
                 val selectedFile = File(it)
                 handleSAFDialog(selectedFile) {
-                    toast(R.string.saving)
-                    val tmpFile = File(filesDir, ".tmp_${it.getFilenameFromPath()}")
-                    try {
-                        val bitmap = BitmapFactory.decodeFile(currPath)
-                        getFileOutputStream(tmpFile) {
-                            if (it == null) {
-                                toast(R.string.unknown_error_occurred)
-                                return@getFileOutputStream
-                            }
+                    saveImageToFile(currPath, it)
 
-                            val oldLastModified = getCurrentFile().lastModified()
-                            if (currPath.isJpg()) {
-                                saveRotation(getCurrentFile(), tmpFile)
-                            } else {
-                                saveFile(tmpFile, bitmap, it as FileOutputStream)
-                            }
-
-                            if (tmpFile.length() > 0 && selectedFile.exists()) {
-                                deleteFile(selectedFile) {}
-                            }
-                            copyFile(tmpFile, selectedFile)
-                            scanFile(selectedFile) {}
-                            toast(R.string.file_saved)
-
-                            if (config.keepLastModified) {
-                                selectedFile.setLastModified(oldLastModified)
-                                updateLastModified(selectedFile, oldLastModified)
-                            }
-
-                            it.flush()
-                            it.close()
-                            mRotationDegrees = 0f
-                            invalidateOptionsMenu()
-
-                            // we cannot refresh a specific image in Glide Cache, so just clear it all
-                            val glide = Glide.get(applicationContext)
-                            glide.clearDiskCache()
-                            runOnUiThread {
-                                glide.clearMemory()
-                            }
-                        }
-                    } catch (e: OutOfMemoryError) {
-                        toast(R.string.out_of_memory_error)
-                    } catch (e: Exception) {
-                        showErrorToast(e)
-                    } finally {
-                        deleteFile(tmpFile) {}
-                    }
                 }
             }).start()
+        }
+    }
+
+    private fun saveImageToFile(oldPath: String, newPath: String) {
+        val newFile = File(newPath)
+        toast(R.string.saving)
+        val tmpFile = File(filesDir, ".tmp_${newPath.getFilenameFromPath()}")
+        try {
+            val bitmap = BitmapFactory.decodeFile(oldPath)
+            getFileOutputStream(tmpFile) {
+                if (it == null) {
+                    toast(R.string.unknown_error_occurred)
+                    return@getFileOutputStream
+                }
+
+                val oldLastModified = getCurrentFile().lastModified()
+                if (oldPath.isJpg()) {
+                    saveRotation(getCurrentFile(), tmpFile)
+                } else {
+                    saveFile(tmpFile, bitmap, it as FileOutputStream)
+                }
+
+                if (tmpFile.length() > 0 && newFile.exists()) {
+                    deleteFile(newFile) {}
+                }
+                copyFile(tmpFile, newFile)
+                scanFile(newFile) {}
+                toast(R.string.file_saved)
+
+                if (config.keepLastModified) {
+                    newFile.setLastModified(oldLastModified)
+                    updateLastModified(newFile, oldLastModified)
+                }
+
+                it.flush()
+                it.close()
+                mRotationDegrees = 0f
+                invalidateOptionsMenu()
+
+                // we cannot refresh a specific image in Glide Cache, so just clear it all
+                val glide = Glide.get(applicationContext)
+                glide.clearDiskCache()
+                runOnUiThread {
+                    glide.clearMemory()
+                }
+            }
+        } catch (e: OutOfMemoryError) {
+            toast(R.string.out_of_memory_error)
+        } catch (e: Exception) {
+            showErrorToast(e)
+        } finally {
+            deleteFile(tmpFile) {}
         }
     }
 
