@@ -495,13 +495,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun saveImageAs() {
         val currPath = getCurrentPath()
         SaveAsDialog(this, currPath, false) {
-            Thread({
-                val selectedFile = File(it)
-                handleSAFDialog(selectedFile) {
+            val selectedFile = File(it)
+            handleSAFDialog(selectedFile) {
+                Thread({
                     saveImageToFile(currPath, it)
-
-                }
-            }).start()
+                }).start()
+            }
         }
     }
 
