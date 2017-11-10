@@ -23,8 +23,8 @@
     <string name="volume">音量</string>
     <string name="brightness">亮度</string>
     <string name="do_not_ask_again">不再提醒</string>
-    <string name="lock_orientation">Lock orientation</string>
-    <string name="unlock_orientation">Unlock orientation</string>
+    <string name="lock_orientation">锁定方向</string>
+    <string name="unlock_orientation">解锁方向</string>
 
     <!-- Filter -->
     <string name="filter_media">要显示的媒体文件</string>
