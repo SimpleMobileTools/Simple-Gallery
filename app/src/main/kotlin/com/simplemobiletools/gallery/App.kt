@@ -1,13 +1,13 @@
 package com.simplemobiletools.gallery
 
-import android.app.Application
+import android.support.multidex.MultiDexApplication
 import com.github.ajalt.reprint.core.Reprint
 import com.simplemobiletools.gallery.BuildConfig.USE_LEAK_CANARY
 import com.simplemobiletools.gallery.extensions.config
 import com.squareup.leakcanary.LeakCanary
 import java.util.*
 
-class App : Application() {
+class App : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
         if (USE_LEAK_CANARY) {

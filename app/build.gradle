@@ -12,6 +12,8 @@ android {
         targetSdkVersion 27
         versionCode 143
         versionName "2.18.0"
+        multiDexEnabled true
+        setProperty("archivesBaseName", "gallery")
     }
 
     signingConfigs {
@@ -49,6 +51,7 @@ dependencies {
     compile 'com.davemorrissey.labs:subsampling-scale-image-view:3.7.2'
     compile 'com.theartofdev.edmodo:android-image-cropper:2.4.0'
     compile 'com.bignerdranch.android:recyclerview-multiselect:0.2'
+    compile 'com.android.support:multidex:1.0.2'
     compile 'com.google.code.gson:gson:2.8.2'
     compile 'it.sephiroth.android.exif:library:1.0.1'
     compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.8'
