@@ -13,8 +13,10 @@ import com.bignerdranch.android.multiselector.SwappingHolder
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
+import com.simplemobiletools.commons.extensions.applyColorFilter
 import com.simplemobiletools.commons.extensions.beGone
 import com.simplemobiletools.commons.extensions.beVisibleIf
+import com.simplemobiletools.commons.interfaces.MyAdapterListener
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.DeleteWithRememberDialog
@@ -47,7 +49,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
     fun toggleItemSelection(select: Boolean, pos: Int) {
         if (select) {
             if (itemViews[pos] != null) {
-                itemViews[pos].medium_check?.background?.setColorFilter(primaryColor, PorterDuff.Mode.SRC_IN)
+                itemViews[pos].medium_check?.background?.applyColorFilter(primaryColor)
                 selectedPositions.add(pos)
             }
         } else {
@@ -257,7 +259,6 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             }
 
             media.removeAll(removeMedia)
-            selectedPositions.clear()
             listener?.deleteFiles(files)
 
             val newItems = SparseArray<View>()
@@ -412,12 +413,6 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1 || !activity.isDestroyed)
                 Glide.with(activity).clear(view.medium_thumbnail)
         }
-    }
-
-    interface MyAdapterListener {
-        fun toggleItemSelectionAdapter(select: Boolean, position: Int)
-
-        fun getSelectedPositions(): HashSet<Int>
     }
 
     interface MediaOperationsListener {

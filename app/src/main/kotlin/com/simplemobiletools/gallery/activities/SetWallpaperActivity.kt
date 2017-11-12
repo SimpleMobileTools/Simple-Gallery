@@ -61,8 +61,10 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_set_wallpaper, menu)
 
-        menu.findItem(R.id.portrait_aspect_ratio).isVisible = isLandscapeRatio
-        menu.findItem(R.id.landscape_aspect_ratio).isVisible = !isLandscapeRatio
+        menu.apply {
+            findItem(R.id.portrait_aspect_ratio).isVisible = isLandscapeRatio
+            findItem(R.id.landscape_aspect_ratio).isVisible = !isLandscapeRatio
+        }
         return true
     }
 

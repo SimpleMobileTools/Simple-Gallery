@@ -15,6 +15,7 @@ import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.interfaces.MyAdapterListener
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.ExcludeFolderDialog
@@ -48,7 +49,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
     fun toggleItemSelection(select: Boolean, pos: Int) {
         if (select) {
             if (itemViews[pos] != null) {
-                itemViews[pos].dir_check?.background?.setColorFilter(primaryColor, PorterDuff.Mode.SRC_IN)
+                itemViews[pos].dir_check?.background?.applyColorFilter(primaryColor)
                 selectedPositions.add(pos)
             }
         } else {
@@ -99,7 +100,7 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             return true
         }
 
-        override fun onCreateActionMode(actionMode: ActionMode?, menu: Menu?): Boolean {
+        override fun onCreateActionMode(actionMode: ActionMode?, menu: Menu): Boolean {
             super.onCreateActionMode(actionMode, menu)
             actMode = actionMode
             activity.menuInflater.inflate(R.menu.cab_directories, menu)
@@ -107,8 +108,8 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
         }
 
         override fun onPrepareActionMode(actionMode: ActionMode?, menu: Menu): Boolean {
-            menu.findItem(R.id.cab_rename).isVisible = selectedPositions.size <= 1
-            menu.findItem(R.id.cab_change_cover_image).isVisible = selectedPositions.size <= 1
+            menu.findItem(R.id.cab_rename).isVisible = selectedPositions.size == 1
+            menu.findItem(R.id.cab_change_cover_image).isVisible = selectedPositions.size == 1
 
             checkHideBtnVisibility(menu)
             checkPinBtnVisibility(menu)
@@ -489,12 +490,6 @@ class DirectoryAdapter(val activity: SimpleActivity, var dirs: MutableList<Direc
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1 || !activity.isDestroyed)
                 Glide.with(activity).clear(view.dir_thumbnail)
         }
-    }
-
-    interface MyAdapterListener {
-        fun toggleItemSelectionAdapter(select: Boolean, position: Int)
-
-        fun getSelectedPositions(): HashSet<Int>
     }
 
     interface DirOperationsListener {
