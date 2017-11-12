@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Gallery</string>
-    <string name="app_launcher_name">Simple Gallery</string>
+    <string name="app_name">Prosta Galeria</string>
+    <string name="app_launcher_name">Galeria</string>
     <string name="edit">Edytuj</string>
     <string name="open_camera">Uruchom aplikację aparatu</string>
     <string name="hidden">(ukryty)</string>
@@ -35,7 +35,7 @@
     <string name="change_filters_underlined"><u>Zmień filtry</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Ta funkcja ukrywa foldery dodając do nich pusty plik .nomedia. Aby móc je zobaczyć, należy włączyć opcję \'Pokazuj ukryte foldery\' w ustawieniach. Kontyntynuować?</string>
+    <string name="hide_folder_description">Ta funkcja ukrywa foldery, dodając do nich pusty plik .nomedia. Aby móc je zobaczyć, należy włączyć opcję \'Pokazuj ukryte foldery\' w ustawieniach. Kontynuować?</string>
     <string name="exclude">Wyklucz</string>
     <string name="excluded_folders">Wykluczone foldery</string>
     <string name="manage_excluded_folders">Zarządzaj wykluczonymi folderami</string>
@@ -49,7 +49,7 @@
     <string name="include_folders">Dołączone foldery</string>
     <string name="manage_included_folders">Zarządzaj dołączonymi folderami</string>
     <string name="add_folder">Dodaj folder</string>
-    <string name="included_activity_placeholder">Jeśli masz jakieś foldery z multimediami, ale aplikacja ich nie wykryła, możesz je tutaj dodać ręcznie.</string>
+    <string name="included_activity_placeholder">Jeśli masz jakieś foldery z multimediami, ale aplikacja ich nie wykryła, możesz je dodać ręcznie tutaj.</string>
 
     <!-- Resizing -->
     <string name="resize">Zmień rozmiar</string>
@@ -131,13 +131,13 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Darmowa galeria bez reklam do przeglądania obrazów i filmów.</string>
+    <string name="app_short_description">Prosta galeria bez reklam do przeglądania obrazów i filmów.</string>
     <string name="app_long_description">
-        Prosta aplikacja galerii do oglądania obrazów i filmów. Pliki mogą być sortowane według daty, rozmiaru i nazwy, zarówno w porządku rosnącym, jak i malejącym. W zależności od wielkości ekranu wyświetlane mogą być w wielu kolumnach. Liczbę kolumn można zmieniać za pomocą gestów. Zdjęcia mogą być powiększane, przycinane, obracane lub ustawiane jako tapeta bezpośrednio z poziomu aplikacji. Kolory aplikacji można dowolnie ustawiać.
+        Prosta aplikacja galerii do oglądania obrazów i filmów. Pliki mogą być sortowane według daty, rozmiaru i nazwy, zarówno w porządku rosnącym, jak i malejącym. W zależności od wielkości ekranu, wyświetlane mogą być w wielu kolumnach. Liczbę kolumn można zmieniać za pomocą gestów, a  zdjęcia mogą być powiększane, przycinane, obracane lub ustawiane jako tapeta bezpośrednio z poziomu Prostej Galerii. Kolory aplikacji można dowolnie ustawiać.
 
-        Aplikacja nie zawiera żadnych reklam ani niepotrzebnych uprawnień. Jest też w pełni otawrtoźrodłowa.
-        
-        Niniejsza aplikacja jest tylko częścią naszego zestawu prostych aplikacji. Znajdziecie je na stronie http://www.simplemobiletools.com.
+        Nie zawiera natomiast żadnych reklam i nie potrzebuje całej masy uprawnień. Jest w pełni otwartoźródłowa i w pełni podatna na kolorowanie.
+
+        Niniejsza aplikacja jest tylko częścią naszej kolekcji prostych narzędzi. Ta, jak i pozostałe, dostępne są na stronie http://www.simplemobiletools.com
     </string>
 
     <!--
