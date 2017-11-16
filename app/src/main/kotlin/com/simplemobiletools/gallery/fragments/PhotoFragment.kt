@@ -37,6 +37,7 @@ import java.io.File
 import java.io.FileOutputStream
 
 class PhotoFragment : ViewPagerFragment() {
+    private var DEFAULT_DOUBLE_TAP_ZOOM = 5f
     private var isFragmentVisible = false
     private var isFullscreen = false
     private var wasInit = false
@@ -234,8 +235,7 @@ class PhotoFragment : ViewPagerFragment() {
 
                     override fun onReady() {
                         background = ColorDrawable(if (context.config.darkBackground) Color.BLACK else context.config.backgroundColor)
-                        val zoomScale = if (ViewPagerActivity.wasDecodedByGlide) 1f else getDoubleTapZoomScale()
-                        setDoubleTapZoomScale(zoomScale)
+                        setDoubleTapZoomScale(getDoubleTapZoomScale())
                     }
 
                     override fun onTileLoadError(e: Exception?) {
@@ -266,11 +266,13 @@ class PhotoFragment : ViewPagerFragment() {
         val height = bitmapOptions.outHeight
         val bitmapAspectRatio = height / (width).toFloat()
 
-        if (context == null) {
-            return 2f
-        }
-
-        return if (context!!.portrait && bitmapAspectRatio <= 1f) {
+        return if (context == null) {
+            DEFAULT_DOUBLE_TAP_ZOOM
+        } else if (ViewPagerActivity.screenHeight / ViewPagerActivity.screenWidth.toFloat() == bitmapAspectRatio) {
+            DEFAULT_DOUBLE_TAP_ZOOM
+        } else if (ViewPagerActivity.wasDecodedByGlide) {
+            1f
+        } else if (context!!.portrait && bitmapAspectRatio <= 1f) {
             ViewPagerActivity.screenHeight / height.toFloat()
         } else if (context!!.portrait && bitmapAspectRatio > 1f) {
             ViewPagerActivity.screenHeight / width.toFloat()
@@ -279,7 +281,7 @@ class PhotoFragment : ViewPagerFragment() {
         } else if (!context!!.portrait && bitmapAspectRatio < 1f) {
             ViewPagerActivity.screenWidth / height.toFloat()
         } else {
-            2f
+            DEFAULT_DOUBLE_TAP_ZOOM
         }
     }
 
