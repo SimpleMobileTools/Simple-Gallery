@@ -52,8 +52,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val layoutType = if (isListViewType) R.layout.directory_item_list else R.layout.directory_item_grid
-        val view = activity.layoutInflater.inflate(layoutType, parent, false)
-        return createViewHolder(view)
+        return createViewHolder(layoutType, parent)
     }
 
     override fun onBindViewHolder(holder: MyRecyclerViewAdapter.ViewHolder, position: Int) {
@@ -61,9 +60,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
         val view = holder.bindView(dir, !isPickIntent) {
             setupView(it, dir)
         }
-        itemViews.put(position, view)
-        toggleItemSelection(selectedPositions.contains(position), position)
-        holder.itemView.tag = holder
+        bindViewHolder(holder, position, view)
     }
 
     override fun getItemCount() = dirs.size

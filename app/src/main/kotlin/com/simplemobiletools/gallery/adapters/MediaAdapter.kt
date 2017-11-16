@@ -52,8 +52,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val layoutType = if (isListViewType) R.layout.photo_video_item_list else R.layout.photo_video_item_grid
-        val view = activity.layoutInflater.inflate(layoutType, parent, false)
-        return createViewHolder(view)
+        return createViewHolder(layoutType, parent)
     }
 
     override fun onBindViewHolder(holder: MyRecyclerViewAdapter.ViewHolder, position: Int) {
@@ -61,9 +60,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         val view = holder.bindView(medium, !allowMultiplePicks) {
             setupView(it, medium)
         }
-        itemViews.put(position, view)
-        toggleItemSelection(selectedPositions.contains(position), position)
-        holder.itemView.tag = holder
+        bindViewHolder(holder, position, view)
     }
 
     override fun getItemCount() = media.size
