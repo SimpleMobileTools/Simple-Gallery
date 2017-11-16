@@ -160,6 +160,8 @@ fun Activity.loadImage(path: String, target: MySquareImageView, horizontalScroll
             target.scaleType = if (cropThumbnails) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
         } catch (e: Exception) {
             loadJpg(path, target, cropThumbnails)
+        } catch (e: OutOfMemoryError) {
+            loadJpg(path, target, cropThumbnails)
         }
     }
 }
