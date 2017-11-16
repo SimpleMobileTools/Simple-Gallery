@@ -74,6 +74,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     companion object {
         var screenWidth = 0
         var screenHeight = 0
+        var wasDecodedByGlide = false
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

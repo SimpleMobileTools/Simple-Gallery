@@ -221,6 +221,7 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun addZoomableView() {
         if ((medium.isImage()) && isFragmentVisible && view.subsampling_view.isGone()) {
+            ViewPagerActivity.wasDecodedByGlide = false
             view.subsampling_view.apply {
                 setBitmapDecoderClass(GlideDecoder::class.java)
                 maxScale = 10f
@@ -233,7 +234,8 @@ class PhotoFragment : ViewPagerFragment() {
 
                     override fun onReady() {
                         background = ColorDrawable(if (context.config.darkBackground) Color.BLACK else context.config.backgroundColor)
-                        setDoubleTapZoomScale(getDoubleTapZoomScale())
+                        val zoomScale = if (ViewPagerActivity.wasDecodedByGlide) 1f else getDoubleTapZoomScale()
+                        setDoubleTapZoomScale(zoomScale)
                     }
 
                     override fun onTileLoadError(e: Exception?) {
@@ -264,13 +266,18 @@ class PhotoFragment : ViewPagerFragment() {
         val height = bitmapOptions.outHeight
         val bitmapAspectRatio = height / (width).toFloat()
 
-        if (context == null)
+        if (context == null) {
             return 2f
+        }
 
         return if (context!!.portrait && bitmapAspectRatio <= 1f) {
             ViewPagerActivity.screenHeight / height.toFloat()
+        } else if (context!!.portrait && bitmapAspectRatio > 1f) {
+            ViewPagerActivity.screenHeight / width.toFloat()
         } else if (!context!!.portrait && bitmapAspectRatio >= 1f) {
             ViewPagerActivity.screenWidth / width.toFloat()
+        } else if (!context!!.portrait && bitmapAspectRatio < 1f) {
+            ViewPagerActivity.screenWidth / height.toFloat()
         } else {
             2f
         }
