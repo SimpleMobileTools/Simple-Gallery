@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 2.18.1 *(2017-11-16)*
+----------------------------
+
+ * Fixed some double-tap zoom issues
+ * Misc smaller fixes and improvements here and there
+
 Version 2.18.0 *(2017-11-09)*
 ----------------------------
 
