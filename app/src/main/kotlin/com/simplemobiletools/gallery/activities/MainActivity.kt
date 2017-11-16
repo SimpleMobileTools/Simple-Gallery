@@ -340,8 +340,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         } else {
             setupListLayoutManager()
         }
-        getDirectoryAdapter()?.setupZoomListener(mZoomListener)
-        getDirectoryAdapter()?.setupDragListener(true)
+
+        getDirectoryAdapter()?.apply {
+            setupZoomListener(mZoomListener)
+            setupDragListener(true)
+        }
     }
 
     private fun setupGridLayoutManager() {

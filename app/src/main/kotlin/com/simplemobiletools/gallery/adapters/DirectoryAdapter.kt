@@ -58,7 +58,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
 
     override fun onBindViewHolder(holder: MyRecyclerViewAdapter.ViewHolder, position: Int) {
         val dir = dirs[position]
-        val view = holder.bindView(dir, isPickIntent) {
+        val view = holder.bindView(dir, !isPickIntent) {
             setupView(it, dir)
         }
         itemViews.put(position, view)
@@ -87,11 +87,13 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
     }
 
     override fun prepareActionMode(menu: Menu) {
-        menu.findItem(R.id.cab_rename).isVisible = selectedPositions.size == 1
-        menu.findItem(R.id.cab_change_cover_image).isVisible = selectedPositions.size == 1
+        menu.apply {
+            findItem(R.id.cab_rename).isVisible = selectedPositions.size == 1
+            findItem(R.id.cab_change_cover_image).isVisible = selectedPositions.size == 1
 
-        checkHideBtnVisibility(menu)
-        checkPinBtnVisibility(menu)
+            checkHideBtnVisibility(this)
+            checkPinBtnVisibility(this)
+        }
     }
 
     private fun checkHideBtnVisibility(menu: Menu) {

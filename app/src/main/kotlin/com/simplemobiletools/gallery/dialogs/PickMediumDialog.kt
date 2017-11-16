@@ -58,8 +58,8 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
             return
 
         shownMedia = media
-        val adapter = MediaAdapter(activity, media, null, true, false) {
-            callback(it.path)
+        val adapter = MediaAdapter(activity, media, null, true, false, view.media_grid) {
+            callback((it as Medium).path)
             dialog.dismiss()
         }
 
