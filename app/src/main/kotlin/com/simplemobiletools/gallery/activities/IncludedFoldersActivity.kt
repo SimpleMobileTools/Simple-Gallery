@@ -6,32 +6,29 @@ import android.view.MenuItem
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.scanPath
+import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.adapters.ManageFoldersAdapter
 import com.simplemobiletools.gallery.extensions.config
-import kotlinx.android.synthetic.main.activity_included_folders.*
-import kotlinx.android.synthetic.main.item_manage_folder.view.*
+import kotlinx.android.synthetic.main.activity_manage_folders.*
 
-class IncludedFoldersActivity : SimpleActivity() {
+class IncludedFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_included_folders)
+        setContentView(R.layout.activity_manage_folders)
         updateIncludedFolders()
     }
 
     private fun updateIncludedFolders() {
-        included_folders_holder.removeAllViews()
-        val folders = config.includedFolders
-        included_folders_placeholder.beVisibleIf(folders.isEmpty())
-        included_folders_placeholder.setTextColor(config.textColor)
+        val folders = ArrayList<String>()
+        config.includedFolders.mapTo(folders, { it })
+        manage_folders_placeholder.text = getString(R.string.included_activity_placeholder)
+        manage_folders_placeholder.beVisibleIf(folders.isEmpty())
+        manage_folders_placeholder.setTextColor(config.textColor)
 
-        for (folder in folders) {
-            layoutInflater.inflate(R.layout.item_manage_folder, null, false).apply {
-                manage_folder_title.apply {
-                    text = folder
-                    setTextColor(config.textColor)
-                }
-            }
-        }
+        val adapter = ManageFoldersAdapter(this, folders, false, this, manage_folders_list) {}
+        adapter.setupDragListener(true)
+        manage_folders_list.adapter = adapter
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -45,6 +42,10 @@ class IncludedFoldersActivity : SimpleActivity() {
             else -> return super.onOptionsItemSelected(item)
         }
         return true
+    }
+
+    override fun refreshItems() {
+        updateIncludedFolders()
     }
 
     private fun addIncludedFolder() {

@@ -14,8 +14,8 @@ import com.simplemobiletools.gallery.extensions.config
 import kotlinx.android.synthetic.main.item_manage_folder.view.*
 import java.util.*
 
-class ExcludedFoldersAdapter(activity: BaseSimpleActivity, var folders: ArrayList<String>, val listener: RefreshRecyclerViewListener?, recyclerView: MyRecyclerView,
-                             itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(activity, recyclerView, itemClick) {
+class ManageFoldersAdapter(activity: BaseSimpleActivity, var folders: ArrayList<String>, val isShowingExcludedFolders: Boolean, val listener: RefreshRecyclerViewListener?,
+                           recyclerView: MyRecyclerView, itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(activity, recyclerView, itemClick) {
 
     private val config = activity.config
 
@@ -74,7 +74,11 @@ class ExcludedFoldersAdapter(activity: BaseSimpleActivity, var folders: ArrayLis
             removeFolders.add(folder)
             notifyItemRemoved(it)
             itemViews.put(it, null)
-            config.removeExcludedFolder(folder)
+            if (isShowingExcludedFolders) {
+                config.removeExcludedFolder(folder)
+            } else {
+                config.removeIncludedFolder(folder)
+            }
         }
 
         folders.removeAll(removeFolders)

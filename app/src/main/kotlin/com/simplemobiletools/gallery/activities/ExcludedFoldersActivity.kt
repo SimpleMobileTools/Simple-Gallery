@@ -7,26 +7,27 @@ import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.adapters.ExcludedFoldersAdapter
+import com.simplemobiletools.gallery.adapters.ManageFoldersAdapter
 import com.simplemobiletools.gallery.extensions.config
-import kotlinx.android.synthetic.main.activity_excluded_folders.*
+import kotlinx.android.synthetic.main.activity_manage_folders.*
 
 class ExcludedFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_excluded_folders)
+        setContentView(R.layout.activity_manage_folders)
         updateExcludedFolders()
     }
 
     private fun updateExcludedFolders() {
         val folders = ArrayList<String>()
         config.excludedFolders.mapTo(folders, { it })
-        manage_excluded_folders_placeholder.beVisibleIf(folders.isEmpty())
-        manage_excluded_folders_placeholder.setTextColor(config.textColor)
+        manage_folders_placeholder.text = getString(R.string.excluded_activity_placeholder)
+        manage_folders_placeholder.beVisibleIf(folders.isEmpty())
+        manage_folders_placeholder.setTextColor(config.textColor)
 
-        val adapter = ExcludedFoldersAdapter(this, folders, this, manage_exclude_folders_list) {}
+        val adapter = ManageFoldersAdapter(this, folders, true, this, manage_folders_list) {}
         adapter.setupDragListener(true)
-        manage_exclude_folders_list.adapter = adapter
+        manage_folders_list.adapter = adapter
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
