@@ -3,15 +3,15 @@ package com.simplemobiletools.gallery.dialogs
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.WindowManager
+import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.activities.SimpleActivity
 import kotlinx.android.synthetic.main.dialog_save_as.view.*
 import java.io.File
 
-class SaveAsDialog(val activity: SimpleActivity, val path: String, val appendFilename: Boolean, val callback: (savePath: String) -> Unit) {
+class SaveAsDialog(val activity: BaseSimpleActivity, val path: String, val appendFilename: Boolean, val callback: (savePath: String) -> Unit) {
 
     init {
         var realPath = File(path).parent.trimEnd('/')

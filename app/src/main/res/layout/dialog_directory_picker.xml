@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:paddingTop="@dimen/activity_margin">
 
-    <com.simplemobiletools.commons.views.MyScalableRecyclerView
+    <com.simplemobiletools.commons.views.MyRecyclerView
         android:id="@+id/directories_grid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

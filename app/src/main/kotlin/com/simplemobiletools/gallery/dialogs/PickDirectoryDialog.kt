@@ -3,15 +3,16 @@ package com.simplemobiletools.gallery.dialogs
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.GridLayoutManager
 import android.view.LayoutInflater
+import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.beGoneIf
 import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
+import com.simplemobiletools.gallery.extensions.addTempFolderIfNeeded
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getCachedDirectories
 import com.simplemobiletools.gallery.extensions.getSortedDirectories
@@ -19,7 +20,7 @@ import com.simplemobiletools.gallery.helpers.VIEW_TYPE_GRID
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.dialog_directory_picker.view.*
 
-class PickDirectoryDialog(val activity: SimpleActivity, val sourcePath: String, val callback: (path: String) -> Unit) {
+class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: String, val callback: (path: String) -> Unit) {
     var dialog: AlertDialog
     var shownDirectories = ArrayList<Directory>()
     var view = LayoutInflater.from(activity).inflate(R.layout.dialog_directory_picker, null)
@@ -62,8 +63,8 @@ class PickDirectoryDialog(val activity: SimpleActivity, val sourcePath: String, 
             return
 
         shownDirectories = dirs
-        val adapter = DirectoryAdapter(activity, dirs, null, true) {
-            if (it.path.trimEnd('/') == sourcePath) {
+        val adapter = DirectoryAdapter(activity, dirs, null, view.directories_grid, true) {
+            if ((it as Directory).path.trimEnd('/') == sourcePath) {
                 activity.toast(R.string.source_and_destination_same)
                 return@DirectoryAdapter
             } else {

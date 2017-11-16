@@ -33,7 +33,7 @@
             android:text="@string/change_filters_underlined"
             android:visibility="gone"/>
 
-        <com.simplemobiletools.commons.views.MyScalableRecyclerView
+        <com.simplemobiletools.commons.views.MyRecyclerView
             android:id="@+id/directories_grid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

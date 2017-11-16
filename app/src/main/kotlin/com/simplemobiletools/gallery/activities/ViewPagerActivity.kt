@@ -186,7 +186,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         title = mPath.getFilenameFromPath()
 
         view_pager.onGlobalLayout {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1 || !isDestroyed) {
+            if (!isActivityDestroyed()) {
                 if (mMedia.isNotEmpty()) {
                     gotMedia(mMedia)
                 }
@@ -304,7 +304,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun updatePagerItems(media: MutableList<Medium>) {
         val pagerAdapter = MyPagerAdapter(this, supportFragmentManager, media)
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1 || !isDestroyed) {
+        if (!isActivityDestroyed()) {
             view_pager.apply {
                 adapter = pagerAdapter
                 currentItem = mPos
@@ -322,7 +322,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun startSlideshow() {
         if (getMediaForSlideshow()) {
             view_pager.onGlobalLayout {
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1 || !isDestroyed) {
+                if (!isActivityDestroyed()) {
                     hideSystemUI()
                     mSlideshowInterval = config.slideshowInterval
                     mSlideshowMoveBackwards = config.slideshowMoveBackwards
@@ -402,7 +402,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (mIsSlideshowActive) {
             if (getCurrentMedium()!!.isImage() || getCurrentMedium()!!.isGif()) {
                 mSlideshowHandler.postDelayed({
-                    if (mIsSlideshowActive && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && !isDestroyed) {
+                    if (mIsSlideshowActive && !isActivityDestroyed()) {
                         swipeToNextMedium()
                     }
                 }, mSlideshowInterval * 1000L)

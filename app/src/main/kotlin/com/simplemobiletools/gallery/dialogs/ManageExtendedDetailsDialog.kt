@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.dialogs
 import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
+import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
@@ -10,7 +11,7 @@ import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.helpers.*
 import kotlinx.android.synthetic.main.dialog_manage_extended_details.view.*
 
-class ManageExtendedDetailsDialog(val activity: SimpleActivity, val callback: (result: Int) -> Unit) {
+class ManageExtendedDetailsDialog(val activity: BaseSimpleActivity, val callback: (result: Int) -> Unit) {
     private var view: View = LayoutInflater.from(activity).inflate(R.layout.dialog_manage_extended_details, null)
 
     init {

@@ -2,7 +2,6 @@ package com.simplemobiletools.gallery.adapters
 
 import android.graphics.PorterDuff
 import android.net.Uri
-import android.os.Build
 import android.support.v7.view.ActionMode
 import android.support.v7.widget.RecyclerView
 import android.util.SparseArray
@@ -11,14 +10,15 @@ import com.bignerdranch.android.multiselector.ModalMultiSelectorCallback
 import com.bignerdranch.android.multiselector.MultiSelector
 import com.bignerdranch.android.multiselector.SwappingHolder
 import com.bumptech.glide.Glide
+import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.applyColorFilter
 import com.simplemobiletools.commons.extensions.beGone
 import com.simplemobiletools.commons.extensions.beVisibleIf
+import com.simplemobiletools.commons.extensions.isActivityDestroyed
 import com.simplemobiletools.commons.interfaces.MyAdapterListener
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.DeleteWithRememberDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.VIEW_TYPE_LIST
@@ -27,7 +27,7 @@ import kotlinx.android.synthetic.main.photo_video_item_grid.view.*
 import java.io.File
 import java.util.*
 
-class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
+class MediaAdapter(val activity: BaseSimpleActivity, var media: MutableList<Medium>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
                    val allowMultiplePicks: Boolean, val itemClick: (Medium) -> Unit) : RecyclerView.Adapter<MediaAdapter.ViewHolder>() {
 
     private val config = activity.config
@@ -77,6 +77,8 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         }
 
         override fun getSelectedPositions(): HashSet<Int> = selectedPositions
+
+        override fun itemLongClicked(position: Int) {}
     }
 
     private val multiSelectorMode = object : ModalMultiSelectorCallback(multiSelector) {
@@ -366,7 +368,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         }
     }
 
-    class ViewHolder(val view: View, val adapterListener: MyAdapterListener, val activity: SimpleActivity, val multiSelectorCallback: ModalMultiSelectorCallback,
+    class ViewHolder(val view: View, val adapterListener: MyAdapterListener, val activity: BaseSimpleActivity, val multiSelectorCallback: ModalMultiSelectorCallback,
                      val multiSelector: MultiSelector, val listener: MediaOperationsListener?, val allowMultiplePicks: Boolean,
                      val itemClick: (Medium) -> (Unit)) :
             SwappingHolder(view, MultiSelector()) {
@@ -410,7 +412,7 @@ class MediaAdapter(val activity: SimpleActivity, var media: MutableList<Medium>,
         }
 
         fun stopLoad() {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1 || !activity.isDestroyed)
+            if (!activity.isActivityDestroyed())
                 Glide.with(activity).clear(view.medium_thumbnail)
         }
     }
