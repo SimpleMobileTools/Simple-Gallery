@@ -1,17 +1,17 @@
 package com.simplemobiletools.gallery.activities
 
-import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.beVisibleIf
+import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.adapters.ExcludedFoldersAdapter
 import com.simplemobiletools.gallery.extensions.config
 import kotlinx.android.synthetic.main.activity_excluded_folders.*
-import kotlinx.android.synthetic.main.item_manage_folder.view.*
 
-class ExcludedFoldersActivity : SimpleActivity() {
+class ExcludedFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_excluded_folders)
@@ -19,27 +19,14 @@ class ExcludedFoldersActivity : SimpleActivity() {
     }
 
     private fun updateExcludedFolders() {
-        excluded_folders_holder.removeAllViews()
-        val folders = config.excludedFolders
-        excluded_folders_placeholder.beVisibleIf(folders.isEmpty())
-        excluded_folders_placeholder.setTextColor(config.textColor)
+        val folders = ArrayList<String>()
+        config.excludedFolders.mapTo(folders, { it })
+        manage_excluded_folders_placeholder.beVisibleIf(folders.isEmpty())
+        manage_excluded_folders_placeholder.setTextColor(config.textColor)
 
-        for (folder in folders) {
-            layoutInflater.inflate(R.layout.item_manage_folder, null, false).apply {
-                managed_folder_title.apply {
-                    text = folder
-                    setTextColor(config.textColor)
-                }
-                managed_folders_icon.apply {
-                    setColorFilter(config.textColor, PorterDuff.Mode.SRC_IN)
-                    setOnClickListener {
-                        config.removeExcludedFolder(folder)
-                        updateExcludedFolders()
-                    }
-                }
-                excluded_folders_holder.addView(this)
-            }
-        }
+        val adapter = ExcludedFoldersAdapter(this, folders, this, manage_exclude_folders_list) {}
+        adapter.setupDragListener(true)
+        manage_exclude_folders_list.adapter = adapter
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -53,6 +40,10 @@ class ExcludedFoldersActivity : SimpleActivity() {
             else -> return super.onOptionsItemSelected(item)
         }
         return true
+    }
+
+    override fun refreshItems() {
+        updateExcludedFolders()
     }
 
     private fun addExcludedFolder() {

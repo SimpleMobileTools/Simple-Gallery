@@ -1,30 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/excluded_folders_scrollview"
+    android:id="@+id/manage_exclude_folders_wrapper"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <RelativeLayout
-        android:id="@+id/exclude_folders_wrapper"
+    <com.simplemobiletools.commons.views.MyRecyclerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/manage_exclude_folders_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager"/>
 
-        <LinearLayout
-            android:id="@+id/excluded_folders_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"/>
+    <com.simplemobiletools.commons.views.MyTextView
+        android:id="@+id/manage_excluded_folders_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingLeft="@dimen/big_margin"
+        android:paddingRight="@dimen/big_margin"
+        android:paddingTop="@dimen/activity_margin"
+        android:text="@string/excluded_activity_placeholder"
+        android:visibility="gone"/>
 
-        <com.simplemobiletools.commons.views.MyTextView
-            android:id="@+id/excluded_folders_placeholder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:paddingLeft="@dimen/big_margin"
-            android:paddingRight="@dimen/big_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:text="@string/excluded_activity_placeholder"
-            android:visibility="gone"/>
-    </RelativeLayout>
-</ScrollView>
+</RelativeLayout>

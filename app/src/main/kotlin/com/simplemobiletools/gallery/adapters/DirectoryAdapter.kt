@@ -65,6 +65,16 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
 
     override fun getItemCount() = dirs.size
 
+    override fun prepareActionMode(menu: Menu) {
+        menu.apply {
+            findItem(R.id.cab_rename).isVisible = selectedPositions.size == 1
+            findItem(R.id.cab_change_cover_image).isVisible = selectedPositions.size == 1
+
+            checkHideBtnVisibility(this)
+            checkPinBtnVisibility(this)
+        }
+    }
+
     override fun actionItemPressed(id: Int) {
         when (id) {
             R.id.cab_properties -> showProperties()
@@ -80,16 +90,6 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
             R.id.cab_delete -> askConfirmDelete()
             R.id.cab_select_photo -> changeAlbumCover(false)
             R.id.cab_use_default -> changeAlbumCover(true)
-        }
-    }
-
-    override fun prepareActionMode(menu: Menu) {
-        menu.apply {
-            findItem(R.id.cab_rename).isVisible = selectedPositions.size == 1
-            findItem(R.id.cab_change_cover_image).isVisible = selectedPositions.size == 1
-
-            checkHideBtnVisibility(this)
-            checkPinBtnVisibility(this)
         }
     }
 

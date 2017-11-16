@@ -65,6 +65,16 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
     override fun getItemCount() = media.size
 
+    override fun prepareActionMode(menu: Menu) {
+        menu.apply {
+            findItem(R.id.cab_rename).isVisible = selectedPositions.size == 1
+            findItem(R.id.cab_open_with).isVisible = selectedPositions.size == 1
+            findItem(R.id.cab_confirm_selection).isVisible = isAGetIntent && allowMultiplePicks && selectedPositions.size > 0
+
+            checkHideBtnVisibility(this)
+        }
+    }
+
     override fun actionItemPressed(id: Int) {
         when (id) {
             R.id.cab_confirm_selection -> confirmSelection()
@@ -80,16 +90,6 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
             R.id.cab_open_with -> activity.openFile(Uri.fromFile(getCurrentFile()), true)
             R.id.cab_set_as -> activity.setAs(Uri.fromFile(getCurrentFile()))
             R.id.cab_delete -> checkDeleteConfirmation()
-        }
-    }
-
-    override fun prepareActionMode(menu: Menu) {
-        menu.apply {
-            findItem(R.id.cab_rename).isVisible = selectedPositions.size == 1
-            findItem(R.id.cab_open_with).isVisible = selectedPositions.size == 1
-            findItem(R.id.cab_confirm_selection).isVisible = isAGetIntent && allowMultiplePicks && selectedPositions.size > 0
-
-            checkHideBtnVisibility(this)
         }
     }
 

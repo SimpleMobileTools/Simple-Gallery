@@ -247,7 +247,6 @@ class MediaFetcher(val context: Context) {
     private fun isThisOrParentExcluded(path: String, excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>) =
             includedPaths.none { path.startsWith(it) } && excludedPaths.any { path.startsWith(it) }
 
-
     private fun getMediaInFolder(folder: String, curMedia: ArrayList<Medium>, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int) {
         val files = File(folder).listFiles() ?: return
         for (file in files) {
@@ -296,10 +295,11 @@ class MediaFetcher(val context: Context) {
             else -> MediaStore.Images.Media.DATE_TAKEN
         }
 
-        return if (sorting and SORT_DESCENDING > 0)
+        return if (sorting and SORT_DESCENDING > 0) {
             "$sortValue DESC"
-        else
+        } else {
             "$sortValue ASC"
+        }
     }
 
     private fun getNoMediaFolders(): ArrayList<String> {

@@ -1,6 +1,5 @@
 package com.simplemobiletools.gallery.activities
 
-import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -27,18 +26,10 @@ class IncludedFoldersActivity : SimpleActivity() {
 
         for (folder in folders) {
             layoutInflater.inflate(R.layout.item_manage_folder, null, false).apply {
-                managed_folder_title.apply {
+                manage_folder_title.apply {
                     text = folder
                     setTextColor(config.textColor)
                 }
-                managed_folders_icon.apply {
-                    setColorFilter(config.textColor, PorterDuff.Mode.SRC_IN)
-                    setOnClickListener {
-                        config.removeIncludedFolder(folder)
-                        updateIncludedFolders()
-                    }
-                }
-                included_folders_holder.addView(this)
             }
         }
     }
