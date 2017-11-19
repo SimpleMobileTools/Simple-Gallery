@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.ClipData
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
@@ -23,7 +22,7 @@ import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_TAKEN
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.models.Release
-import com.simplemobiletools.commons.views.MyScalableRecyclerView
+import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
@@ -64,6 +63,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mLatestMediaId = 0L
     private var mLastMediaHandler = Handler()
     private var mCurrAsyncTask: GetDirectoriesAsynctask? = null
+    private var mZoomListener: MyRecyclerView.MyZoomListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -178,7 +178,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         directories_refresh_layout.isRefreshing = false
         mIsGettingDirs = false
         storeStateVariables()
-        directories_grid.listener = null
         mLastMediaHandler.removeCallbacksAndMessages(null)
 
         if (!mDirs.isEmpty()) {
@@ -209,7 +208,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         val newFolder = File(config.tempFolderPath)
         if (newFolder.exists() && newFolder.isDirectory) {
             if (newFolder.list()?.isEmpty() == true) {
-                deleteFileBg(newFolder, true) { }
+                deleteFileBg(newFolder, true)
             }
         }
         config.tempFolderPath = ""
@@ -341,6 +340,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         } else {
             setupListLayoutManager()
         }
+
+        getDirectoryAdapter()?.apply {
+            setupZoomListener(mZoomListener)
+            setupDragListener(true)
+        }
     }
 
     private fun setupGridLayoutManager() {
@@ -353,42 +357,30 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         }
 
-        directories_grid.isDragSelectionEnabled = true
-        directories_grid.isZoomingEnabled = true
         layoutManager.spanCount = config.dirColumnCnt
-        directories_grid.listener = object : MyScalableRecyclerView.MyScalableRecyclerViewListener {
+        mZoomListener = object : MyRecyclerView.MyZoomListener {
             override fun zoomIn() {
                 if (layoutManager.spanCount > 1) {
                     reduceColumnCount()
-                    getRecyclerAdapter().actMode?.finish()
+                    getRecyclerAdapter().finishActMode()
                 }
             }
 
             override fun zoomOut() {
                 if (layoutManager.spanCount < MAX_COLUMN_COUNT) {
                     increaseColumnCount()
-                    getRecyclerAdapter().actMode?.finish()
+                    getRecyclerAdapter().finishActMode()
                 }
-            }
-
-            override fun selectItem(position: Int) {
-                getRecyclerAdapter().selectItem(position)
-            }
-
-            override fun selectRange(initialSelection: Int, lastDraggedIndex: Int, minReached: Int, maxReached: Int) {
-                getRecyclerAdapter().selectRange(initialSelection, lastDraggedIndex, minReached, maxReached)
             }
         }
     }
 
     private fun setupListLayoutManager() {
-        directories_grid.isDragSelectionEnabled = true
-        directories_grid.isZoomingEnabled = false
-
         val layoutManager = directories_grid.layoutManager as GridLayoutManager
         layoutManager.spanCount = 1
         layoutManager.orientation = GridLayoutManager.VERTICAL
         directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        mZoomListener = null
     }
 
     private fun createNewFolder() {
@@ -451,7 +443,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                         else -> fillIntentPath(resultData, resultIntent)
                     }
                 } else if ((mIsPickImageIntent || mIsPickVideoIntent)) {
-                    val path = resultData.data.path
+                    val path = resultData.data?.path
                     val uri = getFilePublicUri(File(path), BuildConfig.APPLICATION_ID)
                     resultIntent.data = uri
                     resultIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
@@ -560,8 +552,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun setupAdapter() {
         val currAdapter = directories_grid.adapter
         if (currAdapter == null) {
-            directories_grid.adapter = DirectoryAdapter(this, mDirs, this, isPickIntent(intent) || isGetAnyContentIntent(intent)) {
-                itemClicked(it.path)
+            directories_grid.adapter = DirectoryAdapter(this, mDirs, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent)) {
+                itemClicked((it as Directory).path)
             }
         } else {
             (currAdapter as DirectoryAdapter).updateDirs(mDirs)
@@ -587,7 +579,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun checkLastMediaChanged() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && isDestroyed)
+        if (isActivityDestroyed())
             return
 
         mLastMediaHandler.removeCallbacksAndMessages(null)
@@ -608,10 +600,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     override fun refreshItems() {
         getDirectories()
-    }
-
-    override fun itemLongClicked(position: Int) {
-        directories_grid.setDragSelectActive(position)
     }
 
     override fun recheckPinnedFolders() {
@@ -659,6 +647,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             add(Release(136, R.string.release_136))
             add(Release(137, R.string.release_137))
             add(Release(138, R.string.release_138))
+            add(Release(143, R.string.release_143))
             checkWhatsNew(this, BuildConfig.VERSION_CODE)
         }
     }

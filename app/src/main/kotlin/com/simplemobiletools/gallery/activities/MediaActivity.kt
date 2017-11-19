@@ -5,7 +5,6 @@ import android.app.WallpaperManager
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.widget.GridLayoutManager
@@ -24,7 +23,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REQUEST_EDIT_IMAGE
 import com.simplemobiletools.commons.models.RadioItem
-import com.simplemobiletools.commons.views.MyScalableRecyclerView
+import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.MediaAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
@@ -59,6 +58,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mLatestMediaId = 0L
     private var mLastMediaHandler = Handler()
     private var mCurrAsyncTask: GetMediaAsynctask? = null
+    private var mZoomListener: MyRecyclerView.MyZoomListener? = null
 
     companion object {
         var mMedia = ArrayList<Medium>()
@@ -120,7 +120,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         mIsGettingMedia = false
         media_refresh_layout.isRefreshing = false
         storeStateVariables()
-        media_grid.listener = null
         mLastMediaHandler.removeCallbacksAndMessages(null)
 
         if (!mMedia.isEmpty()) {
@@ -177,8 +176,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         val currAdapter = media_grid.adapter
         if (currAdapter == null) {
-            media_grid.adapter = MediaAdapter(this, mMedia, this, mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent, mAllowPickingMultiple) {
-                itemClicked(it.path)
+            media_grid.adapter = MediaAdapter(this, mMedia, this, mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent, mAllowPickingMultiple, media_grid) {
+                itemClicked((it as Medium).path)
             }
         } else {
             (currAdapter as MediaAdapter).updateMedia(mMedia)
@@ -204,7 +203,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun checkLastMediaChanged() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && isDestroyed)
+        if (isActivityDestroyed())
             return
 
         mLastMediaHandler.removeCallbacksAndMessages(null)
@@ -347,7 +346,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun deleteDirectoryIfEmpty() {
         val file = File(mPath)
         if (config.deleteEmptyFolders && !file.isDownloadsFolder() && file.isDirectory && file.listFiles()?.isEmpty() == true) {
-            deleteFile(file, true) {}
+            deleteFile(file, true)
         }
     }
 
@@ -398,10 +397,16 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun getRecyclerAdapter() = (media_grid.adapter as MediaAdapter)
 
     private fun setupLayoutManager() {
-        if (config.viewTypeFiles == VIEW_TYPE_GRID)
+        if (config.viewTypeFiles == VIEW_TYPE_GRID) {
             setupGridLayoutManager()
-        else
+        } else {
             setupListLayoutManager()
+        }
+
+        getMediaAdapter()?.apply {
+            setupZoomListener(mZoomListener)
+            setupDragListener(true)
+        }
     }
 
     private fun setupGridLayoutManager() {
@@ -414,42 +419,30 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             media_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         }
 
-        media_grid.isDragSelectionEnabled = true
-        media_grid.isZoomingEnabled = true
         layoutManager.spanCount = config.mediaColumnCnt
-        media_grid.listener = object : MyScalableRecyclerView.MyScalableRecyclerViewListener {
+        mZoomListener = object : MyRecyclerView.MyZoomListener {
             override fun zoomIn() {
                 if (layoutManager.spanCount > 1) {
                     reduceColumnCount()
-                    getRecyclerAdapter().actMode?.finish()
+                    getRecyclerAdapter().finishActMode()
                 }
             }
 
             override fun zoomOut() {
                 if (layoutManager.spanCount < MAX_COLUMN_COUNT) {
                     increaseColumnCount()
-                    getRecyclerAdapter().actMode?.finish()
+                    getRecyclerAdapter().finishActMode()
                 }
-            }
-
-            override fun selectItem(position: Int) {
-                getRecyclerAdapter().selectItem(position)
-            }
-
-            override fun selectRange(initialSelection: Int, lastDraggedIndex: Int, minReached: Int, maxReached: Int) {
-                getRecyclerAdapter().selectRange(initialSelection, lastDraggedIndex, minReached, maxReached)
             }
         }
     }
 
     private fun setupListLayoutManager() {
-        media_grid.isDragSelectionEnabled = true
-        media_grid.isZoomingEnabled = false
-
         val layoutManager = media_grid.layoutManager as GridLayoutManager
         layoutManager.spanCount = 1
         layoutManager.orientation = GridLayoutManager.VERTICAL
         media_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        mZoomListener = null
     }
 
     private fun increaseColumnCount() {
@@ -573,10 +566,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         Handler().postDelayed({
             getMedia()
         }, 1000)
-    }
-
-    override fun itemLongClicked(position: Int) {
-        media_grid.setDragSelectActive(position)
     }
 
     override fun selectedPaths(paths: ArrayList<String>) {

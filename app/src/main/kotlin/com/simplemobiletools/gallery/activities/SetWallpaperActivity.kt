@@ -5,10 +5,10 @@ import android.app.WallpaperManager
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.simplemobiletools.commons.extensions.isActivityDestroyed
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.R
 import com.theartofdev.edmodo.cropper.CropImageView
@@ -61,8 +61,10 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_set_wallpaper, menu)
 
-        menu.findItem(R.id.portrait_aspect_ratio).isVisible = isLandscapeRatio
-        menu.findItem(R.id.landscape_aspect_ratio).isVisible = !isLandscapeRatio
+        menu.apply {
+            findItem(R.id.portrait_aspect_ratio).isVisible = isLandscapeRatio
+            findItem(R.id.landscape_aspect_ratio).isVisible = !isLandscapeRatio
+        }
         return true
     }
 
@@ -84,7 +86,7 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
     }
 
     override fun onCropImageComplete(view: CropImageView?, result: CropImageView.CropResult) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && isDestroyed)
+        if (isActivityDestroyed())
             return
 
         if (result.error == null) {

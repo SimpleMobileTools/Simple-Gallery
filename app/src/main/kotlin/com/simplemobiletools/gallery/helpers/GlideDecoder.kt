@@ -23,6 +23,7 @@ class GlideDecoder : ImageDecoder {
         val targetWidth = if (ViewPagerActivity.screenWidth == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenWidth
         val targetHeight = if (ViewPagerActivity.screenHeight == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenHeight
 
+        ViewPagerActivity.wasDecodedByGlide = true
         val options = RequestOptions()
                 .signature(uri.path.getFileSignature())
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE)

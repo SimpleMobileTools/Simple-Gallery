@@ -14,11 +14,13 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
+import com.simplemobiletools.gallery.dialogs.PickDirectoryDialog
 import com.simplemobiletools.gallery.helpers.NOMEDIA
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
@@ -89,7 +91,7 @@ fun AppCompatActivity.hideSystemUI() {
             View.SYSTEM_UI_FLAG_IMMERSIVE
 }
 
-fun SimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
+fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
     val file = File(path, NOMEDIA)
     if (file.exists())
         return
@@ -116,14 +118,14 @@ fun SimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
     }
 }
 
-fun SimpleActivity.removeNoMedia(path: String, callback: () -> Unit) {
+fun BaseSimpleActivity.removeNoMedia(path: String, callback: (() -> Unit)? = null) {
     val file = File(path, NOMEDIA)
     deleteFile(file) {
-        callback()
+        callback?.invoke()
     }
 }
 
-fun SimpleActivity.toggleFileVisibility(oldFile: File, hide: Boolean, callback: (newFile: File) -> Unit) {
+fun BaseSimpleActivity.toggleFileVisibility(oldFile: File, hide: Boolean, callback: ((newFile: File) -> Unit)? = null) {
     val path = oldFile.parent
     var filename = oldFile.name
     filename = if (hide) {
@@ -133,7 +135,7 @@ fun SimpleActivity.toggleFileVisibility(oldFile: File, hide: Boolean, callback: 
     }
     val newFile = File(path, filename)
     renameFile(oldFile, newFile) {
-        callback(newFile)
+        callback?.invoke(newFile)
     }
 }
 
@@ -158,8 +160,33 @@ fun Activity.loadImage(path: String, target: MySquareImageView, horizontalScroll
             target.scaleType = if (cropThumbnails) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
         } catch (e: Exception) {
             loadJpg(path, target, cropThumbnails)
+        } catch (e: OutOfMemoryError) {
+            loadJpg(path, target, cropThumbnails)
         }
     }
+}
+
+fun BaseSimpleActivity.tryCopyMoveFilesTo(files: ArrayList<File>, isCopyOperation: Boolean, callback: () -> Unit) {
+    if (files.isEmpty()) {
+        toast(R.string.unknown_error_occurred)
+        return
+    }
+
+    val source = if (files[0].isFile) files[0].parent else files[0].absolutePath
+    PickDirectoryDialog(this, source) {
+        copyMoveFilesTo(files, source.trimEnd('/'), it, isCopyOperation, true, callback)
+    }
+}
+
+fun BaseSimpleActivity.addTempFolderIfNeeded(dirs: ArrayList<Directory>): ArrayList<Directory> {
+    val directories = ArrayList<Directory>()
+    val tempFolderPath = config.tempFolderPath
+    if (tempFolderPath.isNotEmpty()) {
+        val newFolder = Directory(tempFolderPath, "", tempFolderPath.getFilenameFromPath(), 0, 0, 0, 0L)
+        directories.add(newFolder)
+    }
+    directories.addAll(dirs)
+    return directories
 }
 
 fun Activity.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boolean) {

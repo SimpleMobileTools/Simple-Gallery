@@ -4,6 +4,8 @@
     android:id="@+id/media_item_holder"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
     android:padding="1px">
 
     <com.simplemobiletools.gallery.views.MySquareImageView

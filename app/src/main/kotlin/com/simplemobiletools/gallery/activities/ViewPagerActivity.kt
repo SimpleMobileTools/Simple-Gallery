@@ -23,6 +23,7 @@ import android.support.v4.view.ViewPager
 import android.util.DisplayMetrics
 import android.view.*
 import android.view.animation.DecelerateInterpolator
+import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
@@ -73,6 +74,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     companion object {
         var screenWidth = 0
         var screenHeight = 0
+        var wasDecodedByGlide = false
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -185,7 +187,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         title = mPath.getFilenameFromPath()
 
         view_pager.onGlobalLayout {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1 || !isDestroyed) {
+            if (!isActivityDestroyed()) {
                 if (mMedia.isNotEmpty()) {
                     gotMedia(mMedia)
                 }
@@ -193,7 +195,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         reloadViewPager()
-        scanPath(mPath) {}
+        scanPath(mPath)
 
         if (config.darkBackground)
             view_pager.background = ColorDrawable(Color.BLACK)
@@ -226,8 +228,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         mOrientationEventListener = object : OrientationEventListener(this, SensorManager.SENSOR_DELAY_NORMAL) {
             override fun onOrientationChanged(orientation: Int) {
                 val currOrient = when (orientation) {
-                    in 60..134 -> ORIENT_LANDSCAPE_RIGHT
-                    in 225..299 -> ORIENT_LANDSCAPE_LEFT
+                    in 75..134 -> ORIENT_LANDSCAPE_RIGHT
+                    in 225..285 -> ORIENT_LANDSCAPE_LEFT
                     else -> ORIENT_PORTRAIT
                 }
 
@@ -303,7 +305,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun updatePagerItems(media: MutableList<Medium>) {
         val pagerAdapter = MyPagerAdapter(this, supportFragmentManager, media)
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1 || !isDestroyed) {
+        if (!isActivityDestroyed()) {
             view_pager.apply {
                 adapter = pagerAdapter
                 currentItem = mPos
@@ -321,7 +323,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun startSlideshow() {
         if (getMediaForSlideshow()) {
             view_pager.onGlobalLayout {
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1 || !isDestroyed) {
+                if (!isActivityDestroyed()) {
                     hideSystemUI()
                     mSlideshowInterval = config.slideshowInterval
                     mSlideshowMoveBackwards = config.slideshowMoveBackwards
@@ -401,7 +403,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (mIsSlideshowActive) {
             if (getCurrentMedium()!!.isImage() || getCurrentMedium()!!.isGif()) {
                 mSlideshowHandler.postDelayed({
-                    if (mIsSlideshowActive && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && !isDestroyed) {
+                    if (mIsSlideshowActive && !isActivityDestroyed()) {
                         swipeToNextMedium()
                     }
                 }, mSlideshowInterval * 1000L)
@@ -494,52 +496,64 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun saveImageAs() {
         val currPath = getCurrentPath()
         SaveAsDialog(this, currPath, false) {
-            Thread({
-                val selectedFile = File(it)
-                handleSAFDialog(selectedFile) {
-                    toast(R.string.saving)
-                    val tmpFile = File(filesDir, ".tmp_${it.getFilenameFromPath()}")
-                    try {
-                        val bitmap = BitmapFactory.decodeFile(currPath)
-                        getFileOutputStream(tmpFile) {
-                            if (it == null) {
-                                toast(R.string.unknown_error_occurred)
-                                return@getFileOutputStream
-                            }
+            val selectedFile = File(it)
+            handleSAFDialog(selectedFile) {
+                Thread({
+                    saveImageToFile(currPath, it)
+                }).start()
+            }
+        }
+    }
 
-                            val oldLastModified = getCurrentFile().lastModified()
-                            if (currPath.isJpg()) {
-                                saveRotation(getCurrentFile(), tmpFile)
-                            } else {
-                                saveFile(tmpFile, bitmap, it as FileOutputStream)
-                            }
-
-                            if (tmpFile.length() > 0 && selectedFile.exists()) {
-                                deleteFile(selectedFile) {}
-                            }
-                            copyFile(tmpFile, selectedFile)
-                            scanFile(selectedFile) {}
-                            toast(R.string.file_saved)
-
-                            if (config.keepLastModified) {
-                                selectedFile.setLastModified(oldLastModified)
-                                updateLastModified(selectedFile, oldLastModified)
-                            }
-
-                            it.flush()
-                            it.close()
-                            mRotationDegrees = 0f
-                            invalidateOptionsMenu()
-                        }
-                    } catch (e: OutOfMemoryError) {
-                        toast(R.string.out_of_memory_error)
-                    } catch (e: Exception) {
-                        showErrorToast(e)
-                    } finally {
-                        deleteFile(tmpFile) {}
-                    }
+    private fun saveImageToFile(oldPath: String, newPath: String) {
+        val newFile = File(newPath)
+        toast(R.string.saving)
+        val tmpFile = File(filesDir, ".tmp_${newPath.getFilenameFromPath()}")
+        try {
+            val bitmap = BitmapFactory.decodeFile(oldPath)
+            getFileOutputStream(tmpFile) {
+                if (it == null) {
+                    toast(R.string.unknown_error_occurred)
+                    return@getFileOutputStream
                 }
-            }).start()
+
+                val oldLastModified = getCurrentFile().lastModified()
+                if (oldPath.isJpg()) {
+                    saveRotation(getCurrentFile(), tmpFile)
+                } else {
+                    saveFile(tmpFile, bitmap, it as FileOutputStream)
+                }
+
+                if (tmpFile.length() > 0 && newFile.exists()) {
+                    deleteFile(newFile)
+                }
+                copyFile(tmpFile, newFile)
+                scanFile(newFile)
+                toast(R.string.file_saved)
+
+                if (config.keepLastModified) {
+                    newFile.setLastModified(oldLastModified)
+                    updateLastModified(newFile, oldLastModified)
+                }
+
+                it.flush()
+                it.close()
+                mRotationDegrees = 0f
+                invalidateOptionsMenu()
+
+                // we cannot refresh a specific image in Glide Cache, so just clear it all
+                val glide = Glide.get(applicationContext)
+                glide.clearDiskCache()
+                runOnUiThread {
+                    glide.clearMemory()
+                }
+            }
+        } catch (e: OutOfMemoryError) {
+            toast(R.string.out_of_memory_error)
+        } catch (e: Exception) {
+            showErrorToast(e)
+        } finally {
+            deleteFile(tmpFile)
         }
     }
 
@@ -780,10 +794,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun deleteDirectoryIfEmpty() {
         val file = File(mDirectory)
         if (config.deleteEmptyFolders && !file.isDownloadsFolder() && file.isDirectory && file.listFiles()?.isEmpty() == true) {
-            deleteFile(file, true) {}
+            deleteFile(file, true)
         }
 
-        scanPath(mDirectory) {}
+        scanPath(mDirectory)
     }
 
     private fun checkOrientation() {

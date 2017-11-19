@@ -23,8 +23,8 @@
     <string name="volume">Volume</string>
     <string name="brightness">Luminosità</string>
     <string name="do_not_ask_again">Non chiedere nuovamente in questa sessione</string>
-    <string name="lock_orientation">Lock orientation</string>
-    <string name="unlock_orientation">Unlock orientation</string>
+    <string name="lock_orientation">Blocca orientamento</string>
+    <string name="unlock_orientation">Sblocca orientamento</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtra i media</string>
@@ -115,7 +115,7 @@
     <string name="animate_gifs">Anima le GIF in miniatura</string>
     <string name="max_brightness">Luminosità max durante visualizzazione</string>
     <string name="crop_thumbnails">Ritaglia le miniature in quadrati</string>
-    <string name="screen_rotation_by">Ruota a schermo intero per</string>
+    <string name="screen_rotation_by">Ruota schermo per</string>
     <string name="screen_rotation_system_setting">Impostazione di sistema</string>
     <string name="screen_rotation_device_rotation">Rotazione dispositivo</string>
     <string name="screen_rotation_aspect_ratio">Proporzioni</string>
@@ -133,7 +133,7 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Una galleria per visualizzare foto e video senza pubblicità.</string>
     <string name="app_long_description">
-        Un semplice strumento per visualizzare foto e video. Gli elementi possono essere ordinati per data, dimensioni, nome sia ascendente che discendente; le foto possono essere ingrandite. I file sono mostrati in colonne multiple a seconda delle dimensioni dello schermo, puoi modificare il numero di colonne con il tocco. Possono essere rinominate, condivise, eliminate, copiate, spostate. Le immagini possono anche essere ritagliate, ruotate o impostate come sfondo direttamente dall\'app.
+        Un semplice strumento per visualizzare foto e video. Gli elementi possono essere ordinati per data, dimensioni, nome sia ascendente che discendente; le foto possono essere ingrandite. I file sono mostrati in colonne multiple a seconda delle dimensioni dello schermo, puoi modificare il numero di colonne con il tocco. Possono essere rinominate, condivise, eliminate, copiate, spostate. Le immagini possono anche essere ritagliate, ruotate o impostate come sfondo direttamente dalla app.
 
         Simple Gallery è anche offerta per utilizzo di terze parti per anteprime di immagini / video, aggiunta di allegati ai client email, ecc. È perfetta per un uso quotidiano.
 

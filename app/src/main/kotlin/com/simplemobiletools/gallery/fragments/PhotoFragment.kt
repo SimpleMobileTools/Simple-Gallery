@@ -7,7 +7,6 @@ import android.graphics.Color
 import android.graphics.Matrix
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +26,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.PhotoActivity
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.*
+import com.simplemobiletools.gallery.helpers.GlideDecoder
 import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
@@ -37,7 +37,9 @@ import java.io.File
 import java.io.FileOutputStream
 
 class PhotoFragment : ViewPagerFragment() {
+    private var DEFAULT_DOUBLE_TAP_ZOOM = 5f
     private var isFragmentVisible = false
+    private var isFullscreen = false
     private var wasInit = false
     private var storedShowExtendedDetails = false
     private var storedExtendedDetails = 0
@@ -85,6 +87,7 @@ class PhotoFragment : ViewPagerFragment() {
             }
         }
 
+        isFullscreen = activity!!.window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN == View.SYSTEM_UI_FLAG_FULLSCREEN
         view.subsampling_view.setOnClickListener { photoClicked() }
         view.gif_view.setOnClickListener { photoClicked() }
         loadImage()
@@ -131,12 +134,6 @@ class PhotoFragment : ViewPagerFragment() {
     private fun photoFragmentVisibilityChanged(isVisible: Boolean) {
         if (isVisible) {
             addZoomableView()
-        } else {
-            view.subsampling_view.apply {
-                recycle()
-                beGone()
-                background = ColorDrawable(Color.TRANSPARENT)
-            }
         }
     }
 
@@ -224,9 +221,10 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun addZoomableView() {
-        if ((medium.isImage()) && isFragmentVisible && view.subsampling_view.visibility == View.GONE) {
+        if ((medium.isImage()) && isFragmentVisible && view.subsampling_view.isGone()) {
+            ViewPagerActivity.wasDecodedByGlide = false
             view.subsampling_view.apply {
-                //setBitmapDecoderClass(GlideDecoder::class.java)   // causing random crashes on Android 7+, at rotating
+                setBitmapDecoderClass(GlideDecoder::class.java)
                 maxScale = 10f
                 beVisible()
                 setImage(ImageSource.uri(medium.path))
@@ -268,20 +266,28 @@ class PhotoFragment : ViewPagerFragment() {
         val height = bitmapOptions.outHeight
         val bitmapAspectRatio = height / (width).toFloat()
 
-        if (context == null)
-            return 2f
-
-        return if (context!!.portrait && bitmapAspectRatio <= 1f) {
+        return if (context == null) {
+            DEFAULT_DOUBLE_TAP_ZOOM
+        } else if (ViewPagerActivity.screenHeight / ViewPagerActivity.screenWidth.toFloat() == bitmapAspectRatio) {
+            DEFAULT_DOUBLE_TAP_ZOOM
+        } else if (ViewPagerActivity.wasDecodedByGlide) {
+            1f
+        } else if (context!!.portrait && bitmapAspectRatio <= 1f) {
             ViewPagerActivity.screenHeight / height.toFloat()
+        } else if (context!!.portrait && bitmapAspectRatio > 1f) {
+            ViewPagerActivity.screenHeight / width.toFloat()
         } else if (!context!!.portrait && bitmapAspectRatio >= 1f) {
             ViewPagerActivity.screenWidth / width.toFloat()
+        } else if (!context!!.portrait && bitmapAspectRatio < 1f) {
+            ViewPagerActivity.screenWidth / height.toFloat()
         } else {
-            2f
+            DEFAULT_DOUBLE_TAP_ZOOM
         }
     }
 
     fun rotateImageViewBy(degrees: Float) {
-        view.subsampling_view.beGone()
+        // do not make Subsampling view Gone, because it gets recycled and can crash with "Error, cannot access an invalid/free'd bitmap here!"
+        view.subsampling_view.beInvisible()
         loadBitmap(degrees)
     }
 
@@ -292,9 +298,8 @@ class PhotoFragment : ViewPagerFragment() {
                 setTextColor(context.config.textColor)
                 beVisibleIf(text.isNotEmpty())
                 onGlobalLayout {
-                    if (height != 0) {
-                        val smallMargin = resources.getDimension(R.dimen.small_margin)
-                        y = context.usableScreenSize.y - height - if (context.navigationBarHeight == 0) smallMargin else 0f
+                    if (height != 0 && isAdded) {
+                        y = getExtendedDetailsY(height)
                     }
                 }
             }
@@ -305,7 +310,7 @@ class PhotoFragment : ViewPagerFragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && !activity!!.isDestroyed) {
+        if (activity?.isActivityDestroyed() == false) {
             Glide.with(context).clear(view.gif_view)
         }
     }
@@ -321,13 +326,17 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     override fun fullscreenToggled(isFullscreen: Boolean) {
+        this.isFullscreen = isFullscreen
         view.photo_details.apply {
-            if (visibility == View.VISIBLE) {
-                val smallMargin = resources.getDimension(R.dimen.small_margin)
-                val fullscreenOffset = context.navigationBarHeight.toFloat() - smallMargin
-                val newY = context.usableScreenSize.y - height + if (isFullscreen) fullscreenOffset else -(if (context.navigationBarHeight == 0) smallMargin else 0f)
-                animate().y(newY)
+            if (isVisible()) {
+                animate().y(getExtendedDetailsY(height))
             }
         }
+    }
+
+    private fun getExtendedDetailsY(height: Int): Float {
+        val smallMargin = resources.getDimension(R.dimen.small_margin)
+        val fullscreenOffset = context!!.navigationBarHeight.toFloat() - smallMargin
+        return context!!.usableScreenSize.y - height + if (isFullscreen) fullscreenOffset else -(if (context!!.navigationBarHeight == 0) smallMargin else 0f)
     }
 }

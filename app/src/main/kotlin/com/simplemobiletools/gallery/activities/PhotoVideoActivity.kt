@@ -59,14 +59,14 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         mIsFromGallery = intent.getBooleanExtra(IS_FROM_GALLERY, false)
 
         if (mUri!!.scheme == "file") {
-            scanPath(mUri!!.path) {}
+            scanPath(mUri!!.path)
             sendViewPagerIntent(mUri!!.path)
             finish()
             return
         } else {
             val path = applicationContext.getRealPathFromURI(mUri!!) ?: ""
             if (path != mUri.toString() && path.isNotEmpty()) {
-                scanPath(mUri!!.path) {}
+                scanPath(mUri!!.path)
                 sendViewPagerIntent(path)
                 finish()
                 return
@@ -114,9 +114,11 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.photo_video_menu, menu)
 
-        menu.findItem(R.id.menu_set_as).isVisible = mMedium?.isImage() == true
-        menu.findItem(R.id.menu_edit).isVisible = mMedium?.isImage() == true && mUri?.scheme == "file"
-        menu.findItem(R.id.menu_properties).isVisible = mUri?.scheme == "file"
+        menu.apply {
+            findItem(R.id.menu_set_as).isVisible = mMedium?.isImage() == true
+            findItem(R.id.menu_edit).isVisible = mMedium?.isImage() == true && mUri?.scheme == "file"
+            findItem(R.id.menu_properties).isVisible = mUri?.scheme == "file"
+        }
 
         return true
     }

@@ -1,6 +1,22 @@
 Changelog
 ==========
 
+Version 2.18.1 *(2017-11-16)*
+----------------------------
+
+ * Fixed some double-tap zoom issues
+ * Misc smaller fixes and improvements here and there
+
+Version 2.18.0 *(2017-11-09)*
+----------------------------
+
+ * Added an option to use english language on non-english devices
+ * Added an option to password protect the whole app
+ * Added an option to lock screen orientation at fullscreen view
+ * Split the Rotate button to 3 buttons per degrees
+ * Changed the way fullscreen images are loaded for better quality
+ * Fixed many memory leaks and smaller issues
+
 Version 2.17.4 *(2017-11-06)*
 ----------------------------
 
