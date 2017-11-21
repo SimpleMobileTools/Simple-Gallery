@@ -716,7 +716,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun deleteConfirmed() {
-        deleteFileBg(File(getCurrentMedia()[mPos].path)) {
+        deleteFile(File(getCurrentMedia()[mPos].path)) {
             reloadViewPager()
         }
     }

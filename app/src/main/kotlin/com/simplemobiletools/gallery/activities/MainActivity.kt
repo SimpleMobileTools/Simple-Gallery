@@ -208,7 +208,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         val newFolder = File(config.tempFolderPath)
         if (newFolder.exists() && newFolder.isDirectory) {
             if (newFolder.list()?.isEmpty() == true) {
-                deleteFileBg(newFolder, true)
+                deleteFile(newFolder, true)
             }
         }
         config.tempFolderPath = ""
