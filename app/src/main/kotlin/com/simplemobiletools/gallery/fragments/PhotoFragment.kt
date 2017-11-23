@@ -178,6 +178,9 @@ class PhotoFragment : ViewPagerFragment() {
         } catch (e: Exception) {
             gifDrawable = null
             loadBitmap()
+        } catch (e: OutOfMemoryError) {
+            gifDrawable = null
+            loadBitmap()
         }
     }
 
