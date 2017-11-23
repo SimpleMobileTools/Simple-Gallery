@@ -247,7 +247,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         mLoadedInitialPhotos = true
+        mCurrAsyncTask?.stopFetching()
         mCurrAsyncTask = GetDirectoriesAsynctask(applicationContext, mIsPickVideoIntent || mIsGetVideoContentIntent, mIsPickImageIntent || mIsGetImageContentIntent) {
+            mCurrAsyncTask = null
             gotDirectories(addTempFolderIfNeeded(it), false)
         }
         mCurrAsyncTask!!.execute()
