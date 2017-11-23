@@ -26,7 +26,6 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.PhotoActivity
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.*
-import com.simplemobiletools.gallery.helpers.GlideDecoder
 import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
@@ -224,7 +223,6 @@ class PhotoFragment : ViewPagerFragment() {
         if ((medium.isImage()) && isFragmentVisible && view.subsampling_view.isGone()) {
             ViewPagerActivity.wasDecodedByGlide = false
             view.subsampling_view.apply {
-                setBitmapDecoderClass(GlideDecoder::class.java)
                 maxScale = 10f
                 beVisible()
                 setImage(ImageSource.uri(medium.path))
@@ -286,8 +284,7 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     fun rotateImageViewBy(degrees: Float) {
-        // do not make Subsampling view Gone, because it gets recycled and can crash with "Error, cannot access an invalid/free'd bitmap here!"
-        view.subsampling_view.beInvisible()
+        view.subsampling_view.beGone()
         loadBitmap(degrees)
     }
 
