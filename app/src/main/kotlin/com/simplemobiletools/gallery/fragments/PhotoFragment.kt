@@ -236,7 +236,7 @@ class PhotoFragment : ViewPagerFragment() {
 
                     override fun onReady() {
                         background = ColorDrawable(if (context.config.darkBackground) Color.BLACK else context.config.backgroundColor)
-                        setDoubleTapZoomScale(getDoubleTapZoomScale())
+                        setDoubleTapZoomScale(getDoubleTapZoomScale(sWidth, sHeight))
                     }
 
                     override fun onTileLoadError(e: Exception?) {
@@ -259,12 +259,7 @@ class PhotoFragment : ViewPagerFragment() {
         }
     }
 
-    private fun getDoubleTapZoomScale(): Float {
-        val bitmapOptions = BitmapFactory.Options()
-        bitmapOptions.inJustDecodeBounds = true
-        BitmapFactory.decodeFile(medium.path, bitmapOptions)
-        val width = bitmapOptions.outWidth
-        val height = bitmapOptions.outHeight
+    private fun getDoubleTapZoomScale(width: Int, height: Int): Float {
         val bitmapAspectRatio = height / (width).toFloat()
 
         return if (context == null) {
