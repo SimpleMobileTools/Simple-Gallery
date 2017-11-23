@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 2.19.0 *(2017-11-23)*
+----------------------------
+
+ * Rolled back to displaying images in RGB_565 quality for proper zoom and performance
+ * Load directory thumbnails faster if a new medium has been discovered
+ * Couple performance and stability improvements
+
 Version 2.18.1 *(2017-11-16)*
 ----------------------------
 
