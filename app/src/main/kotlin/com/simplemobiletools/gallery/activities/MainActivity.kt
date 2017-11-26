@@ -208,7 +208,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         val newFolder = File(config.tempFolderPath)
         if (newFolder.exists() && newFolder.isDirectory) {
             if (newFolder.list()?.isEmpty() == true) {
-                deleteFileBg(newFolder, true)
+                deleteFile(newFolder, true)
             }
         }
         config.tempFolderPath = ""
@@ -247,7 +247,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         mLoadedInitialPhotos = true
+        mCurrAsyncTask?.stopFetching()
         mCurrAsyncTask = GetDirectoriesAsynctask(applicationContext, mIsPickVideoIntent || mIsGetVideoContentIntent, mIsPickImageIntent || mIsGetImageContentIntent) {
+            mCurrAsyncTask = null
             gotDirectories(addTempFolderIfNeeded(it), false)
         }
         mCurrAsyncTask!!.execute()

@@ -10,8 +10,8 @@ android {
         applicationId "com.simplemobiletools.gallery"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 144
-        versionName "2.18.1"
+        versionCode 145
+        versionName "2.19.0"
         multiDexEnabled true
         setProperty("archivesBaseName", "gallery")
     }
@@ -47,32 +47,19 @@ ext {
 }
 
 dependencies {
-    compile 'com.simplemobiletools:commons:2.39.10'
-    compile 'com.davemorrissey.labs:subsampling-scale-image-view:3.8.0'
-    compile 'com.theartofdev.edmodo:android-image-cropper:2.4.0'
-    compile 'com.android.support:multidex:1.0.2'
-    compile 'com.google.code.gson:gson:2.8.2'
-    compile 'it.sephiroth.android.exif:library:1.0.1'
-    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.8'
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'com.simplemobiletools:commons:2.41.8'
+    implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.8.0'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.4.0'
+    implementation 'com.android.support:multidex:1.0.2'
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'it.sephiroth.android.exif:library:1.0.1'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.8'
 
-    debugCompile "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
-    releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
+    releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
 }
 
-buildscript {
-    ext.kotlin_version = '1.1.60'
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
-    }
-}
-
-def Properties props = new Properties()
+Properties props = new Properties()
 def propFile = new File('signing.properties')
 if (propFile.canRead()) {
     props.load(new FileInputStream(propFile))

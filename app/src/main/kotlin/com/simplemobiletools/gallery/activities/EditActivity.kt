@@ -172,7 +172,9 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         try {
             getFileOutputStream(file) {
                 if (it != null) {
-                    saveBitmap(file, bitmap, it)
+                    Thread {
+                        saveBitmap(file, bitmap, it)
+                    }.start()
                 } else {
                     toast(R.string.image_editing_failed)
                 }

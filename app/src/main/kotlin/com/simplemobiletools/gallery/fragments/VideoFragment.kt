@@ -47,6 +47,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private var mStoredExtendedDetails = 0
     private var mCurrTime = 0
     private var mDuration = 0
+    private var mEncodedPath = ""
 
     private var mTouchDownX = 0f
     private var mTouchDownY = 0f
@@ -416,9 +417,10 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             return
         }
 
+        val mediumPath = if (wasEncoded) mEncodedPath else medium.path
         try {
             mMediaPlayer = MediaPlayer().apply {
-                setDataSource(context, Uri.parse(medium.path))
+                setDataSource(context, Uri.parse(mediumPath))
                 setDisplay(mSurfaceHolder)
                 setOnCompletionListener { videoCompleted() }
                 setOnVideoSizeChangedListener({ mediaPlayer, width, height -> setVideoSize() })
@@ -427,7 +429,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 prepare()
             }
         } catch (e: IOException) {
-            medium.path = Uri.encode(medium.path)
+            mEncodedPath = Uri.encode(medium.path)
             if (wasEncoded) {
                 releaseMediaPlayer()
             } else {
