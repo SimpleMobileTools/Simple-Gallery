@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Simple Gallery</string>
+    <string name="app_launcher_name">Gallery</string>
+    <string name="edit">Edit</string>
+    <string name="open_camera">Open camera</string>
+    <string name="hidden">(hidden)</string>
+    <string name="pin_folder">Pin folder</string>
+    <string name="unpin_folder">Unpin folder</string>
+    <string name="show_all">Show all folders content</string>
+    <string name="all_folders">All folders</string>
+    <string name="folder_view">Switch to folder view</string>
+    <string name="other_folder">Other folder</string>
+    <string name="show_on_map">Show on map</string>
+    <string name="unknown_location">Unknown location</string>
+    <string name="no_map_application">No application with maps has been found</string>
+    <string name="no_camera_app_found">No Camera app has been found</string>
+    <string name="increase_column_count">Increase column count</string>
+    <string name="reduce_column_count">Reduce column count</string>
+    <string name="change_cover_image">Change cover image</string>
+    <string name="select_photo">Select photo</string>
+    <string name="use_default">Use default</string>
+    <string name="volume">Volume</string>
+    <string name="brightness">Brightness</string>
+    <string name="do_not_ask_again">Do not ask again in this session</string>
+    <string name="lock_orientation">Lock orientation</string>
+    <string name="unlock_orientation">Unlock orientation</string>
+
+    <!-- Filter -->
+    <string name="filter_media">Filter media</string>
+    <string name="images">Images</string>
+    <string name="videos">Videos</string>
+    <string name="gifs">GIFs</string>
+    <string name="no_media_with_filters">No media files have been found with the selected filters.</string>
+    <string name="change_filters_underlined"><u>Change filters</u></string>
+
+    <!-- Hide / Exclude -->
+    <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden folders\' option in Settings. Continue?</string>
+    <string name="exclude">Exclude</string>
+    <string name="excluded_folders">Excluded folders</string>
+    <string name="manage_excluded_folders">Manage excluded folders</string>
+    <string name="exclude_folder_description">This will exclude the selection together with its subfolders from Simple Gallery only. You can manage excluded folders in Settings.</string>
+    <string name="exclude_folder_parent">Exclude a parent instead?</string>
+    <string name="excluded_activity_placeholder">Excluding folders will make them together with their subfolders hidden just in Simple Gallery, they will still be visible in other applications.\n\nIf you want to hide them from other apps too, use the Hide function.</string>
+    <string name="remove_all">Remove all</string>
+    <string name="remove_all_description">Remove all folders from the list of excluded? This will not delete the folders.</string>
+
+    <!-- Include folders -->
+    <string name="include_folders">Included folders</string>
+    <string name="manage_included_folders">Manage included folders</string>
+    <string name="add_folder">Add folder</string>
+    <string name="included_activity_placeholder">If you have some folders which contain media, but were not recognized by the app, you can add them manually here.\n\nAdding some items here will not exclude any other folder.</string>
+
+    <!-- Resizing -->
+    <string name="resize">Resize</string>
+    <string name="resize_and_save">Resize selection and save</string>
+    <string name="width">Width</string>
+    <string name="height">Height</string>
+    <string name="keep_aspect_ratio">Keep aspect ratio</string>
+    <string name="invalid_values">Please enter a valid resolution</string>
+
+    <!-- Editor -->
+    <string name="editor">Editor</string>
+    <string name="save">Save</string>
+    <string name="rotate">Rotate</string>
+    <string name="path">Path</string>
+    <string name="invalid_image_path">Invalid image path</string>
+    <string name="image_editing_failed">Image editing failed</string>
+    <string name="edit_image_with">Edit image with:</string>
+    <string name="no_editor_found">No image editor found</string>
+    <string name="unknown_file_location">Unknown file location</string>
+    <string name="error_saving_file">Could not overwrite the source file</string>
+    <string name="rotate_left">Rotate left</string>
+    <string name="rotate_right">Rotate right</string>
+    <string name="rotate_one_eighty">Rotate by 180º</string>
+    <string name="flip">Flip</string>
+    <string name="flip_horizontally">Flip horizontally</string>
+    <string name="flip_vertically">Flip vertically</string>
+    <string name="edit_with">Edit with</string>
+
+    <!-- Set wallpaper -->
+    <string name="simple_wallpaper">Simple Wallpaper</string>
+    <string name="set_as_wallpaper">Set as Wallpaper</string>
+    <string name="set_as_wallpaper_failed">Setting as Wallpaper failed</string>
+    <string name="set_as_wallpaper_with">Set as wallpaper with:</string>
+    <string name="no_capable_app_found">No app capable of it has been found</string>
+    <string name="setting_wallpaper">Setting wallpaper&#8230;</string>
+    <string name="wallpaper_set_successfully">Wallpaper set successfully</string>
+    <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
+    <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">Slideshow</string>
+    <string name="interval">Interval (seconds):</string>
+    <string name="include_photos">Include photos</string>
+    <string name="include_videos">Include videos</string>
+    <string name="include_gifs">Include GIFs</string>
+    <string name="random_order">Random order</string>
+    <string name="use_fade">Use fade animations</string>
+    <string name="move_backwards">Move backwards</string>
+    <string name="loop_slideshow">Loop slideshow</string>
+    <string name="slideshow_ended">The slideshow ended</string>
+    <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
+
+    <!-- View types -->
+    <string name="change_view_type">Change view type</string>
+    <string name="grid">Grid</string>
+    <string name="list">List</string>
+
+    <!-- Settings -->
+    <string name="show_hidden_media">Show hidden media</string>
+    <string name="autoplay_videos">Play videos automatically</string>
+    <string name="toggle_filename">Toggle filename visibility</string>
+    <string name="loop_videos">Loop videos</string>
+    <string name="animate_gifs">Animate GIFs at thumbnails</string>
+    <string name="max_brightness">Max brightness when viewing media</string>
+    <string name="crop_thumbnails">Crop thumbnails into squares</string>
+    <string name="screen_rotation_by">Rotate fullscreen media by</string>
+    <string name="screen_rotation_system_setting">System setting</string>
+    <string name="screen_rotation_device_rotation">Device rotation</string>
+    <string name="screen_rotation_aspect_ratio">Aspect ratio</string>
+    <string name="dark_background_at_fullscreen">Dark background at fullscreen media</string>
+    <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
+    <string name="hide_system_ui_at_fullscreen">Automatically hide system UI at fullscreen media</string>
+    <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
+    <string name="allow_video_gestures">Allow controlling video volume and brightness with vertical gestures</string>
+    <string name="show_media_count">Show folder media count on the main view</string>
+    <string name="replace_share_with_rotate">Replace Share with Rotate at fullscreen menu</string>
+    <string name="show_extended_details">Show extended details over fullscreen media</string>
+    <string name="manage_extended_details">Manage extended details</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">A gallery for viewing photos and videos without ads.</string>
+    <string name="app_long_description">
+        A simple tool usable for viewing photos and videos. Items can be sorted by date, size, name both ascending or descending, photos can be zoomed in. Media files are shown in multiple columns depending on the size of the display, you can change the column count by pinch gestures. They can be renamed, shared, deleted, copied, moved. Images can also be cropped, rotated, flipped or set as Wallpaper directly from the app.
+
+        The Gallery is also offered for third party usage for previewing images / videos, adding attachments at email clients etc. It\'s perfect for everyday usage.
+
+        Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
+
+        This app is just one piece of a bigger series of apps. You can find the rest of them at http://www.simplemobiletools.com
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>
