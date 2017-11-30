@@ -167,6 +167,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
                 }
             } else {
                 activity.removeNoMedia(it) {
+                    activity.scanPath(it)
                     noMediaHandled()
                 }
             }
