@@ -43,7 +43,7 @@ fun Activity.shareMedium(medium: Medium) {
 }
 
 fun Activity.shareMedia(media: List<Medium>) {
-    val uris = media.map { getFilePublicUri(File(it.path), BuildConfig.APPLICATION_ID) } as ArrayList
+    val uris = media.map { Uri.fromFile(File(it.path)) } as ArrayList
     shareUris(uris)
 }
 
