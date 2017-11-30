@@ -22,9 +22,9 @@
     <string name="use_default">使用預設</string>
     <string name="volume">音量</string>
     <string name="brightness">亮度</string>
-    <string name="do_not_ask_again">Do not ask again in this session</string>
-    <string name="lock_orientation">Lock orientation</string>
-    <string name="unlock_orientation">Unlock orientation</string>
+    <string name="do_not_ask_again">這情況不再詢問</string>
+    <string name="lock_orientation">鎖定方向</string>
+    <string name="unlock_orientation">解除鎖定方向</string>
 
     <!-- Filter -->
     <string name="filter_media">篩選媒體檔案</string>
@@ -92,20 +92,20 @@
     <!-- Slideshow -->
     <string name="slideshow">投影片</string>
     <string name="interval">間隔 (秒):</string>
-    <string name="include_photos">Include photos</string>
+    <string name="include_photos">包含照片</string>
     <string name="include_videos">包含影片</string>
-    <string name="include_gifs">Include GIFs</string>
+    <string name="include_gifs">包含GIF</string>
     <string name="random_order">隨機順序</string>
     <string name="use_fade">使用淡入淡出動畫</string>
     <string name="move_backwards">反向播放</string>
-    <string name="loop_slideshow">Loop slideshow</string>
+    <string name="loop_slideshow">投影片循環</string>
     <string name="slideshow_ended">投影片結束</string>
     <string name="no_media_for_slideshow">找不到投影片的媒體檔案</string>
 
     <!-- View types -->
-    <string name="change_view_type">Change view type</string>
-    <string name="grid">Grid</string>
-    <string name="list">List</string>
+    <string name="change_view_type">改變瀏覽類型</string>
+    <string name="grid">格狀</string>
+    <string name="list">列表</string>
 
     <!-- Settings -->
     <string name="show_hidden_media">顯示隱藏的媒體檔案</string>
@@ -124,10 +124,10 @@
     <string name="hide_system_ui_at_fullscreen">全螢幕時自動隱藏系統介面</string>
     <string name="delete_empty_folders">刪除內容後刪除空白資料夾</string>
     <string name="allow_video_gestures">允許用上下手勢來控制影片的音量和亮度</string>
-    <string name="show_media_count">Show folder media count on the main view</string>
+    <string name="show_media_count">主畫面顯示資料夾內媒體檔案數量</string>
     <string name="replace_share_with_rotate">將全螢幕選單的分享取代為旋轉</string>
-    <string name="show_extended_details">Show extended details over fullscreen media</string>
-    <string name="manage_extended_details">Manage extended details</string>
+    <string name="show_extended_details">全螢幕時顯示詳細資訊</string>
+    <string name="manage_extended_details">管理詳細資訊</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
