@@ -1,6 +1,5 @@
 package com.simplemobiletools.gallery.adapters
 
-import android.util.SparseArray
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
@@ -72,8 +71,6 @@ class ManageFoldersAdapter(activity: BaseSimpleActivity, var folders: ArrayList<
         selectedPositions.sortedDescending().forEach {
             val folder = folders[it]
             removeFolders.add(folder)
-            notifyItemRemoved(it)
-            itemViews.put(it, null)
             if (isShowingExcludedFolders) {
                 config.removeExcludedFolder(folder)
             } else {
@@ -82,16 +79,7 @@ class ManageFoldersAdapter(activity: BaseSimpleActivity, var folders: ArrayList<
         }
 
         folders.removeAll(removeFolders)
-        selectedPositions.clear()
-
-        val newItems = SparseArray<View>()
-        (0 until itemViews.size())
-                .filter { itemViews[it] != null }
-                .forEachIndexed { curIndex, i -> newItems.put(curIndex, itemViews[i]) }
-
-        itemViews = newItems
-        selectableItemCount = folders.size
-        finishActMode()
+        removeSelectedItems()
         if (folders.isEmpty()) {
             listener?.refreshItems()
         }

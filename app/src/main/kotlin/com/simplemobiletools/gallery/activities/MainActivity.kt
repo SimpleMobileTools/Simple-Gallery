@@ -324,12 +324,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
     }
 
-    override fun tryDeleteFolders(folders: ArrayList<File>) {
-        for (file in folders) {
-            deleteFolders(folders) {
-                runOnUiThread {
-                    refreshItems()
-                }
+    override fun deleteFolders(folders: ArrayList<File>) {
+        deleteFolders(folders) {
+            runOnUiThread {
+                refreshItems()
             }
         }
     }

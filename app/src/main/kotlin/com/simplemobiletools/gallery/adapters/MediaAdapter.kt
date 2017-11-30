@@ -2,7 +2,6 @@ package com.simplemobiletools.gallery.adapters
 
 import android.graphics.PorterDuff
 import android.net.Uri
-import android.util.SparseArray
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
@@ -212,26 +211,17 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
             return
         }
 
-        activity.handleSAFDialog(File(media[selectedPositions.first()].path)) {
+        val SAFPath = media[selectedPositions.first()].path
+        activity.handleSAFDialog(File(SAFPath)) {
             selectedPositions.sortedDescending().forEach {
                 val medium = media[it]
                 files.add(File(medium.path))
                 removeMedia.add(medium)
-                notifyItemRemoved(it)
-                itemViews.put(it, null)
             }
 
             media.removeAll(removeMedia)
             listener?.deleteFiles(files)
-
-            val newItems = SparseArray<View>()
-            (0 until itemViews.size())
-                    .filter { itemViews[it] != null }
-                    .forEachIndexed { curIndex, i -> newItems.put(curIndex, itemViews[i]) }
-
-            itemViews = newItems
-            selectableItemCount = media.size
-            finishActMode()
+            removeSelectedItems()
         }
     }
 

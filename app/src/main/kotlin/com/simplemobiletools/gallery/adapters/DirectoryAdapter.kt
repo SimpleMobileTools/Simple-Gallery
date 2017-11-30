@@ -1,7 +1,6 @@
 package com.simplemobiletools.gallery.adapters
 
 import android.graphics.PorterDuff
-import android.util.SparseArray
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
@@ -233,42 +232,33 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
     }
 
     private fun deleteFiles() {
+        if (selectedPositions.isEmpty()) {
+            return
+        }
+
         val folders = ArrayList<File>(selectedPositions.size)
         val removeFolders = ArrayList<Directory>(selectedPositions.size)
 
-        var needPermissionForPath = ""
+        var SAFPath = ""
         selectedPositions.forEach {
             if (dirs.size > it) {
                 val path = dirs[it].path
                 if (activity.needsStupidWritePermissions(path) && config.treeUri.isEmpty()) {
-                    needPermissionForPath = path
+                    SAFPath = path
                 }
             }
         }
 
-        activity.handleSAFDialog(File(needPermissionForPath)) {
+        activity.handleSAFDialog(File(SAFPath)) {
             selectedPositions.sortedDescending().forEach {
-                if (dirs.size > it) {
-                    val directory = dirs[it]
-                    folders.add(File(directory.path))
-                    removeFolders.add(directory)
-                    notifyItemRemoved(it)
-                    itemViews.put(it, null)
-                }
+                val directory = dirs[it]
+                folders.add(File(directory.path))
+                removeFolders.add(directory)
             }
 
             dirs.removeAll(removeFolders)
-            selectedPositions.clear()
-            listener?.tryDeleteFolders(folders)
-
-            val newItems = SparseArray<View>()
-            (0 until itemViews.size())
-                    .filter { itemViews[it] != null }
-                    .forEachIndexed { curIndex, i -> newItems.put(curIndex, itemViews[i]) }
-
-            itemViews = newItems
-            selectableItemCount = dirs.size
-            finishActMode()
+            listener?.deleteFolders(folders)
+            removeSelectedItems()
         }
     }
 
@@ -363,7 +353,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
     interface DirOperationsListener {
         fun refreshItems()
 
-        fun tryDeleteFolders(folders: ArrayList<File>)
+        fun deleteFolders(folders: ArrayList<File>)
 
         fun recheckPinnedFolders()
     }
