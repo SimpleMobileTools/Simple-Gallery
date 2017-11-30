@@ -342,11 +342,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         } else {
             setupListLayoutManager()
         }
-
-        getDirectoryAdapter()?.apply {
-            setupZoomListener(mZoomListener)
-            setupDragListener(true)
-        }
     }
 
     private fun setupGridLayoutManager() {
@@ -360,20 +355,28 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         layoutManager.spanCount = config.dirColumnCnt
-        mZoomListener = object : MyRecyclerView.MyZoomListener {
-            override fun zoomIn() {
-                if (layoutManager.spanCount > 1) {
-                    reduceColumnCount()
-                    getRecyclerAdapter().finishActMode()
-                }
-            }
+    }
 
-            override fun zoomOut() {
-                if (layoutManager.spanCount < MAX_COLUMN_COUNT) {
-                    increaseColumnCount()
-                    getRecyclerAdapter().finishActMode()
+    private fun initZoomListener() {
+        if (config.viewTypeFolders == VIEW_TYPE_GRID) {
+            val layoutManager = directories_grid.layoutManager as GridLayoutManager
+            mZoomListener = object : MyRecyclerView.MyZoomListener {
+                override fun zoomIn() {
+                    if (layoutManager.spanCount > 1) {
+                        reduceColumnCount()
+                        getRecyclerAdapter().finishActMode()
+                    }
+                }
+
+                override fun zoomOut() {
+                    if (layoutManager.spanCount < MAX_COLUMN_COUNT) {
+                        increaseColumnCount()
+                        getRecyclerAdapter().finishActMode()
+                    }
                 }
             }
+        } else {
+            mZoomListener = null
         }
     }
 
@@ -554,12 +557,18 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun setupAdapter() {
         val currAdapter = directories_grid.adapter
         if (currAdapter == null) {
-            directories_grid.adapter = DirectoryAdapter(this, mDirs, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent)) {
+            initZoomListener()
+            DirectoryAdapter(this, mDirs, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent)) {
                 itemClicked((it as Directory).path)
+            }.apply {
+                setupZoomListener(mZoomListener)
+                setupDragListener(true)
+                directories_grid.adapter = this
             }
         } else {
             (currAdapter as DirectoryAdapter).updateDirs(mDirs)
         }
+
         setupScrollDirection()
     }
 
