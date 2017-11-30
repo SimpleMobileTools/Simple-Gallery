@@ -57,8 +57,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
 
     override fun onBindViewHolder(holder: MyRecyclerViewAdapter.ViewHolder, position: Int) {
         val dir = dirs[position]
-        val view = holder.bindView(dir, !isPickIntent) {
-            setupView(it, dir)
+        val view = holder.bindView(dir, !isPickIntent) { itemView, layoutPosition ->
+            setupView(itemView, dir)
         }
         bindViewHolder(holder, position, view)
     }
@@ -90,6 +90,13 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
             R.id.cab_delete -> askConfirmDelete()
             R.id.cab_select_photo -> changeAlbumCover(false)
             R.id.cab_use_default -> changeAlbumCover(true)
+        }
+    }
+
+    override fun onViewRecycled(holder: ViewHolder?) {
+        super.onViewRecycled(holder)
+        if (!activity.isActivityDestroyed()) {
+            Glide.with(activity).clear(holder?.itemView?.dir_thumbnail)
         }
     }
 
@@ -304,13 +311,6 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
         val paths = HashSet<String>(selectedPositions.size)
         selectedPositions.forEach { paths.add(dirs[it].path) }
         return paths
-    }
-
-    override fun onViewRecycled(holder: ViewHolder?) {
-        super.onViewRecycled(holder)
-        if (!activity.isActivityDestroyed()) {
-            Glide.with(activity).clear(holder?.itemView?.dir_thumbnail)
-        }
     }
 
     fun updateDirs(newDirs: ArrayList<Directory>) {

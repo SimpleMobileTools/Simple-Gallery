@@ -57,8 +57,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
     override fun onBindViewHolder(holder: MyRecyclerViewAdapter.ViewHolder, position: Int) {
         val medium = media[position]
-        val view = holder.bindView(medium, !allowMultiplePicks) {
-            setupView(it, medium)
+        val view = holder.bindView(medium, !allowMultiplePicks) { itemView, layoutPosition ->
+            setupView(itemView, medium)
         }
         bindViewHolder(holder, position, view)
     }
@@ -90,6 +90,13 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
             R.id.cab_open_with -> activity.openFile(Uri.fromFile(getCurrentFile()), true)
             R.id.cab_set_as -> activity.setAs(Uri.fromFile(getCurrentFile()))
             R.id.cab_delete -> checkDeleteConfirmation()
+        }
+    }
+
+    override fun onViewRecycled(holder: ViewHolder?) {
+        super.onViewRecycled(holder)
+        if (!activity.isActivityDestroyed()) {
+            Glide.with(activity).clear(holder?.itemView?.medium_thumbnail)
         }
     }
 
@@ -232,13 +239,6 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         val selectedMedia = ArrayList<Medium>(selectedPositions.size)
         selectedPositions.forEach { selectedMedia.add(media[it]) }
         return selectedMedia
-    }
-
-    override fun onViewRecycled(holder: ViewHolder?) {
-        super.onViewRecycled(holder)
-        if (!activity.isActivityDestroyed()) {
-            Glide.with(activity).clear(holder?.itemView?.medium_thumbnail)
-        }
     }
 
     fun updateMedia(newMedia: ArrayList<Medium>) {
