@@ -35,10 +35,6 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
     private var animateGifs = config.animateGifs
     private var cropThumbnails = config.cropThumbnails
 
-    init {
-        selectableItemCount = dirs.count()
-    }
-
     override fun getActionMenuId() = R.menu.cab_directories
 
     override fun prepareItemSelection(view: View) {
@@ -91,6 +87,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
             R.id.cab_use_default -> changeAlbumCover(true)
         }
     }
+
+    override fun getSelectableItemCount() = dirs.size
 
     override fun onViewRecycled(holder: ViewHolder?) {
         super.onViewRecycled(holder)
@@ -305,7 +303,6 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
 
     fun updateDirs(newDirs: ArrayList<Directory>) {
         dirs = newDirs
-        selectableItemCount = dirs.size
         notifyDataSetChanged()
         finishActMode()
     }

@@ -18,10 +18,6 @@ class ManageFoldersAdapter(activity: BaseSimpleActivity, var folders: ArrayList<
 
     private val config = activity.config
 
-    init {
-        selectableItemCount = folders.size
-    }
-
     override fun getActionMenuId() = R.menu.cab_delete_only
 
     override fun prepareActionMode(menu: Menu) {}
@@ -37,6 +33,8 @@ class ManageFoldersAdapter(activity: BaseSimpleActivity, var folders: ArrayList<
             R.id.cab_delete -> askConfirmDelete()
         }
     }
+
+    override fun getSelectableItemCount() = folders.size
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int) = createViewHolder(R.layout.item_manage_folder, parent)
 

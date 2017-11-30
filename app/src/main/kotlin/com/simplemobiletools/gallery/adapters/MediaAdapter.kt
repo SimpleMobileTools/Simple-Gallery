@@ -35,10 +35,6 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     private var cropThumbnails = config.cropThumbnails
     private var displayFilenames = config.displayFileNames
 
-    init {
-        selectableItemCount = media.count()
-    }
-
     override fun getActionMenuId() = R.menu.cab_media
 
     override fun prepareItemSelection(view: View) {
@@ -91,6 +87,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
             R.id.cab_delete -> checkDeleteConfirmation()
         }
     }
+
+    override fun getSelectableItemCount() = media.size
 
     override fun onViewRecycled(holder: ViewHolder?) {
         super.onViewRecycled(holder)
@@ -233,7 +231,6 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
     fun updateMedia(newMedia: ArrayList<Medium>) {
         media = newMedia
-        selectableItemCount = media.size
         notifyDataSetChanged()
         finishActMode()
     }
