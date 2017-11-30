@@ -40,13 +40,13 @@ class ChangeSortingDialog(val activity: BaseSimpleActivity, val isDirectorySorti
 
     private fun setupSortRadio() {
         val sortingRadio = view.sorting_dialog_radio_sorting
-        var sortBtn = sortingRadio.sorting_dialog_radio_name
 
-        when {
-            currSorting and SORT_BY_PATH != 0 -> sortBtn = sortingRadio.sorting_dialog_radio_path
-            currSorting and SORT_BY_SIZE != 0 -> sortBtn = sortingRadio.sorting_dialog_radio_size
-            currSorting and SORT_BY_DATE_MODIFIED != 0 -> sortBtn = sortingRadio.sorting_dialog_radio_last_modified
-            currSorting and SORT_BY_DATE_TAKEN != 0 -> sortBtn = sortingRadio.sorting_dialog_radio_date_taken
+        val sortBtn = when {
+            currSorting and SORT_BY_PATH != 0 -> sortingRadio.sorting_dialog_radio_path
+            currSorting and SORT_BY_SIZE != 0 -> sortingRadio.sorting_dialog_radio_size
+            currSorting and SORT_BY_DATE_MODIFIED != 0 -> sortingRadio.sorting_dialog_radio_last_modified
+            currSorting and SORT_BY_DATE_TAKEN != 0 -> sortingRadio.sorting_dialog_radio_date_taken
+            else -> sortingRadio.sorting_dialog_radio_name
         }
         sortBtn.isChecked = true
     }
