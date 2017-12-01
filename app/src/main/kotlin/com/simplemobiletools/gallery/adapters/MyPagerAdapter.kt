@@ -14,7 +14,7 @@ import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.models.Medium
 
 class MyPagerAdapter(val activity: ViewPagerActivity, fm: FragmentManager, val media: MutableList<Medium>) : FragmentStatePagerAdapter(fm) {
-    private val mFragments = HashMap<Int, ViewPagerFragment>()
+    private val fragments = HashMap<Int, ViewPagerFragment>()
     override fun getCount() = media.size
 
     override fun getItem(position: Int): Fragment {
@@ -38,19 +38,19 @@ class MyPagerAdapter(val activity: ViewPagerActivity, fm: FragmentManager, val m
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val fragment = super.instantiateItem(container, position) as ViewPagerFragment
-        mFragments.put(position, fragment)
+        fragments.put(position, fragment)
         return fragment
     }
 
     override fun destroyItem(container: ViewGroup, position: Int, any: Any) {
-        mFragments.remove(position)
+        fragments.remove(position)
         super.destroyItem(container, position, any)
     }
 
-    fun getCurrentFragment(position: Int) = mFragments.get(position)
+    fun getCurrentFragment(position: Int) = fragments.get(position)
 
     fun toggleFullscreen(isFullscreen: Boolean) {
-        for ((pos, fragment) in mFragments) {
+        for ((pos, fragment) in fragments) {
             fragment.fullscreenToggled(isFullscreen)
         }
     }

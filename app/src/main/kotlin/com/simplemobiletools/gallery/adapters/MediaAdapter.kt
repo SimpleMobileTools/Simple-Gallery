@@ -2,7 +2,6 @@ package com.simplemobiletools.gallery.adapters
 
 import android.graphics.PorterDuff
 import android.net.Uri
-import android.util.SparseArray
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
@@ -36,10 +35,6 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     private var cropThumbnails = config.cropThumbnails
     private var displayFilenames = config.displayFileNames
 
-    init {
-        selectableItemCount = media.count()
-    }
-
     override fun getActionMenuId() = R.menu.cab_media
 
     override fun prepareItemSelection(view: View) {
@@ -57,8 +52,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
     override fun onBindViewHolder(holder: MyRecyclerViewAdapter.ViewHolder, position: Int) {
         val medium = media[position]
-        val view = holder.bindView(medium, !allowMultiplePicks) {
-            setupView(it, medium)
+        val view = holder.bindView(medium, !allowMultiplePicks) { itemView, layoutPosition ->
+            setupView(itemView, medium)
         }
         bindViewHolder(holder, position, view)
     }
@@ -90,6 +85,15 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
             R.id.cab_open_with -> activity.openFile(Uri.fromFile(getCurrentFile()), true)
             R.id.cab_set_as -> activity.setAs(Uri.fromFile(getCurrentFile()))
             R.id.cab_delete -> checkDeleteConfirmation()
+        }
+    }
+
+    override fun getSelectableItemCount() = media.size
+
+    override fun onViewRecycled(holder: ViewHolder?) {
+        super.onViewRecycled(holder)
+        if (!activity.isActivityDestroyed()) {
+            Glide.with(activity).clear(holder?.itemView?.medium_thumbnail)
         }
     }
 
@@ -205,26 +209,17 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
             return
         }
 
-        activity.handleSAFDialog(File(media[selectedPositions.first()].path)) {
+        val SAFPath = media[selectedPositions.first()].path
+        activity.handleSAFDialog(File(SAFPath)) {
             selectedPositions.sortedDescending().forEach {
                 val medium = media[it]
                 files.add(File(medium.path))
                 removeMedia.add(medium)
-                notifyItemRemoved(it)
-                itemViews.put(it, null)
             }
 
             media.removeAll(removeMedia)
             listener?.deleteFiles(files)
-
-            val newItems = SparseArray<View>()
-            (0 until itemViews.size())
-                    .filter { itemViews[it] != null }
-                    .forEachIndexed { curIndex, i -> newItems.put(curIndex, itemViews[i]) }
-
-            itemViews = newItems
-            selectableItemCount = media.size
-            finishActMode()
+            removeSelectedItems()
         }
     }
 
@@ -234,16 +229,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         return selectedMedia
     }
 
-    override fun onViewRecycled(holder: ViewHolder?) {
-        super.onViewRecycled(holder)
-        if (!activity.isActivityDestroyed()) {
-            Glide.with(activity).clear(holder?.itemView?.medium_thumbnail)
-        }
-    }
-
     fun updateMedia(newMedia: ArrayList<Medium>) {
         media = newMedia
-        selectableItemCount = media.size
         notifyDataSetChanged()
         finishActMode()
     }

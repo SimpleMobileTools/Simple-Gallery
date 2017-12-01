@@ -1,7 +1,6 @@
 package com.simplemobiletools.gallery.adapters
 
 import android.graphics.PorterDuff
-import android.util.SparseArray
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
@@ -36,10 +35,6 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
     private var animateGifs = config.animateGifs
     private var cropThumbnails = config.cropThumbnails
 
-    init {
-        selectableItemCount = dirs.count()
-    }
-
     override fun getActionMenuId() = R.menu.cab_directories
 
     override fun prepareItemSelection(view: View) {
@@ -57,8 +52,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
 
     override fun onBindViewHolder(holder: MyRecyclerViewAdapter.ViewHolder, position: Int) {
         val dir = dirs[position]
-        val view = holder.bindView(dir, !isPickIntent) {
-            setupView(it, dir)
+        val view = holder.bindView(dir, !isPickIntent) { itemView, layoutPosition ->
+            setupView(itemView, dir)
         }
         bindViewHolder(holder, position, view)
     }
@@ -90,6 +85,15 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
             R.id.cab_delete -> askConfirmDelete()
             R.id.cab_select_photo -> changeAlbumCover(false)
             R.id.cab_use_default -> changeAlbumCover(true)
+        }
+    }
+
+    override fun getSelectableItemCount() = dirs.size
+
+    override fun onViewRecycled(holder: ViewHolder?) {
+        super.onViewRecycled(holder)
+        if (!activity.isActivityDestroyed()) {
+            Glide.with(activity).clear(holder?.itemView?.dir_thumbnail)
         }
     }
 
@@ -163,6 +167,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
                 }
             } else {
                 activity.removeNoMedia(it) {
+                    activity.scanPath(it)
                     noMediaHandled()
                 }
             }
@@ -226,42 +231,33 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
     }
 
     private fun deleteFiles() {
+        if (selectedPositions.isEmpty()) {
+            return
+        }
+
         val folders = ArrayList<File>(selectedPositions.size)
         val removeFolders = ArrayList<Directory>(selectedPositions.size)
 
-        var needPermissionForPath = ""
+        var SAFPath = ""
         selectedPositions.forEach {
             if (dirs.size > it) {
                 val path = dirs[it].path
                 if (activity.needsStupidWritePermissions(path) && config.treeUri.isEmpty()) {
-                    needPermissionForPath = path
+                    SAFPath = path
                 }
             }
         }
 
-        activity.handleSAFDialog(File(needPermissionForPath)) {
+        activity.handleSAFDialog(File(SAFPath)) {
             selectedPositions.sortedDescending().forEach {
-                if (dirs.size > it) {
-                    val directory = dirs[it]
-                    folders.add(File(directory.path))
-                    removeFolders.add(directory)
-                    notifyItemRemoved(it)
-                    itemViews.put(it, null)
-                }
+                val directory = dirs[it]
+                folders.add(File(directory.path))
+                removeFolders.add(directory)
             }
 
             dirs.removeAll(removeFolders)
-            selectedPositions.clear()
-            listener?.tryDeleteFolders(folders)
-
-            val newItems = SparseArray<View>()
-            (0 until itemViews.size())
-                    .filter { itemViews[it] != null }
-                    .forEachIndexed { curIndex, i -> newItems.put(curIndex, itemViews[i]) }
-
-            itemViews = newItems
-            selectableItemCount = dirs.size
-            finishActMode()
+            listener?.deleteFolders(folders)
+            removeSelectedItems()
         }
     }
 
@@ -306,16 +302,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
         return paths
     }
 
-    override fun onViewRecycled(holder: ViewHolder?) {
-        super.onViewRecycled(holder)
-        if (!activity.isActivityDestroyed()) {
-            Glide.with(activity).clear(holder?.itemView?.dir_thumbnail)
-        }
-    }
-
     fun updateDirs(newDirs: ArrayList<Directory>) {
         dirs = newDirs
-        selectableItemCount = dirs.size
         notifyDataSetChanged()
         finishActMode()
     }
@@ -363,7 +351,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
     interface DirOperationsListener {
         fun refreshItems()
 
-        fun tryDeleteFolders(folders: ArrayList<File>)
+        fun deleteFolders(folders: ArrayList<File>)
 
         fun recheckPinnedFolders()
     }

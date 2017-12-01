@@ -40,6 +40,8 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_holder)
+        setTranslucentNavigation()
+
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
                 checkIntent(savedInstanceState)

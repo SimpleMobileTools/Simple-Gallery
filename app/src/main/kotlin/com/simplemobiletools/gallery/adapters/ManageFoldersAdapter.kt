@@ -1,6 +1,5 @@
 package com.simplemobiletools.gallery.adapters
 
-import android.util.SparseArray
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
@@ -19,10 +18,6 @@ class ManageFoldersAdapter(activity: BaseSimpleActivity, var folders: ArrayList<
 
     private val config = activity.config
 
-    init {
-        selectableItemCount = folders.size
-    }
-
     override fun getActionMenuId() = R.menu.cab_delete_only
 
     override fun prepareActionMode(menu: Menu) {}
@@ -39,12 +34,14 @@ class ManageFoldersAdapter(activity: BaseSimpleActivity, var folders: ArrayList<
         }
     }
 
+    override fun getSelectableItemCount() = folders.size
+
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int) = createViewHolder(R.layout.item_manage_folder, parent)
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val folder = folders[position]
-        val view = holder.bindView(folder) {
-            setupView(it, folder)
+        val view = holder.bindView(folder) { itemView, layoutPosition ->
+            setupView(itemView, folder)
         }
         bindViewHolder(holder, position, view)
     }
@@ -72,8 +69,6 @@ class ManageFoldersAdapter(activity: BaseSimpleActivity, var folders: ArrayList<
         selectedPositions.sortedDescending().forEach {
             val folder = folders[it]
             removeFolders.add(folder)
-            notifyItemRemoved(it)
-            itemViews.put(it, null)
             if (isShowingExcludedFolders) {
                 config.removeExcludedFolder(folder)
             } else {
@@ -82,16 +77,7 @@ class ManageFoldersAdapter(activity: BaseSimpleActivity, var folders: ArrayList<
         }
 
         folders.removeAll(removeFolders)
-        selectedPositions.clear()
-
-        val newItems = SparseArray<View>()
-        (0 until itemViews.size())
-                .filter { itemViews[it] != null }
-                .forEachIndexed { curIndex, i -> newItems.put(curIndex, itemViews[i]) }
-
-        itemViews = newItems
-        selectableItemCount = folders.size
-        finishActMode()
+        removeSelectedItems()
         if (folders.isEmpty()) {
             listener?.refreshItems()
         }

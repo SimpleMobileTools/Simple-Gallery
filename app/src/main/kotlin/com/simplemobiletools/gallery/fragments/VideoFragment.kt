@@ -119,7 +119,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mSurfaceView = mView.video_surface
         mSurfaceHolder = mSurfaceView!!.holder
         mSurfaceHolder!!.addCallback(this)
-        mSurfaceView!!.setOnClickListener({ toggleFullscreen() })
+        mSurfaceView!!.setOnClickListener { toggleFullscreen() }
         mView.video_holder.setOnClickListener { toggleFullscreen() }
         mView.video_volume_controller.setOnTouchListener { v, event ->
             handleVolumeTouched(event)
@@ -423,7 +423,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 setDataSource(context, Uri.parse(mediumPath))
                 setDisplay(mSurfaceHolder)
                 setOnCompletionListener { videoCompleted() }
-                setOnVideoSizeChangedListener({ mediaPlayer, width, height -> setVideoSize() })
+                setOnVideoSizeChangedListener { mediaPlayer, width, height -> setVideoSize() }
                 setOnPreparedListener { videoPrepared(it) }
                 setAudioStreamType(AudioManager.STREAM_MUSIC)
                 prepare()

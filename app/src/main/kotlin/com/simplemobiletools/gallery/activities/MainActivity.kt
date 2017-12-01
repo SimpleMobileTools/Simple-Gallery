@@ -68,7 +68,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        storeStoragePaths()
+        appLaunched()
 
         mIsPickImageIntent = isPickImageIntent(intent)
         mIsPickVideoIntent = isPickVideoIntent(intent)
@@ -81,7 +81,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 mIsGetAnyContentIntent || mIsSetWallpaperIntent
 
         removeTempFolder()
-        directories_refresh_layout.setOnRefreshListener({ getDirectories() })
+        directories_refresh_layout.setOnRefreshListener { getDirectories() }
         mDirs = ArrayList()
         storeStateVariables()
         checkWhatsNewDialog()
@@ -324,12 +324,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
     }
 
-    override fun tryDeleteFolders(folders: ArrayList<File>) {
-        for (file in folders) {
-            deleteFolders(folders) {
-                runOnUiThread {
-                    refreshItems()
-                }
+    override fun deleteFolders(folders: ArrayList<File>) {
+        deleteFolders(folders) {
+            runOnUiThread {
+                refreshItems()
             }
         }
     }
@@ -341,11 +339,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             setupGridLayoutManager()
         } else {
             setupListLayoutManager()
-        }
-
-        getDirectoryAdapter()?.apply {
-            setupZoomListener(mZoomListener)
-            setupDragListener(true)
         }
     }
 
@@ -360,20 +353,28 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         layoutManager.spanCount = config.dirColumnCnt
-        mZoomListener = object : MyRecyclerView.MyZoomListener {
-            override fun zoomIn() {
-                if (layoutManager.spanCount > 1) {
-                    reduceColumnCount()
-                    getRecyclerAdapter().finishActMode()
-                }
-            }
+    }
 
-            override fun zoomOut() {
-                if (layoutManager.spanCount < MAX_COLUMN_COUNT) {
-                    increaseColumnCount()
-                    getRecyclerAdapter().finishActMode()
+    private fun initZoomListener() {
+        if (config.viewTypeFolders == VIEW_TYPE_GRID) {
+            val layoutManager = directories_grid.layoutManager as GridLayoutManager
+            mZoomListener = object : MyRecyclerView.MyZoomListener {
+                override fun zoomIn() {
+                    if (layoutManager.spanCount > 1) {
+                        reduceColumnCount()
+                        getRecyclerAdapter().finishActMode()
+                    }
+                }
+
+                override fun zoomOut() {
+                    if (layoutManager.spanCount < MAX_COLUMN_COUNT) {
+                        increaseColumnCount()
+                        getRecyclerAdapter().finishActMode()
+                    }
                 }
             }
+        } else {
+            mZoomListener = null
         }
     }
 
@@ -554,12 +555,18 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun setupAdapter() {
         val currAdapter = directories_grid.adapter
         if (currAdapter == null) {
-            directories_grid.adapter = DirectoryAdapter(this, mDirs, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent)) {
+            initZoomListener()
+            DirectoryAdapter(this, mDirs, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent)) {
                 itemClicked((it as Directory).path)
+            }.apply {
+                setupZoomListener(mZoomListener)
+                setupDragListener(true)
+                directories_grid.adapter = this
             }
         } else {
             (currAdapter as DirectoryAdapter).updateDirs(mDirs)
         }
+
         setupScrollDirection()
     }
 

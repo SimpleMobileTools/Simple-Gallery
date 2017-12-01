@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Simple Gallery</string>
+    <string name="app_launcher_name">Galerija</string>
+    <string name="edit">Uredi</string>
+    <string name="open_camera">Otvori kameru</string>
+    <string name="hidden">(skriveno)</string>
+    <string name="pin_folder">Prikači direktorij</string>
+    <string name="unpin_folder">Otkači direktorij</string>
+    <string name="show_all">Prikaži cijeli sadržaj direktorija</string>
+    <string name="all_folders">Svi direktoriji</string>
+    <string name="folder_view">Prebaci se na pogled direktorija</string>
+    <string name="other_folder">Ostali direktoriji</string>
+    <string name="show_on_map">Prikaži na karti</string>
+    <string name="unknown_location">Nepoznata lokacija</string>
+    <string name="no_map_application">Nije pronađena aplikacija za kartame</string>
+    <string name="no_camera_app_found">Nije pronađena aplikacija za kameru</string>
+    <string name="increase_column_count">Povećaj broj stupaca</string>
+    <string name="reduce_column_count">Smanji broj stupaca</string>
+    <string name="change_cover_image">Promjeni naslovnu sliku</string>
+    <string name="select_photo">Odaberi sliku</string>
+    <string name="use_default">Koristi zadano</string>
+    <string name="volume">Glasnoća</string>
+    <string name="brightness">Svjetlina</string>
+    <string name="do_not_ask_again">Ne pitaj me više u ovoj sesiji</string>
+    <string name="lock_orientation">Zaključaj orijentaciju</string>
+    <string name="unlock_orientation">Otključaj orijentaciju</string>
+
+    <!-- Filter -->
+    <string name="filter_media">Filtriraj slike i videe</string>
+    <string name="images">Slike</string>
+    <string name="videos">Videi</string>
+    <string name="gifs">GIFovi</string>
+    <string name="no_media_with_filters">Nije pronađena nijedna datoteka s odabranim filterom.</string>
+    <string name="change_filters_underlined"><u>Promjeni filter</u></string>
+
+    <!-- Hide / Exclude -->
+    <string name="hide_folder_description">Ova funkcija skriva direktorij dodavajući \'.nomedia\' datoteku u njega. Također će sakriti i sve poddirektorije. Možete ih vidjeti uključivanjem opcije \'Show hidden folders\' u Postavkama. Nastaviti?</string>
+    <string name="exclude">Izostavi</string>
+    <string name="excluded_folders">Izostavljeni direktoriji</string>
+    <string name="manage_excluded_folders">Upravljaj izostavljenim direktorijima</string>
+    <string name="exclude_folder_description">Ovo će izostaviti izabrano zajedno s poddirektorijima samo iz Simple Gallery aplikacije. Možete upravljati izostavljenim direktorijima u Postavkama.</string>
+    <string name="exclude_folder_parent">Izostavi glavni direktorij umjesto?</string>
+    <string name="excluded_activity_placeholder">Izostavljanje direktorija učiniti će ih nevidljivim zajedno s njihovim poddirektorijima samo u Simple Gallery, ali će oni biti vidljivi u drugim aplikacijama.\n\nAko ih želite sakriti od drugih aplikacija također, koristite Sakrij opciju.</string>
+    <string name="remove_all">Ukloni sve</string>
+    <string name="remove_all_description">Ukloni sve direktorije iz liste izostavljenih? Ovo neće izbrisati direktorije.</string>
+
+    <!-- Include folders -->
+    <string name="include_folders">Dodaj direktorije</string>
+    <string name="manage_included_folders">Upravljaj dodanim direktorijima</string>
+    <string name="add_folder">Dodaj direktorij</string>
+    <string name="included_activity_placeholder">Ako postoji direktorij koji sadrži slike i video sadržaj, ali ga aplikacija ne prepoznaje, možete ih ručno dodati ovdje.\n\nDodavanjem nekoliko stavki ovdje, neće se izostaviti niti jedan drugi direktorij.</string>
+
+    <!-- Resizing -->
+    <string name="resize">Promjeni veličinu</string>
+    <string name="resize_and_save">Promjeni veličinu odabranog i spremi</string>
+    <string name="width">Širina</string>
+    <string name="height">Visina</string>
+    <string name="keep_aspect_ratio">Zadrži omjer slike</string>
+    <string name="invalid_values">Molimo unesite valjanu rezoluciju</string>
+
+    <!-- Editor -->
+    <string name="editor">Uređivač</string>
+    <string name="save">Spremi</string>
+    <string name="rotate">Rotiraj</string>
+    <string name="path">Putanja</string>
+    <string name="invalid_image_path">Neispravna putanja slike</string>
+    <string name="image_editing_failed">Neuspješno uređivanje slike</string>
+    <string name="edit_image_with">Uredi sliku s:</string>
+    <string name="no_editor_found">Nije pronađen uređivač slika</string>
+    <string name="unknown_file_location">Nepoznata lokacija datoteke</string>
+    <string name="error_saving_file">Nije moguće presnimiti izvornu datoteku</string>
+    <string name="rotate_left">Rotiraj lijevo</string>
+    <string name="rotate_right">Rotiraj desno</string>
+    <string name="rotate_one_eighty">Rotiraj za 180º</string>
+    <string name="flip">Okreni</string>
+    <string name="flip_horizontally">Okreni horizontalno</string>
+    <string name="flip_vertically">Okreni vertikalno</string>
+    <string name="edit_with">Uredi s</string>
+
+    <!-- Set wallpaper -->
+    <string name="simple_wallpaper">Jednostavna pozadina</string>
+    <string name="set_as_wallpaper">Postavi kao pozadinu</string>
+    <string name="set_as_wallpaper_failed">Neuspješno postavljanje pozadine</string>
+    <string name="set_as_wallpaper_with">Postavi kao pozadinu s:</string>
+    <string name="no_capable_app_found">Nije pronađena aplikacija s ovim mogućnostima</string>
+    <string name="setting_wallpaper">Postavljanje pozadine&#8230;</string>
+    <string name="wallpaper_set_successfully">Uspješno postavljanje pozadine</string>
+    <string name="portrait_aspect_ratio">Portretni omjer slike</string>
+    <string name="landscape_aspect_ratio">Pejzažni omjer slike</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">Dijaprojekcija</string>
+    <string name="interval">Interval (sekunde):</string>
+    <string name="include_photos">Dodaj slike</string>
+    <string name="include_videos">Dodaj videe</string>
+    <string name="include_gifs">Dodaj GIFove</string>
+    <string name="random_order">Nasumični redoslijed</string>
+    <string name="use_fade">Koristi animaciju izbljeđivanja</string>
+    <string name="move_backwards">Pomakni unatrag</string>
+    <string name="loop_slideshow">Prikaži dijaprojekciju kao petlju</string>
+    <string name="slideshow_ended">Kraj dijaprojekcije</string>
+    <string name="no_media_for_slideshow">Nema datoteka za dijaprojekciju</string>
+
+    <!-- View types -->
+    <string name="change_view_type">Promjeni način pregleda</string>
+    <string name="grid">Rešetka</string>
+    <string name="list">Lista</string>
+
+    <!-- Settings -->
+    <string name="show_hidden_media">Prikaži skrivene datoteke</string>
+    <string name="autoplay_videos">Automatsko pokretanje videa</string>
+    <string name="toggle_filename">Uključi prikaz naziva datoteka</string>
+    <string name="loop_videos">Ponavljanje videa</string>
+    <string name="animate_gifs">Prikaz animacije GIFova na sličicama</string>
+    <string name="max_brightness">Maksimalna svjetlina pri pregledu datoteka</string>
+    <string name="crop_thumbnails">Izreži sličice u kvadrate</string>
+    <string name="screen_rotation_by">Rotiraj datoteku u punom zaslonu za</string>
+    <string name="screen_rotation_system_setting">Postavke sustava</string>
+    <string name="screen_rotation_device_rotation">Rotacija uređaja</string>
+    <string name="screen_rotation_aspect_ratio">Omjer slike</string>
+    <string name="dark_background_at_fullscreen">Crna pozadina pri pregledu datoteka</string>
+    <string name="scroll_thumbnails_horizontally">Listaj sličice horizontalno</string>
+    <string name="hide_system_ui_at_fullscreen">Automatski sakrij UI sustava pri pregledu datoteka</string>
+    <string name="delete_empty_folders">Izbriži prazne direktorije nakon brisanja njihovog sadržaja</string>
+    <string name="allow_video_gestures">Omogući kontrolu glasnoće videa i svjetline pomoću vertikalnih gesti</string>
+    <string name="show_media_count">Prikaži broj datoteka u direktoriju na glavnom zaslonu</string>
+    <string name="replace_share_with_rotate">Zamjeni Dijeli s Rotiraj pri pregledu datoteka</string>
+    <string name="show_extended_details">Prikaži detaljne informacije pri pregledu datoteka</string>
+    <string name="manage_extended_details">Upravljaj detaljnim informacijama</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">Galerija za pregledavanje slika, GIFova i videa bez reklama.</string>
+    <string name="app_long_description">
+        Jednostavan alat za pregled slika, GIFova i videa. Datoteke možete sortirati po datumu, veličini, imenu i to uzlazno i silazno. Također možete zumirati slike. Medijski sadržaj se prikazuje u višestrukim stupcima ovisno o veličini ekrana, a vi samo možete birati broj stupaca s gestom štipkanja. Možete preimenovati, dijeliti, brisati, kopirati, premještati datoteke. Slike također možete izrezati, rotirati ili postaviki kao pozadinu ekrana, odmah iz aplikacije.
+
+        Galerija se također može koristiti za pregledavanje slika i videa u drugim aplikacijama, prikačivanja datoteka u e-mail aplikacije itd. Savršeno za svakodnevno korištenje.
+
+        Ne sadrži reklame niti nepotrebna dopuštenja. Aplikacije je otvorenog koda, te pruža mogućnost promjene boja.
+
+        Ova aplikacija je samo dio veće skupine aplikacije. Ostatak možete pronaći na http://www.simplemobiletools.com
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>

@@ -80,6 +80,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medium)
+        setTranslucentNavigation()
 
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {

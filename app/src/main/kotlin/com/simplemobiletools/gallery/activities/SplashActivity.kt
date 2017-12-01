@@ -1,12 +1,10 @@
 package com.simplemobiletools.gallery.activities
 
 import android.content.Intent
-import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import com.simplemobiletools.commons.activities.BaseSplashActivity
 
-class SplashActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+class SplashActivity : BaseSplashActivity() {
+    override fun initActivity() {
         startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
