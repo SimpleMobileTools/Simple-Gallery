@@ -88,6 +88,9 @@
     <string name="wallpaper_set_successfully">壁纸设置成功</string>
     <string name="portrait_aspect_ratio">纵向长宽比</string>
     <string name="landscape_aspect_ratio">横向长宽比</string>
+    <string name="home_screen">Home screen</string>
+    <string name="lock_screen">Lock screen</string>
+    <string name="home_and_lock_screen">Home and lock screen</string>
 
     <!-- Slideshow -->
     <string name="slideshow">幻灯片</string>
