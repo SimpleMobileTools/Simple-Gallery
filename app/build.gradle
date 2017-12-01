@@ -21,14 +21,10 @@ android {
     }
 
     buildTypes {
-        debug {
-            buildConfigField "boolean", "USE_LEAK_CANARY", "true"
-        }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
-            buildConfigField "boolean", "USE_LEAK_CANARY", "false"
         }
     }
 
@@ -47,7 +43,7 @@ ext {
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:3.0.20'
+    implementation 'com.simplemobiletools:commons:3.0.21'
     implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.8.0'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.4.0'
     implementation 'com.android.support:multidex:1.0.2'
