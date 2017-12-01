@@ -224,12 +224,15 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun addZoomableView() {
         if ((medium.isImage()) && isFragmentVisible && view.subsampling_view.isGone()) {
+            val exif = android.media.ExifInterface(medium.path)
+            val orientation = exif.getAttributeInt(android.media.ExifInterface.TAG_ORIENTATION, android.media.ExifInterface.ORIENTATION_NORMAL)
+
             ViewPagerActivity.wasDecodedByGlide = false
             view.subsampling_view.apply {
                 maxScale = 10f
                 beVisible()
                 setImage(ImageSource.uri(medium.path))
-                orientation = SubsamplingScaleImageView.ORIENTATION_USE_EXIF
+                this.orientation = degreesForRotation(orientation)
                 setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {
                     override fun onImageLoaded() {
                     }
