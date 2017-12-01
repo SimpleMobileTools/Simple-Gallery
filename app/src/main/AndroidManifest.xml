@@ -60,8 +60,7 @@
         <activity
             android:name=".activities.ViewPagerActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:parentActivityName=".activities.MediaActivity"
-            android:theme="@style/FullScreenTheme">
+            android:parentActivityName=".activities.MediaActivity">
 
             <intent-filter>
                 <action android:name="com.android.camera.action.REVIEW"/>
@@ -96,8 +95,7 @@
 
         <activity
             android:name=".activities.PhotoVideoActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/FullScreenTheme"/>
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
 
         <activity
             android:name=".activities.IncludedFoldersActivity"
@@ -111,8 +109,7 @@
 
         <activity
             android:name=".activities.PhotoActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/FullScreenTheme">
+            android:configChanges="orientation|keyboardHidden|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
 
@@ -125,8 +122,7 @@
 
         <activity
             android:name=".activities.VideoActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@style/FullScreenTheme">
+            android:configChanges="orientation|keyboardHidden|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
 
