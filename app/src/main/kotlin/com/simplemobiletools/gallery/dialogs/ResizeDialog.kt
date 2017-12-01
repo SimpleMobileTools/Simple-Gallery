@@ -74,19 +74,20 @@ class ResizeDialog(val activity: BaseSimpleActivity, val size: Point, val callba
                 .setNegativeButton(R.string.cancel, null)
                 .create().apply {
             window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
-            activity.setupDialogStuff(view, this, R.string.resize_and_save)
-            getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener({
-                val width = getViewValue(widthView)
-                val height = getViewValue(heightView)
-                if (width <= 0 || height <= 0) {
-                    activity.toast(R.string.invalid_values)
-                    return@setOnClickListener
-                }
+            activity.setupDialogStuff(view, this, R.string.resize_and_save) {
+                getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+                    val width = getViewValue(widthView)
+                    val height = getViewValue(heightView)
+                    if (width <= 0 || height <= 0) {
+                        activity.toast(R.string.invalid_values)
+                        return@setOnClickListener
+                    }
 
-                val newSize = Point(getViewValue(widthView), getViewValue(heightView))
-                callback(newSize)
-                dismiss()
-            })
+                    val newSize = Point(getViewValue(widthView), getViewValue(heightView))
+                    callback(newSize)
+                    dismiss()
+                }
+            }
         }
     }
 

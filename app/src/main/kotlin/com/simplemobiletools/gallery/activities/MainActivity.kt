@@ -81,7 +81,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 mIsGetAnyContentIntent || mIsSetWallpaperIntent
 
         removeTempFolder()
-        directories_refresh_layout.setOnRefreshListener({ getDirectories() })
+        directories_refresh_layout.setOnRefreshListener { getDirectories() }
         mDirs = ArrayList()
         storeStateVariables()
         checkWhatsNewDialog()

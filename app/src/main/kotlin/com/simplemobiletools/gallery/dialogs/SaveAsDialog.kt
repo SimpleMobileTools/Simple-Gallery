@@ -46,38 +46,39 @@ class SaveAsDialog(val activity: BaseSimpleActivity, val path: String, val appen
                 .setNegativeButton(R.string.cancel, null)
                 .create().apply {
             window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
-            activity.setupDialogStuff(view, this, R.string.save_as)
-            getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener({
-                val filename = view.save_as_name.value
-                val extension = view.save_as_extension.value
+            activity.setupDialogStuff(view, this, R.string.save_as) {
+                getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+                    val filename = view.save_as_name.value
+                    val extension = view.save_as_extension.value
 
-                if (filename.isEmpty()) {
-                    activity.toast(R.string.filename_cannot_be_empty)
-                    return@setOnClickListener
-                }
+                    if (filename.isEmpty()) {
+                        activity.toast(R.string.filename_cannot_be_empty)
+                        return@setOnClickListener
+                    }
 
-                if (extension.isEmpty()) {
-                    activity.toast(R.string.extension_cannot_be_empty)
-                    return@setOnClickListener
-                }
+                    if (extension.isEmpty()) {
+                        activity.toast(R.string.extension_cannot_be_empty)
+                        return@setOnClickListener
+                    }
 
-                val newFile = File(realPath, "$filename.$extension")
-                if (!newFile.name.isAValidFilename()) {
-                    activity.toast(R.string.filename_invalid_characters)
-                    return@setOnClickListener
-                }
+                    val newFile = File(realPath, "$filename.$extension")
+                    if (!newFile.name.isAValidFilename()) {
+                        activity.toast(R.string.filename_invalid_characters)
+                        return@setOnClickListener
+                    }
 
-                if (newFile.exists()) {
-                    val title = String.format(activity.getString(R.string.file_already_exists_overwrite), newFile.name)
-                    ConfirmationDialog(activity, title) {
+                    if (newFile.exists()) {
+                        val title = String.format(activity.getString(R.string.file_already_exists_overwrite), newFile.name)
+                        ConfirmationDialog(activity, title) {
+                            callback(newFile.absolutePath)
+                            dismiss()
+                        }
+                    } else {
                         callback(newFile.absolutePath)
                         dismiss()
                     }
-                } else {
-                    callback(newFile.absolutePath)
-                    dismiss()
                 }
-            })
+            }
         }
     }
 }

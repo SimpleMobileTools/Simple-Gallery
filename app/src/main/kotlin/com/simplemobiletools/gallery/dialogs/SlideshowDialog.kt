@@ -73,17 +73,18 @@ class SlideshowDialog(val activity: BaseSimpleActivity, val callback: () -> Unit
                 .setNegativeButton(R.string.cancel, null)
                 .create().apply {
             window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
-            activity.setupDialogStuff(view, this)
-            getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener({
-                if (!view.include_photos.isChecked && !view.include_videos.isChecked && !view.include_gifs.isChecked) {
-                    activity.toast(R.string.no_media_for_slideshow)
-                    return@setOnClickListener
-                }
+            activity.setupDialogStuff(view, this) {
+                getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+                    if (!view.include_photos.isChecked && !view.include_videos.isChecked && !view.include_gifs.isChecked) {
+                        activity.toast(R.string.no_media_for_slideshow)
+                        return@setOnClickListener
+                    }
 
-                storeValues()
-                callback()
-                dismiss()
-            })
+                    storeValues()
+                    callback()
+                    dismiss()
+                }
+            }
         }
     }
 
