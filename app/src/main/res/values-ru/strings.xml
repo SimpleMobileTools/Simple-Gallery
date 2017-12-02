@@ -88,9 +88,9 @@
     <string name="wallpaper_set_successfully">Обои успешно установлены</string>
     <string name="portrait_aspect_ratio">Портрет</string>
     <string name="landscape_aspect_ratio">Ландшафт</string>
-    <string name="home_screen">Home screen</string>
-    <string name="lock_screen">Lock screen</string>
-    <string name="home_and_lock_screen">Home and lock screen</string>
+    <string name="home_screen">Домашний экран</string>
+    <string name="lock_screen">Экран блокировки</string>
+    <string name="home_and_lock_screen">Домашний экран и экран блокировки</string>
 
     <!-- Slideshow -->
     <string name="slideshow">Слайдшоу</string>
