@@ -93,38 +93,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mIsPasswordProtectionPending = config.appPasswordProtectionOn
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        if (mIsThirdPartyIntent) {
-            menuInflater.inflate(R.menu.menu_main_intent, menu)
-        } else {
-            menuInflater.inflate(R.menu.menu_main, menu)
-            menu.findItem(R.id.increase_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt < MAX_COLUMN_COUNT
-            menu.findItem(R.id.reduce_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt > 1
-        }
-        menu.findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden
-        menu.findItem(R.id.stop_showing_hidden).isVisible = config.temporarilyShowHidden
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.sort -> showSortingDialog()
-            R.id.filter -> showFilterMediaDialog()
-            R.id.open_camera -> launchCamera()
-            R.id.show_all -> showAllMedia()
-            R.id.change_view_type -> changeViewType()
-            R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden()
-            R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
-            R.id.create_new_folder -> createNewFolder()
-            R.id.increase_column_count -> increaseColumnCount()
-            R.id.reduce_column_count -> reduceColumnCount()
-            R.id.settings -> launchSettings()
-            R.id.about -> launchAbout()
-            else -> return super.onOptionsItemSelected(item)
-        }
-        return true
-    }
-
     override fun onResume() {
         super.onResume()
         config.isThirdPartyIntent = false
@@ -189,6 +157,38 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         super.onDestroy()
         config.temporarilyShowHidden = false
         removeTempFolder()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        if (mIsThirdPartyIntent) {
+            menuInflater.inflate(R.menu.menu_main_intent, menu)
+        } else {
+            menuInflater.inflate(R.menu.menu_main, menu)
+            menu.findItem(R.id.increase_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt < MAX_COLUMN_COUNT
+            menu.findItem(R.id.reduce_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt > 1
+        }
+        menu.findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden
+        menu.findItem(R.id.stop_showing_hidden).isVisible = config.temporarilyShowHidden
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.sort -> showSortingDialog()
+            R.id.filter -> showFilterMediaDialog()
+            R.id.open_camera -> launchCamera()
+            R.id.show_all -> showAllMedia()
+            R.id.change_view_type -> changeViewType()
+            R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden()
+            R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
+            R.id.create_new_folder -> createNewFolder()
+            R.id.increase_column_count -> increaseColumnCount()
+            R.id.reduce_column_count -> reduceColumnCount()
+            R.id.settings -> launchSettings()
+            R.id.about -> launchAbout()
+            else -> return super.onOptionsItemSelected(item)
+        }
+        return true
     }
 
     private fun getDirectoryAdapter() = directories_grid.adapter as? DirectoryAdapter
