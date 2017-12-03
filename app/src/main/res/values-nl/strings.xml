@@ -88,9 +88,9 @@
     <string name="wallpaper_set_successfully">Achtergrond is ingesteld</string>
     <string name="portrait_aspect_ratio">Verhouding in portretmodus</string>
     <string name="landscape_aspect_ratio">Verhouding in landschapsmodus</string>
-    <string name="home_screen">Home screen</string>
-    <string name="lock_screen">Lock screen</string>
-    <string name="home_and_lock_screen">Home and lock screen</string>
+    <string name="home_screen">Startscherm</string>
+    <string name="lock_screen">Vergrendelingsscherm</string>
+    <string name="home_and_lock_screen">Start- en vergrendelingsscherm</string>
 
     <!-- Slideshow -->
     <string name="slideshow">Diavoorstelling</string>
