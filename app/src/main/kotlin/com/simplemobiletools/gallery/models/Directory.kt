@@ -1,5 +1,7 @@
 package com.simplemobiletools.gallery.models
 
+import com.simplemobiletools.commons.extensions.formatDate
+import com.simplemobiletools.commons.extensions.formatSize
 import com.simplemobiletools.commons.helpers.*
 import java.io.Serializable
 
@@ -36,5 +38,12 @@ data class Directory(val path: String, val tmb: String, val name: String, var me
             result *= -1
         }
         return result
+    }
+
+    fun getBubbleText() = when {
+        sorting and SORT_BY_SIZE != 0 -> size.formatSize()
+        sorting and SORT_BY_DATE_MODIFIED != 0 -> modified.formatDate()
+        sorting and SORT_BY_DATE_TAKEN != 0 -> taken.formatDate()
+        else -> name
     }
 }

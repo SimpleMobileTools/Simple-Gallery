@@ -45,7 +45,7 @@ abstract class ViewPagerFragment : Fragment() {
         }
 
         if (detailsFlag and EXT_LAST_MODIFIED != 0) {
-            file.lastModified().formatLastModified().let { if (it.isNotEmpty()) details.appendln(it) }
+            file.lastModified().formatDate().let { if (it.isNotEmpty()) details.appendln(it) }
         }
 
         if (detailsFlag and EXT_DATE_TAKEN != 0) {

@@ -203,7 +203,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         if (allowHorizontalScroll) {
             media_horizontal_fastscroller.setViews(media_grid, media_refresh_layout)
         } else {
-            media_vertical_fastscroller.setViews(media_grid, media_refresh_layout)
+            media_vertical_fastscroller.setViews(media_grid, media_refresh_layout) {
+                media_vertical_fastscroller.updateBubbleText(mMedia[it].getBubbleText())
+            }
         }
     }
 

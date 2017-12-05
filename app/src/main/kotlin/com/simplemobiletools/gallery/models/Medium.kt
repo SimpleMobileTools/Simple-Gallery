@@ -1,8 +1,6 @@
 package com.simplemobiletools.gallery.models
 
-import com.simplemobiletools.commons.extensions.getMimeTypeFromPath
-import com.simplemobiletools.commons.extensions.isGif
-import com.simplemobiletools.commons.extensions.isPng
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import java.io.Serializable
 
@@ -47,5 +45,12 @@ data class Medium(var name: String, var path: String, val video: Boolean, val mo
             result *= -1
         }
         return result
+    }
+
+    fun getBubbleText() = when {
+        sorting and SORT_BY_SIZE != 0 -> size.formatSize()
+        sorting and SORT_BY_DATE_MODIFIED != 0 -> modified.formatDate()
+        sorting and SORT_BY_DATE_TAKEN != 0 -> taken.formatDate()
+        else -> name
     }
 }
