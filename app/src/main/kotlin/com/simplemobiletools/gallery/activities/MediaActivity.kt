@@ -75,7 +75,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             mAllowPickingMultiple = getBooleanExtra(Intent.EXTRA_ALLOW_MULTIPLE, false)
         }
 
-        media_refresh_layout.setOnRefreshListener({ getMedia() })
+        media_refresh_layout.setOnRefreshListener { getMedia() }
         mPath = intent.getStringExtra(DIRECTORY)
         storeStateVariables()
         if (mShowAll)
@@ -218,7 +218,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         mLastMediaHandler.removeCallbacksAndMessages(null)
         mLastMediaHandler.postDelayed({
-            Thread({
+            Thread {
                 val mediaId = getLatestMediaId()
                 if (mLatestMediaId != mediaId) {
                     mLatestMediaId = mediaId
@@ -228,7 +228,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                 } else {
                     checkLastMediaChanged()
                 }
-            }).start()
+            }.start()
         }, LAST_MEDIA_CHECK_PERIOD)
     }
 

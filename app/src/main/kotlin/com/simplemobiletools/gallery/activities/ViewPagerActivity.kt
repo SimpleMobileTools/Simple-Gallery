@@ -499,9 +499,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         SaveAsDialog(this, currPath, false) {
             val selectedFile = File(it)
             handleSAFDialog(selectedFile) {
-                Thread({
+                Thread {
                     saveImageToFile(currPath, it)
-                }).start()
+                }.start()
             }
         }
     }
