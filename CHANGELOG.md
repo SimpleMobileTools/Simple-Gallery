@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 3.0.1 *(2017-12-06)*
+----------------------------
+
+ * Fix missing launcher icon on some devices
+ * Added an info bubble at scrolling by dragging
+ * Allow zooming gifs
+ * Display raw .dng files
+
 Version 3.0.0 *(2017-12-04)*
 ----------------------------
 
