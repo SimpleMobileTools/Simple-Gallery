@@ -26,6 +26,7 @@ data class Medium(var name: String, var path: String, val video: Boolean, val mo
         var result: Int
         when {
             sorting and SORT_BY_NAME != 0 -> result = AlphanumericComparator().compare(name.toLowerCase(), other.name.toLowerCase())
+            sorting and SORT_BY_PATH != 0 -> result = AlphanumericComparator().compare(path.toLowerCase(), other.path.toLowerCase())
             sorting and SORT_BY_SIZE != 0 -> result = when {
                 size == other.size -> 0
                 size > other.size -> 1
@@ -50,9 +51,10 @@ data class Medium(var name: String, var path: String, val video: Boolean, val mo
     }
 
     fun getBubbleText() = when {
+        sorting and SORT_BY_NAME != 0 -> name
+        sorting and SORT_BY_PATH != 0 -> path
         sorting and SORT_BY_SIZE != 0 -> size.formatSize()
         sorting and SORT_BY_DATE_MODIFIED != 0 -> modified.formatDate()
-        sorting and SORT_BY_DATE_TAKEN != 0 -> taken.formatDate()
-        else -> name
+        else -> taken.formatDate()
     }
 }
