@@ -151,7 +151,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
                 val dirName = getHumanizedFilename(mPath)
-                title = if (mShowAll) resources.getString(R.string.all_folders) else dirName
+                supportActionBar?.title = if (mShowAll) resources.getString(R.string.all_folders) else dirName
                 getMedia()
                 setupLayoutManager()
                 checkIfColorChanged()

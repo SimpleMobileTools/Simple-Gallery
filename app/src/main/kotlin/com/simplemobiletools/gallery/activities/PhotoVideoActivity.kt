@@ -79,7 +79,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         val bundle = Bundle()
         val file = File(mUri.toString())
         mMedium = Medium(getFilenameFromUri(mUri!!), mUri.toString(), mIsVideo, 0, 0, file.length())
-        title = mMedium!!.name
+        supportActionBar?.title = mMedium!!.name
         bundle.putSerializable(MEDIUM, mMedium)
 
         if (savedInstanceState == null) {
