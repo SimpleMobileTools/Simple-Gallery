@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.activities
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.WallpaperManager
 import android.content.Intent
@@ -8,8 +9,11 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.isActivityDestroyed
+import com.simplemobiletools.commons.extensions.isNougatPlus
 import com.simplemobiletools.commons.extensions.toast
+import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.R
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.view_crop_image.*
@@ -17,6 +21,7 @@ import kotlinx.android.synthetic.main.view_crop_image.*
 class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener {
     private val PICK_IMAGE = 1
     private var isLandscapeRatio = true
+    private var wallpaperFlag = -1
 
     lateinit var uri: Uri
     lateinit var wallpaperManager: WallpaperManager
@@ -70,7 +75,7 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.save -> crop_image_view.getCroppedImageAsync()
+            R.id.save -> confirmWallpaper()
             R.id.rotate -> crop_image_view.rotateImage(90)
             R.id.portrait_aspect_ratio -> changeAspectRatio(false)
             R.id.landscape_aspect_ratio -> changeAspectRatio(true)
@@ -85,6 +90,24 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
         invalidateOptionsMenu()
     }
 
+    @SuppressLint("InlinedApi")
+    private fun confirmWallpaper() {
+        if (isNougatPlus()) {
+            val items = arrayListOf(
+                    RadioItem(WallpaperManager.FLAG_SYSTEM, getString(R.string.home_screen)),
+                    RadioItem(WallpaperManager.FLAG_LOCK, getString(R.string.lock_screen)),
+                    RadioItem(WallpaperManager.FLAG_SYSTEM or WallpaperManager.FLAG_LOCK, getString(R.string.home_and_lock_screen)))
+
+            RadioGroupDialog(this, items) {
+                wallpaperFlag = it as Int
+                crop_image_view.getCroppedImageAsync()
+            }
+        } else {
+            crop_image_view.getCroppedImageAsync()
+        }
+    }
+
+    @SuppressLint("NewApi")
     override fun onCropImageComplete(view: CropImageView?, result: CropImageView.CropResult) {
         if (isActivityDestroyed())
             return
@@ -97,7 +120,12 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
                 val ratio = wantedHeight / bitmap.height.toFloat()
                 val wantedWidth = (bitmap.width * ratio).toInt()
                 try {
-                    wallpaperManager.setBitmap(Bitmap.createScaledBitmap(bitmap, wantedWidth, wantedHeight, true))
+                    val scaledBitmap = Bitmap.createScaledBitmap(bitmap, wantedWidth, wantedHeight, true)
+                    if (isNougatPlus()) {
+                        wallpaperManager.setBitmap(scaledBitmap, null, true, wallpaperFlag)
+                    } else {
+                        wallpaperManager.setBitmap(scaledBitmap)
+                    }
                     setResult(Activity.RESULT_OK)
                 } catch (e: OutOfMemoryError) {
                     toast(R.string.out_of_memory_error)

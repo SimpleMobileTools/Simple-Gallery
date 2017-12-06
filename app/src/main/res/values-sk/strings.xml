@@ -88,6 +88,9 @@
     <string name="wallpaper_set_successfully">Tapeta bola úspešne zmenená</string>
     <string name="portrait_aspect_ratio">Orientácia nastojato</string>
     <string name="landscape_aspect_ratio">Orientácia naležato</string>
+    <string name="home_screen">Plocha</string>
+    <string name="lock_screen">Obrazovka uzamknutia</string>
+    <string name="home_and_lock_screen">Plocha a obrazovka uzamknutia</string>
 
     <!-- Slideshow -->
     <string name="slideshow">Prezentácia</string>

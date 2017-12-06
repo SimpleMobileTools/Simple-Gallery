@@ -165,8 +165,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun checkIfColorChanged() {
         if (media_grid.adapter != null && getRecyclerAdapter().primaryColor != config.primaryColor) {
             getRecyclerAdapter().primaryColor = config.primaryColor
-            media_horizontal_fastscroller.updateHandleColor()
-            media_vertical_fastscroller.updateHandleColor()
+            media_horizontal_fastscroller.updatePrimaryColor()
+            media_vertical_fastscroller.updatePrimaryColor()
         }
     }
 
@@ -203,7 +203,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         if (allowHorizontalScroll) {
             media_horizontal_fastscroller.setViews(media_grid, media_refresh_layout)
         } else {
-            media_vertical_fastscroller.setViews(media_grid, media_refresh_layout)
+            media_vertical_fastscroller.setViews(media_grid, media_refresh_layout) {
+                media_vertical_fastscroller.updateBubbleText(mMedia[it].getBubbleText())
+            }
         }
     }
 

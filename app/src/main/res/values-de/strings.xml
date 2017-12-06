@@ -88,6 +88,9 @@
     <string name="wallpaper_set_successfully">Hintergrundbild erfolgreich festgelegt</string>
     <string name="portrait_aspect_ratio">Hochformat</string>
     <string name="landscape_aspect_ratio">Querformat</string>
+    <string name="home_screen">Home-Screen</string>
+    <string name="lock_screen">Sperrbildschirm</string>
+    <string name="home_and_lock_screen">Home- und Sperrbildschirm</string>
 
     <!-- Slideshow -->
     <string name="slideshow">Diashow</string>

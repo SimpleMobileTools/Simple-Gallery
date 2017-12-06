@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 3.0.0 *(2017-12-04)*
+----------------------------
+
+ * Improved primary color customization
+ * Allow setting home and lock screen wallpapers separately on Android 7+
+ * Many smaller performance and stability improvements
+
 Version 2.19.0 *(2017-11-23)*
 ----------------------------
 
