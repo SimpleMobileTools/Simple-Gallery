@@ -110,6 +110,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             getMediaAdapter()?.updateTextColor(config.textColor)
         }
 
+        media_horizontal_fastscroller.updateBubbleColors()
+        media_vertical_fastscroller.updateBubbleColors()
         tryloadGallery()
         invalidateOptionsMenu()
         media_empty_text_label.setTextColor(config.textColor)
