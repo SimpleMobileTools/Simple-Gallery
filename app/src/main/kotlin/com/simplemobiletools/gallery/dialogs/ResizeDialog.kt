@@ -4,7 +4,6 @@ import android.graphics.Point
 import android.support.v7.app.AlertDialog
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.LayoutInflater
 import android.view.WindowManager
 import android.widget.EditText
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
@@ -16,7 +15,7 @@ import kotlinx.android.synthetic.main.resize_image.view.*
 
 class ResizeDialog(val activity: BaseSimpleActivity, val size: Point, val callback: (newSize: Point) -> Unit) {
     init {
-        val view = LayoutInflater.from(activity).inflate(R.layout.resize_image, null)
+        val view = activity.layoutInflater.inflate(R.layout.resize_image, null)
         val widthView = view.image_width
         val heightView = view.image_height
 

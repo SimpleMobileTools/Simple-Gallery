@@ -1,7 +1,6 @@
 package com.simplemobiletools.gallery.dialogs
 
 import android.support.v7.app.AlertDialog
-import android.view.LayoutInflater
 import android.view.WindowManager
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
@@ -15,7 +14,7 @@ class SaveAsDialog(val activity: BaseSimpleActivity, val path: String, val appen
 
     init {
         var realPath = File(path).parent.trimEnd('/')
-        val view = LayoutInflater.from(activity).inflate(R.layout.dialog_save_as, null).apply {
+        val view = activity.layoutInflater.inflate(R.layout.dialog_save_as, null).apply {
             save_as_path.text = activity.humanizePath(realPath)
 
             val fullName = path.getFilenameFromPath()
