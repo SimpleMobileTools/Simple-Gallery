@@ -53,6 +53,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
+    private var mStoredShowInfoBubble = true
     private var mStoredTextColor = 0
     private var mLastDrawnHashCode = 0
     private var mLatestMediaId = 0L
@@ -100,7 +101,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             getMediaAdapter()?.updateCropThumbnails(config.cropThumbnails)
         }
 
-        if (mStoredScrollHorizontally != config.scrollHorizontally) {
+        if (mStoredScrollHorizontally != config.scrollHorizontally || mStoredShowInfoBubble != config.showInfoBubble) {
             getMediaAdapter()?.updateScrollHorizontally(config.viewTypeFiles != VIEW_TYPE_LIST || !config.scrollHorizontally)
             setupScrollDirection()
         }
@@ -140,6 +141,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             mStoredAnimateGifs = animateGifs
             mStoredCropThumbnails = cropThumbnails
             mStoredScrollHorizontally = scrollHorizontally
+            mStoredShowInfoBubble = showInfoBubble
             mStoredTextColor = textColor
             mShowAll = showAll
         }
@@ -203,6 +205,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         if (allowHorizontalScroll) {
             media_horizontal_fastscroller.setViews(media_grid, media_refresh_layout)
         } else {
+            media_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
             media_vertical_fastscroller.setViews(media_grid, media_refresh_layout) {
                 media_vertical_fastscroller.updateBubbleText(mMedia[it].getBubbleText())
             }

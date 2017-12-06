@@ -57,6 +57,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
     private var mStoredShowMediaCount = true
+    private var mStoredShowInfoBubble = true
     private var mStoredTextColor = 0
     private var mLoadedInitialPhotos = false
     private var mIsPasswordProtectionPending = false
@@ -113,7 +114,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             getDirectoryAdapter()?.updateShowMediaCount(config.showMediaCount)
         }
 
-        if (mStoredScrollHorizontally != config.scrollHorizontally) {
+        if (mStoredScrollHorizontally != config.scrollHorizontally || mStoredShowInfoBubble != config.showInfoBubble) {
             getDirectoryAdapter()?.updateScrollHorizontally(config.viewTypeFolders != VIEW_TYPE_LIST && config.scrollHorizontally)
             setupScrollDirection()
         }
@@ -200,6 +201,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             mStoredCropThumbnails = cropThumbnails
             mStoredScrollHorizontally = scrollHorizontally
             mStoredShowMediaCount = showMediaCount
+            mStoredShowInfoBubble = showInfoBubble
             mStoredTextColor = textColor
         }
     }
@@ -583,6 +585,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         if (allowHorizontalScroll) {
             directories_horizontal_fastscroller.setViews(directories_grid, directories_refresh_layout)
         } else {
+            directories_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
             directories_vertical_fastscroller.setViews(directories_grid, directories_refresh_layout) {
                 directories_vertical_fastscroller.updateBubbleText(mDirs[it].getBubbleText())
             }
