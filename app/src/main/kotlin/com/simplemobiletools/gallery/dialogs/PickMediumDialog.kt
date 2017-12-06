@@ -74,7 +74,10 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
             media_horizontal_fastscroller.beVisibleIf(scrollHorizontally)
 
             if (scrollHorizontally) {
-                media_horizontal_fastscroller.setViews(media_grid)
+                media_horizontal_fastscroller.allowBubbleDisplay = activity.config.showInfoBubble
+                media_horizontal_fastscroller.setViews(media_grid) {
+                    media_horizontal_fastscroller.updateBubbleText(media[it].getBubbleText())
+                }
             } else {
                 media_vertical_fastscroller.allowBubbleDisplay = activity.config.showInfoBubble
                 media_vertical_fastscroller.setViews(media_grid) {

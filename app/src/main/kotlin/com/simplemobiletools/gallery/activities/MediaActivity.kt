@@ -203,7 +203,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         media_horizontal_fastscroller.beVisibleIf(allowHorizontalScroll)
 
         if (allowHorizontalScroll) {
-            media_horizontal_fastscroller.setViews(media_grid, media_refresh_layout)
+            media_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
+            media_horizontal_fastscroller.setViews(media_grid, media_refresh_layout) {
+                media_horizontal_fastscroller.updateBubbleText(mMedia[it].getBubbleText())
+            }
         } else {
             media_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
             media_vertical_fastscroller.setViews(media_grid, media_refresh_layout) {

@@ -583,7 +583,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         directories_horizontal_fastscroller.beVisibleIf(allowHorizontalScroll)
 
         if (allowHorizontalScroll) {
-            directories_horizontal_fastscroller.setViews(directories_grid, directories_refresh_layout)
+            directories_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
+            directories_horizontal_fastscroller.setViews(directories_grid, directories_refresh_layout) {
+                directories_horizontal_fastscroller.updateBubbleText(mDirs[it].getBubbleText())
+            }
         } else {
             directories_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
             directories_vertical_fastscroller.setViews(directories_grid, directories_refresh_layout) {
