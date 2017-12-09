@@ -38,7 +38,7 @@
     <string name="hide_folder_description">Questa funzione nasconde la cartella aggiungendo un file \'.nomedia\' all\'interno, nasconderà anche tutte le sottocartelle. Puoi vederle attivando l\'opzione \'Mostra cartelle nascoste\' nelle impostazioni. Continuare?</string>
     <string name="exclude">Escludi</string>
     <string name="excluded_folders">Cartelle escluse</string>
-    <string name="manage_excluded_folders">Gestisci cartelle escluse</string>
+    <string name="manage_excluded_folders">Gestisci le cartelle escluse</string>
     <string name="exclude_folder_description">Questo escluderà la selezione e le relative sottocartelle solo da Simple Gallery. Puoi gestire le cartelle escluse nelle impostazioni.</string>
     <string name="exclude_folder_parent">Vuoi invece escluderne una superiore?</string>
     <string name="excluded_activity_placeholder">L\'esclusione delle cartelle e delle sottocartelle le renderà nascoste solo in Simple Gallery, saranno ancora visibili in altre applicazioni.\\n\\nSe desideri nasconderle anche nelle altre app, usa la funzione Nascondi.</string>
@@ -47,7 +47,7 @@
 
     <!-- Include folders -->
     <string name="include_folders">Includi cartelle</string>
-    <string name="manage_included_folders">Gestisci cartelle incluse</string>
+    <string name="manage_included_folders">Gestisci le cartelle incluse</string>
     <string name="add_folder">Aggiungi cartella</string>
     <string name="included_activity_placeholder">Se hai alcune cartelle che contengono media, ma non sono state riconosciute dall\'app, puoi aggiungerle manualmente qui.</string>
 
@@ -88,9 +88,9 @@
     <string name="wallpaper_set_successfully">Sfondo impostato correttamente</string>
     <string name="portrait_aspect_ratio">Proporzioni ritratto</string>
     <string name="landscape_aspect_ratio">Proporzioni panorama</string>
-    <string name="home_screen">Home screen</string>
-    <string name="lock_screen">Lock screen</string>
-    <string name="home_and_lock_screen">Home and lock screen</string>
+    <string name="home_screen">Schermata principale</string>
+    <string name="lock_screen">Schermata di blocco</string>
+    <string name="home_and_lock_screen">Entrambe le schermate</string>
 
     <!-- Slideshow -->
     <string name="slideshow">Presentazione</string>
@@ -111,19 +111,19 @@
     <string name="list">Elenco</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">Mostra cartelle nascoste</string>
-    <string name="autoplay_videos">Riproduci video automaticamente</string>
+    <string name="show_hidden_media">Mostra le cartelle nascoste</string>
+    <string name="autoplay_videos">Riproduci i video automaticamente</string>
     <string name="toggle_filename">Visibilità nome del file</string>
     <string name="loop_videos">Ripeti i video</string>
     <string name="animate_gifs">Anima le GIF in miniatura</string>
-    <string name="max_brightness">Luminosità max durante visualizzazione</string>
+    <string name="max_brightness">Luminosità max durante la visualizzazione</string>
     <string name="crop_thumbnails">Ritaglia le miniature in quadrati</string>
     <string name="screen_rotation_by">Ruota schermo per</string>
     <string name="screen_rotation_system_setting">Impostazione di sistema</string>
     <string name="screen_rotation_device_rotation">Rotazione dispositivo</string>
     <string name="screen_rotation_aspect_ratio">Proporzioni</string>
     <string name="dark_background_at_fullscreen">Sfondo scuro a schermo intero</string>
-    <string name="scroll_thumbnails_horizontally">Scorri miniature orizzontalmente</string>
+    <string name="scroll_thumbnails_horizontally">Scorri le miniature orizzontalmente</string>
     <string name="hide_system_ui_at_fullscreen">Nascondi UI di sistema con media a schermo intero</string>
     <string name="delete_empty_folders">Elimina cartelle vuote dopo averne eliminato il contenuto</string>
     <string name="allow_video_gestures">Gestisci il volume e la luminosità dei video con gesti verticali</string>
