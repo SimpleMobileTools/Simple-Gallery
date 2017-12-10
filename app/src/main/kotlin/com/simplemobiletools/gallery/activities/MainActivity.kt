@@ -57,6 +57,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
     private var mStoredShowMediaCount = true
+    private var mStoredShowInfoBubble = true
     private var mStoredTextColor = 0
     private var mLoadedInitialPhotos = false
     private var mIsPasswordProtectionPending = false
@@ -113,7 +114,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             getDirectoryAdapter()?.updateShowMediaCount(config.showMediaCount)
         }
 
-        if (mStoredScrollHorizontally != config.scrollHorizontally) {
+        if (mStoredScrollHorizontally != config.scrollHorizontally || mStoredShowInfoBubble != config.showInfoBubble) {
             getDirectoryAdapter()?.updateScrollHorizontally(config.viewTypeFolders != VIEW_TYPE_LIST && config.scrollHorizontally)
             setupScrollDirection()
         }
@@ -122,6 +123,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             getDirectoryAdapter()?.updateTextColor(config.textColor)
         }
 
+        directories_horizontal_fastscroller.updateBubbleColors()
+        directories_vertical_fastscroller.updateBubbleColors()
         invalidateOptionsMenu()
         directories_empty_text_label.setTextColor(config.textColor)
         directories_empty_text.setTextColor(config.primaryColor)
@@ -200,6 +203,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             mStoredCropThumbnails = cropThumbnails
             mStoredScrollHorizontally = scrollHorizontally
             mStoredShowMediaCount = showMediaCount
+            mStoredShowInfoBubble = showInfoBubble
             mStoredTextColor = textColor
         }
     }
@@ -581,8 +585,12 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         directories_horizontal_fastscroller.beVisibleIf(allowHorizontalScroll)
 
         if (allowHorizontalScroll) {
-            directories_horizontal_fastscroller.setViews(directories_grid, directories_refresh_layout)
+            directories_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
+            directories_horizontal_fastscroller.setViews(directories_grid, directories_refresh_layout) {
+                directories_horizontal_fastscroller.updateBubbleText(mDirs[it].getBubbleText())
+            }
         } else {
+            directories_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
             directories_vertical_fastscroller.setViews(directories_grid, directories_refresh_layout) {
                 directories_vertical_fastscroller.updateBubbleText(mDirs[it].getBubbleText())
             }
@@ -595,7 +603,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
         mLastMediaHandler.removeCallbacksAndMessages(null)
         mLastMediaHandler.postDelayed({
-            Thread({
+            Thread {
                 val mediaId = getLatestMediaId()
                 if (mLatestMediaId != mediaId) {
                     mLatestMediaId = mediaId
@@ -605,7 +613,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 } else {
                     checkLastMediaChanged()
                 }
-            }).start()
+            }.start()
         }, LAST_MEDIA_CHECK_PERIOD)
     }
 

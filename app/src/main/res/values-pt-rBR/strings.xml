@@ -23,8 +23,8 @@
     <string name="volume">Volume</string>
     <string name="brightness">Brilho</string>
     <string name="do_not_ask_again">Não perguntar novamente por enquanto</string>
-    <string name="lock_orientation">Lock orientation</string>
-    <string name="unlock_orientation">Unlock orientation</string>
+    <string name="lock_orientation">Travar orientação</string>
+    <string name="unlock_orientation">Destravar orientação</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrar mídia</string>
@@ -41,7 +41,7 @@
     <string name="manage_excluded_folders">Gerenciar pastas excluídas</string>
     <string name="exclude_folder_description">Esta ação irá excluir as pastas selecionadas apenas dentro deste aplicativo. Você pode gerenciar as pastas excuídas nas Configurações do aplicativo.</string>
     <string name="exclude_folder_parent">Excluir antes a pasta raíz?</string>
-    <string name="excluded_activity_placeholder">A exlusão de uma pasta apenas oculta o seu conteúdo da galeria, pois todos os outros aplicativos poderão acessá-las.\\n\\nSe quiser ocultar de todos os aplicativos, utilize a função ocultar.</string>
+    <string name="excluded_activity_placeholder">A exclusão de uma pasta apenas oculta o seu conteúdo da galeria, pois todos os outros aplicativos poderão acessá-las.\\n\\nSe quiser ocultar de todos os aplicativos, utilize a função ocultar.</string>
     <string name="remove_all">Remover todas</string>
     <string name="remove_all_description">Remover todas as pastas da lista de exclusões? Esta ação não apaga as pastas.</string>
 
@@ -84,13 +84,13 @@
     <string name="set_as_wallpaper_failed">Falha ao definir como papel de parede</string>
     <string name="set_as_wallpaper_with">Definir papel de parede com:</string>
     <string name="no_capable_app_found">Aplicativo não encontrado</string>
-    <string name="setting_wallpaper">Definindo como papel de parede;</string>
+    <string name="setting_wallpaper">Definindo como papel de parede</string>
     <string name="wallpaper_set_successfully">Papel de parede com sucesso</string>
     <string name="portrait_aspect_ratio">Retrato</string>
     <string name="landscape_aspect_ratio">Paisagem</string>
-    <string name="home_screen">Home screen</string>
-    <string name="lock_screen">Lock screen</string>
-    <string name="home_and_lock_screen">Home and lock screen</string>
+    <string name="home_screen">Tela inicial</string>
+    <string name="lock_screen">Tela de bloqueio</string>
+    <string name="home_and_lock_screen">Tela inicial e de bloqueio</string>
 
     <!-- Slideshow -->
     <string name="slideshow">Slideshow</string>

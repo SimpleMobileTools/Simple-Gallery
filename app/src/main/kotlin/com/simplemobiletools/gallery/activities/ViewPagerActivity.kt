@@ -185,7 +185,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         showSystemUI()
 
         mDirectory = File(mPath).parent
-        title = mPath.getFilenameFromPath()
+        supportActionBar?.title = mPath.getFilenameFromPath()
 
         view_pager.onGlobalLayout {
             if (!isActivityDestroyed()) {
@@ -463,7 +463,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun toggleFileVisibility(hide: Boolean) {
         toggleFileVisibility(getCurrentFile(), hide) {
             val newFileName = it.absolutePath.getFilenameFromPath()
-            title = newFileName
+            supportActionBar?.title = newFileName
 
             getCurrentMedium()!!.apply {
                 name = newFileName
@@ -499,9 +499,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         SaveAsDialog(this, currPath, false) {
             val selectedFile = File(it)
             handleSAFDialog(selectedFile) {
-                Thread({
+                Thread {
                     saveImageToFile(currPath, it)
-                }).start()
+                }.start()
             }
         }
     }
@@ -835,7 +835,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun updateActionbarTitle() {
         runOnUiThread {
             if (mPos < getCurrentMedia().size) {
-                title = getCurrentMedia()[mPos].path.getFilenameFromPath()
+                supportActionBar?.title = getCurrentMedia()[mPos].path.getFilenameFromPath()
             }
         }
     }

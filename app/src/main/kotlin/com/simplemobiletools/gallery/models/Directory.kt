@@ -41,9 +41,10 @@ data class Directory(val path: String, val tmb: String, val name: String, var me
     }
 
     fun getBubbleText() = when {
+        sorting and SORT_BY_NAME != 0 -> name
+        sorting and SORT_BY_PATH != 0 -> path
         sorting and SORT_BY_SIZE != 0 -> size.formatSize()
         sorting and SORT_BY_DATE_MODIFIED != 0 -> modified.formatDate()
-        sorting and SORT_BY_DATE_TAKEN != 0 -> taken.formatDate()
-        else -> name
+        else -> taken.formatDate()
     }
 }

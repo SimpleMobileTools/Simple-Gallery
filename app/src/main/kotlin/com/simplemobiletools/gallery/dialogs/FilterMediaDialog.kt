@@ -1,8 +1,6 @@
 package com.simplemobiletools.gallery.dialogs
 
 import android.support.v7.app.AlertDialog
-import android.view.LayoutInflater
-import android.view.View
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.gallery.R
@@ -13,7 +11,7 @@ import com.simplemobiletools.gallery.helpers.VIDEOS
 import kotlinx.android.synthetic.main.dialog_filter_media.view.*
 
 class FilterMediaDialog(val activity: BaseSimpleActivity, val callback: (result: Int) -> Unit) {
-    private var view: View = LayoutInflater.from(activity).inflate(R.layout.dialog_filter_media, null)
+    private var view = activity.layoutInflater.inflate(R.layout.dialog_filter_media, null)
 
     init {
         val filterMedia = activity.config.filterMedia

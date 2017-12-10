@@ -1,6 +1,5 @@
 package com.simplemobiletools.gallery.adapters
 
-import android.graphics.PorterDuff
 import android.net.Uri
 import android.view.Menu
 import android.view.View
@@ -19,7 +18,7 @@ import com.simplemobiletools.gallery.dialogs.DeleteWithRememberDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.VIEW_TYPE_LIST
 import com.simplemobiletools.gallery.models.Medium
-import kotlinx.android.synthetic.main.photo_video_item_grid.view.*
+import kotlinx.android.synthetic.main.photo_video_item_list.view.*
 import java.io.File
 import java.util.*
 
@@ -142,7 +141,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     private fun toggleFileVisibility(hide: Boolean) {
-        Thread({
+        Thread {
             getSelectedMedia().forEach {
                 val oldFile = File(it.path)
                 activity.toggleFileVisibility(oldFile, hide)
@@ -151,7 +150,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
                 listener?.refreshItems()
                 finishActMode()
             }
-        }).start()
+        }.start()
     }
 
     private fun shareMedia() {
@@ -264,7 +263,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
             if (isListViewType) {
                 photo_name.setTextColor(textColor)
-                play_outline.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
+                play_outline.applyColorFilter(textColor)
             }
         }
     }

@@ -1,7 +1,6 @@
 package com.simplemobiletools.gallery.dialogs
 
 import android.support.v7.app.AlertDialog
-import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
@@ -17,7 +16,7 @@ class SlideshowDialog(val activity: BaseSimpleActivity, val callback: () -> Unit
     val view: View
 
     init {
-        view = LayoutInflater.from(activity).inflate(R.layout.dialog_slideshow, null).apply {
+        view = activity.layoutInflater.inflate(R.layout.dialog_slideshow, null).apply {
             interval_value.setOnClickListener {
                 val text = interval_value.text
                 if (text.isNotEmpty()) {

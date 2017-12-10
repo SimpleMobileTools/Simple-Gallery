@@ -1,7 +1,6 @@
 package com.simplemobiletools.gallery.dialogs
 
 import android.support.v7.app.AlertDialog
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.RadioGroup
@@ -18,7 +17,7 @@ class ExcludeFolderDialog(val activity: BaseSimpleActivity, val selectedPaths: L
     var radioGroup: RadioGroup? = null
 
     init {
-        val view = LayoutInflater.from(activity).inflate(R.layout.dialog_exclude_folder, null).apply {
+        val view = activity.layoutInflater.inflate(R.layout.dialog_exclude_folder, null).apply {
             exclude_folder_parent.beVisibleIf(alternativePaths.size > 1)
 
             radioGroup = exclude_folder_radio_group

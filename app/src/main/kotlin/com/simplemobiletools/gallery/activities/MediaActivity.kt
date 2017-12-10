@@ -53,6 +53,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
+    private var mStoredShowInfoBubble = true
     private var mStoredTextColor = 0
     private var mLastDrawnHashCode = 0
     private var mLatestMediaId = 0L
@@ -74,7 +75,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             mAllowPickingMultiple = getBooleanExtra(Intent.EXTRA_ALLOW_MULTIPLE, false)
         }
 
-        media_refresh_layout.setOnRefreshListener({ getMedia() })
+        media_refresh_layout.setOnRefreshListener { getMedia() }
         mPath = intent.getStringExtra(DIRECTORY)
         storeStateVariables()
         if (mShowAll)
@@ -100,7 +101,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             getMediaAdapter()?.updateCropThumbnails(config.cropThumbnails)
         }
 
-        if (mStoredScrollHorizontally != config.scrollHorizontally) {
+        if (mStoredScrollHorizontally != config.scrollHorizontally || mStoredShowInfoBubble != config.showInfoBubble) {
             getMediaAdapter()?.updateScrollHorizontally(config.viewTypeFiles != VIEW_TYPE_LIST || !config.scrollHorizontally)
             setupScrollDirection()
         }
@@ -109,6 +110,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             getMediaAdapter()?.updateTextColor(config.textColor)
         }
 
+        media_horizontal_fastscroller.updateBubbleColors()
+        media_vertical_fastscroller.updateBubbleColors()
         tryloadGallery()
         invalidateOptionsMenu()
         media_empty_text_label.setTextColor(config.textColor)
@@ -140,6 +143,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             mStoredAnimateGifs = animateGifs
             mStoredCropThumbnails = cropThumbnails
             mStoredScrollHorizontally = scrollHorizontally
+            mStoredShowInfoBubble = showInfoBubble
             mStoredTextColor = textColor
             mShowAll = showAll
         }
@@ -149,7 +153,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
                 val dirName = getHumanizedFilename(mPath)
-                title = if (mShowAll) resources.getString(R.string.all_folders) else dirName
+                supportActionBar?.title = if (mShowAll) resources.getString(R.string.all_folders) else dirName
                 getMedia()
                 setupLayoutManager()
                 checkIfColorChanged()
@@ -201,8 +205,12 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         media_horizontal_fastscroller.beVisibleIf(allowHorizontalScroll)
 
         if (allowHorizontalScroll) {
-            media_horizontal_fastscroller.setViews(media_grid, media_refresh_layout)
+            media_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
+            media_horizontal_fastscroller.setViews(media_grid, media_refresh_layout) {
+                media_horizontal_fastscroller.updateBubbleText(mMedia[it].getBubbleText())
+            }
         } else {
+            media_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
             media_vertical_fastscroller.setViews(media_grid, media_refresh_layout) {
                 media_vertical_fastscroller.updateBubbleText(mMedia[it].getBubbleText())
             }
@@ -215,7 +223,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         mLastMediaHandler.removeCallbacksAndMessages(null)
         mLastMediaHandler.postDelayed({
-            Thread({
+            Thread {
                 val mediaId = getLatestMediaId()
                 if (mLatestMediaId != mediaId) {
                     mLatestMediaId = mediaId
@@ -225,7 +233,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                 } else {
                     checkLastMediaChanged()
                 }
-            }).start()
+            }.start()
         }, LAST_MEDIA_CHECK_PERIOD)
     }
 

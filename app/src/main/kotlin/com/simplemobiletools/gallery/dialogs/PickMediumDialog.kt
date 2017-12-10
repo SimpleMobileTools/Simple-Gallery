@@ -2,7 +2,6 @@ package com.simplemobiletools.gallery.dialogs
 
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.GridLayoutManager
-import android.view.LayoutInflater
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.beGoneIf
 import com.simplemobiletools.commons.extensions.beVisibleIf
@@ -19,7 +18,7 @@ import kotlinx.android.synthetic.main.dialog_medium_picker.view.*
 class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val callback: (path: String) -> Unit) {
     var dialog: AlertDialog
     var shownMedia = ArrayList<Medium>()
-    val view = LayoutInflater.from(activity).inflate(R.layout.dialog_medium_picker, null)
+    val view = activity.layoutInflater.inflate(R.layout.dialog_medium_picker, null)
     var isGridViewType = activity.config.viewTypeFiles == VIEW_TYPE_GRID
 
     init {
@@ -74,9 +73,15 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
             media_horizontal_fastscroller.beVisibleIf(scrollHorizontally)
 
             if (scrollHorizontally) {
-                media_horizontal_fastscroller.setViews(media_grid)
+                media_horizontal_fastscroller.allowBubbleDisplay = activity.config.showInfoBubble
+                media_horizontal_fastscroller.setViews(media_grid) {
+                    media_horizontal_fastscroller.updateBubbleText(media[it].getBubbleText())
+                }
             } else {
-                media_vertical_fastscroller.setViews(media_grid)
+                media_vertical_fastscroller.allowBubbleDisplay = activity.config.showInfoBubble
+                media_vertical_fastscroller.setViews(media_grid) {
+                    media_vertical_fastscroller.updateBubbleText(media[it].getBubbleText())
+                }
             }
         }
     }

@@ -4,9 +4,9 @@
     android:id="@+id/dir_holder"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:paddingLeft="@dimen/small_margin"
     android:clickable="true"
     android:focusable="true"
+    android:paddingLeft="@dimen/small_margin"
     android:paddingTop="@dimen/small_margin">
 
     <com.simplemobiletools.gallery.views.MySquareImageView

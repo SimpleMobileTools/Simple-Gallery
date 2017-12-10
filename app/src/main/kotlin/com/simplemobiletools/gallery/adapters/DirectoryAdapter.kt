@@ -1,6 +1,5 @@
 package com.simplemobiletools.gallery.adapters
 
-import android.graphics.PorterDuff
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
@@ -342,8 +341,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
                 dir_name.setTextColor(textColor)
                 dir_path.setTextColor(textColor)
                 photo_cnt.setTextColor(textColor)
-                dir_pin.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
-                dir_sd_card.setColorFilter(textColor, PorterDuff.Mode.SRC_IN)
+                dir_pin.applyColorFilter(textColor)
+                dir_sd_card.applyColorFilter(textColor)
             }
         }
     }

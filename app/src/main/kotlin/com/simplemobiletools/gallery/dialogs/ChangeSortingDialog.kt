@@ -2,7 +2,6 @@ package com.simplemobiletools.gallery.dialogs
 
 import android.content.DialogInterface
 import android.support.v7.app.AlertDialog
-import android.view.LayoutInflater
 import android.view.View
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.beVisibleIf
@@ -20,7 +19,7 @@ class ChangeSortingDialog(val activity: BaseSimpleActivity, val isDirectorySorti
     private var view: View
 
     init {
-        view = LayoutInflater.from(activity).inflate(R.layout.dialog_change_sorting, null).apply {
+        view = activity.layoutInflater.inflate(R.layout.dialog_change_sorting, null).apply {
             use_for_this_folder_divider.beVisibleIf(showFolderCheckbox)
             sorting_dialog_use_for_this_folder.beVisibleIf(showFolderCheckbox)
             sorting_dialog_use_for_this_folder.isChecked = config.hasCustomSorting(path)

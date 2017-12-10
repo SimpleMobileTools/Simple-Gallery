@@ -114,7 +114,7 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
 
         if (result.error == null) {
             toast(R.string.setting_wallpaper)
-            Thread({
+            Thread {
                 val bitmap = result.bitmap
                 val wantedHeight = wallpaperManager.desiredMinimumHeight
                 val ratio = wantedHeight / bitmap.height.toFloat()
@@ -132,7 +132,7 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
                     setResult(Activity.RESULT_CANCELED)
                 }
                 finish()
-            }).start()
+            }.start()
         } else {
             toast("${getString(R.string.image_editing_failed)}: ${result.error.message}")
         }
