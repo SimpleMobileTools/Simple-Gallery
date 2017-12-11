@@ -40,7 +40,7 @@
     <string name="excluded_folders">Pastas excluídas</string>
     <string name="manage_excluded_folders">Gerenciar pastas excluídas</string>
     <string name="exclude_folder_description">Esta ação irá excluir as pastas selecionadas apenas dentro deste aplicativo. Você pode gerenciar as pastas excuídas nas Configurações do aplicativo.</string>
-    <string name="exclude_folder_parent">Excluir antes a pasta raíz?</string>
+    <string name="exclude_folder_parent">Excluir antes a pasta raiz?</string>
     <string name="excluded_activity_placeholder">A exclusão de uma pasta apenas oculta o seu conteúdo da galeria, pois todos os outros aplicativos poderão acessá-las.\\n\\nSe quiser ocultar de todos os aplicativos, utilize a função ocultar.</string>
     <string name="remove_all">Remover todas</string>
     <string name="remove_all_description">Remover todas as pastas da lista de exclusões? Esta ação não apaga as pastas.</string>
@@ -93,7 +93,7 @@
     <string name="home_and_lock_screen">Tela inicial e de bloqueio</string>
 
     <!-- Slideshow -->
-    <string name="slideshow">Slideshow</string>
+    <string name="slideshow">Apresentação</string>
     <string name="interval">Intervalo (segundos):</string>
     <string name="include_photos">Incluir fotos</string>
     <string name="include_videos">Incluir videos</string>
@@ -111,6 +111,10 @@
     <string name="list">Lista</string>
 
     <!-- Settings -->
+    <string name="show_info_bubble">Mostrar uma bolha de informação ao rolar usando a barra de rolagem</string>
+    <string name="apply_to_all_apps">Aplicar cores a todos os Apps Simple</string>
+    <string name="use_english_language">Usar idioma inglês</string>
+    <string name="password_protect_whole_app">Proteger o aplicativo com senha</string>
     <string name="show_hidden_media">Mostrar pastas ocultas</string>
     <string name="autoplay_videos">Reproduzir vídeos automaticamente</string>
     <string name="toggle_filename">Mostrar/ocultar nome do arquivo</string>
@@ -134,7 +138,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Um aplicativo para ver fotos e vídeos.</string>
+    <string name="app_short_description">Um aplicativo para visualizar fotos e vídeos.</string>
     <string name="app_long_description">
         Uma ferramenta simples para ver fotos e vídeos. Pode organizar os itens por data, tamanho, nome e ampliar as fotografias. As pastas são mostradas em colunas, e a sua exibição dependerá do tamanho da tela, aonde o usuário poderá alterar o número de colunas através de gestos. Você pode renomear, compartilhar, apagar, copiar e mover os arquivos. Também pode recortar, girar e definir as imagens como fundo de tela.
 
