@@ -111,7 +111,6 @@
     <string name="list">Список</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">Показывать скрытые папки</string>
     <string name="autoplay_videos">Воспроизводить видео автоматически</string>
     <string name="toggle_filename">Переключить отображение имени файла</string>
     <string name="loop_videos">Повторять видео</string>

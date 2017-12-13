@@ -111,7 +111,6 @@
     <string name="list">Elenco</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">Mostra le cartelle nascoste</string>
     <string name="autoplay_videos">Riproduci i video automaticamente</string>
     <string name="toggle_filename">Visibilità nome del file</string>
     <string name="loop_videos">Ripeti i video</string>

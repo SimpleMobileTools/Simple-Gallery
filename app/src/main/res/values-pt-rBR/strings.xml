@@ -111,11 +111,6 @@
     <string name="list">Lista</string>
 
     <!-- Settings -->
-    <string name="show_info_bubble">Mostrar uma bolha de informação ao rolar usando a barra de rolagem</string>
-    <string name="apply_to_all_apps">Aplicar cores a todos os Apps Simple</string>
-    <string name="use_english_language">Usar idioma inglês</string>
-    <string name="password_protect_whole_app">Proteger o aplicativo com senha</string>
-    <string name="show_hidden_media">Mostrar pastas ocultas</string>
     <string name="autoplay_videos">Reproduzir vídeos automaticamente</string>
     <string name="toggle_filename">Mostrar/ocultar nome do arquivo</string>
     <string name="loop_videos">Reproduzir vídeos em ciclo</string>

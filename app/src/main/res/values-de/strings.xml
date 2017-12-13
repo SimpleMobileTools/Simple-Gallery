@@ -111,7 +111,6 @@
     <string name="list">Liste</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">Versteckte Ordner zeigen</string>
     <string name="autoplay_videos">Videos automatisch abspielen</string>
     <string name="toggle_filename">Beschriftungen ein/aus</string>
     <string name="loop_videos">Videos in Endlosschleife spielen</string>

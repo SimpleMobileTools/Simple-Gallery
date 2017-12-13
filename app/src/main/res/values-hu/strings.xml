@@ -111,7 +111,6 @@
     <string name="list">List</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">Show hidden media</string>
     <string name="autoplay_videos">Play videos automatically</string>
     <string name="toggle_filename">Toggle filename visibility</string>
     <string name="loop_videos">Loop videos</string>

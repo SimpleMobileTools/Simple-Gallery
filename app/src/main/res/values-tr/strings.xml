@@ -111,7 +111,6 @@
     <string name="list">List</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">Gizli klasörleri göster</string>
     <string name="autoplay_videos">Videoları otomatik olarak oynat</string>
     <string name="toggle_filename">Dosya adı görünürlüğünü değiştir</string>
     <string name="loop_videos">Videolar döngüsü</string>

@@ -111,7 +111,6 @@
     <string name="list">Lista</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">Pokazuj ukryte foldery</string>
     <string name="autoplay_videos">Odtwarzaj filmy automatycznie</string>
     <string name="toggle_filename">Pokazuj / ukrywaj nazwy plików</string>
     <string name="loop_videos">Zapętlaj odtwarzanie filmów</string>

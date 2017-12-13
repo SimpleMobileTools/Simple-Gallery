@@ -111,7 +111,6 @@
     <string name="list">Lijst</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">Verborgen mappen tonen</string>
     <string name="autoplay_videos">Video\'s automatisch afspelen</string>
     <string name="toggle_filename">Bestandsnamen tonen</string>
     <string name="loop_videos">Video\'s herhalen</string>

@@ -111,7 +111,6 @@
     <string name="list">Liste</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">Vis skjulte media</string>
     <string name="autoplay_videos">Avspill videoer automatisk</string>
     <string name="toggle_filename">Vis/skjul filnavn</string>
     <string name="loop_videos">Gjenta videoer</string>

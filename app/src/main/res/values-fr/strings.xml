@@ -111,7 +111,6 @@
     <string name="list">Liste</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">Afficher les dossiers cachés</string>
     <string name="autoplay_videos">Lecture automatique des vidéos</string>
     <string name="toggle_filename">Permuter la visibilité des noms de fichier</string>
     <string name="loop_videos">Lire en boucle les vidéos</string>

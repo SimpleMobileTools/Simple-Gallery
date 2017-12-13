@@ -111,7 +111,6 @@
     <string name="list">列表</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">显示所有</string>
     <string name="autoplay_videos">自动播放</string>
     <string name="toggle_filename">显示文件名</string>
     <string name="loop_videos">循环播放视频</string>

@@ -35,7 +35,7 @@
     <string name="change_filters_underlined"><u>Change filters</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Tato funkce skryje složku, včetně podsložek, přidáním souboru \'.nomedia\'. Zobrazíte je zvolením možnosti \'Zobrazit skryté složky\' v nastavení. Pokračovat?</string>
+    <string name="hide_folder_description">Tato funkce skryje složku, včetně podsložek, přidáním souboru \'.nomedia\'. Zobrazíte je zvolením možnosti \'Zobrazit skryté položky\' v nastavení. Pokračovat?</string>
     <string name="exclude">Vyloučit</string>
     <string name="excluded_folders">Vyloučené složky</string>
     <string name="manage_excluded_folders">Spravovat vyloučené složky</string>
@@ -111,7 +111,6 @@
     <string name="list">List</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">Zobrazit skryté média</string>
     <string name="autoplay_videos">Automaticky přehrávat videa</string>
     <string name="toggle_filename">Přepnout viditelnost názvů souborů</string>
     <string name="loop_videos">Přehrávat videa ve smyčce</string>

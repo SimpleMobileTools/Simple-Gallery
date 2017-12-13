@@ -111,7 +111,6 @@
     <string name="list">Lista</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">Mostrar pastas ocultas</string>
     <string name="autoplay_videos">Reproduzir vídeos automaticamente</string>
     <string name="toggle_filename">Mostrar/ocultar nome do ficheiro</string>
     <string name="loop_videos">Vídeos em ciclo</string>

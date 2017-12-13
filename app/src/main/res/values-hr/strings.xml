@@ -111,7 +111,6 @@
     <string name="list">Lista</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">Prikaži skrivene datoteke</string>
     <string name="autoplay_videos">Automatsko pokretanje videa</string>
     <string name="toggle_filename">Uključi prikaz naziva datoteka</string>
     <string name="loop_videos">Ponavljanje videa</string>

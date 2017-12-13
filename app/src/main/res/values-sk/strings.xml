@@ -111,7 +111,6 @@
     <string name="list">Zoznam</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">Zobraziť skryté médiá</string>
     <string name="autoplay_videos">Spúšťať videá automaticky</string>
     <string name="toggle_filename">Prepnúť viditeľnosť názvov súborov</string>
     <string name="loop_videos">Automaticky reštartovať videá</string>
