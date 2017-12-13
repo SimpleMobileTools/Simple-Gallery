@@ -35,7 +35,7 @@
     <string name="change_filters_underlined"><u>Endre filtere</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Denne funksjonen skjuler mappen ved å legge til filen \'.nomedia\' i den. Alle undermapper blir også skjult. Du kan se dem ved å aktivere alternativet \'Vis skjulte media\' i innstillinger. Fortsette?</string>
+    <string name="hide_folder_description">Denne funksjonen skjuler mappen ved å legge til filen \'.nomedia\' i den. Alle undermapper blir også skjult. Du kan se dem ved å aktivere alternativet \'Vis skjulte elementer\' i innstillinger. Fortsette?</string>
     <string name="exclude">Ekskluder</string>
     <string name="excluded_folders">Ekskluderte mapper</string>
     <string name="manage_excluded_folders">Håndter ekskluderte mapper</string>
