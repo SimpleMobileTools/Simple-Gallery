@@ -136,6 +136,7 @@
     <string name="app_short_description">Unha galería para ver fotos e videos, pero non publicidade.</string>
     <string name="app_long_description">
         Unha simple ferramenta para ver fotos e vídeos. Pode organizar os elementos por data, tamaño, nome tanto ascendentes como descendentes, pode facer zoom nas fotografías. Os ficheiros de medios móstranse en múltiples columnas dependendo do tamaño da pantalla, pode mudar o número de columnas con xestos de belisco. Poden ser renomeados, compartidos, eliminados, copiados, movidos. As imaxes tamén se poden recortar, rotar, voltear ou establecer como fondo de pantalla directamente no aplicativo.
+        
         A Galería tamén se ofrece como aplicación de terceiros para vista previa de imaxes / vídeos, engadir anexos en correos etc. É perfecta para o uso diario.
         
         Non contén anuncios nin solicita permisos innecesarios. É de código aberto, con cores personalizadas.
