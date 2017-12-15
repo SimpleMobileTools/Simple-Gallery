@@ -19,7 +19,7 @@
     <string name="reduce_column_count">Reduza o número de columnas</string>
     <string name="change_cover_image">Cambiar a imaxe de portada</string>
     <string name="select_photo">Escolla foto</string>
-    <string name="use_default">Usar por omisin</string>
+    <string name="use_default">Usar valor por omisión</string>
     <string name="volume">Volume</string>
     <string name="brightness">Brillo</string>
     <string name="do_not_ask_again">Non preguntar de novo en esta sesión</string>
