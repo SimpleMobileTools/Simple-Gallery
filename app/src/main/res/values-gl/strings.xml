@@ -13,135 +13,134 @@
     <string name="other_folder">Outro cartafol</string>
     <string name="show_on_map">Mostrar no mapa</string>
     <string name="unknown_location">Localización descoñecida</string>
-    <string name="no_map_application">No application with maps has been found</string>
-    <string name="no_camera_app_found">No Camera app has been found</string>
-    <string name="increase_column_count">Increase column count</string>
-    <string name="reduce_column_count">Reduce column count</string>
-    <string name="change_cover_image">Change cover image</string>
-    <string name="select_photo">Select photo</string>
-    <string name="use_default">Use default</string>
+    <string name="no_map_application">Non se atopou ningún aplicativo con mapas</string>
+    <string name="no_camera_app_found">Non se atopou ningún aplicativo Cámara</string>
+    <string name="increase_column_count">Aumente o número de columnas</string>
+    <string name="reduce_column_count">Reduza o número de columnas</string>
+    <string name="change_cover_image">Cambiar a imaxe de portada</string>
+    <string name="select_photo">Escolla foto</string>
+    <string name="use_default">Usar por omisin</string>
     <string name="volume">Volume</string>
-    <string name="brightness">Brightness</string>
-    <string name="do_not_ask_again">Do not ask again in this session</string>
-    <string name="lock_orientation">Lock orientation</string>
-    <string name="unlock_orientation">Unlock orientation</string>
+    <string name="brightness">Brillo</string>
+    <string name="do_not_ask_again">Non preguntar de novo en esta sesión</string>
+    <string name="lock_orientation">Fixar orientación</string>
+    <string name="unlock_orientation">Desbloquear orientación</string>
 
     <!-- Filter -->
-    <string name="filter_media">Filter media</string>
-    <string name="images">Images</string>
-    <string name="videos">Videos</string>
+    <string name="filter_media">Filtrar medios</string>
+    <string name="images">Imaxes</string>
+    <string name="videos">Vídeos</string>
     <string name="gifs">GIFs</string>
-    <string name="no_media_with_filters">No media files have been found with the selected filters.</string>
-    <string name="change_filters_underlined"><u>Change filters</u></string>
+    <string name="no_media_with_filters">Non se atoparon medios dos indicados polo filtro.</string>
+    <string name="change_filters_underlined"><u>Cambiar filtro</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden items\' option in Settings. Continue?</string>
-    <string name="exclude">Exclude</string>
-    <string name="excluded_folders">Excluded folders</string>
-    <string name="manage_excluded_folders">Manage excluded folders</string>
-    <string name="exclude_folder_description">This will exclude the selection together with its subfolders from Simple Gallery only. You can manage excluded folders in Settings.</string>
-    <string name="exclude_folder_parent">Exclude a parent instead?</string>
-    <string name="excluded_activity_placeholder">Excluding folders will make them together with their subfolders hidden just in Simple Gallery, they will still be visible in other applications.\n\nIf you want to hide them from other apps too, use the Hide function.</string>
-    <string name="remove_all">Remove all</string>
-    <string name="remove_all_description">Remove all folders from the list of excluded? This will not delete the folders.</string>
+    <string name="hide_folder_description">Esta función oculta o cartafol engadindolle ficheiro \'.nomedia\', tamén ocultará os subcartafoles. Pode velos pulsando a opción \'Mostrar elementos ocultos\' nos Axustes. Continuar?</string>
+    <string name="exclude">Excluír</string>
+    <string name="excluded_folders">Cartafoles excluídos</string>
+    <string name="manage_excluded_folders">Xestionar cartafoles excluídos</string>
+    <string name="exclude_folder_description">Esto ocultará a selección xunto cos seus subcartafoles son en Simple Gallery. Pode xestionar os cartafoles ocultos en Axustes.</string>
+    <string name="exclude_folder_parent">?Excluír o cartafol fai no seu lugar?</string>
+    <string name="excluded_activity_placeholder">Excluír un cartafol xunto cos subcartafoles só terá efecto en Simple Gallery, seguirán sendo visibles en outros aplicativos.\n\nSi tamén quere excluílos en outros aplicativos, utilice a opción Agochar.</string>
+    <string name="remove_all">Eliminar todos</string>
+    <string name="remove_all_description">Eliminar todos os cartafoles da lista de excluídos? Esto non borrará os cartafoles.</string>
 
     <!-- Include folders -->
-    <string name="include_folders">Included folders</string>
-    <string name="manage_included_folders">Manage included folders</string>
-    <string name="add_folder">Add folder</string>
-    <string name="included_activity_placeholder">If you have some folders which contain media, but were not recognized by the app, you can add them manually here.\n\nAdding some items here will not exclude any other folder.</string>
+    <string name="include_folders">Cartafoles incluídos</string>
+    <string name="manage_included_folders">Xestionar cartafoles incluídos</string>
+    <string name="add_folder">Engadir cartafol</string>
+    <string name="included_activity_placeholder">Si ten algún cartafol con medios, mais non foi recoñecido polo aplicativo, pódeo engadir manualmente.\n\nEngadindo aquí elementos non eliminará outros.</string>
 
     <!-- Resizing -->
-    <string name="resize">Resize</string>
-    <string name="resize_and_save">Resize selection and save</string>
-    <string name="width">Width</string>
-    <string name="height">Height</string>
-    <string name="keep_aspect_ratio">Keep aspect ratio</string>
-    <string name="invalid_values">Please enter a valid resolution</string>
+    <string name="resize">Redimensionar</string>
+    <string name="resize_and_save">Selección da redimensión e gardar</string>
+    <string name="width">Ancho</string>
+    <string name="height">Alto</string>
+    <string name="keep_aspect_ratio">Manter proporcións</string>
+    <string name="invalid_values">Por favor introduza unha resolución válida</string>
 
     <!-- Editor -->
     <string name="editor">Editor</string>
-    <string name="save">Save</string>
-    <string name="rotate">Rotate</string>
-    <string name="path">Path</string>
-    <string name="invalid_image_path">Invalid image path</string>
-    <string name="image_editing_failed">Image editing failed</string>
-    <string name="edit_image_with">Edit image with:</string>
-    <string name="no_editor_found">No image editor found</string>
-    <string name="unknown_file_location">Unknown file location</string>
-    <string name="error_saving_file">Could not overwrite the source file</string>
-    <string name="rotate_left">Rotate left</string>
-    <string name="rotate_right">Rotate right</string>
-    <string name="rotate_one_eighty">Rotate by 180º</string>
-    <string name="flip">Flip</string>
-    <string name="flip_horizontally">Flip horizontally</string>
-    <string name="flip_vertically">Flip vertically</string>
-    <string name="edit_with">Edit with</string>
+    <string name="save">Gardar</string>
+    <string name="rotate">Rotar</string>
+    <string name="path">Ruta</string>
+    <string name="invalid_image_path">Ruta a imaxe non válida</string>
+    <string name="image_editing_failed">Fallo na edición da imaxe</string>
+    <string name="edit_image_with">Editar imaxe con:</string>
+    <string name="no_editor_found">Non se atopou ningún editor</string>
+    <string name="unknown_file_location">Localización do ficheiro descoñecida</string>
+    <string name="error_saving_file">Non se puido sobreescribir o ficheiro</string>
+    <string name="rotate_left">Rotar a esquerda</string>
+    <string name="rotate_right">Rotar a dereita</string>
+    <string name="rotate_one_eighty">Rotar 180º</string>
+    <string name="flip">Voltear</string>
+    <string name="flip_horizontally">Voltear horizontalmente</string>
+    <string name="flip_vertically">Voltear verticalmente</string>
+    <string name="edit_with">Editar con</string>
 
     <!-- Set wallpaper -->
-    <string name="simple_wallpaper">Simple Wallpaper</string>
-    <string name="set_as_wallpaper">Set as Wallpaper</string>
-    <string name="set_as_wallpaper_failed">Setting as Wallpaper failed</string>
-    <string name="set_as_wallpaper_with">Set as wallpaper with:</string>
-    <string name="no_capable_app_found">No app capable of it has been found</string>
-    <string name="setting_wallpaper">Setting wallpaper&#8230;</string>
-    <string name="wallpaper_set_successfully">Wallpaper set successfully</string>
-    <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
-    <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
-    <string name="home_screen">Home screen</string>
-    <string name="lock_screen">Lock screen</string>
-    <string name="home_and_lock_screen">Home and lock screen</string>
+    <string name="simple_wallpaper">Simple fondo de pantalla</string>
+    <string name="set_as_wallpaper">Establecer como fondo de pantalla</string>
+    <string name="set_as_wallpaper_failed">Fallou establecer fondo de pantalla</string>
+    <string name="set_as_wallpaper_with">Establecer fondo de pantalla con:</string>
+    <string name="no_capable_app_found">Non se atopou ningún applicativo válido</string>
+    <string name="setting_wallpaper">Establecendo fondo de pantalla&#8230;</string>
+    <string name="wallpaper_set_successfully">fondo de pantalla establecido con éxito</string>
+    <string name="portrait_aspect_ratio">Proporción de Retrato</string>
+    <string name="landscape_aspect_ratio">Proporción de Paisaxe</string>
+    <string name="home_screen">Pantalla de incio</string>
+    <string name="lock_screen">Pantalla de bloqueo</string>
+    <string name="home_and_lock_screen">Pantallas de inicio e bloqueo</string>
 
     <!-- Slideshow -->
-    <string name="slideshow">Slideshow</string>
-    <string name="interval">Interval (seconds):</string>
-    <string name="include_photos">Include photos</string>
-    <string name="include_videos">Include videos</string>
-    <string name="include_gifs">Include GIFs</string>
-    <string name="random_order">Random order</string>
-    <string name="use_fade">Use fade animations</string>
-    <string name="move_backwards">Move backwards</string>
-    <string name="loop_slideshow">Loop slideshow</string>
-    <string name="slideshow_ended">The slideshow ended</string>
-    <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
+    <string name="slideshow">Presentación</string>
+    <string name="interval">Intervalo (segundos):</string>
+    <string name="include_photos">Incluír fotos</string>
+    <string name="include_videos">Incluír vídeos</string>
+    <string name="include_gifs">Incluír GIFs</string>
+    <string name="random_order">Orde aleatoria</string>
+    <string name="use_fade">Utilizar animación esvaescente</string>
+    <string name="move_backwards">Mover atrás</string>
+    <string name="loop_slideshow">Reproducir en bucle</string>
+    <string name="slideshow_ended">Rematou a presentación</string>
+    <string name="no_media_for_slideshow">Non se atoparon medios para a presentación</string>
 
     <!-- View types -->
-    <string name="change_view_type">Change view type</string>
-    <string name="grid">Grid</string>
-    <string name="list">List</string>
+    <string name="change_view_type">Cambiar o tipo de vista</string>
+    <string name="grid">Grella</string>
+    <string name="list">Lista</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Reproducir vídeos automticamente</string>
-    <string name="toggle_filename">Toggle filename visibility</string>
-    <string name="loop_videos">Loop videos</string>
-    <string name="animate_gifs">Animate GIFs at thumbnails</string>
-    <string name="max_brightness">Max brightness when viewing media</string>
-    <string name="crop_thumbnails">Crop thumbnails into squares</string>
-    <string name="screen_rotation_by">Rotate fullscreen media by</string>
-    <string name="screen_rotation_system_setting">System setting</string>
-    <string name="screen_rotation_device_rotation">Device rotation</string>
-    <string name="screen_rotation_aspect_ratio">Aspect ratio</string>
-    <string name="dark_background_at_fullscreen">Dark background at fullscreen media</string>
-    <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
-    <string name="hide_system_ui_at_fullscreen">Automatically hide system UI at fullscreen media</string>
-    <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
-    <string name="allow_video_gestures">Allow controlling video volume and brightness with vertical gestures</string>
-    <string name="show_media_count">Show folder media count on the main view</string>
-    <string name="replace_share_with_rotate">Replace Share with Rotate at fullscreen menu</string>
-    <string name="show_extended_details">Show extended details over fullscreen media</string>
-    <string name="manage_extended_details">Manage extended details</string>
+    <string name="toggle_filename">Mudar a visibilidade do ficheiro</string>
+    <string name="loop_videos">videos en bucle</string>
+    <string name="animate_gifs">Animar os GIFs na icona</string>
+    <string name="max_brightness">Brillo ao máximo cando mire medios</string>
+    <string name="crop_thumbnails">Recortar iconas a cadrados</string>
+    <string name="screen_rotation_by">Rotar medios a pantalla completa a</string>
+    <string name="screen_rotation_system_setting">Axuste do sistema</string>
+    <string name="screen_rotation_device_rotation">Rotación do dispositivo</string>
+    <string name="screen_rotation_aspect_ratio">Relación de aspecto</string>
+    <string name="dark_background_at_fullscreen">Fondo oscura a pantalla completa</string>
+    <string name="scroll_thumbnails_horizontally">Desplazar iconas horizontalmente</string>
+    <string name="hide_system_ui_at_fullscreen">Agochar controis do sistema cando visualice a pantalla completa</string>
+    <string name="delete_empty_folders">Borrar cartafoles baldeiros cando elmine o seu contido</string>
+    <string name="allow_video_gestures">Permitir controlar o volume do vídeo e o brillo con xestos verticáis</string>
+    <string name="show_media_count">Mostrar a conta de medios do cartafol na vista principal</string>
+    <string name="replace_share_with_rotate">Substituír Compartir con Rotar no menú de pantalla completa</string>
+    <string name="show_extended_details">Mostrar información pormenorizada sobre medios a pantalla completa</string>
+    <string name="manage_extended_details">Xestionar información polo miúdo</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">A gallery for viewing photos and videos without ads.</string>
+    <string name="app_short_description">Unha galería para ver fotos e videos, pero non publicidade.</string>
     <string name="app_long_description">
-        A simple tool usable for viewing photos and videos. Items can be sorted by date, size, name both ascending or descending, photos can be zoomed in. Media files are shown in multiple columns depending on the size of the display, you can change the column count by pinch gestures. They can be renamed, shared, deleted, copied, moved. Images can also be cropped, rotated, flipped or set as Wallpaper directly from the app.
+        Unha simple ferramenta para ver fotos e vídeos. Pode organizar os elementos por data, tamaño, nome tanto ascendentes como descendentes, pode facer zoom nas fotografías. Os ficheiros de medios móstranse en múltiples columnas dependendo do tamaño da pantalla, pode mudar o número de columnas con xestos de belisco. Poden ser renomeados, compartidos, eliminados, copiados, movidos. As imaxes tamén se poden recortar, rotar, voltear ou establecer como fondo de pantalla directamente no aplicativo.
+        A Galería tamén se ofrece como aplicación de terceiros para vista previa de imaxes / vídeos, engadir anexos en correos etc. É perfecta para o uso diario.
+        
+        Non contén anuncios nin solicita permisos innecesarios. É de código aberto, con cores personalizadas.
 
-        The Gallery is also offered for third party usage for previewing images / videos, adding attachments at email clients etc. It\'s perfect for everyday usage.
-
-        Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
-
-        This app is just one piece of a bigger series of apps. You can find the rest of them at http://www.simplemobiletools.com
+        Este aplicativo é só unha das pezas de unha grande familia. Pode atopar o resto en http://www.simplemobiletools.com
     </string>
 
     <!--
