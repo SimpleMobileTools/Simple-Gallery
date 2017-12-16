@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">심플 갤러리</string>
     <string name="app_launcher_name">갤러리</string>
-    <string name="edit">수정</string>
+    <string name="edit">편집</string>
     <string name="open_camera">카메라 열기</string>
     <string name="hidden">(숨기기)</string>
     <string name="pin_folder">폴더 고정</string>
@@ -15,8 +15,8 @@
     <string name="unknown_location">위치정보 없음</string>
     <string name="no_map_application">연결 가능한 지도 애플리케이션이 없습니다.</string>
     <string name="no_camera_app_found">연결 가능한 카메라 애플리케이션이 없습니다.</string>
-    <string name="increase_column_count">썸네일 그리드 늘리기</string>
-    <string name="reduce_column_count">썸네일 그리드 줄이기</string>
+    <string name="increase_column_count">섬네일크기 축소</string>
+    <string name="reduce_column_count">섬네일크기 확대</string>
     <string name="change_cover_image">Change cover image</string>
     <string name="select_photo">사진 선택</string>
     <string name="use_default">Use default</string>
@@ -35,15 +35,15 @@
     <string name="change_filters_underlined"><u>필터 변경</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden items\' option in Settings. Continue?</string>
-    <string name="exclude">Exclude</string>
-    <string name="excluded_folders">Excluded folders</string>
-    <string name="manage_excluded_folders">Manage excluded folders</string>
-    <string name="exclude_folder_description">This will exclude the selection together with its subfolders from Simple Gallery only. You can manage excluded folders in Settings.</string>
-    <string name="exclude_folder_parent">Exclude a parent instead?</string>
+    <string name="hide_folder_description">현재폴더 및 모든 하위폴더를 \'.nomedia\' 폴더를 생성하여 숨김니다. 숨김 처리된 모들 폴더는 옵션설정의 \'숨김파일 보기\' 메뉴를 이용하여 다시 보실 수 있습니다. 계속 하시겠습니까?</string>
+    <string name="exclude">제외하기</string>
+    <string name="excluded_folders">제외 된 폴더</string>
+    <string name="manage_excluded_folders">제외 된 폴더관리</string>
+    <string name="exclude_folder_description">현재폴더 및 모든 하위폴더를 심플 갤러리에서 제외시킵니다. 제외된 폴더는 옵션설정에서 관리 할 수 있습니다.</string>
+    <string name="exclude_folder_parent">상위 폴더를 제외 하시겠습니까?</string>
     <string name="excluded_activity_placeholder">Excluding folders will make them together with their subfolders hidden just in Simple Gallery, they will still be visible in other applications.\n\nIf you want to hide them from other apps too, use the Hide function.</string>
-    <string name="remove_all">Remove all</string>
-    <string name="remove_all_description">Remove all folders from the list of excluded? This will not delete the folders.</string>
+    <string name="remove_all">모두 제거</string>
+    <string name="remove_all_description">제외 목록을 모두 삭제 하시겠습니다? 목록을 삭제해도 폴더가 삭제되지는 않습니다.</string>
 
     <!-- Include folders -->
     <string name="include_folders">Included folders</string>
@@ -52,17 +52,17 @@
     <string name="included_activity_placeholder">If you have some folders which contain media, but were not recognized by the app, you can add them manually here.\n\nAdding some items here will not exclude any other folder.</string>
 
     <!-- Resizing -->
-    <string name="resize">Resize</string>
-    <string name="resize_and_save">Resize selection and save</string>
-    <string name="width">Width</string>
-    <string name="height">Height</string>
-    <string name="keep_aspect_ratio">Keep aspect ratio</string>
-    <string name="invalid_values">Please enter a valid resolution</string>
+    <string name="resize">크기 조정</string>
+    <string name="resize_and_save">크기 조정 및 저장</string>
+    <string name="width">넓이</string>
+    <string name="height">높이</string>
+    <string name="keep_aspect_ratio">가로세로 비율 유지</string>
+    <string name="invalid_values">올바른 비율을 입력하세요.</string>
 
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="save">Save</string>
-    <string name="rotate">Rotate</string>
+    <string name="rotate">회전</string>
     <string name="path">Path</string>
     <string name="invalid_image_path">Invalid image path</string>
     <string name="image_editing_failed">Image editing failed</string>
@@ -93,22 +93,22 @@
     <string name="home_and_lock_screen">Home and lock screen</string>
 
     <!-- Slideshow -->
-    <string name="slideshow">Slideshow</string>
-    <string name="interval">Interval (seconds):</string>
-    <string name="include_photos">Include photos</string>
-    <string name="include_videos">Include videos</string>
-    <string name="include_gifs">Include GIFs</string>
-    <string name="random_order">Random order</string>
-    <string name="use_fade">Use fade animations</string>
-    <string name="move_backwards">Move backwards</string>
-    <string name="loop_slideshow">Loop slideshow</string>
-    <string name="slideshow_ended">The slideshow ended</string>
-    <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
+    <string name="slideshow">슬라이드 쇼</string>
+    <string name="interval">간격 (초):</string>
+    <string name="include_photos">포함된 사진</string>
+    <string name="include_videos">포함된 비디오</string>
+    <string name="include_gifs">포함된 GIFs</string>
+    <string name="random_order">랜덤 순서</string>
+    <string name="use_fade">페이드 애니메이션 사용</string>
+    <string name="move_backwards">뒤로 이동</string>
+    <string name="loop_slideshow">슬라이드 쇼 반복</string>
+    <string name="slideshow_ended">슬라이드 쇼 종료</string>
+    <string name="no_media_for_slideshow">슬라이드 쇼를 위한 미디어를 찾을 수 없음</string>
 
     <!-- View types -->
-    <string name="change_view_type">Change view type</string>
-    <string name="grid">Grid</string>
-    <string name="list">List</string>
+    <string name="change_view_type">보기방식 변경</string>
+    <string name="grid">그리드</string>
+    <string name="list">목록</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Play videos automatically</string>
