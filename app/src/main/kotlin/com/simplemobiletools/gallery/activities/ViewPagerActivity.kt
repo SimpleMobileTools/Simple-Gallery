@@ -860,11 +860,14 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (view_pager.offscreenPageLimit == 1) {
             view_pager.offscreenPageLimit = 2
         }
-        mPos = position
-        updateActionbarTitle()
-        mRotationDegrees = 0f
-        supportInvalidateOptionsMenu()
-        scheduleSwipe()
+
+        if (mPos != position) {
+            mPos = position
+            updateActionbarTitle()
+            mRotationDegrees = 0f
+            supportInvalidateOptionsMenu()
+            scheduleSwipe()
+        }
     }
 
     override fun onPageScrollStateChanged(state: Int) {
