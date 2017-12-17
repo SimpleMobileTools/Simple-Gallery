@@ -224,15 +224,29 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun addZoomableView() {
         if ((medium.isImage()) && isFragmentVisible && view.subsampling_view.isGone() && !medium.isDng()) {
-            val exif = android.media.ExifInterface(medium.path)
-            val orientation = exif.getAttributeInt(android.media.ExifInterface.TAG_ORIENTATION, android.media.ExifInterface.ORIENTATION_NORMAL)
+            val defaultOrientation = -1
+            var orient = defaultOrientation
+
+            try {
+                val uri = if (medium.path.startsWith("content:/")) Uri.parse(medium.path) else Uri.fromFile(File(medium.path))
+                val inputStream = context!!.contentResolver.openInputStream(uri)
+                val exif = ExifInterface()
+                exif.readExif(inputStream, ExifInterface.Options.OPTION_ALL)
+                orient = exif.getTag(ExifInterface.TAG_ORIENTATION)?.getValueAsInt(defaultOrientation) ?: defaultOrientation
+
+                if (orient == defaultOrientation) {
+                    val exif2 = android.media.ExifInterface(medium.path)
+                    orient = exif2.getAttributeInt(android.media.ExifInterface.TAG_ORIENTATION, defaultOrientation)
+                }
+            } catch (ignored: Exception) {
+            }
 
             ViewPagerActivity.wasDecodedByGlide = false
             view.subsampling_view.apply {
                 maxScale = 10f
                 beVisible()
                 setImage(ImageSource.uri(medium.path))
-                this.orientation = degreesForRotation(orientation)
+                orientation = if (orient == -1) SubsamplingScaleImageView.ORIENTATION_USE_EXIF else degreesForRotation(orient)
                 setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {
                     override fun onImageLoaded() {
                     }
