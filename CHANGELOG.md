@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 3.0.2 *(2017-12-17)*
+----------------------------
+
+ * Properly display email attachments
+ * Some crashfixes
+
 Version 3.0.1 *(2017-12-06)*
 ----------------------------
 
