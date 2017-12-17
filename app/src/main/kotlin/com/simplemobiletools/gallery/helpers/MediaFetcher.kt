@@ -258,7 +258,7 @@ class MediaFetcher(val context: Context) {
             val isVideo = if (isImage) false else filename.isVideoFast()
             val isGif = if (isImage || isVideo) false else filename.isGif()
 
-            if (!isImage && !isVideo)
+            if (!isImage && !isVideo && !isGif)
                 continue
 
             if (isVideo && (isPickImage || filterMedia and VIDEOS == 0))
