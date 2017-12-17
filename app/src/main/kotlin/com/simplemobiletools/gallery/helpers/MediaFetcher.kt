@@ -271,7 +271,7 @@ class MediaFetcher(val context: Context) {
                 continue
 
             val size = file.length()
-            if (size <= 0L)
+            if (size <= 0L && !file.exists())
                 continue
 
             val dateTaken = file.lastModified()
