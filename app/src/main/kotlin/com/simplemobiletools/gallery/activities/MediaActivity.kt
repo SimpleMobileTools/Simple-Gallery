@@ -537,7 +537,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun gotMedia(media: ArrayList<Medium>, isFromCache: Boolean = false) {
-        mLatestMediaId = getLatestMediaId()
+        Thread {
+            mLatestMediaId = getLatestMediaId()
+        }.start()
+
         mIsGettingMedia = false
         media_refresh_layout.isRefreshing = false
 
