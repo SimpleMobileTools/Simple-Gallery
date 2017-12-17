@@ -8,6 +8,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.Settings
+import android.support.annotation.RequiresApi
 import android.util.DisplayMetrics
 import android.view.*
 import android.view.animation.AnimationUtils
@@ -44,6 +45,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private var mStoredShowExtendedDetails = false
     private var wasEncoded = false
     private var wasInit = false
+    private var isPrepared = false
     private var mStoredExtendedDetails = 0
     private var mCurrTime = 0
     private var mDuration = 0
@@ -395,7 +397,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     }
 
     fun playVideo() {
-        if (mMediaPlayer != null) {
+        if (mMediaPlayer != null && isPrepared) {
             mIsPlaying = true
             mMediaPlayer?.start()
         } else {
@@ -471,13 +473,15 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     }
 
     private fun videoPrepared(mediaPlayer: MediaPlayer) {
+        isPrepared = true
         mDuration = mediaPlayer.duration / 1000
         addPreviewImage()
         setupTimeHolder()
         setProgress(mCurrTime)
 
-        if (mIsFragmentVisible && (context!!.config.autoplayVideos || mPlayOnPrepare))
+        if (mIsFragmentVisible && (context!!.config.autoplayVideos || mPlayOnPrepare)) {
             playVideo()
+        }
     }
 
     private fun videoCompleted() {
@@ -509,6 +513,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         releaseMediaPlayer()
     }
 
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private fun setVideoSize() {
         if (mSurfaceHolder == null)
             mSurfaceHolder = mSurfaceView!!.holder
@@ -526,7 +531,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         val screenWidth: Int
         val screenHeight: Int
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        if (activity!!.isJellyBean1Plus()) {
             val realMetrics = DisplayMetrics()
             display.getRealMetrics(realMetrics)
             screenWidth = realMetrics.widthPixels
