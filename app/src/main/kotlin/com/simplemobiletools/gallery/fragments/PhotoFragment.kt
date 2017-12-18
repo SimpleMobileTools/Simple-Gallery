@@ -228,15 +228,15 @@ class PhotoFragment : ViewPagerFragment() {
             var orient = defaultOrientation
 
             try {
-                val uri = if (medium.path.startsWith("content:/")) Uri.parse(medium.path) else Uri.fromFile(File(medium.path))
-                val inputStream = context!!.contentResolver.openInputStream(uri)
-                val exif = ExifInterface()
-                exif.readExif(inputStream, ExifInterface.Options.OPTION_ALL)
-                orient = exif.getTag(ExifInterface.TAG_ORIENTATION)?.getValueAsInt(defaultOrientation) ?: defaultOrientation
+                val exif = android.media.ExifInterface(medium.path)
+                orient = exif.getAttributeInt(android.media.ExifInterface.TAG_ORIENTATION, defaultOrientation)
 
                 if (orient == defaultOrientation) {
-                    val exif2 = android.media.ExifInterface(medium.path)
-                    orient = exif2.getAttributeInt(android.media.ExifInterface.TAG_ORIENTATION, defaultOrientation)
+                    val uri = if (medium.path.startsWith("content:/")) Uri.parse(medium.path) else Uri.fromFile(File(medium.path))
+                    val inputStream = context!!.contentResolver.openInputStream(uri)
+                    val exif2 = ExifInterface()
+                    exif2.readExif(inputStream, ExifInterface.Options.OPTION_ALL)
+                    orient = exif2.getTag(ExifInterface.TAG_ORIENTATION)?.getValueAsInt(defaultOrientation) ?: defaultOrientation
                 }
             } catch (ignored: Exception) {
             }
