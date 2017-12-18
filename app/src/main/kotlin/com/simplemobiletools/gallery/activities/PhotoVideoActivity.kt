@@ -67,7 +67,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             return
         } else {
             val path = applicationContext.getRealPathFromURI(mUri!!) ?: ""
-            if (path != mUri.toString() && path.isNotEmpty()) {
+            if (path != mUri.toString() && path.isNotEmpty() && mUri!!.authority != "mms") {
                 scanPath(mUri!!.path)
                 sendViewPagerIntent(path)
                 finish()

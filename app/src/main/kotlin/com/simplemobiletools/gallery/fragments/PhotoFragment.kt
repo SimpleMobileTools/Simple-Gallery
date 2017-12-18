@@ -55,7 +55,7 @@ class PhotoFragment : ViewPagerFragment() {
         }
 
         medium = arguments!!.getSerializable(MEDIUM) as Medium
-        if (medium.path.startsWith("content://")) {
+        if (medium.path.startsWith("content://") && !medium.path.startsWith("content://mms/")) {
             val originalPath = medium.path
             medium.path = context!!.getRealPathFromURI(Uri.parse(originalPath)) ?: medium.path
 
