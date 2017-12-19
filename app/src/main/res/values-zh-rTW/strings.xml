@@ -121,7 +121,7 @@
     <string name="screen_rotation_system_setting">系統設定方向</string>
     <string name="screen_rotation_device_rotation">裝置實際方向</string>
     <string name="screen_rotation_aspect_ratio">圖片長寬比</string>
-    <string name="dark_background_at_fullscreen">Black background and status bar at fullscreen media</string>
+    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">橫向滑動縮圖</string>
     <string name="hide_system_ui_at_fullscreen">全螢幕時自動隱藏系統介面</string>
     <string name="delete_empty_folders">刪除內容後刪除空白資料夾</string>

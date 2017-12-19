@@ -224,7 +224,7 @@
                 android:clickable="false"
                 android:paddingLeft="@dimen/medium_margin"
                 android:paddingStart="@dimen/medium_margin"
-                android:text="@string/dark_background_at_fullscreen"/>
+                android:text="@string/black_background_at_fullscreen"/>
 
         </RelativeLayout>
 

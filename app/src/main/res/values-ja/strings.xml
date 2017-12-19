@@ -121,7 +121,7 @@
     <string name="screen_rotation_system_setting">システム設定に従う</string>
     <string name="screen_rotation_device_rotation">端末の向きに従う</string>
     <string name="screen_rotation_aspect_ratio">メディアの縦横比に従う</string>
-    <string name="dark_background_at_fullscreen">Black background and status bar at fullscreen media</string>
+    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">サムネイル画面を横方向にスクロール</string>
     <string name="hide_system_ui_at_fullscreen">フルスクリーン時にシステムUIを非表示にする</string>
     <string name="delete_empty_folders">メディアの削除後にフォルダーが空になった場合、そのフォルダーを削除する</string>

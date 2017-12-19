@@ -121,7 +121,7 @@
     <string name="screen_rotation_system_setting">Systemeinstellung</string>
     <string name="screen_rotation_device_rotation">Gerätedrehung</string>
     <string name="screen_rotation_aspect_ratio">Seitenverhältnis</string>
-    <string name="dark_background_at_fullscreen">Black background and status bar at fullscreen media</string>
+    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">Kacheln horizontal scrollen</string>
     <string name="hide_system_ui_at_fullscreen">Systemleisten ausblenden im Vollbild</string>
     <string name="delete_empty_folders">Nach Löschen leere Ordner löschen</string>

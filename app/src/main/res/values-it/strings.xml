@@ -121,7 +121,7 @@
     <string name="screen_rotation_system_setting">Impostazione di sistema</string>
     <string name="screen_rotation_device_rotation">Rotazione dispositivo</string>
     <string name="screen_rotation_aspect_ratio">Proporzioni</string>
-    <string name="dark_background_at_fullscreen">Black background and status bar at fullscreen media</string>
+    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">Scorri le miniature orizzontalmente</string>
     <string name="hide_system_ui_at_fullscreen">Nascondi UI di sistema con media a schermo intero</string>
     <string name="delete_empty_folders">Elimina cartelle vuote dopo averne eliminato il contenuto</string>

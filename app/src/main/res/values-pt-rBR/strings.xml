@@ -121,7 +121,7 @@
     <string name="screen_rotation_system_setting">Padrão do sistema</string>
     <string name="screen_rotation_device_rotation">Sensor do aparelho</string>
     <string name="screen_rotation_aspect_ratio">Proporção da mídia</string>
-    <string name="dark_background_at_fullscreen">Black background and status bar at fullscreen media</string>
+    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">Rolar miniaturas horizontalmente</string>
     <string name="hide_system_ui_at_fullscreen">Esconder interface do sistema automaticamente quando em tela cheia</string>
     <string name="delete_empty_folders">Apagar pastas vazias após deleter seu conteúdo</string>
