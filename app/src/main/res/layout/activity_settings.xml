@@ -209,7 +209,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/settings_dark_background_holder"
+            android:id="@+id/settings_black_background_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/medium_margin"
@@ -217,7 +217,7 @@
             android:padding="@dimen/activity_margin">
 
             <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_dark_background"
+                android:id="@+id/settings_black_background"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"

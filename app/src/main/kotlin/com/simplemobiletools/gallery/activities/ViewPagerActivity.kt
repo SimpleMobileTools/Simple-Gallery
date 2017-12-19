@@ -116,6 +116,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         setupRotation()
         invalidateOptionsMenu()
+
+        if (config.blackBackground) {
+            updateStatusbarColor(Color.BLACK)
+        }
     }
 
     override fun onPause() {
@@ -198,8 +202,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         reloadViewPager()
         scanPath(mPath)
 
-        if (config.darkBackground)
+        if (config.blackBackground) {
             view_pager.background = ColorDrawable(Color.BLACK)
+        }
 
         if (config.hideSystemUI)
             fragmentClicked()

@@ -252,7 +252,7 @@ class PhotoFragment : ViewPagerFragment() {
                     }
 
                     override fun onReady() {
-                        background = ColorDrawable(if (context.config.darkBackground) Color.BLACK else context.config.backgroundColor)
+                        background = ColorDrawable(if (context.config.blackBackground) Color.BLACK else context.config.backgroundColor)
                         setDoubleTapZoomScale(getDoubleTapZoomScale(sWidth, sHeight))
                     }
 

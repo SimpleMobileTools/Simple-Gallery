@@ -89,7 +89,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             supportFragmentManager.beginTransaction().replace(R.id.fragment_holder, mFragment).commit()
         }
 
-        if (config.darkBackground) {
+        if (config.blackBackground) {
             fragment_holder.background = ColorDrawable(Color.BLACK)
         }
 
@@ -102,6 +102,9 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     override fun onResume() {
         super.onResume()
         supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.actionbar_gradient_background))
+        if (config.blackBackground) {
+            updateStatusbarColor(Color.BLACK)
+        }
     }
 
     private fun sendViewPagerIntent(path: String) {
