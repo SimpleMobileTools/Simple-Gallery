@@ -121,7 +121,7 @@
     <string name="screen_rotation_system_setting">Axuste do sistema</string>
     <string name="screen_rotation_device_rotation">Rotación do dispositivo</string>
     <string name="screen_rotation_aspect_ratio">Relación de aspecto</string>
-    <string name="dark_background_at_fullscreen">Fondo oscura a pantalla completa</string>
+    <string name="dark_background_at_fullscreen">Black background and status bar at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">Desplazar iconas horizontalmente</string>
     <string name="hide_system_ui_at_fullscreen">Agochar controis do sistema cando visualice a pantalla completa</string>
     <string name="delete_empty_folders">Borrar cartafoles baldeiros cando elmine o seu contido</string>

@@ -121,7 +121,7 @@
     <string name="screen_rotation_system_setting">Systeminnstilling</string>
     <string name="screen_rotation_device_rotation">Enhetsrotasjon</string>
     <string name="screen_rotation_aspect_ratio">Sideforhold</string>
-    <string name="dark_background_at_fullscreen">Mørk bakgrunn i mediavisningen</string>
+    <string name="dark_background_at_fullscreen">Black background and status bar at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">Horisontal rulling av minibilder</string>
     <string name="hide_system_ui_at_fullscreen">Skjul automatisk systemlinjer ved mediavisning</string>
     <string name="delete_empty_folders">Slett tomme mapper etter sletting av deres innhold</string>

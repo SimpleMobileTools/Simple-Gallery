@@ -121,7 +121,7 @@
     <string name="screen_rotation_system_setting">Järjestelmän asetukset</string>
     <string name="screen_rotation_device_rotation">Laitteen kierto</string>
     <string name="screen_rotation_aspect_ratio">Kuvasuhde</string>
-    <string name="dark_background_at_fullscreen">Tumma tausta koko ruudun medioissa</string>
+    <string name="dark_background_at_fullscreen">Black background and status bar at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">Vieritä pienoiskuvia vaakasuorassa</string>
     <string name="hide_system_ui_at_fullscreen">Piilota järjestelmän UI automaattisesti koko näytön mediassa</string>
     <string name="delete_empty_folders">Poista tyhjät kansiot kansion tyhjennyksen jälkeen</string>

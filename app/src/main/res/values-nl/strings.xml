@@ -121,7 +121,7 @@
     <string name="screen_rotation_system_setting">Systeeminstelling</string>
     <string name="screen_rotation_device_rotation">Rotatie van apparaat</string>
     <string name="screen_rotation_aspect_ratio">Afmetingen van bestand</string>
-    <string name="dark_background_at_fullscreen">Donkere achtergrond bij volledige weergave</string>
+    <string name="dark_background_at_fullscreen">Black background and status bar at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">Horizontaal scrollen</string>
     <string name="hide_system_ui_at_fullscreen">Automatisch de statusbalk verbergen in volledige weergave</string>
     <string name="delete_empty_folders">Lege mappen verwijderen na het verwijderen van hun inhoud</string>

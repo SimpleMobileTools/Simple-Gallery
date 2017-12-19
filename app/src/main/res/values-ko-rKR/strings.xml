@@ -121,7 +121,7 @@
     <string name="screen_rotation_system_setting">시스템 설정</string>
     <string name="screen_rotation_device_rotation">디바이스 회전</string>
     <string name="screen_rotation_aspect_ratio">가로세로 비율</string>
-    <string name="dark_background_at_fullscreen">미디어 전체화면 배경 어둡게하기</string>
+    <string name="dark_background_at_fullscreen">Black background and status bar at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">섬네일 수평스크롤</string>
     <string name="hide_system_ui_at_fullscreen">전체화면 모드에서 시스템 UI 숨김</string>
     <string name="delete_empty_folders">콘텐츠 삭제 후 빈폴더 삭제</string>
