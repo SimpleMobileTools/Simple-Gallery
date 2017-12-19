@@ -121,7 +121,7 @@
     <string name="screen_rotation_system_setting">系统设置</string>
     <string name="screen_rotation_device_rotation">设备方向</string>
     <string name="screen_rotation_aspect_ratio">根据长宽比</string>
-    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
+    <string name="black_background_at_fullscreen">全屏时使用黑色背景和状态栏​</string>
     <string name="scroll_thumbnails_horizontally">水平滚动缩略图</string>
     <string name="hide_system_ui_at_fullscreen">全屏时自动隐藏状态栏</string>
     <string name="delete_empty_folders">删除没有内容的空文件夹</string>
