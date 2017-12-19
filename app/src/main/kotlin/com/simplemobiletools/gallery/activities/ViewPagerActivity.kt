@@ -32,7 +32,6 @@ import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REQUEST_EDIT_IMAGE
 import com.simplemobiletools.commons.helpers.REQUEST_SET_AS
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.activities.MediaActivity.Companion.mMedia
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.dialogs.DeleteWithRememberDialog
@@ -70,6 +69,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mIsOrientationLocked = false
 
     private var mStoredUseEnglish = false
+    private var mMediaFiles = ArrayList<Medium>()
 
     companion object {
         var screenWidth = 0
@@ -81,6 +81,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medium)
         setTranslucentNavigation()
+        mMediaFiles = MediaActivity.mMedia.clone() as ArrayList<Medium>
 
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
@@ -139,7 +140,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             config.isThirdPartyIntent = false
 
             if (intent.extras == null || !intent.getBooleanExtra(IS_FROM_GALLERY, false)) {
-                mMedia.clear()
+                mMediaFiles.clear()
             }
         }
     }
@@ -193,8 +194,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         view_pager.onGlobalLayout {
             if (!isActivityDestroyed()) {
-                if (mMedia.isNotEmpty()) {
-                    gotMedia(mMedia)
+                if (mMediaFiles.isNotEmpty()) {
+                    gotMedia(mMediaFiles)
                 }
             }
         }
@@ -424,7 +425,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun getMediaForSlideshow(): Boolean {
-        mSlideshowMedia = mMedia.toMutableList()
+        mSlideshowMedia = mMediaFiles.toMutableList()
         if (!config.slideshowIncludePhotos) {
             mSlideshowMedia = mSlideshowMedia.filter { !it.isImage() } as MutableList
         }
@@ -774,15 +775,15 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         mPrevHashcode = media.hashCode()
-        mMedia = media
+        mMediaFiles = media
         mPos = if (mPos == -1) {
             getPositionInList(media)
         } else {
-            Math.min(mPos, mMedia.size - 1)
+            Math.min(mPos, mMediaFiles.size - 1)
         }
 
         updateActionbarTitle()
-        updatePagerItems(mMedia.toMutableList())
+        updatePagerItems(mMediaFiles.toMutableList())
         invalidateOptionsMenu()
         checkOrientation()
     }
@@ -853,7 +854,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
-    private fun getCurrentMedia() = if (mAreSlideShowMediaVisible) mSlideshowMedia else mMedia
+    private fun getCurrentMedia() = if (mAreSlideShowMediaVisible) mSlideshowMedia else mMediaFiles
 
     private fun getCurrentPath() = getCurrentMedium()!!.path
 

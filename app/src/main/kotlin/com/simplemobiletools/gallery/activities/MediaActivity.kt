@@ -134,6 +134,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         super.onDestroy()
         if (config.showAll)
             config.temporarilyShowHidden = false
+
         mMedia.clear()
     }
 
