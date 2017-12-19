@@ -98,9 +98,6 @@ class MediaFetcher(val context: Context) {
         val config = context.config
         val filterMedia = config.filterMedia
         val showHidden = config.shouldShowHidden
-        val includedFolders = config.includedFolders.map { "${it.trimEnd('/')}/" }
-        val excludedFolders = config.excludedFolders.map { "${it.trimEnd('/')}/" }
-        val noMediaFolders = getNoMediaFolders()
         val isThirdPartyIntent = config.isThirdPartyIntent
 
         cur.use {
@@ -143,40 +140,14 @@ class MediaFetcher(val context: Context) {
                         if (size <= 0L)
                             continue
 
-                        var isExcluded = false
-                        excludedFolders.forEach {
-                            if (path.startsWith(it)) {
-                                isExcluded = true
-                                includedFolders.forEach {
-                                    if (path.startsWith(it)) {
-                                        isExcluded = false
-                                    }
-                                }
-                            }
-                        }
+                        if (!file.exists())
+                            continue
 
-                        if (!isExcluded && !showHidden) {
-                            noMediaFolders.forEach {
-                                if (path.startsWith(it)) {
-                                    isExcluded = true
-                                }
-                            }
-                        }
+                        val dateTaken = cur.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
+                        val dateModified = cur.getIntValue(MediaStore.Images.Media.DATE_MODIFIED) * 1000L
 
-                        if (!isExcluded && !showHidden && path.contains("/.")) {
-                            isExcluded = true
-                        }
-
-                        if (!isExcluded || isThirdPartyIntent) {
-                            if (!file.exists())
-                                continue
-
-                            val dateTaken = cur.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
-                            val dateModified = cur.getIntValue(MediaStore.Images.Media.DATE_MODIFIED) * 1000L
-
-                            val medium = Medium(filename, path, isVideo, dateModified, dateTaken, size)
-                            curMedia.add(medium)
-                        }
+                        val medium = Medium(filename, path, isVideo, dateModified, dateTaken, size)
+                        curMedia.add(medium)
                     } catch (e: Exception) {
                         continue
                     }
@@ -300,32 +271,5 @@ class MediaFetcher(val context: Context) {
         } else {
             "$sortValue ASC"
         }
-    }
-
-    private fun getNoMediaFolders(): ArrayList<String> {
-        val folders = ArrayList<String>()
-        val noMediaCondition = "${MediaStore.Files.FileColumns.MEDIA_TYPE} = ${MediaStore.Files.FileColumns.MEDIA_TYPE_NONE}"
-
-        val uri = MediaStore.Files.getContentUri("external")
-        val columns = arrayOf(MediaStore.Files.FileColumns.DATA)
-        val where = "$noMediaCondition AND ${MediaStore.Files.FileColumns.TITLE} LIKE ?"
-        val args = arrayOf("%$NOMEDIA%")
-        var cursor: Cursor? = null
-
-        try {
-            cursor = context.contentResolver.query(uri, columns, where, args, null)
-            if (cursor?.moveToFirst() == true) {
-                do {
-                    val path = cursor.getString(cursor.getColumnIndex(MediaStore.Files.FileColumns.DATA)) ?: continue
-                    val noMediaFile = File(path)
-                    if (noMediaFile.exists())
-                        folders.add("${noMediaFile.parent}/")
-                } while (cursor.moveToNext())
-            }
-        } finally {
-            cursor?.close()
-        }
-
-        return folders
     }
 }
