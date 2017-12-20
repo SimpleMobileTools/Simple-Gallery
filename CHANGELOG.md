@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 3.0.3 *(2017-12-20)*
+----------------------------
+
+ * Added a new Black & White theme with special handling
+ * Fixed opening MMS attachments
+ * Fixed viewing properties/sharing etc at fullscreen media
+ * Apply "Dark background at fullscreen media" to the status bar too
+ * Misc performance/stability improvements
+
 Version 3.0.2 *(2017-12-17)*
 ----------------------------
 
