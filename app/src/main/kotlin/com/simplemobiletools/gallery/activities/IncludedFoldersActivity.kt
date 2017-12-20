@@ -52,7 +52,9 @@ class IncludedFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
         FilePickerDialog(this, pickFile = false, showHidden = config.shouldShowHidden) {
             config.addIncludedFolder(it)
             updateIncludedFolders()
-            scanPath(it)
+            Thread {
+                scanPath(it)
+            }.start()
         }
     }
 }
