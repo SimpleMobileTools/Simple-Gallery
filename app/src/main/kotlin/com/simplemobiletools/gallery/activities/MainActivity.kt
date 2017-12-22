@@ -443,17 +443,12 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == PICK_MEDIA && resultData != null) {
                 val resultIntent = Intent()
-                if (mIsGetImageContentIntent || mIsGetVideoContentIntent || mIsGetAnyContentIntent) {
+                if (mIsThirdPartyIntent) {
                     when {
                         intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true -> fillExtraOutput(resultData)
                         resultData.extras?.containsKey(PICKED_PATHS) == true -> fillPickedPaths(resultData, resultIntent)
                         else -> fillIntentPath(resultData, resultIntent)
                     }
-                } else if ((mIsPickImageIntent || mIsPickVideoIntent)) {
-                    val path = resultData.data?.path
-                    val uri = getFilePublicUri(File(path), BuildConfig.APPLICATION_ID)
-                    resultIntent.data = uri
-                    resultIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
                 }
 
                 setResult(Activity.RESULT_OK, resultIntent)
@@ -491,7 +486,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             clipData.addItem(ClipData.Item(it))
         }
 
-        resultIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+        resultIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
         resultIntent.clipData = clipData
     }
 
@@ -500,7 +495,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         val uri = getFilePublicUri(File(path), BuildConfig.APPLICATION_ID)
         val type = path.getMimeTypeFromPath()
         resultIntent.setDataAndTypeAndNormalize(uri, type)
-        resultIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+        resultIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
     }
 
     private fun itemClicked(path: String) {
