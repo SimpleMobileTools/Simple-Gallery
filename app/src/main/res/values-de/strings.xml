@@ -139,7 +139,7 @@
 
         Diese Galerie bietet auch für Drittanbieter einige Funktionen an: zum Vorschauen von Bildern / Videos, zum Hinzufügen von Anhängen bei Email-Apps, etc. Sie ist perfekt für den täglichen Gebrauch.
 
-        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+        Die Berechtigung für Fingerabdrücke wird nur benötigt, um die Sichtbarkeit von versteckten Dateien oder die gesamte App zu sperren.
 
         Beinhaltet keine Werbung oder unnötigen Berechtigungen. Sie ist komplett Open Source, verwendete Farben sind anpassbar.
 
