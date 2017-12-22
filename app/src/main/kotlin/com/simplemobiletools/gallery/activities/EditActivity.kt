@@ -1,6 +1,7 @@
 package com.simplemobiletools.gallery.activities
 
 import android.app.Activity
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Bitmap.CompressFormat
 import android.graphics.Point
@@ -143,7 +144,11 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     inputStream?.close()
                     outputStream?.close()
                 }
-                setResult(RESULT_OK)
+
+                Intent().apply {
+                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                    setResult(RESULT_OK, this)
+                }
                 finish()
             } else if (saveUri.scheme == "file") {
                 SaveAsDialog(this, saveUri.path, true) {

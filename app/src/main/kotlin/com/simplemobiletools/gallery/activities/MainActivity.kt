@@ -486,7 +486,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             clipData.addItem(ClipData.Item(it))
         }
 
-        resultIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+        resultIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         resultIntent.clipData = clipData
     }
 
@@ -495,7 +495,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         val uri = getFilePublicUri(File(path), BuildConfig.APPLICATION_ID)
         val type = path.getMimeTypeFromPath()
         resultIntent.setDataAndTypeAndNormalize(uri, type)
-        resultIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+        resultIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
     }
 
     private fun itemClicked(path: String) {
