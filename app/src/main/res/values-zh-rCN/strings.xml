@@ -139,6 +139,8 @@
 
         相册亦提供能让第三方应用预览图片／视频、向电子邮件客户端添加附件等的功能。非常适合日常使用。
 
+        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+
         应用不包含广告与不必要的权限。它是完全开放源代码的，并内置自定义颜色主题。
 
         这个应用只是一系列应用中的一小部份。您可以在 http://www.simplemobiletools.com 找到其余的应用。

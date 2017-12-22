@@ -139,6 +139,8 @@
 
         갤러리는 \'이미지/비디오 미리보기\', \'이메일 클라이언트에서 첨부파일 추가하기\' 등의 기능을 서드파티에 제공합니다. 언제나 완벽하게 사용할 수 있습니다.
 
+        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+
         광고가 포함되어 있거나, 불필요한 권한을 요청하지 않습니다. 이 앱의 모든 소스는 오픈소스이며, 사용자가 직접 애플리케이션의 컬러를 설정 할 수 있습니다.
 
         이 앱은 다양한 시리즈의 모바일앱 중 하나입니다. 나머지는 http://www.simplemobiletools.com 에서 찾아 보실 수 있습니다.

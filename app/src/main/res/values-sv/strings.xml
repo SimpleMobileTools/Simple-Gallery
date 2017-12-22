@@ -139,6 +139,8 @@
 
         Galleriet kan också användas av tredjepartsappar för förhandsgranskning av bilder / videos, bifoga bilagor i e-postklienter etc. Den är perfekt för det dagliga användandet.
 
+        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+
         Innehåller ingen reklam eller onödiga behörigheter. Det är helt och hållet opensource, innehåller anpassningsbara färger.
 
         Detta är bara en app i en serie av appar. Du hittar resten av dem här http://www.simplemobiletools.com

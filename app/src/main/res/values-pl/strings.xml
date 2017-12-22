@@ -135,7 +135,9 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Prosta galeria bez reklam do przeglądania obrazów i filmów.</string>
     <string name="app_long_description">
-        Prosta aplikacja galerii do oglądania obrazów i filmów. Pliki mogą być sortowane według daty, rozmiaru i nazwy, zarówno w porządku rosnącym, jak i malejącym. W zależności od wielkości ekranu, wyświetlane mogą być w wielu kolumnach. Liczbę kolumn można zmieniać za pomocą gestów, a  zdjęcia mogą być powiększane, przycinane, obracane lub ustawiane jako tapeta bezpośrednio z poziomu Prostej Galerii. Kolory aplikacji można dowolnie ustawiać.
+        Prosta aplikacja galerii do oglądania obrazów i filmów. Pliki mogą być sortowane według daty, rozmiaru i nazwy, zarówno w porządku rosnącym, jak i malejącym. W zależności od wielkości ekranu, wyświetlane mogą być w wielu kolumnach. Liczbę kolumn można zmieniać za pomocą gestów, a zdjęcia mogą być powiększane, przycinane, obracane lub ustawiane jako tapeta bezpośrednio z poziomu Prostej Galerii. Kolory aplikacji można dowolnie ustawiać.
+
+        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
 
         Nie zawiera natomiast żadnych reklam i nie potrzebuje całej masy uprawnień. Jest w pełni otwartoźródłowa i w pełni podatna na kolorowanie.
 

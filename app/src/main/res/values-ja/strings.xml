@@ -139,6 +139,8 @@
 
         ギャラリーは、画像やビデオのプレビュー、メールクライアントで添付ファイルの追加など、サードパーティの用途にも提供されます。 毎日の使用には完璧です。
 
+        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+
         広告や不要なアクセス許可は含まれていません。 完全にオープンソースで、ダークテーマも提供しています。
 
         このアプリは、大きな一連のアプリの一つです。 他のアプリは http://www.simplemobiletools.com で見つけることができます
