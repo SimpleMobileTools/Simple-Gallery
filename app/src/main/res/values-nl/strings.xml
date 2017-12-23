@@ -121,7 +121,7 @@
     <string name="screen_rotation_system_setting">Systeeminstelling</string>
     <string name="screen_rotation_device_rotation">Rotatie van apparaat</string>
     <string name="screen_rotation_aspect_ratio">Afmetingen van bestand</string>
-    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
+    <string name="black_background_at_fullscreen">Zwarte achtergrond en statusbalk bij volledige weergave</string>
     <string name="scroll_thumbnails_horizontally">Horizontaal scrollen</string>
     <string name="hide_system_ui_at_fullscreen">Automatisch de statusbalk verbergen in volledige weergave</string>
     <string name="delete_empty_folders">Lege mappen verwijderen na het verwijderen van hun inhoud</string>
@@ -139,7 +139,7 @@
 
         De galerij kan ook worden gebruikt voor het bekijken van afbeeldingen of video\'s vanuit andere apps, om bijlagen toe te voegen in e-mail, etc. Perfect voor dagelijks gebruik.
 
-        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+        De permissie voor het uitlezen van vingerafdrukken is benodigd voor het vergendelen van verborgen items of de gehele app.
 
         Bevat geen advertenties of onnodige permissies. Volledig open-source. Kleuren van de app kunnen worden aangepast.
 
