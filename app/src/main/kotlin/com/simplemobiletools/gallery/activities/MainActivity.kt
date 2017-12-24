@@ -209,13 +209,15 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun removeTempFolder() {
-        val newFolder = File(config.tempFolderPath)
-        if (newFolder.exists() && newFolder.isDirectory) {
-            if (newFolder.list()?.isEmpty() == true) {
-                deleteFile(newFolder, true)
+        if (config.tempFolderPath.isNotEmpty()) {
+            val newFolder = File(config.tempFolderPath)
+            if (newFolder.exists() && newFolder.isDirectory) {
+                if (newFolder.list()?.isEmpty() == true) {
+                    deleteFile(newFolder, true)
+                }
             }
+            config.tempFolderPath = ""
         }
-        config.tempFolderPath = ""
     }
 
     private fun tryloadGallery() {
