@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 3.1.0 *(2017-12-25)*
+----------------------------
+
+ * Fixed some issues around picking contact images
+ * Misc other improvements
+
 Version 3.0.3 *(2017-12-20)*
 ----------------------------
 
