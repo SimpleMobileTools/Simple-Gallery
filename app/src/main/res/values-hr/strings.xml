@@ -44,6 +44,7 @@
     <string name="excluded_activity_placeholder">Izostavljanje direktorija učiniti će ih nevidljivim zajedno s njihovim poddirektorijima samo u Simple Gallery, ali će oni biti vidljivi u drugim aplikacijama.\n\nAko ih želite sakriti od drugih aplikacija također, koristite Sakrij opciju.</string>
     <string name="remove_all">Ukloni sve</string>
     <string name="remove_all_description">Ukloni sve direktorije iz liste izostavljenih? Ovo neće izbrisati direktorije.</string>
+    <string name="manage_hidden_folders">Manage hidden folders</string>
 
     <!-- Include folders -->
     <string name="include_folders">Dodaj direktorije</string>

@@ -44,6 +44,7 @@
     <string name="excluded_activity_placeholder">Vyloučené složky budou spolu s podsložkami vyloučeny jen z Jednoduché Galerie, ostatní aplikace je nadále uvidí.\n\nPokud je chcete skrýt i před ostatními aplikacemi, použijte funkci Skrýt.</string>
     <string name="remove_all">Odstranit všechny</string>
     <string name="remove_all_description">Odstranit všechny složky ze seznamu vyloučených? Tato operace neodstraní obsah složek.</string>
+    <string name="manage_hidden_folders">Manage hidden folders</string>
 
     <!-- Include folders -->
     <string name="include_folders">Přidané složky</string>

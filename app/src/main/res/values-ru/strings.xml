@@ -44,6 +44,7 @@
     <string name="excluded_activity_placeholder">Исключая папки, вы сделаете их скрытыми вместе с подпапками в Simple Gallery, но они будут видны в других приложениях. Если вы хотите скрыть их в других приложениях, используйте функцию Скрыть. </string>
     <string name="remove_all">Удалить всё</string>
     <string name="remove_all_description">Очистить список исключённых? Сами папки не будут удалены.</string>
+    <string name="manage_hidden_folders">Manage hidden folders</string>
 
     <!-- Include folders -->
     <string name="include_folders">Включённые папки</string>

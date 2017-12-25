@@ -44,6 +44,7 @@
     <string name="excluded_activity_placeholder">Excluding folders will make them together with their subfolders hidden just in Simple Gallery, they will still be visible in other applications.\n\nIf you want to hide them from other apps too, use the Hide function.</string>
     <string name="remove_all">Remove all</string>
     <string name="remove_all_description">Remove all folders from the list of excluded? This will not delete the folders.</string>
+    <string name="manage_hidden_folders">Manage hidden folders</string>
 
     <!-- Include folders -->
     <string name="include_folders">Included folders</string>

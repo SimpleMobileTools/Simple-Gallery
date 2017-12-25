@@ -44,6 +44,7 @@
     <string name="excluded_activity_placeholder">Excluír un cartafol xunto cos subcartafoles só terá efecto en Simple Gallery, seguirán sendo visibles en outros aplicativos.\n\nSi tamén quere excluílos en outros aplicativos, utilice a opción Agochar.</string>
     <string name="remove_all">Eliminar todos</string>
     <string name="remove_all_description">Eliminar todos os cartafoles da lista de excluídos? Esto non borrará os cartafoles.</string>
+    <string name="manage_hidden_folders">Manage hidden folders</string>
 
     <!-- Include folders -->
     <string name="include_folders">Cartafoles incluídos</string>
