@@ -133,13 +133,13 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             handleAppPasswordProtection {
                 if (it) {
                     mIsPasswordProtectionPending = false
-                    tryloadGallery()
+                    tryLoadGallery()
                 } else {
                     finish()
                 }
             }
         } else {
-            tryloadGallery()
+            tryLoadGallery()
         }
     }
 
@@ -220,7 +220,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
     }
 
-    private fun tryloadGallery() {
+    private fun tryLoadGallery() {
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
                 if (config.showAll) {
