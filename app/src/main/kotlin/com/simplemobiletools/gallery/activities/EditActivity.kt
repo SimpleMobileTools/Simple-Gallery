@@ -11,6 +11,7 @@ import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.ResizeDialog
 import com.simplemobiletools.gallery.dialogs.SaveAsDialog
@@ -24,17 +25,28 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private val ASPECT_Y = "aspectY"
     private val CROP = "crop"
 
-    lateinit var uri: Uri
-    lateinit var saveUri: Uri
-    var resizeWidth = 0
-    var resizeHeight = 0
-    var isCropIntent = false
-    var isEditingWithThirdParty = false
+    private lateinit var uri: Uri
+    private lateinit var saveUri: Uri
+    private var resizeWidth = 0
+    private var resizeHeight = 0
+    private var isCropIntent = false
+    private var isEditingWithThirdParty = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.view_crop_image)
 
+        handlePermission(PERMISSION_WRITE_STORAGE) {
+            if (it) {
+                initEditActivity()
+            } else {
+                toast(R.string.no_storage_permissions)
+                finish()
+            }
+        }
+    }
+
+    private fun initEditActivity() {
         if (intent.data == null) {
             toast(R.string.invalid_image_path)
             finish()
