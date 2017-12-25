@@ -44,7 +44,7 @@
     <string name="excluded_activity_placeholder">\'Ordner ausblenden\' wird ausgewählte Ordner und deren Unterordner nur in dieser App ausblenden. Andere Apps werden solche Ordner weiterhin anzeigen.\\n\\nWenn Sie Ordner auch für andere Apps verstecken wollen, verwenden Sie dafür die Funktion \'Ordner verstecken\'.</string>
     <string name="remove_all">Alle entfernen</string>
     <string name="remove_all_description">Alle Ordner aus der Ausgeblendet-Liste entfernen? Die Ordner selbst werden nicht gelöscht.</string>
-    <string name="manage_hidden_folders">Manage hidden folders</string>
+    <string name="manage_hidden_folders">Versteckte Ordner verwalten</string>
 
     <!-- Include folders -->
     <string name="include_folders">Einbezogene Ordner</string>
