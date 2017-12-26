@@ -44,7 +44,7 @@
     <string name="excluded_activity_placeholder">Uitsluiten zal mappen en hun submappen verbergen voor deze galerij, maar niet voor andere apps.\n\nAls u de mappen ook in andere apps wilt verbergen, kies dan voor de functie Verbergen.</string>
     <string name="remove_all">Alles verwijderen</string>
     <string name="remove_all_description">Verwijder alles uit de lijst van uitgesloten mappen? Dit zal de mappen zelf niet verwijderen.</string>
-    <string name="manage_hidden_folders">Manage hidden folders</string>
+    <string name="manage_hidden_folders">Verborgen mappen beheren</string>
 
     <!-- Include folders -->
     <string name="include_folders">Toegevoegde mappen</string>
