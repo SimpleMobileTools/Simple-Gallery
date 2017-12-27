@@ -82,7 +82,7 @@
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Простые обои</string>
     <string name="set_as_wallpaper">Установить в качестве обоев</string>
-    <string name="set_as_wallpaper_failed">Установить не удалось</string>
+    <string name="set_as_wallpaper_failed">Не удалось установить</string>
     <string name="set_as_wallpaper_with">Установить в качестве обоев в:</string>
     <string name="no_capable_app_found">Приложение не найдено</string>
     <string name="setting_wallpaper">Установка обоев…</string>
@@ -101,8 +101,8 @@
     <string name="include_gifs">Включать GIF</string>
     <string name="random_order">Случайный порядок</string>
     <string name="use_fade">Эффект затухания</string>
-    <string name="move_backwards">В обратном направлении</string>
-    <string name="loop_slideshow">Закольцевать</string>
+    <string name="move_backwards">В обратном порядке</string>
+    <string name="loop_slideshow">Зациклить</string>
     <string name="slideshow_ended">Слайдшоу завершилось</string>
     <string name="no_media_for_slideshow">Никаких медиафайлов для слайдшоу не было найдено.</string>
 
