@@ -44,6 +44,7 @@
     <string name="excluded_activity_placeholder">Excluir las carpetas las hará junto a sus subcarpetas ocultas sólo en Simple Gallery, estas seguirán siendo visibles en otras aplicaciones.\\n\\nSi desea ocultarlo de otras aplicaciones, utilice la función de Ocultar.</string>
     <string name="remove_all">Eliminar todo</string>
     <string name="remove_all_description">¿Eliminar todas las carpetas de la lista de excluidas? Esto no borrará las carpetas.</string>
+    <string name="manage_hidden_folders">Manage hidden folders</string>
 
     <!-- Include folders -->
     <string name="include_folders">Carpetas incluidas</string>
@@ -111,7 +112,6 @@
     <string name="list">List</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">Mostrar carpetas ocultas</string>
     <string name="autoplay_videos">Reproducir vídeos automáticamente</string>
     <string name="toggle_filename">Cambiar la visibilidad del nombre de archivo</string>
     <string name="loop_videos">Reproducción continua de vídeos</string>
@@ -122,7 +122,7 @@
     <string name="screen_rotation_system_setting">Configuración del sistema</string>
     <string name="screen_rotation_device_rotation">Rotación del dispositivo</string>
     <string name="screen_rotation_aspect_ratio">Relación de aspecto</string>
-    <string name="dark_background_at_fullscreen">Utilizar siempre fondo oscuro en pantalla completa</string>
+    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">Desplazar miniaturas horizontalmente</string>
     <string name="hide_system_ui_at_fullscreen">Ocultar automáticamente la interfaz de usuario del sistema en medios de pantalla completa</string>
     <string name="delete_empty_folders">Eliminar carpetas vacias despues de borrar su contenido</string>
@@ -139,6 +139,8 @@
         Una herramienta sencilla que se puede usar para ver fotos y vídeos. Los elementos se pueden ordenar por fecha, tamaño, nombre tanto ascendente como descendente; se puede hacer zoom en las fotos. Los archivos de medios se muestran en múltiples columnas dependiendo del tamaño de la pantalla, y se puede cambiar el número de columnas mediante gestos. Permite renombrar, compartir, borrar, mover. Las imágenes también se pueden recortar, rotar o usarse como fondo de pantalla directamente desde la aplicación.
 
         Gallery también se ofrece para uso de terceros para previsualizar imágenes/vídeos, agregar adjuntos en clientes de correo, etc. Es perfecta para uso diario.
+
+        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
 
         No contiene publicidad ni permisos innecesarios. Es totalmente libre, proporciona colores personalizables.
 

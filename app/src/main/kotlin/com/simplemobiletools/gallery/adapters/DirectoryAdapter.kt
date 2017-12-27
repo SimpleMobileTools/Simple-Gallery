@@ -61,8 +61,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
 
     override fun prepareActionMode(menu: Menu) {
         menu.apply {
-            findItem(R.id.cab_rename).isVisible = selectedPositions.size == 1
-            findItem(R.id.cab_change_cover_image).isVisible = selectedPositions.size == 1
+            findItem(R.id.cab_rename).isVisible = isOneItemSelected()
+            findItem(R.id.cab_change_cover_image).isVisible = isOneItemSelected()
 
             checkHideBtnVisibility(this)
             checkPinBtnVisibility(this)

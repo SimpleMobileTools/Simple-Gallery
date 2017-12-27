@@ -44,6 +44,7 @@
     <string name="excluded_activity_placeholder">Исключая папки, вы сделаете их скрытыми вместе с подпапками в Simple Gallery, но они будут видны в других приложениях. Если вы хотите скрыть их в других приложениях, используйте функцию Скрыть. </string>
     <string name="remove_all">Удалить всё</string>
     <string name="remove_all_description">Очистить список исключённых? Сами папки не будут удалены.</string>
+    <string name="manage_hidden_folders">Manage hidden folders</string>
 
     <!-- Include folders -->
     <string name="include_folders">Включённые папки</string>
@@ -111,7 +112,6 @@
     <string name="list">Список</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">Показывать скрытые папки</string>
     <string name="autoplay_videos">Воспроизводить видео автоматически</string>
     <string name="toggle_filename">Переключить отображение имени файла</string>
     <string name="loop_videos">Повторять видео</string>
@@ -122,7 +122,7 @@
     <string name="screen_rotation_system_setting">Системные настройки</string>
     <string name="screen_rotation_device_rotation">Поворот устройства</string>
     <string name="screen_rotation_aspect_ratio">Соотношение сторон</string>
-    <string name="dark_background_at_fullscreen">Тёмный фон в полноэкранном режиме</string>
+    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">Прокрутка эскизов по горизонтали</string>
     <string name="hide_system_ui_at_fullscreen">Автоматически скрывать системный интерфейс в полноэкранном режиме</string>
     <string name="delete_empty_folders">Удалять пустые папки после удаления их содержимого</string>
@@ -139,6 +139,8 @@
         Простое приложение для просмотра изображений и видеозаписей. Отображаемые файлы могут быть отсортированы как по возрастанию, так и по убыванию даты, размера или имени. Фотографии можно масштабировать. В зависимости от размера экрана, медиафайлы располагаются в несколько столбцов, можно изменять число столбцов щипком двумя пальцами. Можно переименовывать, удалять, копировать, перемещать и делиться файлами из галереи. В приложении есть возможность обрезать и поворачивать изображения или устанавливать их в качестве обоев.
 
         Галерея идеальна для повседневных задач (предпросмотр фото/видео, добавление вложений в почтовых клиентах и т.д.).
+
+        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
 
         Это приложение не будет показывать рекламу или запрашивать ненужные разрешения. У него полностью открытый исходный код и настраиваемые цвета оформления.
 

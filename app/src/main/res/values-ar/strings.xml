@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">الاستوديو البسيط</string>
+    <string name="app_launcher_name">الاستوديو</string>
+    <string name="edit">تعديل</string>
+    <string name="open_camera">فتح الكاميرا</string>
+    <string name="hidden">(مخفية)</string>
+    <string name="pin_folder">تثبيت المجلد</string>
+    <string name="unpin_folder">ازالة تثبيت الملف</string>
+    <string name="show_all">عرض كل محتوى المجلدات</string>
+    <string name="all_folders">كل المجلدات</string>
+    <string name="folder_view">التبديل إلى عرض المجلد</string>
+    <string name="other_folder">مجلد آخر</string>
+    <string name="show_on_map">عرض على الخريطة</string>
+    <string name="unknown_location">موقع غير معروف</string>
+    <string name="no_map_application">لم يتم العثور على أي تطبيق مع الخرائط</string>
+    <string name="no_camera_app_found">لم يتم العثور على تطبيق كاميرا</string>
+    <string name="increase_column_count">زيادة عدد الأعمدة</string>
+    <string name="reduce_column_count">تقليل عدد الأعمدة</string>
+    <string name="change_cover_image">تغيير صورة الغلاف</string>
+    <string name="select_photo">اختر الصور</string>
+    <string name="use_default">استخدم الافتراضي</string>
+    <string name="volume">الصوت</string>
+    <string name="brightness">السطوع</string>
+    <string name="do_not_ask_again">لا تسأل مرة أخرى في هذه الجلسة</string>
+    <string name="lock_orientation">غلق الاتجاه</string>
+    <string name="unlock_orientation">فتح الاتجاه</string>
+
+    <!-- Filter -->
+    <string name="filter_media">فلتر الميديا</string>
+    <string name="images">الصور</string>
+    <string name="videos">الفديوهات</string>
+    <string name="gifs">الصور المتحركة</string>
+    <string name="no_media_with_filters">لم يتم العثور على ملفات وسائط مع الفلاتر المحددة</string>
+    <string name="change_filters_underlined"><u >تغيير الفلاتر</u></string>
+
+    <!-- Hide / Exclude -->
+    <string name="hide_folder_description">هذه الميزة تخفي المجلد عن طريق إضافة ملف \'.nomedia\' بداخله، فإنه سيتم إخفاء كافة المجلدات الفرعية أيضا. يمكنك رؤيتها عن طريق تبديل الخيار \"إظهار العناصر المخفية\" في الإعدادات. استمر؟</string>
+    <string name="exclude">استبعد</string>
+    <string name="excluded_folders">المجلدات المستبعدة</string>
+    <string name="manage_excluded_folders">ادارة المجلدات المستبعدة</string>
+    <string name="exclude_folder_description">سيؤدي هذا إلى استبعاد التحديد مع مجلداته الفرعية من الاستوديو فقط. يمكنك إدارة المجلدات المستبعدة في الإعدادات</string>
+    <string name="exclude_folder_parent">هل تريد استبعاد أحد الوالدين بدلا من ذلك؟</string>
+    <string name="excluded_activity_placeholder">باستثناء المجلدات سيجعلها جنبا إلى جنب مع المجلدات الفرعية مخبأة فقط في الاستوديو ، فإنها لا تزال مرئية في تطبيقات أخرى.\n
+  \n
+  إذا كنت تريد إخفاءها من تطبيقات أخرى أيضا، استخدم ميزة الإخفاء</string>
+    <string name="remove_all">حذف الكل</string>
+    <string name="remove_all_description">هل تريد إزالة جميع المجلدات من القائمة المستبعدة؟ لن يؤدي هذا إلى حذف المجلدات</string>
+    <string name="manage_hidden_folders">Manage hidden folders</string>
+
+    <!-- Include folders -->
+    <string name="include_folders">المجلدات المضمنة</string>
+    <string name="manage_included_folders">إدارة المجلدات المضمنة</string>
+    <string name="add_folder">اضافة مجلد</string>
+    <string name="included_activity_placeholder">إذا كان لديك بعض المجلدات التي تحتوي على الملتيميديا ، ولكن لم يتم التعرف عليها من قبل التطبيق، يمكنك إضافتها يدويا هنا.\n
+  \n
+  لن تؤدي إضافة بعض العناصر هنا إلى استبعاد أي مجلد آخر.</string>
+
+    <!-- Resizing -->
+    <string name="resize">تحجيم</string>
+    <string name="resize_and_save">تغيير حجم التحديد وحفظ</string>
+    <string name="width">العرض</string>
+    <string name="height">الارتفاع</string>
+    <string name="keep_aspect_ratio">إبقاء نسبة القياس</string>
+    <string name="invalid_values">الرجاء إدخال درجة دقة صحيحة</string>
+
+    <!-- Editor -->
+    <string name="editor">تعديل</string>
+    <string name="save">حفظ</string>
+    <string name="rotate">التدوير</string>
+    <string name="path">المسار</string>
+    <string name="invalid_image_path">مسار صورة غير صحيح</string>
+    <string name="image_editing_failed">فشل تعديل الصورة</string>
+    <string name="edit_image_with">تعديل الصورة باستخدام:</string>
+    <string name="no_editor_found">لم يتم العثور على أي محرر للصور</string>
+    <string name="unknown_file_location">موقع ملف غير معروف</string>
+    <string name="error_saving_file">تعذر الكتابة فوق الملف المصدر</string>
+    <string name="rotate_left">تدوير لليسار</string>
+    <string name="rotate_right">تدوير لليمين</string>
+    <string name="rotate_one_eighty">تدوير 180º</string>
+    <string name="flip">قلب</string>
+    <string name="flip_horizontally">قلب أفقيا</string>
+    <string name="flip_vertically">قلب عموديا</string>
+    <string name="edit_with">تعديل باستخدام</string>
+
+    <!-- Set wallpaper -->
+    <string name="simple_wallpaper">خلفية بسيطة</string>
+    <string name="set_as_wallpaper">تعيين كخلفية الشاشة</string>
+    <string name="set_as_wallpaper_failed">فشل الإعداد كخلفية</string>
+    <string name="set_as_wallpaper_with">تعيين كخلفية بواسطة:</string>
+    <string name="no_capable_app_found">لم يتم العثور على أي تطبيق لأداء المهمة</string>
+    <string name="setting_wallpaper">... جار تعيين الخلفية ...</string>
+    <string name="wallpaper_set_successfully">تم تعيبن الخلفية بنجاح</string>
+    <string name="portrait_aspect_ratio">صورة نسبة العرض إلى الارتفاع</string>
+    <string name="landscape_aspect_ratio">نسبة العرض إلى الارتفاع في المناظر الطبيعية</string>
+    <string name="home_screen">الشاشة الرئيسية</string>
+    <string name="lock_screen">شاشة القفل</string>
+    <string name="home_and_lock_screen">الرئيسية وشاشة القفل</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">عرض الشرائح</string>
+    <string name="interval">الفاصل الزمني (بالثواني):</string>
+    <string name="include_photos">تضمين الصور</string>
+    <string name="include_videos">تضمين الفديو</string>
+    <string name="include_gifs">تضمين GIF</string>
+    <string name="random_order">ترتيب عشوائي</string>
+    <string name="use_fade">استخدام تاثير التلاشي</string>
+    <string name="move_backwards">ارجع للخلف</string>
+    <string name="loop_slideshow">حلقة عرض الشرائح</string>
+    <string name="slideshow_ended">انتهى عرض الشرائح</string>
+    <string name="no_media_for_slideshow">لم يتم العثور على وسائط لعرض الشرائح</string>
+
+    <!-- View types -->
+    <string name="change_view_type">تغيير طريقة العرض</string>
+    <string name="grid">الشبكة</string>
+    <string name="list">القائمة</string>
+
+    <!-- Settings -->
+    <string name="autoplay_videos">تشغيل الفديوهات تلقائيا</string>
+    <string name="toggle_filename">تبديل رؤية اسم الملف</string>
+    <string name="loop_videos">حلقة الفيديو</string>
+    <string name="animate_gifs">عرض صور GIF المتحركة في الصور المصغرة</string>
+    <string name="max_brightness">أقصى سطوع عند عرض الوسائط</string>
+    <string name="crop_thumbnails">قص الصور المصغرة الى مستطيلات</string>
+    <string name="screen_rotation_by">تدوير وسائط ملء الشاشة بواسطة</string>
+    <string name="screen_rotation_system_setting">اعدادات النظام</string>
+    <string name="screen_rotation_device_rotation">تدوير الجهاز</string>
+    <string name="screen_rotation_aspect_ratio">الابعاد</string>
+    <string name="black_background_at_fullscreen">اجعل الخلفية وشريط الحالة باللون الاسود عند عرض المحتوى في كامل الشاشة</string>
+    <string name="scroll_thumbnails_horizontally">قم بتمرير الصور المصغرة أفقيا</string>
+    <string name="hide_system_ui_at_fullscreen">إخفاء واجهة النظام تلقائيا عند العرض في وضع ملء الشاشة</string>
+    <string name="delete_empty_folders">احذف المجلدات الفارغة بعد حذف محتواها</string>
+    <string name="allow_video_gestures">السماح بالتحكم في صوت الفيديو والسطوع  بالإيماءات العمودية</string>
+    <string name="show_media_count">إظهار عدد لوسائط المجلد على طريقة العرض الرئيسية</string>
+    <string name="replace_share_with_rotate">استبدال خيار المشاركة مع خيار  تدوير في القائمة ملء الشاشة</string>
+    <string name="show_extended_details">عرض تفاصيل موسعة على وسائط ملء الشاشة</string>
+    <string name="manage_extended_details">إدارة المجلدات المستبعدة</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">استوديو لعرض الصور والفيديو بدون اعلانات.</string>
+    <string name="app_long_description">أداة بسيطة تستخدام لعرض الصور ومقاطع الفيديو. يمكن فرز العناصر حسب التاريخ والحجم والاسم على حد سواء تصاعدي أو تنازلي، يمكن تكبير الصور. يتم عرض ملفات الوسائط في أعمدة متعددة اعتمادا على حجم الشاشة، يمكنك تغيير عدد الأعمدة عبر إيماءاة القرص . يمكن إعادة تسميته، مشاركة، حذف، نسخ، نقل. ويمكن أيضا اقتصاص الصور، استدارة، او قلب أو تعيين كخلفية مباشرة من التطبيق. يتم عرض المحتوى أيضا للاستخدام طرف ثالث لمعاينة الصور / الفيديو، إضافة المرفقات في برامج البريد الإلكتروني الخ انه مثالي للاستخدام اليومي. لا يحتوي على إعلانات أو أذونات لا حاجة لها. مفتوح المصدر بشكل كلي ، ويوفر الألوان للتخصيص. هذا التطبيق هو مجرد قطعة واحدة من سلسلة أكبر من التطبيقات. يمكنك العثور على بقيتهم هنا\n
+  http://www.simplemobiletools.com</string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>

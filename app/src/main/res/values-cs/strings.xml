@@ -35,7 +35,7 @@
     <string name="change_filters_underlined"><u>Change filters</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Tato funkce skryje složku, včetně podsložek, přidáním souboru \'.nomedia\'. Zobrazíte je zvolením možnosti \'Zobrazit skryté složky\' v nastavení. Pokračovat?</string>
+    <string name="hide_folder_description">Tato funkce skryje složku, včetně podsložek, přidáním souboru \'.nomedia\'. Zobrazíte je zvolením možnosti \'Zobrazit skryté položky\' v nastavení. Pokračovat?</string>
     <string name="exclude">Vyloučit</string>
     <string name="excluded_folders">Vyloučené složky</string>
     <string name="manage_excluded_folders">Spravovat vyloučené složky</string>
@@ -44,6 +44,7 @@
     <string name="excluded_activity_placeholder">Vyloučené složky budou spolu s podsložkami vyloučeny jen z Jednoduché Galerie, ostatní aplikace je nadále uvidí.\n\nPokud je chcete skrýt i před ostatními aplikacemi, použijte funkci Skrýt.</string>
     <string name="remove_all">Odstranit všechny</string>
     <string name="remove_all_description">Odstranit všechny složky ze seznamu vyloučených? Tato operace neodstraní obsah složek.</string>
+    <string name="manage_hidden_folders">Manage hidden folders</string>
 
     <!-- Include folders -->
     <string name="include_folders">Přidané složky</string>
@@ -111,7 +112,6 @@
     <string name="list">List</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">Zobrazit skryté média</string>
     <string name="autoplay_videos">Automaticky přehrávat videa</string>
     <string name="toggle_filename">Přepnout viditelnost názvů souborů</string>
     <string name="loop_videos">Přehrávat videa ve smyčce</string>
@@ -122,7 +122,7 @@
     <string name="screen_rotation_system_setting">System setting</string>
     <string name="screen_rotation_device_rotation">Device rotation</string>
     <string name="screen_rotation_aspect_ratio">Aspect ratio</string>
-    <string name="dark_background_at_fullscreen">Dark background at fullscreen media</string>
+    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
     <string name="hide_system_ui_at_fullscreen">Automatically hide system UI at fullscreen media</string>
     <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
@@ -139,6 +139,8 @@
         Jednoduchý nástroj použitelný na prohlížení obrázků a videí. Položky mohou být seřazeny podle data, velikosti či názvu vzestupně i sestupně. Obrázky lze přiblížit. Položky jsou zobrazeny ve více sloupcích v závislosti na velikosti displeje, počet sloupců je možné měnit gestem. Soubory můžete přejmenovávat, sdílet, mazat, kopírovat i přesouvat. Obrázky lze ořezávat, otáčen, nebo nastavit jako tapetu přímo v aplikaci.
 
         Galerie je též k disposici ostatním aplikacím za účelem zobrazení fotografií a videí a přidávání příloh v e-mailových klientech. Je vhodná ke každodennímu použití.
+
+        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
 
         Neobsahuje žádné reklamy ani nepotřebná oprávnění a má otevřený zdrojový kód. Poskytuje možnost změny barev rozhraní.
 

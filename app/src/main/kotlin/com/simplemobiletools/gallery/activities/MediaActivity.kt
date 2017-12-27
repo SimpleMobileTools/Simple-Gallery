@@ -134,6 +134,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         super.onDestroy()
         if (config.showAll)
             config.temporarilyShowHidden = false
+
         mMedia.clear()
     }
 
@@ -360,7 +361,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun deleteDirectoryIfEmpty() {
         val file = File(mPath)
-        if (config.deleteEmptyFolders && !file.isDownloadsFolder() && file.isDirectory && file.listFiles()?.isEmpty() == true) {
+        if (config.deleteEmptyFolders && !file.isDownloadsFolder() && file.isDirectory && file.list()?.isEmpty() == true) {
             deleteFile(file, true)
         }
     }
@@ -378,6 +379,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
 
         mLoadedInitialPhotos = true
+        mCurrAsyncTask?.stopFetching()
         mCurrAsyncTask = GetMediaAsynctask(applicationContext, mPath, mIsGetVideoIntent, mIsGetImageIntent, mShowAll) {
             gotMedia(it)
         }
@@ -537,7 +539,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun gotMedia(media: ArrayList<Medium>, isFromCache: Boolean = false) {
-        mLatestMediaId = getLatestMediaId()
+        Thread {
+            mLatestMediaId = getLatestMediaId()
+        }.start()
+
         mIsGettingMedia = false
         media_refresh_layout.isRefreshing = false
 

@@ -35,7 +35,7 @@
     <string name="change_filters_underlined"><u>Change filters</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden folders\' option in Settings. Continue?</string>
+    <string name="hide_folder_description">This function hides the folder by adding a \'.nomedia\' file into it, it will hide all subfolders too. You can see them by toggling the \'Show hidden items\' option in Settings. Continue?</string>
     <string name="exclude">Exclude</string>
     <string name="excluded_folders">Excluded folders</string>
     <string name="manage_excluded_folders">Manage excluded folders</string>
@@ -44,6 +44,7 @@
     <string name="excluded_activity_placeholder">Excluding folders will make them together with their subfolders hidden just in Simple Gallery, they will still be visible in other applications.\n\nIf you want to hide them from other apps too, use the Hide function.</string>
     <string name="remove_all">Remove all</string>
     <string name="remove_all_description">Remove all folders from the list of excluded? This will not delete the folders.</string>
+    <string name="manage_hidden_folders">Manage hidden folders</string>
 
     <!-- Include folders -->
     <string name="include_folders">Included folders</string>
@@ -111,7 +112,6 @@
     <string name="list">List</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">Show hidden media</string>
     <string name="autoplay_videos">Play videos automatically</string>
     <string name="toggle_filename">Toggle filename visibility</string>
     <string name="loop_videos">Loop videos</string>
@@ -122,7 +122,7 @@
     <string name="screen_rotation_system_setting">System setting</string>
     <string name="screen_rotation_device_rotation">Device rotation</string>
     <string name="screen_rotation_aspect_ratio">Aspect ratio</string>
-    <string name="dark_background_at_fullscreen">Dark background at fullscreen media</string>
+    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
     <string name="hide_system_ui_at_fullscreen">Automatically hide system UI at fullscreen media</string>
     <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
@@ -139,6 +139,8 @@
         A simple tool usable for viewing photos and videos. Items can be sorted by date, size, name both ascending or descending, photos can be zoomed in. Media files are shown in multiple columns depending on the size of the display, you can change the column count by pinch gestures. They can be renamed, shared, deleted, copied, moved. Images can also be cropped, rotated, flipped or set as Wallpaper directly from the app.
 
         The Gallery is also offered for third party usage for previewing images / videos, adding attachments at email clients etc. It\'s perfect for everyday usage.
+
+        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
 
         Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
 

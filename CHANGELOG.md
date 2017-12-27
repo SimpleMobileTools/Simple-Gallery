@@ -1,6 +1,27 @@
 Changelog
 ==========
 
+Version 3.1.0 *(2017-12-25)*
+----------------------------
+
+ * Fixed some issues around picking contact images
+ * Misc other improvements
+
+Version 3.0.3 *(2017-12-20)*
+----------------------------
+
+ * Added a new Black & White theme with special handling
+ * Fixed opening MMS attachments
+ * Fixed viewing properties/sharing etc at fullscreen media
+ * Apply "Dark background at fullscreen media" to the status bar too
+ * Misc performance/stability improvements
+
+Version 3.0.2 *(2017-12-17)*
+----------------------------
+
+ * Properly display email attachments
+ * Some crashfixes
+
 Version 3.0.1 *(2017-12-06)*
 ----------------------------
 

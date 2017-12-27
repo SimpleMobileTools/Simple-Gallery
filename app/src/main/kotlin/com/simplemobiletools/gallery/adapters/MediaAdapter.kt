@@ -61,8 +61,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
     override fun prepareActionMode(menu: Menu) {
         menu.apply {
-            findItem(R.id.cab_rename).isVisible = selectedPositions.size == 1
-            findItem(R.id.cab_open_with).isVisible = selectedPositions.size == 1
+            findItem(R.id.cab_rename).isVisible = isOneItemSelected()
+            findItem(R.id.cab_open_with).isVisible = isOneItemSelected()
             findItem(R.id.cab_confirm_selection).isVisible = isAGetIntent && allowMultiplePicks && selectedPositions.size > 0
 
             checkHideBtnVisibility(this)

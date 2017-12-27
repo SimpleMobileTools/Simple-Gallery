@@ -44,6 +44,7 @@
     <string name="excluded_activity_placeholder">Uitsluiten zal mappen en hun submappen verbergen voor deze galerij, maar niet voor andere apps.\n\nAls u de mappen ook in andere apps wilt verbergen, kies dan voor de functie Verbergen.</string>
     <string name="remove_all">Alles verwijderen</string>
     <string name="remove_all_description">Verwijder alles uit de lijst van uitgesloten mappen? Dit zal de mappen zelf niet verwijderen.</string>
+    <string name="manage_hidden_folders">Verborgen mappen beheren</string>
 
     <!-- Include folders -->
     <string name="include_folders">Toegevoegde mappen</string>
@@ -111,7 +112,6 @@
     <string name="list">Lijst</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">Verborgen mappen tonen</string>
     <string name="autoplay_videos">Video\'s automatisch afspelen</string>
     <string name="toggle_filename">Bestandsnamen tonen</string>
     <string name="loop_videos">Video\'s herhalen</string>
@@ -122,7 +122,7 @@
     <string name="screen_rotation_system_setting">Systeeminstelling</string>
     <string name="screen_rotation_device_rotation">Rotatie van apparaat</string>
     <string name="screen_rotation_aspect_ratio">Afmetingen van bestand</string>
-    <string name="dark_background_at_fullscreen">Donkere achtergrond bij volledige weergave</string>
+    <string name="black_background_at_fullscreen">Zwarte achtergrond en statusbalk bij volledige weergave</string>
     <string name="scroll_thumbnails_horizontally">Horizontaal scrollen</string>
     <string name="hide_system_ui_at_fullscreen">Automatisch de statusbalk verbergen in volledige weergave</string>
     <string name="delete_empty_folders">Lege mappen verwijderen na het verwijderen van hun inhoud</string>
@@ -139,6 +139,8 @@
         Een eenvoudige galerij voor afbeeldingen en video\'s. Bestanden kunnen worden gesorteerd op datum, grootte en naam. Afbeeldingen kunnen in- en uitgezoomd worden. Bestanden worden afhankelijk van de schermgrootte weergegeven in kolommen, waarbij het aantal kolommen kan worden aangepast via knijpgebaren. Bestanden kunnen worden gedeeld, hernoemd, gekopieerd, verplaatst en verwijderd. Afbeeldingen kunnen ook worden bijgesneden, gedraaid, gekanteld of direct vanuit de app als achtergrond worden ingesteld.
 
         De galerij kan ook worden gebruikt voor het bekijken van afbeeldingen of video\'s vanuit andere apps, om bijlagen toe te voegen in e-mail, etc. Perfect voor dagelijks gebruik.
+
+        De permissie voor het uitlezen van vingerafdrukken is benodigd voor het vergendelen van verborgen items of de gehele app.
 
         Bevat geen advertenties of onnodige permissies. Volledig open-source. Kleuren van de app kunnen worden aangepast.
 

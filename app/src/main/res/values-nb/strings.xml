@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Simple Gallery</string>
+    <string name="app_launcher_name">Galleri</string>
+    <string name="edit">Rediger</string>
+    <string name="open_camera">Åpne kamera</string>
+    <string name="hidden">(skjult)</string>
+    <string name="pin_folder">Fest mappe</string>
+    <string name="unpin_folder">Løsne mappe</string>
+    <string name="show_all">Vis alle mappers innhold</string>
+    <string name="all_folders">Alle mapper</string>
+    <string name="folder_view">Skift til mappevisning</string>
+    <string name="other_folder">Annen mappe</string>
+    <string name="show_on_map">Vis på kart</string>
+    <string name="unknown_location">Ukjent plassering</string>
+    <string name="no_map_application">Ingen app med kart er funnet</string>
+    <string name="no_camera_app_found">Ingen kamera-app er funnet</string>
+    <string name="increase_column_count">Øk antall kolonner</string>
+    <string name="reduce_column_count">Reduser antall kolonner</string>
+    <string name="change_cover_image">Endre omslagsbilde</string>
+    <string name="select_photo">Velg foto</string>
+    <string name="use_default">Bruk standard</string>
+    <string name="volume">Volum</string>
+    <string name="brightness">Lysstyrke</string>
+    <string name="do_not_ask_again">Ikke spør igjen i denne økten</string>
+    <string name="lock_orientation">Lås skjermorientering</string>
+    <string name="unlock_orientation">Lås opp skjermorientering</string>
+
+    <!-- Filter -->
+    <string name="filter_media">Filtrer media</string>
+    <string name="images">Bilder</string>
+    <string name="videos">Videoer</string>
+    <string name="gifs">GIF-bilder</string>
+    <string name="no_media_with_filters">Ingen media-filer er funnet med de valgte filtrene.</string>
+    <string name="change_filters_underlined"><u>Endre filtere</u></string>
+
+    <!-- Hide / Exclude -->
+    <string name="hide_folder_description">Denne funksjonen skjuler mappen ved å legge til filen \'.nomedia\' i den. Alle undermapper blir også skjult. Du kan se dem ved å aktivere alternativet \'Vis skjulte elementer\' i innstillinger. Fortsette?</string>
+    <string name="exclude">Ekskluder</string>
+    <string name="excluded_folders">Ekskluderte mapper</string>
+    <string name="manage_excluded_folders">Håndter ekskluderte mapper</string>
+    <string name="exclude_folder_description">Dette vil ekskludere valgte sammen med undermapper, bare fra Simple Gallery. Ekskluderte mapper kan håndteres i Innstillinger.</string>
+    <string name="exclude_folder_parent">Ekskludere en overordnet isteden?</string>
+    <string name="excluded_activity_placeholder">Ekskludering av mapper vil gjøre dem sammen med deres undermapper, skjulte bare i denne appen. De vil fortsatt være synlige i andre apper.\n\nHvis du vil skjule dem fra andre apper, bruk Skjul-funksjonen.</string>
+    <string name="remove_all">Fjern alle</string>
+    <string name="remove_all_description">Fjerne alle mapper fra listen av ekskluderte? Dette sletter ikke mappene.</string>
+    <string name="manage_hidden_folders">Manage hidden folders</string>
+
+    <!-- Include folders -->
+    <string name="include_folders">Inkluderte mapper</string>
+    <string name="manage_included_folders">Håndter inkluderte mapper</string>
+    <string name="add_folder">Legg til mappe</string>
+    <string name="included_activity_placeholder">Hvis du har noen mapper som inneholder media, men ikke ble gjenkjent av appen, kan du legge dem til manuelt her.\n\nÅ legge til noen elementer her, ekskluderer ikke noen annen mappe.</string>
+
+    <!-- Resizing -->
+    <string name="resize">Endre størrelse</string>
+    <string name="resize_and_save">Endre størrelse og lagre</string>
+    <string name="width">Bredde</string>
+    <string name="height">Høyde</string>
+    <string name="keep_aspect_ratio">Behold sideforhold</string>
+    <string name="invalid_values">Oppfør en gyldig oppløsning</string>
+
+    <!-- Editor -->
+    <string name="editor">Redigering</string>
+    <string name="save">Lagre</string>
+    <string name="rotate">Roter</string>
+    <string name="path">Bane</string>
+    <string name="invalid_image_path">Ugyldig bildebane</string>
+    <string name="image_editing_failed">Bilderedigering feilet</string>
+    <string name="edit_image_with">Rediger bilde med:</string>
+    <string name="no_editor_found">Ingen bilderedigeringsapp funnet</string>
+    <string name="unknown_file_location">Ukjent filplassering</string>
+    <string name="error_saving_file">Kunne ikke overskrive kildefilen</string>
+    <string name="rotate_left">Roter til venstre</string>
+    <string name="rotate_right">Roter til høyre</string>
+    <string name="rotate_one_eighty">Roter med 180º</string>
+    <string name="flip">Speilvend</string>
+    <string name="flip_horizontally">Speilvend horisontalt</string>
+    <string name="flip_vertically">Speilvend vertikalt</string>
+    <string name="edit_with">Rediger med</string>
+
+    <!-- Set wallpaper -->
+    <string name="simple_wallpaper">Bakgrunnsbilde</string>
+    <string name="set_as_wallpaper">Sett som bakgrunnsbilde</string>
+    <string name="set_as_wallpaper_failed">Å sette som bakgrunnsbilde feilet</string>
+    <string name="set_as_wallpaper_with">Sett som bakgrunnsbilde med:</string>
+    <string name="no_capable_app_found">Ingen app i stand til det er funnet</string>
+    <string name="setting_wallpaper">Stiller inn bakgrunnsbilde&#8230;</string>
+    <string name="wallpaper_set_successfully">Bakgrunnsbilde vellykket stilt inn</string>
+    <string name="portrait_aspect_ratio">Portrett-sideforhold</string>
+    <string name="landscape_aspect_ratio">Landskap-sideforhold</string>
+    <string name="home_screen">Startskjerm</string>
+    <string name="lock_screen">Låseskjerm</string>
+    <string name="home_and_lock_screen">Start- og låseskjerm</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">Lysbildeshow</string>
+    <string name="interval">Intervall (sekunder):</string>
+    <string name="include_photos">Inkluder bilder</string>
+    <string name="include_videos">Inkluder videoer</string>
+    <string name="include_gifs">Inkluder GIF-bilder</string>
+    <string name="random_order">Tilfeldig rekkefølge</string>
+    <string name="use_fade">Bruk toningseffekt</string>
+    <string name="move_backwards">Avspill bakover</string>
+    <string name="loop_slideshow">Gjenta lysbildeshow</string>
+    <string name="slideshow_ended">Lysbildeshowet er slutt</string>
+    <string name="no_media_for_slideshow">Ingen media for lysbildeshowet er funnet</string>
+
+    <!-- View types -->
+    <string name="change_view_type">Endre visningstype</string>
+    <string name="grid">Rutenett</string>
+    <string name="list">Liste</string>
+
+    <!-- Settings -->
+    <string name="autoplay_videos">Avspill videoer automatisk</string>
+    <string name="toggle_filename">Vis/skjul filnavn</string>
+    <string name="loop_videos">Gjenta videoer</string>
+    <string name="animate_gifs">Animert GIF i minibildevisning</string>
+    <string name="max_brightness">Maks lysstyrke ved mediavisning</string>
+    <string name="crop_thumbnails">Beskjær minibilder i kvadrater</string>
+    <string name="screen_rotation_by">Roter media etter</string>
+    <string name="screen_rotation_system_setting">Systeminnstilling</string>
+    <string name="screen_rotation_device_rotation">Enhetsrotasjon</string>
+    <string name="screen_rotation_aspect_ratio">Sideforhold</string>
+    <string name="black_background_at_fullscreen">Svart bakgrunn og statuslinje i mediavisningen</string>
+    <string name="scroll_thumbnails_horizontally">Horisontal rulling av minibilder</string>
+    <string name="hide_system_ui_at_fullscreen">Skjul automatisk systemlinjer ved mediavisning</string>
+    <string name="delete_empty_folders">Slett tomme mapper etter sletting av deres innhold</string>
+    <string name="allow_video_gestures">Tillat å styre videovolum og lysstyrke med vertikale bevegelser</string>
+    <string name="show_media_count">Vis mediaantallet i mapper på hovedvisningen</string>
+    <string name="replace_share_with_rotate">Erstatt Del med Roter i meny ved mediavisning</string>
+    <string name="show_extended_details">Vis flere detaljer i mediavisningen</string>
+    <string name="manage_extended_details">Velg detaljer</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">A gallery for viewing photos and videos without ads.</string>
+    <string name="app_long_description">
+        A simple tool usable for viewing photos and videos. Items can be sorted by date, size, name both ascending or descending, photos can be zoomed in. Media files are shown in multiple columns depending on the size of the display, you can change the column count by pinch gestures. They can be renamed, shared, deleted, copied, moved. Images can also be cropped, rotated, flipped or set as Wallpaper directly from the app.
+
+        The Gallery is also offered for third party usage for previewing images / videos, adding attachments at email clients etc. It\'s perfect for everyday usage.
+
+        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+
+        Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
+
+        This app is just one piece of a bigger series of apps. You can find the rest of them at http://www.simplemobiletools.com
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>

@@ -44,6 +44,7 @@
     <string name="excluded_activity_placeholder">此目录及其子目录中的媒体将不会在“简约图库”中显示，但是其它应用可以访问。如果您想对其它应用隐藏，请使用隐藏功能。</string>
     <string name="remove_all">移除全部</string>
     <string name="remove_all_description">是否删除排除列表中的所有项目？此操作不会删除文件夹本身。</string>
+    <string name="manage_hidden_folders">管理隐藏目录</string>
 
     <!-- Include folders -->
     <string name="include_folders">包含目录</string>
@@ -111,7 +112,6 @@
     <string name="list">列表</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">显示所有</string>
     <string name="autoplay_videos">自动播放</string>
     <string name="toggle_filename">显示文件名</string>
     <string name="loop_videos">循环播放视频</string>
@@ -122,7 +122,7 @@
     <string name="screen_rotation_system_setting">系统设置</string>
     <string name="screen_rotation_device_rotation">设备方向</string>
     <string name="screen_rotation_aspect_ratio">根据长宽比</string>
-    <string name="dark_background_at_fullscreen">全屏时黑色背景</string>
+    <string name="black_background_at_fullscreen">全屏时使用黑色背景和状态栏​</string>
     <string name="scroll_thumbnails_horizontally">水平滚动缩略图</string>
     <string name="hide_system_ui_at_fullscreen">全屏时自动隐藏状态栏</string>
     <string name="delete_empty_folders">删除没有内容的空文件夹</string>
@@ -139,6 +139,8 @@
         一个观看照片和视频的简单实用工具。项目可以根据日期、大小、名称来递增或递减排序，照片可以缩放。媒体文件根据屏幕的大小排列在多个方格中，您可以使用缩放手势来调整每一列的方格数量。媒体文件可以被重命名、分享、删除、复制以及移动。照片亦可被剪切、旋转或是直接在应用中设为壁纸。
 
         相册亦提供能让第三方应用预览图片／视频、向电子邮件客户端添加附件等的功能。非常适合日常使用。
+
+        这个应用需要指纹权限来锁定隐藏的项目或是整个应用。
 
         应用不包含广告与不必要的权限。它是完全开放源代码的，并内置自定义颜色主题。
 

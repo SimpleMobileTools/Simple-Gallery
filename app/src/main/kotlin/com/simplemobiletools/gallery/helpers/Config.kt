@@ -156,7 +156,7 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(DISPLAY_FILE_NAMES, false)
         set(display) = prefs.edit().putBoolean(DISPLAY_FILE_NAMES, display).apply()
 
-    var darkBackground: Boolean
+    var blackBackground: Boolean
         get() = prefs.getBoolean(DARK_BACKGROUND, false)
         set(darkBackground) = prefs.edit().putBoolean(DARK_BACKGROUND, darkBackground).apply()
 

@@ -44,6 +44,7 @@
     <string name="excluded_activity_placeholder">Izostavljanje direktorija učiniti će ih nevidljivim zajedno s njihovim poddirektorijima samo u Simple Gallery, ali će oni biti vidljivi u drugim aplikacijama.\n\nAko ih želite sakriti od drugih aplikacija također, koristite Sakrij opciju.</string>
     <string name="remove_all">Ukloni sve</string>
     <string name="remove_all_description">Ukloni sve direktorije iz liste izostavljenih? Ovo neće izbrisati direktorije.</string>
+    <string name="manage_hidden_folders">Manage hidden folders</string>
 
     <!-- Include folders -->
     <string name="include_folders">Dodaj direktorije</string>
@@ -111,7 +112,6 @@
     <string name="list">Lista</string>
 
     <!-- Settings -->
-    <string name="show_hidden_media">Prikaži skrivene datoteke</string>
     <string name="autoplay_videos">Automatsko pokretanje videa</string>
     <string name="toggle_filename">Uključi prikaz naziva datoteka</string>
     <string name="loop_videos">Ponavljanje videa</string>
@@ -122,7 +122,7 @@
     <string name="screen_rotation_system_setting">Postavke sustava</string>
     <string name="screen_rotation_device_rotation">Rotacija uređaja</string>
     <string name="screen_rotation_aspect_ratio">Omjer slike</string>
-    <string name="dark_background_at_fullscreen">Crna pozadina pri pregledu datoteka</string>
+    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">Listaj sličice horizontalno</string>
     <string name="hide_system_ui_at_fullscreen">Automatski sakrij UI sustava pri pregledu datoteka</string>
     <string name="delete_empty_folders">Izbriži prazne direktorije nakon brisanja njihovog sadržaja</string>
@@ -139,6 +139,8 @@
         Jednostavan alat za pregled slika, GIFova i videa. Datoteke možete sortirati po datumu, veličini, imenu i to uzlazno i silazno. Također možete zumirati slike. Medijski sadržaj se prikazuje u višestrukim stupcima ovisno o veličini ekrana, a vi samo možete birati broj stupaca s gestom štipkanja. Možete preimenovati, dijeliti, brisati, kopirati, premještati datoteke. Slike također možete izrezati, rotirati ili postaviki kao pozadinu ekrana, odmah iz aplikacije.
 
         Galerija se također može koristiti za pregledavanje slika i videa u drugim aplikacijama, prikačivanja datoteka u e-mail aplikacije itd. Savršeno za svakodnevno korištenje.
+
+        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
 
         Ne sadrži reklame niti nepotrebna dopuštenja. Aplikacije je otvorenog koda, te pruža mogućnost promjene boja.
 

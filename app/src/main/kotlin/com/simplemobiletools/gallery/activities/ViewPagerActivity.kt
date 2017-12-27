@@ -32,7 +32,6 @@ import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REQUEST_EDIT_IMAGE
 import com.simplemobiletools.commons.helpers.REQUEST_SET_AS
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.activities.MediaActivity.Companion.mMedia
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.dialogs.DeleteWithRememberDialog
@@ -70,6 +69,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mIsOrientationLocked = false
 
     private var mStoredUseEnglish = false
+    private var mMediaFiles = ArrayList<Medium>()
 
     companion object {
         var screenWidth = 0
@@ -81,6 +81,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medium)
         setTranslucentNavigation()
+        mMediaFiles = MediaActivity.mMedia.clone() as ArrayList<Medium>
 
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
@@ -116,6 +117,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         setupRotation()
         invalidateOptionsMenu()
+
+        if (config.blackBackground) {
+            updateStatusbarColor(Color.BLACK)
+        }
     }
 
     override fun onPause() {
@@ -135,7 +140,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             config.isThirdPartyIntent = false
 
             if (intent.extras == null || !intent.getBooleanExtra(IS_FROM_GALLERY, false)) {
-                mMedia.clear()
+                mMediaFiles.clear()
             }
         }
     }
@@ -189,8 +194,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         view_pager.onGlobalLayout {
             if (!isActivityDestroyed()) {
-                if (mMedia.isNotEmpty()) {
-                    gotMedia(mMedia)
+                if (mMediaFiles.isNotEmpty()) {
+                    gotMedia(mMediaFiles)
                 }
             }
         }
@@ -198,8 +203,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         reloadViewPager()
         scanPath(mPath)
 
-        if (config.darkBackground)
+        if (config.blackBackground) {
             view_pager.background = ColorDrawable(Color.BLACK)
+        }
 
         if (config.hideSystemUI)
             fragmentClicked()
@@ -419,7 +425,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun getMediaForSlideshow(): Boolean {
-        mSlideshowMedia = mMedia.toMutableList()
+        mSlideshowMedia = mMediaFiles.toMutableList()
         if (!config.slideshowIncludePhotos) {
             mSlideshowMedia = mSlideshowMedia.filter { !it.isImage() } as MutableList
         }
@@ -609,7 +615,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         var parent = file.parentFile ?: return false
         while (true) {
-            if (parent.isHidden || parent.listFiles()?.contains(File(NOMEDIA)) == true) {
+            if (parent.isHidden || parent.list()?.contains(NOMEDIA) == true) {
                 return true
             }
 
@@ -769,15 +775,15 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         mPrevHashcode = media.hashCode()
-        mMedia = media
+        mMediaFiles = media
         mPos = if (mPos == -1) {
             getPositionInList(media)
         } else {
-            Math.min(mPos, mMedia.size - 1)
+            Math.min(mPos, mMediaFiles.size - 1)
         }
 
         updateActionbarTitle()
-        updatePagerItems(mMedia.toMutableList())
+        updatePagerItems(mMediaFiles.toMutableList())
         invalidateOptionsMenu()
         checkOrientation()
     }
@@ -794,7 +800,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun deleteDirectoryIfEmpty() {
         val file = File(mDirectory)
-        if (config.deleteEmptyFolders && !file.isDownloadsFolder() && file.isDirectory && file.listFiles()?.isEmpty() == true) {
+        if (config.deleteEmptyFolders && !file.isDownloadsFolder() && file.isDirectory && file.list()?.isEmpty() == true) {
             deleteFile(file, true)
         }
 
@@ -848,7 +854,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
-    private fun getCurrentMedia() = if (mAreSlideShowMediaVisible) mSlideshowMedia else mMedia
+    private fun getCurrentMedia() = if (mAreSlideShowMediaVisible) mSlideshowMedia else mMediaFiles
 
     private fun getCurrentPath() = getCurrentMedium()!!.path
 
@@ -860,11 +866,14 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (view_pager.offscreenPageLimit == 1) {
             view_pager.offscreenPageLimit = 2
         }
-        mPos = position
-        updateActionbarTitle()
-        mRotationDegrees = 0f
-        supportInvalidateOptionsMenu()
-        scheduleSwipe()
+
+        if (mPos != position) {
+            mPos = position
+            updateActionbarTitle()
+            mRotationDegrees = 0f
+            supportInvalidateOptionsMenu()
+            scheduleSwipe()
+        }
     }
 
     override fun onPageScrollStateChanged(state: Int) {

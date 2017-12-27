@@ -148,10 +148,10 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun setupDarkBackground() {
-        settings_dark_background.isChecked = config.darkBackground
-        settings_dark_background_holder.setOnClickListener {
-            settings_dark_background.toggle()
-            config.darkBackground = settings_dark_background.isChecked
+        settings_black_background.isChecked = config.blackBackground
+        settings_black_background_holder.setOnClickListener {
+            settings_black_background.toggle()
+            config.blackBackground = settings_black_background.isChecked
         }
     }
 
