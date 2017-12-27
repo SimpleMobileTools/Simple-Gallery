@@ -615,7 +615,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         var parent = file.parentFile ?: return false
         while (true) {
-            if (parent.isHidden || parent.listFiles()?.contains(File(NOMEDIA)) == true) {
+            if (parent.isHidden || parent.list()?.contains(NOMEDIA) == true) {
                 return true
             }
 
@@ -800,7 +800,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun deleteDirectoryIfEmpty() {
         val file = File(mDirectory)
-        if (config.deleteEmptyFolders && !file.isDownloadsFolder() && file.isDirectory && file.listFiles()?.isEmpty() == true) {
+        if (config.deleteEmptyFolders && !file.isDownloadsFolder() && file.isDirectory && file.list()?.isEmpty() == true) {
             deleteFile(file, true)
         }
 
