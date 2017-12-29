@@ -40,6 +40,16 @@ class MediaFetcher(val context: Context) {
             directories.remove(it)
         }
 
+        Thread {
+            val ONE_WEEK = 7 * 24 * 60 * 60 * 1000
+            if (System.currentTimeMillis() - context.config.lastFileCleanup > ONE_WEEK) {
+                media.filter { !File(it.path).exists() }.forEach {
+                    context.deleteFromMediaStore(File(it.path))
+                }
+                context.config.lastFileCleanup = System.currentTimeMillis()
+            }
+        }.start()
+
         return directories
     }
 
@@ -138,9 +148,6 @@ class MediaFetcher(val context: Context) {
                         }
 
                         if (size <= 0L)
-                            continue
-
-                        if (!file.exists())
                             continue
 
                         val dateTaken = cur.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
