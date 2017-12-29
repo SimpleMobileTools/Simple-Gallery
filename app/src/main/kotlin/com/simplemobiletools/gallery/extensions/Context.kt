@@ -79,31 +79,33 @@ fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Direct
     return movePinnedDirectoriesToFront(dirs)
 }
 
-fun Context.getNoMediaFolders(): ArrayList<String> {
-    val folders = ArrayList<String>()
+fun Context.getNoMediaFolders(callback: (folders: ArrayList<String>) -> Unit) {
+    Thread {
+        val folders = ArrayList<String>()
 
-    val uri = MediaStore.Files.getContentUri("external")
-    val projection = arrayOf(MediaStore.Files.FileColumns.DATA)
-    val selection = "${MediaStore.Files.FileColumns.MEDIA_TYPE} = ? AND ${MediaStore.Files.FileColumns.TITLE} LIKE ?"
-    val selectionArgs = arrayOf(MediaStore.Files.FileColumns.MEDIA_TYPE_NONE.toString(), "%$NOMEDIA%")
-    val sortOrder = MediaStore.Files.FileColumns.DATA
+        val uri = MediaStore.Files.getContentUri("external")
+        val projection = arrayOf(MediaStore.Files.FileColumns.DATA)
+        val selection = "${MediaStore.Files.FileColumns.MEDIA_TYPE} = ? AND ${MediaStore.Files.FileColumns.TITLE} LIKE ?"
+        val selectionArgs = arrayOf(MediaStore.Files.FileColumns.MEDIA_TYPE_NONE.toString(), "%$NOMEDIA%")
+        val sortOrder = "${MediaStore.Files.FileColumns.DATE_MODIFIED} DESC"
 
-    var cursor: Cursor? = null
+        var cursor: Cursor? = null
 
-    try {
-        cursor = contentResolver.query(uri, projection, selection, selectionArgs, sortOrder)
-        if (cursor?.moveToFirst() == true) {
-            do {
-                val path = cursor.getStringValue(MediaStore.Files.FileColumns.DATA) ?: continue
-                val noMediaFile = File(path)
-                if (noMediaFile.exists()) {
-                    folders.add("${noMediaFile.parent}/")
-                }
-            } while (cursor.moveToNext())
+        try {
+            cursor = contentResolver.query(uri, projection, selection, selectionArgs, sortOrder)
+            if (cursor?.moveToFirst() == true) {
+                do {
+                    val path = cursor.getStringValue(MediaStore.Files.FileColumns.DATA) ?: continue
+                    val noMediaFile = File(path)
+                    if (noMediaFile.exists()) {
+                        folders.add("${noMediaFile.parent}/")
+                    }
+                } while (cursor.moveToNext())
+            }
+        } finally {
+            cursor?.close()
         }
-    } finally {
-        cursor?.close()
-    }
 
-    return folders
+        callback(folders)
+    }.start()
 }
