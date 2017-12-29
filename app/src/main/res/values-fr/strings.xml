@@ -44,7 +44,9 @@
     <string name="excluded_activity_placeholder">Exclure des dossiers les masquera ainsi que leurs sous-dossiers uniquement dans Simple Galerie, ils seront toujours visibles depuis d\'autres applications.\\n\\nSi vous voulez aussi les masquer ailleurs, utilisez la fonction Masquer.</string>
     <string name="remove_all">Tout supprimer</string>
     <string name="remove_all_description">Supprimer tous les dossiers de la liste des exclusions ? Ceci n\'effacera pas les dossiers.</string>
+    <string name="hidden_folders">Hidden folders</string>
     <string name="manage_hidden_folders">Manage hidden folders</string>
+    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
 
     <!-- Include folders -->
     <string name="include_folders">Dossiers inclus</string>

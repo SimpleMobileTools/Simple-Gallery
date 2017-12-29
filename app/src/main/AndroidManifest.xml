@@ -108,6 +108,11 @@
             android:parentActivityName=".activities.SettingsActivity"/>
 
         <activity
+            android:name=".activities.HiddenFoldersActivity"
+            android:label="@string/hidden_folders"
+            android:parentActivityName=".activities.SettingsActivity"/>
+
+        <activity
             android:name=".activities.PhotoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize">
             <intent-filter>

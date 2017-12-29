@@ -44,7 +44,9 @@
     <string name="excluded_activity_placeholder">「排除資料夾」只會將選擇的資料夾與子資料夾一起從簡易相簿中隱藏，他們仍會出現在其他應用程式中。\n\n如果您要在其他應用程式中也隱藏，請使用「隱藏」功能。</string>
     <string name="remove_all">移除全部</string>
     <string name="remove_all_description">是否將排除列表中的所有資料夾都移除?這不會刪除資料夾。</string>
+    <string name="hidden_folders">Hidden folders</string>
     <string name="manage_hidden_folders">Manage hidden folders</string>
+    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
 
     <!-- Include folders -->
     <string name="include_folders">包含資料夾</string>

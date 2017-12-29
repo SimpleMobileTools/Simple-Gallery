@@ -44,7 +44,9 @@
     <string name="excluded_activity_placeholder">Klasörler hariç tutulduğunda, onları Basit Galeri\'de gizli olan alt klasörleriyle bir araya getirirler, ancak yine de diğer uygulamalarda görünür olurlar.\n\nBunları diğer uygulamalardan gizlemek isterseniz, Gizle işlevini kullanın.</string>
     <string name="remove_all">Hepsini sil</string>
     <string name="remove_all_description">Hariç tutulanlar listesinden tüm klasörleri kaldırmak mı istiyorsunuz? Bu, klasörler silinmez.</string>
+    <string name="hidden_folders">Hidden folders</string>
     <string name="manage_hidden_folders">Manage hidden folders</string>
+    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
 
     <!-- Include folders -->
     <string name="include_folders">Dahil edilen klasörler</string>

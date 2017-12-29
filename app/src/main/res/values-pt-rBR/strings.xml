@@ -44,7 +44,9 @@
     <string name="excluded_activity_placeholder">A exclusão de uma pasta apenas oculta o seu conteúdo da galeria, pois todos os outros aplicativos poderão acessá-las.\\n\\nSe quiser ocultar de todos os aplicativos, utilize a função ocultar.</string>
     <string name="remove_all">Remover todas</string>
     <string name="remove_all_description">Remover todas as pastas da lista de exclusões? Esta ação não apaga as pastas.</string>
+    <string name="hidden_folders">Hidden folders</string>
     <string name="manage_hidden_folders">Manage hidden folders</string>
+    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
 
     <!-- Include folders -->
     <string name="include_folders">Pastas incluídas</string>

@@ -44,7 +44,9 @@
     <string name="excluded_activity_placeholder">Wykluczenie folderów ukryje je tylko w aplikacji Simple Gallery, w innych aplikacjach będą one wciąż widoczne.\n\nJeśli chcesz je ukryć także w innych aplikacjach, użyj funkcji ukrywania.</string>
     <string name="remove_all">Usuń wszystko</string>
     <string name="remove_all_description">Usunąć wszystkie foldery z listy wykluczonych? Foldery nie zostaną fizycznie usunięte.</string>
+   <string name="hidden_folders">Hidden folders</string>
     <string name="manage_hidden_folders">Zarządzaj ukrytymi folderami</string>
+    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
 
     <!-- Include folders -->
     <string name="include_folders">Dołączone foldery</string>

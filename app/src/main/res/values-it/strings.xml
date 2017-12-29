@@ -44,7 +44,9 @@
     <string name="excluded_activity_placeholder">L\'esclusione delle cartelle e delle sottocartelle le renderà nascoste solo in Simple Gallery, saranno ancora visibili in altre applicazioni.\\n\\nSe desideri nasconderle anche nelle altre app, usa la funzione Nascondi.</string>
     <string name="remove_all">Rimuovi tutte</string>
     <string name="remove_all_description">Rimuovere tutte le cartelle dalla lista delle esclusioni? Ciò non eliminerà le cartelle.</string>
+    <string name="hidden_folders">Hidden folders</string>
     <string name="manage_hidden_folders">Manage hidden folders</string>
+    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
 
     <!-- Include folders -->
     <string name="include_folders">Includi cartelle</string>

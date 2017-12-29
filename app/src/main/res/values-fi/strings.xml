@@ -44,7 +44,9 @@
     <string name="excluded_activity_placeholder">Kansion poissulkeminen piilottaa kansion alikansioineen vain Simple Galleryssa, ne jäävät näkyviin muihin sovelluksiin.\n\nJos haluat piilottaa kansion myös muissa sovelluksissa, käytä piilota-funktiota.</string>
     <string name="remove_all">Poista kaikki</string>
     <string name="remove_all_description">Poista kaikki kansiot poissuljettujen listasta? Tämä ei poista kansioita.</string>
+    <string name="hidden_folders">Hidden folders</string>
     <string name="manage_hidden_folders">Manage hidden folders</string>
+    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
 
     <!-- Include folders -->
     <string name="include_folders">Sisällytä kansiot</string>

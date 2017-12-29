@@ -46,7 +46,9 @@
   إذا كنت تريد إخفاءها من تطبيقات أخرى أيضا، استخدم ميزة الإخفاء</string>
     <string name="remove_all">حذف الكل</string>
     <string name="remove_all_description">هل تريد إزالة جميع المجلدات من القائمة المستبعدة؟ لن يؤدي هذا إلى حذف المجلدات</string>
+    <string name="hidden_folders">Hidden folders</string>
     <string name="manage_hidden_folders">Manage hidden folders</string>
+    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
 
     <!-- Include folders -->
     <string name="include_folders">المجلدات المضمنة</string>

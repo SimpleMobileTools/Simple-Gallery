@@ -44,7 +44,9 @@
     <string name="excluded_activity_placeholder">Uteslutning av mappar döljer bara dem och deras undermappar i Simple Gallery, de visas fortfarande i andra appar.\\n\\nAnvänd Dölj-funktionen om du även vill dölja dem från andra appar.</string>
     <string name="remove_all">Ta bort alla</string>
     <string name="remove_all_description">Vill du ta bort alla mappar från uteslutningslistan? Detta raderar inte mapparna.</string>
+    <string name="hidden_folders">Hidden folders</string>
     <string name="manage_hidden_folders">Manage hidden folders</string>
+    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
 
     <!-- Include folders -->
     <string name="include_folders">Inkluderade mappar</string>
