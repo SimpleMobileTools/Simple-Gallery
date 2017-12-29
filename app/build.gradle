@@ -4,14 +4,13 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion "27.0.1"
 
     defaultConfig {
         applicationId "com.simplemobiletools.gallery"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 147
-        versionName "3.0.1"
+        versionCode 150
+        versionName "3.1.0"
         multiDexEnabled true
         setProperty("archivesBaseName", "gallery")
     }
@@ -43,9 +42,9 @@ ext {
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:3.2.19'
-    implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.8.0'
-    implementation 'com.theartofdev.edmodo:android-image-cropper:2.4.0'
+    implementation 'com.simplemobiletools:commons:3.4.2'
+    implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.9.0'
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.6.0'
     implementation 'com.android.support:multidex:1.0.2'
     implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'it.sephiroth.android.exif:library:1.0.1'

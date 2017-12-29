@@ -44,6 +44,7 @@
     <string name="excluded_activity_placeholder">「排除資料夾」只會將選擇的資料夾與子資料夾一起從簡易相簿中隱藏，他們仍會出現在其他應用程式中。\n\n如果您要在其他應用程式中也隱藏，請使用「隱藏」功能。</string>
     <string name="remove_all">移除全部</string>
     <string name="remove_all_description">是否將排除列表中的所有資料夾都移除?這不會刪除資料夾。</string>
+    <string name="manage_hidden_folders">Manage hidden folders</string>
 
     <!-- Include folders -->
     <string name="include_folders">包含資料夾</string>
@@ -121,7 +122,7 @@
     <string name="screen_rotation_system_setting">系統設定方向</string>
     <string name="screen_rotation_device_rotation">裝置實際方向</string>
     <string name="screen_rotation_aspect_ratio">圖片長寬比</string>
-    <string name="dark_background_at_fullscreen">全螢幕時黑背景</string>
+    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">橫向滑動縮圖</string>
     <string name="hide_system_ui_at_fullscreen">全螢幕時自動隱藏系統介面</string>
     <string name="delete_empty_folders">刪除內容後刪除空白資料夾</string>
@@ -138,7 +139,9 @@
 		一個適合用來瀏覽相片和影片的簡單工具。可以根據日期、大小、名稱來遞增或遞減排序項目，相片能被縮放。媒體檔案會依畫面大小呈現在數個欄位內，你可以使用縮放手勢來改變欄數。媒體檔案可以重新命名、分享、刪除、複製、移動；圖片還能縮放、旋轉、翻轉，或者直接設為桌布。
 		
 		這相簿也支援第三方應用，像是預覽圖片/影片、添加電子信箱附件...等功能，日常使用上相當適合。
-		
+
+        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+
 		優點包含沒廣告，也沒非必要的權限，而且完全開放原始碼，並提供自訂顏色。
 		
 		這只是一個大系列應用程式的其中一項程式，你可以在這發現更多 http://www.simplemobiletools.com

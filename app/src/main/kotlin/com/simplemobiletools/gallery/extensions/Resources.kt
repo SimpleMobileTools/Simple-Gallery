@@ -6,11 +6,10 @@ import android.util.TypedValue
 
 fun Resources.getActionBarHeight(context: Context): Int {
     val tv = TypedValue()
-    var height = 0
-    if (context.theme.resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
-        height = TypedValue.complexToDimensionPixelSize(tv.data, displayMetrics)
-    }
-    return height
+    return if (context.theme.resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
+        TypedValue.complexToDimensionPixelSize(tv.data, displayMetrics)
+    } else
+        0
 }
 
 fun Resources.getStatusBarHeight(): Int {

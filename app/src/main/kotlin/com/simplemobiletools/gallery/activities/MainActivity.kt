@@ -133,13 +133,13 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             handleAppPasswordProtection {
                 if (it) {
                     mIsPasswordProtectionPending = false
-                    tryloadGallery()
+                    tryLoadGallery()
                 } else {
                     finish()
                 }
             }
         } else {
-            tryloadGallery()
+            tryLoadGallery()
         }
     }
 
@@ -209,16 +209,18 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun removeTempFolder() {
-        val newFolder = File(config.tempFolderPath)
-        if (newFolder.exists() && newFolder.isDirectory) {
-            if (newFolder.list()?.isEmpty() == true) {
-                deleteFile(newFolder, true)
+        if (config.tempFolderPath.isNotEmpty()) {
+            val newFolder = File(config.tempFolderPath)
+            if (newFolder.exists() && newFolder.isDirectory) {
+                if (newFolder.list()?.isEmpty() == true) {
+                    deleteFile(newFolder, true)
+                }
             }
+            config.tempFolderPath = ""
         }
-        config.tempFolderPath = ""
     }
 
-    private fun tryloadGallery() {
+    private fun tryLoadGallery() {
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
                 if (config.showAll) {
@@ -443,17 +445,12 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == PICK_MEDIA && resultData != null) {
                 val resultIntent = Intent()
-                if (mIsGetImageContentIntent || mIsGetVideoContentIntent || mIsGetAnyContentIntent) {
+                if (mIsThirdPartyIntent) {
                     when {
                         intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true -> fillExtraOutput(resultData)
                         resultData.extras?.containsKey(PICKED_PATHS) == true -> fillPickedPaths(resultData, resultIntent)
                         else -> fillIntentPath(resultData, resultIntent)
                     }
-                } else if ((mIsPickImageIntent || mIsPickVideoIntent)) {
-                    val path = resultData.data?.path
-                    val uri = getFilePublicUri(File(path), BuildConfig.APPLICATION_ID)
-                    resultIntent.data = uri
-                    resultIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
                 }
 
                 setResult(Activity.RESULT_OK, resultIntent)
@@ -491,7 +488,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             clipData.addItem(ClipData.Item(it))
         }
 
-        resultIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+        resultIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
         resultIntent.clipData = clipData
     }
 
@@ -500,7 +497,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         val uri = getFilePublicUri(File(path), BuildConfig.APPLICATION_ID)
         val type = path.getMimeTypeFromPath()
         resultIntent.setDataAndTypeAndNormalize(uri, type)
-        resultIntent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+        resultIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
     }
 
     private fun itemClicked(path: String) {
@@ -526,9 +523,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun gotDirectories(newDirs: ArrayList<Directory>, isFromCache: Boolean) {
-        val dirs = getSortedDirectories(newDirs)
+        Thread {
+            mLatestMediaId = getLatestMediaId()
+        }.start()
 
-        mLatestMediaId = getLatestMediaId()
+        val dirs = getSortedDirectories(newDirs)
         directories_refresh_layout.isRefreshing = false
         mIsGettingDirs = false
 

@@ -44,6 +44,7 @@
     <string name="excluded_activity_placeholder">Ekskludering av mapper vil gjøre dem sammen med deres undermapper, skjulte bare i denne appen. De vil fortsatt være synlige i andre apper.\n\nHvis du vil skjule dem fra andre apper, bruk Skjul-funksjonen.</string>
     <string name="remove_all">Fjern alle</string>
     <string name="remove_all_description">Fjerne alle mapper fra listen av ekskluderte? Dette sletter ikke mappene.</string>
+    <string name="manage_hidden_folders">Manage hidden folders</string>
 
     <!-- Include folders -->
     <string name="include_folders">Inkluderte mapper</string>
@@ -121,7 +122,7 @@
     <string name="screen_rotation_system_setting">Systeminnstilling</string>
     <string name="screen_rotation_device_rotation">Enhetsrotasjon</string>
     <string name="screen_rotation_aspect_ratio">Sideforhold</string>
-    <string name="dark_background_at_fullscreen">Mørk bakgrunn i mediavisningen</string>
+    <string name="black_background_at_fullscreen">Svart bakgrunn og statuslinje i mediavisningen</string>
     <string name="scroll_thumbnails_horizontally">Horisontal rulling av minibilder</string>
     <string name="hide_system_ui_at_fullscreen">Skjul automatisk systemlinjer ved mediavisning</string>
     <string name="delete_empty_folders">Slett tomme mapper etter sletting av deres innhold</string>
@@ -138,6 +139,8 @@
         A simple tool usable for viewing photos and videos. Items can be sorted by date, size, name both ascending or descending, photos can be zoomed in. Media files are shown in multiple columns depending on the size of the display, you can change the column count by pinch gestures. They can be renamed, shared, deleted, copied, moved. Images can also be cropped, rotated, flipped or set as Wallpaper directly from the app.
 
         The Gallery is also offered for third party usage for previewing images / videos, adding attachments at email clients etc. It\'s perfect for everyday usage.
+
+        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
 
         Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
 

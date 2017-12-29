@@ -44,6 +44,7 @@
     <string name="excluded_activity_placeholder">Klasörler hariç tutulduğunda, onları Basit Galeri\'de gizli olan alt klasörleriyle bir araya getirirler, ancak yine de diğer uygulamalarda görünür olurlar.\n\nBunları diğer uygulamalardan gizlemek isterseniz, Gizle işlevini kullanın.</string>
     <string name="remove_all">Hepsini sil</string>
     <string name="remove_all_description">Hariç tutulanlar listesinden tüm klasörleri kaldırmak mı istiyorsunuz? Bu, klasörler silinmez.</string>
+    <string name="manage_hidden_folders">Manage hidden folders</string>
 
     <!-- Include folders -->
     <string name="include_folders">Dahil edilen klasörler</string>
@@ -121,7 +122,7 @@
     <string name="screen_rotation_system_setting">Sistem ayarı</string>
     <string name="screen_rotation_device_rotation">Cihaz döndürme</string>
     <string name="screen_rotation_aspect_ratio">En-boy oranı</string>
-    <string name="dark_background_at_fullscreen">Dark background at fullscreen media</string>
+    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
     <string name="hide_system_ui_at_fullscreen">Automatically hide system UI at fullscreen media</string>
     <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
@@ -138,6 +139,8 @@
         Fotoğrafları ve videoları görüntülemek için kullanılabilecek basit bir araç. Öğeler tarihine, boyutuna, adına göre artan veya azalan olarak sıralanabilir, fotoğraflar yakınlaştırılabilir. Medya dosyaları, ekranın boyutuna bağlı olarak birden fazla sütunda gösterilir, sıkıştırma hareketleriyle sütun sayısını değiştirebilirsiniz. Yeniden adlandırılabilir, paylaşılabilir, silinebilir, kopyalanabilir, taşınabilirler. Resimler ayrıca kırpılabilir, döndürülebilir veya doğrudan uygulama\'dan Duvar kağıdı olarak ayarlanabilir.
 
         Galeri, görüntüleri/videoları önizlemek, e-posta istemcilerine ek ekler yapmak için üçüncü taraf kullanımı için de önerilir. Bu\'s günlük kullanım için mükemmel.
+
+        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
 
         Reklam içermeyen veya gereksiz izinler. Tamamen açık kaynaktır, özelleştirilebilir renkler sağlar.
 

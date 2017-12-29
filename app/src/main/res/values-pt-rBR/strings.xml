@@ -44,6 +44,7 @@
     <string name="excluded_activity_placeholder">A exclusão de uma pasta apenas oculta o seu conteúdo da galeria, pois todos os outros aplicativos poderão acessá-las.\\n\\nSe quiser ocultar de todos os aplicativos, utilize a função ocultar.</string>
     <string name="remove_all">Remover todas</string>
     <string name="remove_all_description">Remover todas as pastas da lista de exclusões? Esta ação não apaga as pastas.</string>
+    <string name="manage_hidden_folders">Manage hidden folders</string>
 
     <!-- Include folders -->
     <string name="include_folders">Pastas incluídas</string>
@@ -121,7 +122,7 @@
     <string name="screen_rotation_system_setting">Padrão do sistema</string>
     <string name="screen_rotation_device_rotation">Sensor do aparelho</string>
     <string name="screen_rotation_aspect_ratio">Proporção da mídia</string>
-    <string name="dark_background_at_fullscreen">Fundo de tela escuro em mídia tela cheia</string>
+    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">Rolar miniaturas horizontalmente</string>
     <string name="hide_system_ui_at_fullscreen">Esconder interface do sistema automaticamente quando em tela cheia</string>
     <string name="delete_empty_folders">Apagar pastas vazias após deleter seu conteúdo</string>
@@ -138,6 +139,8 @@
         Uma ferramenta simples para ver fotos e vídeos. Pode organizar os itens por data, tamanho, nome e ampliar as fotografias. As pastas são mostradas em colunas, e a sua exibição dependerá do tamanho da tela, aonde o usuário poderá alterar o número de colunas através de gestos. Você pode renomear, compartilhar, apagar, copiar e mover os arquivos. Também pode recortar, girar e definir as imagens como fundo de tela.
 
         Também pode ser utilizada para pré-visualizar imagens e vídeos, ou para adicionar como anexos ao e-mail, entre outros. É perfeita para a utilização diária.
+
+        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
 
         Não contém anúncios, nem permissões desnecessárias. Disponibiliza um tema escuro, e é totalmente \'open source\'.
 

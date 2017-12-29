@@ -55,7 +55,7 @@ class PhotoFragment : ViewPagerFragment() {
         }
 
         medium = arguments!!.getSerializable(MEDIUM) as Medium
-        if (medium.path.startsWith("content://")) {
+        if (medium.path.startsWith("content://") && !medium.path.startsWith("content://mms/")) {
             val originalPath = medium.path
             medium.path = context!!.getRealPathFromURI(Uri.parse(originalPath)) ?: medium.path
 
@@ -224,21 +224,35 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun addZoomableView() {
         if ((medium.isImage()) && isFragmentVisible && view.subsampling_view.isGone() && !medium.isDng()) {
-            val exif = android.media.ExifInterface(medium.path)
-            val orientation = exif.getAttributeInt(android.media.ExifInterface.TAG_ORIENTATION, android.media.ExifInterface.ORIENTATION_NORMAL)
+            val defaultOrientation = -1
+            var orient = defaultOrientation
+
+            try {
+                val exif = android.media.ExifInterface(medium.path)
+                orient = exif.getAttributeInt(android.media.ExifInterface.TAG_ORIENTATION, defaultOrientation)
+
+                if (orient == defaultOrientation) {
+                    val uri = if (medium.path.startsWith("content:/")) Uri.parse(medium.path) else Uri.fromFile(File(medium.path))
+                    val inputStream = context!!.contentResolver.openInputStream(uri)
+                    val exif2 = ExifInterface()
+                    exif2.readExif(inputStream, ExifInterface.Options.OPTION_ALL)
+                    orient = exif2.getTag(ExifInterface.TAG_ORIENTATION)?.getValueAsInt(defaultOrientation) ?: defaultOrientation
+                }
+            } catch (ignored: Exception) {
+            }
 
             ViewPagerActivity.wasDecodedByGlide = false
             view.subsampling_view.apply {
                 maxScale = 10f
                 beVisible()
                 setImage(ImageSource.uri(medium.path))
-                this.orientation = degreesForRotation(orientation)
+                orientation = if (orient == -1) SubsamplingScaleImageView.ORIENTATION_USE_EXIF else degreesForRotation(orient)
                 setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {
                     override fun onImageLoaded() {
                     }
 
                     override fun onReady() {
-                        background = ColorDrawable(if (context.config.darkBackground) Color.BLACK else context.config.backgroundColor)
+                        background = ColorDrawable(if (context.config.blackBackground) Color.BLACK else context.config.backgroundColor)
                         setDoubleTapZoomScale(getDoubleTapZoomScale(sWidth, sHeight))
                     }
 

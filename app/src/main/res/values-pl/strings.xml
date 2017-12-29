@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Prosta Galeria</string>
-    <string name="app_launcher_name">Galeria</string>
+    <string name="app_launcher_name">Prosta Galeria</string>
     <string name="edit">Edytuj</string>
     <string name="open_camera">Uruchom aplikację aparatu</string>
     <string name="hidden">(ukryty)</string>
@@ -44,6 +44,7 @@
     <string name="excluded_activity_placeholder">Wykluczenie folderów ukryje je tylko w aplikacji Simple Gallery, w innych aplikacjach będą one wciąż widoczne.\n\nJeśli chcesz je ukryć także w innych aplikacjach, użyj funkcji ukrywania.</string>
     <string name="remove_all">Usuń wszystko</string>
     <string name="remove_all_description">Usunąć wszystkie foldery z listy wykluczonych? Foldery nie zostaną fizycznie usunięte.</string>
+    <string name="manage_hidden_folders">Zarządzaj ukrytymi folderami</string>
 
     <!-- Include folders -->
     <string name="include_folders">Dołączone foldery</string>
@@ -88,9 +89,9 @@
     <string name="wallpaper_set_successfully">Tapeta została ustawiona</string>
     <string name="portrait_aspect_ratio">Proporcje ekranu w trybie pionowym</string>
     <string name="landscape_aspect_ratio">Proporcje ekranu w trybie poziomym</string>
-    <string name="home_screen">Home screen</string>
-    <string name="lock_screen">Lock screen</string>
-    <string name="home_and_lock_screen">Home and lock screen</string>
+    <string name="home_screen">Pulpit</string>
+    <string name="lock_screen">Ekran blokady</string>
+    <string name="home_and_lock_screen">Pulpit i ekran blokady</string>
 
     <!-- Slideshow -->
     <string name="slideshow">Pokaz slajdów</string>
@@ -121,7 +122,7 @@
     <string name="screen_rotation_system_setting">Ustawień systemowych</string>
     <string name="screen_rotation_device_rotation">Orientacji urządzenia</string>
     <string name="screen_rotation_aspect_ratio">Proporcji</string>
-    <string name="dark_background_at_fullscreen">Czarne tło przy podglądzie pełnoekranowym</string>
+    <string name="black_background_at_fullscreen">Czarne tło i pasek stanu przy widoku pełnoekranowym</string>
     <string name="scroll_thumbnails_horizontally">Przewijaj miniatury poziomo</string>
     <string name="hide_system_ui_at_fullscreen">Ukrywaj interfejs przy pełnoekranowym podglądzie</string>
     <string name="delete_empty_folders">Usuwaj puste foldery po usunięciu ich zawartości</string>
@@ -135,11 +136,13 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Prosta galeria bez reklam do przeglądania obrazów i filmów.</string>
     <string name="app_long_description">
-        Prosta aplikacja galerii do oglądania obrazów i filmów. Pliki mogą być sortowane według daty, rozmiaru i nazwy, zarówno w porządku rosnącym, jak i malejącym. W zależności od wielkości ekranu, wyświetlane mogą być w wielu kolumnach. Liczbę kolumn można zmieniać za pomocą gestów, a  zdjęcia mogą być powiększane, przycinane, obracane lub ustawiane jako tapeta bezpośrednio z poziomu Prostej Galerii. Kolory aplikacji można dowolnie ustawiać.
+        Prosta aplikacja galerii do oglądania obrazów i filmów. Pliki mogą być sortowane według daty, rozmiaru i nazwy, zarówno w porządku rosnącym, jak i malejącym. W zależności od wielkości ekranu, wyświetlane mogą być w wielu kolumnach. Liczbę kolumn można zmieniać za pomocą gestów, a zdjęcia mogą być powiększane, przycinane, obracane lub ustawiane jako tapeta bezpośrednio z poziomu aplikacji. Jej kolorystykę można dowolnie modyfikować.
 
-        Nie zawiera natomiast żadnych reklam i nie potrzebuje całej masy uprawnień. Jest w pełni otwartoźródłowa i w pełni podatna na kolorowanie.
+        Uprawnienie od odcisków palców potrzebne jest w celu blokowania widoczności elementów, bądź też całej aplikacji.
 
-        Niniejsza aplikacja jest tylko częścią naszej kolekcji prostych narzędzi. Ta, jak i pozostałe, dostępne są na stronie http://www.simplemobiletools.com
+        Nie zawiera żadnych reklam, nie potrzebuje wielu uprawnień i jest w pełni otwartoźródłowa.
+
+        Jest ona tylko częścią naszej kolekcji prostych narzędzi. Ta, jak i pozostałe, dostępne są na stronie http://www.simplemobiletools.com
     </string>
 
     <!--

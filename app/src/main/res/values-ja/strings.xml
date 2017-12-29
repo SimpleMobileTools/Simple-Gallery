@@ -44,6 +44,7 @@
     <string name="excluded_activity_placeholder">フォルダーを除外すると、サブフォルダーも含めSimple Galleyの一覧から除外します。他のアプリでは引き続き表示されます。\\n\\n他のアプリでも非表示にしたい場合は、「非表示」機能を使用してください。</string>
     <string name="remove_all">すべて解除</string>
     <string name="remove_all_description">除外するフォルダーの登録をすべて解除しますか? フォルダー自体は削除されません。</string>
+    <string name="manage_hidden_folders">Manage hidden folders</string>
 
     <!-- Include folders -->
     <string name="include_folders">追加フォルダー</string>
@@ -121,7 +122,7 @@
     <string name="screen_rotation_system_setting">システム設定に従う</string>
     <string name="screen_rotation_device_rotation">端末の向きに従う</string>
     <string name="screen_rotation_aspect_ratio">メディアの縦横比に従う</string>
-    <string name="dark_background_at_fullscreen">黒背景でフルスクリーン表示</string>
+    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">サムネイル画面を横方向にスクロール</string>
     <string name="hide_system_ui_at_fullscreen">フルスクリーン時にシステムUIを非表示にする</string>
     <string name="delete_empty_folders">メディアの削除後にフォルダーが空になった場合、そのフォルダーを削除する</string>
@@ -138,6 +139,8 @@
         写真やビデオを見るためのシンプルなツール。 日付、サイズ、名前で、昇順または降順にアイテムを並べ替えることができ、写真は拡大表示できます。 メディアファイルは、ディスプレイのサイズに応じて複数の列に表示されます。 名前の変更、共有、削除、コピー、移動が可能です。 画像をトリミング、回転、または壁紙としてアプリから直接設定することもできます。
 
         ギャラリーは、画像やビデオのプレビュー、メールクライアントで添付ファイルの追加など、サードパーティの用途にも提供されます。 毎日の使用には完璧です。
+
+        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
 
         広告や不要なアクセス許可は含まれていません。 完全にオープンソースで、ダークテーマも提供しています。
 

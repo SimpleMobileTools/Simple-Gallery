@@ -40,10 +40,11 @@
     <string name="excluded_folders">Cartafoles excluídos</string>
     <string name="manage_excluded_folders">Xestionar cartafoles excluídos</string>
     <string name="exclude_folder_description">Esto ocultará a selección xunto cos seus subcartafoles son en Simple Gallery. Pode xestionar os cartafoles ocultos en Axustes.</string>
-    <string name="exclude_folder_parent">?Excluír o cartafol fai no seu lugar?</string>
+    <string name="exclude_folder_parent">\?Excluír o cartafol fai no seu lugar?</string>
     <string name="excluded_activity_placeholder">Excluír un cartafol xunto cos subcartafoles só terá efecto en Simple Gallery, seguirán sendo visibles en outros aplicativos.\n\nSi tamén quere excluílos en outros aplicativos, utilice a opción Agochar.</string>
     <string name="remove_all">Eliminar todos</string>
     <string name="remove_all_description">Eliminar todos os cartafoles da lista de excluídos? Esto non borrará os cartafoles.</string>
+    <string name="manage_hidden_folders">Manage hidden folders</string>
 
     <!-- Include folders -->
     <string name="include_folders">Cartafoles incluídos</string>
@@ -121,7 +122,7 @@
     <string name="screen_rotation_system_setting">Axuste do sistema</string>
     <string name="screen_rotation_device_rotation">Rotación do dispositivo</string>
     <string name="screen_rotation_aspect_ratio">Relación de aspecto</string>
-    <string name="dark_background_at_fullscreen">Fondo oscura a pantalla completa</string>
+    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">Desplazar iconas horizontalmente</string>
     <string name="hide_system_ui_at_fullscreen">Agochar controis do sistema cando visualice a pantalla completa</string>
     <string name="delete_empty_folders">Borrar cartafoles baldeiros cando elmine o seu contido</string>
@@ -138,7 +139,9 @@
         Unha simple ferramenta para ver fotos e vídeos. Pode organizar os elementos por data, tamaño, nome tanto ascendentes como descendentes, pode facer zoom nas fotografías. Os ficheiros de medios móstranse en múltiples columnas dependendo do tamaño da pantalla, pode mudar o número de columnas con xestos de belisco. Poden ser renomeados, compartidos, eliminados, copiados, movidos. As imaxes tamén se poden recortar, rotar, voltear ou establecer como fondo de pantalla directamente no aplicativo.
         
         A Galería tamén se ofrece como aplicación de terceiros para vista previa de imaxes / vídeos, engadir anexos en correos etc. É perfecta para o uso diario.
-        
+
+        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+
         Non contén anuncios nin solicita permisos innecesarios. É de código aberto, con cores personalizadas.
 
         Este aplicativo é só unha das pezas de unha grande familia. Pode atopar o resto en http://www.simplemobiletools.com

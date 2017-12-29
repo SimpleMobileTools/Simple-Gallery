@@ -44,6 +44,7 @@
     <string name="excluded_activity_placeholder">Kansion poissulkeminen piilottaa kansion alikansioineen vain Simple Galleryssa, ne jäävät näkyviin muihin sovelluksiin.\n\nJos haluat piilottaa kansion myös muissa sovelluksissa, käytä piilota-funktiota.</string>
     <string name="remove_all">Poista kaikki</string>
     <string name="remove_all_description">Poista kaikki kansiot poissuljettujen listasta? Tämä ei poista kansioita.</string>
+    <string name="manage_hidden_folders">Manage hidden folders</string>
 
     <!-- Include folders -->
     <string name="include_folders">Sisällytä kansiot</string>
@@ -121,7 +122,7 @@
     <string name="screen_rotation_system_setting">Järjestelmän asetukset</string>
     <string name="screen_rotation_device_rotation">Laitteen kierto</string>
     <string name="screen_rotation_aspect_ratio">Kuvasuhde</string>
-    <string name="dark_background_at_fullscreen">Tumma tausta koko ruudun medioissa</string>
+    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">Vieritä pienoiskuvia vaakasuorassa</string>
     <string name="hide_system_ui_at_fullscreen">Piilota järjestelmän UI automaattisesti koko näytön mediassa</string>
     <string name="delete_empty_folders">Poista tyhjät kansiot kansion tyhjennyksen jälkeen</string>
@@ -138,6 +139,8 @@
         Yksinkertainen työkalu kuvien ja videoiden katsomiseen. Kohteita voidaan lajitella päivän, koon, nimen mukaan, nousevassa ja laskevassa järjestyksessä. Kuvia voidaan zoomata. Mediatiedostot näkyvät useissa sarakkeissa joiden määrää muutetaan nipistys-eleellä. Tiedostoja voidaan uudelleennimetä, jakaa, poistaa, kopioida. Kuvia voi rajata, pyörittää tai asettaa taustakuvaksi suoraan sovelluksesta.
 
         Galleriaa tarjotaan myös kolmansille osapuolille kuvien / videoiden tarkasteluun, liitteiden lisäämiseksi sähköpostiin yms. Täydellinen jokapäiväiseen käyttöön.
+
+        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
 
         Ei sisällä mainoksia tai turhia käyttöoikeuksia. Täysin avointa lähdekoodia, tarjoaa muokattavat värit.
 

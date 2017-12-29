@@ -44,6 +44,7 @@
     <string name="excluded_activity_placeholder">\'Ordner ausblenden\' wird ausgewählte Ordner und deren Unterordner nur in dieser App ausblenden. Andere Apps werden solche Ordner weiterhin anzeigen.\\n\\nWenn Sie Ordner auch für andere Apps verstecken wollen, verwenden Sie dafür die Funktion \'Ordner verstecken\'.</string>
     <string name="remove_all">Alle entfernen</string>
     <string name="remove_all_description">Alle Ordner aus der Ausgeblendet-Liste entfernen? Die Ordner selbst werden nicht gelöscht.</string>
+    <string name="manage_hidden_folders">Versteckte Ordner verwalten</string>
 
     <!-- Include folders -->
     <string name="include_folders">Einbezogene Ordner</string>
@@ -121,9 +122,9 @@
     <string name="screen_rotation_system_setting">Systemeinstellung</string>
     <string name="screen_rotation_device_rotation">Gerätedrehung</string>
     <string name="screen_rotation_aspect_ratio">Seitenverhältnis</string>
-    <string name="dark_background_at_fullscreen">Schwarzer Hintergrund im Vollbild</string>
+    <string name="black_background_at_fullscreen">Schwarzer Hintergrund und Statusleiste bei Vollbild-Medien</string>
     <string name="scroll_thumbnails_horizontally">Kacheln horizontal scrollen</string>
-    <string name="hide_system_ui_at_fullscreen">Systemleisten ausblenden im Vollbild</string>
+    <string name="hide_system_ui_at_fullscreen">Systemleisten in Vollbild ausblenden</string>
     <string name="delete_empty_folders">Nach Löschen leere Ordner löschen</string>
     <string name="allow_video_gestures">Gesten für Videolautstärke/Helligkeit</string>
     <string name="show_media_count">Medienanzahl bei Ordnern anzeigen</string>
@@ -138,6 +139,8 @@
         Eine schlichte App zum Betrachten von Bildern und Videos. Die Medien können nach Datum, Größe, Name sowie auf- oder absteigend sortiert werden, in Bilder kann auch hineingezoomt werden. Die Vorschau-Kacheln werden in mehreren Spalten abhängig von der Displaygröße angezeigt, die Spaltenanzahl ist mit Zweifingergesten änderbar. Die Medien können umbenannt, geteilt, gelöscht, kopiert und verschoben werden. Bilder können direkt aus der App heraus zugeschnitten, gedreht oder als Hintergrund festgelegt werden.
 
         Diese Galerie bietet auch für Drittanbieter einige Funktionen an: zum Vorschauen von Bildern / Videos, zum Hinzufügen von Anhängen bei Email-Apps, etc. Sie ist perfekt für den täglichen Gebrauch.
+
+        Die Berechtigung für Fingerabdrücke wird nur benötigt, um die Sichtbarkeit von versteckten Dateien oder die gesamte App zu sperren.
 
         Beinhaltet keine Werbung oder unnötigen Berechtigungen. Sie ist komplett Open Source, verwendete Farben sind anpassbar.
 

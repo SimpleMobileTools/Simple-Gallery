@@ -44,6 +44,7 @@
     <string name="excluded_activity_placeholder">A exclusão de uma pasta apenas oculta o seu conteúdo do Simple Gallery porque as outras aplicações continuarão a poder aceder-lhes.\\n\\nSe quiser ocultar também das outras aplicações, utilize a função Ocultar.</string>
     <string name="remove_all">Remover todas</string>
     <string name="remove_all_description">Remover todas as pastas de lista de exclusões? Esta ação não apaga as pastas.</string>
+    <string name="manage_hidden_folders">Manage hidden folders</string>
 
     <!-- Include folders -->
     <string name="include_folders">Pastas incluídas</string>
@@ -121,7 +122,7 @@
     <string name="screen_rotation_system_setting">Definições do sistema</string>
     <string name="screen_rotation_device_rotation">Rotação do dispositivo</string>
     <string name="screen_rotation_aspect_ratio">Proporção</string>
-    <string name="dark_background_at_fullscreen">Usar sempre um fundo escuro se em ecrã completo</string>
+    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
     <string name="scroll_thumbnails_horizontally">Deslocação horizontal de miniaturas</string>
     <string name="hide_system_ui_at_fullscreen">Ocultar interface do sistema se em ecrã completo</string>
     <string name="delete_empty_folders">Apagar as pastas vazias depois de remover o seu conteúdo</string>
@@ -138,6 +139,8 @@
         Uma ferramenta simples para ver fotos e vídeos. Pode organizar os itens por data, tamanho, nome e ampliar as fotografias. Os ficheiros multimédia são mostrados em colunas e a sua exibição está dependente do tamanho do ecrã, podendo alterar o número de colunas através de gestos. Pode renomear, partilhar, apagar, copiar e mover as fotografias. Também pode recortar, rodar e definir as imagens como fundo do ecrã a partir da aplicação.
 
         Também pode ser utilizada para pré-visualizar imagens e vídeos ou para adicionar como anexos ao e-mail, entre outros. É perfeita para a utilização diária.
+
+        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
 
         Não contém anúncios nem permissões desnecessárias. Disponibiliza um tema escuro e é totalmente \'open source\'.
 
