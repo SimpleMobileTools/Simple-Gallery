@@ -264,6 +264,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_save_as).isVisible = mRotationDegrees != 0f
             findItem(R.id.menu_hide).isVisible = !currentMedium.name.startsWith('.')
             findItem(R.id.menu_unhide).isVisible = currentMedium.name.startsWith('.')
+            findItem(R.id.menu_lock_orientation).isVisible = mRotationDegrees == 0f
             findItem(R.id.menu_lock_orientation).title = getString(if (mIsOrientationLocked) R.string.unlock_orientation else R.string.lock_orientation)
             findItem(R.id.menu_rotate).setShowAsAction(
                     if (mRotationDegrees != 0f) {
