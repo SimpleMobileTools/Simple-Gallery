@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.Matrix
 import android.graphics.drawable.ColorDrawable
+import android.media.ExifInterface.*
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -137,9 +138,9 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun degreesForRotation(orientation: Int) = when (orientation) {
-        8 -> 270
-        3 -> 180
-        6 -> 90
+        ORIENTATION_ROTATE_270 -> 270
+        ORIENTATION_ROTATE_180 -> 180
+        ORIENTATION_ROTATE_90 -> 90
         else -> 0
     }
 
@@ -253,7 +254,9 @@ class PhotoFragment : ViewPagerFragment() {
 
                     override fun onReady() {
                         background = ColorDrawable(if (context.config.blackBackground) Color.BLACK else context.config.backgroundColor)
-                        setDoubleTapZoomScale(getDoubleTapZoomScale(sWidth, sHeight))
+                        val useWidth = if (orient == ORIENTATION_ROTATE_90 || orient == ORIENTATION_ROTATE_270) sHeight else sWidth
+                        val useHeight = if (orient == ORIENTATION_ROTATE_90 || orient == ORIENTATION_ROTATE_270) sWidth else sHeight
+                        setDoubleTapZoomScale(getDoubleTapZoomScale(useWidth, useHeight))
                     }
 
                     override fun onTileLoadError(e: Exception?) {
