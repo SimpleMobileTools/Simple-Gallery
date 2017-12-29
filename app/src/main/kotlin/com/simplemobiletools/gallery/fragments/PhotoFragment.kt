@@ -277,22 +277,21 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun getDoubleTapZoomScale(width: Int, height: Int): Float {
-        val bitmapAspectRatio = height / (width).toFloat()
+        val bitmapAspectRatio = height / width.toFloat()
+        val screenAspectRatio = ViewPagerActivity.screenHeight / ViewPagerActivity.screenWidth.toFloat()
 
         return if (context == null) {
             DEFAULT_DOUBLE_TAP_ZOOM
-        } else if (ViewPagerActivity.screenHeight / ViewPagerActivity.screenWidth.toFloat() == bitmapAspectRatio) {
-            DEFAULT_DOUBLE_TAP_ZOOM
         } else if (ViewPagerActivity.wasDecodedByGlide) {
             1f
-        } else if (context!!.portrait && bitmapAspectRatio <= 1f) {
+        } else if (context!!.portrait && bitmapAspectRatio <= screenAspectRatio) {
             ViewPagerActivity.screenHeight / height.toFloat()
-        } else if (context!!.portrait && bitmapAspectRatio > 1f) {
-            ViewPagerActivity.screenHeight / width.toFloat()
-        } else if (!context!!.portrait && bitmapAspectRatio >= 1f) {
+        } else if (context!!.portrait && bitmapAspectRatio > screenAspectRatio) {
             ViewPagerActivity.screenWidth / width.toFloat()
-        } else if (!context!!.portrait && bitmapAspectRatio < 1f) {
-            ViewPagerActivity.screenWidth / height.toFloat()
+        } else if (!context!!.portrait && bitmapAspectRatio >= screenAspectRatio) {
+            ViewPagerActivity.screenWidth / width.toFloat()
+        } else if (!context!!.portrait && bitmapAspectRatio < screenAspectRatio) {
+            ViewPagerActivity.screenHeight / height.toFloat()
         } else {
             DEFAULT_DOUBLE_TAP_ZOOM
         }
