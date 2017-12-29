@@ -37,7 +37,7 @@ import java.io.File
 import java.io.FileOutputStream
 
 class PhotoFragment : ViewPagerFragment() {
-    private var DEFAULT_DOUBLE_TAP_ZOOM = 5f
+    private var DEFAULT_DOUBLE_TAP_ZOOM = 2f
     private var isFragmentVisible = false
     private var isFullscreen = false
     private var wasInit = false
@@ -283,7 +283,7 @@ class PhotoFragment : ViewPagerFragment() {
         val bitmapAspectRatio = height / width.toFloat()
         val screenAspectRatio = ViewPagerActivity.screenHeight / ViewPagerActivity.screenWidth.toFloat()
 
-        return if (context == null) {
+        return if (context == null || bitmapAspectRatio == screenAspectRatio) {
             DEFAULT_DOUBLE_TAP_ZOOM
         } else if (ViewPagerActivity.wasDecodedByGlide) {
             1f
