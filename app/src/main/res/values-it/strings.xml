@@ -44,9 +44,9 @@
     <string name="excluded_activity_placeholder">L\'esclusione delle cartelle e delle sottocartelle le renderà nascoste solo in Simple Gallery, saranno ancora visibili in altre applicazioni.\\n\\nSe desideri nasconderle anche nelle altre app, usa la funzione Nascondi.</string>
     <string name="remove_all">Rimuovi tutte</string>
     <string name="remove_all_description">Rimuovere tutte le cartelle dalla lista delle esclusioni? Ciò non eliminerà le cartelle.</string>
-    <string name="hidden_folders">Hidden folders</string>
-    <string name="manage_hidden_folders">Manage hidden folders</string>
-    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
+    <string name="hidden_folders">Cartelle nascoste</string>
+    <string name="manage_hidden_folders">Gestisci le cartelle nascoste</string>
+    <string name="hidden_folders_placeholder">Pare che tu non abbia alcuna cartella nascosta con un file \".nomedia\".</string>
 
     <!-- Include folders -->
     <string name="include_folders">Includi cartelle</string>
@@ -124,7 +124,7 @@
     <string name="screen_rotation_system_setting">Impostazione di sistema</string>
     <string name="screen_rotation_device_rotation">Rotazione dispositivo</string>
     <string name="screen_rotation_aspect_ratio">Proporzioni</string>
-    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
+    <string name="black_background_at_fullscreen">Sfondo e barra di stato neri con media a schermo intero</string>
     <string name="scroll_thumbnails_horizontally">Scorri le miniature orizzontalmente</string>
     <string name="hide_system_ui_at_fullscreen">Nascondi UI di sistema con media a schermo intero</string>
     <string name="delete_empty_folders">Elimina cartelle vuote dopo averne eliminato il contenuto</string>
@@ -142,7 +142,7 @@
 
         Simple Gallery è anche offerta per utilizzo di terze parti per anteprime di immagini / video, aggiunta di allegati ai client email, ecc. È perfetta per un uso quotidiano.
 
-        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+        L\'autorizzazione per le impronte è necessaria per bloccare la visibilità di alcuni elementi o dell\'intera app.
 
         Non contiene pubblicità o autorizzazioni non necessarie. È completamente opensource, offre colori personalizzabili.
 
