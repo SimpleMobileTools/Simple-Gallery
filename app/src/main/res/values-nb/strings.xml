@@ -44,9 +44,9 @@
     <string name="excluded_activity_placeholder">Ekskludering av mapper vil gjøre dem sammen med deres undermapper, skjulte bare i denne appen. De vil fortsatt være synlige i andre apper.\n\nHvis du vil skjule dem fra andre apper, bruk Skjul-funksjonen.</string>
     <string name="remove_all">Fjern alle</string>
     <string name="remove_all_description">Fjerne alle mapper fra listen av ekskluderte? Dette sletter ikke mappene.</string>
-    <string name="hidden_folders">Hidden folders</string>
-    <string name="manage_hidden_folders">Manage hidden folders</string>
-    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
+    <string name="hidden_folders">Skjulte mapper</string>
+    <string name="manage_hidden_folders">Håndter skjulte mapper</string>
+    <string name="hidden_folders_placeholder">Ser ut til at du ikke har skjult noen mapper med en \".nomedia\"-fil.</string>
 
     <!-- Include folders -->
     <string name="include_folders">Inkluderte mapper</string>
