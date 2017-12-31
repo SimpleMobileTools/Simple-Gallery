@@ -38,6 +38,7 @@ class SettingsActivity : SimpleActivity() {
         setupUseEnglish()
         setupManageIncludedFolders()
         setupManageExcludedFolders()
+        setupManageHiddenFolders()
         setupShowHiddenFolders()
         setupAutoplayVideos()
         setupLoopVideos()
@@ -86,6 +87,12 @@ class SettingsActivity : SimpleActivity() {
     private fun setupManageExcludedFolders() {
         settings_manage_excluded_folders_holder.setOnClickListener {
             startActivity(Intent(this, ExcludedFoldersActivity::class.java))
+        }
+    }
+
+    private fun setupManageHiddenFolders() {
+        settings_manage_hidden_folders_holder.setOnClickListener {
+            startActivity(Intent(this, HiddenFoldersActivity::class.java))
         }
     }
 

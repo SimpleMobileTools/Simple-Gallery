@@ -1,6 +1,19 @@
 Changelog
 ==========
 
+Version 3.1.2 *(2017-12-30)*
+----------------------------
+
+ * Fixed some video related crashes
+
+Version 3.1.1 *(2017-12-29)*
+----------------------------
+
+ * Added a new setting item for managing folders hidden with .nomedia
+ * Speed up image loading
+ * Use copy/delete instead of move on Android 8.x
+ * Improved double-tap zoom ratios
+
 Version 3.1.0 *(2017-12-25)*
 ----------------------------
 

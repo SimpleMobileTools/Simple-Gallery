@@ -184,18 +184,17 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun saveBitmapToFile(bitmap: Bitmap, path: String) {
-        val file = File(path)
-
         try {
-            getFileOutputStream(file) {
-                if (it != null) {
-                    Thread {
+            Thread {
+                val file = File(path)
+                getFileOutputStream(file) {
+                    if (it != null) {
                         saveBitmap(file, bitmap, it)
-                    }.start()
-                } else {
-                    toast(R.string.image_editing_failed)
+                    } else {
+                        toast(R.string.image_editing_failed)
+                    }
                 }
-            }
+            }.start()
         } catch (e: Exception) {
             showErrorToast(e)
         } catch (e: OutOfMemoryError) {

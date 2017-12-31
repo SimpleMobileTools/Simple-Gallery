@@ -44,7 +44,9 @@
     <string name="excluded_activity_placeholder">フォルダーを除外すると、サブフォルダーも含めSimple Galleyの一覧から除外します。他のアプリでは引き続き表示されます。\\n\\n他のアプリでも非表示にしたい場合は、「非表示」機能を使用してください。</string>
     <string name="remove_all">すべて解除</string>
     <string name="remove_all_description">除外するフォルダーの登録をすべて解除しますか? フォルダー自体は削除されません。</string>
+    <string name="hidden_folders">Hidden folders</string>
     <string name="manage_hidden_folders">Manage hidden folders</string>
+    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
 
     <!-- Include folders -->
     <string name="include_folders">追加フォルダー</string>

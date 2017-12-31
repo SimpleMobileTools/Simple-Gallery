@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.Matrix
 import android.graphics.drawable.ColorDrawable
+import android.media.ExifInterface.*
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -36,7 +37,7 @@ import java.io.File
 import java.io.FileOutputStream
 
 class PhotoFragment : ViewPagerFragment() {
-    private var DEFAULT_DOUBLE_TAP_ZOOM = 5f
+    private var DEFAULT_DOUBLE_TAP_ZOOM = 2f
     private var isFragmentVisible = false
     private var isFullscreen = false
     private var wasInit = false
@@ -137,9 +138,9 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun degreesForRotation(orientation: Int) = when (orientation) {
-        8 -> 270
-        3 -> 180
-        6 -> 90
+        ORIENTATION_ROTATE_270 -> 270
+        ORIENTATION_ROTATE_180 -> 180
+        ORIENTATION_ROTATE_90 -> 90
         else -> 0
     }
 
@@ -253,7 +254,9 @@ class PhotoFragment : ViewPagerFragment() {
 
                     override fun onReady() {
                         background = ColorDrawable(if (context.config.blackBackground) Color.BLACK else context.config.backgroundColor)
-                        setDoubleTapZoomScale(getDoubleTapZoomScale(sWidth, sHeight))
+                        val useWidth = if (orient == ORIENTATION_ROTATE_90 || orient == ORIENTATION_ROTATE_270) sHeight else sWidth
+                        val useHeight = if (orient == ORIENTATION_ROTATE_90 || orient == ORIENTATION_ROTATE_270) sWidth else sHeight
+                        setDoubleTapZoomScale(getDoubleTapZoomScale(useWidth, useHeight))
                     }
 
                     override fun onTileLoadError(e: Exception?) {
@@ -277,22 +280,21 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun getDoubleTapZoomScale(width: Int, height: Int): Float {
-        val bitmapAspectRatio = height / (width).toFloat()
+        val bitmapAspectRatio = height / width.toFloat()
+        val screenAspectRatio = ViewPagerActivity.screenHeight / ViewPagerActivity.screenWidth.toFloat()
 
-        return if (context == null) {
-            DEFAULT_DOUBLE_TAP_ZOOM
-        } else if (ViewPagerActivity.screenHeight / ViewPagerActivity.screenWidth.toFloat() == bitmapAspectRatio) {
+        return if (context == null || bitmapAspectRatio == screenAspectRatio) {
             DEFAULT_DOUBLE_TAP_ZOOM
         } else if (ViewPagerActivity.wasDecodedByGlide) {
             1f
-        } else if (context!!.portrait && bitmapAspectRatio <= 1f) {
+        } else if (context!!.portrait && bitmapAspectRatio <= screenAspectRatio) {
             ViewPagerActivity.screenHeight / height.toFloat()
-        } else if (context!!.portrait && bitmapAspectRatio > 1f) {
-            ViewPagerActivity.screenHeight / width.toFloat()
-        } else if (!context!!.portrait && bitmapAspectRatio >= 1f) {
+        } else if (context!!.portrait && bitmapAspectRatio > screenAspectRatio) {
             ViewPagerActivity.screenWidth / width.toFloat()
-        } else if (!context!!.portrait && bitmapAspectRatio < 1f) {
-            ViewPagerActivity.screenWidth / height.toFloat()
+        } else if (!context!!.portrait && bitmapAspectRatio >= screenAspectRatio) {
+            ViewPagerActivity.screenWidth / width.toFloat()
+        } else if (!context!!.portrait && bitmapAspectRatio < screenAspectRatio) {
+            ViewPagerActivity.screenHeight / height.toFloat()
         } else {
             DEFAULT_DOUBLE_TAP_ZOOM
         }
@@ -324,6 +326,7 @@ class PhotoFragment : ViewPagerFragment() {
         super.onDestroyView()
         if (activity?.isActivityDestroyed() == false) {
             Glide.with(context).clear(view.gif_view)
+            view.subsampling_view.recycle()
         }
     }
 

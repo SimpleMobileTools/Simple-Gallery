@@ -264,6 +264,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_save_as).isVisible = mRotationDegrees != 0f
             findItem(R.id.menu_hide).isVisible = !currentMedium.name.startsWith('.')
             findItem(R.id.menu_unhide).isVisible = currentMedium.name.startsWith('.')
+            findItem(R.id.menu_lock_orientation).isVisible = mRotationDegrees == 0f
             findItem(R.id.menu_lock_orientation).title = getString(if (mIsOrientationLocked) R.string.unlock_orientation else R.string.lock_orientation)
             findItem(R.id.menu_rotate).setShowAsAction(
                     if (mRotationDegrees != 0f) {
@@ -316,6 +317,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             view_pager.apply {
                 adapter = pagerAdapter
                 currentItem = mPos
+                removeOnPageChangeListener(this@ViewPagerActivity)
                 addOnPageChangeListener(this@ViewPagerActivity)
             }
         }
@@ -350,10 +352,16 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
 
             override fun onAnimationEnd(animation: Animator?) {
-                view_pager.endFakeDrag()
+                if (view_pager.isFakeDragging) {
+                    try {
+                        view_pager.endFakeDrag()
+                    } catch (ignored: Exception) {
+                        stopSlideshow()
+                    }
 
-                if (view_pager.currentItem == oldPosition) {
-                    slideshowEnded(forward)
+                    if (view_pager.currentItem == oldPosition) {
+                        slideshowEnded(forward)
+                    }
                 }
             }
 
@@ -373,7 +381,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     val dragPosition = animation.animatedValue as Int
                     val dragOffset = dragPosition - oldDragPosition
                     oldDragPosition = dragPosition
-                    view_pager.fakeDragBy(dragOffset * (if (forward) 1f else -1f))
+                    try {
+                        view_pager.fakeDragBy(dragOffset * (if (forward) 1f else -1f))
+                    } catch (e: Exception) {
+                        stopSlideshow()
+                    }
                 }
             }
         })
@@ -398,8 +410,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun stopSlideshow() {
         if (mIsSlideshowActive) {
-            showSystemUI()
             mIsSlideshowActive = false
+            showSystemUI()
             mSlideshowHandler.removeCallbacksAndMessages(null)
             window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         }
