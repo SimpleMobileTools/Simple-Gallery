@@ -7,6 +7,7 @@
     <string name="hidden">(dold)</string>
     <string name="pin_folder">Fäst mappen</string>
     <string name="unpin_folder">Släpp mappen</string>
+    <string name="pin_to_the_top">Pin to the top</string>
     <string name="show_all">Visa alla mappars innehåll</string>
     <string name="all_folders">Alla mappar</string>
     <string name="folder_view">Byt till mappvy</string>

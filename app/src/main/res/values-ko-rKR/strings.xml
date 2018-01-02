@@ -7,6 +7,7 @@
     <string name="hidden">(숨기기)</string>
     <string name="pin_folder">폴더 고정</string>
     <string name="unpin_folder">폴더 고정 해제</string>
+    <string name="pin_to_the_top">Pin to the top</string>
     <string name="show_all">모든 폴더의 컨텐츠 보기</string>
     <string name="all_folders">모든 폴더</string>
     <string name="folder_view">폴더 보기로 변경</string>

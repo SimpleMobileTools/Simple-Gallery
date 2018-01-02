@@ -7,6 +7,7 @@
     <string name="hidden">(gizli)</string>
     <string name="pin_folder">Pin klasör</string>
     <string name="unpin_folder">Klasörü çöz</string>
+    <string name="pin_to_the_top">Pin to the top</string>
     <string name="show_all">Tüm klasörlerin içeriğini göster</string>
     <string name="all_folders">Tüm klasörler</string>
     <string name="folder_view">Klasör görünümüne geç</string>

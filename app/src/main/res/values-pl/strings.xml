@@ -7,6 +7,7 @@
     <string name="hidden">(ukryty)</string>
     <string name="pin_folder">Przypnij folder</string>
     <string name="unpin_folder">Wypakuj folder</string>
+   <string name="pin_to_the_top">Pin to the top</string>
     <string name="show_all">Pokaż wszystko</string>
     <string name="all_folders">Wszystkie foldery</string>
     <string name="folder_view">Przełącz na widok folderów</string>

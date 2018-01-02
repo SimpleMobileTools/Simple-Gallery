@@ -7,6 +7,7 @@
     <string name="hidden">（隐藏）</string>
     <string name="pin_folder">锁定目录</string>
     <string name="unpin_folder">解除锁定目录</string>
+    <string name="pin_to_the_top">Pin to the top</string>
     <string name="show_all">文件视图</string>
     <string name="all_folders">所有目录</string>
     <string name="folder_view">目录视图</string>
