@@ -36,7 +36,7 @@
     <string name="change_filters_underlined"><u>Filters aanpassen</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Deze functie verbergt de map door de extensie \'.nomedia\' toe te voegen. Alle submappen zullen ook worden verborgen. Kies \'Verborgen mappen weergeven\' in de instellingen om verborgen mappen alsnog te weergeven. Wilt u doorgaan?</string>
+    <string name="hide_folder_description">Deze functie verbergt de map door \'.nomedia\' toe te voegen. Alle submappen zullen ook worden verborgen. Kies \'Verborgen mappen weergeven\' in de instellingen om verborgen mappen alsnog te weergeven. Wilt u doorgaan?</string>
     <string name="exclude">Uitsluiten</string>
     <string name="excluded_folders">Uitgesloten mappen</string>
     <string name="manage_excluded_folders">Uitgesloten mappen beheren</string>
@@ -47,7 +47,7 @@
     <string name="remove_all_description">Wilt u alles verwijderen uit de lijst van uitgesloten mappen? Dit zal de mappen zelf niet verwijderen.</string>
     <string name="hidden_folders">Verborgen mappen</string>
     <string name="manage_hidden_folders">Verborgen mappen beheren</string>
-    <string name="hidden_folders_placeholder">Geen mappen gevonden die zijn verborgen met de extensie \".nomedia\".</string>
+    <string name="hidden_folders_placeholder">Geen mappen gevonden die zijn verborgen met de bestandsnaam \".nomedia\".</string>
 
     <!-- Include folders -->
     <string name="include_folders">Toegevoegde mappen</string>
