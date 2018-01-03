@@ -238,7 +238,7 @@ class Config(context: Context) : BaseConfig(context) {
         set(replaceShare) = prefs.edit().putBoolean(REPLACE_SHARE_WITH_ROTATE, replaceShare).apply()
 
     var deleteEmptyFolders: Boolean
-        get() = prefs.getBoolean(DELETE_EMPTY_FOLDERS, true)
+        get() = prefs.getBoolean(DELETE_EMPTY_FOLDERS, false)
         set(deleteEmptyFolders) = prefs.edit().putBoolean(DELETE_EMPTY_FOLDERS, deleteEmptyFolders).apply()
 
     var allowVideoGestures: Boolean
