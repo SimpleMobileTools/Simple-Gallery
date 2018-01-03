@@ -123,7 +123,7 @@
     <string name="crop_thumbnails">Miniatuurvoorbeelden bijsnijden</string>
     <string name="screen_rotation_by">Media in volledige weergave draaien volgens</string>
     <string name="screen_rotation_system_setting">Systeeminstelling</string>
-    <string name="screen_rotation_device_rotation">Draaiing van apparaat</string>
+    <string name="screen_rotation_device_rotation">Apparaatoriëntatie</string>
     <string name="screen_rotation_aspect_ratio">Afmetingen van bestand</string>
     <string name="black_background_at_fullscreen">Zwarte achtergrond en statusbalk bij volledige weergave</string>
     <string name="scroll_thumbnails_horizontally">Horizontaal scrollen</string>
