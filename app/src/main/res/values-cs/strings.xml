@@ -7,6 +7,7 @@
     <string name="hidden">(skryté)</string>
     <string name="pin_folder">Připnout složku</string>
     <string name="unpin_folder">Odepnout složku</string>
+    <string name="pin_to_the_top">Pin to the top</string>
     <string name="show_all">Zobrazit obsah všech složek</string>
     <string name="all_folders">Všechny složky</string>
     <string name="folder_view">Přepnout na zobrazení složek</string>

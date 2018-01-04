@@ -7,6 +7,7 @@
     <string name="hidden">(nascosta)</string>
     <string name="pin_folder">Blocca cartella</string>
     <string name="unpin_folder">Sblocca cartella</string>
+    <string name="pin_to_the_top">Pin to the top</string>
     <string name="show_all">Mostra tutti i contenuti</string>
     <string name="all_folders">Tutti i media</string>
     <string name="folder_view">Visualizza a cartelle</string>

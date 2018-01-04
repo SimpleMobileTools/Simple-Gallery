@@ -7,6 +7,7 @@
     <string name="hidden">(skriveno)</string>
     <string name="pin_folder">Prikači direktorij</string>
     <string name="unpin_folder">Otkači direktorij</string>
+    <string name="pin_to_the_top">Pin to the top</string>
     <string name="show_all">Prikaži cijeli sadržaj direktorija</string>
     <string name="all_folders">Svi direktoriji</string>
     <string name="folder_view">Prebaci se na pogled direktorija</string>

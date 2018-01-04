@@ -7,6 +7,7 @@
     <string name="hidden">(skryté)</string>
     <string name="pin_folder">Pripnúť priečinok</string>
     <string name="unpin_folder">Odopnúť priečinok</string>
+    <string name="pin_to_the_top">Pripnúť na vrch</string>
     <string name="show_all">Zobraziť obsah všetkých priečinkov</string>
     <string name="all_folders">Všetky priečinky</string>
     <string name="folder_view">Prepnúť na zobrazenie priečinkov</string>

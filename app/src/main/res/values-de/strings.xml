@@ -7,6 +7,7 @@
     <string name="hidden">(versteckt)</string>
     <string name="pin_folder">Ordner anheften</string>
     <string name="unpin_folder">Ordner loslösen</string>
+    <string name="pin_to_the_top">An den Start anheften</string>
     <string name="show_all">Ansicht: Alle Medien</string>
     <string name="all_folders">Alle Medien</string>
     <string name="folder_view">Ansicht: Als Ordner</string>

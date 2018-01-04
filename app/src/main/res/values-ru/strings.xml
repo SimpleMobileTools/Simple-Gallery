@@ -7,6 +7,7 @@
     <string name="hidden">(Скрытый)</string>
     <string name="pin_folder">Закрепить папку</string>
     <string name="unpin_folder">Открепить папку</string>
+    <string name="pin_to_the_top">Закрепить наверху</string>
     <string name="show_all">Отобразить все медиафайлы</string>
     <string name="all_folders">Все медиафайлы</string>
     <string name="folder_view">Переключиться к виду с папками</string>
