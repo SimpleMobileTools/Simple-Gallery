@@ -106,7 +106,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         if (!activity.isActivityDestroyed()) {
             val itemView = holder?.itemView
             visibleItemPaths.remove(itemView?.photo_name?.tag)
-            Glide.with(activity).clear(itemView?.medium_thumbnail)
+            Glide.with(activity).clear(itemView?.medium_thumbnail!!)
         }
     }
 

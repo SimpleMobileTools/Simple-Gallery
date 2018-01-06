@@ -94,7 +94,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
     override fun onViewRecycled(holder: ViewHolder?) {
         super.onViewRecycled(holder)
         if (!activity.isActivityDestroyed()) {
-            Glide.with(activity).clear(holder?.itemView?.dir_thumbnail)
+            Glide.with(activity).clear(holder?.itemView?.dir_thumbnail!!)
         }
     }
 

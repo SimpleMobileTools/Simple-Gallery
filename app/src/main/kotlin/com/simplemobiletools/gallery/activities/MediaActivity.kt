@@ -511,12 +511,11 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                     .load(File(path))
                     .apply(options)
                     .into(object : SimpleTarget<Bitmap>() {
-                        override fun onResourceReady(resource: Bitmap?, transition: Transition<in Bitmap>?) {
+                        override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
                             try {
                                 WallpaperManager.getInstance(applicationContext).setBitmap(resource)
                                 setResult(Activity.RESULT_OK)
                             } catch (ignored: IOException) {
-
                             }
 
                             finish()

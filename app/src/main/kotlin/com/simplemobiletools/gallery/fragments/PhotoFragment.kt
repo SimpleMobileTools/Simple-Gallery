@@ -325,7 +325,7 @@ class PhotoFragment : ViewPagerFragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         if (activity?.isActivityDestroyed() == false) {
-            Glide.with(context).clear(view.gif_view)
+            Glide.with(context!!).clear(view.gif_view)
             view.subsampling_view.recycle()
         }
     }
