@@ -69,6 +69,25 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/settings_manage_hidden_folders_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MyTextView
+                android:id="@+id/settings_manage_hidden_folders"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/manage_hidden_folders"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:id="@+id/settings_use_english_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -89,26 +108,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/settings_manage_hidden_folders_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:padding="@dimen/activity_margin">
-
-            <com.simplemobiletools.commons.views.MyTextView
-                android:id="@+id/settings_manage_hidden_folders"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:paddingLeft="@dimen/medium_margin"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/manage_hidden_folders"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/settings_show_hidden_folders_holder"
+            android:id="@+id/settings_show_hidden_items_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/medium_margin"
@@ -116,7 +116,7 @@
             android:padding="@dimen/activity_margin">
 
             <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_show_hidden_folders"
+                android:id="@+id/settings_show_hidden_items"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"

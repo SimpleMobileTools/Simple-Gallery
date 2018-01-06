@@ -39,7 +39,7 @@ class SettingsActivity : SimpleActivity() {
         setupManageIncludedFolders()
         setupManageExcludedFolders()
         setupManageHiddenFolders()
-        setupShowHiddenFolders()
+        setupShowHiddenItems()
         setupAutoplayVideos()
         setupLoopVideos()
         setupAnimateGifs()
@@ -96,22 +96,22 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupShowHiddenFolders() {
-        settings_show_hidden_folders.isChecked = config.showHiddenMedia
-        settings_show_hidden_folders_holder.setOnClickListener {
+    private fun setupShowHiddenItems() {
+        settings_show_hidden_items.isChecked = config.showHiddenMedia
+        settings_show_hidden_items_holder.setOnClickListener {
             if (config.showHiddenMedia) {
-                toggleHiddenFolders()
+                toggleHiddenItems()
             } else {
                 handleHiddenFolderPasswordProtection {
-                    toggleHiddenFolders()
+                    toggleHiddenItems()
                 }
             }
         }
     }
 
-    private fun toggleHiddenFolders() {
-        settings_show_hidden_folders.toggle()
-        config.showHiddenMedia = settings_show_hidden_folders.isChecked
+    private fun toggleHiddenItems() {
+        settings_show_hidden_items.toggle()
+        config.showHiddenMedia = settings_show_hidden_items.isChecked
     }
 
     private fun setupAutoplayVideos() {
