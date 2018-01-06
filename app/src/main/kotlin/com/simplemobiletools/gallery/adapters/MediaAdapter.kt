@@ -1,6 +1,8 @@
 package com.simplemobiletools.gallery.adapters
 
 import android.net.Uri
+import android.os.Handler
+import android.os.Looper
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
@@ -12,22 +14,26 @@ import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.applyColorFilter
 import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.isActivityDestroyed
+import com.simplemobiletools.commons.views.FastScroller
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.DeleteWithRememberDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.VIEW_TYPE_LIST
 import com.simplemobiletools.gallery.models.Medium
-import kotlinx.android.synthetic.main.photo_video_item_list.view.*
+import kotlinx.android.synthetic.main.photo_video_item_grid.view.*
 import java.io.File
 import java.util.*
 
 class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
-                   val allowMultiplePicks: Boolean, recyclerView: MyRecyclerView, itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(activity, recyclerView, itemClick) {
+                   val allowMultiplePicks: Boolean, recyclerView: MyRecyclerView, fastScroller: FastScroller? = null,
+                   itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick) {
 
     private val config = activity.config
     private val isListViewType = config.viewTypeFiles == VIEW_TYPE_LIST
     private var skipConfirmationDialog = false
+    private var visibleItemPaths = ArrayList<String>()
+    private var delayHandler = Handler(Looper.getMainLooper())
 
     private var scrollHorizontally = config.scrollHorizontally
     private var animateGifs = config.animateGifs
@@ -51,6 +57,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
     override fun onBindViewHolder(holder: MyRecyclerViewAdapter.ViewHolder, position: Int) {
         val medium = media[position]
+        visibleItemPaths.add(medium.path)
         val view = holder.bindView(medium, !allowMultiplePicks) { itemView, layoutPosition ->
             setupView(itemView, medium)
         }
@@ -92,7 +99,9 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     override fun onViewRecycled(holder: ViewHolder?) {
         super.onViewRecycled(holder)
         if (!activity.isActivityDestroyed()) {
-            Glide.with(activity).clear(holder?.itemView?.medium_thumbnail)
+            val itemView = holder?.itemView
+            visibleItemPaths.remove(itemView?.photo_name?.tag)
+            Glide.with(activity).clear(itemView?.medium_thumbnail)
         }
     }
 
@@ -259,7 +268,15 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
             play_outline.beVisibleIf(medium.video)
             photo_name.beVisibleIf(displayFilenames || isListViewType)
             photo_name.text = medium.name
-            activity.loadImage(medium.path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
+            photo_name.tag = medium.path
+
+            medium_thumbnail.isHorizontalScrolling = scrollHorizontally
+            delayHandler.postDelayed({
+                val isVisible = visibleItemPaths.contains(medium.path)
+                if (isVisible) {
+                    activity.loadImage(medium.path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
+                }
+            }, 200)
 
             if (isListViewType) {
                 photo_name.setTextColor(textColor)

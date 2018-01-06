@@ -11,6 +11,7 @@ import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.views.FastScroller
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.ExcludeFolderDialog
@@ -24,7 +25,8 @@ import java.io.File
 import java.util.*
 
 class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Directory>, val listener: DirOperationsListener?, recyclerView: MyRecyclerView,
-                       val isPickIntent: Boolean, itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(activity, recyclerView, itemClick) {
+                       val isPickIntent: Boolean, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit) :
+        MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick) {
 
     private val config = activity.config
     private val isListViewType = config.viewTypeFolders == VIEW_TYPE_LIST

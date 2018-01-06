@@ -402,12 +402,16 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun increaseColumnCount() {
+        directories_vertical_fastscroller.measureRecyclerViewOnRedraw()
+        directories_horizontal_fastscroller.measureRecyclerViewOnRedraw()
         config.dirColumnCnt = ++(directories_grid.layoutManager as GridLayoutManager).spanCount
         invalidateOptionsMenu()
         directories_grid.adapter?.notifyDataSetChanged()
     }
 
     private fun reduceColumnCount() {
+        directories_vertical_fastscroller.measureRecyclerViewOnRedraw()
+        directories_horizontal_fastscroller.measureRecyclerViewOnRedraw()
         config.dirColumnCnt = --(directories_grid.layoutManager as GridLayoutManager).spanCount
         invalidateOptionsMenu()
         directories_grid.adapter?.notifyDataSetChanged()
@@ -533,6 +537,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
         directories_empty_text_label.beVisibleIf(dirs.isEmpty() && !isFromCache)
         directories_empty_text.beVisibleIf(dirs.isEmpty() && !isFromCache)
+        directories_grid.beVisibleIf(directories_empty_text_label.isGone())
+
+        val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFiles == VIEW_TYPE_GRID
+        directories_vertical_fastscroller.beVisibleIf(directories_grid.isVisible() && !allowHorizontalScroll)
+        directories_horizontal_fastscroller.beVisibleIf(directories_grid.isVisible() && allowHorizontalScroll)
 
         checkLastMediaChanged()
         if (dirs.hashCode() == mDirs.hashCode()) {
@@ -559,7 +568,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         val currAdapter = directories_grid.adapter
         if (currAdapter == null) {
             initZoomListener()
-            DirectoryAdapter(this, mDirs, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent)) {
+            val fastscroller = if (config.scrollHorizontally) directories_horizontal_fastscroller else directories_vertical_fastscroller
+            DirectoryAdapter(this, mDirs, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent), fastscroller) {
                 itemClicked((it as Directory).path)
             }.apply {
                 setupZoomListener(mZoomListener)

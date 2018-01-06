@@ -36,7 +36,7 @@
         <com.simplemobiletools.commons.views.MyRecyclerView
             android:id="@+id/media_grid"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:scrollbars="none"
             app:layoutManager="android.support.v7.widget.GridLayoutManager"
             app:spanCount="@integer/media_columns_vertical_scroll"/>
@@ -48,7 +48,8 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:paddingLeft="@dimen/normal_margin"
-            android:paddingStart="@dimen/normal_margin">
+            android:paddingStart="@dimen/normal_margin"
+            android:visibility="gone">
 
             <include layout="@layout/fastscroller_handle_vertical"/>
 
@@ -61,7 +62,8 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:paddingTop="@dimen/normal_margin">
+            android:paddingTop="@dimen/normal_margin"
+            android:visibility="gone">
 
             <include layout="@layout/fastscroller_handle_horizontal"/>
 

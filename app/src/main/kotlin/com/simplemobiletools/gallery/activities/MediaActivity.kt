@@ -182,7 +182,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         val currAdapter = media_grid.adapter
         if (currAdapter == null) {
             initZoomListener()
-            MediaAdapter(this, mMedia, this, mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent, mAllowPickingMultiple, media_grid) {
+            val fastscroller = if (config.scrollHorizontally) media_horizontal_fastscroller else media_vertical_fastscroller
+            MediaAdapter(this, mMedia, this, mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent, mAllowPickingMultiple, media_grid, fastscroller) {
                 itemClicked((it as Medium).path)
             }.apply {
                 setupZoomListener(mZoomListener)
@@ -466,12 +467,16 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun increaseColumnCount() {
+        media_vertical_fastscroller.measureRecyclerViewOnRedraw()
+        media_horizontal_fastscroller.measureRecyclerViewOnRedraw()
         config.mediaColumnCnt = ++(media_grid.layoutManager as GridLayoutManager).spanCount
         invalidateOptionsMenu()
         media_grid.adapter?.notifyDataSetChanged()
     }
 
     private fun reduceColumnCount() {
+        media_vertical_fastscroller.measureRecyclerViewOnRedraw()
+        media_horizontal_fastscroller.measureRecyclerViewOnRedraw()
         config.mediaColumnCnt = --(media_grid.layoutManager as GridLayoutManager).spanCount
         invalidateOptionsMenu()
         media_grid.adapter?.notifyDataSetChanged()
@@ -548,6 +553,11 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         media_empty_text_label.beVisibleIf(media.isEmpty() && !isFromCache)
         media_empty_text.beVisibleIf(media.isEmpty() && !isFromCache)
+        media_grid.beVisibleIf(media_empty_text_label.isGone())
+
+        val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFiles == VIEW_TYPE_GRID
+        media_vertical_fastscroller.beVisibleIf(media_grid.isVisible() && !allowHorizontalScroll)
+        media_horizontal_fastscroller.beVisibleIf(media_grid.isVisible() && allowHorizontalScroll)
 
         checkLastMediaChanged()
         if (mLastDrawnHashCode == 0)
