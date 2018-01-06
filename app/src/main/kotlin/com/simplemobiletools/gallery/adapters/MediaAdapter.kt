@@ -29,11 +29,16 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
                    val allowMultiplePicks: Boolean, recyclerView: MyRecyclerView, fastScroller: FastScroller? = null,
                    itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick) {
 
+    init {
+        enableInstantLoad()
+    }
+
     private val config = activity.config
     private val isListViewType = config.viewTypeFiles == VIEW_TYPE_LIST
     private var skipConfirmationDialog = false
     private var visibleItemPaths = ArrayList<String>()
     private var delayHandler = Handler(Looper.getMainLooper())
+    private var loadImageInstantly = false
 
     private var scrollHorizontally = config.scrollHorizontally
     private var animateGifs = config.animateGifs
@@ -239,12 +244,14 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
     fun updateMedia(newMedia: ArrayList<Medium>) {
         media = newMedia
+        enableInstantLoad()
         notifyDataSetChanged()
         finishActMode()
     }
 
     fun updateDisplayFilenames(displayFilenames: Boolean) {
         this.displayFilenames = displayFilenames
+        enableInstantLoad()
         notifyDataSetChanged()
     }
 
@@ -263,6 +270,13 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         notifyDataSetChanged()
     }
 
+    private fun enableInstantLoad() {
+        loadImageInstantly = true
+        Handler().postDelayed({
+            loadImageInstantly = false
+        }, 1000)
+    }
+
     private fun setupView(view: View, medium: Medium) {
         view.apply {
             play_outline.beVisibleIf(medium.video)
@@ -270,13 +284,18 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
             photo_name.text = medium.name
             photo_name.tag = medium.path
 
-            medium_thumbnail.isHorizontalScrolling = scrollHorizontally
-            delayHandler.postDelayed({
-                val isVisible = visibleItemPaths.contains(medium.path)
-                if (isVisible) {
-                    activity.loadImage(medium.path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
-                }
-            }, 200)
+            if (loadImageInstantly) {
+                activity.loadImage(medium.path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
+            } else {
+                medium_thumbnail.setImageDrawable(null)
+                medium_thumbnail.isHorizontalScrolling = scrollHorizontally
+                delayHandler.postDelayed({
+                    val isVisible = visibleItemPaths.contains(medium.path)
+                    if (isVisible) {
+                        activity.loadImage(medium.path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
+                    }
+                }, 200)
+            }
 
             if (isListViewType) {
                 photo_name.setTextColor(textColor)
