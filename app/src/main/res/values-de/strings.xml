@@ -41,8 +41,8 @@
     <string name="excluded_folders">Ausgeblendete Ordner</string>
     <string name="manage_excluded_folders">Ausgeblendete Ordner verwalten</string>
     <string name="exclude_folder_description">Diese Funktion blendet die ausgewählten Ordner und deren Unterordner aus (nur in dieser App). Ausgeblendete Ordner können in den Einstellungen verwaltet werden.</string>
-    <string name="exclude_folder_parent">Möchten Sie stattdessen einen höherliegenden Ordner ausblenden?</string>
-    <string name="excluded_activity_placeholder">\'Ordner ausblenden\' wird ausgewählte Ordner und deren Unterordner nur in dieser App ausblenden. Andere Apps werden solche Ordner weiterhin anzeigen.\\n\\nWenn Sie Ordner auch für andere Apps verstecken wollen, verwenden Sie dafür die Funktion \'Ordner verstecken\'.</string>
+    <string name="exclude_folder_parent">Möchtest du stattdessen einen höherliegenden Ordner ausblenden?</string>
+    <string name="excluded_activity_placeholder">\'Ordner ausblenden\' wird ausgewählte Ordner und deren Unterordner nur in dieser App ausblenden. Andere Apps werden solche Ordner weiterhin anzeigen.\\n\\nWenn du Ordner auch für andere Apps verstecken willst, verwende dafür die Funktion \'Ordner verstecken\'.</string>
     <string name="remove_all">Alle entfernen</string>
     <string name="remove_all_description">Alle Ordner aus der Ausgeblendet-Liste entfernen? Die Ordner selbst werden nicht gelöscht.</string>
     <string name="hidden_folders">Versteckte Ordner</string>
@@ -53,7 +53,7 @@
     <string name="include_folders">Einbezogene Ordner</string>
     <string name="manage_included_folders">Einbezogene Ordner verwalten</string>
     <string name="add_folder">Ordner hinzufügen</string>
-    <string name="included_activity_placeholder">Sollten Sie weitere Medienordner haben, die von der App nicht erkannt wurden, können Sie diese hier manuell hinzufügen.</string>
+    <string name="included_activity_placeholder">Solltest du weitere Medienordner haben, die von der App nicht erkannt wurden, kannst du diese hier manuell hinzufügen.</string>
 
     <!-- Resizing -->
     <string name="resize">Größe ändern</string>
