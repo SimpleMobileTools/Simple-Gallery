@@ -1,13 +1,17 @@
 package com.simplemobiletools.gallery.activities
 
 import android.app.Activity
+import android.app.SearchManager
 import android.app.WallpaperManager
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
+import android.support.v4.view.MenuItemCompat
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.SearchView
 import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
@@ -60,6 +64,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mLastMediaHandler = Handler()
     private var mCurrAsyncTask: GetMediaAsynctask? = null
     private var mZoomListener: MyRecyclerView.MyZoomListener? = null
+    private var mSearchMenuItem: MenuItem? = null
 
     companion object {
         var mMedia = ArrayList<Medium>()
@@ -130,6 +135,11 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+        MenuItemCompat.collapseActionView(mSearchMenuItem)
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         if (config.showAll)
@@ -148,6 +158,33 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             mStoredTextColor = textColor
             mShowAll = showAll
         }
+    }
+
+    private fun setupSearch(menu: Menu) {
+        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        mSearchMenuItem = menu.findItem(R.id.search)
+        (mSearchMenuItem!!.actionView as SearchView).apply {
+            setSearchableInfo(searchManager.getSearchableInfo(componentName))
+            isSubmitButtonEnabled = false
+            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String) = false
+
+                override fun onQueryTextChange(newText: String): Boolean {
+                    searchQueryChanged(newText)
+                    return true
+                }
+            })
+        }
+    }
+
+    private fun searchQueryChanged(text: String) {
+        Thread {
+            val filtered = mMedia.filter { it.name.contains(text, true) } as ArrayList
+            filtered.sortBy { !it.name.startsWith(text, true) }
+            runOnUiThread {
+                (media_grid.adapter as? MediaAdapter)?.updateMedia(filtered)
+            }
+        }.start()
     }
 
     private fun tryloadGallery() {
@@ -260,6 +297,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             findItem(R.id.toggle_filename).isVisible = config.viewTypeFiles == VIEW_TYPE_GRID
         }
 
+        setupSearch(menu)
         return true
     }
 
