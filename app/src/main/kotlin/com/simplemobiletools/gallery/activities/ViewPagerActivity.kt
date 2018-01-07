@@ -177,6 +177,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
+        val file = File(mPath)
+        if (!file.exists()) {
+            deleteFromMediaStore(file)
+            finish()
+            return
+        }
+
         if (intent.extras?.containsKey(IS_VIEW_INTENT) == true) {
             if (isShowHiddenFlagNeeded()) {
                 if (!config.isPasswordProtectionOn) {
@@ -189,7 +196,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         showSystemUI()
 
-        mDirectory = File(mPath).parent
+        mDirectory = file.parent
         supportActionBar?.title = mPath.getFilenameFromPath()
 
         view_pager.onGlobalLayout {
