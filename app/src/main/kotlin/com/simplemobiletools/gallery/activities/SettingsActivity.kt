@@ -92,7 +92,9 @@ class SettingsActivity : SimpleActivity() {
 
     private fun setupManageHiddenFolders() {
         settings_manage_hidden_folders_holder.setOnClickListener {
-            startActivity(Intent(this, HiddenFoldersActivity::class.java))
+            handleHiddenFolderPasswordProtection {
+                startActivity(Intent(this, HiddenFoldersActivity::class.java))
+            }
         }
     }
 
