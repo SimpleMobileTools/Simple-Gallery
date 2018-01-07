@@ -148,6 +148,53 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         mMedia.clear()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_media, menu)
+
+        val isFolderHidden = File(mPath).containsNoMedia()
+        menu.apply {
+            findItem(R.id.hide_folder).isVisible = !isFolderHidden && !mShowAll
+            findItem(R.id.unhide_folder).isVisible = isFolderHidden && !mShowAll
+
+            findItem(R.id.folder_view).isVisible = mShowAll
+            findItem(R.id.open_camera).isVisible = mShowAll
+            findItem(R.id.about).isVisible = mShowAll
+
+            findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden
+            findItem(R.id.stop_showing_hidden).isVisible = config.temporarilyShowHidden
+
+            findItem(R.id.increase_column_count).isVisible = config.viewTypeFiles == VIEW_TYPE_GRID && config.mediaColumnCnt < MAX_COLUMN_COUNT
+            findItem(R.id.reduce_column_count).isVisible = config.viewTypeFiles == VIEW_TYPE_GRID && config.mediaColumnCnt > 1
+
+            findItem(R.id.toggle_filename).isVisible = config.viewTypeFiles == VIEW_TYPE_GRID
+        }
+
+        setupSearch(menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.sort -> showSortingDialog()
+            R.id.filter -> showFilterMediaDialog()
+            R.id.toggle_filename -> toggleFilenameVisibility()
+            R.id.open_camera -> launchCamera()
+            R.id.folder_view -> switchToFolderView()
+            R.id.change_view_type -> changeViewType()
+            R.id.hide_folder -> tryHideFolder()
+            R.id.unhide_folder -> unhideFolder()
+            R.id.exclude_folder -> tryExcludeFolder()
+            R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden()
+            R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
+            R.id.increase_column_count -> increaseColumnCount()
+            R.id.reduce_column_count -> reduceColumnCount()
+            R.id.settings -> launchSettings()
+            R.id.about -> launchAbout()
+            else -> return super.onOptionsItemSelected(item)
+        }
+        return true
+    }
+
     private fun storeStateVariables() {
         config.apply {
             mStoredUseEnglish = useEnglish
@@ -274,53 +321,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                 }
             }.start()
         }, LAST_MEDIA_CHECK_PERIOD)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_media, menu)
-
-        val isFolderHidden = File(mPath).containsNoMedia()
-        menu.apply {
-            findItem(R.id.hide_folder).isVisible = !isFolderHidden && !mShowAll
-            findItem(R.id.unhide_folder).isVisible = isFolderHidden && !mShowAll
-
-            findItem(R.id.folder_view).isVisible = mShowAll
-            findItem(R.id.open_camera).isVisible = mShowAll
-            findItem(R.id.about).isVisible = mShowAll
-
-            findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden
-            findItem(R.id.stop_showing_hidden).isVisible = config.temporarilyShowHidden
-
-            findItem(R.id.increase_column_count).isVisible = config.viewTypeFiles == VIEW_TYPE_GRID && config.mediaColumnCnt < MAX_COLUMN_COUNT
-            findItem(R.id.reduce_column_count).isVisible = config.viewTypeFiles == VIEW_TYPE_GRID && config.mediaColumnCnt > 1
-
-            findItem(R.id.toggle_filename).isVisible = config.viewTypeFiles == VIEW_TYPE_GRID
-        }
-
-        setupSearch(menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.sort -> showSortingDialog()
-            R.id.filter -> showFilterMediaDialog()
-            R.id.toggle_filename -> toggleFilenameVisibility()
-            R.id.open_camera -> launchCamera()
-            R.id.folder_view -> switchToFolderView()
-            R.id.change_view_type -> changeViewType()
-            R.id.hide_folder -> tryHideFolder()
-            R.id.unhide_folder -> unhideFolder()
-            R.id.exclude_folder -> tryExcludeFolder()
-            R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden()
-            R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
-            R.id.increase_column_count -> increaseColumnCount()
-            R.id.reduce_column_count -> reduceColumnCount()
-            R.id.settings -> launchSettings()
-            R.id.about -> launchAbout()
-            else -> return super.onOptionsItemSelected(item)
-        }
-        return true
     }
 
     private fun showSortingDialog() {
