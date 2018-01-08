@@ -137,7 +137,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     override fun onStop() {
         super.onStop()
-        MenuItemCompat.collapseActionView(mSearchMenuItem)
+        if (mSearchMenuItem != null) {
+            MenuItemCompat.collapseActionView(mSearchMenuItem)
+        }
     }
 
     override fun onDestroy() {
