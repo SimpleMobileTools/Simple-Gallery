@@ -28,24 +28,25 @@ import java.util.*
 class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
                    val allowMultiplePicks: Boolean, recyclerView: MyRecyclerView, fastScroller: FastScroller? = null,
                    itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick) {
-    init {
-        enableInstantLoad()
-    }
 
-    private val INSTANT_LOAD_DURATION = 1000L
-    private val IMAGE_LOAD_DELAY = 200L
+    private val INSTANT_LOAD_DURATION = 3000L
+    private val IMAGE_LOAD_DELAY = 100L
 
     private val config = activity.config
     private val isListViewType = config.viewTypeFiles == VIEW_TYPE_LIST
     private var skipConfirmationDialog = false
     private var visibleItemPaths = ArrayList<String>()
-    private var delayHandler = Handler(Looper.getMainLooper())
     private var loadImageInstantly = false
+    private var delayHandler = Handler(Looper.getMainLooper())
 
     private var scrollHorizontally = config.scrollHorizontally
     private var animateGifs = config.animateGifs
     private var cropThumbnails = config.cropThumbnails
     private var displayFilenames = config.displayFileNames
+
+    init {
+        enableInstantLoad()
+    }
 
     override fun getActionMenuId() = R.menu.cab_media
 
@@ -274,7 +275,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
     private fun enableInstantLoad() {
         loadImageInstantly = true
-        Handler().postDelayed({
+        delayHandler.postDelayed({
             loadImageInstantly = false
         }, INSTANT_LOAD_DURATION)
     }
