@@ -29,7 +29,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
                    val allowMultiplePicks: Boolean, recyclerView: MyRecyclerView, fastScroller: FastScroller? = null,
                    itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick) {
 
-    private val INSTANT_LOAD_DURATION = 3000L
+    private val INSTANT_LOAD_DURATION = 2000L
     private val IMAGE_LOAD_DELAY = 100L
 
     private val config = activity.config
