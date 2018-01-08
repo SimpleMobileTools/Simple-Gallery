@@ -527,9 +527,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun gotDirectories(newDirs: ArrayList<Directory>, isFromCache: Boolean) {
-        Thread {
-            mLatestMediaId = getLatestMediaId()
-        }.start()
+        if (!isFromCache) {
+            Thread {
+                mLatestMediaId = getLatestMediaId()
+            }.start()
+        }
 
         val dirs = getSortedDirectories(newDirs)
         directories_refresh_layout.isRefreshing = false
