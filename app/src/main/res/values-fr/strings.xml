@@ -92,9 +92,9 @@
     <string name="wallpaper_set_successfully">Fond d\'écran défini avec succès</string>
     <string name="portrait_aspect_ratio">Ratio d\'aspect portrait</string>
     <string name="landscape_aspect_ratio">Ratio d\'aspect paysage</string>
-    <string name="home_screen">Page d'accueil</string>
+    <string name="home_screen">Page d\'accueil</string>
     <string name="lock_screen">Écran de verouillage</string>
-    <string name="home_and_lock_screen">Page d'accueil et écran de verrouillage</string>
+    <string name="home_and_lock_screen">Page d\'accueil et écran de verrouillage</string>
 
     <!-- Slideshow -->
     <string name="slideshow">Diaporama</string>
@@ -143,7 +143,7 @@
 
         La galerie est également proposée pour une utilisation comme tierce partie pour la prévisualisation des images/vidéos, ajouter des pièces jointes aux clients email etc. C\'est parfait pour un usage au quotidien.
 
-        L'autorisation d'empreinte digitale est nécessaire pour verrouiller les dossiers cachés et/ou l'application.
+        L\'autorisation d\'empreinte digitale est nécessaire pour verrouiller les dossiers cachés et/ou l\'application.
 
         L\'application ne contient ni publicité ni autorisation inutile. Elle est totalement opensource et est aussi fournie avec des couleurs personnalisables.
 
