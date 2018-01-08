@@ -7,7 +7,7 @@
     <string name="hidden">(caché)</string>
     <string name="pin_folder">Épingler le dossier</string>
     <string name="unpin_folder">Désépingler le dossier</string>
-    <string name="pin_to_the_top">Pin to the top</string>
+    <string name="pin_to_the_top">Épingler en haut</string>
     <string name="show_all">Afficher le contenu de tous les dossiers</string>
     <string name="all_folders">Tous les dossiers</string>
     <string name="folder_view">Permuter vers la vue du dossier</string>
@@ -24,8 +24,8 @@
     <string name="volume">Volume</string>
     <string name="brightness">Luminosité</string>
     <string name="do_not_ask_again">Ne pas redemander pour cette session</string>
-    <string name="lock_orientation">Lock orientation</string>
-    <string name="unlock_orientation">Unlock orientation</string>
+    <string name="lock_orientation">Verrouiller la rotation</string>
+    <string name="unlock_orientation">Déverrouiller la rotation</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrer les médias</string>
@@ -41,13 +41,13 @@
     <string name="excluded_folders">Dossiers exclus</string>
     <string name="manage_excluded_folders">Gérer les dossiers exclus</string>
     <string name="exclude_folder_description">Cela va exclure la sélection ainsi que ses sous-dossiers depuis Simple Galerie uniquement. Vous pouvez gérer les dossiers exclus depuis les Paramètres.</string>
-    <string name="exclude_folder_parent">Exclure un parent plutôt ?</string>
+    <string name="exclude_folder_parent">Exclure un dossier parent ?</string>
     <string name="excluded_activity_placeholder">Exclure des dossiers les masquera ainsi que leurs sous-dossiers uniquement dans Simple Galerie, ils seront toujours visibles depuis d\'autres applications.\\n\\nSi vous voulez aussi les masquer ailleurs, utilisez la fonction Masquer.</string>
     <string name="remove_all">Tout supprimer</string>
     <string name="remove_all_description">Supprimer tous les dossiers de la liste des exclusions ? Ceci n\'effacera pas les dossiers.</string>
-    <string name="hidden_folders">Hidden folders</string>
-    <string name="manage_hidden_folders">Manage hidden folders</string>
-    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
+    <string name="hidden_folders">Dossiers masqués</string>
+    <string name="manage_hidden_folders">Gérer les dossiers masqués</string>
+    <string name="hidden_folders_placeholder">Il semblerait que vous n\'ayez pas de dossier cachés avec un fichier \".nomedia\".</string>
 
     <!-- Include folders -->
     <string name="include_folders">Dossiers inclus</string>
@@ -92,9 +92,9 @@
     <string name="wallpaper_set_successfully">Fond d\'écran défini avec succès</string>
     <string name="portrait_aspect_ratio">Ratio d\'aspect portrait</string>
     <string name="landscape_aspect_ratio">Ratio d\'aspect paysage</string>
-    <string name="home_screen">Home screen</string>
-    <string name="lock_screen">Lock screen</string>
-    <string name="home_and_lock_screen">Home and lock screen</string>
+    <string name="home_screen">Page d'accueil</string>
+    <string name="lock_screen">Écran de verouillage</string>
+    <string name="home_and_lock_screen">Page d'accueil et écran de verrouillage</string>
 
     <!-- Slideshow -->
     <string name="slideshow">Diaporama</string>
@@ -125,7 +125,7 @@
     <string name="screen_rotation_system_setting">Paramètres système</string>
     <string name="screen_rotation_device_rotation">Rotation de l\'appareil</string>
     <string name="screen_rotation_aspect_ratio">Ratio d\'aspect</string>
-    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
+    <string name="black_background_at_fullscreen">Fond et barre de statur noir en plein écran</string>
     <string name="scroll_thumbnails_horizontally">Défilement des miniatures horizontalement</string>
     <string name="hide_system_ui_at_fullscreen">Masquer automatiquement l\'interface utilisateur si média plein écran</string>
     <string name="delete_empty_folders">Supprimer les dossiers vides après avoir supprimé leur contenu</string>
@@ -143,11 +143,11 @@
 
         La galerie est également proposée pour une utilisation comme tierce partie pour la prévisualisation des images/vidéos, ajouter des pièces jointes aux clients email etc. C\'est parfait pour un usage au quotidien.
 
-        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+        L'autorisation d'empreinte digitale est nécessaire pour verrouiller les dossiers cachés et/ou l'application.
 
         L\'application ne contient ni publicité ni autorisation inutile. Elle est totalement opensource et est aussi fournie avec des couleurs personnalisables.
 
-        Cette application est juste l\'une des applications d\'une plus grande suite. Vous pouvez trouver les autres sur http://www.simplemobiletools.com
+        Cette application fait partie d\'une plus grande suite. Vous pouvez trouver les autres applications sur http://www.simplemobiletools.com
     </string>
 
     <!--
