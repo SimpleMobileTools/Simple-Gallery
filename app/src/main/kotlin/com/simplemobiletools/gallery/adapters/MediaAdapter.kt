@@ -28,10 +28,12 @@ import java.util.*
 class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
                    val allowMultiplePicks: Boolean, recyclerView: MyRecyclerView, fastScroller: FastScroller? = null,
                    itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick) {
-
     init {
         enableInstantLoad()
     }
+
+    private val INSTANT_LOAD_DURATION = 1000L
+    private val IMAGE_LOAD_DELAY = 200L
 
     private val config = activity.config
     private val isListViewType = config.viewTypeFiles == VIEW_TYPE_LIST
@@ -274,7 +276,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         loadImageInstantly = true
         Handler().postDelayed({
             loadImageInstantly = false
-        }, 1000)
+        }, INSTANT_LOAD_DURATION)
     }
 
     private fun setupView(view: View, medium: Medium) {
@@ -294,7 +296,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
                     if (isVisible) {
                         activity.loadImage(medium.path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
                     }
-                }, 200)
+                }, IMAGE_LOAD_DELAY)
             }
 
             if (isListViewType) {
