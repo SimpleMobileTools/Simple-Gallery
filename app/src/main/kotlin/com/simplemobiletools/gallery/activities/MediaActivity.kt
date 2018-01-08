@@ -262,8 +262,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun setupAdapter() {
-        if (isDirEmpty())
+        if (isDirEmpty()) {
             return
+        }
 
         val currAdapter = media_grid.adapter
         if (currAdapter == null) {
@@ -408,8 +409,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun getMedia() {
-        if (mIsGettingMedia)
+        if (mIsGettingMedia) {
             return
+        }
 
         mIsGettingMedia = true
         val media = getCachedMedia(mPath)
@@ -599,11 +601,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         media_horizontal_fastscroller.beVisibleIf(media_grid.isVisible() && allowHorizontalScroll)
 
         checkLastMediaChanged()
-        if (mLastDrawnHashCode == 0)
-            mLastDrawnHashCode = media.hashCode()
 
-        if (media.hashCode() == mMedia.hashCode() && media.hashCode() == mLastDrawnHashCode)
+        if (media.hashCode() == mMedia.hashCode() && media.hashCode() == mLastDrawnHashCode) {
             return
+        }
 
         mLastDrawnHashCode = media.hashCode()
         mMedia = media
