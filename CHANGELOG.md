@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 3.2.1 *(2018-01-08)*
+----------------------------
+
+ * Adding a crashfix
+ * Couple scrollbar glitch fixes
+
 Version 3.2.0 *(2018-01-07)*
 ----------------------------
 
