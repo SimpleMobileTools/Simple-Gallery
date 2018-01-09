@@ -14,8 +14,6 @@
     <string name="other_folder">其他資料夾</string>
     <string name="show_on_map">在地圖上顯示</string>
     <string name="unknown_location">未知的位置</string>
-    <string name="no_map_application">找不到地圖程式</string>
-    <string name="no_camera_app_found">找不到相機程式</string>
     <string name="increase_column_count">增加欄數</string>
     <string name="reduce_column_count">減少欄數</string>
     <string name="change_cover_image">更換封面圖片</string>
@@ -87,7 +85,6 @@
     <string name="set_as_wallpaper">設為桌布</string>
     <string name="set_as_wallpaper_failed">設為桌布失敗</string>
     <string name="set_as_wallpaper_with">用其他程式設為桌布:</string>
-    <string name="no_capable_app_found">找不到可用的應用程式</string>
     <string name="setting_wallpaper">桌布設定中&#8230;</string>
     <string name="wallpaper_set_successfully">成功設為桌布</string>
     <string name="portrait_aspect_ratio">直向長寬比</string>

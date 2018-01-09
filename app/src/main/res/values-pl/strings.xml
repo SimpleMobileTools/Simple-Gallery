@@ -14,8 +14,6 @@
     <string name="other_folder">Inny folder</string>
     <string name="show_on_map">Pokaż na mapie</string>
     <string name="unknown_location">Nieznana lokalizacja</string>
-    <string name="no_map_application">Brak aplikacji powiązanej z mapami</string>
-    <string name="no_camera_app_found">Brak aplikacji powiązanej z aparatem</string>
     <string name="increase_column_count">Zwiększ liczbę kolumn</string>
     <string name="reduce_column_count">Zmniejsz liczbę kolumn</string>
     <string name="change_cover_image">Zmień okładkę</string>
@@ -87,7 +85,6 @@
     <string name="set_as_wallpaper">Ustaw jako tapetę</string>
     <string name="set_as_wallpaper_failed">Ustawienie tapety nie powiodło się</string>
     <string name="set_as_wallpaper_with">Ustaw jako tapetę w:</string>
-    <string name="no_capable_app_found">Brak odpowiednich ustawień</string>
     <string name="setting_wallpaper">Ustawiam tapetę&#8230;</string>
     <string name="wallpaper_set_successfully">Tapeta została ustawiona</string>
     <string name="portrait_aspect_ratio">Proporcje ekranu w trybie pionowym</string>

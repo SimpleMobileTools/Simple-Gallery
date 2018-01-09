@@ -14,8 +14,6 @@
     <string name="other_folder">其他目录</string>
     <string name="show_on_map">在地图中显示</string>
     <string name="unknown_location">未知位置</string>
-    <string name="no_map_application">未找到地图应用</string>
-    <string name="no_camera_app_found">未找到相机应用</string>
     <string name="increase_column_count">增加一栏</string>
     <string name="reduce_column_count">减少一栏</string>
     <string name="change_cover_image">更改封面图片</string>
@@ -87,7 +85,6 @@
     <string name="set_as_wallpaper">设为壁纸</string>
     <string name="set_as_wallpaper_failed">壁纸设置失败</string>
     <string name="set_as_wallpaper_with">设为壁纸...</string>
-    <string name="no_capable_app_found">未找到可用应用</string>
     <string name="setting_wallpaper">正在设置壁纸&#8230;</string>
     <string name="wallpaper_set_successfully">壁纸设置成功</string>
     <string name="portrait_aspect_ratio">纵向长宽比</string>

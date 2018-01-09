@@ -14,8 +14,6 @@
     <string name="other_folder">Autre dossier</string>
     <string name="show_on_map">Afficher sur la carte</string>
     <string name="unknown_location">Position inconnue</string>
-    <string name="no_map_application">Aucune application de carte n\'a été trouvée</string>
-    <string name="no_camera_app_found">Aucune application d\'appareil photo n\'a été trouvée</string>
     <string name="increase_column_count">Augmenter le nombre de colonnes</string>
     <string name="reduce_column_count">Réduire le nombre de colonnes</string>
     <string name="change_cover_image">Changer l\'image de couverture</string>
@@ -87,7 +85,6 @@
     <string name="set_as_wallpaper">Définir comme fond d\'écran</string>
     <string name="set_as_wallpaper_failed">Échec de la définition en tant que fond d\'écran.</string>
     <string name="set_as_wallpaper_with">Définir comme fond d\'écran avec :</string>
-    <string name="no_capable_app_found">Aucune application trouvée pour continuer cette action</string>
     <string name="setting_wallpaper">Paramètres de fond d\'écran…</string>
     <string name="wallpaper_set_successfully">Fond d\'écran défini avec succès</string>
     <string name="portrait_aspect_ratio">Ratio d\'aspect portrait</string>

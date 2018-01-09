@@ -14,8 +14,6 @@
     <string name="other_folder">その他のフォルダー</string>
     <string name="show_on_map">地図で表示</string>
     <string name="unknown_location">位置情報がありません</string>
-    <string name="no_map_application">地図アプリが見つかりません</string>
-    <string name="no_camera_app_found">カメラアプリが見つかりません</string>
     <string name="increase_column_count">列数を増やす</string>
     <string name="reduce_column_count">列数を減らす</string>
     <string name="change_cover_image">カバー画像を変更</string>
@@ -87,7 +85,6 @@
     <string name="set_as_wallpaper">壁紙に設定</string>
     <string name="set_as_wallpaper_failed">壁紙の設定に失敗しました</string>
     <string name="set_as_wallpaper_with">壁紙に設定:</string>
-    <string name="no_capable_app_found">対応できるアプリが見つかりません</string>
     <string name="setting_wallpaper">壁紙に設定中&#8230;</string>
     <string name="wallpaper_set_successfully">壁紙を正常に設定しました</string>
     <string name="portrait_aspect_ratio">縦向きの縦横比</string>

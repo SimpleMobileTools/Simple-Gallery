@@ -14,8 +14,6 @@
     <string name="other_folder">Другая папка</string>
     <string name="show_on_map">Показать место съёмки</string>
     <string name="unknown_location">Место съёмки не указано</string>
-    <string name="no_map_application">Не найдено приложений с картами</string>
-    <string name="no_camera_app_found">Не найдено приложения камеры</string>
     <string name="increase_column_count">Добавить столбец</string>
     <string name="reduce_column_count">Убрать столбец</string>
     <string name="change_cover_image">Изменить обложку</string>
@@ -87,7 +85,6 @@
     <string name="set_as_wallpaper">Установить в качестве обоев</string>
     <string name="set_as_wallpaper_failed">Не удалось установить</string>
     <string name="set_as_wallpaper_with">Установить в качестве обоев в:</string>
-    <string name="no_capable_app_found">Приложение не найдено</string>
     <string name="setting_wallpaper">Установка обоев…</string>
     <string name="wallpaper_set_successfully">Обои успешно установлены</string>
     <string name="portrait_aspect_ratio">Портрет</string>

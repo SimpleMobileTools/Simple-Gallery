@@ -64,7 +64,7 @@ fun Activity.launchCamera() {
     if (intent.resolveActivity(packageManager) != null) {
         startActivity(intent)
     } else {
-        toast(R.string.no_camera_app_found)
+        toast(R.string.no_app_found)
     }
 }
 

@@ -14,8 +14,6 @@
     <string name="other_folder">Iný priečinok</string>
     <string name="show_on_map">Zobraziť na mape</string>
     <string name="unknown_location">Neznáma poloha</string>
-    <string name="no_map_application">Nenašla sa žiadna mapová aplikácia</string>
-    <string name="no_camera_app_found">Nenašla sa žiadna aplikácia pre fotoaparát</string>
     <string name="increase_column_count">Zvýšiť počet stĺpcov</string>
     <string name="reduce_column_count">Znížiť počet stĺpcov</string>
     <string name="change_cover_image">Zmeniť obal albumu</string>
@@ -87,7 +85,6 @@
     <string name="set_as_wallpaper">Nastaviť ako tapetu</string>
     <string name="set_as_wallpaper_failed">Nastavovanie ako tapeta zlyhalo</string>
     <string name="set_as_wallpaper_with">Nastaviť ako tapetu s:</string>
-    <string name="no_capable_app_found">Nenašla sa žiadna vhodná aplikácia</string>
     <string name="setting_wallpaper">Nastavuje sa tapeta&#8230;</string>
     <string name="wallpaper_set_successfully">Tapeta bola úspešne zmenená</string>
     <string name="portrait_aspect_ratio">Orientácia nastojato</string>

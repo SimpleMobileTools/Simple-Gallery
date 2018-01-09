@@ -14,8 +14,6 @@
     <string name="other_folder">Un altre carpeta</string>
     <string name="show_on_map">Mostrar al mapa</string>
     <string name="unknown_location">Ubicació desconeguda</string>
-    <string name="no_map_application">No s\'ha trobat l\'aplicació de mapes</string>
-    <string name="no_camera_app_found">No s\'ha trobat l\'aplicació de càmera</string>
     <string name="increase_column_count">Augmentar el número de columnes</string>
     <string name="reduce_column_count">Reduir el número de columnes</string>
     <string name="change_cover_image">Canviar imatge de portada</string>
@@ -87,7 +85,6 @@
     <string name="set_as_wallpaper">Establir com a fons de pantalla</string>
     <string name="set_as_wallpaper_failed">Error a l\'establir com fons de pantalla</string>
     <string name="set_as_wallpaper_with">Establir com fons de pantalla amb:</string>
-    <string name="no_capable_app_found">No s\'ha trobat l\'aplicació per aquesta acció</string>
     <string name="setting_wallpaper">Establint fons de pantalla&#8230;</string>
     <string name="wallpaper_set_successfully">Fons de pantalla establert correctament</string>
     <string name="portrait_aspect_ratio">Relació d\'aspecte tipus retrat</string>

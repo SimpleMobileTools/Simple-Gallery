@@ -14,8 +14,6 @@
     <string name="other_folder">Annen mappe</string>
     <string name="show_on_map">Vis på kart</string>
     <string name="unknown_location">Ukjent plassering</string>
-    <string name="no_map_application">Ingen app med kart er funnet</string>
-    <string name="no_camera_app_found">Ingen kamera-app er funnet</string>
     <string name="increase_column_count">Øk antall kolonner</string>
     <string name="reduce_column_count">Reduser antall kolonner</string>
     <string name="change_cover_image">Endre omslagsbilde</string>
@@ -87,7 +85,6 @@
     <string name="set_as_wallpaper">Sett som bakgrunnsbilde</string>
     <string name="set_as_wallpaper_failed">Å sette som bakgrunnsbilde feilet</string>
     <string name="set_as_wallpaper_with">Sett som bakgrunnsbilde med:</string>
-    <string name="no_capable_app_found">Ingen app i stand til det er funnet</string>
     <string name="setting_wallpaper">Stiller inn bakgrunnsbilde&#8230;</string>
     <string name="wallpaper_set_successfully">Bakgrunnsbilde vellykket stilt inn</string>
     <string name="portrait_aspect_ratio">Portrett-sideforhold</string>
