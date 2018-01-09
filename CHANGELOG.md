@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 3.2.2 *(2018-01-09)*
+----------------------------
+
+ * Some scrolling issues fixed
+ * Improve new media file discovery
+
 Version 3.2.1 *(2018-01-08)*
 ----------------------------
 
