@@ -476,6 +476,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             inputStream = FileInputStream(File(path))
             outputStream = contentResolver.openOutputStream(output)
             inputStream.copyTo(outputStream)
+        } catch (e: SecurityException) {
+            showErrorToast(e)
         } catch (ignored: FileNotFoundException) {
         } finally {
             inputStream?.close()
