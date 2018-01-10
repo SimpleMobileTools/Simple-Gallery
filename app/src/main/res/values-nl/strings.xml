@@ -14,8 +14,6 @@
     <string name="other_folder">Andere map</string>
     <string name="show_on_map">Op kaart tonen</string>
     <string name="unknown_location">Locatie onbekend</string>
-    <string name="no_map_application">Geen app voor kaarten gevonden</string>
-    <string name="no_camera_app_found">Geen app voor camera gevonden</string>
     <string name="increase_column_count">Meer kolommen</string>
     <string name="reduce_column_count">Minder kolommen</string>
     <string name="change_cover_image">Afbeelding voor omslag veranderen</string>
@@ -87,7 +85,6 @@
     <string name="set_as_wallpaper">Als achtergrond instellen</string>
     <string name="set_as_wallpaper_failed">Achtergrond instellen mislukt</string>
     <string name="set_as_wallpaper_with">Achtergrond instellen met:</string>
-    <string name="no_capable_app_found">Geen app gevonden voor instellen achtergrond</string>
     <string name="setting_wallpaper">Achtergrond instellen&#8230;</string>
     <string name="wallpaper_set_successfully">Achtergrond is ingesteld</string>
     <string name="portrait_aspect_ratio">Verhouding in portretmodus</string>

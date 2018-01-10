@@ -14,8 +14,6 @@
     <string name="other_folder">Altra cartella</string>
     <string name="show_on_map">Mostra sulla mappa</string>
     <string name="unknown_location">Posizione sconosciuta</string>
-    <string name="no_map_application">Nessuna app con mappe trovata</string>
-    <string name="no_camera_app_found">Nessuna app fotocamera trovata</string>
     <string name="increase_column_count">Aumenta numero colonne</string>
     <string name="reduce_column_count">Riduci numero colonne</string>
     <string name="change_cover_image">Cambia immagine copertina</string>
@@ -87,7 +85,6 @@
     <string name="set_as_wallpaper">Imposta come sfondo</string>
     <string name="set_as_wallpaper_failed">Impostazione sfondo non riuscita</string>
     <string name="set_as_wallpaper_with">Imposta come sfondo con:</string>
-    <string name="no_capable_app_found">Non sono disponibili app compatibili</string>
     <string name="setting_wallpaper">Impostazione sfondo&#8230;</string>
     <string name="wallpaper_set_successfully">Sfondo impostato correttamente</string>
     <string name="portrait_aspect_ratio">Proporzioni ritratto</string>

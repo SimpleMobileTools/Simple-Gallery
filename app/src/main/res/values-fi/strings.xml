@@ -14,8 +14,6 @@
     <string name="other_folder">Muu kansio</string>
     <string name="show_on_map">Näytä kartalla</string>
     <string name="unknown_location">Tuntematon sijainti</string>
-    <string name="no_map_application">Karttasovellusta ei löytynyt</string>
-    <string name="no_camera_app_found">Kamerasovellusta ei löytynyt</string>
     <string name="increase_column_count">Increase column count</string>
     <string name="reduce_column_count">Reduce column count</string>
     <string name="change_cover_image">Vaihda kansikuva</string>
@@ -87,7 +85,6 @@
     <string name="set_as_wallpaper">Aseta taustakuvaksi</string>
     <string name="set_as_wallpaper_failed">Taustakuvan asetus epäonnistui</string>
     <string name="set_as_wallpaper_with">Aseta taustakuvaksi sovelluksella:</string>
-    <string name="no_capable_app_found">Toimivaa sovellusta ei löydetty</string>
     <string name="setting_wallpaper">Asetetaan taustakuvaa&#8230;</string>
     <string name="wallpaper_set_successfully">Taustakuva asetettu onnistuneesti</string>
     <string name="portrait_aspect_ratio">Kuvasuhde pystyssä</string>

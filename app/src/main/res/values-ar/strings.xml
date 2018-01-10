@@ -14,8 +14,6 @@
     <string name="other_folder">مجلد آخر</string>
     <string name="show_on_map">عرض على الخريطة</string>
     <string name="unknown_location">موقع غير معروف</string>
-    <string name="no_map_application">لم يتم العثور على أي تطبيق مع الخرائط</string>
-    <string name="no_camera_app_found">لم يتم العثور على تطبيق كاميرا</string>
     <string name="increase_column_count">زيادة عدد الأعمدة</string>
     <string name="reduce_column_count">تقليل عدد الأعمدة</string>
     <string name="change_cover_image">تغيير صورة الغلاف</string>
@@ -91,7 +89,6 @@
     <string name="set_as_wallpaper">تعيين كخلفية الشاشة</string>
     <string name="set_as_wallpaper_failed">فشل الإعداد كخلفية</string>
     <string name="set_as_wallpaper_with">تعيين كخلفية بواسطة:</string>
-    <string name="no_capable_app_found">لم يتم العثور على أي تطبيق لأداء المهمة</string>
     <string name="setting_wallpaper">... جار تعيين الخلفية ...</string>
     <string name="wallpaper_set_successfully">تم تعيبن الخلفية بنجاح</string>
     <string name="portrait_aspect_ratio">صورة نسبة العرض إلى الارتفاع</string>

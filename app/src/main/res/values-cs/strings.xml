@@ -14,8 +14,6 @@
     <string name="other_folder">Jiná složka</string>
     <string name="show_on_map">Zobrazit na mapě</string>
     <string name="unknown_location">Neznámá poloha</string>
-    <string name="no_map_application">Nebyla nalezena žádná mapová aplikace</string>
-    <string name="no_camera_app_found">Nebyla nalezena žádná fotografická aplikace</string>
     <string name="increase_column_count">Zvýšit počet sloupců</string>
     <string name="reduce_column_count">Snížit počet sloupců</string>
     <string name="change_cover_image">Change cover image</string>
@@ -87,7 +85,6 @@
     <string name="set_as_wallpaper">Nastavit jako tapetu</string>
     <string name="set_as_wallpaper_failed">Nastavení tapety selhalo</string>
     <string name="set_as_wallpaper_with">Nastavit jako tapetu pomocí:</string>
-    <string name="no_capable_app_found">Nebyla nalezena žádná vhodná aplikace</string>
     <string name="setting_wallpaper">Nastavuje se tapeta&#8230;</string>
     <string name="wallpaper_set_successfully">Tapeta byla úspěšně změněna</string>
     <string name="portrait_aspect_ratio">Portrait aspect ratio</string>

@@ -1,6 +1,28 @@
 Changelog
 ==========
 
+Version 3.2.2 *(2018-01-09)*
+----------------------------
+
+ * Some scrolling issues fixed
+ * Improve new media file discovery
+
+Version 3.2.1 *(2018-01-08)*
+----------------------------
+
+ * Adding a crashfix
+ * Couple scrollbar glitch fixes
+
+Version 3.2.0 *(2018-01-07)*
+----------------------------
+
+ * Rewrote scrolling to improve the performance
+ * Disable "Delete empty folders" by default
+ * Added initial Search to media thumbnails screen
+ * Apply the hidden folder password protection to "Manage hidden folders"
+ * Replace Move with Copy/Delete on Android 7+
+ * Improve SD card file support
+
 Version 3.1.2 *(2017-12-30)*
 ----------------------------
 

@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
-import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.R
@@ -14,11 +13,11 @@ import kotlinx.android.synthetic.main.item_manage_folder.view.*
 import java.util.*
 
 class ManageFoldersAdapter(activity: BaseSimpleActivity, var folders: ArrayList<String>, val isShowingExcludedFolders: Boolean, val listener: RefreshRecyclerViewListener?,
-                           recyclerView: MyRecyclerView, itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(activity, recyclerView, itemClick) {
+                           recyclerView: MyRecyclerView, itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(activity, recyclerView, null, itemClick) {
 
     private val config = activity.config
 
-    override fun getActionMenuId() = R.menu.cab_delete_only
+    override fun getActionMenuId() = R.menu.cab_remove_only
 
     override fun prepareActionMode(menu: Menu) {}
 
@@ -30,7 +29,7 @@ class ManageFoldersAdapter(activity: BaseSimpleActivity, var folders: ArrayList<
 
     override fun actionItemPressed(id: Int) {
         when (id) {
-            R.id.cab_delete -> askConfirmDelete()
+            R.id.cab_remove -> removeSelection()
         }
     }
 
@@ -57,13 +56,7 @@ class ManageFoldersAdapter(activity: BaseSimpleActivity, var folders: ArrayList<
         }
     }
 
-    private fun askConfirmDelete() {
-        ConfirmationDialog(activity) {
-            deleteSelection()
-        }
-    }
-
-    private fun deleteSelection() {
+    private fun removeSelection() {
         val removeFolders = ArrayList<String>(selectedPositions.size)
 
         selectedPositions.sortedDescending().forEach {

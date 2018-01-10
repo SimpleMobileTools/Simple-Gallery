@@ -246,6 +246,7 @@ class PhotoFragment : ViewPagerFragment() {
             view.subsampling_view.apply {
                 maxScale = 10f
                 beVisible()
+                isQuickScaleEnabled = false
                 setImage(ImageSource.uri(medium.path))
                 orientation = if (orient == -1) SubsamplingScaleImageView.ORIENTATION_USE_EXIF else degreesForRotation(orient)
                 setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {
@@ -325,7 +326,7 @@ class PhotoFragment : ViewPagerFragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         if (activity?.isActivityDestroyed() == false) {
-            Glide.with(context).clear(view.gif_view)
+            Glide.with(context!!).clear(view.gif_view)
             view.subsampling_view.recycle()
         }
     }

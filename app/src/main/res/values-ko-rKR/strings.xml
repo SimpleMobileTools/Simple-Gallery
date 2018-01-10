@@ -14,8 +14,6 @@
     <string name="other_folder">다른 폴더</string>
     <string name="show_on_map">지도에서 보기</string>
     <string name="unknown_location">위치정보 없음</string>
-    <string name="no_map_application">연결 가능한 지도 애플리케이션이 없습니다.</string>
-    <string name="no_camera_app_found">연결 가능한 카메라 애플리케이션이 없습니다.</string>
     <string name="increase_column_count">섬네일크기 축소</string>
     <string name="reduce_column_count">섬네일크기 확대</string>
     <string name="change_cover_image">Change cover image</string>
@@ -87,7 +85,6 @@
     <string name="set_as_wallpaper">Set as Wallpaper</string>
     <string name="set_as_wallpaper_failed">Setting as Wallpaper failed</string>
     <string name="set_as_wallpaper_with">Set as wallpaper with:</string>
-    <string name="no_capable_app_found">No app capable of it has been found</string>
     <string name="setting_wallpaper">Setting wallpaper&#8230;</string>
     <string name="wallpaper_set_successfully">Wallpaper set successfully</string>
     <string name="portrait_aspect_ratio">Portrait aspect ratio</string>

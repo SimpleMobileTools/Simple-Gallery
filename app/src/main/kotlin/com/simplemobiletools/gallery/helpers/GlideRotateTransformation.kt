@@ -17,6 +17,6 @@ class GlideRotateTransformation(context: Context, val rotateRotationAngle: Float
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
     }
 
-    override fun updateDiskCacheKey(messageDigest: MessageDigest?) {
+    override fun updateDiskCacheKey(messageDigest: MessageDigest) {
     }
 }

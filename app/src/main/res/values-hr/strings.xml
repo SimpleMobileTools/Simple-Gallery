@@ -14,8 +14,6 @@
     <string name="other_folder">Ostali direktoriji</string>
     <string name="show_on_map">Prikaži na karti</string>
     <string name="unknown_location">Nepoznata lokacija</string>
-    <string name="no_map_application">Nije pronađena aplikacija za kartame</string>
-    <string name="no_camera_app_found">Nije pronađena aplikacija za kameru</string>
     <string name="increase_column_count">Povećaj broj stupaca</string>
     <string name="reduce_column_count">Smanji broj stupaca</string>
     <string name="change_cover_image">Promjeni naslovnu sliku</string>
@@ -87,7 +85,6 @@
     <string name="set_as_wallpaper">Postavi kao pozadinu</string>
     <string name="set_as_wallpaper_failed">Neuspješno postavljanje pozadine</string>
     <string name="set_as_wallpaper_with">Postavi kao pozadinu s:</string>
-    <string name="no_capable_app_found">Nije pronađena aplikacija s ovim mogućnostima</string>
     <string name="setting_wallpaper">Postavljanje pozadine&#8230;</string>
     <string name="wallpaper_set_successfully">Uspješno postavljanje pozadine</string>
     <string name="portrait_aspect_ratio">Portretni omjer slike</string>
