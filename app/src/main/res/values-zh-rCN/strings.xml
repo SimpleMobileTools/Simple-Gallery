@@ -131,7 +131,7 @@
     <string name="replace_share_with_rotate">替换全屏时菜单栏的“分享”为“旋转”</string>
     <string name="show_extended_details">全屏浏览媒体时显示详细信息</string>
     <string name="manage_extended_details">要显示的详细信息项目</string>
-    <string name="one_finger_zoom">Toggle one finger zoom</string>
+    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

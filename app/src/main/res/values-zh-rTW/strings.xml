@@ -131,7 +131,7 @@
     <string name="replace_share_with_rotate">將全螢幕選單的分享取代為旋轉</string>
     <string name="show_extended_details">全螢幕時顯示詳細資訊</string>
     <string name="manage_extended_details">管理詳細資訊</string>
-    <string name="one_finger_zoom">Toggle one finger zoom</string>
+    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

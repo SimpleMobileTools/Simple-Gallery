@@ -131,7 +131,7 @@
     <string name="replace_share_with_rotate">전체화면 메뉴의 공유 아이콘을 회전 아이콘으로 변경</string>
     <string name="show_extended_details">전체화면 모드에서 세부정보 표시</string>
     <string name="manage_extended_details">확장된 세부정보 관리</string>
-    <string name="one_finger_zoom">Toggle one finger zoom</string>
+    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
