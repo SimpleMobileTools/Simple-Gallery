@@ -59,6 +59,7 @@ class SettingsActivity : SimpleActivity() {
         setupShowInfoBubble()
         setupShowExtendedDetails()
         setupManageExtendedDetails()
+        setupOneFingerZoom()
         updateTextColors(settings_holder)
     }
 
@@ -310,6 +311,14 @@ class SettingsActivity : SimpleActivity() {
                     settings_show_extended_details_holder.callOnClick()
                 }
             }
+        }
+    }
+
+    private fun setupOneFingerZoom() {
+        settings_one_finger_zoom.isChecked = config.oneFingerZoom
+        settings_one_finger_zoom_holder.setOnClickListener {
+            settings_one_finger_zoom.toggle()
+            config.oneFingerZoom = settings_one_finger_zoom.isChecked
         }
     }
 }

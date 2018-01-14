@@ -246,7 +246,7 @@ class PhotoFragment : ViewPagerFragment() {
             view.subsampling_view.apply {
                 maxScale = 10f
                 beVisible()
-                isQuickScaleEnabled = false
+                isQuickScaleEnabled = context.config.oneFingerZoom
                 setImage(ImageSource.uri(medium.path))
                 orientation = if (orient == -1) SubsamplingScaleImageView.ORIENTATION_USE_EXIF else degreesForRotation(orient)
                 setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {

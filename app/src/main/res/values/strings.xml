@@ -146,6 +146,7 @@
 
         This app is just one piece of a bigger series of apps. You can find the rest of them at http://www.simplemobiletools.com
     </string>
+    <string name="one_finger_zoom">Toggle one finger zoom</string>
 
     <!--
         Haven't found some strings? There's more at

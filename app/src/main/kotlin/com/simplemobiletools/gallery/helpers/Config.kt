@@ -168,6 +168,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getInt(getDirectoryColumnsField(), getDefaultDirectoryColumnCount())
         set(dirColumnCnt) = prefs.edit().putInt(getDirectoryColumnsField(), dirColumnCnt).apply()
 
+    var oneFingerZoom: Boolean
+        get() = prefs.getBoolean(ONE_FINGER_ZOOM, false)
+        set(loop) = prefs.edit().putBoolean(ONE_FINGER_ZOOM, loop).apply()
+
     private fun getDirectoryColumnsField(): String {
         val isPortrait = context.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
         return if (isPortrait) {
