@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 3.2.3 *(2018-01-14)*
+----------------------------
+
+ * An F-droid build only, fixing a compile error
+
 Version 3.2.2 *(2018-01-09)*
 ----------------------------
 
