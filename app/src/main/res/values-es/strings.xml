@@ -131,6 +131,7 @@
     <string name="replace_share_with_rotate">Reemplazar Compartir con Girar en el menú de pantalla completa</string>
     <string name="show_extended_details">Mostrar detalles extendidos sobre medios en pantalla completa</string>
     <string name="manage_extended_details">Administrar detalles ampliados</string>
+    <string name="one_finger_zoom">Toggle one finger zoom</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

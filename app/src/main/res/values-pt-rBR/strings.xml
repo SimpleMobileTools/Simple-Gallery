@@ -131,6 +131,7 @@
     <string name="replace_share_with_rotate">Substituir botão "Compartilhar" por "Rotação de tela" quando em tela cheia</string>
     <string name="show_extended_details">Exibir detalhes extendidos quando em tela cheia</string>
     <string name="manage_extended_details">Gerenciar detalhes extendidos</string>
+    <string name="one_finger_zoom">Toggle one finger zoom</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
