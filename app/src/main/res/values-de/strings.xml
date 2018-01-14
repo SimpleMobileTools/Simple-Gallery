@@ -51,7 +51,7 @@
     <string name="include_folders">Einbezogene Ordner</string>
     <string name="manage_included_folders">Einbezogene Ordner verwalten</string>
     <string name="add_folder">Ordner hinzufügen</string>
-    <string name="included_activity_placeholder">Solltest du weitere Medienordner haben, die von der App nicht erkannt wurden, kannst du diese hier manuell hinzufügen.</string>
+    <string name="included_activity_placeholder">Solltest du weitere Mediendateien haben, die von der App nicht erkannt wurden, kannst du ihre Ordner hier manuell hinzufügen.</string>
 
     <!-- Resizing -->
     <string name="resize">Größe ändern</string>
