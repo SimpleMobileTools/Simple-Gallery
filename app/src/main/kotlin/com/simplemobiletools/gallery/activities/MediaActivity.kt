@@ -263,7 +263,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun setupAdapter() {
-        if (isDirEmpty()) {
+        if (!mShowAll && isDirEmpty()) {
             return
         }
 
