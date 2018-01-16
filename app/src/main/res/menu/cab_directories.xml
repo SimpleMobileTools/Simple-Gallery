@@ -9,7 +9,7 @@
     <item
         android:id="@+id/cab_pin"
         android:icon="@drawable/ic_pin"
-        android:title="@string/pin_folder"
+        android:title="@string/pin_to_the_top"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_unpin"

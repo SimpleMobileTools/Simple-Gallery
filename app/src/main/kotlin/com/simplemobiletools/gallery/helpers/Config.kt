@@ -168,6 +168,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getInt(getDirectoryColumnsField(), getDefaultDirectoryColumnCount())
         set(dirColumnCnt) = prefs.edit().putInt(getDirectoryColumnsField(), dirColumnCnt).apply()
 
+    var oneFingerZoom: Boolean
+        get() = prefs.getBoolean(ONE_FINGER_ZOOM, false)
+        set(oneFingerZoom) = prefs.edit().putBoolean(ONE_FINGER_ZOOM, oneFingerZoom).apply()
+
     private fun getDirectoryColumnsField(): String {
         val isPortrait = context.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
         return if (isPortrait) {
@@ -238,7 +242,7 @@ class Config(context: Context) : BaseConfig(context) {
         set(replaceShare) = prefs.edit().putBoolean(REPLACE_SHARE_WITH_ROTATE, replaceShare).apply()
 
     var deleteEmptyFolders: Boolean
-        get() = prefs.getBoolean(DELETE_EMPTY_FOLDERS, true)
+        get() = prefs.getBoolean(DELETE_EMPTY_FOLDERS, false)
         set(deleteEmptyFolders) = prefs.edit().putBoolean(DELETE_EMPTY_FOLDERS, deleteEmptyFolders).apply()
 
     var allowVideoGestures: Boolean
@@ -300,4 +304,8 @@ class Config(context: Context) : BaseConfig(context) {
     var extendedDetails: Int
         get() = prefs.getInt(EXTENDED_DETAILS, EXT_RESOLUTION or EXT_LAST_MODIFIED or EXT_EXIF_PROPERTIES)
         set(extendedDetails) = prefs.edit().putInt(EXTENDED_DETAILS, extendedDetails).apply()
+
+    var lastFileCleanup: Long
+        get() = prefs.getLong(LAST_FILE_CLEANUP, 0L)
+        set(lastFileCleanup) = prefs.edit().putLong(LAST_FILE_CLEANUP, lastFileCleanup).apply()
 }

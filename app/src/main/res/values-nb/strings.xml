@@ -7,14 +7,13 @@
     <string name="hidden">(skjult)</string>
     <string name="pin_folder">Fest mappe</string>
     <string name="unpin_folder">Løsne mappe</string>
+    <string name="pin_to_the_top">Fest til toppen</string>
     <string name="show_all">Vis alle mappers innhold</string>
     <string name="all_folders">Alle mapper</string>
     <string name="folder_view">Skift til mappevisning</string>
     <string name="other_folder">Annen mappe</string>
     <string name="show_on_map">Vis på kart</string>
     <string name="unknown_location">Ukjent plassering</string>
-    <string name="no_map_application">Ingen app med kart er funnet</string>
-    <string name="no_camera_app_found">Ingen kamera-app er funnet</string>
     <string name="increase_column_count">Øk antall kolonner</string>
     <string name="reduce_column_count">Reduser antall kolonner</string>
     <string name="change_cover_image">Endre omslagsbilde</string>
@@ -44,7 +43,9 @@
     <string name="excluded_activity_placeholder">Ekskludering av mapper vil gjøre dem sammen med deres undermapper, skjulte bare i denne appen. De vil fortsatt være synlige i andre apper.\n\nHvis du vil skjule dem fra andre apper, bruk Skjul-funksjonen.</string>
     <string name="remove_all">Fjern alle</string>
     <string name="remove_all_description">Fjerne alle mapper fra listen av ekskluderte? Dette sletter ikke mappene.</string>
-    <string name="manage_hidden_folders">Manage hidden folders</string>
+    <string name="hidden_folders">Skjulte mapper</string>
+    <string name="manage_hidden_folders">Håndter skjulte mapper</string>
+    <string name="hidden_folders_placeholder">Ser ut til at du ikke har skjult noen mapper med en \".nomedia\"-fil.</string>
 
     <!-- Include folders -->
     <string name="include_folders">Inkluderte mapper</string>
@@ -84,7 +85,6 @@
     <string name="set_as_wallpaper">Sett som bakgrunnsbilde</string>
     <string name="set_as_wallpaper_failed">Å sette som bakgrunnsbilde feilet</string>
     <string name="set_as_wallpaper_with">Sett som bakgrunnsbilde med:</string>
-    <string name="no_capable_app_found">Ingen app i stand til det er funnet</string>
     <string name="setting_wallpaper">Stiller inn bakgrunnsbilde&#8230;</string>
     <string name="wallpaper_set_successfully">Bakgrunnsbilde vellykket stilt inn</string>
     <string name="portrait_aspect_ratio">Portrett-sideforhold</string>
@@ -131,6 +131,7 @@
     <string name="replace_share_with_rotate">Erstatt Del med Roter i meny ved mediavisning</string>
     <string name="show_extended_details">Vis flere detaljer i mediavisningen</string>
     <string name="manage_extended_details">Velg detaljer</string>
+    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

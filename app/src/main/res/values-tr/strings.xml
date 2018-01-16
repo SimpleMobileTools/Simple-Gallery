@@ -7,14 +7,13 @@
     <string name="hidden">(gizli)</string>
     <string name="pin_folder">Pin klasör</string>
     <string name="unpin_folder">Klasörü çöz</string>
+    <string name="pin_to_the_top">Pin to the top</string>
     <string name="show_all">Tüm klasörlerin içeriğini göster</string>
     <string name="all_folders">Tüm klasörler</string>
     <string name="folder_view">Klasör görünümüne geç</string>
     <string name="other_folder">Diğer klasör</string>
     <string name="show_on_map">Haritada göster</string>
     <string name="unknown_location">Bilinmeyen konum</string>
-    <string name="no_map_application">Haritalarla hiçbir uygulama bulunamadı</string>
-    <string name="no_camera_app_found">Hiçbir Kamera uygulaması bulunamadı</string>
     <string name="increase_column_count">Sütun sayısını artır</string>
     <string name="reduce_column_count">Sütun sayısını azalt</string>
     <string name="change_cover_image">Change cover image</string>
@@ -44,7 +43,9 @@
     <string name="excluded_activity_placeholder">Klasörler hariç tutulduğunda, onları Basit Galeri\'de gizli olan alt klasörleriyle bir araya getirirler, ancak yine de diğer uygulamalarda görünür olurlar.\n\nBunları diğer uygulamalardan gizlemek isterseniz, Gizle işlevini kullanın.</string>
     <string name="remove_all">Hepsini sil</string>
     <string name="remove_all_description">Hariç tutulanlar listesinden tüm klasörleri kaldırmak mı istiyorsunuz? Bu, klasörler silinmez.</string>
+    <string name="hidden_folders">Hidden folders</string>
     <string name="manage_hidden_folders">Manage hidden folders</string>
+    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
 
     <!-- Include folders -->
     <string name="include_folders">Dahil edilen klasörler</string>
@@ -84,7 +85,6 @@
     <string name="set_as_wallpaper">Duvar kağıdı olarak ayarla</string>
     <string name="set_as_wallpaper_failed">Duvar Kağıdı Olarak Ayarlanılamıyor</string>
     <string name="set_as_wallpaper_with">İle duvar kağıdı olarak ayarla:</string>
-    <string name="no_capable_app_found">Mümkün olan herhangi bir uygulama bulunamadı</string>
     <string name="setting_wallpaper">Duvar kağıdını ayarlama&#8230;</string>
     <string name="wallpaper_set_successfully">Duvar kağıdı başarıyla ayarlandı</string>
     <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
@@ -131,6 +131,7 @@
     <string name="replace_share_with_rotate">Replace Share with Rotate at fullscreen menu</string>
     <string name="show_extended_details">Show extended details over fullscreen media</string>
     <string name="manage_extended_details">Manage extended details</string>
+    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

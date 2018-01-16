@@ -7,14 +7,13 @@
     <string name="hidden">(skriveno)</string>
     <string name="pin_folder">Prikači direktorij</string>
     <string name="unpin_folder">Otkači direktorij</string>
+    <string name="pin_to_the_top">Pin to the top</string>
     <string name="show_all">Prikaži cijeli sadržaj direktorija</string>
     <string name="all_folders">Svi direktoriji</string>
     <string name="folder_view">Prebaci se na pogled direktorija</string>
     <string name="other_folder">Ostali direktoriji</string>
     <string name="show_on_map">Prikaži na karti</string>
     <string name="unknown_location">Nepoznata lokacija</string>
-    <string name="no_map_application">Nije pronađena aplikacija za kartame</string>
-    <string name="no_camera_app_found">Nije pronađena aplikacija za kameru</string>
     <string name="increase_column_count">Povećaj broj stupaca</string>
     <string name="reduce_column_count">Smanji broj stupaca</string>
     <string name="change_cover_image">Promjeni naslovnu sliku</string>
@@ -44,7 +43,9 @@
     <string name="excluded_activity_placeholder">Izostavljanje direktorija učiniti će ih nevidljivim zajedno s njihovim poddirektorijima samo u Simple Gallery, ali će oni biti vidljivi u drugim aplikacijama.\n\nAko ih želite sakriti od drugih aplikacija također, koristite Sakrij opciju.</string>
     <string name="remove_all">Ukloni sve</string>
     <string name="remove_all_description">Ukloni sve direktorije iz liste izostavljenih? Ovo neće izbrisati direktorije.</string>
+    <string name="hidden_folders">Hidden folders</string>
     <string name="manage_hidden_folders">Manage hidden folders</string>
+    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
 
     <!-- Include folders -->
     <string name="include_folders">Dodaj direktorije</string>
@@ -84,7 +85,6 @@
     <string name="set_as_wallpaper">Postavi kao pozadinu</string>
     <string name="set_as_wallpaper_failed">Neuspješno postavljanje pozadine</string>
     <string name="set_as_wallpaper_with">Postavi kao pozadinu s:</string>
-    <string name="no_capable_app_found">Nije pronađena aplikacija s ovim mogućnostima</string>
     <string name="setting_wallpaper">Postavljanje pozadine&#8230;</string>
     <string name="wallpaper_set_successfully">Uspješno postavljanje pozadine</string>
     <string name="portrait_aspect_ratio">Portretni omjer slike</string>
@@ -131,6 +131,7 @@
     <string name="replace_share_with_rotate">Zamjeni Dijeli s Rotiraj pri pregledu datoteka</string>
     <string name="show_extended_details">Prikaži detaljne informacije pri pregledu datoteka</string>
     <string name="manage_extended_details">Upravljaj detaljnim informacijama</string>
+    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

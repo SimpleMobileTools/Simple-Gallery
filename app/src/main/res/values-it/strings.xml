@@ -7,14 +7,13 @@
     <string name="hidden">(nascosta)</string>
     <string name="pin_folder">Blocca cartella</string>
     <string name="unpin_folder">Sblocca cartella</string>
+    <string name="pin_to_the_top">Pin to the top</string>
     <string name="show_all">Mostra tutti i contenuti</string>
     <string name="all_folders">Tutti i media</string>
     <string name="folder_view">Visualizza a cartelle</string>
     <string name="other_folder">Altra cartella</string>
     <string name="show_on_map">Mostra sulla mappa</string>
     <string name="unknown_location">Posizione sconosciuta</string>
-    <string name="no_map_application">Nessuna app con mappe trovata</string>
-    <string name="no_camera_app_found">Nessuna app fotocamera trovata</string>
     <string name="increase_column_count">Aumenta numero colonne</string>
     <string name="reduce_column_count">Riduci numero colonne</string>
     <string name="change_cover_image">Cambia immagine copertina</string>
@@ -44,7 +43,9 @@
     <string name="excluded_activity_placeholder">L\'esclusione delle cartelle e delle sottocartelle le renderà nascoste solo in Simple Gallery, saranno ancora visibili in altre applicazioni.\\n\\nSe desideri nasconderle anche nelle altre app, usa la funzione Nascondi.</string>
     <string name="remove_all">Rimuovi tutte</string>
     <string name="remove_all_description">Rimuovere tutte le cartelle dalla lista delle esclusioni? Ciò non eliminerà le cartelle.</string>
-    <string name="manage_hidden_folders">Manage hidden folders</string>
+    <string name="hidden_folders">Cartelle nascoste</string>
+    <string name="manage_hidden_folders">Gestisci le cartelle nascoste</string>
+    <string name="hidden_folders_placeholder">Pare che tu non abbia alcuna cartella nascosta con un file \".nomedia\".</string>
 
     <!-- Include folders -->
     <string name="include_folders">Includi cartelle</string>
@@ -84,7 +85,6 @@
     <string name="set_as_wallpaper">Imposta come sfondo</string>
     <string name="set_as_wallpaper_failed">Impostazione sfondo non riuscita</string>
     <string name="set_as_wallpaper_with">Imposta come sfondo con:</string>
-    <string name="no_capable_app_found">Non sono disponibili app compatibili</string>
     <string name="setting_wallpaper">Impostazione sfondo&#8230;</string>
     <string name="wallpaper_set_successfully">Sfondo impostato correttamente</string>
     <string name="portrait_aspect_ratio">Proporzioni ritratto</string>
@@ -122,7 +122,7 @@
     <string name="screen_rotation_system_setting">Impostazione di sistema</string>
     <string name="screen_rotation_device_rotation">Rotazione dispositivo</string>
     <string name="screen_rotation_aspect_ratio">Proporzioni</string>
-    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
+    <string name="black_background_at_fullscreen">Sfondo e barra di stato neri con media a schermo intero</string>
     <string name="scroll_thumbnails_horizontally">Scorri le miniature orizzontalmente</string>
     <string name="hide_system_ui_at_fullscreen">Nascondi UI di sistema con media a schermo intero</string>
     <string name="delete_empty_folders">Elimina cartelle vuote dopo averne eliminato il contenuto</string>
@@ -131,6 +131,7 @@
     <string name="replace_share_with_rotate">Sostituisci Condividi con Ruota a schermo intero</string>
     <string name="show_extended_details">Mostra informazioni estese su media a schermo intero</string>
     <string name="manage_extended_details">Gestisci le informazioni estese</string>
+    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
@@ -140,7 +141,7 @@
 
         Simple Gallery è anche offerta per utilizzo di terze parti per anteprime di immagini / video, aggiunta di allegati ai client email, ecc. È perfetta per un uso quotidiano.
 
-        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+        L\'autorizzazione per le impronte è necessaria per bloccare la visibilità di alcuni elementi o dell\'intera app.
 
         Non contiene pubblicità o autorizzazioni non necessarie. È completamente opensource, offre colori personalizzabili.
 

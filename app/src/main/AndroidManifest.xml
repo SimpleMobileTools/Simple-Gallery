@@ -55,7 +55,17 @@
 
         <activity
             android:name=".activities.MediaActivity"
-            android:parentActivityName=".activities.MainActivity"/>
+            android:parentActivityName=".activities.MainActivity">
+
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:resource="@xml/searchable"/>
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+
+        </activity>
 
         <activity
             android:name=".activities.ViewPagerActivity"
@@ -105,6 +115,11 @@
         <activity
             android:name=".activities.ExcludedFoldersActivity"
             android:label="@string/excluded_folders"
+            android:parentActivityName=".activities.SettingsActivity"/>
+
+        <activity
+            android:name=".activities.HiddenFoldersActivity"
+            android:label="@string/hidden_folders"
             android:parentActivityName=".activities.SettingsActivity"/>
 
         <activity

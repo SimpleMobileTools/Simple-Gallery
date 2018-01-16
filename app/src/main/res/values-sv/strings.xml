@@ -7,14 +7,13 @@
     <string name="hidden">(dold)</string>
     <string name="pin_folder">Fäst mappen</string>
     <string name="unpin_folder">Släpp mappen</string>
+    <string name="pin_to_the_top">Pin to the top</string>
     <string name="show_all">Visa alla mappars innehåll</string>
     <string name="all_folders">Alla mappar</string>
     <string name="folder_view">Byt till mappvy</string>
-    <string name="other_folder">Andra mappar</string>
+    <string name="other_folder">Annan mapp</string>
     <string name="show_on_map">Visa på karta</string>
     <string name="unknown_location">Okänd plats</string>
-    <string name="no_map_application">Ingen app med kartor hittades</string>
-    <string name="no_camera_app_found">Ingen Kamera-app hittades</string>
     <string name="increase_column_count">Öka antalet kolumner</string>
     <string name="reduce_column_count">Minska antalet kolumner</string>
     <string name="change_cover_image">Byt omslagsbild</string>
@@ -22,9 +21,9 @@
     <string name="use_default">Använd standard</string>
     <string name="volume">Volym</string>
     <string name="brightness">Ljusstyrka</string>
-    <string name="do_not_ask_again">Do not ask again in this session</string>
-    <string name="lock_orientation">Lock orientation</string>
-    <string name="unlock_orientation">Unlock orientation</string>
+    <string name="do_not_ask_again">Fråga inte igen i denna session</string>
+    <string name="lock_orientation">Aktivera rotationslås</string>
+    <string name="unlock_orientation">Inaktivera rotationslås</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrera media</string>
@@ -35,7 +34,7 @@
     <string name="change_filters_underlined"><u>Ändra filter</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Denna funktion döljer mappen och alla dess undermappar genom att lägga till en \'.nomedia\'-fil i den. Du kan se dem genom att växla \'Visa dolda mappar\'-alternativet i Inställningar. Vill du fortsätta?</string>
+    <string name="hide_folder_description">Denna funktion döljer mappen och alla dess undermappar genom att lägga till en \'.nomedia\'-fil i den. Du kan se dem genom att växla \'Visa dolda objekt\'-alternativet i Inställningar. Vill du fortsätta?</string>
     <string name="exclude">Uteslut</string>
     <string name="excluded_folders">Uteslutna mappar</string>
     <string name="manage_excluded_folders">Hantera uteslutna mappar</string>
@@ -44,7 +43,9 @@
     <string name="excluded_activity_placeholder">Uteslutning av mappar döljer bara dem och deras undermappar i Simple Gallery, de visas fortfarande i andra appar.\\n\\nAnvänd Dölj-funktionen om du även vill dölja dem från andra appar.</string>
     <string name="remove_all">Ta bort alla</string>
     <string name="remove_all_description">Vill du ta bort alla mappar från uteslutningslistan? Detta raderar inte mapparna.</string>
-    <string name="manage_hidden_folders">Manage hidden folders</string>
+    <string name="hidden_folders">Dolda mappar</string>
+    <string name="manage_hidden_folders">Hantera dolda mappar</string>
+    <string name="hidden_folders_placeholder">Det verkar som att inga mappar har dolts med \".nomedia\"-filer.</string>
 
     <!-- Include folders -->
     <string name="include_folders">Inkluderade mappar</string>
@@ -84,14 +85,13 @@
     <string name="set_as_wallpaper">Ange som bakgrundsbild</string>
     <string name="set_as_wallpaper_failed">Det gick inte att byta bakgrundsbild</string>
     <string name="set_as_wallpaper_with">Ange som bakgrundsbild med:</string>
-    <string name="no_capable_app_found">Hittade ingen app som klarar av detta</string>
     <string name="setting_wallpaper">Inställningar för bakgrundsbild&#8230;</string>
     <string name="wallpaper_set_successfully">Bakgrundsbilden är ändrad</string>
     <string name="portrait_aspect_ratio">Stående bildförhållande</string>
     <string name="landscape_aspect_ratio">Liggande bildförhållande</string>
-    <string name="home_screen">Home screen</string>
-    <string name="lock_screen">Lock screen</string>
-    <string name="home_and_lock_screen">Home and lock screen</string>
+    <string name="home_screen">Startskärm</string>
+    <string name="lock_screen">Låsskärm</string>
+    <string name="home_and_lock_screen">Startskärm och låsskärm</string>
 
     <!-- Slideshow -->
     <string name="slideshow">Bildspel</string>
@@ -107,14 +107,14 @@
     <string name="no_media_for_slideshow">Ingen media hittades för bildspelet</string>
 
     <!-- View types -->
-    <string name="change_view_type">Change view type</string>
-    <string name="grid">Grid</string>
-    <string name="list">List</string>
+    <string name="change_view_type">Ändra vy</string>
+    <string name="grid">Rutnät</string>
+    <string name="list">Lista</string>
 
     <!-- Settings -->
-    <string name="autoplay_videos">Spela upp videos automatiskt</string>
+    <string name="autoplay_videos">Spela upp videor automatiskt</string>
     <string name="toggle_filename">Visa/dölj filnamnen</string>
-    <string name="loop_videos">Återspela videos</string>
+    <string name="loop_videos">Spela upp videor om och om igen</string>
     <string name="animate_gifs">Animera GIF-bilders miniatyrer</string>
     <string name="max_brightness">Maximal ljusstyrka när media visas</string>
     <string name="crop_thumbnails">Beskär miniatyrer till kvadrater</string>
@@ -122,29 +122,30 @@
     <string name="screen_rotation_system_setting">Systeminställning</string>
     <string name="screen_rotation_device_rotation">Enhetens rotation</string>
     <string name="screen_rotation_aspect_ratio">Bildförhållande</string>
-    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
+    <string name="black_background_at_fullscreen">Svart bakgrund och statusfält när media visas i helskärmsläge</string>
     <string name="scroll_thumbnails_horizontally">Rulla horisontellt genom miniatyrer</string>
     <string name="hide_system_ui_at_fullscreen">Dölj systemanvändargränssnittet automatiskt när media visas i helskärmsläge</string>
     <string name="delete_empty_folders">Ta bort tomma mappar när deras innehåll tas bort</string>
     <string name="allow_video_gestures">Tillåt styrning av videovolym och videoljusstyrka med vertikala gester</string>
-    <string name="show_media_count">Show folder media count on the main view</string>
+    <string name="show_media_count">Visa antalet mediefiler i varje mapp i huvudvyn</string>
     <string name="replace_share_with_rotate">Ersätt Dela med Rotera i helskärmsmenyn</string>
-    <string name="show_extended_details">Show extended details over fullscreen media</string>
-    <string name="manage_extended_details">Manage extended details</string>
+    <string name="show_extended_details">Visa utökad information över media i helskärmsläge</string>
+    <string name="manage_extended_details">Hantera utökad information</string>
+    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Ett Galleri för att visa bilder och videos utan en massa reklam.</string>
+    <string name="app_short_description">Ett galleri för att visa foton och videor utan reklam.</string>
     <string name="app_long_description">
-        Ett enkelt verktyg för att visa bilder och videos. Objekten kan sorteras efter datum, storlek, namn både stigande och fallande, bilder kan zoomas in. Mediafiler visas i flera kolumner beroende av skärmens storlek, du kan ändra antalet kolumner genom en nyp-rörelse. De går att döpa om, dela, ta bort, kopiera, flytta. Bilder kan också beskäras, roteras och anges som bakgrundsbild direkt från appen.
+        Ett enkelt verktyg för att visa foton och videor. Det kan zooma in på foton och sortera objekt i stigande eller fallande ordning efter datum, storlek eller namn. Mediefiler visas i flera kolumner. Antalet kolumner beror på skärmens storlek och kan ändras med nypgester. Mediefiler kan döpas om, delas, tas bort, kopieras eller flyttas. Bilder kan även beskäras, roteras, vändas eller anges som bakgrundsbilder direkt i appen.
 
-        Galleriet kan också användas av tredjepartsappar för förhandsgranskning av bilder / videos, bifoga bilagor i e-postklienter etc. Den är perfekt för det dagliga användandet.
+        Galleriet kan även användas av tredjepartsappar för att förhandsgranska bilder och videor, lägga till bilagor i e-postklienter etc. Det är perfekt för daglig användning.
 
-        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+        Fingeravtrycksbehörigheten behövs för att låsa hela appen eller synligheten för dolda objekt.
 
-        Innehåller ingen reklam eller onödiga behörigheter. Det är helt och hållet opensource, innehåller anpassningsbara färger.
+        Innehåller ingen reklam eller onödiga behörigheter. Det har helt öppen källkod och anpassningsbara färger.
 
-        Detta är bara en app i en serie av appar. Du hittar resten av dem här http://www.simplemobiletools.com
+        Denna app är bara en del av en större serie appar. Du hittar resten av dem på http://www.simplemobiletools.com
     </string>
 
     <!--

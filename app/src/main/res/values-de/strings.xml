@@ -7,14 +7,13 @@
     <string name="hidden">(versteckt)</string>
     <string name="pin_folder">Ordner anheften</string>
     <string name="unpin_folder">Ordner loslösen</string>
+    <string name="pin_to_the_top">An den Start anheften</string>
     <string name="show_all">Ansicht: Alle Medien</string>
     <string name="all_folders">Alle Medien</string>
     <string name="folder_view">Ansicht: Als Ordner</string>
     <string name="other_folder">Ordner wählen</string>
     <string name="show_on_map">Auf Karte zeigen</string>
     <string name="unknown_location">Unbekannter Pfad</string>
-    <string name="no_map_application">Keine Karten-App gefunden</string>
-    <string name="no_camera_app_found">Keine Kamera-App gefunden</string>
     <string name="increase_column_count">Kacheln verkleinern</string>
     <string name="reduce_column_count">Kacheln vergrößern</string>
     <string name="change_cover_image">Coverbild ändern</string>
@@ -36,21 +35,23 @@
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Diese Funktion versteckt die ausgewählten Ordner (auch für andere Apps), indem dort im Dateisystem eine \'.nomedia\'-Datei abgelegt wird. Dadurch werden auch deren Unterordner versteckt. Solche Ordner werden nur gezeigt, wenn die Einstellung \'Versteckte Ordner zeigen\' aktiv ist (auch andere Apps bieten üblicherweise eine solche Option). Fortfahren?</string>
-    <string name="exclude">Ordner ausblenden</string>
-    <string name="excluded_folders">Ausgeblendete Ordner</string>
-    <string name="manage_excluded_folders">Ausgeblendete Ordner verwalten</string>
-    <string name="exclude_folder_description">Diese Funktion blendet die ausgewählten Ordner und deren Unterordner aus (nur in dieser App). Ausgeblendete Ordner können in den Einstellungen verwaltet werden.</string>
-    <string name="exclude_folder_parent">Möchten Sie stattdessen einen höherliegenden Ordner ausblenden?</string>
-    <string name="excluded_activity_placeholder">\'Ordner ausblenden\' wird ausgewählte Ordner und deren Unterordner nur in dieser App ausblenden. Andere Apps werden solche Ordner weiterhin anzeigen.\\n\\nWenn Sie Ordner auch für andere Apps verstecken wollen, verwenden Sie dafür die Funktion \'Ordner verstecken\'.</string>
+    <string name="exclude">Ordner ausschließen</string>
+    <string name="excluded_folders">Ausgeschlossene Ordner</string>
+    <string name="manage_excluded_folders">Ausgeschlossene Ordner verwalten</string>
+    <string name="exclude_folder_description">Diese Funktion blendet die ausgewählten Ordner und deren Unterordner nur in dieser App aus. Ausgeschlossene Ordner können in den Einstellungen verwaltet werden.</string>
+    <string name="exclude_folder_parent">Möchtest du stattdessen einen höherliegenden Ordner ausschließen?</string>
+    <string name="excluded_activity_placeholder">\'Ordner ausschließen\' wird ausgewählte Ordner und deren Unterordner nur in dieser App ausblenden. Andere Apps werden solche Ordner weiterhin anzeigen.\\n\\nWenn du Ordner auch für andere Apps verstecken willst, verwende dafür die Funktion \'Ordner verstecken\'.</string>
     <string name="remove_all">Alle entfernen</string>
     <string name="remove_all_description">Alle Ordner aus der Ausgeblendet-Liste entfernen? Die Ordner selbst werden nicht gelöscht.</string>
+    <string name="hidden_folders">Versteckte Ordner</string>
     <string name="manage_hidden_folders">Versteckte Ordner verwalten</string>
+    <string name="hidden_folders_placeholder">Sieht so aus, als ob du keine Ordner mit einer \".nomedia\" Datei versteckt hast.</string>
 
     <!-- Include folders -->
     <string name="include_folders">Einbezogene Ordner</string>
     <string name="manage_included_folders">Einbezogene Ordner verwalten</string>
     <string name="add_folder">Ordner hinzufügen</string>
-    <string name="included_activity_placeholder">Sollten Sie weitere Medienordner haben, die von der App nicht erkannt wurden, können Sie diese hier manuell hinzufügen.</string>
+    <string name="included_activity_placeholder">Solltest du weitere Mediendateien haben, die von der App nicht erkannt wurden, kannst du ihre Ordner hier manuell hinzufügen.</string>
 
     <!-- Resizing -->
     <string name="resize">Größe ändern</string>
@@ -84,7 +85,6 @@
     <string name="set_as_wallpaper">Als Hintergrund festlegen</string>
     <string name="set_as_wallpaper_failed">Hintergrundbild festlegen fehlgeschlagen</string>
     <string name="set_as_wallpaper_with">Als Hintergrund festlegen mit</string>
-    <string name="no_capable_app_found">Keine Hintergrundbild-App gefunden</string>
     <string name="setting_wallpaper">Hintergrund festlegen&#8230;</string>
     <string name="wallpaper_set_successfully">Hintergrundbild erfolgreich festgelegt</string>
     <string name="portrait_aspect_ratio">Hochformat</string>
@@ -131,18 +131,19 @@
     <string name="replace_share_with_rotate">Teilen/Drehen im Vollbild-Menü vertauschen</string>
     <string name="show_extended_details">Eigenschaften anzeigen im Vollbild</string>
     <string name="manage_extended_details">Eigenschaften auswählen</string>
+    <string name="one_finger_zoom">Erlaube Ein-Finger-Zoom im Vollbild</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Eine schlichte Galerie zum Betrachten von Bildern und Videos ohne Werbung.</string>
+    <string name="app_short_description">Eine schlichte Galerie zum Betrachten von Bildern und Videos, ganz ohne Werbung.</string>
     <string name="app_long_description">
-        Eine schlichte App zum Betrachten von Bildern und Videos. Die Medien können nach Datum, Größe, Name sowie auf- oder absteigend sortiert werden, in Bilder kann auch hineingezoomt werden. Die Vorschau-Kacheln werden in mehreren Spalten abhängig von der Displaygröße angezeigt, die Spaltenanzahl ist mit Zweifingergesten änderbar. Die Medien können umbenannt, geteilt, gelöscht, kopiert und verschoben werden. Bilder können direkt aus der App heraus zugeschnitten, gedreht oder als Hintergrund festgelegt werden.
+        Eine schlichte App zum Betrachten von Bildern und Videos. Alle Medien können nach Datum, Größe, Name sowie auf- oder absteigend sortiert werden, in Bilder kann auch hineingezoomt werden. Die Vorschau-Kacheln werden in mehreren Spalten abhängig von der Displaygröße angezeigt, die Spaltenanzahl ist mit Zweifingergesten änderbar. Die Medien können umbenannt, geteilt, gelöscht, kopiert und verschoben werden. Bilder können direkt aus der App heraus zugeschnitten, gedreht oder als Hintergrund festgelegt werden.
 
-        Diese Galerie bietet auch für Drittanbieter einige Funktionen an: zum Vorschauen von Bildern / Videos, zum Hinzufügen von Anhängen bei Email-Apps, etc. Sie ist perfekt für den täglichen Gebrauch.
+        Diese Galerie bietet auch für Drittanbieter einige Funktionen an: zur Vorschau von Bildern/Videos, zum Hinzufügen von Anhängen bei Email-Apps, etc. Sie ist perfekt für den täglichen Gebrauch.
 
         Die Berechtigung für Fingerabdrücke wird nur benötigt, um die Sichtbarkeit von versteckten Dateien oder die gesamte App zu sperren.
 
-        Beinhaltet keine Werbung oder unnötigen Berechtigungen. Sie ist komplett Open Source, verwendete Farben sind anpassbar.
+        Beinhaltet keine Werbung oder unnötige Berechtigungen. Sie ist komplett Open Source, alle verwendeten Farben sind anpassbar.
 
         Diese App ist nur eine aus einer größeren Serie von schlichten Apps. Der Rest davon findet sich auf http://www.simplemobiletools.com
     </string>

@@ -7,14 +7,13 @@
     <string name="hidden">(ukryty)</string>
     <string name="pin_folder">Przypnij folder</string>
     <string name="unpin_folder">Wypakuj folder</string>
+   <string name="pin_to_the_top">Pin to the top</string>
     <string name="show_all">Pokaż wszystko</string>
     <string name="all_folders">Wszystkie foldery</string>
     <string name="folder_view">Przełącz na widok folderów</string>
     <string name="other_folder">Inny folder</string>
     <string name="show_on_map">Pokaż na mapie</string>
     <string name="unknown_location">Nieznana lokalizacja</string>
-    <string name="no_map_application">Brak aplikacji powiązanej z mapami</string>
-    <string name="no_camera_app_found">Brak aplikacji powiązanej z aparatem</string>
     <string name="increase_column_count">Zwiększ liczbę kolumn</string>
     <string name="reduce_column_count">Zmniejsz liczbę kolumn</string>
     <string name="change_cover_image">Zmień okładkę</string>
@@ -44,7 +43,9 @@
     <string name="excluded_activity_placeholder">Wykluczenie folderów ukryje je tylko w aplikacji Simple Gallery, w innych aplikacjach będą one wciąż widoczne.\n\nJeśli chcesz je ukryć także w innych aplikacjach, użyj funkcji ukrywania.</string>
     <string name="remove_all">Usuń wszystko</string>
     <string name="remove_all_description">Usunąć wszystkie foldery z listy wykluczonych? Foldery nie zostaną fizycznie usunięte.</string>
+   <string name="hidden_folders">Ukryte foldery</string>
     <string name="manage_hidden_folders">Zarządzaj ukrytymi folderami</string>
+    <string name="hidden_folders_placeholder">Zdaje się, że nie masz żadnych folderów z plikiem \".nomedia\".</string>
 
     <!-- Include folders -->
     <string name="include_folders">Dołączone foldery</string>
@@ -84,7 +85,6 @@
     <string name="set_as_wallpaper">Ustaw jako tapetę</string>
     <string name="set_as_wallpaper_failed">Ustawienie tapety nie powiodło się</string>
     <string name="set_as_wallpaper_with">Ustaw jako tapetę w:</string>
-    <string name="no_capable_app_found">Brak odpowiednich ustawień</string>
     <string name="setting_wallpaper">Ustawiam tapetę&#8230;</string>
     <string name="wallpaper_set_successfully">Tapeta została ustawiona</string>
     <string name="portrait_aspect_ratio">Proporcje ekranu w trybie pionowym</string>
@@ -131,6 +131,7 @@
     <string name="replace_share_with_rotate">Zamień funkcję udostępniania na obracanie w menu pełnoekranowym</string>
     <string name="show_extended_details">Dodatkowe szczegóły przy podglądzie pełnoekranowym</string>
     <string name="manage_extended_details">Zarządzaj dodatkowymi szczegółami</string>
+    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

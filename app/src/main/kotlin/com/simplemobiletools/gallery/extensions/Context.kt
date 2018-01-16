@@ -3,14 +3,19 @@ package com.simplemobiletools.gallery.extensions
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
+import android.database.Cursor
 import android.graphics.Point
 import android.media.AudioManager
 import android.os.Build
+import android.provider.MediaStore
 import android.view.WindowManager
+import com.simplemobiletools.commons.extensions.getStringValue
 import com.simplemobiletools.commons.extensions.humanizePath
 import com.simplemobiletools.gallery.activities.SettingsActivity
 import com.simplemobiletools.gallery.helpers.Config
+import com.simplemobiletools.gallery.helpers.NOMEDIA
 import com.simplemobiletools.gallery.models.Directory
+import java.io.File
 
 val Context.portrait get() = resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
 val Context.audioManager get() = getSystemService(Context.AUDIO_SERVICE) as AudioManager
@@ -72,4 +77,35 @@ fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Direct
     val dirs = source.clone() as ArrayList<Directory>
     dirs.sort()
     return movePinnedDirectoriesToFront(dirs)
+}
+
+fun Context.getNoMediaFolders(callback: (folders: ArrayList<String>) -> Unit) {
+    Thread {
+        val folders = ArrayList<String>()
+
+        val uri = MediaStore.Files.getContentUri("external")
+        val projection = arrayOf(MediaStore.Files.FileColumns.DATA)
+        val selection = "${MediaStore.Files.FileColumns.MEDIA_TYPE} = ? AND ${MediaStore.Files.FileColumns.TITLE} LIKE ?"
+        val selectionArgs = arrayOf(MediaStore.Files.FileColumns.MEDIA_TYPE_NONE.toString(), "%$NOMEDIA%")
+        val sortOrder = "${MediaStore.Files.FileColumns.DATE_MODIFIED} DESC"
+
+        var cursor: Cursor? = null
+
+        try {
+            cursor = contentResolver.query(uri, projection, selection, selectionArgs, sortOrder)
+            if (cursor?.moveToFirst() == true) {
+                do {
+                    val path = cursor.getStringValue(MediaStore.Files.FileColumns.DATA) ?: continue
+                    val noMediaFile = File(path)
+                    if (noMediaFile.exists()) {
+                        folders.add("${noMediaFile.parent}/")
+                    }
+                } while (cursor.moveToNext())
+            }
+        } finally {
+            cursor?.close()
+        }
+
+        callback(folders)
+    }.start()
 }

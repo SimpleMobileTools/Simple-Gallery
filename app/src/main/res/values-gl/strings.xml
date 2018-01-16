@@ -7,14 +7,13 @@
     <string name="hidden">(oculto)</string>
     <string name="pin_folder">Fixar cartafol</string>
     <string name="unpin_folder">Soltar cartafol</string>
+    <string name="pin_to_the_top">Pin to the top</string>
     <string name="show_all">Mostrar o contido de todos os cartafoles</string>
     <string name="all_folders">Todos os cartafoles</string>
     <string name="folder_view">Mudar a vista por cartafol</string>
     <string name="other_folder">Outro cartafol</string>
     <string name="show_on_map">Mostrar no mapa</string>
     <string name="unknown_location">Localización descoñecida</string>
-    <string name="no_map_application">Non se atopou ningún aplicativo con mapas</string>
-    <string name="no_camera_app_found">Non se atopou ningún aplicativo Cámara</string>
     <string name="increase_column_count">Aumente o número de columnas</string>
     <string name="reduce_column_count">Reduza o número de columnas</string>
     <string name="change_cover_image">Cambiar a imaxe de portada</string>
@@ -44,7 +43,9 @@
     <string name="excluded_activity_placeholder">Excluír un cartafol xunto cos subcartafoles só terá efecto en Simple Gallery, seguirán sendo visibles en outros aplicativos.\n\nSi tamén quere excluílos en outros aplicativos, utilice a opción Agochar.</string>
     <string name="remove_all">Eliminar todos</string>
     <string name="remove_all_description">Eliminar todos os cartafoles da lista de excluídos? Esto non borrará os cartafoles.</string>
+    <string name="hidden_folders">Hidden folders</string>
     <string name="manage_hidden_folders">Xestionar cartafoles ocultos</string>
+    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
 
     <!-- Include folders -->
     <string name="include_folders">Cartafoles incluídos</string>
@@ -84,7 +85,6 @@
     <string name="set_as_wallpaper">Establecer como fondo de pantalla</string>
     <string name="set_as_wallpaper_failed">Fallou establecer fondo de pantalla</string>
     <string name="set_as_wallpaper_with">Establecer fondo de pantalla con:</string>
-    <string name="no_capable_app_found">Non se atopou ningún applicativo válido</string>
     <string name="setting_wallpaper">Establecendo fondo de pantalla&#8230;</string>
     <string name="wallpaper_set_successfully">fondo de pantalla establecido con éxito</string>
     <string name="portrait_aspect_ratio">Proporción de Retrato</string>
@@ -131,6 +131,7 @@
     <string name="replace_share_with_rotate">Substituír Compartir con Rotar no menú de pantalla completa</string>
     <string name="show_extended_details">Mostrar información pormenorizada sobre medios a pantalla completa</string>
     <string name="manage_extended_details">Xestionar información polo miúdo</string>
+    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

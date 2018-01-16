@@ -7,14 +7,13 @@
     <string name="hidden">(非表示)</string>
     <string name="pin_folder">フォルダーをピン留めする</string>
     <string name="unpin_folder">フォルダーのピン留めを外す</string>
+    <string name="pin_to_the_top">Pin to the top</string>
     <string name="show_all">全てを表示</string>
     <string name="all_folders">すべてのフォルダー</string>
     <string name="folder_view">フォルダーを選択する</string>
     <string name="other_folder">その他のフォルダー</string>
     <string name="show_on_map">地図で表示</string>
     <string name="unknown_location">位置情報がありません</string>
-    <string name="no_map_application">地図アプリが見つかりません</string>
-    <string name="no_camera_app_found">カメラアプリが見つかりません</string>
     <string name="increase_column_count">列数を増やす</string>
     <string name="reduce_column_count">列数を減らす</string>
     <string name="change_cover_image">カバー画像を変更</string>
@@ -44,7 +43,9 @@
     <string name="excluded_activity_placeholder">フォルダーを除外すると、サブフォルダーも含めSimple Galleyの一覧から除外します。他のアプリでは引き続き表示されます。\\n\\n他のアプリでも非表示にしたい場合は、「非表示」機能を使用してください。</string>
     <string name="remove_all">すべて解除</string>
     <string name="remove_all_description">除外するフォルダーの登録をすべて解除しますか? フォルダー自体は削除されません。</string>
+    <string name="hidden_folders">Hidden folders</string>
     <string name="manage_hidden_folders">Manage hidden folders</string>
+    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
 
     <!-- Include folders -->
     <string name="include_folders">追加フォルダー</string>
@@ -84,7 +85,6 @@
     <string name="set_as_wallpaper">壁紙に設定</string>
     <string name="set_as_wallpaper_failed">壁紙の設定に失敗しました</string>
     <string name="set_as_wallpaper_with">壁紙に設定:</string>
-    <string name="no_capable_app_found">対応できるアプリが見つかりません</string>
     <string name="setting_wallpaper">壁紙に設定中&#8230;</string>
     <string name="wallpaper_set_successfully">壁紙を正常に設定しました</string>
     <string name="portrait_aspect_ratio">縦向きの縦横比</string>
@@ -131,6 +131,7 @@
     <string name="replace_share_with_rotate">フルスクリーンメニューの「共有」を「回転」に置き換える</string>
     <string name="show_extended_details">Show extended details over fullscreen media</string>
     <string name="manage_extended_details">Manage extended details</string>
+    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

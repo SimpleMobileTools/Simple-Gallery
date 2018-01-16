@@ -38,7 +38,8 @@ class SettingsActivity : SimpleActivity() {
         setupUseEnglish()
         setupManageIncludedFolders()
         setupManageExcludedFolders()
-        setupShowHiddenFolders()
+        setupManageHiddenFolders()
+        setupShowHiddenItems()
         setupAutoplayVideos()
         setupLoopVideos()
         setupAnimateGifs()
@@ -56,6 +57,7 @@ class SettingsActivity : SimpleActivity() {
         setupShowMediaCount()
         setupKeepLastModified()
         setupShowInfoBubble()
+        setupOneFingerZoom()
         setupShowExtendedDetails()
         setupManageExtendedDetails()
         updateTextColors(settings_holder)
@@ -89,22 +91,30 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupShowHiddenFolders() {
-        settings_show_hidden_folders.isChecked = config.showHiddenMedia
-        settings_show_hidden_folders_holder.setOnClickListener {
+    private fun setupManageHiddenFolders() {
+        settings_manage_hidden_folders_holder.setOnClickListener {
+            handleHiddenFolderPasswordProtection {
+                startActivity(Intent(this, HiddenFoldersActivity::class.java))
+            }
+        }
+    }
+
+    private fun setupShowHiddenItems() {
+        settings_show_hidden_items.isChecked = config.showHiddenMedia
+        settings_show_hidden_items_holder.setOnClickListener {
             if (config.showHiddenMedia) {
-                toggleHiddenFolders()
+                toggleHiddenItems()
             } else {
                 handleHiddenFolderPasswordProtection {
-                    toggleHiddenFolders()
+                    toggleHiddenItems()
                 }
             }
         }
     }
 
-    private fun toggleHiddenFolders() {
-        settings_show_hidden_folders.toggle()
-        config.showHiddenMedia = settings_show_hidden_folders.isChecked
+    private fun toggleHiddenItems() {
+        settings_show_hidden_items.toggle()
+        config.showHiddenMedia = settings_show_hidden_items.isChecked
     }
 
     private fun setupAutoplayVideos() {
@@ -263,26 +273,13 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupScreenRotation() {
-        settings_screen_rotation.text = getScreenRotationText()
-        settings_screen_rotation_holder.setOnClickListener {
-            val items = arrayListOf(
-                    RadioItem(ROTATE_BY_SYSTEM_SETTING, res.getString(R.string.screen_rotation_system_setting)),
-                    RadioItem(ROTATE_BY_DEVICE_ROTATION, res.getString(R.string.screen_rotation_device_rotation)),
-                    RadioItem(ROTATE_BY_ASPECT_RATIO, res.getString(R.string.screen_rotation_aspect_ratio)))
-
-            RadioGroupDialog(this@SettingsActivity, items, config.screenRotation) {
-                config.screenRotation = it as Int
-                settings_screen_rotation.text = getScreenRotationText()
-            }
+    private fun setupOneFingerZoom() {
+        settings_one_finger_zoom.isChecked = config.oneFingerZoom
+        settings_one_finger_zoom_holder.setOnClickListener {
+            settings_one_finger_zoom.toggle()
+            config.oneFingerZoom = settings_one_finger_zoom.isChecked
         }
     }
-
-    private fun getScreenRotationText() = getString(when (config.screenRotation) {
-        ROTATE_BY_SYSTEM_SETTING -> R.string.screen_rotation_system_setting
-        ROTATE_BY_DEVICE_ROTATION -> R.string.screen_rotation_device_rotation
-        else -> R.string.screen_rotation_aspect_ratio
-    })
 
     private fun setupShowExtendedDetails() {
         settings_show_extended_details.isChecked = config.showExtendedDetails
@@ -303,4 +300,25 @@ class SettingsActivity : SimpleActivity() {
             }
         }
     }
+
+    private fun setupScreenRotation() {
+        settings_screen_rotation.text = getScreenRotationText()
+        settings_screen_rotation_holder.setOnClickListener {
+            val items = arrayListOf(
+                    RadioItem(ROTATE_BY_SYSTEM_SETTING, res.getString(R.string.screen_rotation_system_setting)),
+                    RadioItem(ROTATE_BY_DEVICE_ROTATION, res.getString(R.string.screen_rotation_device_rotation)),
+                    RadioItem(ROTATE_BY_ASPECT_RATIO, res.getString(R.string.screen_rotation_aspect_ratio)))
+
+            RadioGroupDialog(this@SettingsActivity, items, config.screenRotation) {
+                config.screenRotation = it as Int
+                settings_screen_rotation.text = getScreenRotationText()
+            }
+        }
+    }
+
+    private fun getScreenRotationText() = getString(when (config.screenRotation) {
+        ROTATE_BY_SYSTEM_SETTING -> R.string.screen_rotation_system_setting
+        ROTATE_BY_DEVICE_ROTATION -> R.string.screen_rotation_device_rotation
+        else -> R.string.screen_rotation_aspect_ratio
+    })
 }

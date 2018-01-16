@@ -7,14 +7,13 @@
     <string name="hidden">(oculta)</string>
     <string name="pin_folder">Fixar pasta</string>
     <string name="unpin_folder">Desafixar pasta</string>
+    <string name="pin_to_the_top">Fixar no topo</string>
     <string name="show_all">Mostrar conteúdo de todas as pastas</string>
     <string name="all_folders">Todas as pastas</string>
     <string name="folder_view">Alternar para a vista de pastas</string>
     <string name="other_folder">Outra pasta</string>
     <string name="show_on_map">Mostrar no mapa</string>
     <string name="unknown_location">Localização desconhecida</string>
-    <string name="no_map_application">Não existe uma aplicação adequada</string>
-    <string name="no_camera_app_found">Não existe uma aplicação adequeada</string>
     <string name="increase_column_count">Aumentar número de colunas</string>
     <string name="reduce_column_count">Diminuir número de colunas</string>
     <string name="change_cover_image">Alterar imagem de capa</string>
@@ -44,7 +43,9 @@
     <string name="excluded_activity_placeholder">A exclusão de uma pasta apenas oculta o seu conteúdo do Simple Gallery porque as outras aplicações continuarão a poder aceder-lhes.\\n\\nSe quiser ocultar também das outras aplicações, utilize a função Ocultar.</string>
     <string name="remove_all">Remover todas</string>
     <string name="remove_all_description">Remover todas as pastas de lista de exclusões? Esta ação não apaga as pastas.</string>
-    <string name="manage_hidden_folders">Manage hidden folders</string>
+    <string name="hidden_folders">Pastas ocultas</string>
+    <string name="manage_hidden_folders">Gerir pastas ocultas</string>
+    <string name="hidden_folders_placeholder">Parece que não existem pastas ocultas com ficheiros \".nomedia\".</string>
 
     <!-- Include folders -->
     <string name="include_folders">Pastas incluídas</string>
@@ -84,7 +85,6 @@
     <string name="set_as_wallpaper">Definir como fundo do ecrã</string>
     <string name="set_as_wallpaper_failed">Falha ao definir como fundo de ecrã</string>
     <string name="set_as_wallpaper_with">Definir como fundo com:</string>
-    <string name="no_capable_app_found">Aplicação não encontrada</string>
     <string name="setting_wallpaper">A definir como fundo de ecrã&#8230;</string>
     <string name="wallpaper_set_successfully">Fundo definido com sucesso</string>
     <string name="portrait_aspect_ratio">Proporção na vertical</string>
@@ -122,7 +122,7 @@
     <string name="screen_rotation_system_setting">Definições do sistema</string>
     <string name="screen_rotation_device_rotation">Rotação do dispositivo</string>
     <string name="screen_rotation_aspect_ratio">Proporção</string>
-    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
+    <string name="black_background_at_fullscreen">Fundo escuro e barra de estado no modo de ecrã completo</string>
     <string name="scroll_thumbnails_horizontally">Deslocação horizontal de miniaturas</string>
     <string name="hide_system_ui_at_fullscreen">Ocultar interface do sistema se em ecrã completo</string>
     <string name="delete_empty_folders">Apagar as pastas vazias depois de remover o seu conteúdo</string>
@@ -131,6 +131,7 @@
     <string name="replace_share_with_rotate">Substituir a opção Partilhar pela opção Rodar se em ecrã completo</string>
     <string name="show_extended_details">Mostrar detalhes se em ecrã completo</string>
     <string name="manage_extended_details">Gerir detalhes exibidos</string>
+    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
@@ -140,7 +141,7 @@
 
         Também pode ser utilizada para pré-visualizar imagens e vídeos ou para adicionar como anexos ao e-mail, entre outros. É perfeita para a utilização diária.
 
-        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+        A permissão Impressão digital é necessária para bloquear a visualização dos itens ocultos ou de toda a aplicação.
 
         Não contém anúncios nem permissões desnecessárias. Disponibiliza um tema escuro e é totalmente \'open source\'.
 

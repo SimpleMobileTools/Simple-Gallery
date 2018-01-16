@@ -42,6 +42,8 @@ val VIEW_TYPE_FOLDERS = "view_type_folders"
 val VIEW_TYPE_FILES = "view_type_files"
 val SHOW_EXTENDED_DETAILS = "show_extended_details"
 val EXTENDED_DETAILS = "extended_details"
+val LAST_FILE_CLEANUP = "last_file_cleanup"
+val ONE_FINGER_ZOOM = "one_finger_zoom"
 
 // slideshow
 val SLIDESHOW_INTERVAL = "slideshow_interval"

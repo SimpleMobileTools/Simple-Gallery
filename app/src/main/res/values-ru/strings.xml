@@ -7,14 +7,13 @@
     <string name="hidden">(Скрытый)</string>
     <string name="pin_folder">Закрепить папку</string>
     <string name="unpin_folder">Открепить папку</string>
+    <string name="pin_to_the_top">Закрепить наверху</string>
     <string name="show_all">Отобразить все медиафайлы</string>
     <string name="all_folders">Все медиафайлы</string>
     <string name="folder_view">Переключиться к виду с папками</string>
     <string name="other_folder">Другая папка</string>
     <string name="show_on_map">Показать место съёмки</string>
     <string name="unknown_location">Место съёмки не указано</string>
-    <string name="no_map_application">Не найдено приложений с картами</string>
-    <string name="no_camera_app_found">Не найдено приложения камеры</string>
     <string name="increase_column_count">Добавить столбец</string>
     <string name="reduce_column_count">Убрать столбец</string>
     <string name="change_cover_image">Изменить обложку</string>
@@ -35,22 +34,24 @@
     <string name="change_filters_underlined"><u>Изменить фильтры</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Эта функция скрывает папку, добавляя в неё файл \'.nomedia\'; будут скрыты все подпапки. Можно показывать их, переключая \'Показывать скрытые папки\' в настройках. Продолжить?</string>
+    <string name="hide_folder_description">Эта функция скрывает папку, добавляя в неё файл \".nomedia\"; будут скрыты все подпапки. Можно показывать их, переключая \"Показывать скрытые папки\" в настройках. Продолжить?</string>
     <string name="exclude">Исключить</string>
     <string name="excluded_folders">Исключённые папки</string>
     <string name="manage_excluded_folders">Управление исключёнными папками</string>
     <string name="exclude_folder_description">Эта функция исключит выбранные папки вместе с подпапками только для Simple Gallery. Можно управлять исключёнными папками из настроек.</string>
     <string name="exclude_folder_parent">Исключить только родительский каталог?</string>
-    <string name="excluded_activity_placeholder">Исключая папки, вы сделаете их скрытыми вместе с подпапками в Simple Gallery, но они будут видны в других приложениях. Если вы хотите скрыть их в других приложениях, используйте функцию Скрыть. </string>
+    <string name="excluded_activity_placeholder">Исключая папки, вы сделаете их скрытыми вместе с подпапками в Simple Gallery, но они будут видны в других приложениях. Если вы хотите скрыть их и в других приложениях, используйте функцию \"Скрыть\".</string>
     <string name="remove_all">Удалить всё</string>
     <string name="remove_all_description">Очистить список исключённых? Сами папки не будут удалены.</string>
+    <string name="hidden_folders">Скрытые папки</string>
     <string name="manage_hidden_folders">Управление скрытыми папками</string>
+    <string name="hidden_folders_placeholder">Похоже, у вас нет папок, скрытых файлом \".nomedia\".</string>
 
     <!-- Include folders -->
     <string name="include_folders">Включённые папки</string>
     <string name="manage_included_folders">Управление включёнными папками</string>
     <string name="add_folder">Добавление папки</string>
-    <string name="included_activity_placeholder">Если у вас есть папки, содержащие медиафайлы, но не распознанные Simple Gallery. Вы можете добавить их вручную.</string>
+    <string name="included_activity_placeholder">Если у вас есть папки, содержащие медиафайлы, но не распознанные приложением, вы можете добавить их вручную.\n\nДобавление папки не приводит к исключению каких-либо других.</string>
 
     <!-- Resizing -->
     <string name="resize">Изменить размер</string>
@@ -84,7 +85,6 @@
     <string name="set_as_wallpaper">Установить в качестве обоев</string>
     <string name="set_as_wallpaper_failed">Не удалось установить</string>
     <string name="set_as_wallpaper_with">Установить в качестве обоев в:</string>
-    <string name="no_capable_app_found">Приложение не найдено</string>
     <string name="setting_wallpaper">Установка обоев…</string>
     <string name="wallpaper_set_successfully">Обои успешно установлены</string>
     <string name="portrait_aspect_ratio">Портрет</string>
@@ -128,9 +128,10 @@
     <string name="delete_empty_folders">Удалять пустые папки после удаления их содержимого</string>
     <string name="allow_video_gestures">Управлять громкостью и яркостью видео с помощью вертикальных жестов</string>
     <string name="show_media_count">Показывать количество файлов в папках</string>
-    <string name="replace_share_with_rotate">Заменить \'Поделиться\' на \'Повернуть\' в меню полноэкранного режима</string>
+    <string name="replace_share_with_rotate">Заменить \"Поделиться\" на \"Повернуть\" в меню полноэкранного режима</string>
     <string name="show_extended_details">Показывать детали файла</string>
     <string name="manage_extended_details">Выбрать детали файла</string>
+    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

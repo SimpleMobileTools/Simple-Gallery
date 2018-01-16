@@ -5,19 +5,22 @@ import android.view.View
 import android.view.ViewGroup
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
+import com.simplemobiletools.commons.extensions.isPathOnSD
 import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
+import com.simplemobiletools.gallery.extensions.removeNoMedia
 import kotlinx.android.synthetic.main.item_manage_folder.view.*
+import java.io.File
 import java.util.*
 
-class ManageFoldersAdapter(activity: BaseSimpleActivity, var folders: ArrayList<String>, val isShowingExcludedFolders: Boolean, val listener: RefreshRecyclerViewListener?,
-                           recyclerView: MyRecyclerView, itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(activity, recyclerView, null, itemClick) {
+class ManageHiddenFoldersAdapter(activity: BaseSimpleActivity, var folders: ArrayList<String>, val listener: RefreshRecyclerViewListener?,
+                                 recyclerView: MyRecyclerView, itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(activity, recyclerView, null, itemClick) {
 
     private val config = activity.config
 
-    override fun getActionMenuId() = R.menu.cab_remove_only
+    override fun getActionMenuId() = R.menu.cab_hidden_folders
 
     override fun prepareActionMode(menu: Menu) {}
 
@@ -29,7 +32,7 @@ class ManageFoldersAdapter(activity: BaseSimpleActivity, var folders: ArrayList<
 
     override fun actionItemPressed(id: Int) {
         when (id) {
-            R.id.cab_remove -> removeSelection()
+            R.id.cab_unhide -> tryUnhideFolders()
         }
     }
 
@@ -56,17 +59,30 @@ class ManageFoldersAdapter(activity: BaseSimpleActivity, var folders: ArrayList<
         }
     }
 
-    private fun removeSelection() {
+    private fun tryUnhideFolders() {
         val removeFolders = ArrayList<String>(selectedPositions.size)
 
+        val sdCardPaths = ArrayList<String>()
+        selectedPositions.forEach {
+            if (activity.isPathOnSD(folders[it])) {
+                sdCardPaths.add(folders[it])
+            }
+        }
+
+        if (sdCardPaths.isNotEmpty()) {
+            activity.handleSAFDialog(File(sdCardPaths.first())) {
+                unhideFolders(removeFolders)
+            }
+        } else {
+            unhideFolders(removeFolders)
+        }
+    }
+
+    private fun unhideFolders(removeFolders: ArrayList<String>) {
         selectedPositions.sortedDescending().forEach {
             val folder = folders[it]
             removeFolders.add(folder)
-            if (isShowingExcludedFolders) {
-                config.removeExcludedFolder(folder)
-            } else {
-                config.removeIncludedFolder(folder)
-            }
+            activity.removeNoMedia(folder)
         }
 
         folders.removeAll(removeFolders)
