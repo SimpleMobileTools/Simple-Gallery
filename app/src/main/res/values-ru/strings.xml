@@ -131,7 +131,7 @@
     <string name="replace_share_with_rotate">Заменить \"Поделиться\" на \"Повернуть\" в меню полноэкранного режима</string>
     <string name="show_extended_details">Показывать детали файла</string>
     <string name="manage_extended_details">Выбрать детали файла</string>
-    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
+    <string name="one_finger_zoom">Масштабирование одним пальцем в полноэкранном режиме</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
