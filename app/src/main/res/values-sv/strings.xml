@@ -131,6 +131,7 @@
     <string name="replace_share_with_rotate">Ersätt Dela med Rotera i helskärmsmenyn</string>
     <string name="show_extended_details">Visa utökad information över media i helskärmsläge</string>
     <string name="manage_extended_details">Hantera utökad information</string>
+    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
