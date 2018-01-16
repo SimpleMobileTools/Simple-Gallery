@@ -153,7 +153,13 @@ class MediaFetcher(val context: Context) {
                         val dateTaken = cur.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
                         val dateModified = cur.getIntValue(MediaStore.Images.Media.DATE_MODIFIED) * 1000L
 
-                        val medium = Medium(filename, path, isVideo, dateModified, dateTaken, size)
+                        val type = when {
+                            isImage -> TYPE_IMAGE
+                            isVideo -> TYPE_VIDEO
+                            else -> TYPE_GIF
+                        }
+
+                        val medium = Medium(filename, path, dateModified, dateTaken, size, type)
                         curMedia.add(medium)
                     } catch (e: Exception) {
                         continue
@@ -255,7 +261,13 @@ class MediaFetcher(val context: Context) {
             val dateTaken = file.lastModified()
             val dateModified = file.lastModified()
 
-            val medium = Medium(filename, file.absolutePath, isVideo, dateModified, dateTaken, size)
+            val type = when {
+                isImage -> TYPE_IMAGE
+                isVideo -> TYPE_VIDEO
+                else -> TYPE_GIF
+            }
+
+            val medium = Medium(filename, file.absolutePath, dateModified, dateTaken, size, type)
             val isAlreadyAdded = curMedia.any { it.path == file.absolutePath }
             if (!isAlreadyAdded) {
                 curMedia.add(medium)

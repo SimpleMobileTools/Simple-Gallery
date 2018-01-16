@@ -101,3 +101,8 @@ val EXT_EXIF_PROPERTIES = 128
 val EXT_DURATION = 256
 val EXT_ARTIST = 512
 val EXT_ALBUM = 1024
+
+// media types
+val TYPE_IMAGE = 1
+val TYPE_VIDEO = 2
+val TYPE_GIF = 3

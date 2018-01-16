@@ -1,22 +1,26 @@
 package com.simplemobiletools.gallery.models
 
-import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.extensions.formatDate
+import com.simplemobiletools.commons.extensions.formatSize
+import com.simplemobiletools.commons.extensions.getMimeTypeFromPath
+import com.simplemobiletools.commons.extensions.isDng
 import com.simplemobiletools.commons.helpers.*
+import com.simplemobiletools.gallery.helpers.TYPE_GIF
+import com.simplemobiletools.gallery.helpers.TYPE_IMAGE
+import com.simplemobiletools.gallery.helpers.TYPE_VIDEO
 import java.io.Serializable
 
-data class Medium(var name: String, var path: String, val video: Boolean, val modified: Long, val taken: Long, val size: Long) : Serializable, Comparable<Medium> {
+data class Medium(var name: String, var path: String, val modified: Long, val taken: Long, val size: Long, val type: Int) : Serializable, Comparable<Medium> {
     companion object {
         private val serialVersionUID = -6553149366975455L
         var sorting: Int = 0
     }
 
-    fun isPng() = path.isPng()
+    fun isGif() = type == TYPE_GIF
 
-    fun isGif() = path.isGif()
+    fun isImage() = type == TYPE_IMAGE
 
-    fun isJpg() = path.endsWith(".jpg", true) || path.endsWith(".jpeg", true)
-
-    fun isImage() = !isGif() && !video
+    fun isVideo() = type == TYPE_VIDEO
 
     fun isDng() = path.isDng()
 

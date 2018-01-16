@@ -22,6 +22,9 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.PickDirectoryDialog
 import com.simplemobiletools.gallery.helpers.NOMEDIA
+import com.simplemobiletools.gallery.helpers.TYPE_GIF
+import com.simplemobiletools.gallery.helpers.TYPE_IMAGE
+import com.simplemobiletools.gallery.helpers.TYPE_VIDEO
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
 import com.simplemobiletools.gallery.views.MySquareImageView
@@ -139,15 +142,15 @@ fun BaseSimpleActivity.toggleFileVisibility(oldFile: File, hide: Boolean, callba
     }
 }
 
-fun Activity.loadImage(path: String, target: MySquareImageView, horizontalScroll: Boolean, animateGifs: Boolean, cropThumbnails: Boolean) {
+fun Activity.loadImage(type: Int, path: String, target: MySquareImageView, horizontalScroll: Boolean, animateGifs: Boolean, cropThumbnails: Boolean) {
     target.isHorizontalScrolling = horizontalScroll
-    if (path.isImageFast() || path.isVideoFast()) {
-        if (path.isPng()) {
+    if (type == TYPE_IMAGE || type == TYPE_VIDEO) {
+        if (type == TYPE_IMAGE && path.isPng()) {
             loadPng(path, target, cropThumbnails)
         } else {
             loadJpg(path, target, cropThumbnails)
         }
-    } else if (path.isGif()) {
+    } else if (type == TYPE_GIF) {
         try {
             val gifDrawable = GifDrawable(path)
             target.setImageDrawable(gifDrawable)

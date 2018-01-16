@@ -35,7 +35,7 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
             activity.setupDialogStuff(view, this, R.string.select_photo)
         }
 
-        val media = activity.getCachedMedia(path).filter { !it.video } as ArrayList
+        val media = activity.getCachedMedia(path).filter { !it.isVideo() } as ArrayList
         if (media.isNotEmpty()) {
             gotMedia(media)
         }
