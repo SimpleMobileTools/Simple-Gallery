@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 3.2.4 *(2018-01-17)*
+----------------------------
+
+ * An F-droid build only, trying to add screenshots there
+
 Version 3.2.3 *(2018-01-14)*
 ----------------------------
 
