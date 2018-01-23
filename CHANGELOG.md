@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 3.3.0 *(2018-01-23)*
+----------------------------
+
+ * Added optional one-finger drag zoom at fullscreen media (by gh123man)
+ * Allow opening the app even without any media files (by gh123man)
+ * Refresh media files in the background when Simple Camera creates a new photo/video
+ * Improve fullscreen media rotation by "Device Rotation"
+
 Version 3.2.4 *(2018-01-17)*
 ----------------------------
 
