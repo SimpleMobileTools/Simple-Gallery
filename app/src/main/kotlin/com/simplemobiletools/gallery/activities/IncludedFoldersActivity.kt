@@ -55,7 +55,7 @@ class IncludedFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
             config.addIncludedFolder(it)
             updateFolders()
             Thread {
-                scanPath(it)
+                applicationContext.scanPath(it)
             }.start()
         }
     }

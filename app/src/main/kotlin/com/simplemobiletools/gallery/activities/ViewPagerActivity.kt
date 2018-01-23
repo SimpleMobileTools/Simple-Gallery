@@ -205,7 +205,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         reloadViewPager()
-        scanPath(mPath)
+        applicationContext.scanPath(mPath)
 
         if (config.blackBackground) {
             view_pager.background = ColorDrawable(Color.BLACK)
@@ -530,7 +530,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     deleteFile(newFile)
                 }
                 copyFile(tmpFile, newFile)
-                scanFile(newFile)
+                applicationContext.scanFile(newFile)
                 toast(R.string.file_saved)
 
                 if (config.keepLastModified) {
@@ -799,7 +799,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             deleteFile(file, true)
         }
 
-        scanPath(mDirectory)
+        applicationContext.scanPath(mDirectory)
     }
 
     private fun checkOrientation() {

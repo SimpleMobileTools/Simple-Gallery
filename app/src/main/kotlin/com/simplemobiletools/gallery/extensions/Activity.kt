@@ -116,7 +116,7 @@ fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
         }
     }
 
-    scanFile(file) {
+    applicationContext.scanFile(file) {
         callback()
     }
 }
