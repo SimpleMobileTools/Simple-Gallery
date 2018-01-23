@@ -12,7 +12,6 @@ import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.Matrix
 import android.graphics.drawable.ColorDrawable
-import android.hardware.SensorManager
 import android.media.ExifInterface
 import android.net.Uri
 import android.os.Build
@@ -21,7 +20,10 @@ import android.os.Handler
 import android.provider.MediaStore
 import android.support.v4.view.ViewPager
 import android.util.DisplayMetrics
-import android.view.*
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.view.WindowManager
 import android.view.animation.DecelerateInterpolator
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
@@ -48,17 +50,14 @@ import java.io.*
 import java.util.*
 
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
-    private var mOrientationEventListener: OrientationEventListener? = null
     private var mPath = ""
     private var mDirectory = ""
-
     private var mIsFullScreen = false
     private var mPos = -1
     private var mShowAll = false
     private var mIsSlideshowActive = false
     private var mSkipConfirmationDialog = false
     private var mRotationDegrees = 0f
-    private var mLastHandledOrientation = 0
     private var mPrevHashcode = 0
 
     private var mSlideshowHandler = Handler()
@@ -125,7 +124,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     override fun onPause() {
         super.onPause()
-        mOrientationEventListener?.disable()
         stopSlideshow()
         storeStateVariables()
     }
@@ -146,7 +144,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun initViewPager() {
-        setupOrientationEventListener()
         measureScreen()
         val uri = intent.data
         if (uri != null) {
@@ -214,8 +211,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             view_pager.background = ColorDrawable(Color.BLACK)
         }
 
-        if (config.hideSystemUI)
+        if (config.hideSystemUI) {
             fragmentClicked()
+        }
 
         window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
             mIsFullScreen = visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
@@ -231,32 +229,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LOCKED
             }
-        } else if (config.screenRotation == ROTATE_BY_DEVICE_ROTATION && mOrientationEventListener?.canDetectOrientation() == true) {
-            mOrientationEventListener?.enable()
+        } else if (config.screenRotation == ROTATE_BY_DEVICE_ROTATION) {
+            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR
         } else if (config.screenRotation == ROTATE_BY_SYSTEM_SETTING) {
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
-        }
-    }
-
-    private fun setupOrientationEventListener() {
-        mOrientationEventListener = object : OrientationEventListener(this, SensorManager.SENSOR_DELAY_NORMAL) {
-            override fun onOrientationChanged(orientation: Int) {
-                val currOrient = when (orientation) {
-                    in 75..134 -> ORIENT_LANDSCAPE_RIGHT
-                    in 225..285 -> ORIENT_LANDSCAPE_LEFT
-                    else -> ORIENT_PORTRAIT
-                }
-
-                if (!mIsOrientationLocked && mLastHandledOrientation != currOrient) {
-                    mLastHandledOrientation = currOrient
-
-                    requestedOrientation = when (currOrient) {
-                        ORIENT_LANDSCAPE_LEFT -> ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-                        ORIENT_LANDSCAPE_RIGHT -> ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE
-                        else -> ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-                    }
-                }
-            }
         }
     }
 
@@ -458,7 +434,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         if (config.slideshowRandomOrder) {
-            Collections.shuffle(mSlideshowMedia)
+            mSlideshowMedia.shuffle()
             mPos = 0
         } else {
             mPath = getCurrentPath()
