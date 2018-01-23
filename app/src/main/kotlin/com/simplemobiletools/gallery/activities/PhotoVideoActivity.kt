@@ -64,14 +64,14 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         mIsFromGallery = intent.getBooleanExtra(IS_FROM_GALLERY, false)
 
         if (mUri!!.scheme == "file") {
-            applicationContext.scanPath(mUri!!.path)
+            scanPath(mUri!!.path)
             sendViewPagerIntent(mUri!!.path)
             finish()
             return
         } else {
             val path = applicationContext.getRealPathFromURI(mUri!!) ?: ""
             if (path != mUri.toString() && path.isNotEmpty() && mUri!!.authority != "mms") {
-                applicationContext.scanPath(mUri!!.path)
+                scanPath(mUri!!.path)
                 sendViewPagerIntent(path)
                 finish()
                 return

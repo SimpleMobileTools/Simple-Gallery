@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.activities
 import android.animation.Animator
 import android.animation.ValueAnimator
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
@@ -205,7 +206,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         reloadViewPager()
-        applicationContext.scanPath(mPath)
+        scanPath(mPath)
 
         if (config.blackBackground) {
             view_pager.background = ColorDrawable(Color.BLACK)
@@ -530,7 +531,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     deleteFile(newFile)
                 }
                 copyFile(tmpFile, newFile)
-                applicationContext.scanFile(newFile)
+                scanFile(newFile)
                 toast(R.string.file_saved)
 
                 if (config.keepLastModified) {
@@ -799,7 +800,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             deleteFile(file, true)
         }
 
-        applicationContext.scanPath(mDirectory)
+        scanPath(mDirectory)
     }
 
     private fun checkOrientation() {
