@@ -38,6 +38,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     private var visibleItemPaths = ArrayList<String>()
     private var loadImageInstantly = false
     private var delayHandler = Handler(Looper.getMainLooper())
+    private var currentMediaHash = media.hashCode()
 
     private var scrollHorizontally = config.scrollHorizontally
     private var animateGifs = config.animateGifs
@@ -246,10 +247,13 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     fun updateMedia(newMedia: ArrayList<Medium>) {
-        media = newMedia
-        enableInstantLoad()
-        notifyDataSetChanged()
-        finishActMode()
+        if (newMedia.hashCode() != currentMediaHash) {
+            currentMediaHash = newMedia.hashCode()
+            media = newMedia
+            enableInstantLoad()
+            notifyDataSetChanged()
+            finishActMode()
+        }
     }
 
     fun updateDisplayFilenames(displayFilenames: Boolean) {

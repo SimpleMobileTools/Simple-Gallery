@@ -59,7 +59,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mStoredScrollHorizontally = true
     private var mStoredShowInfoBubble = true
     private var mStoredTextColor = 0
-    private var mLastDrawnHashCode = 0
     private var mLatestMediaId = 0L
     private var mLastMediaHandler = Handler()
     private var mCurrAsyncTask: GetMediaAsynctask? = null
@@ -603,11 +602,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         checkLastMediaChanged()
 
-        if (media.hashCode() == mMedia.hashCode() && media.hashCode() == mLastDrawnHashCode) {
-            return
-        }
-
-        mLastDrawnHashCode = media.hashCode()
         mMedia = media
         runOnUiThread {
             setupAdapter()

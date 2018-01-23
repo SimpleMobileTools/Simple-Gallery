@@ -38,6 +38,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
     private var showMediaCount = config.showMediaCount
     private var animateGifs = config.animateGifs
     private var cropThumbnails = config.cropThumbnails
+    private var currentDirectoriesHash = dirs.hashCode()
 
     override fun getActionMenuId() = R.menu.cab_directories
 
@@ -307,9 +308,12 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
     }
 
     fun updateDirs(newDirs: ArrayList<Directory>) {
-        dirs = newDirs
-        notifyDataSetChanged()
-        finishActMode()
+        if (newDirs.hashCode() != currentDirectoriesHash) {
+            currentDirectoriesHash = newDirs.hashCode()
+            dirs = newDirs
+            notifyDataSetChanged()
+            finishActMode()
+        }
     }
 
     fun updateAnimateGifs(animateGifs: Boolean) {

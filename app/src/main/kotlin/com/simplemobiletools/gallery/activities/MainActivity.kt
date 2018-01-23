@@ -548,10 +548,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         directories_horizontal_fastscroller.beVisibleIf(directories_grid.isVisible() && allowHorizontalScroll)
 
         checkLastMediaChanged()
-        if (dirs.hashCode() == mDirs.hashCode()) {
-            return
-        }
-
         mDirs = dirs
 
         runOnUiThread {
