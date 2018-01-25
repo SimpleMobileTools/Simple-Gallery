@@ -119,7 +119,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         tryloadGallery()
         invalidateOptionsMenu()
         media_empty_text_label.setTextColor(config.textColor)
-        media_empty_text.setTextColor(config.primaryColor)
+        media_empty_text.setTextColor(getAdjustedPrimaryColor())
     }
 
     override fun onPause() {

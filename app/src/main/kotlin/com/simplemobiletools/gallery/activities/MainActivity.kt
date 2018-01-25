@@ -127,7 +127,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         directories_vertical_fastscroller.updateBubbleColors()
         invalidateOptionsMenu()
         directories_empty_text_label.setTextColor(config.textColor)
-        directories_empty_text.setTextColor(config.primaryColor)
+        directories_empty_text.setTextColor(getAdjustedPrimaryColor())
 
         if (mIsPasswordProtectionPending) {
             handleAppPasswordProtection {
