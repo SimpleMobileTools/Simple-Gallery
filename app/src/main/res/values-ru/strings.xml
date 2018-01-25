@@ -132,11 +132,11 @@
     <string name="show_extended_details">Показывать детали файла</string>
     <string name="manage_extended_details">Выбрать детали файла</string>
     <string name="one_finger_zoom">Масштабирование одним пальцем в полноэкранном режиме</string>
-    <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
+    <string name="allow_instant_change">Мгновенное переключение медиафайлов кликом по краю экрана</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Thumbnails</string>
-    <string name="fullscreen_media">Fullscreen media</string>
+    <string name="thumbnails">Миниатюры</string>
+    <string name="fullscreen_media">Полноэкранное отображение медиафайлов</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
