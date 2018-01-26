@@ -132,11 +132,11 @@
     <string name="show_extended_details">Mostrar detalles extendidos sobre medios en pantalla completa</string>
     <string name="manage_extended_details">Administrar detalles ampliados</string>
     <string name="one_finger_zoom">Permitir zoom con un dedo en pantalla completa</string>
-    <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
+    <string name="allow_instant_change">Permitir el cambio instantáneo de medios haciendo clic en los lados de la pantalla</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Thumbnails</string>
-    <string name="fullscreen_media">Fullscreen media</string>
+    <string name="thumbnails">Miniaturas</string>
+    <string name="fullscreen_media">Medios a pantalla compelta</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
