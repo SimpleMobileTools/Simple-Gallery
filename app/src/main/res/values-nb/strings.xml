@@ -132,11 +132,11 @@
     <string name="show_extended_details">Vis flere detaljer i mediavisningen</string>
     <string name="manage_extended_details">Velg detaljer</string>
     <string name="one_finger_zoom">Tillat en-finger-zoom i mediavisningen</string>
-    <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
+    <string name="allow_instant_change">Tillat å skifte media øyeblikkelig ved å klikke på kanten av skjermen</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Thumbnails</string>
-    <string name="fullscreen_media">Fullscreen media</string>
+    <string name="thumbnails">Minibilder</string>
+    <string name="fullscreen_media">Mediavisning</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
