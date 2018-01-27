@@ -24,6 +24,7 @@ import kotlinx.android.synthetic.main.fragment_holder.*
 import java.io.File
 
 open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentListener {
+
     private var mMedium: Medium? = null
     private var mIsFullScreen = false
     private var mIsFromGallery = false
@@ -158,4 +159,8 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     }
 
     override fun videoEnded() = false
+
+    override fun goToPrevItem() {}
+
+    override fun goToNextItem() {}
 }

@@ -66,8 +66,12 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     lateinit var medium: Medium
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        mView = inflater.inflate(R.layout.pager_video_item, container, false)
-        mTimeHolder = mView!!.video_time_holder
+        mView = inflater.inflate(R.layout.pager_video_item, container, false).apply {
+            instant_prev_item.setOnClickListener { listener?.goToPrevItem() }
+            instant_next_item.setOnClickListener { listener?.goToNextItem() }
+            mTimeHolder = video_time_holder
+        }
+
         medium = arguments!!.getSerializable(MEDIUM) as Medium
 
         // setMenuVisibility is not called at VideoActivity (third party intent)
@@ -90,8 +94,15 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     override fun onResume() {
         super.onResume()
         activity!!.updateTextColors(mView!!.video_holder)
-        mView!!.video_volume_controller.beVisibleIf(context!!.config.allowVideoGestures)
-        mView!!.video_brightness_controller.beVisibleIf(context!!.config.allowVideoGestures)
+        val allowVideoGestures = context!!.config.allowVideoGestures
+        val allowInstantChange = context!!.config.allowInstantChange
+        mView!!.apply {
+            video_volume_controller.beVisibleIf(allowVideoGestures)
+            video_brightness_controller.beVisibleIf(allowVideoGestures)
+
+            instant_prev_item.beVisibleIf(allowInstantChange)
+            instant_next_item.beVisibleIf(allowInstantChange)
+        }
 
         if (context!!.config.showExtendedDetails != mStoredShowExtendedDetails || context!!.config.extendedDetails != mStoredExtendedDetails) {
             checkExtendedDetails()

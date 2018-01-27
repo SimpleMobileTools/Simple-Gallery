@@ -3,7 +3,6 @@ package com.simplemobiletools.gallery.activities
 import android.animation.Animator
 import android.animation.ValueAnimator
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
@@ -820,9 +819,18 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     override fun videoEnded(): Boolean {
-        if (mIsSlideshowActive)
+        if (mIsSlideshowActive) {
             swipeToNextMedium()
+        }
         return mIsSlideshowActive
+    }
+
+    override fun goToPrevItem() {
+        view_pager.setCurrentItem(view_pager.currentItem - 1, false)
+    }
+
+    override fun goToNextItem() {
+        view_pager.setCurrentItem(view_pager.currentItem + 1, false)
     }
 
     private fun checkSystemUI() {

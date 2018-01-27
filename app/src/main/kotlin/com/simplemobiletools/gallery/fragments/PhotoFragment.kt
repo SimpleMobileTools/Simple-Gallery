@@ -49,7 +49,12 @@ class PhotoFragment : ViewPagerFragment() {
     lateinit var medium: Medium
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        view = inflater.inflate(R.layout.pager_photo_item, container, false) as ViewGroup
+        view = (inflater.inflate(R.layout.pager_photo_item, container, false) as ViewGroup).apply {
+            subsampling_view.setOnClickListener { photoClicked() }
+            gif_view.setOnClickListener { photoClicked() }
+            instant_prev_item.setOnClickListener { listener?.goToPrevItem() }
+            instant_next_item.setOnClickListener { listener?.goToNextItem() }
+        }
 
         if (!isFragmentVisible && activity is PhotoActivity) {
             isFragmentVisible = true
@@ -88,11 +93,8 @@ class PhotoFragment : ViewPagerFragment() {
         }
 
         isFullscreen = activity!!.window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN == View.SYSTEM_UI_FLAG_FULLSCREEN
-        view.subsampling_view.setOnClickListener { photoClicked() }
-        view.gif_view.setOnClickListener { photoClicked() }
         loadImage()
         checkExtendedDetails()
-
         wasInit = true
 
         return view
@@ -109,6 +111,10 @@ class PhotoFragment : ViewPagerFragment() {
         if (wasInit && (context!!.config.showExtendedDetails != storedShowExtendedDetails || context!!.config.extendedDetails != storedExtendedDetails)) {
             checkExtendedDetails()
         }
+
+        val allowInstantChange = context!!.config.allowInstantChange
+        view.instant_prev_item.beVisibleIf(allowInstantChange)
+        view.instant_next_item.beVisibleIf(allowInstantChange)
     }
 
     override fun setMenuVisibility(menuVisible: Boolean) {

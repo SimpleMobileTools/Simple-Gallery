@@ -55,6 +55,7 @@ class SettingsActivity : SimpleActivity() {
         setupKeepLastModified()
         setupShowInfoBubble()
         setupOneFingerZoom()
+        setupAllowInstantChange()
         setupShowExtendedDetails()
         setupManageExtendedDetails()
         updateTextColors(settings_holder)
@@ -283,6 +284,14 @@ class SettingsActivity : SimpleActivity() {
         settings_one_finger_zoom_holder.setOnClickListener {
             settings_one_finger_zoom.toggle()
             config.oneFingerZoom = settings_one_finger_zoom.isChecked
+        }
+    }
+
+    private fun setupAllowInstantChange() {
+        settings_allow_instant_change.isChecked = config.allowInstantChange
+        settings_allow_instant_change_holder.setOnClickListener {
+            settings_allow_instant_change.toggle()
+            config.allowInstantChange = settings_allow_instant_change.isChecked
         }
     }
 
