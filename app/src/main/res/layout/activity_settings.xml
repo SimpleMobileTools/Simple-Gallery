@@ -31,6 +31,44 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/settings_use_english_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/settings_use_english"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/use_english_language"/>
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/visibility_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/divider_grey"
+            android:importantForAccessibility="no"/>
+
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/visibility_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/big_margin"
+            android:layout_marginStart="@dimen/big_margin"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:text="@string/visibility"
+            android:textAllCaps="true"
+            android:textSize="@dimen/smaller_text_size"/>
+
+        <RelativeLayout
             android:id="@+id/settings_manage_included_folders_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -88,26 +126,6 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/settings_use_english_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:padding="@dimen/activity_margin">
-
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_use_english"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingLeft="@dimen/medium_margin"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/use_english_language"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
             android:id="@+id/settings_show_hidden_items_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -126,6 +144,24 @@
                 android:text="@string/show_hidden_items"/>
 
         </RelativeLayout>
+
+        <View
+            android:id="@+id/videos_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/divider_grey"
+            android:importantForAccessibility="no"/>
+
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/videos_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/big_margin"
+            android:layout_marginStart="@dimen/big_margin"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:text="@string/videos"
+            android:textAllCaps="true"
+            android:textSize="@dimen/smaller_text_size"/>
 
         <RelativeLayout
             android:id="@+id/settings_autoplay_videos_holder"
@@ -168,6 +204,44 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/settings_allow_video_gestures_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/settings_allow_video_gestures"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/allow_video_gestures"/>
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/thumbnails_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/divider_grey"
+            android:importantForAccessibility="no"/>
+
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/thumbnails_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/big_margin"
+            android:layout_marginStart="@dimen/big_margin"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:text="@string/thumbnails"
+            android:textAllCaps="true"
+            android:textSize="@dimen/smaller_text_size"/>
+
+        <RelativeLayout
             android:id="@+id/settings_animate_gifs_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -184,26 +258,6 @@
                 android:paddingLeft="@dimen/medium_margin"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/animate_gifs"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/settings_max_brightness_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:padding="@dimen/activity_margin">
-
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_max_brightness"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingLeft="@dimen/medium_margin"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/max_brightness"/>
 
         </RelativeLayout>
 
@@ -228,7 +282,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/settings_black_background_holder"
+            android:id="@+id/settings_show_media_count_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/medium_margin"
@@ -236,16 +290,34 @@
             android:padding="@dimen/activity_margin">
 
             <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_black_background"
+                android:id="@+id/settings_show_media_count"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:clickable="false"
                 android:paddingLeft="@dimen/medium_margin"
                 android:paddingStart="@dimen/medium_margin"
-                android:text="@string/black_background_at_fullscreen"/>
+                android:text="@string/show_media_count"/>
 
         </RelativeLayout>
+
+        <View
+            android:id="@+id/scrolling_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/divider_grey"
+            android:importantForAccessibility="no"/>
+
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/scrolling_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/big_margin"
+            android:layout_marginStart="@dimen/big_margin"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:text="@string/scrolling"
+            android:textAllCaps="true"
+            android:textSize="@dimen/smaller_text_size"/>
 
         <RelativeLayout
             android:id="@+id/settings_scroll_horizontally_holder"
@@ -264,6 +336,84 @@
                 android:paddingLeft="@dimen/medium_margin"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/scroll_thumbnails_horizontally"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/settings_show_info_bubble_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/settings_show_info_bubble"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/show_info_bubble"/>
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/fullscreen_media_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/divider_grey"
+            android:importantForAccessibility="no"/>
+
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/fullscreen_media_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/big_margin"
+            android:layout_marginStart="@dimen/big_margin"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:text="@string/fullscreen_media"
+            android:textAllCaps="true"
+            android:textSize="@dimen/smaller_text_size"/>
+
+        <RelativeLayout
+            android:id="@+id/settings_max_brightness_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/settings_max_brightness"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/max_brightness"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/settings_black_background_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/settings_black_background"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/black_background_at_fullscreen"/>
 
         </RelativeLayout>
 
@@ -304,146 +454,6 @@
                 android:paddingLeft="@dimen/medium_margin"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/replace_share_with_rotate"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/settings_password_protection_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:padding="@dimen/activity_margin">
-
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_password_protection"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingLeft="@dimen/medium_margin"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/password_protect_hidden_items"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/settings_app_password_protection_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:padding="@dimen/activity_margin">
-
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_app_password_protection"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingLeft="@dimen/medium_margin"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/password_protect_whole_app"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/settings_delete_empty_folders_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:padding="@dimen/activity_margin">
-
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_delete_empty_folders"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingLeft="@dimen/medium_margin"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/delete_empty_folders"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/settings_allow_video_gestures_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:padding="@dimen/activity_margin">
-
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_allow_video_gestures"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingLeft="@dimen/medium_margin"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/allow_video_gestures"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/settings_show_media_count_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:padding="@dimen/activity_margin">
-
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_show_media_count"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingLeft="@dimen/medium_margin"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/show_media_count"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/settings_keep_last_modified_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:padding="@dimen/activity_margin">
-
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_keep_last_modified"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingLeft="@dimen/medium_margin"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/keep_last_modified"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/settings_show_info_bubble_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/medium_margin"
-            android:background="?attr/selectableItemBackground"
-            android:padding="@dimen/activity_margin">
-
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_show_info_bubble"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:paddingLeft="@dimen/medium_margin"
-                android:paddingStart="@dimen/medium_margin"
-                android:text="@string/show_info_bubble"/>
 
         </RelativeLayout>
 
@@ -537,6 +547,122 @@
                 android:layout_marginRight="@dimen/small_margin"
                 android:background="@null"
                 android:clickable="false"/>
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/security_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/divider_grey"
+            android:importantForAccessibility="no"/>
+
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/security_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/big_margin"
+            android:layout_marginStart="@dimen/big_margin"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:text="@string/security"
+            android:textAllCaps="true"
+            android:textSize="@dimen/smaller_text_size"/>
+
+        <RelativeLayout
+            android:id="@+id/settings_password_protection_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/settings_password_protection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/password_protect_hidden_items"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/settings_app_password_protection_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/settings_app_password_protection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/password_protect_whole_app"/>
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/file_operations_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/divider_grey"
+            android:importantForAccessibility="no"/>
+
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/file_operations_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/big_margin"
+            android:layout_marginStart="@dimen/big_margin"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:text="@string/file_operations"
+            android:textAllCaps="true"
+            android:textSize="@dimen/smaller_text_size"/>
+
+        <RelativeLayout
+            android:id="@+id/settings_delete_empty_folders_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/settings_delete_empty_folders"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/delete_empty_folders"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/settings_keep_last_modified_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/settings_keep_last_modified"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/keep_last_modified"/>
 
         </RelativeLayout>
     </LinearLayout>
