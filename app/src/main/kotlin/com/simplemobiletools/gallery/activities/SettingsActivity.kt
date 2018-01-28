@@ -6,10 +6,7 @@ import android.os.Bundle
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.dialogs.SecurityDialog
-import com.simplemobiletools.commons.extensions.beVisibleIf
-import com.simplemobiletools.commons.extensions.handleHiddenFolderPasswordProtection
-import com.simplemobiletools.commons.extensions.updateTextColors
-import com.simplemobiletools.commons.extensions.useEnglishToggled
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PROTECTION_FINGERPRINT
 import com.simplemobiletools.commons.helpers.SHOW_ALL_TABS
 import com.simplemobiletools.commons.models.RadioItem
@@ -58,9 +55,18 @@ class SettingsActivity : SimpleActivity() {
         setupKeepLastModified()
         setupShowInfoBubble()
         setupOneFingerZoom()
+        setupAllowInstantChange()
         setupShowExtendedDetails()
         setupManageExtendedDetails()
         updateTextColors(settings_holder)
+        setupSectionColors()
+    }
+
+    private fun setupSectionColors() {
+        val adjustedPrimaryColor = getAdjustedPrimaryColor()
+        arrayListOf(visibility_label, videos_label, thumbnails_label, scrolling_label, fullscreen_media_label, security_label, file_operations_label).forEach {
+            it.setTextColor(adjustedPrimaryColor)
+        }
     }
 
     private fun setupCustomizeColors() {
@@ -278,6 +284,14 @@ class SettingsActivity : SimpleActivity() {
         settings_one_finger_zoom_holder.setOnClickListener {
             settings_one_finger_zoom.toggle()
             config.oneFingerZoom = settings_one_finger_zoom.isChecked
+        }
+    }
+
+    private fun setupAllowInstantChange() {
+        settings_allow_instant_change.isChecked = config.allowInstantChange
+        settings_allow_instant_change_holder.setOnClickListener {
+            settings_allow_instant_change.toggle()
+            config.allowInstantChange = settings_allow_instant_change.isChecked
         }
     }
 

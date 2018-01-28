@@ -16,6 +16,10 @@ abstract class ViewPagerFragment : Fragment() {
         fun fragmentClicked()
 
         fun videoEnded(): Boolean
+
+        fun goToPrevItem()
+
+        fun goToNextItem()
     }
 
     fun getMediumExtendedDetails(medium: Medium): String {

@@ -116,22 +116,27 @@
     <string name="toggle_filename">Bestandsnamen tonen</string>
     <string name="loop_videos">Video\'s herhalen</string>
     <string name="animate_gifs">GIF-bestanden afspelen in overzicht</string>
-    <string name="max_brightness">Maximale helderheid in volledige weergave</string>
+    <string name="max_brightness">Maximale helderheid in volledig scherm</string>
     <string name="crop_thumbnails">Miniatuurvoorbeelden bijsnijden</string>
-    <string name="screen_rotation_by">Media in volledige weergave roteren volgens</string>
+    <string name="screen_rotation_by">Media in volledig scherm roteren volgens</string>
     <string name="screen_rotation_system_setting">Systeeminstelling</string>
     <string name="screen_rotation_device_rotation">Oriëntatie van apparaat</string>
     <string name="screen_rotation_aspect_ratio">Afmetingen van bestand</string>
-    <string name="black_background_at_fullscreen">Zwarte achtergrond en statusbalk bij volledige weergave</string>
+    <string name="black_background_at_fullscreen">Zwarte achtergrond en statusbalk bij volledig scherm</string>
     <string name="scroll_thumbnails_horizontally">Horizontaal scrollen</string>
-    <string name="hide_system_ui_at_fullscreen">Statusbalk automatisch verbergen in volledige weergave</string>
+    <string name="hide_system_ui_at_fullscreen">Statusbalk automatisch verbergen in volledig scherm</string>
     <string name="delete_empty_folders">Lege mappen verwijderen na leegmaken</string>
     <string name="allow_video_gestures">Volume en helderheid aanpassen met verticale gebaren</string>
     <string name="show_media_count">Aantallen in mappen tonen</string>
-    <string name="replace_share_with_rotate">Menu-item Draaien vastzetten in volledige weergave (in plaats van Delen)</string>
-    <string name="show_extended_details">Uitgebreide informatie tonen in volledige weergave</string>
+    <string name="replace_share_with_rotate">Menu-item Draaien vastzetten in volledig scherm (in plaats van Delen)</string>
+    <string name="show_extended_details">Uitgebreide informatie tonen in volledig scherm</string>
     <string name="manage_extended_details">Uitgebreide informatie</string>
-    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
+    <string name="one_finger_zoom">Met één vinger zoomen in volledig scherm</string>
+    <string name="allow_instant_change">Direct naar vorige/volgende door op de zijkanten van het scherm te tikken</string>
+
+    <!-- Setting sections -->
+    <string name="thumbnails">Miniatuurvoorbeelden</string>
+    <string name="fullscreen_media">Volledig scherm</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

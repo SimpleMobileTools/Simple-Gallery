@@ -23,7 +23,7 @@ class MyPagerAdapter(val activity: ViewPagerActivity, fm: FragmentManager, val m
         bundle.putSerializable(MEDIUM, medium)
         val fragment: ViewPagerFragment
 
-        fragment = if (medium.video) {
+        fragment = if (medium.isVideo()) {
             VideoFragment()
         } else {
             PhotoFragment()

@@ -131,7 +131,12 @@
     <string name="replace_share_with_rotate">Reemplaçar Compartir per Girar al menú de pantalla complerta</string>
     <string name="show_extended_details">Mostrar detalls estesos sobre mitjans a pantalla complerta</string>
     <string name="manage_extended_details">Gestioneu els detalls ampliats</string>
-    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
+    <string name="one_finger_zoom">Permet fer zoom amb un sol dit a pantalla complerta</string>
+    <string name="allow_instant_change">Permet canviar els mitjans de manera instantània fent clic als costats de la pantalla</string>
+
+    <!-- Setting sections -->
+    <string name="thumbnails">Miniatures</string>
+    <string name="fullscreen_media">Mitjans a pantalla completa</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

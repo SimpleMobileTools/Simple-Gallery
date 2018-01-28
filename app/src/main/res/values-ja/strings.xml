@@ -132,6 +132,11 @@
     <string name="show_extended_details">Show extended details over fullscreen media</string>
     <string name="manage_extended_details">Manage extended details</string>
     <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
+    <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
+
+    <!-- Setting sections -->
+    <string name="thumbnails">Thumbnails</string>
+    <string name="fullscreen_media">Fullscreen media</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

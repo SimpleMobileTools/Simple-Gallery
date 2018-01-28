@@ -2,6 +2,7 @@
 <resources>
 
     <!-- Release notes -->
+    <string name="release_158">Added optional one-finger drag zoom, disabled by default</string>
     <string name="release_143">
         Added new options to use english language on non-english devices, to password protect whole app and to lock screen orientation at fullscreen view
     </string>

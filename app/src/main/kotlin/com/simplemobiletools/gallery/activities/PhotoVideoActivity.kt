@@ -9,10 +9,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
-import com.simplemobiletools.commons.extensions.getFilenameFromUri
-import com.simplemobiletools.commons.extensions.getRealPathFromURI
-import com.simplemobiletools.commons.extensions.scanPath
-import com.simplemobiletools.commons.extensions.toast
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.IS_FROM_GALLERY
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
@@ -21,14 +18,13 @@ import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.fragments.PhotoFragment
 import com.simplemobiletools.gallery.fragments.VideoFragment
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment
-import com.simplemobiletools.gallery.helpers.IS_VIEW_INTENT
-import com.simplemobiletools.gallery.helpers.MEDIUM
-import com.simplemobiletools.gallery.helpers.PATH
+import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.fragment_holder.*
 import java.io.File
 
 open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentListener {
+
     private var mMedium: Medium? = null
     private var mIsFullScreen = false
     private var mIsFromGallery = false
@@ -49,6 +45,14 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
                 toast(R.string.no_storage_permissions)
                 finish()
             }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.actionbar_gradient_background))
+        if (config.blackBackground) {
+            updateStatusbarColor(Color.BLACK)
         }
     }
 
@@ -78,7 +82,13 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         showSystemUI()
         val bundle = Bundle()
         val file = File(mUri.toString())
-        mMedium = Medium(getFilenameFromUri(mUri!!), mUri.toString(), mIsVideo, 0, 0, file.length())
+        val type = when {
+            file.isImageFast() -> TYPE_IMAGE
+            file.isVideoFast() -> TYPE_VIDEO
+            else -> TYPE_GIF
+        }
+
+        mMedium = Medium(getFilenameFromUri(mUri!!), mUri.toString(), 0, 0, file.length(), type)
         supportActionBar?.title = mMedium!!.name
         bundle.putSerializable(MEDIUM, mMedium)
 
@@ -96,14 +106,6 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
             val isFullscreen = visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
             mFragment?.fullscreenToggled(isFullscreen)
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.actionbar_gradient_background))
-        if (config.blackBackground) {
-            updateStatusbarColor(Color.BLACK)
         }
     }
 
@@ -157,4 +159,8 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     }
 
     override fun videoEnded() = false
+
+    override fun goToPrevItem() {}
+
+    override fun goToNextItem() {}
 }

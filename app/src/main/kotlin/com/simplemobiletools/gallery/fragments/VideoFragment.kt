@@ -36,6 +36,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private var mTimerHandler: Handler? = null
     private var mSeekBar: SeekBar? = null
     private var mTimeHolder: View? = null
+    private var mView: View? = null
 
     private var mIsPlaying = false
     private var mIsDragged = false
@@ -62,12 +63,15 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private var mSlideInfoText = ""
     private var mSlideInfoFadeHandler = Handler()
 
-    lateinit var mView: View
     lateinit var medium: Medium
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        mView = inflater.inflate(R.layout.pager_video_item, container, false)
-        mTimeHolder = mView.video_time_holder
+        mView = inflater.inflate(R.layout.pager_video_item, container, false).apply {
+            instant_prev_item.setOnClickListener { listener?.goToPrevItem() }
+            instant_next_item.setOnClickListener { listener?.goToNextItem() }
+            mTimeHolder = video_time_holder
+        }
+
         medium = arguments!!.getSerializable(MEDIUM) as Medium
 
         // setMenuVisibility is not called at VideoActivity (third party intent)
@@ -89,9 +93,16 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
     override fun onResume() {
         super.onResume()
-        activity!!.updateTextColors(mView.video_holder)
-        mView.video_volume_controller.beVisibleIf(context!!.config.allowVideoGestures)
-        mView.video_brightness_controller.beVisibleIf(context!!.config.allowVideoGestures)
+        activity!!.updateTextColors(mView!!.video_holder)
+        val allowVideoGestures = context!!.config.allowVideoGestures
+        val allowInstantChange = context!!.config.allowInstantChange
+        mView!!.apply {
+            video_volume_controller.beVisibleIf(allowVideoGestures)
+            video_brightness_controller.beVisibleIf(allowVideoGestures)
+
+            instant_prev_item.beVisibleIf(allowInstantChange)
+            instant_next_item.beVisibleIf(allowInstantChange)
+        }
 
         if (context!!.config.showExtendedDetails != mStoredShowExtendedDetails || context!!.config.extendedDetails != mStoredExtendedDetails) {
             checkExtendedDetails()
@@ -116,19 +127,19 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         if (activity == null)
             return
 
-        mView.video_play_outline.setOnClickListener { togglePlayPause() }
+        mView!!.video_play_outline.setOnClickListener { togglePlayPause() }
 
-        mSurfaceView = mView.video_surface
+        mSurfaceView = mView!!.video_surface
         mSurfaceHolder = mSurfaceView!!.holder
         mSurfaceHolder!!.addCallback(this)
         mSurfaceView!!.setOnClickListener { toggleFullscreen() }
-        mView.video_holder.setOnClickListener { toggleFullscreen() }
-        mView.video_volume_controller.setOnTouchListener { v, event ->
+        mView!!.video_holder.setOnClickListener { toggleFullscreen() }
+        mView!!.video_volume_controller.setOnTouchListener { v, event ->
             handleVolumeTouched(event)
             true
         }
 
-        mView.video_brightness_controller.setOnTouchListener { v, event ->
+        mView!!.video_brightness_controller.setOnTouchListener { v, event ->
             handleBrightnessTouched(event)
             true
         }
@@ -195,7 +206,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 val diffX = Math.abs(event.x - mTouchDownX)
                 val diffY = Math.abs(event.y - mTouchDownY)
                 if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION && diffX < 20 && diffY < 20) {
-                    mView.video_holder.performClick()
+                    mView!!.video_holder.performClick()
                 }
             }
         }
@@ -233,12 +244,12 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 val diffX = Math.abs(event.x - mTouchDownX)
                 val diffY = Math.abs(event.y - mTouchDownY)
                 if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION && diffX < 20 && diffY < 20) {
-                    mView.video_holder.performClick()
+                    mView!!.video_holder.performClick()
                 }
                 mTouchDownBrightness = mTempBrightness
             }
         }
-        mView.video_holder
+        mView!!.video_holder
     }
 
     private fun getCurrentVolume() = context!!.audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
@@ -254,14 +265,14 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         context!!.audioManager.setStreamVolume(stream, newVolume, 0)
 
         val absolutePercent = ((newVolume / maxVolume.toFloat()) * 100).toInt()
-        mView.slide_info.apply {
+        mView!!.slide_info.apply {
             text = "$mSlideInfoText$absolutePercent%"
             alpha = 1f
         }
 
         mSlideInfoFadeHandler.removeCallbacksAndMessages(null)
         mSlideInfoFadeHandler.postDelayed({
-            mView.slide_info.animate().alpha(0f)
+            mView!!.slide_info.animate().alpha(0f)
         }, SLIDE_INFO_FADE_DELAY)
     }
 
@@ -272,7 +283,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mTempBrightness = newBrightness.toInt()
 
         val absolutePercent = ((newBrightness / maxBrightness) * 100).toInt()
-        mView.slide_info.apply {
+        mView!!.slide_info.apply {
             text = "$mSlideInfoText$absolutePercent%"
             alpha = 1f
         }
@@ -283,7 +294,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
         mSlideInfoFadeHandler.removeCallbacksAndMessages(null)
         mSlideInfoFadeHandler.postDelayed({
-            mView.slide_info.animate().alpha(0f)
+            mView!!.slide_info.animate().alpha(0f)
         }, SLIDE_INFO_FADE_DELAY)
     }
 
@@ -305,8 +316,8 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             mTimeHolder!!.setPadding(left, top, right, bottom)
         }
 
-        mCurrTimeView = mView.video_curr_time
-        mSeekBar = mView.video_seekbar
+        mCurrTimeView = mView!!.video_curr_time
+        mSeekBar = mView!!.video_seekbar
         mSeekBar!!.setOnSeekBarChangeListener(this)
 
         if (mIsFullscreen)
@@ -339,7 +350,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
     private fun setupTimeHolder() {
         mSeekBar!!.max = mDuration
-        mView.video_duration.text = mDuration.getFormattedDuration()
+        mView!!.video_duration.text = mDuration.getFormattedDuration()
         mTimerHandler = Handler()
         setupTimer()
     }
@@ -403,14 +414,14 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         } else {
             mPlayOnPrepare = true
         }
-        mView.video_play_outline.setImageDrawable(null)
+        mView!!.video_play_outline.setImageDrawable(null)
         activity!!.window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
     private fun pauseVideo() {
         mIsPlaying = false
         mMediaPlayer?.pause()
-        mView.video_play_outline.setImageDrawable(resources.getDrawable(R.drawable.img_play_outline_big))
+        mView?.video_play_outline?.setImageDrawable(resources.getDrawable(R.drawable.img_play_outline_big))
         activity!!.window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
@@ -500,13 +511,15 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
     override fun surfaceCreated(holder: SurfaceHolder) {
         mSurfaceHolder = holder
-        if (mIsFragmentVisible)
+        if (mIsFragmentVisible) {
             initMediaPlayer()
+        }
     }
 
     override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {
-        if (width != 0 && height != 0 && mSurfaceView != null)
+        if (width != 0 && height != 0 && mSurfaceView != null) {
             setVideoSize()
+        }
     }
 
     override fun surfaceDestroyed(holder: SurfaceHolder) {
@@ -557,7 +570,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
     private fun checkExtendedDetails() {
         if (context!!.config.showExtendedDetails) {
-            mView.video_details.apply {
+            mView!!.video_details.apply {
                 text = getMediumExtendedDetails(medium)
                 setTextColor(context.config.textColor)
                 beVisibleIf(text.isNotEmpty())
@@ -568,7 +581,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 }
             }
         } else {
-            mView.video_details.beGone()
+            mView!!.video_details.beGone()
         }
     }
 
@@ -600,7 +613,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     override fun fullscreenToggled(isFullscreen: Boolean) {
         mIsFullscreen = isFullscreen
         checkFullscreen()
-        mView.video_details.apply {
+        mView!!.video_details.apply {
             if (isVisible()) {
                 animate().y(getExtendedDetailsY(height))
             }

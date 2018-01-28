@@ -38,6 +38,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     private var visibleItemPaths = ArrayList<String>()
     private var loadImageInstantly = false
     private var delayHandler = Handler(Looper.getMainLooper())
+    private var currentMediaHash = media.hashCode()
 
     private var scrollHorizontally = config.scrollHorizontally
     private var animateGifs = config.animateGifs
@@ -246,10 +247,13 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     fun updateMedia(newMedia: ArrayList<Medium>) {
-        media = newMedia
-        enableInstantLoad()
-        notifyDataSetChanged()
-        finishActMode()
+        if (newMedia.hashCode() != currentMediaHash) {
+            currentMediaHash = newMedia.hashCode()
+            media = newMedia
+            enableInstantLoad()
+            notifyDataSetChanged()
+            finishActMode()
+        }
     }
 
     fun updateDisplayFilenames(displayFilenames: Boolean) {
@@ -282,20 +286,20 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
     private fun setupView(view: View, medium: Medium) {
         view.apply {
-            play_outline.beVisibleIf(medium.video)
+            play_outline.beVisibleIf(medium.isVideo())
             photo_name.beVisibleIf(displayFilenames || isListViewType)
             photo_name.text = medium.name
             photo_name.tag = medium.path
 
             if (loadImageInstantly) {
-                activity.loadImage(medium.path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
+                activity.loadImage(medium.type, medium.path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
             } else {
                 medium_thumbnail.setImageDrawable(null)
                 medium_thumbnail.isHorizontalScrolling = scrollHorizontally
                 delayHandler.postDelayed({
                     val isVisible = visibleItemPaths.contains(medium.path)
                     if (isVisible) {
-                        activity.loadImage(medium.path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
+                        activity.loadImage(medium.type, medium.path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
                     }
                 }, IMAGE_LOAD_DELAY)
             }

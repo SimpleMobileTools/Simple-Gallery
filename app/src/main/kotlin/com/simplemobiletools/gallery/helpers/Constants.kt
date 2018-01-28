@@ -44,6 +44,7 @@ val SHOW_EXTENDED_DETAILS = "show_extended_details"
 val EXTENDED_DETAILS = "extended_details"
 val LAST_FILE_CLEANUP = "last_file_cleanup"
 val ONE_FINGER_ZOOM = "one_finger_zoom"
+val ALLOW_INSTANT_CHANGE = "allow_instant_change"
 
 // slideshow
 val SLIDESHOW_INTERVAL = "slideshow_interval"
@@ -101,3 +102,8 @@ val EXT_EXIF_PROPERTIES = 128
 val EXT_DURATION = 256
 val EXT_ARTIST = 512
 val EXT_ALBUM = 1024
+
+// media types
+val TYPE_IMAGE = 1
+val TYPE_VIDEO = 2
+val TYPE_GIF = 3

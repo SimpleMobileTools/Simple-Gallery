@@ -127,7 +127,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         directories_vertical_fastscroller.updateBubbleColors()
         invalidateOptionsMenu()
         directories_empty_text_label.setTextColor(config.textColor)
-        directories_empty_text.setTextColor(config.primaryColor)
+        directories_empty_text.setTextColor(getAdjustedPrimaryColor())
 
         if (mIsPasswordProtectionPending) {
             handleAppPasswordProtection {
@@ -548,10 +548,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         directories_horizontal_fastscroller.beVisibleIf(directories_grid.isVisible() && allowHorizontalScroll)
 
         checkLastMediaChanged()
-        if (dirs.hashCode() == mDirs.hashCode()) {
-            return
-        }
-
         mDirs = dirs
 
         runOnUiThread {
@@ -680,6 +676,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             add(Release(137, R.string.release_137))
             add(Release(138, R.string.release_138))
             add(Release(143, R.string.release_143))
+            add(Release(158, R.string.release_158))
             checkWhatsNew(this, BuildConfig.VERSION_CODE)
         }
     }

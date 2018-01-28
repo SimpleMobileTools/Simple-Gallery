@@ -17,6 +17,9 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.ExcludeFolderDialog
 import com.simplemobiletools.gallery.dialogs.PickMediumDialog
 import com.simplemobiletools.gallery.extensions.*
+import com.simplemobiletools.gallery.helpers.TYPE_GIF
+import com.simplemobiletools.gallery.helpers.TYPE_IMAGE
+import com.simplemobiletools.gallery.helpers.TYPE_VIDEO
 import com.simplemobiletools.gallery.helpers.VIEW_TYPE_LIST
 import com.simplemobiletools.gallery.models.AlbumCover
 import com.simplemobiletools.gallery.models.Directory
@@ -35,6 +38,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
     private var showMediaCount = config.showMediaCount
     private var animateGifs = config.animateGifs
     private var cropThumbnails = config.cropThumbnails
+    private var currentDirectoriesHash = dirs.hashCode()
 
     override fun getActionMenuId() = R.menu.cab_directories
 
@@ -304,9 +308,12 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
     }
 
     fun updateDirs(newDirs: ArrayList<Directory>) {
-        dirs = newDirs
-        notifyDataSetChanged()
-        finishActMode()
+        if (newDirs.hashCode() != currentDirectoriesHash) {
+            currentDirectoriesHash = newDirs.hashCode()
+            dirs = newDirs
+            notifyDataSetChanged()
+            finishActMode()
+        }
     }
 
     fun updateAnimateGifs(animateGifs: Boolean) {
@@ -334,7 +341,13 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
             dir_name.text = directory.name
             dir_path?.text = "${directory.path.substringBeforeLast("/")}/"
             photo_cnt.text = directory.mediaCnt.toString()
-            activity.loadImage(directory.tmb, dir_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
+            val thumbnailType = when {
+                directory.tmb.isImageFast() -> TYPE_IMAGE
+                directory.tmb.isVideoFast() -> TYPE_VIDEO
+                else -> TYPE_GIF
+            }
+
+            activity.loadImage(thumbnailType, directory.tmb, dir_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
             dir_pin.beVisibleIf(pinnedFolders.contains(directory.path))
             dir_sd_card.beVisibleIf(activity.isPathOnSD(directory.path))
             photo_cnt.beVisibleIf(showMediaCount)

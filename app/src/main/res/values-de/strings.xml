@@ -132,6 +132,11 @@
     <string name="show_extended_details">Eigenschaften anzeigen im Vollbild</string>
     <string name="manage_extended_details">Eigenschaften auswählen</string>
     <string name="one_finger_zoom">Erlaube Ein-Finger-Zoom im Vollbild</string>
+    <string name="allow_instant_change">Wechsle sofort zwischen Medien beim Klicken auf eine Bildschirmseite</string>
+
+    <!-- Setting sections -->
+    <string name="thumbnails">Thumbnails</string>
+    <string name="fullscreen_media">Vollbild-Medien</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

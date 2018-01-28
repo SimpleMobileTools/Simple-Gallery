@@ -132,6 +132,11 @@
     <string name="show_extended_details">전체화면 모드에서 세부정보 표시</string>
     <string name="manage_extended_details">확장된 세부정보 관리</string>
     <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
+    <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
+
+    <!-- Setting sections -->
+    <string name="thumbnails">Thumbnails</string>
+    <string name="fullscreen_media">Fullscreen media</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
