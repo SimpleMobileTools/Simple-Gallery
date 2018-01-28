@@ -176,6 +176,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(ALLOW_INSTANT_CHANGE, false)
         set(allowInstantChange) = prefs.edit().putBoolean(ALLOW_INSTANT_CHANGE, allowInstantChange).apply()
 
+    var replaceZoomableImages: Boolean
+        get() = prefs.getBoolean(REPLACE_ZOOMABLE_IMAGES, false)
+        set(replaceZoomableImages) = prefs.edit().putBoolean(REPLACE_ZOOMABLE_IMAGES, replaceZoomableImages).apply()
+
     private fun getDirectoryColumnsField(): String {
         val isPortrait = context.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
         return if (isPortrait) {
@@ -304,6 +308,10 @@ class Config(context: Context) : BaseConfig(context) {
     var showExtendedDetails: Boolean
         get() = prefs.getBoolean(SHOW_EXTENDED_DETAILS, false)
         set(showExtendedDetails) = prefs.edit().putBoolean(SHOW_EXTENDED_DETAILS, showExtendedDetails).apply()
+
+    var hideExtendedDetails: Boolean
+        get() = prefs.getBoolean(HIDE_EXTENDED_DETAILS, false)
+        set(hideExtendedDetails) = prefs.edit().putBoolean(HIDE_EXTENDED_DETAILS, hideExtendedDetails).apply()
 
     var extendedDetails: Int
         get() = prefs.getInt(EXTENDED_DETAILS, EXT_RESOLUTION or EXT_LAST_MODIFIED or EXT_EXIF_PROPERTIES)

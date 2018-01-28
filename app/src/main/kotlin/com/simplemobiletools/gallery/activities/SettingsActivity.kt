@@ -56,7 +56,9 @@ class SettingsActivity : SimpleActivity() {
         setupShowInfoBubble()
         setupOneFingerZoom()
         setupAllowInstantChange()
+        setupReplaceZoomableImages()
         setupShowExtendedDetails()
+        setupHideExtendedDetails()
         setupManageExtendedDetails()
         updateTextColors(settings_holder)
         setupSectionColors()
@@ -64,7 +66,8 @@ class SettingsActivity : SimpleActivity() {
 
     private fun setupSectionColors() {
         val adjustedPrimaryColor = getAdjustedPrimaryColor()
-        arrayListOf(visibility_label, videos_label, thumbnails_label, scrolling_label, fullscreen_media_label, security_label, file_operations_label).forEach {
+        arrayListOf(visibility_label, videos_label, thumbnails_label, scrolling_label, fullscreen_media_label, security_label,
+                file_operations_label, extended_details_label).forEach {
             it.setTextColor(adjustedPrimaryColor)
         }
     }
@@ -295,12 +298,30 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
+    private fun setupReplaceZoomableImages() {
+        settings_replace_zoomable_images.isChecked = config.replaceZoomableImages
+        settings_replace_zoomable_images_holder.setOnClickListener {
+            settings_replace_zoomable_images.toggle()
+            config.replaceZoomableImages = settings_replace_zoomable_images.isChecked
+        }
+    }
+
     private fun setupShowExtendedDetails() {
         settings_show_extended_details.isChecked = config.showExtendedDetails
         settings_show_extended_details_holder.setOnClickListener {
             settings_show_extended_details.toggle()
             config.showExtendedDetails = settings_show_extended_details.isChecked
             settings_manage_extended_details_holder.beVisibleIf(config.showExtendedDetails)
+            settings_hide_extended_details_holder.beVisibleIf(config.showExtendedDetails)
+        }
+    }
+
+    private fun setupHideExtendedDetails() {
+        settings_hide_extended_details_holder.beVisibleIf(config.showExtendedDetails)
+        settings_hide_extended_details.isChecked = config.hideExtendedDetails
+        settings_hide_extended_details_holder.setOnClickListener {
+            settings_hide_extended_details.toggle()
+            config.hideExtendedDetails = settings_hide_extended_details.isChecked
         }
     }
 

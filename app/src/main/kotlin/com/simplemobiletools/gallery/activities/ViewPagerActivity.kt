@@ -68,6 +68,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mIsOrientationLocked = false
 
     private var mStoredUseEnglish = false
+    private var mStoredReplaceZoomableImages = false
     private var mMediaFiles = ArrayList<Medium>()
 
     companion object {
@@ -104,6 +105,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (mStoredUseEnglish != config.useEnglish) {
             restartActivity()
             return
+        }
+
+        if (mStoredReplaceZoomableImages != config.replaceZoomableImages) {
+            mPrevHashcode = 0
+            refreshViewPager()
         }
 
         supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.actionbar_gradient_background))
@@ -204,7 +210,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         }
 
-        reloadViewPager()
+        refreshViewPager()
         scanPath(mPath)
 
         if (config.blackBackground) {
@@ -291,7 +297,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun storeStateVariables() {
-        mStoredUseEnglish = config.useEnglish
+        config.apply {
+            mStoredUseEnglish = useEnglish
+            mStoredReplaceZoomableImages = replaceZoomableImages
+        }
     }
 
     private fun updatePagerItems(media: MutableList<Medium>) {
@@ -456,7 +465,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         tryCopyMoveFilesTo(files, isCopyOperation) {
             config.tempFolderPath = ""
             if (!isCopyOperation) {
-                reloadViewPager()
+                refreshViewPager()
             }
         }
     }
@@ -605,8 +614,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun isShowHiddenFlagNeeded(): Boolean {
         val file = File(mPath)
-        if (file.isHidden)
+        if (file.isHidden) {
             return true
+        }
 
         var parent = file.parentFile ?: return false
         while (true) {
@@ -692,7 +702,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (requestCode == REQUEST_EDIT_IMAGE) {
             if (resultCode == Activity.RESULT_OK && resultData != null) {
                 mPos = -1
-                reloadViewPager()
+                refreshViewPager()
             }
         } else if (requestCode == REQUEST_SET_AS) {
             if (resultCode == Activity.RESULT_OK) {
@@ -719,7 +729,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun deleteConfirmed() {
         deleteFile(File(getCurrentMedia()[mPos].path)) {
-            reloadViewPager()
+            refreshViewPager()
         }
     }
 
@@ -758,7 +768,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
-    private fun reloadViewPager() {
+    private fun refreshViewPager() {
         GetMediaAsynctask(applicationContext, mDirectory, false, false, mShowAll) {
             gotMedia(it)
         }.execute()

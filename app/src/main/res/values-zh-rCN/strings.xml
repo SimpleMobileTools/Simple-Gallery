@@ -133,10 +133,13 @@
     <string name="manage_extended_details">要显示的详细信息项目</string>
     <string name="one_finger_zoom">单指缩放</string>
     <string name="allow_instant_change">通过单击屏幕边缘来切换媒体</string>
+    <string name="replace_zoomable_images">用质量更好的图像替换可深度缩放的图像</string>
+    <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">缩略图</string>
     <string name="fullscreen_media">全屏显示媒体</string>
+    <string name="extended_details">Extended details</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

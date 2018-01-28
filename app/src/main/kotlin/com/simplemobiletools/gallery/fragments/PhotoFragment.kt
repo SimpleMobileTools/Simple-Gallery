@@ -8,6 +8,7 @@ import android.graphics.Matrix
 import android.graphics.drawable.ColorDrawable
 import android.media.ExifInterface.*
 import android.net.Uri
+import android.os.AsyncTask
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -41,9 +42,12 @@ class PhotoFragment : ViewPagerFragment() {
     private var isFragmentVisible = false
     private var isFullscreen = false
     private var wasInit = false
-    private var storedShowExtendedDetails = false
-    private var storedExtendedDetails = 0
+    private var imageOrientation = -1
     private var gifDrawable: GifDrawable? = null
+
+    private var storedShowExtendedDetails = false
+    private var storedHideExtendedDetails = false
+    private var storedExtendedDetails = 0
 
     lateinit var view: ViewGroup
     lateinit var medium: Medium
@@ -56,6 +60,7 @@ class PhotoFragment : ViewPagerFragment() {
             instant_next_item.setOnClickListener { listener?.goToNextItem() }
         }
 
+        storeStateVariables()
         if (!isFragmentVisible && activity is PhotoActivity) {
             isFragmentVisible = true
         }
@@ -102,8 +107,7 @@ class PhotoFragment : ViewPagerFragment() {
 
     override fun onPause() {
         super.onPause()
-        storedShowExtendedDetails = context!!.config.showExtendedDetails
-        storedExtendedDetails = context!!.config.extendedDetails
+        storeStateVariables()
     }
 
     override fun onResume() {
@@ -115,6 +119,7 @@ class PhotoFragment : ViewPagerFragment() {
         val allowInstantChange = context!!.config.allowInstantChange
         view.instant_prev_item.beVisibleIf(allowInstantChange)
         view.instant_next_item.beVisibleIf(allowInstantChange)
+        storeStateVariables()
     }
 
     override fun setMenuVisibility(menuVisible: Boolean) {
@@ -126,6 +131,14 @@ class PhotoFragment : ViewPagerFragment() {
             } else {
                 photoFragmentVisibilityChanged(menuVisible)
             }
+        }
+    }
+
+    private fun storeStateVariables() {
+        context!!.config.apply {
+            storedShowExtendedDetails = showExtendedDetails
+            storedHideExtendedDetails = hideExtendedDetails
+            storedExtendedDetails = extendedDetails
         }
     }
 
@@ -162,6 +175,7 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun loadImage() {
+        imageOrientation = getImageOrientation()
         if (medium.isGif()) {
             loadGif()
         } else {
@@ -193,8 +207,12 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun loadBitmap(degrees: Float = 0f) {
         if (degrees == 0f) {
-            val targetWidth = if (ViewPagerActivity.screenWidth == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenWidth
-            val targetHeight = if (ViewPagerActivity.screenHeight == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenHeight
+            var targetWidth = if (ViewPagerActivity.screenWidth == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenWidth
+            var targetHeight = if (ViewPagerActivity.screenHeight == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenHeight
+            if (imageOrientation == ORIENTATION_ROTATE_90) {
+                targetWidth = targetHeight
+                targetHeight = Target.SIZE_ORIGINAL
+            }
 
             val options = RequestOptions()
                     .signature(medium.path.getFileSignature())
@@ -230,39 +248,24 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun addZoomableView() {
-        if ((medium.isImage()) && isFragmentVisible && view.subsampling_view.isGone() && !medium.isDng()) {
-            val defaultOrientation = -1
-            var orient = defaultOrientation
-
-            try {
-                val exif = android.media.ExifInterface(medium.path)
-                orient = exif.getAttributeInt(android.media.ExifInterface.TAG_ORIENTATION, defaultOrientation)
-
-                if (orient == defaultOrientation) {
-                    val uri = if (medium.path.startsWith("content:/")) Uri.parse(medium.path) else Uri.fromFile(File(medium.path))
-                    val inputStream = context!!.contentResolver.openInputStream(uri)
-                    val exif2 = ExifInterface()
-                    exif2.readExif(inputStream, ExifInterface.Options.OPTION_ALL)
-                    orient = exif2.getTag(ExifInterface.TAG_ORIENTATION)?.getValueAsInt(defaultOrientation) ?: defaultOrientation
-                }
-            } catch (ignored: Exception) {
-            }
-
+        if (!context!!.config.replaceZoomableImages && medium.isImage() && isFragmentVisible && view.subsampling_view.isGone() && !medium.isDng()) {
             ViewPagerActivity.wasDecodedByGlide = false
             view.subsampling_view.apply {
                 maxScale = 10f
                 beVisible()
                 isQuickScaleEnabled = context.config.oneFingerZoom
                 setImage(ImageSource.uri(medium.path))
-                orientation = if (orient == -1) SubsamplingScaleImageView.ORIENTATION_USE_EXIF else degreesForRotation(orient)
+                orientation = if (imageOrientation == -1) SubsamplingScaleImageView.ORIENTATION_USE_EXIF else degreesForRotation(imageOrientation)
+                setEagerLoadingEnabled(false)
+                setExecutor(AsyncTask.SERIAL_EXECUTOR)
                 setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {
                     override fun onImageLoaded() {
                     }
 
                     override fun onReady() {
                         background = ColorDrawable(if (context.config.blackBackground) Color.BLACK else context.config.backgroundColor)
-                        val useWidth = if (orient == ORIENTATION_ROTATE_90 || orient == ORIENTATION_ROTATE_270) sHeight else sWidth
-                        val useHeight = if (orient == ORIENTATION_ROTATE_90 || orient == ORIENTATION_ROTATE_270) sWidth else sHeight
+                        val useWidth = if (imageOrientation == ORIENTATION_ROTATE_90 || imageOrientation == ORIENTATION_ROTATE_270) sHeight else sWidth
+                        val useHeight = if (imageOrientation == ORIENTATION_ROTATE_90 || imageOrientation == ORIENTATION_ROTATE_270) sWidth else sHeight
                         setDoubleTapZoomScale(getDoubleTapZoomScale(useWidth, useHeight))
                     }
 
@@ -284,6 +287,26 @@ class PhotoFragment : ViewPagerFragment() {
                 })
             }
         }
+    }
+
+    private fun getImageOrientation(): Int {
+        val defaultOrientation = -1
+        var orient = defaultOrientation
+
+        try {
+            val exif = android.media.ExifInterface(medium.path)
+            orient = exif.getAttributeInt(android.media.ExifInterface.TAG_ORIENTATION, defaultOrientation)
+
+            if (orient == defaultOrientation) {
+                val uri = if (medium.path.startsWith("content:/")) Uri.parse(medium.path) else Uri.fromFile(File(medium.path))
+                val inputStream = context!!.contentResolver.openInputStream(uri)
+                val exif2 = ExifInterface()
+                exif2.readExif(inputStream, ExifInterface.Options.OPTION_ALL)
+                orient = exif2.getTag(ExifInterface.TAG_ORIENTATION)?.getValueAsInt(defaultOrientation) ?: defaultOrientation
+            }
+        } catch (ignored: Exception) {
+        }
+        return orient
     }
 
     private fun getDoubleTapZoomScale(width: Int, height: Int): Float {
@@ -350,8 +373,12 @@ class PhotoFragment : ViewPagerFragment() {
     override fun fullscreenToggled(isFullscreen: Boolean) {
         this.isFullscreen = isFullscreen
         view.photo_details.apply {
-            if (isVisible()) {
+            if (storedShowExtendedDetails) {
                 animate().y(getExtendedDetailsY(height))
+
+                if (storedHideExtendedDetails) {
+                    animate().alpha(if (isFullscreen) 0f else 1f).start()
+                }
             }
         }
     }
