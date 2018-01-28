@@ -133,6 +133,7 @@
     <string name="manage_extended_details">Xestionar información polo miúdo</string>
     <string name="one_finger_zoom">Permitir zoom con un dedo a pantalla completa</string>
     <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
+    <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>

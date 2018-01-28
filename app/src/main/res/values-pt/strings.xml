@@ -133,6 +133,7 @@
     <string name="manage_extended_details">Gerir detalhes exibidos</string>
     <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
     <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
+    <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>

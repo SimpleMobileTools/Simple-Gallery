@@ -133,6 +133,7 @@
     <string name="manage_extended_details">Velg detaljer</string>
     <string name="one_finger_zoom">Tillat en-finger-zoom i mediavisningen</string>
     <string name="allow_instant_change">Tillat å skifte media øyeblikkelig ved å klikke på kanten av skjermen</string>
+    <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Minibilder</string>

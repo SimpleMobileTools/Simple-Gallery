@@ -133,6 +133,7 @@
     <string name="manage_extended_details">Uitgebreide informatie</string>
     <string name="one_finger_zoom">Met één vinger zoomen in volledig scherm</string>
     <string name="allow_instant_change">Direct naar vorige/volgende door op de zijkanten van het scherm te tikken</string>
+    <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatuurvoorbeelden</string>
