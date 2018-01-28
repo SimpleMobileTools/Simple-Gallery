@@ -42,7 +42,7 @@ import java.io.File
 import java.io.IOException
 
 class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
-    private val SAVE_MEDIA_CNT = 100
+    private val SAVE_MEDIA_CNT = 80
     private val LAST_MEDIA_CHECK_PERIOD = 3000L
 
     private var mPath = ""
@@ -611,9 +611,14 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun storeFolder() {
         if (!config.temporarilyShowHidden) {
-            val subList = mMedia.subList(0, Math.min(SAVE_MEDIA_CNT, mMedia.size))
-            val json = Gson().toJson(subList)
-            config.saveFolderMedia(mPath, json)
+            Thread {
+                try {
+                    val subList = mMedia.subList(0, Math.min(SAVE_MEDIA_CNT, mMedia.size))
+                    val json = Gson().toJson(subList)
+                    config.saveFolderMedia(mPath, json)
+                } catch (ignored: OutOfMemoryError) {
+                }
+            }.start()
         }
     }
 

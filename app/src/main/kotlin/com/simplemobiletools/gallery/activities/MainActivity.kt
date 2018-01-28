@@ -239,8 +239,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun getDirectories() {
-        if (mIsGettingDirs)
+        if (mIsGettingDirs) {
             return
+        }
 
         mIsGettingDirs = true
         val dirs = getCachedDirectories()
