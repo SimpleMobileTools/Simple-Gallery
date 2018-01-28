@@ -43,8 +43,11 @@ class MediaFetcher(val context: Context) {
         Thread {
             val ONE_WEEK = 7 * 24 * 60 * 60 * 1000
             if (System.currentTimeMillis() - context.config.lastFileCleanup > ONE_WEEK) {
-                media.filter { !File(it.path).exists() }.forEach {
-                    context.deleteFromMediaStore(File(it.path))
+                media.forEach {
+                    val file = File(it.path)
+                    if (!it.path.contains("/.thumbnails") && !file.exists() && file.length() == 0L) {
+                        context.deleteFromMediaStore(file)
+                    }
                 }
                 context.config.lastFileCleanup = System.currentTimeMillis()
             }
