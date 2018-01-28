@@ -194,8 +194,14 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun loadBitmap(degrees: Float = 0f) {
         if (degrees == 0f) {
-            val targetWidth = if (ViewPagerActivity.screenWidth == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenWidth
-            val targetHeight = if (ViewPagerActivity.screenHeight == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenHeight
+            var targetWidth = if (ViewPagerActivity.screenWidth == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenWidth
+            var targetHeight = if (ViewPagerActivity.screenHeight == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenHeight
+            val exif = android.media.ExifInterface(medium.path)
+            val orientation = exif.getAttributeInt(android.media.ExifInterface.TAG_ORIENTATION, -1)
+            if (orientation == ORIENTATION_ROTATE_90) {
+                targetWidth = targetHeight
+                targetHeight = Target.SIZE_ORIGINAL
+            }
 
             val options = RequestOptions()
                     .signature(medium.path.getFileSignature())
@@ -231,7 +237,7 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun addZoomableView() {
-        if ((medium.isImage()) && isFragmentVisible && view.subsampling_view.isGone() && !medium.isDng()) {
+        if (medium.isImage() && isFragmentVisible && view.subsampling_view.isGone() && !medium.isDng()) {
             val defaultOrientation = -1
             var orient = defaultOrientation
 
