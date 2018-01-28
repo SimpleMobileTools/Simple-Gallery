@@ -64,7 +64,8 @@ class SettingsActivity : SimpleActivity() {
 
     private fun setupSectionColors() {
         val adjustedPrimaryColor = getAdjustedPrimaryColor()
-        arrayListOf(visibility_label, videos_label, thumbnails_label, scrolling_label, fullscreen_media_label, security_label, file_operations_label).forEach {
+        arrayListOf(visibility_label, videos_label, thumbnails_label, scrolling_label, fullscreen_media_label, security_label,
+                file_operations_label, extended_details_label).forEach {
             it.setTextColor(adjustedPrimaryColor)
         }
     }
