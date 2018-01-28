@@ -58,6 +58,7 @@ class SettingsActivity : SimpleActivity() {
         setupAllowInstantChange()
         setupReplaceZoomableImages()
         setupShowExtendedDetails()
+        setupHideExtendedDetails()
         setupManageExtendedDetails()
         updateTextColors(settings_holder)
         setupSectionColors()
@@ -311,6 +312,16 @@ class SettingsActivity : SimpleActivity() {
             settings_show_extended_details.toggle()
             config.showExtendedDetails = settings_show_extended_details.isChecked
             settings_manage_extended_details_holder.beVisibleIf(config.showExtendedDetails)
+            settings_hide_extended_details_holder.beVisibleIf(config.showExtendedDetails)
+        }
+    }
+
+    private fun setupHideExtendedDetails() {
+        settings_hide_extended_details_holder.beVisibleIf(config.showExtendedDetails)
+        settings_hide_extended_details.isChecked = config.hideExtendedDetails
+        settings_hide_extended_details_holder.setOnClickListener {
+            settings_hide_extended_details.toggle()
+            config.hideExtendedDetails = settings_hide_extended_details.isChecked
         }
     }
 

@@ -590,6 +590,25 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/settings_hide_extended_details_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:padding="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/settings_hide_extended_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/hide_extended_details"/>
+        </RelativeLayout>
+
+        <RelativeLayout
             android:id="@+id/settings_manage_extended_details_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

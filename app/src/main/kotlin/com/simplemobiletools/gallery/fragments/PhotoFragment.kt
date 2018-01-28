@@ -42,10 +42,12 @@ class PhotoFragment : ViewPagerFragment() {
     private var isFragmentVisible = false
     private var isFullscreen = false
     private var wasInit = false
-    private var storedShowExtendedDetails = false
-    private var storedExtendedDetails = 0
     private var imageOrientation = -1
     private var gifDrawable: GifDrawable? = null
+
+    private var storedShowExtendedDetails = false
+    private var storedHideExtendedDetails = false
+    private var storedExtendedDetails = 0
 
     lateinit var view: ViewGroup
     lateinit var medium: Medium
@@ -58,6 +60,7 @@ class PhotoFragment : ViewPagerFragment() {
             instant_next_item.setOnClickListener { listener?.goToNextItem() }
         }
 
+        storeStateVariables()
         if (!isFragmentVisible && activity is PhotoActivity) {
             isFragmentVisible = true
         }
@@ -104,8 +107,7 @@ class PhotoFragment : ViewPagerFragment() {
 
     override fun onPause() {
         super.onPause()
-        storedShowExtendedDetails = context!!.config.showExtendedDetails
-        storedExtendedDetails = context!!.config.extendedDetails
+        storeStateVariables()
     }
 
     override fun onResume() {
@@ -117,6 +119,7 @@ class PhotoFragment : ViewPagerFragment() {
         val allowInstantChange = context!!.config.allowInstantChange
         view.instant_prev_item.beVisibleIf(allowInstantChange)
         view.instant_next_item.beVisibleIf(allowInstantChange)
+        storeStateVariables()
     }
 
     override fun setMenuVisibility(menuVisible: Boolean) {
@@ -128,6 +131,14 @@ class PhotoFragment : ViewPagerFragment() {
             } else {
                 photoFragmentVisibilityChanged(menuVisible)
             }
+        }
+    }
+
+    private fun storeStateVariables() {
+        context!!.config.apply {
+            storedShowExtendedDetails = showExtendedDetails
+            storedHideExtendedDetails = hideExtendedDetails
+            storedExtendedDetails = extendedDetails
         }
     }
 
@@ -362,8 +373,12 @@ class PhotoFragment : ViewPagerFragment() {
     override fun fullscreenToggled(isFullscreen: Boolean) {
         this.isFullscreen = isFullscreen
         view.photo_details.apply {
-            if (isVisible()) {
+            if (storedShowExtendedDetails) {
                 animate().y(getExtendedDetailsY(height))
+
+                if (storedHideExtendedDetails) {
+                    animate().alpha(if (isFullscreen) 0f else 1f).start()
+                }
             }
         }
     }

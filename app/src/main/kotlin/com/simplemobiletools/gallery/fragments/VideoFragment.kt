@@ -43,11 +43,9 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private var mIsFullscreen = false
     private var mIsFragmentVisible = false
     private var mPlayOnPrepare = false
-    private var mStoredShowExtendedDetails = false
     private var wasEncoded = false
     private var wasInit = false
     private var isPrepared = false
-    private var mStoredExtendedDetails = 0
     private var mCurrTime = 0
     private var mDuration = 0
     private var mEncodedPath = ""
@@ -63,6 +61,10 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private var mSlideInfoText = ""
     private var mSlideInfoFadeHandler = Handler()
 
+    private var mStoredShowExtendedDetails = false
+    private var mStoredHideExtendedDetails = false
+    private var mStoredExtendedDetails = 0
+
     lateinit var medium: Medium
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -72,6 +74,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             mTimeHolder = video_time_holder
         }
 
+        storeStateVariables()
         medium = arguments!!.getSerializable(MEDIUM) as Medium
 
         // setMenuVisibility is not called at VideoActivity (third party intent)
@@ -107,19 +110,27 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         if (context!!.config.showExtendedDetails != mStoredShowExtendedDetails || context!!.config.extendedDetails != mStoredExtendedDetails) {
             checkExtendedDetails()
         }
+        storeStateVariables()
     }
 
     override fun onPause() {
         super.onPause()
         pauseVideo()
-        mStoredShowExtendedDetails = context!!.config.showExtendedDetails
-        mStoredExtendedDetails = context!!.config.extendedDetails
+        storeStateVariables()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         if (activity?.isChangingConfigurations == false) {
             cleanup()
+        }
+    }
+
+    private fun storeStateVariables() {
+        context!!.config.apply {
+            mStoredShowExtendedDetails = showExtendedDetails
+            mStoredHideExtendedDetails = hideExtendedDetails
+            mStoredExtendedDetails = extendedDetails
         }
     }
 
@@ -614,8 +625,12 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mIsFullscreen = isFullscreen
         checkFullscreen()
         mView!!.video_details.apply {
-            if (isVisible()) {
+            if (mStoredShowExtendedDetails) {
                 animate().y(getExtendedDetailsY(height))
+
+                if (mStoredHideExtendedDetails) {
+                    animate().alpha(if (isFullscreen) 0f else 1f).start()
+                }
             }
         }
     }
