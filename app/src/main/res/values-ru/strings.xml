@@ -133,13 +133,13 @@
     <string name="manage_extended_details">Выбрать подробности файла</string>
     <string name="one_finger_zoom">Масштабирование одним пальцем в полноэкранном режиме</string>
     <string name="allow_instant_change">Мгновенное переключение медиафайлов нажатием по краю экрана</string>
-    <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
-    <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
+    <string name="replace_zoomable_images">Заменить масштабируемые изображения высококачественными</string>
+    <string name="hide_extended_details">Не показывать подробности, если скрыта строка состояния</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюры</string>
     <string name="fullscreen_media">Полноэкранное отображение медиафайлов</string>
-    <string name="extended_details">Extended details</string>
+    <string name="extended_details">Подробности</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
