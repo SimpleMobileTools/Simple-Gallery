@@ -134,10 +134,12 @@
     <string name="one_finger_zoom">Povoliť približovanie jedným prstom v celoobrazovkovom režime</string>
     <string name="allow_instant_change">Povoliť instantné prepínanie médií kliknutím na okraj obrazovky</string>
     <string name="replace_zoomable_images">Nahradiť hlboko priblížiteľné obrázky s obrázkami s lepšou kvalitou</string>
+    <string name="hide_extended_details">Skryť rozšírené vlastnosti ak je skrytá stavová lišta</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Thumbnails</string>
-    <string name="fullscreen_media">Fullscreen media</string>
+    <string name="thumbnails">Náhľady</string>
+    <string name="fullscreen_media">Celoobrazovkový režim</string>
+    <string name="extended_details">Rozšírené vlastnosti</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

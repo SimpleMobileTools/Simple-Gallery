@@ -134,10 +134,12 @@
     <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
     <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
     <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
+    <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>
     <string name="fullscreen_media">Fullscreen media</string>
+    <string name="extended_details">Extended details</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

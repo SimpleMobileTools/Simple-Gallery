@@ -134,10 +134,12 @@
     <string name="one_finger_zoom">Permet fer zoom amb un sol dit a pantalla complerta</string>
     <string name="allow_instant_change">Permet canviar els mitjans de manera instantània fent clic als costats de la pantalla</string>
     <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
+    <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
     <string name="fullscreen_media">Mitjans a pantalla completa</string>
+    <string name="extended_details">Extended details</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
