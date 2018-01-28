@@ -132,14 +132,14 @@
     <string name="show_extended_details">Vis flere detaljer i mediavisningen</string>
     <string name="manage_extended_details">Velg detaljer</string>
     <string name="one_finger_zoom">Tillat en-finger-zoom i mediavisningen</string>
-    <string name="allow_instant_change">Tillat å skifte media øyeblikkelig ved å klikke på kanten av skjermen</string>
-    <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
-    <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
+    <string name="allow_instant_change">Tillat å skifte media øyeblikkelig ved å trykke på kanten av skjermen</string>
+    <string name="replace_zoomable_images">Erstatt dyp-zoombare bilder med bilder av bedre kvalitet</string>
+    <string name="hide_extended_details">Skjul utvidede detaljer når statuslinjen er skjult</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Minibilder</string>
     <string name="fullscreen_media">Mediavisning</string>
-    <string name="extended_details">Extended details</string>
+    <string name="extended_details">Utvidede detaljer</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
