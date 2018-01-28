@@ -62,6 +62,7 @@ const val SLIDESHOW_SCROLL_DURATION = 500L
 
 const val NOMEDIA = ".nomedia"
 const val MAX_COLUMN_COUNT = 20
+const val SHOW_TEMP_HIDDEN_DURATION = 600000L
 
 const val DIRECTORY = "directory"
 const val MEDIUM = "medium"

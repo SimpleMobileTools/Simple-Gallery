@@ -52,6 +52,14 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mAllowPickingMultiple = false
     private var mIsThirdPartyIntent = false
     private var mIsGettingDirs = false
+    private var mLoadedInitialPhotos = false
+    private var mIsPasswordProtectionPending = false
+    private var mLatestMediaId = 0L
+    private var mLastMediaHandler = Handler()
+    private var mTempShowHiddenHandler = Handler()
+    private var mCurrAsyncTask: GetDirectoriesAsynctask? = null
+    private var mZoomListener: MyRecyclerView.MyZoomListener? = null
+
     private var mStoredUseEnglish = false
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
@@ -59,12 +67,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mStoredShowMediaCount = true
     private var mStoredShowInfoBubble = true
     private var mStoredTextColor = 0
-    private var mLoadedInitialPhotos = false
-    private var mIsPasswordProtectionPending = false
-    private var mLatestMediaId = 0L
-    private var mLastMediaHandler = Handler()
-    private var mCurrAsyncTask: GetDirectoriesAsynctask? = null
-    private var mZoomListener: MyRecyclerView.MyZoomListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -92,6 +94,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         mIsPasswordProtectionPending = config.appPasswordProtectionOn
+    }
+
+    override fun onStart() {
+        super.onStart()
+        mTempShowHiddenHandler.removeCallbacksAndMessages(null)
     }
 
     override fun onResume() {
@@ -156,9 +163,21 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+        if (config.temporarilyShowHidden) {
+            mTempShowHiddenHandler.postDelayed({
+                config.temporarilyShowHidden = false
+            }, SHOW_TEMP_HIDDEN_DURATION)
+        } else {
+            mTempShowHiddenHandler.removeCallbacksAndMessages(null)
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         config.temporarilyShowHidden = false
+        mTempShowHiddenHandler.removeCallbacksAndMessages(null)
         removeTempFolder()
     }
 

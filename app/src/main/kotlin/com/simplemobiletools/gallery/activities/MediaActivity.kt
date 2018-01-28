@@ -53,17 +53,19 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mAllowPickingMultiple = false
     private var mShowAll = false
     private var mLoadedInitialPhotos = false
+    private var mLatestMediaId = 0L
+    private var mLastMediaHandler = Handler()
+    private var mTempShowHiddenHandler = Handler()
+    private var mCurrAsyncTask: GetMediaAsynctask? = null
+    private var mZoomListener: MyRecyclerView.MyZoomListener? = null
+    private var mSearchMenuItem: MenuItem? = null
+
     private var mStoredUseEnglish = false
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
     private var mStoredShowInfoBubble = true
     private var mStoredTextColor = 0
-    private var mLatestMediaId = 0L
-    private var mLastMediaHandler = Handler()
-    private var mCurrAsyncTask: GetMediaAsynctask? = null
-    private var mZoomListener: MyRecyclerView.MyZoomListener? = null
-    private var mSearchMenuItem: MenuItem? = null
 
     companion object {
         var mMedia = ArrayList<Medium>()
@@ -88,6 +90,11 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         media_empty_text.setOnClickListener {
             showFilterMediaDialog()
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        mTempShowHiddenHandler.removeCallbacksAndMessages(null)
     }
 
     override fun onResume() {
@@ -139,13 +146,23 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         if (mSearchMenuItem != null) {
             MenuItemCompat.collapseActionView(mSearchMenuItem)
         }
+
+        if (config.temporarilyShowHidden) {
+            mTempShowHiddenHandler.postDelayed({
+                config.temporarilyShowHidden = false
+            }, SHOW_TEMP_HIDDEN_DURATION)
+        } else {
+            mTempShowHiddenHandler.removeCallbacksAndMessages(null)
+        }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        if (config.showAll)
+        if (config.showAll) {
             config.temporarilyShowHidden = false
+        }
 
+        mTempShowHiddenHandler.removeCallbacksAndMessages(null)
         mMedia.clear()
     }
 
