@@ -45,6 +45,7 @@ val EXTENDED_DETAILS = "extended_details"
 val LAST_FILE_CLEANUP = "last_file_cleanup"
 val ONE_FINGER_ZOOM = "one_finger_zoom"
 val ALLOW_INSTANT_CHANGE = "allow_instant_change"
+val REPLACE_ZOOMABLE_IMAGES = "replace_zoomable_images"
 
 // slideshow
 val SLIDESHOW_INTERVAL = "slideshow_interval"
