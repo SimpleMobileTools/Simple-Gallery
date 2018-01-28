@@ -129,10 +129,10 @@
     <string name="allow_video_gestures">Управлять громкостью и яркостью видео с помощью вертикальных жестов</string>
     <string name="show_media_count">Показывать количество файлов в папках</string>
     <string name="replace_share_with_rotate">Заменить \"Поделиться\" на \"Повернуть\" в меню полноэкранного режима</string>
-    <string name="show_extended_details">Показывать детали файла</string>
-    <string name="manage_extended_details">Выбрать детали файла</string>
+    <string name="show_extended_details">Показывать подробности о файле</string>
+    <string name="manage_extended_details">Выбрать подробности файла</string>
     <string name="one_finger_zoom">Масштабирование одним пальцем в полноэкранном режиме</string>
-    <string name="allow_instant_change">Мгновенное переключение медиафайлов кликом по краю экрана</string>
+    <string name="allow_instant_change">Мгновенное переключение медиафайлов нажатием по краю экрана</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюры</string>
