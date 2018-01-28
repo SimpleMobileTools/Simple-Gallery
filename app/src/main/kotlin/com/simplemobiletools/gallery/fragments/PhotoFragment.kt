@@ -8,6 +8,7 @@ import android.graphics.Matrix
 import android.graphics.drawable.ColorDrawable
 import android.media.ExifInterface.*
 import android.net.Uri
+import android.os.AsyncTask
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -255,6 +256,8 @@ class PhotoFragment : ViewPagerFragment() {
                 isQuickScaleEnabled = context.config.oneFingerZoom
                 setImage(ImageSource.uri(medium.path))
                 orientation = if (orient == -1) SubsamplingScaleImageView.ORIENTATION_USE_EXIF else degreesForRotation(orient)
+                setEagerLoadingEnabled(false)
+                setExecutor(AsyncTask.SERIAL_EXECUTOR)
                 setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {
                     override fun onImageLoaded() {
                     }
