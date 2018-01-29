@@ -7,7 +7,7 @@
     <string name="hidden">(oculto)</string>
     <string name="pin_folder">Fixar pasta</string>
     <string name="unpin_folder">Desfixar pasta</string>
-    <string name="pin_to_the_top">Pin to the top</string>
+    <string name="pin_to_the_top">Fixar no topo</string>
     <string name="show_all">Mostrar conteúdo de todas as pastas</string>
     <string name="all_folders">Todas as pastas</string>
     <string name="folder_view">Alternar para a visualização de pastas</string>
@@ -43,9 +43,9 @@
     <string name="excluded_activity_placeholder">A exclusão de uma pasta apenas oculta o seu conteúdo da galeria, pois todos os outros aplicativos poderão acessá-las.\\n\\nSe quiser ocultar de todos os aplicativos, utilize a função ocultar.</string>
     <string name="remove_all">Remover todas</string>
     <string name="remove_all_description">Remover todas as pastas da lista de exclusões? Esta ação não apaga as pastas.</string>
-    <string name="hidden_folders">Hidden folders</string>
-    <string name="manage_hidden_folders">Manage hidden folders</string>
-    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
+    <string name="hidden_folders">Pastas ocultas</string>
+    <string name="manage_hidden_folders">Gerenciar pastas ocultas</string>
+    <string name="hidden_folders_placeholder">Parece que você não tem nenhuma pasta oculta com um arquivo \".nomedia\".</string>
 
     <!-- Include folders -->
     <string name="include_folders">Pastas incluídas</string>
@@ -122,7 +122,7 @@
     <string name="screen_rotation_system_setting">Padrão do sistema</string>
     <string name="screen_rotation_device_rotation">Sensor do aparelho</string>
     <string name="screen_rotation_aspect_ratio">Proporção da mídia</string>
-    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
+    <string name="black_background_at_fullscreen">Fundo de tela e barra de status preta quando em visualização de tela cheia</string>
     <string name="scroll_thumbnails_horizontally">Rolar miniaturas horizontalmente</string>
     <string name="hide_system_ui_at_fullscreen">Esconder interface do sistema automaticamente quando em tela cheia</string>
     <string name="delete_empty_folders">Apagar pastas vazias após deleter seu conteúdo</string>
@@ -131,15 +131,15 @@
     <string name="replace_share_with_rotate">Substituir botão "Compartilhar" por "Rotação de tela" quando em tela cheia</string>
     <string name="show_extended_details">Exibir detalhes extendidos quando em tela cheia</string>
     <string name="manage_extended_details">Gerenciar detalhes extendidos</string>
-    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
-    <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
-    <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
-    <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
+    <string name="one_finger_zoom">Permitir zoom com um dedo quando em exibição de tela cheia</string>
+    <string name="allow_instant_change">Permitir alternância instantânia de mídia clicando nas laterais da tela</string>
+    <string name="replace_zoomable_images">Substituir imagens aptas a grande quantitade de zoom por imagens de melhor qualidade</string>
+    <string name="hide_extended_details">Ocultar detalhes extendidos quando a barra de status estiver oculta</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Thumbnails</string>
-    <string name="fullscreen_media">Fullscreen media</string>
-    <string name="extended_details">Extended details</string>
+    <string name="thumbnails">Miniaturas</string>
+    <string name="fullscreen_media">Mídia em tela cheia</string>
+    <string name="extended_details">Detalhes extendidos</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
