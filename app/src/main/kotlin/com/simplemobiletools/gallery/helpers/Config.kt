@@ -316,8 +316,4 @@ class Config(context: Context) : BaseConfig(context) {
     var extendedDetails: Int
         get() = prefs.getInt(EXTENDED_DETAILS, EXT_RESOLUTION or EXT_LAST_MODIFIED or EXT_EXIF_PROPERTIES)
         set(extendedDetails) = prefs.edit().putInt(EXTENDED_DETAILS, extendedDetails).apply()
-
-    var lastFileCleanup: Long
-        get() = prefs.getLong(LAST_FILE_CLEANUP, 0L)
-        set(lastFileCleanup) = prefs.edit().putLong(LAST_FILE_CLEANUP, lastFileCleanup).apply()
 }
