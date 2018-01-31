@@ -574,7 +574,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             setupAdapter()
         }
 
-        storeDirectories()
+        if (!isFromCache) {
+            storeDirectories()
+        }
     }
 
     private fun storeDirectories() {

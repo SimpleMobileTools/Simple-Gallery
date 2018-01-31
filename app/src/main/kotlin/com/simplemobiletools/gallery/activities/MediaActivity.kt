@@ -620,7 +620,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         runOnUiThread {
             setupAdapter()
         }
-        storeFolder()
+
+        if (!isFromCache) {
+            storeFolder()
+        }
     }
 
     private fun storeFolder() {
