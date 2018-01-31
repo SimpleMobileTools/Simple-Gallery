@@ -9,7 +9,6 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
-import android.support.v4.view.MenuItemCompat
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.SearchView
 import android.view.Menu
@@ -143,9 +142,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     override fun onStop() {
         super.onStop()
-        if (mSearchMenuItem != null) {
-            MenuItemCompat.collapseActionView(mSearchMenuItem)
-        }
+        mSearchMenuItem?.collapseActionView()
 
         if (config.temporarilyShowHidden) {
             mTempShowHiddenHandler.postDelayed({
