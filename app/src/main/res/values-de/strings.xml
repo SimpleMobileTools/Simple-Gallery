@@ -34,7 +34,7 @@
     <string name="change_filters_underlined"><u>Filter ändern</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Diese Funktion versteckt die ausgewählten Ordner (auch für andere Apps), indem dort im Dateisystem eine \'.nomedia\'-Datei abgelegt wird. Dadurch werden auch deren Unterordner versteckt. Solche Ordner werden nur gezeigt, wenn die Einstellung \'Versteckte Ordner zeigen\' aktiv ist (auch andere Apps bieten üblicherweise eine solche Option). Fortfahren?</string>
+    <string name="hide_folder_description">Diese Funktion versteckt die ausgewählten Ordner (auch für andere Apps), indem dort im Dateisystem eine \'.nomedia\'-Datei abgelegt wird. Dadurch werden auch deren Unterordner versteckt. Solche Ordner werden nur gezeigt, wenn die Einstellung \'Versteckte Elemente anzeigen\' aktiv ist (auch andere Apps bieten üblicherweise eine solche Option). Fortfahren?</string>
     <string name="exclude">Ordner ausschließen</string>
     <string name="excluded_folders">Ausgeschlossene Ordner</string>
     <string name="manage_excluded_folders">Ausgeschlossene Ordner verwalten</string>
@@ -126,15 +126,15 @@
     <string name="scroll_thumbnails_horizontally">Kacheln horizontal scrollen</string>
     <string name="hide_system_ui_at_fullscreen">Systemleiste im Vollbild ausblenden</string>
     <string name="delete_empty_folders">Nach Löschen leere Ordner löschen</string>
-    <string name="allow_video_gestures">Gesten für Videolautstärke/Helligkeit</string>
+    <string name="allow_video_gestures">Gesten für Videolautstärke/Helligkeit zulassen</string>
     <string name="show_media_count">Medienanzahl bei Ordnern anzeigen</string>
     <string name="replace_share_with_rotate">Teilen/Drehen im Vollbild-Menü vertauschen</string>
-    <string name="show_extended_details">Eigenschaften anzeigen im Vollbild</string>
+    <string name="show_extended_details">Eigenschaften im Vollbild anzeigen</string>
     <string name="manage_extended_details">Eigenschaften auswählen</string>
-    <string name="one_finger_zoom">Erlaube Ein-Finger-Zoom im Vollbild</string>
-    <string name="allow_instant_change">Wechsle sofort zwischen Medien beim Klicken auf eine Bildschirmseite</string>
-    <string name="replace_zoomable_images">Stark zoombare Bilder durch Bilder mit hoher Qualität ersetzen.</string>
-    <string name="hide_extended_details">Erweiterte Details nicht anzeigen, wenn die Benachrichtigungsleiste versteckt ist</string>
+    <string name="one_finger_zoom">Ein-Finger-Zoom im Vollbild zulassen</string>
+    <string name="allow_instant_change">Beim Tippen auf eine Bildschirmseite sofort zwischen Medien wechseln</string>
+    <string name="replace_zoomable_images">Stark zoombare Bilder durch Bilder mit hoher Qualität ersetzen</string>
+    <string name="hide_extended_details">Erweiterte Details nicht anzeigen, wenn die Systemleiste versteckt ist</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>
