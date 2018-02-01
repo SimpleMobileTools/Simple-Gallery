@@ -7,7 +7,7 @@
     <string name="hidden">(versteckt)</string>
     <string name="pin_folder">Ordner anheften</string>
     <string name="unpin_folder">Ordner loslösen</string>
-    <string name="pin_to_the_top">An den Start anheften</string>
+    <string name="pin_to_the_top">Oben anheften</string>
     <string name="show_all">Ansicht: Alle Medien</string>
     <string name="all_folders">Alle Medien</string>
     <string name="folder_view">Ansicht: Als Ordner</string>
@@ -34,7 +34,7 @@
     <string name="change_filters_underlined"><u>Filter ändern</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Diese Funktion versteckt die ausgewählten Ordner (auch für andere Apps), indem dort im Dateisystem eine \'.nomedia\'-Datei abgelegt wird. Dadurch werden auch deren Unterordner versteckt. Solche Ordner werden nur gezeigt, wenn die Einstellung \'Versteckte Ordner zeigen\' aktiv ist (auch andere Apps bieten üblicherweise eine solche Option). Fortfahren?</string>
+    <string name="hide_folder_description">Diese Funktion versteckt die ausgewählten Ordner (auch für andere Apps), indem dort im Dateisystem eine \'.nomedia\'-Datei abgelegt wird. Dadurch werden auch deren Unterordner versteckt. Solche Ordner werden nur gezeigt, wenn die Einstellung \'Versteckte Elemente anzeigen\' aktiv ist (auch andere Apps bieten üblicherweise eine solche Option). Fortfahren?</string>
     <string name="exclude">Ordner ausschließen</string>
     <string name="excluded_folders">Ausgeschlossene Ordner</string>
     <string name="manage_excluded_folders">Ausgeschlossene Ordner verwalten</string>
@@ -45,13 +45,13 @@
     <string name="remove_all_description">Alle Ordner aus der Ausgeblendet-Liste entfernen? Die Ordner selbst werden nicht gelöscht.</string>
     <string name="hidden_folders">Versteckte Ordner</string>
     <string name="manage_hidden_folders">Versteckte Ordner verwalten</string>
-    <string name="hidden_folders_placeholder">Sieht so aus, als ob du keine Ordner mit einer \".nomedia\" Datei versteckt hast.</string>
+    <string name="hidden_folders_placeholder">Keinen mit einer \".nomedia\"-Datei versteckten Ordner gefunden.</string>
 
     <!-- Include folders -->
     <string name="include_folders">Einbezogene Ordner</string>
     <string name="manage_included_folders">Einbezogene Ordner verwalten</string>
     <string name="add_folder">Ordner hinzufügen</string>
-    <string name="included_activity_placeholder">Solltest du weitere Mediendateien haben, die von der App nicht erkannt wurden, kannst du ihre Ordner hier manuell hinzufügen.</string>
+    <string name="included_activity_placeholder">Solltest du weitere Mediendateien haben, die von der App nicht gefunden wurden, kannst du deren Ordner hier manuell hinzufügen.</string>
 
     <!-- Resizing -->
     <string name="resize">Größe ändern</string>
@@ -89,7 +89,7 @@
     <string name="wallpaper_set_successfully">Hintergrundbild erfolgreich festgelegt</string>
     <string name="portrait_aspect_ratio">Hochformat</string>
     <string name="landscape_aspect_ratio">Querformat</string>
-    <string name="home_screen">Home-Screen</string>
+    <string name="home_screen">Homescreen</string>
     <string name="lock_screen">Sperrbildschirm</string>
     <string name="home_and_lock_screen">Home- und Sperrbildschirm</string>
 
@@ -122,24 +122,24 @@
     <string name="screen_rotation_system_setting">Systemeinstellung</string>
     <string name="screen_rotation_device_rotation">Gerätedrehung</string>
     <string name="screen_rotation_aspect_ratio">Seitenverhältnis</string>
-    <string name="black_background_at_fullscreen">Schwarzer Hintergrund und Statusleiste bei Vollbild-Medien</string>
+    <string name="black_background_at_fullscreen">Schwarzer Hintergrund &amp; schwarze Systemleiste im Vollbild</string>
     <string name="scroll_thumbnails_horizontally">Kacheln horizontal scrollen</string>
-    <string name="hide_system_ui_at_fullscreen">Systemleisten in Vollbild ausblenden</string>
+    <string name="hide_system_ui_at_fullscreen">Systemleiste im Vollbild ausblenden</string>
     <string name="delete_empty_folders">Nach Löschen leere Ordner löschen</string>
-    <string name="allow_video_gestures">Gesten für Videolautstärke/Helligkeit</string>
+    <string name="allow_video_gestures">Gesten für Videolautstärke/Helligkeit zulassen</string>
     <string name="show_media_count">Medienanzahl bei Ordnern anzeigen</string>
     <string name="replace_share_with_rotate">Teilen/Drehen im Vollbild-Menü vertauschen</string>
-    <string name="show_extended_details">Eigenschaften anzeigen im Vollbild</string>
+    <string name="show_extended_details">Eigenschaften im Vollbild anzeigen</string>
     <string name="manage_extended_details">Eigenschaften auswählen</string>
-    <string name="one_finger_zoom">Erlaube Ein-Finger-Zoom im Vollbild</string>
-    <string name="allow_instant_change">Wechsle sofort zwischen Medien beim Klicken auf eine Bildschirmseite</string>
-    <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
-    <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
+    <string name="one_finger_zoom">Ein-Finger-Zoom im Vollbild zulassen</string>
+    <string name="allow_instant_change">Beim Tippen auf eine Bildschirmseite sofort zwischen Medien wechseln</string>
+    <string name="replace_zoomable_images">Stark zoombare Bilder durch Bilder mit hoher Qualität ersetzen</string>
+    <string name="hide_extended_details">Erweiterte Details nicht anzeigen, wenn die Systemleiste versteckt ist</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>
     <string name="fullscreen_media">Vollbild-Medien</string>
-    <string name="extended_details">Extended details</string>
+    <string name="extended_details">Erweiterte Details</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

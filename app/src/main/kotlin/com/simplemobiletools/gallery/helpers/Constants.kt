@@ -43,7 +43,6 @@ const val VIEW_TYPE_FILES = "view_type_files"
 const val SHOW_EXTENDED_DETAILS = "show_extended_details"
 const val EXTENDED_DETAILS = "extended_details"
 const val HIDE_EXTENDED_DETAILS = "hide_extended_details"
-const val LAST_FILE_CLEANUP = "last_file_cleanup"
 const val ONE_FINGER_ZOOM = "one_finger_zoom"
 const val ALLOW_INSTANT_CHANGE = "allow_instant_change"
 const val REPLACE_ZOOMABLE_IMAGES = "replace_zoomable_images"
@@ -62,6 +61,7 @@ const val SLIDESHOW_SCROLL_DURATION = 500L
 
 const val NOMEDIA = ".nomedia"
 const val MAX_COLUMN_COUNT = 20
+const val SHOW_TEMP_HIDDEN_DURATION = 600000L
 
 const val DIRECTORY = "directory"
 const val MEDIUM = "medium"

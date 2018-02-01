@@ -10,8 +10,8 @@ android {
         applicationId "com.simplemobiletools.gallery"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 158
-        versionName "3.3.0"
+        versionCode 159
+        versionName "3.3.1"
         multiDexEnabled true
         setProperty("archivesBaseName", "gallery")
     }
@@ -43,7 +43,7 @@ ext {
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:3.8.12'
+    implementation 'com.simplemobiletools:commons:3.9.4'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.6.0'
     implementation 'com.android.support:multidex:1.0.2'
     implementation 'com.google.code.gson:gson:2.8.2'

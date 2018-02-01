@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 3.3.1 *(2018-01-29)*
+----------------------------
+
+ * Added a toggle for replacing deep zoomable images with better quality ones
+ * Added a toggle for hiding Extended details when the statusbar is hidden
+ * Added a toggle for switching media files by clicking on screen sides
+ * Disable "Temporarily show hidden" after 10 minutes of backgrounding
+ * Split Settings in separate sections
+
 Version 3.3.0 *(2018-01-23)*
 ----------------------------
 
