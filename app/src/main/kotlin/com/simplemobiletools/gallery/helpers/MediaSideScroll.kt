@@ -98,7 +98,6 @@ class MediaSideScroll(val activity: Activity, val slideInfoView: TextView, val o
                 mTouchDownBrightness = mTempBrightness
             }
         }
-        //mView.video_holder
     }
 
     private fun getCurrentVolume() = activity.audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
