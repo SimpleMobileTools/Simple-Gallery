@@ -30,6 +30,7 @@ import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
 import com.simplemobiletools.gallery.helpers.MEDIUM
+import com.simplemobiletools.gallery.helpers.MediaSideScroll
 import com.simplemobiletools.gallery.models.Medium
 import it.sephiroth.android.library.exif2.ExifInterface
 import kotlinx.android.synthetic.main.pager_photo_item.view.*
@@ -49,6 +50,8 @@ class PhotoFragment : ViewPagerFragment() {
     private var storedHideExtendedDetails = false
     private var storedExtendedDetails = 0
 
+    private lateinit var mediaSideScroll: MediaSideScroll
+
     lateinit var view: ViewGroup
     lateinit var medium: Medium
 
@@ -58,6 +61,10 @@ class PhotoFragment : ViewPagerFragment() {
             gif_view.setOnClickListener { photoClicked() }
             instant_prev_item.setOnClickListener { listener?.goToPrevItem() }
             instant_next_item.setOnClickListener { listener?.goToNextItem() }
+            photo_brightness_controller.setOnTouchListener { v, event ->
+                mediaSideScroll.handleBrightnessTouched(event)
+                true
+            }
         }
 
         storeStateVariables()
@@ -103,6 +110,11 @@ class PhotoFragment : ViewPagerFragment() {
         wasInit = true
 
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        mediaSideScroll = MediaSideScroll(context!!, activity!!, view.slide_info, {})
     }
 
     override fun onPause() {
