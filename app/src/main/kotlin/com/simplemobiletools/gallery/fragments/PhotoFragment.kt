@@ -114,7 +114,7 @@ class PhotoFragment : ViewPagerFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mediaSideScroll = MediaSideScroll(context!!, activity!!, view.slide_info, {})
+        mediaSideScroll = MediaSideScroll(activity!!, view.slide_info, {})
     }
 
     override fun onPause() {

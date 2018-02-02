@@ -1,7 +1,6 @@
 package com.simplemobiletools.gallery.helpers
 
 import android.app.Activity
-import android.content.Context
 import android.media.AudioManager
 import android.os.Handler
 import android.provider.Settings
@@ -11,7 +10,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.audioManager
 
-class MediaSideScroll(val context: Context, val activity: Activity, val slideInfoView: TextView, val onSpecialEvent: () -> Unit) {
+class MediaSideScroll(val activity: Activity, val slideInfoView: TextView, val onSpecialEvent: () -> Unit) {
     private val CLICK_MAX_DURATION = 150
     private val SLIDE_INFO_FADE_DELAY = 1000L
     private var mTouchDownX = 0f
@@ -33,7 +32,7 @@ class MediaSideScroll(val context: Context, val activity: Activity, val slideInf
                 mLastTouchY = event.y
                 mTouchDownTime = System.currentTimeMillis()
                 mTouchDownVolume = getCurrentVolume()
-                mSlideInfoText = "${context.getString(R.string.volume)}:\n"
+                mSlideInfoText = "${activity.getString(R.string.volume)}:\n"
             }
             MotionEvent.ACTION_MOVE -> {
                 val diffX = mTouchDownX - event.x
@@ -69,7 +68,7 @@ class MediaSideScroll(val context: Context, val activity: Activity, val slideInf
                 mTouchDownY = event.y
                 mLastTouchY = event.y
                 mTouchDownTime = System.currentTimeMillis()
-                mSlideInfoText = "${context.getString(R.string.brightness)}:\n"
+                mSlideInfoText = "${activity.getString(R.string.brightness)}:\n"
                 if (mTouchDownBrightness == -1)
                     mTouchDownBrightness = getCurrentBrightness()
             }
@@ -102,17 +101,17 @@ class MediaSideScroll(val context: Context, val activity: Activity, val slideInf
         //mView.video_holder
     }
 
-    private fun getCurrentVolume() = context.audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
+    private fun getCurrentVolume() = activity.audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
 
     private fun getCurrentBrightness() = Settings.System.getInt(activity.contentResolver, Settings.System.SCREEN_BRIGHTNESS)
 
     private fun volumePercentChanged(percent: Int) {
         val stream = AudioManager.STREAM_MUSIC
-        val maxVolume = context.audioManager.getStreamMaxVolume(stream)
+        val maxVolume = activity.audioManager.getStreamMaxVolume(stream)
         val percentPerPoint = 100 / maxVolume
         val addPoints = percent / percentPerPoint
         val newVolume = Math.min(maxVolume, Math.max(0, mTouchDownVolume + addPoints))
-        context.audioManager.setStreamVolume(stream, newVolume, 0)
+        activity.audioManager.setStreamVolume(stream, newVolume, 0)
 
         val absolutePercent = ((newVolume / maxVolume.toFloat()) * 100).toInt()
         slideInfoView.apply {
