@@ -136,6 +136,7 @@
     <string name="allow_instant_change">Permitir alternância instantânia de mídia clicando nas laterais da tela</string>
     <string name="replace_zoomable_images">Substituir imagens aptas a grande quantitade de zoom por imagens de melhor qualidade</string>
     <string name="hide_extended_details">Ocultar detalhes extendidos quando a barra de status estiver oculta</string>
+    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>

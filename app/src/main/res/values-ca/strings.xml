@@ -135,7 +135,8 @@
     <string name="one_finger_zoom">Permet fer zoom amb un sol dit a pantalla complerta</string>
     <string name="allow_instant_change">Permet canviar els mitjans de manera instantània fent clic als costats de la pantalla</string>
     <string name="replace_zoomable_images">Substituïr imatges ampliades per les de millor quialitat</string>
-    <string name="hide_extended_details">Amaga els detalls estesos quan la barra d'estat està amagada</string>
+    <string name="hide_extended_details">Amaga els detalls estesos quan la barra d\'estat està amagada</string>
+    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>

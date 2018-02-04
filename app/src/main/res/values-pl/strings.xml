@@ -136,6 +136,7 @@
     <string name="allow_instant_change">Zezwalaj na natychmiastową zmianę multimediów po kliknięciu boków ekranu</string>
     <string name="replace_zoomable_images">Zamieniaj powiększalne obrazy na te o lepszej jakości</string>
     <string name="hide_extended_details">Ukrywaj dodatkowe szczegóły gdy pasek stanu jest ukryty</string>
+    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatury</string>

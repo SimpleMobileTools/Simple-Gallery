@@ -136,6 +136,7 @@
     <string name="allow_instant_change">Tillat å skifte media øyeblikkelig ved å trykke på kanten av skjermen</string>
     <string name="replace_zoomable_images">Erstatt dyp-zoombare bilder med bilder av bedre kvalitet</string>
     <string name="hide_extended_details">Skjul utvidede detaljer når statuslinjen er skjult</string>
+    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Minibilder</string>

@@ -99,6 +99,7 @@ class MediaFetcher(val context: Context) {
         val filterMedia = config.filterMedia
         val showHidden = config.shouldShowHidden
         val isThirdPartyIntent = config.isThirdPartyIntent
+        val doExtraCheck = config.doExtraCheck
 
         cur.use {
             if (cur.moveToFirst()) {
@@ -137,7 +138,7 @@ class MediaFetcher(val context: Context) {
                             size = file.length()
                         }
 
-                        if (size <= 0L)
+                        if (size <= 0L || (doExtraCheck && !file.exists()))
                             continue
 
                         val dateTaken = cur.getLongValue(MediaStore.Images.Media.DATE_TAKEN)

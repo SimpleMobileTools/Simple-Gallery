@@ -136,6 +136,7 @@
     <string name="allow_instant_change">允許點擊螢幕邊緣來快速切換媒體檔案</string>
     <string name="replace_zoomable_images">可深度縮放的圖片用品質更佳的來取代</string>
     <string name="hide_extended_details">狀態欄隱藏時，同時隱藏詳細資訊</string>
+    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">縮圖</string>

@@ -136,6 +136,7 @@
     <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
     <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
     <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
+    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>

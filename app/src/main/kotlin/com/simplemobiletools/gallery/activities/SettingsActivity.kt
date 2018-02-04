@@ -38,6 +38,7 @@ class SettingsActivity : SimpleActivity() {
         setupManageExcludedFolders()
         setupManageHiddenFolders()
         setupShowHiddenItems()
+        setupDoExtraCheck()
         setupAutoplayVideos()
         setupLoopVideos()
         setupAnimateGifs()
@@ -134,6 +135,14 @@ class SettingsActivity : SimpleActivity() {
     private fun toggleHiddenItems() {
         settings_show_hidden_items.toggle()
         config.showHiddenMedia = settings_show_hidden_items.isChecked
+    }
+
+    private fun setupDoExtraCheck() {
+        settings_do_extra_check.isChecked = config.doExtraCheck
+        settings_do_extra_check_holder.setOnClickListener {
+            settings_do_extra_check.toggle()
+            config.doExtraCheck = settings_do_extra_check.isChecked
+        }
     }
 
     private fun setupAutoplayVideos() {

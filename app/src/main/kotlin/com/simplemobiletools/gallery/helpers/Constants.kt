@@ -47,6 +47,7 @@ const val HIDE_EXTENDED_DETAILS = "hide_extended_details"
 const val ONE_FINGER_ZOOM = "one_finger_zoom"
 const val ALLOW_INSTANT_CHANGE = "allow_instant_change"
 const val REPLACE_ZOOMABLE_IMAGES = "replace_zoomable_images"
+const val DO_EXTRA_CHECK = "do_extra_check"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"
