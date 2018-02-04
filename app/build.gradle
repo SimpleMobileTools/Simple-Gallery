@@ -55,7 +55,7 @@ dependencies {
     implementation 'com.github.chrisbanes:PhotoView:2.1.3'
 
     //implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.9.0'
-    implementation 'com.github.tibbi:subsampling-scale-image-view:v3.9.0-fork'
+    implementation 'com.github.tibbi:subsampling-scale-image-view:v3.9.0.1-fork'
 
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
