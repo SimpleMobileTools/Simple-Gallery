@@ -126,6 +126,7 @@
     <string name="scroll_thumbnails_horizontally">Défilement des miniatures horizontalement</string>
     <string name="hide_system_ui_at_fullscreen">Masquer automatiquement l\'interface utilisateur si média plein écran</string>
     <string name="delete_empty_folders">Supprimer les dossiers vides après avoir supprimé leur contenu</string>
+    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
     <string name="allow_video_gestures">Permettre le contrôle du volume vidéo et de la luminosité avec des gestes verticaux</string>
     <string name="show_media_count">Afficher le nombre de fichiers dans les dossiers sur l\'écran principal</string>
     <string name="replace_share_with_rotate">Remplacer Partager par Pivoter si menu en plein écran</string>

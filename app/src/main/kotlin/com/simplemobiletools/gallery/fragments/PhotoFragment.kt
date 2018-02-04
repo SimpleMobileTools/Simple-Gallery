@@ -128,9 +128,15 @@ class PhotoFragment : ViewPagerFragment() {
             checkExtendedDetails()
         }
 
+        val allowPhotoGestures = context!!.config.allowPhotoGestures
         val allowInstantChange = context!!.config.allowInstantChange
-        view.instant_prev_item.beVisibleIf(allowInstantChange)
-        view.instant_next_item.beVisibleIf(allowInstantChange)
+
+        view.apply {
+            photo_brightness_controller.beVisibleIf(allowPhotoGestures)
+            instant_prev_item.beVisibleIf(allowInstantChange)
+            instant_next_item.beVisibleIf(allowInstantChange)
+        }
+
         storeStateVariables()
     }
 

@@ -50,6 +50,7 @@ class SettingsActivity : SimpleActivity() {
         setupPasswordProtection()
         setupAppPasswordProtection()
         setupDeleteEmptyFolders()
+        setupAllowPhotoGestures()
         setupAllowVideoGestures()
         setupShowMediaCount()
         setupKeepLastModified()
@@ -247,6 +248,14 @@ class SettingsActivity : SimpleActivity() {
         settings_delete_empty_folders_holder.setOnClickListener {
             settings_delete_empty_folders.toggle()
             config.deleteEmptyFolders = settings_delete_empty_folders.isChecked
+        }
+    }
+
+    private fun setupAllowPhotoGestures() {
+        settings_allow_photo_gestures.isChecked = config.allowPhotoGestures
+        settings_allow_photo_gestures_holder.setOnClickListener {
+            settings_allow_photo_gestures.toggle()
+            config.allowPhotoGestures = settings_allow_photo_gestures.isChecked
         }
     }
 

@@ -126,6 +126,7 @@
     <string name="scroll_thumbnails_horizontally">橫向滑動縮圖</string>
     <string name="hide_system_ui_at_fullscreen">全螢幕時自動隱藏系統介面</string>
     <string name="delete_empty_folders">刪除內容後刪除空白資料夾</string>
+    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
     <string name="allow_video_gestures">允許用上下手勢來控制影片的音量和亮度</string>
     <string name="show_media_count">主畫面顯示資料夾內媒體檔案數量</string>
     <string name="replace_share_with_rotate">將全螢幕選單的分享取代為旋轉</string>
