@@ -126,6 +126,7 @@
     <string name="scroll_thumbnails_horizontally">Kacheln horizontal scrollen</string>
     <string name="hide_system_ui_at_fullscreen">Systemleiste im Vollbild ausblenden</string>
     <string name="delete_empty_folders">Nach Löschen leere Ordner löschen</string>
+    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
     <string name="allow_video_gestures">Gesten für Videolautstärke/Helligkeit zulassen</string>
     <string name="show_media_count">Medienanzahl bei Ordnern anzeigen</string>
     <string name="replace_share_with_rotate">Teilen/Drehen im Vollbild-Menü vertauschen</string>

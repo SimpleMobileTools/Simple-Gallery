@@ -126,6 +126,7 @@
     <string name="scroll_thumbnails_horizontally">섬네일 수평스크롤</string>
     <string name="hide_system_ui_at_fullscreen">전체화면 모드에서 시스템 UI 숨김</string>
     <string name="delete_empty_folders">콘텐츠 삭제 후 빈폴더 삭제</string>
+    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
     <string name="allow_video_gestures">수직 제스처로 비디오 볼륨 및 밝기 제어</string>
     <string name="show_media_count">폴더에 포함된 미디어파일 수 표시</string>
     <string name="replace_share_with_rotate">전체화면 메뉴의 공유 아이콘을 회전 아이콘으로 변경</string>

@@ -126,6 +126,7 @@
     <string name="scroll_thumbnails_horizontally">Listaj sličice horizontalno</string>
     <string name="hide_system_ui_at_fullscreen">Automatski sakrij UI sustava pri pregledu datoteka</string>
     <string name="delete_empty_folders">Izbriži prazne direktorije nakon brisanja njihovog sadržaja</string>
+    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
     <string name="allow_video_gestures">Omogući kontrolu glasnoće videa i svjetline pomoću vertikalnih gesti</string>
     <string name="show_media_count">Prikaži broj datoteka u direktoriju na glavnom zaslonu</string>
     <string name="replace_share_with_rotate">Zamjeni Dijeli s Rotiraj pri pregledu datoteka</string>

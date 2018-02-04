@@ -126,6 +126,7 @@
     <string name="scroll_thumbnails_horizontally">Прокрутка эскизов по горизонтали</string>
     <string name="hide_system_ui_at_fullscreen">Автоматически скрывать системный интерфейс в полноэкранном режиме</string>
     <string name="delete_empty_folders">Удалять пустые папки после удаления их содержимого</string>
+    <string name="allow_photo_gestures">Управлять яркостью фото с помощью вертикальных жестов</string>
     <string name="allow_video_gestures">Управлять громкостью и яркостью видео с помощью вертикальных жестов</string>
     <string name="show_media_count">Показывать количество файлов в папках</string>
     <string name="replace_share_with_rotate">Заменить \"Поделиться\" на \"Повернуть\" в меню полноэкранного режима</string>

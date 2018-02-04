@@ -130,6 +130,7 @@
     <string name="scroll_thumbnails_horizontally">قم بتمرير الصور المصغرة أفقيا</string>
     <string name="hide_system_ui_at_fullscreen">إخفاء واجهة النظام تلقائيا عند العرض في وضع ملء الشاشة</string>
     <string name="delete_empty_folders">احذف المجلدات الفارغة بعد حذف محتواها</string>
+    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
     <string name="allow_video_gestures">السماح بالتحكم في صوت الفيديو والسطوع  بالإيماءات العمودية</string>
     <string name="show_media_count">إظهار عدد لوسائط المجلد على طريقة العرض الرئيسية</string>
     <string name="replace_share_with_rotate">استبدال خيار المشاركة مع خيار  تدوير في القائمة ملء الشاشة</string>
