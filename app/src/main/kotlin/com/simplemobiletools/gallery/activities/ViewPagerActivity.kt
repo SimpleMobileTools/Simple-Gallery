@@ -181,8 +181,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         val file = File(mPath)
-        if (!file.exists()) {
-            deleteFromMediaStore(file)
+        if (!file.exists() && file.length() == 0L) {
+            Thread {
+                deleteFromMediaStore(file)
+            }.start()
             finish()
             return
         }
