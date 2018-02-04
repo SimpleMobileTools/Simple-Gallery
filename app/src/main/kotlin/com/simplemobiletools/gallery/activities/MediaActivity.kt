@@ -81,7 +81,14 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
 
         media_refresh_layout.setOnRefreshListener { getMedia() }
-        mPath = intent.getStringExtra(DIRECTORY)
+        try {
+            mPath = intent.getStringExtra(DIRECTORY)
+        } catch (e: Exception) {
+            showErrorToast(e)
+            finish()
+            return
+        }
+
         storeStateVariables()
         if (mShowAll)
             supportActionBar?.setDisplayHomeAsUpEnabled(false)
