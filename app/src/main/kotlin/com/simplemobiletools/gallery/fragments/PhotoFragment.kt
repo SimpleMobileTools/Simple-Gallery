@@ -114,7 +114,15 @@ class PhotoFragment : ViewPagerFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mediaSideScroll = MediaSideScroll(activity!!, view.slide_info)
+        mediaSideScroll = MediaSideScroll(activity!!, view.slide_info) {
+            view.apply {
+                if (subsampling_view.isVisible()) {
+                    subsampling_view.performClick()
+                } else {
+                    gif_view.performClick()
+                }
+            }
+        }
     }
 
     override fun onPause() {

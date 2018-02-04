@@ -10,7 +10,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.audioManager
 
-class MediaSideScroll(val activity: Activity, val slideInfoView: TextView) {
+class MediaSideScroll(val activity: Activity, val slideInfoView: TextView, val callback: () -> Unit) {
     private val CLICK_MAX_DURATION = 150
     private val SLIDE_INFO_FADE_DELAY = 1000L
     private var mTouchDownX = 0f
@@ -23,8 +23,6 @@ class MediaSideScroll(val activity: Activity, val slideInfoView: TextView) {
 
     private var mSlideInfoText = ""
     private var mSlideInfoFadeHandler = Handler()
-
-    var onClickOnSlider: (() -> Unit)? = null
 
     fun handleVolumeTouched(event: MotionEvent) {
         when (event.action) {
@@ -57,7 +55,7 @@ class MediaSideScroll(val activity: Activity, val slideInfoView: TextView) {
                 val diffX = Math.abs(event.x - mTouchDownX)
                 val diffY = Math.abs(event.y - mTouchDownY)
                 if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION && diffX < 20 && diffY < 20) {
-                    onClickOnSlider?.invoke()
+                    callback()
                 }
             }
         }
@@ -95,7 +93,7 @@ class MediaSideScroll(val activity: Activity, val slideInfoView: TextView) {
                 val diffX = Math.abs(event.x - mTouchDownX)
                 val diffY = Math.abs(event.y - mTouchDownY)
                 if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION && diffX < 20 && diffY < 20) {
-                    onClickOnSlider?.invoke()
+                    callback()
                 }
                 mTouchDownBrightness = mTempBrightness
             }

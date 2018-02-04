@@ -87,8 +87,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mediaSideScroll = MediaSideScroll(activity!!, view.slide_info)
-        mediaSideScroll.onClickOnSlider = {
+        mediaSideScroll = MediaSideScroll(activity!!, view.slide_info) {
             view.video_holder.performClick()
         }
     }
