@@ -136,7 +136,7 @@
     <string name="allow_instant_change">Мгновенное переключение медиафайлов нажатием по краю экрана</string>
     <string name="replace_zoomable_images">Заменить масштабируемые изображения высококачественными</string>
     <string name="hide_extended_details">Не показывать подробности, если скрыта строка состояния</string>
-    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
+    <string name="do_extra_check">Делать дополнительную проверку, чтобы избежать показа неверных файлов</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюры</string>
