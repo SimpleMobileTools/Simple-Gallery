@@ -22,8 +22,9 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
     val mediaFetcher = MediaFetcher(context)
 
     override fun doInBackground(vararg params: Void): ArrayList<Directory> {
-        if (!context.hasPermission(PERMISSION_WRITE_STORAGE))
+        if (!context.hasPermission(PERMISSION_WRITE_STORAGE)) {
             return ArrayList()
+        }
 
         val config = context.config
         val groupedMedia = mediaFetcher.getMediaByDirectories(isPickVideo, isPickImage)
