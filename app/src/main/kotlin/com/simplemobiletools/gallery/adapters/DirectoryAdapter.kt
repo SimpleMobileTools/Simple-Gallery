@@ -349,7 +349,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
 
             activity.loadImage(thumbnailType, directory.tmb, dir_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
             dir_pin.beVisibleIf(pinnedFolders.contains(directory.path))
-            dir_sd_card.beVisibleIf(activity.isPathOnSD(directory.path))
+            dir_sd_card.beVisibleIf(directory.isOnSDCard)
             photo_cnt.beVisibleIf(showMediaCount)
 
             if (isListViewType) {

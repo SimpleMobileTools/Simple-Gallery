@@ -185,7 +185,7 @@ fun BaseSimpleActivity.addTempFolderIfNeeded(dirs: ArrayList<Directory>): ArrayL
     val directories = ArrayList<Directory>()
     val tempFolderPath = config.tempFolderPath
     if (tempFolderPath.isNotEmpty()) {
-        val newFolder = Directory(tempFolderPath, "", tempFolderPath.getFilenameFromPath(), 0, 0, 0, 0L)
+        val newFolder = Directory(tempFolderPath, "", tempFolderPath.getFilenameFromPath(), 0, 0, 0, 0L, isPathOnSD(tempFolderPath))
         directories.add(newFolder)
     }
     directories.addAll(dirs)

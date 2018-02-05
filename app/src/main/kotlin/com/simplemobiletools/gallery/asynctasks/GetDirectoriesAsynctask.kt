@@ -2,10 +2,7 @@ package com.simplemobiletools.gallery.asynctasks
 
 import android.content.Context
 import android.os.AsyncTask
-import com.simplemobiletools.commons.extensions.getFilenameFromPath
-import com.simplemobiletools.commons.extensions.hasPermission
-import com.simplemobiletools.commons.extensions.internalStoragePath
-import com.simplemobiletools.commons.extensions.sdCardPath
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.SORT_DESCENDING
 import com.simplemobiletools.gallery.R
@@ -58,7 +55,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
             val lastModified = if (config.directorySorting and SORT_DESCENDING > 0) Math.max(firstItem.modified, lastItem.modified) else Math.min(firstItem.modified, lastItem.modified)
             val dateTaken = if (config.directorySorting and SORT_DESCENDING > 0) Math.max(firstItem.taken, lastItem.taken) else Math.min(firstItem.taken, lastItem.taken)
             val size = curMedia.sumByLong { it.size }
-            val directory = Directory(parentDir, thumbnail, dirName, curMedia.size, lastModified, dateTaken, size)
+            val directory = Directory(parentDir, thumbnail, dirName, curMedia.size, lastModified, dateTaken, size, context.isPathOnSD(parentDir))
             directories.add(directory)
         }
 
