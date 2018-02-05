@@ -1,6 +1,18 @@
 Changelog
 ==========
 
+Version 3.4.0 *(2018-02-05)*
+----------------------------
+
+ * Allow changing the brightness by vertical gestures on images (by trubitsyn)
+ * Properly fetch all media files from recognized folders
+ * Make thumbnail info on the main screen a bit easier to read
+ * Fix seeing blank thumbnail after deleting files in some cases
+ * Reset zoom level on orientation change at fullscreen media
+ * Add an optional extra check to avoid showing invalid files
+ * Add a toggle to prevent showing What's new on startup
+ * Many other stability and performance improvements
+
 Version 3.3.1 *(2018-01-29)*
 ----------------------------
 
