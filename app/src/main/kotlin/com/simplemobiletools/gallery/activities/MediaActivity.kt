@@ -9,6 +9,7 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
+import android.support.v4.view.MenuItemCompat
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.SearchView
 import android.view.Menu
@@ -52,6 +53,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mAllowPickingMultiple = false
     private var mShowAll = false
     private var mLoadedInitialPhotos = false
+    private var mIsSearchOpen = false
     private var mLatestMediaId = 0L
     private var mLastMediaHandler = Handler()
     private var mTempShowHiddenHandler = Handler()
@@ -240,11 +242,25 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                 override fun onQueryTextSubmit(query: String) = false
 
                 override fun onQueryTextChange(newText: String): Boolean {
-                    searchQueryChanged(newText)
+                    if (mIsSearchOpen) {
+                        searchQueryChanged(newText)
+                    }
                     return true
                 }
             })
         }
+
+        MenuItemCompat.setOnActionExpandListener(mSearchMenuItem, object : MenuItemCompat.OnActionExpandListener {
+            override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
+                mIsSearchOpen = true
+                return true
+            }
+
+            override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
+                mIsSearchOpen = false
+                return true
+            }
+        })
     }
 
     private fun searchQueryChanged(text: String) {
