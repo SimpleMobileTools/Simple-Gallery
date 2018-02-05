@@ -644,7 +644,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun showOnMap() {
-        val exif = ExifInterface(getCurrentPath())
+        val exif: ExifInterface
+        try {
+            exif = ExifInterface(getCurrentPath())
+        } catch (e: Exception) {
+            showErrorToast(e)
+            return
+        }
         val lat = exif.getAttribute(ExifInterface.TAG_GPS_LATITUDE)
         val lat_ref = exif.getAttribute(ExifInterface.TAG_GPS_LATITUDE_REF)
         val lon = exif.getAttribute(ExifInterface.TAG_GPS_LONGITUDE)
