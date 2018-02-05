@@ -126,7 +126,7 @@
     <string name="scroll_thumbnails_horizontally">橫向滑動縮圖</string>
     <string name="hide_system_ui_at_fullscreen">全螢幕時自動隱藏系統介面</string>
     <string name="delete_empty_folders">刪除內容後刪除空白資料夾</string>
-    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
+    <string name="allow_photo_gestures">允許用上下手勢來控制相片的亮度</string>
     <string name="allow_video_gestures">允許用上下手勢來控制影片的音量和亮度</string>
     <string name="show_media_count">主畫面顯示資料夾內媒體檔案數量</string>
     <string name="replace_share_with_rotate">將全螢幕選單的分享取代為旋轉</string>
@@ -136,7 +136,7 @@
     <string name="allow_instant_change">允許點擊螢幕邊緣來快速切換媒體檔案</string>
     <string name="replace_zoomable_images">可深度縮放的圖片用品質更佳的來取代</string>
     <string name="hide_extended_details">狀態欄隱藏時，同時隱藏詳細資訊</string>
-    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
+    <string name="do_extra_check">進行額外檢查，避免顯示無效的檔案</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">縮圖</string>
@@ -151,7 +151,7 @@
 		
 		這相簿也支援第三方應用，像是預覽圖片/影片、添加電子信箱附件...等功能，日常使用上相當適合。
 
-        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+		指紋權限用來鎖定隱藏的項目或是整個程式。
 
 		優點包含沒廣告，也沒非必要的權限，而且完全開放原始碼，並提供自訂顏色。
 		
