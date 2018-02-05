@@ -136,7 +136,7 @@
     <string name="allow_instant_change">Beim Tippen auf eine Bildschirmseite sofort zwischen Medien wechseln</string>
     <string name="replace_zoomable_images">Stark zoombare Bilder durch Bilder mit hoher Qualität ersetzen</string>
     <string name="hide_extended_details">Erweiterte Details nicht anzeigen, wenn die Systemleiste versteckt ist</string>
-    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
+    <string name="do_extra_check">Zusätzliche Überprüfung, um ungültige Dateien nicht anzuzeigen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>
