@@ -51,7 +51,7 @@
     <string name="include_folders">Dossiers inclus</string>
     <string name="manage_included_folders">Gérer les dossiers inclus</string>
     <string name="add_folder">Ajouter un dossier</string>
-    <string name="included_activity_placeholder">Si vous avez des dossiers contenant des médias et qui ne sont pas reconnus par l\'application alors, vous pouvez les ajouter manuellement ici.</string>
+    <string name="included_activity_placeholder">Si vous avez des dossiers contenant des médias et qu\'ils ne sont pas reconnus par l\'application, vous pouvez les ajouter manuellement ici.</string>
 
     <!-- Resizing -->
     <string name="resize">Redimensionner</string>
@@ -122,9 +122,9 @@
     <string name="screen_rotation_system_setting">Paramètres système</string>
     <string name="screen_rotation_device_rotation">Rotation de l\'appareil</string>
     <string name="screen_rotation_aspect_ratio">Ratio d\'aspect</string>
-    <string name="black_background_at_fullscreen">Fond et barre de statur noir en plein écran</string>
+    <string name="black_background_at_fullscreen">Fond et barre de statut noir en plein écran</string>
     <string name="scroll_thumbnails_horizontally">Défilement des miniatures horizontalement</string>
-    <string name="hide_system_ui_at_fullscreen">Masquer automatiquement l\'interface utilisateur si média plein écran</string>
+    <string name="hide_system_ui_at_fullscreen">Masquer automatiquement l\'interface utilisateur si média en plein écran</string>
     <string name="delete_empty_folders">Supprimer les dossiers vides après avoir supprimé leur contenu</string>
     <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
     <string name="allow_video_gestures">Permettre le contrôle du volume vidéo et de la luminosité avec des gestes verticaux</string>
@@ -132,16 +132,16 @@
     <string name="replace_share_with_rotate">Remplacer Partager par Pivoter si menu en plein écran</string>
     <string name="show_extended_details">Afficher les détails supplémentaires par dessus le média en plein écran</string>
     <string name="manage_extended_details">Gérer les détails supplémentaires</string>
-    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
-    <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
-    <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
-    <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
-    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
+    <string name="one_finger_zoom">Autoriser le zoom avec un doigt sur un média en plein écran</string>
+    <string name="allow_instant_change">Autoriser le changement instantané de média en cliquant sur les côtés de l\'écran</string>
+    <string name="replace_zoomable_images">Remplacer les images zoomables profondes par des images de meilleure qualité</string>
+    <string name="hide_extended_details">Masquer les détails supplémentaires lorsque la barre d\'état est masquée</string>
+    <string name="do_extra_check">Faire une vérification supplémentaire pour éviter de montrer des fichiers invalides</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Thumbnails</string>
-    <string name="fullscreen_media">Fullscreen media</string>
-    <string name="extended_details">Extended details</string>
+    <string name="thumbnails">Vignettes</string>
+    <string name="fullscreen_media">Média plein écran</string>
+    <string name="extended_details">Détails supplémentaires</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
@@ -149,11 +149,11 @@
     <string name="app_long_description">
         Un simple outil pour visionner les photos et les vidéos. Elles peuvent être triées par dates, tailles, noms dans les deux sens (alphabétique comme désalphabétique), il est possible de zoomer sur les photos. Les fichiers sont affichés sur de multiple colonnes en fonction de la taille de l\'écran, vous pouvez changer le nombre de colonnes par pincement. Elles peuvent être renommées, partagées, supprimées, copiées et déplacées. Les images peuvent en plus être tournées, rognées ou être définies comme fond d\'écran directement depuis l\'application.
 
-        La galerie est également proposée pour une utilisation comme tierce partie pour la prévisualisation des images/vidéos, ajouter des pièces jointes aux clients email etc. C\'est parfait pour un usage au quotidien.
+        La galerie est également proposée pour une utilisation comme tierce partie pour la prévisualisation des images/vidéos, ajouter des pièces jointes aux clients email, etc... C\'est parfait pour un usage au quotidien.
 
         L\'autorisation d\'empreinte digitale est nécessaire pour verrouiller les dossiers cachés et/ou l\'application.
 
-        L\'application ne contient ni publicité ni autorisation inutile. Elle est totalement opensource et est aussi fournie avec des couleurs personnalisables.
+        L\'application ne contient ni publicité ni autorisation inutile. Elle est totalement opensource et est également fournie avec des couleurs personnalisables.
 
         Cette application fait partie d\'une plus grande suite. Vous pouvez trouver les autres applications sur http://www.simplemobiletools.com
     </string>
