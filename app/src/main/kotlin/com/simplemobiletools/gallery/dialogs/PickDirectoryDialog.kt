@@ -26,7 +26,7 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
     var isGridViewType = activity.config.viewTypeFolders == VIEW_TYPE_GRID
 
     init {
-        (view.directories_grid.layoutManager as GridLayoutManager).apply {
+        (view.directories_grid.layoutManager as MyGridLayoutManager).apply {
             orientation = if (activity.config.scrollHorizontally && isGridViewType) GridLayoutManager.HORIZONTAL else GridLayoutManager.VERTICAL
             spanCount = if (isGridViewType) activity.config.dirColumnCnt else 1
         }

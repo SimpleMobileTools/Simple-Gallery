@@ -22,6 +22,7 @@ import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_TAKEN
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.models.Release
+import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.R
@@ -369,7 +370,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun setupGridLayoutManager() {
-        val layoutManager = directories_grid.layoutManager as GridLayoutManager
+        val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
         if (config.scrollHorizontally) {
             layoutManager.orientation = GridLayoutManager.HORIZONTAL
             directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
@@ -383,7 +384,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun initZoomListener() {
         if (config.viewTypeFolders == VIEW_TYPE_GRID) {
-            val layoutManager = directories_grid.layoutManager as GridLayoutManager
+            val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
             mZoomListener = object : MyRecyclerView.MyZoomListener {
                 override fun zoomIn() {
                     if (layoutManager.spanCount > 1) {
@@ -405,7 +406,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun setupListLayoutManager() {
-        val layoutManager = directories_grid.layoutManager as GridLayoutManager
+        val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
         layoutManager.spanCount = 1
         layoutManager.orientation = GridLayoutManager.VERTICAL
         directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -424,7 +425,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun increaseColumnCount() {
         directories_vertical_fastscroller.measureRecyclerViewOnRedraw()
         directories_horizontal_fastscroller.measureRecyclerViewOnRedraw()
-        config.dirColumnCnt = ++(directories_grid.layoutManager as GridLayoutManager).spanCount
+        config.dirColumnCnt = ++(directories_grid.layoutManager as MyGridLayoutManager).spanCount
         invalidateOptionsMenu()
         directories_grid.adapter?.notifyDataSetChanged()
     }
@@ -432,7 +433,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun reduceColumnCount() {
         directories_vertical_fastscroller.measureRecyclerViewOnRedraw()
         directories_horizontal_fastscroller.measureRecyclerViewOnRedraw()
-        config.dirColumnCnt = --(directories_grid.layoutManager as GridLayoutManager).spanCount
+        config.dirColumnCnt = --(directories_grid.layoutManager as MyGridLayoutManager).spanCount
         invalidateOptionsMenu()
         directories_grid.adapter?.notifyDataSetChanged()
     }

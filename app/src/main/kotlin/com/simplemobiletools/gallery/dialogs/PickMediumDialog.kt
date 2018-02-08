@@ -22,7 +22,7 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
     var isGridViewType = activity.config.viewTypeFiles == VIEW_TYPE_GRID
 
     init {
-        (view.media_grid.layoutManager as GridLayoutManager).apply {
+        (view.media_grid.layoutManager as MyGridLayoutManager).apply {
             orientation = if (activity.config.scrollHorizontally && isGridViewType) GridLayoutManager.HORIZONTAL else GridLayoutManager.VERTICAL
             spanCount = if (isGridViewType) activity.config.mediaColumnCnt else 1
         }
