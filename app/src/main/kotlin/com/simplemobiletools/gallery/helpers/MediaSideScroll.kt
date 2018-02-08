@@ -69,8 +69,9 @@ class MediaSideScroll(val activity: Activity, val slideInfoView: TextView, val c
                 mLastTouchY = event.y
                 mTouchDownTime = System.currentTimeMillis()
                 mSlideInfoText = "${activity.getString(R.string.brightness)}:\n"
-                if (mTouchDownBrightness == -1)
+                if (mTouchDownBrightness == -1) {
                     mTouchDownBrightness = getCurrentBrightness()
+                }
             }
             MotionEvent.ACTION_MOVE -> {
                 val diffX = mTouchDownX - event.x
@@ -102,7 +103,13 @@ class MediaSideScroll(val activity: Activity, val slideInfoView: TextView, val c
 
     private fun getCurrentVolume() = activity.audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
 
-    private fun getCurrentBrightness() = Settings.System.getInt(activity.contentResolver, Settings.System.SCREEN_BRIGHTNESS)
+    private fun getCurrentBrightness(): Int {
+        return try {
+            Settings.System.getInt(activity.contentResolver, Settings.System.SCREEN_BRIGHTNESS)
+        } catch (e: Settings.SettingNotFoundException) {
+            70
+        }
+    }
 
     private fun volumePercentChanged(percent: Int) {
         val stream = AudioManager.STREAM_MUSIC
