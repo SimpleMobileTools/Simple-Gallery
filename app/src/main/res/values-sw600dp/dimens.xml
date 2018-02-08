@@ -7,5 +7,4 @@
     <dimen name="play_outline_size_big">230dp</dimen>
     <dimen name="timer_padding">32dp</dimen>
     <dimen name="tmb_shadow_height">60dp</dimen>
-    <dimen name="video_side_slider_width">250dp</dimen>
 </resources>
