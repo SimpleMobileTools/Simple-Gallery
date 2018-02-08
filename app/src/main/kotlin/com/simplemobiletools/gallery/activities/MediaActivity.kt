@@ -656,6 +656,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                     val subList = mMedia.subList(0, Math.min(SAVE_MEDIA_CNT, mMedia.size))
                     val json = Gson().toJson(subList)
                     config.saveFolderMedia(mPath, json)
+                } catch (ignored: Exception) {
                 } catch (ignored: OutOfMemoryError) {
                 }
             }.start()

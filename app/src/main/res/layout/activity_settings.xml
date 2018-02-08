@@ -50,7 +50,6 @@
 
         </RelativeLayout>
 
-
         <RelativeLayout
             android:id="@+id/settings_avoid_whats_new_holder"
             android:layout_width="match_parent"
