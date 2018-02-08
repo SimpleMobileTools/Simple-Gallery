@@ -147,7 +147,6 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mView!!.video_volume_controller.setOnTouchListener { v, event ->
             mediaSideScroll.handleVolumeTouched(event)
             true
-            true
         }
 
         mView!!.video_brightness_controller.setOnTouchListener { v, event ->
