@@ -11,7 +11,6 @@ import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.audioManager
 
 class MediaSideScroll(val activity: Activity, val slideInfoView: TextView, val callback: () -> Unit) {
-    private val CLICK_MAX_DURATION = 150
     private val SLIDE_INFO_FADE_DELAY = 1000L
     private var mTouchDownX = 0f
     private var mTouchDownY = 0f
@@ -38,7 +37,7 @@ class MediaSideScroll(val activity: Activity, val slideInfoView: TextView, val c
                 val diffX = mTouchDownX - event.x
                 val diffY = mTouchDownY - event.y
 
-                if (Math.abs(diffY) > 20 && Math.abs(diffY) > Math.abs(diffX)) {
+                if (Math.abs(diffY) > DRAG_THRESHOLD && Math.abs(diffY) > Math.abs(diffX)) {
                     var percent = ((diffY / ViewPagerActivity.screenHeight) * 100).toInt() * 3
                     percent = Math.min(100, Math.max(-100, percent))
 

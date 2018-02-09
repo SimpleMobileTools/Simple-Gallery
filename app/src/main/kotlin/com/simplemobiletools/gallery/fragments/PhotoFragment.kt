@@ -61,6 +61,10 @@ class PhotoFragment : ViewPagerFragment() {
             gif_view.setOnClickListener { photoClicked() }
             instant_prev_item.setOnClickListener { listener?.goToPrevItem() }
             instant_next_item.setOnClickListener { listener?.goToNextItem() }
+
+            instant_prev_item.parentView = container
+            instant_next_item.parentView = container
+
             photo_brightness_controller.setOnTouchListener { v, event ->
                 mediaSideScroll.handleBrightnessTouched(event)
                 true
