@@ -50,7 +50,7 @@ class PhotoFragment : ViewPagerFragment() {
     private var storedHideExtendedDetails = false
     private var storedExtendedDetails = 0
 
-    private lateinit var mediaSideScroll: MediaSideScroll
+    private lateinit var brightnessSideScroll: MediaSideScroll
 
     lateinit var view: ViewGroup
     lateinit var medium: Medium
@@ -66,7 +66,7 @@ class PhotoFragment : ViewPagerFragment() {
             instant_next_item.parentView = container
 
             photo_brightness_controller.setOnTouchListener { v, event ->
-                mediaSideScroll.handleBrightnessTouched(event)
+                brightnessSideScroll.handleBrightnessTouched(event)
                 true
             }
         }
@@ -118,7 +118,8 @@ class PhotoFragment : ViewPagerFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mediaSideScroll = MediaSideScroll(activity!!, view.slide_info) {
+        brightnessSideScroll = view.photo_brightness_controller
+        brightnessSideScroll.initialize(activity!!, view.slide_info) {
             view.apply {
                 if (subsampling_view.isVisible()) {
                     subsampling_view.performClick()

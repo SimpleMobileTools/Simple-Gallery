@@ -1,16 +1,19 @@
 package com.simplemobiletools.gallery.helpers
 
 import android.app.Activity
+import android.content.Context
 import android.media.AudioManager
 import android.os.Handler
 import android.provider.Settings
+import android.util.AttributeSet
 import android.view.MotionEvent
+import android.widget.RelativeLayout
 import android.widget.TextView
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.audioManager
 
-class MediaSideScroll(val activity: Activity, val slideInfoView: TextView, val callback: () -> Unit) {
+class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(context, attrs) {
     private val SLIDE_INFO_FADE_DELAY = 1000L
     private var mTouchDownX = 0f
     private var mTouchDownY = 0f
@@ -22,6 +25,16 @@ class MediaSideScroll(val activity: Activity, val slideInfoView: TextView, val c
 
     private var mSlideInfoText = ""
     private var mSlideInfoFadeHandler = Handler()
+
+    private lateinit var activity: Activity
+    private lateinit var slideInfoView: TextView
+    private lateinit var callback: () -> Unit
+
+    fun initialize(activity: Activity, slideInfoView: TextView, callback: () -> Unit) {
+        this.activity = activity
+        this.slideInfoView = slideInfoView
+        this.callback = callback
+    }
 
     fun handleVolumeTouched(event: MotionEvent) {
         when (event.action) {

@@ -54,7 +54,8 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private var mStoredHideExtendedDetails = false
     private var mStoredExtendedDetails = 0
 
-    private lateinit var mediaSideScroll: MediaSideScroll
+    private lateinit var brightnessSideScroll: MediaSideScroll
+    private lateinit var volumeSideScroll: MediaSideScroll
 
     lateinit var medium: Medium
 
@@ -87,7 +88,13 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mediaSideScroll = MediaSideScroll(activity!!, view.slide_info) {
+        brightnessSideScroll = view.video_brightness_controller
+        brightnessSideScroll.initialize(activity!!, view.slide_info) {
+            view.video_holder.performClick()
+        }
+
+        volumeSideScroll = view.video_volume_controller
+        volumeSideScroll.initialize(activity!!, view.slide_info) {
             view.video_holder.performClick()
         }
     }
@@ -145,12 +152,12 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mView!!.video_holder.setOnClickListener { toggleFullscreen() }
 
         mView!!.video_volume_controller.setOnTouchListener { v, event ->
-            mediaSideScroll.handleVolumeTouched(event)
+            volumeSideScroll.handleVolumeTouched(event)
             true
         }
 
         mView!!.video_brightness_controller.setOnTouchListener { v, event ->
-            mediaSideScroll.handleBrightnessTouched(event)
+            volumeSideScroll.handleBrightnessTouched(event)
             true
         }
 
