@@ -14,6 +14,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.audioManager
 
+// allow horizontal swipes through the layout, else it can cause glitches at zoomed in images
 class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(context, attrs) {
     private val SLIDE_INFO_FADE_DELAY = 1000L
     private var mTouchDownX = 0f
@@ -23,6 +24,7 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
     private var mTempBrightness = 0
     private var mLastTouchY = 0f
     private var mIsBrightnessScroll = false
+    private var mPassTouches = false
 
     private var mSlideInfoText = ""
     private var mSlideInfoFadeHandler = Handler()
@@ -41,8 +43,22 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
         mSlideInfoText = activity.getString(if (isBrightness) R.string.brightness else R.string.volume)
     }
 
+    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
+        if (mPassTouches) {
+            if (ev.actionMasked == MotionEvent.ACTION_DOWN) {
+                mPassTouches = false
+            }
+            return false
+        }
+        return super.dispatchTouchEvent(ev)
+    }
+
     override fun onTouchEvent(event: MotionEvent): Boolean {
-        when (event.action) {
+        if (mPassTouches) {
+            return false
+        }
+
+        when (event.actionMasked) {
             MotionEvent.ACTION_DOWN -> {
                 mTouchDownX = event.x
                 mTouchDownY = event.y
@@ -70,10 +86,19 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
                     }
 
                     percentChanged(percent)
+                } else if (Math.abs(diffX) > DRAG_THRESHOLD || Math.abs(diffY) > DRAG_THRESHOLD) {
+                    if (!mPassTouches) {
+                        event.action = MotionEvent.ACTION_DOWN
+                        event.setLocation(event.rawX, event.y)
+                        mParentView?.dispatchTouchEvent(event)
+                    }
+                    mPassTouches = true
+                    mParentView?.dispatchTouchEvent(event)
+                    return false
                 }
                 mLastTouchY = event.y
             }
-            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+            MotionEvent.ACTION_UP -> {
                 if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
                     callback()
                 }
