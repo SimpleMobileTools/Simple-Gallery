@@ -33,9 +33,9 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
 
     private lateinit var activity: Activity
     private lateinit var slideInfoView: TextView
-    private lateinit var callback: () -> Unit
+    private lateinit var callback: (Float, Float) -> Unit
 
-    fun initialize(activity: Activity, slideInfoView: TextView, isBrightness: Boolean, parentView: ViewGroup?, callback: () -> Unit) {
+    fun initialize(activity: Activity, slideInfoView: TextView, isBrightness: Boolean, parentView: ViewGroup?, callback: (x: Float, y: Float) -> Unit) {
         this.activity = activity
         this.slideInfoView = slideInfoView
         this.callback = callback
@@ -101,7 +101,7 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
             }
             MotionEvent.ACTION_UP -> {
                 if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
-                    callback()
+                    callback(event.rawX, event.rawY)
                 }
 
                 if (mIsBrightnessScroll) {

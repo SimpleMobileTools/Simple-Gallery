@@ -85,12 +85,12 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
         mView!!.apply {
             brightnessSideScroll = video_brightness_controller
-            brightnessSideScroll.initialize(activity!!, slide_info, true, container) {
+            brightnessSideScroll.initialize(activity!!, slide_info, true, container) { x, y ->
                 video_holder.performClick()
             }
 
             volumeSideScroll = video_volume_controller
-            volumeSideScroll.initialize(activity!!, slide_info, false, container) {
+            volumeSideScroll.initialize(activity!!, slide_info, false, container) { x, y ->
                 video_holder.performClick()
             }
         }
