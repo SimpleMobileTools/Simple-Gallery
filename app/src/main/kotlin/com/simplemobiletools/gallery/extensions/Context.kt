@@ -23,6 +23,7 @@ val Context.windowManager: WindowManager get() = getSystemService(Context.WINDOW
 val Context.navigationBarRight: Boolean get() = usableScreenSize.x < realScreenSize.x
 val Context.navigationBarBottom: Boolean get() = usableScreenSize.y < realScreenSize.y
 val Context.navigationBarHeight: Int get() = if (navigationBarBottom) navigationBarSize.y else 0
+val Context.navigationBarWidth: Int get() = if (navigationBarRight) navigationBarSize.x else 0
 
 internal val Context.navigationBarSize: Point
     get() = when {

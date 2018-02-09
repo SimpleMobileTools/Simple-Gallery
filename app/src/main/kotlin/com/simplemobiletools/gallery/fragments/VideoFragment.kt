@@ -16,10 +16,7 @@ import android.widget.TextView
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.VideoActivity
-import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.extensions.navigationBarHeight
-import com.simplemobiletools.gallery.extensions.usableScreenSize
-import com.simplemobiletools.gallery.extensions.windowManager
+import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.helpers.MediaSideScroll
 import com.simplemobiletools.gallery.models.Medium
@@ -93,6 +90,9 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             volumeSideScroll.initialize(activity!!, slide_info, false, container) { x, y ->
                 video_holder.performClick()
             }
+
+            video_curr_time.setOnClickListener { skip(false) }
+            video_duration.setOnClickListener { skip(true) }
         }
 
         return mView
@@ -186,14 +186,14 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         val height = context!!.navigationBarHeight
         val left = mTimeHolder!!.paddingLeft
         val top = mTimeHolder!!.paddingTop
-        var right = res.getDimension(R.dimen.timer_padding).toInt()
+        var right = mTimeHolder!!.paddingRight
         var bottom = 0
 
         if (hasNavBar()) {
             if (res.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-                bottom += height
+                bottom += context!!.navigationBarHeight
             } else {
-                right += height
+                right += context!!.navigationBarWidth
                 bottom += context!!.navigationBarHeight
             }
             mTimeHolder!!.setPadding(left, top, right, bottom)
@@ -203,8 +203,9 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mSeekBar = mView!!.video_seekbar
         mSeekBar!!.setOnSeekBarChangeListener(this)
 
-        if (mIsFullscreen)
+        if (mIsFullscreen) {
             mTimeHolder!!.beInvisible()
+        }
     }
 
     private fun hasNavBar(): Boolean {
@@ -466,6 +467,16 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             }
         } else {
             mView!!.video_details.beGone()
+        }
+    }
+
+    private fun skip(forward: Boolean) {
+        val curr = mMediaPlayer!!.currentPosition
+        val twoPercents = mMediaPlayer!!.duration / 50
+        val newProgress = if (forward) curr + twoPercents else curr - twoPercents
+        setProgress(Math.round(newProgress / 1000f))
+        if (!mIsPlaying) {
+            togglePlayPause()
         }
     }
 
