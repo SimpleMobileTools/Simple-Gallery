@@ -213,7 +213,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         refreshViewPager()
-        scanPath(mPath)
 
         if (config.blackBackground) {
             view_pager.background = ColorDrawable(Color.BLACK)
