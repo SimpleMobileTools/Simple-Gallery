@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 3.4.1 *(2018-02-09)*
+----------------------------
+
+ * Fix some glitches around swiping fullscreen media with instant media switch or gesture brightness change enabled
+ * Make changing image brightness with gestures disabled by default
+ * Allow skipping forward/backward videos by pressing max/current time
+ * Fix some cases of editing third party images
+ * Couple other stability improvements
+
 Version 3.4.0 *(2018-02-05)*
 ----------------------------
 
