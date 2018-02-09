@@ -65,7 +65,7 @@ const val NOMEDIA = ".nomedia"
 const val MAX_COLUMN_COUNT = 20
 const val SHOW_TEMP_HIDDEN_DURATION = 600000L
 const val CLICK_MAX_DURATION = 150
-const val DRAG_THRESHOLD = 15
+const val DRAG_THRESHOLD = 8
 
 const val DIRECTORY = "directory"
 const val MEDIUM = "medium"

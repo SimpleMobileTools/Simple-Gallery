@@ -14,6 +14,7 @@ class InstantItemSwitch(context: Context, attrs: AttributeSet) : RelativeLayout(
     private var mTouchDownX = 0f
     private var mTouchDownY = 0f
     private var passTouches = false
+    private var dragThreshold = DRAG_THRESHOLD * context.resources.displayMetrics.density
 
     var parentView: ViewGroup? = null
 
@@ -50,7 +51,7 @@ class InstantItemSwitch(context: Context, attrs: AttributeSet) : RelativeLayout(
 
                 val diffX = mTouchDownX - event.x
                 val diffY = mTouchDownY - event.y
-                if (Math.abs(diffX) > DRAG_THRESHOLD || Math.abs(diffY) > DRAG_THRESHOLD) {
+                if (Math.abs(diffX) > dragThreshold || Math.abs(diffY) > dragThreshold) {
                     if (!passTouches) {
                         event.action = MotionEvent.ACTION_DOWN
                         event.setLocation(event.rawX, event.y)

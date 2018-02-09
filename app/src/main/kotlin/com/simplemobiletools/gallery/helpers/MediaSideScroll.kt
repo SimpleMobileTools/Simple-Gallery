@@ -25,6 +25,7 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
     private var mLastTouchY = 0f
     private var mIsBrightnessScroll = false
     private var mPassTouches = false
+    private var dragThreshold = DRAG_THRESHOLD * context.resources.displayMetrics.density
 
     private var mSlideInfoText = ""
     private var mSlideInfoFadeHandler = Handler()
@@ -76,7 +77,7 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
                 val diffX = mTouchDownX - event.x
                 val diffY = mTouchDownY - event.y
 
-                if (Math.abs(diffY) > DRAG_THRESHOLD && Math.abs(diffY) > Math.abs(diffX)) {
+                if (Math.abs(diffY) > dragThreshold && Math.abs(diffY) > Math.abs(diffX)) {
                     var percent = ((diffY / ViewPagerActivity.screenHeight) * 100).toInt() * 3
                     percent = Math.min(100, Math.max(-100, percent))
 
@@ -86,7 +87,7 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
                     }
 
                     percentChanged(percent)
-                } else if (Math.abs(diffX) > DRAG_THRESHOLD || Math.abs(diffY) > DRAG_THRESHOLD) {
+                } else if (Math.abs(diffX) > dragThreshold || Math.abs(diffY) > dragThreshold) {
                     if (!mPassTouches) {
                         event.action = MotionEvent.ACTION_DOWN
                         event.setLocation(event.rawX, event.y)
