@@ -30,7 +30,6 @@ import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
 import com.simplemobiletools.gallery.helpers.MEDIUM
-import com.simplemobiletools.gallery.helpers.MediaSideScroll
 import com.simplemobiletools.gallery.models.Medium
 import it.sephiroth.android.library.exif2.ExifInterface
 import kotlinx.android.synthetic.main.pager_photo_item.view.*
@@ -50,8 +49,6 @@ class PhotoFragment : ViewPagerFragment() {
     private var storedHideExtendedDetails = false
     private var storedExtendedDetails = 0
 
-    private lateinit var brightnessSideScroll: MediaSideScroll
-
     lateinit var view: ViewGroup
     lateinit var medium: Medium
 
@@ -65,9 +62,14 @@ class PhotoFragment : ViewPagerFragment() {
             instant_prev_item.parentView = container
             instant_next_item.parentView = container
 
-            photo_brightness_controller.setOnTouchListener { v, event ->
-                brightnessSideScroll.handleBrightnessTouched(event)
-                true
+            photo_brightness_controller.initialize(activity!!, slide_info, true, container) {
+                view.apply {
+                    if (subsampling_view.isVisible()) {
+                        subsampling_view.performClick()
+                    } else {
+                        gif_view.performClick()
+                    }
+                }
             }
         }
 
@@ -114,20 +116,6 @@ class PhotoFragment : ViewPagerFragment() {
         wasInit = true
 
         return view
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        brightnessSideScroll = view.photo_brightness_controller
-        brightnessSideScroll.initialize(activity!!, view.slide_info) {
-            view.apply {
-                if (subsampling_view.isVisible()) {
-                    subsampling_view.performClick()
-                } else {
-                    gif_view.performClick()
-                }
-            }
-        }
     }
 
     override fun onPause() {

@@ -83,20 +83,19 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         checkFullscreen()
         wasInit = true
 
+        mView!!.apply {
+            brightnessSideScroll = video_brightness_controller
+            brightnessSideScroll.initialize(activity!!, slide_info, true, container) {
+                video_holder.performClick()
+            }
+
+            volumeSideScroll = video_volume_controller
+            volumeSideScroll.initialize(activity!!, slide_info, false, container) {
+                video_holder.performClick()
+            }
+        }
+
         return mView
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        brightnessSideScroll = view.video_brightness_controller
-        brightnessSideScroll.initialize(activity!!, view.slide_info) {
-            view.video_holder.performClick()
-        }
-
-        volumeSideScroll = view.video_volume_controller
-        volumeSideScroll.initialize(activity!!, view.slide_info) {
-            view.video_holder.performClick()
-        }
     }
 
     override fun onResume() {
@@ -150,16 +149,6 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mSurfaceHolder!!.addCallback(this)
         mSurfaceView!!.setOnClickListener { toggleFullscreen() }
         mView!!.video_holder.setOnClickListener { toggleFullscreen() }
-
-        mView!!.video_volume_controller.setOnTouchListener { v, event ->
-            volumeSideScroll.handleVolumeTouched(event)
-            true
-        }
-
-        mView!!.video_brightness_controller.setOnTouchListener { v, event ->
-            volumeSideScroll.handleBrightnessTouched(event)
-            true
-        }
 
         initTimeHolder()
         checkExtendedDetails()
@@ -269,8 +258,9 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     }
 
     private fun checkFullscreen() {
-        if (activity == null)
+        if (activity == null) {
             return
+        }
 
         var anim = android.R.anim.fade_in
         if (mIsFullscreen) {

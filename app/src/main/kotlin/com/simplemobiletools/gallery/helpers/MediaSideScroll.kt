@@ -7,6 +7,7 @@ import android.os.Handler
 import android.provider.Settings
 import android.util.AttributeSet
 import android.view.MotionEvent
+import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.simplemobiletools.gallery.R
@@ -18,33 +19,42 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
     private var mTouchDownX = 0f
     private var mTouchDownY = 0f
     private var mTouchDownTime = 0L
-    private var mTouchDownVolume = 0
-    private var mTouchDownBrightness = -1
+    private var mTouchDownValue = -1
     private var mTempBrightness = 0
     private var mLastTouchY = 0f
+    private var mIsBrightnessScroll = false
 
     private var mSlideInfoText = ""
     private var mSlideInfoFadeHandler = Handler()
+    private var mParentView: ViewGroup? = null
 
     private lateinit var activity: Activity
     private lateinit var slideInfoView: TextView
     private lateinit var callback: () -> Unit
 
-    fun initialize(activity: Activity, slideInfoView: TextView, callback: () -> Unit) {
+    fun initialize(activity: Activity, slideInfoView: TextView, isBrightness: Boolean, parentView: ViewGroup?, callback: () -> Unit) {
         this.activity = activity
         this.slideInfoView = slideInfoView
         this.callback = callback
+        mParentView = parentView
+        mIsBrightnessScroll = isBrightness
+        mSlideInfoText = activity.getString(if (isBrightness) R.string.brightness else R.string.volume)
     }
 
-    fun handleVolumeTouched(event: MotionEvent) {
+    override fun onTouchEvent(event: MotionEvent): Boolean {
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
                 mTouchDownX = event.x
                 mTouchDownY = event.y
                 mLastTouchY = event.y
                 mTouchDownTime = System.currentTimeMillis()
-                mTouchDownVolume = getCurrentVolume()
-                mSlideInfoText = "${activity.getString(R.string.volume)}:\n"
+                if (mIsBrightnessScroll) {
+                    if (mTouchDownValue == -1) {
+                        mTouchDownValue = getCurrentBrightness()
+                    }
+                } else {
+                    mTouchDownValue = getCurrentVolume()
+                }
             }
             MotionEvent.ACTION_MOVE -> {
                 val diffX = mTouchDownX - event.x
@@ -56,61 +66,24 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
 
                     if ((percent == 100 && event.y > mLastTouchY) || (percent == -100 && event.y < mLastTouchY)) {
                         mTouchDownY = event.y
-                        mTouchDownVolume = getCurrentVolume()
+                        mTouchDownValue = if (mIsBrightnessScroll) mTempBrightness else getCurrentVolume()
                     }
 
-                    volumePercentChanged(percent)
+                    percentChanged(percent)
                 }
                 mLastTouchY = event.y
             }
             MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                val diffX = Math.abs(event.x - mTouchDownX)
-                val diffY = Math.abs(event.y - mTouchDownY)
-                if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION && diffX < 20 && diffY < 20) {
+                if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
                     callback()
+                }
+
+                if (mIsBrightnessScroll) {
+                    mTouchDownValue = mTempBrightness
                 }
             }
         }
-    }
-
-    fun handleBrightnessTouched(event: MotionEvent) {
-        when (event.action) {
-            MotionEvent.ACTION_DOWN -> {
-                mTouchDownX = event.x
-                mTouchDownY = event.y
-                mLastTouchY = event.y
-                mTouchDownTime = System.currentTimeMillis()
-                mSlideInfoText = "${activity.getString(R.string.brightness)}:\n"
-                if (mTouchDownBrightness == -1) {
-                    mTouchDownBrightness = getCurrentBrightness()
-                }
-            }
-            MotionEvent.ACTION_MOVE -> {
-                val diffX = mTouchDownX - event.x
-                val diffY = mTouchDownY - event.y
-
-                if (Math.abs(diffY) > 20 && Math.abs(diffY) > Math.abs(diffX)) {
-                    var percent = ((diffY / ViewPagerActivity.screenHeight) * 100).toInt() * 3
-                    percent = Math.min(100, Math.max(-100, percent))
-
-                    if ((percent == 100 && event.y > mLastTouchY) || (percent == -100 && event.y < mLastTouchY)) {
-                        mTouchDownY = event.y
-                        mTouchDownBrightness = mTempBrightness
-                    }
-
-                    brightnessPercentChanged(percent)
-                }
-                mLastTouchY = event.y
-            }
-            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                val diffX = Math.abs(event.x - mTouchDownX)
-                val diffY = Math.abs(event.y - mTouchDownY)
-                if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION && diffX < 20 && diffY < 20) {
-                    callback()
-                }
-                mTouchDownBrightness = mTempBrightness
-            }
-        }
+        return true
     }
 
     private fun getCurrentVolume() = activity.audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
@@ -123,19 +96,24 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
         }
     }
 
+    private fun percentChanged(percent: Int) {
+        if (mIsBrightnessScroll) {
+            brightnessPercentChanged(percent)
+        } else {
+            volumePercentChanged(percent)
+        }
+    }
+
     private fun volumePercentChanged(percent: Int) {
         val stream = AudioManager.STREAM_MUSIC
         val maxVolume = activity.audioManager.getStreamMaxVolume(stream)
         val percentPerPoint = 100 / maxVolume
         val addPoints = percent / percentPerPoint
-        val newVolume = Math.min(maxVolume, Math.max(0, mTouchDownVolume + addPoints))
+        val newVolume = Math.min(maxVolume, Math.max(0, mTouchDownValue + addPoints))
         activity.audioManager.setStreamVolume(stream, newVolume, 0)
 
         val absolutePercent = ((newVolume / maxVolume.toFloat()) * 100).toInt()
-        slideInfoView.apply {
-            text = "$mSlideInfoText$absolutePercent%"
-            alpha = 1f
-        }
+        showValue(absolutePercent)
 
         mSlideInfoFadeHandler.removeCallbacksAndMessages(null)
         mSlideInfoFadeHandler.postDelayed({
@@ -145,15 +123,12 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
 
     private fun brightnessPercentChanged(percent: Int) {
         val maxBrightness = 255f
-        var newBrightness = (mTouchDownBrightness + 2.55 * percent).toFloat()
+        var newBrightness = (mTouchDownValue + 2.55 * percent).toFloat()
         newBrightness = Math.min(maxBrightness, Math.max(0f, newBrightness))
         mTempBrightness = newBrightness.toInt()
 
         val absolutePercent = ((newBrightness / maxBrightness) * 100).toInt()
-        slideInfoView.apply {
-            text = "$mSlideInfoText$absolutePercent%"
-            alpha = 1f
-        }
+        showValue(absolutePercent)
 
         val attributes = activity.window.attributes
         attributes.screenBrightness = absolutePercent / 100f
@@ -163,5 +138,12 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
         mSlideInfoFadeHandler.postDelayed({
             slideInfoView.animate().alpha(0f)
         }, SLIDE_INFO_FADE_DELAY)
+    }
+
+    private fun showValue(percent: Int) {
+        slideInfoView.apply {
+            text = "$mSlideInfoText:\n$percent%"
+            alpha = 1f
+        }
     }
 }

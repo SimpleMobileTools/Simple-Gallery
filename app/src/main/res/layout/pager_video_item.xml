@@ -25,12 +25,12 @@
         android:layout_width="@dimen/media_side_slider_width"
         android:layout_height="match_parent"/>
 
-    <RelativeLayout
+    <com.simplemobiletools.gallery.views.InstantItemSwitch
         android:id="@+id/instant_prev_item"
         android:layout_width="@dimen/instant_change_bar_width"
         android:layout_height="match_parent"/>
 
-    <RelativeLayout
+    <com.simplemobiletools.gallery.views.InstantItemSwitch
         android:id="@+id/instant_next_item"
         android:layout_width="@dimen/instant_change_bar_width"
         android:layout_height="match_parent"
