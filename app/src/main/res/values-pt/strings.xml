@@ -29,7 +29,7 @@
     <string name="filter_media">Filtrar multimédia</string>
     <string name="images">Imagens</string>
     <string name="videos">Vídeos</string>
-    <string name="gifs">GIFs</string>
+    <string name="gifs">GIF</string>
     <string name="no_media_with_filters">Não foram encontrados ficheiros que cumpram os requisitos.</string>
     <string name="change_filters_underlined"><u>Alterar filtros</u></string>
 
@@ -98,7 +98,7 @@
     <string name="interval">Intervalo (segundos):</string>
     <string name="include_photos">Incluir fotos</string>
     <string name="include_videos">Incluir vídeos</string>
-    <string name="include_gifs">Incluir GIFs</string>
+    <string name="include_gifs">Incluir GIF</string>
     <string name="random_order">Ordem aleatória</string>
     <string name="use_fade">Usar animações</string>
     <string name="move_backwards">Mover para trás</string>
@@ -115,7 +115,7 @@
     <string name="autoplay_videos">Reproduzir vídeos automaticamente</string>
     <string name="toggle_filename">Mostrar/ocultar nome do ficheiro</string>
     <string name="loop_videos">Vídeos em ciclo</string>
-    <string name="animate_gifs">Animação de GIFs nas miniaturas</string>
+    <string name="animate_gifs">Animação de GIF nas miniaturas</string>
     <string name="max_brightness">Brilho máximo permitido</string>
     <string name="crop_thumbnails">Recortar miniaturas em quadrados</string>
     <string name="screen_rotation_by">Rodar em ecrã completo por</string>
@@ -126,22 +126,22 @@
     <string name="scroll_thumbnails_horizontally">Deslocação horizontal de miniaturas</string>
     <string name="hide_system_ui_at_fullscreen">Ocultar interface do sistema se em ecrã completo</string>
     <string name="delete_empty_folders">Apagar as pastas vazias depois de remover o seu conteúdo</string>
-    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
-    <string name="allow_video_gestures">Permitir controlo do volume e brilho dos vídeos através de gestos verticais</string>
+    <string name="allow_photo_gestures">Permitir controlo do brilho das fotos com gestos verticais</string>
+    <string name="allow_video_gestures">Permitir controlo do volume e do brilho dos vídeos através de gestos verticais</string>
     <string name="show_media_count">Mostrar número de ficheiros na vista principal</string>
     <string name="replace_share_with_rotate">Substituir a opção Partilhar pela opção Rodar se em ecrã completo</string>
     <string name="show_extended_details">Mostrar detalhes se em ecrã completo</string>
     <string name="manage_extended_details">Gerir detalhes exibidos</string>
-    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
-    <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
+    <string name="one_finger_zoom">Permitir ampliação com um dedo se em ecrã completo</string>
+    <string name="allow_instant_change">Permitir troca imediata de ficheiro ao tocar nas margens do ecrã</string>
     <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
-    <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
-    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
+    <string name="hide_extended_details">Ocultar detalhes extra se a barra de estado estiver oculta</string>
+    <string name="do_extra_check">Efetuar uma dupla verificação para evitar mostrar os ficheiros inválidos</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Thumbnails</string>
-    <string name="fullscreen_media">Fullscreen media</string>
-    <string name="extended_details">Extended details</string>
+    <string name="thumbnails">Miniaturas</string>
+    <string name="fullscreen_media">Multimédia em ecrã completo</string>
+    <string name="extended_details">Detalhes extra</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
