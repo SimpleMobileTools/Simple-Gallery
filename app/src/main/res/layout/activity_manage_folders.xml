@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:clipToPadding="false"
         android:scrollbars="vertical"
-        app:layoutManager="android.support.v7.widget.LinearLayoutManager"/>
+        app:layoutManager="com.simplemobiletools.commons.views.MyLinearLayoutManager"/>
 
     <com.simplemobiletools.commons.views.MyTextView
         android:id="@+id/manage_folders_placeholder"

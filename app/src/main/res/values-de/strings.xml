@@ -126,6 +126,7 @@
     <string name="scroll_thumbnails_horizontally">Kacheln horizontal scrollen</string>
     <string name="hide_system_ui_at_fullscreen">Systemleiste im Vollbild ausblenden</string>
     <string name="delete_empty_folders">Nach Löschen leere Ordner löschen</string>
+    <string name="allow_photo_gestures">Fotohelligkeit mit vertikalen Gesten ändern</string>
     <string name="allow_video_gestures">Gesten für Videolautstärke/Helligkeit zulassen</string>
     <string name="show_media_count">Medienanzahl bei Ordnern anzeigen</string>
     <string name="replace_share_with_rotate">Teilen/Drehen im Vollbild-Menü vertauschen</string>
@@ -135,6 +136,7 @@
     <string name="allow_instant_change">Beim Tippen auf eine Bildschirmseite sofort zwischen Medien wechseln</string>
     <string name="replace_zoomable_images">Stark zoombare Bilder durch Bilder mit hoher Qualität ersetzen</string>
     <string name="hide_extended_details">Erweiterte Details nicht anzeigen, wenn die Systemleiste versteckt ist</string>
+    <string name="do_extra_check">Zusätzliche Überprüfung, um ungültige Dateien nicht anzuzeigen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>

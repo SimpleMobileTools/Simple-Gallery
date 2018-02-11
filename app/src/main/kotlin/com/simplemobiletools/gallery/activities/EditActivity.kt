@@ -144,24 +144,28 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     override fun onCropImageComplete(view: CropImageView, result: CropImageView.CropResult) {
         if (result.error == null) {
             if (isCropIntent) {
-                var inputStream: InputStream? = null
-                var outputStream: OutputStream? = null
-                try {
-                    val stream = ByteArrayOutputStream()
-                    result.bitmap.compress(CompressFormat.JPEG, 100, stream)
-                    inputStream = ByteArrayInputStream(stream.toByteArray())
-                    outputStream = contentResolver.openOutputStream(saveUri)
-                    inputStream.copyTo(outputStream)
-                } finally {
-                    inputStream?.close()
-                    outputStream?.close()
-                }
+                if (saveUri.scheme == "file") {
+                    saveBitmapToFile(result.bitmap, saveUri.path)
+                } else {
+                    var inputStream: InputStream? = null
+                    var outputStream: OutputStream? = null
+                    try {
+                        val stream = ByteArrayOutputStream()
+                        result.bitmap.compress(CompressFormat.JPEG, 100, stream)
+                        inputStream = ByteArrayInputStream(stream.toByteArray())
+                        outputStream = contentResolver.openOutputStream(saveUri)
+                        inputStream.copyTo(outputStream)
+                    } finally {
+                        inputStream?.close()
+                        outputStream?.close()
+                    }
 
-                Intent().apply {
-                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-                    setResult(RESULT_OK, this)
+                    Intent().apply {
+                        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                        setResult(RESULT_OK, this)
+                    }
+                    finish()
                 }
-                finish()
             } else if (saveUri.scheme == "file") {
                 SaveAsDialog(this, saveUri.path, true) {
                     saveBitmapToFile(result.bitmap, it)

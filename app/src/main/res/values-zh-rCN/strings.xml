@@ -126,6 +126,7 @@
     <string name="scroll_thumbnails_horizontally">水平滚动缩略图</string>
     <string name="hide_system_ui_at_fullscreen">全屏时自动隐藏状态栏</string>
     <string name="delete_empty_folders">删除没有内容的空文件夹</string>
+    <string name="allow_photo_gestures">使用纵向滑动手势控制照片亮度</string>
     <string name="allow_video_gestures">使用纵向滑动手势控制视频音量和亮度</string>
     <string name="show_media_count">在主界面显示文件夹媒体计数</string>
     <string name="replace_share_with_rotate">替换全屏时菜单栏的“分享”为“旋转”</string>
@@ -135,6 +136,7 @@
     <string name="allow_instant_change">通过单击屏幕边缘来切换媒体</string>
     <string name="replace_zoomable_images">用质量更好的图像替换可深度缩放的图像</string>
     <string name="hide_extended_details">当状态栏隐藏时隐藏扩展详情</string>
+    <string name="do_extra_check">额外检查以避免显示无效的文件</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">缩略图</string>

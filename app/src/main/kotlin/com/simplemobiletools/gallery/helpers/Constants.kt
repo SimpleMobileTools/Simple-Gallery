@@ -35,6 +35,7 @@ const val SCROLL_HORIZONTALLY = "scroll_horizontally"
 const val HIDE_SYSTEM_UI = "hide_system_ui"
 const val REPLACE_SHARE_WITH_ROTATE = "replace_share_with_rotate"
 const val DELETE_EMPTY_FOLDERS = "delete_empty_folders"
+const val ALLOW_PHOTO_GESTURES = "allow_photo_gestures"
 const val ALLOW_VIDEO_GESTURES = "allow_video_gestures"
 const val SHOW_MEDIA_COUNT = "show_media_count"
 const val TEMP_FOLDER_PATH = "temp_folder_path"
@@ -46,6 +47,7 @@ const val HIDE_EXTENDED_DETAILS = "hide_extended_details"
 const val ONE_FINGER_ZOOM = "one_finger_zoom"
 const val ALLOW_INSTANT_CHANGE = "allow_instant_change"
 const val REPLACE_ZOOMABLE_IMAGES = "replace_zoomable_images"
+const val DO_EXTRA_CHECK = "do_extra_check"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"
@@ -62,6 +64,8 @@ const val SLIDESHOW_SCROLL_DURATION = 500L
 const val NOMEDIA = ".nomedia"
 const val MAX_COLUMN_COUNT = 20
 const val SHOW_TEMP_HIDDEN_DURATION = 600000L
+const val CLICK_MAX_DURATION = 150
+const val DRAG_THRESHOLD = 8
 
 const val DIRECTORY = "directory"
 const val MEDIUM = "medium"

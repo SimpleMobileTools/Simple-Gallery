@@ -126,6 +126,7 @@
     <string name="scroll_thumbnails_horizontally">Desplaçar miniatures horizontalment</string>
     <string name="hide_system_ui_at_fullscreen">Ocultar automàticament la interficie de usuari del sistema a pantalla complerta</string>
     <string name="delete_empty_folders">Eliminar carpetes buides després d\'esborrar el seu contingut</string>
+    <string name="allow_photo_gestures">Permet controlar la brillantor amb gestos verticals</string>
     <string name="allow_video_gestures">Permet controlar el volum i la brillantor del vídeo amb gestos verticals</string>
     <string name="show_media_count">Mostrar el número de mitjans de les carpetes a la vista principal</string>
     <string name="replace_share_with_rotate">Reemplaçar Compartir per Girar al menú de pantalla complerta</string>
@@ -134,7 +135,8 @@
     <string name="one_finger_zoom">Permet fer zoom amb un sol dit a pantalla complerta</string>
     <string name="allow_instant_change">Permet canviar els mitjans de manera instantània fent clic als costats de la pantalla</string>
     <string name="replace_zoomable_images">Substituïr imatges ampliades per les de millor quialitat</string>
-    <string name="hide_extended_details">Amaga els detalls estesos quan la barra d'estat està amagada</string>
+    <string name="hide_extended_details">Amaga els detalls estesos quan la barra d\'estat està amagada</string>
+    <string name="do_extra_check">Fer una verificació addicional per evitar que es mostrin fitxers no vàlids</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>

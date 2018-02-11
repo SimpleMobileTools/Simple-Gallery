@@ -58,6 +58,19 @@ class PhotoFragment : ViewPagerFragment() {
             gif_view.setOnClickListener { photoClicked() }
             instant_prev_item.setOnClickListener { listener?.goToPrevItem() }
             instant_next_item.setOnClickListener { listener?.goToNextItem() }
+
+            instant_prev_item.parentView = container
+            instant_next_item.parentView = container
+
+            photo_brightness_controller.initialize(activity!!, slide_info, true, container) { x, y ->
+                view.apply {
+                    if (subsampling_view.isVisible()) {
+                        subsampling_view.sendFakeClick(x, y)
+                    } else {
+                        gif_view.sendFakeClick(x, y)
+                    }
+                }
+            }
         }
 
         storeStateVariables()
@@ -116,9 +129,15 @@ class PhotoFragment : ViewPagerFragment() {
             checkExtendedDetails()
         }
 
+        val allowPhotoGestures = context!!.config.allowPhotoGestures
         val allowInstantChange = context!!.config.allowInstantChange
-        view.instant_prev_item.beVisibleIf(allowInstantChange)
-        view.instant_next_item.beVisibleIf(allowInstantChange)
+
+        view.apply {
+            photo_brightness_controller.beVisibleIf(allowPhotoGestures)
+            instant_prev_item.beVisibleIf(allowInstantChange)
+            instant_next_item.beVisibleIf(allowInstantChange)
+        }
+
         storeStateVariables()
     }
 

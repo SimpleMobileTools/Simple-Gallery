@@ -9,6 +9,7 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
+import android.support.v4.view.MenuItemCompat
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.SearchView
 import android.view.Menu
@@ -26,6 +27,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REQUEST_EDIT_IMAGE
 import com.simplemobiletools.commons.models.RadioItem
+import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.MediaAdapter
@@ -52,6 +54,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mAllowPickingMultiple = false
     private var mShowAll = false
     private var mLoadedInitialPhotos = false
+    private var mIsSearchOpen = false
     private var mLatestMediaId = 0L
     private var mLastMediaHandler = Handler()
     private var mTempShowHiddenHandler = Handler()
@@ -81,7 +84,14 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
 
         media_refresh_layout.setOnRefreshListener { getMedia() }
-        mPath = intent.getStringExtra(DIRECTORY)
+        try {
+            mPath = intent.getStringExtra(DIRECTORY)
+        } catch (e: Exception) {
+            showErrorToast(e)
+            finish()
+            return
+        }
+
         storeStateVariables()
         if (mShowAll)
             supportActionBar?.setDisplayHomeAsUpEnabled(false)
@@ -233,11 +243,25 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                 override fun onQueryTextSubmit(query: String) = false
 
                 override fun onQueryTextChange(newText: String): Boolean {
-                    searchQueryChanged(newText)
+                    if (mIsSearchOpen) {
+                        searchQueryChanged(newText)
+                    }
                     return true
                 }
             })
         }
+
+        MenuItemCompat.setOnActionExpandListener(mSearchMenuItem, object : MenuItemCompat.OnActionExpandListener {
+            override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
+                mIsSearchOpen = true
+                return true
+            }
+
+            override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
+                mIsSearchOpen = false
+                return true
+            }
+        })
     }
 
     private fun searchQueryChanged(text: String) {
@@ -479,7 +503,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun setupGridLayoutManager() {
-        val layoutManager = media_grid.layoutManager as GridLayoutManager
+        val layoutManager = media_grid.layoutManager as MyGridLayoutManager
         if (config.scrollHorizontally) {
             layoutManager.orientation = GridLayoutManager.HORIZONTAL
             media_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
@@ -493,7 +517,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun initZoomListener() {
         if (config.viewTypeFiles == VIEW_TYPE_GRID) {
-            val layoutManager = media_grid.layoutManager as GridLayoutManager
+            val layoutManager = media_grid.layoutManager as MyGridLayoutManager
             mZoomListener = object : MyRecyclerView.MyZoomListener {
                 override fun zoomIn() {
                     if (layoutManager.spanCount > 1) {
@@ -515,7 +539,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun setupListLayoutManager() {
-        val layoutManager = media_grid.layoutManager as GridLayoutManager
+        val layoutManager = media_grid.layoutManager as MyGridLayoutManager
         layoutManager.spanCount = 1
         layoutManager.orientation = GridLayoutManager.VERTICAL
         media_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -525,7 +549,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun increaseColumnCount() {
         media_vertical_fastscroller.measureRecyclerViewOnRedraw()
         media_horizontal_fastscroller.measureRecyclerViewOnRedraw()
-        config.mediaColumnCnt = ++(media_grid.layoutManager as GridLayoutManager).spanCount
+        config.mediaColumnCnt = ++(media_grid.layoutManager as MyGridLayoutManager).spanCount
         invalidateOptionsMenu()
         media_grid.adapter?.notifyDataSetChanged()
     }
@@ -533,7 +557,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun reduceColumnCount() {
         media_vertical_fastscroller.measureRecyclerViewOnRedraw()
         media_horizontal_fastscroller.measureRecyclerViewOnRedraw()
-        config.mediaColumnCnt = --(media_grid.layoutManager as GridLayoutManager).spanCount
+        config.mediaColumnCnt = --(media_grid.layoutManager as MyGridLayoutManager).spanCount
         invalidateOptionsMenu()
         media_grid.adapter?.notifyDataSetChanged()
     }
@@ -633,6 +657,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                     val subList = mMedia.subList(0, Math.min(SAVE_MEDIA_CNT, mMedia.size))
                     val json = Gson().toJson(subList)
                     config.saveFolderMedia(mPath, json)
+                } catch (ignored: Exception) {
                 } catch (ignored: OutOfMemoryError) {
                 }
             }.start()

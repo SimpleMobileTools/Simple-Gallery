@@ -126,6 +126,7 @@
     <string name="scroll_thumbnails_horizontally">サムネイル画面を横方向にスクロール</string>
     <string name="hide_system_ui_at_fullscreen">フルスクリーン時にシステムUIを非表示にする</string>
     <string name="delete_empty_folders">メディアの削除後にフォルダーが空になった場合、そのフォルダーを削除する</string>
+    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
     <string name="allow_video_gestures">ビデオ再生中に、音量と明るさを縦方向のジェスチャーで変更する</string>
     <string name="show_media_count">Show folder media count on the main view</string>
     <string name="replace_share_with_rotate">フルスクリーンメニューの「共有」を「回転」に置き換える</string>
@@ -135,6 +136,7 @@
     <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
     <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
     <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
+    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>

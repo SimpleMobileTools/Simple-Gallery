@@ -181,8 +181,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         val file = File(mPath)
-        if (!file.exists()) {
-            deleteFromMediaStore(file)
+        if (!file.exists() && file.length() == 0L) {
+            Thread {
+                deleteFromMediaStore(file)
+            }.start()
             finish()
             return
         }
@@ -211,7 +213,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         refreshViewPager()
-        scanPath(mPath)
 
         if (config.blackBackground) {
             view_pager.background = ColorDrawable(Color.BLACK)
@@ -642,7 +643,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun showOnMap() {
-        val exif = ExifInterface(getCurrentPath())
+        val exif: ExifInterface
+        try {
+            exif = ExifInterface(getCurrentPath())
+        } catch (e: Exception) {
+            showErrorToast(e)
+            return
+        }
         val lat = exif.getAttribute(ExifInterface.TAG_GPS_LATITUDE)
         val lat_ref = exif.getAttribute(ExifInterface.TAG_GPS_LATITUDE_REF)
         val lon = exif.getAttribute(ExifInterface.TAG_GPS_LONGITUDE)

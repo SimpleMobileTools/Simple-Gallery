@@ -1,6 +1,7 @@
 package com.simplemobiletools.gallery.adapters
 
 import android.os.Bundle
+import android.os.Parcelable
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
@@ -47,11 +48,18 @@ class MyPagerAdapter(val activity: ViewPagerActivity, fm: FragmentManager, val m
         super.destroyItem(container, position, any)
     }
 
-    fun getCurrentFragment(position: Int) = fragments.get(position)
+    fun getCurrentFragment(position: Int) = fragments[position]
 
     fun toggleFullscreen(isFullscreen: Boolean) {
         for ((pos, fragment) in fragments) {
             fragment.fullscreenToggled(isFullscreen)
         }
+    }
+
+    // try fixing TransactionTooLargeException crash on Android Nougat, tip from https://stackoverflow.com/a/43193425/1967672
+    override fun saveState(): Parcelable? {
+        val bundle = super.saveState() as Bundle?
+        bundle!!.putParcelableArray("states", null)
+        return bundle
     }
 }

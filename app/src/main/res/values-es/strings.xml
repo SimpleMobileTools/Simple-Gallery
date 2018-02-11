@@ -126,6 +126,7 @@
     <string name="scroll_thumbnails_horizontally">Desplazar miniaturas horizontalmente</string>
     <string name="hide_system_ui_at_fullscreen">Ocultar automáticamente la interfaz de usuario del sistema en medios de pantalla completa</string>
     <string name="delete_empty_folders">Eliminar carpetas vacias despues de borrar su contenido</string>
+    <string name="allow_photo_gestures">Permite controlar el brillo con gestos verticales</string>
     <string name="allow_video_gestures">Permite controlar el volumen y el brillo del video con gestos verticales</string>
     <string name="show_media_count">Mostrar el conteo de medios de las carpetas en la vista principal</string>
     <string name="replace_share_with_rotate">Reemplazar Compartir con Girar en el menú de pantalla completa</string>
@@ -135,6 +136,7 @@
     <string name="allow_instant_change">Permitir el cambio instantáneo de medios haciendo clic en los lados de la pantalla</string>
     <string name="replace_zoomable_images">Reemplace las imágenes con mucho zoom por otras de mejor calidad</string>
     <string name="hide_extended_details">Ocultar detalles ampliados cuando la barra de estado está oculta</string>
+    <string name="do_extra_check">Hacer una comprobación adicional para evitar mostrar archivos inválidos</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>

@@ -253,6 +253,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(DELETE_EMPTY_FOLDERS, false)
         set(deleteEmptyFolders) = prefs.edit().putBoolean(DELETE_EMPTY_FOLDERS, deleteEmptyFolders).apply()
 
+    var allowPhotoGestures: Boolean
+        get() = prefs.getBoolean(ALLOW_PHOTO_GESTURES, false)
+        set(allowPhotoGestures) = prefs.edit().putBoolean(ALLOW_PHOTO_GESTURES, allowPhotoGestures).apply()
+
     var allowVideoGestures: Boolean
         get() = prefs.getBoolean(ALLOW_VIDEO_GESTURES, true)
         set(allowVideoGestures) = prefs.edit().putBoolean(ALLOW_VIDEO_GESTURES, allowVideoGestures).apply()
@@ -316,4 +320,8 @@ class Config(context: Context) : BaseConfig(context) {
     var extendedDetails: Int
         get() = prefs.getInt(EXTENDED_DETAILS, EXT_RESOLUTION or EXT_LAST_MODIFIED or EXT_EXIF_PROPERTIES)
         set(extendedDetails) = prefs.edit().putInt(EXTENDED_DETAILS, extendedDetails).apply()
+
+    var doExtraCheck: Boolean
+        get() = prefs.getBoolean(DO_EXTRA_CHECK, false)
+        set(doExtraCheck) = prefs.edit().putBoolean(DO_EXTRA_CHECK, doExtraCheck).apply()
 }

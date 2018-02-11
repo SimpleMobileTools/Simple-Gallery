@@ -40,7 +40,40 @@ class MediaFetcher(val context: Context) {
             directories.remove(it)
         }
 
+        searchNewFiles(directories, showHidden)
         return directories
+    }
+
+    // search for undiscovered media files in the folders, from which we already have some media files
+    private fun searchNewFiles(directories: Map<String, ArrayList<Medium>>, showHidden: Boolean) {
+        Thread {
+            // try not to delay the main media file loading
+            Thread.sleep(3000)
+            for ((path, dirMedia) in directories) {
+                if (path.contains("/.thumbnails/", true)) {
+                    continue
+                }
+
+                // get the file parent this way, "path" is lowercased
+                val folder = File(dirMedia.first().path).parentFile
+                val files = folder.listFiles() ?: continue
+                val fileCnt = files.filter { it.isFile }.size
+                val newPaths = ArrayList<String>()
+
+                if (dirMedia.size != fileCnt) {
+                    val dirPaths = dirMedia.map { it.path }
+                    files.forEach {
+                        val filePath = it.absolutePath
+                        if ((showHidden || !it.name.startsWith(".")) && !dirPaths.contains(filePath)) {
+                            if (it.exists() && it.length() > 0 && it.isImageVideoGif()) {
+                                newPaths.add(it.absolutePath)
+                            }
+                        }
+                    }
+                }
+                context.scanPaths(newPaths)
+            }
+        }.start()
     }
 
     fun getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean): ArrayList<Medium> {
@@ -99,6 +132,7 @@ class MediaFetcher(val context: Context) {
         val filterMedia = config.filterMedia
         val showHidden = config.shouldShowHidden
         val isThirdPartyIntent = config.isThirdPartyIntent
+        val doExtraCheck = config.doExtraCheck
 
         cur.use {
             if (cur.moveToFirst()) {
@@ -137,7 +171,7 @@ class MediaFetcher(val context: Context) {
                             size = file.length()
                         }
 
-                        if (size <= 0L)
+                        if (size <= 0L || (doExtraCheck && !file.exists()))
                             continue
 
                         val dateTaken = cur.getLongValue(MediaStore.Images.Media.DATE_TAKEN)

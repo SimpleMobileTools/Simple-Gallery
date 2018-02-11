@@ -33,10 +33,12 @@ class SettingsActivity : SimpleActivity() {
 
         setupCustomizeColors()
         setupUseEnglish()
+        setupAvoidWhatsNew()
         setupManageIncludedFolders()
         setupManageExcludedFolders()
         setupManageHiddenFolders()
         setupShowHiddenItems()
+        setupDoExtraCheck()
         setupAutoplayVideos()
         setupLoopVideos()
         setupAnimateGifs()
@@ -50,6 +52,7 @@ class SettingsActivity : SimpleActivity() {
         setupPasswordProtection()
         setupAppPasswordProtection()
         setupDeleteEmptyFolders()
+        setupAllowPhotoGestures()
         setupAllowVideoGestures()
         setupShowMediaCount()
         setupKeepLastModified()
@@ -85,6 +88,14 @@ class SettingsActivity : SimpleActivity() {
             settings_use_english.toggle()
             config.useEnglish = settings_use_english.isChecked
             useEnglishToggled()
+        }
+    }
+
+    private fun setupAvoidWhatsNew() {
+        settings_avoid_whats_new.isChecked = config.avoidWhatsNew
+        settings_avoid_whats_new_holder.setOnClickListener {
+            settings_avoid_whats_new.toggle()
+            config.avoidWhatsNew = settings_avoid_whats_new.isChecked
         }
     }
 
@@ -124,6 +135,14 @@ class SettingsActivity : SimpleActivity() {
     private fun toggleHiddenItems() {
         settings_show_hidden_items.toggle()
         config.showHiddenMedia = settings_show_hidden_items.isChecked
+    }
+
+    private fun setupDoExtraCheck() {
+        settings_do_extra_check.isChecked = config.doExtraCheck
+        settings_do_extra_check_holder.setOnClickListener {
+            settings_do_extra_check.toggle()
+            config.doExtraCheck = settings_do_extra_check.isChecked
+        }
     }
 
     private fun setupAutoplayVideos() {
@@ -247,6 +266,14 @@ class SettingsActivity : SimpleActivity() {
         settings_delete_empty_folders_holder.setOnClickListener {
             settings_delete_empty_folders.toggle()
             config.deleteEmptyFolders = settings_delete_empty_folders.isChecked
+        }
+    }
+
+    private fun setupAllowPhotoGestures() {
+        settings_allow_photo_gestures.isChecked = config.allowPhotoGestures
+        settings_allow_photo_gestures_holder.setOnClickListener {
+            settings_allow_photo_gestures.toggle()
+            config.allowPhotoGestures = settings_allow_photo_gestures.isChecked
         }
     }
 

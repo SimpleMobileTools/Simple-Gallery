@@ -8,6 +8,7 @@ import com.simplemobiletools.commons.extensions.beGoneIf
 import com.simplemobiletools.commons.extensions.beVisibleIf
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.commons.extensions.toast
+import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
@@ -26,7 +27,7 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
     var isGridViewType = activity.config.viewTypeFolders == VIEW_TYPE_GRID
 
     init {
-        (view.directories_grid.layoutManager as GridLayoutManager).apply {
+        (view.directories_grid.layoutManager as MyGridLayoutManager).apply {
             orientation = if (activity.config.scrollHorizontally && isGridViewType) GridLayoutManager.HORIZONTAL else GridLayoutManager.VERTICAL
             spanCount = if (isGridViewType) activity.config.dirColumnCnt else 1
         }

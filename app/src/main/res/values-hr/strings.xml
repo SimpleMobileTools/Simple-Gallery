@@ -126,6 +126,7 @@
     <string name="scroll_thumbnails_horizontally">Listaj sličice horizontalno</string>
     <string name="hide_system_ui_at_fullscreen">Automatski sakrij UI sustava pri pregledu datoteka</string>
     <string name="delete_empty_folders">Izbriži prazne direktorije nakon brisanja njihovog sadržaja</string>
+    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
     <string name="allow_video_gestures">Omogući kontrolu glasnoće videa i svjetline pomoću vertikalnih gesti</string>
     <string name="show_media_count">Prikaži broj datoteka u direktoriju na glavnom zaslonu</string>
     <string name="replace_share_with_rotate">Zamjeni Dijeli s Rotiraj pri pregledu datoteka</string>
@@ -135,6 +136,7 @@
     <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
     <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
     <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
+    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>

@@ -7,7 +7,7 @@
     <string name="hidden">(ukryty)</string>
     <string name="pin_folder">Przypnij folder</string>
     <string name="unpin_folder">Wypakuj folder</string>
-   <string name="pin_to_the_top">Pin to the top</string>
+    <string name="pin_to_the_top">Przypnij na górze</string>
     <string name="show_all">Pokaż wszystko</string>
     <string name="all_folders">Wszystkie foldery</string>
     <string name="folder_view">Przełącz na widok folderów</string>
@@ -126,20 +126,22 @@
     <string name="scroll_thumbnails_horizontally">Przewijaj miniatury poziomo</string>
     <string name="hide_system_ui_at_fullscreen">Ukrywaj interfejs przy pełnoekranowym podglądzie</string>
     <string name="delete_empty_folders">Usuwaj puste foldery po usunięciu ich zawartości</string>
+    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
     <string name="allow_video_gestures">Zezwalaj na kontrolę jasności i głośności filmów pionowymi gestami</string>
     <string name="show_media_count">Pokazuj liczbę elementów w folderach w głównym widoku</string>
     <string name="replace_share_with_rotate">Zamień funkcję udostępniania na obracanie w menu pełnoekranowym</string>
     <string name="show_extended_details">Dodatkowe szczegóły przy podglądzie pełnoekranowym</string>
     <string name="manage_extended_details">Zarządzaj dodatkowymi szczegółami</string>
-    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
-    <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
-    <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
-    <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
+    <string name="one_finger_zoom">Zezwalaj na powiększanie jednym palcem w widoku pełnoekranowym</string>
+    <string name="allow_instant_change">Zezwalaj na natychmiastową zmianę multimediów po kliknięciu boków ekranu</string>
+    <string name="replace_zoomable_images">Zamieniaj powiększalne obrazy na te o lepszej jakości</string>
+    <string name="hide_extended_details">Ukrywaj dodatkowe szczegóły gdy pasek stanu jest ukryty</string>
+    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Thumbnails</string>
-    <string name="fullscreen_media">Fullscreen media</string>
-    <string name="extended_details">Extended details</string>
+    <string name="thumbnails">Miniatury</string>
+    <string name="fullscreen_media">Widok pełnoekranowy</string>
+    <string name="extended_details">Dodatkowe szczegóły</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

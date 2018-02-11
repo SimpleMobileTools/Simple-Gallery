@@ -126,6 +126,7 @@
     <string name="scroll_thumbnails_horizontally">Horisontal rulling av minibilder</string>
     <string name="hide_system_ui_at_fullscreen">Skjul automatisk systemlinjer ved mediavisning</string>
     <string name="delete_empty_folders">Slett tomme mapper etter sletting av deres innhold</string>
+    <string name="allow_photo_gestures">Tillat å styre fotolysstyrke med vertikale bevegelser</string>
     <string name="allow_video_gestures">Tillat å styre videovolum og lysstyrke med vertikale bevegelser</string>
     <string name="show_media_count">Vis mediaantallet i mapper på hovedvisningen</string>
     <string name="replace_share_with_rotate">Erstatt Del med Roter i meny ved mediavisning</string>
@@ -135,6 +136,7 @@
     <string name="allow_instant_change">Tillat å skifte media øyeblikkelig ved å trykke på kanten av skjermen</string>
     <string name="replace_zoomable_images">Erstatt dyp-zoombare bilder med bilder av bedre kvalitet</string>
     <string name="hide_extended_details">Skjul utvidede detaljer når statuslinjen er skjult</string>
+    <string name="do_extra_check">Gjør en ekstra sjekk for å unngå visning av ugyldige filer</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Minibilder</string>

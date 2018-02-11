@@ -7,7 +7,6 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
-import android.provider.Settings
 import android.support.annotation.RequiresApi
 import android.util.DisplayMetrics
 import android.view.*
@@ -17,16 +16,14 @@ import android.widget.TextView
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.VideoActivity
-import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.MEDIUM
+import com.simplemobiletools.gallery.helpers.MediaSideScroll
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.pager_video_item.view.*
 import java.io.IOException
 
 class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSeekBarChangeListener {
-    private val CLICK_MAX_DURATION = 150
-    private val SLIDE_INFO_FADE_DELAY = 1000L
     private val PROGRESS = "progress"
 
     private var mMediaPlayer: MediaPlayer? = null
@@ -50,20 +47,12 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private var mDuration = 0
     private var mEncodedPath = ""
 
-    private var mTouchDownX = 0f
-    private var mTouchDownY = 0f
-    private var mTouchDownTime = 0L
-    private var mTouchDownVolume = 0
-    private var mTouchDownBrightness = -1
-    private var mTempBrightness = 0
-    private var mLastTouchY = 0f
-
-    private var mSlideInfoText = ""
-    private var mSlideInfoFadeHandler = Handler()
-
     private var mStoredShowExtendedDetails = false
     private var mStoredHideExtendedDetails = false
     private var mStoredExtendedDetails = 0
+
+    private lateinit var brightnessSideScroll: MediaSideScroll
+    private lateinit var volumeSideScroll: MediaSideScroll
 
     lateinit var medium: Medium
 
@@ -90,6 +79,21 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mIsFullscreen = activity!!.window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN == View.SYSTEM_UI_FLAG_FULLSCREEN
         checkFullscreen()
         wasInit = true
+
+        mView!!.apply {
+            brightnessSideScroll = video_brightness_controller
+            brightnessSideScroll.initialize(activity!!, slide_info, true, container) { x, y ->
+                video_holder.performClick()
+            }
+
+            volumeSideScroll = video_volume_controller
+            volumeSideScroll.initialize(activity!!, slide_info, false, container) { x, y ->
+                video_holder.performClick()
+            }
+
+            video_curr_time.setOnClickListener { skip(false) }
+            video_duration.setOnClickListener { skip(true) }
+        }
 
         return mView
     }
@@ -145,15 +149,6 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mSurfaceHolder!!.addCallback(this)
         mSurfaceView!!.setOnClickListener { toggleFullscreen() }
         mView!!.video_holder.setOnClickListener { toggleFullscreen() }
-        mView!!.video_volume_controller.setOnTouchListener { v, event ->
-            handleVolumeTouched(event)
-            true
-        }
-
-        mView!!.video_brightness_controller.setOnTouchListener { v, event ->
-            handleBrightnessTouched(event)
-            true
-        }
 
         initTimeHolder()
         checkExtendedDetails()
@@ -186,142 +181,19 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         listener?.fragmentClicked()
     }
 
-    private fun handleVolumeTouched(event: MotionEvent) {
-        when (event.action) {
-            MotionEvent.ACTION_DOWN -> {
-                mTouchDownX = event.x
-                mTouchDownY = event.y
-                mLastTouchY = event.y
-                mTouchDownTime = System.currentTimeMillis()
-                mTouchDownVolume = getCurrentVolume()
-                mSlideInfoText = "${getString(R.string.volume)}:\n"
-            }
-            MotionEvent.ACTION_MOVE -> {
-                val diffX = mTouchDownX - event.x
-                val diffY = mTouchDownY - event.y
-
-                if (Math.abs(diffY) > 20 && Math.abs(diffY) > Math.abs(diffX)) {
-                    var percent = ((diffY / ViewPagerActivity.screenHeight) * 100).toInt() * 3
-                    percent = Math.min(100, Math.max(-100, percent))
-
-                    if ((percent == 100 && event.y > mLastTouchY) || (percent == -100 && event.y < mLastTouchY)) {
-                        mTouchDownY = event.y
-                        mTouchDownVolume = getCurrentVolume()
-                    }
-
-                    volumePercentChanged(percent)
-                }
-                mLastTouchY = event.y
-            }
-            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                val diffX = Math.abs(event.x - mTouchDownX)
-                val diffY = Math.abs(event.y - mTouchDownY)
-                if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION && diffX < 20 && diffY < 20) {
-                    mView!!.video_holder.performClick()
-                }
-            }
-        }
-    }
-
-    private fun handleBrightnessTouched(event: MotionEvent) {
-        when (event.action) {
-            MotionEvent.ACTION_DOWN -> {
-                mTouchDownX = event.x
-                mTouchDownY = event.y
-                mLastTouchY = event.y
-                mTouchDownTime = System.currentTimeMillis()
-                mSlideInfoText = "${getString(R.string.brightness)}:\n"
-                if (mTouchDownBrightness == -1)
-                    mTouchDownBrightness = getCurrentBrightness()
-            }
-            MotionEvent.ACTION_MOVE -> {
-                val diffX = mTouchDownX - event.x
-                val diffY = mTouchDownY - event.y
-
-                if (Math.abs(diffY) > 20 && Math.abs(diffY) > Math.abs(diffX)) {
-                    var percent = ((diffY / ViewPagerActivity.screenHeight) * 100).toInt() * 3
-                    percent = Math.min(100, Math.max(-100, percent))
-
-                    if ((percent == 100 && event.y > mLastTouchY) || (percent == -100 && event.y < mLastTouchY)) {
-                        mTouchDownY = event.y
-                        mTouchDownBrightness = mTempBrightness
-                    }
-
-                    brightnessPercentChanged(percent)
-                }
-                mLastTouchY = event.y
-            }
-            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                val diffX = Math.abs(event.x - mTouchDownX)
-                val diffY = Math.abs(event.y - mTouchDownY)
-                if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION && diffX < 20 && diffY < 20) {
-                    mView!!.video_holder.performClick()
-                }
-                mTouchDownBrightness = mTempBrightness
-            }
-        }
-        mView!!.video_holder
-    }
-
-    private fun getCurrentVolume() = context!!.audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
-
-    private fun getCurrentBrightness() = Settings.System.getInt(activity!!.contentResolver, Settings.System.SCREEN_BRIGHTNESS)
-
-    private fun volumePercentChanged(percent: Int) {
-        val stream = AudioManager.STREAM_MUSIC
-        val maxVolume = context!!.audioManager.getStreamMaxVolume(stream)
-        val percentPerPoint = 100 / maxVolume
-        val addPoints = percent / percentPerPoint
-        val newVolume = Math.min(maxVolume, Math.max(0, mTouchDownVolume + addPoints))
-        context!!.audioManager.setStreamVolume(stream, newVolume, 0)
-
-        val absolutePercent = ((newVolume / maxVolume.toFloat()) * 100).toInt()
-        mView!!.slide_info.apply {
-            text = "$mSlideInfoText$absolutePercent%"
-            alpha = 1f
-        }
-
-        mSlideInfoFadeHandler.removeCallbacksAndMessages(null)
-        mSlideInfoFadeHandler.postDelayed({
-            mView!!.slide_info.animate().alpha(0f)
-        }, SLIDE_INFO_FADE_DELAY)
-    }
-
-    private fun brightnessPercentChanged(percent: Int) {
-        val maxBrightness = 255f
-        var newBrightness = (mTouchDownBrightness + 2.55 * percent).toFloat()
-        newBrightness = Math.min(maxBrightness, Math.max(0f, newBrightness))
-        mTempBrightness = newBrightness.toInt()
-
-        val absolutePercent = ((newBrightness / maxBrightness) * 100).toInt()
-        mView!!.slide_info.apply {
-            text = "$mSlideInfoText$absolutePercent%"
-            alpha = 1f
-        }
-
-        val attributes = activity!!.window.attributes
-        attributes.screenBrightness = absolutePercent / 100f
-        activity!!.window.attributes = attributes
-
-        mSlideInfoFadeHandler.removeCallbacksAndMessages(null)
-        mSlideInfoFadeHandler.postDelayed({
-            mView!!.slide_info.animate().alpha(0f)
-        }, SLIDE_INFO_FADE_DELAY)
-    }
-
     private fun initTimeHolder() {
         val res = resources
         val height = context!!.navigationBarHeight
         val left = mTimeHolder!!.paddingLeft
         val top = mTimeHolder!!.paddingTop
-        var right = res.getDimension(R.dimen.timer_padding).toInt()
+        var right = mTimeHolder!!.paddingRight
         var bottom = 0
 
         if (hasNavBar()) {
             if (res.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-                bottom += height
+                bottom += context!!.navigationBarHeight
             } else {
-                right += height
+                right += context!!.navigationBarWidth
                 bottom += context!!.navigationBarHeight
             }
             mTimeHolder!!.setPadding(left, top, right, bottom)
@@ -331,8 +203,9 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mSeekBar = mView!!.video_seekbar
         mSeekBar!!.setOnSeekBarChangeListener(this)
 
-        if (mIsFullscreen)
+        if (mIsFullscreen) {
             mTimeHolder!!.beInvisible()
+        }
     }
 
     private fun hasNavBar(): Boolean {
@@ -386,8 +259,9 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     }
 
     private fun checkFullscreen() {
-        if (activity == null)
+        if (activity == null) {
             return
+        }
 
         var anim = android.R.anim.fade_in
         if (mIsFullscreen) {
@@ -593,6 +467,16 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             }
         } else {
             mView!!.video_details.beGone()
+        }
+    }
+
+    private fun skip(forward: Boolean) {
+        val curr = mMediaPlayer!!.currentPosition
+        val twoPercents = mMediaPlayer!!.duration / 50
+        val newProgress = if (forward) curr + twoPercents else curr - twoPercents
+        setProgress(Math.round(newProgress / 1000f))
+        if (!mIsPlaying) {
+            togglePlayPause()
         }
     }
 
