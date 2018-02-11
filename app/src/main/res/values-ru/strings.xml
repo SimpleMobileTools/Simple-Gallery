@@ -134,9 +134,9 @@
     <string name="manage_extended_details">Выбрать подробности файла</string>
     <string name="one_finger_zoom">Масштабирование одним пальцем в полноэкранном режиме</string>
     <string name="allow_instant_change">Мгновенное переключение медиафайлов нажатием по краю экрана</string>
-    <string name="replace_zoomable_images">Заменить масштабируемые изображения высококачественными</string>
+    <string name="replace_zoomable_images">Заменять масштабируемые изображения высококачественными</string>
     <string name="hide_extended_details">Не показывать подробности, если скрыта строка состояния</string>
-    <string name="do_extra_check">Делать дополнительную проверку, чтобы избежать показа неверных файлов</string>
+    <string name="do_extra_check">Делать дополнительную проверку, чтобы избежать показа неподдерживаемых файлов</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюры</string>
