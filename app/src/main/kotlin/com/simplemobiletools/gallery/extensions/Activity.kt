@@ -177,7 +177,7 @@ fun BaseSimpleActivity.tryCopyMoveFilesTo(files: ArrayList<File>, isCopyOperatio
 
     val source = if (files[0].isFile) files[0].parent else files[0].absolutePath
     PickDirectoryDialog(this, source) {
-        copyMoveFilesTo(files, source.trimEnd('/'), it, isCopyOperation, true, callback)
+        copyMoveFilesTo(files, source.trimEnd('/'), it, isCopyOperation, true, config.shouldShowHidden, callback)
     }
 }
 
