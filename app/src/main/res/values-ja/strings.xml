@@ -89,9 +89,9 @@
     <string name="wallpaper_set_successfully">壁紙を正常に設定しました</string>
     <string name="portrait_aspect_ratio">縦向きの縦横比</string>
     <string name="landscape_aspect_ratio">横向きの縦横比</string>
-    <string name="home_screen">Home screen</string>
-    <string name="lock_screen">Lock screen</string>
-    <string name="home_and_lock_screen">Home and lock screen</string>
+    <string name="home_screen">ホーム画面</string>
+    <string name="lock_screen">ロック画面</string>
+    <string name="home_and_lock_screen">ホーム画面とロック画面</string>
 
     <!-- Slideshow -->
     <string name="slideshow">スライドショー</string>
@@ -122,36 +122,36 @@
     <string name="screen_rotation_system_setting">システム設定に従う</string>
     <string name="screen_rotation_device_rotation">端末の向きに従う</string>
     <string name="screen_rotation_aspect_ratio">メディアの縦横比に従う</string>
-    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
+    <string name="black_background_at_fullscreen">フルスクリーン表示の背景色とステータスバーの背景色を黒にする</string>
     <string name="scroll_thumbnails_horizontally">サムネイル画面を横方向にスクロール</string>
     <string name="hide_system_ui_at_fullscreen">フルスクリーン時にシステムUIを非表示にする</string>
     <string name="delete_empty_folders">メディアの削除後にフォルダが空になった場合、そのフォルダを削除する</string>
     <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
     <string name="allow_video_gestures">ビデオ再生中に、音量と明るさを縦方向のジェスチャーで変更する</string>
-    <string name="show_media_count">Show folder media count on the main view</string>
+    <string name="show_media_count">フォルダの中にあるメディアの数をメイン画面に表示する</string>
     <string name="replace_share_with_rotate">フルスクリーンメニューの「共有」を「回転」に置き換える</string>
     <string name="show_extended_details">Show extended details over fullscreen media</string>
     <string name="manage_extended_details">Manage extended details</string>
-    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
+    <string name="one_finger_zoom">フルスクリーン表示のメディアを指ひとつでズームできるようにする</string>
     <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
     <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
     <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
     <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Thumbnails</string>
-    <string name="fullscreen_media">Fullscreen media</string>
-    <string name="extended_details">Extended details</string>
+    <string name="thumbnails">サムネイル</string>
+    <string name="fullscreen_media">メディアのみ</string>
+    <string name="extended_details">詳細も表示する</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">写真やビデオを見るためのギャラリー。広告はありません。</string>
     <string name="app_long_description">
-        写真やビデオを見るためのシンプルなツール。 日付、サイズ、名前で、昇順または降順にアイテムを並べ替えることができ、写真は拡大表示できます。 メディアファイルは、ディスプレイのサイズに応じて複数の列に表示されます。 名前の変更、共有、削除、コピー、移動が可能です。 画像をトリミング、回転、または壁紙としてアプリから直接設定することもできます。
+        写真やビデオを見るためのシンプルなツール。 日付、サイズ、名前で、昇順または降順にアイテムを並べ替えることができ、写真は拡大表示できます。 メディアファイルは、画面のサイズに応じて最適な列数で表示されます。 名前の変更、共有、削除、コピー、移動が可能です。 画像をトリミング、回転、または壁紙としてアプリから直接設定することもできます。
 
         ギャラリーは、画像やビデオのプレビュー、メールクライアントで添付ファイルの追加など、サードパーティの用途にも提供されます。 日々の使用には最適です。
 
-        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+        隠しアイテムを表示したりアプリそのものをロックするには指紋認証の許可が必要です。
 
         広告や不要なアクセス許可は含まれていません。 完全にオープンソースで、ダークテーマも提供しています。
 
