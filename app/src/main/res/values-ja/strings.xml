@@ -126,12 +126,12 @@
     <string name="scroll_thumbnails_horizontally">サムネイル画面を横方向にスクロール</string>
     <string name="hide_system_ui_at_fullscreen">フルスクリーン時にシステムUIを非表示にする</string>
     <string name="delete_empty_folders">メディアの削除後にフォルダが空になった場合、そのフォルダを削除する</string>
-    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
+    <string name="allow_photo_gestures">垂直のジェスチャーで写真の明るさを制御できるようにする</string>
     <string name="allow_video_gestures">ビデオ再生中に、音量と明るさを縦方向のジェスチャーで変更する</string>
     <string name="show_media_count">フォルダの中にあるメディアの数をメイン画面に表示する</string>
     <string name="replace_share_with_rotate">フルスクリーンメニューの「共有」を「回転」に置き換える</string>
-    <string name="show_extended_details">Show extended details over fullscreen media</string>
-    <string name="manage_extended_details">Manage extended details</string>
+    <string name="show_extended_details">フルスクリーン画面に詳細を重ねて表示する</string>
+    <string name="manage_extended_details">詳細内容を管理する</string>
     <string name="one_finger_zoom">フルスクリーン表示のメディアを指ひとつでズームできるようにする</string>
     <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
     <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
