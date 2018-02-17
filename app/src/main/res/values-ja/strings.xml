@@ -5,8 +5,8 @@
     <string name="edit">編集</string>
     <string name="open_camera">カメラを開く</string>
     <string name="hidden">(非表示)</string>
-    <string name="pin_folder">フォルダーをピン留めする</string>
-    <string name="unpin_folder">フォルダーのピン留めを外す</string>
+    <string name="pin_folder">フォルダをピン留めする</string>
+    <string name="unpin_folder">フォルダのピン留めを外す</string>
     <string name="pin_to_the_top">トップにピン留めする</string>
     <string name="show_all">全てを表示</string>
     <string name="all_folders">すべてのフォルダ</string>
@@ -26,7 +26,7 @@
     <string name="unlock_orientation">向きの固定を解除する</string>
 
     <!-- Filter -->
-    <string name="filter_media">表示メディア種</string>
+    <string name="filter_media">表示するメディアの種類</string>
     <string name="images">画像</string>
     <string name="videos">ビデオ</string>
     <string name="gifs">GIF</string>
@@ -42,7 +42,7 @@
     <string name="exclude_folder_parent">親フォルダを選択して除外することもできます。</string>
     <string name="excluded_activity_placeholder">フォルダを除外すると、サブフォルダも含めSimple Galleyの一覧から除外します。他のアプリでは引き続き表示されます。\\n\\n他のアプリでも非表示にしたい場合は、「非表示」機能を使用してください。</string>
     <string name="remove_all">すべて解除</string>
-    <string name="remove_all_description">除外するフォルダの登録をすべて解除しますか? フォルダー自体は削除されません。</string>
+    <string name="remove_all_description">除外するフォルダの登録をすべて解除しますか? フォルダ自体は削除されません。</string>
     <string name="hidden_folders">非表示フォルダ</string>
     <string name="manage_hidden_folders">非表示フォルダを管理する</string>
     <string name="hidden_folders_placeholder">\".nomedia\"ファイルで隠されたフォルダはありません。</string>
@@ -131,12 +131,12 @@
     <string name="show_media_count">フォルダの中にあるメディアの数をメイン画面に表示する</string>
     <string name="replace_share_with_rotate">フルスクリーンメニューの「共有」を「回転」に置き換える</string>
     <string name="show_extended_details">フルスクリーン画面に詳細を重ねて表示する</string>
-    <string name="manage_extended_details">詳細内容を管理する</string>
+    <string name="manage_extended_details">詳細表示を管理する</string>
     <string name="one_finger_zoom">フルスクリーン表示のメディアを指ひとつでズームできるようにする</string>
-    <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
-    <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
-    <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
-    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
+    <string name="allow_instant_change">画面の端を押してメディアをすぐに変更できるようにする</string>
+    <string name="replace_zoomable_images">ズーム可能な画像をより高画質なものに置き換える</string>
+    <string name="hide_extended_details">ステータスバーが非表示の時は詳細を表示しない</string>
+    <string name="do_extra_check">無効なファイルを表示しないための調査を行います</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">サムネイル</string>
