@@ -143,6 +143,26 @@
     <string name="fullscreen_media">Celoobrazovkový režim</string>
     <string name="extended_details">Rozšírené vlastnosti</string>
 
+    <!-- FAQ -->
+    <string name="faq_1_title">Ako viem spraviť Jednoduchú Galériu predvolenou galériou zariadenia?</string>
+    <string name="faq_1_text">Najprv musíte nájsť v nastaveniach zariadenia,sekcii Aplikácie, súčasnú predvolenú galériu, zvoliť tlačidlo s textom v zmysle \"Nastavenie predvoleného otvárania\" a následne \"Vymazať predvolené nastavenia\".
+        Ak potom skúsite otvoriť obrázok alebo video, zobrazí sa zoznam aplikácií, kde viete zvoliť Jednoduchú Galériu a nastaviť ju ako predvolenú.</string>
+    <string name="faq_2_title">Uzamkol som apku heslom, ale zabudol som ho. Čo môžem spraviť?</string>
+    <string name="faq_2_text">Viete to vyriešǐť 2 spôsobmi. Môžete apku buď preinštalovať, alebo ju nájsť v nastaveniach zariadenia a zvoliť \"Vymazať údaje\". Vymaže to iba nastavenia, nie súbory.</string>
+    <string name="faq_3_title">Ako môžem dosiahnuť, aby bol daný album stále zobrazený prvý?</string>
+    <string name="faq_3_text">Môžete označiť daný priečinok dlhým podržaním a zvoliť tlačidlo s obrázkom pripinačky, to ho pripne na vrch. Môžete pripnúť aj viacero priečinkov, budú zoradené podľa zvoleného radenia.</string>
+    <string name="faq_4_title">Ako viem posunúť video vpred?</string>
+    <string name="faq_4_text">Môžete kliknúť na texty súčasnej, alebo maximálnej dĺžky videa, ktoré sú vedľa indikátora súčasného progresu. To posunie video buď vpred, alebo vzad.</string>
+    <string name="faq_5_title">Aký je rozdiel medzi Skrytím a Vylúčením priečinka?</string>
+    <string name="faq_5_text">Kým vylúčenie predíde zobrazeniu priečinka iba vrámci Jednoduchej Galérie, skrytie ho ukryje vrámci celého systému, teda to ovplyvní aj ostatné galérie. Skrytie funguje pomocou vytvorenia prázdneho \".nomedia\" súboru v danom priečinku, ktorý viete vymazať aj nejakým správcom súborov.</string>
+    <string name="faq_6_title">Prečo sa mi zobrazujú priečinky s obalmi hudobných albumov, alebo nálepkami?</string>
+    <string name="faq_6_text">Môže sa stať, že sa vám zobrazia aj nezvyčajné priečinky. Viete ich ale jednoducho ukryť pomocou ich zvolenia dlhým podržaním a zvolením Vylúčiť. Ak na nasledovnom dialógu zvolíte vylúčenie rodičovského priečinka, pravdepodobne budú vylúčené aj ostatné, podobné priečinky.</string>
+    <string name="faq_7_title">Priečinok s fotkami sa mi nezobrazuje, čo môžem urobiť?</string>
+    <string name="faq_7_text">Môže to mať viacero dôvodov, riešenie je ale jednoduché. Choďte do Nastavenia -> Spravovať pridané priečinky, zvoľte Plus a zvoľte vytúžený priečinok.</string>
+    <string name="faq_8_title">Čo v prípade, ak chcem mať zobrazených iba pár priečinkov?</string>
+    <string name="faq_8_text">Pridanie priečinka medzi Pridané Priečinky automaticky nevylúči ostatné. Môžete ale ísť do Nastavenia -> Spravovať vylúčené priečinky a zvoliť Koreňový priečinok \"/\", následne pridať žiadané priečinky v Nastavenia -> Spravovať pridané priečinky.
+        To spôsobí, že budú zobrazené iba vyžiadané priečinky, keďže aj vylúčenie, aj pridanie fungujú rekurzívne a ak je priečinok vylúčený, aj pridaný, bude viditeľný.</string>
+
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Galéria na prezeranie obrázkov a videí bez reklám.</string>
