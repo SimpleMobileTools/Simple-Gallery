@@ -5,9 +5,9 @@
     <string name="edit">Redigera</string>
     <string name="open_camera">Starta kameran</string>
     <string name="hidden">(dold)</string>
-    <string name="pin_folder">Fäst mappen</string>
-    <string name="unpin_folder">Släpp mappen</string>
-    <string name="pin_to_the_top">Pin to the top</string>
+    <string name="pin_folder">Fäst mapp</string>
+    <string name="unpin_folder">Lossa mapp</string>
+    <string name="pin_to_the_top">Fäst högst upp</string>
     <string name="show_all">Visa alla mappars innehåll</string>
     <string name="all_folders">Alla mappar</string>
     <string name="folder_view">Byt till mappvy</string>
@@ -62,14 +62,14 @@
     <string name="invalid_values">Ange en giltig bildupplösning</string>
 
     <!-- Editor -->
-    <string name="editor">Redigera</string>
+    <string name="editor">Redigerare</string>
     <string name="save">Spara</string>
     <string name="rotate">Rotera</string>
     <string name="path">Sökväg</string>
     <string name="invalid_image_path">Ogiltig bildsökväg</string>
     <string name="image_editing_failed">Bilden kunde inte redigeras</string>
     <string name="edit_image_with">Redigera bilden med:</string>
-    <string name="no_editor_found">Hittade ingen bildredigerare</string>
+    <string name="no_editor_found">Ingen bildredigerare hittades</string>
     <string name="unknown_file_location">Okänd filplats</string>
     <string name="error_saving_file">Det gick inte att skriva över källfilen</string>
     <string name="rotate_left">Rotera åt vänster</string>
@@ -116,7 +116,7 @@
     <string name="toggle_filename">Visa/dölj filnamnen</string>
     <string name="loop_videos">Spela upp videor om och om igen</string>
     <string name="animate_gifs">Animera GIF-bilders miniatyrer</string>
-    <string name="max_brightness">Maximal ljusstyrka när media visas</string>
+    <string name="max_brightness">Maximal ljusstyrka när media visas i helskärmsläge</string>
     <string name="crop_thumbnails">Beskär miniatyrer till kvadrater</string>
     <string name="screen_rotation_by">Rotera media i helskärmsläge</string>
     <string name="screen_rotation_system_setting">Systeminställning</string>
@@ -126,22 +126,22 @@
     <string name="scroll_thumbnails_horizontally">Rulla horisontellt genom miniatyrer</string>
     <string name="hide_system_ui_at_fullscreen">Dölj systemanvändargränssnittet automatiskt när media visas i helskärmsläge</string>
     <string name="delete_empty_folders">Ta bort tomma mappar när deras innehåll tas bort</string>
-    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
+    <string name="allow_photo_gestures">Tillåt styrning av fotoljusstyrka med vertikala gester</string>
     <string name="allow_video_gestures">Tillåt styrning av videovolym och videoljusstyrka med vertikala gester</string>
     <string name="show_media_count">Visa antalet mediefiler i varje mapp i huvudvyn</string>
     <string name="replace_share_with_rotate">Ersätt Dela med Rotera i helskärmsmenyn</string>
     <string name="show_extended_details">Visa utökad information över media i helskärmsläge</string>
     <string name="manage_extended_details">Hantera utökad information</string>
-    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
-    <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
-    <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
-    <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
-    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
+    <string name="one_finger_zoom">Tillåt zoomning med ett finger när media visas i helskärmsläge</string>
+    <string name="allow_instant_change">Tillåt snabbyte av media genom tryckning på skärmens kanter</string>
+    <string name="replace_zoomable_images">Ersätt djupt zoombara bilder med bilder av bättre kvalitet</string>
+    <string name="hide_extended_details">Dölj utökad information när statusfältet är dolt</string>
+    <string name="do_extra_check">Gör en extra kontroll för att hindra ogiltiga filer från att visas</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Thumbnails</string>
-    <string name="fullscreen_media">Fullscreen media</string>
-    <string name="extended_details">Extended details</string>
+    <string name="thumbnails">Miniatyrer</string>
+    <string name="fullscreen_media">Visning av media i helskärmsläge</string>
+    <string name="extended_details">Utökad information</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
