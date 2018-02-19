@@ -154,7 +154,7 @@
     <string name="faq_4_text">Kliknij na napisie z czasem trwania filmu, bądź tym z obecnym momentem filmu.</string>
     <string name="faq_5_title">Jaka jest różnica pomiędzy ukryciem, a wykluczeniem folderu?</string>
     <string name="faq_5_text">Wykluczenie działa tylko w obrębie niniejszej aplikacji (wszędzie indziej pliki są normalnie widoczne), ukrywanie - w obrębie całego systemu (nie widać ich nigdzie), dodawany jest wtedy do folderu pusty plik \'.nomedia\', który możesz usunąć w dowolnym menedżerze plików.</string>
-    <string name="faq_6_title">Dlaczego pokazują mi się foldery z okładkami do piosenek i tym podobne rzeczy?/string>
+    <string name="faq_6_title">Dlaczego pokazują mi się foldery z okładkami do piosenek i tym podobne rzeczy?</string>
     <string name="faq_6_text">Cóż, zdjęcie to zdjęcie. Aplikacja nie wie, czy to jest akurat okładka od piosenki, czy cokolwiek innego. Aby ukryć niechciane rzeczy, przytrzymaj je i wybierz opcję \'Wyklucz\' z paska akcji.</string>
     <string name="faq_7_title">Nie pokazuje(-ą) mi się folder(y) ze zdjęciami / filmami. Co mogę zrobić?</string>
     <string name="faq_7_text">Wejdź do ustawień aplikacji i w sekcji z dołączonymi folderami dodaj tenże folder do listy.</string>
