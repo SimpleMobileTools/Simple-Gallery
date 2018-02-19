@@ -26,6 +26,7 @@ import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REQUEST_EDIT_IMAGE
+import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -442,9 +443,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun deleteDirectoryIfEmpty() {
-        val file = File(mPath)
-        if (config.deleteEmptyFolders && !file.isDownloadsFolder() && file.isDirectory && file.list()?.isEmpty() == true) {
-            deleteFile(file, true)
+        val fileDirItem = FileDirItem(mPath, mPath.getFilenameFromPath())
+        if (config.deleteEmptyFolders && !fileDirItem.isDownloadsFolder() && fileDirItem.isDirectory && fileDirItem.getProperFileCount(applicationContext, true) == 0) {
+            deleteFile(fileDirItem, true)
         }
     }
 
@@ -610,10 +611,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             }
             finish()
         } else {
-            val file = File(path)
-            val isVideo = file.isVideoFast()
+            val isVideo = path.isVideoFast()
             if (isVideo) {
-                openFile(Uri.fromFile(file), false)
+                openPath(path, false)
             } else {
                 Intent(this, ViewPagerActivity::class.java).apply {
                     putExtra(PATH, path)
@@ -666,8 +666,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
     }
 
-    override fun deleteFiles(files: ArrayList<File>) {
-        val filtered = files.filter { it.isImageVideoGif() } as ArrayList
+    override fun deleteFiles(fileDirItems: ArrayList<FileDirItem>) {
+        val filtered = fileDirItems.filter { it.path.isImageVideoGif() } as ArrayList
         deleteFiles(filtered) {
             if (!it) {
                 toast(R.string.unknown_error_occurred)

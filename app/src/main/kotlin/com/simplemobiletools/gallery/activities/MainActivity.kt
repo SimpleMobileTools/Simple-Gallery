@@ -20,6 +20,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_TAKEN
+import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.models.Release
 import com.simplemobiletools.commons.views.MyGridLayoutManager
@@ -233,7 +234,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             val newFolder = File(config.tempFolderPath)
             if (newFolder.exists() && newFolder.isDirectory) {
                 if (newFolder.list()?.isEmpty() == true) {
-                    deleteFile(newFolder, true)
+                    deleteFile(newFolder.toFileDirItem(applicationContext), true)
                 }
             }
             config.tempFolderPath = ""
@@ -352,7 +353,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     override fun deleteFolders(folders: ArrayList<File>) {
-        deleteFolders(folders) {
+        val fileDirItems = folders.map { FileDirItem(it.absolutePath, it.name, true) } as ArrayList<FileDirItem>
+        deleteFolders(fileDirItems) {
             runOnUiThread {
                 refreshItems()
             }
@@ -522,7 +524,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun fillIntentPath(resultData: Intent, resultIntent: Intent) {
         val path = resultData.data.path
         val uri = getFilePublicUri(File(path), BuildConfig.APPLICATION_ID)
-        val type = path.getMimeTypeFromPath()
+        val type = path.getMimeType()
         resultIntent.setDataAndTypeAndNormalize(uri, type)
         resultIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
     }

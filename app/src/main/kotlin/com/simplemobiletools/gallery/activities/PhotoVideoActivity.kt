@@ -59,7 +59,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     private fun checkIntent(savedInstanceState: Bundle? = null) {
         mUri = intent.data ?: return
         if (intent.extras?.containsKey(REAL_FILE_PATH) == true) {
-            mUri = intent.extras.get(REAL_FILE_PATH) as Uri
+            mUri = Uri.parse(intent.extras.get(REAL_FILE_PATH) as String)
         }
 
         mIsFromGallery = intent.getBooleanExtra(IS_FROM_GALLERY, false)
@@ -131,14 +131,15 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (mMedium == null)
+        if (mMedium == null) {
             return true
+        }
 
         when (item.itemId) {
-            R.id.menu_set_as -> setAs(mUri!!)
-            R.id.menu_open_with -> openFile(mUri!!, true)
-            R.id.menu_share -> shareUri(mUri!!)
-            R.id.menu_edit -> openEditor(mUri!!)
+            R.id.menu_set_as -> setAs(mUri!!.toString())
+            R.id.menu_open_with -> openPath(mUri!!.toString(), true)
+            R.id.menu_share -> sharePath(mUri!!.toString())
+            R.id.menu_edit -> openEditor(mUri!!.toString())
             R.id.menu_properties -> showProperties()
             else -> return super.onOptionsItemSelected(item)
         }

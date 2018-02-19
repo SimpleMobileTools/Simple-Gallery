@@ -11,6 +11,7 @@ import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.FastScroller
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.R
@@ -76,6 +77,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
     }
 
     override fun actionItemPressed(id: Int) {
+        if (selectedPositions.isEmpty()) {
+            return
+        }
+
         when (id) {
             R.id.cab_properties -> showProperties()
             R.id.cab_rename -> renameDir()
@@ -213,16 +218,14 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
     }
 
     private fun copyMoveTo(isCopyOperation: Boolean) {
-        if (selectedPositions.isEmpty())
-            return
-
-        val files = ArrayList<File>()
+        val paths = ArrayList<String>()
         selectedPositions.forEach {
             val dir = File(dirs[it].path)
-            files.addAll(dir.listFiles().filter { it.isFile && it.isImageVideoGif() })
+            paths.addAll(dir.list().filter { !activity.getIsPathDirectory(it) && it.isImageVideoGif() })
         }
 
-        activity.tryCopyMoveFilesTo(files, isCopyOperation) {
+        val fileDirItems = paths.map { FileDirItem(it, it.getFilenameFromPath()) } as ArrayList<FileDirItem>
+        activity.tryCopyMoveFilesTo(fileDirItems, isCopyOperation) {
             config.tempFolderPath = ""
             listener?.refreshItems()
             finishActMode()
@@ -236,10 +239,6 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
     }
 
     private fun deleteFiles() {
-        if (selectedPositions.isEmpty()) {
-            return
-        }
-
         val folders = ArrayList<File>(selectedPositions.size)
         val removeFolders = ArrayList<Directory>(selectedPositions.size)
 
@@ -253,7 +252,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
             }
         }
 
-        activity.handleSAFDialog(File(SAFPath)) {
+        activity.handleSAFDialog(SAFPath) {
             selectedPositions.sortedDescending().forEach {
                 val directory = dirs[it]
                 folders.add(File(directory.path))

@@ -12,6 +12,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
+import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.ResizeDialog
 import com.simplemobiletools.gallery.dialogs.SaveAsDialog
@@ -191,7 +192,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         try {
             Thread {
                 val file = File(path)
-                getFileOutputStream(file) {
+                val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
+                getFileOutputStream(fileDirItem) {
                     if (it != null) {
                         saveBitmap(file, bitmap, it)
                     } else {
@@ -227,7 +229,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun editWith() {
-        openEditor(uri)
+        openEditor(uri.toString())
         isEditingWithThirdParty = true
     }
 

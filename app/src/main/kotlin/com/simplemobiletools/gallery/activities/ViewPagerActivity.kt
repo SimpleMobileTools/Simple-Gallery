@@ -33,6 +33,7 @@ import com.simplemobiletools.commons.helpers.IS_FROM_GALLERY
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REQUEST_EDIT_IMAGE
 import com.simplemobiletools.commons.helpers.REQUEST_SET_AS
+import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
@@ -180,10 +181,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
-        val file = File(mPath)
-        if (!file.exists() && file.length() == 0L) {
+        if (!getDoesFilePathExist(mPath)) {
             Thread {
-                deleteFromMediaStore(file)
+                deleteFromMediaStore(mPath)
             }.start()
             finish()
             return
@@ -201,7 +201,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         showSystemUI()
 
-        mDirectory = file.parent
+        mDirectory = mPath.getParentPath().trimEnd('/')
         supportActionBar?.title = mPath.getFilenameFromPath()
 
         view_pager.onGlobalLayout {
@@ -272,18 +272,18 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return true
 
         when (item.itemId) {
-            R.id.menu_set_as -> setAs(Uri.fromFile(getCurrentFile()))
+            R.id.menu_set_as -> setAs(getCurrentPath())
             R.id.menu_slideshow -> initSlideshow()
             R.id.menu_copy_to -> copyMoveTo(true)
             R.id.menu_move_to -> copyMoveTo(false)
-            R.id.menu_open_with -> openFile(Uri.fromFile(getCurrentFile()), true)
+            R.id.menu_open_with -> openPath(getCurrentPath(), true)
             R.id.menu_hide -> toggleFileVisibility(true)
             R.id.menu_unhide -> toggleFileVisibility(false)
             R.id.menu_share_1 -> shareMedium(getCurrentMedium()!!)
             R.id.menu_share_2 -> shareMedium(getCurrentMedium()!!)
             R.id.menu_delete -> checkDeleteConfirmation()
             R.id.menu_rename -> renameFile()
-            R.id.menu_edit -> openEditor(Uri.fromFile(getCurrentFile()))
+            R.id.menu_edit -> openEditor(getCurrentPath())
             R.id.menu_properties -> showProperties()
             R.id.menu_show_on_map -> showOnMap()
             R.id.menu_rotate_right -> rotateImage(90)
@@ -462,8 +462,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun copyMoveTo(isCopyOperation: Boolean) {
-        val files = ArrayList<File>(1).apply { add(getCurrentFile()) }
-        tryCopyMoveFilesTo(files, isCopyOperation) {
+        val currPath = getCurrentPath()
+        val fileDirItems = arrayListOf(FileDirItem(currPath, currPath.getFilenameFromPath()))
+        tryCopyMoveFilesTo(fileDirItems, isCopyOperation) {
             config.tempFolderPath = ""
             if (!isCopyOperation) {
                 refreshViewPager()
@@ -472,13 +473,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun toggleFileVisibility(hide: Boolean) {
-        toggleFileVisibility(getCurrentFile(), hide) {
-            val newFileName = it.absolutePath.getFilenameFromPath()
+        toggleFileVisibility(getCurrentPath(), hide) {
+            val newFileName = it.getFilenameFromPath()
             supportActionBar?.title = newFileName
 
             getCurrentMedium()!!.apply {
                 name = newFileName
-                path = it.absolutePath
+                path = it
                 getCurrentMedia()[mPos] = this
             }
             invalidateOptionsMenu()
@@ -508,8 +509,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun saveImageAs() {
         val currPath = getCurrentPath()
         SaveAsDialog(this, currPath, false) {
-            val selectedFile = File(it)
-            handleSAFDialog(selectedFile) {
+            handleSAFDialog(it) {
                 Thread {
                     saveImageToFile(currPath, it)
                 }.start()
@@ -523,7 +523,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val tmpFile = File(filesDir, ".tmp_${newPath.getFilenameFromPath()}")
         try {
             val bitmap = BitmapFactory.decodeFile(oldPath)
-            getFileOutputStream(tmpFile) {
+            getFileOutputStream(tmpFile.toFileDirItem(applicationContext)) {
                 if (it == null) {
                     toast(R.string.unknown_error_occurred)
                     return@getFileOutputStream
@@ -536,16 +536,16 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     saveFile(tmpFile, bitmap, it as FileOutputStream)
                 }
 
-                if (tmpFile.length() > 0 && newFile.exists()) {
-                    deleteFile(newFile)
+                if (tmpFile.length() > 0 && getDoesFilePathExist(newPath)) {
+                    deleteFile(FileDirItem(newPath, newPath.getFilenameFromPath()))
                 }
                 copyFile(tmpFile, newFile)
-                scanFile(newFile)
+                scanPath(newPath)
                 toast(R.string.file_saved)
 
                 if (config.keepLastModified) {
                     newFile.setLastModified(oldLastModified)
-                    updateLastModified(newFile, oldLastModified)
+                    updateLastModified(newPath, oldLastModified)
                 }
 
                 it.flush()
@@ -565,7 +565,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         } catch (e: Exception) {
             showErrorToast(e)
         } finally {
-            deleteFile(tmpFile)
+            deleteFile(FileDirItem(newPath, newPath.getFilenameFromPath()))
         }
     }
 
@@ -573,7 +573,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         var inputStream: InputStream? = null
         var out: OutputStream? = null
         try {
-            val fileDocument = if (isPathOnSD(destination.absolutePath)) getFileDocument(destination.parent) else null
+            val fileDocument = if (isPathOnSD(destination.absolutePath)) getDocumentFile(destination.parent) else null
             out = getFileOutputStreamSync(destination.absolutePath, source.getMimeType(), fileDocument)
             inputStream = FileInputStream(source)
             inputStream.copyTo(out!!)
@@ -735,7 +735,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun deleteConfirmed() {
-        deleteFile(File(getCurrentMedia()[mPos].path)) {
+        val path = getCurrentMedia()[mPos].path
+        deleteFile(FileDirItem(path, path.getFilenameFromPath())) {
             refreshViewPager()
         }
     }
@@ -811,9 +812,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun deleteDirectoryIfEmpty() {
-        val file = File(mDirectory)
-        if (config.deleteEmptyFolders && !file.isDownloadsFolder() && file.isDirectory && file.list()?.isEmpty() == true) {
-            deleteFile(file, true)
+        val fileDirItem = FileDirItem(mDirectory, mDirectory.getFilenameFromPath(), getIsPathDirectory(mDirectory))
+        if (config.deleteEmptyFolders && !fileDirItem.isDownloadsFolder() && fileDirItem.isDirectory && fileDirItem.getProperFileCount(applicationContext, true) == 0) {
+            deleteFile(fileDirItem, true)
         }
 
         scanPath(mDirectory)
@@ -821,7 +822,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun checkOrientation() {
         if (!mIsOrientationLocked && config.screenRotation == ROTATE_BY_ASPECT_RATIO) {
-            val res = getCurrentFile().getResolution()
+            val res = getCurrentPath().getResolution() ?: return
             if (res.x > res.y) {
                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
             } else if (res.x < res.y) {

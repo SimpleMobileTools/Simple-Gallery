@@ -1,6 +1,5 @@
 package com.simplemobiletools.gallery.adapters
 
-import android.net.Uri
 import android.os.Handler
 import android.os.Looper
 import android.view.Menu
@@ -13,7 +12,9 @@ import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.applyColorFilter
 import com.simplemobiletools.commons.extensions.beVisibleIf
+import com.simplemobiletools.commons.extensions.getFilenameFromPath
 import com.simplemobiletools.commons.extensions.isActivityDestroyed
+import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.FastScroller
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.R
@@ -23,7 +24,6 @@ import com.simplemobiletools.gallery.helpers.VIEW_TYPE_LIST
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.photo_video_item_grid.view.*
 import java.io.File
-import java.util.*
 
 class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
                    val allowMultiplePicks: Boolean, recyclerView: MyRecyclerView, fastScroller: FastScroller? = null,
@@ -86,6 +86,10 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     override fun actionItemPressed(id: Int) {
+        if (selectedPositions.isEmpty()) {
+            return
+        }
+
         when (id) {
             R.id.cab_confirm_selection -> confirmSelection()
             R.id.cab_properties -> showProperties()
@@ -97,8 +101,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
             R.id.cab_copy_to -> copyMoveTo(true)
             R.id.cab_move_to -> copyMoveTo(false)
             R.id.cab_select_all -> selectAll()
-            R.id.cab_open_with -> activity.openFile(Uri.fromFile(getCurrentFile()), true)
-            R.id.cab_set_as -> activity.setAs(Uri.fromFile(getCurrentFile()))
+            R.id.cab_open_with -> activity.openPath(getCurrentPath(), true)
+            R.id.cab_set_as -> activity.setAs(getCurrentPath())
             R.id.cab_delete -> checkDeleteConfirmation()
         }
     }
@@ -145,7 +149,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     private fun renameFile() {
-        RenameItemDialog(activity, getCurrentFile().absolutePath) {
+        RenameItemDialog(activity, getCurrentPath()) {
             activity.runOnUiThread {
                 listener?.refreshItems()
                 finishActMode()
@@ -154,15 +158,14 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     private fun editFile() {
-        activity.openEditor(Uri.fromFile(getCurrentFile()))
+        activity.openEditor(getCurrentPath())
         finishActMode()
     }
 
     private fun toggleFileVisibility(hide: Boolean) {
         Thread {
             getSelectedMedia().forEach {
-                val oldFile = File(it.path)
-                activity.toggleFileVisibility(oldFile, hide)
+                activity.toggleFileVisibility(it.path, hide)
             }
             activity.runOnUiThread {
                 listener?.refreshItems()
@@ -180,10 +183,11 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     private fun copyMoveTo(isCopyOperation: Boolean) {
-        val files = ArrayList<File>()
-        selectedPositions.forEach { files.add(File(media[it].path)) }
+        val paths = ArrayList<String>()
+        selectedPositions.forEach { paths.add(media[it].path) }
 
-        activity.tryCopyMoveFilesTo(files, isCopyOperation) {
+        val fileDirItems = paths.map { FileDirItem(it, it.getFilenameFromPath()) } as ArrayList
+        activity.tryCopyMoveFilesTo(fileDirItems, isCopyOperation) {
             config.tempFolderPath = ""
             if (!isCopyOperation) {
                 listener?.refreshItems()
@@ -211,14 +215,12 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         deleteFiles()
     }
 
-    private fun getCurrentFile() = File(media[selectedPositions.first()].path)
+    private fun getCurrentPath() = media[selectedPositions.first()].path
+
+    private fun getCurrentFile() = File(getCurrentPath())
 
     private fun deleteFiles() {
-        if (selectedPositions.isEmpty()) {
-            return
-        }
-
-        val files = ArrayList<File>(selectedPositions.size)
+        val fileDirItems = ArrayList<FileDirItem>(selectedPositions.size)
         val removeMedia = ArrayList<Medium>(selectedPositions.size)
 
         if (media.size <= selectedPositions.first()) {
@@ -227,15 +229,15 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         }
 
         val SAFPath = media[selectedPositions.first()].path
-        activity.handleSAFDialog(File(SAFPath)) {
+        activity.handleSAFDialog(SAFPath) {
             selectedPositions.sortedDescending().forEach {
                 val medium = media[it]
-                files.add(File(medium.path))
+                fileDirItems.add(FileDirItem(medium.path, medium.name))
                 removeMedia.add(medium)
             }
 
             media.removeAll(removeMedia)
-            listener?.deleteFiles(files)
+            listener?.deleteFiles(fileDirItems)
             removeSelectedItems()
         }
     }
@@ -314,7 +316,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     interface MediaOperationsListener {
         fun refreshItems()
 
-        fun deleteFiles(files: ArrayList<File>)
+        fun deleteFiles(fileDirItems: ArrayList<FileDirItem>)
 
         fun selectedPaths(paths: ArrayList<String>)
     }

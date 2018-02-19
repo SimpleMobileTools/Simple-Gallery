@@ -12,7 +12,6 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.removeNoMedia
 import kotlinx.android.synthetic.main.item_manage_folder.view.*
-import java.io.File
 import java.util.*
 
 class ManageHiddenFoldersAdapter(activity: BaseSimpleActivity, var folders: ArrayList<String>, val listener: RefreshRecyclerViewListener?,
@@ -70,7 +69,7 @@ class ManageHiddenFoldersAdapter(activity: BaseSimpleActivity, var folders: Arra
         }
 
         if (sdCardPaths.isNotEmpty()) {
-            activity.handleSAFDialog(File(sdCardPaths.first())) {
+            activity.handleSAFDialog(sdCardPaths.first()) {
                 unhideFolders(removeFolders)
             }
         } else {

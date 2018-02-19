@@ -2,7 +2,6 @@ package com.simplemobiletools.gallery.extensions
 
 import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -17,6 +16,7 @@ import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
+import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
@@ -32,34 +32,33 @@ import pl.droidsonroids.gif.GifDrawable
 import java.io.File
 import java.util.*
 
-fun Activity.shareUri(uri: Uri) {
-    shareUri(uri, BuildConfig.APPLICATION_ID)
+fun Activity.sharePath(path: String) {
+    sharePathIntent(path, BuildConfig.APPLICATION_ID)
 }
 
-fun Activity.shareUris(uris: ArrayList<Uri>) {
-    shareUris(uris, BuildConfig.APPLICATION_ID)
+fun Activity.sharePaths(paths: ArrayList<String>) {
+    sharePathsIntent(paths, BuildConfig.APPLICATION_ID)
 }
 
 fun Activity.shareMedium(medium: Medium) {
-    val file = File(medium.path)
-    shareUri(Uri.fromFile(file))
+    sharePath(medium.path)
 }
 
 fun Activity.shareMedia(media: List<Medium>) {
-    val uris = media.map { Uri.fromFile(File(it.path)) } as ArrayList
-    shareUris(uris)
+    val paths = media.map { it.path } as ArrayList
+    sharePaths(paths)
 }
 
-fun Activity.setAs(uri: Uri) {
-    setAs(uri, BuildConfig.APPLICATION_ID)
+fun Activity.setAs(path: String) {
+    setAsIntent(path, BuildConfig.APPLICATION_ID)
 }
 
-fun Activity.openFile(uri: Uri, forceChooser: Boolean) {
-    openFile(uri, forceChooser, BuildConfig.APPLICATION_ID)
+fun Activity.openPath(path: String, forceChooser: Boolean) {
+    openPathIntent(path, forceChooser, BuildConfig.APPLICATION_ID)
 }
 
-fun Activity.openEditor(uri: Uri) {
-    openEditor(uri, BuildConfig.APPLICATION_ID)
+fun Activity.openEditor(path: String) {
+    openEditorIntent(path, BuildConfig.APPLICATION_ID)
 }
 
 fun Activity.launchCamera() {
@@ -100,8 +99,8 @@ fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
         return
 
     if (needsStupidWritePermissions(path)) {
-        handleSAFDialog(file) {
-            val fileDocument = getFileDocument(path)
+        handleSAFDialog(file.absolutePath) {
+            val fileDocument = getDocumentFile(path)
             if (fileDocument?.exists() == true && fileDocument.isDirectory) {
                 fileDocument.createFile("", NOMEDIA)
             } else {
@@ -123,22 +122,23 @@ fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
 
 fun BaseSimpleActivity.removeNoMedia(path: String, callback: (() -> Unit)? = null) {
     val file = File(path, NOMEDIA)
-    deleteFile(file) {
+    deleteFile(file.toFileDirItem(applicationContext)) {
         callback?.invoke()
     }
 }
 
-fun BaseSimpleActivity.toggleFileVisibility(oldFile: File, hide: Boolean, callback: ((newFile: File) -> Unit)? = null) {
-    val path = oldFile.parent
-    var filename = oldFile.name
+fun BaseSimpleActivity.toggleFileVisibility(oldPath: String, hide: Boolean, callback: ((newPath: String) -> Unit)? = null) {
+    val path = oldPath.getParentPath()
+    var filename = oldPath.getFilenameFromPath()
     filename = if (hide) {
         ".${filename.trimStart('.')}"
     } else {
         filename.substring(1, filename.length)
     }
-    val newFile = File(path, filename)
-    renameFile(oldFile, newFile) {
-        callback?.invoke(newFile)
+
+    val newPath = "$path/$filename"
+    renameFile(oldPath, newPath) {
+        callback?.invoke(newPath)
     }
 }
 
@@ -169,15 +169,15 @@ fun Activity.loadImage(type: Int, path: String, target: MySquareImageView, horiz
     }
 }
 
-fun BaseSimpleActivity.tryCopyMoveFilesTo(files: ArrayList<File>, isCopyOperation: Boolean, callback: () -> Unit) {
-    if (files.isEmpty()) {
+fun BaseSimpleActivity.tryCopyMoveFilesTo(fileDirItems: ArrayList<FileDirItem>, isCopyOperation: Boolean, callback: () -> Unit) {
+    if (fileDirItems.isEmpty()) {
         toast(R.string.unknown_error_occurred)
         return
     }
 
-    val source = if (files[0].isFile) files[0].parent else files[0].absolutePath
+    val source = fileDirItems[0].getParentPath()
     PickDirectoryDialog(this, source) {
-        copyMoveFilesTo(files, source.trimEnd('/'), it, isCopyOperation, true, config.shouldShowHidden, callback)
+        copyMoveFilesTo(fileDirItems, source.trimEnd('/'), it, isCopyOperation, true, config.shouldShowHidden, callback)
     }
 }
 

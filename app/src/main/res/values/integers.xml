@@ -3,4 +3,6 @@
     <integer name="directory_columns_horizontal_scroll">3</integer>
     <integer name="media_columns_vertical_scroll">3</integer>
     <integer name="media_columns_horizontal_scroll">4</integer>
+
+    <integer name="default_sorting">1026</integer>
 </resources>

@@ -45,7 +45,7 @@ abstract class ViewPagerFragment : Fragment() {
         }
 
         if (detailsFlag and EXT_RESOLUTION != 0) {
-            file.getResolution().formatAsResolution().let { if (it.isNotEmpty()) details.appendln(it) }
+            file.absolutePath.getResolution()?.formatAsResolution().let { if (it?.isNotEmpty() == true) details.appendln(it) }
         }
 
         if (detailsFlag and EXT_LAST_MODIFIED != 0) {

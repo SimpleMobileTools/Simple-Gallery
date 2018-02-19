@@ -16,23 +16,19 @@ class Config(context: Context) : BaseConfig(context) {
         fun newInstance(context: Context) = Config(context)
     }
 
-    var fileSorting: Int
-        get() = prefs.getInt(SORT_ORDER, SORT_BY_DATE_MODIFIED or SORT_DESCENDING)
-        set(order) = prefs.edit().putInt(SORT_ORDER, order).apply()
-
     var directorySorting: Int
         get() = prefs.getInt(DIRECTORY_SORT_ORDER, SORT_BY_DATE_MODIFIED or SORT_DESCENDING)
         set(order) = prefs.edit().putInt(DIRECTORY_SORT_ORDER, order).apply()
 
     fun saveFileSorting(path: String, value: Int) {
         if (path.isEmpty()) {
-            fileSorting = value
+            sorting = value
         } else {
             prefs.edit().putInt(SORT_FOLDER_PREFIX + path.toLowerCase(), value).apply()
         }
     }
 
-    fun getFileSorting(path: String) = prefs.getInt(SORT_FOLDER_PREFIX + path.toLowerCase(), fileSorting)
+    fun getFileSorting(path: String) = prefs.getInt(SORT_FOLDER_PREFIX + path.toLowerCase(), sorting)
 
     fun removeFileSorting(path: String) {
         prefs.edit().remove(SORT_FOLDER_PREFIX + path.toLowerCase()).apply()

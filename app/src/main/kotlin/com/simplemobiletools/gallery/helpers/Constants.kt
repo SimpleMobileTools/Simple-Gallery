@@ -1,7 +1,6 @@
 package com.simplemobiletools.gallery.helpers
 
 // shared preferences
-const val SORT_ORDER = "sort_order"
 const val DIRECTORY_SORT_ORDER = "directory_sort_order"
 const val SORT_FOLDER_PREFIX = "sort_folder_"
 const val SHOW_HIDDEN_MEDIA = "show_hidden_media"
