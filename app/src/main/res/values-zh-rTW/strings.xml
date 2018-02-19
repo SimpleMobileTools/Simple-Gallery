@@ -144,24 +144,24 @@
     <string name="extended_details">詳細資訊</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
-    <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
-        The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
-    <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do?</string>
-    <string name="faq_2_text">You can solve it in 2 ways. You can either reinstall the app, or find the app in your device settings and select \"Clear data\". It will reset all your settings, it will not remove any media files.</string>
-    <string name="faq_3_title">How can I make an album always appear at the top?</string>
-    <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actionmenu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
-    <string name="faq_4_title">How can I fast-forward videos?</string>
-    <string name="faq_4_text">You can click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
-    <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
-    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
-    <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
-    <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
-    <string name="faq_7_title">A folder with images isn\'t showing up, what can I do?</string>
-    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
-    <string name="faq_8_title">What if I want just a few particular folders visible?</string>
-    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
-        That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
+    <string name="faq_1_title">我如何將簡易相簿設為預設相簿?</string>
+    <string name="faq_1_text">首先你必須先在裝置設定中應用程式部分尋找目前預設相簿，找到一個像是\"預設開啟(Open by default)\"的按鈕，點下去，然後選擇\"清除預設(Clear defaults)\"。
+		下次你要開啟圖片或影片時應該會看到程式選擇器，你可以在那裡選擇簡易相簿並設為預設程式。</string>
+    <string name="faq_2_title">我用密碼鎖住了這應用程式，但我忘記了。怎麼辦?</string>
+    <string name="faq_2_text">有兩個解決方法。你可以重新安裝應用程式，或者在裝置設定中找到這程式然後選擇\"清除資料(Clear data)\"。這將重置你程式內所有設定，不會移除任何媒體檔案。</string>
+    <string name="faq_3_title">我如何讓某個相冊總是出現在頂端?</string>
+    <string name="faq_3_text">你可以長按想要的相冊，然後在操作選單中選擇[圖釘]圖示，就會釘選於頂端。你也能釘選多個資料夾，釘選的項目會依預設的排序方法來排序。</string>
+    <string name="faq_4_title">我如何快轉影片?</string>
+    <string name="faq_4_text">你可以點擊進度條附近的當前或總時長文字，影片就會快轉或倒轉。</string>
+    <string name="faq_5_title">隱藏和排除資料夾，兩者有什麼不同?</string>
+    <string name="faq_5_text">[排除]只在簡易相簿中避免顯示出來；而[隱藏]則作用於整個系統，資料夾也會被其他相簿隱藏。這是藉由在指定資料夾內建立一個\".nomedia\"空白檔案來進行隱藏，你之後也能用任何檔案管理器移除。</string>
+    <string name="faq_6_title">為什麼有些音樂專輯封面或貼圖的資料夾會出現?</string>
+    <string name="faq_6_text">這情況可能發生，你會看到一些異常的相冊出現。你可以長按再選擇[排除]來輕易排除他們。在下個對話框，你可以選擇上層資料夾，有可能讓其他相關相冊也避免出現。</string>
+    <string name="faq_7_title">有一個圖片資料夾沒有顯示出來，怎麼辦?</string>
+    <string name="faq_7_text">可能有多種原因，不過很好解決。只要到[設定] -> [管理包含資料夾]，選擇[加號]然後導引到需要的資料夾。</string>
+    <string name="faq_8_title">如果我只想看到幾個特定的資料夾，怎麼做?</string>
+    <string name="faq_8_text">在[包含資料夾]內添加資料夾並不會自動排除任何東西。你能做的是到[設定] -> [管理排除資料夾]，排除根目錄 \"/\"，然後在[設定] -> [管理包含資料夾]添加想要的資料夾。
+		那樣的話就只有選擇的資料夾可見。因為排除和包含都是遞迴的，如果一個資料夾被排除又被包含，則會顯示出來。</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
