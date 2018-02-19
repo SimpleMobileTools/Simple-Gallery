@@ -96,6 +96,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         mIsPasswordProtectionPending = config.appPasswordProtectionOn
+        setupLatestMediaId()
     }
 
     override fun onStart() {
@@ -553,9 +554,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun gotDirectories(newDirs: ArrayList<Directory>, isFromCache: Boolean) {
         if (!isFromCache) {
-            Thread {
-                mLatestMediaId = getLatestMediaId()
-            }.start()
+            setupLatestMediaId()
         }
 
         val dirs = getSortedDirectories(newDirs)
@@ -632,6 +631,12 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun getBubbleTextItem(index: Int) = getRecyclerAdapter().dirs.getOrNull(index)?.getBubbleText() ?: ""
+
+    private fun setupLatestMediaId() {
+        Thread {
+            mLatestMediaId = getLatestMediaId()
+        }.start()
+    }
 
     private fun checkLastMediaChanged() {
         if (isActivityDestroyed())
