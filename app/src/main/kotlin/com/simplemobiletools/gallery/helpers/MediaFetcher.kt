@@ -4,10 +4,7 @@ import android.content.Context
 import android.database.Cursor
 import android.provider.MediaStore
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
-import com.simplemobiletools.commons.helpers.SORT_BY_NAME
-import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
-import com.simplemobiletools.commons.helpers.SORT_DESCENDING
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.containsNoMedia
 import com.simplemobiletools.gallery.models.Medium
@@ -195,7 +192,11 @@ class MediaFetcher(val context: Context) {
         }
 
         config.includedFolders.filter { it.isNotEmpty() && (curPath.isEmpty() || it == curPath) }.forEach {
-            getMediaInFolder(it, curMedia, isPickImage, isPickVideo, filterMedia)
+            if (context.isPathOnOTG(it)) {
+                getMediaOnOTG(it, curMedia, isPickImage, isPickVideo, filterMedia)
+            } else {
+                getMediaInFolder(it, curMedia, isPickImage, isPickVideo, filterMedia)
+            }
         }
 
         if (isThirdPartyIntent && curPath.isNotEmpty() && curMedia.isEmpty()) {
@@ -210,11 +211,14 @@ class MediaFetcher(val context: Context) {
 
     private fun groupDirectories(media: ArrayList<Medium>): HashMap<String, ArrayList<Medium>> {
         val directories = LinkedHashMap<String, ArrayList<Medium>>()
+        val hasOTG = context.hasOTGConnected() && context.config.OTGBasePath.isNotEmpty()
         for (medium in media) {
-            if (shouldStop)
+            if (shouldStop) {
                 break
+            }
 
-            val parentDir = File(medium.path).parent?.toLowerCase() ?: continue
+            val parentDir = (if (hasOTG && medium.path.startsWith(OTG_PATH)) medium.path.getParentPath().toLowerCase() else File(medium.path).parent?.toLowerCase())
+                    ?: continue
             if (directories.containsKey(parentDir)) {
                 directories[parentDir]!!.add(medium)
             } else {
@@ -260,8 +264,9 @@ class MediaFetcher(val context: Context) {
     private fun getMediaInFolder(folder: String, curMedia: ArrayList<Medium>, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int) {
         val files = File(folder).listFiles() ?: return
         for (file in files) {
-            if (shouldStop)
+            if (shouldStop) {
                 break
+            }
 
             val filename = file.name
             val isImage = filename.isImageFast()
@@ -298,6 +303,52 @@ class MediaFetcher(val context: Context) {
             if (!isAlreadyAdded) {
                 curMedia.add(medium)
                 context.scanPath(file.absolutePath)
+            }
+        }
+    }
+
+    private fun getMediaOnOTG(folder: String, curMedia: ArrayList<Medium>, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int) {
+        val files = context.getDocumentFile(folder)?.listFiles() ?: return
+        for (file in files) {
+            if (shouldStop) {
+                return
+            }
+
+            val filename = file.name
+            val isImage = filename.isImageFast()
+            val isVideo = if (isImage) false else filename.isVideoFast()
+            val isGif = if (isImage || isVideo) false else filename.isGif()
+
+            if (!isImage && !isVideo && !isGif)
+                continue
+
+            if (isVideo && (isPickImage || filterMedia and VIDEOS == 0))
+                continue
+
+            if (isImage && (isPickVideo || filterMedia and IMAGES == 0))
+                continue
+
+            if (isGif && filterMedia and GIFS == 0)
+                continue
+
+            val size = file.length()
+            if (size <= 0L && !file.exists())
+                continue
+
+            val dateTaken = file.lastModified()
+            val dateModified = file.lastModified()
+
+            val type = when {
+                isImage -> TYPE_IMAGE
+                isVideo -> TYPE_VIDEO
+                else -> TYPE_GIF
+            }
+
+            val path = file.uri.toString().replaceFirst("${context.config.OTGBasePath}%3A", OTG_PATH)
+            val medium = Medium(filename, path, dateModified, dateTaken, size, type)
+            val isAlreadyAdded = curMedia.any { it.path == path }
+            if (!isAlreadyAdded) {
+                curMedia.add(medium)
             }
         }
     }
