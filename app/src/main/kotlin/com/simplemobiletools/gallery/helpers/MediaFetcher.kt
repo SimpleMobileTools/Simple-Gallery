@@ -217,7 +217,7 @@ class MediaFetcher(val context: Context) {
             if (directories.containsKey(parentDir)) {
                 directories[parentDir]!!.add(medium)
             } else {
-                directories.put(parentDir, arrayListOf(medium))
+                directories[parentDir] = arrayListOf(medium)
             }
         }
         return directories

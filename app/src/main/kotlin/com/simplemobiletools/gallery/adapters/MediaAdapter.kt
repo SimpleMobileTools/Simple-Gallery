@@ -23,7 +23,6 @@ import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.VIEW_TYPE_LIST
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.photo_video_item_grid.view.*
-import java.io.File
 
 class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
                    val allowMultiplePicks: Boolean, recyclerView: MyRecyclerView, fastScroller: FastScroller? = null,
@@ -216,8 +215,6 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     private fun getCurrentPath() = media[selectedPositions.first()].path
-
-    private fun getCurrentFile() = File(getCurrentPath())
 
     private fun deleteFiles() {
         val fileDirItems = ArrayList<FileDirItem>(selectedPositions.size)

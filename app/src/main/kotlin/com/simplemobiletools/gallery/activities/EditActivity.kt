@@ -63,7 +63,14 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
 
         saveUri = when {
-            intent.extras?.containsKey(REAL_FILE_PATH) == true -> Uri.fromFile(File(intent.extras.get(REAL_FILE_PATH) as String))
+            intent.extras?.containsKey(REAL_FILE_PATH) == true -> {
+                val realPath = intent.extras.get(REAL_FILE_PATH) as String
+                if (isPathOnOTG(realPath)) {
+                    Uri.parse(realPath)
+                } else {
+                    Uri.fromFile(File(realPath))
+                }
+            }
             intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true -> intent.extras!!.get(MediaStore.EXTRA_OUTPUT) as Uri
             else -> uri
         }
