@@ -162,6 +162,8 @@
     <string name="faq_8_title">Čo v prípade, ak chcem mať zobrazených iba pár priečinkov?</string>
     <string name="faq_8_text">Pridanie priečinka medzi Pridané Priečinky automaticky nevylúči ostatné. Môžete ale ísť do Nastavenia -> Spravovať vylúčené priečinky a zvoliť Koreňový priečinok \"/\", následne pridať žiadané priečinky v Nastavenia -> Spravovať pridané priečinky.
         To spôsobí, že budú zobrazené iba vyžiadané priečinky, keďže aj vylúčenie, aj pridanie fungujú rekurzívne a ak je priečinok vylúčený, aj pridaný, bude viditeľný.</string>
+    <string name="faq_9_title">Fotky na celú obrazovku majú zhoršenú kvalitu, viem ju nejak zlepšiť?</string>
+    <string name="faq_9_text">Áno, v nastaveniach je prepínač s textom \"Nahradiť hlboko priblížiteľné obrázky s obrázkami s lepšou kvalitou\", môžete ho skúsiť. Spôsobí to vyššiu kvalitu obrázkov, po priblížení sa ale budú rozmazávať oveľa skôr.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

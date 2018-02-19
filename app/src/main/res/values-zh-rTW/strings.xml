@@ -162,6 +162,8 @@
     <string name="faq_8_title">如果我只想看到幾個特定的資料夾，怎麼做?</string>
     <string name="faq_8_text">在[包含資料夾]內添加資料夾並不會自動排除任何東西。你能做的是到[設定] -> [管理排除資料夾]，排除根目錄 \"/\"，然後在[設定] -> [管理包含資料夾]添加想要的資料夾。
 		那樣的話就只有選擇的資料夾可見。因為排除和包含都是遞迴的，如果一個資料夾被排除又被包含，則會顯示出來。</string>
+    <string name="faq_9_title">Fullscreen images have weird artifacts, can I somehow improve the quality?</string>
+    <string name="faq_9_text">Yea, there is a toggle in Settings saying \"Replace deep zoomable images with better quality ones\", you can use that. It will improve the quality of the images, but they will get blurred once you try zooming in too much.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
