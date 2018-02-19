@@ -334,15 +334,17 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         if (allowHorizontalScroll) {
             media_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
             media_horizontal_fastscroller.setViews(media_grid, media_refresh_layout) {
-                media_horizontal_fastscroller.updateBubbleText(mMedia[it].getBubbleText())
+                media_horizontal_fastscroller.updateBubbleText(getBubbleTextItem(it))
             }
         } else {
             media_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
             media_vertical_fastscroller.setViews(media_grid, media_refresh_layout) {
-                media_vertical_fastscroller.updateBubbleText(mMedia[it].getBubbleText())
+                media_vertical_fastscroller.updateBubbleText(getBubbleTextItem(it))
             }
         }
     }
+
+    private fun getBubbleTextItem(index: Int) = getRecyclerAdapter().media.getOrNull(index)?.getBubbleText() ?: ""
 
     private fun checkLastMediaChanged() {
         if (isActivityDestroyed())

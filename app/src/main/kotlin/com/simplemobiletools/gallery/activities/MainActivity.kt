@@ -619,15 +619,17 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         if (allowHorizontalScroll) {
             directories_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
             directories_horizontal_fastscroller.setViews(directories_grid, directories_refresh_layout) {
-                directories_horizontal_fastscroller.updateBubbleText(mDirs[it].getBubbleText())
+                directories_horizontal_fastscroller.updateBubbleText(getBubbleTextItem(it))
             }
         } else {
             directories_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
             directories_vertical_fastscroller.setViews(directories_grid, directories_refresh_layout) {
-                directories_vertical_fastscroller.updateBubbleText(mDirs[it].getBubbleText())
+                directories_vertical_fastscroller.updateBubbleText(getBubbleTextItem(it))
             }
         }
     }
+
+    private fun getBubbleTextItem(index: Int) = getRecyclerAdapter().dirs.getOrNull(index)?.getBubbleText() ?: ""
 
     private fun checkLastMediaChanged() {
         if (isActivityDestroyed())
