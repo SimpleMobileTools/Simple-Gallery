@@ -587,7 +587,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val matrix = Matrix()
         matrix.postRotate(mRotationDegrees)
         val bmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
-        bmp.compress(file.getCompressionFormat(), 90, out)
+        bmp.compress(file.absolutePath.getCompressionFormat(), 90, out)
     }
 
     private fun saveRotation(source: File, destination: File) {

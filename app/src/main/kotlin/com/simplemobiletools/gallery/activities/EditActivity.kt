@@ -12,6 +12,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
+import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.ResizeDialog
@@ -61,10 +62,10 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             return
         }
 
-        saveUri = if (intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true) {
-            intent.extras!!.get(MediaStore.EXTRA_OUTPUT) as Uri
-        } else {
-            uri
+        saveUri = when {
+            intent.extras?.containsKey(REAL_FILE_PATH) == true -> Uri.fromFile(File(intent.extras.get(REAL_FILE_PATH) as String))
+            intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true -> intent.extras!!.get(MediaStore.EXTRA_OUTPUT) as Uri
+            else -> uri
         }
 
         isCropIntent = intent.extras?.get(CROP) == "true"
@@ -172,13 +173,15 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     saveBitmapToFile(result.bitmap, it)
                 }
             } else if (saveUri.scheme == "content") {
-                val newPath = applicationContext.getRealPathFromURI(saveUri) ?: ""
-                if (!newPath.isEmpty()) {
-                    SaveAsDialog(this, newPath, true) {
-                        saveBitmapToFile(result.bitmap, it)
-                    }
-                } else {
-                    toast(R.string.image_editing_failed)
+                var newPath = applicationContext.getRealPathFromURI(saveUri) ?: ""
+                var shouldAppendFilename = true
+                if (newPath.isEmpty()) {
+                    newPath = "$internalStoragePath/${getCurrentFormattedDateTime()}.${saveUri.toString().getFilenameExtension()}"
+                    shouldAppendFilename = false
+                }
+
+                SaveAsDialog(this, newPath, shouldAppendFilename) {
+                    saveBitmapToFile(result.bitmap, it)
                 }
             } else {
                 toast(R.string.unknown_file_location)
@@ -209,11 +212,12 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun saveBitmap(file: File, bitmap: Bitmap, out: OutputStream) {
+        toast(R.string.saving)
         if (resizeWidth > 0 && resizeHeight > 0) {
             val resized = Bitmap.createScaledBitmap(bitmap, resizeWidth, resizeHeight, false)
-            resized.compress(file.getCompressionFormat(), 90, out)
+            resized.compress(file.absolutePath.getCompressionFormat(), 90, out)
         } else {
-            bitmap.compress(file.getCompressionFormat(), 90, out)
+            bitmap.compress(file.absolutePath.getCompressionFormat(), 90, out)
         }
         setResult(Activity.RESULT_OK, intent)
         scanFinalPath(file.absolutePath)
