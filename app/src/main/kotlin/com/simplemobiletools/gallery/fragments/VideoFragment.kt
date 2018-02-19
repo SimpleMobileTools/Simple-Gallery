@@ -471,6 +471,10 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     }
 
     private fun skip(forward: Boolean) {
+        if (mMediaPlayer == null) {
+            return
+        }
+
         val curr = mMediaPlayer!!.currentPosition
         val twoPercents = mMediaPlayer!!.duration / 50
         val newProgress = if (forward) curr + twoPercents else curr - twoPercents
