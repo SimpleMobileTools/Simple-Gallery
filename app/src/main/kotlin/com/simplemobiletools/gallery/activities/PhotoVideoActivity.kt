@@ -59,7 +59,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     private fun checkIntent(savedInstanceState: Bundle? = null) {
         mUri = intent.data ?: return
         if (intent.extras?.containsKey(REAL_FILE_PATH) == true) {
-            mUri = Uri.parse(intent.extras.get(REAL_FILE_PATH) as String)
+            mUri = Uri.fromFile(File(intent.extras.get(REAL_FILE_PATH) as String))
         }
 
         mIsFromGallery = intent.getBooleanExtra(IS_FROM_GALLERY, false)
