@@ -268,6 +268,11 @@ class MediaFetcher(val context: Context) {
                 break
             }
 
+            if (file.isDirectory) {
+                getMediaInFolder(file.absolutePath, curMedia, isPickImage, isPickVideo, filterMedia)
+                continue
+            }
+
             val filename = file.name
             val isImage = filename.isImageFast()
             val isVideo = if (isImage) false else filename.isVideoFast()
