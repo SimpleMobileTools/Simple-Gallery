@@ -8,6 +8,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.containsNoMedia
+import com.simplemobiletools.gallery.extensions.doesParentHaveNoMedia
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 import java.util.LinkedHashMap
@@ -244,25 +245,12 @@ class MediaFetcher(val context: Context) {
         } else if (!showHidden && file.isDirectory && file.canonicalFile == file.absoluteFile) {
             var containsNoMediaOrDot = file.containsNoMedia() || path.contains("/.")
             if (!containsNoMediaOrDot) {
-                containsNoMediaOrDot = checkParentHasNoMedia(file.parentFile)
+                containsNoMediaOrDot = file.doesParentHaveNoMedia()
             }
             !containsNoMediaOrDot
         } else {
             true
         }
-    }
-
-    private fun checkParentHasNoMedia(file: File): Boolean {
-        var curFile = file
-        while (true) {
-            if (curFile.containsNoMedia()) {
-                return true
-            }
-            curFile = curFile.parentFile
-            if (curFile.absolutePath == "/")
-                break
-        }
-        return false
     }
 
     private fun isThisOrParentExcluded(path: String, excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>) =

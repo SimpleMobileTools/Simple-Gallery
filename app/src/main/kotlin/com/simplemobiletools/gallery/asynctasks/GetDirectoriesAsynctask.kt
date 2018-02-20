@@ -8,7 +8,7 @@ import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.SORT_DESCENDING
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.extensions.containsNoMedia
+import com.simplemobiletools.gallery.extensions.doesParentHaveNoMedia
 import com.simplemobiletools.gallery.extensions.sumByLong
 import com.simplemobiletools.gallery.helpers.MediaFetcher
 import com.simplemobiletools.gallery.models.Directory
@@ -62,7 +62,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                 }
             }
 
-            if (File(parentDir).containsNoMedia() || File(parentDir).parentFile?.containsNoMedia() == true || File(parentDir).parentFile?.parentFile?.containsNoMedia() == true) {
+            if (File(parentDir).doesParentHaveNoMedia()) {
                 dirName += " $hidden"
             }
 
