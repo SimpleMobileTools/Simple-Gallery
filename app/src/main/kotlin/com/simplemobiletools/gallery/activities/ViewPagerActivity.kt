@@ -826,10 +826,20 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun checkOrientation() {
         if (!mIsOrientationLocked && config.screenRotation == ROTATE_BY_ASPECT_RATIO) {
+            var flipSides = false
+            try {
+                val pathToLoad = getCurrentPath()
+                val exif = android.media.ExifInterface(pathToLoad)
+                val orientation = exif.getAttributeInt(android.media.ExifInterface.TAG_ORIENTATION, -1)
+                flipSides = orientation == ExifInterface.ORIENTATION_ROTATE_90 || orientation == ExifInterface.ORIENTATION_ROTATE_270
+            } catch (e: Exception) {
+            }
             val res = getCurrentPath().getResolution() ?: return
-            if (res.x > res.y) {
+            val width = if (flipSides) res.y else res.x
+            val height = if (flipSides) res.x else res.y
+            if (width > height) {
                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-            } else if (res.x < res.y) {
+            } else if (width < height) {
                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
             }
         }
