@@ -189,7 +189,6 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
             if (!isCopyOperation) {
                 listener?.refreshItems()
             }
-            finishActMode()
         }
     }
 
