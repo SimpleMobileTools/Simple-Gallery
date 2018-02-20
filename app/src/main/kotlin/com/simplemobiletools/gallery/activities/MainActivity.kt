@@ -17,6 +17,7 @@ import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.PERMISSION_READ_STORAGE
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_TAKEN
@@ -634,7 +635,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun setupLatestMediaId() {
         Thread {
-            mLatestMediaId = getLatestMediaId()
+            if (hasPermission(PERMISSION_READ_STORAGE)) {
+                mLatestMediaId = getLatestMediaId()
+            }
         }.start()
     }
 
