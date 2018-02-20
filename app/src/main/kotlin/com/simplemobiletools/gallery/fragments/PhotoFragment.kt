@@ -24,6 +24,7 @@ import com.bumptech.glide.request.target.Target
 import com.davemorrissey.labs.subscaleview.ImageSource
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.PhotoActivity
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
@@ -204,10 +205,11 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun loadGif() {
         try {
-            gifDrawable = if (medium.path.startsWith("content://") || medium.path.startsWith("file://")) {
-                GifDrawable(context!!.contentResolver, Uri.parse(medium.path))
+            val pathToLoad = getPathToLoad()
+            gifDrawable = if (pathToLoad.startsWith("content://") || pathToLoad.startsWith("file://")) {
+                GifDrawable(context!!.contentResolver, Uri.parse(pathToLoad))
             } else {
-                GifDrawable(medium.path)
+                GifDrawable(pathToLoad)
             }
 
             if (!isFragmentVisible) {
@@ -241,7 +243,7 @@ class PhotoFragment : ViewPagerFragment() {
 
             Glide.with(this)
                     .asBitmap()
-                    .load(medium.path)
+                    .load(getPathToLoad())
                     .apply(options)
                     .listener(object : RequestListener<Bitmap> {
                         override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean) = false
@@ -259,7 +261,7 @@ class PhotoFragment : ViewPagerFragment() {
 
             Glide.with(this)
                     .asBitmap()
-                    .load(medium.path)
+                    .load(getPathToLoad())
                     .thumbnail(0.2f)
                     .apply(options)
                     .into(view.gif_view)
@@ -273,7 +275,7 @@ class PhotoFragment : ViewPagerFragment() {
                 maxScale = 10f
                 beVisible()
                 isQuickScaleEnabled = context.config.oneFingerZoom
-                setImage(ImageSource.uri(medium.path))
+                setImage(ImageSource.uri(getPathToLoad()))
                 orientation = if (imageOrientation == -1) SubsamplingScaleImageView.ORIENTATION_USE_EXIF else degreesForRotation(imageOrientation)
                 setEagerLoadingEnabled(false)
                 setExecutor(AsyncTask.SERIAL_EXECUTOR)
@@ -307,6 +309,8 @@ class PhotoFragment : ViewPagerFragment() {
             }
         }
     }
+
+    private fun getPathToLoad() = if (medium.path.startsWith(OTG_PATH)) medium.path.getOTGPublicPath(context!!) else medium.path
 
     private fun getImageOrientation(): Int {
         val defaultOrientation = -1

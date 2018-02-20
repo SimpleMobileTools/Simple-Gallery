@@ -29,10 +29,7 @@ import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.IS_FROM_GALLERY
-import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
-import com.simplemobiletools.commons.helpers.REQUEST_EDIT_IMAGE
-import com.simplemobiletools.commons.helpers.REQUEST_SET_AS
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter
@@ -202,6 +199,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         showSystemUI()
 
         mDirectory = mPath.getParentPath().trimEnd('/')
+        if (mDirectory.startsWith(OTG_PATH.trimEnd('/'))) {
+            mDirectory += "/"
+        }
         supportActionBar?.title = mPath.getFilenameFromPath()
 
         view_pager.onGlobalLayout {

@@ -11,6 +11,7 @@ import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.FastScroller
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -288,7 +289,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
             photo_name.tag = medium.path
 
             var thumbnailPath = medium.path
-            if (hasOTGConnected && activity.isPathOnOTG(thumbnailPath)) {
+            if (hasOTGConnected && thumbnailPath.startsWith(OTG_PATH)) {
                 thumbnailPath = thumbnailPath.getOTGPublicPath(context)
             }
 

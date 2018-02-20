@@ -199,7 +199,7 @@ class MediaFetcher(val context: Context) {
         }
 
         config.includedFolders.filter { it.isNotEmpty() && (curPath.isEmpty() || it == curPath) }.forEach {
-            if (context.isPathOnOTG(it)) {
+            if (it.startsWith(OTG_PATH)) {
                 getMediaOnOTG(it, curMedia, isPickImage, isPickVideo, filterMedia)
             } else {
                 getMediaInFolder(it, curMedia, isPickImage, isPickVideo, filterMedia)

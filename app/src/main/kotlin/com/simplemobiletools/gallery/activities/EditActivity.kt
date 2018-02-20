@@ -11,6 +11,7 @@ import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
 import com.simplemobiletools.commons.models.FileDirItem
@@ -65,7 +66,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         saveUri = when {
             intent.extras?.containsKey(REAL_FILE_PATH) == true -> {
                 val realPath = intent.extras.get(REAL_FILE_PATH) as String
-                if (isPathOnOTG(realPath)) {
+                if (realPath.startsWith(OTG_PATH)) {
                     Uri.parse(realPath)
                 } else {
                     Uri.fromFile(File(realPath))
