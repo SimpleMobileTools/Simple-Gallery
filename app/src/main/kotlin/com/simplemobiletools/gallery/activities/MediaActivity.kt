@@ -24,6 +24,7 @@ import com.google.gson.Gson
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REQUEST_EDIT_IMAGE
 import com.simplemobiletools.commons.models.FileDirItem
@@ -278,7 +279,11 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun tryloadGallery() {
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
-                val dirName = getHumanizedFilename(mPath)
+                val dirName = when {
+                    mPath == OTG_PATH -> getString(R.string.otg)
+                    mPath.startsWith(OTG_PATH) -> mPath.trimEnd('/').substringAfterLast('/')
+                    else -> getHumanizedFilename(mPath)
+                }
                 supportActionBar?.title = if (mShowAll) resources.getString(R.string.all_folders) else dirName
                 getMedia()
                 setupLayoutManager()

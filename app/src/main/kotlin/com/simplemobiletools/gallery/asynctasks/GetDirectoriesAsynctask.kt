@@ -51,7 +51,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                 OTG_PATH -> context.getString(R.string.otg)
                 else -> {
                     if (parentDir.startsWith(OTG_PATH)) {
-                        parentDir.getParentPath().trimEnd('/').substringAfterLast('/')
+                        parentDir.trimEnd('/').substringAfterLast('/')
                     } else {
                         parentDir.getFilenameFromPath()
                     }
