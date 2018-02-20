@@ -11,7 +11,6 @@ import android.view.View
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.IS_FROM_GALLERY
-import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
 import com.simplemobiletools.gallery.R
@@ -60,10 +59,10 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     private fun checkIntent(savedInstanceState: Bundle? = null) {
         mUri = intent.data ?: return
         if (intent.extras?.containsKey(REAL_FILE_PATH) == true) {
-            val realPath = intent.extras.get(REAL_FILE_PATH) as String
-            if (!realPath.startsWith(OTG_PATH)) {
-                mUri = Uri.fromFile(File(realPath))
-            }
+            val realPath = intent.extras.getString(REAL_FILE_PATH)
+            sendViewPagerIntent(realPath)
+            finish()
+            return
         }
 
         mIsFromGallery = intent.getBooleanExtra(IS_FROM_GALLERY, false)

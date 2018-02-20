@@ -65,7 +65,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
         saveUri = when {
             intent.extras?.containsKey(REAL_FILE_PATH) == true -> {
-                val realPath = intent.extras.get(REAL_FILE_PATH) as String
+                val realPath = intent.extras.getString(REAL_FILE_PATH)
                 if (realPath.startsWith(OTG_PATH)) {
                     Uri.parse(realPath)
                 } else {
