@@ -16,6 +16,7 @@ import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
+import com.simplemobiletools.commons.models.FAQItem
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.R
@@ -71,8 +72,20 @@ fun Activity.launchCamera() {
 }
 
 fun SimpleActivity.launchAbout() {
+    val faqItems = arrayOf(
+            FAQItem(R.string.faq_2_title_commons, R.string.faq_2_text_commons),
+            FAQItem(R.string.faq_1_title, R.string.faq_1_text),
+            FAQItem(R.string.faq_2_title, R.string.faq_2_text),
+            FAQItem(R.string.faq_3_title, R.string.faq_3_text),
+            FAQItem(R.string.faq_4_title, R.string.faq_4_text),
+            FAQItem(R.string.faq_5_title, R.string.faq_5_text),
+            FAQItem(R.string.faq_6_title, R.string.faq_6_text),
+            FAQItem(R.string.faq_7_title, R.string.faq_7_text),
+            FAQItem(R.string.faq_8_title, R.string.faq_8_text),
+            FAQItem(R.string.faq_9_title, R.string.faq_9_text))
+
     startAboutActivity(R.string.app_name, LICENSE_KOTLIN or LICENSE_GLIDE or LICENSE_CROPPER or LICENSE_MULTISELECT or LICENSE_RTL
-            or LICENSE_SUBSAMPLING or LICENSE_PATTERN or LICENSE_REPRINT or LICENSE_GIF_DRAWABLE or LICENSE_PHOTOVIEW, BuildConfig.VERSION_NAME)
+            or LICENSE_SUBSAMPLING or LICENSE_PATTERN or LICENSE_REPRINT or LICENSE_GIF_DRAWABLE or LICENSE_PHOTOVIEW, BuildConfig.VERSION_NAME, faqItems)
 }
 
 fun AppCompatActivity.showSystemUI() {

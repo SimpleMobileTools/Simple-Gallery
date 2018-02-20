@@ -99,6 +99,11 @@
             android:parentActivityName=".activities.SettingsActivity"/>
 
         <activity
+            android:name="com.simplemobiletools.commons.activities.FAQActivity"
+            android:label="@string/frequently_asked_questions"
+            android:parentActivityName="com.simplemobiletools.commons.activities.AboutActivity"/>
+
+        <activity
             android:name=".activities.SettingsActivity"
             android:label="@string/settings"
             android:parentActivityName=".activities.MainActivity"/>
