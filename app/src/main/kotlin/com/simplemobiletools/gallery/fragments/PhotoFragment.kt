@@ -31,6 +31,7 @@ import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
 import com.simplemobiletools.gallery.helpers.MEDIUM
+import com.simplemobiletools.gallery.helpers.ROTATE_BY_ASPECT_RATIO
 import com.simplemobiletools.gallery.models.Medium
 import it.sephiroth.android.library.exif2.ExifInterface
 import kotlinx.android.synthetic.main.pager_photo_item.view.*
@@ -275,6 +276,7 @@ class PhotoFragment : ViewPagerFragment() {
                 maxScale = 10f
                 beVisible()
                 isQuickScaleEnabled = context.config.oneFingerZoom
+                setResetScaleOnSizeChange(context.config.screenRotation != ROTATE_BY_ASPECT_RATIO)
                 setImage(ImageSource.uri(getPathToLoad(medium)))
                 orientation = if (imageOrientation == -1) SubsamplingScaleImageView.ORIENTATION_USE_EXIF else degreesForRotation(imageOrientation)
                 setEagerLoadingEnabled(false)
