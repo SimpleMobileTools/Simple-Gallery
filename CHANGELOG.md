@@ -1,6 +1,17 @@
 Changelog
 ==========
 
+Version 3.5.0 *(2018-02-20)*
+----------------------------
+
+ * Added copy/move progress notification
+ * Fixed some glitches a round rotating media by aspect ratio
+ * Added FAQ
+ * Make explicit folder inclusion recursive
+ * Added initial OTG device support
+ * Rewrote third party intent handling and file handling, fixed some bugs along the way
+ * Probably added some new bugs
+
 Version 3.4.1 *(2018-02-09)*
 ----------------------------
 
