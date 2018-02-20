@@ -62,7 +62,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                 }
             }
 
-            if (File(parentDir).containsNoMedia()) {
+            if (File(parentDir).containsNoMedia() || File(parentDir).parentFile?.containsNoMedia() == true || File(parentDir).parentFile?.parentFile?.containsNoMedia() == true) {
                 dirName += " $hidden"
             }
 
