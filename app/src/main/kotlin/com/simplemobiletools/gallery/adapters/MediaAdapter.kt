@@ -10,10 +10,7 @@ import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
-import com.simplemobiletools.commons.extensions.applyColorFilter
-import com.simplemobiletools.commons.extensions.beVisibleIf
-import com.simplemobiletools.commons.extensions.getFilenameFromPath
-import com.simplemobiletools.commons.extensions.isActivityDestroyed
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.FastScroller
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -38,6 +35,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     private var loadImageInstantly = false
     private var delayHandler = Handler(Looper.getMainLooper())
     private var currentMediaHash = media.hashCode()
+    private val hasOTGConnected = activity.hasOTGConnected()
 
     private var scrollHorizontally = config.scrollHorizontally
     private var animateGifs = config.animateGifs
@@ -290,15 +288,20 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
             photo_name.text = medium.name
             photo_name.tag = medium.path
 
+            var thumbnailPath = medium.path
+            if (hasOTGConnected && activity.isPathOnOTG(thumbnailPath)) {
+                thumbnailPath = thumbnailPath.getOTGPublicPath(context)
+            }
+
             if (loadImageInstantly) {
-                activity.loadImage(medium.type, medium.path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
+                activity.loadImage(medium.type, thumbnailPath, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
             } else {
                 medium_thumbnail.setImageDrawable(null)
                 medium_thumbnail.isHorizontalScrolling = scrollHorizontally
                 delayHandler.postDelayed({
                     val isVisible = visibleItemPaths.contains(medium.path)
                     if (isVisible) {
-                        activity.loadImage(medium.type, medium.path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
+                        activity.loadImage(medium.type, thumbnailPath, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
                     }
                 }, IMAGE_LOAD_DELAY)
             }
