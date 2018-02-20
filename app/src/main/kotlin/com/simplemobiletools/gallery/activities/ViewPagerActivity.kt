@@ -184,7 +184,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         if (!getDoesFilePathExist(mPath)) {
             Thread {
-                deleteFromMediaStore(mPath)
+                scanPath(mPath)
             }.start()
             finish()
             return
