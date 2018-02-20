@@ -183,7 +183,6 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
     private fun initTimeHolder() {
         val res = resources
-        val height = context!!.navigationBarHeight
         val left = mTimeHolder!!.paddingLeft
         val top = mTimeHolder!!.paddingTop
         var right = mTimeHolder!!.paddingRight
@@ -315,7 +314,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             return
         }
 
-        val mediumPath = if (wasEncoded) mEncodedPath else medium.path
+        val mediumPath = if (wasEncoded) mEncodedPath else getPathToLoad(medium)
         try {
             mMediaPlayer = MediaPlayer().apply {
                 setDataSource(context, Uri.parse(mediumPath))
@@ -327,7 +326,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 prepare()
             }
         } catch (e: IOException) {
-            mEncodedPath = Uri.encode(medium.path)
+            mEncodedPath = Uri.encode(getPathToLoad(medium))
             if (wasEncoded) {
                 releaseMediaPlayer()
             } else {
