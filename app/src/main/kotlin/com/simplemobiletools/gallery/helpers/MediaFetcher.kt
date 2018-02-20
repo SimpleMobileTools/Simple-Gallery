@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.helpers
 
 import android.content.Context
 import android.database.Cursor
+import android.net.Uri
 import android.provider.MediaStore
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
@@ -349,7 +350,7 @@ class MediaFetcher(val context: Context) {
                 else -> TYPE_GIF
             }
 
-            val path = file.uri.toString().replaceFirst("${context.config.OTGBasePath}%3A", OTG_PATH)
+            val path = Uri.decode(file.uri.toString().replaceFirst("${context.config.OTGBasePath}%3A", OTG_PATH))
             val medium = Medium(filename, path, dateModified, dateTaken, size, type)
             val isAlreadyAdded = curMedia.any { it.path == path }
             if (!isAlreadyAdded) {

@@ -49,7 +49,13 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                 context.internalStoragePath -> context.getString(R.string.internal)
                 context.sdCardPath -> context.getString(R.string.sd_card)
                 OTG_PATH -> context.getString(R.string.otg)
-                else -> parentDir.getFilenameFromPath()
+                else -> {
+                    if (parentDir.startsWith(OTG_PATH)) {
+                        parentDir.getParentPath().trimEnd('/').substringAfterLast('/')
+                    } else {
+                        parentDir.getFilenameFromPath()
+                    }
+                }
             }
 
             if (File(parentDir).containsNoMedia()) {
