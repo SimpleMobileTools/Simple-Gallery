@@ -75,21 +75,27 @@ class MediaFetcher(val context: Context) {
     }
 
     fun getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean): ArrayList<Medium> {
-        val projection = arrayOf(MediaStore.Images.Media._ID,
-                MediaStore.Images.Media.DISPLAY_NAME,
-                MediaStore.Images.Media.DATE_TAKEN,
-                MediaStore.Images.Media.DATE_MODIFIED,
-                MediaStore.Images.Media.DATA,
-                MediaStore.Images.Media.SIZE)
-        val uri = MediaStore.Files.getContentUri("external")
-        val selection = getSelectionQuery(curPath)
-        val selectionArgs = getSelectionArgsQuery(curPath)
+        if (curPath.startsWith(OTG_PATH)) {
+            val curMedia = ArrayList<Medium>()
+            getMediaOnOTG(curPath, curMedia, isPickImage, isPickVideo, context.config.filterMedia)
+            return curMedia
+        } else {
+            val projection = arrayOf(MediaStore.Images.Media._ID,
+                    MediaStore.Images.Media.DISPLAY_NAME,
+                    MediaStore.Images.Media.DATE_TAKEN,
+                    MediaStore.Images.Media.DATE_MODIFIED,
+                    MediaStore.Images.Media.DATA,
+                    MediaStore.Images.Media.SIZE)
+            val uri = MediaStore.Files.getContentUri("external")
+            val selection = getSelectionQuery(curPath)
+            val selectionArgs = getSelectionArgsQuery(curPath)
 
-        return try {
-            val cur = context.contentResolver.query(uri, projection, selection, selectionArgs, getSortingForFolder(curPath))
-            parseCursor(context, cur, isPickImage, isPickVideo, curPath)
-        } catch (e: Exception) {
-            ArrayList()
+            return try {
+                val cur = context.contentResolver.query(uri, projection, selection, selectionArgs, getSortingForFolder(curPath))
+                parseCursor(context, cur, isPickImage, isPickVideo, curPath)
+            } catch (e: Exception) {
+                ArrayList()
+            }
         }
     }
 
