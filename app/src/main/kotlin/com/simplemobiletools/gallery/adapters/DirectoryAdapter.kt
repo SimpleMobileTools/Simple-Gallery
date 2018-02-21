@@ -239,6 +239,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
     }
 
     private fun deleteFiles() {
+        if (selectedPositions.isEmpty()) {
+            return
+        }
+
         val folders = ArrayList<File>(selectedPositions.size)
         val removeFolders = ArrayList<Directory>(selectedPositions.size)
 

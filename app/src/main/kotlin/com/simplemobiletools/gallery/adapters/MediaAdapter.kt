@@ -215,6 +215,10 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     private fun getCurrentPath() = media[selectedPositions.first()].path
 
     private fun deleteFiles() {
+        if (selectedPositions.isEmpty()) {
+            return
+        }
+
         val fileDirItems = ArrayList<FileDirItem>(selectedPositions.size)
         val removeMedia = ArrayList<Medium>(selectedPositions.size)
 
