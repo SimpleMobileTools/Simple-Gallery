@@ -150,7 +150,7 @@
     <string name="faq_2_title">Vaig bloquejar l\'aplicació amb una contrasenya, però l\'he oblidat. Què puc fer?</string>
     <string name="faq_2_text">Es pot resoldre de dues maneres. Podeu tornar a instal·lar l\'aplicació o trobar l\'aplicació a la configuració del dispositiu i seleccionar \"Esborrar dades \". Això reiniciarà totes les configuracions, no eliminarà cap fitxer multimèdia.</string>
     <string name="faq_3_title">Com puc fer que un àlbum sempre aparegui a la part superior?</string>
-    <string name="faq_3_text">Podeu prémer l'àlbum desitjat i seleccionar la icona de la xinxeta al menú d'acció i el fixarà a la part superior. També podeu enganxar diverses carpetes, els elements fixats s'ordenaran pel mètode de classificació predeterminat.</string>
+    <string name="faq_3_text">Podeu prémer l\'àlbum desitjat i seleccionar la icona de la xinxeta al menú d\'acció i el fixarà a la part superior. També podeu enganxar diverses carpetes, els elements fixats s'ordenaran pel mètode de classificació predeterminat.</string>
     <string name="faq_4_title">Com puc fer avançar els vídeos?</string>
     <string name="faq_4_text">Podeu fer clic als textos actuals o de duració màxima que hi ha a prop de la barra de cerca, això mourà el vídeo cap a enrere o cap endavant.</string>
     <string name="faq_5_title">Quina és la diferència entre ocultar i excloure una carpeta?</string>
@@ -162,7 +162,7 @@
     <string name="faq_8_title">Què passa si vull veure només algunes carpetes concretes?</string>
     <string name="faq_8_text">L\'addició d\'una carpeta a les carpetes incloses no exclou automàticament res. El que podeu fer és anar a Configuració -> Gestionar carpetes excloses, excloure la carpeta arrel \"/\" i, a continuació, afegir les carpetes desitjades a Configuració -> Gestionar carpetes incloses.
         Això farà que només les carpetes seleccionades siguin visibles, ja que tant excloure com incloure són recursius i si una carpeta està exclosa i inclosa, es mostrarà.</string>
-    <string name="faq_9_title">Les imatges a pantalla completa tenen artefactes estranys, puc millorar d'alguna manera la qualitat?</string>
+    <string name="faq_9_title">Les imatges a pantalla completa tenen artefactes estranys, puc millorar d\'alguna manera la qualitat?</string>
     <string name="faq_9_text">Sí, hi ha un commutador a la configuració que diu \"Substituïu imatges ampliades i de gran qualitat\", podeu fer-ho. Millora la qualitat de les imatges, però es borraran una vegada que intenteu fer zoom massa.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
