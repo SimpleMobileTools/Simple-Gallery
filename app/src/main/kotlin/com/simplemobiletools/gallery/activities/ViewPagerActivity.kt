@@ -569,7 +569,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         } catch (e: Exception) {
             showErrorToast(e)
         } finally {
-            deleteFile(FileDirItem(newPath, newPath.getFilenameFromPath()))
+            deleteFile(FileDirItem(tmpFile.absolutePath, tmpFile.absolutePath.getFilenameFromPath()))
         }
     }
 
