@@ -162,8 +162,8 @@
     <string name="faq_8_title">如果我只想看到幾個特定的資料夾，怎麼做?</string>
     <string name="faq_8_text">在[包含資料夾]內添加資料夾並不會自動排除任何東西。你能做的是到[設定] -> [管理排除資料夾]，排除根目錄 \"/\"，然後在[設定] -> [管理包含資料夾]添加想要的資料夾。
 		那樣的話就只有選擇的資料夾可見。因為排除和包含都是遞迴的，如果一個資料夾被排除又被包含，則會顯示出來。</string>
-    <string name="faq_9_title">Fullscreen images have weird artifacts, can I somehow improve the quality?</string>
-    <string name="faq_9_text">Yea, there is a toggle in Settings saying \"Replace deep zoomable images with better quality ones\", you can use that. It will improve the quality of the images, but they will get blurred once you try zooming in too much.</string>
+    <string name="faq_9_title">全螢幕圖片有雜質，我有辦法提高品質嗎?</string>
+    <string name="faq_9_text">可啊，[設定]內有個開關叫做「可深度縮放的圖片用品質更佳的來取代」，你能用用看。這會提高圖片的品質，不過一旦你放大太多就會模糊掉。</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
@@ -171,13 +171,13 @@
     <string name="app_long_description">
 		一個適合用來瀏覽相片和影片的簡單工具。可以根據日期、大小、名稱來遞增或遞減排序項目，相片能被縮放。媒體檔案會依畫面大小呈現在數個欄位內，你可以使用縮放手勢來改變欄數。媒體檔案可以重新命名、分享、刪除、複製、移動；圖片還能縮放、旋轉、翻轉，或者直接設為桌布。
 		
-		這相簿也支援第三方應用，像是預覽圖片/影片、添加電子信箱附件...等功能，日常使用上相當適合。
+		這相簿也支援第三方使用，像是預覽圖片/影片、添加電子信箱附件...等功能，日常使用上相當適合。
 
 		指紋權限用來鎖定隱藏的項目或是整個程式。
 
-		優點包含沒廣告，也沒非必要的權限，而且完全開放原始碼，並提供自訂顏色。
+		不包含廣告，也沒非必要的權限，而且完全開放原始碼，並提供自訂顏色。
 		
-		這只是一個大系列應用程式的其中一項程式，你可以在這發現更多 http://www.simplemobiletools.com
+		這程式只是一個大系列應用程式中的其中一項，你可以在這發現更多 http://www.simplemobiletools.com
     </string>
 
     <!--
