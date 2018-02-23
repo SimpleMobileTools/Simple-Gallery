@@ -195,7 +195,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
     private fun checkDeleteConfirmation() {
         if (skipConfirmationDialog) {
-            deleteConfirmed()
+            deleteFiles()
         } else {
             askConfirmDelete()
         }
@@ -204,12 +204,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     private fun askConfirmDelete() {
         DeleteWithRememberDialog(activity) {
             skipConfirmationDialog = it
-            deleteConfirmed()
+            deleteFiles()
         }
-    }
-
-    private fun deleteConfirmed() {
-        deleteFiles()
     }
 
     private fun getCurrentPath() = media[selectedPositions.first()].path
