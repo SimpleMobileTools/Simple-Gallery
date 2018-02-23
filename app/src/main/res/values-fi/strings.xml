@@ -7,23 +7,23 @@
     <string name="hidden">(piilotettu)</string>
     <string name="pin_folder">Kiinnitä kansio</string>
     <string name="unpin_folder">Poista kiinnitys</string>
-    <string name="pin_to_the_top">Pin to the top</string>
+    <string name="pin_to_the_top">Kiinnitä ylimmäksi</string>
     <string name="show_all">Näytä kaikkien kansioiden sisältö</string>
     <string name="all_folders">Kaikki kansiot</string>
     <string name="folder_view">Vaihda kansionäkymään</string>
     <string name="other_folder">Muu kansio</string>
     <string name="show_on_map">Näytä kartalla</string>
     <string name="unknown_location">Tuntematon sijainti</string>
-    <string name="increase_column_count">Increase column count</string>
-    <string name="reduce_column_count">Reduce column count</string>
+    <string name="increase_column_count">Lisää sarakkeita</string>
+    <string name="reduce_column_count">Vähennä sarakkeita</string>
     <string name="change_cover_image">Vaihda kansikuva</string>
     <string name="select_photo">Valitse kuva</string>
     <string name="use_default">Käytä oletuksia</string>
     <string name="volume">Äänenvoimakkuus</string>
     <string name="brightness">Kirkkaus</string>
-    <string name="do_not_ask_again">Do not ask again in this session</string>
-    <string name="lock_orientation">Lock orientation</string>
-    <string name="unlock_orientation">Unlock orientation</string>
+    <string name="do_not_ask_again">Älä kysy uudestaan tällä istunnolla</string>
+    <string name="lock_orientation">Lukitse näytönkierto</string>
+    <string name="unlock_orientation">Vapauta näytönkierto</string>
 
     <!-- Filter -->
     <string name="filter_media">Suodata media</string>
@@ -43,8 +43,8 @@
     <string name="excluded_activity_placeholder">Kansion poissulkeminen piilottaa kansion alikansioineen vain Simple Galleryssa, ne jäävät näkyviin muihin sovelluksiin.\n\nJos haluat piilottaa kansion myös muissa sovelluksissa, käytä piilota-funktiota.</string>
     <string name="remove_all">Poista kaikki</string>
     <string name="remove_all_description">Poista kaikki kansiot poissuljettujen listasta? Tämä ei poista kansioita.</string>
-    <string name="hidden_folders">Hidden folders</string>
-    <string name="manage_hidden_folders">Manage hidden folders</string>
+    <string name="hidden_folders">Piilotetut kansiot</string>
+    <string name="manage_hidden_folders">Hallitse piilotettuja kansioita</string>
     <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
 
     <!-- Include folders -->
@@ -89,9 +89,9 @@
     <string name="wallpaper_set_successfully">Taustakuva asetettu onnistuneesti</string>
     <string name="portrait_aspect_ratio">Kuvasuhde pystyssä</string>
     <string name="landscape_aspect_ratio">Kuvasuhde vaakatasossa</string>
-    <string name="home_screen">Home screen</string>
-    <string name="lock_screen">Lock screen</string>
-    <string name="home_and_lock_screen">Home and lock screen</string>
+    <string name="home_screen">Aloitusnäyttö</string>
+    <string name="lock_screen">Lukitusnäyttö</string>
+    <string name="home_and_lock_screen">Aloitusnäyttö ja lukitusnäyttö</string>
 
     <!-- Slideshow -->
     <string name="slideshow">Diaesitys</string>
@@ -122,29 +122,29 @@
     <string name="screen_rotation_system_setting">Järjestelmän asetukset</string>
     <string name="screen_rotation_device_rotation">Laitteen kierto</string>
     <string name="screen_rotation_aspect_ratio">Kuvasuhde</string>
-    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
+    <string name="black_background_at_fullscreen">Musta tausta ja tilapalkki täyden ruudun tilassa</string>
     <string name="scroll_thumbnails_horizontally">Vieritä pienoiskuvia vaakasuorassa</string>
     <string name="hide_system_ui_at_fullscreen">Piilota järjestelmän UI automaattisesti koko näytön mediassa</string>
     <string name="delete_empty_folders">Poista tyhjät kansiot kansion tyhjennyksen jälkeen</string>
-    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
+    <string name="allow_photo_gestures">Salli kirkkauden säätäminen pystysuorilla eleillä</string>
     <string name="allow_video_gestures">Salli videon äänenvoimakkuuden ja kirkkauden säätö pystysuorilla eleillä</string>
-    <string name="show_media_count">Show folder media count on the main view</string>
+    <string name="show_media_count">Näytä kansioiden sisällön määrä päänäkymässä</string>
     <string name="replace_share_with_rotate">Korvaa jakaminen kääntämisellä koko näytön tilassa</string>
-    <string name="show_extended_details">Show extended details over fullscreen media</string>
-    <string name="manage_extended_details">Manage extended details</string>
-    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
-    <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
-    <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
-    <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
-    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
+    <string name="show_extended_details">Näytä yksityiskohtaiset tiedot täyden näytön tilassa</string>
+    <string name="manage_extended_details">Hallitse yksityiskohtaisia tietoja</string>
+    <string name="one_finger_zoom">Salli lähentäminen yhdellä sormella täyden ruudun tilassa</string>
+    <string name="allow_instant_change">Salli median selaaminen ruudun reunoja koskettamalla</string>
+    <string name="replace_zoomable_images">Korvaa syvälle lähennettävät kuvat parempilaatuisella</string>
+    <string name="hide_extended_details">Piilota yksityiskohtaiset tiedot kun tilapalkki on piilotettu</string>
+    <string name="do_extra_check">Tee ylimääräinen tarkistus rikkinäisten tiedostojen varalta</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Thumbnails</string>
-    <string name="fullscreen_media">Fullscreen media</string>
-    <string name="extended_details">Extended details</string>
+    <string name="thumbnails">Esikatselukuvat</string>
+    <string name="fullscreen_media">Täyden näytön media</string>
+    <string name="extended_details">Yksityiskohtaiset tiedot</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
+    <string name="faq_1_title">Miten voin tehdä Simple Gallerystä oletusgalleriasovelluksen?</string>
     <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
         The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
     <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do?</string>
