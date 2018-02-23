@@ -233,8 +233,12 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
     }
 
     private fun askConfirmDelete() {
-        ConfirmationDialog(activity) {
+        if (config.skipDeleteConfirmation) {
             deleteFiles()
+        } else {
+            ConfirmationDialog(activity) {
+                deleteFiles()
+            }
         }
     }
 

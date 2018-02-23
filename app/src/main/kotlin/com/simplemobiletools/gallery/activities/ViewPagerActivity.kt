@@ -724,7 +724,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun checkDeleteConfirmation() {
-        if (mSkipConfirmationDialog) {
+        if (mSkipConfirmationDialog || config.skipDeleteConfirmation) {
             deleteConfirmed()
         } else {
             askConfirmDelete()

@@ -63,6 +63,7 @@ class SettingsActivity : SimpleActivity() {
         setupShowExtendedDetails()
         setupHideExtendedDetails()
         setupManageExtendedDetails()
+        setupSkipDeleteConfirmation()
         updateTextColors(settings_holder)
         setupSectionColors()
     }
@@ -360,6 +361,14 @@ class SettingsActivity : SimpleActivity() {
                     settings_show_extended_details_holder.callOnClick()
                 }
             }
+        }
+    }
+
+    private fun setupSkipDeleteConfirmation() {
+        settings_skip_delete_confirmation.isChecked = config.skipDeleteConfirmation
+        settings_skip_delete_confirmation_holder.setOnClickListener {
+            settings_skip_delete_confirmation.toggle()
+            config.skipDeleteConfirmation = settings_skip_delete_confirmation.isChecked
         }
     }
 

@@ -194,7 +194,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     private fun checkDeleteConfirmation() {
-        if (skipConfirmationDialog) {
+        if (skipConfirmationDialog || config.skipDeleteConfirmation) {
             deleteFiles()
         } else {
             askConfirmDelete()
