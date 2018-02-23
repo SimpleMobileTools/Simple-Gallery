@@ -859,10 +859,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     override fun goToPrevItem() {
         view_pager.setCurrentItem(view_pager.currentItem - 1, false)
+        checkOrientation()
     }
 
     override fun goToNextItem() {
         view_pager.setCurrentItem(view_pager.currentItem + 1, false)
+        checkOrientation()
     }
 
     private fun checkSystemUI() {
