@@ -57,6 +57,7 @@ class SettingsActivity : SimpleActivity() {
         setupShowMediaCount()
         setupKeepLastModified()
         setupShowInfoBubble()
+        setupEnablePullToRefresh()
         setupOneFingerZoom()
         setupAllowInstantChange()
         setupReplaceZoomableImages()
@@ -307,6 +308,14 @@ class SettingsActivity : SimpleActivity() {
         settings_show_info_bubble_holder.setOnClickListener {
             settings_show_info_bubble.toggle()
             config.showInfoBubble = settings_show_info_bubble.isChecked
+        }
+    }
+
+    private fun setupEnablePullToRefresh() {
+        settings_enable_pull_to_refresh.isChecked = config.enablePullToRefresh
+        settings_enable_pull_to_refresh_holder.setOnClickListener {
+            settings_enable_pull_to_refresh.toggle()
+            config.enablePullToRefresh = settings_enable_pull_to_refresh.isChecked
         }
     }
 

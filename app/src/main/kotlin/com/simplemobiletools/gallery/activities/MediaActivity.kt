@@ -134,6 +134,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         media_horizontal_fastscroller.updateBubbleColors()
         media_vertical_fastscroller.updateBubbleColors()
+        media_refresh_layout.isEnabled = config.enablePullToRefresh
         tryloadGallery()
         invalidateOptionsMenu()
         media_empty_text_label.setTextColor(config.textColor)
@@ -329,8 +330,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun setupScrollDirection() {
         val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFiles == VIEW_TYPE_GRID
-        media_refresh_layout.isEnabled = !config.scrollHorizontally
-
         media_vertical_fastscroller.isHorizontal = false
         media_vertical_fastscroller.beGoneIf(allowHorizontalScroll)
 

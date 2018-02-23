@@ -137,6 +137,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
         directories_horizontal_fastscroller.updateBubbleColors()
         directories_vertical_fastscroller.updateBubbleColors()
+        directories_refresh_layout.isEnabled = config.enablePullToRefresh
         invalidateOptionsMenu()
         directories_empty_text_label.setTextColor(config.textColor)
         directories_empty_text.setTextColor(getAdjustedPrimaryColor())
@@ -622,7 +623,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun setupScrollDirection() {
         val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFolders == VIEW_TYPE_GRID
-        directories_refresh_layout.isEnabled = !config.scrollHorizontally
 
         directories_vertical_fastscroller.isHorizontal = false
         directories_vertical_fastscroller.beGoneIf(allowHorizontalScroll)
