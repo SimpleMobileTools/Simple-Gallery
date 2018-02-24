@@ -204,7 +204,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             Thread {
                 val file = File(path)
                 val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
-                getFileOutputStream(fileDirItem) {
+                getFileOutputStream(fileDirItem, true) {
                     if (it != null) {
                         saveBitmap(file, bitmap, it)
                     } else {

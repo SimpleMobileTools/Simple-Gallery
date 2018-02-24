@@ -654,8 +654,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun checkLastMediaChanged() {
-        if (isActivityDestroyed())
+        if (isActivityDestroyed()) {
             return
+        }
 
         mLastMediaHandler.removeCallbacksAndMessages(null)
         mLastMediaHandler.postDelayed({

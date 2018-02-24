@@ -713,6 +713,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (requestCode == REQUEST_EDIT_IMAGE) {
             if (resultCode == Activity.RESULT_OK && resultData != null) {
                 mPos = -1
+                mPrevHashcode = 0
                 refreshViewPager()
             }
         } else if (requestCode == REQUEST_SET_AS) {
