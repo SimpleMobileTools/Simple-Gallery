@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 3.5.1 *(2018-02-25)*
+----------------------------
+
+ * Added a toggle for disabling pull-to-refresh
+ * Added a toggle for permanent Delete confirmation dialog skipping
+ * Fixed saving image after editing
+
 Version 3.5.0 *(2018-02-20)*
 ----------------------------
 
