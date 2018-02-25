@@ -14,6 +14,7 @@ import android.view.animation.AnimationUtils
 import android.widget.SeekBar
 import android.widget.TextView
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.VideoActivity
 import com.simplemobiletools.gallery.extensions.*
@@ -21,6 +22,7 @@ import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.helpers.MediaSideScroll
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.pager_video_item.view.*
+import java.io.File
 import java.io.IOException
 
 class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSeekBarChangeListener {
@@ -315,9 +317,12 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         }
 
         val mediumPath = if (wasEncoded) mEncodedPath else getPathToLoad(medium)
+
+        // this workaround is needed for example if the filename contains a colon
+        val fileUri = if (mediumPath.startsWith("/")) context!!.getFilePublicUri(File(mediumPath), BuildConfig.APPLICATION_ID) else Uri.parse(mediumPath)
         try {
             mMediaPlayer = MediaPlayer().apply {
-                setDataSource(context, Uri.parse(mediumPath))
+                setDataSource(context, fileUri)
                 setDisplay(mSurfaceHolder)
                 setOnCompletionListener { videoCompleted() }
                 setOnVideoSizeChangedListener { mediaPlayer, width, height -> setVideoSize() }
