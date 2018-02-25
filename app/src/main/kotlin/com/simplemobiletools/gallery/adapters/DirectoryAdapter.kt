@@ -221,7 +221,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
         val paths = ArrayList<String>()
         selectedPositions.forEach {
             val dir = File(dirs[it].path)
-            paths.addAll(dir.list().filter { !activity.getIsPathDirectory(it) && it.isImageVideoGif() })
+            paths.addAll(dir.listFiles().filter { !activity.getIsPathDirectory(it.absolutePath) && it.absolutePath.isImageVideoGif() }.map { it.absolutePath })
         }
 
         val fileDirItems = paths.map { FileDirItem(it, it.getFilenameFromPath()) } as ArrayList<FileDirItem>
