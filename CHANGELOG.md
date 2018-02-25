@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 3.5.2 *(2018-02-25)*
+----------------------------
+
+ * Fixed third party intent uri generation
+ * Properly handle files with colon in filename
+ * Fix copying whole folders
+
 Version 3.5.1 *(2018-02-25)*
 ----------------------------
 
