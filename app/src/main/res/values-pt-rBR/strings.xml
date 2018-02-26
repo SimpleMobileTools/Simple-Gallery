@@ -126,7 +126,7 @@
     <string name="scroll_thumbnails_horizontally">Rolar miniaturas horizontalmente</string>
     <string name="hide_system_ui_at_fullscreen">Esconder interface do sistema automaticamente quando em tela cheia</string>
     <string name="delete_empty_folders">Apagar pastas vazias após deleter seu conteúdo</string>
-    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
+    <string name="allow_photo_gestures">Permitir controle do brilho com gestos na vertical</string>
     <string name="allow_video_gestures">Permitir controle do volume e brilho com gestos na vertical</string>
     <string name="show_media_count">Mostrar quantidade de arquivos das pastas</string>
     <string name="replace_share_with_rotate">Substituir botão "Compartilhar" por "Rotação de tela" quando em tela cheia</string>
