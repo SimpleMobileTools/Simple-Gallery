@@ -136,12 +136,12 @@
     <string name="allow_instant_change">측면 클릭으로 미디어 즉시변경</string>
     <string name="replace_zoomable_images">확대 축소 가능한 이미지를 더 좋은 품질로 교체</string>
     <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
-    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
+    <string name="do_extra_check">잘못된 파일 표시를 방지하기 위해 추가 검사 수행</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Thumbnails</string>
-    <string name="fullscreen_media">Fullscreen media</string>
-    <string name="extended_details">Extended details</string>
+    <string name="thumbnails">섬네일</string>
+    <string name="fullscreen_media">미디어 전체화면</string>
+    <string name="extended_details">확장 된 세부 정보</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
