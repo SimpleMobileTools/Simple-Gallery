@@ -402,6 +402,29 @@
             android:textSize="@dimen/smaller_text_size"/>
 
         <RelativeLayout
+            android:id="@+id/settings_show_info_bubble_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:paddingBottom="@dimen/activity_margin"
+            android:paddingLeft="@dimen/normal_margin"
+            android:paddingRight="@dimen/normal_margin"
+            android:paddingTop="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/settings_show_info_bubble"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/show_info_bubble"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:id="@+id/settings_scroll_horizontally_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -425,7 +448,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/settings_show_info_bubble_holder"
+            android:id="@+id/settings_enable_pull_to_refresh_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/medium_margin"
@@ -436,14 +459,14 @@
             android:paddingTop="@dimen/activity_margin">
 
             <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_show_info_bubble"
+                android:id="@+id/settings_enable_pull_to_refresh"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:clickable="false"
                 android:paddingLeft="@dimen/medium_margin"
                 android:paddingStart="@dimen/medium_margin"
-                android:text="@string/show_info_bubble"/>
+                android:text="@string/enable_pull_to_refresh"/>
 
         </RelativeLayout>
 
@@ -893,6 +916,29 @@
                 android:paddingLeft="@dimen/medium_margin"
                 android:paddingStart="@dimen/medium_margin"
                 android:text="@string/keep_last_modified"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/settings_skip_delete_confirmation_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:paddingBottom="@dimen/activity_margin"
+            android:paddingLeft="@dimen/normal_margin"
+            android:paddingRight="@dimen/normal_margin"
+            android:paddingTop="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/settings_skip_delete_confirmation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingStart="@dimen/medium_margin"
+                android:text="@string/skip_delete_confirmation"/>
 
         </RelativeLayout>
     </LinearLayout>

@@ -81,7 +81,7 @@ class ChangeSortingDialog(val activity: BaseSimpleActivity, val isDirectorySorti
                 config.saveFileSorting(path, sorting)
             } else {
                 config.removeFileSorting(path)
-                config.fileSorting = sorting
+                config.sorting = sorting
             }
         }
         callback()

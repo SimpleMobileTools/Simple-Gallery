@@ -143,6 +143,28 @@
     <string name="fullscreen_media">Vollbild-Medien</string>
     <string name="extended_details">Erweiterte Details</string>
 
+    <!-- FAQ -->
+    <string name="faq_1_title">Wie kann ich Schlichte Galerie als Standardanwendung auswählen?</string>
+    <string name="faq_1_text">Zunächst musst du unter \"Apps\" in den Geräteeinstellungen die aktuelle Standardgalerie finden. Suche nach einer Bedienfläche wie \"Standardmässig öffnen\", betätige diese und wähle \"Standardeinstellungen löschen\". 
+        Das nächste Mal, wenn du ein Bild oder ein Video öffnest, sollte ein Appwähler erscheinen und Schlichte Gallerie als Standard ausgewählt werden können.</string>
+    <string name="faq_2_title">Ich habe die App mit einem Passwort geschützt, aber ich habe es vergessen. Was kann ich tun?</string>
+    <string name="faq_2_text">Es gibt zwei Möglichkeiten: Entweder du installierst die App erneut oder du gehst unter Apps in den Geräteeinstellungen und wählst \"Daten löschen\". Alle Einstellungen werden zurückgesetzt, alle Mediendateien bleiben unberührt.</string>
+    <string name="faq_3_title">Wie kann ich ein Album immer zuoberst erscheinen lassen?</string>
+    <string name="faq_3_text">Du kannst lange auf das gewünschte Album drücken und im Aktionsmenü das Stecknadelsymbol auswählen; es wird nun zuoberst angepinnt. Ebenso kannst du mehrere Ordner anpinnen. Angepinnte Objekte werden nach der Standardmethode sortiert.</string>
+    <string name="faq_4_title">Wie kann ich Videos vorspulen?</string>
+    <string name="faq_4_text">Du kannst auf den Text der aktuellen oder der maximalen Dauer nahe der Suchleiste drücken, um das Video zurück- oder vorzuspulen.</string>
+    <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
+    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
+    <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
+    <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
+    <string name="faq_7_title">A folder with images isn\'t showing up, what can I do?</string>
+    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
+    <string name="faq_8_title">What if I want just a few particular folders visible?</string>
+    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
+        That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
+    <string name="faq_9_title">Fullscreen images have weird artifacts, can I somehow improve the quality?</string>
+    <string name="faq_9_text">Yea, there is a toggle in Settings saying \"Replace deep zoomable images with better quality ones\", you can use that. It will improve the quality of the images, but they will get blurred once you try zooming in too much.</string>
+
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Eine schlichte Galerie zum Betrachten von Bildern und Videos, ganz ohne Werbung.</string>

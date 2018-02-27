@@ -24,12 +24,14 @@ import com.bumptech.glide.request.target.Target
 import com.davemorrissey.labs.subscaleview.ImageSource
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.PhotoActivity
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
 import com.simplemobiletools.gallery.helpers.MEDIUM
+import com.simplemobiletools.gallery.helpers.ROTATE_BY_ASPECT_RATIO
 import com.simplemobiletools.gallery.models.Medium
 import it.sephiroth.android.library.exif2.ExifInterface
 import kotlinx.android.synthetic.main.pager_photo_item.view.*
@@ -204,10 +206,11 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun loadGif() {
         try {
-            gifDrawable = if (medium.path.startsWith("content://") || medium.path.startsWith("file://")) {
-                GifDrawable(context!!.contentResolver, Uri.parse(medium.path))
+            val pathToLoad = getPathToLoad(medium)
+            gifDrawable = if (pathToLoad.startsWith("content://") || pathToLoad.startsWith("file://")) {
+                GifDrawable(context!!.contentResolver, Uri.parse(pathToLoad))
             } else {
-                GifDrawable(medium.path)
+                GifDrawable(pathToLoad)
             }
 
             if (!isFragmentVisible) {
@@ -241,7 +244,7 @@ class PhotoFragment : ViewPagerFragment() {
 
             Glide.with(this)
                     .asBitmap()
-                    .load(medium.path)
+                    .load(getPathToLoad(medium))
                     .apply(options)
                     .listener(object : RequestListener<Bitmap> {
                         override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean) = false
@@ -259,7 +262,7 @@ class PhotoFragment : ViewPagerFragment() {
 
             Glide.with(this)
                     .asBitmap()
-                    .load(medium.path)
+                    .load(getPathToLoad(medium))
                     .thumbnail(0.2f)
                     .apply(options)
                     .into(view.gif_view)
@@ -273,7 +276,8 @@ class PhotoFragment : ViewPagerFragment() {
                 maxScale = 10f
                 beVisible()
                 isQuickScaleEnabled = context.config.oneFingerZoom
-                setImage(ImageSource.uri(medium.path))
+                setResetScaleOnSizeChange(context.config.screenRotation != ROTATE_BY_ASPECT_RATIO)
+                setImage(ImageSource.uri(getPathToLoad(medium)))
                 orientation = if (imageOrientation == -1) SubsamplingScaleImageView.ORIENTATION_USE_EXIF else degreesForRotation(imageOrientation)
                 setEagerLoadingEnabled(false)
                 setExecutor(AsyncTask.SERIAL_EXECUTOR)
@@ -313,11 +317,12 @@ class PhotoFragment : ViewPagerFragment() {
         var orient = defaultOrientation
 
         try {
-            val exif = android.media.ExifInterface(medium.path)
+            val pathToLoad = getPathToLoad(medium)
+            val exif = android.media.ExifInterface(pathToLoad)
             orient = exif.getAttributeInt(android.media.ExifInterface.TAG_ORIENTATION, defaultOrientation)
 
-            if (orient == defaultOrientation) {
-                val uri = if (medium.path.startsWith("content:/")) Uri.parse(medium.path) else Uri.fromFile(File(medium.path))
+            if (orient == defaultOrientation || medium.path.startsWith(OTG_PATH)) {
+                val uri = if (pathToLoad.startsWith("content:/")) Uri.parse(pathToLoad) else Uri.fromFile(File(pathToLoad))
                 val inputStream = context!!.contentResolver.openInputStream(uri)
                 val exif2 = ExifInterface()
                 exif2.readExif(inputStream, ExifInterface.Options.OPTION_ALL)

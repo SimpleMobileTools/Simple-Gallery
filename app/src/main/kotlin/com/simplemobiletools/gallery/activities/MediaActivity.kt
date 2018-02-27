@@ -24,8 +24,10 @@ import com.google.gson.Gson
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REQUEST_EDIT_IMAGE
+import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -132,6 +134,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         media_horizontal_fastscroller.updateBubbleColors()
         media_vertical_fastscroller.updateBubbleColors()
+        media_refresh_layout.isEnabled = config.enablePullToRefresh
         tryloadGallery()
         invalidateOptionsMenu()
         media_empty_text_label.setTextColor(config.textColor)
@@ -277,7 +280,11 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun tryloadGallery() {
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
-                val dirName = getHumanizedFilename(mPath)
+                val dirName = when {
+                    mPath == OTG_PATH -> getString(R.string.otg)
+                    mPath.startsWith(OTG_PATH) -> mPath.trimEnd('/').substringAfterLast('/')
+                    else -> getHumanizedFilename(mPath)
+                }
                 supportActionBar?.title = if (mShowAll) resources.getString(R.string.all_folders) else dirName
                 getMedia()
                 setupLayoutManager()
@@ -323,8 +330,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun setupScrollDirection() {
         val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFiles == VIEW_TYPE_GRID
-        media_refresh_layout.isEnabled = !config.scrollHorizontally
-
         media_vertical_fastscroller.isHorizontal = false
         media_vertical_fastscroller.beGoneIf(allowHorizontalScroll)
 
@@ -334,15 +339,17 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         if (allowHorizontalScroll) {
             media_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
             media_horizontal_fastscroller.setViews(media_grid, media_refresh_layout) {
-                media_horizontal_fastscroller.updateBubbleText(mMedia[it].getBubbleText())
+                media_horizontal_fastscroller.updateBubbleText(getBubbleTextItem(it))
             }
         } else {
             media_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
             media_vertical_fastscroller.setViews(media_grid, media_refresh_layout) {
-                media_vertical_fastscroller.updateBubbleText(mMedia[it].getBubbleText())
+                media_vertical_fastscroller.updateBubbleText(getBubbleTextItem(it))
             }
         }
     }
+
+    private fun getBubbleTextItem(index: Int) = getRecyclerAdapter().media.getOrNull(index)?.getBubbleText() ?: ""
 
     private fun checkLastMediaChanged() {
         if (isActivityDestroyed())
@@ -417,10 +424,11 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun hideFolder() {
         addNoMedia(mPath) {
             runOnUiThread {
-                if (!config.shouldShowHidden)
+                if (!config.shouldShowHidden) {
                     finish()
-                else
+                } else {
                     invalidateOptionsMenu()
+                }
             }
         }
     }
@@ -440,9 +448,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun deleteDirectoryIfEmpty() {
-        val file = File(mPath)
-        if (config.deleteEmptyFolders && !file.isDownloadsFolder() && file.isDirectory && file.list()?.isEmpty() == true) {
-            deleteFile(file, true)
+        val fileDirItem = FileDirItem(mPath, mPath.getFilenameFromPath())
+        if (config.deleteEmptyFolders && !fileDirItem.isDownloadsFolder() && fileDirItem.isDirectory && fileDirItem.getProperFileCount(applicationContext, true) == 0) {
+            deleteFile(fileDirItem, true)
         }
     }
 
@@ -608,10 +616,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             }
             finish()
         } else {
-            val file = File(path)
-            val isVideo = file.isVideoFast()
+            val isVideo = path.isVideoFast()
             if (isVideo) {
-                openFile(Uri.fromFile(file), false)
+                openPath(path, false)
             } else {
                 Intent(this, ViewPagerActivity::class.java).apply {
                     putExtra(PATH, path)
@@ -664,8 +671,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
     }
 
-    override fun deleteFiles(files: ArrayList<File>) {
-        val filtered = files.filter { it.isImageVideoGif() } as ArrayList
+    override fun deleteFiles(fileDirItems: ArrayList<FileDirItem>) {
+        val filtered = fileDirItems.filter { it.path.isImageVideoGif() } as ArrayList
         deleteFiles(filtered) {
             if (!it) {
                 toast(R.string.unknown_error_occurred)

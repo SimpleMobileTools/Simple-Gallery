@@ -1,7 +1,6 @@
 package com.simplemobiletools.gallery.helpers
 
 // shared preferences
-const val SORT_ORDER = "sort_order"
 const val DIRECTORY_SORT_ORDER = "directory_sort_order"
 const val SORT_FOLDER_PREFIX = "sort_folder_"
 const val SHOW_HIDDEN_MEDIA = "show_hidden_media"
@@ -31,7 +30,6 @@ const val HIDE_FOLDER_TOOLTIP_SHOWN = "hide_folder_tooltip_shown"
 const val EXCLUDED_FOLDERS = "excluded_folders"
 const val INCLUDED_FOLDERS = "included_folders"
 const val ALBUM_COVERS = "album_covers"
-const val SCROLL_HORIZONTALLY = "scroll_horizontally"
 const val HIDE_SYSTEM_UI = "hide_system_ui"
 const val REPLACE_SHARE_WITH_ROTATE = "replace_share_with_rotate"
 const val DELETE_EMPTY_FOLDERS = "delete_empty_folders"

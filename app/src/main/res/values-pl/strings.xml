@@ -40,7 +40,7 @@
     <string name="manage_excluded_folders">Zarządzaj wykluczonymi folderami</string>
     <string name="exclude_folder_description">Działa na folderach galerii. Możesz zarządzać wykluczonymi folderami w ustawieniach aplikacji.</string>
     <string name="exclude_folder_parent">Wykluczyć folder nadrzędny?</string>
-    <string name="excluded_activity_placeholder">Wykluczenie folderów ukryje je tylko w aplikacji Simple Gallery, w innych aplikacjach będą one wciąż widoczne.\n\nJeśli chcesz je ukryć także w innych aplikacjach, użyj funkcji ukrywania.</string>
+    <string name="excluded_activity_placeholder">Wykluczenie folderów ukryje je tylko w niniejszej aplikacji, w innych aplikacjach będą one wciąż widoczne.\n\nJeśli chcesz je ukryć także w innych aplikacjach, użyj funkcji ukrywania.</string>
     <string name="remove_all">Usuń wszystko</string>
     <string name="remove_all_description">Usunąć wszystkie foldery z listy wykluczonych? Foldery nie zostaną fizycznie usunięte.</string>
    <string name="hidden_folders">Ukryte foldery</string>
@@ -126,8 +126,8 @@
     <string name="scroll_thumbnails_horizontally">Przewijaj miniatury poziomo</string>
     <string name="hide_system_ui_at_fullscreen">Ukrywaj interfejs przy pełnoekranowym podglądzie</string>
     <string name="delete_empty_folders">Usuwaj puste foldery po usunięciu ich zawartości</string>
-    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
-    <string name="allow_video_gestures">Zezwalaj na kontrolę jasności i głośności filmów pionowymi gestami</string>
+    <string name="allow_photo_gestures">Zezwalaj na kontrolowanie jasności zdjęcia pionowymi gestami</string>
+    <string name="allow_video_gestures">Zezwalaj na kontrolowanie jasności i głośności filmów pionowymi gestami</string>
     <string name="show_media_count">Pokazuj liczbę elementów w folderach w głównym widoku</string>
     <string name="replace_share_with_rotate">Zamień funkcję udostępniania na obracanie w menu pełnoekranowym</string>
     <string name="show_extended_details">Dodatkowe szczegóły przy podglądzie pełnoekranowym</string>
@@ -136,12 +136,32 @@
     <string name="allow_instant_change">Zezwalaj na natychmiastową zmianę multimediów po kliknięciu boków ekranu</string>
     <string name="replace_zoomable_images">Zamieniaj powiększalne obrazy na te o lepszej jakości</string>
     <string name="hide_extended_details">Ukrywaj dodatkowe szczegóły gdy pasek stanu jest ukryty</string>
-    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
+    <string name="do_extra_check">Dodatkowe sprawdzenie w celu uniknięcia pokazywania niewłaściwych plików</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatury</string>
     <string name="fullscreen_media">Widok pełnoekranowy</string>
     <string name="extended_details">Dodatkowe szczegóły</string>
+
+    <!-- FAQ -->
+    <string name="faq_1_title">Jak mogę ustawić tą aplikację jako domyślną aplikację galerii?</string>
+    <string name="faq_1_text">Znajdź obecną domyślną aplikację galerii w ustawieniach systemowych (sekcja \'Aplikacje\'). Na ekranie z informacjami o niej kliknij \'Otwórz domyślnie\', a następnie \'Wyczyść domyślne\'. Gdy podczas następnej próby otwarcia zdjęcia czy filmu system zapyta Cię jaką aplikacją to zrobić, wybierz Prostą Galerię i opcję zapamiętania tego wyboru.</string>
+    <string name="faq_2_title">Zablokowałem(-am) aplikację hasłem i wyleciało mi ono z głowy. Co mogę zrobić?</string>
+    <string name="faq_2_text">Masz dwie opcje: przeinstalowanie aplikacji lub wyczyszczenie jej ustawień. Niezależnie od wyboru, pliki pozostaną nienaruszone.</string>
+    <string name="faq_3_title">Jak sprawić, aby album(y) zawsze pojawiał(y) się na górze?</string>
+    <string name="faq_3_text">Przytrzymaj album(y) i wybierz ikonę przypięcia w pasku akcji.</string>
+    <string name="faq_4_title">Jak mogę przwijać filmy?</string>
+    <string name="faq_4_text">Kliknij na napisie z czasem trwania filmu, bądź tym z obecnym momentem filmu.</string>
+    <string name="faq_5_title">Jaka jest różnica pomiędzy ukryciem, a wykluczeniem folderu?</string>
+    <string name="faq_5_text">Wykluczenie działa tylko w obrębie niniejszej aplikacji (wszędzie indziej pliki są normalnie widoczne), ukrywanie - w obrębie całego systemu (nie widać ich nigdzie), dodawany jest wtedy do folderu pusty plik \'.nomedia\', który możesz usunąć w dowolnym menedżerze plików.</string>
+    <string name="faq_6_title">Dlaczego pokazują mi się foldery z okładkami do piosenek i tym podobne rzeczy?</string>
+    <string name="faq_6_text">Cóż, zdjęcie to zdjęcie. Aplikacja nie wie, czy to jest akurat okładka od piosenki, czy cokolwiek innego. Aby ukryć niechciane rzeczy, przytrzymaj je i wybierz opcję \'Wyklucz\' z paska akcji.</string>
+    <string name="faq_7_title">Nie pokazuje(-ą) mi się folder(y) ze zdjęciami / filmami. Co mogę zrobić?</string>
+    <string name="faq_7_text">Wejdź do ustawień aplikacji i w sekcji z dołączonymi folderami dodaj tenże folder do listy.</string>
+    <string name="faq_8_title">Co jeśli chcę widzieć tylko.wybrane foldery?</string>
+    <string name="faq_8_text">Przejdź do sekcji z wykluczonymi folderami w ustawieniach aplikacji, dodaj tam folder główny (\"/\"), a następnie dodaj pożądane foldery w sekcji z dołączonymi folderami.</string>
+    <string name="faq_9_title">Fullscreen images have weird artifacts, can I somehow improve the quality?</string>
+    <string name="faq_9_text">Yea, there is a toggle in Settings saying \"Replace deep zoomable images with better quality ones\", you can use that. It will improve the quality of the images, but they will get blurred once you try zooming in too much.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

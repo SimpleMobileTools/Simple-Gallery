@@ -43,9 +43,9 @@
     <string name="excluded_activity_placeholder">Excluír un cartafol xunto cos subcartafoles só terá efecto en Simple Gallery, seguirán sendo visibles en outros aplicativos.\n\nSi tamén quere excluílos en outros aplicativos, utilice a opción Agochar.</string>
     <string name="remove_all">Eliminar todos</string>
     <string name="remove_all_description">Eliminar todos os cartafoles da lista de excluídos? Esto non borrará os cartafoles.</string>
-    <string name="hidden_folders">Hidden folders</string>
+    <string name="hidden_folders">Cartafoles ocultos</string>
     <string name="manage_hidden_folders">Xestionar cartafoles ocultos</string>
-    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
+    <string name="hidden_folders_placeholder">Semella que non ten ningún cartafol oculto con un ficheiro \".nomedia\".</string>
 
     <!-- Include folders -->
     <string name="include_folders">Cartafoles incluídos</string>
@@ -86,7 +86,7 @@
     <string name="set_as_wallpaper_failed">Fallou establecer fondo de pantalla</string>
     <string name="set_as_wallpaper_with">Establecer fondo de pantalla con:</string>
     <string name="setting_wallpaper">Establecendo fondo de pantalla&#8230;</string>
-    <string name="wallpaper_set_successfully">fondo de pantalla establecido con éxito</string>
+    <string name="wallpaper_set_successfully">Fondo de pantalla establecido con éxito</string>
     <string name="portrait_aspect_ratio">Proporción de Retrato</string>
     <string name="landscape_aspect_ratio">Proporción de Paisaxe</string>
     <string name="home_screen">Pantalla de incio</string>
@@ -126,22 +126,44 @@
     <string name="scroll_thumbnails_horizontally">Desplazar iconas horizontalmente</string>
     <string name="hide_system_ui_at_fullscreen">Agochar controis do sistema cando visualice a pantalla completa</string>
     <string name="delete_empty_folders">Borrar cartafoles baldeiros cando elmine o seu contido</string>
-    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
+    <string name="allow_photo_gestures">Permitir controlar o brillo da foto con xestos verticais</string>
     <string name="allow_video_gestures">Permitir controlar o volume do vídeo e o brillo con xestos verticáis</string>
     <string name="show_media_count">Mostrar a conta de medios do cartafol na vista principal</string>
     <string name="replace_share_with_rotate">Substituír Compartir con Rotar no menú de pantalla completa</string>
     <string name="show_extended_details">Mostrar información pormenorizada sobre medios a pantalla completa</string>
     <string name="manage_extended_details">Xestionar información polo miúdo</string>
     <string name="one_finger_zoom">Permitir zoom con un dedo a pantalla completa</string>
-    <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
-    <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
-    <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
-    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
+    <string name="allow_instant_change">Permitir o cambio instantáneo de medios pulsando nos lados da pantalla</string>
+    <string name="replace_zoomable_images">Substituír imaxes con un gran zoom por por outras con mellor calidade</string>
+    <string name="hide_extended_details">Agochar detalles extendidos cando a barra de estado está oculta</string>
+    <string name="do_extra_check">Facer unha comprobación extra para evitar mostrar ficheiros non válidos</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Thumbnails</string>
-    <string name="fullscreen_media">Fullscreen media</string>
-    <string name="extended_details">Extended details</string>
+    <string name="thumbnails">Iconas</string>
+    <string name="fullscreen_media">Medios a pantalla completa</string>
+    <string name="extended_details">Detalles ampliados</string>
+
+    <!-- FAQ -->
+    <string name="faq_1_title">Cómo podo facer que Simple Gallery sexa a galería por omisión no dispositivo?</string>
+    <string name="faq_1_text">Primeiro debe atopar a galería por omsión actual na sección de App nos axustes do dispositivo, buscar un botón que diga algo como \"Abrir por omisión\", pulsalo e despois seleccionar \"Limpar por omisión\".
+        A próxima vez que intente abrir unha imaxe ou vídeo aparecerá un selector de aplicativos onde pode escoller Simple Gallery e facela o aplicativo por omisión.</string>
+    <string name="faq_2_title">Asegurei o aplicativo con un contrasinal, pero esquecino. Qué podo facer?</string>
+    <string name="faq_2_text">Pode solucionado de dous xeitos. Ou ben reinstalar o aplicativo ou buscar o aplicativo nos axustes do dispositivo e escoller \"Limpar datos\". Restablecerá todos os seus axustes, mais non eliminará ficheiros de medios.</string>
+    <string name="faq_3_title">Cómo podo facer que un álbume apareza sempre arriba de todo?</string>
+    <string name="faq_3_text">Pode manter premido o álbume e escoller a icona de Fixar no menú de accións, esto fixarao arriba. Pode fixar varios cartafoles tambén, os elementos fixados estarán ordenados polo criterio por omisión.</string>
+    <string name="faq_4_title">Cómo podo aumentar a velocidade de reprodución de vídeo?</string>
+    <string name="faq_4_text">Pode pulsar no texto de duración actual ou máxima preto da barra de busca, esto moverá ou vídeo hacia adiante ou atrás.</string>
+    <string name="faq_5_title">Cal é a diferenza entre agochar e excluír un cartafol?</string>
+    <string name="faq_5_text">A Exclusión prevén que se mostre o cartafol só en Simple Gallery, mentras Agochar funciona para todo o sistema e agocha o cartafol para outras galerías tamén. Esto funciona creando un ficheiro baldeiro de nome \".nomedia\" no cartafol, que tamén pode quitar con calquer xestor de ficheiros.</string>
+    <string name="faq_6_title">Por qué aparecen cartafoles de música con portadas ou pegatinas?</string>
+    <string name="faq_6_text">Pode acontecer que vexa que aparecen álbumes raros. Pode excluílos con facilidade mantendo premidos e escollendo Excluír. No seguinte diálogo pode escoller o cartafol pai, esto probablemente agoche outros álbumes relacionados.</string>
+    <string name="faq_7_title">Un cartafol con imaxes non aparece, qué podo facer? </string>
+    <string name="faq_7_text">Esto pode acontecer por varias razóns, pero é doado resolvelo. Vaia a Axustes -> xestionar cartafoles incluídos, escolle o Máis e navegar ate o cartafol requerido.</string>
+    <string name="faq_8_title">E qué pasa si só quero que sexan visibles certos cartafoles</string>
+    <string name="faq_8_text">Engadir un cartafol a Cartafoles incluídos non exclúe nada de xeito automático. O que pode facer é ir a Axustes -> Xestionar cartafoles incluídos, excluír o cartafol root \"/\", e despóis engadir os cartafoles desexados con Axustes -> Xestionar Cartafoles Incluídos.
+        Esto fará visibles só aos cartafoles escollidos, como tanto excluír e incluír son recursivos e si está excluído e logo incluído, será mostrado.</string>
+    <string name="faq_9_title">As imaxes a pantalla completa teñen píxeles extranos, podo mellorar a calidade da imaxe?</string>
+    <string name="faq_9_text">Si, hai unha opción en Axustes que di \"Substituír imaxes con un gran zoom con imaxes de mellor calidade\", pode usar eso. mellorará a calidade das imaxes, mais farase máis borrosaxa si intenta facer moito zoom.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

@@ -5,13 +5,13 @@
     <string name="edit">編集</string>
     <string name="open_camera">カメラを開く</string>
     <string name="hidden">(非表示)</string>
-    <string name="pin_folder">フォルダーをピン留めする</string>
-    <string name="unpin_folder">フォルダーのピン留めを外す</string>
-    <string name="pin_to_the_top">Pin to the top</string>
+    <string name="pin_folder">フォルダをピン留めする</string>
+    <string name="unpin_folder">フォルダのピン留めを外す</string>
+    <string name="pin_to_the_top">トップにピン留めする</string>
     <string name="show_all">全てを表示</string>
-    <string name="all_folders">すべてのフォルダー</string>
-    <string name="folder_view">フォルダーを選択する</string>
-    <string name="other_folder">その他のフォルダー</string>
+    <string name="all_folders">すべてのフォルダ</string>
+    <string name="folder_view">フォルダを選択する</string>
+    <string name="other_folder">その他のフォルダ</string>
     <string name="show_on_map">地図で表示</string>
     <string name="unknown_location">位置情報がありません</string>
     <string name="increase_column_count">列数を増やす</string>
@@ -21,12 +21,12 @@
     <string name="use_default">デフォルトに戻す</string>
     <string name="volume">音量</string>
     <string name="brightness">明るさ</string>
-    <string name="do_not_ask_again">Do not ask again in this session</string>
-    <string name="lock_orientation">Lock orientation</string>
-    <string name="unlock_orientation">Unlock orientation</string>
+    <string name="do_not_ask_again">このセッションでは再度たずねない</string>
+    <string name="lock_orientation">画面の向きを固定する</string>
+    <string name="unlock_orientation">向きの固定を解除する</string>
 
     <!-- Filter -->
-    <string name="filter_media">表示メディア種</string>
+    <string name="filter_media">表示するメディアの種類</string>
     <string name="images">画像</string>
     <string name="videos">ビデオ</string>
     <string name="gifs">GIF</string>
@@ -34,24 +34,24 @@
     <string name="change_filters_underlined"><u>絞り込み条件を変更</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">対象のフォルダーに「.nomedia」というファイルを作成し、フォルダーを非表示にします。そのフォルダー以下のすべてのサブフォルダーも、同様に非表示となります。非表示となったフォルダーを見るには、「設定」の中にある「非表示のフォルダーを表示」オプションを切り替えてください。このフォルダーを非表示にしますか？</string>
+    <string name="hide_folder_description">対象のフォルダに「.nomedia」というファイルを作成し、フォルダを非表示にします。そのフォルダ以下のすべてのサブフォルダも、同様に非表示となります。非表示となったフォルダを見るには、「設定」の中にある「非表示のフォルダを表示」オプションを切り替えてください。このフォルダを非表示にしますか？</string>
     <string name="exclude">除外する</string>
-    <string name="excluded_folders">除外フォルダー</string>
-    <string name="manage_excluded_folders">除外フォルダーを管理</string>
-    <string name="exclude_folder_description">選択したフォルダーとそのサブフォルダーを、Simple Galleyの一覧から除外します。除外したフォルダーは「設定」で管理できます。</string>
-    <string name="exclude_folder_parent">親フォルダーを選択して除外することもできます。</string>
-    <string name="excluded_activity_placeholder">フォルダーを除外すると、サブフォルダーも含めSimple Galleyの一覧から除外します。他のアプリでは引き続き表示されます。\\n\\n他のアプリでも非表示にしたい場合は、「非表示」機能を使用してください。</string>
+    <string name="excluded_folders">除外フォルダ</string>
+    <string name="manage_excluded_folders">除外フォルダを管理</string>
+    <string name="exclude_folder_description">選択したフォルダとそのサブフォルダを、Simple Galleyの一覧から除外します。除外したフォルダは「設定」で管理できます。</string>
+    <string name="exclude_folder_parent">親フォルダを選択して除外することもできます。</string>
+    <string name="excluded_activity_placeholder">フォルダを除外すると、サブフォルダも含めSimple Galleyの一覧から除外します。他のアプリでは引き続き表示されます。\\n\\n他のアプリでも非表示にしたい場合は、「非表示」機能を使用してください。</string>
     <string name="remove_all">すべて解除</string>
-    <string name="remove_all_description">除外するフォルダーの登録をすべて解除しますか? フォルダー自体は削除されません。</string>
-    <string name="hidden_folders">Hidden folders</string>
-    <string name="manage_hidden_folders">Manage hidden folders</string>
-    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
+    <string name="remove_all_description">除外するフォルダの登録をすべて解除しますか? フォルダ自体は削除されません。</string>
+    <string name="hidden_folders">非表示フォルダ</string>
+    <string name="manage_hidden_folders">非表示フォルダを管理する</string>
+    <string name="hidden_folders_placeholder">\".nomedia\"ファイルで隠されたフォルダはありません。</string>
 
     <!-- Include folders -->
-    <string name="include_folders">追加フォルダー</string>
-    <string name="manage_included_folders">追加フォルダーを管理</string>
-    <string name="add_folder">フォルダーを追加</string>
-    <string name="included_activity_placeholder">メディアを含んでいるフォルダーがアプリから認識されていない場合は、手動で追加できます。</string>
+    <string name="include_folders">追加フォルダ</string>
+    <string name="manage_included_folders">追加フォルダを管理</string>
+    <string name="add_folder">フォルダを追加</string>
+    <string name="included_activity_placeholder">メディアを含んでいるフォルダがアプリから認識されていない場合は、手動で追加できます。</string>
 
     <!-- Resizing -->
     <string name="resize">リサイズ</string>
@@ -89,9 +89,9 @@
     <string name="wallpaper_set_successfully">壁紙を正常に設定しました</string>
     <string name="portrait_aspect_ratio">縦向きの縦横比</string>
     <string name="landscape_aspect_ratio">横向きの縦横比</string>
-    <string name="home_screen">Home screen</string>
-    <string name="lock_screen">Lock screen</string>
-    <string name="home_and_lock_screen">Home and lock screen</string>
+    <string name="home_screen">ホーム画面</string>
+    <string name="lock_screen">ロック画面</string>
+    <string name="home_and_lock_screen">ホーム画面とロック画面</string>
 
     <!-- Slideshow -->
     <string name="slideshow">スライドショー</string>
@@ -107,9 +107,9 @@
     <string name="no_media_for_slideshow">スライドショーに表示するメディアがありません</string>
 
     <!-- View types -->
-    <string name="change_view_type">Change view type</string>
-    <string name="grid">Grid</string>
-    <string name="list">List</string>
+    <string name="change_view_type">表示形式の変更</string>
+    <string name="grid">グリッド</string>
+    <string name="list">リスト</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">ビデオを自動再生する</string>
@@ -122,36 +122,58 @@
     <string name="screen_rotation_system_setting">システム設定に従う</string>
     <string name="screen_rotation_device_rotation">端末の向きに従う</string>
     <string name="screen_rotation_aspect_ratio">メディアの縦横比に従う</string>
-    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
+    <string name="black_background_at_fullscreen">フルスクリーン表示の背景色とステータスバーの背景色を黒にする</string>
     <string name="scroll_thumbnails_horizontally">サムネイル画面を横方向にスクロール</string>
     <string name="hide_system_ui_at_fullscreen">フルスクリーン時にシステムUIを非表示にする</string>
-    <string name="delete_empty_folders">メディアの削除後にフォルダーが空になった場合、そのフォルダーを削除する</string>
-    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
+    <string name="delete_empty_folders">メディアの削除後にフォルダが空になった場合、そのフォルダを削除する</string>
+    <string name="allow_photo_gestures">垂直のジェスチャーで写真の明るさを制御できるようにする</string>
     <string name="allow_video_gestures">ビデオ再生中に、音量と明るさを縦方向のジェスチャーで変更する</string>
-    <string name="show_media_count">Show folder media count on the main view</string>
+    <string name="show_media_count">フォルダの中にあるメディアの数をメイン画面に表示する</string>
     <string name="replace_share_with_rotate">フルスクリーンメニューの「共有」を「回転」に置き換える</string>
-    <string name="show_extended_details">Show extended details over fullscreen media</string>
-    <string name="manage_extended_details">Manage extended details</string>
-    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
-    <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
-    <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
-    <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
-    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
+    <string name="show_extended_details">フルスクリーン画面に詳細を重ねて表示する</string>
+    <string name="manage_extended_details">詳細表示を管理する</string>
+    <string name="one_finger_zoom">フルスクリーン表示のメディアを指ひとつでズームできるようにする</string>
+    <string name="allow_instant_change">画面の端を押してメディアをすぐに変更できるようにする</string>
+    <string name="replace_zoomable_images">ズーム可能な画像をより高画質なものに置き換える</string>
+    <string name="hide_extended_details">ステータスバーが非表示の時は詳細を表示しない</string>
+    <string name="do_extra_check">無効なファイルを表示しないための調査を行います</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Thumbnails</string>
-    <string name="fullscreen_media">Fullscreen media</string>
-    <string name="extended_details">Extended details</string>
+    <string name="thumbnails">サムネイル</string>
+    <string name="fullscreen_media">メディアのみ</string>
+    <string name="extended_details">詳細も表示する</string>
+
+    <!-- FAQ -->
+    <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
+    <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
+        The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
+    <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do?</string>
+    <string name="faq_2_text">You can solve it in 2 ways. You can either reinstall the app, or find the app in your device settings and select \"Clear data\". It will reset all your settings, it will not remove any media files.</string>
+    <string name="faq_3_title">How can I make an album always appear at the top?</string>
+    <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actionmenu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
+    <string name="faq_4_title">How can I fast-forward videos?</string>
+    <string name="faq_4_text">You can click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
+    <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
+    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
+    <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
+    <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
+    <string name="faq_7_title">A folder with images isn\'t showing up, what can I do?</string>
+    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
+    <string name="faq_8_title">What if I want just a few particular folders visible?</string>
+    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
+        That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
+    <string name="faq_9_title">Fullscreen images have weird artifacts, can I somehow improve the quality?</string>
+    <string name="faq_9_text">Yea, there is a toggle in Settings saying \"Replace deep zoomable images with better quality ones\", you can use that. It will improve the quality of the images, but they will get blurred once you try zooming in too much.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">写真やビデオを見るためのギャラリー。広告はありません。</string>
     <string name="app_long_description">
-        写真やビデオを見るためのシンプルなツール。 日付、サイズ、名前で、昇順または降順にアイテムを並べ替えることができ、写真は拡大表示できます。 メディアファイルは、ディスプレイのサイズに応じて複数の列に表示されます。 名前の変更、共有、削除、コピー、移動が可能です。 画像をトリミング、回転、または壁紙としてアプリから直接設定することもできます。
+        写真やビデオを見るためのシンプルなツール。 日付、サイズ、名前で、昇順または降順にアイテムを並べ替えることができ、写真は拡大表示できます。 メディアファイルは、画面のサイズに応じて最適な列数で表示されます。 名前の変更、共有、削除、コピー、移動が可能です。 画像をトリミング、回転、または壁紙としてアプリから直接設定することもできます。
 
-        ギャラリーは、画像やビデオのプレビュー、メールクライアントで添付ファイルの追加など、サードパーティの用途にも提供されます。 毎日の使用には完璧です。
+        ギャラリーは、画像やビデオのプレビュー、メールクライアントで添付ファイルの追加など、サードパーティの用途にも提供されます。 日々の使用には最適です。
 
-        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+        隠しアイテムを表示したりアプリそのものをロックするには指紋認証の許可が必要です。
 
         広告や不要なアクセス許可は含まれていません。 完全にオープンソースで、ダークテーマも提供しています。
 

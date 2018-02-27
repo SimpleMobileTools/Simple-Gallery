@@ -5,6 +5,7 @@ import android.content.ClipData
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.os.Handler
 import android.provider.MediaStore
 import android.support.v7.widget.GridLayoutManager
@@ -17,9 +18,11 @@ import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.PERMISSION_READ_STORAGE
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_TAKEN
+import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.models.Release
 import com.simplemobiletools.commons.views.MyGridLayoutManager
@@ -95,6 +98,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         mIsPasswordProtectionPending = config.appPasswordProtectionOn
+        setupLatestMediaId()
     }
 
     override fun onStart() {
@@ -133,6 +137,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
         directories_horizontal_fastscroller.updateBubbleColors()
         directories_vertical_fastscroller.updateBubbleColors()
+        directories_refresh_layout.isEnabled = config.enablePullToRefresh
         invalidateOptionsMenu()
         directories_empty_text_label.setTextColor(config.textColor)
         directories_empty_text.setTextColor(getAdjustedPrimaryColor())
@@ -233,7 +238,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             val newFolder = File(config.tempFolderPath)
             if (newFolder.exists() && newFolder.isDirectory) {
                 if (newFolder.list()?.isEmpty() == true) {
-                    deleteFile(newFolder, true)
+                    deleteFile(newFolder.toFileDirItem(applicationContext), true)
                 }
             }
             config.tempFolderPath = ""
@@ -280,6 +285,17 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             gotDirectories(addTempFolderIfNeeded(it), false)
         }
         mCurrAsyncTask!!.execute()
+
+        // try ensuring that the screenshots folders is properly added to the mediastore
+        if (config.appRunCount < 5) {
+            Thread {
+                val pictures = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
+                val screenshots = File(pictures, "Screenshots")
+                if (screenshots.exists()) {
+                    scanFile(screenshots)
+                }
+            }.start()
+        }
     }
 
     private fun showSortingDialog() {
@@ -352,7 +368,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     override fun deleteFolders(folders: ArrayList<File>) {
-        deleteFolders(folders) {
+        val fileDirItems = folders.map { FileDirItem(it.absolutePath, it.name, true) } as ArrayList<FileDirItem>
+        deleteFolders(fileDirItems) {
             runOnUiThread {
                 refreshItems()
             }
@@ -522,7 +539,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun fillIntentPath(resultData: Intent, resultIntent: Intent) {
         val path = resultData.data.path
         val uri = getFilePublicUri(File(path), BuildConfig.APPLICATION_ID)
-        val type = path.getMimeTypeFromPath()
+        val type = path.getMimeType()
         resultIntent.setDataAndTypeAndNormalize(uri, type)
         resultIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
     }
@@ -551,9 +568,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun gotDirectories(newDirs: ArrayList<Directory>, isFromCache: Boolean) {
         if (!isFromCache) {
-            Thread {
-                mLatestMediaId = getLatestMediaId()
-            }.start()
+            setupLatestMediaId()
         }
 
         val dirs = getSortedDirectories(newDirs)
@@ -608,7 +623,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun setupScrollDirection() {
         val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFolders == VIEW_TYPE_GRID
-        directories_refresh_layout.isEnabled = !config.scrollHorizontally
 
         directories_vertical_fastscroller.isHorizontal = false
         directories_vertical_fastscroller.beGoneIf(allowHorizontalScroll)
@@ -619,19 +633,30 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         if (allowHorizontalScroll) {
             directories_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
             directories_horizontal_fastscroller.setViews(directories_grid, directories_refresh_layout) {
-                directories_horizontal_fastscroller.updateBubbleText(mDirs[it].getBubbleText())
+                directories_horizontal_fastscroller.updateBubbleText(getBubbleTextItem(it))
             }
         } else {
             directories_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
             directories_vertical_fastscroller.setViews(directories_grid, directories_refresh_layout) {
-                directories_vertical_fastscroller.updateBubbleText(mDirs[it].getBubbleText())
+                directories_vertical_fastscroller.updateBubbleText(getBubbleTextItem(it))
             }
         }
     }
 
+    private fun getBubbleTextItem(index: Int) = getRecyclerAdapter().dirs.getOrNull(index)?.getBubbleText() ?: ""
+
+    private fun setupLatestMediaId() {
+        Thread {
+            if (hasPermission(PERMISSION_READ_STORAGE)) {
+                mLatestMediaId = getLatestMediaId()
+            }
+        }.start()
+    }
+
     private fun checkLastMediaChanged() {
-        if (isActivityDestroyed())
+        if (isActivityDestroyed()) {
             return
+        }
 
         mLastMediaHandler.removeCallbacksAndMessages(null)
         mLastMediaHandler.postDelayed({
@@ -701,6 +726,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             add(Release(143, R.string.release_143))
             add(Release(158, R.string.release_158))
             add(Release(159, R.string.release_159))
+            add(Release(163, R.string.release_163))
             checkWhatsNew(this, BuildConfig.VERSION_CODE)
         }
     }

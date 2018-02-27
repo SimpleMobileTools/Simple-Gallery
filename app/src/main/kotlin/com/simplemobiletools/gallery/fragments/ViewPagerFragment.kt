@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.fragments
 
 import android.support.v4.app.Fragment
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
@@ -45,7 +46,7 @@ abstract class ViewPagerFragment : Fragment() {
         }
 
         if (detailsFlag and EXT_RESOLUTION != 0) {
-            file.getResolution().formatAsResolution().let { if (it.isNotEmpty()) details.appendln(it) }
+            file.absolutePath.getResolution()?.formatAsResolution().let { if (it?.isNotEmpty() == true) details.appendln(it) }
         }
 
         if (detailsFlag and EXT_LAST_MODIFIED != 0) {
@@ -65,4 +66,6 @@ abstract class ViewPagerFragment : Fragment() {
         }
         return details.toString().trim()
     }
+
+    fun getPathToLoad(medium: Medium) = if (medium.path.startsWith(OTG_PATH)) medium.path.getOTGPublicPath(context!!) else medium.path
 }

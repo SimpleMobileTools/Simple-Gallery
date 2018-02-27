@@ -57,12 +57,14 @@ class SettingsActivity : SimpleActivity() {
         setupShowMediaCount()
         setupKeepLastModified()
         setupShowInfoBubble()
+        setupEnablePullToRefresh()
         setupOneFingerZoom()
         setupAllowInstantChange()
         setupReplaceZoomableImages()
         setupShowExtendedDetails()
         setupHideExtendedDetails()
         setupManageExtendedDetails()
+        setupSkipDeleteConfirmation()
         updateTextColors(settings_holder)
         setupSectionColors()
     }
@@ -309,6 +311,14 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
+    private fun setupEnablePullToRefresh() {
+        settings_enable_pull_to_refresh.isChecked = config.enablePullToRefresh
+        settings_enable_pull_to_refresh_holder.setOnClickListener {
+            settings_enable_pull_to_refresh.toggle()
+            config.enablePullToRefresh = settings_enable_pull_to_refresh.isChecked
+        }
+    }
+
     private fun setupOneFingerZoom() {
         settings_one_finger_zoom.isChecked = config.oneFingerZoom
         settings_one_finger_zoom_holder.setOnClickListener {
@@ -360,6 +370,14 @@ class SettingsActivity : SimpleActivity() {
                     settings_show_extended_details_holder.callOnClick()
                 }
             }
+        }
+    }
+
+    private fun setupSkipDeleteConfirmation() {
+        settings_skip_delete_confirmation.isChecked = config.skipDeleteConfirmation
+        settings_skip_delete_confirmation_holder.setOnClickListener {
+            settings_skip_delete_confirmation.toggle()
+            config.skipDeleteConfirmation = settings_skip_delete_confirmation.isChecked
         }
     }
 

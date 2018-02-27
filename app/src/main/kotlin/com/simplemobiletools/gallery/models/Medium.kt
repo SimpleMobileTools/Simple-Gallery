@@ -2,7 +2,7 @@ package com.simplemobiletools.gallery.models
 
 import com.simplemobiletools.commons.extensions.formatDate
 import com.simplemobiletools.commons.extensions.formatSize
-import com.simplemobiletools.commons.extensions.getMimeTypeFromPath
+import com.simplemobiletools.commons.extensions.getMimeType
 import com.simplemobiletools.commons.extensions.isDng
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.helpers.TYPE_GIF
@@ -24,7 +24,7 @@ data class Medium(var name: String, var path: String, val modified: Long, val ta
 
     fun isDng() = path.isDng()
 
-    fun getMimeType() = path.getMimeTypeFromPath()
+    fun getMimeType() = path.getMimeType()
 
     override fun compareTo(other: Medium): Int {
         var result: Int

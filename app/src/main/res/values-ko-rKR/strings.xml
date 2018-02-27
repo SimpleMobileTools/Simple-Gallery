@@ -34,18 +34,18 @@
     <string name="change_filters_underlined"><u>필터 변경</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">현재폴더 및 모든 하위폴더를 \'.nomedia\' 폴더를 생성하여 숨김니다. 숨김 처리된 모들 폴더는 옵션설정의 \'숨김파일 보기\' 메뉴를 이용하여 다시 보실 수 있습니다. 계속 하시겠습니까?</string>
+    <string name="hide_folder_description">현재폴더 및 모든 하위폴더를 \'.nomedia\' 폴더를 생성하여 숨김니다. 숨김 처리된 모든 폴더는 옵션설정의 \'숨김파일 보기\' 메뉴를 이용하여 다시 보실 수 있습니다. 계속 하시겠습니까?</string>
     <string name="exclude">제외하기</string>
     <string name="excluded_folders">제외된 폴더</string>
     <string name="manage_excluded_folders">제외된 폴더관리</string>
     <string name="exclude_folder_description">현재폴더 및 모든 하위폴더를 심플 갤러리에서 제외시킵니다. 제외된 폴더는 옵션설정에서 관리 할 수 있습니다.</string>
     <string name="exclude_folder_parent">상위 폴더를 제외 하시겠습니까?</string>
-    <string name="excluded_activity_placeholder">Excluding folders will make them together with their subfolders hidden just in Simple Gallery, they will still be visible in other applications.\n\nIf you want to hide them from other apps too, use the Hide function.</string>
+    <string name="excluded_activity_placeholder">폴더를 제외하면 하위폴더까지 심플 갤러리에서 숨김처리 되지만, 다른 앱에서는 숨김처리 되지 않습니다. \n\n다른 앱에서도 보이지 않게 하려면 숨김기능을 사용하십시오.</string>
     <string name="remove_all">모두 제거</string>
     <string name="remove_all_description">제외 목록을 모두 삭제 하시겠습니다? 목록을 삭제해도 폴더가 삭제되지는 않습니다.</string>
-    <string name="hidden_folders">Hidden folders</string>
-    <string name="manage_hidden_folders">Manage hidden folders</string>
-    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
+    <string name="hidden_folders">숨겨진 폴더</string>
+    <string name="manage_hidden_folders">숨김폴더 관리</string>
+    <string name="hidden_folders_placeholder">\".nomedia\" 하위에 숨김 처리된 폴더가 존재하지 않습니다.</string>
 
     <!-- Include folders -->
     <string name="include_folders">포함된 폴더</string>
@@ -122,26 +122,48 @@
     <string name="screen_rotation_system_setting">시스템 설정</string>
     <string name="screen_rotation_device_rotation">디바이스 회전</string>
     <string name="screen_rotation_aspect_ratio">가로세로 비율</string>
-    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
+    <string name="black_background_at_fullscreen">전체화면 모드에서 검정색 배경 및 상태바 사용</string>
     <string name="scroll_thumbnails_horizontally">섬네일 수평스크롤</string>
     <string name="hide_system_ui_at_fullscreen">전체화면 모드에서 시스템 UI 숨김</string>
     <string name="delete_empty_folders">콘텐츠 삭제 후 빈폴더 삭제</string>
-    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
+    <string name="allow_photo_gestures">상하 제스처로 사진 밝기 제어</string>
     <string name="allow_video_gestures">수직 제스처로 비디오 볼륨 및 밝기 제어</string>
     <string name="show_media_count">폴더에 포함된 미디어파일 수 표시</string>
     <string name="replace_share_with_rotate">전체화면 메뉴의 공유 아이콘을 회전 아이콘으로 변경</string>
     <string name="show_extended_details">전체화면 모드에서 세부정보 표시</string>
     <string name="manage_extended_details">확장된 세부정보 관리</string>
-    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
-    <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
-    <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
+    <string name="one_finger_zoom">전체화면 모드에서 한 손가락으로 확대 및 축소</string>
+    <string name="allow_instant_change">측면 클릭으로 미디어 즉시변경</string>
+    <string name="replace_zoomable_images">확대 축소 가능한 이미지를 더 좋은 품질로 교체</string>
     <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
-    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
+    <string name="do_extra_check">잘못된 파일 표시를 방지하기 위해 추가 검사 수행</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Thumbnails</string>
-    <string name="fullscreen_media">Fullscreen media</string>
-    <string name="extended_details">Extended details</string>
+    <string name="thumbnails">섬네일</string>
+    <string name="fullscreen_media">미디어 전체화면</string>
+    <string name="extended_details">확장 된 세부 정보</string>
+
+    <!-- FAQ -->
+    <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
+    <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
+        The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
+    <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do?</string>
+    <string name="faq_2_text">You can solve it in 2 ways. You can either reinstall the app, or find the app in your device settings and select \"Clear data\". It will reset all your settings, it will not remove any media files.</string>
+    <string name="faq_3_title">How can I make an album always appear at the top?</string>
+    <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actionmenu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
+    <string name="faq_4_title">How can I fast-forward videos?</string>
+    <string name="faq_4_text">You can click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
+    <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
+    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
+    <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
+    <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
+    <string name="faq_7_title">A folder with images isn\'t showing up, what can I do?</string>
+    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
+    <string name="faq_8_title">What if I want just a few particular folders visible?</string>
+    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
+        That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
+    <string name="faq_9_title">Fullscreen images have weird artifacts, can I somehow improve the quality?</string>
+    <string name="faq_9_text">Yea, there is a toggle in Settings saying \"Replace deep zoomable images with better quality ones\", you can use that. It will improve the quality of the images, but they will get blurred once you try zooming in too much.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

@@ -16,23 +16,19 @@ class Config(context: Context) : BaseConfig(context) {
         fun newInstance(context: Context) = Config(context)
     }
 
-    var fileSorting: Int
-        get() = prefs.getInt(SORT_ORDER, SORT_BY_DATE_MODIFIED or SORT_DESCENDING)
-        set(order) = prefs.edit().putInt(SORT_ORDER, order).apply()
-
     var directorySorting: Int
         get() = prefs.getInt(DIRECTORY_SORT_ORDER, SORT_BY_DATE_MODIFIED or SORT_DESCENDING)
         set(order) = prefs.edit().putInt(DIRECTORY_SORT_ORDER, order).apply()
 
     fun saveFileSorting(path: String, value: Int) {
         if (path.isEmpty()) {
-            fileSorting = value
+            sorting = value
         } else {
             prefs.edit().putInt(SORT_FOLDER_PREFIX + path.toLowerCase(), value).apply()
         }
     }
 
-    fun getFileSorting(path: String) = prefs.getInt(SORT_FOLDER_PREFIX + path.toLowerCase(), fileSorting)
+    fun getFileSorting(path: String) = prefs.getInt(SORT_FOLDER_PREFIX + path.toLowerCase(), sorting)
 
     fun removeFileSorting(path: String) {
         prefs.edit().remove(SORT_FOLDER_PREFIX + path.toLowerCase()).apply()
@@ -236,10 +232,6 @@ class Config(context: Context) : BaseConfig(context) {
         val listType = object : TypeToken<List<AlbumCover>>() {}.type
         return Gson().fromJson<ArrayList<AlbumCover>>(albumCovers, listType) ?: ArrayList(1)
     }
-
-    var scrollHorizontally: Boolean
-        get() = prefs.getBoolean(SCROLL_HORIZONTALLY, false)
-        set(scrollHorizontally) = prefs.edit().putBoolean(SCROLL_HORIZONTALLY, scrollHorizontally).apply()
 
     var hideSystemUI: Boolean
         get() = prefs.getBoolean(HIDE_SYSTEM_UI, false)

@@ -143,6 +143,28 @@
     <string name="fullscreen_media">Mitjans a pantalla completa</string>
     <string name="extended_details">Detalls estesos</string>
 
+    <!-- FAQ -->
+    <string name="faq_1_title">Com puc fer que Simple Gallery sigui la galeria de dispositius predeterminada?</string>
+    <string name="faq_1_text">Primer heu de trobar la galeria actualment predeterminada a la secció Aplicacions de la configuració del vostre dispositiu, cerqueu un botó que digui alguna cosa semblant a \"Obrir per defecte \", feu-hi clic i seleccioneu \"Esborra valors predeterminats \".
+        La propera vegada que proveu d\'obrir una imatge o un vídeo, haureu de veure un selector d\'aplicació, on podeu seleccionar Simple Galeria i convertir-la en la aplicació predeterminada.</string>
+    <string name="faq_2_title">Vaig bloquejar l\'aplicació amb una contrasenya, però l\'he oblidat. Què puc fer?</string>
+    <string name="faq_2_text">Es pot resoldre de dues maneres. Podeu tornar a instal·lar l\'aplicació o trobar l\'aplicació a la configuració del dispositiu i seleccionar \"Esborrar dades \". Això reiniciarà totes les configuracions, no eliminarà cap fitxer multimèdia.</string>
+    <string name="faq_3_title">Com puc fer que un àlbum sempre aparegui a la part superior?</string>
+    <string name="faq_3_text">Podeu prémer l\'àlbum desitjat i seleccionar la icona de la xinxeta al menú d\'acció i el fixarà a la part superior. També podeu enganxar diverses carpetes, els elements fixats s'ordenaran pel mètode de classificació predeterminat.</string>
+    <string name="faq_4_title">Com puc fer avançar els vídeos?</string>
+    <string name="faq_4_text">Podeu fer clic als textos actuals o de duració màxima que hi ha a prop de la barra de cerca, això mourà el vídeo cap a enrere o cap endavant.</string>
+    <string name="faq_5_title">Quina és la diferència entre ocultar i excloure una carpeta?</string>
+    <string name="faq_5_text">Excloure impedeix mostrar la carpeta només a Simple Galery, mentre que Ocultar també amaga la carpeta a altres galeries. Funciona creant un fitxer \". Nomedia \" buit a la carpeta donada, que podeu eliminar amb qualsevol gestor de fitxers.</string>
+    <string name="faq_6_title">Per què apareixen les carpetes amb les portades de la música o adhesius?</string>
+    <string name="faq_6_text">Pot passar que veuràs que apareixen alguns àlbums inusuals. Podeu excloure\'ls fàcilment prement-los i seleccionant Excloure. Al següent diàleg, podeu seleccionar la carpeta principal, és probable que impedeixi que apareguin altres àlbums relacionats.</string>
+    <string name="faq_7_title">Una carpeta amb imatges no apareix, què puc fer?</string>
+    <string name="faq_7_text">Això pot tenir diversos motius, però resoldre-ho és fàcil. Accediu a Configuració -> Gestiona les carpetes incloses, seleccioneu Més i navegueu fins a la carpeta necessària.</string>
+    <string name="faq_8_title">Què passa si vull veure només algunes carpetes concretes?</string>
+    <string name="faq_8_text">L\'addició d\'una carpeta a les carpetes incloses no exclou automàticament res. El que podeu fer és anar a Configuració -> Gestionar carpetes excloses, excloure la carpeta arrel \"/\" i, a continuació, afegir les carpetes desitjades a Configuració -> Gestionar carpetes incloses.
+        Això farà que només les carpetes seleccionades siguin visibles, ja que tant excloure com incloure són recursius i si una carpeta està exclosa i inclosa, es mostrarà.</string>
+    <string name="faq_9_title">Les imatges a pantalla completa tenen artefactes estranys, puc millorar d\'alguna manera la qualitat?</string>
+    <string name="faq_9_text">Sí, hi ha un commutador a la configuració que diu \"Substituïu imatges ampliades i de gran qualitat\", podeu fer-ho. Millora la qualitat de les imatges, però es borraran una vegada que intenteu fer zoom massa.</string>
+
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Una galeria per veure imatges i vídeos sense publicitat.</string>

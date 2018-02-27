@@ -14,6 +14,7 @@ import android.view.animation.AnimationUtils
 import android.widget.SeekBar
 import android.widget.TextView
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.VideoActivity
 import com.simplemobiletools.gallery.extensions.*
@@ -21,6 +22,7 @@ import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.helpers.MediaSideScroll
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.pager_video_item.view.*
+import java.io.File
 import java.io.IOException
 
 class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSeekBarChangeListener {
@@ -183,7 +185,6 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
     private fun initTimeHolder() {
         val res = resources
-        val height = context!!.navigationBarHeight
         val left = mTimeHolder!!.paddingLeft
         val top = mTimeHolder!!.paddingTop
         var right = mTimeHolder!!.paddingRight
@@ -315,10 +316,13 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             return
         }
 
-        val mediumPath = if (wasEncoded) mEncodedPath else medium.path
+        val mediumPath = if (wasEncoded) mEncodedPath else getPathToLoad(medium)
+
+        // this workaround is needed for example if the filename contains a colon
+        val fileUri = if (mediumPath.startsWith("/")) context!!.getFilePublicUri(File(mediumPath), BuildConfig.APPLICATION_ID) else Uri.parse(mediumPath)
         try {
             mMediaPlayer = MediaPlayer().apply {
-                setDataSource(context, Uri.parse(mediumPath))
+                setDataSource(context, fileUri)
                 setDisplay(mSurfaceHolder)
                 setOnCompletionListener { videoCompleted() }
                 setOnVideoSizeChangedListener { mediaPlayer, width, height -> setVideoSize() }
@@ -327,7 +331,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 prepare()
             }
         } catch (e: IOException) {
-            mEncodedPath = Uri.encode(medium.path)
+            mEncodedPath = Uri.encode(getPathToLoad(medium))
             if (wasEncoded) {
                 releaseMediaPlayer()
             } else {
@@ -471,6 +475,10 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     }
 
     private fun skip(forward: Boolean) {
+        if (mMediaPlayer == null) {
+            return
+        }
+
         val curr = mMediaPlayer!!.currentPosition
         val twoPercents = mMediaPlayer!!.duration / 50
         val newProgress = if (forward) curr + twoPercents else curr - twoPercents

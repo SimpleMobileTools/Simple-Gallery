@@ -3,11 +3,12 @@ package com.simplemobiletools.gallery.asynctasks
 import android.content.Context
 import android.os.AsyncTask
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.SORT_DESCENDING
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.extensions.containsNoMedia
+import com.simplemobiletools.gallery.extensions.doesParentHaveNoMedia
 import com.simplemobiletools.gallery.extensions.sumByLong
 import com.simplemobiletools.gallery.helpers.MediaFetcher
 import com.simplemobiletools.gallery.models.Directory
@@ -28,16 +29,22 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         val directories = ArrayList<Directory>()
         val hidden = context.resources.getString(R.string.hidden)
         val albumCovers = config.parseAlbumCovers()
+        val hasOTG = context.hasOTGConnected() && context.config.OTGBasePath.isNotEmpty()
+
         for ((path, curMedia) in groupedMedia) {
             Medium.sorting = config.getFileSorting(path)
             curMedia.sort()
 
             val firstItem = curMedia.first()
             val lastItem = curMedia.last()
-            val parentDir = File(firstItem.path).parent
-            var thumbnail = firstItem.path
+            val parentDir = if (hasOTG && firstItem.path.startsWith(OTG_PATH)) firstItem.path.getParentPath() else File(firstItem.path).parent
+            var thumbnail = curMedia.firstOrNull { context.getDoesFilePathExist(it.path) }?.path ?: ""
+            if (thumbnail.startsWith(OTG_PATH)) {
+                thumbnail = thumbnail.getOTGPublicPath(context)
+            }
+
             albumCovers.forEach {
-                if (it.path == parentDir && File(it.tmb).exists()) {
+                if (it.path == parentDir && context.getDoesFilePathExist(it.tmb)) {
                     thumbnail = it.tmb
                 }
             }
@@ -45,10 +52,17 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
             var dirName = when (parentDir) {
                 context.internalStoragePath -> context.getString(R.string.internal)
                 context.sdCardPath -> context.getString(R.string.sd_card)
-                else -> parentDir.getFilenameFromPath()
+                OTG_PATH -> context.getString(R.string.otg)
+                else -> {
+                    if (parentDir.startsWith(OTG_PATH)) {
+                        parentDir.trimEnd('/').substringAfterLast('/')
+                    } else {
+                        parentDir.getFilenameFromPath()
+                    }
+                }
             }
 
-            if (File(parentDir).containsNoMedia()) {
+            if (File(parentDir).doesParentHaveNoMedia()) {
                 dirName += " $hidden"
             }
 
