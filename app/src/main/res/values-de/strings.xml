@@ -153,10 +153,10 @@
     <string name="faq_3_text">Du kannst lange auf das gewünschte Album drücken und im Aktionsmenü das Stecknadelsymbol auswählen; es wird nun zuoberst angepinnt. Ebenso kannst du mehrere Ordner anpinnen. Angepinnte Objekte werden nach der Standardmethode sortiert.</string>
     <string name="faq_4_title">Wie kann ich Videos vorspulen?</string>
     <string name="faq_4_text">Du kannst auf den Text der aktuellen oder der maximalen Dauer nahe der Suchleiste drücken, um das Video zurück- oder vorzuspulen.</string>
-    <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
-    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
-    <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
-    <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
+    <string name="faq_5_title">Was ist der Unterschied zwischen Verstecken und Ausschliessen eines Ordners?</string>
+    <string name="faq_5_text">Ausschliessen verhindert lediglich, dass der Ordner in Schlichte Galerie angezeigt, Verstecken hingegen funktioniert systemweit und versteckt den Ordner auch vor anderen Gallerieapps. Dies funktioniert durch das Erstellen einer leeren \".nomedia\"-Datei im betroffenen Ordner, welche du mit jedem Dateimanager löschen kannst.</string>
+    <string name="faq_6_title">Wieso erscheinen Ordner mit Musik-Cover oder Stickers?</string>
+    <string name="faq_6_text">Es kann geschehen, dass manche ungewöhnliche Alben erscheinen. Diese kannst du ausschliessen durch gedrückt halten und Auswählen von Ausschliessen. Im nächsten Dialog kannst du den übergeordneten Ordner auswählen und dadurch sollten die anderen zugehörigen Alben auch nicht auftauchen.</string>
     <string name="faq_7_title">A folder with images isn\'t showing up, what can I do?</string>
     <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
     <string name="faq_8_title">What if I want just a few particular folders visible?</string>
