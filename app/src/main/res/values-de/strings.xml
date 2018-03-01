@@ -161,7 +161,7 @@
     <string name="faq_7_text">Dies kann mehrere Gründe haben, aber es zu lösen ist einfach. Gehe einfach zu Einstellungen  -> Einbezogene Ordner verwalten, wähle das Plus aus und navigiere zum gewünschten Ordner.</string>
     <string name="faq_8_title">Was ist, wenn ich nur ein paar definierte Ordner sichtbar haben will?</string>
     <string name="faq_8_text">Einen Ordner zu den einbezogenen Ordner hinzuzufügen schliesst nicht automatisch alle anderen aus. Eine Möglichkeit ist, in Einstellungen  -> Ausgeschlossene Ordner verwalten den Stammordner \"/\" auszuschliessen und dann alle gewünschten Ordner in Einstellungen  -> Einbezogene Ordner verwalten hinzuzufügen. 
-        Dadurch werden nur die ausgewählten Ordner sichtbar, da Auschliessen und Einbeziehen rekursiv erfolgen und wenn ein Ordner ausgeschlossen und einbezogen wird, wird er angezeigt.</string>
+        Dadurch werden nur die ausgewählten Ordner sichtbar, da Auschliessen und Einbeziehen rekursiv erfolgen und wenn ein Ordner ausgeschlossen und einbezogen wird, wird er dennoch angezeigt.</string>
     <string name="faq_9_title">Vollbildfotos haben seltsame Artefakte. Kann ich die Qualität verbessern?</string>
     <string name="faq_9_text">Ja, es gibt einen Schalter in den Einstellungen gekennzeichnet mit \"Stark zoombare Bilder durch Bilder mit hoher Qualität ersetzen\". Dieser wird die Bildqualität verbessern, aber sie werden bei sehr hoher Zoomstufe unscharf.</string>
 
