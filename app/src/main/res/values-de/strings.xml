@@ -157,13 +157,13 @@
     <string name="faq_5_text">Ausschliessen verhindert lediglich, dass der Ordner in Schlichte Galerie angezeigt, Verstecken hingegen funktioniert systemweit und versteckt den Ordner auch vor anderen Gallerieapps. Dies funktioniert durch das Erstellen einer leeren \".nomedia\"-Datei im betroffenen Ordner, welche du mit jedem Dateimanager löschen kannst.</string>
     <string name="faq_6_title">Wieso erscheinen Ordner mit Musik-Cover oder Stickers?</string>
     <string name="faq_6_text">Es kann geschehen, dass manche ungewöhnliche Alben erscheinen. Diese kannst du ausschliessen durch gedrückt halten und Auswählen von Ausschliessen. Im nächsten Dialog kannst du den übergeordneten Ordner auswählen und dadurch sollten die anderen zugehörigen Alben auch nicht auftauchen.</string>
-    <string name="faq_7_title">A folder with images isn\'t showing up, what can I do?</string>
-    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
-    <string name="faq_8_title">What if I want just a few particular folders visible?</string>
-    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
-        That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
-    <string name="faq_9_title">Fullscreen images have weird artifacts, can I somehow improve the quality?</string>
-    <string name="faq_9_text">Yea, there is a toggle in Settings saying \"Replace deep zoomable images with better quality ones\", you can use that. It will improve the quality of the images, but they will get blurred once you try zooming in too much.</string>
+    <string name="faq_7_title">Ein Ordner mit Bilder wird nicht angezeigt. Was kann ich tun?</string>
+    <string name="faq_7_text">Dies kann mehrere Gründe haben, aber es zu lösen ist einfach. Gehe einfach zu Einstellungen  -> Einbezogene Ordner verwalten, wähle das Plus aus und navigiere zum gewünschten Ordner.</string>
+    <string name="faq_8_title">Was ist, wenn ich nur ein paar definierte Ordner sichtbar haben will?</string>
+    <string name="faq_8_text">Einen Ordner zu den einbezogenen Ordner hinzuzufügen schliesst nicht automatisch alle anderen aus. Eine Möglichkeit ist, in Einstellungen  -> Ausgeschlossene Ordner verwalten den Stammordner \"/\" auszuschliessen und dann alle gewünschten Ordner in Einstellungen  -> Einbezogene Ordner verwalten hinzuzufügen. 
+        Dadurch werden nur die ausgewählten Ordner sichtbar, da Auschliessen und Einbeziehen rekursiv erfolgen und wenn ein Ordner ausgeschlossen und einbezogen wurde, wird er dennoch angezeigt.</string>
+    <string name="faq_9_title">Vollbildfotos haben seltsame Artefakte. Kann ich die Qualität verbessern?</string>
+    <string name="faq_9_text">Ja, es gibt einen Schalter in den Einstellungen gekennzeichnet mit \"Stark zoombare Bilder durch Bilder mit hoher Qualität ersetzen\". Dieser wird die Bildqualität verbessern, aber sie werden bei sehr hoher Zoomstufe unscharf.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
