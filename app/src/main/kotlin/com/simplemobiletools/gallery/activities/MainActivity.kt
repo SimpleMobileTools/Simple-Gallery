@@ -16,6 +16,7 @@ import android.widget.FrameLayout
 import com.google.gson.Gson
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
+import com.simplemobiletools.commons.dialogs.NewAppDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_STORAGE
@@ -44,6 +45,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private val PICK_MEDIA = 2
     private val PICK_WALLPAPER = 3
     private val LAST_MEDIA_CHECK_PERIOD = 3000L
+    private val CONTACTS_PACKAGE = "com.simplemobiletools.contacts"
 
     lateinit var mDirs: ArrayList<Directory>
 
@@ -99,6 +101,12 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
         mIsPasswordProtectionPending = config.appPasswordProtectionOn
         setupLatestMediaId()
+
+        // notify the users about the Contacts app
+        if (System.currentTimeMillis() < 1521015000000 && !config.wasNewAppShown && config.appRunCount > 100 && config.appRunCount % 50 != 0 && !isPackageInstalled(CONTACTS_PACKAGE)) {
+            config.wasNewAppShown = true
+            NewAppDialog(this, CONTACTS_PACKAGE, "Simple Contacts")
+        }
     }
 
     override fun onStart() {

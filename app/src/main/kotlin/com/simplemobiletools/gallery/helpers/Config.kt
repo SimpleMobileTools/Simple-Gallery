@@ -316,4 +316,8 @@ class Config(context: Context) : BaseConfig(context) {
     var doExtraCheck: Boolean
         get() = prefs.getBoolean(DO_EXTRA_CHECK, false)
         set(doExtraCheck) = prefs.edit().putBoolean(DO_EXTRA_CHECK, doExtraCheck).apply()
+
+    var wasNewAppShown: Boolean
+        get() = prefs.getBoolean(WAS_NEW_APP_SHOWN, false)
+        set(wasNewAppShown) = prefs.edit().putBoolean(WAS_NEW_APP_SHOWN, wasNewAppShown).apply()
 }
