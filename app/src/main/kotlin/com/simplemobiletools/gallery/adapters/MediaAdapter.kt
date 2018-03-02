@@ -57,7 +57,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         view?.medium_check?.beVisibleIf(select)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutType = if (isListViewType) R.layout.photo_video_item_list else R.layout.photo_video_item_grid
         return createViewHolder(layoutType, parent)
     }
@@ -107,10 +107,10 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
     override fun getSelectableItemCount() = media.size
 
-    override fun onViewRecycled(holder: ViewHolder?) {
+    override fun onViewRecycled(holder: ViewHolder) {
         super.onViewRecycled(holder)
         if (!activity.isActivityDestroyed()) {
-            val itemView = holder?.itemView
+            val itemView = holder.itemView
             visibleItemPaths.remove(itemView?.photo_name?.tag)
             Glide.with(activity).clear(itemView?.medium_thumbnail!!)
         }

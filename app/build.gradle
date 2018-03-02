@@ -46,9 +46,9 @@ ext {
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:3.14.5'
+    implementation 'com.simplemobiletools:commons:3.14.6'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.6.0'
-    implementation 'com.android.support:multidex:1.0.2'
+    implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.8'
