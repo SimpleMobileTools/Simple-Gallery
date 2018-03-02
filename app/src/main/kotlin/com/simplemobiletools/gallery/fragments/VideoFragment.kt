@@ -185,9 +185,9 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
     private fun initTimeHolder() {
         val res = resources
-        val left = mTimeHolder!!.paddingLeft
-        val top = mTimeHolder!!.paddingTop
-        var right = mTimeHolder!!.paddingRight
+        val left = 0
+        val top = 0
+        var right = 0
         var bottom = 0
 
         if (hasNavBar()) {
