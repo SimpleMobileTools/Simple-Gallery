@@ -22,9 +22,7 @@ class MyPagerAdapter(val activity: ViewPagerActivity, fm: FragmentManager, val m
         val medium = media[position]
         val bundle = Bundle()
         bundle.putSerializable(MEDIUM, medium)
-        val fragment: ViewPagerFragment
-
-        fragment = if (medium.isVideo()) {
+        val fragment = if (medium.isVideo()) {
             VideoFragment()
         } else {
             PhotoFragment()
@@ -39,7 +37,7 @@ class MyPagerAdapter(val activity: ViewPagerActivity, fm: FragmentManager, val m
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val fragment = super.instantiateItem(container, position) as ViewPagerFragment
-        fragments.put(position, fragment)
+        fragments[position] = fragment
         return fragment
     }
 
