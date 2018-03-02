@@ -625,7 +625,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         var parent = file.parentFile ?: return false
         while (true) {
-            if (parent.isHidden || parent.list()?.contains(NOMEDIA) == true) {
+            if (parent.isHidden || parent.list()?.any { it.startsWith(NOMEDIA) } == true) {
                 return true
             }
 
