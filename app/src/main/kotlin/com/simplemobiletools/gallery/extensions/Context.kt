@@ -98,7 +98,7 @@ fun Context.getNoMediaFolders(callback: (folders: ArrayList<String>) -> Unit) {
                 do {
                     val path = cursor.getStringValue(MediaStore.Files.FileColumns.DATA) ?: continue
                     val noMediaFile = File(path)
-                    if (noMediaFile.exists()) {
+                    if (noMediaFile.exists() && noMediaFile.name == NOMEDIA) {
                         folders.add("${noMediaFile.parent}/")
                     }
                 } while (cursor.moveToNext())
