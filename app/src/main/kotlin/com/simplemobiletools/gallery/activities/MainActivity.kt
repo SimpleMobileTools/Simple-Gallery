@@ -163,10 +163,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mIsGettingDirs = false
         storeStateVariables()
         mLastMediaHandler.removeCallbacksAndMessages(null)
-
-        if (!mDirs.isEmpty()) {
-            mCurrAsyncTask?.stopFetching()
-        }
     }
 
     override fun onStop() {
