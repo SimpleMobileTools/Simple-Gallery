@@ -7,7 +7,7 @@
     <string name="hidden">(숨기기)</string>
     <string name="pin_folder">폴더 고정</string>
     <string name="unpin_folder">폴더 고정 해제</string>
-    <string name="pin_to_the_top">Pin to the top</string>
+    <string name="pin_to_the_top">상단에 고정</string>
     <string name="show_all">모든 폴더의 컨텐츠 보기</string>
     <string name="all_folders">모든 폴더</string>
     <string name="folder_view">폴더 보기로 변경</string>
@@ -16,9 +16,9 @@
     <string name="unknown_location">위치정보 없음</string>
     <string name="increase_column_count">섬네일크기 축소</string>
     <string name="reduce_column_count">섬네일크기 확대</string>
-    <string name="change_cover_image">Change cover image</string>
+    <string name="change_cover_image">커버 이미지 변경</string>
     <string name="select_photo">사진 선택</string>
-    <string name="use_default">Use default</string>
+    <string name="use_default">기본값 사용</string>
     <string name="volume">볼륨</string>
     <string name="brightness">밝기</string>
     <string name="do_not_ask_again">다시 물어보지 않음</string>
@@ -135,7 +135,7 @@
     <string name="one_finger_zoom">전체화면 모드에서 한 손가락으로 확대 및 축소</string>
     <string name="allow_instant_change">측면 클릭으로 미디어 즉시변경</string>
     <string name="replace_zoomable_images">확대 축소 가능한 이미지를 더 좋은 품질로 교체</string>
-    <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
+    <string name="hide_extended_details">상태 표시 줄이 숨겨져있을 때 확장 된 세부 정보 숨김</string>
     <string name="do_extra_check">잘못된 파일 표시를 방지하기 위해 추가 검사 수행</string>
 
     <!-- Setting sections -->
@@ -169,15 +169,19 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">광고없이 사진과 동영상을 볼 수 있는 갤러리.</string>
     <string name="app_long_description">
-        사진과 비디오 보기위한 간편한 툴입니다. 날짜, 크기, 이름을 오름차순 또는 내림차순으로 정렬 할 수 있으며 사진을 확대 할 수 있습니다. 미디어 파일은 디스플레이의 크기에 따라 여러 열로 표시되며 핀치 제스처로 열 수를 변경할 수 있습니다. 이름 변경, 공유, 삭제, 복사, 이동이 가능합니다. 이미지는 자르기, 회전, 반전 또는 앱에서 직접 배경 화면으로 설정할 수도 있습니다.
+        사진과 동영상을 간편하게 관리 할 수 있는 툴입니다.
+        
+        날짜, 크기, 이름을 기준으로 정렬 할 수 있으며 사진을 확대 할 수 있습니다. 미디어 파일은 디스플레이의 크기에 맞춰 여러 열로 표시되며 핀치 제스처를 이용하여 변경 할 수도 있습니다.
+        
+        이름변경, 공유, 삭제, 복사, 이동, 이미지편집, 배경화면 설정 등의 기능을 제공합니다.
 
-        갤러리는 \'이미지/비디오 미리보기\', \'이메일 클라이언트에서 첨부파일 추가하기\' 등의 기능을 서드파티에 제공합니다. 언제나 완벽하게 사용할 수 있습니다.
+        갤러리는 \'이미지/비디오 미리보기\', \'이메일 클라이언트에서 첨부파일 추가하기\' 등의 기능을 서드파티 애플리케이션에 제공합니다. 언제나 완벽하게 사용할 수 있습니다.
 
-        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+        앱을 잠그거나 숨김파일을 보기위하여 지문인식 기능을 사용하는 경우 지문사용 권한이 필요합니다.
 
         광고가 포함되어 있거나, 불필요한 권한을 요청하지 않습니다. 이 앱의 모든 소스는 오픈소스이며, 사용자가 직접 애플리케이션의 컬러를 설정 할 수 있습니다.
 
-        이 앱은 다양한 시리즈의 모바일앱 중 하나입니다. 나머지는 http://www.simplemobiletools.com 에서 찾아 보실 수 있습니다.
+        이 앱은 다양한 시리즈의 모바일앱 중 하나입니다. 나머지는 http://www.simplemobiletools.com 에서 찾아보실 수 있습니다.
     </string>
 
     <!--
