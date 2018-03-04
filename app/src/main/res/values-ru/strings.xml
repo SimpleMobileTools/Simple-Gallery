@@ -34,7 +34,7 @@
     <string name="change_filters_underlined"><u>Изменить фильтры</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Эта функция скрывает папку, добавляя в неё файл \".nomedia\"; будут скрыты все подпапки. Можно показывать их, переключая \"Показывать скрытые папки\" в настройках. Продолжить?</string>
+    <string name="hide_folder_description">Эта функция скрывает папку, добавляя в неё файл «.nomedia»; будут скрыты все подпапки. Можно показывать их, переключая \"Показывать скрытые папки\" в настройках. Продолжить?</string>
     <string name="exclude">Исключить</string>
     <string name="excluded_folders">Исключённые папки</string>
     <string name="manage_excluded_folders">Управление исключёнными папками</string>
@@ -45,7 +45,7 @@
     <string name="remove_all_description">Очистить список исключённых? Сами папки не будут удалены.</string>
     <string name="hidden_folders">Скрытые папки</string>
     <string name="manage_hidden_folders">Управление скрытыми папками</string>
-    <string name="hidden_folders_placeholder">Похоже, у вас нет папок, скрытых файлом \".nomedia\".</string>
+    <string name="hidden_folders_placeholder">Похоже, у вас нет папок, скрытых файлом «.nomedia».</string>
 
     <!-- Include folders -->
     <string name="include_folders">Включённые папки</string>
@@ -129,7 +129,7 @@
     <string name="allow_photo_gestures">Управлять яркостью фото с помощью вертикальных жестов</string>
     <string name="allow_video_gestures">Управлять громкостью и яркостью видео с помощью вертикальных жестов</string>
     <string name="show_media_count">Показывать количество файлов в папках</string>
-    <string name="replace_share_with_rotate">Заменить \"Поделиться\" на \"Повернуть\" в меню полноэкранного режима</string>
+    <string name="replace_share_with_rotate">Заменить «Поделиться» на «Повернуть» в меню полноэкранного режима</string>
     <string name="show_extended_details">Показывать подробности о файле</string>
     <string name="manage_extended_details">Выбрать подробности файла</string>
     <string name="one_finger_zoom">Масштабирование одним пальцем в полноэкранном режиме</string>
@@ -144,26 +144,26 @@
     <string name="extended_details">Подробности</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
-    <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
-        The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
-    <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do?</string>
-    <string name="faq_2_text">You can solve it in 2 ways. You can either reinstall the app, or find the app in your device settings and select \"Clear data\". It will reset all your settings, it will not remove any media files.</string>
-    <string name="faq_3_title">How can I make an album always appear at the top?</string>
-    <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actionmenu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
-    <string name="faq_4_title">How can I fast-forward videos?</string>
-    <string name="faq_4_text">You can click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
-    <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
-    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
-    <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
-    <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
-    <string name="faq_7_title">A folder with images isn\'t showing up, what can I do?</string>
-    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
-    <string name="faq_8_title">What if I want just a few particular folders visible?</string>
-    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
-        That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
-    <string name="faq_9_title">Fullscreen images have weird artifacts, can I somehow improve the quality?</string>
-    <string name="faq_9_text">Yea, there is a toggle in Settings saying \"Replace deep zoomable images with better quality ones\", you can use that. It will improve the quality of the images, but they will get blurred once you try zooming in too much.</string>
+    <string name="faq_1_title">Как сделать Simple Gallery галереей по умолчанию?</string>
+    <string name="faq_1_text">Сначала вы должны найти галерею по умолчанию в разделе «Приложения» настроек вашего устройства; найдите кнопку, названную как-то вроде «Открыть по умолчанию», нажмите на неё, затем выберите «Очистить значения по умолчанию».
+        В следующий раз, когда попробуете открыть изображение или видео, вы увидите средство выбора приложений, где сможете выбрать Simple Gallery и сделать её приложением по умолчанию.</string>
+    <string name="faq_2_title">Я заблокировал приложение паролем, но забыл его. Что мне теперь делать?</string>
+    <string name="faq_2_text">Это можно решить двумя способами. Вы можете переустановить приложение или найти его в настройках вашего устройства и выбрать пункт «Очистить данные», что сбросит все настройки, но не удалит никакие медиафайлы.</string>
+    <string name="faq_3_title">Как я могу сделать альбом всегда отображающимся наверху?</string>
+    <string name="faq_3_text">Вы можете длительным нажатием на желаемый альбом открыть меню действий в нём выбрать пункт «Закрепить». Можно закрепить несколько альбомов (папок); прикреплённые элементы будут отсортированы по методу сортировки по умолчанию.</string>
+    <string name="faq_4_title">Как ускорить перемотку видео?</string>
+    <string name="faq_4_text">Вы можете нажать на цифры текущего положения или максимальной длительности видео рядом с панелью поиска, что приведёт к перемещению позиции воспроизведения либо назад, либо вперёд.</string>
+    <string name="faq_5_title">В чём разница между скрытием и исключением папки?</string>
+    <string name="faq_5_text">Исключение запрещает отображение папки только в Simple Gallery, в то время как скрытие работает системно и скрывает папку из других галерей. Это достигается путём создания пустого файла «.nomedia» в данной папке, который впоследствии можно удалить любым файловым менеджером.</string>
+    <string name="faq_6_title">Почему отображаются папки с музыкальными обложки?</string>
+    <string name="faq_6_text">Может случиться так, что вы увидите необычные альбомы. Вы можете легко убрать их, долго нажав на них и выбрав пункт «Исключить». В следующем диалоговом окне вы сможете выбрать родительскую папку, что, скорее всего, также предотвратит появление других похожих альбомов.</string>
+    <string name="faq_7_title">Папка с изображениями не отображается, что можно сделать?</string>
+    <string name="faq_7_text">Это может происходить по нескольким причинам, но легко решаемо. Просто зайдите в «Настройки» -> «Управление включёнными папками», нажмите «плюс» и перейдите в нужную папку.</string>
+    <string name="faq_8_title">Что делать, если я хочу видеть только несколько конкретных папок?</string>
+    <string name="faq_8_text">Добавление папки во включённые не исключает автоматически остальные. Что вы можете сделать это через «Настройки» -> «Управление исключёнными папками». Исключите корневую папку «/», затем добавьте нужные папки в «Настройки» -> «Управление включёнными папками».
+        Это сделает видимыми только выбранные папки, так как исключение и включение являются рекурсивными, и если папка исключена и включена, то она будет отображаться.</string>
+    <string name="faq_9_title">Полноэкранные изображения имеют странные артефакты, можно как-то улучшить качество?</string>
+    <string name="faq_9_text">Да, в настройках есть переключатель «Заменять масштабируемые изображения высококачественными», использовуйте его. Это улучшит качество изображений, но они будут размыты, если вы попытаетесь сильно увеличить масштаб отображения.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
