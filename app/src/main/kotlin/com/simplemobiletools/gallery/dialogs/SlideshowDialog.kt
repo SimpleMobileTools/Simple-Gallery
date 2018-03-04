@@ -2,7 +2,6 @@ package com.simplemobiletools.gallery.dialogs
 
 import android.support.v7.app.AlertDialog
 import android.view.View
-import android.view.WindowManager
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.hideKeyboard
 import com.simplemobiletools.commons.extensions.setupDialogStuff
@@ -71,20 +70,20 @@ class SlideshowDialog(val activity: BaseSimpleActivity, val callback: () -> Unit
                 .setPositiveButton(R.string.ok, null)
                 .setNegativeButton(R.string.cancel, null)
                 .create().apply {
-            window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
-            activity.setupDialogStuff(view, this) {
-                getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
-                    if (!view.include_photos.isChecked && !view.include_videos.isChecked && !view.include_gifs.isChecked) {
-                        activity.toast(R.string.no_media_for_slideshow)
-                        return@setOnClickListener
-                    }
+                    activity.setupDialogStuff(view, this) {
+                        hideKeyboard()
+                        getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+                            if (!view.include_photos.isChecked && !view.include_videos.isChecked && !view.include_gifs.isChecked) {
+                                activity.toast(R.string.no_media_for_slideshow)
+                                return@setOnClickListener
+                            }
 
-                    storeValues()
-                    callback()
-                    dismiss()
+                            storeValues()
+                            callback()
+                            dismiss()
+                        }
+                    }
                 }
-            }
-        }
     }
 
     private fun setupValues() {

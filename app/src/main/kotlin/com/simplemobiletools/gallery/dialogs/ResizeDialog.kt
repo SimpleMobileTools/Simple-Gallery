@@ -4,10 +4,10 @@ import android.graphics.Point
 import android.support.v7.app.AlertDialog
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.WindowManager
 import android.widget.EditText
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.setupDialogStuff
+import com.simplemobiletools.commons.extensions.showKeyboard
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.commons.extensions.value
 import com.simplemobiletools.gallery.R
@@ -72,22 +72,22 @@ class ResizeDialog(val activity: BaseSimpleActivity, val size: Point, val callba
                 .setPositiveButton(R.string.ok, null)
                 .setNegativeButton(R.string.cancel, null)
                 .create().apply {
-            window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
-            activity.setupDialogStuff(view, this, R.string.resize_and_save) {
-                getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
-                    val width = getViewValue(widthView)
-                    val height = getViewValue(heightView)
-                    if (width <= 0 || height <= 0) {
-                        activity.toast(R.string.invalid_values)
-                        return@setOnClickListener
-                    }
+                    activity.setupDialogStuff(view, this, R.string.resize_and_save) {
+                        showKeyboard(view.image_width)
+                        getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
+                            val width = getViewValue(widthView)
+                            val height = getViewValue(heightView)
+                            if (width <= 0 || height <= 0) {
+                                activity.toast(R.string.invalid_values)
+                                return@setOnClickListener
+                            }
 
-                    val newSize = Point(getViewValue(widthView), getViewValue(heightView))
-                    callback(newSize)
-                    dismiss()
+                            val newSize = Point(getViewValue(widthView), getViewValue(heightView))
+                            callback(newSize)
+                            dismiss()
+                        }
+                    }
                 }
-            }
-        }
     }
 
     fun getViewValue(view: EditText): Int {

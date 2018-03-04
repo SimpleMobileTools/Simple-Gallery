@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 3.5.3 *(2018-03-03)*
+----------------------------
+
+ * Properly keep last-modified at file copy/move if set so
+ * Misc other smaller glitch and translation improvements
+
 Version 3.5.2 *(2018-02-25)*
 ----------------------------
 

@@ -9,6 +9,7 @@ import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.containsNoMedia
 import com.simplemobiletools.gallery.extensions.doesParentHaveNoMedia
+import com.simplemobiletools.gallery.extensions.isPathInMediaStore
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 import java.util.LinkedHashMap
@@ -64,7 +65,7 @@ class MediaFetcher(val context: Context) {
                     files.forEach {
                         val filePath = it.absolutePath
                         if ((showHidden || !it.name.startsWith(".")) && !dirPaths.contains(filePath)) {
-                            if (it.exists() && it.length() > 0 && it.isImageVideoGif()) {
+                            if (it.exists() && it.length() > 0 && it.isImageVideoGif() && !context.isPathInMediaStore(it.absolutePath)) {
                                 newPaths.add(it.absolutePath)
                             }
                         }

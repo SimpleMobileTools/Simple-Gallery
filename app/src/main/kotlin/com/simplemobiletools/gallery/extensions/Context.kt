@@ -11,6 +11,7 @@ import android.provider.MediaStore
 import android.view.WindowManager
 import com.simplemobiletools.commons.extensions.getStringValue
 import com.simplemobiletools.commons.extensions.humanizePath
+import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.gallery.activities.SettingsActivity
 import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.helpers.NOMEDIA
@@ -98,7 +99,7 @@ fun Context.getNoMediaFolders(callback: (folders: ArrayList<String>) -> Unit) {
                 do {
                     val path = cursor.getStringValue(MediaStore.Files.FileColumns.DATA) ?: continue
                     val noMediaFile = File(path)
-                    if (noMediaFile.exists()) {
+                    if (noMediaFile.exists() && noMediaFile.name == NOMEDIA) {
                         folders.add("${noMediaFile.parent}/")
                     }
                 } while (cursor.moveToNext())
@@ -109,4 +110,21 @@ fun Context.getNoMediaFolders(callback: (folders: ArrayList<String>) -> Unit) {
 
         callback(folders)
     }.start()
+}
+
+fun Context.isPathInMediaStore(path: String): Boolean {
+    if (path.startsWith(OTG_PATH)) {
+        return false
+    }
+
+    val projection = arrayOf(MediaStore.Images.Media.DATE_MODIFIED)
+    val uri = MediaStore.Files.getContentUri("external")
+    val selection = "${MediaStore.MediaColumns.DATA} = ?"
+    val selectionArgs = arrayOf(path)
+    val cursor = contentResolver.query(uri, projection, selection, selectionArgs, null)
+
+    cursor?.use {
+        return cursor.moveToFirst()
+    }
+    return false
 }

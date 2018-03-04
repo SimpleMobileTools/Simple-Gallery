@@ -51,7 +51,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
         view?.dir_check?.beVisibleIf(select)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutType = if (isListViewType) R.layout.directory_item_list else R.layout.directory_item_grid
         return createViewHolder(layoutType, parent)
     }
@@ -100,10 +100,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
 
     override fun getSelectableItemCount() = dirs.size
 
-    override fun onViewRecycled(holder: ViewHolder?) {
+    override fun onViewRecycled(holder: ViewHolder) {
         super.onViewRecycled(holder)
         if (!activity.isActivityDestroyed()) {
-            Glide.with(activity).clear(holder?.itemView?.dir_thumbnail!!)
+            Glide.with(activity).clear(holder.itemView?.dir_thumbnail!!)
         }
     }
 
