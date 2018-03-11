@@ -126,8 +126,8 @@
     <string name="scroll_thumbnails_horizontally">Horizontaal scrollen</string>
     <string name="hide_system_ui_at_fullscreen">Statusbalk automatisch verbergen in volledig scherm</string>
     <string name="delete_empty_folders">Lege mappen verwijderen na leegmaken</string>
-    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
-    <string name="allow_video_gestures">Volume en helderheid aanpassen met verticale gebaren</string>
+    <string name="allow_photo_gestures">Helderheid voor afbeeldingen aanpassen met verticale gebaren</string>
+    <string name="allow_video_gestures">Volume en helderheid voor video\'s aanpassen met verticale gebaren</string>
     <string name="show_media_count">Aantallen in mappen tonen</string>
     <string name="replace_share_with_rotate">Menu-item Draaien vastzetten in volledig scherm (in plaats van Delen)</string>
     <string name="show_extended_details">Uitgebreide informatie tonen in volledig scherm</string>
@@ -136,7 +136,7 @@
     <string name="allow_instant_change">Direct naar vorige/volgende door op de zijkanten van het scherm te tikken</string>
     <string name="replace_zoomable_images">In hoge kwaliteit weergeven (ten koste van ver inzoomen)</string>
     <string name="hide_extended_details">Uitgebreide informatie niet tonen als de statusbalk is verborgen</string>
-    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
+    <string name="do_extra_check">Ongeldige bestanden verbergen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatuurvoorbeelden</string>
