@@ -31,7 +31,7 @@
     <string name="videos">Vídeos</string>
     <string name="gifs">GIFs</string>
     <string name="no_media_with_filters">No se han encontrado ficheros con los filtros seleccionados.</string>
-    <string name="change_filters_underlined"><u>Ccambiar flitros</u></string>
+    <string name="change_filters_underlined"><u>Cambiar filtros</u></string>
 
     <!-- Hide / Exclude -->
     <string name="hide_folder_description">Esta función oculta la carpeta agregando un archivo \'.nomedia\' en ella, y ocultará también las subcarpetas. Puede mostrarlas cambiando la opción \'Mostrar carpetas ocultas\' en los Ajustes. ¿Continuar?</string>
