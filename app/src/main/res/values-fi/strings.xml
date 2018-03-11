@@ -24,12 +24,47 @@
     <string name="do_not_ask_again">Älä kysy uudestaan tällä istunnolla</string>
     <string name="lock_orientation">Lukitse näytönkierto</string>
     <string name="unlock_orientation">Vapauta näytönkierto</string>
+    
+    <!-- Actionbar items -->
+    <string name="delete">Poista</string>
+    <string name="remove">Poista</string>
+    <string name="rename">Uudelleennimeä</string>
+    <string name="share">Jaa</string>
+    <string name="share_via">Jaa sovelluksella</string>
+    <string name="select_all">Valitse kaikki</string>
+    <string name="hide">Piilota</string>
+    <string name="unhide">Palauta näkyväksi</string>
+    <string name="hide_folder">Piilota kansio</string>
+    <string name="unhide_folder">Palauta kansio näkyväksi</string>
+    <string name="temporarily_show_hidden">Näytä piilotetut tilapäisesti</string>
+    <string name="stop_showing_hidden">Lopeta piilotettujen näkyminen</string>
+    <string name="maximum_share_reached">Et voi jakaa näin paljoa kerralla</string>
+    
 
+    <!-- Sorting -->
+    <string name="sort_by">Järjestä</string>
+    <string name="name">Nimen perusteella</string>
+    <string name="size">Koon perusteella</string>
+    <string name="last_modified">Viimeksi muokattu</string>
+    <string name="date_taken">Viimeksi kuvattu</string>
+    <string name="title">Otsikko</string>
+    <string name="filename">Tiedostonimi</string>
+    <string name="extension">Extension</string>
+    <string name="ascending">Nouseva</string>
+    <string name="descending">Laskeva</string>
+    <string name="use_for_this_folder">Käytä vain tässä kansiossa</string>
+    
+    <!-- Confirmation dialog -->
+    <string name="proceed_with_deletion">Haluatko varmasti poistaa pysyvästi?</string>
+    <string name="yes">Poista</string>
+    <string name="no">Peruuta</string>
+
+    
     <!-- Filter -->
     <string name="filter_media">Suodata media</string>
     <string name="images">Kuvat</string>
     <string name="videos">Videot</string>
-    <string name="gifs">GIFit</string>
+    <string name="gifs">Gifit</string>
     <string name="no_media_with_filters">Mediaa ei löytynyt valituilla suotimilla.</string>
     <string name="change_filters_underlined"><u>Muuta suotimia</u></string>
 
@@ -51,7 +86,7 @@
     <string name="include_folders">Sisällytä kansiot</string>
     <string name="manage_included_folders">Hallitse sisällettyjä kansioita</string>
     <string name="add_folder">Lisää kansio</string>
-    <string name="included_activity_placeholder">Jos sinulla on kansioita, jotka sisältää mediaa, mutta sovellus ei tunnistanut, voit lisätä ne manuaalisesti tähän.\n\Lisääminen ei poissulje muita kansioita.</string>
+    <string name="included_activity_placeholder">Jos sinulla on kansioita, jotka sisältävät mediaa mutta sovellus ei tunnistanut tiedostoja, voit lisätä ne manuaalisesti tähän.\n\Lisääminen ei poissulje muita kansioita.</string>
 
     <!-- Resizing -->
     <string name="resize">Rajaa</string>
@@ -98,7 +133,7 @@
     <string name="interval">Aikaväli (sekunteja):</string>
     <string name="include_photos">Sisällytä Kuvat</string>
     <string name="include_videos">Sisällytä Videot</string>
-    <string name="include_gifs">Sisällytä GIFit</string>
+    <string name="include_gifs">Sisällytä gifit</string>
     <string name="random_order">Satunnainen järjestys</string>
     <string name="use_fade">Käytä häivitys-animaatiota</string>
     <string name="move_backwards">Liiku takaisinpäin</string>
@@ -115,7 +150,7 @@
     <string name="autoplay_videos">Toista videot automaattisesti</string>
     <string name="toggle_filename">Tiedostonimien näkyvyys</string>
     <string name="loop_videos">Jatkuvat videot</string>
-    <string name="animate_gifs">Animoi GIFit pienoiskuvissa</string>
+    <string name="animate_gifs">Animoi gifit pienoiskuvissa</string>
     <string name="max_brightness">Täysi kirkkaus mediaa katsoessa</string>
     <string name="crop_thumbnails">Leikkaa pienoiskuvat neliöiksi</string>
     <string name="screen_rotation_by">Käännä koko ruudun mediaa</string>
@@ -124,7 +159,7 @@
     <string name="screen_rotation_aspect_ratio">Kuvasuhde</string>
     <string name="black_background_at_fullscreen">Musta tausta ja tilapalkki täyden ruudun tilassa</string>
     <string name="scroll_thumbnails_horizontally">Vieritä pienoiskuvia vaakasuorassa</string>
-    <string name="hide_system_ui_at_fullscreen">Piilota järjestelmän UI automaattisesti koko näytön mediassa</string>
+    <string name="hide_system_ui_at_fullscreen">Piilota järjestelmän käyttöliittymä automaattisesti koko näytön mediassa</string>
     <string name="delete_empty_folders">Poista tyhjät kansiot kansion tyhjennyksen jälkeen</string>
     <string name="allow_photo_gestures">Salli kirkkauden säätäminen pystysuorilla eleillä</string>
     <string name="allow_video_gestures">Salli videon äänenvoimakkuuden ja kirkkauden säätö pystysuorilla eleillä</string>
@@ -138,32 +173,90 @@
     <string name="hide_extended_details">Piilota yksityiskohtaiset tiedot kun tilapalkki on piilotettu</string>
     <string name="do_extra_check">Tee ylimääräinen tarkistus rikkinäisten tiedostojen varalta</string>
 
+    <!-- Settings 2018-03-11 -->
+    <string name="settings">Asetukset</string>
+    <string name="customize_colors">Muokkaa sovelluksen värejä</string>
+    <string name="use_english_language">Käytä Englannin kieltä</string>
+    <string name="avoid_whats_new">Älä näytä uutisia aloituksen yhteydessä</string>
+    <string name="show_hidden_items">Näytä piilotetut tiedostot</string>
+    <string name="font_size">Fonttikoko</string>
+    <string name="small">Pieni</string>
+    <string name="medium">Keskikokoinen</string>
+    <string name="large">Suuri</string>
+    <string name="extra_large">Erittäin suuri</string>
+    <string name="password_protect_hidden_items">Suojaa piilotetut salasanalla</string> 
+    <string name="password_protect_whole_app">Suojaa koko sovellus salasanalla</string>
+    <string name="keep_last_modified">Säilytä alkuperäinen "viimeksi muokattu" ajankohta tiedostoa siirtäessä, kopioitaessa ja uudelleennimettäessä</string> 
+    
+    <string name="show_info_bubble">Näytä lisätietokupla vierityspalkista vierittäessä</string>   
+    <string name="prevent_phone_from_sleeping">Estä puhelinta siirtymästä virransäästöön kun sovellus on avattu ja käytössä</string>
+    <string name="skip_delete_confirmation">Älä koskaan kysy varmistusta tiedostoja poistaessa</string>
+    <string name="enable_pull_to_refresh">Päivitä näkymä vedettäessä ylhäältä alas</string>
+    <string name="use_24_hour_time_format">Käytä 24:n tunnin kelloa</string>
+    <string name="sunday_first">Aloita viikko sunnuntaista</string>
+    <string name="widgets">Widgetit</string>
+    <string name="use_same_snooze">Käytä aina samaa torkkuaikaa</string>
+    <string name="snooze_time">Torkkuaika</string>
+    <string name="vibrate_on_button_press">Tärinä koskettaessa</string>       
+    
     <!-- Setting sections -->
     <string name="thumbnails">Esikatselukuvat</string>
     <string name="fullscreen_media">Täyden näytön media</string>
     <string name="extended_details">Yksityiskohtaiset tiedot</string>
-
+    <string name="visibility">Näkyvyys</string>
+    <string name="security">Turvallisuus</string>
+    <string name="scrolling">Vierittäminen</string>
+    <string name="file_operations">Tiedostot</string>
+    
+    <!-- About -->
+    <string name="about">Tietoja sovelluksesta</string>
+    <string name="website_label">For the source codes visit</string>
+    <string name="email_label">Send your feedback or suggestions to</string>
+    <string name="more_apps_underlined"><u>More apps</u></string>
+    <string name="third_party_licences_underlined"><u>Third party licences</u></string>
+    <string name="invite_friends_underlined"><u>Invite friends</u></string>
+    <string name="share_text">Hey, come check out %1$s at %2$s</string>
+    <string name="invite_via">Invite via</string>
+    <string name="rate_us_underlined"><u>Rate us</u></string>
+    <string name="donate">Donate</string>
+    <string name="donate_underlined"><u>Donate</u></string>
+    <string name="follow_us">Follow us</string>
+    <string name="copyright">v %1$s\nCopyright © Simple Mobile Tools %2$d</string>
+    <string name="additional_info">Additional info</string>
+    <string name="app_version">App version: %s</string>
+    <string name="device_os">Device OS: %s</string>
+    <string name="donate_please">
+        <![CDATA[
+            Hello,<br><br>
+            hope you are enjoying the app. It contains no ads, please support its development by purchasing the <a href="https://play.google.com/store/apps/details?id=com.simplemobiletools.thankyou">Simple Thank You</a> app, it will also prevent this dialog from showing up again.<br><br>
+            You can find more donating options <a href="http://simplemobiletools.com/donate">here</a>.<br><br>
+            Thank you!
+        ]]>
+    </string>
+<string name="purchase">Purchase</string>
+    
     <!-- FAQ -->
     <string name="faq_1_title">Miten voin tehdä Simple Gallerystä oletusgalleriasovelluksen?</string>
-    <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
-        The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
-    <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do?</string>
-    <string name="faq_2_text">You can solve it in 2 ways. You can either reinstall the app, or find the app in your device settings and select \"Clear data\". It will reset all your settings, it will not remove any media files.</string>
-    <string name="faq_3_title">How can I make an album always appear at the top?</string>
-    <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actionmenu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
-    <string name="faq_4_title">How can I fast-forward videos?</string>
+    <string name="faq_1_text">Ensin sinun on etsittävä nykyinen oletussovellus laitteesi Sovellukset -asetuksista. Etsi painiketta missä lukee "Avaa oletuksena", paina sitä, ja valitse "Tyhjennä oletukset". Seuraavalla kerralla kun avaat kuvatiedoston voit valita Simple Galleryn oletussovellukseksi.</string>
+    <string name="faq_2_title">Lukitsin sovelluksen salasanalla, mutta unohdin sen. Mitä voin tehdä?</string>
+    <string name="faq_2_text">Voit joko poistaa sovelluksen ja asentaa sen uudestaan, tai voit etsiä sovelluksen laitteesi Sovellukset -valikosta ja valita "Tyhjennä tiedot". Tämä palauttaa kaikki sovelluksen oletusasetukset mutta ei poista mediatiedostojasi.</string>
+    <string name="faq_3_title">Miten saan kansion pysymään aina ylimpänä?</string>
+    <string name="faq_3_text">Kosketta pitkään haluamaasi kansiota, sitten valitse kiinnityskuvakke ylös avautuvasta valikosta. Voit kiinnittää useita kansioita.</string>
+    <string name="faq_4_title">Miten voin pikakelata videoita?</string>
+    Voit koskettaa videon aikajanan molemmin puolin olevia aikamerkintöjä, niistä video siirtyy joko eteen- tai taaksepäin.
     <string name="faq_4_text">You can click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
-    <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
-    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
-    <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
-    <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
+    
+    <string name="faq_5_title">Mitä eroa on kansion piilottamisella ja poissulkemisella?</string>
+    <string name="faq_5_text">Poissulkeminen estää kansion näkymisen vain Simple Galleryssa, mutta piilottaminen tekee kansion näkymättömäksi kaikissa sovelluksissa luomalla \".nomedia\" -tiedoston piilotettuun kansioon.</string>
+    <string name="faq_6_title">Miksi näen kansioita missä on vain musiikkialbumien kansia?</string>
+    <string name="faq_6_text">Joskus epätarkoituksenmukaisia kansioita tulee näkyviin. Voit helposti poissulkea ne koskettamalla pitkään ja valitsemalla "Poissulje". Aukeavassa valikossa voit valita poissuljettavaksi myös yläkansion, mikä saattaa jatkossa estää vastaavien ei-haluttujen kansioiden näkymisen.</string>
+    Kansio missä on kuvatiedostoja ei näy, mitä voin tehdä?
     <string name="faq_7_title">A folder with images isn\'t showing up, what can I do?</string>
-    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
-    <string name="faq_8_title">What if I want just a few particular folders visible?</string>
-    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
-        That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
-    <string name="faq_9_title">Fullscreen images have weird artifacts, can I somehow improve the quality?</string>
-    <string name="faq_9_text">Yea, there is a toggle in Settings saying \"Replace deep zoomable images with better quality ones\", you can use that. It will improve the quality of the images, but they will get blurred once you try zooming in too much.</string>
+    <string name="faq_7_text">Tämä voi johtua monesta syystä, mutta sen korjaaminen on helppoa. Valitse sovelluksen päävalikosta "Asetukset", sitten "Hallitse sisällytettyjä kansioita". Valitse kansiot mitkä haluat sisällytettävän.</string>    
+    <string name="faq_8_title">Mitä jos haluan että vain muutamat tietyt kansiot näkyvät?</string>
+    <string name="faq_8_text">Kansion sisällyttäminen ei poissulje muita kansioita näkymästä. Voit ensin valita sovelluksen päävalikosta "Asetukset",  sitten "Hallitse poissuljettuja kansioita", poissulje root-kansio \"/\", sitten valitse haluamasi kansio sisällytettäväksi valitsemalla "Hallitse sisällytettyjä kansioita".</string>   
+    <string name="faq_9_title">Täyden ruudun kuvissa on omituisia virheitä. Miten voin parantaa kuvanlaatua?</string>    
+    <string name="faq_9_text">Valitse sovelluksen päävalikosta "Asetukset", sitten "Korvaa syvälle lähennettävät kuvat parempilaatuisella"</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
@@ -173,7 +266,7 @@
 
         Galleriaa tarjotaan myös kolmansille osapuolille kuvien / videoiden tarkasteluun, liitteiden lisäämiseksi sähköpostiin yms. Täydellinen jokapäiväiseen käyttöön.
 
-        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+        Sormenjälkilukijan lupa tarvitaan joko yksittäisten tiedostojen tai koko sovelluksen lukitsemiseen.        
 
         Ei sisällä mainoksia tai turhia käyttöoikeuksia. Täysin avointa lähdekoodia, tarjoaa muokattavat värit.
 
