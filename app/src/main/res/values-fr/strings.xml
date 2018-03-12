@@ -34,11 +34,11 @@
     <string name="change_filters_underlined"><u>Changer les filtres</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Cette option masque le dossier en ajoutant un fichier \'.nomedia\' à l\'intérieur, cela masquera aussi tous les sous-dossiers. Vous pouvez les voir en modifiant l\'option \'Afficher les dossiers cachés\' dans les Paramètres. Continuer ?</string>
+    <string name="hide_folder_description">Cette option masque le dossier en ajoutant un fichier \'.nomedia\' à l\'intérieur, cela masquera aussi tous les sous-dossiers. Vous pouvez les voir en modifiant l\'option \'Afficher les dossiers cachés\' dans les paramètres. Continuer ?</string>
     <string name="exclude">Exclure</string>
     <string name="excluded_folders">Dossiers exclus</string>
     <string name="manage_excluded_folders">Gérer les dossiers exclus</string>
-    <string name="exclude_folder_description">Cela va exclure la sélection ainsi que ses sous-dossiers depuis Simple Galerie uniquement. Vous pouvez gérer les dossiers exclus depuis les Paramètres.</string>
+    <string name="exclude_folder_description">Cela va exclure la sélection ainsi que ses sous-dossiers depuis Simple Galerie uniquement. Vous pouvez gérer les dossiers exclus depuis les paramètres.</string>
     <string name="exclude_folder_parent">Exclure un dossier parent ?</string>
     <string name="excluded_activity_placeholder">Exclure des dossiers les masquera ainsi que leurs sous-dossiers uniquement dans Simple Galerie, ils seront toujours visibles depuis d\'autres applications.\\n\\nSi vous voulez aussi les masquer ailleurs, utilisez la fonction Masquer.</string>
     <string name="remove_all">Tout supprimer</string>
@@ -90,7 +90,7 @@
     <string name="portrait_aspect_ratio">Ratio d\'aspect portrait</string>
     <string name="landscape_aspect_ratio">Ratio d\'aspect paysage</string>
     <string name="home_screen">Page d\'accueil</string>
-    <string name="lock_screen">Écran de verouillage</string>
+    <string name="lock_screen">Écran de verrouillage</string>
     <string name="home_and_lock_screen">Page d\'accueil et écran de verrouillage</string>
 
     <!-- Slideshow -->
@@ -126,7 +126,7 @@
     <string name="scroll_thumbnails_horizontally">Défilement des miniatures horizontalement</string>
     <string name="hide_system_ui_at_fullscreen">Masquer automatiquement l\'interface utilisateur si média en plein écran</string>
     <string name="delete_empty_folders">Supprimer les dossiers vides après avoir supprimé leur contenu</string>
-    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
+    <string name="allow_photo_gestures">Permettre le contrôle de la luminosité de la photo avec des gestes verticaux.</string>
     <string name="allow_video_gestures">Permettre le contrôle du volume vidéo et de la luminosité avec des gestes verticaux</string>
     <string name="show_media_count">Afficher le nombre de fichiers dans les dossiers sur l\'écran principal</string>
     <string name="replace_share_with_rotate">Remplacer Partager par Pivoter si menu en plein écran</string>
@@ -144,32 +144,32 @@
     <string name="extended_details">Détails supplémentaires</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
-    <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
-        The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
-    <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do?</string>
-    <string name="faq_2_text">You can solve it in 2 ways. You can either reinstall the app, or find the app in your device settings and select \"Clear data\". It will reset all your settings, it will not remove any media files.</string>
-    <string name="faq_3_title">How can I make an album always appear at the top?</string>
-    <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actionmenu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
-    <string name="faq_4_title">How can I fast-forward videos?</string>
-    <string name="faq_4_text">You can click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
-    <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
-    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
-    <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
-    <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
-    <string name="faq_7_title">A folder with images isn\'t showing up, what can I do?</string>
-    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
-    <string name="faq_8_title">What if I want just a few particular folders visible?</string>
-    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
-        That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
-    <string name="faq_9_title">Fullscreen images have weird artifacts, can I somehow improve the quality?</string>
-    <string name="faq_9_text">Yea, there is a toggle in Settings saying \"Replace deep zoomable images with better quality ones\", you can use that. It will improve the quality of the images, but they will get blurred once you try zooming in too much.</string>
+    <string name="faq_1_title">Comment faire de Simple Galerie ma galerie par défaut ?</string>
+	<string name="faq_1_text">Il faut dans un premier temps trouver la galerie par défaut dans la section « Applications » des paramètres du téléphone, puis toucher « Ouvrir par défaut » et enfin selectionner « Réinitialiser les paramètres par défaut ».
+		La prochaine fois que vous ouvrirez une image ou une vidéo, il vous sera proposé de choisir une application, choisissez Simple Gallery puis « Toujours ».</string>
+    <string name="faq_2_title">J\'ai verrouillé l\'appli avec un mot de passe et je ne m\'en rappelle plus. Que faire ?</string>
+    <string name="faq_2_text">Il y a deux façons de procéder. Soit vous reinstallez l\'appli, soit retrouver l\'appli dans les paramètres du téléphone et toucher « Effacer les données ». Cela va seulement remettre à zéro les paramètres de l\'appli et ne supprimera pas vos fichiers.</string>
+    <string name="faq_3_title">Comment faire pour qu\'un album soit toujours tout en haut ?</string>
+    <string name="faq_3_text">Vous avez juste à faire un appui long sur l\'album en question et choisir l\'icône « Epingler » dans le menu d\'actions. Vous pouvez en épingler plusieurs, les éléments épinglés seront alors triés dans l\'ordre par défaut.</string>
+    <string name="faq_4_title">Comment avancer rapidement dans les vidéos ?</string>
+    <string name="faq_4_text">Vous pouvez appuyer sur le temps actuel ou la durée totale de la vidéo sur la barre de progression, la vidéo reculera ou avancera selon votre choix.</string>
+    <string name="faq_5_title">Quelle est la différence entre cacher et exclure un répertoire ?</string>
+    <string name="faq_5_text">Exclure n\'affiche pas le dossier dans Simple Galerie uniquement, alors que Cacher le cache pour l\'intégralité du système, y compris les autres galeries. Dans le dernier cas, un fichier \".nomedia\" est créé dans le répertoire caché, et peut s\'enlever avec n\'importe quel explorateur de fichiers.</string>
+    <string name="faq_6_title">Pourquoi des répertoires avec des pochettes d\'albums musicaux ou des miniatures d\'images sont affichés ?</string>
+    <string name="faq_6_text">Cela peut arriver de voir des albums qui ne devraient pas être affichés. Vous pouvez les exclure facilement en faisaint un appui long sur eux puis en sélectionnant « Exclure », après quoi vous pouvez aussi sélectionner le répertoire parent, ce qui devrait éviter l\'apparition d\'albums similaires.</string>
+    <string name="faq_7_title">Un dossier avec des images n\'apparaît pas. Que faire ?</string>
+	<string name="faq_7_text">Cela peut arriver pour de multiples raisons, mais c\'est facile à résoudre. Allez dans « Paramètres » puis « Gérer les dossiers inclus », sélectionnez le plus et sélectionnez le dossier voulu.</string>
+    <string name="faq_8_title">Comment faire apparaître uniquement certains dossiers ?</string>
+	<string name="faq_8_text">Ajouter un répértoire dans les dossiers inclus n\'exclut rien automatiquement. Pour ce faire, il faut aller dans « Paramètres » puis « Gérer les dossiers exclus », exclure le répertoire racine \"/\", puis ajouter les répertoires souhaités dans « Paramètres » puis « Gérer les répertoires inclus ». Seuls les répertoires selectionnés seront visibles, du fait que les exclusions et inclusions sont récursives, et si un répertoire est à la fois exclus et inclus, il sera affiché.</string>
+    <string name="faq_9_title">Les images en plein écran contiennent des artéfacts, est-ce possible d\'améliorer la qualité ?</string>
+	<string name="faq_9_text">Oui, il existe dans « Paramètres » une option « Remplacer les images zoomables profondes par des images de meilleure qualité », mais les images seront alors floues si vous zoomez trop.</string>
+
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Un album pour visionner photos et vidéos sans publicité.</string>
     <string name="app_long_description">
-        Un simple outil pour visionner les photos et les vidéos. Elles peuvent être triées par dates, tailles, noms dans les deux sens (alphabétique comme désalphabétique), il est possible de zoomer sur les photos. Les fichiers sont affichés sur de multiple colonnes en fonction de la taille de l\'écran, vous pouvez changer le nombre de colonnes par pincement. Elles peuvent être renommées, partagées, supprimées, copiées et déplacées. Les images peuvent en plus être tournées, rognées ou être définies comme fond d\'écran directement depuis l\'application.
+        Un simple outil pour visionner les photos et les vidéos. Elles peuvent être triées par dates, tailles, noms dans les deux sens (alphabétique comme désalphabétique), il est possible de zoomer sur les photos. Les fichiers sont affichés sur de multiples colonnes en fonction de la taille de l\'écran, vous pouvez changer le nombre de colonnes par pincement. Elles peuvent être renommées, partagées, supprimées, copiées et déplacées. Les images peuvent en plus être tournées, rognées ou être définies comme fond d\'écran directement depuis l\'application.
 
         La galerie est également proposée pour une utilisation comme tierce partie pour la prévisualisation des images/vidéos, ajouter des pièces jointes aux clients email, etc... C\'est parfait pour un usage au quotidien.
 
