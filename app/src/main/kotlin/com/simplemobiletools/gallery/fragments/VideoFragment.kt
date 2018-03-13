@@ -75,12 +75,12 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             mIsFragmentVisible = true
         }
 
+        mIsFullscreen = activity!!.window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN == View.SYSTEM_UI_FLAG_FULLSCREEN
         setupPlayer()
         if (savedInstanceState != null) {
             mCurrTime = savedInstanceState.getInt(PROGRESS)
         }
 
-        mIsFullscreen = activity!!.window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN == View.SYSTEM_UI_FLAG_FULLSCREEN
         checkFullscreen()
         wasInit = true
 
@@ -465,6 +465,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 text = getMediumExtendedDetails(medium)
                 setTextColor(context.config.textColor)
                 beVisibleIf(text.isNotEmpty())
+                alpha = if (!context!!.config.hideExtendedDetails || !mIsFullscreen) 1f else 0f
                 onGlobalLayout {
                     if (height != 0 && isAdded) {
                         y = getExtendedDetailsY(height)
