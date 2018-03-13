@@ -73,7 +73,6 @@ fun Activity.launchCamera() {
 
 fun SimpleActivity.launchAbout() {
     val faqItems = arrayListOf(
-            FAQItem(R.string.faq_2_title_commons, R.string.faq_2_text_commons),
             FAQItem(R.string.faq_3_title_commons, R.string.faq_3_text_commons),
             FAQItem(R.string.faq_1_title, R.string.faq_1_text),
             FAQItem(R.string.faq_2_title, R.string.faq_2_text),
@@ -83,9 +82,10 @@ fun SimpleActivity.launchAbout() {
             FAQItem(R.string.faq_6_title, R.string.faq_6_text),
             FAQItem(R.string.faq_7_title, R.string.faq_7_text),
             FAQItem(R.string.faq_8_title, R.string.faq_8_text),
-            FAQItem(R.string.faq_9_title, R.string.faq_9_text))
+            FAQItem(R.string.faq_9_title, R.string.faq_9_text),
+            FAQItem(R.string.faq_2_title_commons, R.string.faq_2_text_commons))
 
-    startAboutActivity(R.string.app_name, LICENSE_KOTLIN or LICENSE_GLIDE or LICENSE_CROPPER or LICENSE_MULTISELECT or LICENSE_RTL
+    startAboutActivity(R.string.app_name, LICENSE_GLIDE or LICENSE_CROPPER or LICENSE_MULTISELECT or LICENSE_RTL
             or LICENSE_SUBSAMPLING or LICENSE_PATTERN or LICENSE_REPRINT or LICENSE_GIF_DRAWABLE or LICENSE_PHOTOVIEW, BuildConfig.VERSION_NAME, faqItems)
 }
 

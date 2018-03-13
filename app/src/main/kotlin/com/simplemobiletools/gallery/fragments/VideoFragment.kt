@@ -14,6 +14,7 @@ import android.view.animation.AnimationUtils
 import android.widget.SeekBar
 import android.widget.TextView
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.isJellyBean1Plus
 import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.VideoActivity
@@ -433,7 +434,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         val screenWidth: Int
         val screenHeight: Int
 
-        if (activity!!.isJellyBean1Plus()) {
+        if (isJellyBean1Plus()) {
             val realMetrics = DisplayMetrics()
             display.getRealMetrics(realMetrics)
             screenWidth = realMetrics.widthPixels
