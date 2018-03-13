@@ -28,6 +28,7 @@ import java.io.IOException
 
 class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSeekBarChangeListener {
     private val PROGRESS = "progress"
+    private val MIN_SKIP_LENGTH = 2000
 
     private var mMediaPlayer: MediaPlayer? = null
     private var mSurfaceView: SurfaceView? = null
@@ -481,9 +482,11 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         }
 
         val curr = mMediaPlayer!!.currentPosition
-        val twoPercents = mMediaPlayer!!.duration / 50
+        val twoPercents = Math.max(mMediaPlayer!!.duration / 50, MIN_SKIP_LENGTH)
         val newProgress = if (forward) curr + twoPercents else curr - twoPercents
-        setProgress(Math.round(newProgress / 1000f))
+        val roundProgress = Math.round(newProgress / 1000f)
+        val limitedProgress = Math.max(Math.min(mMediaPlayer!!.duration / 1000, roundProgress), 0)
+        setProgress(limitedProgress)
         if (!mIsPlaying) {
             togglePlayPause()
         }
