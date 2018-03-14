@@ -59,7 +59,7 @@ class PhotoFragment : ViewPagerFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         view = (inflater.inflate(R.layout.pager_photo_item, container, false) as ViewGroup).apply {
             subsampling_view.setOnClickListener { photoClicked() }
-            gif_view.setOnClickListener { photoClicked() }
+            photo_view.setOnClickListener { photoClicked() }
             instant_prev_item.setOnClickListener { listener?.goToPrevItem() }
             instant_next_item.setOnClickListener { listener?.goToNextItem() }
 
@@ -71,7 +71,7 @@ class PhotoFragment : ViewPagerFragment() {
                     if (subsampling_view.isVisible()) {
                         subsampling_view.sendFakeClick(x, y)
                     } else {
-                        gif_view.sendFakeClick(x, y)
+                        photo_view.sendFakeClick(x, y)
                     }
                 }
             }
@@ -219,7 +219,7 @@ class PhotoFragment : ViewPagerFragment() {
                 gifDrawable!!.stop()
             }
 
-            view.gif_view.setImageDrawable(gifDrawable)
+            view.photo_view.setImageDrawable(gifDrawable)
         } catch (e: Exception) {
             gifDrawable = null
             loadBitmap()
@@ -269,7 +269,7 @@ class PhotoFragment : ViewPagerFragment() {
                                 addZoomableView()
                             return false
                         }
-                    }).into(view.gif_view)
+                    }).into(view.photo_view)
         } else {
             val options = RequestOptions()
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
@@ -280,7 +280,7 @@ class PhotoFragment : ViewPagerFragment() {
                     .load(getPathToLoad(medium))
                     .thumbnail(0.2f)
                     .apply(options)
-                    .into(view.gif_view)
+                    .into(view.photo_view)
         }
     }
 
@@ -395,7 +395,7 @@ class PhotoFragment : ViewPagerFragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         if (activity?.isActivityDestroyed() == false) {
-            Glide.with(context!!).clear(view.gif_view)
+            Glide.with(context!!).clear(view.photo_view)
             view.subsampling_view.recycle()
         }
     }
