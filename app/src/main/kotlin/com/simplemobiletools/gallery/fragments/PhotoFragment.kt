@@ -10,6 +10,7 @@ import android.media.ExifInterface.*
 import android.net.Uri
 import android.os.AsyncTask
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,6 +45,7 @@ class PhotoFragment : ViewPagerFragment() {
     private var isFragmentVisible = false
     private var isFullscreen = false
     private var wasInit = false
+    private var useHalfResolution = false
     private var imageOrientation = -1
     private var gifDrawable: GifDrawable? = null
 
@@ -231,6 +233,11 @@ class PhotoFragment : ViewPagerFragment() {
         if (degrees == 0f) {
             var targetWidth = if (ViewPagerActivity.screenWidth == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenWidth
             var targetHeight = if (ViewPagerActivity.screenHeight == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenHeight
+            if (useHalfResolution) {
+                targetWidth /= 2
+                targetHeight /= 2
+            }
+
             if (imageOrientation == ORIENTATION_ROTATE_90) {
                 targetWidth = targetHeight
                 targetHeight = Target.SIZE_ORIGINAL
@@ -247,7 +254,15 @@ class PhotoFragment : ViewPagerFragment() {
                     .load(getPathToLoad(medium))
                     .apply(options)
                     .listener(object : RequestListener<Bitmap> {
-                        override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean) = false
+                        override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
+                            if (!useHalfResolution && e?.rootCauses?.first() is OutOfMemoryError) {
+                                useHalfResolution = true
+                                Handler().post {
+                                    loadBitmap(degrees)
+                                }
+                            }
+                            return false
+                        }
 
                         override fun onResourceReady(resource: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
                             if (isFragmentVisible)
