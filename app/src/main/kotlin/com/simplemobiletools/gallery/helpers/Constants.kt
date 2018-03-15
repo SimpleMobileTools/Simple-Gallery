@@ -65,6 +65,8 @@ const val MAX_COLUMN_COUNT = 20
 const val SHOW_TEMP_HIDDEN_DURATION = 600000L
 const val CLICK_MAX_DURATION = 150
 const val DRAG_THRESHOLD = 8
+const val SAVE_DIRS_CNT = 60
+const val SAVE_MEDIA_CNT = 80
 
 const val DIRECTORY = "directory"
 const val MEDIUM = "medium"

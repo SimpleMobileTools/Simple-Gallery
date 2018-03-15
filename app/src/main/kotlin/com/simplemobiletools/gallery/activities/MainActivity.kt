@@ -602,7 +602,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun storeDirectories() {
         if (!config.temporarilyShowHidden && config.tempFolderPath.isEmpty()) {
-            val directories = Gson().toJson(mDirs)
+            val subList = mDirs.subList(0, Math.min(SAVE_DIRS_CNT, mDirs.size))
+            val directories = Gson().toJson(subList)
             config.directories = directories
         }
     }
