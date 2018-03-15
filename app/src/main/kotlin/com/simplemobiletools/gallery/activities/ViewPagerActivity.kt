@@ -522,31 +522,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.N)
     private fun saveImageToFile(oldPath: String, newPath: String) {
         toast(R.string.saving)
         if (oldPath == newPath && oldPath.isJpg()) {
-            try {
-                if (!isPathOnSD(oldPath)) {
-                    saveExifRotation(ExifInterface(oldPath))
-                    mRotationDegrees = 0f
-                    invalidateOptionsMenu()
-                    toast(R.string.file_saved)
-                    return
-                } else if (isNougatPlus()) {
-                    val documentFile = getSomeDocumentFile(oldPath)
-                    if (documentFile != null) {
-                        val parcelFileDescriptor = contentResolver.openFileDescriptor(documentFile.uri, "rw")
-                        val fileDescriptor = parcelFileDescriptor.fileDescriptor
-                        saveExifRotation(ExifInterface(fileDescriptor))
-                        mRotationDegrees = 0f
-                        invalidateOptionsMenu()
-                        toast(R.string.file_saved)
-                        return
-                    }
-                }
-            } catch (e: Exception) {
-                showErrorToast(e)
+            if (tryRotateByExif(oldPath)) {
                 return
             }
         }
@@ -601,6 +580,33 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         } finally {
             deleteFile(FileDirItem(tmpFile.absolutePath, tmpFile.absolutePath.getFilenameFromPath()))
         }
+    }
+
+    @TargetApi(Build.VERSION_CODES.N)
+    private fun tryRotateByExif(path: String): Boolean {
+        try {
+            if (!isPathOnSD(path)) {
+                saveExifRotation(ExifInterface(path))
+                mRotationDegrees = 0f
+                invalidateOptionsMenu()
+                toast(R.string.file_saved)
+                return true
+            } else if (isNougatPlus()) {
+                val documentFile = getSomeDocumentFile(path)
+                if (documentFile != null) {
+                    val parcelFileDescriptor = contentResolver.openFileDescriptor(documentFile.uri, "rw")
+                    val fileDescriptor = parcelFileDescriptor.fileDescriptor
+                    saveExifRotation(ExifInterface(fileDescriptor))
+                    mRotationDegrees = 0f
+                    invalidateOptionsMenu()
+                    toast(R.string.file_saved)
+                    return true
+                }
+            }
+        } catch (e: Exception) {
+            showErrorToast(e)
+        }
+        return false
     }
 
     private fun copyFile(source: File, destination: File) {
