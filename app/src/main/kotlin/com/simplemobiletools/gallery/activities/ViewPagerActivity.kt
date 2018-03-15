@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.activities
 
 import android.animation.Animator
 import android.animation.ValueAnimator
+import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.ActivityInfo
@@ -521,15 +522,32 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.N)
     private fun saveImageToFile(oldPath: String, newPath: String) {
         toast(R.string.saving)
-        if (oldPath == newPath && oldPath.isJpg() && !isPathOnSD(oldPath)) {
+        if (oldPath == newPath && oldPath.isJpg()) {
             try {
-                saveRotation(oldPath)
-                toast(R.string.file_saved)
-                return
+                if (!isPathOnSD(oldPath)) {
+                    saveExifRotation(ExifInterface(oldPath))
+                    mRotationDegrees = 0f
+                    invalidateOptionsMenu()
+                    toast(R.string.file_saved)
+                    return
+                } else if (isNougatPlus()) {
+                    val documentFile = getSomeDocumentFile(oldPath)
+                    if (documentFile != null) {
+                        val parcelFileDescriptor = contentResolver.openFileDescriptor(documentFile.uri, "rw")
+                        val fileDescriptor = parcelFileDescriptor.fileDescriptor
+                        saveExifRotation(ExifInterface(fileDescriptor))
+                        mRotationDegrees = 0f
+                        invalidateOptionsMenu()
+                        toast(R.string.file_saved)
+                        return
+                    }
+                }
             } catch (e: Exception) {
                 showErrorToast(e)
+                return
             }
         }
 
@@ -547,7 +565,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 val oldLastModified = getCurrentFile().lastModified()
                 if (oldPath.isJpg()) {
                     copyFile(getCurrentFile(), tmpFile)
-                    saveRotation(tmpFile.absolutePath)
+                    saveExifRotation(ExifInterface(tmpFile.absolutePath))
                 } else {
                     saveFile(tmpFile, bitmap, it as FileOutputStream)
                 }
@@ -606,8 +624,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         bmp.compress(file.absolutePath.getCompressionFormat(), 90, out)
     }
 
-    private fun saveRotation(destinationPath: String) {
-        val exif = ExifInterface(destinationPath)
+    private fun saveExifRotation(exif: ExifInterface) {
         val orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
         val orientationDegrees = (degreesForRotation(orientation) + mRotationDegrees) % 360
         exif.setAttribute(ExifInterface.TAG_ORIENTATION, rotationFromDegrees(orientationDegrees))
