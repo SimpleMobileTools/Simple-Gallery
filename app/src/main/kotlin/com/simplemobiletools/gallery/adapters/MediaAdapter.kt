@@ -235,6 +235,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
             media.removeAll(removeMedia)
             listener?.deleteFiles(fileDirItems)
             removeSelectedItems()
+            updateStoredFolderItems()
         }
     }
 
@@ -242,6 +243,14 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         val selectedMedia = ArrayList<Medium>(selectedPositions.size)
         selectedPositions.forEach { selectedMedia.add(media[it]) }
         return selectedMedia
+    }
+
+    private fun updateStoredFolderItems() {
+        Thread {
+            if (media.isNotEmpty()) {
+                activity.applicationContext.storeFolderItems(media.first().path.getParentPath(), media as ArrayList<Medium>)
+            }
+        }.start()
     }
 
     fun updateMedia(newMedia: ArrayList<Medium>) {
