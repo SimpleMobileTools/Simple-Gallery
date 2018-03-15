@@ -187,6 +187,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         val fileDirItems = paths.map { FileDirItem(it, it.getFilenameFromPath()) } as ArrayList
         activity.tryCopyMoveFilesTo(fileDirItems, isCopyOperation) {
             config.tempFolderPath = ""
+            activity.applicationContext.updateStoredFolderItems(it)
             if (!isCopyOperation) {
                 listener?.refreshItems()
             }

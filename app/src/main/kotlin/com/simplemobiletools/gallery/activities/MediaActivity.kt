@@ -20,7 +20,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
-import com.google.gson.Gson
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
@@ -663,13 +662,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun storeFolder() {
         if (!config.temporarilyShowHidden) {
             Thread {
-                try {
-                    val subList = mMedia.subList(0, Math.min(SAVE_MEDIA_CNT, mMedia.size))
-                    val json = Gson().toJson(subList)
-                    config.saveFolderMedia(mPath, json)
-                } catch (ignored: Exception) {
-                } catch (ignored: OutOfMemoryError) {
-                }
+                storeFolderItems(mPath, mMedia)
             }.start()
         }
     }

@@ -183,7 +183,7 @@ fun Activity.loadImage(type: Int, path: String, target: MySquareImageView, horiz
     }
 }
 
-fun BaseSimpleActivity.tryCopyMoveFilesTo(fileDirItems: ArrayList<FileDirItem>, isCopyOperation: Boolean, callback: () -> Unit) {
+fun BaseSimpleActivity.tryCopyMoveFilesTo(fileDirItems: ArrayList<FileDirItem>, isCopyOperation: Boolean, callback: (destinationPath: String) -> Unit) {
     if (fileDirItems.isEmpty()) {
         toast(R.string.unknown_error_occurred)
         return
