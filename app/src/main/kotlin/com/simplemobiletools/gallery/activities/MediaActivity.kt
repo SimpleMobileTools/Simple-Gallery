@@ -675,6 +675,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             } else if (mMedia.isEmpty()) {
                 deleteDirectoryIfEmpty()
                 finish()
+            } else {
+                updateStoredDirectories()
             }
         }
     }

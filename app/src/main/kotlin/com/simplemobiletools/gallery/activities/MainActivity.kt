@@ -13,7 +13,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import com.google.gson.Gson
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.dialogs.NewAppDialog
@@ -167,7 +166,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     override fun onPause() {
         super.onPause()
-        storeDirectories()
         directories_refresh_layout.isRefreshing = false
         mIsGettingDirs = false
         storeStateVariables()
@@ -616,9 +614,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun storeDirectories() {
         if (!config.temporarilyShowHidden && config.tempFolderPath.isEmpty()) {
-            val subList = mDirs.subList(0, Math.min(SAVE_DIRS_CNT, mDirs.size))
-            val directories = Gson().toJson(subList)
-            config.directories = directories
+            storeDirectoryItems(mDirs)
         }
     }
 
