@@ -11,8 +11,8 @@ import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.isActivityDestroyed
-import com.simplemobiletools.commons.extensions.isNougatPlus
 import com.simplemobiletools.commons.extensions.toast
+import com.simplemobiletools.commons.helpers.isNougatPlus
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.R
 import com.theartofdev.edmodo.cropper.CropImageView

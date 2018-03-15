@@ -10,6 +10,7 @@ import android.media.ExifInterface.*
 import android.net.Uri
 import android.os.AsyncTask
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,6 +45,7 @@ class PhotoFragment : ViewPagerFragment() {
     private var isFragmentVisible = false
     private var isFullscreen = false
     private var wasInit = false
+    private var useHalfResolution = false
     private var imageOrientation = -1
     private var gifDrawable: GifDrawable? = null
 
@@ -57,7 +59,7 @@ class PhotoFragment : ViewPagerFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         view = (inflater.inflate(R.layout.pager_photo_item, container, false) as ViewGroup).apply {
             subsampling_view.setOnClickListener { photoClicked() }
-            gif_view.setOnClickListener { photoClicked() }
+            photo_view.setOnClickListener { photoClicked() }
             instant_prev_item.setOnClickListener { listener?.goToPrevItem() }
             instant_next_item.setOnClickListener { listener?.goToNextItem() }
 
@@ -69,7 +71,7 @@ class PhotoFragment : ViewPagerFragment() {
                     if (subsampling_view.isVisible()) {
                         subsampling_view.sendFakeClick(x, y)
                     } else {
-                        gif_view.sendFakeClick(x, y)
+                        photo_view.sendFakeClick(x, y)
                     }
                 }
             }
@@ -217,7 +219,7 @@ class PhotoFragment : ViewPagerFragment() {
                 gifDrawable!!.stop()
             }
 
-            view.gif_view.setImageDrawable(gifDrawable)
+            view.photo_view.setImageDrawable(gifDrawable)
         } catch (e: Exception) {
             gifDrawable = null
             loadBitmap()
@@ -231,6 +233,11 @@ class PhotoFragment : ViewPagerFragment() {
         if (degrees == 0f) {
             var targetWidth = if (ViewPagerActivity.screenWidth == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenWidth
             var targetHeight = if (ViewPagerActivity.screenHeight == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenHeight
+            if (useHalfResolution) {
+                targetWidth /= 2
+                targetHeight /= 2
+            }
+
             if (imageOrientation == ORIENTATION_ROTATE_90) {
                 targetWidth = targetHeight
                 targetHeight = Target.SIZE_ORIGINAL
@@ -247,14 +254,22 @@ class PhotoFragment : ViewPagerFragment() {
                     .load(getPathToLoad(medium))
                     .apply(options)
                     .listener(object : RequestListener<Bitmap> {
-                        override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean) = false
+                        override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
+                            if (!useHalfResolution && e?.rootCauses?.first() is OutOfMemoryError) {
+                                useHalfResolution = true
+                                Handler().post {
+                                    loadBitmap(degrees)
+                                }
+                            }
+                            return false
+                        }
 
                         override fun onResourceReady(resource: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
                             if (isFragmentVisible)
                                 addZoomableView()
                             return false
                         }
-                    }).into(view.gif_view)
+                    }).into(view.photo_view)
         } else {
             val options = RequestOptions()
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
@@ -265,7 +280,7 @@ class PhotoFragment : ViewPagerFragment() {
                     .load(getPathToLoad(medium))
                     .thumbnail(0.2f)
                     .apply(options)
-                    .into(view.gif_view)
+                    .into(view.photo_view)
         }
     }
 
@@ -365,6 +380,7 @@ class PhotoFragment : ViewPagerFragment() {
                 text = getMediumExtendedDetails(medium)
                 setTextColor(context.config.textColor)
                 beVisibleIf(text.isNotEmpty())
+                alpha = if (!context!!.config.hideExtendedDetails || !isFullscreen) 1f else 0f
                 onGlobalLayout {
                     if (height != 0 && isAdded) {
                         y = getExtendedDetailsY(height)
@@ -379,7 +395,7 @@ class PhotoFragment : ViewPagerFragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         if (activity?.isActivityDestroyed() == false) {
-            Glide.with(context!!).clear(view.gif_view)
+            Glide.with(context!!).clear(view.photo_view)
             view.subsampling_view.recycle()
         }
     }

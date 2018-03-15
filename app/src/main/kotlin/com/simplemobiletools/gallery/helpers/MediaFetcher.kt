@@ -40,7 +40,7 @@ class MediaFetcher(val context: Context) {
             directories.remove(it)
         }
 
-        searchNewFiles(directories, showHidden)
+        //searchNewFiles(directories, showHidden)
         return directories
     }
 
@@ -104,7 +104,7 @@ class MediaFetcher(val context: Context) {
     private fun getSelectionQuery(path: String): String? {
         val dataQuery = "${MediaStore.Images.Media.DATA} LIKE ?"
         return if (path.isEmpty()) {
-            if (context.isAndroidFour())
+            if (isAndroidFour())
                 return null
 
             var query = "($dataQuery)"
@@ -119,7 +119,7 @@ class MediaFetcher(val context: Context) {
 
     private fun getSelectionArgsQuery(path: String): Array<String>? {
         return if (path.isEmpty()) {
-            if (context.isAndroidFour()) {
+            if (isAndroidFour()) {
                 return null
             }
 

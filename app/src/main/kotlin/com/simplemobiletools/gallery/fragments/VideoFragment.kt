@@ -14,6 +14,7 @@ import android.view.animation.AnimationUtils
 import android.widget.SeekBar
 import android.widget.TextView
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.isJellyBean1Plus
 import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.VideoActivity
@@ -27,6 +28,7 @@ import java.io.IOException
 
 class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSeekBarChangeListener {
     private val PROGRESS = "progress"
+    private val MIN_SKIP_LENGTH = 2000
 
     private var mMediaPlayer: MediaPlayer? = null
     private var mSurfaceView: SurfaceView? = null
@@ -73,12 +75,12 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             mIsFragmentVisible = true
         }
 
+        mIsFullscreen = activity!!.window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN == View.SYSTEM_UI_FLAG_FULLSCREEN
         setupPlayer()
         if (savedInstanceState != null) {
             mCurrTime = savedInstanceState.getInt(PROGRESS)
         }
 
-        mIsFullscreen = activity!!.window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN == View.SYSTEM_UI_FLAG_FULLSCREEN
         checkFullscreen()
         wasInit = true
 
@@ -433,7 +435,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         val screenWidth: Int
         val screenHeight: Int
 
-        if (activity!!.isJellyBean1Plus()) {
+        if (isJellyBean1Plus()) {
             val realMetrics = DisplayMetrics()
             display.getRealMetrics(realMetrics)
             screenWidth = realMetrics.widthPixels
@@ -463,6 +465,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 text = getMediumExtendedDetails(medium)
                 setTextColor(context.config.textColor)
                 beVisibleIf(text.isNotEmpty())
+                alpha = if (!context!!.config.hideExtendedDetails || !mIsFullscreen) 1f else 0f
                 onGlobalLayout {
                     if (height != 0 && isAdded) {
                         y = getExtendedDetailsY(height)
@@ -480,9 +483,11 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         }
 
         val curr = mMediaPlayer!!.currentPosition
-        val twoPercents = mMediaPlayer!!.duration / 50
+        val twoPercents = Math.max(mMediaPlayer!!.duration / 50, MIN_SKIP_LENGTH)
         val newProgress = if (forward) curr + twoPercents else curr - twoPercents
-        setProgress(Math.round(newProgress / 1000f))
+        val roundProgress = Math.round(newProgress / 1000f)
+        val limitedProgress = Math.max(Math.min(mMediaPlayer!!.duration / 1000, roundProgress), 0)
+        setProgress(limitedProgress)
         if (!mIsPlaying) {
             togglePlayPause()
         }
