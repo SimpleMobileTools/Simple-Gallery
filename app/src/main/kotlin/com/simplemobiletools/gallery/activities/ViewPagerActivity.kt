@@ -522,9 +522,20 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun saveImageToFile(oldPath: String, newPath: String) {
-        val newFile = File(newPath)
         toast(R.string.saving)
+        if (oldPath == newPath && oldPath.isJpg() && !isPathOnSD(oldPath)) {
+            try {
+                saveRotation(oldPath)
+                toast(R.string.file_saved)
+                return
+            } catch (e: Exception) {
+                showErrorToast(e)
+            }
+        }
+
+        val newFile = File(newPath)
         val tmpFile = File(filesDir, ".tmp_${newPath.getFilenameFromPath()}")
+
         try {
             val bitmap = BitmapFactory.decodeFile(oldPath)
             getFileOutputStream(tmpFile.toFileDirItem(applicationContext)) {
@@ -535,7 +546,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
                 val oldLastModified = getCurrentFile().lastModified()
                 if (oldPath.isJpg()) {
-                    saveRotation(getCurrentFile(), tmpFile)
+                    copyFile(getCurrentFile(), tmpFile)
+                    saveRotation(tmpFile.absolutePath)
                 } else {
                     saveFile(tmpFile, bitmap, it as FileOutputStream)
                 }
@@ -594,9 +606,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         bmp.compress(file.absolutePath.getCompressionFormat(), 90, out)
     }
 
-    private fun saveRotation(source: File, destination: File) {
-        copyFile(source, destination)
-        val exif = ExifInterface(destination.absolutePath)
+    private fun saveRotation(destinationPath: String) {
+        val exif = ExifInterface(destinationPath)
         val orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
         val orientationDegrees = (degreesForRotation(orientation) + mRotationDegrees) % 360
         exif.setAttribute(ExifInterface.TAG_ORIENTATION, rotationFromDegrees(orientationDegrees))
