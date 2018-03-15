@@ -61,6 +61,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mLoadedInitialPhotos = false
     private var mIsPasswordProtectionPending = false
     private var mLatestMediaId = 0L
+    private var mLatestMediaDateId = 0L
     private var mLastMediaHandler = Handler()
     private var mTempShowHiddenHandler = Handler()
     private var mCurrAsyncTask: GetDirectoriesAsynctask? = null
@@ -653,6 +654,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         Thread {
             if (hasPermission(PERMISSION_READ_STORAGE)) {
                 mLatestMediaId = getLatestMediaId()
+                mLatestMediaDateId = getLatestMediaByDateId()
             }
         }.start()
     }
@@ -666,8 +668,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mLastMediaHandler.postDelayed({
             Thread {
                 val mediaId = getLatestMediaId()
-                if (mLatestMediaId != mediaId) {
+                val mediaDateId = getLatestMediaByDateId()
+                if (mLatestMediaId != mediaId || mLatestMediaDateId != mediaDateId) {
                     mLatestMediaId = mediaId
+                    mLatestMediaDateId = mediaDateId
                     runOnUiThread {
                         getDirectories()
                     }

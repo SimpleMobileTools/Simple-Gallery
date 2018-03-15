@@ -58,6 +58,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mLoadedInitialPhotos = false
     private var mIsSearchOpen = false
     private var mLatestMediaId = 0L
+    private var mLatestMediaDateId = 0L
     private var mLastMediaHandler = Handler()
     private var mTempShowHiddenHandler = Handler()
     private var mCurrAsyncTask: GetMediaAsynctask? = null
@@ -359,8 +360,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         mLastMediaHandler.postDelayed({
             Thread {
                 val mediaId = getLatestMediaId()
-                if (mLatestMediaId != mediaId) {
+                val mediaDateId = getLatestMediaByDateId()
+                if (mLatestMediaId != mediaId || mLatestMediaDateId != mediaDateId) {
                     mLatestMediaId = mediaId
+                    mLatestMediaDateId = mediaDateId
                     runOnUiThread {
                         getMedia()
                     }
@@ -632,6 +635,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun gotMedia(media: ArrayList<Medium>, isFromCache: Boolean = false) {
         Thread {
             mLatestMediaId = getLatestMediaId()
+            mLatestMediaDateId = getLatestMediaByDateId()
         }.start()
 
         mIsGettingMedia = false
