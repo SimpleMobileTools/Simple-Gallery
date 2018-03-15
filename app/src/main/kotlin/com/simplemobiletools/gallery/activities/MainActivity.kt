@@ -679,7 +679,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             return
         }
 
-        mLastMediaHandler.removeCallbacksAndMessages(null)
         mLastMediaHandler.postDelayed({
             Thread {
                 val mediaId = getLatestMediaId()
@@ -691,6 +690,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                         getDirectories()
                     }
                 } else {
+                    mLastMediaHandler.removeCallbacksAndMessages(null)
                     checkLastMediaChanged()
                 }
             }.start()
