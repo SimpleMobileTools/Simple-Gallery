@@ -26,6 +26,7 @@ const val MEDIA_HORIZONTAL_COLUMN_CNT = "media_horizontal_column_cnt"
 const val MEDIA_LANDSCAPE_HORIZONTAL_COLUMN_CNT = "media_landscape_horizontal_column_cnt"
 const val SHOW_ALL = "show_all"                           // display images and videos from all folders together
 const val SAVE_FOLDER_PREFIX = "folder2_"
+const val SAVE_FOLDER_SHORT_PREFIX = "folder_short_"
 const val HIDE_FOLDER_TOOLTIP_SHOWN = "hide_folder_tooltip_shown"
 const val EXCLUDED_FOLDERS = "excluded_folders"
 const val INCLUDED_FOLDERS = "included_folders"

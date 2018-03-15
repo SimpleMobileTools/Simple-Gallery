@@ -573,7 +573,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun gotDirectories(newDirs: ArrayList<Directory>, isFromCache: Boolean) {
         if (!isFromCache) {
-            setupLatestMediaId()
+            Thread {
+                checkFolderContentChange(newDirs)
+            }.start()
         }
 
         val dirs = getSortedDirectories(newDirs)
@@ -597,6 +599,18 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
         if (!isFromCache) {
             storeDirectories()
+        }
+    }
+
+    private fun checkFolderContentChange(newDirs: ArrayList<Directory>) {
+        newDirs.forEach {
+            val storedShortDirValue = config.loadFolderMediaShort(it.path)
+            if (storedShortDirValue != it.toString()) {
+                config.saveFolderMediaShort(it.path, it.toString())
+                if (storedShortDirValue.isNotEmpty()) {
+                    updateStoredFolderItems(it.path)
+                }
+            }
         }
     }
 
