@@ -103,10 +103,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         setupLatestMediaId()
 
         // notify the users about the Contacts app
-        if (System.currentTimeMillis() < 1521015000000 && !config.wasNewAppShown && config.appRunCount > 100 && config.appRunCount % 50 != 0 && !isPackageInstalled(CONTACTS_PACKAGE)) {
+        /*if (System.currentTimeMillis() < 1521015000000 && !config.wasNewAppShown && config.appRunCount > 100 && config.appRunCount % 50 != 0 && !isPackageInstalled(CONTACTS_PACKAGE)) {
             config.wasNewAppShown = true
             NewAppDialog(this, CONTACTS_PACKAGE, "Simple Contacts")
-        }
+        }*/
     }
 
     override fun onStart() {
