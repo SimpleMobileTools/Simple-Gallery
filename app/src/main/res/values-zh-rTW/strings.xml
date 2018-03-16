@@ -146,7 +146,7 @@
     <!-- FAQ -->
     <string name="faq_1_title">我如何將簡易相簿設為預設相簿?</string>
     <string name="faq_1_text">首先你必須先在裝置設定中應用程式部分尋找目前預設相簿，找到一個像是\"預設開啟(Open by default)\"的按鈕，點下去，然後選擇\"清除預設(Clear defaults)\"。
-		下次你要開啟圖片或影片時應該會看到程式選擇器，你可以在那裡選擇簡易相簿並設為預設程式。</string>
+        下次你要開啟圖片或影片時應該會看到程式選擇器，你可以在那裡選擇簡易相簿並設為預設程式。</string>
     <string name="faq_2_title">我用密碼鎖住了這應用程式，但我忘記了。怎麼辦?</string>
     <string name="faq_2_text">有兩個解決方法。你可以重新安裝應用程式，或者在裝置設定中找到這程式然後選擇\"清除資料(Clear data)\"。這將重置你程式內所有設定，不會移除任何媒體檔案。</string>
     <string name="faq_3_title">我如何讓某個相冊總是出現在頂端?</string>
@@ -161,25 +161,25 @@
     <string name="faq_7_text">可能有多種原因，不過很好解決。只要到[設定] -> [管理包含資料夾]，選擇[加號]然後導引到需要的資料夾。</string>
     <string name="faq_8_title">如果我只想看到幾個特定的資料夾，怎麼做?</string>
     <string name="faq_8_text">在[包含資料夾]內添加資料夾並不會自動排除任何東西。你能做的是到[設定] -> [管理排除資料夾]，排除根目錄 \"/\"，然後在[設定] -> [管理包含資料夾]添加想要的資料夾。
-		那樣的話就只有選擇的資料夾可見。因為排除和包含都是遞迴的，如果一個資料夾被排除又被包含，則會顯示出來。</string>
-    <string name="faq_9_title">全螢幕圖片有雜質，我有辦法提高品質嗎?</string>
+        那樣的話就只有選擇的資料夾可見。因為排除和包含都是遞迴的，如果一個資料夾被排除又被包含，則會顯示出來。</string>
+    <string name="faq_9_title">全螢幕圖片有雜訊，我有辦法提高品質嗎?</string>
     <string name="faq_9_text">可啊，[設定]內有個開關叫做「可深度縮放的圖片用品質更佳的來取代」，你能用用看。這會提高圖片的品質，不過一旦你放大太多就會模糊掉。</string>
-    <string name="faq_10_title">Can I crop images with this app?</string>
-    <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
+    <string name="faq_10_title">我可以用這程式裁減圖片嗎?</string>
+    <string name="faq_10_text">是的，你能夠在編輯器內拉動圖片角落來裁剪圖片。要進入編輯器，你可以長按圖片縮圖然後選擇[編輯]，或是在全螢幕檢視下選擇[編輯]。</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">一個用來瀏覽相片和影片，且沒有廣告的相簿。</string>
     <string name="app_long_description">
-		一個用來瀏覽相片和影片的簡單工具。可以根據日期、大小、名稱來遞增或遞減排序項目，相片能被縮放。媒體檔案會依畫面大小呈現在數個欄位內，你可以使用縮放手勢來改變欄數。媒體檔案可以重新命名、分享、刪除、複製、移動；圖片還能縮放、旋轉、翻轉，或者直接設為桌布。
+        一個用來瀏覽相片和影片的簡單工具。可以根據日期、大小、名稱來遞增或遞減排序項目，相片能被縮放。媒體檔案會依畫面大小呈現在數個欄位內，你可以使用縮放手勢來改變欄數。媒體檔案可以重新命名、分享、刪除、複製、移動；圖片還能縮放、旋轉、翻轉，或者直接設為桌布。
 		
-		這相簿也支援第三方使用，像是預覽圖片/影片、添加電子信箱附件...等功能，日常使用上相當適合。
+        這相簿也支援第三方使用，像是預覽圖片/影片、添加電子信箱附件...等功能，日常使用上相當適合。
 
-		指紋權限用來鎖定隱藏的項目或是整個程式。
+        指紋權限用來鎖定隱藏的項目或是整個程式。
 
-		不包含廣告及非必要的權限，而且完全開放原始碼，並提供自訂顏色。
+        不包含廣告及非必要的權限，而且完全開放原始碼，並提供自訂顏色。
 		
-		這程式只是一系列眾多應用程式的其中一項，你可以在這發現更多 http://www.simplemobiletools.com
+        這程式只是一系列眾多應用程式的其中一項，你可以在這發現更多 http://www.simplemobiletools.com
     </string>
 
     <!--
