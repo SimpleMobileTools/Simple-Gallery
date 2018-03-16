@@ -164,8 +164,8 @@
         Это сделает видимыми только выбранные папки, так как исключение и включение являются рекурсивными, и если папка исключена и включена, то она будет отображаться.</string>
     <string name="faq_9_title">Полноэкранные изображения имеют странные артефакты, можно как-то улучшить качество?</string>
     <string name="faq_9_text">Да, в настройках есть переключатель \"Заменять масштабируемые изображения высококачественными\", использовуйте его. Это улучшит качество изображений, но они будут размыты, если вы попытаетесь сильно увеличить масштаб отображения.</string>
-    <string name="faq_10_title">Can I crop images with this app?</string>
-    <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
+    <string name="faq_10_title">Можно ли обрезать изображения с помощью данного приложения?</string>
+    <string name="faq_10_text">Да, вы можете обрезать изображения в редакторе, перетаскивая за углы. К редактированию можно перейти, выбрав соответсвующий пункт в меню, открывающемуся длительным нажатием на миниатюру или изображение в полноэкранном режиме.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
