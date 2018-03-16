@@ -255,7 +255,7 @@ class PhotoFragment : ViewPagerFragment() {
                     .apply(options)
                     .listener(object : RequestListener<Bitmap> {
                         override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
-                            if (!useHalfResolution && e?.rootCauses?.first() is OutOfMemoryError) {
+                            if (!useHalfResolution && e?.rootCauses?.firstOrNull() is OutOfMemoryError) {
                                 useHalfResolution = true
                                 Handler().post {
                                     loadBitmap(degrees)
