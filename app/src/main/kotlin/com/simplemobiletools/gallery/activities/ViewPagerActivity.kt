@@ -534,7 +534,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val tmpFile = File(filesDir, ".tmp_${newPath.getFilenameFromPath()}")
 
         try {
-            val bitmap = BitmapFactory.decodeFile(oldPath)
             getFileOutputStream(tmpFile.toFileDirItem(applicationContext)) {
                 if (it == null) {
                     toast(R.string.unknown_error_occurred)
@@ -546,6 +545,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     copyFile(getCurrentFile(), tmpFile)
                     saveExifRotation(ExifInterface(tmpFile.absolutePath))
                 } else {
+                    val bitmap = BitmapFactory.decodeFile(oldPath)
                     saveFile(tmpFile, bitmap, it as FileOutputStream)
                 }
 

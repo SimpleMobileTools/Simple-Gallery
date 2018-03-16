@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 3.6.0 *(2018-03-15)*
+----------------------------
+
+ * Fix duplicate files at renaming or hiding
+ * Improve some third party handling
+ * Optimize rotated image saving to avoid Out of memory errors
+ * Optimize new item discoveries or folder refreshing
+ * Many other smaller performance and UX improvements
+
 Version 3.5.3 *(2018-03-03)*
 ----------------------------
 

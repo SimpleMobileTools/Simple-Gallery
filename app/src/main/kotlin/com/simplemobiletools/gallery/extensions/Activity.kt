@@ -83,6 +83,7 @@ fun SimpleActivity.launchAbout() {
             FAQItem(R.string.faq_7_title, R.string.faq_7_text),
             FAQItem(R.string.faq_8_title, R.string.faq_8_text),
             FAQItem(R.string.faq_9_title, R.string.faq_9_text),
+            FAQItem(R.string.faq_10_title, R.string.faq_10_text),
             FAQItem(R.string.faq_2_title_commons, R.string.faq_2_text_commons))
 
     startAboutActivity(R.string.app_name, LICENSE_GLIDE or LICENSE_CROPPER or LICENSE_MULTISELECT or LICENSE_RTL
@@ -183,7 +184,7 @@ fun Activity.loadImage(type: Int, path: String, target: MySquareImageView, horiz
     }
 }
 
-fun BaseSimpleActivity.tryCopyMoveFilesTo(fileDirItems: ArrayList<FileDirItem>, isCopyOperation: Boolean, callback: () -> Unit) {
+fun BaseSimpleActivity.tryCopyMoveFilesTo(fileDirItems: ArrayList<FileDirItem>, isCopyOperation: Boolean, callback: (destinationPath: String) -> Unit) {
     if (fileDirItems.isEmpty()) {
         toast(R.string.unknown_error_occurred)
         return

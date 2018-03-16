@@ -163,7 +163,8 @@
 	<string name="faq_8_text">Ajouter un répértoire dans les dossiers inclus n\'exclut rien automatiquement. Pour ce faire, il faut aller dans « Paramètres » puis « Gérer les dossiers exclus », exclure le répertoire racine \"/\", puis ajouter les répertoires souhaités dans « Paramètres » puis « Gérer les répertoires inclus ». Seuls les répertoires selectionnés seront visibles, du fait que les exclusions et inclusions sont récursives, et si un répertoire est à la fois exclus et inclus, il sera affiché.</string>
     <string name="faq_9_title">Les images en plein écran contiennent des artéfacts, est-ce possible d\'améliorer la qualité ?</string>
 	<string name="faq_9_text">Oui, il existe dans « Paramètres » une option « Remplacer les images zoomables profondes par des images de meilleure qualité », mais les images seront alors floues si vous zoomez trop.</string>
-
+    <string name="faq_10_title">Can I crop images with this app?</string>
+    <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

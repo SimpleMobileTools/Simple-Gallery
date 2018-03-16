@@ -9,13 +9,19 @@ import android.media.AudioManager
 import android.os.Build
 import android.provider.MediaStore
 import android.view.WindowManager
+import com.google.gson.Gson
 import com.simplemobiletools.commons.extensions.getStringValue
 import com.simplemobiletools.commons.extensions.humanizePath
 import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.gallery.activities.SettingsActivity
+import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
+import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.helpers.NOMEDIA
+import com.simplemobiletools.gallery.helpers.SAVE_DIRS_CNT
+import com.simplemobiletools.gallery.helpers.SAVE_MEDIA_CNT
 import com.simplemobiletools.gallery.models.Directory
+import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 
 val Context.portrait get() = resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
@@ -127,4 +133,34 @@ fun Context.isPathInMediaStore(path: String): Boolean {
         return cursor.moveToFirst()
     }
     return false
+}
+
+fun Context.updateStoredFolderItems(path: String) {
+    GetMediaAsynctask(this, path, false, false, false) {
+        storeFolderItems(path, it)
+    }.execute()
+}
+
+fun Context.storeFolderItems(path: String, items: ArrayList<Medium>) {
+    try {
+        val subList = items.subList(0, Math.min(SAVE_MEDIA_CNT, items.size))
+        val json = Gson().toJson(subList)
+        config.saveFolderMedia(path, json)
+    } catch (ignored: Exception) {
+    } catch (ignored: OutOfMemoryError) {
+    }
+}
+
+fun Context.updateStoredDirectories() {
+    GetDirectoriesAsynctask(this, false, false) {
+        if (!config.temporarilyShowHidden) {
+            storeDirectoryItems(it)
+        }
+    }.execute()
+}
+
+fun Context.storeDirectoryItems(items: ArrayList<Directory>) {
+    val subList = items.subList(0, Math.min(SAVE_DIRS_CNT, items.size))
+    val directories = Gson().toJson(subList)
+    config.directories = directories
 }

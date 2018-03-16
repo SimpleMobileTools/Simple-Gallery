@@ -20,7 +20,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
-import com.google.gson.Gson
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
@@ -45,7 +44,6 @@ import java.io.File
 import java.io.IOException
 
 class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
-    private val SAVE_MEDIA_CNT = 80
     private val LAST_MEDIA_CHECK_PERIOD = 3000L
 
     private var mPath = ""
@@ -58,6 +56,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mLoadedInitialPhotos = false
     private var mIsSearchOpen = false
     private var mLatestMediaId = 0L
+    private var mLatestMediaDateId = 0L
     private var mLastMediaHandler = Handler()
     private var mTempShowHiddenHandler = Handler()
     private var mCurrAsyncTask: GetMediaAsynctask? = null
@@ -359,8 +358,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         mLastMediaHandler.postDelayed({
             Thread {
                 val mediaId = getLatestMediaId()
-                if (mLatestMediaId != mediaId) {
+                val mediaDateId = getLatestMediaByDateId()
+                if (mLatestMediaId != mediaId || mLatestMediaDateId != mediaDateId) {
                     mLatestMediaId = mediaId
+                    mLatestMediaDateId = mediaDateId
                     runOnUiThread {
                         getMedia()
                     }
@@ -632,6 +633,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun gotMedia(media: ArrayList<Medium>, isFromCache: Boolean = false) {
         Thread {
             mLatestMediaId = getLatestMediaId()
+            mLatestMediaDateId = getLatestMediaByDateId()
         }.start()
 
         mIsGettingMedia = false
@@ -660,13 +662,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun storeFolder() {
         if (!config.temporarilyShowHidden) {
             Thread {
-                try {
-                    val subList = mMedia.subList(0, Math.min(SAVE_MEDIA_CNT, mMedia.size))
-                    val json = Gson().toJson(subList)
-                    config.saveFolderMedia(mPath, json)
-                } catch (ignored: Exception) {
-                } catch (ignored: OutOfMemoryError) {
-                }
+                storeFolderItems(mPath, mMedia)
             }.start()
         }
     }
@@ -679,6 +675,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             } else if (mMedia.isEmpty()) {
                 deleteDirectoryIfEmpty()
                 finish()
+            } else {
+                updateStoredDirectories()
             }
         }
     }

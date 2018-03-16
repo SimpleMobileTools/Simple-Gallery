@@ -13,7 +13,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import com.google.gson.Gson
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.dialogs.NewAppDialog
@@ -61,6 +60,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mLoadedInitialPhotos = false
     private var mIsPasswordProtectionPending = false
     private var mLatestMediaId = 0L
+    private var mLatestMediaDateId = 0L
     private var mLastMediaHandler = Handler()
     private var mTempShowHiddenHandler = Handler()
     private var mCurrAsyncTask: GetDirectoriesAsynctask? = null
@@ -103,10 +103,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         setupLatestMediaId()
 
         // notify the users about the Contacts app
-        if (System.currentTimeMillis() < 1521015000000 && !config.wasNewAppShown && config.appRunCount > 100 && config.appRunCount % 50 != 0 && !isPackageInstalled(CONTACTS_PACKAGE)) {
+        /*if (System.currentTimeMillis() < 1521015000000 && !config.wasNewAppShown && config.appRunCount > 100 && config.appRunCount % 50 != 0 && !isPackageInstalled(CONTACTS_PACKAGE)) {
             config.wasNewAppShown = true
             NewAppDialog(this, CONTACTS_PACKAGE, "Simple Contacts")
-        }
+        }*/
     }
 
     override fun onStart() {
@@ -166,7 +166,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     override fun onPause() {
         super.onPause()
-        storeDirectories()
         directories_refresh_layout.isRefreshing = false
         mIsGettingDirs = false
         storeStateVariables()
@@ -572,7 +571,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun gotDirectories(newDirs: ArrayList<Directory>, isFromCache: Boolean) {
         if (!isFromCache) {
-            setupLatestMediaId()
+            Thread {
+                checkFolderContentChange(newDirs)
+            }.start()
         }
 
         val dirs = getSortedDirectories(newDirs)
@@ -599,10 +600,21 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
     }
 
+    private fun checkFolderContentChange(newDirs: ArrayList<Directory>) {
+        newDirs.forEach {
+            val storedShortDirValue = config.loadFolderMediaShort(it.path)
+            if (storedShortDirValue != it.toString()) {
+                config.saveFolderMediaShort(it.path, it.toString())
+                if (storedShortDirValue.isNotEmpty()) {
+                    updateStoredFolderItems(it.path)
+                }
+            }
+        }
+    }
+
     private fun storeDirectories() {
         if (!config.temporarilyShowHidden && config.tempFolderPath.isEmpty()) {
-            val directories = Gson().toJson(mDirs)
-            config.directories = directories
+            storeDirectoryItems(mDirs)
         }
     }
 
@@ -653,6 +665,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         Thread {
             if (hasPermission(PERMISSION_READ_STORAGE)) {
                 mLatestMediaId = getLatestMediaId()
+                mLatestMediaDateId = getLatestMediaByDateId()
             }
         }.start()
     }
@@ -662,16 +675,18 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             return
         }
 
-        mLastMediaHandler.removeCallbacksAndMessages(null)
         mLastMediaHandler.postDelayed({
             Thread {
                 val mediaId = getLatestMediaId()
-                if (mLatestMediaId != mediaId) {
+                val mediaDateId = getLatestMediaByDateId()
+                if (mLatestMediaId != mediaId || mLatestMediaDateId != mediaDateId) {
                     mLatestMediaId = mediaId
+                    mLatestMediaDateId = mediaDateId
                     runOnUiThread {
                         getDirectories()
                     }
                 } else {
+                    mLastMediaHandler.removeCallbacksAndMessages(null)
                     checkLastMediaChanged()
                 }
             }.start()
