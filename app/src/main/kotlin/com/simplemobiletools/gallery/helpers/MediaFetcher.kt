@@ -40,7 +40,7 @@ class MediaFetcher(val context: Context) {
             directories.remove(it)
         }
 
-        //searchNewFiles(directories, showHidden)
+        searchNewFiles(directories, showHidden)
         return directories
     }
 
