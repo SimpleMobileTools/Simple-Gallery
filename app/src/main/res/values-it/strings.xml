@@ -144,28 +144,28 @@
     <string name="extended_details">Dettagli estesi</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
-    <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
-        The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
-    <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do?</string>
-    <string name="faq_2_text">You can solve it in 2 ways. You can either reinstall the app, or find the app in your device settings and select \"Clear data\". It will reset all your settings, it will not remove any media files.</string>
-    <string name="faq_3_title">How can I make an album always appear at the top?</string>
-    <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actionmenu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
-    <string name="faq_4_title">How can I fast-forward videos?</string>
-    <string name="faq_4_text">You can click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
-    <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
-    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
-    <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
-    <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
-    <string name="faq_7_title">A folder with images isn\'t showing up, what can I do?</string>
-    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
-    <string name="faq_8_title">What if I want just a few particular folders visible?</string>
-    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
-        That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
-    <string name="faq_9_title">Fullscreen images have weird artifacts, can I somehow improve the quality?</string>
-    <string name="faq_9_text">Yea, there is a toggle in Settings saying \"Replace deep zoomable images with better quality ones\", you can use that. It will improve the quality of the images, but they will get blurred once you try zooming in too much.</string>
-    <string name="faq_10_title">Can I crop images with this app?</string>
-    <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
+    <string name="faq_1_title">Come posso impostare Simple Gallery come galleria predefinita del dispositivo?</string>
+    <string name="faq_1_text">Prima devi trovare l\'attuale galleria predefinita nella sezione App delle impostazioni di sistema, cerca un pulsante che dice qualcosa come \"App predefinite\", cliccalo, poi seleziona \"Ripristina predefiniti\".
+        La prossima volta che proverai ad aprire un\'immagine o video dovresti vedere un selettore di app, dove puoi scegliere Simple Gallery e renderla l\'app predefinita.</string>
+    <string name="faq_2_title">Ho bloccato l\'app con una password, ma l\'ho dimenticata. Cosa posso fare?</string>
+    <string name="faq_2_text">Puoi risolvere in 2 modi. Puoi reinstallare l\'app, oppure trova l\'app nelle impostazioni del dispositivo e seleziona \"Cancella dati\". Tutte le impostazioni verranno ripristinate, nessun file multimediale verrà rimosso.</string>
+    <string name="faq_3_title">Come posso fare apparire un album sempre in cima?</string>
+    <string name="faq_3_text">Puoi toccare a lungo l\'album desiderato e selezionare l\'icona puntina nel menù azioni, ciò lo fisserà in cima. Puoi anche fissare varie cartelle, gli elementi fissati verranno ordinati dal metodo di ordinamento predefinito.</string>
+    <string name="faq_4_title">Come avanzo velocemente nei video?</string>
+    <string name="faq_4_text">Puoi cliccare sui testi di durata attuale o massima vicino alla barra di avanzamento, ciò avanzerà o riavvolgerà il video.</string>
+    <string name="faq_5_title">Che differenza c\'è tra nascondere ed escludere una cartella?</string>
+    <string name="faq_5_text">Escludere impedisce la visualizzazione della cartella solo in Simple Gallery, mentre nascondere ha effetto in tutto il sistema e nasconde la cartella anche alle altre gallerie. Funziona creando un file vuoto \".nomedia\" nella cartella in questione, che puoi anche rimuovere successivamente con qualsiasi gestore di file.</string>
+    <string name="faq_6_title">Perchè vengono mostrate cartelle con copertine o adesivi di musica?</string>
+    <string name="faq_6_text">Può succedere che tu veda apparire alcuni album insoliti. Puoi escluderli facilmente toccandoli a lungo e selezionando Escludi. Nella finestra successiva puoi quindi selezionare la cartella superiore, con la possibilità di impedire la visualizzazione anche di altri album correlati.</string>
+    <string name="faq_7_title">Una cartella con immagini non viene mostrata, cosa posso fare?</string>
+    <string name="faq_7_text">Può succedere per vari motivi, ma la soluzione è semplice. Vai in Impostazioni -> Gestisci le cartelle incluse, tocca il tasto Più e naviga verso la cartella desiderata.</string>
+    <string name="faq_8_title">Che fare se voglio rendere visibili solo poche particolari cartelle?</string>
+    <string name="faq_8_text">Aggiungere una cartella nelle Cartelle Incluse non esclude automaticamente nulla. Quello che puoi fare è andare in Impostazioni -> Gestisci le cartelle escluse, escludi la cartella root \"/\", poi aggiungi le cartelle desiderate in Impostazioni -> Gestisci le cartelle incluse.
+        Ciò renderà visibili solo le cartelle selezionate, dato che sia l\'esclusione che l\'inclusione sono ricorsive e se una cartella è sia esclusa che inclusa, verrà mostrata.</string>
+    <string name="faq_9_title">Le immagini a schermo intero hanno strani artefatti, posso migliorarne la qualità in qualche modo?</string>
+    <string name="faq_9_text">Sì, c\'è un\'opzione nelle impostazioni che dice \"Sostituisci le immagini ingrandibili a fondo con altre di migliore qualità\", puoi usare quella. Ciò migliorerà la qualità delle immagini, ma saranno sfuocate quando proverai a ingrandirle troppo.</string>
+    <string name="faq_10_title">Posso ritagliare le immagini con questa app?</string>
+    <string name="faq_10_text">Sì, puoi ritagliare le immagini nell\'editor, trascinando gli angoli dell\'immagine. Puoi usare l\'editor sia premendo a lungo la miniatura di un'immagine e selezionando Modifica, o selezionando Modifica mentre la vedi a schermo intero.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
