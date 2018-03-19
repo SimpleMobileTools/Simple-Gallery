@@ -164,8 +164,8 @@
         Dadurch werden nur die ausgewählten Ordner sichtbar, da Auschliessen und Einbeziehen rekursiv erfolgen und wenn ein Ordner ausgeschlossen und einbezogen wurde, wird er dennoch angezeigt.</string>
     <string name="faq_9_title">Vollbildfotos haben seltsame Artefakte. Kann ich die Qualität verbessern?</string>
     <string name="faq_9_text">Ja, es gibt einen Schalter in den Einstellungen gekennzeichnet mit \"Stark zoombare Bilder durch Bilder mit hoher Qualität ersetzen\". Dieser wird die Bildqualität verbessern, aber sie werden bei sehr hoher Zoomstufe unscharf.</string>
-    <string name="faq_10_title">Can I crop images with this app?</string>
-    <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
+    <string name="faq_10_title">Kann ich mit dieser App Bilder zuschneiden?</string>
+    <string name="faq_10_text">Ja, du kannst Bilder über das Ziehen der Bildecken im Editor zuschneiden. Du gelangst zum Editor indem du lange auf ein Vorschaubild drückst und Bearbeiten auswählst oder durch Auswählen von Bearbeiten in der Vollbildansicht.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

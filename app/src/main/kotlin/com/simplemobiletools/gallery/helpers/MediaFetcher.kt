@@ -40,7 +40,7 @@ class MediaFetcher(val context: Context) {
             directories.remove(it)
         }
 
-        //searchNewFiles(directories, showHidden)
+        searchNewFiles(directories, showHidden)
         return directories
     }
 
@@ -303,7 +303,7 @@ class MediaFetcher(val context: Context) {
             val isAlreadyAdded = curMedia.any { it.path == file.absolutePath }
             if (!isAlreadyAdded) {
                 curMedia.add(medium)
-                context.scanPath(file.absolutePath)
+                //context.scanPath(file.absolutePath)
             }
         }
     }
