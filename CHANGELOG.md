@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 3.6.1 *(2018-03-22)*
+----------------------------
+
+ * Set proper file mimetype after editing or other file operation
+ * Try scanning Screenshots and Download folders more thoroughly
+ * Couple stability improvements
+
 Version 3.6.0 *(2018-03-15)*
 ----------------------------
 
