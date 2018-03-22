@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.helpers
 import android.content.Context
 import android.database.Cursor
 import android.net.Uri
+import android.os.Environment
 import android.provider.MediaStore
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
@@ -200,7 +201,18 @@ class MediaFetcher(val context: Context) {
             }
         }
 
-        config.includedFolders.filter { it.isNotEmpty() && (curPath.isEmpty() || it == curPath) }.forEach {
+        val downloadsFolder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString()
+        val screenshotsFolder = "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)}/Screenshots"
+        val foldersToScan = config.includedFolders
+        if (File(downloadsFolder).exists()) {
+            foldersToScan.add(downloadsFolder)
+        }
+
+        if (File(screenshotsFolder).exists()) {
+            foldersToScan.add(screenshotsFolder)
+        }
+
+        foldersToScan.filter { it.isNotEmpty() && (curPath.isEmpty() || it == curPath) }.forEach {
             if (it.startsWith(OTG_PATH)) {
                 getMediaOnOTG(it, curMedia, isPickImage, isPickVideo, filterMedia, allowRecursion)
             } else {
