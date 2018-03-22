@@ -255,7 +255,7 @@ class MediaFetcher(val context: Context) {
     }
 
     private fun isThisOrParentExcluded(path: String, excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>) =
-            includedPaths.none { path.startsWith(it) } && excludedPaths.any { path.startsWith(it) }
+            includedPaths.none { path.startsWith(it, true) } && excludedPaths.any { path.startsWith(it, true) }
 
     private fun getMediaInFolder(folder: String, curMedia: ArrayList<Medium>, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int, allowRecursion: Boolean) {
         val files = File(folder).listFiles() ?: return
