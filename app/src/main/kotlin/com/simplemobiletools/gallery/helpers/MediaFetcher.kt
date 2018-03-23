@@ -201,13 +201,8 @@ class MediaFetcher(val context: Context) {
             }
         }
 
-        val downloadsFolder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString()
         val screenshotsFolder = "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)}/Screenshots"
         val foldersToScan = config.includedFolders
-        if (File(downloadsFolder).exists()) {
-            foldersToScan.add(downloadsFolder)
-        }
-
         if (File(screenshotsFolder).exists()) {
             foldersToScan.add(screenshotsFolder)
         }
