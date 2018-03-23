@@ -258,7 +258,9 @@ class PhotoFragment : ViewPagerFragment() {
                             if (!useHalfResolution && e?.rootCauses?.firstOrNull() is OutOfMemoryError) {
                                 useHalfResolution = true
                                 Handler().post {
-                                    loadBitmap(degrees)
+                                    if (activity?.isActivityDestroyed() == false) {
+                                        loadBitmap(degrees)
+                                    }
                                 }
                             }
                             return false

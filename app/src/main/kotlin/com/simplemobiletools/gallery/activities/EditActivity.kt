@@ -63,15 +63,20 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             return
         }
 
-        saveUri = when {
-            intent.extras?.containsKey(REAL_FILE_PATH) == true -> {
-                val realPath = intent.extras.getString(REAL_FILE_PATH)
-                if (realPath.startsWith(OTG_PATH)) {
-                    Uri.parse(realPath)
-                } else {
-                    Uri.fromFile(File(realPath))
-                }
+        if (intent.extras?.containsKey(REAL_FILE_PATH) == true) {
+            val realPath = intent.extras.getString(REAL_FILE_PATH)
+            uri = when {
+                realPath.startsWith(OTG_PATH) -> Uri.parse(realPath)
+                realPath.startsWith("file:/") -> Uri.parse(realPath)
+                else -> Uri.fromFile(File(realPath))
             }
+        } else {
+            (getRealPathFromURI(uri))?.apply {
+                uri = Uri.fromFile(File(this))
+            }
+        }
+
+        saveUri = when {
             intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true -> intent.extras!!.get(MediaStore.EXTRA_OUTPUT) as Uri
             else -> uri
         }

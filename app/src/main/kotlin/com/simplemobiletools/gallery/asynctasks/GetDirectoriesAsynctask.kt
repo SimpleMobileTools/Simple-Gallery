@@ -17,7 +17,7 @@ import java.io.File
 
 class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, val isPickImage: Boolean,
                               val callback: (dirs: ArrayList<Directory>) -> Unit) : AsyncTask<Void, Void, ArrayList<Directory>>() {
-    val mediaFetcher = MediaFetcher(context)
+    private val mediaFetcher = MediaFetcher(context)
 
     override fun doInBackground(vararg params: Void): ArrayList<Directory> {
         if (!context.hasPermission(PERMISSION_WRITE_STORAGE)) {

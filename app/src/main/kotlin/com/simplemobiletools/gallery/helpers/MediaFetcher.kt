@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.helpers
 import android.content.Context
 import android.database.Cursor
 import android.net.Uri
+import android.os.Environment
 import android.provider.MediaStore
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
@@ -200,7 +201,13 @@ class MediaFetcher(val context: Context) {
             }
         }
 
-        config.includedFolders.filter { it.isNotEmpty() && (curPath.isEmpty() || it == curPath) }.forEach {
+        val screenshotsFolder = "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)}/Screenshots"
+        val foldersToScan = config.includedFolders
+        if (File(screenshotsFolder).exists()) {
+            foldersToScan.add(screenshotsFolder)
+        }
+
+        foldersToScan.filter { it.isNotEmpty() && (curPath.isEmpty() || it == curPath) }.forEach {
             if (it.startsWith(OTG_PATH)) {
                 getMediaOnOTG(it, curMedia, isPickImage, isPickVideo, filterMedia, allowRecursion)
             } else {
@@ -255,7 +262,7 @@ class MediaFetcher(val context: Context) {
     }
 
     private fun isThisOrParentExcluded(path: String, excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>) =
-            includedPaths.none { path.startsWith(it) } && excludedPaths.any { path.startsWith(it) }
+            includedPaths.none { path.startsWith(it, true) } && excludedPaths.any { path.startsWith(it, true) }
 
     private fun getMediaInFolder(folder: String, curMedia: ArrayList<Medium>, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int, allowRecursion: Boolean) {
         val files = File(folder).listFiles() ?: return
