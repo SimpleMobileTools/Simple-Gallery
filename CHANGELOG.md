@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 3.6.2 *(2018-03-23)*
+----------------------------
+
+ * Fixing some crashes related to file scanning
+ * Do not scan Download folder file by file, it can contain many items
+
 Version 3.6.1 *(2018-03-22)*
 ----------------------------
 
