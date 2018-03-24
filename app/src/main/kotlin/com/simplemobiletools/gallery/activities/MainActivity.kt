@@ -15,7 +15,6 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
-import com.simplemobiletools.commons.dialogs.NewAppDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_STORAGE
@@ -188,6 +187,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         config.temporarilyShowHidden = false
         mTempShowHiddenHandler.removeCallbacksAndMessages(null)
         removeTempFolder()
+
+        if (!mDirs.isEmpty()) {
+            mCurrAsyncTask?.stopFetching()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
