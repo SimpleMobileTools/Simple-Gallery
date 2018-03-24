@@ -4,13 +4,13 @@
     <string name="app_launcher_name">Галерея</string>
     <string name="edit">Редактировать</string>
     <string name="open_camera">Открыть камеру</string>
-    <string name="hidden">(Скрытый)</string>
+    <string name="hidden">(Скрытые)</string>
     <string name="pin_folder">Закрепить папку</string>
     <string name="unpin_folder">Открепить папку</string>
-    <string name="pin_to_the_top">Закрепить наверху</string>
+    <string name="pin_to_the_top">Закрепить сверху</string>
     <string name="show_all">Отобразить все медиафайлы</string>
     <string name="all_folders">Все медиафайлы</string>
-    <string name="folder_view">Переключиться к виду с папками</string>
+    <string name="folder_view">Переключиться вид на папки</string>
     <string name="other_folder">Другая папка</string>
     <string name="show_on_map">Показать место съёмки</string>
     <string name="unknown_location">Место съёмки не указано</string>
@@ -30,11 +30,11 @@
     <string name="images">Изображения</string>
     <string name="videos">Видео</string>
     <string name="gifs">GIF</string>
-    <string name="no_media_with_filters">При заданных фильтрах медиафайлы не найдены.</string>
+    <string name="no_media_with_filters">При заданных фильтрах медиафайлы не найдены</string>
     <string name="change_filters_underlined"><u>Изменить фильтры</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Эта функция скрывает папку, добавляя в неё файл \".nomedia\"; будут скрыты все подпапки. Можно показывать их, переключая \"Показывать скрытые папки\" в настройках. Продолжить?</string>
+    <string name="hide_folder_description">Эта функция скрывает папку, добавляя в неё файл \".nomedia\"; будут скрыты все подпапки. Можно показать их, переключая \"Показывать скрытые папки\" в настройках. Продолжить?</string>
     <string name="exclude">Исключить</string>
     <string name="excluded_folders">Исключённые папки</string>
     <string name="manage_excluded_folders">Управление исключёнными папками</string>
@@ -42,7 +42,7 @@
     <string name="exclude_folder_parent">Исключить только родительский каталог?</string>
     <string name="excluded_activity_placeholder">Исключая папки, вы сделаете их скрытыми вместе с подпапками в Simple Gallery, но они будут видны в других приложениях. Если вы хотите скрыть их и в других приложениях, используйте функцию \"Скрыть\".</string>
     <string name="remove_all">Удалить всё</string>
-    <string name="remove_all_description">Очистить список исключённых? Сами папки не будут удалены.</string>
+    <string name="remove_all_description">Очистить список исключённых папок? Сами папки не будут удалены.</string>
     <string name="hidden_folders">Скрытые папки</string>
     <string name="manage_hidden_folders">Управление скрытыми папками</string>
     <string name="hidden_folders_placeholder">Похоже, у вас нет папок, скрытых файлом \".nomedia\".</string>
@@ -78,33 +78,33 @@
     <string name="flip">Отразить</string>
     <string name="flip_horizontally">По горизонтали</string>
     <string name="flip_vertically">По вертикали</string>
-    <string name="edit_with">Редактировать в…</string>
+    <string name="edit_with">Редактировать в …</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Простые обои</string>
     <string name="set_as_wallpaper">Установить в качестве обоев</string>
     <string name="set_as_wallpaper_failed">Не удалось установить</string>
     <string name="set_as_wallpaper_with">Установить в качестве обоев в:</string>
-    <string name="setting_wallpaper">Установка обоев…</string>
+    <string name="setting_wallpaper">Установка обоев …</string>
     <string name="wallpaper_set_successfully">Обои успешно установлены</string>
-    <string name="portrait_aspect_ratio">Портрет</string>
-    <string name="landscape_aspect_ratio">Альбом</string>
+    <string name="portrait_aspect_ratio">Портретная ориентация</string>
+    <string name="landscape_aspect_ratio">Альбомная ориентация</string>
     <string name="home_screen">Домашний экран</string>
     <string name="lock_screen">Экран блокировки</string>
     <string name="home_and_lock_screen">Домашний экран и экран блокировки</string>
 
     <!-- Slideshow -->
     <string name="slideshow">Слайдшоу</string>
-    <string name="interval">Интервал (секунды):</string>
-    <string name="include_photos">Включать изображения</string>
-    <string name="include_videos">Включать видео</string>
-    <string name="include_gifs">Включать GIF</string>
+    <string name="interval">Интервал (в секундах):</string>
+    <string name="include_photos">Использовать изображения</string>
+    <string name="include_videos">Использовать видео</string>
+    <string name="include_gifs">Использовать GIF</string>
     <string name="random_order">Случайный порядок</string>
     <string name="use_fade">Эффект затухания</string>
     <string name="move_backwards">В обратном порядке</string>
     <string name="loop_slideshow">Зациклить</string>
     <string name="slideshow_ended">Слайдшоу завершилось</string>
-    <string name="no_media_for_slideshow">Никаких медиафайлов для слайдшоу не было найдено.</string>
+    <string name="no_media_for_slideshow">Никаких медиафайлов для слайдшоу не было найдено</string>
 
     <!-- View types -->
     <string name="change_view_type">Режим отображения</string>
@@ -118,38 +118,38 @@
     <string name="animate_gifs">Анимировать эскизы GIF</string>
     <string name="max_brightness">Максимальная яркость при просмотре файлов</string>
     <string name="crop_thumbnails">Нарезать миниатюры в квадраты</string>
-    <string name="screen_rotation_by">Полноэкранный поворот</string>
-    <string name="screen_rotation_system_setting">Системные настройки</string>
-    <string name="screen_rotation_device_rotation">Поворот устройства</string>
-    <string name="screen_rotation_aspect_ratio">Соотношение сторон</string>
-    <string name="black_background_at_fullscreen">Чёрные фон и строка состояния в полноэкранном режиме</string>
+    <string name="screen_rotation_by">Поворот экрана при просмотре изображения</string>
+    <string name="screen_rotation_system_setting">Использовать системные настройки</string>
+    <string name="screen_rotation_device_rotation">При повороте устройства</string>
+    <string name="screen_rotation_aspect_ratio">По размеру изображения</string>
+    <string name="black_background_at_fullscreen">Чёрные фон и строка состояния при просмотре изображения</string>
     <string name="scroll_thumbnails_horizontally">Прокрутка эскизов по горизонтали</string>
-    <string name="hide_system_ui_at_fullscreen">Автоматически скрывать системный интерфейс в полноэкранном режиме</string>
+    <string name="hide_system_ui_at_fullscreen">Автоматически скрывать системный интерфейс при просмотре изображения</string>
     <string name="delete_empty_folders">Удалять пустые папки после удаления их содержимого</string>
-    <string name="allow_photo_gestures">Управлять яркостью фото с помощью вертикальных жестов</string>
-    <string name="allow_video_gestures">Управлять громкостью и яркостью видео с помощью вертикальных жестов</string>
+    <string name="allow_photo_gestures">Управлять яркостью при просмотре изображения с помощью вертикальных жестов</string>
+    <string name="allow_video_gestures">Управлять громкостью и яркостью при просмотре видео с помощью вертикальных жестов</string>
     <string name="show_media_count">Показывать количество файлов в папках</string>
-    <string name="replace_share_with_rotate">Заменить \"Поделиться\" на \"Повернуть\" в меню полноэкранного режима</string>
+    <string name="replace_share_with_rotate">Заменить \"Поделиться\" на \"Повернуть\" в меню при просмотре изображения</string>
     <string name="show_extended_details">Показывать подробности о файле</string>
     <string name="manage_extended_details">Выбрать подробности файла</string>
-    <string name="one_finger_zoom">Масштабирование одним пальцем в полноэкранном режиме</string>
+    <string name="one_finger_zoom">Масштабирование одним пальцем при просмотре изображения</string>
     <string name="allow_instant_change">Мгновенное переключение медиафайлов нажатием по краю экрана</string>
     <string name="replace_zoomable_images">Заменять масштабируемые изображения высококачественными</string>
-    <string name="hide_extended_details">Не показывать подробности, если скрыта строка состояния</string>
+    <string name="hide_extended_details">Не показывать подробности при скрытой строке состояния</string>
     <string name="do_extra_check">Делать дополнительную проверку, чтобы избежать показа неподдерживаемых файлов</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюры</string>
-    <string name="fullscreen_media">Полноэкранное отображение медиафайлов</string>
+    <string name="fullscreen_media">Просмотр медиафайлов</string>
     <string name="extended_details">Подробности</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Как сделать Simple Gallery галереей по умолчанию?</string>
-    <string name="faq_1_text">Сначала вы должны найти галерею по умолчанию в разделе \"Приложения\" настроек вашего устройства; найдите кнопку, названную как-то вроде \"Открыть по умолчанию\", нажмите на неё, затем выберите \"Очистить значения по умолчанию\".
-        В следующий раз, когда попробуете открыть изображение или видео, вы увидите средство выбора приложений, где сможете выбрать Simple Gallery и сделать её приложением по умолчанию.</string>
+    <string name="faq_1_text">Сначала вы должны найти галерею по умолчанию в разделе \"Приложения\" настроек вашего устройства; найдите кнопку, названную \"Открыть по умолчанию\",затем нажмите на неё и выберите \"Очистить значения по умолчанию\".
+        В следующий раз, когда попробуете открыть изображение или видео, вы увидите выбор приложений, где сможете выбрать Simple Gallery и сделать её приложением по умолчанию.</string>
     <string name="faq_2_title">Я заблокировал приложение паролем, но забыл его. Что мне теперь делать?</string>
-    <string name="faq_2_text">Это можно решить двумя способами. Вы можете переустановить приложение или найти его в настройках вашего устройства и выбрать пункт \"Очистить данные\", что сбросит все настройки, но не удалит никакие медиафайлы.</string>
-    <string name="faq_3_title">Как я могу сделать альбом всегда отображающимся наверху?</string>
+    <string name="faq_2_text">Это можно решить двумя способами. Вы можете переустановить приложение или найти его в настройках вашего устройства и выбрать пункт \"Очистить данные\", что сбросит все настройки приложения, но не удалит медиафайлы.</string>
+    <string name="faq_3_title">Как я могу сделать альбом всегда отображающимся сверху?</string>
     <string name="faq_3_text">Вы можете длительным нажатием на желаемый альбом открыть меню действий в нём выбрать пункт \"Закрепить\". Можно закрепить несколько альбомов (папок); прикреплённые элементы будут отсортированы по методу сортировки по умолчанию.</string>
     <string name="faq_4_title">Как ускорить перемотку видео?</string>
     <string name="faq_4_text">Вы можете нажать на цифры текущего положения или максимальной длительности видео рядом с панелью поиска, что приведёт к перемещению позиции воспроизведения либо назад, либо вперёд.</string>
@@ -186,4 +186,5 @@
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
     -->
+
 </resources>
