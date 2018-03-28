@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Gallery</string>
+    <string name="app_name">Jednostavna galerija</string>
     <string name="app_launcher_name">Galerija</string>
     <string name="edit">Uredi</string>
     <string name="open_camera">Otvori kameru</string>
     <string name="hidden">(skriveno)</string>
-    <string name="pin_folder">Prikači direktorij</string>
-    <string name="unpin_folder">Otkači direktorij</string>
-    <string name="pin_to_the_top">Pin to the top</string>
-    <string name="show_all">Prikaži cijeli sadržaj direktorija</string>
-    <string name="all_folders">Svi direktoriji</string>
-    <string name="folder_view">Prebaci se na pogled direktorija</string>
-    <string name="other_folder">Ostali direktoriji</string>
+    <string name="pin_folder">Prikvači mapu</string>
+    <string name="unpin_folder">Otkvači mapu</string>
+    <string name="pin_to_the_top">Prikvači na vrh</string>
+    <string name="show_all">Prikaži cijeli sadržaj mape</string>
+    <string name="all_folders">Sve mape</string>
+    <string name="folder_view">Prijeđi na prikaz mape</string>
+    <string name="other_folder">Ostale mape</string>
     <string name="show_on_map">Prikaži na karti</string>
     <string name="unknown_location">Nepoznata lokacija</string>
     <string name="increase_column_count">Povećaj broj stupaca</string>
@@ -22,36 +22,36 @@
     <string name="volume">Glasnoća</string>
     <string name="brightness">Svjetlina</string>
     <string name="do_not_ask_again">Ne pitaj me više u ovoj sesiji</string>
-    <string name="lock_orientation">Zaključaj orijentaciju</string>
-    <string name="unlock_orientation">Otključaj orijentaciju</string>
+    <string name="lock_orientation">Zaključaj rotaciju</string>
+    <string name="unlock_orientation">Otključaj rotaciju</string>
 
     <!-- Filter -->
-    <string name="filter_media">Filtriraj slike i videe</string>
+    <string name="filter_media">Filtriranje medija</string>
     <string name="images">Slike</string>
-    <string name="videos">Videi</string>
-    <string name="gifs">GIFovi</string>
-    <string name="no_media_with_filters">Nije pronađena nijedna datoteka s odabranim filterom.</string>
-    <string name="change_filters_underlined"><u>Promjeni filter</u></string>
+    <string name="videos">Video</string>
+    <string name="gifs">GIF-ovi</string>
+    <string name="no_media_with_filters">Nije pronađena nijedna datoteka s odabranim filtrom.</string>
+    <string name="change_filters_underlined"><u>Promijeni filter</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Ova funkcija skriva direktorij dodavajući \'.nomedia\' datoteku u njega. Također će sakriti i sve poddirektorije. Možete ih vidjeti uključivanjem opcije \'Show hidden folders\' u Postavkama. Nastaviti?</string>
-    <string name="exclude">Izostavi</string>
-    <string name="excluded_folders">Izostavljeni direktoriji</string>
-    <string name="manage_excluded_folders">Upravljaj izostavljenim direktorijima</string>
-    <string name="exclude_folder_description">Ovo će izostaviti izabrano zajedno s poddirektorijima samo iz Simple Gallery aplikacije. Možete upravljati izostavljenim direktorijima u Postavkama.</string>
-    <string name="exclude_folder_parent">Izostavi glavni direktorij umjesto?</string>
-    <string name="excluded_activity_placeholder">Izostavljanje direktorija učiniti će ih nevidljivim zajedno s njihovim poddirektorijima samo u Simple Gallery, ali će oni biti vidljivi u drugim aplikacijama.\n\nAko ih želite sakriti od drugih aplikacija također, koristite Sakrij opciju.</string>
+    <string name="hide_folder_description">Ova funkcija skriva mapu dodavanjem \'.nomedia\' datoteke u njega. Također će sakriti i sve podmape. Možete ih vidjeti uključivanjem opcije \'Prikaži skrivene mape\' u Postavkama. Nastaviti?</string>
+    <string name="exclude">Izuzmi</string>
+    <string name="excluded_folders">Izuzete mape</string>
+    <string name="manage_excluded_folders">Upravljaj izuzetim mapama</string>
+    <string name="exclude_folder_description">Ovo će isključiti odabir zajedno s podmapama samo iz Jednostavne galerije. Izuzete mape možete upravljati u Postavkama.</string>
+    <string name="exclude_folder_parent">Izostavi rađe glavnu mapu?</string>
+    <string name="excluded_activity_placeholder">Izuzevši mape učinit će ih zajedno s podmapama skrivene samo u jednostavnoj galeriji, i dalje će biti vidljive u drugim aplikacijama.\n\nAko ih želite sakriti i od drugih aplikacija, upotrijebite funkciju Sakrij.</string>
     <string name="remove_all">Ukloni sve</string>
-    <string name="remove_all_description">Ukloni sve direktorije iz liste izostavljenih? Ovo neće izbrisati direktorije.</string>
-    <string name="hidden_folders">Hidden folders</string>
-    <string name="manage_hidden_folders">Manage hidden folders</string>
-    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
+    <string name="remove_all_description">Želite li ukloniti sve mape s popisa izuzetih? Ovo neće izbrisati mape.</string>
+    <string name="hidden_folders">Skrivene mape</string>
+    <string name="manage_hidden_folders">Upravljanje skrivenim mapama</string>
+    <string name="hidden_folders_placeholder">Čini se da nemate skrivenih mapa s \".nomedia\" datotekom.</string>
 
     <!-- Include folders -->
-    <string name="include_folders">Dodaj direktorije</string>
-    <string name="manage_included_folders">Upravljaj dodanim direktorijima</string>
-    <string name="add_folder">Dodaj direktorij</string>
-    <string name="included_activity_placeholder">Ako postoji direktorij koji sadrži slike i video sadržaj, ali ga aplikacija ne prepoznaje, možete ih ručno dodati ovdje.\n\nDodavanjem nekoliko stavki ovdje, neće se izostaviti niti jedan drugi direktorij.</string>
+    <string name="include_folders">Uključene mape</string>
+    <string name="manage_included_folders">Upravljajte uključenim mapama</string>
+    <string name="add_folder">Dodaj mapu</string>
+    <string name="included_activity_placeholder">Ako imate neke mape koje sadrže medije, ali ih aplikacija nije prepoznala, ručno ih možete dodati ovdje.\n\nDodavanjem nekih stavki ovdje nećete izuzeti bilo koju drugu mapu.</string>
 
     <!-- Resizing -->
     <string name="resize">Promjeni veličinu</string>
@@ -59,7 +59,7 @@
     <string name="width">Širina</string>
     <string name="height">Visina</string>
     <string name="keep_aspect_ratio">Zadrži omjer slike</string>
-    <string name="invalid_values">Molimo unesite valjanu rezoluciju</string>
+    <string name="invalid_values">Molim unesite valjanu rezoluciju</string>
 
     <!-- Editor -->
     <string name="editor">Uređivač</string>
@@ -67,38 +67,38 @@
     <string name="rotate">Rotiraj</string>
     <string name="path">Putanja</string>
     <string name="invalid_image_path">Neispravna putanja slike</string>
-    <string name="image_editing_failed">Neuspješno uređivanje slike</string>
-    <string name="edit_image_with">Uredi sliku s:</string>
+    <string name="image_editing_failed">Uređivanje slika nije uspjelo</string>
+    <string name="edit_image_with">Uredi sliku pomoću:</string>
     <string name="no_editor_found">Nije pronađen uređivač slika</string>
     <string name="unknown_file_location">Nepoznata lokacija datoteke</string>
     <string name="error_saving_file">Nije moguće presnimiti izvornu datoteku</string>
-    <string name="rotate_left">Rotiraj lijevo</string>
-    <string name="rotate_right">Rotiraj desno</string>
+    <string name="rotate_left">Rotiraj ulijevo</string>
+    <string name="rotate_right">Rotiraj udesno</string>
     <string name="rotate_one_eighty">Rotiraj za 180º</string>
     <string name="flip">Okreni</string>
     <string name="flip_horizontally">Okreni horizontalno</string>
     <string name="flip_vertically">Okreni vertikalno</string>
-    <string name="edit_with">Uredi s</string>
+    <string name="edit_with">Uredi pomoću</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Jednostavna pozadina</string>
     <string name="set_as_wallpaper">Postavi kao pozadinu</string>
-    <string name="set_as_wallpaper_failed">Neuspješno postavljanje pozadine</string>
-    <string name="set_as_wallpaper_with">Postavi kao pozadinu s:</string>
+    <string name="set_as_wallpaper_failed">Postavljanje pozadine nije uspjelo</string>
+    <string name="set_as_wallpaper_with">Postavi kao pozadinu pomoću:</string>
     <string name="setting_wallpaper">Postavljanje pozadine&#8230;</string>
-    <string name="wallpaper_set_successfully">Uspješno postavljanje pozadine</string>
+    <string name="wallpaper_set_successfully">Postavljanje pozadine uspješno</string>
     <string name="portrait_aspect_ratio">Portretni omjer slike</string>
     <string name="landscape_aspect_ratio">Pejzažni omjer slike</string>
-    <string name="home_screen">Home screen</string>
-    <string name="lock_screen">Lock screen</string>
-    <string name="home_and_lock_screen">Home and lock screen</string>
+    <string name="home_screen">Početni zaslon</string>
+    <string name="lock_screen">Zaključani zaslon</string>
+    <string name="home_and_lock_screen">Početni i zaključani zaslon</string>
 
     <!-- Slideshow -->
     <string name="slideshow">Dijaprojekcija</string>
     <string name="interval">Interval (sekunde):</string>
     <string name="include_photos">Dodaj slike</string>
     <string name="include_videos">Dodaj videe</string>
-    <string name="include_gifs">Dodaj GIFove</string>
+    <string name="include_gifs">Dodaj GIF-ove</string>
     <string name="random_order">Nasumični redoslijed</string>
     <string name="use_fade">Koristi animaciju izbljeđivanja</string>
     <string name="move_backwards">Pomakni unatrag</string>
@@ -107,69 +107,69 @@
     <string name="no_media_for_slideshow">Nema datoteka za dijaprojekciju</string>
 
     <!-- View types -->
-    <string name="change_view_type">Promjeni način pregleda</string>
-    <string name="grid">Rešetka</string>
+    <string name="change_view_type">Promijeni vrstu prikaza</string>
+    <string name="grid">Mreža</string>
     <string name="list">Lista</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Automatsko pokretanje videa</string>
     <string name="toggle_filename">Uključi prikaz naziva datoteka</string>
     <string name="loop_videos">Ponavljanje videa</string>
-    <string name="animate_gifs">Prikaz animacije GIFova na sličicama</string>
+    <string name="animate_gifs">Prikaz animacije GIF-ova na sličicama</string>
     <string name="max_brightness">Maksimalna svjetlina pri pregledu datoteka</string>
     <string name="crop_thumbnails">Izreži sličice u kvadrate</string>
     <string name="screen_rotation_by">Rotiraj datoteku u punom zaslonu za</string>
     <string name="screen_rotation_system_setting">Postavke sustava</string>
     <string name="screen_rotation_device_rotation">Rotacija uređaja</string>
     <string name="screen_rotation_aspect_ratio">Omjer slike</string>
-    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
+    <string name="black_background_at_fullscreen">Crna pozadina i statusna traka na zaslonu na cijelom zaslonu</string>
     <string name="scroll_thumbnails_horizontally">Listaj sličice horizontalno</string>
-    <string name="hide_system_ui_at_fullscreen">Automatski sakrij UI sustava pri pregledu datoteka</string>
-    <string name="delete_empty_folders">Izbriži prazne direktorije nakon brisanja njihovog sadržaja</string>
-    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
-    <string name="allow_video_gestures">Omogući kontrolu glasnoće videa i svjetline pomoću vertikalnih gesti</string>
-    <string name="show_media_count">Prikaži broj datoteka u direktoriju na glavnom zaslonu</string>
+    <string name="hide_system_ui_at_fullscreen">Automatski sakrij sučelje sustava na medijima na cijelom zaslonu</string>
+    <string name="delete_empty_folders">Izbrišite prazne mape nakon brisanja njihovog sadržaja</string>
+    <string name="allow_photo_gestures">Omogućite kontrolu svjetline fotografije vertikalnim pokretima</string>
+    <string name="allow_video_gestures">Omogući kontrolu glasnoće videa i svjetline pomoću vertikalnih pokreta</string>
+    <string name="show_media_count">Prikaz broja medija mapa u glavnom prikazu</string>
     <string name="replace_share_with_rotate">Zamjeni Dijeli s Rotiraj pri pregledu datoteka</string>
-    <string name="show_extended_details">Prikaži detaljne informacije pri pregledu datoteka</string>
-    <string name="manage_extended_details">Upravljaj detaljnim informacijama</string>
-    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
-    <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
-    <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
-    <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
-    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
+    <string name="show_extended_details">Prikaži proširene pojedinosti preko medija na cijelom zaslonu</string>
+    <string name="manage_extended_details">Upravljaj proširenim pojedinostima</string>
+    <string name="one_finger_zoom">Omogući zumiranje jednim prstom na mediju cijelog zaslona</string>
+    <string name="allow_instant_change">Dopusti trenutačno mijenjanje medija dodirom na stranice zaslona</string>
+    <string name="replace_zoomable_images">Zamijenite slike s dubokim zumom za one s boljom kvalitetom</string>
+    <string name="hide_extended_details">Sakrij proširene pojedinosti kada je traka statusa skrivena</string>
+    <string name="do_extra_check">Napravite dodatnu provjeru da biste izbjegli prikazivanje nevažećih datoteka</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Thumbnails</string>
-    <string name="fullscreen_media">Fullscreen media</string>
-    <string name="extended_details">Extended details</string>
+    <string name="thumbnails">Sličice</string>
+    <string name="fullscreen_media">Mediji na cijelom zaslonu</string>
+    <string name="extended_details">Proširene pojedinosti</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
-    <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
-        The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
-    <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do?</string>
-    <string name="faq_2_text">You can solve it in 2 ways. You can either reinstall the app, or find the app in your device settings and select \"Clear data\". It will reset all your settings, it will not remove any media files.</string>
-    <string name="faq_3_title">How can I make an album always appear at the top?</string>
-    <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actionmenu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
-    <string name="faq_4_title">How can I fast-forward videos?</string>
-    <string name="faq_4_text">You can click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
-    <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
-    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
-    <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
-    <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
-    <string name="faq_7_title">A folder with images isn\'t showing up, what can I do?</string>
-    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
-    <string name="faq_8_title">What if I want just a few particular folders visible?</string>
-    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
-        That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
-    <string name="faq_9_title">Fullscreen images have weird artifacts, can I somehow improve the quality?</string>
-    <string name="faq_9_text">Yea, there is a toggle in Settings saying \"Replace deep zoomable images with better quality ones\", you can use that. It will improve the quality of the images, but they will get blurred once you try zooming in too much.</string>
-    <string name="faq_10_title">Can I crop images with this app?</string>
-    <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
+    <string name="faq_1_title">Kako mogu postaviti Jednostavnu galeriju kao zadanu galeriju uređaja?</string>
+    <string name="faq_1_text">Prvo morate pronaći trenutačno zadanu galeriju u odjeljku Aplikacije, u Postavkama uređaja, potražite gumb koji kaže nešto poput opcije \"Otvori prema zadanim postavkama\", kliknite na tu opciju, a zatim odaberite \"Izbriši zadane postavke\".
+        Sljedeći put kada pokušate otvoriti sliku ili video, trebali biste vidjeti alat za odabir aplikacija, gdje možete odabrati Jednostavnu galeriju i postaviti je kao zadanu aplikaciju.</string>
+    <string name="faq_2_title">Zaključao sam aplikaciju zaporkom, ali zaboravio sam. Što mogu učiniti?</string>
+    <string name="faq_2_text">Može se riješiti na dva načina. Možete ponovno instalirati aplikaciju ili pronaći aplikaciju u postavkama uređaja i odabrati "\Izbriši podatke\". Navedeno će resetirati sve postavke, ali neće ukloniti nikakve medijske datoteke.</string>
+    <string name="faq_3_title">Kako postići da je album uvijek na vrhu?</string>
+    <string name="faq_3_text">Dugo pritisnute željeni album i odaberite ikonu igle na akcijskom izborniku, koji će ga pričvrstiti na vrh. Možete prikvačiti više mapa odjednom, prikvačene stavke će biti razvrstane prema zadanom načinu razvrstavanja.</string>
+    <string name="faq_4_title">Kako mogu ubrzati video?</string>
+    <string name="faq_4_text">Možete pritisnuti trenutačno vrijeme ili ukupno trajanje videozapisa na traci napretka, videozapis će se prema Vašem izboru pomicati unatrag ili prema naprijed.</string>
+    <string name="faq_5_title">Koja je razlika između skrivanja i izuzimanja mape?</string>
+    <string name="faq_5_text">Izuzimanje sprječava prikaz mape samo u Jednostavnoj galeriji, a skrivanje radi na razini sustava i skriva mapu iz drugih galerija. Djeluje stvaranjem praznih \".nomedia\" datoteka u zadanoj mapi, koju možete ukloniti pomoću bilo kojeg upraviteljem datoteka.</string>
+    <string name="faq_6_title">Zašto se prikazuju mape s naslovnicama albuma i minijaturama slika?</string>
+    <string name="faq_6_text">Može se dogoditi da vidite neke neobične albume. Možete ih jednostavno izuzeti tako da ih dugo pritisnete i odaberete Izuzmi. U sljedećem dijaloškom okviru možete odabrati glavnu mapu, čime će te spriječiti prikazivanje ostalih povezanih albuma.</string>
+    <string name="faq_7_title">Mapa s fotografijama se ne prikazuje, što mogu učiniti?</string>
+    <string name="faq_7_text">To može imati više razloga, ali rješenje je jednostavno. Samo idite u Postavke -> Upravljanje uključenim mapama, odaberite ikonu Plus i prijeđite na traženu mapu.</string>
+    <string name="faq_8_title">Što ako želim vidjeti samo nekoliko određenih mapa?</string>
+    <string name="faq_8_text">Dodavanje direktorija u uključene mape ne izuzima ništa automatski. Da biste to učinili, idite na "Postavke", a zatim "Upravljanje izuzetim mapama", izuzmite korijenski direktorij \"/\", a zatim dodajte željene direktorije u "Postavke" i "Upravljanje uključenim mapama".
+        Samo će odabrane mape biti vidljive, jer su izuzimanja i uključivanja rekurzivni, a ako je mapa isključena i uključena, bit će prikazana.</string>
+    <string name="faq_9_title">Slike na cijelom zaslonu imaju čudne artefakte, mogu li nekako poboljšati kvalitetu?</string>
+    <string name="faq_9_text">Da, u "Postavkama" postoji opcija "Zamjena duboko zumiranih slika s kvalitetnijim slikama", ali slike će biti zamućene ako zumirate previše.</string>
+    <string name="faq_10_title">Mogu li izrezati slike pomoću ove aplikacije?</string>
+    <string name="faq_10_text">Da, možete obrezati slike u uređivaču povlačenjem uglova. Možete doći do uređivača dugim pritiskom na minijaturu slike i odabirom Uređivanje ili odabirom Uredi iz prikaza preko cijelog zaslona.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Galerija za pregledavanje slika, GIFova i videa bez reklama.</string>
+    <string name="app_short_description">Galerija za gledanje fotografija i videozapisa bez oglasa.</string>
     <string name="app_long_description">
         Jednostavan alat za pregled slika, GIFova i videa. Datoteke možete sortirati po datumu, veličini, imenu i to uzlazno i silazno. Također možete zumirati slike. Medijski sadržaj se prikazuje u višestrukim stupcima ovisno o veličini ekrana, a vi samo možete birati broj stupaca s gestom štipkanja. Možete preimenovati, dijeliti, brisati, kopirati, premještati datoteke. Slike također možete izrezati, rotirati ili postaviki kao pozadinu ekrana, odmah iz aplikacije.
 
@@ -177,9 +177,9 @@
 
         The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
 
-        Ne sadrži reklame niti nepotrebna dopuštenja. Aplikacije je otvorenog koda, te pruža mogućnost promjene boja.
+        Ne sadrži oglase ili nepotrebne dozvole. Aplikacije je otvorenog koda, pruža prilagodljive boje.
 
-        Ova aplikacija je samo dio veće skupine aplikacije. Ostatak možete pronaći na http://www.simplemobiletools.com
+        Ova je aplikacija samo dio većeg broja aplikacija. Možete pronaći ostatak na http://www.simplemobiletools.com
     </string>
 
     <!--
