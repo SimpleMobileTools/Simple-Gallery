@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 3.6.3 *(2018-03-30)*
+----------------------------
+
+ * Couple file scanning and thumbnail displaying updates
+ * Show a dialog about the new Simple Clock app to some users
+
 Version 3.6.2 *(2018-03-23)*
 ----------------------------
 
