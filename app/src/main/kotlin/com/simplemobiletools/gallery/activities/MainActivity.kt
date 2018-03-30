@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
+import com.simplemobiletools.commons.dialogs.NewAppDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_STORAGE
@@ -42,7 +43,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private val PICK_MEDIA = 2
     private val PICK_WALLPAPER = 3
     private val LAST_MEDIA_CHECK_PERIOD = 3000L
-    private val CONTACTS_PACKAGE = "com.simplemobiletools.contacts"
+    private val NEW_APP_PACKAGE = "com.simplemobiletools.clock"
 
     lateinit var mDirs: ArrayList<Directory>
 
@@ -101,11 +102,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mIsPasswordProtectionPending = config.appPasswordProtectionOn
         setupLatestMediaId()
 
-        // notify the users about the Contacts app
-        /*if (System.currentTimeMillis() < 1521015000000 && !config.wasNewAppShown && config.appRunCount > 100 && config.appRunCount % 50 != 0 && !isPackageInstalled(CONTACTS_PACKAGE)) {
+        // notify some users about the Clock app
+        if (System.currentTimeMillis() < 1523750400000 && !config.wasNewAppShown && config.appRunCount > 100 && config.appRunCount % 50 != 0 && !isPackageInstalled(NEW_APP_PACKAGE)) {
             config.wasNewAppShown = true
-            NewAppDialog(this, CONTACTS_PACKAGE, "Simple Contacts")
-        }*/
+            NewAppDialog(this, NEW_APP_PACKAGE, "Simple Clock")
+        }
     }
 
     override fun onStart() {
