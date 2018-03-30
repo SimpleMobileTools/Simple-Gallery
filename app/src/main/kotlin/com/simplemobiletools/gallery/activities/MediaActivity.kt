@@ -69,6 +69,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mStoredScrollHorizontally = true
     private var mStoredShowInfoBubble = true
     private var mStoredTextColor = 0
+    private var mStoredPrimaryColor = 0
 
     companion object {
         var mMedia = ArrayList<Medium>()
@@ -129,6 +130,12 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         if (mStoredTextColor != config.textColor) {
             getMediaAdapter()?.updateTextColor(config.textColor)
+        }
+
+        if (mStoredPrimaryColor != config.primaryColor) {
+            getMediaAdapter()?.updatePrimaryColor(config.primaryColor)
+            media_horizontal_fastscroller.updatePrimaryColor()
+            media_vertical_fastscroller.updatePrimaryColor()
         }
 
         media_horizontal_fastscroller.updateBubbleColors()
@@ -231,6 +238,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             mStoredScrollHorizontally = scrollHorizontally
             mStoredShowInfoBubble = showInfoBubble
             mStoredTextColor = textColor
+            mStoredPrimaryColor = primaryColor
             mShowAll = showAll
         }
     }
@@ -287,7 +295,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                 supportActionBar?.title = if (mShowAll) resources.getString(R.string.all_folders) else dirName
                 getMedia()
                 setupLayoutManager()
-                checkIfColorChanged()
             } else {
                 toast(R.string.no_storage_permissions)
                 finish()
@@ -296,14 +303,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun getMediaAdapter() = media_grid.adapter as? MediaAdapter
-
-    private fun checkIfColorChanged() {
-        if (media_grid.adapter != null && getRecyclerAdapter().primaryColor != config.primaryColor) {
-            getRecyclerAdapter().primaryColor = config.primaryColor
-            media_horizontal_fastscroller.updatePrimaryColor()
-            media_vertical_fastscroller.updatePrimaryColor()
-        }
-    }
 
     private fun setupAdapter() {
         if (!mShowAll && isDirEmpty()) {
@@ -318,7 +317,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                 itemClicked((it as Medium).path)
             }.apply {
                 setupZoomListener(mZoomListener)
-                setupDragListener(true)
                 media_grid.adapter = this
             }
         } else {
@@ -348,7 +346,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
     }
 
-    private fun getBubbleTextItem(index: Int) = getRecyclerAdapter().media.getOrNull(index)?.getBubbleText() ?: ""
+    private fun getBubbleTextItem(index: Int) = getMediaAdapter()?.media?.getOrNull(index)?.getBubbleText() ?: ""
 
     private fun checkLastMediaChanged() {
         if (isActivityDestroyed())
@@ -388,7 +386,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun toggleFilenameVisibility() {
         config.displayFileNames = !config.displayFileNames
         if (media_grid.adapter != null)
-            getRecyclerAdapter().updateDisplayFilenames(config.displayFileNames)
+            getMediaAdapter()?.updateDisplayFilenames(config.displayFileNames)
     }
 
     private fun switchToFolderView() {
@@ -501,8 +499,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         invalidateOptionsMenu()
     }
 
-    private fun getRecyclerAdapter() = (media_grid.adapter as MediaAdapter)
-
     private fun setupLayoutManager() {
         if (config.viewTypeFiles == VIEW_TYPE_GRID) {
             setupGridLayoutManager()
@@ -531,14 +527,14 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                 override fun zoomIn() {
                     if (layoutManager.spanCount > 1) {
                         reduceColumnCount()
-                        getRecyclerAdapter().finishActMode()
+                        getMediaAdapter()?.finishActMode()
                     }
                 }
 
                 override fun zoomOut() {
                     if (layoutManager.spanCount < MAX_COLUMN_COUNT) {
                         increaseColumnCount()
-                        getRecyclerAdapter().finishActMode()
+                        getMediaAdapter()?.finishActMode()
                     }
                 }
             }

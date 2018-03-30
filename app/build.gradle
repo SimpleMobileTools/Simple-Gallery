@@ -46,15 +46,15 @@ ext {
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:3.17.14'
+    implementation 'com.simplemobiletools:commons:3.17.16'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.6.0'
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
-    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.8'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.12'
     implementation 'com.github.chrisbanes:PhotoView:2.1.3'
 
     //implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.9.0'
-    implementation 'com.github.tibbi:subsampling-scale-image-view:v3.9.0.6-fork'
+    implementation 'com.github.tibbi:subsampling-scale-image-view:v3.10.0-fork'
 
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"

@@ -28,7 +28,6 @@ class ExcludedFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
         }
 
         val adapter = ManageFoldersAdapter(this, folders, true, this, manage_folders_list) {}
-        adapter.setupDragListener(true)
         manage_folders_list.adapter = adapter
     }
 

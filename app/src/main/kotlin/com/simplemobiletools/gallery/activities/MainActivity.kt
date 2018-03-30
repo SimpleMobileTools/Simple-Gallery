@@ -71,6 +71,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mStoredShowMediaCount = true
     private var mStoredShowInfoBubble = true
     private var mStoredTextColor = 0
+    private var mStoredPrimaryColor = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -121,24 +122,30 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         if (mStoredAnimateGifs != config.animateGifs) {
-            getDirectoryAdapter()?.updateAnimateGifs(config.animateGifs)
+            getRecyclerAdapter()?.updateAnimateGifs(config.animateGifs)
         }
 
         if (mStoredCropThumbnails != config.cropThumbnails) {
-            getDirectoryAdapter()?.updateCropThumbnails(config.cropThumbnails)
+            getRecyclerAdapter()?.updateCropThumbnails(config.cropThumbnails)
         }
 
         if (mStoredShowMediaCount != config.showMediaCount) {
-            getDirectoryAdapter()?.updateShowMediaCount(config.showMediaCount)
+            getRecyclerAdapter()?.updateShowMediaCount(config.showMediaCount)
         }
 
         if (mStoredScrollHorizontally != config.scrollHorizontally || mStoredShowInfoBubble != config.showInfoBubble) {
-            getDirectoryAdapter()?.updateScrollHorizontally(config.viewTypeFolders != VIEW_TYPE_LIST && config.scrollHorizontally)
+            getRecyclerAdapter()?.updateScrollHorizontally(config.viewTypeFolders != VIEW_TYPE_LIST && config.scrollHorizontally)
             setupScrollDirection()
         }
 
         if (mStoredTextColor != config.textColor) {
-            getDirectoryAdapter()?.updateTextColor(config.textColor)
+            getRecyclerAdapter()?.updateTextColor(config.textColor)
+        }
+
+        if (mStoredPrimaryColor != config.primaryColor) {
+            getRecyclerAdapter()?.updatePrimaryColor(config.primaryColor)
+            directories_vertical_fastscroller.updatePrimaryColor()
+            directories_horizontal_fastscroller.updatePrimaryColor()
         }
 
         directories_horizontal_fastscroller.updateBubbleColors()
@@ -224,7 +231,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         return true
     }
 
-    private fun getDirectoryAdapter() = directories_grid.adapter as? DirectoryAdapter
+    private fun getRecyclerAdapter() = directories_grid.adapter as? DirectoryAdapter
 
     private fun storeStateVariables() {
         config.apply {
@@ -235,6 +242,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             mStoredShowMediaCount = showMediaCount
             mStoredShowInfoBubble = showInfoBubble
             mStoredTextColor = textColor
+            mStoredPrimaryColor = primaryColor
         }
     }
 
@@ -260,7 +268,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 }
 
                 setupLayoutManager()
-                checkIfColorChanged()
             } else {
                 toast(R.string.no_storage_permissions)
                 finish()
@@ -353,14 +360,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         invalidateOptionsMenu()
     }
 
-    private fun checkIfColorChanged() {
-        if (directories_grid.adapter != null && getRecyclerAdapter().primaryColor != config.primaryColor) {
-            getRecyclerAdapter().primaryColor = config.primaryColor
-            directories_vertical_fastscroller.updatePrimaryColor()
-            directories_horizontal_fastscroller.updatePrimaryColor()
-        }
-    }
-
     override fun deleteFolders(folders: ArrayList<File>) {
         val fileDirItems = folders.map { FileDirItem(it.absolutePath, it.name, true) } as ArrayList<FileDirItem>
         deleteFolders(fileDirItems) {
@@ -369,8 +368,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             }
         }
     }
-
-    private fun getRecyclerAdapter() = (directories_grid.adapter as DirectoryAdapter)
 
     private fun setupLayoutManager() {
         if (config.viewTypeFolders == VIEW_TYPE_GRID) {
@@ -400,14 +397,14 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 override fun zoomIn() {
                     if (layoutManager.spanCount > 1) {
                         reduceColumnCount()
-                        getRecyclerAdapter().finishActMode()
+                        getRecyclerAdapter()?.finishActMode()
                     }
                 }
 
                 override fun zoomOut() {
                     if (layoutManager.spanCount < MAX_COLUMN_COUNT) {
                         increaseColumnCount()
-                        getRecyclerAdapter().finishActMode()
+                        getRecyclerAdapter()?.finishActMode()
                     }
                 }
             }
@@ -618,7 +615,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 itemClicked((it as Directory).path)
             }.apply {
                 setupZoomListener(mZoomListener)
-                setupDragListener(true)
                 directories_grid.adapter = this
             }
         } else {
@@ -650,7 +646,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
     }
 
-    private fun getBubbleTextItem(index: Int) = getRecyclerAdapter().dirs.getOrNull(index)?.getBubbleText() ?: ""
+    private fun getBubbleTextItem(index: Int) = getRecyclerAdapter()?.dirs?.getOrNull(index)?.getBubbleText() ?: ""
 
     private fun setupLatestMediaId() {
         Thread {

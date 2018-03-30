@@ -41,6 +41,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
     private var cropThumbnails = config.cropThumbnails
     private var currentDirectoriesHash = dirs.hashCode()
 
+    init {
+        setupDragListener(true)
+    }
+
     override fun getActionMenuId() = R.menu.cab_directories
 
     override fun prepareItemSelection(view: View) {

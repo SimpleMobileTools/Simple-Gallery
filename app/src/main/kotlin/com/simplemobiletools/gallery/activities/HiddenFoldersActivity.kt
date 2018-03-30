@@ -30,7 +30,6 @@ class HiddenFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
                 }
 
                 val adapter = ManageHiddenFoldersAdapter(this, it, this, manage_folders_list) {}
-                adapter.setupDragListener(true)
                 manage_folders_list.adapter = adapter
             }
         }

@@ -44,6 +44,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     private var displayFilenames = config.displayFileNames
 
     init {
+        setupDragListener(true)
         enableInstantLoad()
     }
 
