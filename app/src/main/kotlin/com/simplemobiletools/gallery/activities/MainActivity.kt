@@ -5,7 +5,6 @@ import android.content.ClipData
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
 import android.os.Handler
 import android.provider.MediaStore
 import android.support.v7.widget.GridLayoutManager
@@ -291,17 +290,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             gotDirectories(addTempFolderIfNeeded(it), false)
         }
         mCurrAsyncTask!!.execute()
-
-        // try ensuring that the screenshots folders is properly added to the mediastore
-        if (config.appRunCount < 5) {
-            Thread {
-                val pictures = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
-                val screenshots = File(pictures, "Screenshots")
-                if (screenshots.exists()) {
-                    scanFile(screenshots)
-                }
-            }.start()
-        }
     }
 
     private fun showSortingDialog() {
