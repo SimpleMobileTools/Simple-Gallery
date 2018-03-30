@@ -161,6 +161,5 @@ fun Context.updateStoredDirectories() {
 
 fun Context.storeDirectoryItems(items: ArrayList<Directory>) {
     val subList = items.subList(0, Math.min(SAVE_DIRS_CNT, items.size))
-    val directories = Gson().toJson(subList)
-    config.directories = directories
+    config.directories = Gson().toJson(subList)
 }

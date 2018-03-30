@@ -235,7 +235,7 @@ fun Activity.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Bo
 
 fun Activity.getCachedDirectories(): ArrayList<Directory> {
     val token = object : TypeToken<List<Directory>>() {}.type
-    return Gson().fromJson<ArrayList<Directory>>(config.directories, token) ?: ArrayList<Directory>(1)
+    return Gson().fromJson<ArrayList<Directory>>(config.directories, token) ?: ArrayList(1)
 }
 
 fun Activity.getCachedMedia(path: String): ArrayList<Medium> {
