@@ -317,7 +317,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
     fun updateDirs(newDirs: ArrayList<Directory>) {
         if (newDirs.hashCode() != currentDirectoriesHash) {
             currentDirectoriesHash = newDirs.hashCode()
-            dirs = newDirs
+            dirs = newDirs.clone() as ArrayList<Directory>
             notifyDataSetChanged()
             finishActMode()
         }

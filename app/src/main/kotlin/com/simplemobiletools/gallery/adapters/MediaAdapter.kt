@@ -256,7 +256,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     fun updateMedia(newMedia: ArrayList<Medium>) {
         if (newMedia.hashCode() != currentMediaHash) {
             currentMediaHash = newMedia.hashCode()
-            media = newMedia
+            media = newMedia.clone() as ArrayList<Medium>
             enableInstantLoad()
             notifyDataSetChanged()
             finishActMode()
