@@ -65,7 +65,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mCurrAsyncTask: GetDirectoriesAsynctask? = null
     private var mZoomListener: MyRecyclerView.MyZoomListener? = null
 
-    private var mStoredUseEnglish = false
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
@@ -117,10 +116,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     override fun onResume() {
         super.onResume()
         config.isThirdPartyIntent = false
-        if (mStoredUseEnglish != config.useEnglish) {
-            restartActivity()
-            return
-        }
 
         if (mStoredAnimateGifs != config.animateGifs) {
             getRecyclerAdapter()?.updateAnimateGifs(config.animateGifs)
@@ -236,7 +231,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun storeStateVariables() {
         config.apply {
-            mStoredUseEnglish = useEnglish
             mStoredAnimateGifs = animateGifs
             mStoredCropThumbnails = cropThumbnails
             mStoredScrollHorizontally = scrollHorizontally

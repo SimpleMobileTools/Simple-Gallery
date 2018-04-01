@@ -229,8 +229,8 @@ class PhotoFragment : ViewPagerFragment() {
         }
     }
 
-    private fun loadBitmap(degrees: Float = 0f) {
-        if (degrees == 0f) {
+    private fun loadBitmap(degrees: Int = 0) {
+        if (degrees == 0) {
             var targetWidth = if (ViewPagerActivity.screenWidth == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenWidth
             var targetHeight = if (ViewPagerActivity.screenHeight == 0) Target.SIZE_ORIGINAL else ViewPagerActivity.screenHeight
             if (useHalfResolution) {
@@ -371,7 +371,7 @@ class PhotoFragment : ViewPagerFragment() {
         }
     }
 
-    fun rotateImageViewBy(degrees: Float) {
+    fun rotateImageViewBy(degrees: Int) {
         view.subsampling_view.beGone()
         loadBitmap(degrees)
     }

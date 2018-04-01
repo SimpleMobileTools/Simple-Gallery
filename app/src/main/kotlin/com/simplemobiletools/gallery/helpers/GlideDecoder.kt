@@ -30,8 +30,9 @@ class GlideDecoder : ImageDecoder {
                 .override(targetWidth, targetHeight)
 
         val degrees = getRotationDegrees(orientation)
-        if (degrees != 0f)
+        if (degrees != 0) {
             options.transform(GlideRotateTransformation(context, getRotationDegrees(orientation)))
+        }
 
         val drawable = Glide.with(context)
                 .load(uri)
@@ -61,9 +62,9 @@ class GlideDecoder : ImageDecoder {
 
     // rotating backwards intentionally, as SubsamplingScaleImageView will rotate it properly at displaying
     private fun getRotationDegrees(orientation: Int) = when (orientation) {
-        ExifInterface.ORIENTATION_ROTATE_270 -> 90f
-        ExifInterface.ORIENTATION_ROTATE_180 -> 180f
-        ExifInterface.ORIENTATION_ROTATE_90 -> 270f
-        else -> 0f
+        ExifInterface.ORIENTATION_ROTATE_270 -> 90
+        ExifInterface.ORIENTATION_ROTATE_180 -> 180
+        ExifInterface.ORIENTATION_ROTATE_90 -> 270
+        else -> 0
     }
 }
