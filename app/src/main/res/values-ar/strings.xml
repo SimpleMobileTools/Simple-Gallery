@@ -45,9 +45,9 @@
   إذا كنت تريد إخفاءها من تطبيقات أخرى أيضا، استخدم ميزة الإخفاء</string>
     <string name="remove_all">حذف الكل</string>
     <string name="remove_all_description">هل تريد إزالة جميع المجلدات من القائمة المستبعدة؟ لن يؤدي هذا إلى حذف المجلدات</string>
-    <string name="hidden_folders">Hidden folders</string>
-    <string name="manage_hidden_folders">Manage hidden folders</string>
-    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
+    <string name="hidden_folders">المجلدات المخفية</string>
+    <string name="manage_hidden_folders">إدارة المجلدات المخفية</string>
+    <string name="hidden_folders_placeholder">يبدو أنك لا تملك أي مجلد مخفي بملف \".nomedia\".</string>
 
     <!-- Include folders -->
     <string name="include_folders">المجلدات المضمنة</string>
@@ -130,46 +130,44 @@
     <string name="scroll_thumbnails_horizontally">قم بتمرير الصور المصغرة أفقيا</string>
     <string name="hide_system_ui_at_fullscreen">إخفاء واجهة النظام تلقائيا عند العرض في وضع ملء الشاشة</string>
     <string name="delete_empty_folders">احذف المجلدات الفارغة بعد حذف محتواها</string>
-    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
+    <string name="allow_photo_gestures">السماح بالتحكم في سطوع الصورة باستخدام الإيماءات الرأسية</string>
     <string name="allow_video_gestures">السماح بالتحكم في صوت الفيديو والسطوع  بالإيماءات العمودية</string>
     <string name="show_media_count">إظهار عدد لوسائط المجلد على طريقة العرض الرئيسية</string>
     <string name="replace_share_with_rotate">استبدال خيار المشاركة مع خيار  تدوير في القائمة ملء الشاشة</string>
     <string name="show_extended_details">عرض تفاصيل موسعة على وسائط ملء الشاشة</string>
     <string name="manage_extended_details">إدارة المجلدات المستبعدة</string>
-    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
-    <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
-    <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
-    <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
-    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
+    <string name="one_finger_zoom">السماح بتكبير الوسائط بأصبع واحد في وضع ملء الشاشة</string>
+    <string name="allow_instant_change">السماح بتغيير الوسائط على الفور من خلال النقر على جوانب الشاشة</string>
+    <string name="replace_zoomable_images">استبدل الصور التي يمكن تكبيرها بعمق باستخدام صور ذات جودة أفضل</string>
+    <string name="hide_extended_details">إخفاء التفاصيل الموسعة عند إخفاء شريط الحالة</string>
+    <string name="do_extra_check">قم بإجراء فحص إضافي لتجنب إظهار الملفات التالفة</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Thumbnails</string>
-    <string name="fullscreen_media">Fullscreen media</string>
-    <string name="extended_details">Extended details</string>
+    <string name="thumbnails">المصغرات</string>
+    <string name="fullscreen_media">وسائط ملء الشاشة</string>
+    <string name="extended_details">تفاصيل موسعة</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
-    <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
-        The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
-    <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do?</string>
-    <string name="faq_2_text">You can solve it in 2 ways. You can either reinstall the app, or find the app in your device settings and select \"Clear data\". It will reset all your settings, it will not remove any media files.</string>
-    <string name="faq_3_title">How can I make an album always appear at the top?</string>
-    <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actionmenu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
-    <string name="faq_4_title">How can I fast-forward videos?</string>
-    <string name="faq_4_text">You can click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
-    <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
-    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
-    <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
-    <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
-    <string name="faq_7_title">A folder with images isn\'t showing up, what can I do?</string>
-    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
-    <string name="faq_8_title">What if I want just a few particular folders visible?</string>
-    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
-        That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
-    <string name="faq_9_title">Fullscreen images have weird artifacts, can I somehow improve the quality?</string>
-    <string name="faq_9_text">Yea, there is a toggle in Settings saying \"Replace deep zoomable images with better quality ones\", you can use that. It will improve the quality of the images, but they will get blurred once you try zooming in too much.</string>
-    <string name="faq_10_title">Can I crop images with this app?</string>
-    <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
+    <string name="faq_1_title">كيف يمكنني جعل الاستوديو البسيط معرض الأجهزة الافتراضي؟</string>
+    <string name="faq_1_text">أولاً ، عليك العثور على المعرض الافتراضي حاليًا في قسم التطبيقات في إعدادات جهازك ، ابحث عن زر يقول مثلا \"فتح افتراضيًا\" ، وانقر عليه ، ثم حدد \"مسح الإعدادات الافتراضية\". في المرة التالية التي ستحاول فيها فتح صورة أو فيديو ، يجب أن تذهب الى منتقي التطبيقات ، حيث يمكنك اختيار تطبيق الاستوديو البسيط وجعله التطبيق الافتراضي.</string>
+    <string name="faq_2_title">أغلقت التطبيق بكلمة مرور ، لكني نسيت ذلك. ماذا افعل؟</string>
+    <string name="faq_2_text">يمكنك حلها بطريقتين. يمكنك إما إعادة تثبيت التطبيق ، أو العثور على التطبيق في إعدادات جهازك وتحديد \"مسح البيانات\". سيقوم بإعادة ضبط جميع إعداداتك ، ولن يزيل أي ملفات وسائط.</string>
+    <string name="faq_3_title">كيف يمكنني جعل الألبوم يظهر دائمًا في الجزء العلوي؟</string>
+    <string name="faq_3_text">يمكنك الضغط لفترة طويلة على الألبوم المطلوب وتحديد أيقونة الدبوس في الإجراء ، والتي سوف تثبيته إلى الأعلى. يمكنك تثبيت عدة مجلدات أيضًا ، وسيتم ترتيب العناصر المثبتة حسب طريقة الفرز الافتراضية.</string>
+    <string name="faq_4_title">كيف يمكنني تقديم مقاطع فيديو بسرعة؟</string>
+    <string name="faq_4_text">يمكنك النقر على النصوص الحالية أو أقصى مدة قريبة من شريط السحب ، والتي ستنقل الفيديو إما للخلف أو إلى الأمام.</string>
+    <string name="faq_5_title">ما الفرق بين إخفاء واستبعاد مجلد؟</string>
+    <string name="faq_5_text">يمنع الاستبعاد من عرض المجلد في الاستوديو البسيط فقط ، بينما يقوم بإخفاء بالعمل على مستوى النظام ككل ويقوم بإخفاء المجلد من المعارض الأخرى أيضًا. وهو يعمل عن طريق إنشاء ملف \".nomedia\" فارغ في المجلد المحدد ، والذي يمكنك بعد ذلك إزالته مع أي مدير ملفات أيضًا.</string>
+    <string name="faq_6_title">لماذا تظهر المجلدات التي تحتوي على ملصقات أو ملصقات موسيقى تغطيها؟</string>
+    <string name="faq_6_text">يمكن أن يحدث ذلك سترى بعض ألبومات غير عادية تظهر. يمكنك استبعادها بسهولة عن طريق الضغط عليها وتحديد \"استبعاد\". في مربع الحوار التالي ، يمكنك بعد ذلك تحديد المجلد الأصلي ، ومن المحتمل أن يؤدي ذلك إلى منع ظهور الألبومات الأخرى ذات الصلة أيضًا.</string>
+    <string name="faq_7_title">لا يظهر مجلد به صور ، فماذا أفعل؟</string>
+    <string name="faq_7_text">يمكن أن يكون ذلك لأسباب متعددة ، ولكن حلها أمر سهل. أذهب إلى الإعدادات -> إدارة المجلدات المضمنة ، اضغط علامة الزائد وانتقل إلى المجلد المطلوب.</string>
+    <string name="faq_8_title">ماذا لو كنت أرغب في رؤية بعض المجلدات الخاصة؟</string>
+    <string name="faq_8_text">لا يؤدي إضافة مجلد في \"المجلدات المضمنة\" إلى استبعاد أي شيء تلقائيًا. ما يمكنك فعله هو الذهاب إلى الإعدادات -> إدارة المجلدات المستبعدة ، واستبعاد المجلد الجذر \"/\" ، ثم إضافة المجلدات المطلوبة في الإعدادات -> إدارة المجلدات المضمنة. سيؤدي ذلك إلى إظهار المجلدات المحددة فقط ، حيث أن الاستبعاد والتضمين يكونان متكررين ، وإذا تم استبعاد أحد المجلدات وإدراجه ، فسيظهر.</string>
+    <string name="faq_9_title">الصور بملء الشاشة لها آثار غريبة ، هل يمكنني تحسين الجودة؟</string>
+    <string name="faq_9_text">نعم ، هناك تبديل في الإعدادات يقول \"استبدل صورًا ذات زووم عميق بجودة أفضل منها\" ، يمكنك استخدام ذلك. سيؤدي ذلك إلى تحسين جودة الصور ، ولكن ستظهر بشكل واضح عند محاولة التكبير كثيرًا.</string>
+    <string name="faq_10_title">هل يمكنني قص الصور باستخدام هذا التطبيق؟</string>
+    <string name="faq_10_text">نعم ، يمكنك اقتصاص الصور في المحرر ، عن طريق سحب زوايا الصورة. يمكنك الوصول إلى المحرر إما عن طريق الضغط لفترة طويلة على صورة مصغرة وتحديد تحرير ، أو تحديد تحرير من العرض بملء الشاشة.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
