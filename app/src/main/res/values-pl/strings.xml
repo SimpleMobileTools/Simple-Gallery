@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Prosta Galeria</string>
-    <string name="app_launcher_name">Prosta Galeria</string>
+    <string name="app_launcher_name">Galeria</string>
     <string name="edit">Edytuj</string>
     <string name="open_camera">Uruchom aplikację aparatu</string>
     <string name="hidden">(ukryty)</string>
