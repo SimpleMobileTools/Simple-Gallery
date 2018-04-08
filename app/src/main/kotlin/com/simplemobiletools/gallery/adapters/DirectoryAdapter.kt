@@ -27,6 +27,7 @@ import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.directory_item_list.view.*
 import java.io.File
 import java.util.*
+import kotlin.collections.ArrayList
 
 class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Directory>, val listener: DirOperationsListener?, recyclerView: MyRecyclerView,
                        val isPickIntent: Boolean, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit) :
@@ -153,8 +154,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
     }
 
     private fun renameDir() {
-        val path = dirs[selectedPositions.first()].path
-        val dir = File(path)
+        val sourcePath = dirs[selectedPositions.first()].path
+        val dir = File(sourcePath)
         if (activity.isAStorageRootFolder(dir.absolutePath)) {
             activity.toast(R.string.rename_folder_root)
             return
@@ -162,8 +163,18 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
 
         RenameItemDialog(activity, dir.absolutePath) {
             activity.runOnUiThread {
-                listener?.refreshItems()
-                finishActMode()
+                if (selectedPositions.isEmpty()) {
+                    return@runOnUiThread
+                }
+
+                dirs[selectedPositions.first()].apply {
+                    path = it
+                    name = it.getFilenameFromPath()
+
+                    val tmbFile = tmb.getFilenameFromPath()
+                    tmb = File(it, tmbFile).absolutePath
+                }
+                listener?.updateDirectories(dirs.toList() as ArrayList)
             }
         }
     }
@@ -386,5 +397,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
         fun deleteFolders(folders: ArrayList<File>)
 
         fun recheckPinnedFolders()
+
+        fun updateDirectories(directories: ArrayList<Directory>)
     }
 }

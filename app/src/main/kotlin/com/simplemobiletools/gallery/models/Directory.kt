@@ -5,7 +5,7 @@ import com.simplemobiletools.commons.extensions.formatSize
 import com.simplemobiletools.commons.helpers.*
 import java.io.Serializable
 
-data class Directory(val path: String, val tmb: String, val name: String, var mediaCnt: Int, val modified: Long, val taken: Long,
+data class Directory(var path: String, var tmb: String, var name: String, var mediaCnt: Int, val modified: Long, val taken: Long,
                      val size: Long, val isOnSDCard: Boolean) : Serializable, Comparable<Directory> {
     companion object {
         private val serialVersionUID = -6553345863555455L

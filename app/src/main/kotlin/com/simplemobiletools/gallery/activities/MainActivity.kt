@@ -36,7 +36,6 @@ import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.*
-import java.util.*
 
 class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private val PICK_MEDIA = 2
@@ -680,6 +679,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     override fun recheckPinnedFolders() {
         gotDirectories(movePinnedDirectoriesToFront(mDirs), true)
+    }
+
+    override fun updateDirectories(directories: ArrayList<Directory>) {
+        gotDirectories(directories, true)
     }
 
     private fun checkWhatsNewDialog() {
