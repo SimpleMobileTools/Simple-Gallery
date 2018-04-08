@@ -218,7 +218,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         if (config.hideSystemUI) {
-            fragmentClicked()
+            view_pager.onGlobalLayout {
+                Handler().postDelayed({
+                    fragmentClicked()
+                }, 500)
+            }
         }
 
         window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
