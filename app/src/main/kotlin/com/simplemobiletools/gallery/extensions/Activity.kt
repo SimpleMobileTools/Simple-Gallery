@@ -110,8 +110,10 @@ fun AppCompatActivity.hideSystemUI() {
 
 fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
     val file = File(path, NOMEDIA)
-    if (file.exists())
+    if (file.exists()) {
+        callback()
         return
+    }
 
     if (needsStupidWritePermissions(path)) {
         handleSAFDialog(file.absolutePath) {

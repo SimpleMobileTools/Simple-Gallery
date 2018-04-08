@@ -681,8 +681,12 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         gotDirectories(movePinnedDirectoriesToFront(mDirs), true)
     }
 
-    override fun updateDirectories(directories: ArrayList<Directory>) {
-        gotDirectories(directories, true)
+    override fun updateDirectories(directories: ArrayList<Directory>, refreshList: Boolean) {
+        if (refreshList) {
+            gotDirectories(directories, true)
+        } else {
+            mDirs = directories
+        }
     }
 
     private fun checkWhatsNewDialog() {

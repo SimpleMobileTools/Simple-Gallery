@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.adapters
 
+import android.util.SparseArray
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
@@ -170,11 +171,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
                 dirs[selectedPositions.first()].apply {
                     path = it
                     name = it.getFilenameFromPath()
-
-                    val tmbFile = tmb.getFilenameFromPath()
-                    tmb = File(it, tmbFile).absolutePath
+                    tmb = File(it, tmb.getFilenameFromPath()).absolutePath
                 }
-                listener?.updateDirectories(dirs.toList() as ArrayList)
+                currentDirectoriesHash = dirs.hashCode()
+                listener?.updateDirectories(dirs.toList() as ArrayList, true)
             }
         }
     }
@@ -201,7 +201,32 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
 
     private fun hideFolder(path: String) {
         activity.addNoMedia(path) {
-            noMediaHandled()
+            val positionsToRemove = ArrayList<Int>()
+            val newDirs = dirs.filterIndexed { index, directory ->
+                val removeDir = directory.path.startsWith(path, true)
+                if (removeDir) {
+                    positionsToRemove.add(index)
+                }
+                !removeDir
+            } as ArrayList<Directory>
+
+            activity.runOnUiThread {
+                positionsToRemove.sortedDescending().forEach {
+                    notifyItemRemoved(it + positionOffset)
+                    itemViews.put(it, null)
+                }
+
+                val newItems = SparseArray<View>()
+                (0 until itemViews.size())
+                        .filter { itemViews[it] != null }
+                        .forEachIndexed { curIndex, i -> newItems.put(curIndex, itemViews[i]) }
+
+                currentDirectoriesHash = newDirs.hashCode()
+                itemViews = newItems
+                finishActMode()
+                fastScroller?.measureRecyclerView()
+                listener?.updateDirectories(newDirs, false)
+            }
         }
     }
 
@@ -398,6 +423,6 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
 
         fun recheckPinnedFolders()
 
-        fun updateDirectories(directories: ArrayList<Directory>)
+        fun updateDirectories(directories: ArrayList<Directory>, refreshList: Boolean)
     }
 }
