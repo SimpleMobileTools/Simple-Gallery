@@ -30,6 +30,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         val hidden = context.resources.getString(R.string.hidden)
         val albumCovers = config.parseAlbumCovers()
         val hasOTG = context.hasOTGConnected() && context.config.OTGBasePath.isNotEmpty()
+        val includedFolders = config.includedFolders
 
         for ((path, curMedia) in groupedMedia) {
             Medium.sorting = config.getFileSorting(path)
@@ -62,7 +63,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                 }
             }
 
-            if (File(parentDir).doesParentHaveNoMedia()) {
+            if (File(parentDir).doesParentHaveNoMedia() && !includedFolders.contains(parentDir)) {
                 dirName += " $hidden"
             }
 
