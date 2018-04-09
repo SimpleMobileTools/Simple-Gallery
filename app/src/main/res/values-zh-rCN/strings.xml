@@ -22,7 +22,6 @@
     <string name="use_default">使用默认</string>
     <string name="volume">音量</string>
     <string name="brightness">亮度</string>
-    <string name="do_not_ask_again">不再提醒</string>
     <string name="lock_orientation">锁定方向</string>
     <string name="unlock_orientation">解锁方向</string>
 

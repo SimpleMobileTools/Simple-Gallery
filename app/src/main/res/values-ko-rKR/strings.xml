@@ -22,7 +22,6 @@
     <string name="use_default">기본값 사용</string>
     <string name="volume">볼륨</string>
     <string name="brightness">밝기</string>
-    <string name="do_not_ask_again">다시 물어보지 않음</string>
     <string name="lock_orientation">사진회전 잠금</string>
     <string name="unlock_orientation">사진회전 해제</string>
 

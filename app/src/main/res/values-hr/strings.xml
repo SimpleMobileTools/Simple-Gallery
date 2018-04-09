@@ -22,7 +22,6 @@
     <string name="use_default">Koristi zadano</string>
     <string name="volume">Glasnoća</string>
     <string name="brightness">Svjetlina</string>
-    <string name="do_not_ask_again">Ne pitaj me više u ovoj sesiji</string>
     <string name="lock_orientation">Zaključaj rotaciju</string>
     <string name="unlock_orientation">Otključaj rotaciju</string>
 

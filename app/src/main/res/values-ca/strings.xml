@@ -22,7 +22,6 @@
     <string name="use_default">Us per defecte</string>
     <string name="volume">Volum</string>
     <string name="brightness">Brillantor</string>
-    <string name="do_not_ask_again">No tornar a preguntar en aquesta sessió</string>
     <string name="lock_orientation">Bloquejar orientació</string>
     <string name="unlock_orientation">Desbloquejar orientació</string>
 

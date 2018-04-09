@@ -22,7 +22,6 @@
     <string name="use_default">Bruk standard</string>
     <string name="volume">Volum</string>
     <string name="brightness">Lysstyrke</string>
-    <string name="do_not_ask_again">Ikke spør igjen i denne økten</string>
     <string name="lock_orientation">Lås skjermorientering</string>
     <string name="unlock_orientation">Lås opp skjermorientering</string>
 

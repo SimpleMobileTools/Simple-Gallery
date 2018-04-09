@@ -22,7 +22,6 @@
     <string name="use_default">Utiliser par défaut</string>
     <string name="volume">Volume</string>
     <string name="brightness">Luminosité</string>
-    <string name="do_not_ask_again">Ne pas redemander pour cette session</string>
     <string name="lock_orientation">Verrouiller la rotation</string>
     <string name="unlock_orientation">Déverrouiller la rotation</string>
 

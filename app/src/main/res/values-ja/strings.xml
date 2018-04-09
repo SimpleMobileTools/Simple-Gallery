@@ -22,7 +22,6 @@
     <string name="use_default">デフォルトに戻す</string>
     <string name="volume">音量</string>
     <string name="brightness">明るさ</string>
-    <string name="do_not_ask_again">このセッションでは再度たずねない</string>
     <string name="lock_orientation">画面の向きを固定する</string>
     <string name="unlock_orientation">向きの固定を解除する</string>
 

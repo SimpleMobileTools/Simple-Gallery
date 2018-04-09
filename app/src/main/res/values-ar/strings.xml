@@ -22,7 +22,6 @@
     <string name="use_default">استخدم الافتراضي</string>
     <string name="volume">الصوت</string>
     <string name="brightness">السطوع</string>
-    <string name="do_not_ask_again">لا تسأل مرة أخرى في هذه الجلسة</string>
     <string name="lock_orientation">غلق الاتجاه</string>
     <string name="unlock_orientation">فتح الاتجاه</string>
 

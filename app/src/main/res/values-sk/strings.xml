@@ -22,7 +22,6 @@
     <string name="use_default">Použiť predvolený</string>
     <string name="volume">Hlasitosť</string>
     <string name="brightness">Jas</string>
-    <string name="do_not_ask_again">Nepýtať sa už v tomto spustení</string>
     <string name="lock_orientation">Uzamknúť otočenie obrazovky</string>
     <string name="unlock_orientation">Odomknúť otočenie obrazovky</string>
 

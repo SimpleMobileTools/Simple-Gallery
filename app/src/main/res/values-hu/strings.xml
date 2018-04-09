@@ -22,7 +22,6 @@
     <string name="use_default">Use default</string>
     <string name="volume">Volume</string>
     <string name="brightness">Brightness</string>
-    <string name="do_not_ask_again">Do not ask again in this session</string>
     <string name="lock_orientation">Lock orientation</string>
     <string name="unlock_orientation">Unlock orientation</string>
 

@@ -22,7 +22,6 @@
     <string name="use_default">Χρήση προκαθορισμένου</string>
     <string name="volume">Ένταση</string>
     <string name="brightness">Φωτεινότητα</string>
-    <string name="do_not_ask_again">Μην ρωτήσεις ξανά σε αυτή τη συνεδρία</string>
     <string name="lock_orientation">Κλείδωμα προσανατολισμού</string>
     <string name="unlock_orientation">Ξεκλείδωμα προσανατολισμού</string>
 

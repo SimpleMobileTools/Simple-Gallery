@@ -22,7 +22,6 @@
     <string name="use_default">Standard</string>
     <string name="volume">Lautstärke</string>
     <string name="brightness">Helligkeit</string>
-    <string name="do_not_ask_again">Nicht erneut fragen (in dieser Sitzung)</string>
     <string name="lock_orientation">Bildschirmausrichtung sperren</string>
     <string name="unlock_orientation">Bildschirmausrichtung entsperren</string>
 

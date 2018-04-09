@@ -22,7 +22,6 @@
     <string name="use_default">Usar padrão</string>
     <string name="volume">Volume</string>
     <string name="brightness">Brilho</string>
-    <string name="do_not_ask_again">Não perguntar novamente por enquanto</string>
     <string name="lock_orientation">Travar orientação</string>
     <string name="unlock_orientation">Destravar orientação</string>
 

@@ -22,7 +22,6 @@
     <string name="use_default">Predefinição</string>
     <string name="volume">Volume</string>
     <string name="brightness">Brilho</string>
-    <string name="do_not_ask_again">Não perguntar de novo para esta sessão</string>
     <string name="lock_orientation">Bloquear orientação</string>
     <string name="unlock_orientation">Desbloquear orientação</string>
 

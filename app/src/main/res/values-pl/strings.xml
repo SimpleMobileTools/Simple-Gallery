@@ -22,7 +22,6 @@
     <string name="use_default">Użyj domyślnej</string>
     <string name="volume">Głośność</string>
     <string name="brightness">Jasność</string>
-    <string name="do_not_ask_again">Nie pytaj więcej w tej sesji</string>
     <string name="lock_orientation">Zablokuj orientację ekranu</string>
     <string name="unlock_orientation">Odblokuj orientację ekranu</string>
 

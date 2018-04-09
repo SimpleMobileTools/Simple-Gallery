@@ -22,7 +22,6 @@
     <string name="use_default">Använd standard</string>
     <string name="volume">Volym</string>
     <string name="brightness">Ljusstyrka</string>
-    <string name="do_not_ask_again">Fråga inte igen i denna session</string>
     <string name="lock_orientation">Aktivera rotationslås</string>
     <string name="unlock_orientation">Inaktivera rotationslås</string>
 
