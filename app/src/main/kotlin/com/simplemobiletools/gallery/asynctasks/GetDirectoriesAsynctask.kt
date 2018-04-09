@@ -27,7 +27,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         val config = context.config
         val groupedMedia = mediaFetcher.getMediaByDirectories(isPickVideo, isPickImage)
         val directories = ArrayList<Directory>()
-        val hidden = context.resources.getString(R.string.hidden)
+        val hidden = context.getString(R.string.hidden)
         val albumCovers = config.parseAlbumCovers()
         val hasOTG = context.hasOTGConnected() && context.config.OTGBasePath.isNotEmpty()
         val includedFolders = config.includedFolders

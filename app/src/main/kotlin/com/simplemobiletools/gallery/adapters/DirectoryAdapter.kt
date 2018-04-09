@@ -30,7 +30,7 @@ import java.io.File
 import java.util.*
 import kotlin.collections.ArrayList
 
-class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Directory>, val listener: DirOperationsListener?, recyclerView: MyRecyclerView,
+class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directory>, val listener: DirOperationsListener?, recyclerView: MyRecyclerView,
                        val isPickIntent: Boolean, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit) :
         MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick) {
 
@@ -192,8 +192,21 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
                 }
             } else {
                 activity.removeNoMedia(it) {
-                    activity.scanPath(it)
-                    noMediaHandled()
+                    if (activity.config.shouldShowHidden) {
+                        dirs.forEachIndexed { index, directory ->
+                            if (directory.path.startsWith(it, true)) {
+                                val hidden = activity.getString(R.string.hidden)
+                                directory.name = directory.name.removeSuffix(hidden).trim()
+                            }
+                        }
+                        updateDirs(dirs)
+                        listener?.updateDirectories(dirs.toList() as ArrayList, true)
+                    } else {
+                        activity.runOnUiThread {
+                            listener?.refreshItems()
+                            finishActMode()
+                        }
+                    }
                 }
             }
         }
@@ -201,31 +214,42 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
 
     private fun hideFolder(path: String) {
         activity.addNoMedia(path) {
-            val positionsToRemove = ArrayList<Int>()
-            val newDirs = dirs.filterIndexed { index, directory ->
-                val removeDir = directory.path.startsWith(path, true)
-                if (removeDir) {
-                    positionsToRemove.add(index)
+            if (activity.config.shouldShowHidden) {
+                val hidden = activity.getString(R.string.hidden)
+                dirs.forEachIndexed { index, directory ->
+                    if (directory.path.startsWith(path, true)) {
+                        directory.name += " $hidden"
+                    }
                 }
-                !removeDir
-            } as ArrayList<Directory>
+                updateDirs(dirs)
+                listener?.updateDirectories(dirs.toList() as ArrayList, true)
+            } else {
+                val affectedPositions = ArrayList<Int>()
+                val newDirs = dirs.filterIndexed { index, directory ->
+                    val removeDir = directory.path.startsWith(path, true)
+                    if (removeDir) {
+                        affectedPositions.add(index)
+                    }
+                    !removeDir
+                } as ArrayList<Directory>
 
-            activity.runOnUiThread {
-                positionsToRemove.sortedDescending().forEach {
-                    notifyItemRemoved(it + positionOffset)
-                    itemViews.put(it, null)
+                activity.runOnUiThread {
+                    affectedPositions.sortedDescending().forEach {
+                        notifyItemRemoved(it + positionOffset)
+                        itemViews.put(it, null)
+                    }
+
+                    val newItems = SparseArray<View>()
+                    (0 until itemViews.size())
+                            .filter { itemViews[it] != null }
+                            .forEachIndexed { curIndex, i -> newItems.put(curIndex, itemViews[i]) }
+
+                    currentDirectoriesHash = newDirs.hashCode()
+                    itemViews = newItems
+                    finishActMode()
+                    fastScroller?.measureRecyclerView()
+                    listener?.updateDirectories(newDirs, false)
                 }
-
-                val newItems = SparseArray<View>()
-                (0 until itemViews.size())
-                        .filter { itemViews[it] != null }
-                        .forEachIndexed { curIndex, i -> newItems.put(curIndex, itemViews[i]) }
-
-                currentDirectoriesHash = newDirs.hashCode()
-                itemViews = newItems
-                finishActMode()
-                fastScroller?.measureRecyclerView()
-                listener?.updateDirectories(newDirs, false)
             }
         }
     }
@@ -239,13 +263,6 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
             }
         } else {
             activity.config.addExcludedFolders(paths)
-            listener?.refreshItems()
-            finishActMode()
-        }
-    }
-
-    private fun noMediaHandled() {
-        activity.runOnUiThread {
             listener?.refreshItems()
             finishActMode()
         }
