@@ -224,8 +224,9 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 updateFolderNames()
             } else {
                 val affectedPositions = ArrayList<Int>()
+                val includedFolders = activity.config.includedFolders
                 val newDirs = dirs.filterIndexed { index, directory ->
-                    val removeDir = directory.path.startsWith(path, true)
+                    val removeDir = File(directory.path).doesThisOrParentHaveNoMedia() && !includedFolders.contains(directory.path)
                     if (removeDir) {
                         affectedPositions.add(index)
                     }
@@ -234,7 +235,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
                 activity.runOnUiThread {
                     affectedPositions.sortedDescending().forEach {
-                        notifyItemRemoved(it + positionOffset)
+                        notifyItemRemoved(it)
                         itemViews.put(it, null)
                     }
 
@@ -245,6 +246,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
                     currentDirectoriesHash = newDirs.hashCode()
                     itemViews = newItems
+                    dirs = newDirs
                     finishActMode()
                     fastScroller?.measureRecyclerView()
                     listener?.updateDirectories(newDirs, false)
