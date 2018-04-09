@@ -5,6 +5,7 @@
     <string name="edit">Bewerken</string>
     <string name="open_camera">Camera</string>
     <string name="hidden">(verborgen)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Map vastzetten</string>
     <string name="unpin_folder">Map losmaken</string>
     <string name="pin_to_the_top">Bovenaan vastzetten</string>
@@ -179,7 +180,7 @@
 
         Bevat geen advertenties of onnodige machtigingen. Volledig open-source. Kleuren van de app kunnen worden aangepast.
 
-        Deze app is onderdeel van een grotere verzameling. Vind de andere apps op http://www.simplemobiletools.com
+        Deze app is onderdeel van een grotere verzameling. Vind de andere apps op https://www.simplemobiletools.com
     </string>
 
     <!--

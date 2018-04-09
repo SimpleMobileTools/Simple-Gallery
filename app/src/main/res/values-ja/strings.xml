@@ -5,6 +5,7 @@
     <string name="edit">編集</string>
     <string name="open_camera">カメラを開く</string>
     <string name="hidden">(非表示)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">フォルダをピン留めする</string>
     <string name="unpin_folder">フォルダのピン留めを外す</string>
     <string name="pin_to_the_top">トップにピン留めする</string>
@@ -179,7 +180,7 @@
 
         広告や不要なアクセス許可は含まれていません。 完全にオープンソースで、ダークテーマも提供しています。
 
-        このアプリは、大きな一連のアプリの一つです。 他のアプリは http://www.simplemobiletools.com で見つけることができます
+        このアプリは、大きな一連のアプリの一つです。 他のアプリは https://www.simplemobiletools.com で見つけることができます
     </string>
 
     <!--

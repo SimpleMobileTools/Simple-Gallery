@@ -5,6 +5,7 @@
     <string name="edit">Bearbeiten</string>
     <string name="open_camera">Kamera öffnen</string>
     <string name="hidden">(versteckt)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Ordner anheften</string>
     <string name="unpin_folder">Ordner loslösen</string>
     <string name="pin_to_the_top">Oben anheften</string>
@@ -179,7 +180,7 @@
 
         Beinhaltet keine Werbung oder unnötige Berechtigungen. Sie ist komplett Open Source, alle verwendeten Farben sind anpassbar.
 
-        Diese App ist nur eine aus einer größeren Serie von schlichten Apps. Der Rest davon findet sich auf http://www.simplemobiletools.com
+        Diese App ist nur eine aus einer größeren Serie von schlichten Apps. Der Rest davon findet sich auf https://www.simplemobiletools.com
     </string>
 
     <!--

@@ -5,6 +5,7 @@
     <string name="edit">編輯</string>
     <string name="open_camera">開啟相機</string>
     <string name="hidden">(隱藏)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">釘選資料夾</string>
     <string name="unpin_folder">取消釘選資料夾</string>
     <string name="pin_to_the_top">釘選在頂端</string>
@@ -173,13 +174,13 @@
     <string name="app_long_description">
         一個用來瀏覽相片和影片的簡單工具。可以根據日期、大小、名稱來遞增或遞減排序項目，相片能被縮放。媒體檔案會依畫面大小呈現在數個欄位內，你可以使用縮放手勢來改變欄數。媒體檔案可以重新命名、分享、刪除、複製、移動；圖片還能縮放、旋轉、翻轉，或者直接設為桌布。
 		
-        這相簿也支援第三方使用，像是預覽圖片/影片、添加電子信箱附件...等功能，日常使用上相當適合。
+        這相簿也支援第三方使用，像是預覽圖片/影片、添加電子信箱附件…等功能，日常使用上相當適合。
 
         指紋權限用來鎖定隱藏的項目或是整個程式。
 
         不包含廣告及非必要的權限，而且完全開放原始碼，並提供自訂顏色。
 		
-        這程式只是一系列眾多應用程式的其中一項，你可以在這發現更多 http://www.simplemobiletools.com
+        這程式只是一系列眾多應用程式的其中一項，你可以在這發現更多 https://www.simplemobiletools.com
     </string>
 
     <!--

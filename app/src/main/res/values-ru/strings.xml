@@ -5,6 +5,7 @@
     <string name="edit">Редактировать</string>
     <string name="open_camera">Открыть камеру</string>
     <string name="hidden">(Скрытые)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Закрепить папку</string>
     <string name="unpin_folder">Открепить папку</string>
     <string name="pin_to_the_top">Закрепить сверху</string>
@@ -179,7 +180,7 @@
 
         Это приложение не будет показывать рекламу или запрашивать ненужные разрешения. У него полностью открытый исходный код и настраиваемые цвета оформления.
 
-        Simple Gallery — это приложение из серии Simple Mobile Tools. Остальные приложения из этой серии можно найти здесь: http://www.simplemobiletools.com
+        Simple Gallery — это приложение из серии Simple Mobile Tools. Остальные приложения из этой серии можно найти здесь: https://www.simplemobiletools.com
     </string>
 
     <!--

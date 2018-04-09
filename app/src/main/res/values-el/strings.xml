@@ -5,6 +5,7 @@
     <string name="edit">Επεξεργασία</string>
     <string name="open_camera">Άνοιγμα κάμερας</string>
     <string name="hidden">(κρυμμένο)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Καρφίτσωμα φακέλου</string>
     <string name="unpin_folder">Ξεκαρφίτσωμα φακέλου</string>
     <string name="pin_to_the_top">Καρφίτσωμα στην κορυφή</string>
@@ -178,7 +179,7 @@
 
         Δεν περιέχει διαφημίσεις ή περιττά δικαιώματα. Έιναι όλη ανοιχτού κώδικα, και δίνει την δυνατότητα επιλογής των χρωμάτων της εφαρμογής.
 
-        Αυτή η εφαργμογή είναι κομμάτι μιας σειρά εφαρμογών. Μπορείτε να βρείτε τις υπόλοιπες στο http://www.simplemobiletools.com
+        Αυτή η εφαργμογή είναι κομμάτι μιας σειρά εφαρμογών. Μπορείτε να βρείτε τις υπόλοιπες στο https://www.simplemobiletools.com
     </string>
 
     <!--

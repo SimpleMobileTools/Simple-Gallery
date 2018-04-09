@@ -5,6 +5,7 @@
     <string name="edit">تعديل</string>
     <string name="open_camera">فتح الكاميرا</string>
     <string name="hidden">(مخفية)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">تثبيت المجلد</string>
     <string name="unpin_folder">ازالة تثبيت الملف</string>
     <string name="pin_to_the_top">Pin to the top</string>
@@ -173,7 +174,7 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">استوديو لعرض الصور والفيديو بدون اعلانات.</string>
     <string name="app_long_description">أداة بسيطة تستخدام لعرض الصور ومقاطع الفيديو. يمكن فرز العناصر حسب التاريخ والحجم والاسم على حد سواء تصاعدي أو تنازلي، يمكن تكبير الصور. يتم عرض ملفات الوسائط في أعمدة متعددة اعتمادا على حجم الشاشة، يمكنك تغيير عدد الأعمدة عبر إيماءاة القرص . يمكن إعادة تسميته، مشاركة، حذف، نسخ، نقل. ويمكن أيضا اقتصاص الصور، استدارة، او قلب أو تعيين كخلفية مباشرة من التطبيق. يتم عرض المحتوى أيضا للاستخدام طرف ثالث لمعاينة الصور / الفيديو، إضافة المرفقات في برامج البريد الإلكتروني الخ انه مثالي للاستخدام اليومي. لا يحتوي على إعلانات أو أذونات لا حاجة لها. مفتوح المصدر بشكل كلي ، ويوفر الألوان للتخصيص. هذا التطبيق هو مجرد قطعة واحدة من سلسلة أكبر من التطبيقات. يمكنك العثور على بقيتهم هنا\n
-  http://www.simplemobiletools.com</string>
+  https://www.simplemobiletools.com</string>
 
     <!--
         Haven't found some strings? There's more at

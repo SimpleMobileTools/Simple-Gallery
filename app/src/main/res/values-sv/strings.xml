@@ -5,6 +5,7 @@
     <string name="edit">Redigera</string>
     <string name="open_camera">Starta kameran</string>
     <string name="hidden">(dold)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Fäst mapp</string>
     <string name="unpin_folder">Lossa mapp</string>
     <string name="pin_to_the_top">Fäst högst upp</string>
@@ -179,7 +180,7 @@
 
         Innehåller ingen reklam eller onödiga behörigheter. Det har helt öppen källkod och anpassningsbara färger.
 
-        Denna app är bara en del av en större serie appar. Du hittar resten av dem på http://www.simplemobiletools.com
+        Denna app är bara en del av en större serie appar. Du hittar resten av dem på https://www.simplemobiletools.com
     </string>
 
     <!--

@@ -5,6 +5,7 @@
     <string name="edit">Rediger</string>
     <string name="open_camera">Åpne kamera</string>
     <string name="hidden">(skjult)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Fest mappe</string>
     <string name="unpin_folder">Løsne mappe</string>
     <string name="pin_to_the_top">Fest til toppen</string>
@@ -179,7 +180,7 @@
 
         Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
 
-        This app is just one piece of a bigger series of apps. You can find the rest of them at http://www.simplemobiletools.com
+        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
     </string>
 
     <!--

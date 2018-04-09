@@ -5,6 +5,7 @@
     <string name="edit">编辑</string>
     <string name="open_camera">打开相机</string>
     <string name="hidden">（隐藏）</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">锁定目录</string>
     <string name="unpin_folder">解除锁定目录</string>
     <string name="pin_to_the_top">锁定到顶部</string>
@@ -179,7 +180,7 @@
 
         应用不包含广告与不必要的权限。它是完全开放源代码的，并内置自定义颜色主题。
 
-        这个应用只是一系列应用中的一小部份。您可以在 http://www.simplemobiletools.com 找到其余的应用。
+        这个应用只是一系列应用中的一小部份。您可以在 https://www.simplemobiletools.com 找到其余的应用。
     </string>
 
     <!--

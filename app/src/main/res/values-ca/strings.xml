@@ -5,6 +5,7 @@
     <string name="edit">Editar</string>
     <string name="open_camera">Obrir càmera</string>
     <string name="hidden">(ocult)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Fixar carpeta</string>
     <string name="unpin_folder">No fixar carpeta</string>
     <string name="pin_to_the_top">Ancorar a l\'inici</string>
@@ -179,7 +180,7 @@
 
         No conté ni publicitat ni permisos innecessaris. Es totalment Lliure i proporciona colors personalitzables.
 
-        Aquesta aplicació es només una peça d'una sèrie més gran d'aplicacions. Pots trobar la resta a http://www.simplemobiletools.com
+        Aquesta aplicació es només una peça d'una sèrie més gran d'aplicacions. Pots trobar la resta a https://www.simplemobiletools.com
     </string>
 
     <!--
