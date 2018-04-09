@@ -173,8 +173,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                     name = it.getFilenameFromPath()
                     tmb = File(it, tmb.getFilenameFromPath()).absolutePath
                 }
-                currentDirectoriesHash = dirs.hashCode()
-                listener?.updateDirectories(dirs.toList() as ArrayList, true)
+                updateDirs(dirs)
+                listener?.updateDirectories(dirs.toList() as ArrayList, false)
             }
         }
     }
