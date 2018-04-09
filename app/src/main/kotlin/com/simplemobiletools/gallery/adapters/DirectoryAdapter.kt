@@ -117,7 +117,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         var hiddenCnt = 0
         var unhiddenCnt = 0
         selectedPositions.mapNotNull { dirs.getOrNull(it)?.path }.forEach {
-            if (File(it).containsNoMedia()) {
+            if (File(it).doesThisOrParentHaveNoMedia()) {
                 hiddenCnt++
             } else {
                 unhiddenCnt++
