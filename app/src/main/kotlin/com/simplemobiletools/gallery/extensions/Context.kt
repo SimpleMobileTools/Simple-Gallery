@@ -178,7 +178,7 @@ fun Context.checkAppendingHidden(path: String, hidden: String, includedFolders: 
         }
     }
 
-    return if (File(path).doesThisOrParentHaveNoMedia() && !includedFolders.contains(path)) {
+    return if (File(path).doesThisOrParentHaveNoMedia() && !path.isThisOrParentIncluded(includedFolders)) {
         "$dirName $hidden"
     } else {
         dirName

@@ -7,10 +7,7 @@ import android.os.Environment
 import android.provider.MediaStore
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
-import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.extensions.containsNoMedia
-import com.simplemobiletools.gallery.extensions.doesThisOrParentHaveNoMedia
-import com.simplemobiletools.gallery.extensions.isPathInMediaStore
+import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 import java.util.LinkedHashMap
@@ -246,9 +243,9 @@ class MediaFetcher(val context: Context) {
 
     private fun shouldFolderBeVisible(path: String, excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>, showHidden: Boolean): Boolean {
         val file = File(path)
-        return if (includedPaths.contains(path)) {
+        return if (path.isThisOrParentIncluded(includedPaths)) {
             true
-        } else if (isThisOrParentExcluded(path, excludedPaths, includedPaths)) {
+        } else if (path.isThisOrParentExcluded(excludedPaths)) {
             false
         } else if (!showHidden && file.isDirectory && file.canonicalFile == file.absoluteFile) {
             var containsNoMediaOrDot = file.containsNoMedia() || path.contains("/.")
@@ -260,9 +257,6 @@ class MediaFetcher(val context: Context) {
             true
         }
     }
-
-    private fun isThisOrParentExcluded(path: String, excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>) =
-            includedPaths.none { path.startsWith(it, true) } && excludedPaths.any { path.startsWith(it, true) }
 
     private fun getMediaInFolder(folder: String, curMedia: ArrayList<Medium>, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int, allowRecursion: Boolean) {
         val files = File(folder).listFiles() ?: return
@@ -310,7 +304,6 @@ class MediaFetcher(val context: Context) {
             val isAlreadyAdded = curMedia.any { it.path == file.absolutePath }
             if (!isAlreadyAdded) {
                 curMedia.add(medium)
-                //context.scanPath(file.absolutePath)
             }
         }
     }

@@ -4,3 +4,7 @@ import com.bumptech.glide.signature.ObjectKey
 import java.io.File
 
 fun String.getFileSignature() = ObjectKey(File(this).lastModified().toString())
+
+fun String.isThisOrParentIncluded(includedPaths: MutableSet<String>) = includedPaths.any { startsWith(it, true) }
+
+fun String.isThisOrParentExcluded(excludedPaths: MutableSet<String>) = excludedPaths.any { startsWith(it, true) }
