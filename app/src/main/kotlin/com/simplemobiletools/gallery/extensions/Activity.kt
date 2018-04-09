@@ -120,25 +120,34 @@ fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
             val fileDocument = getDocumentFile(path)
             if (fileDocument?.exists() == true && fileDocument.isDirectory) {
                 fileDocument.createFile("", NOMEDIA)
+                applicationContext.scanFile(file) {
+                    callback()
+                }
             } else {
                 toast(R.string.unknown_error_occurred)
+                callback()
             }
         }
     } else {
         try {
             file.createNewFile()
+            applicationContext.scanFile(file) {
+                callback()
+            }
         } catch (e: Exception) {
             showErrorToast(e)
+            callback()
         }
-    }
-
-    applicationContext.scanFile(file) {
-        callback()
     }
 }
 
 fun BaseSimpleActivity.removeNoMedia(path: String, callback: (() -> Unit)? = null) {
     val file = File(path, NOMEDIA)
+    if (!file.exists()) {
+        callback?.invoke()
+        return
+    }
+
     deleteFile(file.toFileDirItem(applicationContext)) {
         callback?.invoke()
     }

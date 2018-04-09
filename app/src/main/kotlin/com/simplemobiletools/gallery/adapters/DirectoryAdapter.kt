@@ -181,26 +181,20 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
     private fun toggleFoldersVisibility(hide: Boolean) {
         getSelectedPaths().forEach {
+            val path = it
             if (hide) {
                 if (config.wasHideFolderTooltipShown) {
-                    hideFolder(it)
+                    hideFolder(path)
                 } else {
                     config.wasHideFolderTooltipShown = true
                     ConfirmationDialog(activity, activity.getString(R.string.hide_folder_description)) {
-                        hideFolder(it)
+                        hideFolder(path)
                     }
                 }
             } else {
-                activity.removeNoMedia(it) {
+                activity.removeNoMedia(path) {
                     if (activity.config.shouldShowHidden) {
-                        dirs.forEachIndexed { index, directory ->
-                            if (directory.path.startsWith(it, true)) {
-                                val hidden = activity.getString(R.string.hidden)
-                                directory.name = directory.name.removeSuffix(hidden).trim()
-                            }
-                        }
-                        updateDirs(dirs)
-                        listener?.updateDirectories(dirs.toList() as ArrayList, true)
+                        updateFolderNames()
                     } else {
                         activity.runOnUiThread {
                             listener?.refreshItems()
@@ -212,17 +206,22 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         }
     }
 
+    private fun updateFolderNames() {
+        val includedFolders = activity.config.includedFolders
+        val hidden = activity.getString(R.string.hidden)
+        dirs.forEach {
+            it.name = activity.checkAppendingHidden(it.path, hidden, includedFolders)
+        }
+        listener?.updateDirectories(dirs.toList() as ArrayList, false)
+        activity.runOnUiThread {
+            updateDirs(dirs)
+        }
+    }
+
     private fun hideFolder(path: String) {
         activity.addNoMedia(path) {
             if (activity.config.shouldShowHidden) {
-                val hidden = activity.getString(R.string.hidden)
-                dirs.forEachIndexed { index, directory ->
-                    if (directory.path.startsWith(path, true)) {
-                        directory.name += " $hidden"
-                    }
-                }
-                updateDirs(dirs)
-                listener?.updateDirectories(dirs.toList() as ArrayList, true)
+                updateFolderNames()
             } else {
                 val affectedPositions = ArrayList<Int>()
                 val newDirs = dirs.filterIndexed { index, directory ->

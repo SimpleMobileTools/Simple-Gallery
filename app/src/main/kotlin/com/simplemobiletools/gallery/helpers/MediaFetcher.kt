@@ -9,7 +9,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.containsNoMedia
-import com.simplemobiletools.gallery.extensions.doesParentHaveNoMedia
+import com.simplemobiletools.gallery.extensions.doesThisOrParentHaveNoMedia
 import com.simplemobiletools.gallery.extensions.isPathInMediaStore
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
@@ -253,7 +253,7 @@ class MediaFetcher(val context: Context) {
         } else if (!showHidden && file.isDirectory && file.canonicalFile == file.absoluteFile) {
             var containsNoMediaOrDot = file.containsNoMedia() || path.contains("/.")
             if (!containsNoMediaOrDot) {
-                containsNoMediaOrDot = file.doesParentHaveNoMedia()
+                containsNoMediaOrDot = file.doesThisOrParentHaveNoMedia()
             }
             !containsNoMediaOrDot
         } else {

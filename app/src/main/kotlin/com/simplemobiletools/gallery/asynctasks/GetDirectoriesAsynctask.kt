@@ -7,8 +7,8 @@ import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.SORT_DESCENDING
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.extensions.checkAppendingHidden
 import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.extensions.doesParentHaveNoMedia
 import com.simplemobiletools.gallery.extensions.sumByLong
 import com.simplemobiletools.gallery.helpers.MediaFetcher
 import com.simplemobiletools.gallery.models.Directory
@@ -50,23 +50,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                 }
             }
 
-            var dirName = when (parentDir) {
-                context.internalStoragePath -> context.getString(R.string.internal)
-                context.sdCardPath -> context.getString(R.string.sd_card)
-                OTG_PATH -> context.getString(R.string.otg)
-                else -> {
-                    if (parentDir.startsWith(OTG_PATH)) {
-                        parentDir.trimEnd('/').substringAfterLast('/')
-                    } else {
-                        parentDir.getFilenameFromPath()
-                    }
-                }
-            }
-
-            if (File(parentDir).doesParentHaveNoMedia() && !includedFolders.contains(parentDir)) {
-                dirName += " $hidden"
-            }
-
+            val dirName = context.checkAppendingHidden(parentDir, hidden, includedFolders)
             val lastModified = if (config.directorySorting and SORT_DESCENDING > 0) Math.max(firstItem.modified, lastItem.modified) else Math.min(firstItem.modified, lastItem.modified)
             val dateTaken = if (config.directorySorting and SORT_DESCENDING > 0) Math.max(firstItem.taken, lastItem.taken) else Math.min(firstItem.taken, lastItem.taken)
             val size = curMedia.sumByLong { it.size }
