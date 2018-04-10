@@ -25,7 +25,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
             media.sort()
             media
         } else {
-            mediaFetcher.getFilesFrom(mPath, isPickImage, isPickVideo, false)
+            mediaFetcher.getFilesFrom(mPath, isPickImage, isPickVideo)
         }
     }
 

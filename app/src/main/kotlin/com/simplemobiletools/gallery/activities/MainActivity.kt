@@ -551,11 +551,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun gotDirectories(newDirs: ArrayList<Directory>, isFromCache: Boolean) {
-        if (!isFromCache) {
+        /*if (!isFromCache) {
             Thread {
                 checkFolderContentChange(newDirs)
             }.start()
-        }
+        }*/
 
         val dirs = getSortedDirectories(newDirs)
         directories_refresh_layout.isRefreshing = false
