@@ -241,12 +241,12 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun removeTempFolder() {
         if (config.tempFolderPath.isNotEmpty()) {
-            /*val newFolder = File(config.tempFolderPath)
+            val newFolder = File(config.tempFolderPath)
             if (newFolder.exists() && newFolder.isDirectory) {
                 if (newFolder.list()?.isEmpty() == true) {
                     deleteFile(newFolder.toFileDirItem(applicationContext), true)
                 }
-            }*/
+            }
             config.tempFolderPath = ""
         }
     }
