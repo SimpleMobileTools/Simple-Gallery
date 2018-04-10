@@ -203,8 +203,10 @@ class MediaFetcher(val context: Context) {
     }
 
     private fun getMediaInFolder(folder: String, curMedia: ArrayList<Medium>, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int) {
-        val doExtraCheck = context.config.doExtraCheck
         val files = File(folder).listFiles() ?: return
+        val doExtraCheck = context.config.doExtraCheck
+        val showHidden = context.config.shouldShowHidden
+
         for (file in files) {
             if (shouldStop) {
                 break
@@ -227,6 +229,9 @@ class MediaFetcher(val context: Context) {
             if (isGif && filterMedia and GIFS == 0)
                 continue
 
+            if (!showHidden && filename.startsWith('.'))
+                continue
+
             val size = file.length()
             if (size <= 0L || (doExtraCheck && !file.exists()))
                 continue
@@ -247,9 +252,12 @@ class MediaFetcher(val context: Context) {
 
     private fun getMediaOnOTG(folder: String, curMedia: ArrayList<Medium>, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int) {
         val files = context.getDocumentFile(folder)?.listFiles() ?: return
+        val doExtraCheck = context.config.doExtraCheck
+        val showHidden = context.config.shouldShowHidden
+
         for (file in files) {
             if (shouldStop) {
-                return
+                break
             }
 
             val filename = file.name
@@ -269,8 +277,11 @@ class MediaFetcher(val context: Context) {
             if (isGif && filterMedia and GIFS == 0)
                 continue
 
+            if (!showHidden && filename.startsWith('.'))
+                continue
+
             val size = file.length()
-            if (size <= 0L && !file.exists())
+            if (size <= 0L || (doExtraCheck && !file.exists()))
                 continue
 
             val dateTaken = file.lastModified()
