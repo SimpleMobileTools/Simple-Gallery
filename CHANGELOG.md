@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 3.7.0 *(2018-04-10)*
+----------------------------
+
+ * Rewrote media file fetching for better performance and new item discovering
+ * Make un/hiding folders quicker
+ * Make automatic fullscreen toggling animation smoother by delaying it
+ * Many other smaller performance and UX improvements
+
 Version 3.6.3 *(2018-03-30)*
 ----------------------------
 
