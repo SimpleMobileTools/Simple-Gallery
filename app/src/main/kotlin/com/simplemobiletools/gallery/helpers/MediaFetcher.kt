@@ -42,8 +42,8 @@ class MediaFetcher(val context: Context) {
             val selectionArgs = getSelectionArgsQuery(curPath, filterMedia).toTypedArray()
 
             return try {
-                val cur = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
-                parseCursor(context, cur, isPickImage, isPickVideo, curPath, filterMedia)
+                val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
+                parseCursor(context, cursor, isPickImage, isPickVideo, curPath, filterMedia)
             } catch (e: Exception) {
                 ArrayList()
             }
@@ -104,20 +104,20 @@ class MediaFetcher(val context: Context) {
         return args
     }
 
-    private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isPickVideo: Boolean, curPath: String, filterMedia: Int): ArrayList<Medium> {
+    private fun parseCursor(context: Context, cursor: Cursor, isPickImage: Boolean, isPickVideo: Boolean, curPath: String, filterMedia: Int): ArrayList<Medium> {
         val config = context.config
         val includedFolders = config.includedFolders
         val foldersToScan = HashSet<String>()
 
-        cur.use {
-            if (cur.moveToFirst()) {
+        cursor.use {
+            if (cursor.moveToFirst()) {
                 do {
-                    val path = cur.getStringValue(MediaStore.Images.Media.DATA).trim()
+                    val path = cursor.getStringValue(MediaStore.Images.Media.DATA).trim()
                     val parentPath = File(path).parent.trimEnd('/')
                     if (!includedFolders.contains(parentPath)) {
                         foldersToScan.add(parentPath)
                     }
-                } while (cur.moveToNext())
+                } while (cursor.moveToNext())
             }
         }
 
