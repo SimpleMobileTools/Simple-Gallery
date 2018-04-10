@@ -12,8 +12,6 @@ import java.io.File
 import java.util.LinkedHashMap
 import kotlin.collections.ArrayList
 import kotlin.collections.HashSet
-import kotlin.collections.component1
-import kotlin.collections.component2
 import kotlin.collections.set
 
 class MediaFetcher(val context: Context) {
@@ -21,25 +19,7 @@ class MediaFetcher(val context: Context) {
 
     fun getMediaByDirectories(isPickVideo: Boolean, isPickImage: Boolean): HashMap<String, ArrayList<Medium>> {
         val media = getFilesFrom("", isPickImage, isPickVideo)
-        val excludedPaths = context.config.excludedFolders
-        val includedPaths = context.config.includedFolders
-        val showHidden = context.config.shouldShowHidden
-        val directories = groupDirectories(media)
-
-        val removePaths = ArrayList<String>()
-        for ((path, curMedia) in directories) {
-            // make sure the path has uppercase letters wherever appropriate
-            val groupPath = File(curMedia.first().path).parent
-            if (!File(groupPath).exists() || !shouldFolderBeVisible(groupPath, excludedPaths, includedPaths, showHidden)) {
-                removePaths.add(groupPath.toLowerCase())
-            }
-        }
-
-        removePaths.forEach {
-            directories.remove(it)
-        }
-
-        return directories
+        return groupDirectories(media)
     }
 
     fun getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean): ArrayList<Medium> {

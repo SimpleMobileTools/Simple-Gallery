@@ -6,10 +6,10 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.SORT_DESCENDING
+import com.simplemobiletools.commons.helpers.sumByLong
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.checkAppendingHidden
 import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.extensions.sumByLong
 import com.simplemobiletools.gallery.helpers.MediaFetcher
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
