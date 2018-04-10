@@ -5,7 +5,9 @@ import android.database.Cursor
 import android.net.Uri
 import android.provider.MediaStore
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.*
+import com.simplemobiletools.commons.helpers.OTG_PATH
+import com.simplemobiletools.commons.helpers.photoExtensions
+import com.simplemobiletools.commons.helpers.videoExtensions
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
@@ -40,7 +42,7 @@ class MediaFetcher(val context: Context) {
             val selectionArgs = getSelectionArgsQuery(curPath, filterMedia).toTypedArray()
 
             return try {
-                val cur = context.contentResolver.query(uri, projection, selection, selectionArgs, getSortingForFolder(curPath))
+                val cur = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
                 parseCursor(context, cur, isPickImage, isPickVideo, curPath, filterMedia)
             } catch (e: Exception) {
                 ArrayList()
@@ -103,12 +105,8 @@ class MediaFetcher(val context: Context) {
     }
 
     private fun parseCursor(context: Context, cur: Cursor, isPickImage: Boolean, isPickVideo: Boolean, curPath: String, filterMedia: Int): ArrayList<Medium> {
-        val curMedia = ArrayList<Medium>()
         val config = context.config
-        val showHidden = config.shouldShowHidden
-        val excludedFolders = config.excludedFolders
         val includedFolders = config.includedFolders
-        val isThirdPartyIntent = config.isThirdPartyIntent
         val foldersToScan = HashSet<String>()
 
         cur.use {
@@ -131,11 +129,14 @@ class MediaFetcher(val context: Context) {
             }
         }
 
+        val curMedia = ArrayList<Medium>()
+        val showHidden = config.shouldShowHidden
+        val excludedFolders = config.excludedFolders
         foldersToScan.filter { shouldFolderBeVisible(it, excludedFolders, includedFolders, showHidden) }.toList().forEach {
             fetchFolderContent(it, curMedia, isPickImage, isPickVideo, filterMedia)
         }
 
-        if (isThirdPartyIntent && curPath.isNotEmpty() && curMedia.isEmpty()) {
+        if (config.isThirdPartyIntent && curPath.isNotEmpty() && curMedia.isEmpty()) {
             getMediaInFolder(curPath, curMedia, isPickImage, isPickVideo, filterMedia)
         }
 
@@ -284,22 +285,6 @@ class MediaFetcher(val context: Context) {
             val path = Uri.decode(file.uri.toString().replaceFirst("${context.config.OTGBasePath}%3A", OTG_PATH))
             val medium = Medium(filename, path, dateModified, dateTaken, size, type)
             curMedia.add(medium)
-        }
-    }
-
-    private fun getSortingForFolder(path: String): String {
-        val sorting = context.config.getFileSorting(path)
-        val sortValue = when {
-            sorting and SORT_BY_NAME > 0 -> MediaStore.Images.Media.DISPLAY_NAME
-            sorting and SORT_BY_SIZE > 0 -> MediaStore.Images.Media.SIZE
-            sorting and SORT_BY_DATE_MODIFIED > 0 -> MediaStore.Images.Media.DATE_MODIFIED
-            else -> MediaStore.Images.Media.DATE_TAKEN
-        }
-
-        return if (sorting and SORT_DESCENDING > 0) {
-            "$sortValue DESC"
-        } else {
-            "$sortValue ASC"
         }
     }
 }
