@@ -5,7 +5,7 @@
     <string name="edit">编辑</string>
     <string name="open_camera">打开相机</string>
     <string name="hidden">（隐藏）</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(排除)</string>
     <string name="pin_folder">锁定目录</string>
     <string name="unpin_folder">解除锁定目录</string>
     <string name="pin_to_the_top">锁定到顶部</string>
@@ -144,28 +144,26 @@
     <string name="extended_details">扩展详情</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
-    <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
-        The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
-    <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do?</string>
-    <string name="faq_2_text">You can solve it in 2 ways. You can either reinstall the app, or find the app in your device settings and select \"Clear data\". It will reset all your settings, it will not remove any media files.</string>
-    <string name="faq_3_title">How can I make an album always appear at the top?</string>
-    <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actionmenu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
-    <string name="faq_4_title">How can I fast-forward videos?</string>
-    <string name="faq_4_text">You can click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
-    <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
-    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
-    <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
-    <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
-    <string name="faq_7_title">A folder with images isn\'t showing up, what can I do?</string>
-    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
-    <string name="faq_8_title">What if I want just a few particular folders visible?</string>
-    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
-        That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
-    <string name="faq_9_title">Fullscreen images have weird artifacts, can I somehow improve the quality?</string>
-    <string name="faq_9_text">Yea, there is a toggle in Settings saying \"Replace deep zoomable images with better quality ones\", you can use that. It will improve the quality of the images, but they will get blurred once you try zooming in too much.</string>
-    <string name="faq_10_title">Can I crop images with this app?</string>
-    <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
+    <string name="faq_1_title">如何把简约图库设置为设备的默认图库？</string>
+    <string name="faq_1_text">首先，你需要在设备设置的“应用”菜单中找到你当前的默认图库，找到并点击“默认打开”按钮，然后点击“清除默认值”。下次当你再次打开图片或视频时，你应该会看到一个应用程序选择器，请在这里选择“简约图库”并将其设为默认应用程序。</string>
+    <string name="faq_2_title">我用密码锁定了本应用，但我忘记了密码。该怎么办？</string>
+    <string name="faq_2_text">有两种方法。你可以重新安装本应用，也可以在设置中清除此应用的数据，这将会会重置你的所有设置，但不会删除任何媒体文件。</string>
+    <string name="faq_3_title">如何让某个相册始终显示在最上面？</string>
+    <string name="faq_3_text">你可以长按该相册并在操作栏中点击图钉图标，这样 就可以将其固定在顶部了。你也可以固定多个文件夹，固定项目将按照默认排序方法排序。</string>
+    <string name="faq_4_title">如何快进/快退视频？</string>
+    <string name="faq_4_text">可以点击底栏进度条两侧的时间文本，或拖动进度条。</string>
+    <string name="faq_5_title">文件夹的隐藏和排除有什么区别？</string>
+    <string name="faq_5_text">排除功能只是防止其在简约图库中显示，而隐藏功能则使用的是系统的方法，这样做也会在其他图库中隐藏。它的工作原理是在给定的文件夹中创建一个空的.nomedia文件，你可以使用任何文件管理器删除它。</string>
+    <string name="faq_6_title">为什么会出现音乐艺术家封面或贴纸文件夹？</string>
+    <string name="faq_6_text">你可能会看到一些不寻常的相册出现。你可以通过长按它们并选择“排除”来排除它们。在之后的对话框中，你可以选择父文件夹，这样也许就会阻止其他相关的相册出现。</string>
+    <string name="faq_7_title">有的图片文件夹没有显示，怎么回事？</string>
+    <string name="faq_7_text">原因可能有很多，但解决方法很简单。只需进入设置 -> 管理包含目录，点击+号并选择到所需的文件夹。</string>
+    <string name="faq_8_title">如果我只想显示几个特定的文件夹，该如何操作？</string>
+    <string name="faq_8_text">在包含目录中添加文件夹不会自动排除其他的内容。你可以做的：进入设置 -> 管理排除目录，排除根目录\"/\"，然后在设置 -> 管理包含目录中添加所需的文件夹。这样就只显示选定的文件夹了，由于排除和包含都是递归的，所以排除并包含的文件夹是会显示的。</string>
+    <string name="faq_9_title">全屏图像有些奇怪的东西，该如何提高画面质量？</string>
+    <string name="faq_9_text">在设置中有一个“用质量更好的图像替换可深度缩放的图像”开关，打开它后就可以提高图像的显示质量，但是一旦尝试放大太多次，它们就又会变得模糊不清。</string>
+    <string name="faq_10_title">可以裁剪图片吗？</string>
+    <string name="faq_10_text">当然，通过长按图片缩略图并选择编辑，或在全屏视图中选择编辑来打开编辑器。你可以通过拖动图片边角来剪裁图像。</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
