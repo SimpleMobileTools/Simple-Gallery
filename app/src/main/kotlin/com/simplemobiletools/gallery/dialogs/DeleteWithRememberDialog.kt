@@ -6,11 +6,12 @@ import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.gallery.R
 import kotlinx.android.synthetic.main.dialog_delete_with_remember.view.*
 
-class DeleteWithRememberDialog(val activity: Activity, val callback: (remember: Boolean) -> Unit) {
+class DeleteWithRememberDialog(val activity: Activity, val message: String, val callback: (remember: Boolean) -> Unit) {
     private var dialog: AlertDialog
     val view = activity.layoutInflater.inflate(R.layout.dialog_delete_with_remember, null)!!
 
     init {
+        view.delete_remember_title.text = message
         val builder = AlertDialog.Builder(activity)
                 .setPositiveButton(R.string.yes, { dialog, which -> dialogConfirmed() })
                 .setNegativeButton(R.string.no, null)

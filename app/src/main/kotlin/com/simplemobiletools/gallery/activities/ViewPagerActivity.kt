@@ -728,7 +728,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun askConfirmDelete() {
-        DeleteWithRememberDialog(this) {
+        DeleteWithRememberDialog(this, getString(R.string.proceed_with_deletion)) {
             mSkipConfirmationDialog = it
             deleteConfirmed()
         }

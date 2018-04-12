@@ -301,7 +301,9 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         if (config.skipDeleteConfirmation) {
             deleteFiles()
         } else {
-            ConfirmationDialog(activity) {
+            val items = resources.getQuantityString(R.plurals.delete_items, selectedPositions.size, selectedPositions.size)
+            val question = String.format(resources.getString(R.string.deletion_confirmation), items)
+            ConfirmationDialog(activity, question) {
                 deleteFiles()
             }
         }

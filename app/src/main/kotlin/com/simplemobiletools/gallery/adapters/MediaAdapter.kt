@@ -204,7 +204,9 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     private fun askConfirmDelete() {
-        DeleteWithRememberDialog(activity) {
+        val items = resources.getQuantityString(R.plurals.delete_items, selectedPositions.size, selectedPositions.size)
+        val question = String.format(resources.getString(R.string.deletion_confirmation), items)
+        DeleteWithRememberDialog(activity, question) {
             skipConfirmationDialog = it
             deleteFiles()
         }
