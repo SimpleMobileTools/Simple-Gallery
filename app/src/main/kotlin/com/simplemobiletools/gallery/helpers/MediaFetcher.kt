@@ -113,7 +113,7 @@ class MediaFetcher(val context: Context) {
             if (cursor.moveToFirst()) {
                 do {
                     val path = cursor.getStringValue(MediaStore.Images.Media.DATA).trim()
-                    val parentPath = File(path).parent.trimEnd('/')
+                    val parentPath = File(path).parent?.trimEnd('/') ?: continue
                     if (!includedFolders.contains(parentPath)) {
                         foldersToScan.add(parentPath)
                     }

@@ -38,7 +38,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
 
             val firstItem = curMedia.first()
             val lastItem = curMedia.last()
-            val parentDir = if (hasOTG && firstItem.path.startsWith(OTG_PATH)) firstItem.path.getParentPath() else File(firstItem.path).parent
+            val parentDir = if (hasOTG && firstItem.path.startsWith(OTG_PATH)) firstItem.path.getParentPath() else File(firstItem.path).parent ?: continue
             var thumbnail = curMedia.firstOrNull { context.getDoesFilePathExist(it.path) }?.path ?: ""
             if (thumbnail.startsWith(OTG_PATH)) {
                 thumbnail = thumbnail.getOTGPublicPath(context)
