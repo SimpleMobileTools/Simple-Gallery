@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 3.7.1 *(2018-04-12)*
+----------------------------
+
+ * Fix no media being shown to some people
+ * Fix some glitches at renaming files
+ * Show a count of files being deleted at the confirmation prompt
+
 Version 3.7.0 *(2018-04-10)*
 ----------------------------
 
