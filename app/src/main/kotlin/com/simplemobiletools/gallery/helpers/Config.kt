@@ -6,6 +6,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.helpers.BaseConfig
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
+import com.simplemobiletools.commons.helpers.SORT_BY_DATE_TAKEN
 import com.simplemobiletools.commons.helpers.SORT_DESCENDING
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.models.AlbumCover
@@ -17,7 +18,13 @@ class Config(context: Context) : BaseConfig(context) {
     }
 
     var directorySorting: Int
-        get() = prefs.getInt(DIRECTORY_SORT_ORDER, SORT_BY_DATE_MODIFIED or SORT_DESCENDING)
+        get(): Int {
+            var sort = prefs.getInt(DIRECTORY_SORT_ORDER, SORT_BY_DATE_MODIFIED or SORT_DESCENDING)
+            if (sort and SORT_BY_DATE_TAKEN != 0) {
+                sort = sort - SORT_BY_DATE_TAKEN + SORT_BY_DATE_MODIFIED
+            }
+            return sort
+        }
         set(order) = prefs.edit().putInt(DIRECTORY_SORT_ORDER, order).apply()
 
     fun saveFileSorting(path: String, value: Int) {
@@ -28,7 +35,13 @@ class Config(context: Context) : BaseConfig(context) {
         }
     }
 
-    fun getFileSorting(path: String) = prefs.getInt(SORT_FOLDER_PREFIX + path.toLowerCase(), sorting)
+    fun getFileSorting(path: String): Int {
+        var sort = prefs.getInt(SORT_FOLDER_PREFIX + path.toLowerCase(), sorting)
+        if (sort and SORT_BY_DATE_TAKEN != 0) {
+            sort = sort - SORT_BY_DATE_TAKEN + SORT_BY_DATE_MODIFIED
+        }
+        return sort
+    }
 
     fun removeFileSorting(path: String) {
         prefs.edit().remove(SORT_FOLDER_PREFIX + path.toLowerCase()).apply()
