@@ -4,8 +4,8 @@
     <string name="app_launcher_name">Галерея</string>
     <string name="edit">Редактировать</string>
     <string name="open_camera">Открыть камеру</string>
-    <string name="hidden">(Скрытые)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="hidden">(скрыто)</string>
+    <string name="excluded">(исключено)</string>
     <string name="pin_folder">Закрепить папку</string>
     <string name="unpin_folder">Открепить папку</string>
     <string name="pin_to_the_top">Закрепить сверху</string>
@@ -78,14 +78,14 @@
     <string name="flip">Отразить</string>
     <string name="flip_horizontally">По горизонтали</string>
     <string name="flip_vertically">По вертикали</string>
-    <string name="edit_with">Редактировать в …</string>
+    <string name="edit_with">Редактировать в…</string>
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Простые обои</string>
     <string name="set_as_wallpaper">Установить в качестве обоев</string>
     <string name="set_as_wallpaper_failed">Не удалось установить</string>
     <string name="set_as_wallpaper_with">Установить в качестве обоев в:</string>
-    <string name="setting_wallpaper">Установка обоев …</string>
+    <string name="setting_wallpaper">Установка обоев…</string>
     <string name="wallpaper_set_successfully">Обои успешно установлены</string>
     <string name="portrait_aspect_ratio">Портретная ориентация</string>
     <string name="landscape_aspect_ratio">Альбомная ориентация</string>
