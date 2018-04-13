@@ -328,6 +328,6 @@ class Config(context: Context) : BaseConfig(context) {
         set(wasNewAppShown) = prefs.edit().putBoolean(WAS_NEW_APP_SHOWN, wasNewAppShown).apply()
 
     var lastFilepickerPath: String
-        get() = prefs.getString(TEMP_FOLDER_PATH, "")
-        set(tempFolderPath) = prefs.edit().putString(TEMP_FOLDER_PATH, tempFolderPath).apply()
+        get() = prefs.getString(LAST_FILEPICKER_PATH, "")
+        set(lastFilepickerPath) = prefs.edit().putString(LAST_FILEPICKER_PATH, lastFilepickerPath).apply()
 }
