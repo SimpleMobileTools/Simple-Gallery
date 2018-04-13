@@ -5,6 +5,7 @@
     <string name="edit">Editar</string>
     <string name="open_camera">Abrir câmara</string>
     <string name="hidden">(oculta)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Fixar pasta</string>
     <string name="unpin_folder">Desafixar pasta</string>
     <string name="pin_to_the_top">Fixar no topo</string>
@@ -21,7 +22,6 @@
     <string name="use_default">Predefinição</string>
     <string name="volume">Volume</string>
     <string name="brightness">Brilho</string>
-    <string name="do_not_ask_again">Não perguntar de novo para esta sessão</string>
     <string name="lock_orientation">Bloquear orientação</string>
     <string name="unlock_orientation">Desbloquear orientação</string>
 
@@ -179,7 +179,7 @@
 
         Não contém anúncios nem permissões desnecessárias. Disponibiliza um tema escuro e é totalmente \'open source\'.
 
-        Esta aplicação é apenas parte de um conjunto mais vasto de aplicações. Saiba mais em http://www.simplemobiletools.com
+        Esta aplicação é apenas parte de um conjunto mais vasto de aplicações. Saiba mais em https://www.simplemobiletools.com
     </string>
 
     <!--

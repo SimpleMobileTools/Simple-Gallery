@@ -5,13 +5,13 @@ import java.io.File
 
 fun File.containsNoMedia() = isDirectory && File(this, NOMEDIA).exists()
 
-fun File.doesParentHaveNoMedia(): Boolean {
+fun File.doesThisOrParentHaveNoMedia(): Boolean {
     var curFile = this
     while (true) {
         if (curFile.containsNoMedia()) {
             return true
         }
-        curFile = curFile.parentFile
+        curFile = curFile.parentFile ?: break
         if (curFile.absolutePath == "/") {
             break
         }

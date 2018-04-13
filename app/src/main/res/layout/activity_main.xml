@@ -20,6 +20,7 @@
             android:paddingRight="@dimen/big_margin"
             android:paddingTop="@dimen/activity_margin"
             android:text="@string/no_media_with_filters"
+            android:textSize="@dimen/bigger_text_size"
             android:visibility="gone"/>
 
         <com.simplemobiletools.commons.views.MyTextView
@@ -31,6 +32,7 @@
             android:background="?attr/selectableItemBackground"
             android:padding="@dimen/activity_margin"
             android:text="@string/change_filters_underlined"
+            android:textSize="@dimen/bigger_text_size"
             android:visibility="gone"/>
 
         <com.simplemobiletools.commons.views.MyRecyclerView

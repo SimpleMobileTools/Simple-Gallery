@@ -30,7 +30,6 @@ class HiddenFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
                 }
 
                 val adapter = ManageHiddenFoldersAdapter(this, it, this, manage_folders_list) {}
-                adapter.setupDragListener(true)
                 manage_folders_list.adapter = adapter
             }
         }
@@ -54,7 +53,8 @@ class HiddenFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
     }
 
     private fun addFolder() {
-        FilePickerDialog(this, pickFile = false, showHidden = config.shouldShowHidden) {
+        FilePickerDialog(this, config.lastFilepickerPath, false, config.shouldShowHidden) {
+            config.lastFilepickerPath = it
             Thread {
                 addNoMedia(it) {
                     updateFolders()

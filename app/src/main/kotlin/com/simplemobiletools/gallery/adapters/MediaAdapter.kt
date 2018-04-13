@@ -44,6 +44,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     private var displayFilenames = config.displayFileNames
 
     init {
+        setupDragListener(true)
         enableInstantLoad()
     }
 
@@ -203,7 +204,9 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     private fun askConfirmDelete() {
-        DeleteWithRememberDialog(activity) {
+        val items = resources.getQuantityString(R.plurals.delete_items, selectedPositions.size, selectedPositions.size)
+        val question = String.format(resources.getString(R.string.deletion_confirmation), items)
+        DeleteWithRememberDialog(activity, question) {
             skipConfirmationDialog = it
             deleteFiles()
         }
@@ -256,10 +259,12 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     fun updateMedia(newMedia: ArrayList<Medium>) {
         if (newMedia.hashCode() != currentMediaHash) {
             currentMediaHash = newMedia.hashCode()
-            media = newMedia
-            enableInstantLoad()
-            notifyDataSetChanged()
-            finishActMode()
+            Handler().postDelayed({
+                media = newMedia.clone() as ArrayList<Medium>
+                enableInstantLoad()
+                notifyDataSetChanged()
+                finishActMode()
+            }, 100L)
         }
     }
 

@@ -1,6 +1,27 @@
 Changelog
 ==========
 
+Version 3.7.1 *(2018-04-12)*
+----------------------------
+
+ * Fix no media being shown to some people
+ * Fix some glitches at renaming files
+ * Show a count of files being deleted at the confirmation prompt
+
+Version 3.7.0 *(2018-04-10)*
+----------------------------
+
+ * Rewrote media file fetching for better performance and new item discovering
+ * Make un/hiding folders quicker
+ * Make automatic fullscreen toggling animation smoother by delaying it
+ * Many other smaller performance and UX improvements
+
+Version 3.6.3 *(2018-03-30)*
+----------------------------
+
+ * Couple file scanning and thumbnail displaying updates
+ * Show a dialog about the new Simple Clock app to some users
+
 Version 3.6.2 *(2018-03-23)*
 ----------------------------
 

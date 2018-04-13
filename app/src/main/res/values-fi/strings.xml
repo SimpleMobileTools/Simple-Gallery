@@ -5,6 +5,7 @@
     <string name="edit">Muokkaa</string>
     <string name="open_camera">Avaa kamera</string>
     <string name="hidden">(piilotettu)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Kiinnitä kansio</string>
     <string name="unpin_folder">Poista kiinnitys</string>
     <string name="pin_to_the_top">Kiinnitä ylimmäksi</string>
@@ -21,7 +22,6 @@
     <string name="use_default">Käytä oletuksia</string>
     <string name="volume">Äänenvoimakkuus</string>
     <string name="brightness">Kirkkaus</string>
-    <string name="do_not_ask_again">Älä kysy uudestaan tällä istunnolla</string>
     <string name="lock_orientation">Lukitse näytönkierto</string>
     <string name="unlock_orientation">Vapauta näytönkierto</string>
 
@@ -179,7 +179,7 @@
 
         Ei sisällä mainoksia tai turhia käyttöoikeuksia. Täysin avointa lähdekoodia, tarjoaa muokattavat värit.
 
-        Tämä sovellus on vain yksi osa suurempaa kokoelmaa. Löydät loput osoitteesta http://www.simplemobiletools.com
+        Tämä sovellus on vain yksi osa suurempaa kokoelmaa. Löydät loput osoitteesta https://www.simplemobiletools.com
     </string>
 
     <!--

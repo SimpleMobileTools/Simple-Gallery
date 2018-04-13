@@ -110,33 +110,44 @@ fun AppCompatActivity.hideSystemUI() {
 
 fun BaseSimpleActivity.addNoMedia(path: String, callback: () -> Unit) {
     val file = File(path, NOMEDIA)
-    if (file.exists())
+    if (file.exists()) {
+        callback()
         return
+    }
 
     if (needsStupidWritePermissions(path)) {
         handleSAFDialog(file.absolutePath) {
             val fileDocument = getDocumentFile(path)
             if (fileDocument?.exists() == true && fileDocument.isDirectory) {
                 fileDocument.createFile("", NOMEDIA)
+                applicationContext.scanFile(file) {
+                    callback()
+                }
             } else {
                 toast(R.string.unknown_error_occurred)
+                callback()
             }
         }
     } else {
         try {
             file.createNewFile()
+            applicationContext.scanFile(file) {
+                callback()
+            }
         } catch (e: Exception) {
             showErrorToast(e)
+            callback()
         }
-    }
-
-    applicationContext.scanFile(file) {
-        callback()
     }
 }
 
 fun BaseSimpleActivity.removeNoMedia(path: String, callback: (() -> Unit)? = null) {
     val file = File(path, NOMEDIA)
+    if (!file.exists()) {
+        callback?.invoke()
+        return
+    }
+
     deleteFile(file.toFileDirItem(applicationContext)) {
         callback?.invoke()
     }
@@ -235,7 +246,7 @@ fun Activity.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Bo
 
 fun Activity.getCachedDirectories(): ArrayList<Directory> {
     val token = object : TypeToken<List<Directory>>() {}.type
-    return Gson().fromJson<ArrayList<Directory>>(config.directories, token) ?: ArrayList<Directory>(1)
+    return Gson().fromJson<ArrayList<Directory>>(config.directories, token) ?: ArrayList(1)
 }
 
 fun Activity.getCachedMedia(path: String): ArrayList<Medium> {

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Simple Gallery</string>
+    <string name="app_launcher_name">Gallery</string>
+    <string name="edit">Επεξεργασία</string>
+    <string name="open_camera">Άνοιγμα κάμερας</string>
+    <string name="hidden">(κρυμμένο)</string>
+    <string name="excluded">(excluded)</string>
+    <string name="pin_folder">Καρφίτσωμα φακέλου</string>
+    <string name="unpin_folder">Ξεκαρφίτσωμα φακέλου</string>
+    <string name="pin_to_the_top">Καρφίτσωμα στην κορυφή</string>
+    <string name="show_all">Εμφάνιση περιεχομένου όλων των φακέλων</string>
+    <string name="all_folders">Όλοι οι φάκελοι</string>
+    <string name="folder_view">Αλλαγή στην εμφάνιση των φακέλων</string>
+    <string name="other_folder">Άλλος φάκελος</string>
+    <string name="show_on_map">Εμφάνιση στον χάρτη</string>
+    <string name="unknown_location">Άγνωστη τοποθεσία</string>
+    <string name="increase_column_count">Αύξηση αριθμού στηλών</string>
+    <string name="reduce_column_count">Μείωση αριθμού στηλών</string>
+    <string name="change_cover_image">Αλλαγή εικόνας εξώφυλλου</string>
+    <string name="select_photo">Επιλογή φωτογραφίας</string>
+    <string name="use_default">Χρήση προκαθορισμένου</string>
+    <string name="volume">Ένταση</string>
+    <string name="brightness">Φωτεινότητα</string>
+    <string name="lock_orientation">Κλείδωμα προσανατολισμού</string>
+    <string name="unlock_orientation">Ξεκλείδωμα προσανατολισμού</string>
+
+    <!-- Filter -->
+    <string name="filter_media">Φιλτράρισμα πολυμέσων</string>
+    <string name="images">Εικόνες</string>
+    <string name="videos">Βίντεο</string>
+    <string name="gifs">GIFs</string>
+    <string name="no_media_with_filters">Δεν βρέθηκε κανένα αρχείο πολυμέσων με τα επιλεγμένα φίλτρα.</string>
+    <string name="change_filters_underlined"><u>Αλλαγή φίλτρων</u></string>
+
+    <!-- Hide / Exclude -->
+    <string name="hide_folder_description">Αυτή η λειτουργικότητα κρύβει τον φάκελο προσθέτοντας ένα \'.nomedia\' αρχείο μέσα του, θα κρύψει και όλους τους υποφακέλους επίσης. Μπορείτε να τους δείτε με την επιλογή του \'Εμφάνιση κρυφών δεδομένων\' στις Ρυθμίσεις. Συνέχεια?</string>
+    <string name="exclude">Εξαίρεση</string>
+    <string name="excluded_folders">Εξαίρεση φακέλων</string>
+    <string name="manage_excluded_folders">Διαχείριση εξαιρεμένων φακέλων</string>
+    <string name="exclude_folder_description">Αυτό θα εξαιρέσει το επιλεγμένο μαζί με τους υποφακέλους από το Simple Gallery μόνο. Μπορείτε να διαχειριστείτε τους φακέλους που εξαιρέθηκαν στις Ρυθμίσεις.</string>
+    <string name="exclude_folder_parent">Να εξαιρεθεί μήπως ο γονικός φάκελος;</string>
+    <string name="excluded_activity_placeholder">Εξαιρώντας τους φακέλους, θα τους αποκρύψει μαζί με τους υποφακέλους τους μόνο στο Simple Gallery, θα είναι ορατοί στις υπόλοιπες εφαρμογές.\n\nΑν θέλετε να τους αποκρύψετε και στις υπόλοιπες εφαρμογές, χρησιμοποιήστε την λειτουργία Απόκρυψη.</string>
+    <string name="remove_all">Διαγραφή όλων</string>
+    <string name="remove_all_description">Να αφαιρεθούν όλοι οι φάκελοι από την λίστα των εξαιρεμένων; Αυτό δεν θα διαγράψει τους φακέλους.</string>
+    <string name="hidden_folders">Κρυφοί φάκελοι</string>
+    <string name="manage_hidden_folders">Διαχείριση κρυφών φακέλων</string>
+    <string name="hidden_folders_placeholder">Φαίνεται πως δεν υπάρχουν κρυφοί φάκελοι με \".nomedia\" αρχείο.</string>
+
+    <!-- Include folders -->
+    <string name="include_folders">Φάκελοι που συμπεριλαμβάνονται</string>
+    <string name="manage_included_folders">Διαχείριση φακέλων που συμπεριλαμβάνονται</string>
+    <string name="add_folder">Προσθήκη φακέλου</string>
+    <string name="included_activity_placeholder">Αν υπάρχουν κάποιοι φάκελοι που περιέχουν πολυμέσα, αλλά δεν αναγνωρίζονται από την εφαρμογή,  μπορείτε να τους προσθέσετε χειροκίνητα εδώ.\n\nΗ προσθήκη στοιχείων εδώ, δεν θα εξαιρέσει κάποιον άλλο φάκελο.</string>
+
+    <!-- Resizing -->
+    <string name="resize">Αλλαγή μεγέθους</string>
+    <string name="resize_and_save">Αλλαγή μεγέθους και αποθήκευση</string>
+    <string name="width">Πλάτος</string>
+    <string name="height">Ύψος</string>
+    <string name="keep_aspect_ratio">Διατήρηση αναλογίας</string>
+    <string name="invalid_values">Παρακαλώ εισάγετε σωστή ανάλυση</string>
+
+    <!-- Editor -->
+    <string name="editor">Επεξεργαστής</string>
+    <string name="save">Αποθήκευση</string>
+    <string name="rotate">Γύρισμα</string>
+    <string name="path">Μονοπάτι</string>
+    <string name="invalid_image_path">Λάθος μονοπάτι εικόνας</string>
+    <string name="image_editing_failed">Η επεξεργασία εικόνας απέτυχε</string>
+    <string name="edit_image_with">Επεξεργασία εικόνας με:</string>
+    <string name="no_editor_found">Δεν βρέθηκε επεργαστής για τις εικόνες</string>
+    <string name="unknown_file_location">Άγνωστη τοποθεσία αρχείου</string>
+    <string name="error_saving_file">Δεν ήταν δυνατή η αντικατάσταση του αρχείου πηγής</string>
+    <string name="rotate_left">Στροφή αριστερά</string>
+    <string name="rotate_right">Στροφή δεξιά</string>
+    <string name="rotate_one_eighty">Στροφή κατά 180º</string>
+    <string name="flip">Αναποδογύρισμα</string>
+    <string name="flip_horizontally">Οριζόντιο αναποδογύρισμα</string>
+    <string name="flip_vertically">Κατακόρυφο αναποδογύρισμα</string>
+    <string name="edit_with">Επεξεργασία με</string>
+
+    <!-- Set wallpaper -->
+    <string name="simple_wallpaper">Simple Wallpaper</string>
+    <string name="set_as_wallpaper">Εφαρμογή ως ταπετσαρία</string>
+    <string name="set_as_wallpaper_failed">Η εφαρμογή ως ταπετσαρία απέτυχε</string>
+    <string name="set_as_wallpaper_with">Εφαρμογή ως ταπετσαρία με:</string>
+    <string name="setting_wallpaper">Εφαρμογή ταπετσαρίας&#8230;</string>
+    <string name="wallpaper_set_successfully">Εφαρμογή ταπετσαρίας επιτυχώς</string>
+    <string name="portrait_aspect_ratio">Αναλογία σε κατακόρυφη προβολή</string>
+    <string name="landscape_aspect_ratio">Αναλογία σε οριζόντια προβολή</string>
+    <string name="home_screen">Αρχική οθόνη</string>
+    <string name="lock_screen">Οθόνη κλειδώματος</string>
+    <string name="home_and_lock_screen">Αρχική οθόνη και κλειδώματος</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">Προβολή εικόνων</string>
+    <string name="interval">Χρόνος επανάληψης (δευτερόλεπτα):</string>
+    <string name="include_photos">Συμπερίληψη φωτογραφιών</string>
+    <string name="include_videos">Συμπερίληψη βίντεο</string>
+    <string name="include_gifs">Include GIFs</string>6
+    <string name="random_order">Τυχαία σειρά</string>
+    <string name="use_fade">Use fade animations</string>
+    <string name="move_backwards">Κίνηση προς τα πίσω</string>
+    <string name="loop_slideshow">Επανάληψη εμφάνισης διαφανιών</string>
+    <string name="slideshow_ended">Η εμφάνιση διαφανειών τελείωσε</string>
+    <string name="no_media_for_slideshow">Δεν βρέθηκαν πολυμέσα για την εμφάνιση διαφανειών</string>
+
+    <!-- View types -->
+    <string name="change_view_type">Αλλαγή τύπου εμφάνισης</string>
+    <string name="grid">Πλέγμα</string>
+    <string name="list">Λίστα</string>
+
+    <!-- Settings -->
+    <string name="autoplay_videos">Αυτόματη αναπαραγωγή βίντεο</string>
+    <string name="toggle_filename">Αλλαγή ορατότητας ονόματος αρχείων</string>
+    <string name="loop_videos">Επανάληψη βίντεο</string>
+    <string name="animate_gifs">Εμφάνιση κινούμενων GIFs στα εικονίδια</string>
+    <string name="max_brightness">Μέγιστη φωτεινότητα κατά την θέαση πλήρους οθόνης</string>
+    <string name="crop_thumbnails">Κόψιμο εικονιδίων σε τετράγωνα</string>
+    <string name="screen_rotation_by">Γύρισμα των πολυμέσων πλήρους οθόνης με</string>
+    <string name="screen_rotation_system_setting">Ρυθμίσεις συστήματος</string>
+    <string name="screen_rotation_device_rotation">Περιστροφή συσκευής</string>
+    <string name="screen_rotation_aspect_ratio">Αναλογία εικόνας</string>
+    <string name="black_background_at_fullscreen">Μαύρο φόντο και μπάρα κατάστασης σε πλήρη οθόνη</string>
+    <string name="scroll_thumbnails_horizontally">Κύλιση εικονιδίων οριζόντια</string>
+    <string name="hide_system_ui_at_fullscreen">Αυτόματη απόκρυψη στοιχείων συστήματος σε πλήρη οθόνη</string>
+    <string name="delete_empty_folders">Διαγραφή άδειων φακέλων, όταν διαγραφεί το περιεχόμενό τους</string>
+    <string name="allow_photo_gestures">Να επιτρέπεται ο έλεγχος φωτεινότητας με κατακόρυφες κινήσεις</string>
+    <string name="allow_video_gestures">Να επιτρέπεται ο έλεγχος έντασης του βίντεο και φωτεινότητας με κατακόρυφες
+        κινήσεις (gestures)</string>
+    <string name="show_media_count">Εμφάνιση του πλήθους των πολυμέσων σε φάκελο, στην κύρια οθόνη</string>
+    <string name="replace_share_with_rotate">Αντικατάσταση της "Κοινής χρήσης" με "Περιστροφή" στο μενού πλήρους οθόνης</string>
+    <string name="show_extended_details">Εμφάνιση λεπτομερειών στα πολυμέσα σε κατάσταση πλήρους οθόνης</string>
+    <string name="manage_extended_details">Διαχείριση εκτεταμένων λεπτομερειών</string>
+    <string name="one_finger_zoom">Να επιτρέπεται μεγένθυση με ένα δάχτυλο σε πλήρη οθόνη</string>
+    <string name="allow_instant_change">Να επιτρέπεται η άμεση αλλαγή των μέσων με το άγγιγμα στις άκρες της οθόνης</string>
+    <string name="replace_zoomable_images">Αντικατάσταση των φωτογραφιών που απαιτούν ζούμ με άλλες καλύτερης ποιότητας</string>
+    <string name="hide_extended_details">Απόκρυψη λεπτομερειών όταν η μπάρα κατάστασης είναι κρυμμένη</string>
+    <string name="do_extra_check">Επιπλέον έλεγχος για την αποφυγή εμφάνισης λανθασμένων αρχείων</string>
+
+    <!-- Setting sections -->
+    <string name="thumbnails">Εικονίδια</string>
+    <string name="fullscreen_media">Πολυμέσα πλήρους οθόνης</string>
+    <string name="extended_details">Περισσότερες λεπτομέρειες</string>
+
+    <!-- FAQ -->
+    <string name="faq_1_title">Πως μπορώ να κάνω το Simple Gallery προκαθορισμένη εφαρμογή συλλογής πολυμέσων;</string>
+    <string name="faq_1_text">Αρχικά πρέπει να βρείτε την τρέχουσα προεπιλεγμένη εφαρμογή γκάλερι στις Ρυθμίσεις(τμήμα Εφαρμογών) της συσκευής, αναζητήστε για ένα κουμπί που αναφέρει κάτι σαν \"Άνοιγμα με προεπιλογή\", πατήστε το, μετά επιλέξτε \"Καθαρισμός προεπιλεγμένων\".
+        Την επόμενη φορά που θα προσπαθήσετε να ανοίξετε μία εικόνα ή ένα βίντεο θα πρέπει να δείτε έναν διάλογο επιλογής εφαρμογών, όπου μπορείτε να επιλέξετε Simple Gallery να το κάνετε προεπιλεγμένη εφαρμογή.</string>
+    <string name="faq_2_title">Κλείδωσα την εφαρμογή με κωδικό, αλλά τον ξέχασα. Τι μπορώ να κάνω;</string>
+    <string name="faq_2_text">Υπάρχουν 2 λύσεις. Είτε επανεγκατάσταση της εφαρμογής, ή να εντοπίσετε την εφαρμογή στις ρυθμίσεις της συσκευής και να επιλέξετε \"Καθαρισμό δεδομένων\". Θα επαναφέρει όλες τις ρυθμίσεις και δεν θα σβήσει κάποιο αρχείο πολυμέσου.</string>
+    <string name="faq_3_title">Πως μπορώ να κάνω ένα άλμπυμ να φαίνεται στην κορυφή;</string>
+    <string name="faq_3_text">Μπορείτε να πατήσετε παρατεταμένα στο άλμπουμ και να επιλέξετε το εικονίδιο καρφιτσώματος στο μενού, αυτό θα το καρφιτσώσει στην κορυφή. Επίσης μπορείτε να καρφιτσώσετε πολλαπλούς φακέλους, τα καρφιτσωμένα αντικείμενα θα είναι ταξινομημένα με την προεπιλεγμένη μέθοδο.</string>
+    <string name="faq_4_title">Πως μπορώ να τρέξω μπροστά (fast-forward) τα βίντεο;</string>
+    <string name="faq_4_text">Μπορείτε να αγγίξετε στο τρέχον ή στο κείμενο μέγιστης διάρκειας κοντά στην μπάρα αναζήτησης, αυτό θα μετακινήσει το βίντεο μπροστά ή πίσω.</string>
+    <string name="faq_5_title">Ποια είναι διαφορά μεταξύ απόκρυψης και εξαίρεσης ενός φακέλου;</string>
+    <string name="faq_5_text">Η εξαίρεση δεν επιτρέπει την εμφάνιση του φακέλου μόνο στο Simple Gallery, ενώ η απόκρυψη λειτουργεί σε επίπεδο συστήματος και θα αποκρύψει τον φάκελο και από άλλες εφαρμογές γκάλερι. Λειτουργεί δημιουργώντας ένα άδειο \".nomedia\" αρχείο στον επιλεγμένο φάκελο, το οποίο μπορείτε να το διαγράψετε και με οποιονδήποτε διαχειριστή αρχείων.</string>
+    <string name="faq_6_title">Γιατί εμφανίζονται φάκελοι με εξώφυλλο μουσικής ή αυτόκολλητα ;</string>
+    <string name="faq_6_text">Είναι πιθανόν να δείτε κάποια περίεργα άλμπουμ να εμφανίζονται. Μπορείτε να τα εξαιρέσετε εύκολα με παρατεταμένο άγγιγμα και επιλογή του Εξαίρεση. Στον επόμενο διάλογο μπορείτε να επιλέξετε επάνω φάκελο, είναι πιθανό να μην επιτρέψει την εμφάνιση και άλλων σχετικών άλμπουμ.</string>
+    <string name="faq_7_title">Ένας φάκελος με εικόνες δεν εμφανίζεται, τι μπορώ να κάνω;</string>
+    <string name="faq_7_text">Υπάρχει διάφοροι λόγοι, αλλά είναι εύκολη η λύση. Επιλέξτε Ρυθμίσεις -> Διαχείριση Συμπεριβαλομένων Φακέλων, επιλέξτε Προσθήκη και πλοηγηθείτε στον ζητούμενο φάκελο.</string>
+    <string name="faq_8_title">Πως μπορώ να επιλέξω μόνο κάποιους φακέλους να εμφανίζονται;</string>
+    <string name="faq_8_text">Η προσθήκη ενός φακέλου στους Συμπεριλαμβανόμενους Φακέλους δεν εξαιρεί αυτόματα τίποτα. Μπορείτε να πάτε στις Ρυμίσεις-> Διαχείριση Εξαιρεμένων Φακέλων, εξαιρέστε τον ριζικό φάκελο \"/\", έπειτα προσθέστε τους φακέλους στο Ρυθμίσεις -> Διαχείριση Συμπεριλαμβανομένων Φακέλων.
+        Αυτό θα κάνει ορατούς μόνο τους επιλεγμένους φακέλους, καθώς η εξαίρεση και η συμπερίληψη λειτουργούν αναδρομικά και αν ενας φάκελος ανήκει και στα 2, θα εμφανιστεί.</string>
+    <string name="faq_9_title">Οι εικόνες πλήρους οθόνης έχουν κάποια περίεργα σημάδια, μπορώ κάπως να βελτιώσω την ποιότητα;</string>
+    <string name="faq_9_text">Ναι υπάρχει ένας διακόπτης στις Ρυθμίσεις με το κείμενο \"Αντικατάσταση των φωτογραφιών που απαιτούν ζούμ με άλλες καλύτερης ποιότητας\", μπορείτε να χρησιμοποιήσετε αυτό. Θα βελτιώσει την ποιότητα των φωτογραφιών, αλλά θα θολώσουν στο μεγάλο ζουμ.</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">Μία γκάλερι για την προβολή φωτογραφιών και βίντεο χωρίς διαφημίσεις.</string>
+    <string name="app_long_description">
+        Μία απλή εφαρμογή για την εμφάνιση φωτογραφιών και βίντεο. Τα αντικείμενα μπορούνα να ταξινομηθούν με βάση την ημερ/νία, το μέγεθος και το όνομα με αύξουσα ή φθίσουσα σειρά, οι φωτογραφίες μπορούν να μεγενθυθούν. Τα αρχεία πολυμέσων εμφανίζονται σε πολλαπλές στήλες ανάλογα με τον μέγεθος της οθόνης, μπορείτε να αλλάξετε το πλήθος των στηλών με τα 2 δάχτυλα(pintch). Μπορούν να μετονομαστούν, να μοιραστούν, να διαγραφούν, να αντιγραφούν και να μετακινηθούν. Οι εικόνας επίσης μπορούν να κοπούν, να γυριστούν, να αντιστραφούν ή να μπούν σαν Wallpaper κατευθείαν από την εφαρμογή.
+
+        Η γκάλερι επίσης μπορεί να χρησιμοποιηθεί από άλλες εφαρμογές για προεμφάνιση φωτογραφιών / βίντεο, να μπουν ως επισυνάψεις σε εφαρμογές email κλπ. Είναι τέλεια για καθημερινή χρήση.
+
+        Το δικαίωμα δαχτυλικού αποτυπώματος χρειάζεται για το κλείδωμα των κρυφών αντικειμένων ή ολόκληρης της εφαρμογής.
+
+        Δεν περιέχει διαφημίσεις ή περιττά δικαιώματα. Έιναι όλη ανοιχτού κώδικα, και δίνει την δυνατότητα επιλογής των χρωμάτων της εφαρμογής.
+
+        Αυτή η εφαργμογή είναι κομμάτι μιας σειρά εφαρμογών. Μπορείτε να βρείτε τις υπόλοιπες στο https://www.simplemobiletools.com
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>

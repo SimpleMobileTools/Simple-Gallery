@@ -5,7 +5,6 @@ import android.content.ClipData
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
 import android.os.Handler
 import android.provider.MediaStore
 import android.support.v7.widget.GridLayoutManager
@@ -15,7 +14,6 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
-import com.simplemobiletools.commons.dialogs.NewAppDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_READ_STORAGE
@@ -38,13 +36,12 @@ import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.*
-import java.util.*
 
 class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private val PICK_MEDIA = 2
     private val PICK_WALLPAPER = 3
     private val LAST_MEDIA_CHECK_PERIOD = 3000L
-    private val CONTACTS_PACKAGE = "com.simplemobiletools.contacts"
+    private val NEW_APP_PACKAGE = "com.simplemobiletools.clock"
 
     lateinit var mDirs: ArrayList<Directory>
 
@@ -66,13 +63,13 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mCurrAsyncTask: GetDirectoriesAsynctask? = null
     private var mZoomListener: MyRecyclerView.MyZoomListener? = null
 
-    private var mStoredUseEnglish = false
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
     private var mStoredScrollHorizontally = true
     private var mStoredShowMediaCount = true
     private var mStoredShowInfoBubble = true
     private var mStoredTextColor = 0
+    private var mStoredPrimaryColor = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -102,10 +99,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mIsPasswordProtectionPending = config.appPasswordProtectionOn
         setupLatestMediaId()
 
-        // notify the users about the Contacts app
-        /*if (System.currentTimeMillis() < 1521015000000 && !config.wasNewAppShown && config.appRunCount > 100 && config.appRunCount % 50 != 0 && !isPackageInstalled(CONTACTS_PACKAGE)) {
+        // notify some users about the Clock app
+        /*if (System.currentTimeMillis() < 1523750400000 && !config.wasNewAppShown && config.appRunCount > 100 && config.appRunCount % 50 != 0 && !isPackageInstalled(NEW_APP_PACKAGE)) {
             config.wasNewAppShown = true
-            NewAppDialog(this, CONTACTS_PACKAGE, "Simple Contacts")
+            NewAppDialog(this, NEW_APP_PACKAGE, "Simple Clock")
         }*/
     }
 
@@ -117,30 +114,32 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     override fun onResume() {
         super.onResume()
         config.isThirdPartyIntent = false
-        if (mStoredUseEnglish != config.useEnglish) {
-            restartActivity()
-            return
-        }
 
         if (mStoredAnimateGifs != config.animateGifs) {
-            getDirectoryAdapter()?.updateAnimateGifs(config.animateGifs)
+            getRecyclerAdapter()?.updateAnimateGifs(config.animateGifs)
         }
 
         if (mStoredCropThumbnails != config.cropThumbnails) {
-            getDirectoryAdapter()?.updateCropThumbnails(config.cropThumbnails)
+            getRecyclerAdapter()?.updateCropThumbnails(config.cropThumbnails)
         }
 
         if (mStoredShowMediaCount != config.showMediaCount) {
-            getDirectoryAdapter()?.updateShowMediaCount(config.showMediaCount)
+            getRecyclerAdapter()?.updateShowMediaCount(config.showMediaCount)
         }
 
         if (mStoredScrollHorizontally != config.scrollHorizontally || mStoredShowInfoBubble != config.showInfoBubble) {
-            getDirectoryAdapter()?.updateScrollHorizontally(config.viewTypeFolders != VIEW_TYPE_LIST && config.scrollHorizontally)
+            getRecyclerAdapter()?.updateScrollHorizontally(config.viewTypeFolders != VIEW_TYPE_LIST && config.scrollHorizontally)
             setupScrollDirection()
         }
 
         if (mStoredTextColor != config.textColor) {
-            getDirectoryAdapter()?.updateTextColor(config.textColor)
+            getRecyclerAdapter()?.updateTextColor(config.textColor)
+        }
+
+        if (mStoredPrimaryColor != config.primaryColor) {
+            getRecyclerAdapter()?.updatePrimaryColor(config.primaryColor)
+            directories_vertical_fastscroller.updatePrimaryColor()
+            directories_horizontal_fastscroller.updatePrimaryColor()
         }
 
         directories_horizontal_fastscroller.updateBubbleColors()
@@ -188,6 +187,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         config.temporarilyShowHidden = false
         mTempShowHiddenHandler.removeCallbacksAndMessages(null)
         removeTempFolder()
+
+        if (!mDirs.isEmpty()) {
+            mCurrAsyncTask?.stopFetching()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -222,28 +225,28 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         return true
     }
 
-    private fun getDirectoryAdapter() = directories_grid.adapter as? DirectoryAdapter
+    private fun getRecyclerAdapter() = directories_grid.adapter as? DirectoryAdapter
 
     private fun storeStateVariables() {
         config.apply {
-            mStoredUseEnglish = useEnglish
             mStoredAnimateGifs = animateGifs
             mStoredCropThumbnails = cropThumbnails
             mStoredScrollHorizontally = scrollHorizontally
             mStoredShowMediaCount = showMediaCount
             mStoredShowInfoBubble = showInfoBubble
             mStoredTextColor = textColor
+            mStoredPrimaryColor = primaryColor
         }
     }
 
     private fun removeTempFolder() {
         if (config.tempFolderPath.isNotEmpty()) {
-            /*val newFolder = File(config.tempFolderPath)
+            val newFolder = File(config.tempFolderPath)
             if (newFolder.exists() && newFolder.isDirectory) {
                 if (newFolder.list()?.isEmpty() == true) {
                     deleteFile(newFolder.toFileDirItem(applicationContext), true)
                 }
-            }*/
+            }
             config.tempFolderPath = ""
         }
     }
@@ -258,7 +261,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 }
 
                 setupLayoutManager()
-                checkIfColorChanged()
             } else {
                 toast(R.string.no_storage_permissions)
                 finish()
@@ -288,17 +290,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             gotDirectories(addTempFolderIfNeeded(it), false)
         }
         mCurrAsyncTask!!.execute()
-
-        // try ensuring that the screenshots folders is properly added to the mediastore
-        if (config.appRunCount < 5) {
-            Thread {
-                val pictures = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
-                val screenshots = File(pictures, "Screenshots")
-                if (screenshots.exists()) {
-                    scanFile(screenshots)
-                }
-            }.start()
-        }
     }
 
     private fun showSortingDialog() {
@@ -362,14 +353,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         invalidateOptionsMenu()
     }
 
-    private fun checkIfColorChanged() {
-        if (directories_grid.adapter != null && getRecyclerAdapter().primaryColor != config.primaryColor) {
-            getRecyclerAdapter().primaryColor = config.primaryColor
-            directories_vertical_fastscroller.updatePrimaryColor()
-            directories_horizontal_fastscroller.updatePrimaryColor()
-        }
-    }
-
     override fun deleteFolders(folders: ArrayList<File>) {
         val fileDirItems = folders.map { FileDirItem(it.absolutePath, it.name, true) } as ArrayList<FileDirItem>
         deleteFolders(fileDirItems) {
@@ -378,8 +361,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             }
         }
     }
-
-    private fun getRecyclerAdapter() = (directories_grid.adapter as DirectoryAdapter)
 
     private fun setupLayoutManager() {
         if (config.viewTypeFolders == VIEW_TYPE_GRID) {
@@ -409,14 +390,14 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 override fun zoomIn() {
                     if (layoutManager.spanCount > 1) {
                         reduceColumnCount()
-                        getRecyclerAdapter().finishActMode()
+                        getRecyclerAdapter()?.finishActMode()
                     }
                 }
 
                 override fun zoomOut() {
                     if (layoutManager.spanCount < MAX_COLUMN_COUNT) {
                         increaseColumnCount()
-                        getRecyclerAdapter().finishActMode()
+                        getRecyclerAdapter()?.finishActMode()
                     }
                 }
             }
@@ -570,11 +551,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun gotDirectories(newDirs: ArrayList<Directory>, isFromCache: Boolean) {
-        if (!isFromCache) {
+        /*if (!isFromCache) {
             Thread {
                 checkFolderContentChange(newDirs)
             }.start()
-        }
+        }*/
 
         val dirs = getSortedDirectories(newDirs)
         directories_refresh_layout.isRefreshing = false
@@ -627,7 +608,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 itemClicked((it as Directory).path)
             }.apply {
                 setupZoomListener(mZoomListener)
-                setupDragListener(true)
                 directories_grid.adapter = this
             }
         } else {
@@ -659,7 +639,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
     }
 
-    private fun getBubbleTextItem(index: Int) = getRecyclerAdapter().dirs.getOrNull(index)?.getBubbleText() ?: ""
+    private fun getBubbleTextItem(index: Int) = getRecyclerAdapter()?.dirs?.getOrNull(index)?.getBubbleText() ?: ""
 
     private fun setupLatestMediaId() {
         Thread {
@@ -699,6 +679,15 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     override fun recheckPinnedFolders() {
         gotDirectories(movePinnedDirectoriesToFront(mDirs), true)
+    }
+
+    override fun updateDirectories(directories: ArrayList<Directory>, refreshList: Boolean) {
+        if (refreshList) {
+            gotDirectories(directories, true)
+        } else {
+            mDirs = directories
+            storeDirectories()
+        }
     }
 
     private fun checkWhatsNewDialog() {

@@ -5,6 +5,7 @@
     <string name="edit">Bewerken</string>
     <string name="open_camera">Camera</string>
     <string name="hidden">(verborgen)</string>
+    <string name="excluded">(uitgesloten)</string>
     <string name="pin_folder">Map vastzetten</string>
     <string name="unpin_folder">Map losmaken</string>
     <string name="pin_to_the_top">Bovenaan vastzetten</string>
@@ -21,7 +22,6 @@
     <string name="use_default">Standaard gebruiken</string>
     <string name="volume">Volume</string>
     <string name="brightness">Helderheid</string>
-    <string name="do_not_ask_again">Onthouden voor deze sessie</string>
     <string name="lock_orientation">Schermoriëntatie vergrendelen</string>
     <string name="unlock_orientation">Schermoriëntatie ontgrendelen</string>
 
@@ -179,7 +179,7 @@
 
         Bevat geen advertenties of onnodige machtigingen. Volledig open-source. Kleuren van de app kunnen worden aangepast.
 
-        Deze app is onderdeel van een grotere verzameling. Vind de andere apps op http://www.simplemobiletools.com
+        Deze app is onderdeel van een grotere verzameling. Vind de andere apps op https://www.simplemobiletools.com
     </string>
 
     <!--

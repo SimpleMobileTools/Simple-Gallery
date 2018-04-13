@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.adapters
 
+import android.util.SparseArray
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
@@ -27,8 +28,9 @@ import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.directory_item_list.view.*
 import java.io.File
 import java.util.*
+import kotlin.collections.ArrayList
 
-class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Directory>, val listener: DirOperationsListener?, recyclerView: MyRecyclerView,
+class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directory>, val listener: DirOperationsListener?, recyclerView: MyRecyclerView,
                        val isPickIntent: Boolean, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit) :
         MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick) {
 
@@ -40,6 +42,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
     private var animateGifs = config.animateGifs
     private var cropThumbnails = config.cropThumbnails
     private var currentDirectoriesHash = dirs.hashCode()
+
+    init {
+        setupDragListener(true)
+    }
 
     override fun getActionMenuId() = R.menu.cab_directories
 
@@ -111,7 +117,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
         var hiddenCnt = 0
         var unhiddenCnt = 0
         selectedPositions.mapNotNull { dirs.getOrNull(it)?.path }.forEach {
-            if (File(it).containsNoMedia()) {
+            if (File(it).doesThisOrParentHaveNoMedia()) {
                 hiddenCnt++
             } else {
                 unhiddenCnt++
@@ -149,8 +155,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
     }
 
     private fun renameDir() {
-        val path = dirs[selectedPositions.first()].path
-        val dir = File(path)
+        val sourcePath = dirs[selectedPositions.first()].path
+        val dir = File(sourcePath)
         if (activity.isAStorageRootFolder(dir.absolutePath)) {
             activity.toast(R.string.rename_folder_root)
             return
@@ -158,47 +164,106 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
 
         RenameItemDialog(activity, dir.absolutePath) {
             activity.runOnUiThread {
-                listener?.refreshItems()
-                finishActMode()
+                if (selectedPositions.isEmpty()) {
+                    return@runOnUiThread
+                }
+
+                dirs[selectedPositions.first()].apply {
+                    path = it
+                    name = it.getFilenameFromPath()
+                    tmb = File(it, tmb.getFilenameFromPath()).absolutePath
+                }
+                updateDirs(dirs)
+                listener?.updateDirectories(dirs.toList() as ArrayList, false)
             }
         }
     }
 
     private fun toggleFoldersVisibility(hide: Boolean) {
         getSelectedPaths().forEach {
+            val path = it
             if (hide) {
                 if (config.wasHideFolderTooltipShown) {
-                    hideFolder(it)
+                    hideFolder(path)
                 } else {
                     config.wasHideFolderTooltipShown = true
                     ConfirmationDialog(activity, activity.getString(R.string.hide_folder_description)) {
-                        hideFolder(it)
+                        hideFolder(path)
                     }
                 }
             } else {
-                activity.removeNoMedia(it) {
-                    activity.scanPath(it)
-                    noMediaHandled()
+                activity.removeNoMedia(path) {
+                    if (activity.config.shouldShowHidden) {
+                        updateFolderNames()
+                    } else {
+                        activity.runOnUiThread {
+                            listener?.refreshItems()
+                            finishActMode()
+                        }
+                    }
                 }
             }
         }
     }
 
+    private fun updateFolderNames() {
+        val includedFolders = activity.config.includedFolders
+        val hidden = activity.getString(R.string.hidden)
+        dirs.forEach {
+            it.name = activity.checkAppendingHidden(it.path, hidden, includedFolders)
+        }
+        listener?.updateDirectories(dirs.toList() as ArrayList, false)
+        activity.runOnUiThread {
+            updateDirs(dirs)
+        }
+    }
+
     private fun hideFolder(path: String) {
         activity.addNoMedia(path) {
-            noMediaHandled()
+            if (activity.config.shouldShowHidden) {
+                updateFolderNames()
+            } else {
+                val affectedPositions = ArrayList<Int>()
+                val includedFolders = activity.config.includedFolders
+                val newDirs = dirs.filterIndexed { index, directory ->
+                    val removeDir = File(directory.path).doesThisOrParentHaveNoMedia() && !includedFolders.contains(directory.path)
+                    if (removeDir) {
+                        affectedPositions.add(index)
+                    }
+                    !removeDir
+                } as ArrayList<Directory>
+
+                activity.runOnUiThread {
+                    affectedPositions.sortedDescending().forEach {
+                        notifyItemRemoved(it)
+                        itemViews.put(it, null)
+                    }
+
+                    val newItems = SparseArray<View>()
+                    (0 until itemViews.size())
+                            .filter { itemViews[it] != null }
+                            .forEachIndexed { curIndex, i -> newItems.put(curIndex, itemViews[i]) }
+
+                    currentDirectoriesHash = newDirs.hashCode()
+                    itemViews = newItems
+                    dirs = newDirs
+                    finishActMode()
+                    fastScroller?.measureRecyclerView()
+                    listener?.updateDirectories(newDirs, false)
+                }
+            }
         }
     }
 
     private fun tryExcludeFolder() {
-        ExcludeFolderDialog(activity, getSelectedPaths().toList()) {
-            listener?.refreshItems()
-            finishActMode()
-        }
-    }
-
-    private fun noMediaHandled() {
-        activity.runOnUiThread {
+        val paths = getSelectedPaths()
+        if (paths.size == 1) {
+            ExcludeFolderDialog(activity, paths.toList()) {
+                listener?.refreshItems()
+                finishActMode()
+            }
+        } else {
+            activity.config.addExcludedFolders(paths)
             listener?.refreshItems()
             finishActMode()
         }
@@ -236,7 +301,9 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
         if (config.skipDeleteConfirmation) {
             deleteFiles()
         } else {
-            ConfirmationDialog(activity) {
+            val items = resources.getQuantityString(R.plurals.delete_items, selectedPositions.size, selectedPositions.size)
+            val question = String.format(resources.getString(R.string.deletion_confirmation), items)
+            ConfirmationDialog(activity, question) {
                 deleteFiles()
             }
         }
@@ -317,7 +384,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
     fun updateDirs(newDirs: ArrayList<Directory>) {
         if (newDirs.hashCode() != currentDirectoriesHash) {
             currentDirectoriesHash = newDirs.hashCode()
-            dirs = newDirs
+            dirs = newDirs.clone() as ArrayList<Directory>
             notifyDataSetChanged()
             finishActMode()
         }
@@ -375,5 +442,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: MutableList<Direc
         fun deleteFolders(folders: ArrayList<File>)
 
         fun recheckPinnedFolders()
+
+        fun updateDirectories(directories: ArrayList<Directory>, refreshList: Boolean)
     }
 }

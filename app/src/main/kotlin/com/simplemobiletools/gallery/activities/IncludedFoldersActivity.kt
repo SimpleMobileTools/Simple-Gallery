@@ -29,7 +29,6 @@ class IncludedFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
         }
 
         val adapter = ManageFoldersAdapter(this, folders, false, this, manage_folders_list) {}
-        adapter.setupDragListener(true)
         manage_folders_list.adapter = adapter
     }
 
@@ -51,7 +50,8 @@ class IncludedFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
     }
 
     private fun addFolder() {
-        FilePickerDialog(this, pickFile = false, showHidden = config.shouldShowHidden) {
+        FilePickerDialog(this, config.lastFilepickerPath, false, config.shouldShowHidden) {
+            config.lastFilepickerPath = it
             config.addIncludedFolder(it)
             updateFolders()
             Thread {

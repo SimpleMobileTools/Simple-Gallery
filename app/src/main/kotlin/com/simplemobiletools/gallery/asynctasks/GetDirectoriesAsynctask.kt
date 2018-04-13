@@ -6,10 +6,10 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.SORT_DESCENDING
+import com.simplemobiletools.commons.helpers.sumByLong
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.extensions.checkAppendingHidden
 import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.extensions.doesParentHaveNoMedia
-import com.simplemobiletools.gallery.extensions.sumByLong
 import com.simplemobiletools.gallery.helpers.MediaFetcher
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
@@ -27,9 +27,10 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
         val config = context.config
         val groupedMedia = mediaFetcher.getMediaByDirectories(isPickVideo, isPickImage)
         val directories = ArrayList<Directory>()
-        val hidden = context.resources.getString(R.string.hidden)
+        val hidden = context.getString(R.string.hidden)
         val albumCovers = config.parseAlbumCovers()
         val hasOTG = context.hasOTGConnected() && context.config.OTGBasePath.isNotEmpty()
+        val includedFolders = config.includedFolders
 
         for ((path, curMedia) in groupedMedia) {
             Medium.sorting = config.getFileSorting(path)
@@ -37,7 +38,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
 
             val firstItem = curMedia.first()
             val lastItem = curMedia.last()
-            val parentDir = if (hasOTG && firstItem.path.startsWith(OTG_PATH)) firstItem.path.getParentPath() else File(firstItem.path).parent
+            val parentDir = if (hasOTG && firstItem.path.startsWith(OTG_PATH)) firstItem.path.getParentPath() else File(firstItem.path).parent ?: continue
             var thumbnail = curMedia.firstOrNull { context.getDoesFilePathExist(it.path) }?.path ?: ""
             if (thumbnail.startsWith(OTG_PATH)) {
                 thumbnail = thumbnail.getOTGPublicPath(context)
@@ -49,23 +50,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                 }
             }
 
-            var dirName = when (parentDir) {
-                context.internalStoragePath -> context.getString(R.string.internal)
-                context.sdCardPath -> context.getString(R.string.sd_card)
-                OTG_PATH -> context.getString(R.string.otg)
-                else -> {
-                    if (parentDir.startsWith(OTG_PATH)) {
-                        parentDir.trimEnd('/').substringAfterLast('/')
-                    } else {
-                        parentDir.getFilenameFromPath()
-                    }
-                }
-            }
-
-            if (File(parentDir).doesParentHaveNoMedia()) {
-                dirName += " $hidden"
-            }
-
+            val dirName = context.checkAppendingHidden(parentDir, hidden, includedFolders)
             val lastModified = if (config.directorySorting and SORT_DESCENDING > 0) Math.max(firstItem.modified, lastItem.modified) else Math.min(firstItem.modified, lastItem.modified)
             val dateTaken = if (config.directorySorting and SORT_DESCENDING > 0) Math.max(firstItem.taken, lastItem.taken) else Math.min(firstItem.taken, lastItem.taken)
             val size = curMedia.sumByLong { it.size }

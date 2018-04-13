@@ -5,6 +5,7 @@
     <string name="edit">Upraviť</string>
     <string name="open_camera">Otvoriť fotoaparát</string>
     <string name="hidden">(skryté)</string>
+    <string name="excluded">(vylúčené)</string>
     <string name="pin_folder">Pripnúť priečinok</string>
     <string name="unpin_folder">Odopnúť priečinok</string>
     <string name="pin_to_the_top">Pripnúť na vrch</string>
@@ -21,7 +22,6 @@
     <string name="use_default">Použiť predvolený</string>
     <string name="volume">Hlasitosť</string>
     <string name="brightness">Jas</string>
-    <string name="do_not_ask_again">Nepýtať sa už v tomto spustení</string>
     <string name="lock_orientation">Uzamknúť otočenie obrazovky</string>
     <string name="unlock_orientation">Odomknúť otočenie obrazovky</string>
 
@@ -179,7 +179,7 @@
 
         Neobsahuje žiadne reklamy a nepotrebné oprávnenia. Je opensource, poskytuje možnosť zmeny farieb.
 
-        Táto aplikácia je iba jednou zo skupiny aplikácií. Ostatné viete nájsť na http://www.simplemobiletools.com
+        Táto aplikácia je iba jednou zo skupiny aplikácií. Ostatné viete nájsť na https://www.simplemobiletools.com
     </string>
 
     <!--

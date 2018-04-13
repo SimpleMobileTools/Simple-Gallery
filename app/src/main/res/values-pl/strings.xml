@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Prosta Galeria</string>
-    <string name="app_launcher_name">Prosta Galeria</string>
+    <string name="app_launcher_name">Galeria</string>
     <string name="edit">Edytuj</string>
     <string name="open_camera">Uruchom aplikację aparatu</string>
     <string name="hidden">(ukryty)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Przypnij folder</string>
     <string name="unpin_folder">Wypakuj folder</string>
     <string name="pin_to_the_top">Przypnij na górze</string>
@@ -21,7 +22,6 @@
     <string name="use_default">Użyj domyślnej</string>
     <string name="volume">Głośność</string>
     <string name="brightness">Jasność</string>
-    <string name="do_not_ask_again">Nie pytaj więcej w tej sesji</string>
     <string name="lock_orientation">Zablokuj orientację ekranu</string>
     <string name="unlock_orientation">Odblokuj orientację ekranu</string>
 
@@ -175,7 +175,7 @@
 
         Nie zawiera żadnych reklam, nie potrzebuje wielu uprawnień i jest w pełni otwartoźródłowa.
 
-        Jest ona tylko częścią naszej kolekcji prostych narzędzi. Ta, jak i pozostałe, dostępne są na stronie http://www.simplemobiletools.com
+        Jest ona tylko częścią naszej kolekcji prostych narzędzi. Ta, jak i pozostałe, dostępne są na stronie https://www.simplemobiletools.com
     </string>
 
     <!--

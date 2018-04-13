@@ -56,7 +56,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mShowAll = false
     private var mIsSlideshowActive = false
     private var mSkipConfirmationDialog = false
-    private var mRotationDegrees = 0f
+    private var mRotationDegrees = 0
     private var mPrevHashcode = 0
 
     private var mSlideshowHandler = Handler()
@@ -66,7 +66,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mAreSlideShowMediaVisible = false
     private var mIsOrientationLocked = false
 
-    private var mStoredUseEnglish = false
     private var mStoredReplaceZoomableImages = false
     private var mMediaFiles = ArrayList<Medium>()
 
@@ -98,11 +97,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         super.onResume()
         if (!hasPermission(PERMISSION_WRITE_STORAGE)) {
             finish()
-            return
-        }
-
-        if (mStoredUseEnglish != config.useEnglish) {
-            restartActivity()
             return
         }
 
@@ -224,7 +218,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         if (config.hideSystemUI) {
-            fragmentClicked()
+            view_pager.onGlobalLayout {
+                Handler().postDelayed({
+                    fragmentClicked()
+                }, 500)
+            }
         }
 
         window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
@@ -256,13 +254,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_share_1).isVisible = !config.replaceShare
             findItem(R.id.menu_share_2).isVisible = config.replaceShare
             findItem(R.id.menu_rotate).isVisible = currentMedium.isImage()
-            findItem(R.id.menu_save_as).isVisible = mRotationDegrees != 0f
+            findItem(R.id.menu_save_as).isVisible = mRotationDegrees != 0
             findItem(R.id.menu_hide).isVisible = !currentMedium.name.startsWith('.')
             findItem(R.id.menu_unhide).isVisible = currentMedium.name.startsWith('.')
-            findItem(R.id.menu_lock_orientation).isVisible = mRotationDegrees == 0f
+            findItem(R.id.menu_lock_orientation).isVisible = mRotationDegrees == 0
             findItem(R.id.menu_lock_orientation).title = getString(if (mIsOrientationLocked) R.string.unlock_orientation else R.string.lock_orientation)
             findItem(R.id.menu_rotate).setShowAsAction(
-                    if (mRotationDegrees != 0f) {
+                    if (mRotationDegrees != 0) {
                         MenuItem.SHOW_AS_ACTION_ALWAYS
                     } else {
                         MenuItem.SHOW_AS_ACTION_IF_ROOM
@@ -304,7 +302,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun storeStateVariables() {
         config.apply {
-            mStoredUseEnglish = useEnglish
             mStoredReplaceZoomableImages = replaceZoomableImages
         }
     }
@@ -543,7 +540,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 val oldLastModified = getCurrentFile().lastModified()
                 if (oldPath.isJpg()) {
                     copyFile(getCurrentFile(), tmpFile)
-                    saveExifRotation(ExifInterface(tmpFile.absolutePath))
+                    saveExifRotation(ExifInterface(tmpFile.absolutePath), mRotationDegrees)
                 } else {
                     val bitmap = BitmapFactory.decodeFile(oldPath)
                     saveFile(tmpFile, bitmap, it as FileOutputStream)
@@ -563,7 +560,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
                 it.flush()
                 it.close()
-                mRotationDegrees = 0f
+                mRotationDegrees = 0
                 invalidateOptionsMenu()
 
                 // we cannot refresh a specific image in Glide Cache, so just clear it all
@@ -584,29 +581,14 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     @TargetApi(Build.VERSION_CODES.N)
     private fun tryRotateByExif(path: String): Boolean {
-        try {
-            if (!isPathOnSD(path)) {
-                saveExifRotation(ExifInterface(path))
-                mRotationDegrees = 0f
-                invalidateOptionsMenu()
-                toast(R.string.file_saved)
-                return true
-            } else if (isNougatPlus()) {
-                val documentFile = getSomeDocumentFile(path)
-                if (documentFile != null) {
-                    val parcelFileDescriptor = contentResolver.openFileDescriptor(documentFile.uri, "rw")
-                    val fileDescriptor = parcelFileDescriptor.fileDescriptor
-                    saveExifRotation(ExifInterface(fileDescriptor))
-                    mRotationDegrees = 0f
-                    invalidateOptionsMenu()
-                    toast(R.string.file_saved)
-                    return true
-                }
-            }
-        } catch (e: Exception) {
-            showErrorToast(e)
+        return if (saveImageRotation(path, mRotationDegrees)) {
+            mRotationDegrees = 0
+            invalidateOptionsMenu()
+            toast(R.string.file_saved)
+            true
+        } else {
+            false
         }
-        return false
     }
 
     private fun copyFile(source: File, destination: File) {
@@ -625,31 +607,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun saveFile(file: File, bitmap: Bitmap, out: FileOutputStream) {
         val matrix = Matrix()
-        matrix.postRotate(mRotationDegrees)
+        matrix.postRotate(mRotationDegrees.toFloat())
         val bmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
         bmp.compress(file.absolutePath.getCompressionFormat(), 90, out)
     }
-
-    private fun saveExifRotation(exif: ExifInterface) {
-        val orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
-        val orientationDegrees = (degreesForRotation(orientation) + mRotationDegrees) % 360
-        exif.setAttribute(ExifInterface.TAG_ORIENTATION, rotationFromDegrees(orientationDegrees))
-        exif.saveAttributes()
-    }
-
-    private fun degreesForRotation(orientation: Int) = when (orientation) {
-        ExifInterface.ORIENTATION_ROTATE_270 -> 270f
-        ExifInterface.ORIENTATION_ROTATE_180 -> 180f
-        ExifInterface.ORIENTATION_ROTATE_90 -> 90f
-        else -> 0f
-    }
-
-    private fun rotationFromDegrees(degrees: Float) = when (degrees) {
-        270f -> ExifInterface.ORIENTATION_ROTATE_270
-        180f -> ExifInterface.ORIENTATION_ROTATE_180
-        90f -> ExifInterface.ORIENTATION_ROTATE_90
-        else -> ExifInterface.ORIENTATION_NORMAL
-    }.toString()
 
     private fun isShowHiddenFlagNeeded(): Boolean {
         val file = File(mPath)
@@ -767,7 +728,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun askConfirmDelete() {
-        DeleteWithRememberDialog(this) {
+        DeleteWithRememberDialog(this, getString(R.string.proceed_with_deletion)) {
             mSkipConfirmationDialog = it
             deleteConfirmed()
         }
@@ -943,7 +904,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (mPos != position) {
             mPos = position
             updateActionbarTitle()
-            mRotationDegrees = 0f
+            mRotationDegrees = 0
             supportInvalidateOptionsMenu()
             scheduleSwipe()
         }

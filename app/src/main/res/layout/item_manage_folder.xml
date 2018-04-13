@@ -15,8 +15,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/medium_margin"
-        android:layout_marginRight="@dimen/medium_margin"
         android:layout_marginTop="@dimen/medium_margin"/>
 
 </RelativeLayout>

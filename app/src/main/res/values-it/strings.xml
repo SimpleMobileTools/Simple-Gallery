@@ -5,6 +5,7 @@
     <string name="edit">Modifica</string>
     <string name="open_camera">Apri fotocamera</string>
     <string name="hidden">(nascosta)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Blocca cartella</string>
     <string name="unpin_folder">Sblocca cartella</string>
     <string name="pin_to_the_top">Fissa in alto</string>
@@ -21,7 +22,6 @@
     <string name="use_default">Usa predefinita</string>
     <string name="volume">Volume</string>
     <string name="brightness">Luminosità</string>
-    <string name="do_not_ask_again">Non chiedere nuovamente in questa sessione</string>
     <string name="lock_orientation">Blocca orientamento</string>
     <string name="unlock_orientation">Sblocca orientamento</string>
 
@@ -179,7 +179,7 @@
 
         Non contiene pubblicità o autorizzazioni non necessarie. È completamente opensource, offre colori personalizzabili.
 
-        Questa app è solo una piccola parte di una grande serie di altre app. Puoi trovarle tutte su http://www.simplemobiletools.com
+        Questa app è solo una piccola parte di una grande serie di altre app. Puoi trovarle tutte su https://www.simplemobiletools.com
     </string>
 
     <!--

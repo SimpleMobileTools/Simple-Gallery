@@ -10,9 +10,9 @@ import android.os.Build
 import android.provider.MediaStore
 import android.view.WindowManager
 import com.google.gson.Gson
-import com.simplemobiletools.commons.extensions.getStringValue
-import com.simplemobiletools.commons.extensions.humanizePath
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
+import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SettingsActivity
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
@@ -161,6 +161,26 @@ fun Context.updateStoredDirectories() {
 
 fun Context.storeDirectoryItems(items: ArrayList<Directory>) {
     val subList = items.subList(0, Math.min(SAVE_DIRS_CNT, items.size))
-    val directories = Gson().toJson(subList)
-    config.directories = directories
+    config.directories = Gson().toJson(subList)
+}
+
+fun Context.checkAppendingHidden(path: String, hidden: String, includedFolders: MutableSet<String>): String {
+    val dirName = when (path) {
+        internalStoragePath -> getString(R.string.internal)
+        sdCardPath -> getString(R.string.sd_card)
+        OTG_PATH -> getString(R.string.otg)
+        else -> {
+            if (path.startsWith(OTG_PATH)) {
+                path.trimEnd('/').substringAfterLast('/')
+            } else {
+                path.getFilenameFromPath()
+            }
+        }
+    }
+
+    return if (File(path).doesThisOrParentHaveNoMedia() && !path.isThisOrParentIncluded(includedFolders)) {
+        "$dirName $hidden"
+    } else {
+        dirName
+    }
 }

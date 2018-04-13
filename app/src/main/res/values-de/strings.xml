@@ -5,6 +5,7 @@
     <string name="edit">Bearbeiten</string>
     <string name="open_camera">Kamera öffnen</string>
     <string name="hidden">(versteckt)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Ordner anheften</string>
     <string name="unpin_folder">Ordner loslösen</string>
     <string name="pin_to_the_top">Oben anheften</string>
@@ -21,7 +22,6 @@
     <string name="use_default">Standard</string>
     <string name="volume">Lautstärke</string>
     <string name="brightness">Helligkeit</string>
-    <string name="do_not_ask_again">Nicht erneut fragen (in dieser Sitzung)</string>
     <string name="lock_orientation">Bildschirmausrichtung sperren</string>
     <string name="unlock_orientation">Bildschirmausrichtung entsperren</string>
 
@@ -179,7 +179,7 @@
 
         Beinhaltet keine Werbung oder unnötige Berechtigungen. Sie ist komplett Open Source, alle verwendeten Farben sind anpassbar.
 
-        Diese App ist nur eine aus einer größeren Serie von schlichten Apps. Der Rest davon findet sich auf http://www.simplemobiletools.com
+        Diese App ist nur eine aus einer größeren Serie von schlichten Apps. Der Rest davon findet sich auf https://www.simplemobiletools.com
     </string>
 
     <!--
