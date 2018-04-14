@@ -158,7 +158,6 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
     private fun editFile() {
         activity.openEditor(getCurrentPath())
-        finishActMode()
     }
 
     private fun toggleFileVisibility(hide: Boolean) {
