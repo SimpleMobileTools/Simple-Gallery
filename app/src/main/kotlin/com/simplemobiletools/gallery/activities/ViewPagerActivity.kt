@@ -581,12 +581,17 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     @TargetApi(Build.VERSION_CODES.N)
     private fun tryRotateByExif(path: String): Boolean {
-        return if (saveImageRotation(path, mRotationDegrees)) {
-            mRotationDegrees = 0
-            invalidateOptionsMenu()
-            toast(R.string.file_saved)
-            true
-        } else {
+        return try {
+            if (saveImageRotation(path, mRotationDegrees)) {
+                mRotationDegrees = 0
+                invalidateOptionsMenu()
+                toast(R.string.file_saved)
+                true
+            } else {
+                false
+            }
+        } catch (e: Exception) {
+            showErrorToast(e)
             false
         }
     }
