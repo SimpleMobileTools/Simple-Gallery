@@ -5,7 +5,7 @@ import java.io.File
 
 fun String.getFileSignature(): ObjectKey {
     val file = File(this)
-    return ObjectKey("${file.name}${file.lastModified()}")
+    return ObjectKey("${file.absolutePath}${file.lastModified()}")
 }
 
 fun String.isThisOrParentIncluded(includedPaths: MutableSet<String>) = includedPaths.any { startsWith(it, true) }
