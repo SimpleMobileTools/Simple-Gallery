@@ -189,8 +189,11 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 var newPath = applicationContext.getRealPathFromURI(saveUri) ?: ""
                 var shouldAppendFilename = true
                 if (newPath.isEmpty()) {
-                    newPath = applicationContext.getFilenameFromContentUri(saveUri) ?: ""
-                    shouldAppendFilename = false
+                    val filename = applicationContext.getFilenameFromContentUri(saveUri) ?: ""
+                    if (filename.isNotEmpty()) {
+                        newPath = "$internalStoragePath/$filename"
+                        shouldAppendFilename = false
+                    }
                 }
 
                 if (newPath.isEmpty()) {
