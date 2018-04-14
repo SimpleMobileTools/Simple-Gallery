@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 3.7.1 *(2018-04-14)*
+----------------------------
+
+ * Fix Edit intent handled by other apps
+ * Hide folders containing ".nomedia" file, even if explicitly included
+ * Remove sorting by Date Taken until proper implementation
+
 Version 3.7.1 *(2018-04-12)*
 ----------------------------
 
