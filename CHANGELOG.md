@@ -1,7 +1,12 @@
 Changelog
 ==========
 
-Version 3.7.1 *(2018-04-14)*
+Version 3.7.3 *(2018-04-15)*
+----------------------------
+
+ * Show hidden folders when appropriate
+
+Version 3.7.2 *(2018-04-14)*
 ----------------------------
 
  * Fix Edit intent handled by other apps
