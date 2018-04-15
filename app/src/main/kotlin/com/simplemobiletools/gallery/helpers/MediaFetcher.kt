@@ -187,7 +187,7 @@ class MediaFetcher(val context: Context) {
         val file = File(path)
         return if (path.isEmpty()) {
             false
-        } else if (file.containsNoMedia()) {
+        } else if (!showHidden && file.containsNoMedia()) {
             false
         } else if (path.isThisOrParentIncluded(includedPaths)) {
             true
