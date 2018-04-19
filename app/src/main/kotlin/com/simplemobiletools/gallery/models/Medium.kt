@@ -2,7 +2,6 @@ package com.simplemobiletools.gallery.models
 
 import com.simplemobiletools.commons.extensions.formatDate
 import com.simplemobiletools.commons.extensions.formatSize
-import com.simplemobiletools.commons.extensions.getMimeType
 import com.simplemobiletools.commons.extensions.isDng
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.helpers.TYPE_GIF
@@ -12,7 +11,7 @@ import java.io.Serializable
 
 data class Medium(var name: String, var path: String, val modified: Long, val taken: Long, val size: Long, val type: Int) : Serializable, Comparable<Medium> {
     companion object {
-        private val serialVersionUID = -6553149366975455L
+        private const val serialVersionUID = -6553149366975455L
         var sorting: Int = 0
     }
 
@@ -23,8 +22,6 @@ data class Medium(var name: String, var path: String, val modified: Long, val ta
     fun isVideo() = type == TYPE_VIDEO
 
     fun isDng() = path.isDng()
-
-    fun getMimeType() = path.getMimeType()
 
     override fun compareTo(other: Medium): Int {
         var result: Int

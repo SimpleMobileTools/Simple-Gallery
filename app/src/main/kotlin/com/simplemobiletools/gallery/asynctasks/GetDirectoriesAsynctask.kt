@@ -38,7 +38,12 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
 
             val firstItem = curMedia.first()
             val lastItem = curMedia.last()
-            val parentDir = if (hasOTG && firstItem.path.startsWith(OTG_PATH)) firstItem.path.getParentPath() else File(firstItem.path).parent ?: continue
+            val parentDir = if (hasOTG && firstItem.path.startsWith(OTG_PATH)) {
+                firstItem.path.getParentPath()
+            } else {
+                File(firstItem.path).parent
+            } ?: continue
+
             var thumbnail = curMedia.firstOrNull { context.getDoesFilePathExist(it.path) }?.path ?: ""
             if (thumbnail.startsWith(OTG_PATH)) {
                 thumbnail = thumbnail.getOTGPublicPath(context)
@@ -54,7 +59,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
             val lastModified = if (config.directorySorting and SORT_DESCENDING > 0) Math.max(firstItem.modified, lastItem.modified) else Math.min(firstItem.modified, lastItem.modified)
             val dateTaken = if (config.directorySorting and SORT_DESCENDING > 0) Math.max(firstItem.taken, lastItem.taken) else Math.min(firstItem.taken, lastItem.taken)
             val size = curMedia.sumByLong { it.size }
-            val directory = Directory(parentDir, thumbnail, dirName, curMedia.size, lastModified, dateTaken, size, context.isPathOnSD(parentDir))
+            val directory = Directory(null, parentDir, thumbnail, dirName, curMedia.size, lastModified, dateTaken, size, context.isPathOnSD(parentDir))
             directories.add(directory)
         }
 
