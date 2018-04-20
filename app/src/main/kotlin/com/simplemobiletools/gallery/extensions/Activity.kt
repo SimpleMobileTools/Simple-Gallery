@@ -134,7 +134,7 @@ fun BaseSimpleActivity.removeNoMedia(path: String, callback: (() -> Unit)? = nul
         return
     }
 
-    deleteFile(file.toFileDirItem(applicationContext)) {
+    tryDeleteFileDirItem(file.toFileDirItem(applicationContext)) {
         callback?.invoke()
     }
 }
@@ -163,5 +163,15 @@ fun BaseSimpleActivity.tryCopyMoveFilesTo(fileDirItems: ArrayList<FileDirItem>, 
     val source = fileDirItems[0].getParentPath()
     PickDirectoryDialog(this, source) {
         copyMoveFilesTo(fileDirItems, source.trimEnd('/'), it, isCopyOperation, true, config.shouldShowHidden, callback)
+    }
+}
+
+fun BaseSimpleActivity.tryDeleteFileDirItem(fileDirItem: FileDirItem, allowDeleteFolder: Boolean = false, callback: ((wasSuccess: Boolean) -> Unit)? = null) {
+    deleteFile(fileDirItem, allowDeleteFolder) {
+        callback?.invoke(it)
+
+        Thread {
+            galleryDB.MediumDao().deleteMediumPath(fileDirItem.path)
+        }.start()
     }
 }

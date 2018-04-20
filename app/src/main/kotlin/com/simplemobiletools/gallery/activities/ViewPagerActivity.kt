@@ -547,7 +547,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 }
 
                 if (tmpFile.length() > 0 && getDoesFilePathExist(newPath)) {
-                    deleteFile(FileDirItem(newPath, newPath.getFilenameFromPath()))
+                    tryDeleteFileDirItem(FileDirItem(newPath, newPath.getFilenameFromPath()))
                 }
                 copyFile(tmpFile, newFile)
                 scanPath(newPath)
@@ -575,7 +575,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         } catch (e: Exception) {
             showErrorToast(e)
         } finally {
-            deleteFile(FileDirItem(tmpFile.absolutePath, tmpFile.absolutePath.getFilenameFromPath()))
+            tryDeleteFileDirItem(FileDirItem(tmpFile.absolutePath, tmpFile.absolutePath.getFilenameFromPath()))
         }
     }
 
@@ -741,7 +741,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun deleteConfirmed() {
         val path = getCurrentMedia()[mPos].path
-        deleteFile(FileDirItem(path, path.getFilenameFromPath())) {
+        tryDeleteFileDirItem(FileDirItem(path, path.getFilenameFromPath())) {
             refreshViewPager()
         }
     }
@@ -819,7 +819,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun deleteDirectoryIfEmpty() {
         val fileDirItem = FileDirItem(mDirectory, mDirectory.getFilenameFromPath(), getIsPathDirectory(mDirectory))
         if (config.deleteEmptyFolders && !fileDirItem.isDownloadsFolder() && fileDirItem.isDirectory && fileDirItem.getProperFileCount(applicationContext, true) == 0) {
-            deleteFile(fileDirItem, true)
+            tryDeleteFileDirItem(fileDirItem, true)
         }
 
         scanPath(mDirectory)

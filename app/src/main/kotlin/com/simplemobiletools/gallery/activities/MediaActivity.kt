@@ -444,7 +444,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun deleteDirectoryIfEmpty() {
         val fileDirItem = FileDirItem(mPath, mPath.getFilenameFromPath())
         if (config.deleteEmptyFolders && !fileDirItem.isDownloadsFolder() && fileDirItem.isDirectory && fileDirItem.getProperFileCount(applicationContext, true) == 0) {
-            deleteFile(fileDirItem, true)
+            tryDeleteFileDirItem(fileDirItem, true)
         }
     }
 
@@ -669,6 +669,15 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     override fun deleteFiles(fileDirItems: ArrayList<FileDirItem>) {
         val filtered = fileDirItems.filter { it.path.isImageVideoGif() } as ArrayList
         deleteFiles(filtered) {
+            Thread {
+                val mediumDao = galleryDB.MediumDao()
+                filtered.forEach {
+                    if (!File(it.path).exists()) {
+                        mediumDao.deleteMediumPath(it.path)
+                    }
+                }
+            }.start()
+
             if (!it) {
                 toast(R.string.unknown_error_occurred)
             } else if (mMedia.isEmpty()) {

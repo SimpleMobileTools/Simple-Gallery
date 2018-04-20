@@ -19,4 +19,7 @@ interface MediumDao {
 
     @Insert(onConflict = REPLACE)
     fun insertAll(media: List<Medium>)
+
+    @Query("DELETE FROM media WHERE full_path = :path")
+    fun deleteMediumPath(path: String)
 }
