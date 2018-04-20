@@ -362,6 +362,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             runOnUiThread {
                 refreshItems()
             }
+            Thread {
+                folders.filter { !it.exists() }.forEach {
+                    galleryDB.DirectoryDao().deleteDirPath(it.absolutePath)
+                }
+            }.start()
         }
     }
 

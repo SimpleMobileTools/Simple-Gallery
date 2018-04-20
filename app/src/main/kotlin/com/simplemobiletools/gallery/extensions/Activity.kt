@@ -246,7 +246,13 @@ fun Activity.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Bo
 
 fun Activity.getCachedDirectories(callback: (ArrayList<Directory>) -> Unit) {
     Thread {
-        callback(galleryDB.DirectoryDao().getAll() as ArrayList<Directory>)
+        val directoryDao = galleryDB.DirectoryDao()
+        val directories = directoryDao.getAll() as ArrayList<Directory>
+        callback(directories)
+
+        directories.filter { !File(it.path).exists() }.forEach {
+            directoryDao.deleteDir(it)
+        }
     }.start()
 }
 
