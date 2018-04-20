@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Simple Gallery</string>
+    <string name="app_launcher_name">Galleri</string>
+    <string name="edit">Rediger</string>
+    <string name="open_camera">Åbn kamera</string>
+    <string name="hidden">(skjult)</string>
+    <string name="excluded">(ekskluderet)</string>
+    <string name="pin_folder">Pin folder</string>
+    <string name="unpin_folder">Unpin folder</string>
+    <string name="pin_to_the_top">Pin to the top</string>
+    <string name="show_all">Vis indholdet af alle mappert</string>
+    <string name="all_folders">Alle mapper</string>
+    <string name="folder_view">Skift til mappevisning</string>
+    <string name="other_folder">Anden mappe</string>
+    <string name="show_on_map">Vis på kort</string>
+    <string name="unknown_location">Ukendt placering</string>
+    <string name="increase_column_count">Flere kolonner</string>
+    <string name="reduce_column_count">Færre kolonner</string>
+    <string name="change_cover_image">Change cover image</string>
+    <string name="select_photo">Select photo</string>
+    <string name="use_default">Use default</string>
+    <string name="volume">Volume</string>
+    <string name="brightness">Brightness</string>
+    <string name="lock_orientation">Lås orientering</string>
+    <string name="unlock_orientation">Lås orientering op</string>
+
+    <!-- Filter -->
+    <string name="filter_media">Filtrer medier</string>
+    <string name="images">Billeder</string>
+    <string name="videos">Videoer</string>
+    <string name="gifs">GIF\'er</string>
+    <string name="no_media_with_filters">Der blev ikke fundet nogen filer med det valgte filter.</string>
+    <string name="change_filters_underlined"><u>Skift filter</u></string>
+
+    <!-- Hide / Exclude -->
+    <string name="hide_folder_description">Denne funktion skjuler mappen og dens eventueller undermapper ved at oprette en \'.nomedia\'-fil i den. Du kan se dem ved at klikke på \'Vis skjulte\' i indstillingerne. Fortsæt?</string>
+    <string name="exclude">Ekskluder</string>
+    <string name="excluded_folders">Ekskluderede mapper</string>
+    <string name="manage_excluded_folders">Administrer ekskluderede mapper</string>
+    <string name="exclude_folder_description">Dette vil kun ekskludere de valgte mapper (og deres undermapper) fra Simple Gallery. Du kan administrere ekskluderede mapper i indstillingerne.</string>
+    <string name="exclude_folder_parent">Ekskluder en overliggende mappe i stedet?</string>
+    <string name="excluded_activity_placeholder">Ekskludering af mapper vil skjule dem og eventuelle undermapper for Simple Gallery, de vil stadig være synlige for andre apps.\n\nHvis du også vil skjule dem for andre apps, skal du bruge funktionen Skjul.</string>
+    <string name="remove_all">Fjern alle</string>
+    <string name="remove_all_description">Fjern alle fra listen med ekskluderede mapper? Det vil ikke slette mapperne.</string>
+    <string name="hidden_folders">Skjulte mapper</string>
+    <string name="manage_hidden_folders">Administrer skjulte mapper</string>
+    <string name="hidden_folders_placeholder">Det ser ikke ud til at du har nogen skjulte mapper med en \".nomedia\"-fil.</string>
+
+    <!-- Include folders -->
+    <string name="include_folders">Inkluderede mapper</string>
+    <string name="manage_included_folders">Administrer inkluderede mapper</string>
+    <string name="add_folder">Tilføj mappe</string>
+    <string name="included_activity_placeholder">Hvis du har mapper med mediefiler som appen ikke har fundet, kan du manuelt tilføje dem her.\n\nDet vil ikke ekskludere andre mapper.</string>
+
+    <!-- Resizing -->
+    <string name="resize">Skaler</string>
+    <string name="resize_and_save">Resize selection and save</string>
+    <string name="width">Width</string>
+    <string name="height">Height</string>
+    <string name="keep_aspect_ratio">Keep aspect ratio</string>
+    <string name="invalid_values">Please enter a valid resolution</string>
+
+    <!-- Editor -->
+    <string name="editor">Editor</string>
+    <string name="save">Gem</string>
+    <string name="rotate">Roter</string>
+    <string name="path">Sti</string>
+    <string name="invalid_image_path">Ugyldig sti til billede</string>
+    <string name="image_editing_failed">Redigering af billede mislykkedes</string>
+    <string name="edit_image_with">Rediger billede med:</string>
+    <string name="no_editor_found">Der blev ikke fundet en editor til billedbehandling</string>
+    <string name="unknown_file_location">Ukendt filplacering</string>
+    <string name="error_saving_file">Kunne ikke overskrive kildefilen</string>
+    <string name="rotate_left">Roter mod venstre</string>
+    <string name="rotate_right">Roter mod højre</string>
+    <string name="rotate_one_eighty">Roter 180º</string>
+    <string name="flip">Spejlvend</string>
+    <string name="flip_horizontally">Spejlvend vandret</string>
+    <string name="flip_vertically">Spejlvend lodret</string>
+    <string name="edit_with">Rediger med</string>
+
+    <!-- Set wallpaper -->
+    <string name="simple_wallpaper">Simple Wallpaper</string>
+    <string name="set_as_wallpaper">Sæt som baggrundsbillede</string>
+    <string name="set_as_wallpaper_failed">Det mislykkedes at sætte billedet som baggrund</string>
+    <string name="set_as_wallpaper_with">Sæt som baggrundsbillede med:</string>
+    <string name="setting_wallpaper">Sætter baggrundsbillede&#8230;</string>
+    <string name="wallpaper_set_successfully">Sat som baggrundsbillede</string>
+    <string name="portrait_aspect_ratio">Stående billedformat</string>
+    <string name="landscape_aspect_ratio">Liggende billedformat</string>
+    <string name="home_screen">Hjemmeskærm</string>
+    <string name="lock_screen">Låseskærm</string>
+    <string name="home_and_lock_screen">Hjemme- og låseskærm</string>
+
+    <!-- Slideshow -->
+    <string name="slideshow">Slideshow</string>
+    <string name="interval">Frekvens (sekunder):</string>
+    <string name="include_photos">Inkluder billeder</string>
+    <string name="include_videos">Inkluder videoer/string>
+    <string name="include_gifs">Inkluder GIF\'er</string>
+    <string name="random_order">Tilfældig rækkefølge</string>
+    <string name="use_fade">Use fade animations</string>
+    <string name="move_backwards">Kør baglæns</string>
+    <string name="loop_slideshow">Loop slideshow</string>
+    <string name="slideshow_ended">Slideshowet endte</string>
+    <string name="no_media_for_slideshow">Der blev ikke funket nogen mediefiler til slideshowet</string>
+
+    <!-- View types -->
+    <string name="change_view_type">Skift visning</string>
+    <string name="grid">Gitter</string>
+    <string name="list">Liste</string>
+
+    <!-- Settings -->
+    <string name="autoplay_videos">Afspil automatisk videoer</string>
+    <string name="toggle_filename">Toggle filename visibility</string>
+    <string name="loop_videos">Kør videoer i sløjfe</string>
+    <string name="animate_gifs">Animér GIF\'er i miniaturer</string>
+    <string name="max_brightness">Maksimal lysstyrke ved fuldskærmsvisning af medier</string>
+    <string name="crop_thumbnails">Beskær miniaturer til kvadrater</string>
+    <string name="screen_rotation_by">Roter fuldskærmsmedier efter</string>
+    <string name="screen_rotation_system_setting">Systemindstilling</string>
+    <string name="screen_rotation_device_rotation">Enhedens orientering</string>
+    <string name="screen_rotation_aspect_ratio">Billedformat</string>
+    <string name="black_background_at_fullscreen">Sort baggrund og statuslinje ved medievisning i fuldskærm</string>
+    <string name="scroll_thumbnails_horizontally">Scroll miniaturer vandret</string>
+    <string name="hide_system_ui_at_fullscreen">Skjul automatisk systemets brugerflade ved fuldskærmsvisning af medier</string>
+    <string name="delete_empty_folders">Slet tomme mapper efter sletning af deres indhold</string>
+    <string name="allow_photo_gestures">Tillad kontrol af lysstyrke på billeder med lodrette bevægelser</string>
+    <string name="allow_video_gestures">Tillad kontrol af videolyd og lysstyrke med lodrette bevægelser</string>
+    <string name="show_media_count">Vis antal filer i hver mappe i oversigten</string>
+    <string name="replace_share_with_rotate">Erstat Del med Roter i fuldskærmsmenuen</string>
+    <string name="show_extended_details">Vis udvidede oplysninger over medier i fuldskærm</string>
+    <string name="manage_extended_details">Manage extended details</string>
+    <string name="one_finger_zoom">Tillad zoom med en finger når medier er i fuldskærm</string>
+    <string name="allow_instant_change">Tillad skift af medie ved klik på skærmens sider</string>
+    <string name="replace_zoomable_images">RErstat stærkt zoombare billeder med nogle i bedre kvalitet</string>
+    <string name="hide_extended_details">Skjul udvidede oplysninger når statuslinjen er skjult</string>
+    <string name="do_extra_check">Tjek en ekstra gang for at undgå visning af ugyldige filer</string>
+
+    <!-- Setting sections -->
+    <string name="thumbnails">Thumbnails</string>
+    <string name="fullscreen_media">Fullscreen media</string>
+    <string name="extended_details">Extended details</string>
+
+    <!-- FAQ -->
+    <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
+    <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
+        The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
+    <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do?</string>
+    <string name="faq_2_text">You can solve it in 2 ways. You can either reinstall the app, or find the app in your device settings and select \"Clear data\". It will reset all your settings, it will not remove any media files.</string>
+    <string name="faq_3_title">How can I make an album always appear at the top?</string>
+    <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actionmenu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
+    <string name="faq_4_title">How can I fast-forward videos?</string>
+    <string name="faq_4_text">You can click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
+    <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
+    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
+    <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
+    <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
+    <string name="faq_7_title">A folder with images isn\'t showing up, what can I do?</string>
+    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
+    <string name="faq_8_title">What if I want just a few particular folders visible?</string>
+    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
+        That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
+    <string name="faq_9_title">Fullscreen images have weird artifacts, can I somehow improve the quality?</string>
+    <string name="faq_9_text">Yea, there is a toggle in Settings saying \"Replace deep zoomable images with better quality ones\", you can use that. It will improve the quality of the images, but they will get blurred once you try zooming in too much.</string>
+    <string name="faq_10_title">Can I crop images with this app?</string>
+    <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
+
+    <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- Short description has to have less than 80 chars -->
+    <string name="app_short_description">A gallery for viewing photos and videos without ads.</string>
+    <string name="app_long_description">
+        A simple tool usable for viewing photos and videos. Items can be sorted by date, size, name both ascending or descending, photos can be zoomed in. Media files are shown in multiple columns depending on the size of the display, you can change the column count by pinch gestures. They can be renamed, shared, deleted, copied, moved. Images can also be cropped, rotated, flipped or set as Wallpaper directly from the app.
+
+        The Gallery is also offered for third party usage for previewing images / videos, adding attachments at email clients etc. It\'s perfect for everyday usage.
+
+        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+
+        Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
+
+        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
+    </string>
+
+    <!--
+        Haven't found some strings? There's more at
+        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+    -->
+</resources>
