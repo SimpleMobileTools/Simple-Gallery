@@ -5,12 +5,6 @@ import android.content.Intent
 import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import android.widget.ImageView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DecodeFormat
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.bumptech.glide.request.RequestOptions
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
@@ -21,13 +15,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.PickDirectoryDialog
 import com.simplemobiletools.gallery.helpers.NOMEDIA
-import com.simplemobiletools.gallery.helpers.TYPE_GIF
-import com.simplemobiletools.gallery.helpers.TYPE_IMAGE
-import com.simplemobiletools.gallery.helpers.TYPE_VIDEO
-import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
-import com.simplemobiletools.gallery.views.MySquareImageView
-import pl.droidsonroids.gif.GifDrawable
 import java.io.File
 import java.util.*
 
@@ -166,33 +154,6 @@ fun BaseSimpleActivity.toggleFileVisibility(oldPath: String, hide: Boolean, call
     }
 }
 
-fun Activity.loadImage(type: Int, path: String, target: MySquareImageView, horizontalScroll: Boolean, animateGifs: Boolean, cropThumbnails: Boolean) {
-    target.isHorizontalScrolling = horizontalScroll
-    if (type == TYPE_IMAGE || type == TYPE_VIDEO) {
-        if (type == TYPE_IMAGE && path.isPng()) {
-            loadPng(path, target, cropThumbnails)
-        } else {
-            loadJpg(path, target, cropThumbnails)
-        }
-    } else if (type == TYPE_GIF) {
-        try {
-            val gifDrawable = GifDrawable(path)
-            target.setImageDrawable(gifDrawable)
-            if (animateGifs) {
-                gifDrawable.start()
-            } else {
-                gifDrawable.stop()
-            }
-
-            target.scaleType = if (cropThumbnails) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
-        } catch (e: Exception) {
-            loadJpg(path, target, cropThumbnails)
-        } catch (e: OutOfMemoryError) {
-            loadJpg(path, target, cropThumbnails)
-        }
-    }
-}
-
 fun BaseSimpleActivity.tryCopyMoveFilesTo(fileDirItems: ArrayList<FileDirItem>, isCopyOperation: Boolean, callback: (destinationPath: String) -> Unit) {
     if (fileDirItems.isEmpty()) {
         toast(R.string.unknown_error_occurred)
@@ -203,61 +164,4 @@ fun BaseSimpleActivity.tryCopyMoveFilesTo(fileDirItems: ArrayList<FileDirItem>, 
     PickDirectoryDialog(this, source) {
         copyMoveFilesTo(fileDirItems, source.trimEnd('/'), it, isCopyOperation, true, config.shouldShowHidden, callback)
     }
-}
-
-fun BaseSimpleActivity.addTempFolderIfNeeded(dirs: ArrayList<Directory>): ArrayList<Directory> {
-    val directories = ArrayList<Directory>()
-    val tempFolderPath = config.tempFolderPath
-    if (tempFolderPath.isNotEmpty()) {
-        val newFolder = Directory(null, tempFolderPath, "", tempFolderPath.getFilenameFromPath(), 0, 0, 0, 0L, isPathOnSD(tempFolderPath))
-        directories.add(newFolder)
-    }
-    directories.addAll(dirs)
-    return directories
-}
-
-fun Activity.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boolean) {
-    val options = RequestOptions()
-            .signature(path.getFileSignature())
-            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-            .format(DecodeFormat.PREFER_ARGB_8888)
-
-    val builder = Glide.with(applicationContext)
-            .asBitmap()
-            .load(path)
-
-    if (cropThumbnails) options.centerCrop() else options.fitCenter()
-    builder.apply(options).into(target)
-}
-
-fun Activity.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boolean) {
-    val options = RequestOptions()
-            .signature(path.getFileSignature())
-            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-
-    val builder = Glide.with(applicationContext)
-            .load(path)
-
-    if (cropThumbnails) options.centerCrop() else options.fitCenter()
-    builder.apply(options).transition(DrawableTransitionOptions.withCrossFade()).into(target)
-}
-
-fun Activity.getCachedDirectories(callback: (ArrayList<Directory>) -> Unit) {
-    Thread {
-        val directoryDao = galleryDB.DirectoryDao()
-        val directories = directoryDao.getAll() as ArrayList<Directory>
-        callback(directories)
-
-        directories.filter { !File(it.path).exists() }.forEach {
-            directoryDao.deleteDir(it)
-        }
-    }.start()
-}
-
-fun Activity.getCachedMedia(path: String, callback: (ArrayList<Medium>) -> Unit) {
-    Thread {
-        val mediumDao = galleryDB.MediumDao()
-        val media = mediumDao.getMediaFromPath(path) as ArrayList<Medium>
-        callback(media)
-    }.start()
 }

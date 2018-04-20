@@ -9,6 +9,12 @@ import android.media.AudioManager
 import android.os.Build
 import android.provider.MediaStore
 import android.view.WindowManager
+import android.widget.ImageView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DecodeFormat
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestOptions
 import com.google.gson.Gson
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
@@ -17,11 +23,11 @@ import com.simplemobiletools.gallery.activities.SettingsActivity
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.databases.GalleryDataBase
-import com.simplemobiletools.gallery.helpers.Config
-import com.simplemobiletools.gallery.helpers.NOMEDIA
-import com.simplemobiletools.gallery.helpers.SAVE_MEDIA_CNT
+import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
+import com.simplemobiletools.gallery.views.MySquareImageView
+import pl.droidsonroids.gif.GifDrawable
 import java.io.File
 
 val Context.portrait get() = resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
@@ -186,4 +192,88 @@ fun Context.checkAppendingHidden(path: String, hidden: String, includedFolders: 
     } else {
         dirName
     }
+}
+
+fun Context.loadImage(type: Int, path: String, target: MySquareImageView, horizontalScroll: Boolean, animateGifs: Boolean, cropThumbnails: Boolean) {
+    target.isHorizontalScrolling = horizontalScroll
+    if (type == TYPE_IMAGE || type == TYPE_VIDEO) {
+        if (type == TYPE_IMAGE && path.isPng()) {
+            loadPng(path, target, cropThumbnails)
+        } else {
+            loadJpg(path, target, cropThumbnails)
+        }
+    } else if (type == TYPE_GIF) {
+        try {
+            val gifDrawable = GifDrawable(path)
+            target.setImageDrawable(gifDrawable)
+            if (animateGifs) {
+                gifDrawable.start()
+            } else {
+                gifDrawable.stop()
+            }
+
+            target.scaleType = if (cropThumbnails) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
+        } catch (e: Exception) {
+            loadJpg(path, target, cropThumbnails)
+        } catch (e: OutOfMemoryError) {
+            loadJpg(path, target, cropThumbnails)
+        }
+    }
+}
+
+fun Context.addTempFolderIfNeeded(dirs: ArrayList<Directory>): ArrayList<Directory> {
+    val directories = ArrayList<Directory>()
+    val tempFolderPath = config.tempFolderPath
+    if (tempFolderPath.isNotEmpty()) {
+        val newFolder = Directory(null, tempFolderPath, "", tempFolderPath.getFilenameFromPath(), 0, 0, 0, 0L, isPathOnSD(tempFolderPath))
+        directories.add(newFolder)
+    }
+    directories.addAll(dirs)
+    return directories
+}
+
+fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boolean) {
+    val options = RequestOptions()
+            .signature(path.getFileSignature())
+            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+            .format(DecodeFormat.PREFER_ARGB_8888)
+
+    val builder = Glide.with(applicationContext)
+            .asBitmap()
+            .load(path)
+
+    if (cropThumbnails) options.centerCrop() else options.fitCenter()
+    builder.apply(options).into(target)
+}
+
+fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boolean) {
+    val options = RequestOptions()
+            .signature(path.getFileSignature())
+            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+
+    val builder = Glide.with(applicationContext)
+            .load(path)
+
+    if (cropThumbnails) options.centerCrop() else options.fitCenter()
+    builder.apply(options).transition(DrawableTransitionOptions.withCrossFade()).into(target)
+}
+
+fun Context.getCachedDirectories(callback: (ArrayList<Directory>) -> Unit) {
+    Thread {
+        val directoryDao = galleryDB.DirectoryDao()
+        val directories = directoryDao.getAll() as ArrayList<Directory>
+        callback(directories)
+
+        directories.filter { !File(it.path).exists() }.forEach {
+            directoryDao.deleteDir(it)
+        }
+    }.start()
+}
+
+fun Context.getCachedMedia(path: String, callback: (ArrayList<Medium>) -> Unit) {
+    Thread {
+        val mediumDao = galleryDB.MediumDao()
+        val media = mediumDao.getMediaFromPath(path) as ArrayList<Medium>
+        callback(media)
+    }.start()
 }
