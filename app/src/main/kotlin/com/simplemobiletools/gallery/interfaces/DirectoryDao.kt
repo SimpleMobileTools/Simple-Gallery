@@ -9,7 +9,7 @@ import com.simplemobiletools.gallery.models.Directory
 
 @Dao
 interface DirectoryDao {
-    @Query("SELECT * FROM directories")
+    @Query("SELECT path, thumbnail, filename, media_count, last_modified, date_taken, size, is_on_sd_card FROM directories")
     fun getAll(): List<Directory>
 
     @Insert(onConflict = REPLACE)

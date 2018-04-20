@@ -11,7 +11,7 @@ interface MediumDao {
     @Query("SELECT * FROM media")
     fun getAll(): List<Medium>
 
-    @Query("SELECT * FROM media WHERE parent_path = :path")
+    @Query("SELECT filename, full_path, parent_path, last_modified, date_taken, size, type FROM media WHERE parent_path = :path")
     fun getMediaFromPath(path: String): List<Medium>
 
     @Insert(onConflict = REPLACE)
