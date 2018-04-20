@@ -561,7 +561,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun gotDirectories(newDirs: ArrayList<Directory>, isFromCache: Boolean) {
         if (!isFromCache) {
             Thread {
-                //checkFolderContentChange(newDirs)
                 galleryDB.DirectoryDao().insertAll(newDirs)
             }.start()
         }
