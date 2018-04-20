@@ -590,18 +590,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
     }
 
-    private fun checkFolderContentChange(newDirs: ArrayList<Directory>) {
-        newDirs.forEach {
-            val storedShortDirValue = config.loadFolderMediaShort(it.path)
-            if (storedShortDirValue != it.toString()) {
-                config.saveFolderMediaShort(it.path, it.toString())
-                if (storedShortDirValue.isNotEmpty()) {
-                    updateStoredFolderItems(it.path)
-                }
-            }
-        }
-    }
-
     private fun storeDirectories() {
         if (!config.temporarilyShowHidden && config.tempFolderPath.isEmpty()) {
             storeDirectoryItems(mDirs)

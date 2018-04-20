@@ -137,12 +137,6 @@ class Config(context: Context) : BaseConfig(context) {
 
     fun loadFolderMedia(path: String) = prefs.getString(SAVE_FOLDER_PREFIX + path, "")
 
-    fun saveFolderMediaShort(path: String, value: String) {
-        prefs.edit().putString(SAVE_FOLDER_SHORT_PREFIX + path, value).apply()
-    }
-
-    fun loadFolderMediaShort(path: String) = prefs.getString(SAVE_FOLDER_SHORT_PREFIX + path, "")
-
     var autoplayVideos: Boolean
         get() = prefs.getBoolean(AUTOPLAY_VIDEOS, false)
         set(autoplay) = prefs.edit().putBoolean(AUTOPLAY_VIDEOS, autoplay).apply()
