@@ -33,6 +33,7 @@ import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.MediaAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
+import com.simplemobiletools.gallery.databases.GalleryDataBase
 import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
 import com.simplemobiletools.gallery.dialogs.ExcludeFolderDialog
 import com.simplemobiletools.gallery.dialogs.FilterMediaDialog
@@ -62,6 +63,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mCurrAsyncTask: GetMediaAsynctask? = null
     private var mZoomListener: MyRecyclerView.MyZoomListener? = null
     private var mSearchMenuItem: MenuItem? = null
+    private var mGalleryDB: GalleryDataBase? = null
 
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
@@ -94,8 +96,11 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
 
         storeStateVariables()
-        if (mShowAll)
+        mGalleryDB = GalleryDataBase.getInstance(applicationContext)
+
+        if (mShowAll) {
             supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        }
 
         media_empty_text.setOnClickListener {
             showFilterMediaDialog()
@@ -623,6 +628,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         Thread {
             mLatestMediaId = getLatestMediaId()
             mLatestMediaDateId = getLatestMediaByDateId()
+            if (!isFromCache) {
+                mGalleryDB!!.MediumDao().insertAll(media)
+            }
         }.start()
 
         mIsGettingMedia = false

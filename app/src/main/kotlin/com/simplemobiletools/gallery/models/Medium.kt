@@ -1,5 +1,9 @@
 package com.simplemobiletools.gallery.models
 
+import android.arch.persistence.room.ColumnInfo
+import android.arch.persistence.room.Entity
+import android.arch.persistence.room.Index
+import android.arch.persistence.room.PrimaryKey
 import com.simplemobiletools.commons.extensions.formatDate
 import com.simplemobiletools.commons.extensions.formatSize
 import com.simplemobiletools.commons.extensions.isDng
@@ -9,7 +13,16 @@ import com.simplemobiletools.gallery.helpers.TYPE_IMAGE
 import com.simplemobiletools.gallery.helpers.TYPE_VIDEO
 import java.io.Serializable
 
-data class Medium(var name: String, var path: String, val modified: Long, val taken: Long, val size: Long, val type: Int) : Serializable, Comparable<Medium> {
+@Entity(tableName = "media", indices = [(Index(value = "path", unique = true))])
+data class Medium(
+        @PrimaryKey(autoGenerate = true) var id: Long?,
+        @ColumnInfo(name = "filename") var name: String,
+        @ColumnInfo(name = "path") var path: String,
+        @ColumnInfo(name = "last_modified") val modified: Long,
+        @ColumnInfo(name = "date_taken") val taken: Long,
+        @ColumnInfo(name = "size") val size: Long,
+        @ColumnInfo(name = "type") val type: Int) : Serializable, Comparable<Medium> {
+
     companion object {
         private const val serialVersionUID = -6553149366975455L
         var sorting: Int = 0

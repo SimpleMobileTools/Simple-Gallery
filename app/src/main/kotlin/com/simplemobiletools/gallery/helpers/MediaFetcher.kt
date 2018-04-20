@@ -247,7 +247,7 @@ class MediaFetcher(val context: Context) {
                 else -> TYPE_GIF
             }
 
-            val medium = Medium(filename, file.absolutePath, dateModified, dateTaken, size, type)
+            val medium = Medium(null, filename, file.absolutePath, dateModified, dateTaken, size, type)
             curMedia.add(medium)
         }
     }
@@ -296,7 +296,7 @@ class MediaFetcher(val context: Context) {
             }
 
             val path = Uri.decode(file.uri.toString().replaceFirst("${context.config.OTGBasePath}%3A", OTG_PATH))
-            val medium = Medium(filename, path, dateModified, dateTaken, size, type)
+            val medium = Medium(null, filename, path, dateModified, dateTaken, size, type)
             curMedia.add(medium)
         }
     }

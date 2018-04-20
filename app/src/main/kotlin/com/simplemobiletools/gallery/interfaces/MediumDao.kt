@@ -4,16 +4,16 @@ import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.OnConflictStrategy.REPLACE
 import android.arch.persistence.room.Query
-import com.simplemobiletools.gallery.models.Directory
+import com.simplemobiletools.gallery.models.Medium
 
 @Dao
-interface DirectoryDao {
-    @Query("SELECT * from directories")
-    fun getAll(): List<Directory>
+interface MediumDao {
+    @Query("SELECT * from media")
+    fun getAll(): List<Medium>
 
     @Insert(onConflict = REPLACE)
-    fun insert(directory: Directory)
+    fun insert(medium: Medium)
 
     @Insert(onConflict = REPLACE)
-    fun insertAll(directories: List<Directory>)
+    fun insertAll(media: List<Medium>)
 }

@@ -29,7 +29,7 @@ import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
-import com.simplemobiletools.gallery.databases.DirectoryDataBase
+import com.simplemobiletools.gallery.databases.GalleryDataBase
 import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
 import com.simplemobiletools.gallery.dialogs.FilterMediaDialog
 import com.simplemobiletools.gallery.extensions.*
@@ -63,7 +63,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mTempShowHiddenHandler = Handler()
     private var mCurrAsyncTask: GetDirectoriesAsynctask? = null
     private var mZoomListener: MyRecyclerView.MyZoomListener? = null
-    private var mDirsDB: DirectoryDataBase? = null
+    private var mGalleryDB: GalleryDataBase? = null
 
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
@@ -91,7 +91,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         removeTempFolder()
         directories_refresh_layout.setOnRefreshListener { getDirectories() }
         mDirs = ArrayList()
-        mDirsDB = DirectoryDataBase.getInstance(applicationContext)
+        mGalleryDB = GalleryDataBase.getInstance(applicationContext)
         storeStateVariables()
         checkWhatsNewDialog()
 
@@ -557,9 +557,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         if (!isFromCache) {
             Thread {
                 //checkFolderContentChange(newDirs)
-                newDirs.forEach {
-                    mDirsDB!!.DirectoryDao().insert(it)
-                }
+                mGalleryDB!!.DirectoryDao().insertAll(newDirs)
             }.start()
         }
 

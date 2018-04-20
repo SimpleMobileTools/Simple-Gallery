@@ -5,20 +5,24 @@ import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 import com.simplemobiletools.gallery.interfaces.DirectoryDao
+import com.simplemobiletools.gallery.interfaces.MediumDao
 import com.simplemobiletools.gallery.models.Directory
+import com.simplemobiletools.gallery.models.Medium
 
-@Database(entities = [(Directory::class)], version = 1)
-abstract class DirectoryDataBase : RoomDatabase() {
+@Database(entities = [(Directory::class), (Medium::class)], version = 1)
+abstract class GalleryDataBase : RoomDatabase() {
 
     abstract fun DirectoryDao(): DirectoryDao
 
-    companion object {
-        private var INSTANCE: DirectoryDataBase? = null
+    abstract fun MediumDao(): MediumDao
 
-        fun getInstance(context: Context): DirectoryDataBase {
+    companion object {
+        private var INSTANCE: GalleryDataBase? = null
+
+        fun getInstance(context: Context): GalleryDataBase {
             if (INSTANCE == null) {
-                synchronized(DirectoryDataBase::class) {
-                    INSTANCE = Room.databaseBuilder(context.applicationContext, DirectoryDataBase::class.java, "directories.db").build()
+                synchronized(GalleryDataBase::class) {
+                    INSTANCE = Room.databaseBuilder(context.applicationContext, GalleryDataBase::class.java, "gallery.db").build()
                 }
             }
             return INSTANCE!!
