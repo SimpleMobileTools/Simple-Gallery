@@ -131,12 +131,6 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getStringSet(INCLUDED_FOLDERS, HashSet<String>())
         set(includedFolders) = prefs.edit().remove(INCLUDED_FOLDERS).putStringSet(INCLUDED_FOLDERS, includedFolders).apply()
 
-    fun saveFolderMedia(path: String, json: String) {
-        prefs.edit().putString(SAVE_FOLDER_PREFIX + path, json).apply()
-    }
-
-    fun loadFolderMedia(path: String) = prefs.getString(SAVE_FOLDER_PREFIX + path, "")
-
     var autoplayVideos: Boolean
         get() = prefs.getBoolean(AUTOPLAY_VIDEOS, false)
         set(autoplay) = prefs.edit().putBoolean(AUTOPLAY_VIDEOS, autoplay).apply()

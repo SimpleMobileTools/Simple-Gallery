@@ -187,7 +187,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         val fileDirItems = paths.map { FileDirItem(it, it.getFilenameFromPath()) } as ArrayList
         activity.tryCopyMoveFilesTo(fileDirItems, isCopyOperation) {
             config.tempFolderPath = ""
-            activity.applicationContext.updateStoredFolderItems(it)
+            activity.applicationContext.rescanFolderMedia(it)
+            activity.applicationContext.rescanFolderMedia(fileDirItems.first().getParentPath())
             if (!isCopyOperation) {
                 listener?.refreshItems()
             }
@@ -237,7 +238,6 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
             media.removeAll(removeMedia)
             listener?.deleteFiles(fileDirItems)
             removeSelectedItems()
-            updateStoredFolderItems()
         }
     }
 
@@ -245,14 +245,6 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         val selectedMedia = ArrayList<Medium>(selectedPositions.size)
         selectedPositions.forEach { selectedMedia.add(media[it]) }
         return selectedMedia
-    }
-
-    private fun updateStoredFolderItems() {
-        Thread {
-            if (media.isNotEmpty()) {
-                activity.applicationContext.storeFolderItems(media.first().parentPath, media as ArrayList<Medium>)
-            }
-        }.start()
     }
 
     fun updateMedia(newMedia: ArrayList<Medium>) {

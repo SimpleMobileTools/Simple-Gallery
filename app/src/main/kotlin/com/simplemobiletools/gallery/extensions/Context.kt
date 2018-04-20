@@ -15,7 +15,6 @@ import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
-import com.google.gson.Gson
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.gallery.R
@@ -106,7 +105,6 @@ fun Context.getNoMediaFolders(callback: (folders: ArrayList<String>) -> Unit) {
         val sortOrder = "${MediaStore.Files.FileColumns.DATE_MODIFIED} DESC"
 
         var cursor: Cursor? = null
-
         try {
             cursor = contentResolver.query(uri, projection, selection, selectionArgs, sortOrder)
             if (cursor?.moveToFirst() == true) {
@@ -126,37 +124,25 @@ fun Context.getNoMediaFolders(callback: (folders: ArrayList<String>) -> Unit) {
     }.start()
 }
 
-fun Context.isPathInMediaStore(path: String): Boolean {
-    if (path.startsWith(OTG_PATH)) {
-        return false
-    }
+fun Context.rescanFolderMedia(path: String) {
+    Thread {
+        getCachedMedia(path) {
+            val cached = it
+            GetMediaAsynctask(applicationContext, path, false, false, false) {
+                Thread {
+                    val newMedia = it
+                    val mediumDao = galleryDB.MediumDao()
+                    mediumDao.insertAll(newMedia)
 
-    val projection = arrayOf(MediaStore.Images.Media.DATE_MODIFIED)
-    val uri = MediaStore.Files.getContentUri("external")
-    val selection = "${MediaStore.MediaColumns.DATA} = ?"
-    val selectionArgs = arrayOf(path)
-    val cursor = contentResolver.query(uri, projection, selection, selectionArgs, null)
-
-    cursor?.use {
-        return cursor.moveToFirst()
-    }
-    return false
-}
-
-fun Context.updateStoredFolderItems(path: String) {
-    GetMediaAsynctask(this, path, false, false, false) {
-        storeFolderItems(path, it)
-    }.execute()
-}
-
-fun Context.storeFolderItems(path: String, items: ArrayList<Medium>) {
-    try {
-        val subList = items.subList(0, Math.min(SAVE_MEDIA_CNT, items.size))
-        val json = Gson().toJson(subList)
-        config.saveFolderMedia(path, json)
-    } catch (ignored: Exception) {
-    } catch (ignored: OutOfMemoryError) {
-    }
+                    cached.forEach {
+                        if (!newMedia.contains(it)) {
+                            mediumDao.deleteMediumPath(it.path)
+                        }
+                    }
+                }.start()
+            }.execute()
+        }
+    }.start()
 }
 
 fun Context.updateStoredDirectories() {
@@ -275,5 +261,9 @@ fun Context.getCachedMedia(path: String, callback: (ArrayList<Medium>) -> Unit) 
         val mediumDao = galleryDB.MediumDao()
         val media = mediumDao.getMediaFromPath(path) as ArrayList<Medium>
         callback(media)
+
+        media.filter { !File(it.path).exists() }.forEach {
+            mediumDao.deleteMediumPath(it.path)
+        }
     }.start()
 }

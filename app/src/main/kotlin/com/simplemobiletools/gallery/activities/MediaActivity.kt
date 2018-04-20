@@ -652,18 +652,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
             setupAdapter()
         }
-
-        if (!isFromCache) {
-            storeFolder()
-        }
-    }
-
-    private fun storeFolder() {
-        if (!config.temporarilyShowHidden) {
-            Thread {
-                storeFolderItems(mPath, mMedia)
-            }.start()
-        }
     }
 
     override fun deleteFiles(fileDirItems: ArrayList<FileDirItem>) {
