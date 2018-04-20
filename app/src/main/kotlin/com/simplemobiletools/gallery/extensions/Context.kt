@@ -16,6 +16,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SettingsActivity
 import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
+import com.simplemobiletools.gallery.databases.GalleryDataBase
 import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.helpers.NOMEDIA
 import com.simplemobiletools.gallery.helpers.SAVE_DIRS_CNT
@@ -64,6 +65,8 @@ fun Context.launchSettings() {
 }
 
 val Context.config: Config get() = Config.newInstance(applicationContext)
+
+val Context.galleryDB: GalleryDataBase get() = GalleryDataBase.getInstance(applicationContext)
 
 fun Context.movePinnedDirectoriesToFront(dirs: ArrayList<Directory>): ArrayList<Directory> {
     val foundFolders = ArrayList<Directory>()
