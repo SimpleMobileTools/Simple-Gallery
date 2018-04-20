@@ -239,10 +239,6 @@ class Config(context: Context) : BaseConfig(context) {
     private fun getDefaultMediaColumnCount() = context.resources.getInteger(if (scrollHorizontally) R.integer.media_columns_horizontal_scroll
     else R.integer.media_columns_vertical_scroll)
 
-    var directories: String
-        get() = prefs.getString(DIRECTORIES, "")
-        set(directories) = prefs.edit().putString(DIRECTORIES, directories).apply()
-
     var albumCovers: String
         get() = prefs.getString(ALBUM_COVERS, "")
         set(albumCovers) = prefs.edit().putString(ALBUM_COVERS, albumCovers).apply()

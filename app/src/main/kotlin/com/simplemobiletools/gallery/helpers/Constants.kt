@@ -67,7 +67,6 @@ const val MAX_COLUMN_COUNT = 20
 const val SHOW_TEMP_HIDDEN_DURATION = 600000L
 const val CLICK_MAX_DURATION = 150
 const val DRAG_THRESHOLD = 8
-const val SAVE_DIRS_CNT = 60
 const val SAVE_MEDIA_CNT = 80
 
 const val DIRECTORY = "directory"
@@ -77,7 +76,6 @@ const val GET_IMAGE_INTENT = "get_image_intent"
 const val GET_VIDEO_INTENT = "get_video_intent"
 const val GET_ANY_INTENT = "get_any_intent"
 const val SET_WALLPAPER_INTENT = "set_wallpaper_intent"
-const val DIRECTORIES = "directories2"
 const val IS_VIEW_INTENT = "is_view_intent"
 const val PICKED_PATHS = "picked_paths"
 

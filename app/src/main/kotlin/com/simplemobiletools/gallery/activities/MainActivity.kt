@@ -274,9 +274,12 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         mIsGettingDirs = true
-        val dirs = getCachedDirectories()
-        if (dirs.isNotEmpty() && !mLoadedInitialPhotos) {
-            gotDirectories(dirs, true)
+        if (!mLoadedInitialPhotos) {
+            getCachedDirectories {
+                if (it.isNotEmpty()) {
+                    gotDirectories(it, true)
+                }
+            }
         }
 
         if (!mLoadedInitialPhotos) {

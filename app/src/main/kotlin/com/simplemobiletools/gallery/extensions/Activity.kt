@@ -244,9 +244,10 @@ fun Activity.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Bo
     builder.apply(options).transition(DrawableTransitionOptions.withCrossFade()).into(target)
 }
 
-fun Activity.getCachedDirectories(): ArrayList<Directory> {
-    val token = object : TypeToken<List<Directory>>() {}.type
-    return Gson().fromJson<ArrayList<Directory>>(config.directories, token) ?: ArrayList(1)
+fun Activity.getCachedDirectories(callback: (ArrayList<Directory>) -> Unit) {
+    Thread {
+        callback(galleryDB.DirectoryDao().getAll() as ArrayList<Directory>)
+    }.start()
 }
 
 fun Activity.getCachedMedia(path: String): ArrayList<Medium> {

@@ -19,7 +19,6 @@ import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.databases.GalleryDataBase
 import com.simplemobiletools.gallery.helpers.Config
 import com.simplemobiletools.gallery.helpers.NOMEDIA
-import com.simplemobiletools.gallery.helpers.SAVE_DIRS_CNT
 import com.simplemobiletools.gallery.helpers.SAVE_MEDIA_CNT
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
@@ -163,8 +162,9 @@ fun Context.updateStoredDirectories() {
 }
 
 fun Context.storeDirectoryItems(items: ArrayList<Directory>) {
-    val subList = items.subList(0, Math.min(SAVE_DIRS_CNT, items.size))
-    config.directories = Gson().toJson(subList)
+    Thread {
+        galleryDB.DirectoryDao().insertAll(items)
+    }.start()
 }
 
 fun Context.checkAppendingHidden(path: String, hidden: String, includedFolders: MutableSet<String>): String {
