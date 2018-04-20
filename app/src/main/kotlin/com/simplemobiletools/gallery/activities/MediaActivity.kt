@@ -454,9 +454,14 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
 
         mIsGettingMedia = true
-        val media = getCachedMedia(mPath)
-        if (media.isNotEmpty() && !mLoadedInitialPhotos) {
-            gotMedia(media, true)
+        if (!mLoadedInitialPhotos) {
+            getCachedMedia(mPath) {
+                if (it.isEmpty()) {
+                    media_refresh_layout.isRefreshing = true
+                } else {
+                    gotMedia(it, true)
+                }
+            }
         } else {
             media_refresh_layout.isRefreshing = true
         }
@@ -631,20 +636,20 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }.start()
 
         mIsGettingMedia = false
-        media_refresh_layout.isRefreshing = false
-
-        media_empty_text_label.beVisibleIf(media.isEmpty() && !isFromCache)
-        media_empty_text.beVisibleIf(media.isEmpty() && !isFromCache)
-        media_grid.beVisibleIf(media_empty_text_label.isGone())
-
-        val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFiles == VIEW_TYPE_GRID
-        media_vertical_fastscroller.beVisibleIf(media_grid.isVisible() && !allowHorizontalScroll)
-        media_horizontal_fastscroller.beVisibleIf(media_grid.isVisible() && allowHorizontalScroll)
 
         checkLastMediaChanged()
-
         mMedia = media
+
         runOnUiThread {
+            media_refresh_layout.isRefreshing = false
+            media_empty_text_label.beVisibleIf(media.isEmpty() && !isFromCache)
+            media_empty_text.beVisibleIf(media.isEmpty() && !isFromCache)
+            media_grid.beVisibleIf(media_empty_text_label.isGone())
+
+            val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFiles == VIEW_TYPE_GRID
+            media_vertical_fastscroller.beVisibleIf(media_grid.isVisible() && !allowHorizontalScroll)
+            media_horizontal_fastscroller.beVisibleIf(media_grid.isVisible() && allowHorizontalScroll)
+
             setupAdapter()
         }
 

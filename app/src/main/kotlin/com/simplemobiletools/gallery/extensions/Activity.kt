@@ -11,8 +11,6 @@ import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
@@ -256,7 +254,10 @@ fun Activity.getCachedDirectories(callback: (ArrayList<Directory>) -> Unit) {
     }.start()
 }
 
-fun Activity.getCachedMedia(path: String): ArrayList<Medium> {
-    val token = object : TypeToken<List<Medium>>() {}.type
-    return Gson().fromJson<ArrayList<Medium>>(config.loadFolderMedia(path), token) ?: ArrayList(1)
+fun Activity.getCachedMedia(path: String, callback: (ArrayList<Medium>) -> Unit) {
+    Thread {
+        val mediumDao = galleryDB.MediumDao()
+        val media = mediumDao.getMediaFromPath(path) as ArrayList<Medium>
+        callback(media)
+    }.start()
 }

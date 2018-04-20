@@ -573,14 +573,13 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         directories_empty_text.beVisibleIf(dirs.isEmpty() && !isFromCache)
         directories_grid.beVisibleIf(directories_empty_text_label.isGone())
 
-        val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFiles == VIEW_TYPE_GRID
-        directories_vertical_fastscroller.beVisibleIf(directories_grid.isVisible() && !allowHorizontalScroll)
-        directories_horizontal_fastscroller.beVisibleIf(directories_grid.isVisible() && allowHorizontalScroll)
-
         checkLastMediaChanged()
         mDirs = dirs
 
         runOnUiThread {
+            val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFiles == VIEW_TYPE_GRID
+            directories_vertical_fastscroller.beVisibleIf(directories_grid.isVisible() && !allowHorizontalScroll)
+            directories_horizontal_fastscroller.beVisibleIf(directories_grid.isVisible() && allowHorizontalScroll)
             setupAdapter()
         }
 

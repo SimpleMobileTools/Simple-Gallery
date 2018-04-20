@@ -33,12 +33,14 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
                 .setNegativeButton(R.string.cancel, null)
                 .setNeutralButton(R.string.other_folder, { dialogInterface, i -> showOtherFolder() })
                 .create().apply {
-            activity.setupDialogStuff(view, this, R.string.select_photo)
-        }
+                    activity.setupDialogStuff(view, this, R.string.select_photo)
+                }
 
-        val media = activity.getCachedMedia(path).filter { !it.isVideo() } as ArrayList
-        if (media.isNotEmpty()) {
-            gotMedia(media)
+        activity.getCachedMedia(path) {
+            val media = it.filter { !it.isVideo() } as ArrayList
+            if (media.isNotEmpty()) {
+                gotMedia(media)
+            }
         }
 
         GetMediaAsynctask(activity, path, false, true, false) {
