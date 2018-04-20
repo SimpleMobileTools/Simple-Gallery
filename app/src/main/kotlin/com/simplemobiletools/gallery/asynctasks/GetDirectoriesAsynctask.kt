@@ -39,7 +39,7 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
             val firstItem = curMedia.first()
             val lastItem = curMedia.last()
             val parentDir = if (hasOTG && firstItem.path.startsWith(OTG_PATH)) {
-                firstItem.path.getParentPath()
+                firstItem.parentPath
             } else {
                 File(firstItem.path).parent
             } ?: continue

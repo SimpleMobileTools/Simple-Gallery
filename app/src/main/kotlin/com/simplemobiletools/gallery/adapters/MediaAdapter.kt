@@ -250,7 +250,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     private fun updateStoredFolderItems() {
         Thread {
             if (media.isNotEmpty()) {
-                activity.applicationContext.storeFolderItems(media.first().path.getParentPath().trimEnd('/'), media as ArrayList<Medium>)
+                activity.applicationContext.storeFolderItems(media.first().parentPath, media as ArrayList<Medium>)
             }
         }.start()
     }

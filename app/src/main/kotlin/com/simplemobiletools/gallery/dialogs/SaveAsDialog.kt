@@ -12,7 +12,7 @@ import java.io.File
 class SaveAsDialog(val activity: BaseSimpleActivity, val path: String, val appendFilename: Boolean, val callback: (savePath: String) -> Unit) {
 
     init {
-        var realPath = path.getParentPath().trimEnd('/')
+        var realPath = path.getParentPath()
 
         val view = activity.layoutInflater.inflate(R.layout.dialog_save_as, null).apply {
             save_as_path.text = activity.humanizePath(realPath)

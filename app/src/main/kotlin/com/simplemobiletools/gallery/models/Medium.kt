@@ -13,11 +13,12 @@ import com.simplemobiletools.gallery.helpers.TYPE_IMAGE
 import com.simplemobiletools.gallery.helpers.TYPE_VIDEO
 import java.io.Serializable
 
-@Entity(tableName = "media", indices = [(Index(value = "path", unique = true))])
+@Entity(tableName = "media", indices = [(Index(value = "full_path", unique = true))])
 data class Medium(
         @PrimaryKey(autoGenerate = true) var id: Long?,
         @ColumnInfo(name = "filename") var name: String,
-        @ColumnInfo(name = "path") var path: String,
+        @ColumnInfo(name = "full_path") var path: String,
+        @ColumnInfo(name = "parent_path") var parentPath: String,
         @ColumnInfo(name = "last_modified") val modified: Long,
         @ColumnInfo(name = "date_taken") val taken: Long,
         @ColumnInfo(name = "size") val size: Long,

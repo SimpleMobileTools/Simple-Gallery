@@ -172,8 +172,7 @@ class MediaFetcher(val context: Context) {
                 break
             }
 
-            val parentDir = (if (hasOTG && medium.path.startsWith(OTG_PATH)) medium.path.getParentPath().toLowerCase() else File(medium.path).parent?.toLowerCase())
-                    ?: continue
+            val parentDir = medium.parentPath.toLowerCase()
             if (directories.containsKey(parentDir)) {
                 directories[parentDir]!!.add(medium)
             } else {
@@ -247,7 +246,8 @@ class MediaFetcher(val context: Context) {
                 else -> TYPE_GIF
             }
 
-            val medium = Medium(null, filename, file.absolutePath, dateModified, dateTaken, size, type)
+            val parentPath = file.absolutePath.removeSuffix("/")
+            val medium = Medium(null, filename, file.absolutePath, folder, dateModified, dateTaken, size, type)
             curMedia.add(medium)
         }
     }
@@ -296,7 +296,7 @@ class MediaFetcher(val context: Context) {
             }
 
             val path = Uri.decode(file.uri.toString().replaceFirst("${context.config.OTGBasePath}%3A", OTG_PATH))
-            val medium = Medium(null, filename, path, dateModified, dateTaken, size, type)
+            val medium = Medium(null, filename, path, folder, dateModified, dateTaken, size, type)
             curMedia.add(medium)
         }
     }

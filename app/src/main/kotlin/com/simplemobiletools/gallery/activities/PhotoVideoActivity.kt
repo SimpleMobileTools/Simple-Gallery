@@ -90,7 +90,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             else -> TYPE_GIF
         }
 
-        mMedium = Medium(null, getFilenameFromUri(mUri!!), mUri.toString(), 0, 0, file.length(), type)
+        mMedium = Medium(null, getFilenameFromUri(mUri!!), mUri.toString(), mUri!!.path.getParentPath(), 0, 0, file.length(), type)
         supportActionBar?.title = mMedium!!.name
         bundle.putSerializable(MEDIUM, mMedium)
 

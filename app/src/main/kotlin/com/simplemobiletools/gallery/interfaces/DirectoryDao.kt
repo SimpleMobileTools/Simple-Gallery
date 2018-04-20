@@ -8,7 +8,7 @@ import com.simplemobiletools.gallery.models.Directory
 
 @Dao
 interface DirectoryDao {
-    @Query("SELECT * from directories")
+    @Query("SELECT * FROM directories")
     fun getAll(): List<Directory>
 
     @Insert(onConflict = REPLACE)

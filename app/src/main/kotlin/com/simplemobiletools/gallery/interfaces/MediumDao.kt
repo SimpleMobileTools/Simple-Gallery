@@ -8,8 +8,11 @@ import com.simplemobiletools.gallery.models.Medium
 
 @Dao
 interface MediumDao {
-    @Query("SELECT * from media")
+    @Query("SELECT * FROM media")
     fun getAll(): List<Medium>
+
+    @Query("SELECT * FROM media WHERE parent_path = :path")
+    fun getMediaFromPath(path: String): List<Medium>
 
     @Insert(onConflict = REPLACE)
     fun insert(medium: Medium)

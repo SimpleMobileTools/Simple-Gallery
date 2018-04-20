@@ -197,7 +197,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         showSystemUI()
 
-        mDirectory = mPath.getParentPath().trimEnd('/')
+        mDirectory = mPath.getParentPath()
         if (mDirectory.startsWith(OTG_PATH.trimEnd('/'))) {
             mDirectory += "/"
         }
