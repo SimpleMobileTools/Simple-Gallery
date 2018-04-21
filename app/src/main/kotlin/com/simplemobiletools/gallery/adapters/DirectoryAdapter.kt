@@ -155,7 +155,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     }
 
     private fun renameDir() {
-        val sourcePath = dirs[selectedPositions.first()].path
+        val firstDir = dirs[selectedPositions.first()]
+        val sourcePath = firstDir.path
         val dir = File(sourcePath)
         if (activity.isAStorageRootFolder(dir.absolutePath)) {
             activity.toast(R.string.rename_folder_root)
@@ -164,11 +165,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
         RenameItemDialog(activity, dir.absolutePath) {
             activity.runOnUiThread {
-                if (selectedPositions.isEmpty()) {
-                    return@runOnUiThread
-                }
-
-                dirs[selectedPositions.first()].apply {
+                firstDir.apply {
                     path = it
                     name = it.getFilenameFromPath()
                     tmb = File(it, tmb.getFilenameFromPath()).absolutePath

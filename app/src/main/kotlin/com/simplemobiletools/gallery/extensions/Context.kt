@@ -23,6 +23,7 @@ import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.databases.GalleryDataBase
 import com.simplemobiletools.gallery.helpers.*
+import com.simplemobiletools.gallery.interfaces.DirectoryDao
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
 import com.simplemobiletools.gallery.views.MySquareImageView
@@ -249,10 +250,7 @@ fun Context.getCachedDirectories(callback: (ArrayList<Directory>) -> Unit) {
         val directoryDao = galleryDB.DirectoryDao()
         val directories = directoryDao.getAll() as ArrayList<Directory>
         callback(directories)
-
-        directories.filter { !File(it.path).exists() }.forEach {
-            directoryDao.deleteDirPath(it.path)
-        }
+        removeInvalidDirectories(directories, directoryDao)
     }.start()
 }
 
@@ -266,6 +264,13 @@ fun Context.getCachedMedia(path: String, callback: (ArrayList<Medium>) -> Unit) 
             mediumDao.deleteMediumPath(it.path)
         }
     }.start()
+}
+
+fun Context.removeInvalidDirectories(dirs: ArrayList<Directory>? = null, directoryDao: DirectoryDao = galleryDB.DirectoryDao()) {
+    val dirsToCheck = dirs ?: directoryDao.getAll()
+    dirsToCheck.filter { !File(it.path).exists() }.forEach {
+        directoryDao.deleteDirPath(it.path)
+    }
 }
 
 fun Context.updateMediaPath(oldPath: String, newPath: String) {

@@ -681,8 +681,12 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             gotDirectories(directories, true)
         } else {
             mDirs = directories
-            storeDirectories()
         }
+
+        Thread {
+            storeDirectoryItems(directories)
+            removeInvalidDirectories()
+        }.start()
     }
 
     private fun checkWhatsNewDialog() {
