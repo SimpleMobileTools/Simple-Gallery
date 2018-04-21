@@ -8,7 +8,8 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.helpers.photoExtensions
 import com.simplemobiletools.commons.helpers.videoExtensions
-import com.simplemobiletools.gallery.extensions.*
+import com.simplemobiletools.gallery.extensions.config
+import com.simplemobiletools.gallery.extensions.shouldFolderBeVisible
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 import java.util.LinkedHashMap
@@ -132,7 +133,7 @@ class MediaFetcher(val context: Context) {
         val curMedia = ArrayList<Medium>()
         val showHidden = config.shouldShowHidden
         val excludedFolders = config.excludedFolders
-        foldersToScan.filter { shouldFolderBeVisible(it, excludedFolders, includedFolders, showHidden) }.toList().forEach {
+        foldersToScan.filter { it.shouldFolderBeVisible(excludedFolders, includedFolders, showHidden) }.toList().forEach {
             fetchFolderContent(it, curMedia, isPickImage, isPickVideo, filterMedia)
         }
 
@@ -180,27 +181,6 @@ class MediaFetcher(val context: Context) {
             }
         }
         return directories
-    }
-
-    private fun shouldFolderBeVisible(path: String, excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>, showHidden: Boolean): Boolean {
-        val file = File(path)
-        return if (path.isEmpty()) {
-            false
-        } else if (!showHidden && file.containsNoMedia()) {
-            false
-        } else if (path.isThisOrParentIncluded(includedPaths)) {
-            true
-        } else if (path.isThisOrParentExcluded(excludedPaths)) {
-            false
-        } else if (!showHidden && file.isDirectory && file.canonicalFile == file.absoluteFile) {
-            var containsNoMediaOrDot = file.containsNoMedia() || path.contains("/.")
-            if (!containsNoMediaOrDot) {
-                containsNoMediaOrDot = file.doesThisOrParentHaveNoMedia()
-            }
-            !containsNoMediaOrDot
-        } else {
-            true
-        }
     }
 
     private fun getMediaInFolder(folder: String, curMedia: ArrayList<Medium>, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int) {

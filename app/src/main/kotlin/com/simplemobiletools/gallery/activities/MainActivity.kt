@@ -276,8 +276,13 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mIsGettingDirs = true
         if (!mLoadedInitialPhotos) {
             getCachedDirectories {
-                if (it.isNotEmpty()) {
-                    gotDirectories(it, true)
+                val shouldShowHidden = config.shouldShowHidden
+                val excludedPaths = config.excludedFolders
+                val includedPaths = config.includedFolders
+                val dirs = it.filter { it.path.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden) } as ArrayList<Directory>
+
+                if (dirs.isNotEmpty()) {
+                    gotDirectories(dirs, true)
                 }
             }
         }
@@ -566,17 +571,16 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         val dirs = getSortedDirectories(newDirs)
-        directories_refresh_layout.isRefreshing = false
         mIsGettingDirs = false
-
-        directories_empty_text_label.beVisibleIf(dirs.isEmpty() && !isFromCache)
-        directories_empty_text.beVisibleIf(dirs.isEmpty() && !isFromCache)
-        directories_grid.beVisibleIf(directories_empty_text_label.isGone())
-
         checkLastMediaChanged()
         mDirs = dirs
 
         runOnUiThread {
+            directories_refresh_layout.isRefreshing = false
+            directories_empty_text_label.beVisibleIf(dirs.isEmpty() && !isFromCache)
+            directories_empty_text.beVisibleIf(dirs.isEmpty() && !isFromCache)
+            directories_grid.beVisibleIf(directories_empty_text_label.isGone())
+
             val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFiles == VIEW_TYPE_GRID
             directories_vertical_fastscroller.beVisibleIf(directories_grid.isVisible() && !allowHorizontalScroll)
             directories_horizontal_fastscroller.beVisibleIf(directories_grid.isVisible() && allowHorizontalScroll)

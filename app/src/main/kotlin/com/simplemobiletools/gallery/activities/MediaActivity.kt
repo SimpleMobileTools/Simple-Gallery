@@ -456,10 +456,16 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         mIsGettingMedia = true
         if (!mLoadedInitialPhotos) {
             getCachedMedia(mPath) {
-                if (it.isEmpty()) {
+                val shouldShowHidden = config.shouldShowHidden
+                var media = it
+                if (!shouldShowHidden) {
+                    media = media.filter { !it.name.startsWith('.') } as ArrayList<Medium>
+                }
+
+                if (media.isEmpty()) {
                     media_refresh_layout.isRefreshing = true
                 } else {
-                    gotMedia(it, true)
+                    gotMedia(media, true)
                 }
             }
         } else {
@@ -636,7 +642,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }.start()
 
         mIsGettingMedia = false
-
         checkLastMediaChanged()
         mMedia = media
 
