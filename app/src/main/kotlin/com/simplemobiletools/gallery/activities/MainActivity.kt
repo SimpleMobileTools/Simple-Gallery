@@ -356,6 +356,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun toggleTemporarilyShowHidden(show: Boolean) {
+        mLoadedInitialPhotos = false
         config.temporarilyShowHidden = show
         getDirectories()
         invalidateOptionsMenu()
