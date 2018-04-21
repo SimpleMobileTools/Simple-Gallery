@@ -251,7 +251,7 @@ fun Context.getCachedDirectories(callback: (ArrayList<Directory>) -> Unit) {
         callback(directories)
 
         directories.filter { !File(it.path).exists() }.forEach {
-            directoryDao.deleteDir(it)
+            directoryDao.deleteDirPath(it.path)
         }
     }.start()
 }
