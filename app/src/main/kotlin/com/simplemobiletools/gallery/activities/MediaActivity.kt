@@ -500,6 +500,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun toggleTemporarilyShowHidden(show: Boolean) {
+        mLoadedInitialPhotos = false
         config.temporarilyShowHidden = show
         getMedia()
         invalidateOptionsMenu()
