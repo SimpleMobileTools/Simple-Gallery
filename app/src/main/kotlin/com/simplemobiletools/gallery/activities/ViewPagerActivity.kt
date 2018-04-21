@@ -757,8 +757,16 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun renameFile() {
-        RenameItemDialog(this, getCurrentPath()) {
-            getCurrentMedia()[mPos].path = it
+        val oldPath = getCurrentPath()
+        RenameItemDialog(this, oldPath) {
+            getCurrentMedia()[mPos].apply {
+                path = it
+                name = it.getFilenameFromPath()
+            }
+
+            Thread {
+                updateMediaPath(oldPath, it)
+            }.start()
             updateActionbarTitle()
         }
     }

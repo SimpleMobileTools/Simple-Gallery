@@ -148,7 +148,12 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     private fun renameFile() {
-        RenameItemDialog(activity, getCurrentPath()) {
+        val oldPath = getCurrentPath()
+        RenameItemDialog(activity, oldPath) {
+            Thread {
+                activity.updateMediaPath(oldPath, it)
+            }.start()
+
             activity.runOnUiThread {
                 listener?.refreshItems()
                 finishActMode()

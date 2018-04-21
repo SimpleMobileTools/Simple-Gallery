@@ -657,15 +657,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     override fun deleteFiles(fileDirItems: ArrayList<FileDirItem>) {
         val filtered = fileDirItems.filter { it.path.isImageVideoGif() } as ArrayList
         deleteFiles(filtered) {
-            Thread {
-                val mediumDao = galleryDB.MediumDao()
-                filtered.forEach {
-                    if (!File(it.path).exists()) {
-                        mediumDao.deleteMediumPath(it.path)
-                    }
-                }
-            }.start()
-
             if (!it) {
                 toast(R.string.unknown_error_occurred)
             } else if (mMedia.isEmpty()) {
@@ -673,6 +664,13 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                 finish()
             } else {
                 updateStoredDirectories()
+
+                Thread {
+                    val mediumDao = galleryDB.MediumDao()
+                    filtered.forEach {
+                        mediumDao.deleteMediumPath(it.path)
+                    }
+                }.start()
             }
         }
     }

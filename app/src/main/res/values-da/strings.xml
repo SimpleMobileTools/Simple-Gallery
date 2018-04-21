@@ -97,7 +97,7 @@
     <string name="slideshow">Slideshow</string>
     <string name="interval">Frekvens (sekunder):</string>
     <string name="include_photos">Inkluder billeder</string>
-    <string name="include_videos">Inkluder videoer/string>
+    <string name="include_videos">Inkluder videoer</string>
     <string name="include_gifs">Inkluder GIF\'er</string>
     <string name="random_order">Tilfældig rækkefølge</string>
     <string name="use_fade">Use fade animations</string>

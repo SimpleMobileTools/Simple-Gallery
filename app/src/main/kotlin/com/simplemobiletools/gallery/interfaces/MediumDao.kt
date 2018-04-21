@@ -22,4 +22,7 @@ interface MediumDao {
 
     @Query("DELETE FROM media WHERE full_path = :path")
     fun deleteMediumPath(path: String)
+
+    @Query("UPDATE media SET filename = :newFilename, full_path = :newFullPath, parent_path = :newParentPath WHERE full_path = :oldPath")
+    fun updateMedia(oldPath: String, newParentPath: String, newFilename: String, newFullPath: String)
 }

@@ -267,3 +267,9 @@ fun Context.getCachedMedia(path: String, callback: (ArrayList<Medium>) -> Unit) 
         }
     }.start()
 }
+
+fun Context.updateMediaPath(oldPath: String, newPath: String) {
+    val newFilename = newPath.getFilenameFromPath()
+    val newParentPath = newPath.getParentPath()
+    galleryDB.MediumDao().updateMedia(oldPath, newParentPath, newFilename, newPath)
+}
