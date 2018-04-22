@@ -19,7 +19,8 @@ data class Directory(
         @ColumnInfo(name = "last_modified") val modified: Long,
         @ColumnInfo(name = "date_taken") val taken: Long,
         @ColumnInfo(name = "size") val size: Long,
-        @ColumnInfo(name = "is_on_sd_card") val isOnSDCard: Boolean) : Serializable, Comparable<Directory> {
+        @ColumnInfo(name = "is_on_sd_card") val isOnSDCard: Boolean,
+        @ColumnInfo(name = "media_types") val types: Int) : Serializable, Comparable<Directory> {
 
     companion object {
         private const val serialVersionUID = -6553345863555455L

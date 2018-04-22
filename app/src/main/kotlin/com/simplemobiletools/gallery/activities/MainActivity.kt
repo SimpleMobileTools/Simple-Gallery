@@ -276,13 +276,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mIsGettingDirs = true
         if (!mLoadedInitialPhotos) {
             getCachedDirectories {
-                val shouldShowHidden = config.shouldShowHidden
-                val excludedPaths = config.excludedFolders
-                val includedPaths = config.includedFolders
-                val dirs = it.filter { it.path.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden) } as ArrayList<Directory>
-
-                if (dirs.isNotEmpty()) {
-                    gotDirectories(dirs, true)
+                if (it.isNotEmpty()) {
+                    gotDirectories(it, true)
                 }
             }
         }
@@ -312,6 +307,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun showFilterMediaDialog() {
         FilterMediaDialog(this) {
+            mLoadedInitialPhotos = false
             directories_refresh_layout.isRefreshing = true
             getDirectories()
         }

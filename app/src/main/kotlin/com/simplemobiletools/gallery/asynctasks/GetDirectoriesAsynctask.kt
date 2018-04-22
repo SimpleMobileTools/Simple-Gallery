@@ -10,7 +10,10 @@ import com.simplemobiletools.commons.helpers.sumByLong
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.checkAppendingHidden
 import com.simplemobiletools.gallery.extensions.config
+import com.simplemobiletools.gallery.helpers.GIFS
+import com.simplemobiletools.gallery.helpers.IMAGES
 import com.simplemobiletools.gallery.helpers.MediaFetcher
+import com.simplemobiletools.gallery.helpers.VIDEOS
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
@@ -55,15 +58,34 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                 }
             }
 
+            val mediaTypes = getDirMediaTypes(curMedia)
+
             val dirName = context.checkAppendingHidden(parentDir, hidden, includedFolders)
             val lastModified = if (config.directorySorting and SORT_DESCENDING > 0) Math.max(firstItem.modified, lastItem.modified) else Math.min(firstItem.modified, lastItem.modified)
             val dateTaken = if (config.directorySorting and SORT_DESCENDING > 0) Math.max(firstItem.taken, lastItem.taken) else Math.min(firstItem.taken, lastItem.taken)
             val size = curMedia.sumByLong { it.size }
-            val directory = Directory(null, parentDir, thumbnail, dirName, curMedia.size, lastModified, dateTaken, size, context.isPathOnSD(parentDir))
+            val directory = Directory(null, parentDir, thumbnail, dirName, curMedia.size, lastModified, dateTaken, size, context.isPathOnSD(parentDir), mediaTypes)
             directories.add(directory)
         }
 
         return directories
+    }
+
+    private fun getDirMediaTypes(media: ArrayList<Medium>): Int {
+        var types = 0
+        if (media.any { it.isImage() }) {
+            types += IMAGES
+        }
+
+        if (media.any { it.isVideo() }) {
+            types += VIDEOS
+        }
+
+        if (media.any { it.isGif() }) {
+            types += GIFS
+        }
+
+        return types
     }
 
     override fun onPostExecute(dirs: ArrayList<Directory>) {

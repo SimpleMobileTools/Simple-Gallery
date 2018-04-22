@@ -212,7 +212,7 @@ fun Context.addTempFolderIfNeeded(dirs: ArrayList<Directory>): ArrayList<Directo
     val directories = ArrayList<Directory>()
     val tempFolderPath = config.tempFolderPath
     if (tempFolderPath.isNotEmpty()) {
-        val newFolder = Directory(null, tempFolderPath, "", tempFolderPath.getFilenameFromPath(), 0, 0, 0, 0L, isPathOnSD(tempFolderPath))
+        val newFolder = Directory(null, tempFolderPath, "", tempFolderPath.getFilenameFromPath(), 0, 0, 0, 0L, isPathOnSD(tempFolderPath), 0)
         directories.add(newFolder)
     }
     directories.addAll(dirs)
@@ -249,7 +249,19 @@ fun Context.getCachedDirectories(callback: (ArrayList<Directory>) -> Unit) {
     Thread {
         val directoryDao = galleryDB.DirectoryDao()
         val directories = directoryDao.getAll() as ArrayList<Directory>
-        callback(directories)
+        val shouldShowHidden = config.shouldShowHidden
+        val excludedPaths = config.excludedFolders
+        val includedPaths = config.includedFolders
+        var filteredDirectories = directories.filter { it.path.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden) } as ArrayList<Directory>
+        val filterMedia = config.filterMedia
+        filteredDirectories = filteredDirectories.filter {
+            (filterMedia and IMAGES != 0 && it.types == TYPE_IMAGE) ||
+                    (filterMedia and VIDEOS != 0 && it.types == TYPE_VIDEO) ||
+                    (filterMedia and GIFS != 0 && it.types == TYPE_GIF)
+        } as ArrayList<Directory>
+
+        callback(filteredDirectories)
+
         removeInvalidDirectories(directories, directoryDao)
     }.start()
 }
