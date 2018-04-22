@@ -271,32 +271,33 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
     }.start()
 }
 
-fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, callback: (ArrayList<Medium>) -> Unit) =
-        Thread {
-            val mediumDao = galleryDB.MediumDao()
-            val media = mediumDao.getMediaFromPath(path) as ArrayList<Medium>
-            val shouldShowHidden = config.shouldShowHidden
-            var filteredMedia = media
-            if (!shouldShowHidden) {
-                filteredMedia = media.filter { !it.name.startsWith('.') } as ArrayList<Medium>
-            }
+fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, callback: (ArrayList<Medium>) -> Unit) {
+    Thread {
+        val mediumDao = galleryDB.MediumDao()
+        val media = (if (path == "/") mediumDao.getAll() else mediumDao.getMediaFromPath(path)) as ArrayList<Medium>
+        val shouldShowHidden = config.shouldShowHidden
+        var filteredMedia = media
+        if (!shouldShowHidden) {
+            filteredMedia = media.filter { !it.name.startsWith('.') } as ArrayList<Medium>
+        }
 
-            val filterMedia = config.filterMedia
-            filteredMedia = (when {
-                getVideosOnly -> filteredMedia.filter { it.type == TYPE_VIDEOS }
-                getImagesOnly -> filteredMedia.filter { it.type == TYPE_IMAGES }
-                else -> filteredMedia.filter {
-                    (filterMedia and TYPE_IMAGES != 0 && it.type == TYPE_IMAGES) ||
-                            (filterMedia and TYPE_VIDEOS != 0 && it.type == TYPE_VIDEOS) ||
-                            (filterMedia and TYPE_GIFS != 0 && it.type == TYPE_GIFS)
-                }
-            }) as ArrayList<Medium>
-
-            callback(filteredMedia)
-            media.filter { !File(it.path).exists() }.forEach {
-                mediumDao.deleteMediumPath(it.path)
+        val filterMedia = config.filterMedia
+        filteredMedia = (when {
+            getVideosOnly -> filteredMedia.filter { it.type == TYPE_VIDEOS }
+            getImagesOnly -> filteredMedia.filter { it.type == TYPE_IMAGES }
+            else -> filteredMedia.filter {
+                (filterMedia and TYPE_IMAGES != 0 && it.type == TYPE_IMAGES) ||
+                        (filterMedia and TYPE_VIDEOS != 0 && it.type == TYPE_VIDEOS) ||
+                        (filterMedia and TYPE_GIFS != 0 && it.type == TYPE_GIFS)
             }
-        }.start()
+        }) as ArrayList<Medium>
+
+        callback(filteredMedia)
+        media.filter { !File(it.path).exists() }.forEach {
+            mediumDao.deleteMediumPath(it.path)
+        }
+    }.start()
+}
 
 fun Context.removeInvalidDirectories(dirs: ArrayList<Directory>? = null, directoryDao: DirectoryDao = galleryDB.DirectoryDao()) {
     val dirsToCheck = dirs ?: directoryDao.getAll()
