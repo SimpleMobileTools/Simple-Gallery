@@ -263,6 +263,14 @@ fun Context.getCachedMedia(path: String, callback: (ArrayList<Medium>) -> Unit) 
         if (!shouldShowHidden) {
             filteredMedia = media.filter { !it.name.startsWith('.') } as ArrayList<Medium>
         }
+
+        val filterMedia = config.filterMedia
+        filteredMedia = filteredMedia.filter {
+            (filterMedia and IMAGES != 0 && it.type == TYPE_IMAGE) ||
+                    (filterMedia and VIDEOS != 0 && it.type == TYPE_VIDEO) ||
+                    (filterMedia and GIFS != 0 && it.type == TYPE_GIF)
+        } as ArrayList<Medium>
+
         callback(filteredMedia)
 
         media.filter { !File(it.path).exists() }.forEach {

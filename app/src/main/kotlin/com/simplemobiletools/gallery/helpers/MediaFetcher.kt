@@ -167,7 +167,6 @@ class MediaFetcher(val context: Context) {
 
     private fun groupDirectories(media: ArrayList<Medium>): HashMap<String, ArrayList<Medium>> {
         val directories = LinkedHashMap<String, ArrayList<Medium>>()
-        val hasOTG = context.hasOTGConnected() && context.config.OTGBasePath.isNotEmpty()
         for (medium in media) {
             if (shouldStop) {
                 break
@@ -226,7 +225,6 @@ class MediaFetcher(val context: Context) {
                 else -> TYPE_GIF
             }
 
-            val parentPath = file.absolutePath.removeSuffix("/")
             val medium = Medium(null, filename, file.absolutePath, folder, dateModified, dateTaken, size, type)
             curMedia.add(medium)
         }
