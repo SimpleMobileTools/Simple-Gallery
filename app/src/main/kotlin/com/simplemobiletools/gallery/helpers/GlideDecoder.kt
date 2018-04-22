@@ -31,7 +31,7 @@ class GlideDecoder : ImageDecoder {
 
         val degrees = getRotationDegrees(orientation)
         if (degrees != 0) {
-            options.transform(GlideRotateTransformation(context, getRotationDegrees(orientation)))
+            options.transform(GlideRotateTransformation(getRotationDegrees(orientation)))
         }
 
         val drawable = Glide.with(context)
