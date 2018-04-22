@@ -81,11 +81,6 @@ const val ROTATE_BY_SYSTEM_SETTING = 0
 const val ROTATE_BY_DEVICE_ROTATION = 1
 const val ROTATE_BY_ASPECT_RATIO = 2
 
-// filter media
-const val IMAGES = 1
-const val VIDEOS = 2
-const val GIFS = 4
-
 // view types
 const val VIEW_TYPE_GRID = 1
 const val VIEW_TYPE_LIST = 2
@@ -104,6 +99,6 @@ const val EXT_ARTIST = 512
 const val EXT_ALBUM = 1024
 
 // media types
-const val TYPE_IMAGE = 1
-const val TYPE_VIDEO = 2
-const val TYPE_GIF = 3
+const val TYPE_IMAGES = 1
+const val TYPE_VIDEOS = 2
+const val TYPE_GIFS = 4

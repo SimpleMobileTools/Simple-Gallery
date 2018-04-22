@@ -58,19 +58,19 @@ class MediaFetcher(val context: Context) {
         }
 
         query.append("(")
-        if (filterMedia and IMAGES != 0) {
+        if (filterMedia and TYPE_IMAGES != 0) {
             photoExtensions.forEach {
                 query.append("${MediaStore.Images.Media.DATA} LIKE ? OR ")
             }
         }
 
-        if (filterMedia and VIDEOS != 0) {
+        if (filterMedia and TYPE_VIDEOS != 0) {
             videoExtensions.forEach {
                 query.append("${MediaStore.Images.Media.DATA} LIKE ? OR ")
             }
         }
 
-        if (filterMedia and GIFS != 0) {
+        if (filterMedia and TYPE_GIFS != 0) {
             query.append("${MediaStore.Images.Media.DATA} LIKE ?")
         }
 
@@ -86,19 +86,19 @@ class MediaFetcher(val context: Context) {
             args.add("$path/%/%")
         }
 
-        if (filterMedia and IMAGES != 0) {
+        if (filterMedia and TYPE_IMAGES != 0) {
             photoExtensions.forEach {
                 args.add("%$it")
             }
         }
 
-        if (filterMedia and VIDEOS != 0) {
+        if (filterMedia and TYPE_VIDEOS != 0) {
             videoExtensions.forEach {
                 args.add("%$it")
             }
         }
 
-        if (filterMedia and GIFS != 0) {
+        if (filterMedia and TYPE_GIFS != 0) {
             args.add("%.gif")
         }
 
@@ -200,13 +200,13 @@ class MediaFetcher(val context: Context) {
             if (!isImage && !isVideo && !isGif)
                 continue
 
-            if (isVideo && (isPickImage || filterMedia and VIDEOS == 0))
+            if (isVideo && (isPickImage || filterMedia and TYPE_VIDEOS == 0))
                 continue
 
-            if (isImage && (isPickVideo || filterMedia and IMAGES == 0))
+            if (isImage && (isPickVideo || filterMedia and TYPE_IMAGES == 0))
                 continue
 
-            if (isGif && filterMedia and GIFS == 0)
+            if (isGif && filterMedia and TYPE_GIFS == 0)
                 continue
 
             if (!showHidden && filename.startsWith('.'))
@@ -220,9 +220,9 @@ class MediaFetcher(val context: Context) {
             val dateModified = file.lastModified()
 
             val type = when {
-                isImage -> TYPE_IMAGE
-                isVideo -> TYPE_VIDEO
-                else -> TYPE_GIF
+                isImage -> TYPE_IMAGES
+                isVideo -> TYPE_VIDEOS
+                else -> TYPE_GIFS
             }
 
             val medium = Medium(null, filename, file.absolutePath, folder, dateModified, dateTaken, size, type)
@@ -248,13 +248,13 @@ class MediaFetcher(val context: Context) {
             if (!isImage && !isVideo && !isGif)
                 continue
 
-            if (isVideo && (isPickImage || filterMedia and VIDEOS == 0))
+            if (isVideo && (isPickImage || filterMedia and TYPE_VIDEOS == 0))
                 continue
 
-            if (isImage && (isPickVideo || filterMedia and IMAGES == 0))
+            if (isImage && (isPickVideo || filterMedia and TYPE_IMAGES == 0))
                 continue
 
-            if (isGif && filterMedia and GIFS == 0)
+            if (isGif && filterMedia and TYPE_GIFS == 0)
                 continue
 
             if (!showHidden && filename.startsWith('.'))
@@ -268,9 +268,9 @@ class MediaFetcher(val context: Context) {
             val dateModified = file.lastModified()
 
             val type = when {
-                isImage -> TYPE_IMAGE
-                isVideo -> TYPE_VIDEO
-                else -> TYPE_GIF
+                isImage -> TYPE_IMAGES
+                isVideo -> TYPE_VIDEOS
+                else -> TYPE_GIFS
             }
 
             val path = Uri.decode(file.uri.toString().replaceFirst("${context.config.OTGBasePath}%3A", OTG_PATH))

@@ -19,9 +19,9 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.ExcludeFolderDialog
 import com.simplemobiletools.gallery.dialogs.PickMediumDialog
 import com.simplemobiletools.gallery.extensions.*
-import com.simplemobiletools.gallery.helpers.TYPE_GIF
-import com.simplemobiletools.gallery.helpers.TYPE_IMAGE
-import com.simplemobiletools.gallery.helpers.TYPE_VIDEO
+import com.simplemobiletools.gallery.helpers.TYPE_GIFS
+import com.simplemobiletools.gallery.helpers.TYPE_IMAGES
+import com.simplemobiletools.gallery.helpers.TYPE_VIDEOS
 import com.simplemobiletools.gallery.helpers.VIEW_TYPE_LIST
 import com.simplemobiletools.gallery.models.AlbumCover
 import com.simplemobiletools.gallery.models.Directory
@@ -413,9 +413,9 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             dir_path?.text = "${directory.path.substringBeforeLast("/")}/"
             photo_cnt.text = directory.mediaCnt.toString()
             val thumbnailType = when {
-                directory.tmb.isImageFast() -> TYPE_IMAGE
-                directory.tmb.isVideoFast() -> TYPE_VIDEO
-                else -> TYPE_GIF
+                directory.tmb.isImageFast() -> TYPE_IMAGES
+                directory.tmb.isVideoFast() -> TYPE_VIDEOS
+                else -> TYPE_GIFS
             }
 
             activity.loadImage(thumbnailType, directory.tmb, dir_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)

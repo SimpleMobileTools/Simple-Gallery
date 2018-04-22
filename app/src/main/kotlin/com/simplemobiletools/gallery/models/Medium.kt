@@ -8,9 +8,9 @@ import com.simplemobiletools.commons.extensions.formatDate
 import com.simplemobiletools.commons.extensions.formatSize
 import com.simplemobiletools.commons.extensions.isDng
 import com.simplemobiletools.commons.helpers.*
-import com.simplemobiletools.gallery.helpers.TYPE_GIF
-import com.simplemobiletools.gallery.helpers.TYPE_IMAGE
-import com.simplemobiletools.gallery.helpers.TYPE_VIDEO
+import com.simplemobiletools.gallery.helpers.TYPE_GIFS
+import com.simplemobiletools.gallery.helpers.TYPE_IMAGES
+import com.simplemobiletools.gallery.helpers.TYPE_VIDEOS
 import java.io.Serializable
 
 @Entity(tableName = "media", indices = [(Index(value = "full_path", unique = true))])
@@ -29,11 +29,11 @@ data class Medium(
         var sorting: Int = 0
     }
 
-    fun isGif() = type == TYPE_GIF
+    fun isGif() = type == TYPE_GIFS
 
-    fun isImage() = type == TYPE_IMAGE
+    fun isImage() = type == TYPE_IMAGES
 
-    fun isVideo() = type == TYPE_VIDEO
+    fun isVideo() = type == TYPE_VIDEOS
 
     fun isDng() = path.isDng()
 

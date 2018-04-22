@@ -10,10 +10,10 @@ import com.simplemobiletools.commons.helpers.sumByLong
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.checkAppendingHidden
 import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.helpers.GIFS
-import com.simplemobiletools.gallery.helpers.IMAGES
 import com.simplemobiletools.gallery.helpers.MediaFetcher
-import com.simplemobiletools.gallery.helpers.VIDEOS
+import com.simplemobiletools.gallery.helpers.TYPE_GIFS
+import com.simplemobiletools.gallery.helpers.TYPE_IMAGES
+import com.simplemobiletools.gallery.helpers.TYPE_VIDEOS
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
@@ -74,15 +74,15 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
     private fun getDirMediaTypes(media: ArrayList<Medium>): Int {
         var types = 0
         if (media.any { it.isImage() }) {
-            types += IMAGES
+            types += TYPE_IMAGES
         }
 
         if (media.any { it.isVideo() }) {
-            types += VIDEOS
+            types += TYPE_VIDEOS
         }
 
         if (media.any { it.isGif() }) {
-            types += GIFS
+            types += TYPE_GIFS
         }
 
         return types

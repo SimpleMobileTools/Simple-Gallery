@@ -183,13 +183,13 @@ fun Context.checkAppendingHidden(path: String, hidden: String, includedFolders: 
 
 fun Context.loadImage(type: Int, path: String, target: MySquareImageView, horizontalScroll: Boolean, animateGifs: Boolean, cropThumbnails: Boolean) {
     target.isHorizontalScrolling = horizontalScroll
-    if (type == TYPE_IMAGE || type == TYPE_VIDEO) {
-        if (type == TYPE_IMAGE && path.isPng()) {
+    if (type == TYPE_IMAGES || type == TYPE_VIDEOS) {
+        if (type == TYPE_IMAGES && path.isPng()) {
             loadPng(path, target, cropThumbnails)
         } else {
             loadJpg(path, target, cropThumbnails)
         }
-    } else if (type == TYPE_GIF) {
+    } else if (type == TYPE_GIFS) {
         try {
             val gifDrawable = GifDrawable(path)
             target.setImageDrawable(gifDrawable)
@@ -255,9 +255,9 @@ fun Context.getCachedDirectories(callback: (ArrayList<Directory>) -> Unit) {
         var filteredDirectories = directories.filter { it.path.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden) } as ArrayList<Directory>
         val filterMedia = config.filterMedia
         filteredDirectories = filteredDirectories.filter {
-            (filterMedia and IMAGES != 0 && it.types == TYPE_IMAGE) ||
-                    (filterMedia and VIDEOS != 0 && it.types == TYPE_VIDEO) ||
-                    (filterMedia and GIFS != 0 && it.types == TYPE_GIF)
+            (filterMedia and TYPE_IMAGES != 0 && it.types and TYPE_IMAGES != 0) ||
+                    (filterMedia and TYPE_VIDEOS != 0 && it.types and TYPE_VIDEOS != 0) ||
+                    (filterMedia and TYPE_GIFS != 0 && it.types and TYPE_GIFS != 0)
         } as ArrayList<Directory>
 
         callback(filteredDirectories)
@@ -278,9 +278,9 @@ fun Context.getCachedMedia(path: String, callback: (ArrayList<Medium>) -> Unit) 
 
         val filterMedia = config.filterMedia
         filteredMedia = filteredMedia.filter {
-            (filterMedia and IMAGES != 0 && it.type == TYPE_IMAGE) ||
-                    (filterMedia and VIDEOS != 0 && it.type == TYPE_VIDEO) ||
-                    (filterMedia and GIFS != 0 && it.type == TYPE_GIF)
+            (filterMedia and TYPE_IMAGES != 0 && it.type == TYPE_IMAGES) ||
+                    (filterMedia and TYPE_VIDEOS != 0 && it.type == TYPE_VIDEOS) ||
+                    (filterMedia and TYPE_GIFS != 0 && it.type == TYPE_GIFS)
         } as ArrayList<Medium>
 
         callback(filteredMedia)
