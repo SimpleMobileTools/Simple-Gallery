@@ -274,7 +274,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             val filtered = mMedia.filter { it.name.contains(text, true) } as ArrayList
             filtered.sortBy { !it.name.startsWith(text, true) }
             runOnUiThread {
-                (media_grid.adapter as? MediaAdapter)?.updateMedia(filtered)
+                getMediaAdapter()?.updateMedia(filtered)
             }
         }.start()
     }
@@ -367,12 +367,14 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun showSortingDialog() {
         ChangeSortingDialog(this, false, !config.showAll, mPath) {
+            mLoadedInitialPhotos = false
             getMedia()
         }
     }
 
     private fun showFilterMediaDialog() {
         FilterMediaDialog(this) {
+            mLoadedInitialPhotos = false
             media_refresh_layout.isRefreshing = true
             getMedia()
         }
@@ -380,8 +382,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun toggleFilenameVisibility() {
         config.displayFileNames = !config.displayFileNames
-        if (media_grid.adapter != null)
-            getMediaAdapter()?.updateDisplayFilenames(config.displayFileNames)
+        getMediaAdapter()?.updateDisplayFilenames(config.displayFileNames)
     }
 
     private fun switchToFolderView() {
