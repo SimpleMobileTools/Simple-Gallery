@@ -274,8 +274,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         mIsGettingDirs = true
+        val getImagesOnly = mIsPickImageIntent || mIsGetImageContentIntent
+        val getVideosOnly = mIsPickVideoIntent || mIsGetVideoContentIntent
+
         if (!mLoadedInitialPhotos) {
-            getCachedDirectories {
+            getCachedDirectories(getVideosOnly, getImagesOnly) {
                 if (it.isNotEmpty()) {
                     gotDirectories(it, true)
                 }
@@ -288,7 +291,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
         mLoadedInitialPhotos = true
         mCurrAsyncTask?.stopFetching()
-        mCurrAsyncTask = GetDirectoriesAsynctask(applicationContext, mIsPickVideoIntent || mIsGetVideoContentIntent, mIsPickImageIntent || mIsGetImageContentIntent) {
+        mCurrAsyncTask = GetDirectoriesAsynctask(applicationContext, getVideosOnly, getImagesOnly) {
             mCurrAsyncTask = null
             gotDirectories(addTempFolderIfNeeded(it), false)
         }

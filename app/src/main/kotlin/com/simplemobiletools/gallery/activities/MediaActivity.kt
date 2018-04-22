@@ -456,7 +456,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         mIsGettingMedia = true
         if (!mLoadedInitialPhotos) {
-            getCachedMedia(mPath) {
+            getCachedMedia(mPath, mIsGetVideoIntent, mIsGetImageIntent) {
                 if (it.isEmpty()) {
                     media_refresh_layout.isRefreshing = true
                 } else {
