@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 3.8.0 *(2018-04-22)*
+----------------------------
+
+ * Rewrote media caching for better performance
+ * Cache all media items, not just 80 per folder
+ * Some additional performance and stability improvements
+
 Version 3.7.3 *(2018-04-15)*
 ----------------------------
 
