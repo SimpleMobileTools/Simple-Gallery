@@ -148,9 +148,12 @@ fun BaseSimpleActivity.toggleFileVisibility(oldPath: String, hide: Boolean, call
         filename.substring(1, filename.length)
     }
 
-    val newPath = "$path$filename"
+    val newPath = "$path/$filename"
     renameFile(oldPath, newPath) {
         callback?.invoke(newPath)
+        Thread {
+            updateMediaPath(oldPath, newPath)
+        }.start()
     }
 }
 
