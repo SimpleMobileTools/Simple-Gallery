@@ -456,16 +456,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         mIsGettingMedia = true
         if (!mLoadedInitialPhotos) {
             getCachedMedia(mPath) {
-                val shouldShowHidden = config.shouldShowHidden
-                var media = it
-                if (!shouldShowHidden) {
-                    media = media.filter { !it.name.startsWith('.') } as ArrayList<Medium>
-                }
-
-                if (media.isEmpty()) {
+                if (it.isEmpty()) {
                     media_refresh_layout.isRefreshing = true
                 } else {
-                    gotMedia(media, true)
+                    gotMedia(it, true)
                 }
             }
         } else {
@@ -485,8 +479,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             deleteDirectoryIfEmpty()
             finish()
             true
-        } else
+        } else {
             false
+        }
     }
 
     private fun tryToggleTemporarilyShowHidden() {

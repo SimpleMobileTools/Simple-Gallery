@@ -258,7 +258,12 @@ fun Context.getCachedMedia(path: String, callback: (ArrayList<Medium>) -> Unit) 
     Thread {
         val mediumDao = galleryDB.MediumDao()
         val media = mediumDao.getMediaFromPath(path) as ArrayList<Medium>
-        callback(media)
+        val shouldShowHidden = config.shouldShowHidden
+        var filteredMedia = media
+        if (!shouldShowHidden) {
+            filteredMedia = media.filter { !it.name.startsWith('.') } as ArrayList<Medium>
+        }
+        callback(filteredMedia)
 
         media.filter { !File(it.path).exists() }.forEach {
             mediumDao.deleteMediumPath(it.path)
