@@ -78,12 +78,20 @@ fun Context.movePinnedDirectoriesToFront(dirs: ArrayList<Directory>): ArrayList<
     val pinnedFolders = config.pinnedFolders
 
     dirs.forEach {
-        if (pinnedFolders.contains(it.path))
+        if (pinnedFolders.contains(it.path)) {
             foundFolders.add(it)
+        }
     }
 
     dirs.removeAll(foundFolders)
     dirs.addAll(0, foundFolders)
+    if (config.tempFolderPath.isNotEmpty()) {
+        val newFolder = dirs.firstOrNull { it.path == config.tempFolderPath }
+        if (newFolder != null) {
+            dirs.remove(newFolder)
+            dirs.add(0, newFolder)
+        }
+    }
     return dirs
 }
 
