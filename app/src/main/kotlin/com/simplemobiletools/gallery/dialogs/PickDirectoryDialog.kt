@@ -42,7 +42,9 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
 
         activity.getCachedDirectories {
             if (it.isNotEmpty()) {
-                gotDirectories(activity.addTempFolderIfNeeded(it))
+                activity.runOnUiThread {
+                    gotDirectories(activity.addTempFolderIfNeeded(it))
+                }
             }
         }
 
