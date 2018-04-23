@@ -151,7 +151,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         val oldPath = getCurrentPath()
         RenameItemDialog(activity, oldPath) {
             Thread {
-                activity.updateMediaPath(oldPath, it)
+                activity.updateDBMediaPath(oldPath, it)
             }.start()
 
             activity.runOnUiThread {

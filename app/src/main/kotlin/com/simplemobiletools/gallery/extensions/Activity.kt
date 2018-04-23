@@ -152,7 +152,7 @@ fun BaseSimpleActivity.toggleFileVisibility(oldPath: String, hide: Boolean, call
     renameFile(oldPath, newPath) {
         callback?.invoke(newPath)
         Thread {
-            updateMediaPath(oldPath, newPath)
+            updateDBMediaPath(oldPath, newPath)
         }.start()
     }
 }

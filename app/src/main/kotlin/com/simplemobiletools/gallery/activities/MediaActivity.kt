@@ -669,8 +669,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                 deleteDirectoryIfEmpty()
                 finish()
             } else {
-                updateStoredDirectories()
-
                 Thread {
                     val mediumDao = galleryDB.MediumDao()
                     filtered.forEach {

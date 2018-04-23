@@ -19,7 +19,6 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SettingsActivity
-import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.databases.GalleryDataBase
 import com.simplemobiletools.gallery.helpers.*
@@ -156,14 +155,6 @@ fun Context.rescanFolderMediaSync(path: String) {
             }.start()
         }.execute()
     }
-}
-
-fun Context.updateStoredDirectories() {
-    GetDirectoriesAsynctask(this, false, false) {
-        if (!config.temporarilyShowHidden) {
-            storeDirectoryItems(it)
-        }
-    }.execute()
 }
 
 fun Context.storeDirectoryItems(items: ArrayList<Directory>) {
@@ -318,12 +309,12 @@ fun Context.removeInvalidDirectories(dirs: ArrayList<Directory>? = null, directo
     }
 }
 
-fun Context.updateMediaPath(oldPath: String, newPath: String) {
+fun Context.updateDBMediaPath(oldPath: String, newPath: String) {
     val newFilename = newPath.getFilenameFromPath()
     val newParentPath = newPath.getParentPath()
     galleryDB.MediumDao().updateMedium(oldPath, newParentPath, newFilename, newPath)
 }
 
-fun Context.updateDirectory(directory: Directory) {
+fun Context.updateDBDirectory(directory: Directory) {
     galleryDB.DirectoryDao().updateDirectory(directory.path, directory.tmb, directory.mediaCnt, directory.modified, directory.taken, directory.size, directory.types)
 }

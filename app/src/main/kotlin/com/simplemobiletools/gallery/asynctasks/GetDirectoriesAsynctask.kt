@@ -10,7 +10,6 @@ import com.simplemobiletools.commons.helpers.sumByLong
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.checkAppendingHidden
 import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.extensions.galleryDB
 import com.simplemobiletools.gallery.extensions.getDirMediaTypes
 import com.simplemobiletools.gallery.helpers.MediaFetcher
 import com.simplemobiletools.gallery.models.Directory
@@ -46,7 +45,6 @@ class GetDirectoriesAsynctask(val context: Context, val isPickVideo: Boolean, va
                 File(firstItem.path).parent
             } ?: continue
 
-            context.galleryDB.MediumDao().insertAll(curMedia)
             var thumbnail = curMedia.firstOrNull { context.getDoesFilePathExist(it.path) }?.path ?: ""
             if (thumbnail.startsWith(OTG_PATH)) {
                 thumbnail = thumbnail.getOTGPublicPath(context)

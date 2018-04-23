@@ -765,7 +765,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
 
             Thread {
-                updateMediaPath(oldPath, it)
+                updateDBMediaPath(oldPath, it)
             }.start()
             updateActionbarTitle()
         }
