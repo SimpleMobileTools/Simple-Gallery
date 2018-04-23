@@ -633,14 +633,12 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun gotMedia(media: ArrayList<Medium>, isFromCache: Boolean = false) {
+        val mediaToInsert = media.clone() as ArrayList<Medium>
         Thread {
             mLatestMediaId = getLatestMediaId()
             mLatestMediaDateId = getLatestMediaByDateId()
             if (!isFromCache) {
-                try {
-                    galleryDB.MediumDao().insertAll(media)
-                } catch (e: ConcurrentModificationException) {
-                }
+                galleryDB.MediumDao().insertAll(mediaToInsert)
             }
         }.start()
 
