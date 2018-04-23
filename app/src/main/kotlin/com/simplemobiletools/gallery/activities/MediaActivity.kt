@@ -42,6 +42,7 @@ import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_media.*
 import java.io.File
 import java.io.IOException
+import java.util.*
 
 class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private val LAST_MEDIA_CHECK_PERIOD = 3000L
@@ -458,7 +459,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         if (!mLoadedInitialPhotos) {
             getCachedMedia(mPath, mIsGetVideoIntent, mIsGetImageIntent) {
                 if (it.isEmpty()) {
-                    media_refresh_layout.isRefreshing = true
+                    runOnUiThread {
+                        media_refresh_layout.isRefreshing = true
+                    }
                 } else {
                     gotMedia(it, true)
                 }
@@ -634,7 +637,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             mLatestMediaId = getLatestMediaId()
             mLatestMediaDateId = getLatestMediaByDateId()
             if (!isFromCache) {
-                galleryDB.MediumDao().insertAll(media)
+                try {
+                    galleryDB.MediumDao().insertAll(media)
+                } catch (e: ConcurrentModificationException) {
+                }
             }
         }.start()
 
