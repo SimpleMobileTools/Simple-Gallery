@@ -12,17 +12,9 @@ import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.shouldFolderBeVisible
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
-import java.util.LinkedHashMap
-import kotlin.collections.ArrayList
-import kotlin.collections.set
 
 class MediaFetcher(val context: Context) {
     var shouldStop = false
-
-    fun getMediaByDirectories(isPickVideo: Boolean, isPickImage: Boolean): HashMap<String, ArrayList<Medium>> {
-        val media = getFilesFrom("", isPickImage, isPickVideo)
-        return groupDirectories(media)
-    }
 
     fun getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean): ArrayList<Medium> {
         val filterMedia = context.config.filterMedia
@@ -165,23 +157,6 @@ class MediaFetcher(val context: Context) {
         } else {
             getMediaInFolder(path, isPickImage, isPickVideo, filterMedia)
         }
-    }
-
-    private fun groupDirectories(media: ArrayList<Medium>): HashMap<String, ArrayList<Medium>> {
-        val directories = LinkedHashMap<String, ArrayList<Medium>>()
-        for (medium in media) {
-            if (shouldStop) {
-                break
-            }
-
-            val parentDir = medium.parentPath.toLowerCase()
-            if (directories.containsKey(parentDir)) {
-                directories[parentDir]!!.add(medium)
-            } else {
-                directories[parentDir] = arrayListOf(medium)
-            }
-        }
-        return directories
     }
 
     private fun getMediaInFolder(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int): ArrayList<Medium> {

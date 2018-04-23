@@ -11,7 +11,6 @@ import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
-import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
 import com.simplemobiletools.gallery.extensions.addTempFolderIfNeeded
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getCachedDirectories
@@ -47,10 +46,6 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
                 }
             }
         }
-
-        GetDirectoriesAsynctask(activity, false, false) {
-            gotDirectories(activity.addTempFolderIfNeeded(it))
-        }.execute()
     }
 
     private fun showOtherFolder() {

@@ -14,11 +14,11 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo
 
     override fun doInBackground(vararg params: Void): ArrayList<Medium> {
         return if (showAll) {
-            val mediaMap = mediaFetcher.getMediaByDirectories(isPickVideo, isPickImage)
+            val foldersToScan = mediaFetcher.getFoldersToScan("")
             val media = ArrayList<Medium>()
-
-            mediaMap.values.forEach {
-                media.addAll(it)
+            for (folder in foldersToScan) {
+                val newMedia = mediaFetcher.getFilesFrom(folder, isPickImage, isPickVideo)
+                media.addAll(newMedia)
             }
 
             Medium.sorting = context.config.getFileSorting("")
