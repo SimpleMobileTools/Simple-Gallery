@@ -30,31 +30,34 @@ class MediaFetcher(val context: Context) {
             return ArrayList()
         }
 
+        val curMedia = ArrayList<Medium>()
         if (curPath.startsWith(OTG_PATH)) {
-            val curMedia = ArrayList<Medium>()
             getMediaOnOTG(curPath, curMedia, isPickImage, isPickVideo, filterMedia)
-            return curMedia
         } else {
-            val projection = arrayOf(MediaStore.Images.Media.DATA)
-            val uri = MediaStore.Files.getContentUri("external")
-
-            val selection = "${getSelectionQuery(curPath, filterMedia)} ${MediaStore.Images.ImageColumns.BUCKET_ID} IS NOT NULL) GROUP BY (${MediaStore.Images.ImageColumns.BUCKET_ID}"
-            val selectionArgs = getSelectionArgsQuery(curPath, filterMedia).toTypedArray()
-
-            return try {
-                val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
-                val curMedia = ArrayList<Medium>()
-                val foldersToScan = getFoldersToScan(context, cursor, curPath)
-                foldersToScan.forEach {
-                    fetchFolderContent(it, curMedia, isPickImage, isPickVideo, filterMedia)
-                }
-
-                Medium.sorting = context.config.getFileSorting(curPath)
-                curMedia.sort()
-                curMedia
-            } catch (e: Exception) {
-                ArrayList()
+            val foldersToScan = getFoldersToScan(curPath)
+            foldersToScan.forEach {
+                fetchFolderContent(it, curMedia, isPickImage, isPickVideo, filterMedia)
             }
+        }
+
+        Medium.sorting = context.config.getFileSorting(curPath)
+        curMedia.sort()
+        return curMedia
+    }
+
+    private fun getFoldersToScan(path: String): ArrayList<String> {
+        val filterMedia = context.config.filterMedia
+        val projection = arrayOf(MediaStore.Images.Media.DATA)
+        val uri = MediaStore.Files.getContentUri("external")
+
+        val selection = "${getSelectionQuery(path, filterMedia)} ${MediaStore.Images.ImageColumns.BUCKET_ID} IS NOT NULL) GROUP BY (${MediaStore.Images.ImageColumns.BUCKET_ID}"
+        val selectionArgs = getSelectionArgsQuery(path, filterMedia).toTypedArray()
+
+        return try {
+            val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
+            parseCursor(cursor, path)
+        } catch (e: Exception) {
+            ArrayList()
         }
     }
 
@@ -112,7 +115,7 @@ class MediaFetcher(val context: Context) {
         return args
     }
 
-    private fun getFoldersToScan(context: Context, cursor: Cursor, curPath: String): ArrayList<String> {
+    private fun parseCursor(cursor: Cursor, curPath: String): ArrayList<String> {
         val config = context.config
         val includedFolders = config.includedFolders
         var foldersToScan = ArrayList<String>()
