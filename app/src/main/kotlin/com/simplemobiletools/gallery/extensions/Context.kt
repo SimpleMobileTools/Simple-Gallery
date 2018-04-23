@@ -135,23 +135,27 @@ fun Context.getNoMediaFolders(callback: (folders: ArrayList<String>) -> Unit) {
 
 fun Context.rescanFolderMedia(path: String) {
     Thread {
-        getCachedMedia(path) {
-            val cached = it
-            GetMediaAsynctask(applicationContext, path, false, false, false) {
-                Thread {
-                    val newMedia = it
-                    val mediumDao = galleryDB.MediumDao()
-                    mediumDao.insertAll(newMedia)
-
-                    cached.forEach {
-                        if (!newMedia.contains(it)) {
-                            mediumDao.deleteMediumPath(it.path)
-                        }
-                    }
-                }.start()
-            }.execute()
-        }
+        rescanFolderMediaSync(path)
     }.start()
+}
+
+fun Context.rescanFolderMediaSync(path: String) {
+    getCachedMedia(path) {
+        val cached = it
+        GetMediaAsynctask(applicationContext, path, false, false, false) {
+            Thread {
+                val newMedia = it
+                val mediumDao = galleryDB.MediumDao()
+                mediumDao.insertAll(newMedia)
+
+                cached.forEach {
+                    if (!newMedia.contains(it)) {
+                        mediumDao.deleteMediumPath(it.path)
+                    }
+                }
+            }.start()
+        }.execute()
+    }
 }
 
 fun Context.updateStoredDirectories() {
@@ -317,5 +321,9 @@ fun Context.removeInvalidDirectories(dirs: ArrayList<Directory>? = null, directo
 fun Context.updateMediaPath(oldPath: String, newPath: String) {
     val newFilename = newPath.getFilenameFromPath()
     val newParentPath = newPath.getParentPath()
-    galleryDB.MediumDao().updateMedia(oldPath, newParentPath, newFilename, newPath)
+    galleryDB.MediumDao().updateMedium(oldPath, newParentPath, newFilename, newPath)
+}
+
+fun Context.updateDirectory(directory: Directory) {
+    galleryDB.DirectoryDao().updateDirectory(directory.path, directory.tmb, directory.mediaCnt, directory.modified, directory.taken, directory.size, directory.types)
 }

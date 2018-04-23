@@ -16,10 +16,7 @@ import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.PERMISSION_READ_STORAGE
-import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
-import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
-import com.simplemobiletools.commons.helpers.SORT_BY_DATE_TAKEN
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.models.Release
@@ -34,6 +31,7 @@ import com.simplemobiletools.gallery.dialogs.FilterMediaDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Directory
+import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.*
 
@@ -587,7 +585,69 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             setupAdapter()
         }
 
-        if (!isFromCache) {
+        if (isFromCache) {
+            Thread {
+                val mediaFetcher = MediaFetcher(applicationContext)
+                val getImagesOnly = mIsPickImageIntent || mIsGetImageContentIntent
+                val getVideosOnly = mIsPickVideoIntent || mIsGetVideoContentIntent
+                val hidden = getString(R.string.hidden)
+                val albumCovers = config.parseAlbumCovers()
+                val hasOTG = hasOTGConnected() && config.OTGBasePath.isNotEmpty()
+                val includedFolders = config.includedFolders
+
+                for (directory in dirs) {
+                    val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly)
+                    Medium.sorting = config.getFileSorting(directory.path)
+                    curMedia.sort()
+
+                    val firstItem = curMedia.first()
+                    val lastItem = curMedia.last()
+                    val parentDir = if (hasOTG && firstItem.path.startsWith(OTG_PATH)) {
+                        firstItem.parentPath
+                    } else {
+                        File(firstItem.path).parent
+                    } ?: continue
+
+                    var thumbnail = curMedia.firstOrNull { getDoesFilePathExist(it.path) }?.path ?: ""
+                    if (thumbnail.startsWith(OTG_PATH)) {
+                        thumbnail = thumbnail.getOTGPublicPath(applicationContext)
+                    }
+
+                    albumCovers.forEach {
+                        if (it.path == parentDir && getDoesFilePathExist(it.tmb)) {
+                            thumbnail = it.tmb
+                        }
+                    }
+
+                    val mediaTypes = curMedia.getDirMediaTypes()
+                    val dirName = checkAppendingHidden(parentDir, hidden, includedFolders)
+                    val lastModified = if (config.directorySorting and SORT_DESCENDING > 0) Math.max(firstItem.modified, lastItem.modified) else Math.min(firstItem.modified, lastItem.modified)
+                    val dateTaken = if (config.directorySorting and SORT_DESCENDING > 0) Math.max(firstItem.taken, lastItem.taken) else Math.min(firstItem.taken, lastItem.taken)
+                    val size = curMedia.sumByLong { it.size }
+                    val newDir = Directory(null, parentDir, thumbnail, dirName, curMedia.size, lastModified, dateTaken, size, isPathOnSD(parentDir), mediaTypes)
+                    directory.mediaCnt = curMedia.size
+                    if (directory == newDir) {
+                        continue
+                    }
+
+                    directory.apply {
+                        tmb = thumbnail
+                        mediaCnt = curMedia.size
+                        modified = lastModified
+                        taken = dateTaken
+                        this@apply.size = size
+                        types = mediaTypes
+                    }
+
+                    updateDirectory(directory)
+                    rescanFolderMediaSync(directory.path)
+                    val sortedDirs = getSortedDirectories(dirs).clone() as ArrayList<Directory>
+                    runOnUiThread {
+                        (directories_grid.adapter as DirectoryAdapter).updateDirs(sortedDirs)
+                    }
+                }
+            }.start()
+        } else {
             storeDirectories()
         }
     }
