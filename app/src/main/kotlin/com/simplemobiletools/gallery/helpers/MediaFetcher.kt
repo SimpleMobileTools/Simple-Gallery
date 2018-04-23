@@ -14,7 +14,6 @@ import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 import java.util.LinkedHashMap
 import kotlin.collections.ArrayList
-import kotlin.collections.HashSet
 import kotlin.collections.set
 
 class MediaFetcher(val context: Context) {
@@ -44,7 +43,15 @@ class MediaFetcher(val context: Context) {
 
             return try {
                 val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
-                parseCursor(context, cursor, isPickImage, isPickVideo, curPath, filterMedia)
+                val curMedia = ArrayList<Medium>()
+                val foldersToScan = getFoldersToScan(context, cursor, curPath)
+                foldersToScan.forEach {
+                    fetchFolderContent(it, curMedia, isPickImage, isPickVideo, filterMedia)
+                }
+
+                Medium.sorting = context.config.getFileSorting(curPath)
+                curMedia.sort()
+                curMedia
             } catch (e: Exception) {
                 ArrayList()
             }
@@ -105,10 +112,10 @@ class MediaFetcher(val context: Context) {
         return args
     }
 
-    private fun parseCursor(context: Context, cursor: Cursor, isPickImage: Boolean, isPickVideo: Boolean, curPath: String, filterMedia: Int): ArrayList<Medium> {
+    private fun getFoldersToScan(context: Context, cursor: Cursor, curPath: String): ArrayList<String> {
         val config = context.config
         val includedFolders = config.includedFolders
-        val foldersToScan = HashSet<String>()
+        var foldersToScan = ArrayList<String>()
 
         cursor.use {
             if (cursor.moveToFirst()) {
@@ -130,24 +137,17 @@ class MediaFetcher(val context: Context) {
             }
         }
 
-        val curMedia = ArrayList<Medium>()
         val showHidden = config.shouldShowHidden
         val excludedFolders = config.excludedFolders
-        foldersToScan.filter { it.shouldFolderBeVisible(excludedFolders, includedFolders, showHidden) }.toList().forEach {
-            fetchFolderContent(it, curMedia, isPickImage, isPickVideo, filterMedia)
+        foldersToScan = foldersToScan.filter { it.shouldFolderBeVisible(excludedFolders, includedFolders, showHidden) } as ArrayList<String>
+        if (config.isThirdPartyIntent && curPath.isNotEmpty()) {
+            foldersToScan.add(curPath)
         }
 
-        if (config.isThirdPartyIntent && curPath.isNotEmpty() && curMedia.isEmpty()) {
-            getMediaInFolder(curPath, curMedia, isPickImage, isPickVideo, filterMedia)
-        }
-
-        Medium.sorting = config.getFileSorting(curPath)
-        curMedia.sort()
-
-        return curMedia
+        return foldersToScan
     }
 
-    private fun addFolder(curFolders: HashSet<String>, folder: String) {
+    private fun addFolder(curFolders: ArrayList<String>, folder: String) {
         curFolders.add(folder)
         val files = File(folder).listFiles() ?: return
         for (file in files) {
