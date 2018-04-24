@@ -45,7 +45,7 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
             }
         }
 
-        GetMediaAsynctask(activity, path, false, true, false) {
+        GetMediaAsynctask(activity, path, true, false, false) {
             gotMedia(it)
         }.execute()
     }
