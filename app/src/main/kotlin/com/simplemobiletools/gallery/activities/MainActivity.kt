@@ -575,7 +575,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
             for (directory in dirs) {
                 val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly)
-                val newDir = createDirectoryFromMedia(directory.path, curMedia, albumCovers, hiddenString, includedFolders, isSortingAscending)
+                val newDir = if (curMedia.isEmpty()) {
+                    directory
+                } else {
+                    createDirectoryFromMedia(directory.path, curMedia, albumCovers, hiddenString, includedFolders, isSortingAscending)
+                }
 
                 // we are looping through the already displayed folders looking for changes, do not do anything if nothing changed
                 if (directory == newDir) {
@@ -667,8 +671,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
         val firstItem = curMedia.first()
         val lastItem = curMedia.last()
-        val lastModified = if (!isSortingAscending) Math.max(firstItem.modified, lastItem.modified) else Math.min(firstItem.modified, lastItem.modified)
-        val dateTaken = if (!isSortingAscending) Math.max(firstItem.taken, lastItem.taken) else Math.min(firstItem.taken, lastItem.taken)
+        val lastModified = if (isSortingAscending) Math.min(firstItem.modified, lastItem.modified) else Math.max(firstItem.modified, lastItem.modified)
+        val dateTaken = if (isSortingAscending) Math.min(firstItem.taken, lastItem.taken) else Math.max(firstItem.taken, lastItem.taken)
         val size = curMedia.sumByLong { it.size }
         return Directory(null, path, thumbnail, dirName, curMedia.size, lastModified, dateTaken, size, isPathOnSD(path), mediaTypes)
     }
