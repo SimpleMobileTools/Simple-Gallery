@@ -122,7 +122,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             getRecyclerAdapter()?.updateShowMediaCount(config.showMediaCount)
         }
 
-        if (mStoredScrollHorizontally != config.scrollHorizontally || mStoredShowInfoBubble != config.showInfoBubble) {
+        if (mStoredScrollHorizontally != config.scrollHorizontally) {
             getRecyclerAdapter()?.updateScrollHorizontally(config.viewTypeFolders != VIEW_TYPE_LIST && config.scrollHorizontally)
             setupScrollDirection()
         }
@@ -139,6 +139,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
         directories_horizontal_fastscroller.updateBubbleColors()
         directories_vertical_fastscroller.updateBubbleColors()
+        directories_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
+        directories_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
         directories_refresh_layout.isEnabled = config.enablePullToRefresh
         invalidateOptionsMenu()
         directories_empty_text_label.setTextColor(config.textColor)

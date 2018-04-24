@@ -120,7 +120,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             getMediaAdapter()?.updateCropThumbnails(config.cropThumbnails)
         }
 
-        if (mStoredScrollHorizontally != config.scrollHorizontally || mStoredShowInfoBubble != config.showInfoBubble) {
+        if (mStoredScrollHorizontally != config.scrollHorizontally) {
             getMediaAdapter()?.updateScrollHorizontally(config.viewTypeFiles != VIEW_TYPE_LIST || !config.scrollHorizontally)
             setupScrollDirection()
         }
@@ -137,6 +137,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         media_horizontal_fastscroller.updateBubbleColors()
         media_vertical_fastscroller.updateBubbleColors()
+        media_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
+        media_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
         media_refresh_layout.isEnabled = config.enablePullToRefresh
         tryloadGallery()
         invalidateOptionsMenu()
