@@ -553,8 +553,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         var isPlaceholderVisible = dirs.isEmpty()
 
         runOnUiThread {
-            directories_empty_text_label.beVisibleIf(dirs.isEmpty())
-            directories_empty_text.beVisibleIf(dirs.isEmpty())
+            directories_empty_text_label.beVisibleIf(dirs.isEmpty() && config.appRunCount > 1)
+            directories_empty_text.beVisibleIf(dirs.isEmpty() && config.appRunCount > 1)
             directories_grid.beVisibleIf(directories_empty_text_label.isGone())
 
             val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFiles == VIEW_TYPE_GRID
