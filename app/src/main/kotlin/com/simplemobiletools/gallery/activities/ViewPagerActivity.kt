@@ -45,7 +45,10 @@ import com.simplemobiletools.gallery.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_medium.*
-import java.io.*
+import java.io.File
+import java.io.FileOutputStream
+import java.io.InputStream
+import java.io.OutputStream
 import java.util.*
 
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
@@ -527,7 +530,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         }
 
-        val newFile = File(newPath)
         val tmpFile = File(filesDir, ".tmp_${newPath.getFilenameFromPath()}")
 
         try {
@@ -539,22 +541,24 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
                 val oldLastModified = getCurrentFile().lastModified()
                 if (oldPath.isJpg()) {
-                    copyFile(getCurrentFile(), tmpFile)
+                    copyFile(getCurrentPath(), tmpFile.absolutePath)
                     saveExifRotation(ExifInterface(tmpFile.absolutePath), mRotationDegrees)
                 } else {
-                    val bitmap = BitmapFactory.decodeFile(oldPath)
+                    val inputstream = getFileInputStreamSync(oldPath)
+                    val bitmap = BitmapFactory.decodeStream(inputstream)
                     saveFile(tmpFile, bitmap, it as FileOutputStream)
                 }
 
                 if (tmpFile.length() > 0 && getDoesFilePathExist(newPath)) {
                     tryDeleteFileDirItem(FileDirItem(newPath, newPath.getFilenameFromPath()))
                 }
-                copyFile(tmpFile, newFile)
+
+                copyFile(tmpFile.absolutePath, newPath)
                 scanPath(newPath)
                 toast(R.string.file_saved)
 
                 if (config.keepLastModified) {
-                    newFile.setLastModified(oldLastModified)
+                    File(newPath).setLastModified(oldLastModified)
                     updateLastModified(newPath, oldLastModified)
                 }
 
@@ -596,14 +600,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
-    private fun copyFile(source: File, destination: File) {
+    private fun copyFile(source: String, destination: String) {
         var inputStream: InputStream? = null
         var out: OutputStream? = null
         try {
-            val fileDocument = if (isPathOnSD(destination.absolutePath)) getDocumentFile(destination.parent) else null
-            out = getFileOutputStreamSync(destination.absolutePath, source.getMimeType(), fileDocument)
-            inputStream = FileInputStream(source)
-            inputStream.copyTo(out!!)
+            out = getFileOutputStreamSync(destination, source.getMimeType())
+            inputStream = getFileInputStreamSync(source)
+            inputStream?.copyTo(out!!)
         } finally {
             inputStream?.close()
             out?.close()
