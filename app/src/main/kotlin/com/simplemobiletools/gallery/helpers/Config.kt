@@ -327,4 +327,8 @@ class Config(context: Context) : BaseConfig(context) {
     var lastFilepickerPath: String
         get() = prefs.getString(LAST_FILEPICKER_PATH, "")
         set(lastFilepickerPath) = prefs.edit().putString(LAST_FILEPICKER_PATH, lastFilepickerPath).apply()
+
+    var wasOTGHandled: Boolean
+        get() = prefs.getBoolean(WAS_OTG_HANDLED, false)
+        set(wasOTGHandled) = prefs.edit().putBoolean(WAS_OTG_HANDLED, wasOTGHandled).apply()
 }

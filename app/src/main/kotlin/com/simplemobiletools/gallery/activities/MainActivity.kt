@@ -100,6 +100,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             config.wasNewAppShown = true
             NewAppDialog(this, NEW_APP_PACKAGE, "Simple Clock")
         }*/
+
+        if (hasPermission(PERMISSION_WRITE_STORAGE)) {
+            checkOTGInclusion()
+        }
     }
 
     override fun onStart() {
@@ -243,6 +247,21 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 }
             }
             config.tempFolderPath = ""
+        }
+    }
+
+    private fun checkOTGInclusion() {
+        if (!config.wasOTGHandled) {
+            Thread {
+                if (hasOTGConnected()) {
+                    runOnUiThread {
+                        handleOTGPermission {
+                            config.addIncludedFolder(OTG_PATH)
+                        }
+                    }
+                    config.wasOTGHandled = true
+                }
+            }.start()
         }
     }
 
