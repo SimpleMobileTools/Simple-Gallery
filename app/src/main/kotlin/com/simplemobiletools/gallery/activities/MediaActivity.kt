@@ -260,11 +260,13 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         MenuItemCompat.setOnActionExpandListener(mSearchMenuItem, object : MenuItemCompat.OnActionExpandListener {
             override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
                 mIsSearchOpen = true
+                media_refresh_layout.isEnabled = false
                 return true
             }
 
             override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
                 mIsSearchOpen = false
+                media_refresh_layout.isEnabled = config.enablePullToRefresh
                 return true
             }
         })
