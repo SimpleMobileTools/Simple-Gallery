@@ -220,7 +220,7 @@ class MediaFetcher(val context: Context) {
                 break
             }
 
-            val filename = file.name
+            val filename = file.name ?: continue
             val isImage = filename.isImageFast()
             val isVideo = if (isImage) false else filename.isVideoFast()
             val isGif = if (isImage || isVideo) false else filename.isGif()
