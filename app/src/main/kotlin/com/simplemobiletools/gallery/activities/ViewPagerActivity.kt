@@ -530,10 +530,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         }
 
-        val tmpFile = File(filesDir, ".tmp_${newPath.getFilenameFromPath()}")
-
+        val tmpPath = "$filesDir/.tmp_${newPath.getFilenameFromPath()}"
+        val tmpFileDirItem = FileDirItem(tmpPath, tmpPath.getFilenameFromPath())
         try {
-            getFileOutputStream(tmpFile.toFileDirItem(applicationContext)) {
+            getFileOutputStream(tmpFileDirItem) {
                 if (it == null) {
                     toast(R.string.unknown_error_occurred)
                     return@getFileOutputStream
@@ -541,19 +541,19 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
                 val oldLastModified = getCurrentFile().lastModified()
                 if (oldPath.isJpg()) {
-                    copyFile(getCurrentPath(), tmpFile.absolutePath)
-                    saveExifRotation(ExifInterface(tmpFile.absolutePath), mRotationDegrees)
+                    copyFile(getCurrentPath(), tmpPath)
+                    saveExifRotation(ExifInterface(tmpPath), mRotationDegrees)
                 } else {
                     val inputstream = getFileInputStreamSync(oldPath)
                     val bitmap = BitmapFactory.decodeStream(inputstream)
-                    saveFile(tmpFile, bitmap, it as FileOutputStream)
+                    saveFile(tmpPath, bitmap, it as FileOutputStream)
                 }
 
-                if (tmpFile.length() > 0 && getDoesFilePathExist(newPath)) {
+                if (getDoesFilePathExist(newPath)) {
                     tryDeleteFileDirItem(FileDirItem(newPath, newPath.getFilenameFromPath()))
                 }
 
-                copyFile(tmpFile.absolutePath, newPath)
+                copyFile(tmpPath, newPath)
                 scanPath(newPath)
                 toast(R.string.file_saved)
 
@@ -579,7 +579,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         } catch (e: Exception) {
             showErrorToast(e)
         } finally {
-            tryDeleteFileDirItem(FileDirItem(tmpFile.absolutePath, tmpFile.absolutePath.getFilenameFromPath()))
+            tryDeleteFileDirItem(tmpFileDirItem)
         }
     }
 
@@ -613,11 +613,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
-    private fun saveFile(file: File, bitmap: Bitmap, out: FileOutputStream) {
+    private fun saveFile(path: String, bitmap: Bitmap, out: FileOutputStream) {
         val matrix = Matrix()
         matrix.postRotate(mRotationDegrees.toFloat())
         val bmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
-        bmp.compress(file.absolutePath.getCompressionFormat(), 90, out)
+        bmp.compress(path.getCompressionFormat(), 90, out)
     }
 
     private fun isShowHiddenFlagNeeded(): Boolean {
