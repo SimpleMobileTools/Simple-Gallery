@@ -278,7 +278,7 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
 
         callback(filteredDirectories)
 
-        removeInvalidDirectories(directories, directoryDao)
+        removeInvalidDBDirectories(directories, directoryDao)
     }.start()
 }
 
@@ -310,7 +310,7 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
     }.start()
 }
 
-fun Context.removeInvalidDirectories(dirs: ArrayList<Directory>? = null, directoryDao: DirectoryDao = galleryDB.DirectoryDao()) {
+fun Context.removeInvalidDBDirectories(dirs: ArrayList<Directory>? = null, directoryDao: DirectoryDao = galleryDB.DirectoryDao()) {
     val dirsToCheck = dirs ?: directoryDao.getAll()
     dirsToCheck.filter { !getDoesFilePathExist(it.path) }.forEach {
         directoryDao.deleteDirPath(it.path)

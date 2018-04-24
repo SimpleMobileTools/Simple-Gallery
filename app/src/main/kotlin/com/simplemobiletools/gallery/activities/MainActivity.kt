@@ -30,6 +30,7 @@ import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
 import com.simplemobiletools.gallery.dialogs.FilterMediaDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.*
+import com.simplemobiletools.gallery.interfaces.DirectoryDao
 import com.simplemobiletools.gallery.models.AlbumCover
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
@@ -640,6 +641,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
             mIsGettingDirs = false
             mLoadedInitialPhotos = true
+            checkInvalidDirectories(dirs, directoryDao)
 
             runOnUiThread {
                 directories_refresh_layout.isRefreshing = false
@@ -719,6 +721,23 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
     }
 
+    private fun checkInvalidDirectories(dirs: ArrayList<Directory>, directoryDao: DirectoryDao) {
+        val invalidDirs = ArrayList<Directory>()
+        dirs.forEach {
+            if (!getDoesFilePathExist(it.path)) {
+                invalidDirs.add(it)
+            }
+        }
+
+        if (invalidDirs.isNotEmpty()) {
+            dirs.removeAll(invalidDirs)
+            showSortedDirs(dirs)
+            invalidDirs.forEach {
+                directoryDao.deleteDirPath(it.path)
+            }
+        }
+    }
+
     private fun getCurrentlyDisplayedDirs() = getRecyclerAdapter()?.dirs ?: ArrayList()
 
     private fun getBubbleTextItem(index: Int) = getRecyclerAdapter()?.dirs?.getOrNull(index)?.getBubbleText() ?: ""
@@ -766,7 +785,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     override fun updateDirectories(directories: ArrayList<Directory>) {
         Thread {
             storeDirectoryItems(directories)
-            removeInvalidDirectories()
+            removeInvalidDBDirectories()
         }.start()
     }
 
