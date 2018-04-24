@@ -171,7 +171,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                     tmb = File(it, tmb.getFilenameFromPath()).absolutePath
                 }
                 updateDirs(dirs)
-                listener?.updateDirectories(dirs.toList() as ArrayList, false)
+                listener?.updateDirectories(dirs.toList() as ArrayList)
             }
         }
     }
@@ -209,7 +209,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         dirs.forEach {
             it.name = activity.checkAppendingHidden(it.path, hidden, includedFolders)
         }
-        listener?.updateDirectories(dirs.toList() as ArrayList, false)
+        listener?.updateDirectories(dirs.toList() as ArrayList)
         activity.runOnUiThread {
             updateDirs(dirs)
         }
@@ -246,7 +246,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                     dirs = newDirs
                     finishActMode()
                     fastScroller?.measureRecyclerView()
-                    listener?.updateDirectories(newDirs, false)
+                    listener?.updateDirectories(newDirs)
                 }
             }
         }
@@ -440,6 +440,6 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
         fun recheckPinnedFolders()
 
-        fun updateDirectories(directories: ArrayList<Directory>, refreshList: Boolean)
+        fun updateDirectories(directories: ArrayList<Directory>)
     }
 }

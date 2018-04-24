@@ -42,8 +42,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private val LAST_MEDIA_CHECK_PERIOD = 3000L
     private val NEW_APP_PACKAGE = "com.simplemobiletools.clock"
 
-    lateinit var mDirs: ArrayList<Directory>
-
     private var mIsPickImageIntent = false
     private var mIsPickVideoIntent = false
     private var mIsGetImageContentIntent = false
@@ -86,7 +84,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
         removeTempFolder()
         directories_refresh_layout.setOnRefreshListener { getDirectories() }
-        mDirs = ArrayList()
         storeStateVariables()
         checkWhatsNewDialog()
 
@@ -287,7 +284,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             if (config.directorySorting and SORT_BY_DATE_MODIFIED > 0 || config.directorySorting and SORT_BY_DATE_TAKEN > 0) {
                 getDirectories()
             } else {
-                gotDirectories(mDirs)
+                gotDirectories(getCurrentlyDisplayedDirs())
             }
         }
     }
@@ -417,7 +414,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         FilePickerDialog(this, internalStoragePath, false, config.shouldShowHidden) {
             CreateNewFolderDialog(this, it) {
                 config.tempFolderPath = it
-                gotDirectories(addTempFolderIfNeeded(mDirs))
+                gotDirectories(addTempFolderIfNeeded(getCurrentlyDisplayedDirs()))
             }
         }
     }
@@ -757,16 +754,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     override fun recheckPinnedFolders() {
-        gotDirectories(movePinnedDirectoriesToFront(mDirs))
+        gotDirectories(movePinnedDirectoriesToFront(getCurrentlyDisplayedDirs()))
     }
 
-    override fun updateDirectories(directories: ArrayList<Directory>, refreshList: Boolean) {
-        if (refreshList) {
-            gotDirectories(directories)
-        } else {
-            mDirs = directories
-        }
-
+    override fun updateDirectories(directories: ArrayList<Directory>) {
         Thread {
             storeDirectoryItems(directories)
             removeInvalidDirectories()
