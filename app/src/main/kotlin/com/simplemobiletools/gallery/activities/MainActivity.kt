@@ -323,8 +323,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             config.viewTypeFolders = it as Int
             invalidateOptionsMenu()
             setupLayoutManager()
+            val dirs = getCurrentlyDisplayedDirs()
             directories_grid.adapter = null
-            setupAdapter(getCurrentlyDisplayedDirs())
+            setupAdapter(dirs)
         }
     }
 
