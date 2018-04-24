@@ -676,7 +676,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         val lastModified = if (isSortingAscending) Math.min(firstItem.modified, lastItem.modified) else Math.max(firstItem.modified, lastItem.modified)
         val dateTaken = if (isSortingAscending) Math.min(firstItem.taken, lastItem.taken) else Math.max(firstItem.taken, lastItem.taken)
         val size = curMedia.sumByLong { it.size }
-        return Directory(null, path, thumbnail, dirName, curMedia.size, lastModified, dateTaken, size, isPathOnSD(path), mediaTypes)
+        return Directory(null, path, thumbnail, dirName, curMedia.size, lastModified, dateTaken, size, getPathLocation(path), mediaTypes)
     }
 
     private fun setupAdapter(dirs: ArrayList<Directory>) {

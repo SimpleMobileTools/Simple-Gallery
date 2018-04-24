@@ -82,7 +82,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/dir_sd_card"
+        android:id="@+id/dir_location"
         android:layout_width="@dimen/sd_card_icon_size"
         android:layout_height="@dimen/sd_card_icon_size"
         android:layout_alignParentBottom="true"

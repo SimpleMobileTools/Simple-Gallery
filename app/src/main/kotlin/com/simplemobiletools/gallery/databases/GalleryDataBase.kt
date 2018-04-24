@@ -9,7 +9,7 @@ import com.simplemobiletools.gallery.interfaces.MediumDao
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
 
-@Database(entities = [(Directory::class), (Medium::class)], version = 1)
+@Database(entities = [(Directory::class), (Medium::class)], version = 2)
 abstract class GalleryDataBase : RoomDatabase() {
 
     abstract fun DirectoryDao(): DirectoryDao
@@ -22,7 +22,9 @@ abstract class GalleryDataBase : RoomDatabase() {
         fun getInstance(context: Context): GalleryDataBase {
             if (INSTANCE == null) {
                 synchronized(GalleryDataBase::class) {
-                    INSTANCE = Room.databaseBuilder(context.applicationContext, GalleryDataBase::class.java, "gallery.db").build()
+                    INSTANCE = Room.databaseBuilder(context.applicationContext, GalleryDataBase::class.java, "gallery.db")
+                            .fallbackToDestructiveMigration()
+                            .build()
                 }
             }
             return INSTANCE!!

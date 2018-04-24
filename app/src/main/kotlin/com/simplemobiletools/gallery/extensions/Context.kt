@@ -215,11 +215,19 @@ fun Context.addTempFolderIfNeeded(dirs: ArrayList<Directory>): ArrayList<Directo
     val directories = ArrayList<Directory>()
     val tempFolderPath = config.tempFolderPath
     if (tempFolderPath.isNotEmpty()) {
-        val newFolder = Directory(null, tempFolderPath, "", tempFolderPath.getFilenameFromPath(), 0, 0, 0, 0L, isPathOnSD(tempFolderPath), 0)
+        val newFolder = Directory(null, tempFolderPath, "", tempFolderPath.getFilenameFromPath(), 0, 0, 0, 0L, getPathLocation(tempFolderPath), 0)
         directories.add(newFolder)
     }
     directories.addAll(dirs)
     return directories
+}
+
+fun Context.getPathLocation(path: String): Int {
+    return when {
+        isPathOnSD(path) -> LOCATION_SD
+        path.startsWith(OTG_PATH) -> LOCATION_OTG
+        else -> LOCAITON_INTERNAL
+    }
 }
 
 fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boolean) {

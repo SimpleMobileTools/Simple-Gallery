@@ -19,10 +19,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.ExcludeFolderDialog
 import com.simplemobiletools.gallery.dialogs.PickMediumDialog
 import com.simplemobiletools.gallery.extensions.*
-import com.simplemobiletools.gallery.helpers.TYPE_GIFS
-import com.simplemobiletools.gallery.helpers.TYPE_IMAGES
-import com.simplemobiletools.gallery.helpers.TYPE_VIDEOS
-import com.simplemobiletools.gallery.helpers.VIEW_TYPE_LIST
+import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.AlbumCover
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.directory_item_list.view.*
@@ -420,7 +417,11 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
             activity.loadImage(thumbnailType, directory.tmb, dir_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
             dir_pin.beVisibleIf(pinnedFolders.contains(directory.path))
-            dir_sd_card.beVisibleIf(directory.isOnSDCard)
+            dir_location.beVisibleIf(directory.location != LOCAITON_INTERNAL)
+            if (dir_location.isVisible()) {
+                dir_location.setImageResource(if (directory.location == LOCATION_SD) R.drawable.ic_sd_card else R.drawable.ic_usb)
+            }
+
             photo_cnt.beVisibleIf(showMediaCount)
 
             if (isListViewType) {
@@ -428,7 +429,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 dir_path.setTextColor(textColor)
                 photo_cnt.setTextColor(textColor)
                 dir_pin.applyColorFilter(textColor)
-                dir_sd_card.applyColorFilter(textColor)
+                dir_location.applyColorFilter(textColor)
             }
         }
     }

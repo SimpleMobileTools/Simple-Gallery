@@ -19,7 +19,7 @@ data class Directory(
         @ColumnInfo(name = "last_modified") var modified: Long,
         @ColumnInfo(name = "date_taken") var taken: Long,
         @ColumnInfo(name = "size") var size: Long,
-        @ColumnInfo(name = "is_on_sd_card") val isOnSDCard: Boolean,
+        @ColumnInfo(name = "location") val location: Int,
         @ColumnInfo(name = "media_types") var types: Int) : Serializable, Comparable<Directory> {
 
     companion object {
