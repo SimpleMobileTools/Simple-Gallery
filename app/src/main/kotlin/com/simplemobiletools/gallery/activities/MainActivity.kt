@@ -12,6 +12,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.Toast
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
@@ -243,6 +244,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             val newFolder = File(config.tempFolderPath)
             if (newFolder.exists() && newFolder.isDirectory) {
                 if (newFolder.list()?.isEmpty() == true) {
+                    toast(String.format(getString(R.string.deleting_folder), config.tempFolderPath), Toast.LENGTH_LONG)
                     tryDeleteFileDirItem(newFolder.toFileDirItem(applicationContext), true)
                 }
             }
