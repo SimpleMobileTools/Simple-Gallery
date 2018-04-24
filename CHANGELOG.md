@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 3.8.1 *(2018-04-24)*
+----------------------------
+
+ * Rewrote media caching and new file discovery for better performance
+ * Some OTG file handling improvements
+
 Version 3.8.0 *(2018-04-22)*
 ----------------------------
 
