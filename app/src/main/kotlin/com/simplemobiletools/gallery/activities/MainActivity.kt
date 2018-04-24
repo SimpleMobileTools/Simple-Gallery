@@ -554,9 +554,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         var isPlaceholderVisible = dirs.isEmpty()
 
         runOnUiThread {
-            directories_empty_text_label.beVisibleIf(dirs.isEmpty() && config.appRunCount > 1)
-            directories_empty_text.beVisibleIf(dirs.isEmpty() && config.appRunCount > 1)
-            directories_grid.beVisibleIf(directories_empty_text_label.isGone())
+            checkPlaceholderVisibility(dirs)
 
             val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFiles == VIEW_TYPE_GRID
             directories_vertical_fastscroller.beVisibleIf(directories_grid.isVisible() && !allowHorizontalScroll)
@@ -646,8 +644,15 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             runOnUiThread {
                 directories_refresh_layout.isRefreshing = false
                 directories_vertical_fastscroller.measureRecyclerView()
+                checkPlaceholderVisibility(dirs)
             }
         }.start()
+    }
+
+    private fun checkPlaceholderVisibility(dirs: ArrayList<Directory>) {
+        directories_empty_text_label.beVisibleIf(dirs.isEmpty() && mLoadedInitialPhotos)
+        directories_empty_text.beVisibleIf(dirs.isEmpty() && mLoadedInitialPhotos)
+        directories_grid.beVisibleIf(directories_empty_text_label.isGone())
     }
 
     private fun showSortedDirs(dirs: ArrayList<Directory>) {
