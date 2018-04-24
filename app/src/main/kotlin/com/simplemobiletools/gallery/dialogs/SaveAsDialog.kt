@@ -7,7 +7,6 @@ import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import kotlinx.android.synthetic.main.dialog_save_as.view.*
-import java.io.File
 
 class SaveAsDialog(val activity: BaseSimpleActivity, val path: String, val appendFilename: Boolean, val callback: (savePath: String) -> Unit) {
 
@@ -15,7 +14,7 @@ class SaveAsDialog(val activity: BaseSimpleActivity, val path: String, val appen
         var realPath = path.getParentPath()
 
         val view = activity.layoutInflater.inflate(R.layout.dialog_save_as, null).apply {
-            save_as_path.text = activity.humanizePath(realPath)
+            save_as_path.text = "${activity.humanizePath(realPath).trimEnd('/')}/"
 
             val fullName = path.getFilenameFromPath()
             val dotAt = fullName.lastIndexOf(".")
@@ -60,20 +59,21 @@ class SaveAsDialog(val activity: BaseSimpleActivity, val path: String, val appen
                                 return@setOnClickListener
                             }
 
-                            val newFile = File(realPath, "$filename.$extension")
-                            if (!newFile.name.isAValidFilename()) {
+                            val newFilename = "$filename.$extension"
+                            val newPath = "${realPath.trimEnd('/')}/$newFilename"
+                            if (!newFilename.isAValidFilename()) {
                                 activity.toast(R.string.filename_invalid_characters)
                                 return@setOnClickListener
                             }
 
-                            if (newFile.exists()) {
-                                val title = String.format(activity.getString(R.string.file_already_exists_overwrite), newFile.name)
+                            if (activity.getDoesFilePathExist(newPath)) {
+                                val title = String.format(activity.getString(R.string.file_already_exists_overwrite), newFilename)
                                 ConfirmationDialog(activity, title) {
-                                    callback(newFile.absolutePath)
+                                    callback(newPath)
                                     dismiss()
                                 }
                             } else {
-                                callback(newFile.absolutePath)
+                                callback(newPath)
                                 dismiss()
                             }
                         }
