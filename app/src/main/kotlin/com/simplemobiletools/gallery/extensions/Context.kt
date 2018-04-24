@@ -304,7 +304,7 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
         }) as ArrayList<Medium>
 
         callback(filteredMedia)
-        media.filter { !File(it.path).exists() }.forEach {
+        media.filter { !getDoesFilePathExist(it.path) }.forEach {
             mediumDao.deleteMediumPath(it.path)
         }
     }.start()
@@ -312,7 +312,7 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
 
 fun Context.removeInvalidDirectories(dirs: ArrayList<Directory>? = null, directoryDao: DirectoryDao = galleryDB.DirectoryDao()) {
     val dirsToCheck = dirs ?: directoryDao.getAll()
-    dirsToCheck.filter { !File(it.path).exists() }.forEach {
+    dirsToCheck.filter { !getDoesFilePathExist(it.path) }.forEach {
         directoryDao.deleteDirPath(it.path)
     }
 }
