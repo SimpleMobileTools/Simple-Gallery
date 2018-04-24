@@ -713,7 +713,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             initZoomListener()
             val fastscroller = if (config.scrollHorizontally) directories_horizontal_fastscroller else directories_vertical_fastscroller
             DirectoryAdapter(this, dirs, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent), fastscroller) {
-                itemClicked((it as Directory).path)
+                val path = (it as Directory).path
+                if (path != config.tempFolderPath) {
+                    itemClicked(path)
+                }
             }.apply {
                 setupZoomListener(mZoomListener)
                 directories_grid.adapter = this
