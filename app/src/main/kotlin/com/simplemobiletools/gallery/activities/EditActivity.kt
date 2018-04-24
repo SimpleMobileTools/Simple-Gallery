@@ -66,7 +66,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         if (intent.extras?.containsKey(REAL_FILE_PATH) == true) {
             val realPath = intent.extras.getString(REAL_FILE_PATH)
             uri = when {
-                realPath.startsWith(OTG_PATH) -> Uri.parse(realPath)
+                realPath.startsWith(OTG_PATH) -> uri
                 realPath.startsWith("file:/") -> Uri.parse(realPath)
                 else -> Uri.fromFile(File(realPath))
             }
