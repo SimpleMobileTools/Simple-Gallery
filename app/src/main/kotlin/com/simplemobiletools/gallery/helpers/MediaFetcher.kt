@@ -253,7 +253,7 @@ class MediaFetcher(val context: Context) {
                 else -> TYPE_GIFS
             }
 
-            val path = Uri.decode(file.uri.toString().replaceFirst("${context.config.OTGBasePath}%3A", OTG_PATH))
+            val path = Uri.decode(file.uri.toString().replaceFirst("${context.config.OTGTreeUri}/document/${context.config.OTGPartition}%3A", OTG_PATH))
             val medium = Medium(null, filename, path, folder, dateModified, dateTaken, size, type)
             media.add(medium)
         }
