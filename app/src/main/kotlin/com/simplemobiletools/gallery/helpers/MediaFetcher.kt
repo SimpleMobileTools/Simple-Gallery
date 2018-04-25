@@ -138,7 +138,7 @@ class MediaFetcher(val context: Context) {
             foldersToScan.add(curPath)
         }
 
-        return foldersToScan
+        return foldersToScan.distinctBy { it.toLowerCase() } as ArrayList<String>
     }
 
     private fun addFolder(curFolders: ArrayList<String>, folder: String) {
