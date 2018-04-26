@@ -662,13 +662,13 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
             mIsGettingDirs = false
             mLoadedInitialPhotos = true
-            checkInvalidDirectories(dirs, directoryDao)
 
             runOnUiThread {
                 directories_refresh_layout.isRefreshing = false
                 directories_vertical_fastscroller.measureRecyclerView()
                 checkPlaceholderVisibility(dirs)
             }
+            checkInvalidDirectories(dirs, directoryDao)
         }.start()
     }
 
