@@ -485,11 +485,18 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun isDirEmpty(): Boolean {
         return if (mMedia.size <= 0 && config.filterMedia > 0) {
             deleteDirectoryIfEmpty()
+            deleteDBDirectory()
             finish()
             true
         } else {
             false
         }
+    }
+
+    private fun deleteDBDirectory() {
+        Thread {
+            galleryDB.DirectoryDao().deleteDirPath(mPath)
+        }.start()
     }
 
     private fun tryToggleTemporarilyShowHidden() {
@@ -671,6 +678,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                 toast(R.string.unknown_error_occurred)
             } else if (mMedia.isEmpty()) {
                 deleteDirectoryIfEmpty()
+                deleteDBDirectory()
                 finish()
             } else {
                 Thread {
