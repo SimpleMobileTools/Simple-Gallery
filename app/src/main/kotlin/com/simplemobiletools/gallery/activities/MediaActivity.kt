@@ -698,9 +698,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     override fun refreshItems() {
         getMedia()
-        Handler().postDelayed({
-            getMedia()
-        }, 1000)
     }
 
     override fun selectedPaths(paths: ArrayList<String>) {
