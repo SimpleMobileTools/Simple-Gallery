@@ -12,6 +12,7 @@ import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.FastScroller
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -279,10 +280,14 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     private fun copyMoveTo(isCopyOperation: Boolean) {
         val paths = ArrayList<String>()
         selectedPositions.forEach {
-            val dir = File(dirs[it].path)
-            val childrenFiles = dir.listFiles()?.filter { !activity.getIsPathDirectory(it.absolutePath) && it.absolutePath.isImageVideoGif() }?.map { it.absolutePath }
-                    ?: ArrayList<String>()
-            paths.addAll(childrenFiles)
+            val childrenPaths = ArrayList<String>()
+            val path = dirs[it].path
+            if (path.startsWith(OTG_PATH)) {
+                paths.addAll(getOTGFilePaths(path))
+            } else {
+                File(path).list()?.filter { !activity.getIsPathDirectory(it) && it.isImageVideoGif() }?.mapTo(childrenPaths, { it })
+            }
+            paths.addAll(childrenPaths)
         }
 
         val fileDirItems = paths.map { FileDirItem(it, it.getFilenameFromPath()) } as ArrayList<FileDirItem>
@@ -291,6 +296,17 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             listener?.refreshItems()
             finishActMode()
         }
+    }
+
+    private fun getOTGFilePaths(path: String): ArrayList<String> {
+        val paths = ArrayList<String>()
+        activity.getOTGFolderChildren(path)?.forEach {
+            if (!it.isDirectory && it.name.isImageVideoGif()) {
+                val relativePath = it.uri.path.substringAfterLast("${activity.config.OTGPartition}:")
+                paths.add("$OTG_PATH$relativePath")
+            }
+        }
+        return paths
     }
 
     private fun askConfirmDelete() {
