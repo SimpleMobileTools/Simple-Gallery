@@ -279,15 +279,16 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
     private fun copyMoveTo(isCopyOperation: Boolean) {
         val paths = ArrayList<String>()
+        val showHidden = activity.config.shouldShowHidden
         selectedPositions.forEach {
-            val childrenPaths = ArrayList<String>()
             val path = dirs[it].path
             if (path.startsWith(OTG_PATH)) {
-                paths.addAll(getOTGFilePaths(path))
+                paths.addAll(getOTGFilePaths(path, showHidden))
             } else {
-                File(path).list()?.filter { !activity.getIsPathDirectory(it) && it.isImageVideoGif() }?.mapTo(childrenPaths, { it })
+                File(path).listFiles()?.filter {
+                    !activity.getIsPathDirectory(it.absolutePath) && it.isImageVideoGif() && (showHidden || !it.name.startsWith('.'))
+                }?.mapTo(paths, { it.absolutePath })
             }
-            paths.addAll(childrenPaths)
         }
 
         val fileDirItems = paths.map { FileDirItem(it, it.getFilenameFromPath()) } as ArrayList<FileDirItem>
@@ -298,10 +299,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         }
     }
 
-    private fun getOTGFilePaths(path: String): ArrayList<String> {
+    private fun getOTGFilePaths(path: String, showHidden: Boolean): ArrayList<String> {
         val paths = ArrayList<String>()
         activity.getOTGFolderChildren(path)?.forEach {
-            if (!it.isDirectory && it.name.isImageVideoGif()) {
+            if (!it.isDirectory && it.name.isImageVideoGif() && (showHidden || !it.name.startsWith('.'))) {
                 val relativePath = it.uri.path.substringAfterLast("${activity.config.OTGPartition}:")
                 paths.add("$OTG_PATH$relativePath")
             }
