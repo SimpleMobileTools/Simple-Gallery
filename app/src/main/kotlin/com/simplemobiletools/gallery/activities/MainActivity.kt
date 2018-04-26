@@ -102,7 +102,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             NewAppDialog(this, NEW_APP_PACKAGE, "Simple Clock")
         }*/
 
-        if (hasPermission(PERMISSION_WRITE_STORAGE)) {
+        if (!config.wasOTGHandled && hasPermission(PERMISSION_WRITE_STORAGE)) {
             checkOTGInclusion()
         }
     }
@@ -255,18 +255,16 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun checkOTGInclusion() {
-        if (!config.wasOTGHandled) {
-            Thread {
-                if (hasOTGConnected()) {
-                    runOnUiThread {
-                        handleOTGPermission {
-                            config.addIncludedFolder(OTG_PATH)
-                        }
+        Thread {
+            if (hasOTGConnected()) {
+                runOnUiThread {
+                    handleOTGPermission {
+                        config.addIncludedFolder(OTG_PATH)
                     }
-                    config.wasOTGHandled = true
                 }
-            }.start()
-        }
+                config.wasOTGHandled = true
+            }
+        }.start()
     }
 
     private fun tryLoadGallery() {
@@ -301,7 +299,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                     directories_refresh_layout.isRefreshing = true
                 }
             }
-            gotDirectories(it)
+            gotDirectories(addTempFolderIfNeeded(it))
         }
     }
 
@@ -377,8 +375,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             }
 
             Thread {
+                val directoryDao = galleryDB.DirectoryDao()
                 folders.filter { !it.exists() }.forEach {
-                    galleryDB.DirectoryDao().deleteDirPath(it.absolutePath)
+                    directoryDao.deleteDirPath(it.absolutePath)
                 }
             }.start()
         }
@@ -760,7 +759,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         dirs.forEach {
             if (!getDoesFilePathExist(it.path)) {
                 invalidDirs.add(it)
-            } else {
+            } else if (it.path != config.tempFolderPath) {
                 val children = if (it.path.startsWith(OTG_PATH)) getOTGFolderChildrenNames(it.path) else File(it.path).list()?.asList()
                 val hasMediaFile = children?.any { it.isImageVideoGif() } ?: false
                 if (!hasMediaFile) {

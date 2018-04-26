@@ -312,7 +312,7 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
 
 fun Context.removeInvalidDBDirectories(dirs: ArrayList<Directory>? = null, directoryDao: DirectoryDao = galleryDB.DirectoryDao()) {
     val dirsToCheck = dirs ?: directoryDao.getAll()
-    dirsToCheck.filter { !getDoesFilePathExist(it.path) }.forEach {
+    dirsToCheck.filter { !getDoesFilePathExist(it.path) && it.path != config.tempFolderPath }.forEach {
         directoryDao.deleteDirPath(it.path)
     }
 }

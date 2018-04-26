@@ -1,7 +1,6 @@
 package com.simplemobiletools.gallery.interfaces
 
 import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Delete
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.OnConflictStrategy.REPLACE
 import android.arch.persistence.room.Query
@@ -17,9 +16,6 @@ interface DirectoryDao {
 
     @Insert(onConflict = REPLACE)
     fun insertAll(directories: List<Directory>)
-
-    @Delete
-    fun deleteDir(directory: Directory)
 
     @Query("DELETE FROM directories WHERE path = :path")
     fun deleteDirPath(path: String)
