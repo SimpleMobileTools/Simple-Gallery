@@ -190,7 +190,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         config.temporarilyShowHidden = false
         mTempShowHiddenHandler.removeCallbacksAndMessages(null)
         removeTempFolder()
-        GalleryDataBase.destroyInstance()
+        if (!isChangingConfigurations) {
+            GalleryDataBase.destroyInstance()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
