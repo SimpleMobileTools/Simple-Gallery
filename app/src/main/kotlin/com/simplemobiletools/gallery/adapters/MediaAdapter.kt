@@ -241,7 +241,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
             }
 
             media.removeAll(removeMedia)
-            listener?.deleteFiles(fileDirItems)
+            listener?.tryDeleteFiles(fileDirItems)
             removeSelectedItems()
         }
     }
@@ -327,7 +327,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     interface MediaOperationsListener {
         fun refreshItems()
 
-        fun deleteFiles(fileDirItems: ArrayList<FileDirItem>)
+        fun tryDeleteFiles(fileDirItems: ArrayList<FileDirItem>)
 
         fun selectedPaths(paths: ArrayList<String>)
     }
