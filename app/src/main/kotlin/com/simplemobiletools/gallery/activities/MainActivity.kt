@@ -662,6 +662,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
             mIsGettingDirs = false
             mLoadedInitialPhotos = true
+            checkLastMediaChanged()
 
             runOnUiThread {
                 directories_refresh_layout.isRefreshing = false
@@ -795,7 +796,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             return
         }
 
-        /*mLastMediaHandler.postDelayed({
+        mLastMediaHandler.postDelayed({
             Thread {
                 val mediaId = getLatestMediaId()
                 val mediaDateId = getLatestMediaByDateId()
@@ -810,7 +811,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                     checkLastMediaChanged()
                 }
             }.start()
-        }, LAST_MEDIA_CHECK_PERIOD)*/
+        }, LAST_MEDIA_CHECK_PERIOD)
     }
 
     override fun refreshItems() {
