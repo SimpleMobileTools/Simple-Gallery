@@ -759,6 +759,12 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         dirs.forEach {
             if (!getDoesFilePathExist(it.path)) {
                 invalidDirs.add(it)
+            } else {
+                val children = File(it.path).list()
+                val hasMediaFile = children?.any { it.isImageVideoGif() } ?: false
+                if (!hasMediaFile) {
+                    invalidDirs.add(it)
+                }
             }
         }
 
