@@ -9,6 +9,7 @@ import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.helpers.photoExtensions
 import com.simplemobiletools.commons.helpers.videoExtensions
 import com.simplemobiletools.gallery.extensions.config
+import com.simplemobiletools.gallery.extensions.getOTGFolderChildren
 import com.simplemobiletools.gallery.extensions.shouldFolderBeVisible
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
@@ -143,10 +144,20 @@ class MediaFetcher(val context: Context) {
 
     private fun addFolder(curFolders: ArrayList<String>, folder: String) {
         curFolders.add(folder)
-        val files = File(folder).listFiles() ?: return
-        for (file in files) {
-            if (file.isDirectory) {
-                addFolder(curFolders, file.absolutePath)
+        if (folder.startsWith(OTG_PATH)) {
+            val files = context.getOTGFolderChildren(folder) ?: return
+            for (file in files) {
+                if (file.isDirectory) {
+                    val relativePath = file.uri.path.substringAfterLast("${context.config.OTGPartition}:")
+                    addFolder(curFolders, "$OTG_PATH$relativePath")
+                }
+            }
+        } else {
+            val files = File(folder).listFiles() ?: return
+            for (file in files) {
+                if (file.isDirectory) {
+                    addFolder(curFolders, file.absolutePath)
+                }
             }
         }
     }

@@ -760,7 +760,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             if (!getDoesFilePathExist(it.path)) {
                 invalidDirs.add(it)
             } else {
-                val children = if (it.path.startsWith(OTG_PATH)) getOTGFolderChildren(it.path) else File(it.path).list()?.asList()
+                val children = if (it.path.startsWith(OTG_PATH)) getOTGFolderChildrenNames(it.path) else File(it.path).list()?.asList()
                 val hasMediaFile = children?.any { it.isImageVideoGif() } ?: false
                 if (!hasMediaFile) {
                     invalidDirs.add(it)
@@ -776,8 +776,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             }
         }
     }
-
-    private fun getOTGFolderChildren(path: String) = getDocumentFile(path)?.listFiles()?.map { it.name }?.toList()
 
     private fun getCurrentlyDisplayedDirs() = getRecyclerAdapter()?.dirs ?: ArrayList()
 

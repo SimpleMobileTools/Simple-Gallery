@@ -326,3 +326,7 @@ fun Context.updateDBMediaPath(oldPath: String, newPath: String) {
 fun Context.updateDBDirectory(directory: Directory) {
     galleryDB.DirectoryDao().updateDirectory(directory.path, directory.tmb, directory.mediaCnt, directory.modified, directory.taken, directory.size, directory.types)
 }
+
+fun Context.getOTGFolderChildren(path: String) = getDocumentFile(path)?.listFiles()
+
+fun Context.getOTGFolderChildrenNames(path: String) = getOTGFolderChildren(path)?.map { it.name }?.toList()
