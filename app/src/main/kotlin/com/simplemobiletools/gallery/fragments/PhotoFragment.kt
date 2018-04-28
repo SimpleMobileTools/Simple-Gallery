@@ -275,7 +275,7 @@ class PhotoFragment : ViewPagerFragment() {
         } else {
             val options = RequestOptions()
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
-                    .transform(GlideRotateTransformation(context!!, degrees))
+                    .transform(GlideRotateTransformation(degrees))
 
             Glide.with(this)
                     .asBitmap()

@@ -6,6 +6,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.helpers.BaseConfig
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
+import com.simplemobiletools.commons.helpers.SORT_BY_DATE_TAKEN
 import com.simplemobiletools.commons.helpers.SORT_DESCENDING
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.models.AlbumCover
@@ -17,7 +18,13 @@ class Config(context: Context) : BaseConfig(context) {
     }
 
     var directorySorting: Int
-        get() = prefs.getInt(DIRECTORY_SORT_ORDER, SORT_BY_DATE_MODIFIED or SORT_DESCENDING)
+        get(): Int {
+            var sort = prefs.getInt(DIRECTORY_SORT_ORDER, SORT_BY_DATE_MODIFIED or SORT_DESCENDING)
+            if (sort and SORT_BY_DATE_TAKEN != 0) {
+                sort = sort - SORT_BY_DATE_TAKEN + SORT_BY_DATE_MODIFIED
+            }
+            return sort
+        }
         set(order) = prefs.edit().putInt(DIRECTORY_SORT_ORDER, order).apply()
 
     fun saveFileSorting(path: String, value: Int) {
@@ -28,7 +35,13 @@ class Config(context: Context) : BaseConfig(context) {
         }
     }
 
-    fun getFileSorting(path: String) = prefs.getInt(SORT_FOLDER_PREFIX + path.toLowerCase(), sorting)
+    fun getFileSorting(path: String): Int {
+        var sort = prefs.getInt(SORT_FOLDER_PREFIX + path.toLowerCase(), sorting)
+        if (sort and SORT_BY_DATE_TAKEN != 0) {
+            sort = sort - SORT_BY_DATE_TAKEN + SORT_BY_DATE_MODIFIED
+        }
+        return sort
+    }
 
     fun removeFileSorting(path: String) {
         prefs.edit().remove(SORT_FOLDER_PREFIX + path.toLowerCase()).apply()
@@ -118,18 +131,6 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getStringSet(INCLUDED_FOLDERS, HashSet<String>())
         set(includedFolders) = prefs.edit().remove(INCLUDED_FOLDERS).putStringSet(INCLUDED_FOLDERS, includedFolders).apply()
 
-    fun saveFolderMedia(path: String, json: String) {
-        prefs.edit().putString(SAVE_FOLDER_PREFIX + path, json).apply()
-    }
-
-    fun loadFolderMedia(path: String) = prefs.getString(SAVE_FOLDER_PREFIX + path, "")
-
-    fun saveFolderMediaShort(path: String, value: String) {
-        prefs.edit().putString(SAVE_FOLDER_SHORT_PREFIX + path, value).apply()
-    }
-
-    fun loadFolderMediaShort(path: String) = prefs.getString(SAVE_FOLDER_SHORT_PREFIX + path, "")
-
     var autoplayVideos: Boolean
         get() = prefs.getBoolean(AUTOPLAY_VIDEOS, false)
         set(autoplay) = prefs.edit().putBoolean(AUTOPLAY_VIDEOS, autoplay).apply()
@@ -163,7 +164,7 @@ class Config(context: Context) : BaseConfig(context) {
         set(darkBackground) = prefs.edit().putBoolean(DARK_BACKGROUND, darkBackground).apply()
 
     var filterMedia: Int
-        get() = prefs.getInt(FILTER_MEDIA, IMAGES or VIDEOS or GIFS)
+        get() = prefs.getInt(FILTER_MEDIA, TYPE_IMAGES or TYPE_VIDEOS or TYPE_GIFS)
         set(filterMedia) = prefs.edit().putInt(FILTER_MEDIA, filterMedia).apply()
 
     var dirColumnCnt: Int
@@ -225,10 +226,6 @@ class Config(context: Context) : BaseConfig(context) {
 
     private fun getDefaultMediaColumnCount() = context.resources.getInteger(if (scrollHorizontally) R.integer.media_columns_horizontal_scroll
     else R.integer.media_columns_vertical_scroll)
-
-    var directories: String
-        get() = prefs.getString(DIRECTORIES, "")
-        set(directories) = prefs.edit().putString(DIRECTORIES, directories).apply()
 
     var albumCovers: String
         get() = prefs.getString(ALBUM_COVERS, "")
@@ -328,6 +325,10 @@ class Config(context: Context) : BaseConfig(context) {
         set(wasNewAppShown) = prefs.edit().putBoolean(WAS_NEW_APP_SHOWN, wasNewAppShown).apply()
 
     var lastFilepickerPath: String
-        get() = prefs.getString(TEMP_FOLDER_PATH, "")
-        set(tempFolderPath) = prefs.edit().putString(TEMP_FOLDER_PATH, tempFolderPath).apply()
+        get() = prefs.getString(LAST_FILEPICKER_PATH, "")
+        set(lastFilepickerPath) = prefs.edit().putString(LAST_FILEPICKER_PATH, lastFilepickerPath).apply()
+
+    var wasOTGHandled: Boolean
+        get() = prefs.getBoolean(WAS_OTG_HANDLED, false)
+        set(wasOTGHandled) = prefs.edit().putBoolean(WAS_OTG_HANDLED, wasOTGHandled).apply()
 }

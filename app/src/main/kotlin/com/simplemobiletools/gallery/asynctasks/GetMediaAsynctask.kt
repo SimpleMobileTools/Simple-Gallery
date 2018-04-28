@@ -7,18 +7,18 @@ import com.simplemobiletools.gallery.helpers.MediaFetcher
 import com.simplemobiletools.gallery.models.Medium
 import java.util.*
 
-class GetMediaAsynctask(val context: Context, val mPath: String, val isPickVideo: Boolean = false, val isPickImage: Boolean = false,
+class GetMediaAsynctask(val context: Context, val mPath: String, val isPickImage: Boolean = false, val isPickVideo: Boolean = false,
                         val showAll: Boolean, val callback: (media: ArrayList<Medium>) -> Unit) :
         AsyncTask<Void, Void, ArrayList<Medium>>() {
     private val mediaFetcher = MediaFetcher(context)
 
     override fun doInBackground(vararg params: Void): ArrayList<Medium> {
         return if (showAll) {
-            val mediaMap = mediaFetcher.getMediaByDirectories(isPickVideo, isPickImage)
+            val foldersToScan = mediaFetcher.getFoldersToScan("")
             val media = ArrayList<Medium>()
-
-            mediaMap.values.forEach {
-                media.addAll(it)
+            for (folder in foldersToScan) {
+                val newMedia = mediaFetcher.getFilesFrom(folder, isPickImage, isPickVideo)
+                media.addAll(newMedia)
             }
 
             Medium.sorting = context.config.getFileSorting("")

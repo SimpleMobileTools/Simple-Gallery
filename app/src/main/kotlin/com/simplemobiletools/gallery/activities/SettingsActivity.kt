@@ -203,6 +203,11 @@ class SettingsActivity : SimpleActivity() {
         settings_scroll_horizontally_holder.setOnClickListener {
             settings_scroll_horizontally.toggle()
             config.scrollHorizontally = settings_scroll_horizontally.isChecked
+
+            if (config.scrollHorizontally) {
+                config.enablePullToRefresh = false
+                settings_enable_pull_to_refresh.isChecked = false
+            }
         }
     }
 

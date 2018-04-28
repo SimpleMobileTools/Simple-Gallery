@@ -1,30 +1,41 @@
 package com.simplemobiletools.gallery.models
 
+import android.arch.persistence.room.ColumnInfo
+import android.arch.persistence.room.Entity
+import android.arch.persistence.room.Index
+import android.arch.persistence.room.PrimaryKey
 import com.simplemobiletools.commons.extensions.formatDate
 import com.simplemobiletools.commons.extensions.formatSize
-import com.simplemobiletools.commons.extensions.getMimeType
 import com.simplemobiletools.commons.extensions.isDng
 import com.simplemobiletools.commons.helpers.*
-import com.simplemobiletools.gallery.helpers.TYPE_GIF
-import com.simplemobiletools.gallery.helpers.TYPE_IMAGE
-import com.simplemobiletools.gallery.helpers.TYPE_VIDEO
+import com.simplemobiletools.gallery.helpers.TYPE_GIFS
+import com.simplemobiletools.gallery.helpers.TYPE_IMAGES
+import com.simplemobiletools.gallery.helpers.TYPE_VIDEOS
 import java.io.Serializable
 
-data class Medium(var name: String, var path: String, val modified: Long, val taken: Long, val size: Long, val type: Int) : Serializable, Comparable<Medium> {
+@Entity(tableName = "media", indices = [(Index(value = "full_path", unique = true))])
+data class Medium(
+        @PrimaryKey(autoGenerate = true) var id: Long?,
+        @ColumnInfo(name = "filename") var name: String,
+        @ColumnInfo(name = "full_path") var path: String,
+        @ColumnInfo(name = "parent_path") var parentPath: String,
+        @ColumnInfo(name = "last_modified") val modified: Long,
+        @ColumnInfo(name = "date_taken") val taken: Long,
+        @ColumnInfo(name = "size") val size: Long,
+        @ColumnInfo(name = "type") val type: Int) : Serializable, Comparable<Medium> {
+
     companion object {
-        private val serialVersionUID = -6553149366975455L
+        private const val serialVersionUID = -6553149366975455L
         var sorting: Int = 0
     }
 
-    fun isGif() = type == TYPE_GIF
+    fun isGif() = type == TYPE_GIFS
 
-    fun isImage() = type == TYPE_IMAGE
+    fun isImage() = type == TYPE_IMAGES
 
-    fun isVideo() = type == TYPE_VIDEO
+    fun isVideo() = type == TYPE_VIDEOS
 
     fun isDng() = path.isDng()
-
-    fun getMimeType() = path.getMimeType()
 
     override fun compareTo(other: Medium): Int {
         var result: Int

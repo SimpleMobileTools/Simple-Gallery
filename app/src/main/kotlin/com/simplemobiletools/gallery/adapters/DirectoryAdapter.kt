@@ -12,6 +12,7 @@ import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.FastScroller
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -19,10 +20,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.ExcludeFolderDialog
 import com.simplemobiletools.gallery.dialogs.PickMediumDialog
 import com.simplemobiletools.gallery.extensions.*
-import com.simplemobiletools.gallery.helpers.TYPE_GIF
-import com.simplemobiletools.gallery.helpers.TYPE_IMAGE
-import com.simplemobiletools.gallery.helpers.TYPE_VIDEO
-import com.simplemobiletools.gallery.helpers.VIEW_TYPE_LIST
+import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.AlbumCover
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.directory_item_list.view.*
@@ -155,7 +153,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     }
 
     private fun renameDir() {
-        val sourcePath = dirs[selectedPositions.first()].path
+        val firstDir = dirs[selectedPositions.first()]
+        val sourcePath = firstDir.path
         val dir = File(sourcePath)
         if (activity.isAStorageRootFolder(dir.absolutePath)) {
             activity.toast(R.string.rename_folder_root)
@@ -164,17 +163,13 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
         RenameItemDialog(activity, dir.absolutePath) {
             activity.runOnUiThread {
-                if (selectedPositions.isEmpty()) {
-                    return@runOnUiThread
-                }
-
-                dirs[selectedPositions.first()].apply {
+                firstDir.apply {
                     path = it
                     name = it.getFilenameFromPath()
                     tmb = File(it, tmb.getFilenameFromPath()).absolutePath
                 }
                 updateDirs(dirs)
-                listener?.updateDirectories(dirs.toList() as ArrayList, false)
+                listener?.updateDirectories(dirs.toList() as ArrayList)
             }
         }
     }
@@ -212,7 +207,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         dirs.forEach {
             it.name = activity.checkAppendingHidden(it.path, hidden, includedFolders)
         }
-        listener?.updateDirectories(dirs.toList() as ArrayList, false)
+        listener?.updateDirectories(dirs.toList() as ArrayList)
         activity.runOnUiThread {
             updateDirs(dirs)
         }
@@ -249,7 +244,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                     dirs = newDirs
                     finishActMode()
                     fastScroller?.measureRecyclerView()
-                    listener?.updateDirectories(newDirs, false)
+                    listener?.updateDirectories(newDirs)
                 }
             }
         }
@@ -284,9 +279,16 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
     private fun copyMoveTo(isCopyOperation: Boolean) {
         val paths = ArrayList<String>()
+        val showHidden = activity.config.shouldShowHidden
         selectedPositions.forEach {
-            val dir = File(dirs[it].path)
-            paths.addAll(dir.listFiles().filter { !activity.getIsPathDirectory(it.absolutePath) && it.absolutePath.isImageVideoGif() }.map { it.absolutePath })
+            val path = dirs[it].path
+            if (path.startsWith(OTG_PATH)) {
+                paths.addAll(getOTGFilePaths(path, showHidden))
+            } else {
+                File(path).listFiles()?.filter {
+                    !activity.getIsPathDirectory(it.absolutePath) && it.isImageVideoGif() && (showHidden || !it.name.startsWith('.'))
+                }?.mapTo(paths, { it.absolutePath })
+            }
         }
 
         val fileDirItems = paths.map { FileDirItem(it, it.getFilenameFromPath()) } as ArrayList<FileDirItem>
@@ -295,6 +297,17 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             listener?.refreshItems()
             finishActMode()
         }
+    }
+
+    private fun getOTGFilePaths(path: String, showHidden: Boolean): ArrayList<String> {
+        val paths = ArrayList<String>()
+        activity.getOTGFolderChildren(path)?.forEach {
+            if (!it.isDirectory && it.name.isImageVideoGif() && (showHidden || !it.name.startsWith('.'))) {
+                val relativePath = it.uri.path.substringAfterLast("${activity.config.OTGPartition}:")
+                paths.add("$OTG_PATH$relativePath")
+            }
+        }
+        return paths
     }
 
     private fun askConfirmDelete() {
@@ -416,14 +429,18 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             dir_path?.text = "${directory.path.substringBeforeLast("/")}/"
             photo_cnt.text = directory.mediaCnt.toString()
             val thumbnailType = when {
-                directory.tmb.isImageFast() -> TYPE_IMAGE
-                directory.tmb.isVideoFast() -> TYPE_VIDEO
-                else -> TYPE_GIF
+                directory.tmb.isImageFast() -> TYPE_IMAGES
+                directory.tmb.isVideoFast() -> TYPE_VIDEOS
+                else -> TYPE_GIFS
             }
 
             activity.loadImage(thumbnailType, directory.tmb, dir_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
             dir_pin.beVisibleIf(pinnedFolders.contains(directory.path))
-            dir_sd_card.beVisibleIf(directory.isOnSDCard)
+            dir_location.beVisibleIf(directory.location != LOCAITON_INTERNAL)
+            if (dir_location.isVisible()) {
+                dir_location.setImageResource(if (directory.location == LOCATION_SD) R.drawable.ic_sd_card else R.drawable.ic_usb)
+            }
+
             photo_cnt.beVisibleIf(showMediaCount)
 
             if (isListViewType) {
@@ -431,7 +448,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 dir_path.setTextColor(textColor)
                 photo_cnt.setTextColor(textColor)
                 dir_pin.applyColorFilter(textColor)
-                dir_sd_card.applyColorFilter(textColor)
+                dir_location.applyColorFilter(textColor)
             }
         }
     }
@@ -443,6 +460,6 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
         fun recheckPinnedFolders()
 
-        fun updateDirectories(directories: ArrayList<Directory>, refreshList: Boolean)
+        fun updateDirectories(directories: ArrayList<Directory>)
     }
 }

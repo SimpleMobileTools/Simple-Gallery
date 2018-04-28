@@ -5,7 +5,7 @@
     <string name="edit">Modifica</string>
     <string name="open_camera">Apri fotocamera</string>
     <string name="hidden">(nascosta)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(esclusa)</string>
     <string name="pin_folder">Blocca cartella</string>
     <string name="unpin_folder">Sblocca cartella</string>
     <string name="pin_to_the_top">Fissa in alto</string>
@@ -165,7 +165,7 @@
     <string name="faq_9_title">Le immagini a schermo intero hanno strani artefatti, posso migliorarne la qualità in qualche modo?</string>
     <string name="faq_9_text">Sì, c\'è un\'opzione nelle impostazioni che dice \"Sostituisci le immagini ingrandibili a fondo con altre di migliore qualità\", puoi usare quella. Ciò migliorerà la qualità delle immagini, ma saranno sfuocate quando proverai a ingrandirle troppo.</string>
     <string name="faq_10_title">Posso ritagliare le immagini con questa app?</string>
-    <string name="faq_10_text">Sì, puoi ritagliare le immagini nell\'editor, trascinando gli angoli dell\'immagine. Puoi usare l\'editor sia premendo a lungo la miniatura di un'immagine e selezionando Modifica, o selezionando Modifica mentre la vedi a schermo intero.</string>
+    <string name="faq_10_text">Sì, puoi ritagliare le immagini nell\'editor, trascinando gli angoli dell\'immagine. Puoi usare l\'editor sia premendo a lungo la miniatura di un\'immagine e selezionando Modifica, o selezionando Modifica mentre la vedi a schermo intero.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

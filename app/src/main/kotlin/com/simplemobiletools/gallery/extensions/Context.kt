@@ -9,19 +9,24 @@ import android.media.AudioManager
 import android.os.Build
 import android.provider.MediaStore
 import android.view.WindowManager
-import com.google.gson.Gson
+import android.widget.ImageView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DecodeFormat
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestOptions
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SettingsActivity
-import com.simplemobiletools.gallery.asynctasks.GetDirectoriesAsynctask
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
-import com.simplemobiletools.gallery.helpers.Config
-import com.simplemobiletools.gallery.helpers.NOMEDIA
-import com.simplemobiletools.gallery.helpers.SAVE_DIRS_CNT
-import com.simplemobiletools.gallery.helpers.SAVE_MEDIA_CNT
+import com.simplemobiletools.gallery.databases.GalleryDataBase
+import com.simplemobiletools.gallery.helpers.*
+import com.simplemobiletools.gallery.interfaces.DirectoryDao
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
+import com.simplemobiletools.gallery.views.MySquareImageView
+import pl.droidsonroids.gif.GifDrawable
 import java.io.File
 
 val Context.portrait get() = resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
@@ -65,17 +70,27 @@ fun Context.launchSettings() {
 
 val Context.config: Config get() = Config.newInstance(applicationContext)
 
+val Context.galleryDB: GalleryDataBase get() = GalleryDataBase.getInstance(applicationContext)
+
 fun Context.movePinnedDirectoriesToFront(dirs: ArrayList<Directory>): ArrayList<Directory> {
     val foundFolders = ArrayList<Directory>()
     val pinnedFolders = config.pinnedFolders
 
     dirs.forEach {
-        if (pinnedFolders.contains(it.path))
+        if (pinnedFolders.contains(it.path)) {
             foundFolders.add(it)
+        }
     }
 
     dirs.removeAll(foundFolders)
     dirs.addAll(0, foundFolders)
+    if (config.tempFolderPath.isNotEmpty()) {
+        val newFolder = dirs.firstOrNull { it.path == config.tempFolderPath }
+        if (newFolder != null) {
+            dirs.remove(newFolder)
+            dirs.add(0, newFolder)
+        }
+    }
     return dirs
 }
 
@@ -98,7 +113,6 @@ fun Context.getNoMediaFolders(callback: (folders: ArrayList<String>) -> Unit) {
         val sortOrder = "${MediaStore.Files.FileColumns.DATE_MODIFIED} DESC"
 
         var cursor: Cursor? = null
-
         try {
             cursor = contentResolver.query(uri, projection, selection, selectionArgs, sortOrder)
             if (cursor?.moveToFirst() == true) {
@@ -118,50 +132,35 @@ fun Context.getNoMediaFolders(callback: (folders: ArrayList<String>) -> Unit) {
     }.start()
 }
 
-fun Context.isPathInMediaStore(path: String): Boolean {
-    if (path.startsWith(OTG_PATH)) {
-        return false
-    }
-
-    val projection = arrayOf(MediaStore.Images.Media.DATE_MODIFIED)
-    val uri = MediaStore.Files.getContentUri("external")
-    val selection = "${MediaStore.MediaColumns.DATA} = ?"
-    val selectionArgs = arrayOf(path)
-    val cursor = contentResolver.query(uri, projection, selection, selectionArgs, null)
-
-    cursor?.use {
-        return cursor.moveToFirst()
-    }
-    return false
+fun Context.rescanFolderMedia(path: String) {
+    Thread {
+        rescanFolderMediaSync(path)
+    }.start()
 }
 
-fun Context.updateStoredFolderItems(path: String) {
-    GetMediaAsynctask(this, path, false, false, false) {
-        storeFolderItems(path, it)
-    }.execute()
-}
+fun Context.rescanFolderMediaSync(path: String) {
+    getCachedMedia(path) {
+        val cached = it
+        GetMediaAsynctask(applicationContext, path, false, false, false) {
+            Thread {
+                val newMedia = it
+                val mediumDao = galleryDB.MediumDao()
+                mediumDao.insertAll(newMedia)
 
-fun Context.storeFolderItems(path: String, items: ArrayList<Medium>) {
-    try {
-        val subList = items.subList(0, Math.min(SAVE_MEDIA_CNT, items.size))
-        val json = Gson().toJson(subList)
-        config.saveFolderMedia(path, json)
-    } catch (ignored: Exception) {
-    } catch (ignored: OutOfMemoryError) {
+                cached.forEach {
+                    if (!newMedia.contains(it)) {
+                        mediumDao.deleteMediumPath(it.path)
+                    }
+                }
+            }.start()
+        }.execute()
     }
-}
-
-fun Context.updateStoredDirectories() {
-    GetDirectoriesAsynctask(this, false, false) {
-        if (!config.temporarilyShowHidden) {
-            storeDirectoryItems(it)
-        }
-    }.execute()
 }
 
 fun Context.storeDirectoryItems(items: ArrayList<Directory>) {
-    val subList = items.subList(0, Math.min(SAVE_DIRS_CNT, items.size))
-    config.directories = Gson().toJson(subList)
+    Thread {
+        galleryDB.DirectoryDao().insertAll(items)
+    }.start()
 }
 
 fun Context.checkAppendingHidden(path: String, hidden: String, includedFolders: MutableSet<String>): String {
@@ -184,3 +183,150 @@ fun Context.checkAppendingHidden(path: String, hidden: String, includedFolders: 
         dirName
     }
 }
+
+fun Context.loadImage(type: Int, path: String, target: MySquareImageView, horizontalScroll: Boolean, animateGifs: Boolean, cropThumbnails: Boolean) {
+    target.isHorizontalScrolling = horizontalScroll
+    if (type == TYPE_IMAGES || type == TYPE_VIDEOS) {
+        if (type == TYPE_IMAGES && path.isPng()) {
+            loadPng(path, target, cropThumbnails)
+        } else {
+            loadJpg(path, target, cropThumbnails)
+        }
+    } else if (type == TYPE_GIFS) {
+        try {
+            val gifDrawable = GifDrawable(path)
+            target.setImageDrawable(gifDrawable)
+            if (animateGifs) {
+                gifDrawable.start()
+            } else {
+                gifDrawable.stop()
+            }
+
+            target.scaleType = if (cropThumbnails) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
+        } catch (e: Exception) {
+            loadJpg(path, target, cropThumbnails)
+        } catch (e: OutOfMemoryError) {
+            loadJpg(path, target, cropThumbnails)
+        }
+    }
+}
+
+fun Context.addTempFolderIfNeeded(dirs: ArrayList<Directory>): ArrayList<Directory> {
+    val directories = ArrayList<Directory>()
+    val tempFolderPath = config.tempFolderPath
+    if (tempFolderPath.isNotEmpty()) {
+        val newFolder = Directory(null, tempFolderPath, "", tempFolderPath.getFilenameFromPath(), 0, 0, 0, 0L, getPathLocation(tempFolderPath), 0)
+        directories.add(newFolder)
+    }
+    directories.addAll(dirs)
+    return directories
+}
+
+fun Context.getPathLocation(path: String): Int {
+    return when {
+        isPathOnSD(path) -> LOCATION_SD
+        path.startsWith(OTG_PATH) -> LOCATION_OTG
+        else -> LOCAITON_INTERNAL
+    }
+}
+
+fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boolean) {
+    val options = RequestOptions()
+            .signature(path.getFileSignature())
+            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+            .format(DecodeFormat.PREFER_ARGB_8888)
+
+    val builder = Glide.with(applicationContext)
+            .asBitmap()
+            .load(path)
+
+    if (cropThumbnails) options.centerCrop() else options.fitCenter()
+    builder.apply(options).into(target)
+}
+
+fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boolean) {
+    val options = RequestOptions()
+            .signature(path.getFileSignature())
+            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+
+    val builder = Glide.with(applicationContext)
+            .load(path)
+
+    if (cropThumbnails) options.centerCrop() else options.fitCenter()
+    builder.apply(options).transition(DrawableTransitionOptions.withCrossFade()).into(target)
+}
+
+fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, callback: (ArrayList<Directory>) -> Unit) {
+    Thread {
+        val directoryDao = galleryDB.DirectoryDao()
+        val directories = directoryDao.getAll() as ArrayList<Directory>
+        val shouldShowHidden = config.shouldShowHidden
+        val excludedPaths = config.excludedFolders
+        val includedPaths = config.includedFolders
+        var filteredDirectories = directories.filter { it.path.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden) } as ArrayList<Directory>
+        val filterMedia = config.filterMedia
+
+        filteredDirectories = (when {
+            getVideosOnly -> filteredDirectories.filter { it.types and TYPE_VIDEOS != 0 }
+            getImagesOnly -> filteredDirectories.filter { it.types and TYPE_IMAGES != 0 }
+            else -> filteredDirectories.filter {
+                (filterMedia and TYPE_IMAGES != 0 && it.types and TYPE_IMAGES != 0) ||
+                        (filterMedia and TYPE_VIDEOS != 0 && it.types and TYPE_VIDEOS != 0) ||
+                        (filterMedia and TYPE_GIFS != 0 && it.types and TYPE_GIFS != 0)
+            }
+        }) as ArrayList<Directory>
+
+        callback(filteredDirectories.distinctBy { it.path.toLowerCase() } as ArrayList<Directory>)
+
+        removeInvalidDBDirectories(directories, directoryDao)
+    }.start()
+}
+
+fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, callback: (ArrayList<Medium>) -> Unit) {
+    Thread {
+        val mediumDao = galleryDB.MediumDao()
+        val media = (if (path == "/") mediumDao.getAll() else mediumDao.getMediaFromPath(path)) as ArrayList<Medium>
+        val shouldShowHidden = config.shouldShowHidden
+        var filteredMedia = media
+        if (!shouldShowHidden) {
+            filteredMedia = media.filter { !it.name.startsWith('.') } as ArrayList<Medium>
+        }
+
+        val filterMedia = config.filterMedia
+        filteredMedia = (when {
+            getVideosOnly -> filteredMedia.filter { it.type == TYPE_VIDEOS }
+            getImagesOnly -> filteredMedia.filter { it.type == TYPE_IMAGES }
+            else -> filteredMedia.filter {
+                (filterMedia and TYPE_IMAGES != 0 && it.type == TYPE_IMAGES) ||
+                        (filterMedia and TYPE_VIDEOS != 0 && it.type == TYPE_VIDEOS) ||
+                        (filterMedia and TYPE_GIFS != 0 && it.type == TYPE_GIFS)
+            }
+        }) as ArrayList<Medium>
+
+        callback(filteredMedia)
+        media.filter { !getDoesFilePathExist(it.path) }.forEach {
+            mediumDao.deleteMediumPath(it.path)
+        }
+    }.start()
+}
+
+fun Context.removeInvalidDBDirectories(dirs: ArrayList<Directory>? = null, directoryDao: DirectoryDao = galleryDB.DirectoryDao()) {
+    val dirsToCheck = dirs ?: directoryDao.getAll()
+    dirsToCheck.filter { !getDoesFilePathExist(it.path) && it.path != config.tempFolderPath }.forEach {
+        directoryDao.deleteDirPath(it.path)
+    }
+}
+
+fun Context.updateDBMediaPath(oldPath: String, newPath: String) {
+    val newFilename = newPath.getFilenameFromPath()
+    val newParentPath = newPath.getParentPath()
+    galleryDB.MediumDao().updateMedium(oldPath, newParentPath, newFilename, newPath)
+}
+
+fun Context.updateDBDirectory(directory: Directory) {
+    galleryDB.DirectoryDao().updateDirectory(directory.path, directory.tmb, directory.mediaCnt, directory.modified, directory.taken, directory.size, directory.types)
+}
+
+fun Context.getOTGFolderChildren(path: String) = getDocumentFile(path)?.listFiles()
+
+fun Context.getOTGFolderChildrenNames(path: String) = getOTGFolderChildren(path)?.map { it.name }?.toList()

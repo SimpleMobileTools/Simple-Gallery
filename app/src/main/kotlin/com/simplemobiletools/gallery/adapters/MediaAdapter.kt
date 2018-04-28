@@ -148,7 +148,12 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     private fun renameFile() {
-        RenameItemDialog(activity, getCurrentPath()) {
+        val oldPath = getCurrentPath()
+        RenameItemDialog(activity, oldPath) {
+            Thread {
+                activity.updateDBMediaPath(oldPath, it)
+            }.start()
+
             activity.runOnUiThread {
                 listener?.refreshItems()
                 finishActMode()
@@ -158,7 +163,6 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
     private fun editFile() {
         activity.openEditor(getCurrentPath())
-        finishActMode()
     }
 
     private fun toggleFileVisibility(hide: Boolean) {
@@ -188,7 +192,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         val fileDirItems = paths.map { FileDirItem(it, it.getFilenameFromPath()) } as ArrayList
         activity.tryCopyMoveFilesTo(fileDirItems, isCopyOperation) {
             config.tempFolderPath = ""
-            activity.applicationContext.updateStoredFolderItems(it)
+            activity.applicationContext.rescanFolderMedia(it)
+            activity.applicationContext.rescanFolderMedia(fileDirItems.first().getParentPath())
             if (!isCopyOperation) {
                 listener?.refreshItems()
             }
@@ -236,9 +241,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
             }
 
             media.removeAll(removeMedia)
-            listener?.deleteFiles(fileDirItems)
+            listener?.tryDeleteFiles(fileDirItems)
             removeSelectedItems()
-            updateStoredFolderItems()
         }
     }
 
@@ -246,14 +250,6 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         val selectedMedia = ArrayList<Medium>(selectedPositions.size)
         selectedPositions.forEach { selectedMedia.add(media[it]) }
         return selectedMedia
-    }
-
-    private fun updateStoredFolderItems() {
-        Thread {
-            if (media.isNotEmpty()) {
-                activity.applicationContext.storeFolderItems(media.first().path.getParentPath().trimEnd('/'), media as ArrayList<Medium>)
-            }
-        }.start()
     }
 
     fun updateMedia(newMedia: ArrayList<Medium>) {
@@ -331,7 +327,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     interface MediaOperationsListener {
         fun refreshItems()
 
-        fun deleteFiles(fileDirItems: ArrayList<FileDirItem>)
+        fun tryDeleteFiles(fileDirItems: ArrayList<FileDirItem>)
 
         fun selectedPaths(paths: ArrayList<String>)
     }

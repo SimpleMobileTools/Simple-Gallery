@@ -45,7 +45,10 @@ import com.simplemobiletools.gallery.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_medium.*
-import java.io.*
+import java.io.File
+import java.io.FileOutputStream
+import java.io.InputStream
+import java.io.OutputStream
 import java.util.*
 
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
@@ -197,7 +200,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         showSystemUI()
 
-        mDirectory = mPath.getParentPath().trimEnd('/')
+        mDirectory = mPath.getParentPath()
         if (mDirectory.startsWith(OTG_PATH.trimEnd('/'))) {
             mDirectory += "/"
         }
@@ -527,11 +530,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         }
 
-        val newFile = File(newPath)
-        val tmpFile = File(filesDir, ".tmp_${newPath.getFilenameFromPath()}")
-
+        val tmpPath = "$filesDir/.tmp_${newPath.getFilenameFromPath()}"
+        val tmpFileDirItem = FileDirItem(tmpPath, tmpPath.getFilenameFromPath())
         try {
-            getFileOutputStream(tmpFile.toFileDirItem(applicationContext)) {
+            getFileOutputStream(tmpFileDirItem) {
                 if (it == null) {
                     toast(R.string.unknown_error_occurred)
                     return@getFileOutputStream
@@ -539,22 +541,24 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
                 val oldLastModified = getCurrentFile().lastModified()
                 if (oldPath.isJpg()) {
-                    copyFile(getCurrentFile(), tmpFile)
-                    saveExifRotation(ExifInterface(tmpFile.absolutePath), mRotationDegrees)
+                    copyFile(getCurrentPath(), tmpPath)
+                    saveExifRotation(ExifInterface(tmpPath), mRotationDegrees)
                 } else {
-                    val bitmap = BitmapFactory.decodeFile(oldPath)
-                    saveFile(tmpFile, bitmap, it as FileOutputStream)
+                    val inputstream = getFileInputStreamSync(oldPath)
+                    val bitmap = BitmapFactory.decodeStream(inputstream)
+                    saveFile(tmpPath, bitmap, it as FileOutputStream)
                 }
 
-                if (tmpFile.length() > 0 && getDoesFilePathExist(newPath)) {
-                    deleteFile(FileDirItem(newPath, newPath.getFilenameFromPath()))
+                if (getDoesFilePathExist(newPath)) {
+                    tryDeleteFileDirItem(FileDirItem(newPath, newPath.getFilenameFromPath()))
                 }
-                copyFile(tmpFile, newFile)
+
+                copyFile(tmpPath, newPath)
                 scanPath(newPath)
                 toast(R.string.file_saved)
 
                 if (config.keepLastModified) {
-                    newFile.setLastModified(oldLastModified)
+                    File(newPath).setLastModified(oldLastModified)
                     updateLastModified(newPath, oldLastModified)
                 }
 
@@ -575,41 +579,45 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         } catch (e: Exception) {
             showErrorToast(e)
         } finally {
-            deleteFile(FileDirItem(tmpFile.absolutePath, tmpFile.absolutePath.getFilenameFromPath()))
+            tryDeleteFileDirItem(tmpFileDirItem)
         }
     }
 
     @TargetApi(Build.VERSION_CODES.N)
     private fun tryRotateByExif(path: String): Boolean {
-        return if (saveImageRotation(path, mRotationDegrees)) {
-            mRotationDegrees = 0
-            invalidateOptionsMenu()
-            toast(R.string.file_saved)
-            true
-        } else {
+        return try {
+            if (saveImageRotation(path, mRotationDegrees)) {
+                mRotationDegrees = 0
+                invalidateOptionsMenu()
+                toast(R.string.file_saved)
+                true
+            } else {
+                false
+            }
+        } catch (e: Exception) {
+            showErrorToast(e)
             false
         }
     }
 
-    private fun copyFile(source: File, destination: File) {
+    private fun copyFile(source: String, destination: String) {
         var inputStream: InputStream? = null
         var out: OutputStream? = null
         try {
-            val fileDocument = if (isPathOnSD(destination.absolutePath)) getDocumentFile(destination.parent) else null
-            out = getFileOutputStreamSync(destination.absolutePath, source.getMimeType(), fileDocument)
-            inputStream = FileInputStream(source)
-            inputStream.copyTo(out!!)
+            out = getFileOutputStreamSync(destination, source.getMimeType())
+            inputStream = getFileInputStreamSync(source)
+            inputStream?.copyTo(out!!)
         } finally {
             inputStream?.close()
             out?.close()
         }
     }
 
-    private fun saveFile(file: File, bitmap: Bitmap, out: FileOutputStream) {
+    private fun saveFile(path: String, bitmap: Bitmap, out: FileOutputStream) {
         val matrix = Matrix()
         matrix.postRotate(mRotationDegrees.toFloat())
         val bmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
-        bmp.compress(file.absolutePath.getCompressionFormat(), 90, out)
+        bmp.compress(path.getCompressionFormat(), 90, out)
     }
 
     private fun isShowHiddenFlagNeeded(): Boolean {
@@ -736,7 +744,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun deleteConfirmed() {
         val path = getCurrentMedia()[mPos].path
-        deleteFile(FileDirItem(path, path.getFilenameFromPath())) {
+        tryDeleteFileDirItem(FileDirItem(path, path.getFilenameFromPath())) {
             refreshViewPager()
         }
     }
@@ -752,8 +760,16 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun renameFile() {
-        RenameItemDialog(this, getCurrentPath()) {
-            getCurrentMedia()[mPos].path = it
+        val oldPath = getCurrentPath()
+        RenameItemDialog(this, oldPath) {
+            getCurrentMedia()[mPos].apply {
+                path = it
+                name = it.getFilenameFromPath()
+            }
+
+            Thread {
+                updateDBMediaPath(oldPath, it)
+            }.start()
             updateActionbarTitle()
         }
     }
@@ -814,7 +830,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun deleteDirectoryIfEmpty() {
         val fileDirItem = FileDirItem(mDirectory, mDirectory.getFilenameFromPath(), getIsPathDirectory(mDirectory))
         if (config.deleteEmptyFolders && !fileDirItem.isDownloadsFolder() && fileDirItem.isDirectory && fileDirItem.getProperFileCount(applicationContext, true) == 0) {
-            deleteFile(fileDirItem, true)
+            tryDeleteFileDirItem(fileDirItem, true)
         }
 
         scanPath(mDirectory)

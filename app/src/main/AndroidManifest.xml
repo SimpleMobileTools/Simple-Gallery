@@ -206,14 +206,6 @@
         </provider>
 
         <receiver
-            android:name=".receivers.InstallReceiver"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.android.vending.INSTALL_REFERRER"/>
-            </intent-filter>
-        </receiver>
-
-        <receiver
             android:name=".receivers.RefreshMediaReceiver"
             android:exported="true">
             <intent-filter>

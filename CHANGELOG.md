@@ -1,6 +1,37 @@
 Changelog
 ==========
 
+Version 3.8.2 *(2018-04-26)*
+----------------------------
+
+ * Rewrote media caching and new file discovery for better performance
+ * Many OTG file handling improvements
+
+Version 3.8.1 *(2018-04-24)*
+----------------------------
+
+ * Rewrote media caching and new file discovery for better performance
+ * Some OTG file handling improvements
+
+Version 3.8.0 *(2018-04-22)*
+----------------------------
+
+ * Rewrote media caching for better performance
+ * Cache all media items, not just 80 per folder
+ * Some additional performance and stability improvements
+
+Version 3.7.3 *(2018-04-15)*
+----------------------------
+
+ * Show hidden folders when appropriate
+
+Version 3.7.2 *(2018-04-14)*
+----------------------------
+
+ * Fix Edit intent handled by other apps
+ * Hide folders containing ".nomedia" file, even if explicitly included
+ * Remove sorting by Date Taken until proper implementation
+
 Version 3.7.1 *(2018-04-12)*
 ----------------------------
 

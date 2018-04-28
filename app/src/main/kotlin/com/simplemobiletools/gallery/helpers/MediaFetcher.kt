@@ -8,21 +8,14 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.helpers.photoExtensions
 import com.simplemobiletools.commons.helpers.videoExtensions
-import com.simplemobiletools.gallery.extensions.*
+import com.simplemobiletools.gallery.extensions.config
+import com.simplemobiletools.gallery.extensions.getOTGFolderChildren
+import com.simplemobiletools.gallery.extensions.shouldFolderBeVisible
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
-import java.util.LinkedHashMap
-import kotlin.collections.ArrayList
-import kotlin.collections.HashSet
-import kotlin.collections.set
 
 class MediaFetcher(val context: Context) {
     var shouldStop = false
-
-    fun getMediaByDirectories(isPickVideo: Boolean, isPickImage: Boolean): HashMap<String, ArrayList<Medium>> {
-        val media = getFilesFrom("", isPickImage, isPickVideo)
-        return groupDirectories(media)
-    }
 
     fun getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean): ArrayList<Medium> {
         val filterMedia = context.config.filterMedia
@@ -30,23 +23,33 @@ class MediaFetcher(val context: Context) {
             return ArrayList()
         }
 
+        val curMedia = ArrayList<Medium>()
         if (curPath.startsWith(OTG_PATH)) {
-            val curMedia = ArrayList<Medium>()
-            getMediaOnOTG(curPath, curMedia, isPickImage, isPickVideo, filterMedia)
-            return curMedia
+            val newMedia = getMediaOnOTG(curPath, isPickImage, isPickVideo, filterMedia)
+            curMedia.addAll(newMedia)
         } else {
-            val projection = arrayOf(MediaStore.Images.Media.DATA)
-            val uri = MediaStore.Files.getContentUri("external")
+            val newMedia = fetchFolderContent(curPath, isPickImage, isPickVideo, filterMedia)
+            curMedia.addAll(newMedia)
+        }
 
-            val selection = "${getSelectionQuery(curPath, filterMedia)} ${MediaStore.Images.ImageColumns.BUCKET_ID} IS NOT NULL) GROUP BY (${MediaStore.Images.ImageColumns.BUCKET_ID}"
-            val selectionArgs = getSelectionArgsQuery(curPath, filterMedia).toTypedArray()
+        Medium.sorting = context.config.getFileSorting(curPath)
+        curMedia.sort()
+        return curMedia
+    }
 
-            return try {
-                val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
-                parseCursor(context, cursor, isPickImage, isPickVideo, curPath, filterMedia)
-            } catch (e: Exception) {
-                ArrayList()
-            }
+    fun getFoldersToScan(path: String): ArrayList<String> {
+        val filterMedia = context.config.filterMedia
+        val projection = arrayOf(MediaStore.Images.Media.DATA)
+        val uri = MediaStore.Files.getContentUri("external")
+
+        val selection = "${getSelectionQuery(path, filterMedia)} ${MediaStore.Images.ImageColumns.BUCKET_ID} IS NOT NULL) GROUP BY (${MediaStore.Images.ImageColumns.BUCKET_ID}"
+        val selectionArgs = getSelectionArgsQuery(path, filterMedia).toTypedArray()
+
+        return try {
+            val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
+            parseCursor(cursor, path)
+        } catch (e: Exception) {
+            ArrayList()
         }
     }
 
@@ -57,19 +60,19 @@ class MediaFetcher(val context: Context) {
         }
 
         query.append("(")
-        if (filterMedia and IMAGES != 0) {
+        if (filterMedia and TYPE_IMAGES != 0) {
             photoExtensions.forEach {
                 query.append("${MediaStore.Images.Media.DATA} LIKE ? OR ")
             }
         }
 
-        if (filterMedia and VIDEOS != 0) {
+        if (filterMedia and TYPE_VIDEOS != 0) {
             videoExtensions.forEach {
                 query.append("${MediaStore.Images.Media.DATA} LIKE ? OR ")
             }
         }
 
-        if (filterMedia and GIFS != 0) {
+        if (filterMedia and TYPE_GIFS != 0) {
             query.append("${MediaStore.Images.Media.DATA} LIKE ?")
         }
 
@@ -85,29 +88,29 @@ class MediaFetcher(val context: Context) {
             args.add("$path/%/%")
         }
 
-        if (filterMedia and IMAGES != 0) {
+        if (filterMedia and TYPE_IMAGES != 0) {
             photoExtensions.forEach {
                 args.add("%$it")
             }
         }
 
-        if (filterMedia and VIDEOS != 0) {
+        if (filterMedia and TYPE_VIDEOS != 0) {
             videoExtensions.forEach {
                 args.add("%$it")
             }
         }
 
-        if (filterMedia and GIFS != 0) {
+        if (filterMedia and TYPE_GIFS != 0) {
             args.add("%.gif")
         }
 
         return args
     }
 
-    private fun parseCursor(context: Context, cursor: Cursor, isPickImage: Boolean, isPickVideo: Boolean, curPath: String, filterMedia: Int): ArrayList<Medium> {
+    private fun parseCursor(cursor: Cursor, curPath: String): ArrayList<String> {
         val config = context.config
         val includedFolders = config.includedFolders
-        val foldersToScan = HashSet<String>()
+        var foldersToScan = ArrayList<String>()
 
         cursor.use {
             if (cursor.moveToFirst()) {
@@ -129,81 +132,47 @@ class MediaFetcher(val context: Context) {
             }
         }
 
-        val curMedia = ArrayList<Medium>()
         val showHidden = config.shouldShowHidden
         val excludedFolders = config.excludedFolders
-        foldersToScan.filter { shouldFolderBeVisible(it, excludedFolders, includedFolders, showHidden) }.toList().forEach {
-            fetchFolderContent(it, curMedia, isPickImage, isPickVideo, filterMedia)
+        foldersToScan = foldersToScan.filter { it.shouldFolderBeVisible(excludedFolders, includedFolders, showHidden) } as ArrayList<String>
+        if (config.isThirdPartyIntent && curPath.isNotEmpty()) {
+            foldersToScan.add(curPath)
         }
 
-        if (config.isThirdPartyIntent && curPath.isNotEmpty() && curMedia.isEmpty()) {
-            getMediaInFolder(curPath, curMedia, isPickImage, isPickVideo, filterMedia)
-        }
-
-        Medium.sorting = config.getFileSorting(curPath)
-        curMedia.sort()
-
-        return curMedia
+        return foldersToScan.distinctBy { it.toLowerCase() } as ArrayList<String>
     }
 
-    private fun addFolder(curFolders: HashSet<String>, folder: String) {
+    private fun addFolder(curFolders: ArrayList<String>, folder: String) {
         curFolders.add(folder)
-        val files = File(folder).listFiles() ?: return
-        for (file in files) {
-            if (file.isDirectory) {
-                addFolder(curFolders, file.absolutePath)
+        if (folder.startsWith(OTG_PATH)) {
+            val files = context.getOTGFolderChildren(folder) ?: return
+            for (file in files) {
+                if (file.isDirectory) {
+                    val relativePath = file.uri.path.substringAfterLast("${context.config.OTGPartition}:")
+                    addFolder(curFolders, "$OTG_PATH$relativePath")
+                }
             }
-        }
-    }
-
-    private fun fetchFolderContent(path: String, curMedia: ArrayList<Medium>, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int) {
-        if (path.startsWith(OTG_PATH)) {
-            getMediaOnOTG(path, curMedia, isPickImage, isPickVideo, filterMedia)
         } else {
-            getMediaInFolder(path, curMedia, isPickImage, isPickVideo, filterMedia)
+            val files = File(folder).listFiles() ?: return
+            for (file in files) {
+                if (file.isDirectory) {
+                    addFolder(curFolders, file.absolutePath)
+                }
+            }
         }
     }
 
-    private fun groupDirectories(media: ArrayList<Medium>): HashMap<String, ArrayList<Medium>> {
-        val directories = LinkedHashMap<String, ArrayList<Medium>>()
-        val hasOTG = context.hasOTGConnected() && context.config.OTGBasePath.isNotEmpty()
-        for (medium in media) {
-            if (shouldStop) {
-                break
-            }
-
-            val parentDir = (if (hasOTG && medium.path.startsWith(OTG_PATH)) medium.path.getParentPath().toLowerCase() else File(medium.path).parent?.toLowerCase())
-                    ?: continue
-            if (directories.containsKey(parentDir)) {
-                directories[parentDir]!!.add(medium)
-            } else {
-                directories[parentDir] = arrayListOf(medium)
-            }
-        }
-        return directories
-    }
-
-    private fun shouldFolderBeVisible(path: String, excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>, showHidden: Boolean): Boolean {
-        val file = File(path)
-        return if (path.isEmpty()) {
-            false
-        } else if (path.isThisOrParentIncluded(includedPaths)) {
-            true
-        } else if (path.isThisOrParentExcluded(excludedPaths)) {
-            false
-        } else if (!showHidden && file.isDirectory && file.canonicalFile == file.absoluteFile) {
-            var containsNoMediaOrDot = file.containsNoMedia() || path.contains("/.")
-            if (!containsNoMediaOrDot) {
-                containsNoMediaOrDot = file.doesThisOrParentHaveNoMedia()
-            }
-            !containsNoMediaOrDot
+    private fun fetchFolderContent(path: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int): ArrayList<Medium> {
+        return if (path.startsWith(OTG_PATH)) {
+            getMediaOnOTG(path, isPickImage, isPickVideo, filterMedia)
         } else {
-            true
+            getMediaInFolder(path, isPickImage, isPickVideo, filterMedia)
         }
     }
 
-    private fun getMediaInFolder(folder: String, curMedia: ArrayList<Medium>, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int) {
-        val files = File(folder).listFiles() ?: return
+    private fun getMediaInFolder(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int): ArrayList<Medium> {
+        val media = ArrayList<Medium>()
+        val files = File(folder).listFiles() ?: return media
         val doExtraCheck = context.config.doExtraCheck
         val showHidden = context.config.shouldShowHidden
 
@@ -220,13 +189,13 @@ class MediaFetcher(val context: Context) {
             if (!isImage && !isVideo && !isGif)
                 continue
 
-            if (isVideo && (isPickImage || filterMedia and VIDEOS == 0))
+            if (isVideo && (isPickImage || filterMedia and TYPE_VIDEOS == 0))
                 continue
 
-            if (isImage && (isPickVideo || filterMedia and IMAGES == 0))
+            if (isImage && (isPickVideo || filterMedia and TYPE_IMAGES == 0))
                 continue
 
-            if (isGif && filterMedia and GIFS == 0)
+            if (isGif && filterMedia and TYPE_GIFS == 0)
                 continue
 
             if (!showHidden && filename.startsWith('.'))
@@ -240,18 +209,20 @@ class MediaFetcher(val context: Context) {
             val dateModified = file.lastModified()
 
             val type = when {
-                isImage -> TYPE_IMAGE
-                isVideo -> TYPE_VIDEO
-                else -> TYPE_GIF
+                isImage -> TYPE_IMAGES
+                isVideo -> TYPE_VIDEOS
+                else -> TYPE_GIFS
             }
 
-            val medium = Medium(filename, file.absolutePath, dateModified, dateTaken, size, type)
-            curMedia.add(medium)
+            val medium = Medium(null, filename, file.absolutePath, folder, dateModified, dateTaken, size, type)
+            media.add(medium)
         }
+        return media
     }
 
-    private fun getMediaOnOTG(folder: String, curMedia: ArrayList<Medium>, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int) {
-        val files = context.getDocumentFile(folder)?.listFiles() ?: return
+    private fun getMediaOnOTG(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int): ArrayList<Medium> {
+        val media = ArrayList<Medium>()
+        val files = context.getDocumentFile(folder)?.listFiles() ?: return media
         val doExtraCheck = context.config.doExtraCheck
         val showHidden = context.config.shouldShowHidden
 
@@ -260,7 +231,7 @@ class MediaFetcher(val context: Context) {
                 break
             }
 
-            val filename = file.name
+            val filename = file.name ?: continue
             val isImage = filename.isImageFast()
             val isVideo = if (isImage) false else filename.isVideoFast()
             val isGif = if (isImage || isVideo) false else filename.isGif()
@@ -268,13 +239,13 @@ class MediaFetcher(val context: Context) {
             if (!isImage && !isVideo && !isGif)
                 continue
 
-            if (isVideo && (isPickImage || filterMedia and VIDEOS == 0))
+            if (isVideo && (isPickImage || filterMedia and TYPE_VIDEOS == 0))
                 continue
 
-            if (isImage && (isPickVideo || filterMedia and IMAGES == 0))
+            if (isImage && (isPickVideo || filterMedia and TYPE_IMAGES == 0))
                 continue
 
-            if (isGif && filterMedia and GIFS == 0)
+            if (isGif && filterMedia and TYPE_GIFS == 0)
                 continue
 
             if (!showHidden && filename.startsWith('.'))
@@ -288,14 +259,16 @@ class MediaFetcher(val context: Context) {
             val dateModified = file.lastModified()
 
             val type = when {
-                isImage -> TYPE_IMAGE
-                isVideo -> TYPE_VIDEO
-                else -> TYPE_GIF
+                isImage -> TYPE_IMAGES
+                isVideo -> TYPE_VIDEOS
+                else -> TYPE_GIFS
             }
 
-            val path = Uri.decode(file.uri.toString().replaceFirst("${context.config.OTGBasePath}%3A", OTG_PATH))
-            val medium = Medium(filename, path, dateModified, dateTaken, size, type)
-            curMedia.add(medium)
+            val path = Uri.decode(file.uri.toString().replaceFirst("${context.config.OTGTreeUri}/document/${context.config.OTGPartition}%3A", OTG_PATH))
+            val medium = Medium(null, filename, path, folder, dateModified, dateTaken, size, type)
+            media.add(medium)
         }
+
+        return media
     }
 }

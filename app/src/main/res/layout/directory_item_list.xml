@@ -76,7 +76,7 @@
         android:paddingBottom="@dimen/tiny_margin">
 
         <ImageView
-            android:id="@+id/dir_sd_card"
+            android:id="@+id/dir_location"
             android:layout_width="@dimen/sd_card_icon_size"
             android:layout_height="@dimen/sd_card_icon_size"
             android:paddingBottom="@dimen/small_margin"

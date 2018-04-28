@@ -25,8 +25,6 @@ const val MEDIA_LANDSCAPE_COLUMN_CNT = "media_landscape_column_cnt"
 const val MEDIA_HORIZONTAL_COLUMN_CNT = "media_horizontal_column_cnt"
 const val MEDIA_LANDSCAPE_HORIZONTAL_COLUMN_CNT = "media_landscape_horizontal_column_cnt"
 const val SHOW_ALL = "show_all"                           // display images and videos from all folders together
-const val SAVE_FOLDER_PREFIX = "folder2_"
-const val SAVE_FOLDER_SHORT_PREFIX = "folder_short_"
 const val HIDE_FOLDER_TOOLTIP_SHOWN = "hide_folder_tooltip_shown"
 const val EXCLUDED_FOLDERS = "excluded_folders"
 const val INCLUDED_FOLDERS = "included_folders"
@@ -49,6 +47,7 @@ const val REPLACE_ZOOMABLE_IMAGES = "replace_zoomable_images"
 const val DO_EXTRA_CHECK = "do_extra_check"
 const val WAS_NEW_APP_SHOWN = "was_new_app_shown_clock"
 const val LAST_FILEPICKER_PATH = "last_filepicker_path"
+const val WAS_OTG_HANDLED = "was_otg_handled"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"
@@ -67,8 +66,6 @@ const val MAX_COLUMN_COUNT = 20
 const val SHOW_TEMP_HIDDEN_DURATION = 600000L
 const val CLICK_MAX_DURATION = 150
 const val DRAG_THRESHOLD = 8
-const val SAVE_DIRS_CNT = 60
-const val SAVE_MEDIA_CNT = 80
 
 const val DIRECTORY = "directory"
 const val MEDIUM = "medium"
@@ -77,7 +74,6 @@ const val GET_IMAGE_INTENT = "get_image_intent"
 const val GET_VIDEO_INTENT = "get_video_intent"
 const val GET_ANY_INTENT = "get_any_intent"
 const val SET_WALLPAPER_INTENT = "set_wallpaper_intent"
-const val DIRECTORIES = "directories2"
 const val IS_VIEW_INTENT = "is_view_intent"
 const val PICKED_PATHS = "picked_paths"
 
@@ -85,11 +81,6 @@ const val PICKED_PATHS = "picked_paths"
 const val ROTATE_BY_SYSTEM_SETTING = 0
 const val ROTATE_BY_DEVICE_ROTATION = 1
 const val ROTATE_BY_ASPECT_RATIO = 2
-
-// filter media
-const val IMAGES = 1
-const val VIDEOS = 2
-const val GIFS = 4
 
 // view types
 const val VIEW_TYPE_GRID = 1
@@ -109,6 +100,10 @@ const val EXT_ARTIST = 512
 const val EXT_ALBUM = 1024
 
 // media types
-const val TYPE_IMAGE = 1
-const val TYPE_VIDEO = 2
-const val TYPE_GIF = 3
+const val TYPE_IMAGES = 1
+const val TYPE_VIDEOS = 2
+const val TYPE_GIFS = 4
+
+const val LOCAITON_INTERNAL = 1
+const val LOCATION_SD = 2
+const val LOCATION_OTG = 3

@@ -1,14 +1,29 @@
 package com.simplemobiletools.gallery.models
 
+import android.arch.persistence.room.ColumnInfo
+import android.arch.persistence.room.Entity
+import android.arch.persistence.room.Index
+import android.arch.persistence.room.PrimaryKey
 import com.simplemobiletools.commons.extensions.formatDate
 import com.simplemobiletools.commons.extensions.formatSize
 import com.simplemobiletools.commons.helpers.*
 import java.io.Serializable
 
-data class Directory(var path: String, var tmb: String, var name: String, var mediaCnt: Int, val modified: Long, val taken: Long,
-                     val size: Long, val isOnSDCard: Boolean) : Serializable, Comparable<Directory> {
+@Entity(tableName = "directories", indices = [Index(value = "path", unique = true)])
+data class Directory(
+        @PrimaryKey(autoGenerate = true) var id: Long?,
+        @ColumnInfo(name = "path") var path: String,
+        @ColumnInfo(name = "thumbnail") var tmb: String,
+        @ColumnInfo(name = "filename") var name: String,
+        @ColumnInfo(name = "media_count") var mediaCnt: Int,
+        @ColumnInfo(name = "last_modified") var modified: Long,
+        @ColumnInfo(name = "date_taken") var taken: Long,
+        @ColumnInfo(name = "size") var size: Long,
+        @ColumnInfo(name = "location") val location: Int,
+        @ColumnInfo(name = "media_types") var types: Int) : Serializable, Comparable<Directory> {
+
     companion object {
-        private val serialVersionUID = -6553345863555455L
+        private const val serialVersionUID = -6553345863555455L
         var sorting: Int = 0
     }
 

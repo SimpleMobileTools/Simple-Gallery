@@ -42,6 +42,7 @@ import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_media.*
 import java.io.File
 import java.io.IOException
+import java.util.*
 
 class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private val LAST_MEDIA_CHECK_PERIOD = 3000L
@@ -94,8 +95,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
 
         storeStateVariables()
-        if (mShowAll)
+
+        if (mShowAll) {
             supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        }
 
         media_empty_text.setOnClickListener {
             showFilterMediaDialog()
@@ -117,7 +120,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             getMediaAdapter()?.updateCropThumbnails(config.cropThumbnails)
         }
 
-        if (mStoredScrollHorizontally != config.scrollHorizontally || mStoredShowInfoBubble != config.showInfoBubble) {
+        if (mStoredScrollHorizontally != config.scrollHorizontally) {
             getMediaAdapter()?.updateScrollHorizontally(config.viewTypeFiles != VIEW_TYPE_LIST || !config.scrollHorizontally)
             setupScrollDirection()
         }
@@ -134,6 +137,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         media_horizontal_fastscroller.updateBubbleColors()
         media_vertical_fastscroller.updateBubbleColors()
+        media_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
+        media_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
         media_refresh_layout.isEnabled = config.enablePullToRefresh
         tryloadGallery()
         invalidateOptionsMenu()
@@ -257,11 +262,13 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         MenuItemCompat.setOnActionExpandListener(mSearchMenuItem, object : MenuItemCompat.OnActionExpandListener {
             override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
                 mIsSearchOpen = true
+                media_refresh_layout.isEnabled = false
                 return true
             }
 
             override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
                 mIsSearchOpen = false
+                media_refresh_layout.isEnabled = config.enablePullToRefresh
                 return true
             }
         })
@@ -272,7 +279,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             val filtered = mMedia.filter { it.name.contains(text, true) } as ArrayList
             filtered.sortBy { !it.name.startsWith(text, true) }
             runOnUiThread {
-                (media_grid.adapter as? MediaAdapter)?.updateMedia(filtered)
+                getMediaAdapter()?.updateMedia(filtered)
             }
         }.start()
     }
@@ -365,12 +372,14 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun showSortingDialog() {
         ChangeSortingDialog(this, false, !config.showAll, mPath) {
+            mLoadedInitialPhotos = false
             getMedia()
         }
     }
 
     private fun showFilterMediaDialog() {
         FilterMediaDialog(this) {
+            mLoadedInitialPhotos = false
             media_refresh_layout.isRefreshing = true
             getMedia()
         }
@@ -378,8 +387,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun toggleFilenameVisibility() {
         config.displayFileNames = !config.displayFileNames
-        if (media_grid.adapter != null)
-            getMediaAdapter()?.updateDisplayFilenames(config.displayFileNames)
+        getMediaAdapter()?.updateDisplayFilenames(config.displayFileNames)
     }
 
     private fun switchToFolderView() {
@@ -442,7 +450,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun deleteDirectoryIfEmpty() {
         val fileDirItem = FileDirItem(mPath, mPath.getFilenameFromPath())
         if (config.deleteEmptyFolders && !fileDirItem.isDownloadsFolder() && fileDirItem.isDirectory && fileDirItem.getProperFileCount(applicationContext, true) == 0) {
-            deleteFile(fileDirItem, true)
+            tryDeleteFileDirItem(fileDirItem, true)
         }
     }
 
@@ -452,16 +460,23 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
 
         mIsGettingMedia = true
-        val media = getCachedMedia(mPath)
-        if (media.isNotEmpty() && !mLoadedInitialPhotos) {
-            gotMedia(media, true)
+        if (!mLoadedInitialPhotos) {
+            getCachedMedia(mPath, mIsGetVideoIntent, mIsGetImageIntent) {
+                if (it.isEmpty()) {
+                    runOnUiThread {
+                        media_refresh_layout.isRefreshing = true
+                    }
+                } else {
+                    gotMedia(it, true)
+                }
+            }
         } else {
             media_refresh_layout.isRefreshing = true
         }
 
         mLoadedInitialPhotos = true
         mCurrAsyncTask?.stopFetching()
-        mCurrAsyncTask = GetMediaAsynctask(applicationContext, mPath, mIsGetVideoIntent, mIsGetImageIntent, mShowAll) {
+        mCurrAsyncTask = GetMediaAsynctask(applicationContext, mPath, mIsGetImageIntent, mIsGetVideoIntent, mShowAll) {
             gotMedia(it)
         }
         mCurrAsyncTask!!.execute()
@@ -470,10 +485,18 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun isDirEmpty(): Boolean {
         return if (mMedia.size <= 0 && config.filterMedia > 0) {
             deleteDirectoryIfEmpty()
+            deleteDBDirectory()
             finish()
             true
-        } else
+        } else {
             false
+        }
+    }
+
+    private fun deleteDBDirectory() {
+        Thread {
+            galleryDB.DirectoryDao().deleteDirPath(mPath)
+        }.start()
     }
 
     private fun tryToggleTemporarilyShowHidden() {
@@ -487,6 +510,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun toggleTemporarilyShowHidden(show: Boolean) {
+        mLoadedInitialPhotos = false
         config.temporarilyShowHidden = show
         getMedia()
         invalidateOptionsMenu()
@@ -620,61 +644,60 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun gotMedia(media: ArrayList<Medium>, isFromCache: Boolean = false) {
+        val mediaToInsert = media.clone() as ArrayList<Medium>
         Thread {
             mLatestMediaId = getLatestMediaId()
             mLatestMediaDateId = getLatestMediaByDateId()
+            if (!isFromCache) {
+                galleryDB.MediumDao().insertAll(mediaToInsert)
+            }
         }.start()
 
         mIsGettingMedia = false
-        media_refresh_layout.isRefreshing = false
-
-        media_empty_text_label.beVisibleIf(media.isEmpty() && !isFromCache)
-        media_empty_text.beVisibleIf(media.isEmpty() && !isFromCache)
-        media_grid.beVisibleIf(media_empty_text_label.isGone())
-
-        val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFiles == VIEW_TYPE_GRID
-        media_vertical_fastscroller.beVisibleIf(media_grid.isVisible() && !allowHorizontalScroll)
-        media_horizontal_fastscroller.beVisibleIf(media_grid.isVisible() && allowHorizontalScroll)
-
         checkLastMediaChanged()
-
         mMedia = media
+
         runOnUiThread {
+            media_refresh_layout.isRefreshing = false
+            media_empty_text_label.beVisibleIf(media.isEmpty() && !isFromCache)
+            media_empty_text.beVisibleIf(media.isEmpty() && !isFromCache)
+            media_grid.beVisibleIf(media_empty_text_label.isGone())
+
+            val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFiles == VIEW_TYPE_GRID
+            media_vertical_fastscroller.beVisibleIf(media_grid.isVisible() && !allowHorizontalScroll)
+            media_horizontal_fastscroller.beVisibleIf(media_grid.isVisible() && allowHorizontalScroll)
+
             setupAdapter()
         }
-
-        if (!isFromCache) {
-            storeFolder()
-        }
     }
 
-    private fun storeFolder() {
-        if (!config.temporarilyShowHidden) {
-            Thread {
-                storeFolderItems(mPath, mMedia)
-            }.start()
-        }
-    }
-
-    override fun deleteFiles(fileDirItems: ArrayList<FileDirItem>) {
+    override fun tryDeleteFiles(fileDirItems: ArrayList<FileDirItem>) {
         val filtered = fileDirItems.filter { it.path.isImageVideoGif() } as ArrayList
         deleteFiles(filtered) {
             if (!it) {
                 toast(R.string.unknown_error_occurred)
-            } else if (mMedia.isEmpty()) {
+                return@deleteFiles
+            }
+
+            mMedia.removeAll { filtered.map { it.path }.contains(it.path) }
+
+            Thread {
+                val mediumDao = galleryDB.MediumDao()
+                filtered.forEach {
+                    mediumDao.deleteMediumPath(it.path)
+                }
+            }.start()
+
+            if (mMedia.isEmpty()) {
                 deleteDirectoryIfEmpty()
+                deleteDBDirectory()
                 finish()
-            } else {
-                updateStoredDirectories()
             }
         }
     }
 
     override fun refreshItems() {
         getMedia()
-        Handler().postDelayed({
-            getMedia()
-        }, 1000)
     }
 
     override fun selectedPaths(paths: ArrayList<String>) {

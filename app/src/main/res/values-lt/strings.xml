@@ -34,7 +34,7 @@
     <string name="change_filters_underlined"><u>Pakeisti filtrus</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Ši funkcija slepia aplanką, pridedant į jį \ '. Nomedia \' bylą, jis taip pat slėps visus subaplankus. Galite juos peržiūrėti, perjunkite parinktį "Rodyti paslėptus elementus \" skiltyje Nustatymai. Tęsti?</string>
+    <string name="hide_folder_description">Ši funkcija slepia aplanką, pridedant į jį \'. Nomedia \' bylą, jis taip pat slėps visus subaplankus. Galite juos peržiūrėti, perjunkite parinktį "Rodyti paslėptus elementus \" skiltyje Nustatymai. Tęsti?</string>
     <string name="exclude">Išskirti</string>
     <string name="excluded_folders">Išskirti aplankai</string>
     <string name="manage_excluded_folders">Tvarkyti išskirtus aplankus</string>
@@ -45,7 +45,7 @@
     <string name="remove_all_description">Pašalinti visus aplankus iš išskirtųjų sąrašo? Tai neištrins aplankų.</string>
     <string name="hidden_folders">Paslėpti aplankai</string>
     <string name="manage_hidden_folders">Tvarkyti paslėptus aplankus</string>
-    <string name="hidden_folders_placeholder">Atrodo, kad neturite jokių aplankų, paslėptų \ ". Nomedia \" bylos.</string>
+    <string name="hidden_folders_placeholder">Atrodo, kad neturite jokių aplankų, paslėptų \". Nomedia \" bylos.</string>
 
     <!-- Include folders -->
     <string name="include_folders">Įtraukti aplankai</string>

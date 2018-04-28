@@ -66,7 +66,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         if (intent.extras?.containsKey(REAL_FILE_PATH) == true) {
             val realPath = intent.extras.getString(REAL_FILE_PATH)
             uri = when {
-                realPath.startsWith(OTG_PATH) -> Uri.parse(realPath)
+                realPath.startsWith(OTG_PATH) -> uri
                 realPath.startsWith("file:/") -> Uri.parse(realPath)
                 else -> Uri.fromFile(File(realPath))
             }
@@ -188,6 +188,15 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             } else if (saveUri.scheme == "content") {
                 var newPath = applicationContext.getRealPathFromURI(saveUri) ?: ""
                 var shouldAppendFilename = true
+                if (newPath.isEmpty()) {
+                    val filename = applicationContext.getFilenameFromContentUri(saveUri) ?: ""
+                    if (filename.isNotEmpty()) {
+                        val path = if (intent.extras?.containsKey(REAL_FILE_PATH) == true) intent.getStringExtra(REAL_FILE_PATH).getParentPath() else internalStoragePath
+                        newPath = "$path/$filename"
+                        shouldAppendFilename = false
+                    }
+                }
+
                 if (newPath.isEmpty()) {
                     newPath = "$internalStoragePath/${getCurrentFormattedDateTime()}.${saveUri.toString().getFilenameExtension()}"
                     shouldAppendFilename = false
