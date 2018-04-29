@@ -9,7 +9,7 @@
     <string name="pin_folder">Pin folder</string>
     <string name="unpin_folder">Unpin folder</string>
     <string name="pin_to_the_top">Pin to the top</string>
-    <string name="show_all">Vis indholdet af alle mappert</string>
+    <string name="show_all">Vis indholdet af alle mapper</string>
     <string name="all_folders">Alle mapper</string>
     <string name="folder_view">Skift til mappevisning</string>
     <string name="other_folder">Anden mappe</string>
@@ -102,7 +102,7 @@
     <string name="random_order">Tilfældig rækkefølge</string>
     <string name="use_fade">Use fade animations</string>
     <string name="move_backwards">Kør baglæns</string>
-    <string name="loop_slideshow">Loop slideshow</string>
+    <string name="loop_slideshow">Endeløs kørsel</string>
     <string name="slideshow_ended">Slideshowet endte</string>
     <string name="no_media_for_slideshow">Der blev ikke funket nogen mediefiler til slideshowet</string>
 
@@ -134,14 +134,14 @@
     <string name="manage_extended_details">Manage extended details</string>
     <string name="one_finger_zoom">Tillad zoom med en finger når medier er i fuldskærm</string>
     <string name="allow_instant_change">Tillad skift af medie ved klik på skærmens sider</string>
-    <string name="replace_zoomable_images">RErstat stærkt zoombare billeder med nogle i bedre kvalitet</string>
+    <string name="replace_zoomable_images">Erstat stærkt zoombare billeder med nogle i bedre kvalitet</string>
     <string name="hide_extended_details">Skjul udvidede oplysninger når statuslinjen er skjult</string>
     <string name="do_extra_check">Tjek en ekstra gang for at undgå visning af ugyldige filer</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>
     <string name="fullscreen_media">Fullscreen media</string>
-    <string name="extended_details">Extended details</string>
+    <string name="extended_details">Flere oplysninger</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
