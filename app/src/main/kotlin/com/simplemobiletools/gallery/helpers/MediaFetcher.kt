@@ -9,6 +9,7 @@ import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.helpers.photoExtensions
 import com.simplemobiletools.commons.helpers.videoExtensions
 import com.simplemobiletools.gallery.extensions.config
+import com.simplemobiletools.gallery.extensions.getDistinctPath
 import com.simplemobiletools.gallery.extensions.getOTGFolderChildren
 import com.simplemobiletools.gallery.extensions.shouldFolderBeVisible
 import com.simplemobiletools.gallery.models.Medium
@@ -139,7 +140,7 @@ class MediaFetcher(val context: Context) {
             foldersToScan.add(curPath)
         }
 
-        return foldersToScan.distinctBy { it.toLowerCase() } as ArrayList<String>
+        return foldersToScan.distinctBy { it.getDistinctPath() } as ArrayList<String>
     }
 
     private fun addFolder(curFolders: ArrayList<String>, folder: String) {
