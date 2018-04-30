@@ -276,7 +276,7 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
             }
         }) as ArrayList<Directory>
 
-        callback(filteredDirectories.distinctBy { it.path.toLowerCase() } as ArrayList<Directory>)
+        callback(filteredDirectories.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>)
 
         removeInvalidDBDirectories(directories, directoryDao)
     }.start()
