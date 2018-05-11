@@ -260,6 +260,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
                 enableInstantLoad()
                 notifyDataSetChanged()
                 finishActMode()
+                fastScroller?.measureRecyclerView()
             }, 100L)
         }
     }

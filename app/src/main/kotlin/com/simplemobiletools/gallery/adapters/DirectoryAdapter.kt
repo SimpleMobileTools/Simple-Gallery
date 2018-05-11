@@ -400,6 +400,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             dirs = newDirs.clone() as ArrayList<Directory>
             notifyDataSetChanged()
             finishActMode()
+            fastScroller?.measureRecyclerView()
         }
     }
 
