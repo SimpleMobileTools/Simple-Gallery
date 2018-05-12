@@ -176,6 +176,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     }
 
                     Intent().apply {
+                        data = saveUri
                         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                         setResult(RESULT_OK, this)
                     }
