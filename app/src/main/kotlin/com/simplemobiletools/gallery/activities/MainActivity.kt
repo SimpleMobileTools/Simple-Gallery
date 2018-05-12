@@ -294,11 +294,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         val getVideosOnly = mIsPickVideoIntent || mIsGetVideoContentIntent
 
         getCachedDirectories(getVideosOnly, getImagesOnly) {
-            if (!mLoadedInitialPhotos) {
-                runOnUiThread {
-                    directories_refresh_layout.isRefreshing = true
-                }
-            }
             gotDirectories(addTempFolderIfNeeded(it))
         }
     }
