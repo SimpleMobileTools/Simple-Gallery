@@ -289,7 +289,7 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
         val shouldShowHidden = config.shouldShowHidden
         var filteredMedia = media
         if (!shouldShowHidden) {
-            filteredMedia = media.filter { !it.name.startsWith('.') } as ArrayList<Medium>
+            filteredMedia = media.filter { !it.path.contains("/.") } as ArrayList<Medium>
         }
 
         val filterMedia = config.filterMedia
@@ -302,6 +302,9 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
                         (filterMedia and TYPE_GIFS != 0 && it.type == TYPE_GIFS)
             }
         }) as ArrayList<Medium>
+
+        Medium.sorting = config.getFileSorting(path)
+        filteredMedia.sort()
 
         callback(filteredMedia)
         media.filter { !getDoesFilePathExist(it.path) }.forEach {
