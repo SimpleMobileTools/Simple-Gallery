@@ -537,7 +537,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun fillIntentPath(resultData: Intent, resultIntent: Intent) {
-        val path = resultData.data.path
+        val data = resultData.data
+        val path = if (data.toString().startsWith("/")) data.toString() else data.path
         val uri = getFilePublicUri(File(path), BuildConfig.APPLICATION_ID)
         val type = path.getMimeType()
         resultIntent.setDataAndTypeAndNormalize(uri, type)
