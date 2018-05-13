@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 4.0.0 *(2018-05-13)*
+----------------------------
+
+ * Allow customizing the app launcher color
+ * Remove the top spinning circle at initial launch
+ * Many other bugfixes and UX/stability improvements
+
 Version 3.8.2 *(2018-04-26)*
 ----------------------------
 
