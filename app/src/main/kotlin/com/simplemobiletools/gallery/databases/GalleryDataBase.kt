@@ -22,9 +22,11 @@ abstract class GalleryDataBase : RoomDatabase() {
         fun getInstance(context: Context): GalleryDataBase {
             if (db == null) {
                 synchronized(GalleryDataBase::class) {
-                    db = Room.databaseBuilder(context.applicationContext, GalleryDataBase::class.java, "gallery.db")
-                            .fallbackToDestructiveMigration()
-                            .build()
+                    if (db == null) {
+                        db = Room.databaseBuilder(context.applicationContext, GalleryDataBase::class.java, "gallery.db")
+                                .fallbackToDestructiveMigration()
+                                .build()
+                    }
                 }
             }
             return db!!
