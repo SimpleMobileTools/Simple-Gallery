@@ -57,7 +57,7 @@ class MyPagerAdapter(val activity: ViewPagerActivity, fm: FragmentManager, val m
     // try fixing TransactionTooLargeException crash on Android Nougat, tip from https://stackoverflow.com/a/43193425/1967672
     override fun saveState(): Parcelable? {
         val bundle = super.saveState() as Bundle?
-        bundle!!.putParcelableArray("states", null)
+        bundle?.putParcelableArray("states", null)
         return bundle
     }
 }
