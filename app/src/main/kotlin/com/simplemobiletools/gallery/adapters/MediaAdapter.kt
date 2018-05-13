@@ -154,6 +154,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
                 activity.updateDBMediaPath(oldPath, it)
             }.start()
 
+            enableInstantLoad()
             activity.runOnUiThread {
                 listener?.refreshItems()
                 finishActMode()
