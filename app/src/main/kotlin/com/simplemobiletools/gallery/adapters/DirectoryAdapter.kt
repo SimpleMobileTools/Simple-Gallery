@@ -62,7 +62,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
     override fun onBindViewHolder(holder: MyRecyclerViewAdapter.ViewHolder, position: Int) {
         val dir = dirs[position]
-        val view = holder.bindView(dir, !isPickIntent) { itemView, layoutPosition ->
+        val view = holder.bindView(dir, !isPickIntent) { itemView, adapterPosition ->
             setupView(itemView, dir)
         }
         bindViewHolder(holder, position, view)

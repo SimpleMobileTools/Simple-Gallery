@@ -45,7 +45,7 @@ class ManageHiddenFoldersAdapter(activity: BaseSimpleActivity, var folders: Arra
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val folder = folders[position]
-        val view = holder.bindView(folder) { itemView, layoutPosition ->
+        val view = holder.bindView(folder) { itemView, adapterPosition ->
             setupView(itemView, folder)
         }
         bindViewHolder(holder, position, view)
