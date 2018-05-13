@@ -64,7 +64,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     override fun onBindViewHolder(holder: MyRecyclerViewAdapter.ViewHolder, position: Int) {
-        val medium = media[position]
+        val medium = media.getOrNull(position) ?: return
         visibleItemPaths.add(medium.path)
         val view = holder.bindView(medium, !allowMultiplePicks) { itemView, adapterPosition ->
             setupView(itemView, medium)
