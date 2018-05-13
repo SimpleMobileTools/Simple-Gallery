@@ -17,21 +17,21 @@ abstract class GalleryDataBase : RoomDatabase() {
     abstract fun MediumDao(): MediumDao
 
     companion object {
-        private var INSTANCE: GalleryDataBase? = null
+        private var db: GalleryDataBase? = null
 
         fun getInstance(context: Context): GalleryDataBase {
-            if (INSTANCE == null) {
+            if (db == null) {
                 synchronized(GalleryDataBase::class) {
-                    INSTANCE = Room.databaseBuilder(context.applicationContext, GalleryDataBase::class.java, "gallery.db")
+                    db = Room.databaseBuilder(context.applicationContext, GalleryDataBase::class.java, "gallery.db")
                             .fallbackToDestructiveMigration()
                             .build()
                 }
             }
-            return INSTANCE!!
+            return db!!
         }
 
         fun destroyInstance() {
-            INSTANCE = null
+            db = null
         }
     }
 }
