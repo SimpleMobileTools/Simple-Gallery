@@ -164,7 +164,7 @@
     <string name="faq_9_title">Les images en plein écran contiennent des artéfacts, est-ce possible d\'améliorer la qualité ?</string>
 	<string name="faq_9_text">Oui, il existe dans « Paramètres » une option « Remplacer les images zoomables profondes par des images de meilleure qualité », mais les images seront alors floues si vous zoomez trop.</string>
     <string name="faq_10_title">Puis-je recadrer des images avec cette application?</string>
-    <string name="faq_10_text">Oui, vous pouvez recadrer les images dans l'éditeur en faisant glisser les coins de l'image. Vous pouvez accéder à l'éditeur en appuyant longuement sur une vignette d'image et en sélectionnant Modifier, ou en sélectionnant Modifier en mode plein écran.</string>
+    <string name="faq_10_text">Oui, vous pouvez recadrer les images dans l\'éditeur en faisant glisser les coins de l\'image. Vous pouvez accéder à l\'éditeur en appuyant longuement sur une vignette d\'image et en sélectionnant Modifier, ou en sélectionnant Modifier en mode plein écran.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
