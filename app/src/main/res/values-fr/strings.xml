@@ -5,7 +5,7 @@
     <string name="edit">Édition</string>
     <string name="open_camera">Ouvrir appareil photo</string>
     <string name="hidden">(caché)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(exclu)</string>
     <string name="pin_folder">Épingler le dossier</string>
     <string name="unpin_folder">Désépingler le dossier</string>
     <string name="pin_to_the_top">Épingler en haut</string>
@@ -163,8 +163,8 @@
 	<string name="faq_8_text">Ajouter un répértoire dans les dossiers inclus n\'exclut rien automatiquement. Pour ce faire, il faut aller dans « Paramètres » puis « Gérer les dossiers exclus », exclure le répertoire racine \"/\", puis ajouter les répertoires souhaités dans « Paramètres » puis « Gérer les répertoires inclus ». Seuls les répertoires selectionnés seront visibles, du fait que les exclusions et inclusions sont récursives, et si un répertoire est à la fois exclus et inclus, il sera affiché.</string>
     <string name="faq_9_title">Les images en plein écran contiennent des artéfacts, est-ce possible d\'améliorer la qualité ?</string>
 	<string name="faq_9_text">Oui, il existe dans « Paramètres » une option « Remplacer les images zoomables profondes par des images de meilleure qualité », mais les images seront alors floues si vous zoomez trop.</string>
-    <string name="faq_10_title">Can I crop images with this app?</string>
-    <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
+    <string name="faq_10_title">Puis-je recadrer des images avec cette application?</string>
+    <string name="faq_10_text">Oui, vous pouvez recadrer les images dans l\'éditeur en faisant glisser les coins de l\'image. Vous pouvez accéder à l\'éditeur en appuyant longuement sur une vignette d\'image et en sélectionnant Modifier, ou en sélectionnant Modifier en mode plein écran.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
