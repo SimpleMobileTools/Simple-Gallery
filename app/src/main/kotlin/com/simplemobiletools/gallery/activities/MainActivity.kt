@@ -26,7 +26,7 @@ import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
-import com.simplemobiletools.gallery.databases.GalleryDataBase
+import com.simplemobiletools.gallery.databases.GalleryDatabase
 import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
 import com.simplemobiletools.gallery.dialogs.FilterMediaDialog
 import com.simplemobiletools.gallery.extensions.*
@@ -191,7 +191,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         mTempShowHiddenHandler.removeCallbacksAndMessages(null)
         removeTempFolder()
         if (!isChangingConfigurations) {
-            GalleryDataBase.destroyInstance()
+            GalleryDatabase.destroyInstance()
         }
     }
 

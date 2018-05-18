@@ -20,7 +20,7 @@ import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SettingsActivity
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
-import com.simplemobiletools.gallery.databases.GalleryDataBase
+import com.simplemobiletools.gallery.databases.GalleryDatabase
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.interfaces.DirectoryDao
 import com.simplemobiletools.gallery.models.Directory
@@ -70,7 +70,7 @@ fun Context.launchSettings() {
 
 val Context.config: Config get() = Config.newInstance(applicationContext)
 
-val Context.galleryDB: GalleryDataBase get() = GalleryDataBase.getInstance(applicationContext)
+val Context.galleryDB: GalleryDatabase get() = GalleryDatabase.getInstance(applicationContext)
 
 fun Context.movePinnedDirectoriesToFront(dirs: ArrayList<Directory>): ArrayList<Directory> {
     val foundFolders = ArrayList<Directory>()
