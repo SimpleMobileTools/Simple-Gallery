@@ -110,6 +110,7 @@
     <string name="change_view_type">Cambiar o tipo de vista</string>
     <string name="grid">Grella</string>
     <string name="list">Lista</string>
+    <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Reproducir vídeos automticamente</string>

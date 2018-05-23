@@ -110,6 +110,7 @@
     <string name="change_view_type">Weergave</string>
     <string name="grid">Raster</string>
     <string name="list">Lijst</string>
+    <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Video\'s automatisch afspelen</string>

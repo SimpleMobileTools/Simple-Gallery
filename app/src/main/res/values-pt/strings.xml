@@ -110,6 +110,7 @@
     <string name="change_view_type">Tipo de exibição</string>
     <string name="grid">Grelha</string>
     <string name="list">Lista</string>
+    <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Reproduzir vídeos automaticamente</string>

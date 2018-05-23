@@ -110,6 +110,7 @@
     <string name="change_view_type">Режим отображения</string>
     <string name="grid">Сетка</string>
     <string name="list">Список</string>
+    <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Воспроизводить видео автоматически</string>

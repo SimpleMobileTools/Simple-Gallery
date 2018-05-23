@@ -110,6 +110,7 @@
     <string name="change_view_type">Canviar el tipus de vista</string>
     <string name="grid">Reixeta</string>
     <string name="list">Llista</string>
+    <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Reproduir vídeos automàticament</string>

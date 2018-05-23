@@ -110,6 +110,7 @@
     <string name="change_view_type">Darstellung ändern</string>
     <string name="grid">Gitter</string>
     <string name="list">Liste</string>
+    <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Videos automatisch abspielen</string>

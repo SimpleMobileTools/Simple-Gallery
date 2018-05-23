@@ -114,6 +114,7 @@
     <string name="change_view_type">تغيير طريقة العرض</string>
     <string name="grid">الشبكة</string>
     <string name="list">القائمة</string>
+    <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">تشغيل الفديوهات تلقائيا</string>

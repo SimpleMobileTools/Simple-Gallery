@@ -110,6 +110,7 @@
     <string name="change_view_type">Ändra vy</string>
     <string name="grid">Rutnät</string>
     <string name="list">Lista</string>
+    <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Spela upp videor automatiskt</string>

@@ -110,6 +110,7 @@
     <string name="change_view_type">更改视图类型</string>
     <string name="grid">网格</string>
     <string name="list">列表</string>
+    <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">自动播放</string>

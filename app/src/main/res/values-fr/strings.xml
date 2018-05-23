@@ -110,6 +110,7 @@
     <string name="change_view_type">Changer le type de vue</string>
     <string name="grid">Grille</string>
     <string name="list">Liste</string>
+    <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Lecture automatique des vidéos</string>

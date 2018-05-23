@@ -110,6 +110,7 @@
     <string name="change_view_type">Vaihda näkymää</string>
     <string name="grid">Ruudukko</string>
     <string name="list">Lista</string>
+    <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Toista videot automaattisesti</string>

@@ -110,6 +110,7 @@
     <string name="change_view_type">Zmień typ widoku</string>
     <string name="grid">Siatka</string>
     <string name="list">Lista</string>
+    <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Odtwarzaj filmy automatycznie</string>

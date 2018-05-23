@@ -110,6 +110,7 @@
     <string name="change_view_type">Endre visningstype</string>
     <string name="grid">Rutenett</string>
     <string name="list">Liste</string>
+    <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Avspill videoer automatisk</string>

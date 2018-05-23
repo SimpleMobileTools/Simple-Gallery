@@ -110,6 +110,7 @@
     <string name="change_view_type">Αλλαγή τύπου εμφάνισης</string>
     <string name="grid">Πλέγμα</string>
     <string name="list">Λίστα</string>
+    <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Αυτόματη αναπαραγωγή βίντεο</string>

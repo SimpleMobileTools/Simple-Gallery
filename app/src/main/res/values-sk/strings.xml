@@ -110,6 +110,7 @@
     <string name="change_view_type">Zmeniť typ zobrazenia</string>
     <string name="grid">Mriežka</string>
     <string name="list">Zoznam</string>
+    <string name="group_direct_subfolders">Zlúčiť priame podpriečinky</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Spúšťať videá automaticky</string>

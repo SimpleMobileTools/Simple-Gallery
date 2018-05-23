@@ -110,6 +110,7 @@
     <string name="change_view_type">보기방식 변경</string>
     <string name="grid">그리드</string>
     <string name="list">목록</string>
+    <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">비디오 자동재생</string>
