@@ -292,6 +292,16 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
             filteredMedia = media.filter { !it.path.contains("/.") } as ArrayList<Medium>
         }
 
+        if (path == "/") {
+            val excludedFolders = config.excludedFolders
+            filteredMedia = filteredMedia.filter {
+                val mediumPath = it.path
+                excludedFolders.none {
+                    mediumPath.startsWith(it, true)
+                }
+            } as ArrayList<Medium>
+        }
+
         val filterMedia = config.filterMedia
         filteredMedia = (when {
             getVideosOnly -> filteredMedia.filter { it.type == TYPE_VIDEOS }

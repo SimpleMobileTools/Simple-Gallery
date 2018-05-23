@@ -24,7 +24,7 @@ data class Directory(
 
     companion object {
         private const val serialVersionUID = -6553345863555455L
-        var sorting: Int = 0
+        var sorting = 0
     }
 
     override fun compareTo(other: Directory): Int {
