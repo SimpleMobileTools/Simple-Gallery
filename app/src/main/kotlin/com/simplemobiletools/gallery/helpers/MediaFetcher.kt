@@ -29,7 +29,7 @@ class MediaFetcher(val context: Context) {
             val newMedia = getMediaOnOTG(curPath, isPickImage, isPickVideo, filterMedia)
             curMedia.addAll(newMedia)
         } else {
-            val newMedia = fetchFolderContent(curPath, isPickImage, isPickVideo, filterMedia)
+            val newMedia = getMediaInFolder(curPath, isPickImage, isPickVideo, filterMedia)
             curMedia.addAll(newMedia)
         }
 
@@ -160,14 +160,6 @@ class MediaFetcher(val context: Context) {
                     addFolder(curFolders, file.absolutePath)
                 }
             }
-        }
-    }
-
-    private fun fetchFolderContent(path: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int): ArrayList<Medium> {
-        return if (path.startsWith(OTG_PATH)) {
-            getMediaOnOTG(path, isPickImage, isPickVideo, filterMedia)
-        } else {
-            getMediaInFolder(path, isPickImage, isPickVideo, filterMedia)
         }
     }
 
