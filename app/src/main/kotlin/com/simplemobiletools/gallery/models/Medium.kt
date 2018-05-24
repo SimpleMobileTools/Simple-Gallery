@@ -20,7 +20,7 @@ data class Medium(
         @ColumnInfo(name = "full_path") var path: String,
         @ColumnInfo(name = "parent_path") var parentPath: String,
         @ColumnInfo(name = "last_modified") val modified: Long,
-        @ColumnInfo(name = "date_taken") val taken: Long,
+        @ColumnInfo(name = "date_taken") var taken: Long,
         @ColumnInfo(name = "size") val size: Long,
         @ColumnInfo(name = "type") val type: Int) : Serializable, Comparable<Medium> {
 
