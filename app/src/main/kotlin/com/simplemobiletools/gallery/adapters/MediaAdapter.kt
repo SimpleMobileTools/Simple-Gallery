@@ -152,13 +152,13 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         RenameItemDialog(activity, oldPath) {
             Thread {
                 activity.updateDBMediaPath(oldPath, it)
-            }.start()
 
-            enableInstantLoad()
-            activity.runOnUiThread {
-                listener?.refreshItems()
-                finishActMode()
-            }
+                activity.runOnUiThread {
+                    enableInstantLoad()
+                    listener?.refreshItems()
+                    finishActMode()
+                }
+            }.start()
         }
     }
 
