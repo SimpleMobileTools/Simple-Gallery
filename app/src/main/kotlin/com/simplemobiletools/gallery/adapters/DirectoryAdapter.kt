@@ -169,7 +169,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                     tmb = File(it, tmb.getFilenameFromPath()).absolutePath
                 }
                 updateDirs(dirs)
-                listener?.updateDirectories(dirs.toList() as ArrayList)
+                Thread {
+                    activity.galleryDB.DirectoryDao().updateDirectoryAfterRename(firstDir.tmb, firstDir.name, firstDir.path, sourcePath)
+                    listener?.refreshItems()
+                }.start()
             }
         }
     }

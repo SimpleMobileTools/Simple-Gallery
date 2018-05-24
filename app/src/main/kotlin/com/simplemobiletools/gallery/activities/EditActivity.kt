@@ -261,7 +261,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun scanFinalPath(path: String) {
-        scanPath(path) {
+        scanPathRecursively(path) {
             setResult(Activity.RESULT_OK, intent)
             toast(R.string.file_saved)
             finish()

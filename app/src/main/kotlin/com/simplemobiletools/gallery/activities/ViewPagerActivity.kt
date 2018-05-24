@@ -182,7 +182,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         if (!getDoesFilePathExist(mPath)) {
             Thread {
-                scanPath(mPath)
+                scanPathRecursively(mPath)
             }.start()
             finish()
             return
@@ -554,7 +554,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 }
 
                 copyFile(tmpPath, newPath)
-                scanPath(newPath)
+                scanPathRecursively(newPath)
                 toast(R.string.file_saved)
 
                 if (config.keepLastModified) {
@@ -833,7 +833,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             tryDeleteFileDirItem(fileDirItem, true)
         }
 
-        scanPath(mDirectory)
+        scanPathRecursively(mDirectory)
     }
 
     private fun checkOrientation() {

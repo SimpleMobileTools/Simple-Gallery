@@ -20,6 +20,9 @@ interface DirectoryDao {
     @Query("DELETE FROM directories WHERE path = :path")
     fun deleteDirPath(path: String)
 
-    @Query("UPDATE OR REPLACE directories SET thumbnail = :thumbnail, media_count = :mediaCnt, last_modified = :lastModified, date_taken = :dateTaken, size = :size, media_types = :mediaTypes  WHERE path = :path")
+    @Query("UPDATE OR REPLACE directories SET thumbnail = :thumbnail, media_count = :mediaCnt, last_modified = :lastModified, date_taken = :dateTaken, size = :size, media_types = :mediaTypes WHERE path = :path")
     fun updateDirectory(path: String, thumbnail: String, mediaCnt: Int, lastModified: Long, dateTaken: Long, size: Long, mediaTypes: Int)
+
+    @Query("UPDATE directories SET thumbnail = :thumbnail, filename = :name, path = :newPath WHERE path = :oldPath")
+    fun updateDirectoryAfterRename(thumbnail: String, name: String, newPath: String, oldPath: String)
 }
