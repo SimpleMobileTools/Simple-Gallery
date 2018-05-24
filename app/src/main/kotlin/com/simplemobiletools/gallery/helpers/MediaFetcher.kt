@@ -6,6 +6,7 @@ import android.net.Uri
 import android.provider.MediaStore
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
+import com.simplemobiletools.commons.helpers.SORT_BY_DATE_TAKEN
 import com.simplemobiletools.commons.helpers.photoExtensions
 import com.simplemobiletools.commons.helpers.videoExtensions
 import com.simplemobiletools.gallery.extensions.config
@@ -168,6 +169,8 @@ class MediaFetcher(val context: Context) {
         val files = File(folder).listFiles() ?: return media
         val doExtraCheck = context.config.doExtraCheck
         val showHidden = context.config.shouldShowHidden
+        val sorting = context.config.getFileSorting(folder)
+        val dateTakens = if (sorting and SORT_BY_DATE_TAKEN != 0) getFolderDateTakens(folder) else HashMap()
 
         for (file in files) {
             if (shouldStop) {
@@ -198,8 +201,12 @@ class MediaFetcher(val context: Context) {
             if (size <= 0L || (doExtraCheck && !file.exists()))
                 continue
 
-            val dateTaken = file.lastModified()
-            val dateModified = file.lastModified()
+            val lastModified = file.lastModified()
+            var dateTaken = lastModified
+
+            if (sorting and SORT_BY_DATE_TAKEN != 0) {
+                dateTaken = dateTakens.remove(filename) ?: lastModified
+            }
 
             val type = when {
                 isImage -> TYPE_IMAGES
@@ -207,7 +214,7 @@ class MediaFetcher(val context: Context) {
                 else -> TYPE_GIFS
             }
 
-            val medium = Medium(null, filename, file.absolutePath, folder, dateModified, dateTaken, size, type)
+            val medium = Medium(null, filename, file.absolutePath, folder, lastModified, dateTaken, size, type)
             media.add(medium)
         }
         return media
@@ -263,5 +270,33 @@ class MediaFetcher(val context: Context) {
         }
 
         return media
+    }
+
+    private fun getFolderDateTakens(folder: String): HashMap<String, Long> {
+        val projection = arrayOf(
+                MediaStore.Images.Media.DISPLAY_NAME,
+                MediaStore.Images.Media.DATE_TAKEN
+        )
+
+        val uri = MediaStore.Files.getContentUri("external")
+        val selection = "${MediaStore.Images.Media.DATA} LIKE ? AND ${MediaStore.Images.Media.DATA} NOT LIKE ?"
+        val selectionArgs = arrayOf("$folder/%", "$folder/%/%")
+
+        val dateTakens = HashMap<String, Long>()
+        val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
+        cursor.use {
+            if (cursor.moveToFirst()) {
+                do {
+                    try {
+                        val path = cursor.getStringValue(MediaStore.Images.Media.DISPLAY_NAME)
+                        val dateTaken = cursor.getLongValue(MediaStore.Images.Media.DATE_TAKEN)
+                        dateTakens[path] = dateTaken
+                    } catch (e: Exception) {
+                    }
+                } while (cursor.moveToNext())
+            }
+        }
+
+        return dateTakens
     }
 }
