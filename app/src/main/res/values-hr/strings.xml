@@ -112,6 +112,14 @@
     <string name="list">Lista</string>
     <string name="group_direct_subfolders">Group direct subfolders</string>
 
+    <!-- Grouping at "Show all folders content" -->
+    <string name="group_by">Group by</string>
+    <string name="by_folder">Folder</string>
+    <string name="by_last_modified">Last modified</string>
+    <string name="by_date_taken">Date taken</string>
+    <string name="by_file_type">File type</string>
+    <string name="by_extension">Extension</string>
+
     <!-- Settings -->
     <string name="autoplay_videos">Automatsko pokretanje videa</string>
     <string name="toggle_filename">Uključi prikaz naziva datoteka</string>
