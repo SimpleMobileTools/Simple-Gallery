@@ -302,36 +302,31 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
 fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, callback: (ArrayList<Medium>) -> Unit) {
     Thread {
         val mediumDao = galleryDB.MediumDao()
-        val media = (if (path == "/") mediumDao.getAll() else mediumDao.getMediaFromPath(path)) as ArrayList<Medium>
+        val foldersToScan = if (path == "/") MediaFetcher(this).getFoldersToScan() else arrayListOf(path)
+        var media = ArrayList<Medium>()
         val shouldShowHidden = config.shouldShowHidden
-        var filteredMedia = media
-        if (!shouldShowHidden) {
-            filteredMedia = media.filter { !it.path.contains("/.") } as ArrayList<Medium>
+        foldersToScan.forEach {
+            val currMedia = mediumDao.getMediaFromPath(it)
+            media.addAll(currMedia)
         }
 
-        if (path == "/") {
-            val excludedFolders = config.excludedFolders
-            filteredMedia = filteredMedia.filter {
-                val mediumPath = it.path
-                excludedFolders.none {
-                    mediumPath.startsWith(it, true)
-                }
-            } as ArrayList<Medium>
+        if (!shouldShowHidden) {
+            media = media.filter { !it.path.contains("/.") } as ArrayList<Medium>
         }
 
         val filterMedia = config.filterMedia
-        filteredMedia = (when {
-            getVideosOnly -> filteredMedia.filter { it.type == TYPE_VIDEOS }
-            getImagesOnly -> filteredMedia.filter { it.type == TYPE_IMAGES }
-            else -> filteredMedia.filter {
+        media = (when {
+            getVideosOnly -> media.filter { it.type == TYPE_VIDEOS }
+            getImagesOnly -> media.filter { it.type == TYPE_IMAGES }
+            else -> media.filter {
                 (filterMedia and TYPE_IMAGES != 0 && it.type == TYPE_IMAGES) ||
                         (filterMedia and TYPE_VIDEOS != 0 && it.type == TYPE_VIDEOS) ||
                         (filterMedia and TYPE_GIFS != 0 && it.type == TYPE_GIFS)
             }
         }) as ArrayList<Medium>
 
-        MediaFetcher(this).sortMedia(filteredMedia, config.getFileSorting(path))
-        callback(filteredMedia)
+        MediaFetcher(this).sortMedia(media, config.getFileSorting(path))
+        callback(media)
 
         media.filter { !getDoesFilePathExist(it.path) }.forEach {
             mediumDao.deleteMediumPath(it.path)

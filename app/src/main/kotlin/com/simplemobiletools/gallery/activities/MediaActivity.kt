@@ -481,6 +481,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         mCurrAsyncTask = GetMediaAsynctask(applicationContext, mPath, mIsGetImageIntent, mIsGetVideoIntent, mShowAll) {
             gotMedia(it)
         }
+
         mCurrAsyncTask!!.execute()
     }
 

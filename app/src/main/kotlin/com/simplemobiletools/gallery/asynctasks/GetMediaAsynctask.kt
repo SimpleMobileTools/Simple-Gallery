@@ -17,8 +17,8 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickImage
         return if (showAll) {
             val foldersToScan = mediaFetcher.getFoldersToScan()
             val media = ArrayList<Medium>()
-            for (folder in foldersToScan) {
-                val newMedia = mediaFetcher.getFilesFrom(folder, isPickImage, isPickVideo, sorting)
+            foldersToScan.forEach {
+                val newMedia = mediaFetcher.getFilesFrom(it, isPickImage, isPickVideo, sorting)
                 media.addAll(newMedia)
             }
 
