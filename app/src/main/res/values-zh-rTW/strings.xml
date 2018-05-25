@@ -112,8 +112,9 @@
     <string name="list">列表</string>
     <string name="group_direct_subfolders">Group direct subfolders</string>
 
-    <!-- Grouping at "Show all folders content" -->
+    <!-- Grouping at media thumbnails -->
     <string name="group_by">Group by</string>
+    <string name="do_not_group_files">Do not group files</string>
     <string name="by_folder">Folder</string>
     <string name="by_last_modified">Last modified</string>
     <string name="by_date_taken">Date taken</string>

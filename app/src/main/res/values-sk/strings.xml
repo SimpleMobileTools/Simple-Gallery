@@ -112,8 +112,9 @@
     <string name="list">Zoznam</string>
     <string name="group_direct_subfolders">Zlúčiť priame podpriečinky</string>
 
-    <!-- Grouping at "Show all folders content" -->
+    <!-- Grouping at media thumbnails -->
     <string name="group_by">Zoskupiť podľa</string>
+    <string name="do_not_group_files">Nezoskupovať súbory</string>
     <string name="by_folder">Priečinka</string>
     <string name="by_last_modified">Dátumu poslednej úpravy</string>
     <string name="by_date_taken">Dátumu vytvorenia</string>
