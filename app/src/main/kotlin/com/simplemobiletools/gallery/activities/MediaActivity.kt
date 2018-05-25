@@ -333,20 +333,22 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         media_horizontal_fastscroller.isHorizontal = true
         media_horizontal_fastscroller.beVisibleIf(allowHorizontalScroll)
 
+        val sorting = config.getFileSorting(mPath)
+
         if (allowHorizontalScroll) {
             media_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
             media_horizontal_fastscroller.setViews(media_grid, media_refresh_layout) {
-                media_horizontal_fastscroller.updateBubbleText(getBubbleTextItem(it))
+                media_horizontal_fastscroller.updateBubbleText(getBubbleTextItem(it, sorting))
             }
         } else {
             media_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
             media_vertical_fastscroller.setViews(media_grid, media_refresh_layout) {
-                media_vertical_fastscroller.updateBubbleText(getBubbleTextItem(it))
+                media_vertical_fastscroller.updateBubbleText(getBubbleTextItem(it, sorting))
             }
         }
     }
 
-    private fun getBubbleTextItem(index: Int) = getMediaAdapter()?.media?.getOrNull(index)?.getBubbleText() ?: ""
+    private fun getBubbleTextItem(index: Int, sorting: Int) = getMediaAdapter()?.media?.getOrNull(index)?.getBubbleText(sorting) ?: ""
 
     private fun checkLastMediaChanged() {
         if (isActivityDestroyed())

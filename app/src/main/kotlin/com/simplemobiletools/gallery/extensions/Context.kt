@@ -313,10 +313,9 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
             }
         }) as ArrayList<Medium>
 
-        Medium.sorting = config.getFileSorting(path)
-        filteredMedia.sort()
-
+        MediaFetcher(this).sortMedia(filteredMedia, config.getFileSorting(path))
         callback(filteredMedia)
+
         media.filter { !getDoesFilePathExist(it.path) }.forEach {
             mediumDao.deleteMediumPath(it.path)
         }

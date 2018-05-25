@@ -5,10 +5,7 @@ import android.database.Cursor
 import android.net.Uri
 import android.provider.MediaStore
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.OTG_PATH
-import com.simplemobiletools.commons.helpers.SORT_BY_DATE_TAKEN
-import com.simplemobiletools.commons.helpers.photoExtensions
-import com.simplemobiletools.commons.helpers.videoExtensions
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getDistinctPath
 import com.simplemobiletools.gallery.extensions.getOTGFolderChildren
@@ -19,7 +16,7 @@ import java.io.File
 class MediaFetcher(val context: Context) {
     var shouldStop = false
 
-    fun getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean): ArrayList<Medium> {
+    fun getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean, sorting: Int): ArrayList<Medium> {
         val filterMedia = context.config.filterMedia
         if (filterMedia == 0) {
             return ArrayList()
@@ -34,8 +31,7 @@ class MediaFetcher(val context: Context) {
             curMedia.addAll(newMedia)
         }
 
-        Medium.sorting = context.config.getFileSorting(curPath)
-        curMedia.sort()
+        sortMedia(curMedia, sorting)
         return curMedia
     }
 
@@ -169,7 +165,7 @@ class MediaFetcher(val context: Context) {
         val files = File(folder).listFiles() ?: return media
         val doExtraCheck = context.config.doExtraCheck
         val showHidden = context.config.shouldShowHidden
-        val sorting = context.config.getFileSorting(folder)
+        val sorting = SORT_BY_DATE_TAKEN //context.config.getFileSorting(folder)
         val dateTakens = if (sorting and SORT_BY_DATE_TAKEN != 0) getFolderDateTakens(folder) else HashMap()
 
         for (file in files) {
@@ -298,5 +294,24 @@ class MediaFetcher(val context: Context) {
         }
 
         return dateTakens
+    }
+
+    fun sortMedia(media: ArrayList<Medium>, sorting: Int) {
+        media.sortWith(Comparator { o1, o2 ->
+            o1 as Medium
+            o2 as Medium
+            var result = when {
+                sorting and SORT_BY_NAME != 0 -> AlphanumericComparator().compare(o1.name.toLowerCase(), o2.name.toLowerCase())
+                sorting and SORT_BY_PATH != 0 -> AlphanumericComparator().compare(o1.path.toLowerCase(), o2.path.toLowerCase())
+                sorting and SORT_BY_SIZE != 0 -> o1.size.compareTo(o2.size)
+                sorting and SORT_BY_DATE_MODIFIED != 0 -> o1.modified.compareTo(o2.modified)
+                else -> o1.taken.compareTo(o2.taken)
+            }
+
+            if (sorting and SORT_DESCENDING != 0) {
+                result *= -1
+            }
+            result
+        })
     }
 }
