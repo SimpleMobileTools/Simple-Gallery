@@ -634,6 +634,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 foldersToScan.remove(it.path)
             }
 
+            // check the remaining folders which were not cached at all yet
             for (folder in foldersToScan) {
                 val newMedia = mediaFetcher.getFilesFrom(folder, getImagesOnly, getVideosOnly, config.directorySorting, getProperDateTaken)
                 if (newMedia.isEmpty()) {
