@@ -16,7 +16,7 @@ import java.io.File
 class MediaFetcher(val context: Context) {
     var shouldStop = false
 
-    fun getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean, sorting: Int): ArrayList<Medium> {
+    fun getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean, sorting: Int, getProperDateTaken: Boolean): ArrayList<Medium> {
         val filterMedia = context.config.filterMedia
         if (filterMedia == 0) {
             return ArrayList()
@@ -27,7 +27,7 @@ class MediaFetcher(val context: Context) {
             val newMedia = getMediaOnOTG(curPath, isPickImage, isPickVideo, filterMedia)
             curMedia.addAll(newMedia)
         } else {
-            val newMedia = getMediaInFolder(curPath, isPickImage, isPickVideo, filterMedia)
+            val newMedia = getMediaInFolder(curPath, isPickImage, isPickVideo, filterMedia, getProperDateTaken)
             curMedia.addAll(newMedia)
         }
 
@@ -143,13 +143,12 @@ class MediaFetcher(val context: Context) {
         }
     }
 
-    private fun getMediaInFolder(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int): ArrayList<Medium> {
+    private fun getMediaInFolder(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int, getProperDateTaken: Boolean): ArrayList<Medium> {
         val media = ArrayList<Medium>()
         val files = File(folder).listFiles() ?: return media
         val doExtraCheck = context.config.doExtraCheck
         val showHidden = context.config.shouldShowHidden
-        val sorting = context.config.getFileSorting(folder)
-        val dateTakens = if (sorting and SORT_BY_DATE_TAKEN != 0) getFolderDateTakens(folder) else HashMap()
+        val dateTakens = if (getProperDateTaken) getFolderDateTakens(folder) else HashMap()
 
         for (file in files) {
             if (shouldStop) {
@@ -183,7 +182,7 @@ class MediaFetcher(val context: Context) {
             val lastModified = file.lastModified()
             var dateTaken = lastModified
 
-            if (sorting and SORT_BY_DATE_TAKEN != 0) {
+            if (getProperDateTaken) {
                 dateTaken = dateTakens.remove(filename) ?: lastModified
             }
 

@@ -591,9 +591,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             val isSortingAscending = config.directorySorting and SORT_DESCENDING == 0
             val mediumDao = galleryDB.MediumDao()
             val directoryDao = galleryDB.DirectoryDao()
+            val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0
 
             for (directory in dirs) {
-                val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, config.directorySorting)
+                val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, config.directorySorting, getProperDateTaken)
                 val newDir = if (curMedia.isEmpty()) {
                     directory
                 } else {
@@ -634,7 +635,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             }
 
             for (folder in foldersToScan) {
-                val newMedia = mediaFetcher.getFilesFrom(folder, getImagesOnly, getVideosOnly, config.directorySorting)
+                val newMedia = mediaFetcher.getFilesFrom(folder, getImagesOnly, getVideosOnly, config.directorySorting, getProperDateTaken)
                 if (newMedia.isEmpty()) {
                     continue
                 }
