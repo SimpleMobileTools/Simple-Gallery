@@ -1,6 +1,16 @@
 Changelog
 ==========
 
+Version 4.1.0 *(2018-05-25)*
+----------------------------
+
+ * Added sorting by Date Taken
+ * Fixed file renaming on Android Oreo
+ * Fixed some scrollbar glitches
+ * Fixed broken "Use english language" in some cases
+ * Make sure only the proper files are shown at "Show all folders content"
+ * Many other smaller UX, stability improvements and bugfixes
+
 Version 4.0.0 *(2018-05-13)*
 ----------------------------
 
