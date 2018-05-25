@@ -188,6 +188,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     override fun onDestroy() {
         super.onDestroy()
         config.temporarilyShowHidden = false
+        config.tempSkipDeleteConfirmation = false
         mTempShowHiddenHandler.removeCallbacksAndMessages(null)
         removeTempFolder()
         if (!isChangingConfigurations) {

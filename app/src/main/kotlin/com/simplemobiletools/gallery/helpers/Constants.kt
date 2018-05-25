@@ -48,6 +48,7 @@ const val DO_EXTRA_CHECK = "do_extra_check"
 const val WAS_NEW_APP_SHOWN = "was_new_app_shown_clock"
 const val LAST_FILEPICKER_PATH = "last_filepicker_path"
 const val WAS_OTG_HANDLED = "was_otg_handled"
+const val TEMP_SKIP_DELETE_CONFIRMATION = "temp_skip_delete_confirmation"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"

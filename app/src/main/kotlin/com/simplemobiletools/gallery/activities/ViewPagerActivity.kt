@@ -58,7 +58,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mPos = -1
     private var mShowAll = false
     private var mIsSlideshowActive = false
-    private var mSkipConfirmationDialog = false
     private var mRotationDegrees = 0
     private var mPrevHashcode = 0
 
@@ -728,7 +727,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun checkDeleteConfirmation() {
-        if (mSkipConfirmationDialog || config.skipDeleteConfirmation) {
+        if (config.tempSkipDeleteConfirmation || config.skipDeleteConfirmation) {
             deleteConfirmed()
         } else {
             askConfirmDelete()
@@ -737,7 +736,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun askConfirmDelete() {
         DeleteWithRememberDialog(this, getString(R.string.proceed_with_deletion)) {
-            mSkipConfirmationDialog = it
+            config.tempSkipDeleteConfirmation = it
             deleteConfirmed()
         }
     }
