@@ -628,7 +628,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 }
             }
 
-            val foldersToScan = mediaFetcher.getFoldersToScan("")
+            val foldersToScan = mediaFetcher.getFoldersToScan()
             dirs.forEach {
                 foldersToScan.remove(it.path)
             }

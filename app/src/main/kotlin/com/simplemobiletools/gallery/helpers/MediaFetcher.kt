@@ -35,28 +35,24 @@ class MediaFetcher(val context: Context) {
         return curMedia
     }
 
-    fun getFoldersToScan(path: String): ArrayList<String> {
+    fun getFoldersToScan(): ArrayList<String> {
         val filterMedia = context.config.filterMedia
         val projection = arrayOf(MediaStore.Images.Media.DATA)
         val uri = MediaStore.Files.getContentUri("external")
 
-        val selection = "${getSelectionQuery(path, filterMedia)} ${MediaStore.Images.ImageColumns.BUCKET_ID} IS NOT NULL) GROUP BY (${MediaStore.Images.ImageColumns.BUCKET_ID}"
-        val selectionArgs = getSelectionArgsQuery(path, filterMedia).toTypedArray()
+        val selection = "${getSelectionQuery(filterMedia)} ${MediaStore.Images.ImageColumns.BUCKET_ID} IS NOT NULL) GROUP BY (${MediaStore.Images.ImageColumns.BUCKET_ID}"
+        val selectionArgs = getSelectionArgsQuery(filterMedia).toTypedArray()
 
         return try {
             val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
-            parseCursor(cursor, path)
+            parseCursor(cursor)
         } catch (e: Exception) {
             ArrayList()
         }
     }
 
-    private fun getSelectionQuery(path: String, filterMedia: Int): String {
+    private fun getSelectionQuery(filterMedia: Int): String {
         val query = StringBuilder()
-        if (path.isNotEmpty()) {
-            query.append("${MediaStore.Images.Media.DATA} LIKE ? AND ${MediaStore.Images.Media.DATA} NOT LIKE ? AND ")
-        }
-
         query.append("(")
         if (filterMedia and TYPE_IMAGES != 0) {
             photoExtensions.forEach {
@@ -79,13 +75,8 @@ class MediaFetcher(val context: Context) {
         return selectionQuery
     }
 
-    private fun getSelectionArgsQuery(path: String, filterMedia: Int): ArrayList<String> {
+    private fun getSelectionArgsQuery(filterMedia: Int): ArrayList<String> {
         val args = ArrayList<String>()
-        if (path.isNotEmpty()) {
-            args.add("$path/%")
-            args.add("$path/%/%")
-        }
-
         if (filterMedia and TYPE_IMAGES != 0) {
             photoExtensions.forEach {
                 args.add("%$it")
@@ -105,7 +96,7 @@ class MediaFetcher(val context: Context) {
         return args
     }
 
-    private fun parseCursor(cursor: Cursor, curPath: String): ArrayList<String> {
+    private fun parseCursor(cursor: Cursor): ArrayList<String> {
         val config = context.config
         val includedFolders = config.includedFolders
         var foldersToScan = ArrayList<String>()
@@ -123,20 +114,12 @@ class MediaFetcher(val context: Context) {
         }
 
         includedFolders.forEach {
-            if (curPath.isEmpty()) {
-                addFolder(foldersToScan, it)
-            } else if (curPath == it) {
-                foldersToScan.add(it)
-            }
+            addFolder(foldersToScan, it)
         }
 
         val showHidden = config.shouldShowHidden
         val excludedFolders = config.excludedFolders
         foldersToScan = foldersToScan.filter { it.shouldFolderBeVisible(excludedFolders, includedFolders, showHidden) } as ArrayList<String>
-        if (config.isThirdPartyIntent && curPath.isNotEmpty()) {
-            foldersToScan.add(curPath)
-        }
-
         return foldersToScan.distinctBy { it.getDistinctPath() } as ArrayList<String>
     }
 
