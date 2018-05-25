@@ -16,7 +16,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.OTG_PATH
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SettingsActivity
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
@@ -96,9 +96,26 @@ fun Context.movePinnedDirectoriesToFront(dirs: ArrayList<Directory>): ArrayList<
 
 @Suppress("UNCHECKED_CAST")
 fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Directory> {
-    Directory.sorting = config.directorySorting
+    val sorting = config.directorySorting
     val dirs = source.clone() as ArrayList<Directory>
-    dirs.sort()
+
+    dirs.sortWith(Comparator { o1, o2 ->
+        o1 as Directory
+        o2 as Directory
+        var result = when {
+            sorting and SORT_BY_NAME != 0 -> AlphanumericComparator().compare(o1.name.toLowerCase(), o2.name.toLowerCase())
+            sorting and SORT_BY_PATH != 0 -> AlphanumericComparator().compare(o1.path.toLowerCase(), o2.path.toLowerCase())
+            sorting and SORT_BY_SIZE != 0 -> o1.size.compareTo(o2.size)
+            sorting and SORT_BY_DATE_MODIFIED != 0 -> o1.modified.compareTo(o2.modified)
+            else -> o1.taken.compareTo(o2.taken)
+        }
+
+        if (sorting and SORT_DESCENDING != 0) {
+            result *= -1
+        }
+        result
+    })
+
     return movePinnedDirectoriesToFront(dirs)
 }
 
