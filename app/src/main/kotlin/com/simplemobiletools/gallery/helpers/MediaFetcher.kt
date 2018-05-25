@@ -148,7 +148,7 @@ class MediaFetcher(val context: Context) {
         val files = File(folder).listFiles() ?: return media
         val doExtraCheck = context.config.doExtraCheck
         val showHidden = context.config.shouldShowHidden
-        val sorting = SORT_BY_DATE_TAKEN //context.config.getFileSorting(folder)
+        val sorting = context.config.getFileSorting(folder)
         val dateTakens = if (sorting and SORT_BY_DATE_TAKEN != 0) getFolderDateTakens(folder) else HashMap()
 
         for (file in files) {
