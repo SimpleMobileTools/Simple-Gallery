@@ -609,6 +609,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
                 directory.apply {
                     tmb = newDir.tmb
+                    name = newDir.name
                     mediaCnt = newDir.mediaCnt
                     modified = newDir.modified
                     taken = newDir.taken
