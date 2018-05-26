@@ -293,6 +293,15 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
             }
         }) as ArrayList<Directory>
 
+        val hiddenString = resources.getString(R.string.hidden)
+        filteredDirectories.forEach {
+            it.name = if (File(it.path).doesThisOrParentHaveNoMedia() && !it.path.isThisOrParentIncluded(includedPaths)) {
+                "${it.name.removeSuffix(hiddenString).trim()} $hiddenString"
+            } else {
+                it.name
+            }
+        }
+
         val clone = filteredDirectories.clone() as ArrayList<Directory>
         callback(clone.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>)
 
