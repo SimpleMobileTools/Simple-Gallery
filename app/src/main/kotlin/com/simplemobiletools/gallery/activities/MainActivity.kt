@@ -595,7 +595,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0
 
             for (directory in dirs) {
-                val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, config.directorySorting, getProperDateTaken)
+                val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken)
                 val newDir = if (curMedia.isEmpty()) {
                     directory
                 } else {
@@ -638,7 +638,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
             // check the remaining folders which were not cached at all yet
             for (folder in foldersToScan) {
-                val newMedia = mediaFetcher.getFilesFrom(folder, getImagesOnly, getVideosOnly, config.directorySorting, getProperDateTaken)
+                val newMedia = mediaFetcher.getFilesFrom(folder, getImagesOnly, getVideosOnly, getProperDateTaken)
                 if (newMedia.isEmpty()) {
                     continue
                 }
