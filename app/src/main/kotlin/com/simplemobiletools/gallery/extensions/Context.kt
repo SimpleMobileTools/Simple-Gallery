@@ -293,9 +293,10 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
             }
         }) as ArrayList<Directory>
 
-        callback(filteredDirectories.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>)
+        val clone = filteredDirectories.clone() as ArrayList<Directory>
+        callback(clone.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>)
 
-        removeInvalidDBDirectories(directories, directoryDao)
+        removeInvalidDBDirectories(filteredDirectories, directoryDao)
     }.start()
 }
 
@@ -326,7 +327,7 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
         }) as ArrayList<Medium>
 
         MediaFetcher(this).sortMedia(media, config.getFileSorting(path))
-        callback(media)
+        callback(media.clone() as ArrayList<Medium>)
 
         media.filter { !getDoesFilePathExist(it.path) }.forEach {
             mediumDao.deleteMediumPath(it.path)
