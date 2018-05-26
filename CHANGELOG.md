@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 4.1.1 *(2018-05-26)*
+----------------------------
+
+ * Always set folder thumbnail based on folder content sorting
+ * Make sure hidden folders have the "(hidden)" appended
+
 Version 4.1.0 *(2018-05-25)*
 ----------------------------
 
