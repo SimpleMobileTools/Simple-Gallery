@@ -2,6 +2,8 @@
 <resources>
 
     <!-- Release notes -->
+    <string name="release_178">Added sorting by Date Taken</string>
+    <string name="release_177">Allow customizing the app launcher icon color</string>
     <string name="release_163">Added toggles for disabling Pull-to-refresh and permanent Delete dialog confirmation skipping</string>
     <string name="release_159">
         Added a toggle for replacing deep zoomable images with better quality ones\n

@@ -26,7 +26,7 @@ import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.BuildConfig
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
-import com.simplemobiletools.gallery.databases.GalleryDataBase
+import com.simplemobiletools.gallery.databases.GalleryDatabase
 import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
 import com.simplemobiletools.gallery.dialogs.FilterMediaDialog
 import com.simplemobiletools.gallery.extensions.*
@@ -72,7 +72,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        appLaunched()
+        appLaunched(BuildConfig.APPLICATION_ID)
 
         mIsPickImageIntent = isPickImageIntent(intent)
         mIsPickVideoIntent = isPickVideoIntent(intent)
@@ -188,10 +188,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     override fun onDestroy() {
         super.onDestroy()
         config.temporarilyShowHidden = false
+        config.tempSkipDeleteConfirmation = false
         mTempShowHiddenHandler.removeCallbacksAndMessages(null)
         removeTempFolder()
         if (!isChangingConfigurations) {
-            GalleryDataBase.destroyInstance()
+            GalleryDatabase.destroyInstance()
         }
     }
 
@@ -294,11 +295,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         val getVideosOnly = mIsPickVideoIntent || mIsGetVideoContentIntent
 
         getCachedDirectories(getVideosOnly, getImagesOnly) {
-            if (!mLoadedInitialPhotos) {
-                runOnUiThread {
-                    directories_refresh_layout.isRefreshing = true
-                }
-            }
             gotDirectories(addTempFolderIfNeeded(it))
         }
     }
@@ -542,7 +538,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun fillIntentPath(resultData: Intent, resultIntent: Intent) {
-        val path = resultData.data.path
+        val data = resultData.data
+        val path = if (data.toString().startsWith("/")) data.toString() else data.path
         val uri = getFilePublicUri(File(path), BuildConfig.APPLICATION_ID)
         val type = path.getMimeType()
         resultIntent.setDataAndTypeAndNormalize(uri, type)
@@ -595,9 +592,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             val isSortingAscending = config.directorySorting and SORT_DESCENDING == 0
             val mediumDao = galleryDB.MediumDao()
             val directoryDao = galleryDB.DirectoryDao()
+            val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0
 
             for (directory in dirs) {
-                val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly)
+                val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken)
                 val newDir = if (curMedia.isEmpty()) {
                     directory
                 } else {
@@ -611,6 +609,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
                 directory.apply {
                     tmb = newDir.tmb
+                    name = newDir.name
                     mediaCnt = newDir.mediaCnt
                     modified = newDir.modified
                     taken = newDir.taken
@@ -632,13 +631,14 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 }
             }
 
-            val foldersToScan = mediaFetcher.getFoldersToScan("")
+            val foldersToScan = mediaFetcher.getFoldersToScan()
             dirs.forEach {
                 foldersToScan.remove(it.path)
             }
 
+            // check the remaining folders which were not cached at all yet
             for (folder in foldersToScan) {
-                val newMedia = mediaFetcher.getFilesFrom(folder, getImagesOnly, getVideosOnly)
+                val newMedia = mediaFetcher.getFilesFrom(folder, getImagesOnly, getVideosOnly, getProperDateTaken)
                 if (newMedia.isEmpty()) {
                     continue
                 }
@@ -779,7 +779,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun getCurrentlyDisplayedDirs() = getRecyclerAdapter()?.dirs ?: ArrayList()
 
-    private fun getBubbleTextItem(index: Int) = getRecyclerAdapter()?.dirs?.getOrNull(index)?.getBubbleText() ?: ""
+    private fun getBubbleTextItem(index: Int) = getRecyclerAdapter()?.dirs?.getOrNull(index)?.getBubbleText(config.directorySorting) ?: ""
 
     private fun setupLatestMediaId() {
         Thread {
@@ -873,6 +873,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             add(Release(158, R.string.release_158))
             add(Release(159, R.string.release_159))
             add(Release(163, R.string.release_163))
+            add(Release(177, R.string.release_177))
+            add(Release(178, R.string.release_178))
             checkWhatsNew(this, BuildConfig.VERSION_CODE)
         }
     }

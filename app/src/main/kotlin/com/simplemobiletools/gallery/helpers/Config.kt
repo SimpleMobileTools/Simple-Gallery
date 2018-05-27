@@ -6,7 +6,6 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.helpers.BaseConfig
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
-import com.simplemobiletools.commons.helpers.SORT_BY_DATE_TAKEN
 import com.simplemobiletools.commons.helpers.SORT_DESCENDING
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.models.AlbumCover
@@ -18,13 +17,7 @@ class Config(context: Context) : BaseConfig(context) {
     }
 
     var directorySorting: Int
-        get(): Int {
-            var sort = prefs.getInt(DIRECTORY_SORT_ORDER, SORT_BY_DATE_MODIFIED or SORT_DESCENDING)
-            if (sort and SORT_BY_DATE_TAKEN != 0) {
-                sort = sort - SORT_BY_DATE_TAKEN + SORT_BY_DATE_MODIFIED
-            }
-            return sort
-        }
+        get(): Int = prefs.getInt(DIRECTORY_SORT_ORDER, SORT_BY_DATE_MODIFIED or SORT_DESCENDING)
         set(order) = prefs.edit().putInt(DIRECTORY_SORT_ORDER, order).apply()
 
     fun saveFileSorting(path: String, value: Int) {
@@ -35,13 +28,7 @@ class Config(context: Context) : BaseConfig(context) {
         }
     }
 
-    fun getFileSorting(path: String): Int {
-        var sort = prefs.getInt(SORT_FOLDER_PREFIX + path.toLowerCase(), sorting)
-        if (sort and SORT_BY_DATE_TAKEN != 0) {
-            sort = sort - SORT_BY_DATE_TAKEN + SORT_BY_DATE_MODIFIED
-        }
-        return sort
-    }
+    fun getFileSorting(path: String) = prefs.getInt(SORT_FOLDER_PREFIX + path.toLowerCase(), sorting)
 
     fun removeFileSorting(path: String) {
         prefs.edit().remove(SORT_FOLDER_PREFIX + path.toLowerCase()).apply()
@@ -331,4 +318,8 @@ class Config(context: Context) : BaseConfig(context) {
     var wasOTGHandled: Boolean
         get() = prefs.getBoolean(WAS_OTG_HANDLED, false)
         set(wasOTGHandled) = prefs.edit().putBoolean(WAS_OTG_HANDLED, wasOTGHandled).apply()
+
+    var tempSkipDeleteConfirmation: Boolean
+        get() = prefs.getBoolean(TEMP_SKIP_DELETE_CONFIRMATION, false)
+        set(tempSkipDeleteConfirmation) = prefs.edit().putBoolean(TEMP_SKIP_DELETE_CONFIRMATION, tempSkipDeleteConfirmation).apply()
 }

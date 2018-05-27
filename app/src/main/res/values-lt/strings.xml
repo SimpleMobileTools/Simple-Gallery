@@ -29,7 +29,7 @@
     <string name="filter_media">Filtruoti mediją</string>
     <string name="images">Atvaizdai</string>
     <string name="videos">Vaizdo įrašai</string>
-    <string name="gifs">GIF'ai</string>
+    <string name="gifs">GIF\'ai</string>
     <string name="no_media_with_filters">Su pasirinktais filtrais nerasta medijos bylų.</string>
     <string name="change_filters_underlined"><u>Pakeisti filtrus</u></string>
 
@@ -98,7 +98,7 @@
     <string name="interval">Intervalas (sekundėmis):</string>
     <string name="include_photos">Įtraukti nuotraukas</string>
     <string name="include_videos">Įtraukti vaizdo įrašus</string>
-    <string name="include_gifs">Itraukti GIF'us</string>
+    <string name="include_gifs">Itraukti GIF\'us</string>
     <string name="random_order">Atsitiktinė tvarka</string>
     <string name="use_fade">Naudoti išblukimo animacijas</string>
     <string name="move_backwards">Sukti atgal</string>
@@ -110,12 +110,22 @@
     <string name="change_view_type">Keisti peržiūros tipą</string>
     <string name="grid">Tinklelis</string>
     <string name="list">Sąrašas</string>
+    <string name="group_direct_subfolders">Group direct subfolders</string>
+
+    <!-- Grouping at media thumbnails -->
+    <string name="group_by">Group by</string>
+    <string name="do_not_group_files">Do not group files</string>
+    <string name="by_folder">Folder</string>
+    <string name="by_last_modified">Last modified</string>
+    <string name="by_date_taken">Date taken</string>
+    <string name="by_file_type">File type</string>
+    <string name="by_extension">Extension</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Groti vaizdo įrašus automatiškai</string>
     <string name="toggle_filename">Perjungti bylos pavadinimo matomumą</string>
     <string name="loop_videos">Klipuoti vaizdo įrašus</string>
-    <string name="animate_gifs">Animuoti GIF'us miniatiūrose</string>
+    <string name="animate_gifs">Animuoti GIF\'us miniatiūrose</string>
     <string name="max_brightness">Maksimalus ryškumas, kai medija peržiūrima viso ekrano rėžimu</string>
     <string name="crop_thumbnails">Apkirpti miniatiūras kvadratu</string>
     <string name="screen_rotation_by">Sukti viso ekrano mediją pagal</string>

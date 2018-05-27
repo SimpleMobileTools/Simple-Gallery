@@ -110,6 +110,16 @@
     <string name="change_view_type">Endre visningstype</string>
     <string name="grid">Rutenett</string>
     <string name="list">Liste</string>
+    <string name="group_direct_subfolders">Group direct subfolders</string>
+
+    <!-- Grouping at media thumbnails -->
+    <string name="group_by">Group by</string>
+    <string name="do_not_group_files">Do not group files</string>
+    <string name="by_folder">Folder</string>
+    <string name="by_last_modified">Last modified</string>
+    <string name="by_date_taken">Date taken</string>
+    <string name="by_file_type">File type</string>
+    <string name="by_extension">Extension</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Avspill videoer automatisk</string>

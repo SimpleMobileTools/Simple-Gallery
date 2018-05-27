@@ -110,6 +110,16 @@
     <string name="change_view_type">Weergave</string>
     <string name="grid">Raster</string>
     <string name="list">Lijst</string>
+    <string name="group_direct_subfolders">Directe submappen groeperen</string>
+
+    <!-- Grouping at media thumbnails -->
+    <string name="group_by">Groeperen op</string>
+    <string name="do_not_group_files">Bestanden niet groeperen</string>
+    <string name="by_folder">Map</string>
+    <string name="by_last_modified">Laatst gewijzigd</string>
+    <string name="by_date_taken">Datum opname</string>
+    <string name="by_file_type">Bestandstype</string>
+    <string name="by_extension">Extensie</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Video\'s automatisch afspelen</string>

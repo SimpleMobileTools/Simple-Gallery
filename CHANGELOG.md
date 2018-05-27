@@ -1,6 +1,29 @@
 Changelog
 ==========
 
+Version 4.1.1 *(2018-05-26)*
+----------------------------
+
+ * Always set folder thumbnail based on folder content sorting
+ * Make sure hidden folders have the "(hidden)" appended
+
+Version 4.1.0 *(2018-05-25)*
+----------------------------
+
+ * Added sorting by Date Taken
+ * Fixed file renaming on Android Oreo
+ * Fixed some scrollbar glitches
+ * Fixed broken "Use english language" in some cases
+ * Make sure only the proper files are shown at "Show all folders content"
+ * Many other smaller UX, stability improvements and bugfixes
+
+Version 4.0.0 *(2018-05-13)*
+----------------------------
+
+ * Allow customizing the app launcher color
+ * Remove the top spinning circle at initial launch
+ * Many other bugfixes and UX/stability improvements
+
 Version 3.8.2 *(2018-04-26)*
 ----------------------------
 

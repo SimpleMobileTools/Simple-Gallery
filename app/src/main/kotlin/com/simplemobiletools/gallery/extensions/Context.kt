@@ -16,11 +16,11 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.OTG_PATH
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SettingsActivity
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
-import com.simplemobiletools.gallery.databases.GalleryDataBase
+import com.simplemobiletools.gallery.databases.GalleryDatabase
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.interfaces.DirectoryDao
 import com.simplemobiletools.gallery.models.Directory
@@ -70,7 +70,7 @@ fun Context.launchSettings() {
 
 val Context.config: Config get() = Config.newInstance(applicationContext)
 
-val Context.galleryDB: GalleryDataBase get() = GalleryDataBase.getInstance(applicationContext)
+val Context.galleryDB: GalleryDatabase get() = GalleryDatabase.getInstance(applicationContext)
 
 fun Context.movePinnedDirectoriesToFront(dirs: ArrayList<Directory>): ArrayList<Directory> {
     val foundFolders = ArrayList<Directory>()
@@ -96,9 +96,26 @@ fun Context.movePinnedDirectoriesToFront(dirs: ArrayList<Directory>): ArrayList<
 
 @Suppress("UNCHECKED_CAST")
 fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Directory> {
-    Directory.sorting = config.directorySorting
+    val sorting = config.directorySorting
     val dirs = source.clone() as ArrayList<Directory>
-    dirs.sort()
+
+    dirs.sortWith(Comparator { o1, o2 ->
+        o1 as Directory
+        o2 as Directory
+        var result = when {
+            sorting and SORT_BY_NAME != 0 -> AlphanumericComparator().compare(o1.name.toLowerCase(), o2.name.toLowerCase())
+            sorting and SORT_BY_PATH != 0 -> AlphanumericComparator().compare(o1.path.toLowerCase(), o2.path.toLowerCase())
+            sorting and SORT_BY_SIZE != 0 -> o1.size.compareTo(o2.size)
+            sorting and SORT_BY_DATE_MODIFIED != 0 -> o1.modified.compareTo(o2.modified)
+            else -> o1.taken.compareTo(o2.taken)
+        }
+
+        if (sorting and SORT_DESCENDING != 0) {
+            result *= -1
+        }
+        result
+    })
+
     return movePinnedDirectoriesToFront(dirs)
 }
 
@@ -276,34 +293,51 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
             }
         }) as ArrayList<Directory>
 
-        callback(filteredDirectories.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>)
+        val hiddenString = resources.getString(R.string.hidden)
+        filteredDirectories.forEach {
+            it.name = if (File(it.path).doesThisOrParentHaveNoMedia() && !it.path.isThisOrParentIncluded(includedPaths)) {
+                "${it.name.removeSuffix(hiddenString).trim()} $hiddenString"
+            } else {
+                it.name
+            }
+        }
 
-        removeInvalidDBDirectories(directories, directoryDao)
+        val clone = filteredDirectories.clone() as ArrayList<Directory>
+        callback(clone.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>)
+
+        removeInvalidDBDirectories(filteredDirectories, directoryDao)
     }.start()
 }
 
 fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, callback: (ArrayList<Medium>) -> Unit) {
     Thread {
         val mediumDao = galleryDB.MediumDao()
-        val media = (if (path == "/") mediumDao.getAll() else mediumDao.getMediaFromPath(path)) as ArrayList<Medium>
+        val foldersToScan = if (path == "/") MediaFetcher(this).getFoldersToScan() else arrayListOf(path)
+        var media = ArrayList<Medium>()
         val shouldShowHidden = config.shouldShowHidden
-        var filteredMedia = media
+        foldersToScan.forEach {
+            val currMedia = mediumDao.getMediaFromPath(it)
+            media.addAll(currMedia)
+        }
+
         if (!shouldShowHidden) {
-            filteredMedia = media.filter { !it.name.startsWith('.') } as ArrayList<Medium>
+            media = media.filter { !it.path.contains("/.") } as ArrayList<Medium>
         }
 
         val filterMedia = config.filterMedia
-        filteredMedia = (when {
-            getVideosOnly -> filteredMedia.filter { it.type == TYPE_VIDEOS }
-            getImagesOnly -> filteredMedia.filter { it.type == TYPE_IMAGES }
-            else -> filteredMedia.filter {
+        media = (when {
+            getVideosOnly -> media.filter { it.type == TYPE_VIDEOS }
+            getImagesOnly -> media.filter { it.type == TYPE_IMAGES }
+            else -> media.filter {
                 (filterMedia and TYPE_IMAGES != 0 && it.type == TYPE_IMAGES) ||
                         (filterMedia and TYPE_VIDEOS != 0 && it.type == TYPE_VIDEOS) ||
                         (filterMedia and TYPE_GIFS != 0 && it.type == TYPE_GIFS)
             }
         }) as ArrayList<Medium>
 
-        callback(filteredMedia)
+        MediaFetcher(this).sortMedia(media, config.getFileSorting(path))
+        callback(media.clone() as ArrayList<Medium>)
+
         media.filter { !getDoesFilePathExist(it.path) }.forEach {
             mediumDao.deleteMediumPath(it.path)
         }

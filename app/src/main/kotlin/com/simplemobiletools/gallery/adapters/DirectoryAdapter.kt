@@ -61,8 +61,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     }
 
     override fun onBindViewHolder(holder: MyRecyclerViewAdapter.ViewHolder, position: Int) {
-        val dir = dirs[position]
-        val view = holder.bindView(dir, !isPickIntent) { itemView, layoutPosition ->
+        val dir = dirs.getOrNull(position) ?: return
+        val view = holder.bindView(dir, !isPickIntent) { itemView, adapterPosition ->
             setupView(itemView, dir)
         }
         bindViewHolder(holder, position, view)
@@ -169,7 +169,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                     tmb = File(it, tmb.getFilenameFromPath()).absolutePath
                 }
                 updateDirs(dirs)
-                listener?.updateDirectories(dirs.toList() as ArrayList)
+                Thread {
+                    activity.galleryDB.DirectoryDao().updateDirectoryAfterRename(firstDir.tmb, firstDir.name, firstDir.path, sourcePath)
+                    listener?.refreshItems()
+                }.start()
             }
         }
     }
@@ -400,6 +403,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             dirs = newDirs.clone() as ArrayList<Directory>
             notifyDataSetChanged()
             finishActMode()
+            fastScroller?.measureRecyclerView()
         }
     }
 

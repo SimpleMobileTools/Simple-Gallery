@@ -176,6 +176,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     }
 
                     Intent().apply {
+                        data = saveUri
                         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                         setResult(RESULT_OK, this)
                     }
@@ -260,7 +261,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun scanFinalPath(path: String) {
-        scanPath(path) {
+        scanPathRecursively(path) {
             setResult(Activity.RESULT_OK, intent)
             toast(R.string.file_saved)
             finish()

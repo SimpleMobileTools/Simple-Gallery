@@ -5,7 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.beVisibleIf
-import com.simplemobiletools.commons.extensions.scanPath
+import com.simplemobiletools.commons.extensions.scanPathRecursively
 import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.ManageFoldersAdapter
@@ -55,7 +55,7 @@ class IncludedFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
             config.addIncludedFolder(it)
             updateFolders()
             Thread {
-                scanPath(it)
+                scanPathRecursively(it)
             }.start()
         }
     }

@@ -31,7 +31,6 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
     private val config = activity.config
     private val isListViewType = config.viewTypeFiles == VIEW_TYPE_LIST
-    private var skipConfirmationDialog = false
     private var visibleItemPaths = ArrayList<String>()
     private var loadImageInstantly = false
     private var delayHandler = Handler(Looper.getMainLooper())
@@ -64,9 +63,9 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     override fun onBindViewHolder(holder: MyRecyclerViewAdapter.ViewHolder, position: Int) {
-        val medium = media[position]
+        val medium = media.getOrNull(position) ?: return
         visibleItemPaths.add(medium.path)
-        val view = holder.bindView(medium, !allowMultiplePicks) { itemView, layoutPosition ->
+        val view = holder.bindView(medium, !allowMultiplePicks) { itemView, adapterPosition ->
             setupView(itemView, medium)
         }
         bindViewHolder(holder, position, view)
@@ -152,12 +151,13 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         RenameItemDialog(activity, oldPath) {
             Thread {
                 activity.updateDBMediaPath(oldPath, it)
-            }.start()
 
-            activity.runOnUiThread {
-                listener?.refreshItems()
-                finishActMode()
-            }
+                activity.runOnUiThread {
+                    enableInstantLoad()
+                    listener?.refreshItems()
+                    finishActMode()
+                }
+            }.start()
         }
     }
 
@@ -201,7 +201,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     private fun checkDeleteConfirmation() {
-        if (skipConfirmationDialog || config.skipDeleteConfirmation) {
+        if (config.tempSkipDeleteConfirmation || config.skipDeleteConfirmation) {
             deleteFiles()
         } else {
             askConfirmDelete()
@@ -212,7 +212,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         val items = resources.getQuantityString(R.plurals.delete_items, selectedPositions.size, selectedPositions.size)
         val question = String.format(resources.getString(R.string.deletion_confirmation), items)
         DeleteWithRememberDialog(activity, question) {
-            skipConfirmationDialog = it
+            config.tempSkipDeleteConfirmation = it
             deleteFiles()
         }
     }
@@ -260,6 +260,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
                 enableInstantLoad()
                 notifyDataSetChanged()
                 finishActMode()
+                fastScroller?.measureRecyclerView()
             }, 100L)
         }
     }

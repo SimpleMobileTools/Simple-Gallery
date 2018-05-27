@@ -110,6 +110,16 @@
     <string name="change_view_type">보기방식 변경</string>
     <string name="grid">그리드</string>
     <string name="list">목록</string>
+    <string name="group_direct_subfolders">Group direct subfolders</string>
+
+    <!-- Grouping at media thumbnails -->
+    <string name="group_by">Group by</string>
+    <string name="do_not_group_files">Do not group files</string>
+    <string name="by_folder">Folder</string>
+    <string name="by_last_modified">Last modified</string>
+    <string name="by_date_taken">Date taken</string>
+    <string name="by_file_type">File type</string>
+    <string name="by_extension">Extension</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">비디오 자동재생</string>
