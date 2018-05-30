@@ -5,7 +5,7 @@
     <string name="edit">Editar</string>
     <string name="open_camera">Abrir cámara</string>
     <string name="hidden">(oculto)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(excluído)</string>
     <string name="pin_folder">Fixar cartafol</string>
     <string name="unpin_folder">Soltar cartafol</string>
     <string name="pin_to_the_top">Fixar arriba</string>
@@ -81,12 +81,12 @@
     <string name="edit_with">Editar con</string>
 
     <!-- Set wallpaper -->
-    <string name="simple_wallpaper">Simple Fondo</string>
+    <string name="simple_wallpaper">Fondo de pantalla</string>
     <string name="set_as_wallpaper">Establecer como fondo de pantalla</string>
     <string name="set_as_wallpaper_failed">Fallou establecer fondo de pantalla</string>
     <string name="set_as_wallpaper_with">Establecer fondo de pantalla con:</string>
     <string name="setting_wallpaper">Establecendo fondo de pantalla&#8230;</string>
-    <string name="wallpaper_set_successfully">Fondo de pantalla establecido con éxito</string>
+    <string name="wallpaper_set_successfully">Fondo de pantalla establecido correctamente</string>
     <string name="portrait_aspect_ratio">Proporción de Retrato</string>
     <string name="landscape_aspect_ratio">Proporción de Paisaxe</string>
     <string name="home_screen">Pantalla de incio</string>
@@ -110,16 +110,16 @@
     <string name="change_view_type">Cambiar o tipo de vista</string>
     <string name="grid">Grella</string>
     <string name="list">Lista</string>
-    <string name="group_direct_subfolders">Group direct subfolders</string>
+    <string name="group_direct_subfolders">Agrupar subcartafoles directos</string>
 
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Group by</string>
-    <string name="do_not_group_files">Do not group files</string>
-    <string name="by_folder">Folder</string>
-    <string name="by_last_modified">Last modified</string>
-    <string name="by_date_taken">Date taken</string>
-    <string name="by_file_type">File type</string>
-    <string name="by_extension">Extension</string>
+    <string name="group_by">Agrupar por</string>
+    <string name="do_not_group_files">Non agrupar ficheiros</string>
+    <string name="by_folder">Cartafol</string>
+    <string name="by_last_modified">Último modificado</string>
+    <string name="by_date_taken">Data de captura</string>
+    <string name="by_file_type">Tipo de ficheior</string>
+    <string name="by_extension">Extensión</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Reproducir vídeos automticamente</string>
@@ -185,7 +185,7 @@
         
         A Galería tamén se ofrece como aplicación de terceiros para vista previa de imaxes / vídeos, engadir anexos en correos etc. É perfecta para o uso diario.
 
-        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+        O permiso de pegada é preciso para bloquear a visibilidade de elementos ocultos ou o aplicativo completo.
 
         Non contén anuncios nin solicita permisos innecesarios. É de código aberto, con cores personalizadas.
 
