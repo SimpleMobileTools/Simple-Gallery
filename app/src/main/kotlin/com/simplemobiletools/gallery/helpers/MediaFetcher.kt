@@ -97,6 +97,7 @@ class MediaFetcher(val context: Context) {
     }
 
     private fun parseCursor(cursor: Cursor): ArrayList<String> {
+        val foldersToIgnore = arrayListOf("/storage/emulated/legacy")
         val config = context.config
         val includedFolders = config.includedFolders
         var foldersToScan = ArrayList<String>()
@@ -106,7 +107,7 @@ class MediaFetcher(val context: Context) {
                 do {
                     val path = cursor.getStringValue(MediaStore.Images.Media.DATA).trim()
                     val parentPath = File(path).parent?.trimEnd('/') ?: continue
-                    if (!includedFolders.contains(parentPath)) {
+                    if (!includedFolders.contains(parentPath) && !foldersToIgnore.contains(parentPath.toLowerCase())) {
                         foldersToScan.add(parentPath)
                     }
                 } while (cursor.moveToNext())
