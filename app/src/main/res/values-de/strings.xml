@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Schlichte Galerie</string>
+    <string name="app_name">Simple Gallery</string>
     <string name="app_launcher_name">Galerie</string>
     <string name="edit">Bearbeiten</string>
     <string name="open_camera">Kamera öffnen</string>
     <string name="hidden">(versteckt)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(ausgenohmen)</string>
     <string name="pin_folder">Ordner anheften</string>
     <string name="unpin_folder">Ordner loslösen</string>
     <string name="pin_to_the_top">Oben anheften</string>
@@ -110,15 +110,15 @@
     <string name="change_view_type">Darstellung ändern</string>
     <string name="grid">Gitter</string>
     <string name="list">Liste</string>
-    <string name="group_direct_subfolders">Group direct subfolders</string>
+    <string name="group_direct_subfolders">Direkte Unterordner gruppieren</string>
 
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Group by</string>
-    <string name="do_not_group_files">Do not group files</string>
-    <string name="by_folder">Folder</string>
-    <string name="by_last_modified">Last modified</string>
-    <string name="by_date_taken">Date taken</string>
-    <string name="by_file_type">File type</string>
+    <string name="group_by">Gruppieren bei</string>
+    <string name="do_not_group_files">Dateien nicht gruppieren</string>
+    <string name="by_folder">Ordner</string>
+    <string name="by_last_modified">Zuletzt geändert</string>
+    <string name="by_date_taken">Erstelldatum</string>
+    <string name="by_file_type">Dateitype</string>
     <string name="by_extension">Extension</string>
 
     <!-- Settings -->
@@ -179,17 +179,17 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Eine schlichte Galerie zum Betrachten von Bildern und Videos, ganz ohne Werbung.</string>
+    <string name="app_short_description">Eine einfache Galerie zum Betrachten von Bildern und Videos, ganz ohne Werbung.</string>
     <string name="app_long_description">
-        Eine schlichte App zum Betrachten von Bildern und Videos. Alle Medien können nach Datum, Größe, Name sowie auf- oder absteigend sortiert werden, in Bilder kann auch hineingezoomt werden. Die Vorschau-Kacheln werden in mehreren Spalten abhängig von der Displaygröße angezeigt, die Spaltenanzahl ist mit Zweifingergesten änderbar. Die Medien können umbenannt, geteilt, gelöscht, kopiert und verschoben werden. Bilder können direkt aus der App heraus zugeschnitten, gedreht oder als Hintergrund festgelegt werden.
+        Eine einfache Anwendung zum Betrachten von Bildern und Videos. Alle Medien können nach Datum, Größe, Name sowie auf- oder absteigend sortiert werden, in Bilder kann auch hineingezoomt werden. Die Vorschau-Kacheln werden in mehreren Spalten abhängig von der Displaygröße angezeigt, die Spaltenanzahl ist mit Zweifingergesten änderbar. Die Medien können umbenannt, geteilt, gelöscht, kopiert und verschoben werden. Bilder können direkt aus der Anwendung heraus zugeschnitten, gedreht oder als Hintergrund festgelegt werden.
 
-        Diese Galerie bietet auch für Drittanbieter einige Funktionen an: zur Vorschau von Bildern/Videos, zum Hinzufügen von Anhängen bei Email-Apps, etc. Sie ist perfekt für den täglichen Gebrauch.
+        Diese Galerie bietet auch für Drittanbieter einige Funktionen an: zur Vorschau von Bildern/Videos, zum Hinzufügen von Anhängen bei Email-Anwendungen, etc. Sie ist perfekt für den täglichen Gebrauch.
 
-        Die Berechtigung für Fingerabdrücke wird nur benötigt, um die Sichtbarkeit von versteckten Dateien oder die gesamte App zu sperren.
+        Die Berechtigung für Fingerabdrücke wird nur benötigt, um die Sichtbarkeit von versteckten Dateien oder die gesamte Anwendung zu sperren.
 
         Beinhaltet keine Werbung oder unnötige Berechtigungen. Sie ist komplett Open Source, alle verwendeten Farben sind anpassbar.
 
-        Diese App ist nur eine aus einer größeren Serie von schlichten Apps. Der Rest davon findet sich auf https://www.simplemobiletools.com
+        Diese Anwendung ist nur eine aus einer größeren Serie. Der Rest davon findet sich auf https://www.simplemobiletools.com
     </string>
 
     <!--
