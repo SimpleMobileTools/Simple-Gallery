@@ -317,8 +317,11 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         if (config.skipDeleteConfirmation) {
             deleteFiles()
         } else {
-            val items = resources.getQuantityString(R.plurals.delete_items, selectedPositions.size, selectedPositions.size)
-            val question = String.format(resources.getString(R.string.deletion_confirmation), items)
+            val itemsCnt = selectedPositions.size
+            val items = resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)
+            var question = String.format(resources.getString(R.string.deletion_confirmation), items)
+            val warning = resources.getQuantityString(R.plurals.delete_warning, itemsCnt, itemsCnt)
+            question += "\n\n$warning"
             ConfirmationDialog(activity, question) {
                 deleteFiles()
             }
