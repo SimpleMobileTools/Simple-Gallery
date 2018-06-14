@@ -176,9 +176,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     override fun onStop() {
         super.onStop()
-        if (config.temporarilyShowHidden) {
+        if (config.temporarilyShowHidden || config.tempSkipDeleteConfirmation) {
             mTempShowHiddenHandler.postDelayed({
                 config.temporarilyShowHidden = false
+                config.tempSkipDeleteConfirmation = false
             }, SHOW_TEMP_HIDDEN_DURATION)
         } else {
             mTempShowHiddenHandler.removeCallbacksAndMessages(null)

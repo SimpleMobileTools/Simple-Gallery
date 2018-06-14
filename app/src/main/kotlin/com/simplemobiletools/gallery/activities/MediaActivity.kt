@@ -162,9 +162,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         super.onStop()
         mSearchMenuItem?.collapseActionView()
 
-        if (config.temporarilyShowHidden) {
+        if (config.temporarilyShowHidden || config.tempSkipDeleteConfirmation) {
             mTempShowHiddenHandler.postDelayed({
                 config.temporarilyShowHidden = false
+                config.tempSkipDeleteConfirmation = false
             }, SHOW_TEMP_HIDDEN_DURATION)
         } else {
             mTempShowHiddenHandler.removeCallbacksAndMessages(null)
