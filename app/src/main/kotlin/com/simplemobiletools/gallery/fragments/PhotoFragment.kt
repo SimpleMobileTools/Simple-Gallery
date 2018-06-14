@@ -379,12 +379,16 @@ class PhotoFragment : ViewPagerFragment() {
     private fun checkExtendedDetails() {
         if (context!!.config.showExtendedDetails) {
             view.photo_details.apply {
+                beInvisible()   // make it invisible so we can measure it, but not show yet
                 text = getMediumExtendedDetails(medium)
-                beVisibleIf(text.isNotEmpty())
-                alpha = if (!context!!.config.hideExtendedDetails || !isFullscreen) 1f else 0f
                 onGlobalLayout {
-                    if (height != 0 && isAdded) {
-                        y = getExtendedDetailsY(height)
+                    if (isAdded) {
+                        val realY = getExtendedDetailsY(height)
+                        if (realY > 0) {
+                            y = realY
+                            beVisibleIf(text.isNotEmpty())
+                            alpha = if (!context!!.config.hideExtendedDetails || !isFullscreen) 1f else 0f
+                        }
                     }
                 }
             }
@@ -414,7 +418,7 @@ class PhotoFragment : ViewPagerFragment() {
     override fun fullscreenToggled(isFullscreen: Boolean) {
         this.isFullscreen = isFullscreen
         view.photo_details.apply {
-            if (storedShowExtendedDetails) {
+            if (storedShowExtendedDetails && isVisible()) {
                 animate().y(getExtendedDetailsY(height))
 
                 if (storedHideExtendedDetails) {
@@ -427,6 +431,6 @@ class PhotoFragment : ViewPagerFragment() {
     private fun getExtendedDetailsY(height: Int): Float {
         val smallMargin = resources.getDimension(R.dimen.small_margin)
         val fullscreenOffset = context!!.navigationBarHeight.toFloat() - smallMargin
-        return context!!.usableScreenSize.y - height + if (isFullscreen) fullscreenOffset else -(if (context!!.navigationBarHeight == 0) smallMargin else 0f)
+        return context!!.usableScreenSize.y - height + if (isFullscreen) fullscreenOffset else -smallMargin
     }
 }

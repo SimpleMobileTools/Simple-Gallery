@@ -462,12 +462,16 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private fun checkExtendedDetails() {
         if (context!!.config.showExtendedDetails) {
             mView!!.video_details.apply {
+                beInvisible()   // make it invisible so we can measure it, but not show yet
                 text = getMediumExtendedDetails(medium)
-                beVisibleIf(text.isNotEmpty())
-                alpha = if (!context!!.config.hideExtendedDetails || !mIsFullscreen) 1f else 0f
                 onGlobalLayout {
-                    if (height != 0 && isAdded) {
-                        y = getExtendedDetailsY(height)
+                    if (isAdded) {
+                        val realY = getExtendedDetailsY(height)
+                        if (realY > 0) {
+                            y = realY
+                            beVisibleIf(text.isNotEmpty())
+                            alpha = if (!context!!.config.hideExtendedDetails || !mIsFullscreen) 1f else 0f
+                        }
                     }
                 }
             }
@@ -521,7 +525,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mIsFullscreen = isFullscreen
         checkFullscreen()
         mView!!.video_details.apply {
-            if (mStoredShowExtendedDetails) {
+            if (mStoredShowExtendedDetails && isVisible()) {
                 animate().y(getExtendedDetailsY(height))
 
                 if (mStoredHideExtendedDetails) {
@@ -535,6 +539,6 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         val smallMargin = resources.getDimension(R.dimen.small_margin)
         val timeHolderHeight = mTimeHolder!!.height - context!!.navigationBarHeight.toFloat()
         val fullscreenOffset = context!!.navigationBarHeight.toFloat() - smallMargin
-        return context!!.usableScreenSize.y - height + if (mIsFullscreen) fullscreenOffset else -(timeHolderHeight + if (context!!.navigationBarHeight == 0) smallMargin else 0f)
+        return context!!.usableScreenSize.y - height + if (mIsFullscreen) fullscreenOffset else -(timeHolderHeight + smallMargin)
     }
 }
