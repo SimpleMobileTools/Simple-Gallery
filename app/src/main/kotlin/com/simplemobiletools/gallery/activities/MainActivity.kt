@@ -74,6 +74,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         setContentView(R.layout.activity_main)
         appLaunched(BuildConfig.APPLICATION_ID)
 
+        config.temporarilyShowHidden = false
+        config.tempSkipDeleteConfirmation = false
         mIsPickImageIntent = isPickImageIntent(intent)
         mIsPickVideoIntent = isPickVideoIntent(intent)
         mIsGetImageContentIntent = isGetImageContentIntent(intent)
