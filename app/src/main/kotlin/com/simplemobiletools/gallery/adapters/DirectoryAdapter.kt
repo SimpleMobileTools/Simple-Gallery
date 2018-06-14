@@ -290,7 +290,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             } else {
                 File(path).listFiles()?.filter {
                     !activity.getIsPathDirectory(it.absolutePath) && it.isImageVideoGif() && (showHidden || !it.name.startsWith('.'))
-                }?.mapTo(paths, { it.absolutePath })
+                }?.mapTo(paths) { it.absolutePath }
             }
         }
 
