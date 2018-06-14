@@ -380,7 +380,6 @@ class PhotoFragment : ViewPagerFragment() {
         if (context!!.config.showExtendedDetails) {
             view.photo_details.apply {
                 text = getMediumExtendedDetails(medium)
-                setTextColor(context.config.textColor)
                 beVisibleIf(text.isNotEmpty())
                 alpha = if (!context!!.config.hideExtendedDetails || !isFullscreen) 1f else 0f
                 onGlobalLayout {

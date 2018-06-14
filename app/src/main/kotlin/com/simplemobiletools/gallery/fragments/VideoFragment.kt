@@ -463,7 +463,6 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         if (context!!.config.showExtendedDetails) {
             mView!!.video_details.apply {
                 text = getMediumExtendedDetails(medium)
-                setTextColor(context.config.textColor)
                 beVisibleIf(text.isNotEmpty())
                 alpha = if (!context!!.config.hideExtendedDetails || !mIsFullscreen) 1f else 0f
                 onGlobalLayout {
