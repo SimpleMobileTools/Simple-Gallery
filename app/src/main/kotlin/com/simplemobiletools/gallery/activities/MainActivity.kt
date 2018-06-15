@@ -43,6 +43,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private val PICK_WALLPAPER = 3
     private val LAST_MEDIA_CHECK_PERIOD = 3000L
     private val NEW_APP_PACKAGE = "com.simplemobiletools.clock"
+    private val IS_PROTECTION_DIALOG_SHOWN = "is_protection_dialog_shown"
 
     private var mIsPickImageIntent = false
     private var mIsPickVideoIntent = false
@@ -55,6 +56,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mIsGettingDirs = false
     private var mLoadedInitialPhotos = false
     private var mIsPasswordProtectionPending = false
+    private var mWasProtectionHandled = false
     private var mLatestMediaId = 0L
     private var mLatestMediaDateId = 0L
     private var mLastMediaHandler = Handler()
@@ -154,8 +156,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         directories_empty_text_label.setTextColor(config.textColor)
         directories_empty_text.setTextColor(getAdjustedPrimaryColor())
 
-        if (mIsPasswordProtectionPending) {
+        if (mIsPasswordProtectionPending && !mWasProtectionHandled) {
             handleAppPasswordProtection {
+                mWasProtectionHandled = it
                 if (it) {
                     mIsPasswordProtectionPending = false
                     tryLoadGallery()
@@ -229,6 +232,16 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             else -> return super.onOptionsItemSelected(item)
         }
         return true
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putBoolean(WAS_PROTECTION_HANDLED, mWasProtectionHandled)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        mWasProtectionHandled = savedInstanceState.getBoolean(WAS_PROTECTION_HANDLED, false)
     }
 
     private fun getRecyclerAdapter() = directories_grid.adapter as? DirectoryAdapter
