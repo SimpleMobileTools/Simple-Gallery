@@ -43,7 +43,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private val PICK_WALLPAPER = 3
     private val LAST_MEDIA_CHECK_PERIOD = 3000L
     private val NEW_APP_PACKAGE = "com.simplemobiletools.clock"
-    private val IS_PROTECTION_DIALOG_SHOWN = "is_protection_dialog_shown"
 
     private var mIsPickImageIntent = false
     private var mIsPickVideoIntent = false
