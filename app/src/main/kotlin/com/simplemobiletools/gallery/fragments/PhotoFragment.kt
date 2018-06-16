@@ -287,7 +287,7 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun addZoomableView() {
-        if (!context!!.config.replaceZoomableImages && medium.isImage() && isFragmentVisible && view.subsampling_view.isGone() && !medium.isDng()) {
+        if (!context!!.config.replaceZoomableImages && medium.isImage() && isFragmentVisible && view.subsampling_view.isGone() && !medium.isRaw()) {
             ViewPagerActivity.wasDecodedByGlide = false
             view.subsampling_view.apply {
                 maxScale = 10f

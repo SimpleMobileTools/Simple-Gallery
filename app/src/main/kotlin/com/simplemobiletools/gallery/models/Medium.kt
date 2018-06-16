@@ -6,7 +6,7 @@ import android.arch.persistence.room.Index
 import android.arch.persistence.room.PrimaryKey
 import com.simplemobiletools.commons.extensions.formatDate
 import com.simplemobiletools.commons.extensions.formatSize
-import com.simplemobiletools.commons.extensions.isDng
+import com.simplemobiletools.commons.extensions.isRaw
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.commons.helpers.SORT_BY_NAME
 import com.simplemobiletools.commons.helpers.SORT_BY_PATH
@@ -37,7 +37,7 @@ data class Medium(
 
     fun isVideo() = type == TYPE_VIDEOS
 
-    fun isDng() = path.isDng()
+    fun isRaw() = path.isRaw()
 
     fun getBubbleText(sorting: Int) = when {
         sorting and SORT_BY_NAME != 0 -> name
