@@ -6,13 +6,13 @@ import android.arch.persistence.room.Index
 import android.arch.persistence.room.PrimaryKey
 import com.simplemobiletools.commons.extensions.formatDate
 import com.simplemobiletools.commons.extensions.formatSize
-import com.simplemobiletools.commons.extensions.isRaw
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.commons.helpers.SORT_BY_NAME
 import com.simplemobiletools.commons.helpers.SORT_BY_PATH
 import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
 import com.simplemobiletools.gallery.helpers.TYPE_GIFS
 import com.simplemobiletools.gallery.helpers.TYPE_IMAGES
+import com.simplemobiletools.gallery.helpers.TYPE_RAWS
 import com.simplemobiletools.gallery.helpers.TYPE_VIDEOS
 import java.io.Serializable
 
@@ -37,7 +37,7 @@ data class Medium(
 
     fun isVideo() = type == TYPE_VIDEOS
 
-    fun isRaw() = path.isRaw()
+    fun isRaw() = type == TYPE_RAWS
 
     fun getBubbleText(sorting: Int) = when {
         sorting and SORT_BY_NAME != 0 -> name

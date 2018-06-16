@@ -104,6 +104,7 @@ const val EXT_ALBUM = 1024
 const val TYPE_IMAGES = 1
 const val TYPE_VIDEOS = 2
 const val TYPE_GIFS = 4
+const val TYPE_RAWS = 8
 
 const val LOCAITON_INTERNAL = 1
 const val LOCATION_SD = 2
