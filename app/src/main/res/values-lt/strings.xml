@@ -30,6 +30,7 @@
     <string name="images">Atvaizdai</string>
     <string name="videos">Vaizdo įrašai</string>
     <string name="gifs">GIF\'ai</string>
+    <string name="raw_images">RAW images</string>
     <string name="no_media_with_filters">Su pasirinktais filtrais nerasta medijos bylų.</string>
     <string name="change_filters_underlined"><u>Pakeisti filtrus</u></string>
 
@@ -147,6 +148,7 @@
     <string name="replace_zoomable_images">Pakeisti giliai priartinamus atvaizdus su geresnės kokybės atvaizdais</string>
     <string name="hide_extended_details">Slėpti išsamią informaciją, kai būsenos juosta yra paslėpta</string>
     <string name="do_extra_check">Atlikti papildomą patikrinimą, kad nebūtų rodomos sugadintos bylos</string>
+    <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatiūros</string>

@@ -30,6 +30,7 @@
     <string name="images">画像</string>
     <string name="videos">ビデオ</string>
     <string name="gifs">GIF</string>
+    <string name="raw_images">RAW images</string>
     <string name="no_media_with_filters">絞り込み条件に該当するメディアがありません。</string>
     <string name="change_filters_underlined"><u>絞り込み条件を変更</u></string>
 
@@ -147,6 +148,7 @@
     <string name="replace_zoomable_images">ズーム可能な画像をより高画質なものに置き換える</string>
     <string name="hide_extended_details">ステータスバーが非表示の時は詳細を表示しない</string>
     <string name="do_extra_check">無効なファイルを表示しないための調査を行います</string>
+    <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">サムネイル</string>

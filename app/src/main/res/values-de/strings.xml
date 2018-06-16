@@ -30,6 +30,7 @@
     <string name="images">Bilder</string>
     <string name="videos">Videos</string>
     <string name="gifs">GIFs</string>
+    <string name="raw_images">RAW images</string>
     <string name="no_media_with_filters">Keine Medien für die ausgewählten Filter gefunden</string>
     <string name="change_filters_underlined"><u>Filter ändern</u></string>
 
@@ -147,6 +148,7 @@
     <string name="replace_zoomable_images">Stark zoombare Bilder durch Bilder mit hoher Qualität ersetzen</string>
     <string name="hide_extended_details">Erweiterte Details nicht anzeigen, wenn die Systemleiste versteckt ist</string>
     <string name="do_extra_check">Zusätzliche Überprüfung, um ungültige Dateien nicht anzuzeigen</string>
+    <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>

@@ -30,6 +30,7 @@
     <string name="images">Imágenes</string>
     <string name="videos">Vídeos</string>
     <string name="gifs">GIFs</string>
+    <string name="raw_images">RAW images</string>
     <string name="no_media_with_filters">No se han encontrado ficheros con los filtros seleccionados.</string>
     <string name="change_filters_underlined"><u>Cambiar filtros</u></string>
 
@@ -147,6 +148,7 @@
     <string name="replace_zoomable_images">Reemplace las imágenes con mucho zoom por otras de mejor calidad</string>
     <string name="hide_extended_details">Ocultar detalles ampliados cuando la barra de estado está oculta</string>
     <string name="do_extra_check">Hacer una comprobación adicional para evitar mostrar archivos inválidos</string>
+    <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
