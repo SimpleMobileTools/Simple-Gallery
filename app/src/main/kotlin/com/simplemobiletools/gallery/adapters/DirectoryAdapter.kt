@@ -47,12 +47,12 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
     override fun getActionMenuId() = R.menu.cab_directories
 
-    override fun prepareItemSelection(view: View) {
-        view.dir_check?.background?.applyColorFilter(primaryColor)
+    override fun prepareItemSelection(viewHolder: ViewHolder) {
+        viewHolder.itemView.dir_check?.background?.applyColorFilter(primaryColor)
     }
 
-    override fun markItemSelection(select: Boolean, view: View?) {
-        view?.dir_check?.beVisibleIf(select)
+    override fun markViewHolderSelection(select: Boolean, viewHolder: ViewHolder?) {
+        viewHolder?.itemView?.dir_check?.beVisibleIf(select)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -234,17 +234,23 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 activity.runOnUiThread {
                     affectedPositions.sortedDescending().forEach {
                         notifyItemRemoved(it)
-                        itemViews.put(it, null)
                     }
 
-                    val newItems = SparseArray<View>()
-                    (0 until itemViews.size())
-                            .filter { itemViews[it] != null }
-                            .forEachIndexed { curIndex, i -> newItems.put(curIndex, itemViews[i]) }
+                    val newViewHolders = SparseArray<ViewHolder>()
+                    val cnt = viewHolders.size()
+                    for (i in 0..cnt) {
+                        if (affectedPositions.contains(i)) {
+                            continue
+                        }
 
+                        val view = viewHolders.get(i, null)
+                        val newIndex = i - selectedPositions.count { it <= i }
+                        newViewHolders.put(newIndex, view)
+                    }
+                    viewHolders = newViewHolders
                     currentDirectoriesHash = newDirs.hashCode()
-                    itemViews = newItems
                     dirs = newDirs
+
                     finishActMode()
                     fastScroller?.measureRecyclerView()
                     listener?.updateDirectories(newDirs)
