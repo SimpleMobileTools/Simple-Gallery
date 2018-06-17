@@ -285,7 +285,7 @@ class MediaFetcher(val context: Context) {
 
         val dateTakens = HashMap<String, Long>()
         val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
-        cursor.use {
+        cursor?.use {
             if (cursor.moveToFirst()) {
                 do {
                     try {
