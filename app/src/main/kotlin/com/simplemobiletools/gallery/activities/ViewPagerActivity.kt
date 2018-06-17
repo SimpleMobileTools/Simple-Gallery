@@ -80,7 +80,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medium)
-        setTranslucentNavigation()
         mMediaFiles = MediaActivity.mMedia.clone() as ArrayList<Medium>
 
         handlePermission(PERMISSION_WRITE_STORAGE) {
@@ -95,11 +94,20 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         storeStateVariables()
     }
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onResume() {
         super.onResume()
         if (!hasPermission(PERMISSION_WRITE_STORAGE)) {
             finish()
             return
+        }
+
+        if (config.bottomActions) {
+            if (isLollipopPlus()) {
+                window.navigationBarColor = Color.TRANSPARENT
+            }
+        } else {
+            setTranslucentNavigation()
         }
 
         if (mStoredReplaceZoomableImages != config.replaceZoomableImages) {

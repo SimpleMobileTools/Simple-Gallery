@@ -10,4 +10,5 @@
     <dimen name="media_side_slider_width">60dp</dimen>
     <dimen name="instant_change_bar_width">30dp</dimen>
     <dimen name="list_view_folder_thumbnail_size">72dp</dimen>
+    <dimen name="bottom_actions_height">110dp</dimen>
 </resources>
