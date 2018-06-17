@@ -275,8 +275,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val currentMedium = getCurrentMedium() ?: return true
 
         menu.apply {
-            findItem(R.id.menu_share_1).isVisible = !config.replaceShare
-            findItem(R.id.menu_share_2).isVisible = config.replaceShare
             findItem(R.id.menu_rotate).isVisible = currentMedium.isImage()
             findItem(R.id.menu_save_as).isVisible = mRotationDegrees != 0
             findItem(R.id.menu_hide).isVisible = !currentMedium.name.startsWith('.')
@@ -306,8 +304,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_open_with -> openPath(getCurrentPath(), true)
             R.id.menu_hide -> toggleFileVisibility(true)
             R.id.menu_unhide -> toggleFileVisibility(false)
-            R.id.menu_share_1 -> shareMedium(getCurrentMedium()!!)
-            R.id.menu_share_2 -> shareMedium(getCurrentMedium()!!)
+            R.id.menu_share -> shareMedium(getCurrentMedium()!!)
             R.id.menu_delete -> checkDeleteConfirmation()
             R.id.menu_rename -> renameFile()
             R.id.menu_edit -> openEditor(getCurrentPath())

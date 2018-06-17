@@ -51,7 +51,6 @@ class SettingsActivity : SimpleActivity() {
         setupScrollHorizontally()
         setupScreenRotation()
         setupHideSystemUI()
-        setupReplaceShare()
         setupPasswordProtection()
         setupAppPasswordProtection()
         setupDeleteEmptyFolders()
@@ -217,14 +216,6 @@ class SettingsActivity : SimpleActivity() {
         settings_hide_system_ui_holder.setOnClickListener {
             settings_hide_system_ui.toggle()
             config.hideSystemUI = settings_hide_system_ui.isChecked
-        }
-    }
-
-    private fun setupReplaceShare() {
-        settings_replace_share.isChecked = config.replaceShare
-        settings_replace_share_holder.setOnClickListener {
-            settings_replace_share.toggle()
-            config.replaceShare = settings_replace_share.isChecked
         }
     }
 

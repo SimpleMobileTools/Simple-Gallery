@@ -227,10 +227,6 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(HIDE_SYSTEM_UI, false)
         set(hideSystemUI) = prefs.edit().putBoolean(HIDE_SYSTEM_UI, hideSystemUI).apply()
 
-    var replaceShare: Boolean
-        get() = prefs.getBoolean(REPLACE_SHARE_WITH_ROTATE, false)
-        set(replaceShare) = prefs.edit().putBoolean(REPLACE_SHARE_WITH_ROTATE, replaceShare).apply()
-
     var deleteEmptyFolders: Boolean
         get() = prefs.getBoolean(DELETE_EMPTY_FOLDERS, false)
         set(deleteEmptyFolders) = prefs.edit().putBoolean(DELETE_EMPTY_FOLDERS, deleteEmptyFolders).apply()
