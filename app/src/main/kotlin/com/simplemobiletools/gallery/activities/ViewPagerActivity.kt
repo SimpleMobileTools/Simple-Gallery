@@ -69,6 +69,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mIsOrientationLocked = false
 
     private var mStoredReplaceZoomableImages = false
+    private var mStoredBottomActions = true
     private var mMediaFiles = ArrayList<Medium>()
 
     companion object {
@@ -92,6 +93,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         storeStateVariables()
+        initBottomActions()
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -113,6 +115,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (mStoredReplaceZoomableImages != config.replaceZoomableImages) {
             mPrevHashcode = 0
             refreshViewPager()
+        }
+
+        if (mStoredBottomActions != config.bottomActions) {
+            initBottomActions()
         }
 
         supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.actionbar_gradient_background))
@@ -240,8 +246,16 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             view_pager.adapter?.let {
                 (it as MyPagerAdapter).toggleFullscreen(mIsFullScreen)
                 checkSystemUI()
+                if (!bottom_actions.isGone()) {
+                    bottom_actions.animate().alpha(if (mIsFullScreen) 0f else 1f).start()
+                }
             }
         }
+    }
+
+    private fun initBottomActions() {
+        initBottomActionsLayout()
+        initBottomActionButtons()
     }
 
     private fun setupRotation() {
@@ -313,6 +327,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun storeStateVariables() {
         config.apply {
             mStoredReplaceZoomableImages = replaceZoomableImages
+            mStoredBottomActions = bottomActions
         }
     }
 
@@ -717,6 +732,33 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val floatS = s0 / s1
 
         return (floatD + floatM / 60 + floatS / 3600).toFloat()
+    }
+
+    private fun initBottomActionsLayout() {
+        bottom_actions.layoutParams.height = resources.getDimension(R.dimen.bottom_actions_height).toInt() + navigationBarHeight
+        if (config.bottomActions) {
+            bottom_actions.beVisible()
+        } else {
+            bottom_actions.beGone()
+        }
+    }
+
+    private fun initBottomActionButtons() {
+        bottom_properties.setOnClickListener {
+
+        }
+
+        bottom_edit.setOnClickListener {
+
+        }
+
+        bottom_share.setOnClickListener {
+
+        }
+
+        bottom_delete.setOnClickListener {
+
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {

@@ -51,7 +51,6 @@ class PhotoFragment : ViewPagerFragment() {
 
     private var storedShowExtendedDetails = false
     private var storedHideExtendedDetails = false
-    private var storedBottomActions = false
     private var storedExtendedDetails = 0
 
     lateinit var view: ViewGroup
@@ -118,7 +117,6 @@ class PhotoFragment : ViewPagerFragment() {
         isFullscreen = activity!!.window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN == View.SYSTEM_UI_FLAG_FULLSCREEN
         loadImage()
         initExtendedDetails()
-        initBottomActions()
         wasInit = true
 
         return view
@@ -133,10 +131,6 @@ class PhotoFragment : ViewPagerFragment() {
         super.onResume()
         if (wasInit && (context!!.config.showExtendedDetails != storedShowExtendedDetails || context!!.config.extendedDetails != storedExtendedDetails)) {
             initExtendedDetails()
-        }
-
-        if (wasInit && (context!!.config.bottomActions != storedBottomActions)) {
-            initBottomActions()
         }
 
         val allowPhotoGestures = context!!.config.allowPhotoGestures
@@ -168,7 +162,6 @@ class PhotoFragment : ViewPagerFragment() {
             storedShowExtendedDetails = showExtendedDetails
             storedHideExtendedDetails = hideExtendedDetails
             storedExtendedDetails = extendedDetails
-            storedBottomActions = bottomActions
         }
     }
 
@@ -404,14 +397,6 @@ class PhotoFragment : ViewPagerFragment() {
         }
     }
 
-    private fun initBottomActions() {
-        if (context!!.config.bottomActions) {
-            view.bottom_actions.beVisible()
-        } else {
-            view.bottom_actions.beGone()
-        }
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         if (activity?.isActivityDestroyed() == false) {
@@ -424,7 +409,6 @@ class PhotoFragment : ViewPagerFragment() {
         super.onConfigurationChanged(newConfig)
         loadImage()
         initExtendedDetails()
-        initBottomActions()
     }
 
     private fun photoClicked() {
@@ -441,10 +425,6 @@ class PhotoFragment : ViewPagerFragment() {
                     animate().alpha(if (isFullscreen) 0f else 1f).start()
                 }
             }
-        }
-
-        if (storedBottomActions) {
-            view.bottom_actions.animate().alpha(if (isFullscreen) 0f else 1f).start()
         }
     }
 

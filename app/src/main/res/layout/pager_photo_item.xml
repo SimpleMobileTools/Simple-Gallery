@@ -68,14 +68,4 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"/>
 
-    <LinearLayout
-        android:id="@+id/bottom_actions"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/gradient_background_lighter"
-        android:minHeight="@dimen/bottom_actions_height"
-        android:orientation="horizontal">
-
-    </LinearLayout>
 </RelativeLayout>
