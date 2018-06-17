@@ -53,6 +53,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
     private var mStoredShowExtendedDetails = false
     private var mStoredHideExtendedDetails = false
+    private var mStoredBottomActions = true
     private var mStoredExtendedDetails = 0
 
     private lateinit var brightnessSideScroll: MediaSideScroll
@@ -118,6 +119,11 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         if (context!!.config.showExtendedDetails != mStoredShowExtendedDetails || context!!.config.extendedDetails != mStoredExtendedDetails) {
             checkExtendedDetails()
         }
+
+        if (context!!.config.bottomActions != mStoredBottomActions) {
+            initTimeHolder()
+        }
+
         storeStateVariables()
     }
 
@@ -139,6 +145,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             mStoredShowExtendedDetails = showExtendedDetails
             mStoredHideExtendedDetails = hideExtendedDetails
             mStoredExtendedDetails = extendedDetails
+            mStoredBottomActions = bottomActions
         }
     }
 
