@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.database.Cursor
+import android.database.sqlite.SQLiteException
 import android.graphics.Point
 import android.media.AudioManager
 import android.os.Build
@@ -276,7 +277,11 @@ fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boo
 fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, callback: (ArrayList<Directory>) -> Unit) {
     Thread {
         val directoryDao = galleryDB.DirectoryDao()
-        val directories = directoryDao.getAll() as ArrayList<Directory>
+        val directories = try {
+            directoryDao.getAll() as ArrayList<Directory>
+        } catch (e: SQLiteException) {
+            ArrayList<Directory>()
+        }
         val shouldShowHidden = config.shouldShowHidden
         val excludedPaths = config.excludedFolders
         val includedPaths = config.includedFolders
@@ -317,8 +322,11 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
         var media = ArrayList<Medium>()
         val shouldShowHidden = config.shouldShowHidden
         foldersToScan.forEach {
-            val currMedia = mediumDao.getMediaFromPath(it)
-            media.addAll(currMedia)
+            try {
+                val currMedia = mediumDao.getMediaFromPath(it)
+                media.addAll(currMedia)
+            } catch (ignored: IllegalStateException) {
+            }
         }
 
         if (!shouldShowHidden) {
