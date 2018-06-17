@@ -827,6 +827,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun onConfigurationChanged(newConfig: Configuration?) {
         super.onConfigurationChanged(newConfig)
         measureScreen()
+        initBottomActionsLayout()
     }
 
     private fun measureScreen() {
