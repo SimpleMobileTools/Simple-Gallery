@@ -57,6 +57,7 @@ class SettingsActivity : SimpleActivity() {
         setupDeleteEmptyFolders()
         setupAllowPhotoGestures()
         setupAllowVideoGestures()
+        setupBottomActions()
         setupShowMediaCount()
         setupKeepLastModified()
         setupShowInfoBubble()
@@ -292,6 +293,14 @@ class SettingsActivity : SimpleActivity() {
         settings_allow_video_gestures_holder.setOnClickListener {
             settings_allow_video_gestures.toggle()
             config.allowVideoGestures = settings_allow_video_gestures.isChecked
+        }
+    }
+
+    private fun setupBottomActions() {
+        settings_bottom_actions.isChecked = config.bottomActions
+        settings_bottom_actions_holder.setOnClickListener {
+            settings_bottom_actions.toggle()
+            config.bottomActions = settings_bottom_actions.isChecked
         }
     }
 
