@@ -1,6 +1,7 @@
 package com.simplemobiletools.gallery.activities
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
@@ -20,6 +21,7 @@ import com.simplemobiletools.gallery.fragments.VideoFragment
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
+import kotlinx.android.synthetic.main.bottom_actions.*
 import kotlinx.android.synthetic.main.fragment_holder.*
 import java.io.File
 
@@ -46,6 +48,8 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
                 finish()
             }
         }
+
+        initBottomActions()
     }
 
     override fun onResume() {
@@ -99,7 +103,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             mFragment = if (mIsVideo) VideoFragment() else PhotoFragment()
             mFragment!!.listener = this
             mFragment!!.arguments = bundle
-            supportFragmentManager.beginTransaction().replace(R.id.fragment_holder, mFragment).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.fragment_placeholder, mFragment).commit()
         }
 
         if (config.blackBackground) {
@@ -110,6 +114,11 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             val isFullscreen = visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
             mFragment?.fullscreenToggled(isFullscreen)
         }
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration?) {
+        super.onConfigurationChanged(newConfig)
+        initBottomActionsLayout()
     }
 
     private fun sendViewPagerIntent(path: String) {
@@ -153,12 +162,44 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         PropertiesDialog(this, mUri!!.path)
     }
 
+    private fun initBottomActions() {
+        initBottomActionsLayout()
+        initBottomActionButtons()
+    }
+
+    private fun initBottomActionsLayout() {
+        bottom_actions.layoutParams.height = resources.getDimension(R.dimen.bottom_actions_height).toInt() + navigationBarHeight
+        if (config.bottomActions) {
+            bottom_actions.beVisible()
+        } else {
+            bottom_actions.beGone()
+        }
+    }
+
+    private fun initBottomActionButtons() {
+        bottom_properties.setOnClickListener {
+        }
+
+        bottom_edit.setOnClickListener {
+        }
+
+        bottom_share.setOnClickListener {
+        }
+
+        bottom_delete.setOnClickListener {
+        }
+    }
+
     override fun fragmentClicked() {
         mIsFullScreen = !mIsFullScreen
         if (mIsFullScreen) {
             hideSystemUI()
         } else {
             showSystemUI()
+        }
+
+        if (!bottom_actions.isGone()) {
+            bottom_actions.animate().alpha(if (mIsFullScreen) 0f else 1f).start()
         }
     }
 

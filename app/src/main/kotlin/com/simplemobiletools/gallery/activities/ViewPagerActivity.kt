@@ -45,6 +45,7 @@ import com.simplemobiletools.gallery.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_medium.*
+import kotlinx.android.synthetic.main.bottom_actions.*
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream

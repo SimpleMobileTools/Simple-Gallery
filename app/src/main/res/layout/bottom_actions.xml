@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_actions_wrapper"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/bottom_actions_height"
+    android:layout_alignParentBottom="true"
+    android:background="@drawable/gradient_background_lighter"
+    android:paddingTop="@dimen/medium_margin">
+
+    <ImageView
+        android:id="@+id/bottom_properties"
+        style="@style/MyBorderlessBackgroundStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/medium_margin"
+        android:src="@drawable/ic_properties"
+        app:layout_constraintEnd_toStartOf="@+id/bottom_edit"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/bottom_edit"
+        style="@style/MyBorderlessBackgroundStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/medium_margin"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintEnd_toStartOf="@+id/bottom_share"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bottom_properties"/>
+
+    <ImageView
+        android:id="@+id/bottom_share"
+        style="@style/MyBorderlessBackgroundStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/medium_margin"
+        android:src="@drawable/ic_share"
+        app:layout_constraintEnd_toStartOf="@+id/bottom_delete"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bottom_edit"/>
+
+    <ImageView
+        android:id="@+id/bottom_delete"
+        style="@style/MyBorderlessBackgroundStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/medium_margin"
+        android:src="@drawable/ic_delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bottom_share"/>
+
+</android.support.constraint.ConstraintLayout>
