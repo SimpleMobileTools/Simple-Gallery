@@ -77,6 +77,8 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         }
 
         mIsFullscreen = activity!!.window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN == View.SYSTEM_UI_FLAG_FULLSCREEN
+        mView!!.video_play_outline.alpha = if (mIsFullscreen) 0f else 1f
+
         setupPlayer()
         if (savedInstanceState != null) {
             mCurrTime = savedInstanceState.getInt(PROGRESS)
