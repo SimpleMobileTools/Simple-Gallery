@@ -275,6 +275,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val currentMedium = getCurrentMedium() ?: return true
 
         menu.apply {
+            findItem(R.id.menu_properties).isVisible = !config.bottomActions
+            findItem(R.id.menu_delete).isVisible = !config.bottomActions
+            findItem(R.id.menu_share).isVisible = !config.bottomActions
+            findItem(R.id.menu_edit).isVisible = !config.bottomActions
             findItem(R.id.menu_rotate).isVisible = currentMedium.isImage()
             findItem(R.id.menu_save_as).isVisible = mRotationDegrees != 0
             findItem(R.id.menu_hide).isVisible = !currentMedium.name.startsWith('.')
@@ -742,19 +746,19 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun initBottomActionButtons() {
         bottom_properties.setOnClickListener {
-
+            showProperties()
         }
 
         bottom_edit.setOnClickListener {
-
+            openEditor(getCurrentPath())
         }
 
         bottom_share.setOnClickListener {
-
+            shareMedium(getCurrentMedium()!!)
         }
 
         bottom_delete.setOnClickListener {
-
+            checkDeleteConfirmation()
         }
     }
 
