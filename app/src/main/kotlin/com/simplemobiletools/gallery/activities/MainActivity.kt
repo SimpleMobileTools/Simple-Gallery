@@ -37,6 +37,7 @@ import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.*
+import java.util.*
 
 class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private val PICK_MEDIA = 2
@@ -609,41 +610,44 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             val directoryDao = galleryDB.DirectoryDao()
             val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0
 
-            for (directory in dirs) {
-                val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken)
-                val newDir = if (curMedia.isEmpty()) {
-                    directory
-                } else {
-                    createDirectoryFromMedia(directory.path, curMedia, albumCovers, hiddenString, includedFolders, isSortingAscending)
-                }
+            try {
+                for (directory in dirs) {
+                    val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken)
+                    val newDir = if (curMedia.isEmpty()) {
+                        directory
+                    } else {
+                        createDirectoryFromMedia(directory.path, curMedia, albumCovers, hiddenString, includedFolders, isSortingAscending)
+                    }
 
-                // we are looping through the already displayed folders looking for changes, do not do anything if nothing changed
-                if (directory == newDir) {
-                    continue
-                }
+                    // we are looping through the already displayed folders looking for changes, do not do anything if nothing changed
+                    if (directory == newDir) {
+                        continue
+                    }
 
-                directory.apply {
-                    tmb = newDir.tmb
-                    name = newDir.name
-                    mediaCnt = newDir.mediaCnt
-                    modified = newDir.modified
-                    taken = newDir.taken
-                    this@apply.size = newDir.size
-                    types = newDir.types
-                }
+                    directory.apply {
+                        tmb = newDir.tmb
+                        name = newDir.name
+                        mediaCnt = newDir.mediaCnt
+                        modified = newDir.modified
+                        taken = newDir.taken
+                        this@apply.size = newDir.size
+                        types = newDir.types
+                    }
 
-                showSortedDirs(dirs)
+                    showSortedDirs(dirs)
 
-                // update directories and media files in the local db, delete invalid items
-                updateDBDirectory(directory)
-                mediumDao.insertAll(curMedia)
-                getCachedMedia(directory.path, getVideosOnly, getImagesOnly) {
-                    it.forEach {
-                        if (!curMedia.contains(it)) {
-                            mediumDao.deleteMediumPath(it.path)
+                    // update directories and media files in the local db, delete invalid items
+                    updateDBDirectory(directory)
+                    mediumDao.insertAll(curMedia)
+                    getCachedMedia(directory.path, getVideosOnly, getImagesOnly) {
+                        it.forEach {
+                            if (!curMedia.contains(it)) {
+                                mediumDao.deleteMediumPath(it.path)
+                            }
                         }
                     }
                 }
+            } catch (ignored: ConcurrentModificationException) {
             }
 
             val foldersToScan = mediaFetcher.getFoldersToScan()
