@@ -313,7 +313,8 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         } else {
             mPlayOnPrepare = true
         }
-        mView!!.video_play_outline.setImageDrawable(null)
+
+        mView!!.video_play_outline.setImageDrawable(resources.getDrawable(R.drawable.img_pause_outline_big))
         activity!!.window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
@@ -544,6 +545,8 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 }
             }
         }
+
+        mView!!.video_play_outline.animate().alpha(if (isFullscreen) 0f else 1f).start()
     }
 
     private fun getExtendedDetailsY(height: Int): Float {
