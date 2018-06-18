@@ -1,6 +1,17 @@
 Changelog
 ==========
 
+Version 4.2.0 *(2018-06-18)*
+----------------------------
+
+ * Move some actions at the fullscreen view to the bottom of the screen
+ * Allow filtering out RAW images separately
+ * Add a warning if the user tries deleting a folder
+ * Properly reset the temporary Skip Delete Confirmation dialog
+ * Show a Pause button over video if not in fullscreen mode
+ * Fix some glitches around inserting pin/pattern/fingerprint
+ * Many other stability and ux improvements
+
 Version 4.1.1 *(2018-05-26)*
 ----------------------------
 
