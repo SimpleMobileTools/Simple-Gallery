@@ -135,8 +135,9 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
         menu.apply {
             findItem(R.id.menu_set_as).isVisible = mMedium?.isImage() == true
-            findItem(R.id.menu_edit).isVisible = mMedium?.isImage() == true && mUri?.scheme == "file"
-            findItem(R.id.menu_properties).isVisible = mUri?.scheme == "file"
+            findItem(R.id.menu_edit).isVisible = mMedium?.isImage() == true && mUri?.scheme == "file" && !config.bottomActions
+            findItem(R.id.menu_properties).isVisible = mUri?.scheme == "file" && !config.bottomActions
+            findItem(R.id.menu_share).isVisible = !config.bottomActions
         }
 
         return true
@@ -178,16 +179,18 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
     private fun initBottomActionButtons() {
         bottom_properties.setOnClickListener {
+            showProperties()
         }
 
         bottom_edit.setOnClickListener {
+            openEditor(mUri!!.toString())
         }
 
         bottom_share.setOnClickListener {
+            sharePath(mUri!!.toString())
         }
 
-        bottom_delete.setOnClickListener {
-        }
+        bottom_delete.beGone()
     }
 
     override fun fragmentClicked() {
