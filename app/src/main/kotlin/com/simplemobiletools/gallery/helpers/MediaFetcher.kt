@@ -67,7 +67,7 @@ class MediaFetcher(val context: Context) {
         }
 
         if (filterMedia and TYPE_GIFS != 0) {
-            query.append("${MediaStore.Images.Media.DATA} LIKE ?")
+            query.append("${MediaStore.Images.Media.DATA} LIKE ? OR ")
         }
 
         if (filterMedia and TYPE_RAWS != 0) {
@@ -172,7 +172,7 @@ class MediaFetcher(val context: Context) {
             val isImage = filename.isImageFast()
             val isVideo = if (isImage) false else filename.isVideoFast()
             val isGif = if (isImage || isVideo) false else filename.isGif()
-            val isRaw = if (isImage || isVideo || isGif) false else filename.isRaw()
+            val isRaw = if (isImage || isVideo || isGif) false else filename.isRawFast()
 
             if (!isImage && !isVideo && !isGif && !isRaw)
                 continue
@@ -231,7 +231,7 @@ class MediaFetcher(val context: Context) {
             val isImage = filename.isImageFast()
             val isVideo = if (isImage) false else filename.isVideoFast()
             val isGif = if (isImage || isVideo) false else filename.isGif()
-            val isRaw = if (isImage || isVideo || isGif) false else filename.isRaw()
+            val isRaw = if (isImage || isVideo || isGif) false else filename.isRawFast()
 
             if (!isImage && !isVideo && !isGif || !isRaw)
                 continue
