@@ -208,12 +208,13 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 right += context!!.navigationBarWidth
                 bottom += context!!.navigationBarHeight
             }
-
-            if (context!!.config.bottomActions) {
-                bottom += resources.getDimension(R.dimen.bottom_actions_height).toInt()
-            }
-            mTimeHolder!!.setPadding(left, top, right, bottom)
         }
+
+        if (context!!.config.bottomActions) {
+            bottom += resources.getDimension(R.dimen.bottom_actions_height).toInt()
+        }
+
+        mTimeHolder!!.setPadding(left, top, right, bottom)
 
         mCurrTimeView = mView!!.video_curr_time
         mSeekBar = mView!!.video_seekbar
