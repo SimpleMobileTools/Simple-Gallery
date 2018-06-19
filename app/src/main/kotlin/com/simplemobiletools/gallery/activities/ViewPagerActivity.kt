@@ -276,7 +276,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val currentMedium = getCurrentMedium() ?: return true
 
         menu.apply {
-            findItem(R.id.menu_properties).isVisible = !config.bottomActions
             findItem(R.id.menu_delete).isVisible = !config.bottomActions
             findItem(R.id.menu_share).isVisible = !config.bottomActions
             findItem(R.id.menu_edit).isVisible = !config.bottomActions
@@ -746,8 +745,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun initBottomActionButtons() {
-        bottom_properties.setOnClickListener {
-            showProperties()
+        bottom_favorite.setOnClickListener {
+
         }
 
         bottom_edit.setOnClickListener {

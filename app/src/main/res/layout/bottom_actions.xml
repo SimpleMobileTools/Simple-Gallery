@@ -10,12 +10,12 @@
     android:paddingTop="@dimen/medium_margin">
 
     <ImageView
-        android:id="@+id/bottom_properties"
+        android:id="@+id/bottom_favorite"
         style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/medium_margin"
-        android:src="@drawable/ic_properties"
+        android:src="@drawable/ic_star_off"
         app:layout_constraintEnd_toStartOf="@+id/bottom_edit"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -29,7 +29,7 @@
         android:src="@drawable/ic_edit"
         app:layout_constraintEnd_toStartOf="@+id/bottom_share"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bottom_properties"/>
+        app:layout_constraintStart_toEndOf="@+id/bottom_favorite"/>
 
     <ImageView
         android:id="@+id/bottom_share"
