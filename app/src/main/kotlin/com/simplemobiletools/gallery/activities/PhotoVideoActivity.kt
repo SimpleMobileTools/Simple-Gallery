@@ -144,7 +144,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (mMedium == null) {
+        if (mMedium == null || mUri == null) {
             return true
         }
 
