@@ -210,7 +210,7 @@ class MediaFetcher(val context: Context) {
                 else -> TYPE_RAWS
             }
 
-            val medium = Medium(null, filename, file.absolutePath, folder, lastModified, dateTaken, size, type)
+            val medium = Medium(null, filename, file.absolutePath, folder, lastModified, dateTaken, size, type, false)
             media.add(medium)
         }
         return media
@@ -266,7 +266,7 @@ class MediaFetcher(val context: Context) {
             }
 
             val path = Uri.decode(file.uri.toString().replaceFirst("${context.config.OTGTreeUri}/document/${context.config.OTGPartition}%3A", OTG_PATH))
-            val medium = Medium(null, filename, path, folder, dateModified, dateTaken, size, type)
+            val medium = Medium(null, filename, path, folder, dateModified, dateTaken, size, type, false)
             media.add(medium)
         }
 

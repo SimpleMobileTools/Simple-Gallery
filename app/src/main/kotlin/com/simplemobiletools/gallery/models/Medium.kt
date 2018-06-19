@@ -25,7 +25,8 @@ data class Medium(
         @ColumnInfo(name = "last_modified") val modified: Long,
         @ColumnInfo(name = "date_taken") var taken: Long,
         @ColumnInfo(name = "size") val size: Long,
-        @ColumnInfo(name = "type") val type: Int) : Serializable {
+        @ColumnInfo(name = "type") val type: Int,
+        @ColumnInfo(name = "is_favorite") val isFavorite: Boolean) : Serializable {
 
     companion object {
         private const val serialVersionUID = -6553149366975455L
