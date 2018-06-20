@@ -80,6 +80,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
             findItem(R.id.cab_confirm_selection).isVisible = isAGetIntent && allowMultiplePicks && selectedPositions.size > 0
 
             checkHideBtnVisibility(this)
+            checkFavoriteBtnVisibility(this)
         }
     }
 
@@ -95,6 +96,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
             R.id.cab_edit -> editFile()
             R.id.cab_hide -> toggleFileVisibility(true)
             R.id.cab_unhide -> toggleFileVisibility(false)
+            R.id.cab_add_to_favorites -> toggleFavorites(true)
+            R.id.cab_remove_from_favorites -> toggleFavorites(false)
             R.id.cab_share -> shareMedia()
             R.id.cab_copy_to -> copyMoveTo(true)
             R.id.cab_move_to -> copyMoveTo(false)
@@ -129,6 +132,21 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
         menu.findItem(R.id.cab_hide).isVisible = unhiddenCnt > 0
         menu.findItem(R.id.cab_unhide).isVisible = hiddenCnt > 0
+    }
+
+    private fun checkFavoriteBtnVisibility(menu: Menu) {
+        var favoriteCnt = 0
+        var nonFavoriteCnt = 0
+        selectedPositions.mapNotNull { media.getOrNull(it) }.forEach {
+            if (it.isFavorite) {
+                favoriteCnt++
+            } else {
+                nonFavoriteCnt++
+            }
+        }
+
+        menu.findItem(R.id.cab_add_to_favorites).isVisible = nonFavoriteCnt > 0
+        menu.findItem(R.id.cab_remove_from_favorites).isVisible = favoriteCnt > 0
     }
 
     private fun confirmSelection() {
@@ -169,6 +187,20 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         Thread {
             getSelectedMedia().forEach {
                 activity.toggleFileVisibility(it.path, hide)
+            }
+            activity.runOnUiThread {
+                listener?.refreshItems()
+                finishActMode()
+            }
+        }.start()
+    }
+
+    private fun toggleFavorites(add: Boolean) {
+        Thread {
+            val mediumDao = activity.galleryDB.MediumDao()
+            getSelectedMedia().forEach {
+                it.isFavorite = add
+                mediumDao.updateFavorite(it.path, add)
             }
             activity.runOnUiThread {
                 listener?.refreshItems()
