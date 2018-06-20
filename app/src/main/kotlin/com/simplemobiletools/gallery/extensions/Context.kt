@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.database.Cursor
+import android.database.sqlite.SQLiteException
 import android.graphics.Point
 import android.media.AudioManager
 import android.os.Build
@@ -203,7 +204,7 @@ fun Context.checkAppendingHidden(path: String, hidden: String, includedFolders: 
 
 fun Context.loadImage(type: Int, path: String, target: MySquareImageView, horizontalScroll: Boolean, animateGifs: Boolean, cropThumbnails: Boolean) {
     target.isHorizontalScrolling = horizontalScroll
-    if (type == TYPE_IMAGES || type == TYPE_VIDEOS) {
+    if (type == TYPE_IMAGES || type == TYPE_VIDEOS || type == TYPE_RAWS) {
         if (type == TYPE_IMAGES && path.isPng()) {
             loadPng(path, target, cropThumbnails)
         } else {
@@ -276,7 +277,11 @@ fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boo
 fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, callback: (ArrayList<Directory>) -> Unit) {
     Thread {
         val directoryDao = galleryDB.DirectoryDao()
-        val directories = directoryDao.getAll() as ArrayList<Directory>
+        val directories = try {
+            directoryDao.getAll() as ArrayList<Directory>
+        } catch (e: SQLiteException) {
+            ArrayList<Directory>()
+        }
         val shouldShowHidden = config.shouldShowHidden
         val excludedPaths = config.excludedFolders
         val includedPaths = config.includedFolders
@@ -289,7 +294,8 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
             else -> filteredDirectories.filter {
                 (filterMedia and TYPE_IMAGES != 0 && it.types and TYPE_IMAGES != 0) ||
                         (filterMedia and TYPE_VIDEOS != 0 && it.types and TYPE_VIDEOS != 0) ||
-                        (filterMedia and TYPE_GIFS != 0 && it.types and TYPE_GIFS != 0)
+                        (filterMedia and TYPE_GIFS != 0 && it.types and TYPE_GIFS != 0) ||
+                        (filterMedia and TYPE_RAWS != 0 && it.types and TYPE_RAWS != 0)
             }
         }) as ArrayList<Directory>
 
@@ -316,8 +322,11 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
         var media = ArrayList<Medium>()
         val shouldShowHidden = config.shouldShowHidden
         foldersToScan.forEach {
-            val currMedia = mediumDao.getMediaFromPath(it)
-            media.addAll(currMedia)
+            try {
+                val currMedia = mediumDao.getMediaFromPath(it)
+                media.addAll(currMedia)
+            } catch (ignored: IllegalStateException) {
+            }
         }
 
         if (!shouldShowHidden) {
@@ -331,7 +340,8 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
             else -> media.filter {
                 (filterMedia and TYPE_IMAGES != 0 && it.type == TYPE_IMAGES) ||
                         (filterMedia and TYPE_VIDEOS != 0 && it.type == TYPE_VIDEOS) ||
-                        (filterMedia and TYPE_GIFS != 0 && it.type == TYPE_GIFS)
+                        (filterMedia and TYPE_GIFS != 0 && it.type == TYPE_GIFS) ||
+                        (filterMedia and TYPE_RAWS != 0 && it.type == TYPE_RAWS)
             }
         }) as ArrayList<Medium>
 
@@ -364,3 +374,5 @@ fun Context.updateDBDirectory(directory: Directory) {
 fun Context.getOTGFolderChildren(path: String) = getDocumentFile(path)?.listFiles()
 
 fun Context.getOTGFolderChildrenNames(path: String) = getOTGFolderChildren(path)?.map { it.name }?.toList()
+
+fun Context.getFavoritePaths() = galleryDB.MediumDao().getFavoritePaths() as ArrayList<String>

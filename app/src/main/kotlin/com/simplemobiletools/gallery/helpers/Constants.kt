@@ -30,7 +30,6 @@ const val EXCLUDED_FOLDERS = "excluded_folders"
 const val INCLUDED_FOLDERS = "included_folders"
 const val ALBUM_COVERS = "album_covers"
 const val HIDE_SYSTEM_UI = "hide_system_ui"
-const val REPLACE_SHARE_WITH_ROTATE = "replace_share_with_rotate"
 const val DELETE_EMPTY_FOLDERS = "delete_empty_folders"
 const val ALLOW_PHOTO_GESTURES = "allow_photo_gestures"
 const val ALLOW_VIDEO_GESTURES = "allow_video_gestures"
@@ -49,6 +48,7 @@ const val WAS_NEW_APP_SHOWN = "was_new_app_shown_clock"
 const val LAST_FILEPICKER_PATH = "last_filepicker_path"
 const val WAS_OTG_HANDLED = "was_otg_handled"
 const val TEMP_SKIP_DELETE_CONFIRMATION = "temp_skip_delete_confirmation"
+const val BOTTOM_ACTIONS = "bottom_actions"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"
@@ -63,8 +63,9 @@ const val SLIDESHOW_DEFAULT_INTERVAL = 5
 const val SLIDESHOW_SCROLL_DURATION = 500L
 
 const val NOMEDIA = ".nomedia"
+const val FAVORITES = "favorites"
 const val MAX_COLUMN_COUNT = 20
-const val SHOW_TEMP_HIDDEN_DURATION = 600000L
+const val SHOW_TEMP_HIDDEN_DURATION = 300000L
 const val CLICK_MAX_DURATION = 150
 const val DRAG_THRESHOLD = 8
 
@@ -104,6 +105,7 @@ const val EXT_ALBUM = 1024
 const val TYPE_IMAGES = 1
 const val TYPE_VIDEOS = 2
 const val TYPE_GIFS = 4
+const val TYPE_RAWS = 8
 
 const val LOCAITON_INTERNAL = 1
 const val LOCATION_SD = 2

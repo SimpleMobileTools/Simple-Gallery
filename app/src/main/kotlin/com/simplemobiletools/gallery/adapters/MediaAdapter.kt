@@ -49,12 +49,12 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
     override fun getActionMenuId() = R.menu.cab_media
 
-    override fun prepareItemSelection(view: View) {
-        view.medium_check?.background?.applyColorFilter(primaryColor)
+    override fun prepareItemSelection(viewHolder: ViewHolder) {
+        viewHolder.itemView?.medium_check?.background?.applyColorFilter(primaryColor)
     }
 
-    override fun markItemSelection(select: Boolean, view: View?) {
-        view?.medium_check?.beVisibleIf(select)
+    override fun markViewHolderSelection(select: Boolean, viewHolder: ViewHolder?) {
+        viewHolder?.itemView?.medium_check?.beVisibleIf(select)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

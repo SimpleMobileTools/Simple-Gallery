@@ -30,6 +30,7 @@
     <string name="images">Εικόνες</string>
     <string name="videos">Βίντεο</string>
     <string name="gifs">GIFs</string>
+    <string name="raw_images">RAW images</string>
     <string name="no_media_with_filters">Δεν βρέθηκε κανένα αρχείο πολυμέσων με τα επιλεγμένα φίλτρα.</string>
     <string name="change_filters_underlined"><u>Αλλαγή φίλτρων</u></string>
 
@@ -148,6 +149,7 @@
     <string name="replace_zoomable_images">Αντικατάσταση των φωτογραφιών που απαιτούν ζούμ με άλλες καλύτερης ποιότητας</string>
     <string name="hide_extended_details">Απόκρυψη λεπτομερειών όταν η μπάρα κατάστασης είναι κρυμμένη</string>
     <string name="do_extra_check">Επιπλέον έλεγχος για την αποφυγή εμφάνισης λανθασμένων αρχείων</string>
+    <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Εικονίδια</string>

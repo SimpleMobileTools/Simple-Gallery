@@ -13,7 +13,7 @@
         android:title="@string/delete"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/menu_share_1"
+        android:id="@+id/menu_share"
         android:icon="@drawable/ic_share"
         android:title="@string/share"
         app:showAsAction="ifRoom"/>
@@ -35,10 +35,14 @@
         </menu>
     </item>
     <item
-        android:id="@+id/menu_share_2"
-        android:icon="@drawable/ic_share"
-        android:title="@string/share"
-        android:visible="false"
+        android:id="@+id/menu_add_to_favorites"
+        android:icon="@drawable/ic_star_off"
+        android:title="@string/add_to_favorites"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/menu_remove_from_favorites"
+        android:icon="@drawable/ic_star_on"
+        android:title="@string/remove_from_favorites"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_lock_orientation"

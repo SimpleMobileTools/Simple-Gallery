@@ -5,7 +5,7 @@
     <string name="edit">Edytuj</string>
     <string name="open_camera">Uruchom aplikację aparatu</string>
     <string name="hidden">(ukryty)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(wykluczony)</string>
     <string name="pin_folder">Przypnij folder</string>
     <string name="unpin_folder">Wypakuj folder</string>
     <string name="pin_to_the_top">Przypnij na górze</string>
@@ -30,6 +30,7 @@
     <string name="images">Obrazy</string>
     <string name="videos">Filmy</string>
     <string name="gifs">GIFy</string>
+    <string name="raw_images">Obrazy RAW</string>
     <string name="no_media_with_filters">Nie znalazłem multimediów z wybranymi filtrami.</string>
     <string name="change_filters_underlined"><u>Zmień filtry</u></string>
 
@@ -110,16 +111,16 @@
     <string name="change_view_type">Zmień typ widoku</string>
     <string name="grid">Siatka</string>
     <string name="list">Lista</string>
-    <string name="group_direct_subfolders">Group direct subfolders</string>
+    <string name="group_direct_subfolders">Grupuj bezpośrednie podfoldery</string>
 
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Group by</string>
-    <string name="do_not_group_files">Do not group files</string>
-    <string name="by_folder">Folder</string>
-    <string name="by_last_modified">Last modified</string>
-    <string name="by_date_taken">Date taken</string>
-    <string name="by_file_type">File type</string>
-    <string name="by_extension">Extension</string>
+    <string name="group_by">Grupuj według</string>
+    <string name="do_not_group_files">Nie grupuj plików</string>
+    <string name="by_folder">Folderu</string>
+    <string name="by_last_modified">Daty ostatniej modyfikacji</string>
+    <string name="by_date_taken">Daty utworzenia</string>
+    <string name="by_file_type">Typu</string>
+    <string name="by_extension">Rozszerzenia</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Odtwarzaj filmy automatycznie</string>
@@ -147,6 +148,7 @@
     <string name="replace_zoomable_images">Zamieniaj powiększalne obrazy na te o lepszej jakości</string>
     <string name="hide_extended_details">Ukrywaj dodatkowe szczegóły gdy pasek stanu jest ukryty</string>
     <string name="do_extra_check">Dodatkowe sprawdzenie w celu uniknięcia pokazywania niewłaściwych plików</string>
+    <string name="show_at_bottom">Pokazuj niektóre przyciski akcji na dole ekranu</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatury</string>
@@ -165,15 +167,15 @@
     <string name="faq_5_title">Jaka jest różnica pomiędzy ukryciem, a wykluczeniem folderu?</string>
     <string name="faq_5_text">Wykluczenie działa tylko w obrębie niniejszej aplikacji (wszędzie indziej pliki są normalnie widoczne), ukrywanie - w obrębie całego systemu (nie widać ich nigdzie), dodawany jest wtedy do folderu pusty plik \'.nomedia\', który możesz usunąć w dowolnym menedżerze plików.</string>
     <string name="faq_6_title">Dlaczego pokazują mi się foldery z okładkami do piosenek i tym podobne rzeczy?</string>
-    <string name="faq_6_text">Cóż, zdjęcie to zdjęcie. Aplikacja nie wie, czy to jest akurat okładka od piosenki, czy cokolwiek innego. Aby ukryć niechciane rzeczy, przytrzymaj je i wybierz opcję \'Wyklucz\' z paska akcji.</string>
+    <string name="faq_6_text">Aplikacja niestety nie wie, czy dane zdjęcie jest okładką od piosenki czy czymś innym. Aby ukryć niechciane rzeczy, przytrzymaj je i wybierz opcję \'Wyklucz\' z paska akcji.</string>
     <string name="faq_7_title">Nie pokazuje(-ą) mi się folder(y) ze zdjęciami / filmami. Co mogę zrobić?</string>
     <string name="faq_7_text">Wejdź do ustawień aplikacji i w sekcji z dołączonymi folderami dodaj tenże folder do listy.</string>
     <string name="faq_8_title">Co jeśli chcę widzieć tylko.wybrane foldery?</string>
     <string name="faq_8_text">Przejdź do sekcji z wykluczonymi folderami w ustawieniach aplikacji, dodaj tam folder główny (\"/\"), a następnie dodaj pożądane foldery w sekcji z dołączonymi folderami.</string>
     <string name="faq_9_title">Zdjęcia w widoku pełnoekranowym mają dziwne artefakty. Jak mogę to naprawić?</string>
     <string name="faq_9_text">U ustawieniach aplikacji włącz opcję \'Zamieniaj powiększalne obrazy na te o lepszej jakości\'. Poprawi ona jakość zdjęć, jednak przy bardzo dużych powiększeniach mogą się stać one zbyt rozmazane.</string>
-    <string name="faq_10_title">Can I crop images with this app?</string>
-    <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
+    <string name="faq_10_title">Czy mogę w tej aplikacji przycinać obrazy?</string>
+    <string name="faq_10_text">Tak, możesz to zrobić w edytorze, przeciągając krawędzie obrazu. Edytor otworzysz przytrzymując miniaturę obrazu i wybierając opcję \'Edytuj\', bądź wybierając tą samą opcję w menu pełnoekranowym.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

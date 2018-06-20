@@ -30,6 +30,7 @@
     <string name="images">Obrázky</string>
     <string name="videos">Videá</string>
     <string name="gifs">GIFká</string>
+    <string name="raw_images">RAW obrázky</string>
     <string name="no_media_with_filters">So zvolenými filtrami sa nenašli žiadne média súbory.</string>
     <string name="change_filters_underlined"><u>Zmeniť filtre</u></string>
 
@@ -147,6 +148,7 @@
     <string name="replace_zoomable_images">Nahradiť hlboko priblížiteľné obrázky s obrázkami s lepšou kvalitou</string>
     <string name="hide_extended_details">Skryť rozšírené vlastnosti ak je skrytá stavová lišta</string>
     <string name="do_extra_check">Predísť zobrazovaniu neplatných súborov dodatočnou kontrolou</string>
+    <string name="show_at_bottom">Zobraziť niektoré akčné tlačidlá na spodku obrazovky</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Náhľady</string>

@@ -151,7 +151,7 @@ class Config(context: Context) : BaseConfig(context) {
         set(darkBackground) = prefs.edit().putBoolean(DARK_BACKGROUND, darkBackground).apply()
 
     var filterMedia: Int
-        get() = prefs.getInt(FILTER_MEDIA, TYPE_IMAGES or TYPE_VIDEOS or TYPE_GIFS)
+        get() = prefs.getInt(FILTER_MEDIA, TYPE_IMAGES or TYPE_VIDEOS or TYPE_GIFS or TYPE_RAWS)
         set(filterMedia) = prefs.edit().putInt(FILTER_MEDIA, filterMedia).apply()
 
     var dirColumnCnt: Int
@@ -227,10 +227,6 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(HIDE_SYSTEM_UI, false)
         set(hideSystemUI) = prefs.edit().putBoolean(HIDE_SYSTEM_UI, hideSystemUI).apply()
 
-    var replaceShare: Boolean
-        get() = prefs.getBoolean(REPLACE_SHARE_WITH_ROTATE, false)
-        set(replaceShare) = prefs.edit().putBoolean(REPLACE_SHARE_WITH_ROTATE, replaceShare).apply()
-
     var deleteEmptyFolders: Boolean
         get() = prefs.getBoolean(DELETE_EMPTY_FOLDERS, false)
         set(deleteEmptyFolders) = prefs.edit().putBoolean(DELETE_EMPTY_FOLDERS, deleteEmptyFolders).apply()
@@ -242,6 +238,10 @@ class Config(context: Context) : BaseConfig(context) {
     var allowVideoGestures: Boolean
         get() = prefs.getBoolean(ALLOW_VIDEO_GESTURES, true)
         set(allowVideoGestures) = prefs.edit().putBoolean(ALLOW_VIDEO_GESTURES, allowVideoGestures).apply()
+
+    var bottomActions: Boolean
+        get() = prefs.getBoolean(BOTTOM_ACTIONS, true)
+        set(bottomActions) = prefs.edit().putBoolean(BOTTOM_ACTIONS, bottomActions).apply()
 
     var showMediaCount: Boolean
         get() = prefs.getBoolean(SHOW_MEDIA_COUNT, true)

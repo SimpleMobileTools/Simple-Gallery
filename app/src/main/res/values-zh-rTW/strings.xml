@@ -30,6 +30,7 @@
     <string name="images">圖片</string>
     <string name="videos">影片</string>
     <string name="gifs">GIF</string>
+    <string name="raw_images">RAW images</string>
     <string name="no_media_with_filters">選擇的篩選條件未發現媒體檔案。</string>
     <string name="change_filters_underlined"><u>更改篩選條件</u></string>
 
@@ -115,11 +116,11 @@
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Group by</string>
     <string name="do_not_group_files">Do not group files</string>
-    <string name="by_folder">Folder</string>
-    <string name="by_last_modified">Last modified</string>
-    <string name="by_date_taken">Date taken</string>
-    <string name="by_file_type">File type</string>
-    <string name="by_extension">Extension</string>
+    <string name="by_folder">資料夾</string>
+    <string name="by_last_modified">最後修改</string>
+    <string name="by_date_taken">拍照日期</string>
+    <string name="by_file_type">檔案類型</string>
+    <string name="by_extension">副檔名</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">自動播放影片</string>
@@ -147,6 +148,7 @@
     <string name="replace_zoomable_images">可深度縮放的圖片用品質更佳的來取代</string>
     <string name="hide_extended_details">狀態欄隱藏時，同時隱藏詳細資訊</string>
     <string name="do_extra_check">進行額外檢查，避免顯示無效的檔案</string>
+    <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">縮圖</string>

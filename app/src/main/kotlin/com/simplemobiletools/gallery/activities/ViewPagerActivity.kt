@@ -45,6 +45,7 @@ import com.simplemobiletools.gallery.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_medium.*
+import kotlinx.android.synthetic.main.bottom_actions.*
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
@@ -69,7 +70,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mIsOrientationLocked = false
 
     private var mStoredReplaceZoomableImages = false
+    private var mStoredBottomActions = true
     private var mMediaFiles = ArrayList<Medium>()
+    private var mFavoritePaths = ArrayList<String>()
 
     companion object {
         var screenWidth = 0
@@ -80,7 +83,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medium)
-        setTranslucentNavigation()
         mMediaFiles = MediaActivity.mMedia.clone() as ArrayList<Medium>
 
         handlePermission(PERMISSION_WRITE_STORAGE) {
@@ -93,8 +95,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         storeStateVariables()
+        initBottomActions()
+        initFavorites()
     }
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onResume() {
         super.onResume()
         if (!hasPermission(PERMISSION_WRITE_STORAGE)) {
@@ -102,9 +107,21 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
+        if (config.bottomActions) {
+            if (isLollipopPlus()) {
+                window.navigationBarColor = Color.TRANSPARENT
+            }
+        } else {
+            setTranslucentNavigation()
+        }
+
         if (mStoredReplaceZoomableImages != config.replaceZoomableImages) {
             mPrevHashcode = 0
             refreshViewPager()
+        }
+
+        if (mStoredBottomActions != config.bottomActions) {
+            initBottomActions()
         }
 
         supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.actionbar_gradient_background))
@@ -232,8 +249,22 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             view_pager.adapter?.let {
                 (it as MyPagerAdapter).toggleFullscreen(mIsFullScreen)
                 checkSystemUI()
+                if (!bottom_actions.isGone()) {
+                    bottom_actions.animate().alpha(if (mIsFullScreen) 0f else 1f).start()
+                }
             }
         }
+    }
+
+    private fun initBottomActions() {
+        initBottomActionsLayout()
+        initBottomActionButtons()
+    }
+
+    private fun initFavorites() {
+        Thread {
+            mFavoritePaths = getFavoritePaths()
+        }.start()
     }
 
     private fun setupRotation() {
@@ -251,14 +282,18 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_viewpager, menu)
         val currentMedium = getCurrentMedium() ?: return true
+        currentMedium.isFavorite = mFavoritePaths.contains(currentMedium.path)
 
         menu.apply {
-            findItem(R.id.menu_share_1).isVisible = !config.replaceShare
-            findItem(R.id.menu_share_2).isVisible = config.replaceShare
+            findItem(R.id.menu_delete).isVisible = !config.bottomActions
+            findItem(R.id.menu_share).isVisible = !config.bottomActions
+            findItem(R.id.menu_edit).isVisible = !config.bottomActions
             findItem(R.id.menu_rotate).isVisible = currentMedium.isImage()
             findItem(R.id.menu_save_as).isVisible = mRotationDegrees != 0
             findItem(R.id.menu_hide).isVisible = !currentMedium.name.startsWith('.')
             findItem(R.id.menu_unhide).isVisible = currentMedium.name.startsWith('.')
+            findItem(R.id.menu_add_to_favorites).isVisible = !currentMedium.isFavorite && !config.bottomActions
+            findItem(R.id.menu_remove_from_favorites).isVisible = currentMedium.isFavorite && !config.bottomActions
             findItem(R.id.menu_lock_orientation).isVisible = mRotationDegrees == 0
             findItem(R.id.menu_lock_orientation).title = getString(if (mIsOrientationLocked) R.string.unlock_orientation else R.string.lock_orientation)
             findItem(R.id.menu_rotate).setShowAsAction(
@@ -269,6 +304,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     })
         }
 
+        if (config.bottomActions) {
+            updateFavoriteIcon(currentMedium)
+        }
         return true
     }
 
@@ -284,8 +322,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_open_with -> openPath(getCurrentPath(), true)
             R.id.menu_hide -> toggleFileVisibility(true)
             R.id.menu_unhide -> toggleFileVisibility(false)
-            R.id.menu_share_1 -> shareMedium(getCurrentMedium()!!)
-            R.id.menu_share_2 -> shareMedium(getCurrentMedium()!!)
+            R.id.menu_share -> shareMedium(getCurrentMedium()!!)
             R.id.menu_delete -> checkDeleteConfirmation()
             R.id.menu_rename -> renameFile()
             R.id.menu_edit -> openEditor(getCurrentPath())
@@ -293,6 +330,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_show_on_map -> showOnMap()
             R.id.menu_rotate_right -> rotateImage(90)
             R.id.menu_rotate_left -> rotateImage(270)
+            R.id.menu_add_to_favorites -> toggleFavorite()
+            R.id.menu_remove_from_favorites -> toggleFavorite()
             R.id.menu_rotate_one_eighty -> rotateImage(180)
             R.id.menu_lock_orientation -> toggleLockOrientation()
             R.id.menu_save_as -> saveImageAs()
@@ -305,6 +344,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun storeStateVariables() {
         config.apply {
             mStoredReplaceZoomableImages = replaceZoomableImages
+            mStoredBottomActions = bottomActions
         }
     }
 
@@ -711,6 +751,52 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         return (floatD + floatM / 60 + floatS / 3600).toFloat()
     }
 
+    private fun initBottomActionsLayout() {
+        bottom_actions.layoutParams.height = resources.getDimension(R.dimen.bottom_actions_height).toInt() + navigationBarHeight
+        if (config.bottomActions) {
+            bottom_actions.beVisible()
+        } else {
+            bottom_actions.beGone()
+        }
+    }
+
+    private fun initBottomActionButtons() {
+        bottom_favorite.setOnClickListener {
+            toggleFavorite()
+        }
+
+        bottom_edit.setOnClickListener {
+            openEditor(getCurrentPath())
+        }
+
+        bottom_share.setOnClickListener {
+            shareMedium(getCurrentMedium()!!)
+        }
+
+        bottom_delete.setOnClickListener {
+            checkDeleteConfirmation()
+        }
+    }
+
+    private fun updateFavoriteIcon(medium: Medium) {
+        val icon = if (medium.isFavorite) R.drawable.ic_star_on else R.drawable.ic_star_off
+        bottom_favorite.setImageResource(icon)
+    }
+
+    private fun toggleFavorite() {
+        val medium = getCurrentMedium() ?: return
+        medium.isFavorite = !medium.isFavorite
+        Thread {
+            galleryDB.MediumDao().updateFavorite(medium.path, medium.isFavorite)
+            if (medium.isFavorite) {
+                mFavoritePaths.add(medium.path)
+            } else {
+                mFavoritePaths.remove(medium.path)
+            }
+            invalidateOptionsMenu()
+        }.start()
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
         if (requestCode == REQUEST_EDIT_IMAGE) {
             if (resultCode == Activity.RESULT_OK && resultData != null) {
@@ -776,6 +862,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun onConfigurationChanged(newConfig: Configuration?) {
         super.onConfigurationChanged(newConfig)
         measureScreen()
+        initBottomActionsLayout()
     }
 
     private fun measureScreen() {
@@ -920,7 +1007,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             mPos = position
             updateActionbarTitle()
             mRotationDegrees = 0
-            supportInvalidateOptionsMenu()
+            invalidateOptionsMenu()
             scheduleSwipe()
         }
     }

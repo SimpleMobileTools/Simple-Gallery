@@ -30,6 +30,7 @@
     <string name="images">图片</string>
     <string name="videos">视频</string>
     <string name="gifs">GIFs</string>
+    <string name="raw_images">RAW images</string>
     <string name="no_media_with_filters">所选的过滤器没有找到媒体文件。</string>
     <string name="change_filters_underlined"><u>更改过滤器</u></string>
 
@@ -147,6 +148,7 @@
     <string name="replace_zoomable_images">用质量更好的图像替换可深度缩放的图像</string>
     <string name="hide_extended_details">当状态栏隐藏时隐藏扩展详情</string>
     <string name="do_extra_check">额外检查以避免显示无效的文件</string>
+    <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">缩略图</string>

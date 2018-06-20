@@ -116,7 +116,7 @@ class PhotoFragment : ViewPagerFragment() {
 
         isFullscreen = activity!!.window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN == View.SYSTEM_UI_FLAG_FULLSCREEN
         loadImage()
-        checkExtendedDetails()
+        initExtendedDetails()
         wasInit = true
 
         return view
@@ -130,7 +130,7 @@ class PhotoFragment : ViewPagerFragment() {
     override fun onResume() {
         super.onResume()
         if (wasInit && (context!!.config.showExtendedDetails != storedShowExtendedDetails || context!!.config.extendedDetails != storedExtendedDetails)) {
-            checkExtendedDetails()
+            initExtendedDetails()
         }
 
         val allowPhotoGestures = context!!.config.allowPhotoGestures
@@ -287,7 +287,7 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun addZoomableView() {
-        if (!context!!.config.replaceZoomableImages && medium.isImage() && isFragmentVisible && view.subsampling_view.isGone() && !medium.isDng()) {
+        if (!context!!.config.replaceZoomableImages && medium.isImage() && isFragmentVisible && view.subsampling_view.isGone()) {
             ViewPagerActivity.wasDecodedByGlide = false
             view.subsampling_view.apply {
                 maxScale = 10f
@@ -376,16 +376,19 @@ class PhotoFragment : ViewPagerFragment() {
         loadBitmap(degrees)
     }
 
-    private fun checkExtendedDetails() {
+    private fun initExtendedDetails() {
         if (context!!.config.showExtendedDetails) {
             view.photo_details.apply {
+                beInvisible()   // make it invisible so we can measure it, but not show yet
                 text = getMediumExtendedDetails(medium)
-                setTextColor(context.config.textColor)
-                beVisibleIf(text.isNotEmpty())
-                alpha = if (!context!!.config.hideExtendedDetails || !isFullscreen) 1f else 0f
                 onGlobalLayout {
-                    if (height != 0 && isAdded) {
-                        y = getExtendedDetailsY(height)
+                    if (isAdded) {
+                        val realY = getExtendedDetailsY(height)
+                        if (realY > 0) {
+                            y = realY
+                            beVisibleIf(text.isNotEmpty())
+                            alpha = if (!context!!.config.hideExtendedDetails || !isFullscreen) 1f else 0f
+                        }
                     }
                 }
             }
@@ -405,7 +408,7 @@ class PhotoFragment : ViewPagerFragment() {
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         loadImage()
-        checkExtendedDetails()
+        initExtendedDetails()
     }
 
     private fun photoClicked() {
@@ -415,7 +418,7 @@ class PhotoFragment : ViewPagerFragment() {
     override fun fullscreenToggled(isFullscreen: Boolean) {
         this.isFullscreen = isFullscreen
         view.photo_details.apply {
-            if (storedShowExtendedDetails) {
+            if (storedShowExtendedDetails && isVisible()) {
                 animate().y(getExtendedDetailsY(height))
 
                 if (storedHideExtendedDetails) {
@@ -428,6 +431,7 @@ class PhotoFragment : ViewPagerFragment() {
     private fun getExtendedDetailsY(height: Int): Float {
         val smallMargin = resources.getDimension(R.dimen.small_margin)
         val fullscreenOffset = context!!.navigationBarHeight.toFloat() - smallMargin
-        return context!!.usableScreenSize.y - height + if (isFullscreen) fullscreenOffset else -(if (context!!.navigationBarHeight == 0) smallMargin else 0f)
+        val actionsHeight = if (context!!.config.bottomActions && !isFullscreen) resources.getDimension(R.dimen.bottom_actions_height) else 0f
+        return context!!.usableScreenSize.y - height - actionsHeight + if (isFullscreen) fullscreenOffset else -smallMargin
     }
 }

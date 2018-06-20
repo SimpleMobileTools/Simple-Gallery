@@ -37,6 +37,7 @@ import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.*
+import java.util.*
 
 class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private val PICK_MEDIA = 2
@@ -55,6 +56,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private var mIsGettingDirs = false
     private var mLoadedInitialPhotos = false
     private var mIsPasswordProtectionPending = false
+    private var mWasProtectionHandled = false
     private var mLatestMediaId = 0L
     private var mLatestMediaDateId = 0L
     private var mLastMediaHandler = Handler()
@@ -74,6 +76,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         setContentView(R.layout.activity_main)
         appLaunched(BuildConfig.APPLICATION_ID)
 
+        config.temporarilyShowHidden = false
+        config.tempSkipDeleteConfirmation = false
         mIsPickImageIntent = isPickImageIntent(intent)
         mIsPickVideoIntent = isPickVideoIntent(intent)
         mIsGetImageContentIntent = isGetImageContentIntent(intent)
@@ -152,8 +156,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         directories_empty_text_label.setTextColor(config.textColor)
         directories_empty_text.setTextColor(getAdjustedPrimaryColor())
 
-        if (mIsPasswordProtectionPending) {
+        if (mIsPasswordProtectionPending && !mWasProtectionHandled) {
             handleAppPasswordProtection {
+                mWasProtectionHandled = it
                 if (it) {
                     mIsPasswordProtectionPending = false
                     tryLoadGallery()
@@ -176,9 +181,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     override fun onStop() {
         super.onStop()
-        if (config.temporarilyShowHidden) {
+        if (config.temporarilyShowHidden || config.tempSkipDeleteConfirmation) {
             mTempShowHiddenHandler.postDelayed({
                 config.temporarilyShowHidden = false
+                config.tempSkipDeleteConfirmation = false
             }, SHOW_TEMP_HIDDEN_DURATION)
         } else {
             mTempShowHiddenHandler.removeCallbacksAndMessages(null)
@@ -226,6 +232,16 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             else -> return super.onOptionsItemSelected(item)
         }
         return true
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putBoolean(WAS_PROTECTION_HANDLED, mWasProtectionHandled)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        mWasProtectionHandled = savedInstanceState.getBoolean(WAS_PROTECTION_HANDLED, false)
     }
 
     private fun getRecyclerAdapter() = directories_grid.adapter as? DirectoryAdapter
@@ -593,42 +609,46 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             val mediumDao = galleryDB.MediumDao()
             val directoryDao = galleryDB.DirectoryDao()
             val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0
+            val favoritePaths = getFavoritePaths()
 
-            for (directory in dirs) {
-                val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken)
-                val newDir = if (curMedia.isEmpty()) {
-                    directory
-                } else {
-                    createDirectoryFromMedia(directory.path, curMedia, albumCovers, hiddenString, includedFolders, isSortingAscending)
-                }
+            try {
+                for (directory in dirs) {
+                    val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, favoritePaths)
+                    val newDir = if (curMedia.isEmpty()) {
+                        directory
+                    } else {
+                        createDirectoryFromMedia(directory.path, curMedia, albumCovers, hiddenString, includedFolders, isSortingAscending)
+                    }
 
-                // we are looping through the already displayed folders looking for changes, do not do anything if nothing changed
-                if (directory == newDir) {
-                    continue
-                }
+                    // we are looping through the already displayed folders looking for changes, do not do anything if nothing changed
+                    if (directory == newDir) {
+                        continue
+                    }
 
-                directory.apply {
-                    tmb = newDir.tmb
-                    name = newDir.name
-                    mediaCnt = newDir.mediaCnt
-                    modified = newDir.modified
-                    taken = newDir.taken
-                    this@apply.size = newDir.size
-                    types = newDir.types
-                }
+                    directory.apply {
+                        tmb = newDir.tmb
+                        name = newDir.name
+                        mediaCnt = newDir.mediaCnt
+                        modified = newDir.modified
+                        taken = newDir.taken
+                        this@apply.size = newDir.size
+                        types = newDir.types
+                    }
 
-                showSortedDirs(dirs)
+                    showSortedDirs(dirs)
 
-                // update directories and media files in the local db, delete invalid items
-                updateDBDirectory(directory)
-                mediumDao.insertAll(curMedia)
-                getCachedMedia(directory.path, getVideosOnly, getImagesOnly) {
-                    it.forEach {
-                        if (!curMedia.contains(it)) {
-                            mediumDao.deleteMediumPath(it.path)
+                    // update directories and media files in the local db, delete invalid items
+                    updateDBDirectory(directory)
+                    mediumDao.insertAll(curMedia)
+                    getCachedMedia(directory.path, getVideosOnly, getImagesOnly) {
+                        it.forEach {
+                            if (!curMedia.contains(it)) {
+                                mediumDao.deleteMediumPath(it.path)
+                            }
                         }
                     }
                 }
+            } catch (ignored: ConcurrentModificationException) {
             }
 
             val foldersToScan = mediaFetcher.getFoldersToScan()
@@ -638,7 +658,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
             // check the remaining folders which were not cached at all yet
             for (folder in foldersToScan) {
-                val newMedia = mediaFetcher.getFilesFrom(folder, getImagesOnly, getVideosOnly, getProperDateTaken)
+                val newMedia = mediaFetcher.getFilesFrom(folder, getImagesOnly, getVideosOnly, getProperDateTaken, favoritePaths)
                 if (newMedia.isEmpty()) {
                     continue
                 }
@@ -875,6 +895,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             add(Release(163, R.string.release_163))
             add(Release(177, R.string.release_177))
             add(Release(178, R.string.release_178))
+            add(Release(180, R.string.release_180))
             checkWhatsNew(this, BuildConfig.VERSION_CODE)
         }
     }

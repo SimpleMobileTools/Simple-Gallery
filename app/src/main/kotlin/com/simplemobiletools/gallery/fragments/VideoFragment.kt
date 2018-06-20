@@ -53,6 +53,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
 
     private var mStoredShowExtendedDetails = false
     private var mStoredHideExtendedDetails = false
+    private var mStoredBottomActions = true
     private var mStoredExtendedDetails = 0
 
     private lateinit var brightnessSideScroll: MediaSideScroll
@@ -76,6 +77,8 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         }
 
         mIsFullscreen = activity!!.window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN == View.SYSTEM_UI_FLAG_FULLSCREEN
+        mView!!.video_play_outline.alpha = if (mIsFullscreen) 0f else 1f
+
         setupPlayer()
         if (savedInstanceState != null) {
             mCurrTime = savedInstanceState.getInt(PROGRESS)
@@ -118,6 +121,11 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         if (context!!.config.showExtendedDetails != mStoredShowExtendedDetails || context!!.config.extendedDetails != mStoredExtendedDetails) {
             checkExtendedDetails()
         }
+
+        if (context!!.config.bottomActions != mStoredBottomActions) {
+            initTimeHolder()
+        }
+
         storeStateVariables()
     }
 
@@ -139,6 +147,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
             mStoredShowExtendedDetails = showExtendedDetails
             mStoredHideExtendedDetails = hideExtendedDetails
             mStoredExtendedDetails = extendedDetails
+            mStoredBottomActions = bottomActions
         }
     }
 
@@ -199,8 +208,13 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 right += context!!.navigationBarWidth
                 bottom += context!!.navigationBarHeight
             }
-            mTimeHolder!!.setPadding(left, top, right, bottom)
         }
+
+        if (context!!.config.bottomActions) {
+            bottom += resources.getDimension(R.dimen.bottom_actions_height).toInt()
+        }
+
+        mTimeHolder!!.setPadding(left, top, right, bottom)
 
         mCurrTimeView = mView!!.video_curr_time
         mSeekBar = mView!!.video_seekbar
@@ -302,7 +316,8 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         } else {
             mPlayOnPrepare = true
         }
-        mView!!.video_play_outline.setImageDrawable(null)
+
+        mView!!.video_play_outline.setImageDrawable(resources.getDrawable(R.drawable.img_pause_outline_big))
         activity!!.window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
@@ -462,13 +477,16 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
     private fun checkExtendedDetails() {
         if (context!!.config.showExtendedDetails) {
             mView!!.video_details.apply {
+                beInvisible()   // make it invisible so we can measure it, but not show yet
                 text = getMediumExtendedDetails(medium)
-                setTextColor(context.config.textColor)
-                beVisibleIf(text.isNotEmpty())
-                alpha = if (!context!!.config.hideExtendedDetails || !mIsFullscreen) 1f else 0f
                 onGlobalLayout {
-                    if (height != 0 && isAdded) {
-                        y = getExtendedDetailsY(height)
+                    if (isAdded) {
+                        val realY = getExtendedDetailsY(height)
+                        if (realY > 0) {
+                            y = realY
+                            beVisibleIf(text.isNotEmpty())
+                            alpha = if (!context!!.config.hideExtendedDetails || !mIsFullscreen) 1f else 0f
+                        }
                     }
                 }
             }
@@ -522,7 +540,7 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
         mIsFullscreen = isFullscreen
         checkFullscreen()
         mView!!.video_details.apply {
-            if (mStoredShowExtendedDetails) {
+            if (mStoredShowExtendedDetails && isVisible()) {
                 animate().y(getExtendedDetailsY(height))
 
                 if (mStoredHideExtendedDetails) {
@@ -530,12 +548,14 @@ class VideoFragment : ViewPagerFragment(), SurfaceHolder.Callback, SeekBar.OnSee
                 }
             }
         }
+
+        mView!!.video_play_outline.animate().alpha(if (isFullscreen) 0f else 1f).start()
     }
 
     private fun getExtendedDetailsY(height: Int): Float {
         val smallMargin = resources.getDimension(R.dimen.small_margin)
         val timeHolderHeight = mTimeHolder!!.height - context!!.navigationBarHeight.toFloat()
         val fullscreenOffset = context!!.navigationBarHeight.toFloat() - smallMargin
-        return context!!.usableScreenSize.y - height + if (mIsFullscreen) fullscreenOffset else -(timeHolderHeight + if (context!!.navigationBarHeight == 0) smallMargin else 0f)
+        return context!!.usableScreenSize.y - height + if (mIsFullscreen) fullscreenOffset else -(timeHolderHeight + smallMargin)
     }
 }

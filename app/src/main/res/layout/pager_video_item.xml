@@ -43,7 +43,7 @@
         android:layout_height="@dimen/play_outline_size_big"
         android:layout_centerInParent="true"
         android:background="@android:color/transparent"
-        android:padding="@dimen/activity_margin"
+        android:padding="@dimen/big_margin"
         android:src="@drawable/img_play_outline_big"/>
 
     <TextView
@@ -63,7 +63,7 @@
         android:textColor="@android:color/white"
         android:textSize="@dimen/extra_big_text_size"/>
 
-    <com.simplemobiletools.commons.views.MyTextView
+    <TextView
         android:id="@+id/video_details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -72,6 +72,7 @@
         android:layout_marginRight="@dimen/small_margin"
         android:background="@color/gradient_grey_start"
         android:padding="@dimen/small_margin"
+        android:textColor="@color/theme_dark_text_color"
         android:textSize="@dimen/smaller_text_size"
         android:visibility="gone"
         tools:text="My video\nAnother line"/>

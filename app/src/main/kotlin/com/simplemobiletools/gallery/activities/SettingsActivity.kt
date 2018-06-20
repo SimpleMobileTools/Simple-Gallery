@@ -51,12 +51,12 @@ class SettingsActivity : SimpleActivity() {
         setupScrollHorizontally()
         setupScreenRotation()
         setupHideSystemUI()
-        setupReplaceShare()
         setupPasswordProtection()
         setupAppPasswordProtection()
         setupDeleteEmptyFolders()
         setupAllowPhotoGestures()
         setupAllowVideoGestures()
+        setupBottomActions()
         setupShowMediaCount()
         setupKeepLastModified()
         setupShowInfoBubble()
@@ -219,14 +219,6 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupReplaceShare() {
-        settings_replace_share.isChecked = config.replaceShare
-        settings_replace_share_holder.setOnClickListener {
-            settings_replace_share.toggle()
-            config.replaceShare = settings_replace_share.isChecked
-        }
-    }
-
     private fun setupPasswordProtection() {
         settings_password_protection.isChecked = config.isPasswordProtectionOn
         settings_password_protection_holder.setOnClickListener {
@@ -292,6 +284,14 @@ class SettingsActivity : SimpleActivity() {
         settings_allow_video_gestures_holder.setOnClickListener {
             settings_allow_video_gestures.toggle()
             config.allowVideoGestures = settings_allow_video_gestures.isChecked
+        }
+    }
+
+    private fun setupBottomActions() {
+        settings_bottom_actions.isChecked = config.bottomActions
+        settings_bottom_actions_holder.setOnClickListener {
+            settings_bottom_actions.toggle()
+            config.bottomActions = settings_bottom_actions.isChecked
         }
     }
 

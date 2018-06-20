@@ -30,6 +30,7 @@
     <string name="images">Bilder</string>
     <string name="videos">Videor</string>
     <string name="gifs">GIF-bilder</string>
+    <string name="raw_images">RAW images</string>
     <string name="no_media_with_filters">Inga mediefiler hittades med valda filter.</string>
     <string name="change_filters_underlined"><u>Ändra filter</u></string>
 
@@ -81,12 +82,12 @@
     <string name="edit_with">Redigera med</string>
 
     <!-- Set wallpaper -->
-    <string name="simple_wallpaper">Bakgrundsbild</string>
-    <string name="set_as_wallpaper">Ange som bakgrundsbild</string>
-    <string name="set_as_wallpaper_failed">Det gick inte att byta bakgrundsbild</string>
-    <string name="set_as_wallpaper_with">Ange som bakgrundsbild med:</string>
-    <string name="setting_wallpaper">Inställningar för bakgrundsbild&#8230;</string>
-    <string name="wallpaper_set_successfully">Bakgrundsbilden är ändrad</string>
+    <string name="simple_wallpaper">Bakgrund</string>
+    <string name="set_as_wallpaper">Använd som bakgrund</string>
+    <string name="set_as_wallpaper_failed">Det gick inte att ställa in bakgrunden</string>
+    <string name="set_as_wallpaper_with">Ställ in som bakgrund med:</string>
+    <string name="setting_wallpaper">Ställer in bakgrunden&#8230;</string>
+    <string name="wallpaper_set_successfully">Bakgrunden har ställts in</string>
     <string name="portrait_aspect_ratio">Stående bildförhållande</string>
     <string name="landscape_aspect_ratio">Liggande bildförhållande</string>
     <string name="home_screen">Startskärm</string>
@@ -110,16 +111,16 @@
     <string name="change_view_type">Ändra vy</string>
     <string name="grid">Rutnät</string>
     <string name="list">Lista</string>
-    <string name="group_direct_subfolders">Group direct subfolders</string>
+    <string name="group_direct_subfolders">Gruppera direkta undermappar</string>
 
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Group by</string>
-    <string name="do_not_group_files">Do not group files</string>
-    <string name="by_folder">Folder</string>
-    <string name="by_last_modified">Last modified</string>
-    <string name="by_date_taken">Date taken</string>
-    <string name="by_file_type">File type</string>
-    <string name="by_extension">Extension</string>
+    <string name="group_by">Gruppera efter</string>
+    <string name="do_not_group_files">Gruppera inte filer</string>
+    <string name="by_folder">Mapp</string>
+    <string name="by_last_modified">Senast ändrad</string>
+    <string name="by_date_taken">Fotodatum</string>
+    <string name="by_file_type">Filtyp</string>
+    <string name="by_extension">Filnamnstillägg</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Spela upp videor automatiskt</string>
@@ -147,6 +148,7 @@
     <string name="replace_zoomable_images">Ersätt djupt zoombara bilder med bilder av bättre kvalitet</string>
     <string name="hide_extended_details">Dölj utökad information när statusfältet är dolt</string>
     <string name="do_extra_check">Gör en extra kontroll för att hindra ogiltiga filer från att visas</string>
+    <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatyrer</string>

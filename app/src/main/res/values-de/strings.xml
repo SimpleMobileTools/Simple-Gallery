@@ -5,7 +5,7 @@
     <string name="edit">Bearbeiten</string>
     <string name="open_camera">Kamera öffnen</string>
     <string name="hidden">(versteckt)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(ausgenohmen)</string>
     <string name="pin_folder">Ordner anheften</string>
     <string name="unpin_folder">Ordner loslösen</string>
     <string name="pin_to_the_top">Oben anheften</string>
@@ -30,6 +30,7 @@
     <string name="images">Bilder</string>
     <string name="videos">Videos</string>
     <string name="gifs">GIFs</string>
+    <string name="raw_images">RAW images</string>
     <string name="no_media_with_filters">Keine Medien für die ausgewählten Filter gefunden</string>
     <string name="change_filters_underlined"><u>Filter ändern</u></string>
 
@@ -110,15 +111,15 @@
     <string name="change_view_type">Darstellung ändern</string>
     <string name="grid">Gitter</string>
     <string name="list">Liste</string>
-    <string name="group_direct_subfolders">Group direct subfolders</string>
+    <string name="group_direct_subfolders">Direkte Unterordner gruppieren</string>
 
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Group by</string>
-    <string name="do_not_group_files">Do not group files</string>
-    <string name="by_folder">Folder</string>
-    <string name="by_last_modified">Last modified</string>
-    <string name="by_date_taken">Date taken</string>
-    <string name="by_file_type">File type</string>
+    <string name="group_by">Gruppieren bei</string>
+    <string name="do_not_group_files">Dateien nicht gruppieren</string>
+    <string name="by_folder">Ordner</string>
+    <string name="by_last_modified">Zuletzt geändert</string>
+    <string name="by_date_taken">Erstelldatum</string>
+    <string name="by_file_type">Dateitype</string>
     <string name="by_extension">Extension</string>
 
     <!-- Settings -->
@@ -147,6 +148,7 @@
     <string name="replace_zoomable_images">Stark zoombare Bilder durch Bilder mit hoher Qualität ersetzen</string>
     <string name="hide_extended_details">Erweiterte Details nicht anzeigen, wenn die Systemleiste versteckt ist</string>
     <string name="do_extra_check">Zusätzliche Überprüfung, um ungültige Dateien nicht anzuzeigen</string>
+    <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>

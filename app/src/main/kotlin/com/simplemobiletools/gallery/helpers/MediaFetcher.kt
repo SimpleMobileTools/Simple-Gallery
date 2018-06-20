@@ -16,7 +16,7 @@ import java.io.File
 class MediaFetcher(val context: Context) {
     var shouldStop = false
 
-    fun getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean, getProperDateTaken: Boolean): ArrayList<Medium> {
+    fun getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean, getProperDateTaken: Boolean, favoritePaths: ArrayList<String>): ArrayList<Medium> {
         val filterMedia = context.config.filterMedia
         if (filterMedia == 0) {
             return ArrayList()
@@ -24,10 +24,10 @@ class MediaFetcher(val context: Context) {
 
         val curMedia = ArrayList<Medium>()
         if (curPath.startsWith(OTG_PATH)) {
-            val newMedia = getMediaOnOTG(curPath, isPickImage, isPickVideo, filterMedia)
+            val newMedia = getMediaOnOTG(curPath, isPickImage, isPickVideo, filterMedia, favoritePaths)
             curMedia.addAll(newMedia)
         } else {
-            val newMedia = getMediaInFolder(curPath, isPickImage, isPickVideo, filterMedia, getProperDateTaken)
+            val newMedia = getMediaInFolder(curPath, isPickImage, isPickVideo, filterMedia, getProperDateTaken, favoritePaths)
             curMedia.addAll(newMedia)
         }
 
@@ -67,7 +67,13 @@ class MediaFetcher(val context: Context) {
         }
 
         if (filterMedia and TYPE_GIFS != 0) {
-            query.append("${MediaStore.Images.Media.DATA} LIKE ?")
+            query.append("${MediaStore.Images.Media.DATA} LIKE ? OR ")
+        }
+
+        if (filterMedia and TYPE_RAWS != 0) {
+            rawExtensions.forEach {
+                query.append("${MediaStore.Images.Media.DATA} LIKE ? OR ")
+            }
         }
 
         var selectionQuery = query.toString().trim().removeSuffix("OR")
@@ -93,10 +99,17 @@ class MediaFetcher(val context: Context) {
             args.add("%.gif")
         }
 
+        if (filterMedia and TYPE_RAWS != 0) {
+            rawExtensions.forEach {
+                args.add("%$it")
+            }
+        }
+
         return args
     }
 
     private fun parseCursor(cursor: Cursor): ArrayList<String> {
+        val foldersToIgnore = arrayListOf("/storage/emulated/legacy")
         val config = context.config
         val includedFolders = config.includedFolders
         var foldersToScan = ArrayList<String>()
@@ -106,7 +119,7 @@ class MediaFetcher(val context: Context) {
                 do {
                     val path = cursor.getStringValue(MediaStore.Images.Media.DATA).trim()
                     val parentPath = File(path).parent?.trimEnd('/') ?: continue
-                    if (!includedFolders.contains(parentPath)) {
+                    if (!includedFolders.contains(parentPath) && !foldersToIgnore.contains(parentPath.toLowerCase())) {
                         foldersToScan.add(parentPath)
                     }
                 } while (cursor.moveToNext())
@@ -143,7 +156,8 @@ class MediaFetcher(val context: Context) {
         }
     }
 
-    private fun getMediaInFolder(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int, getProperDateTaken: Boolean): ArrayList<Medium> {
+    private fun getMediaInFolder(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int, getProperDateTaken: Boolean,
+                                 favoritePaths: ArrayList<String>): ArrayList<Medium> {
         val media = ArrayList<Medium>()
         val files = File(folder).listFiles() ?: return media
         val doExtraCheck = context.config.doExtraCheck
@@ -159,8 +173,9 @@ class MediaFetcher(val context: Context) {
             val isImage = filename.isImageFast()
             val isVideo = if (isImage) false else filename.isVideoFast()
             val isGif = if (isImage || isVideo) false else filename.isGif()
+            val isRaw = if (isImage || isVideo || isGif) false else filename.isRawFast()
 
-            if (!isImage && !isVideo && !isGif)
+            if (!isImage && !isVideo && !isGif && !isRaw)
                 continue
 
             if (isVideo && (isPickImage || filterMedia and TYPE_VIDEOS == 0))
@@ -170,6 +185,9 @@ class MediaFetcher(val context: Context) {
                 continue
 
             if (isGif && filterMedia and TYPE_GIFS == 0)
+                continue
+
+            if (isRaw && filterMedia and TYPE_RAWS == 0)
                 continue
 
             if (!showHidden && filename.startsWith('.'))
@@ -189,16 +207,19 @@ class MediaFetcher(val context: Context) {
             val type = when {
                 isImage -> TYPE_IMAGES
                 isVideo -> TYPE_VIDEOS
-                else -> TYPE_GIFS
+                isGif -> TYPE_GIFS
+                else -> TYPE_RAWS
             }
 
-            val medium = Medium(null, filename, file.absolutePath, folder, lastModified, dateTaken, size, type)
+            val path = file.absolutePath
+            val isFavorite = favoritePaths.contains(path)
+            val medium = Medium(null, filename, path, folder, lastModified, dateTaken, size, type, isFavorite)
             media.add(medium)
         }
         return media
     }
 
-    private fun getMediaOnOTG(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int): ArrayList<Medium> {
+    private fun getMediaOnOTG(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int, favoritePaths: ArrayList<String>): ArrayList<Medium> {
         val media = ArrayList<Medium>()
         val files = context.getDocumentFile(folder)?.listFiles() ?: return media
         val doExtraCheck = context.config.doExtraCheck
@@ -213,8 +234,9 @@ class MediaFetcher(val context: Context) {
             val isImage = filename.isImageFast()
             val isVideo = if (isImage) false else filename.isVideoFast()
             val isGif = if (isImage || isVideo) false else filename.isGif()
+            val isRaw = if (isImage || isVideo || isGif) false else filename.isRawFast()
 
-            if (!isImage && !isVideo && !isGif)
+            if (!isImage && !isVideo && !isGif || !isRaw)
                 continue
 
             if (isVideo && (isPickImage || filterMedia and TYPE_VIDEOS == 0))
@@ -224,6 +246,9 @@ class MediaFetcher(val context: Context) {
                 continue
 
             if (isGif && filterMedia and TYPE_GIFS == 0)
+                continue
+
+            if (isRaw && filterMedia and TYPE_RAWS == 0)
                 continue
 
             if (!showHidden && filename.startsWith('.'))
@@ -239,11 +264,13 @@ class MediaFetcher(val context: Context) {
             val type = when {
                 isImage -> TYPE_IMAGES
                 isVideo -> TYPE_VIDEOS
-                else -> TYPE_GIFS
+                isGif -> TYPE_GIFS
+                else -> TYPE_RAWS
             }
 
             val path = Uri.decode(file.uri.toString().replaceFirst("${context.config.OTGTreeUri}/document/${context.config.OTGPartition}%3A", OTG_PATH))
-            val medium = Medium(null, filename, path, folder, dateModified, dateTaken, size, type)
+            val isFavorite = favoritePaths.contains(path)
+            val medium = Medium(null, filename, path, folder, dateModified, dateTaken, size, type, isFavorite)
             media.add(medium)
         }
 
@@ -262,7 +289,7 @@ class MediaFetcher(val context: Context) {
 
         val dateTakens = HashMap<String, Long>()
         val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
-        cursor.use {
+        cursor?.use {
             if (cursor.moveToFirst()) {
                 do {
                     try {

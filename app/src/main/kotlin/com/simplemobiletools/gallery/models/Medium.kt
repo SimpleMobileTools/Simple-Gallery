@@ -6,13 +6,13 @@ import android.arch.persistence.room.Index
 import android.arch.persistence.room.PrimaryKey
 import com.simplemobiletools.commons.extensions.formatDate
 import com.simplemobiletools.commons.extensions.formatSize
-import com.simplemobiletools.commons.extensions.isDng
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.commons.helpers.SORT_BY_NAME
 import com.simplemobiletools.commons.helpers.SORT_BY_PATH
 import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
 import com.simplemobiletools.gallery.helpers.TYPE_GIFS
 import com.simplemobiletools.gallery.helpers.TYPE_IMAGES
+import com.simplemobiletools.gallery.helpers.TYPE_RAWS
 import com.simplemobiletools.gallery.helpers.TYPE_VIDEOS
 import java.io.Serializable
 
@@ -25,7 +25,8 @@ data class Medium(
         @ColumnInfo(name = "last_modified") val modified: Long,
         @ColumnInfo(name = "date_taken") var taken: Long,
         @ColumnInfo(name = "size") val size: Long,
-        @ColumnInfo(name = "type") val type: Int) : Serializable {
+        @ColumnInfo(name = "type") val type: Int,
+        @ColumnInfo(name = "is_favorite") var isFavorite: Boolean) : Serializable {
 
     companion object {
         private const val serialVersionUID = -6553149366975455L
@@ -37,7 +38,7 @@ data class Medium(
 
     fun isVideo() = type == TYPE_VIDEOS
 
-    fun isDng() = path.isDng()
+    fun isRaw() = type == TYPE_RAWS
 
     fun getBubbleText(sorting: Int) = when {
         sorting and SORT_BY_NAME != 0 -> name

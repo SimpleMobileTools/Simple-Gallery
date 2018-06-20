@@ -30,6 +30,7 @@
     <string name="images">Imatges</string>
     <string name="videos">Vídeos</string>
     <string name="gifs">GIFs</string>
+    <string name="raw_images">RAW images</string>
     <string name="no_media_with_filters">No s\'han tronat arxius amb els filtres seleccionats.</string>
     <string name="change_filters_underlined"><u>Canviar filtres</u></string>
 
@@ -110,16 +111,16 @@
     <string name="change_view_type">Canviar el tipus de vista</string>
     <string name="grid">Reixeta</string>
     <string name="list">Llista</string>
-    <string name="group_direct_subfolders">Group direct subfolders</string>
+    <string name="group_direct_subfolders">Agrupar carpetes directes</string>
 
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Group by</string>
-    <string name="do_not_group_files">Do not group files</string>
-    <string name="by_folder">Folder</string>
-    <string name="by_last_modified">Last modified</string>
-    <string name="by_date_taken">Date taken</string>
-    <string name="by_file_type">File type</string>
-    <string name="by_extension">Extension</string>
+    <string name="group_by">Agrupar per</string>
+    <string name="do_not_group_files">No agrupar fitxers</string>
+    <string name="by_folder">Carpeta</string>
+    <string name="by_last_modified">Darrer modificat</string>
+    <string name="by_date_taken">Data de presa</string>
+    <string name="by_file_type">Tipus de fitxer</string>
+    <string name="by_extension">Extensió</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Reproduir vídeos automàticament</string>
@@ -147,6 +148,7 @@
     <string name="replace_zoomable_images">Substituïr imatges ampliades per les de millor quialitat</string>
     <string name="hide_extended_details">Amaga els detalls estesos quan la barra d\'estat està amagada</string>
     <string name="do_extra_check">Fer una verificació addicional per evitar que es mostrin fitxers no vàlids</string>
+    <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>

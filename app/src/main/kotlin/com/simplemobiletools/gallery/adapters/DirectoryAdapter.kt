@@ -47,12 +47,12 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
     override fun getActionMenuId() = R.menu.cab_directories
 
-    override fun prepareItemSelection(view: View) {
-        view.dir_check?.background?.applyColorFilter(primaryColor)
+    override fun prepareItemSelection(viewHolder: ViewHolder) {
+        viewHolder.itemView.dir_check?.background?.applyColorFilter(primaryColor)
     }
 
-    override fun markItemSelection(select: Boolean, view: View?) {
-        view?.dir_check?.beVisibleIf(select)
+    override fun markViewHolderSelection(select: Boolean, viewHolder: ViewHolder?) {
+        viewHolder?.itemView?.dir_check?.beVisibleIf(select)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -234,17 +234,23 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 activity.runOnUiThread {
                     affectedPositions.sortedDescending().forEach {
                         notifyItemRemoved(it)
-                        itemViews.put(it, null)
                     }
 
-                    val newItems = SparseArray<View>()
-                    (0 until itemViews.size())
-                            .filter { itemViews[it] != null }
-                            .forEachIndexed { curIndex, i -> newItems.put(curIndex, itemViews[i]) }
+                    val newViewHolders = SparseArray<ViewHolder>()
+                    val cnt = viewHolders.size()
+                    for (i in 0..cnt) {
+                        if (affectedPositions.contains(i)) {
+                            continue
+                        }
 
+                        val view = viewHolders.get(i, null)
+                        val newIndex = i - selectedPositions.count { it <= i }
+                        newViewHolders.put(newIndex, view)
+                    }
+                    viewHolders = newViewHolders
                     currentDirectoriesHash = newDirs.hashCode()
-                    itemViews = newItems
                     dirs = newDirs
+
                     finishActMode()
                     fastScroller?.measureRecyclerView()
                     listener?.updateDirectories(newDirs)
@@ -290,7 +296,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             } else {
                 File(path).listFiles()?.filter {
                     !activity.getIsPathDirectory(it.absolutePath) && it.isImageVideoGif() && (showHidden || !it.name.startsWith('.'))
-                }?.mapTo(paths, { it.absolutePath })
+                }?.mapTo(paths) { it.absolutePath }
             }
         }
 
@@ -317,8 +323,11 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         if (config.skipDeleteConfirmation) {
             deleteFiles()
         } else {
-            val items = resources.getQuantityString(R.plurals.delete_items, selectedPositions.size, selectedPositions.size)
-            val question = String.format(resources.getString(R.string.deletion_confirmation), items)
+            val itemsCnt = selectedPositions.size
+            val items = resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)
+            var question = String.format(resources.getString(R.string.deletion_confirmation), items)
+            val warning = resources.getQuantityString(R.plurals.delete_warning, itemsCnt, itemsCnt)
+            question += "\n\n$warning"
             ConfirmationDialog(activity, question) {
                 deleteFiles()
             }
@@ -435,7 +444,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             val thumbnailType = when {
                 directory.tmb.isImageFast() -> TYPE_IMAGES
                 directory.tmb.isVideoFast() -> TYPE_VIDEOS
-                else -> TYPE_GIFS
+                directory.tmb.isGif() -> TYPE_GIFS
+                else -> TYPE_RAWS
             }
 
             activity.loadImage(thumbnailType, directory.tmb, dir_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
