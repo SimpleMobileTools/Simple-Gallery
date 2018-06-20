@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 4.2.1 *(2018-06-20)*
+----------------------------
+
+ * Allow selecting Favorite items for easy access
+ * Fix sorting by Date Taken after files have been copied
+ * Couple other stability and UX improvements
+
 Version 4.2.0 *(2018-06-18)*
 ----------------------------
 
