@@ -6,10 +6,7 @@ import android.net.Uri
 import android.provider.MediaStore
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
-import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.extensions.getDistinctPath
-import com.simplemobiletools.gallery.extensions.getOTGFolderChildren
-import com.simplemobiletools.gallery.extensions.shouldFolderBeVisible
+import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 
@@ -162,6 +159,7 @@ class MediaFetcher(val context: Context) {
         val doExtraCheck = context.config.doExtraCheck
         val showHidden = context.config.shouldShowHidden
         val dateTakens = if (getProperDateTaken) getFolderDateTakens(folder) else HashMap()
+        val favoritePaths = context.galleryDB.MediumDao().getFavorites()
 
         for (file in files) {
             if (shouldStop) {
@@ -210,7 +208,9 @@ class MediaFetcher(val context: Context) {
                 else -> TYPE_RAWS
             }
 
-            val medium = Medium(null, filename, file.absolutePath, folder, lastModified, dateTaken, size, type, false)
+            val path = file.absolutePath
+            val isFavorite = favoritePaths.contains(path)
+            val medium = Medium(null, filename, path, folder, lastModified, dateTaken, size, type, isFavorite)
             media.add(medium)
         }
         return media
@@ -221,6 +221,7 @@ class MediaFetcher(val context: Context) {
         val files = context.getDocumentFile(folder)?.listFiles() ?: return media
         val doExtraCheck = context.config.doExtraCheck
         val showHidden = context.config.shouldShowHidden
+        val favoritePaths = context.galleryDB.MediumDao().getFavorites()
 
         for (file in files) {
             if (shouldStop) {
@@ -266,7 +267,8 @@ class MediaFetcher(val context: Context) {
             }
 
             val path = Uri.decode(file.uri.toString().replaceFirst("${context.config.OTGTreeUri}/document/${context.config.OTGPartition}%3A", OTG_PATH))
-            val medium = Medium(null, filename, path, folder, dateModified, dateTaken, size, type, false)
+            val isFavorite = favoritePaths.contains(path)
+            val medium = Medium(null, filename, path, folder, dateModified, dateTaken, size, type, isFavorite)
             media.add(medium)
         }
 

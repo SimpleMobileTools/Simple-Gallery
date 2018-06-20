@@ -11,6 +11,9 @@ interface MediumDao {
     @Query("SELECT filename, full_path, parent_path, last_modified, date_taken, size, type, is_favorite FROM media WHERE parent_path = :path")
     fun getMediaFromPath(path: String): List<Medium>
 
+    @Query("SELECT full_path FROM media WHERE is_favorite = 1")
+    fun getFavorites(): List<String>
+
     @Insert(onConflict = REPLACE)
     fun insert(medium: Medium)
 
@@ -22,4 +25,7 @@ interface MediumDao {
 
     @Query("UPDATE OR REPLACE media SET filename = :newFilename, full_path = :newFullPath, parent_path = :newParentPath WHERE full_path = :oldPath")
     fun updateMedium(oldPath: String, newParentPath: String, newFilename: String, newFullPath: String)
+
+    @Query("UPDATE media SET is_favorite = :isFavorite WHERE full_path = :path")
+    fun updateFavorite(path: String, isFavorite: Boolean)
 }

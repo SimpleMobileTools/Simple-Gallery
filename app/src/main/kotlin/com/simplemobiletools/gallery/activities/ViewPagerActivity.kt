@@ -72,6 +72,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mStoredReplaceZoomableImages = false
     private var mStoredBottomActions = true
     private var mMediaFiles = ArrayList<Medium>()
+    private var mFavoritePaths = ArrayList<String>()
 
     companion object {
         var screenWidth = 0
@@ -95,6 +96,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         storeStateVariables()
         initBottomActions()
+        initFavorites()
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -259,6 +261,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         initBottomActionButtons()
     }
 
+    private fun initFavorites() {
+        Thread {
+            mFavoritePaths = galleryDB.MediumDao().getFavorites() as ArrayList<String>
+        }.start()
+    }
+
     private fun setupRotation() {
         if (mIsOrientationLocked) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
@@ -274,6 +282,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_viewpager, menu)
         val currentMedium = getCurrentMedium() ?: return true
+        currentMedium.isFavorite = mFavoritePaths.contains(currentMedium.path)
 
         menu.apply {
             findItem(R.id.menu_delete).isVisible = !config.bottomActions
@@ -775,8 +784,17 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun toggleFavorite() {
-        getCurrentMedium()!!.isFavorite = !getCurrentMedium()!!.isFavorite
-        invalidateOptionsMenu()
+        val medium = getCurrentMedium() ?: return
+        medium.isFavorite = !medium.isFavorite
+        Thread {
+            galleryDB.MediumDao().updateFavorite(medium.path, medium.isFavorite)
+            if (medium.isFavorite) {
+                mFavoritePaths.add(medium.path)
+            } else {
+                mFavoritePaths.remove(medium.path)
+            }
+            invalidateOptionsMenu()
+        }.start()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
