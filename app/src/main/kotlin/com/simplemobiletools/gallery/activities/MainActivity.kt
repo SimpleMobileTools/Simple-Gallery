@@ -609,10 +609,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             val mediumDao = galleryDB.MediumDao()
             val directoryDao = galleryDB.DirectoryDao()
             val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0
+            val favoritePaths = getFavoritePaths()
 
             try {
                 for (directory in dirs) {
-                    val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken)
+                    val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, favoritePaths)
                     val newDir = if (curMedia.isEmpty()) {
                         directory
                     } else {
@@ -657,7 +658,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
             // check the remaining folders which were not cached at all yet
             for (folder in foldersToScan) {
-                val newMedia = mediaFetcher.getFilesFrom(folder, getImagesOnly, getVideosOnly, getProperDateTaken)
+                val newMedia = mediaFetcher.getFilesFrom(folder, getImagesOnly, getVideosOnly, getProperDateTaken, favoritePaths)
                 if (newMedia.isEmpty()) {
                     continue
                 }

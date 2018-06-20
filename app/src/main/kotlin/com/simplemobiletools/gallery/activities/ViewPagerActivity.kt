@@ -263,7 +263,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun initFavorites() {
         Thread {
-            mFavoritePaths = galleryDB.MediumDao().getFavorites() as ArrayList<String>
+            mFavoritePaths = getFavoritePaths()
         }.start()
     }
 

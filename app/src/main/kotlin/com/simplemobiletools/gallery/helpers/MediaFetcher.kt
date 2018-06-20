@@ -6,14 +6,17 @@ import android.net.Uri
 import android.provider.MediaStore
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
-import com.simplemobiletools.gallery.extensions.*
+import com.simplemobiletools.gallery.extensions.config
+import com.simplemobiletools.gallery.extensions.getDistinctPath
+import com.simplemobiletools.gallery.extensions.getOTGFolderChildren
+import com.simplemobiletools.gallery.extensions.shouldFolderBeVisible
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 
 class MediaFetcher(val context: Context) {
     var shouldStop = false
 
-    fun getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean, getProperDateTaken: Boolean): ArrayList<Medium> {
+    fun getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean, getProperDateTaken: Boolean, favoritePaths: ArrayList<String>): ArrayList<Medium> {
         val filterMedia = context.config.filterMedia
         if (filterMedia == 0) {
             return ArrayList()
@@ -21,10 +24,10 @@ class MediaFetcher(val context: Context) {
 
         val curMedia = ArrayList<Medium>()
         if (curPath.startsWith(OTG_PATH)) {
-            val newMedia = getMediaOnOTG(curPath, isPickImage, isPickVideo, filterMedia)
+            val newMedia = getMediaOnOTG(curPath, isPickImage, isPickVideo, filterMedia, favoritePaths)
             curMedia.addAll(newMedia)
         } else {
-            val newMedia = getMediaInFolder(curPath, isPickImage, isPickVideo, filterMedia, getProperDateTaken)
+            val newMedia = getMediaInFolder(curPath, isPickImage, isPickVideo, filterMedia, getProperDateTaken, favoritePaths)
             curMedia.addAll(newMedia)
         }
 
@@ -153,13 +156,13 @@ class MediaFetcher(val context: Context) {
         }
     }
 
-    private fun getMediaInFolder(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int, getProperDateTaken: Boolean): ArrayList<Medium> {
+    private fun getMediaInFolder(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int, getProperDateTaken: Boolean,
+                                 favoritePaths: ArrayList<String>): ArrayList<Medium> {
         val media = ArrayList<Medium>()
         val files = File(folder).listFiles() ?: return media
         val doExtraCheck = context.config.doExtraCheck
         val showHidden = context.config.shouldShowHidden
         val dateTakens = if (getProperDateTaken) getFolderDateTakens(folder) else HashMap()
-        val favoritePaths = context.galleryDB.MediumDao().getFavorites()
 
         for (file in files) {
             if (shouldStop) {
@@ -216,12 +219,11 @@ class MediaFetcher(val context: Context) {
         return media
     }
 
-    private fun getMediaOnOTG(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int): ArrayList<Medium> {
+    private fun getMediaOnOTG(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int, favoritePaths: ArrayList<String>): ArrayList<Medium> {
         val media = ArrayList<Medium>()
         val files = context.getDocumentFile(folder)?.listFiles() ?: return media
         val doExtraCheck = context.config.doExtraCheck
         val showHidden = context.config.shouldShowHidden
-        val favoritePaths = context.galleryDB.MediumDao().getFavorites()
 
         for (file in files) {
             if (shouldStop) {

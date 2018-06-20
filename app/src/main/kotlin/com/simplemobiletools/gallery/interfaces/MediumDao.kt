@@ -12,7 +12,7 @@ interface MediumDao {
     fun getMediaFromPath(path: String): List<Medium>
 
     @Query("SELECT full_path FROM media WHERE is_favorite = 1")
-    fun getFavorites(): List<String>
+    fun getFavoritePaths(): List<String>
 
     @Insert(onConflict = REPLACE)
     fun insert(medium: Medium)
