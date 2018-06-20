@@ -322,4 +322,8 @@ class Config(context: Context) : BaseConfig(context) {
     var tempSkipDeleteConfirmation: Boolean
         get() = prefs.getBoolean(TEMP_SKIP_DELETE_CONFIRMATION, false)
         set(tempSkipDeleteConfirmation) = prefs.edit().putBoolean(TEMP_SKIP_DELETE_CONFIRMATION, tempSkipDeleteConfirmation).apply()
+
+    var wereFavoritesPinned: Boolean
+        get() = prefs.getBoolean(WERE_FAVORITES_PINNED, false)
+        set(wereFavoritesPinned) = prefs.edit().putBoolean(WERE_FAVORITES_PINNED, wereFavoritesPinned).apply()
 }

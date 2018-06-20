@@ -109,6 +109,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         if (!config.wasOTGHandled && hasPermission(PERMISSION_WRITE_STORAGE)) {
             checkOTGInclusion()
         }
+
+        if (!config.wereFavoritesPinned) {
+            config.addPinnedFolders(hashSetOf(FAVORITES))
+            config.wereFavoritesPinned = true
+        }
     }
 
     override fun onStart() {
