@@ -199,11 +199,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         if (!getDoesFilePathExist(mPath)) {
-            Thread {
-                if (!getIsPathDirectory(mPath)) {
-                    scanPathRecursively(mPath)
-                }
-            }.start()
             finish()
             return
         }
