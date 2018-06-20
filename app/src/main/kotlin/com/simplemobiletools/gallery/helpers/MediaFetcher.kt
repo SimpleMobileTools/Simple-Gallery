@@ -159,7 +159,13 @@ class MediaFetcher(val context: Context) {
     private fun getMediaInFolder(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int, getProperDateTaken: Boolean,
                                  favoritePaths: ArrayList<String>): ArrayList<Medium> {
         val media = ArrayList<Medium>()
-        val files = File(folder).listFiles() ?: return media
+
+        val files = if (folder == FAVORITES) {
+            favoritePaths.map { File(it) }.toTypedArray()
+        } else {
+            File(folder).listFiles() ?: return media
+        }
+
         val doExtraCheck = context.config.doExtraCheck
         val showHidden = context.config.shouldShowHidden
         val dateTakens = if (getProperDateTaken) getFolderDateTakens(folder) else HashMap()
@@ -213,7 +219,7 @@ class MediaFetcher(val context: Context) {
 
             val path = file.absolutePath
             val isFavorite = favoritePaths.contains(path)
-            val medium = Medium(null, filename, path, folder, lastModified, dateTaken, size, type, isFavorite)
+            val medium = Medium(null, filename, path, file.parent, lastModified, dateTaken, size, type, isFavorite)
             media.add(medium)
         }
         return media

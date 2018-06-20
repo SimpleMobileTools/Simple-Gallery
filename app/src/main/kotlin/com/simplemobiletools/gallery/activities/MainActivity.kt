@@ -618,10 +618,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
             try {
                 for (directory in dirs) {
-                    if (directory.areFavorites()) {
-                        continue
-                    }
-
                     val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, favoritePaths)
                     val newDir = if (curMedia.isEmpty()) {
                         directory
@@ -661,28 +657,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             }
 
             val foldersToScan = mediaFetcher.getFoldersToScan()
+            foldersToScan.add(FAVORITES)
             dirs.forEach {
                 foldersToScan.remove(it.path)
-            }
-
-            val favoriteMedia = mediumDao.getFavorites() as ArrayList<Medium>
-            if (favoriteMedia.isNotEmpty()) {
-                // avoid adding Favorites twice
-                val currentFavoriteDir = dirs.firstOrNull { it.areFavorites() }
-                if (currentFavoriteDir != null) {
-                    dirs.remove(currentFavoriteDir)
-                }
-                val favorites = createDirectoryFromMedia(FAVORITES, favoriteMedia, albumCovers, hiddenString, includedFolders, isSortingAscending)
-                dirs.add(favorites)
-                showSortedDirs(dirs)
-                directoryDao.insert(favorites)
-            } else if (dirs.any { it.areFavorites() }) {
-                val currentFavoriteDir = dirs.firstOrNull { it.areFavorites() }
-                if (currentFavoriteDir != null) {
-                    dirs.remove(currentFavoriteDir)
-                    showSortedDirs(dirs)
-                    directoryDao.deleteDirPath(FAVORITES)
-                }
             }
 
             // check the remaining folders which were not cached at all yet
@@ -815,6 +792,13 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 if (!hasMediaFile) {
                     invalidDirs.add(it)
                 }
+            }
+        }
+
+        if (getFavoritePaths().isEmpty()) {
+            val dirsFolder = dirs.firstOrNull { it.areFavorites() }
+            if (dirsFolder != null) {
+                invalidDirs.add(dirsFolder)
             }
         }
 
