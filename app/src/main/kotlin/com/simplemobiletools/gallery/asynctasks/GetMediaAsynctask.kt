@@ -31,7 +31,9 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickImage
             media
         } else {
             if (mPath == FAVORITES) {
-                context.galleryDB.MediumDao().getFavorites() as ArrayList<Medium>
+                val media = context.galleryDB.MediumDao().getFavorites() as ArrayList<Medium>
+                mediaFetcher.sortMedia(media, context.config.getFileSorting(mPath))
+                media
             } else {
                 mediaFetcher.getFilesFrom(mPath, isPickImage, isPickVideo, getProperDateTaken, favoritePaths)
             }
