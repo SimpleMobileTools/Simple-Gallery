@@ -662,6 +662,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
             val favoriteMedia = mediumDao.getFavorites() as ArrayList<Medium>
             if (favoriteMedia.isNotEmpty()) {
+                // avoid adding Favorites twice
+                val currentFavoriteDir = dirs.firstOrNull { it.areFavorites() }
+                if (currentFavoriteDir != null) {
+                    dirs.remove(currentFavoriteDir)
+                }
                 val favorites = createDirectoryFromMedia(FAVORITES, favoriteMedia, albumCovers, hiddenString, includedFolders, isSortingAscending)
                 dirs.add(favorites)
                 showSortedDirs(dirs)
