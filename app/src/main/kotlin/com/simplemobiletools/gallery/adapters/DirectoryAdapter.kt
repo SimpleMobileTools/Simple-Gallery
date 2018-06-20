@@ -409,7 +409,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     fun updateDirs(newDirs: ArrayList<Directory>) {
         if (newDirs.hashCode() != currentDirectoriesHash) {
             currentDirectoriesHash = newDirs.hashCode()
-            dirs = newDirs.clone() as ArrayList<Directory>
+            dirs = newDirs
             notifyDataSetChanged()
             finishActMode()
             fastScroller?.measureRecyclerView()

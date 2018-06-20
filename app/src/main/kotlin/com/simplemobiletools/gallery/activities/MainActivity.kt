@@ -757,10 +757,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun setupAdapter(dirs: ArrayList<Directory>) {
         val currAdapter = directories_grid.adapter
+        val directories = dirs.clone() as ArrayList<Directory>
         if (currAdapter == null) {
             initZoomListener()
             val fastscroller = if (config.scrollHorizontally) directories_horizontal_fastscroller else directories_vertical_fastscroller
-            DirectoryAdapter(this, dirs, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent), fastscroller) {
+            DirectoryAdapter(this, directories, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent), fastscroller) {
                 val path = (it as Directory).path
                 if (path != config.tempFolderPath) {
                     itemClicked(path)
@@ -770,7 +771,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 directories_grid.adapter = this
             }
         } else {
-            (currAdapter as DirectoryAdapter).updateDirs(dirs)
+            (currAdapter as DirectoryAdapter).updateDirs(directories)
         }
 
         setupScrollDirection()
