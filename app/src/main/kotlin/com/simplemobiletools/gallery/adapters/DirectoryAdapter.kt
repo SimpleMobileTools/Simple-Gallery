@@ -144,11 +144,12 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
     private fun showProperties() {
         if (selectedPositions.size <= 1) {
-            PropertiesDialog(activity, dirs[selectedPositions.first()].path, config.shouldShowHidden)
+            val path = dirs[selectedPositions.first()].path
+            if (path != FAVORITES) {
+                PropertiesDialog(activity, dirs[selectedPositions.first()].path, config.shouldShowHidden)
+            }
         } else {
-            val paths = ArrayList<String>()
-            selectedPositions.forEach { paths.add(dirs[it].path) }
-            PropertiesDialog(activity, paths, config.shouldShowHidden)
+            PropertiesDialog(activity, getSelectedPaths().filter { it != FAVORITES }.toList(), config.shouldShowHidden)
         }
     }
 
@@ -178,7 +179,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     }
 
     private fun toggleFoldersVisibility(hide: Boolean) {
-        getSelectedPaths().forEach {
+        getSelectedPaths().filter { it != FAVORITES }.forEach {
             val path = it
             if (hide) {
                 if (config.wasHideFolderTooltipShown) {
@@ -260,13 +261,13 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     }
 
     private fun tryExcludeFolder() {
-        val paths = getSelectedPaths()
+        val paths = getSelectedPaths().filter { it != PATH }.toSet()
         if (paths.size == 1) {
             ExcludeFolderDialog(activity, paths.toList()) {
                 listener?.refreshItems()
                 finishActMode()
             }
-        } else {
+        } else if (paths.size > 1) {
             activity.config.addExcludedFolders(paths)
             listener?.refreshItems()
             finishActMode()
@@ -293,7 +294,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             val path = dirs[it].path
             if (path.startsWith(OTG_PATH)) {
                 paths.addAll(getOTGFilePaths(path, showHidden))
-            } else {
+            } else if (path != FAVORITES) {
                 File(path).listFiles()?.filter {
                     !activity.getIsPathDirectory(it.absolutePath) && it.isImageVideoGif() && (showHidden || !it.name.startsWith('.'))
                 }?.mapTo(paths) { it.absolutePath }
@@ -355,8 +356,16 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         activity.handleSAFDialog(SAFPath) {
             selectedPositions.sortedDescending().forEach {
                 val directory = dirs[it]
-                folders.add(File(directory.path))
-                removeFolders.add(directory)
+                if (directory.areFavorites()) {
+                    if (selectedPositions.size == 1) {
+                        finishActMode()
+                    } else {
+                        selectedPositions.remove(it)
+                    }
+                } else {
+                    folders.add(File(directory.path))
+                    removeFolders.add(directory)
+                }
             }
 
             dirs.removeAll(removeFolders)
