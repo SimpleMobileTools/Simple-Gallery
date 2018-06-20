@@ -2,6 +2,7 @@
 <resources>
 
     <!-- Release notes -->
+    <string name="release_181">Allow selecting Favorite items for easy access</string>
     <string name="release_180">Allow filtering out RAW images separately</string>
     <string name="release_178">Added sorting by Date Taken</string>
     <string name="release_177">Allow customizing the app launcher icon color</string>
