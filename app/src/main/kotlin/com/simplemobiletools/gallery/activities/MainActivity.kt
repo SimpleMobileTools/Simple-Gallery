@@ -661,11 +661,18 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             }
 
             val favoriteMedia = mediumDao.getFavorites() as ArrayList<Medium>
-            if (favoriteMedia.isNotEmpty() && dirs.none { it.areFavorites() }) {
+            if (favoriteMedia.isNotEmpty()) {
                 val favorites = createDirectoryFromMedia(FAVORITES, favoriteMedia, albumCovers, hiddenString, includedFolders, isSortingAscending)
                 dirs.add(favorites)
                 showSortedDirs(dirs)
                 directoryDao.insert(favorites)
+            } else if (dirs.any { it.areFavorites() }) {
+                val currentFavoriteDir = dirs.firstOrNull { it.areFavorites() }
+                if (currentFavoriteDir != null) {
+                    dirs.remove(currentFavoriteDir)
+                    showSortedDirs(dirs)
+                    directoryDao.deleteDirPath(FAVORITES)
+                }
             }
 
             // check the remaining folders which were not cached at all yet

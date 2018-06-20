@@ -290,6 +290,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
                 val dirName = when {
+                    mPath == FAVORITES -> getString(R.string.favorites)
                     mPath == OTG_PATH -> getString(R.string.otg)
                     mPath.startsWith(OTG_PATH) -> mPath.trimEnd('/').substringAfterLast('/')
                     else -> getHumanizedFilename(mPath)
@@ -488,9 +489,11 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun isDirEmpty(): Boolean {
-        return if (mPath != FAVORITES && mMedia.size <= 0 && config.filterMedia > 0) {
-            deleteDirectoryIfEmpty()
-            deleteDBDirectory()
+        return if (mMedia.size <= 0 && config.filterMedia > 0) {
+            if (mPath != FAVORITES) {
+                deleteDirectoryIfEmpty()
+                deleteDBDirectory()
+            }
             finish()
             true
         } else {
@@ -642,6 +645,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                 Intent(this, ViewPagerActivity::class.java).apply {
                     putExtra(PATH, path)
                     putExtra(SHOW_ALL, mShowAll)
+                    putExtra(SHOW_FAVORITES, mPath == FAVORITES)
                     startActivity(this)
                 }
             }

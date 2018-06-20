@@ -320,6 +320,10 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
         val mediumDao = galleryDB.MediumDao()
         val foldersToScan = if (path == "/") MediaFetcher(this).getFoldersToScan() else arrayListOf(path)
         var media = ArrayList<Medium>()
+        if (path == FAVORITES) {
+            media.addAll(mediumDao.getFavorites())
+        }
+
         val shouldShowHidden = config.shouldShowHidden
         foldersToScan.forEach {
             try {

@@ -64,6 +64,7 @@ const val SLIDESHOW_SCROLL_DURATION = 500L
 
 const val NOMEDIA = ".nomedia"
 const val FAVORITES = "favorites"
+const val SHOW_FAVORITES = "show_favorites"
 const val MAX_COLUMN_COUNT = 20
 const val SHOW_TEMP_HIDDEN_DURATION = 300000L
 const val CLICK_MAX_DURATION = 150

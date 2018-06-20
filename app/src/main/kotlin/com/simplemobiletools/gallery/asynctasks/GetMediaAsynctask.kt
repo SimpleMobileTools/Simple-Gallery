@@ -4,7 +4,9 @@ import android.content.Context
 import android.os.AsyncTask
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_TAKEN
 import com.simplemobiletools.gallery.extensions.config
+import com.simplemobiletools.gallery.extensions.galleryDB
 import com.simplemobiletools.gallery.extensions.getFavoritePaths
+import com.simplemobiletools.gallery.helpers.FAVORITES
 import com.simplemobiletools.gallery.helpers.MediaFetcher
 import com.simplemobiletools.gallery.models.Medium
 import java.util.*
@@ -28,7 +30,11 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickImage
             MediaFetcher(context).sortMedia(media, context.config.getFileSorting(""))
             media
         } else {
-            mediaFetcher.getFilesFrom(mPath, isPickImage, isPickVideo, getProperDateTaken, favoritePaths)
+            if (mPath == FAVORITES) {
+                context.galleryDB.MediumDao().getFavorites() as ArrayList<Medium>
+            } else {
+                mediaFetcher.getFilesFrom(mPath, isPickImage, isPickVideo, getProperDateTaken, favoritePaths)
+            }
         }
     }
 
