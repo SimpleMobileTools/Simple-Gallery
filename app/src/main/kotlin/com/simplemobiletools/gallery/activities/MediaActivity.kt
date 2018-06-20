@@ -188,9 +188,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         val isFolderHidden = File(mPath).containsNoMedia()
         menu.apply {
-            findItem(R.id.hide_folder).isVisible = !isFolderHidden && !mShowAll
-            findItem(R.id.unhide_folder).isVisible = isFolderHidden && !mShowAll
-            findItem(R.id.exclude_folder).isVisible = !mShowAll
+            findItem(R.id.hide_folder).isVisible = !isFolderHidden && !mShowAll && mPath != FAVORITES
+            findItem(R.id.unhide_folder).isVisible = isFolderHidden && !mShowAll && mPath != FAVORITES
+            findItem(R.id.exclude_folder).isVisible = !mShowAll && mPath != FAVORITES
 
             findItem(R.id.folder_view).isVisible = mShowAll
             findItem(R.id.open_camera).isVisible = mShowAll
