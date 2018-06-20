@@ -488,7 +488,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun isDirEmpty(): Boolean {
-        return if (mMedia.size <= 0 && config.filterMedia > 0) {
+        return if (mPath != FAVORITES && mMedia.size <= 0 && config.filterMedia > 0) {
             deleteDirectoryIfEmpty()
             deleteDBDirectory()
             finish()

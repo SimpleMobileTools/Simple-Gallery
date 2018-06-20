@@ -613,6 +613,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
             try {
                 for (directory in dirs) {
+                    if (directory.areFavorites()) {
+                        continue
+                    }
+
                     val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, favoritePaths)
                     val newDir = if (curMedia.isEmpty()) {
                         directory
@@ -654,6 +658,14 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             val foldersToScan = mediaFetcher.getFoldersToScan()
             dirs.forEach {
                 foldersToScan.remove(it.path)
+            }
+
+            val favoriteMedia = mediumDao.getFavorites() as ArrayList<Medium>
+            if (favoriteMedia.isNotEmpty() && dirs.none { it.areFavorites() }) {
+                val favorites = createDirectoryFromMedia(FAVORITES, favoriteMedia, albumCovers, hiddenString, includedFolders, isSortingAscending)
+                dirs.add(favorites)
+                showSortedDirs(dirs)
+                directoryDao.insert(favorites)
             }
 
             // check the remaining folders which were not cached at all yet
@@ -721,7 +733,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         val mediaTypes = curMedia.getDirMediaTypes()
-        val dirName = checkAppendingHidden(path, hiddenString, includedFolders)
+        val dirName = if (path == FAVORITES) getString(R.string.favorites) else checkAppendingHidden(path, hiddenString, includedFolders)
 
         val firstItem = curMedia.first()
         val lastItem = curMedia.last()
@@ -776,7 +788,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun checkInvalidDirectories(dirs: ArrayList<Directory>, directoryDao: DirectoryDao) {
         val invalidDirs = ArrayList<Directory>()
-        dirs.forEach {
+        dirs.filter { !it.areFavorites() }.forEach {
             if (!getDoesFilePathExist(it.path)) {
                 invalidDirs.add(it)
             } else if (it.path != config.tempFolderPath) {
