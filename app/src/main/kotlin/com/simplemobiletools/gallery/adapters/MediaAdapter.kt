@@ -39,6 +39,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     private var loadImageInstantly = false
     private var delayHandler = Handler(Looper.getMainLooper())
     private var currentMediaHash = media.hashCode()
+    private var currentGrouping = GROUP_BY_NONE
     private val hasOTGConnected = activity.hasOTGConnected()
     private var mediumGroups = LinkedHashMap<String, ArrayList<Medium>>()
 
@@ -291,7 +292,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     fun updateMedia(newMedia: ArrayList<Medium>) {
-        if (newMedia.hashCode() != currentMediaHash) {
+        if (newMedia.hashCode() != currentMediaHash || currentGrouping != getCurrentFolderGrouping()) {
             currentMediaHash = newMedia.hashCode()
             Handler().postDelayed({
                 media = newMedia
@@ -333,26 +334,28 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     private fun groupMedia() {
-        val grouping = activity.config.getFolderGrouping(path)
-        if (grouping and GROUP_BY_NONE != 0) {
+        currentGrouping = getCurrentFolderGrouping()
+        if (currentGrouping and GROUP_BY_NONE != 0) {
             return
         }
 
         media.forEach {
-            val key = it.getGroupingKey(grouping)
+            val key = it.getGroupingKey(currentGrouping)
             if (!mediumGroups.containsKey(key)) {
                 mediumGroups[key] = ArrayList()
             }
             mediumGroups[key]!!.add(it)
         }
 
-        val sortDescending = grouping and GROUP_DESCENDING != 0
+        val sortDescending = currentGrouping and GROUP_DESCENDING != 0
         val sorted = mediumGroups.toSortedMap(if (sortDescending) compareByDescending { it } else compareBy { it })
         mediumGroups.clear()
         sorted.forEach { key, value ->
             mediumGroups[key] = value
         }
     }
+
+    private fun getCurrentFolderGrouping() = activity.config.getFolderGrouping(path)
 
     private fun setupView(view: View, medium: Medium) {
         view.apply {
