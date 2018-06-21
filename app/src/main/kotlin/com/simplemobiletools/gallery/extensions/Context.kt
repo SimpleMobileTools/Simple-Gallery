@@ -318,7 +318,7 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
 fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, callback: (ArrayList<Medium>) -> Unit) {
     Thread {
         val mediumDao = galleryDB.MediumDao()
-        val foldersToScan = if (path == "/") MediaFetcher(this).getFoldersToScan() else arrayListOf(path)
+        val foldersToScan = if (path.isEmpty()) MediaFetcher(this).getFoldersToScan() else arrayListOf(path)
         var media = ArrayList<Medium>()
         if (path == FAVORITES) {
             media.addAll(mediumDao.getFavorites())
