@@ -19,10 +19,11 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.DeleteWithRememberDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.GROUP_BY_NONE
+import com.simplemobiletools.gallery.helpers.GROUP_DESCENDING
 import com.simplemobiletools.gallery.helpers.VIEW_TYPE_LIST
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.photo_video_item_grid.view.*
-import java.util.HashMap
+import java.util.*
 import kotlin.collections.ArrayList
 
 class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
@@ -39,7 +40,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     private var delayHandler = Handler(Looper.getMainLooper())
     private var currentMediaHash = media.hashCode()
     private val hasOTGConnected = activity.hasOTGConnected()
-    private var mediumGroups = HashMap<String, ArrayList<Medium>>()
+    private var mediumGroups = LinkedHashMap<String, ArrayList<Medium>>()
 
     private var scrollHorizontally = config.scrollHorizontally
     private var animateGifs = config.animateGifs
@@ -343,6 +344,13 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
                 mediumGroups[key] = ArrayList()
             }
             mediumGroups[key]!!.add(it)
+        }
+
+        val sortDescending = grouping and GROUP_DESCENDING != 0
+        val sorted = mediumGroups.toSortedMap(if (sortDescending) compareByDescending { it } else compareBy { it })
+        mediumGroups.clear()
+        sorted.forEach { key, value ->
+            mediumGroups[key] = value
         }
     }
 
