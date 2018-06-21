@@ -341,7 +341,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun showAllMedia() {
         config.showAll = true
         Intent(this, MediaActivity::class.java).apply {
-            putExtra(DIRECTORY, "/")
+            putExtra(DIRECTORY, "")
 
             if (mIsThirdPartyIntent) {
                 handleMediaIntent(this)
