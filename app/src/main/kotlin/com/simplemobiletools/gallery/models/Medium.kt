@@ -13,6 +13,7 @@ import com.simplemobiletools.commons.helpers.SORT_BY_PATH
 import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
 import com.simplemobiletools.gallery.helpers.*
 import java.io.Serializable
+import java.util.*
 
 @Entity(tableName = "media", indices = [(Index(value = "full_path", unique = true))])
 data class Medium(
@@ -48,12 +49,24 @@ data class Medium(
 
     fun getGroupingKey(groupBy: Int): String {
         return when {
-            groupBy and GROUP_BY_LAST_MODIFIED != 0 -> modified.toString()
-            groupBy and GROUP_BY_DATE_TAKEN != 0 -> taken.toString()
+            groupBy and GROUP_BY_LAST_MODIFIED != 0 -> getDayStartTS(modified)
+            groupBy and GROUP_BY_DATE_TAKEN != 0 -> getDayStartTS(taken)
             groupBy and GROUP_BY_FILE_TYPE != 0 -> type.toString()
             groupBy and GROUP_BY_EXTENSION != 0 -> name.getFilenameExtension().toLowerCase()
             groupBy and GROUP_BY_FOLDER != 0 -> parentPath
             else -> ""
         }
+    }
+
+    private fun getDayStartTS(ts: Long): String {
+        val calendar = Calendar.getInstance(Locale.ENGLISH).apply {
+            timeInMillis = ts
+            set(Calendar.HOUR_OF_DAY, 0)
+            set(Calendar.MINUTE, 0)
+            set(Calendar.SECOND, 0)
+            set(Calendar.MILLISECOND, 0)
+        }
+
+        return calendar.timeInMillis.toString()
     }
 }
