@@ -36,6 +36,28 @@ class Config(context: Context) : BaseConfig(context) {
 
     fun hasCustomSorting(path: String) = prefs.contains(SORT_FOLDER_PREFIX + path.toLowerCase())
 
+    fun saveFolderGrouping(path: String, value: Int) {
+        if (path.isEmpty()) {
+            groupBy = value
+        } else {
+            prefs.edit().putInt(GROUP_FOLDER_PREFIX + path.toLowerCase(), value).apply()
+        }
+    }
+
+    fun getFolderGrouping(path: String): Int {
+        var groupBy = prefs.getInt(GROUP_FOLDER_PREFIX + path.toLowerCase(), groupBy)
+        if (path.isNotEmpty() && groupBy and GROUP_BY_FOLDER != 0) {
+            groupBy -= GROUP_BY_FOLDER + 1
+        }
+        return groupBy
+    }
+
+    fun removeFolderGrouping(path: String) {
+        prefs.edit().remove(GROUP_FOLDER_PREFIX + path.toLowerCase()).apply()
+    }
+
+    fun hasCustomGrouping(path: String) = prefs.contains(GROUP_FOLDER_PREFIX + path.toLowerCase())
+
     var wasHideFolderTooltipShown: Boolean
         get() = prefs.getBoolean(HIDE_FOLDER_TOOLTIP_SHOWN, false)
         set(wasShown) = prefs.edit().putBoolean(HIDE_FOLDER_TOOLTIP_SHOWN, wasShown).apply()

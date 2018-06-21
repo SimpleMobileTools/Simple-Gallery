@@ -33,6 +33,7 @@ import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.MediaAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
+import com.simplemobiletools.gallery.dialogs.ChangeGroupingDialog
 import com.simplemobiletools.gallery.dialogs.ChangeSortingDialog
 import com.simplemobiletools.gallery.dialogs.ExcludeFolderDialog
 import com.simplemobiletools.gallery.dialogs.FilterMediaDialog
@@ -418,23 +419,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun showGroupByDialog() {
-        val items = arrayListOf(
-                RadioItem(GROUP_BY_NONE, getString(R.string.do_not_group_files)),
-                RadioItem(GROUP_BY_LAST_MODIFIED, getString(R.string.by_last_modified)),
-                RadioItem(GROUP_BY_DATE_TAKEN, getString(R.string.by_date_taken)),
-                RadioItem(GROUP_BY_FILE_TYPE, getString(R.string.by_file_type)),
-                RadioItem(GROUP_BY_EXTENSION, getString(R.string.by_extension))
-        )
-
-        if (mShowAll) {
-            items.add(RadioItem(GROUP_BY_FOLDER, getString(R.string.by_folder)))
-        }
-
-        RadioGroupDialog(this, items, config.groupBy) {
-            config.groupBy = it as Int
-            invalidateOptionsMenu()
-            media_grid.adapter = null
-            setupAdapter()
+        ChangeGroupingDialog(this, mShowAll, mPath) {
+            mLoadedInitialPhotos = false
+            getMedia()
         }
     }
 

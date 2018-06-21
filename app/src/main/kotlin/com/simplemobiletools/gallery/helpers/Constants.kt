@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.helpers
 // shared preferences
 const val DIRECTORY_SORT_ORDER = "directory_sort_order"
 const val SORT_FOLDER_PREFIX = "sort_folder_"
+const val GROUP_FOLDER_PREFIX = "group_folder_"
 const val SHOW_HIDDEN_MEDIA = "show_hidden_media"
 const val TEMPORARILY_SHOW_HIDDEN = "temporarily_show_hidden"
 const val IS_THIRD_PARTY_INTENT = "is_third_party_intent"
@@ -114,9 +115,10 @@ const val LOCAITON_INTERNAL = 1
 const val LOCATION_SD = 2
 const val LOCATION_OTG = 3
 
-const val GROUP_BY_NONE = 0
-const val GROUP_BY_LAST_MODIFIED = 1
-const val GROUP_BY_DATE_TAKEN = 2
-const val GROUP_BY_FILE_TYPE = 3
-const val GROUP_BY_EXTENSION = 4
-const val GROUP_BY_FOLDER = 5
+const val GROUP_BY_NONE = 1
+const val GROUP_BY_LAST_MODIFIED = 2
+const val GROUP_BY_DATE_TAKEN = 4
+const val GROUP_BY_FILE_TYPE = 8
+const val GROUP_BY_EXTENSION = 16
+const val GROUP_BY_FOLDER = 32
+const val GROUP_DESCENDING = 1024
