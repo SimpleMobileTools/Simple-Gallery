@@ -50,6 +50,7 @@ const val WAS_OTG_HANDLED = "was_otg_handled"
 const val TEMP_SKIP_DELETE_CONFIRMATION = "temp_skip_delete_confirmation"
 const val BOTTOM_ACTIONS = "bottom_actions"
 const val WERE_FAVORITES_PINNED = "were_favorites_pinned"
+const val GROUP_BY = "group_by"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"
@@ -112,3 +113,10 @@ const val TYPE_RAWS = 8
 const val LOCAITON_INTERNAL = 1
 const val LOCATION_SD = 2
 const val LOCATION_OTG = 3
+
+const val GROUP_BY_NONE = 0
+const val GROUP_BY_LAST_MODIFIED = 1
+const val GROUP_BY_DATE_TAKEN = 2
+const val GROUP_BY_FILE_TYPE = 3
+const val GROUP_BY_EXTENSION = 4
+const val GROUP_BY_FOLDER = 5

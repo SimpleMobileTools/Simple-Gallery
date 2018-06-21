@@ -32,6 +32,10 @@
         android:title="@string/open_camera"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/group"
+        android:title="@string/group_by"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/change_view_type"
         android:title="@string/change_view_type"
         app:showAsAction="never"/>

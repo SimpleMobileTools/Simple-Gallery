@@ -326,4 +326,8 @@ class Config(context: Context) : BaseConfig(context) {
     var wereFavoritesPinned: Boolean
         get() = prefs.getBoolean(WERE_FAVORITES_PINNED, false)
         set(wereFavoritesPinned) = prefs.edit().putBoolean(WERE_FAVORITES_PINNED, wereFavoritesPinned).apply()
+
+    var groupBy: Int
+        get() = prefs.getInt(GROUP_BY, GROUP_BY_NONE)
+        set(groupBy) = prefs.edit().putInt(GROUP_BY, groupBy).apply()
 }
