@@ -18,12 +18,15 @@ import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.DeleteWithRememberDialog
 import com.simplemobiletools.gallery.extensions.*
+import com.simplemobiletools.gallery.helpers.GROUP_BY_NONE
 import com.simplemobiletools.gallery.helpers.VIEW_TYPE_LIST
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.photo_video_item_grid.view.*
+import java.util.HashMap
+import kotlin.collections.ArrayList
 
 class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
-                   val allowMultiplePicks: Boolean, recyclerView: MyRecyclerView, fastScroller: FastScroller? = null,
+                   val allowMultiplePicks: Boolean, recyclerView: MyRecyclerView, fastScroller: FastScroller? = null, val path: String,
                    itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick) {
 
     private val INSTANT_LOAD_DURATION = 2000L
@@ -36,6 +39,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     private var delayHandler = Handler(Looper.getMainLooper())
     private var currentMediaHash = media.hashCode()
     private val hasOTGConnected = activity.hasOTGConnected()
+    private var mediumGroups = HashMap<String, ArrayList<Medium>>()
 
     private var scrollHorizontally = config.scrollHorizontally
     private var animateGifs = config.animateGifs
@@ -44,6 +48,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
     init {
         setupDragListener(true)
+        groupMedia()
         enableInstantLoad()
     }
 
@@ -289,6 +294,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
             currentMediaHash = newMedia.hashCode()
             Handler().postDelayed({
                 media = newMedia
+                groupMedia()
                 enableInstantLoad()
                 notifyDataSetChanged()
                 finishActMode()
@@ -323,6 +329,21 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         delayHandler.postDelayed({
             loadImageInstantly = false
         }, INSTANT_LOAD_DURATION)
+    }
+
+    private fun groupMedia() {
+        val grouping = activity.config.getFolderGrouping(path)
+        if (grouping and GROUP_BY_NONE != 0) {
+            return
+        }
+
+        media.forEach {
+            val key = it.getGroupingKey(grouping)
+            if (!mediumGroups.containsKey(key)) {
+                mediumGroups[key] = ArrayList()
+            }
+            mediumGroups[key]!!.add(it)
+        }
     }
 
     private fun setupView(view: View, medium: Medium) {

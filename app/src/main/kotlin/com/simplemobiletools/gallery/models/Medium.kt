@@ -6,14 +6,12 @@ import android.arch.persistence.room.Index
 import android.arch.persistence.room.PrimaryKey
 import com.simplemobiletools.commons.extensions.formatDate
 import com.simplemobiletools.commons.extensions.formatSize
+import com.simplemobiletools.commons.extensions.getFilenameExtension
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
 import com.simplemobiletools.commons.helpers.SORT_BY_NAME
 import com.simplemobiletools.commons.helpers.SORT_BY_PATH
 import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
-import com.simplemobiletools.gallery.helpers.TYPE_GIFS
-import com.simplemobiletools.gallery.helpers.TYPE_IMAGES
-import com.simplemobiletools.gallery.helpers.TYPE_RAWS
-import com.simplemobiletools.gallery.helpers.TYPE_VIDEOS
+import com.simplemobiletools.gallery.helpers.*
 import java.io.Serializable
 
 @Entity(tableName = "media", indices = [(Index(value = "full_path", unique = true))])
@@ -46,5 +44,16 @@ data class Medium(
         sorting and SORT_BY_SIZE != 0 -> size.formatSize()
         sorting and SORT_BY_DATE_MODIFIED != 0 -> modified.formatDate()
         else -> taken.formatDate()
+    }
+
+    fun getGroupingKey(groupBy: Int): String {
+        return when {
+            groupBy and GROUP_BY_LAST_MODIFIED != 0 -> modified.toString()
+            groupBy and GROUP_BY_DATE_TAKEN != 0 -> taken.toString()
+            groupBy and GROUP_BY_FILE_TYPE != 0 -> type.toString()
+            groupBy and GROUP_BY_EXTENSION != 0 -> name.getFilenameExtension().toLowerCase()
+            groupBy and GROUP_BY_FOLDER != 0 -> parentPath
+            else -> ""
+        }
     }
 }
