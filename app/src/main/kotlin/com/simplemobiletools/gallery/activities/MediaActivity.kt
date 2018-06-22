@@ -274,6 +274,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
                 mIsSearchOpen = false
                 media_refresh_layout.isEnabled = config.enablePullToRefresh
+                searchQueryChanged("")
                 return true
             }
         })
@@ -283,8 +284,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         Thread {
             val filtered = mMedia.filter { it is Medium && it.name.contains(text, true) } as ArrayList
             filtered.sortBy { it is Medium && !it.name.startsWith(text, true) }
+            val grouped = MediaFetcher(applicationContext).groupMedia(filtered as ArrayList<Medium>, mPath)
             runOnUiThread {
-                getMediaAdapter()?.updateMedia(filtered)
+                getMediaAdapter()?.updateMedia(grouped)
             }
         }.start()
     }
