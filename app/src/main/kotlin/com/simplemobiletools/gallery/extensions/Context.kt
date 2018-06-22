@@ -26,6 +26,7 @@ import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.interfaces.DirectoryDao
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
+import com.simplemobiletools.gallery.models.ThumbnailItem
 import com.simplemobiletools.gallery.views.MySquareImageView
 import pl.droidsonroids.gif.GifDrawable
 import java.io.File
@@ -163,11 +164,15 @@ fun Context.rescanFolderMediaSync(path: String) {
             Thread {
                 val newMedia = it
                 val mediumDao = galleryDB.MediumDao()
-                mediumDao.insertAll(newMedia)
+                val media = newMedia.filter { it is Medium } as ArrayList<Medium>
+                mediumDao.insertAll(media)
 
                 cached.forEach {
                     if (!newMedia.contains(it)) {
-                        mediumDao.deleteMediumPath(it.path)
+                        val mediumPath = (it as? Medium)?.path
+                        if (mediumPath != null) {
+                            mediumDao.deleteMediumPath(mediumPath)
+                        }
                     }
                 }
             }.start()
@@ -315,10 +320,11 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
     }.start()
 }
 
-fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, callback: (ArrayList<Medium>) -> Unit) {
+fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, callback: (ArrayList<ThumbnailItem>) -> Unit) {
     Thread {
+        val mediaFetcher = MediaFetcher(this)
         val mediumDao = galleryDB.MediumDao()
-        val foldersToScan = if (path.isEmpty()) MediaFetcher(this).getFoldersToScan() else arrayListOf(path)
+        val foldersToScan = if (path.isEmpty()) mediaFetcher.getFoldersToScan() else arrayListOf(path)
         var media = ArrayList<Medium>()
         if (path == FAVORITES) {
             media.addAll(mediumDao.getFavorites())
@@ -349,8 +355,9 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
             }
         }) as ArrayList<Medium>
 
-        MediaFetcher(this).sortMedia(media, config.getFileSorting(path))
-        callback(media.clone() as ArrayList<Medium>)
+        mediaFetcher.sortMedia(media, config.getFileSorting(path))
+        val grouped = mediaFetcher.groupMedia(media, path)
+        callback(grouped.clone() as ArrayList<ThumbnailItem>)
 
         media.filter { !getDoesFilePathExist(it.path) }.forEach {
             mediumDao.deleteMediumPath(it.path)

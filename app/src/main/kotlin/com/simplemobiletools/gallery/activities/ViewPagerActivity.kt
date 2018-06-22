@@ -44,6 +44,7 @@ import com.simplemobiletools.gallery.fragments.VideoFragment
 import com.simplemobiletools.gallery.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
+import com.simplemobiletools.gallery.models.ThumbnailItem
 import kotlinx.android.synthetic.main.activity_medium.*
 import kotlinx.android.synthetic.main.bottom_actions.*
 import java.io.File
@@ -84,8 +85,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medium)
-        mMediaFiles = MediaActivity.mGroupedMedia.clone() as ArrayList<Medium>
-
+        (MediaActivity.mMedia.clone() as ArrayList<ThumbnailItem>).filter { it is Medium }.mapTo(mMediaFiles) { it as Medium }
         mIsShowingFavorites = intent.getBooleanExtra(SHOW_FAVORITES, false)
 
         handlePermission(PERMISSION_WRITE_STORAGE) {
@@ -225,7 +225,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         view_pager.onGlobalLayout {
             if (!isActivityDestroyed()) {
                 if (mMediaFiles.isNotEmpty()) {
-                    gotMedia(mMediaFiles)
+                    gotMedia(mMediaFiles as ArrayList<ThumbnailItem>)
                 }
             }
         }
@@ -884,7 +884,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }.execute()
     }
 
-    private fun gotMedia(media: ArrayList<Medium>) {
+    private fun gotMedia(thumbnailItems: ArrayList<ThumbnailItem>) {
+        val media = thumbnailItems.filter { it is Medium }.map { it as Medium } as ArrayList<Medium>
         if (isDirEmpty(media) || media.hashCode() == mPrevHashcode) {
             return
         }

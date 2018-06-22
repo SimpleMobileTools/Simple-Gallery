@@ -12,7 +12,6 @@ import com.simplemobiletools.gallery.adapters.MediaAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getCachedMedia
-import com.simplemobiletools.gallery.helpers.MediaFetcher
 import com.simplemobiletools.gallery.helpers.VIEW_TYPE_GRID
 import com.simplemobiletools.gallery.models.Medium
 import com.simplemobiletools.gallery.models.ThumbnailItem
@@ -39,7 +38,7 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
                 }
 
         activity.getCachedMedia(path) {
-            val media = it.filter { !it.isVideo() } as ArrayList
+            val media = it.filter { it is Medium && !it.isVideo() } as ArrayList
             if (media.isNotEmpty()) {
                 activity.runOnUiThread {
                     gotMedia(media)
@@ -59,11 +58,11 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
         }
     }
 
-    private fun gotMedia(media: ArrayList<Medium>) {
+    private fun gotMedia(media: ArrayList<ThumbnailItem>) {
         if (media.hashCode() == shownMedia.hashCode())
             return
 
-        shownMedia = MediaFetcher(activity).groupMedia(media, path)
+        shownMedia = media
         val adapter = MediaAdapter(activity, shownMedia, null, true, false, view.media_grid, null) {
             callback((it as Medium).path)
             dialog.dismiss()
@@ -83,12 +82,12 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
             if (scrollHorizontally) {
                 media_horizontal_fastscroller.allowBubbleDisplay = activity.config.showInfoBubble
                 media_horizontal_fastscroller.setViews(media_grid) {
-                    media_horizontal_fastscroller.updateBubbleText(media[it].getBubbleText(sorting))
+                    media_horizontal_fastscroller.updateBubbleText((media[it] as? Medium)?.getBubbleText(sorting) ?: "")
                 }
             } else {
                 media_vertical_fastscroller.allowBubbleDisplay = activity.config.showInfoBubble
                 media_vertical_fastscroller.setViews(media_grid) {
-                    media_vertical_fastscroller.updateBubbleText(media[it].getBubbleText(sorting))
+                    media_vertical_fastscroller.updateBubbleText((media[it] as? Medium)?.getBubbleText(sorting) ?: "")
                 }
             }
         }

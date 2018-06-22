@@ -40,6 +40,7 @@ import com.simplemobiletools.gallery.dialogs.FilterMediaDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
+import com.simplemobiletools.gallery.models.ThumbnailItem
 import kotlinx.android.synthetic.main.activity_media.*
 import java.io.File
 import java.io.IOException
@@ -64,7 +65,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mCurrAsyncTask: GetMediaAsynctask? = null
     private var mZoomListener: MyRecyclerView.MyZoomListener? = null
     private var mSearchMenuItem: MenuItem? = null
-    private var mMedia = ArrayList<Medium>()
 
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
@@ -74,7 +74,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mStoredPrimaryColor = 0
 
     companion object {
-        var mGroupedMedia = ArrayList<Medium>()     // basically mMedia items reordered depending on the grouping
+        var mMedia = ArrayList<ThumbnailItem>()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -281,11 +281,10 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun searchQueryChanged(text: String) {
         Thread {
-            val filtered = mMedia.filter { it.name.contains(text, true) } as ArrayList
-            filtered.sortBy { !it.name.startsWith(text, true) }
-            val groupedMedia = MediaFetcher(applicationContext).groupMedia(filtered, mPath)
+            val filtered = mMedia.filter { it is Medium && it.name.contains(text, true) } as ArrayList
+            filtered.sortBy { it is Medium && !it.name.startsWith(text, true) }
             runOnUiThread {
-                getMediaAdapter()?.updateMedia(groupedMedia)
+                getMediaAdapter()?.updateMedia(filtered)
             }
         }.start()
     }
@@ -316,17 +315,11 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             return
         }
 
-        mGroupedMedia.clear()
-        val groupedMedia = MediaFetcher(applicationContext).groupMedia(mMedia.clone() as ArrayList<Medium>, mPath)
-        groupedMedia.filter { it is Medium }.forEach {
-            mGroupedMedia.add(it as Medium)
-        }
-
         val currAdapter = media_grid.adapter
         if (currAdapter == null) {
             initZoomListener()
             val fastscroller = if (config.scrollHorizontally) media_horizontal_fastscroller else media_vertical_fastscroller
-            MediaAdapter(this, groupedMedia, this, mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent, mAllowPickingMultiple, media_grid, fastscroller) {
+            MediaAdapter(this, mMedia, this, mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent, mAllowPickingMultiple, media_grid, fastscroller) {
                 itemClicked((it as Medium).path)
             }.apply {
                 setupZoomListener(mZoomListener)
@@ -334,7 +327,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             }
             setupLayoutManager()
         } else {
-            (currAdapter as MediaAdapter).updateMedia(groupedMedia)
+            (currAdapter as MediaAdapter).updateMedia(mMedia)
         }
 
         setupScrollDirection()
@@ -682,12 +675,12 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
     }
 
-    private fun gotMedia(media: ArrayList<Medium>, isFromCache: Boolean = false) {
-        val mediaToInsert = media.clone() as ArrayList<Medium>
+    private fun gotMedia(media: ArrayList<ThumbnailItem>, isFromCache: Boolean = false) {
         Thread {
             mLatestMediaId = getLatestMediaId()
             mLatestMediaDateId = getLatestMediaByDateId()
             if (!isFromCache) {
+                val mediaToInsert = (mMedia.clone() as ArrayList<ThumbnailItem>).filter { it is Medium }.map { it as Medium }
                 galleryDB.MediumDao().insertAll(mediaToInsert)
             }
         }.start()
@@ -718,7 +711,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                 return@deleteFiles
             }
 
-            mMedia.removeAll { filtered.map { it.path }.contains(it.path) }
+            mMedia.removeAll { filtered.map { it.path }.contains((it as? Medium)?.path) }
 
             Thread {
                 val mediumDao = galleryDB.MediumDao()

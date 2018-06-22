@@ -648,7 +648,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                     getCachedMedia(directory.path, getVideosOnly, getImagesOnly) {
                         it.forEach {
                             if (!curMedia.contains(it)) {
-                                mediumDao.deleteMediumPath(it.path)
+                                val path = (it as? Medium)?.path
+                                if (path != null) {
+                                    mediumDao.deleteMediumPath(path)
+                                }
                             }
                         }
                     }
