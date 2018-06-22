@@ -84,7 +84,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medium)
-        mMediaFiles = MediaActivity.mMedia.clone() as ArrayList<Medium>
+        mMediaFiles = MediaActivity.mGroupedMedia.clone() as ArrayList<Medium>
+
         mIsShowingFavorites = intent.getBooleanExtra(SHOW_FAVORITES, false)
 
         handlePermission(PERMISSION_WRITE_STORAGE) {

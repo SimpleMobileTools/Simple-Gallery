@@ -65,6 +65,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mCurrAsyncTask: GetMediaAsynctask? = null
     private var mZoomListener: MyRecyclerView.MyZoomListener? = null
     private var mSearchMenuItem: MenuItem? = null
+    private var mMedia = ArrayList<Medium>()
 
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
@@ -74,7 +75,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mStoredPrimaryColor = 0
 
     companion object {
-        var mMedia = ArrayList<Medium>()
+        var mGroupedMedia = ArrayList<Medium>()     // basically mMedia items reordered depending on the grouping
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -316,7 +317,14 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             return
         }
 
+        mGroupedMedia.clear()
         val groupedMedia = MediaFetcher(applicationContext).groupMedia(mMedia.clone() as ArrayList<Medium>, mPath)
+        groupedMedia.filter { it is ThumbnailMedium }.forEach {
+            it as ThumbnailMedium
+            val medium = Medium(0L, it.name, it.path, it.parentPath, it.modified, it.taken, it.size, it.type, it.isFavorite)
+            mGroupedMedia.add(medium)
+        }
+
         val currAdapter = media_grid.adapter
         if (currAdapter == null) {
             initZoomListener()
