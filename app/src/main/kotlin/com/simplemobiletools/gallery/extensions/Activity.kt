@@ -68,6 +68,7 @@ fun SimpleActivity.launchAbout() {
             FAQItem(R.string.faq_8_title, R.string.faq_8_text),
             FAQItem(R.string.faq_9_title, R.string.faq_9_text),
             FAQItem(R.string.faq_10_title, R.string.faq_10_text),
+            FAQItem(R.string.faq_11_title, R.string.faq_11_text),
             FAQItem(R.string.faq_2_title_commons, R.string.faq_2_text_commons))
 
     startAboutActivity(R.string.app_name, LICENSE_GLIDE or LICENSE_CROPPER or LICENSE_MULTISELECT or LICENSE_RTL

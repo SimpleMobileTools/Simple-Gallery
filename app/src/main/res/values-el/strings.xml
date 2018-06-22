@@ -177,6 +177,8 @@
         Αυτό θα κάνει ορατούς μόνο τους επιλεγμένους φακέλους, καθώς η εξαίρεση και η συμπερίληψη λειτουργούν αναδρομικά και αν ενας φάκελος ανήκει και στα δύο, θα εμφανιστεί.</string>
     <string name="faq_9_title">Οι εικόνες πλήρους οθόνης έχουν κάποια περίεργα σημάδια. Μπορώ κάπως να βελτιώσω την ποιότητα;</string>
     <string name="faq_9_text">Ναι. Υπάρχει ένας διακόπτης στις Ρυθμίσεις με το κείμενο \"Αντικατάσταση των φωτογραφιών που απαιτούν ζούμ με άλλες καλύτερης ποιότητας\". Μπορείτε να χρησιμοποιήσετε αυτό. Θα βελτιώσει την ποιότητα των φωτογραφιών, αλλά θα θολώσουν στο μεγάλο ζουμ.</string>
+    <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
+    <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

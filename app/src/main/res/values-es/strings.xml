@@ -178,6 +178,8 @@
     <string name="faq_9_text">Sí, hay una alternancia en Configuración que dice \"Reemplazar imágenes con zoom profundo con las de mejor calidad\", puedes usar eso. Mejorará la calidad de las imágenes, pero se volverán borrosas una vez que intente ampliar demasiado.</string>
     <string name="faq_10_title">¿Puedo recortar imágenes con esta aplicación?</string>
     <string name="faq_10_text">Sí, puede recortar imágenes en el editor arrastrando las esquinas de la imagen. Puede acceder al editor pulsando prolongadamente una imagen en miniatura y seleccionando Editar, o seleccionando Editar en la vista de pantalla completa.</string>
+    <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
+    <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

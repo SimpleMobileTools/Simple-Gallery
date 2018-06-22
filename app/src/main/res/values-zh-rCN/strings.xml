@@ -176,6 +176,8 @@
     <string name="faq_9_text">在设置中有一个“用质量更好的图像替换可深度缩放的图像”开关，打开它后就可以提高图像的显示质量，但是一旦尝试放大太多次，它们就又会变得模糊不清。</string>
     <string name="faq_10_title">可以裁剪图片吗？</string>
     <string name="faq_10_text">当然，通过长按图片缩略图并选择编辑，或在全屏视图中选择编辑来打开编辑器。你可以通过拖动图片边角来剪裁图像。</string>
+    <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
+    <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

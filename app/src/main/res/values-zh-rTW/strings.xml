@@ -178,6 +178,8 @@
     <string name="faq_9_text">可啊，[設定]內有個開關叫做「可深度縮放的圖片用品質更佳的來取代」，你能用用看。這會提高圖片的品質，不過一旦你放大太多就會模糊掉。</string>
     <string name="faq_10_title">我可以用這程式裁減圖片嗎?</string>
     <string name="faq_10_text">是的，你能夠在編輯器內拉動圖片角落來裁剪圖片。要進入編輯器，你可以長按圖片縮圖然後選擇[編輯]，或是在全螢幕檢視下選擇[編輯]。</string>
+    <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
+    <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

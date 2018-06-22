@@ -178,6 +178,8 @@
     <string name="faq_9_text">Da, u "Postavkama" postoji opcija "Zamjena duboko zumiranih slika s kvalitetnijim slikama", ali slike će biti zamućene ako zumirate previše.</string>
     <string name="faq_10_title">Mogu li izrezati slike pomoću ove aplikacije?</string>
     <string name="faq_10_text">Da, možete obrezati slike u uređivaču povlačenjem uglova. Možete doći do uređivača dugim pritiskom na minijaturu slike i odabirom Uređivanje ili odabirom Uredi iz prikaza preko cijelog zaslona.</string>
+    <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
+    <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

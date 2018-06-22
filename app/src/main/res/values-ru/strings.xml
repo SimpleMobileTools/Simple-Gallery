@@ -178,6 +178,8 @@
     <string name="faq_9_text">Да, в настройках есть переключатель \"Заменять масштабируемые изображения высококачественными\", использовуйте его. Это улучшит качество изображений, но они будут размыты, если вы попытаетесь сильно увеличить масштаб отображения.</string>
     <string name="faq_10_title">Можно ли обрезать изображения с помощью данного приложения?</string>
     <string name="faq_10_text">Да, вы можете обрезать изображения в редакторе, перетаскивая за углы. К редактированию можно перейти, выбрав соответсвующий пункт в меню, открывающемуся длительным нажатием на миниатюру или изображение в полноэкранном режиме.</string>
+    <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
+    <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

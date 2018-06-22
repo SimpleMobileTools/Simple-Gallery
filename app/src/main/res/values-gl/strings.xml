@@ -178,6 +178,8 @@
     <string name="faq_9_text">Si, hai unha opción en Axustes que di \"Substituír imaxes con un gran zoom con imaxes de mellor calidade\", pode usar eso. mellorará a calidade das imaxes, mais farase máis borrosaxa si intenta facer moito zoom.</string>
     <string name="faq_10_title">Can I crop images with this app?</string>
     <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
+    <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
+    <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
