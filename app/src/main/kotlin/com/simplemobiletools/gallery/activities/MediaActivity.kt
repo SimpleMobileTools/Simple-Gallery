@@ -40,7 +40,6 @@ import com.simplemobiletools.gallery.dialogs.FilterMediaDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
-import com.simplemobiletools.gallery.models.ThumbnailMedium
 import kotlinx.android.synthetic.main.activity_media.*
 import java.io.File
 import java.io.IOException
@@ -319,10 +318,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         mGroupedMedia.clear()
         val groupedMedia = MediaFetcher(applicationContext).groupMedia(mMedia.clone() as ArrayList<Medium>, mPath)
-        groupedMedia.filter { it is ThumbnailMedium }.forEach {
-            it as ThumbnailMedium
-            val medium = Medium(0L, it.name, it.path, it.parentPath, it.modified, it.taken, it.size, it.type, it.isFavorite)
-            mGroupedMedia.add(medium)
+        groupedMedia.filter { it is Medium }.forEach {
+            mGroupedMedia.add(it as Medium)
         }
 
         val currAdapter = media_grid.adapter
@@ -330,7 +327,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             initZoomListener()
             val fastscroller = if (config.scrollHorizontally) media_horizontal_fastscroller else media_vertical_fastscroller
             MediaAdapter(this, groupedMedia, this, mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent, mAllowPickingMultiple, media_grid, fastscroller) {
-                itemClicked((it as ThumbnailMedium).path)
+                itemClicked((it as Medium).path)
             }.apply {
                 setupZoomListener(mZoomListener)
                 media_grid.adapter = this

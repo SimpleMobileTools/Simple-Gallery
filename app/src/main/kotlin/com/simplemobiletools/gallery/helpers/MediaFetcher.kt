@@ -14,7 +14,6 @@ import com.simplemobiletools.gallery.extensions.getOTGFolderChildren
 import com.simplemobiletools.gallery.extensions.shouldFolderBeVisible
 import com.simplemobiletools.gallery.models.Medium
 import com.simplemobiletools.gallery.models.ThumbnailItem
-import com.simplemobiletools.gallery.models.ThumbnailMedium
 import com.simplemobiletools.gallery.models.ThumbnailSection
 import java.io.File
 import java.util.*
@@ -337,15 +336,10 @@ class MediaFetcher(val context: Context) {
     }
 
     fun groupMedia(media: ArrayList<Medium>, path: String): ArrayList<ThumbnailItem> {
-        val thumbnailItems = ArrayList<ThumbnailItem>()
         val mediumGroups = LinkedHashMap<String, ArrayList<Medium>>()
         val currentGrouping = context.config.getFolderGrouping(path)
         if (currentGrouping and GROUP_BY_NONE != 0) {
-            media.forEach {
-                val thumbnailMedium = ThumbnailMedium(it.name, it.path, it.parentPath, it.modified, it.taken, it.size, it.type, it.isFavorite)
-                thumbnailItems.add(thumbnailMedium)
-            }
-            return thumbnailItems
+            return media as ArrayList<ThumbnailItem>
         }
 
         media.forEach {
@@ -363,12 +357,10 @@ class MediaFetcher(val context: Context) {
             mediumGroups[key] = value
         }
 
+        val thumbnailItems = ArrayList<ThumbnailItem>()
         for ((key, value) in mediumGroups) {
             thumbnailItems.add(ThumbnailSection(getFormattedKey(key, currentGrouping)))
-            value.forEach {
-                val thumbnailMedium = ThumbnailMedium(it.name, it.path, it.parentPath, it.modified, it.taken, it.size, it.type, it.isFavorite)
-                thumbnailItems.add(thumbnailMedium)
-            }
+            thumbnailItems.addAll(value)
         }
 
         return thumbnailItems
