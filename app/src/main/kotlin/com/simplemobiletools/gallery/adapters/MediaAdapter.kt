@@ -292,7 +292,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     fun updateMedia(newMedia: ArrayList<Medium>) {
-        if (newMedia.hashCode() != currentMediaHash || currentGrouping != getCurrentFolderGrouping()) {
+        if (newMedia.hashCode() != currentMediaHash || currentGrouping != getFolderGrouping()) {
             currentMediaHash = newMedia.hashCode()
             Handler().postDelayed({
                 media = newMedia
@@ -334,7 +334,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     private fun groupMedia() {
-        currentGrouping = getCurrentFolderGrouping()
+        currentGrouping = getFolderGrouping()
         if (currentGrouping and GROUP_BY_NONE != 0) {
             return
         }
@@ -355,7 +355,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         }
     }
 
-    private fun getCurrentFolderGrouping() = activity.config.getFolderGrouping(path)
+    private fun getFolderGrouping() = activity.config.getFolderGrouping(path)
 
     private fun setupView(view: View, medium: Medium) {
         view.apply {
