@@ -160,6 +160,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         }
     }
 
+    fun isASectionTitle(position: Int) = thumbnailItems.getOrNull(position) is ThumbnailSection
+
     private fun checkHideBtnVisibility(menu: Menu) {
         var hiddenCnt = 0
         var unhiddenCnt = 0

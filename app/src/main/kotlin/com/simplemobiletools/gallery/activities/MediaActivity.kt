@@ -325,6 +325,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                 setupZoomListener(mZoomListener)
                 media_grid.adapter = this
             }
+            setupLayoutManager()
         } else {
             (currAdapter as MediaAdapter).updateMedia(media)
         }
@@ -553,6 +554,16 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
 
         layoutManager.spanCount = config.mediaColumnCnt
+        val adapter = getMediaAdapter()
+        layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int {
+                return if (adapter?.isASectionTitle(position) == true) {
+                    layoutManager.spanCount
+                } else {
+                    1
+                }
+            }
+        }
     }
 
     private fun initZoomListener() {
