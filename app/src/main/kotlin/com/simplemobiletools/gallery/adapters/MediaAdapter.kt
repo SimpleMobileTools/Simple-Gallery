@@ -22,6 +22,9 @@ import com.simplemobiletools.gallery.helpers.GROUP_BY_NONE
 import com.simplemobiletools.gallery.helpers.GROUP_DESCENDING
 import com.simplemobiletools.gallery.helpers.VIEW_TYPE_LIST
 import com.simplemobiletools.gallery.models.Medium
+import com.simplemobiletools.gallery.models.ThumbnailItem
+import com.simplemobiletools.gallery.models.ThumbnailMedium
+import com.simplemobiletools.gallery.models.ThumbnailSection
 import kotlinx.android.synthetic.main.photo_video_item_grid.view.*
 import java.util.*
 import kotlin.collections.ArrayList
@@ -32,10 +35,13 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
     private val INSTANT_LOAD_DURATION = 2000L
     private val IMAGE_LOAD_DELAY = 100L
+    private val ITEM_SECTION = 0
+    private val ITEM_MEDIUM = 1
 
     private val config = activity.config
     private val isListViewType = config.viewTypeFiles == VIEW_TYPE_LIST
     private var visibleItemPaths = ArrayList<String>()
+    private var thumbnailItems = ArrayList<ThumbnailItem>()
     private var loadImageInstantly = false
     private var delayHandler = Handler(Looper.getMainLooper())
     private var currentMediaHash = media.hashCode()
@@ -70,15 +76,22 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     override fun onBindViewHolder(holder: MyRecyclerViewAdapter.ViewHolder, position: Int) {
-        val medium = media.getOrNull(position) ?: return
-        visibleItemPaths.add(medium.path)
-        val view = holder.bindView(medium, !allowMultiplePicks) { itemView, adapterPosition ->
-            setupView(itemView, medium)
+        val tmbItem = thumbnailItems.getOrNull(position) ?: return
+        if (tmbItem is ThumbnailMedium) {
+            visibleItemPaths.add(tmbItem.path)
+        }
+
+        val view = holder.bindView(tmbItem, !allowMultiplePicks) { itemView, adapterPosition ->
+            if (tmbItem is ThumbnailMedium) {
+                setupThumbnailMedium(itemView, tmbItem)
+            } else {
+                setupThumbnailSection(itemView, tmbItem as ThumbnailSection)
+            }
         }
         bindViewHolder(holder, position, view)
     }
 
-    override fun getItemCount() = media.size
+    override fun getItemCount() = thumbnailItems.size
 
     override fun prepareActionMode(menu: Menu) {
         menu.apply {
@@ -353,9 +366,14 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         sorted.forEach { key, value ->
             mediumGroups[key] = value
         }
+
+        media.forEach {
+            val thumbnailMedium = ThumbnailMedium(it.name, it.path, it.parentPath, it.modified, it.taken, it.size, it.type, it.isFavorite)
+            thumbnailItems.add(thumbnailMedium)
+        }
     }
 
-    private fun setupView(view: View, medium: Medium) {
+    private fun setupThumbnailMedium(view: View, medium: ThumbnailMedium) {
         view.apply {
             play_outline.beVisibleIf(medium.isVideo())
             photo_name.beVisibleIf(displayFilenames || isListViewType)
@@ -384,6 +402,12 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
                 photo_name.setTextColor(textColor)
                 play_outline.applyColorFilter(textColor)
             }
+        }
+    }
+
+    private fun setupThumbnailSection(view: View, section: ThumbnailSection) {
+        view.apply {
+
         }
     }
 
