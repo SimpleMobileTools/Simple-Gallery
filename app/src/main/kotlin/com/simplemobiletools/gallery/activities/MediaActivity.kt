@@ -320,7 +320,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             initZoomListener()
             val fastscroller = if (config.scrollHorizontally) media_horizontal_fastscroller else media_vertical_fastscroller
             MediaAdapter(this, mMedia, this, mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent, mAllowPickingMultiple, media_grid, fastscroller) {
-                itemClicked((it as Medium).path)
+                if (it is Medium) {
+                    itemClicked(it.path)
+                }
             }.apply {
                 setupZoomListener(mZoomListener)
                 media_grid.adapter = this

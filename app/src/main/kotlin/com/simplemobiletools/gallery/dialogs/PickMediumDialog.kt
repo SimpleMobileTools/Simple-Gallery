@@ -64,8 +64,10 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
 
         shownMedia = media
         val adapter = MediaAdapter(activity, shownMedia, null, true, false, view.media_grid, null) {
-            callback((it as Medium).path)
-            dialog.dismiss()
+            if (it is Medium) {
+                callback(it.path)
+                dialog.dismiss()
+            }
         }
 
         val scrollHorizontally = activity.config.scrollHorizontally && isGridViewType
