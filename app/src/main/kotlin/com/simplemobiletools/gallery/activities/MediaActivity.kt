@@ -358,7 +358,14 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
     }
 
-    private fun getBubbleTextItem(index: Int, sorting: Int) = getMediaAdapter()?.getItemBubbleText(index, sorting) ?: ""
+    private fun getBubbleTextItem(index: Int, sorting: Int): String {
+        var realIndex = index
+        val mediaAdapter = getMediaAdapter()
+        if (mediaAdapter?.isASectionTitle(index) == true) {
+            realIndex++
+        }
+        return mediaAdapter?.getItemBubbleText(realIndex, sorting) ?: ""
+    }
 
     private fun checkLastMediaChanged() {
         if (isActivityDestroyed()) {
