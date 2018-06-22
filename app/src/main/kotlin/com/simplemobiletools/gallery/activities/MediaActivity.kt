@@ -356,7 +356,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
     }
 
-    private fun getBubbleTextItem(index: Int, sorting: Int) = getMediaAdapter()?.media?.getOrNull(index)?.getBubbleText(sorting) ?: ""
+    private fun getBubbleTextItem(index: Int, sorting: Int) = getMediaAdapter()?.getItemBubbleText(index, sorting) ?: ""
 
     private fun checkLastMediaChanged() {
         if (isActivityDestroyed())

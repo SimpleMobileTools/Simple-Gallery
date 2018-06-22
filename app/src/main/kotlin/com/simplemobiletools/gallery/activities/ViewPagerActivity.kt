@@ -321,7 +321,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_open_with -> openPath(getCurrentPath(), true)
             R.id.menu_hide -> toggleFileVisibility(true)
             R.id.menu_unhide -> toggleFileVisibility(false)
-            R.id.menu_share -> shareMedium(getCurrentMedium()!!)
+            R.id.menu_share -> shareMediumPath(getCurrentPath())
             R.id.menu_delete -> checkDeleteConfirmation()
             R.id.menu_rename -> renameFile()
             R.id.menu_edit -> openEditor(getCurrentPath())
@@ -769,7 +769,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         bottom_share.setOnClickListener {
-            shareMedium(getCurrentMedium()!!)
+            shareMediumPath(getCurrentPath())
         }
 
         bottom_delete.setOnClickListener {

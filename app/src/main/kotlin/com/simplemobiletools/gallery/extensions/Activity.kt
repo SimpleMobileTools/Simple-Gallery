@@ -15,7 +15,6 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.PickDirectoryDialog
 import com.simplemobiletools.gallery.helpers.NOMEDIA
-import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 import java.util.*
 
@@ -27,12 +26,11 @@ fun Activity.sharePaths(paths: ArrayList<String>) {
     sharePathsIntent(paths, BuildConfig.APPLICATION_ID)
 }
 
-fun Activity.shareMedium(medium: Medium) {
-    sharePath(medium.path)
+fun Activity.shareMediumPath(path: String) {
+    sharePath(path)
 }
 
-fun Activity.shareMedia(media: List<Medium>) {
-    val paths = media.map { it.path } as ArrayList
+fun Activity.shareMediaPaths(paths: ArrayList<String>) {
     sharePaths(paths)
 }
 

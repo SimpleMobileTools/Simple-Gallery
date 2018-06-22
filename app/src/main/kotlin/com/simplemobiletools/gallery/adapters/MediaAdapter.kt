@@ -166,7 +166,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     private fun checkHideBtnVisibility(menu: Menu) {
         var hiddenCnt = 0
         var unhiddenCnt = 0
-        selectedPositions.mapNotNull { media.getOrNull(it) }.forEach {
+        getSelectedMedia().forEach {
             if (it.name.startsWith('.')) {
                 hiddenCnt++
             } else {
@@ -181,7 +181,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     private fun checkFavoriteBtnVisibility(menu: Menu) {
         var favoriteCnt = 0
         var nonFavoriteCnt = 0
-        selectedPositions.mapNotNull { media.getOrNull(it) }.forEach {
+        getSelectedMedia().forEach {
             if (it.isFavorite) {
                 favoriteCnt++
             } else {
@@ -194,16 +194,14 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     private fun confirmSelection() {
-        val paths = getSelectedMedia().map { it.path } as ArrayList<String>
-        listener?.selectedPaths(paths)
+        listener?.selectedPaths(getSelectedPaths())
     }
 
     private fun showProperties() {
         if (selectedPositions.size <= 1) {
-            PropertiesDialog(activity, media[selectedPositions.first()].path, config.shouldShowHidden)
+            PropertiesDialog(activity, (thumbnailItems[selectedPositions.first()] as ThumbnailMedium).path, config.shouldShowHidden)
         } else {
-            val paths = ArrayList<String>()
-            selectedPositions.forEach { paths.add(media[it].path) }
+            val paths = getSelectedPaths()
             PropertiesDialog(activity, paths, config.shouldShowHidden)
         }
     }
@@ -255,17 +253,19 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
     private fun shareMedia() {
         if (selectedPositions.size == 1 && selectedPositions.first() != -1) {
-            activity.shareMedium(getSelectedMedia()[0])
+            activity.shareMediumPath(getSelectedMedia().first().path)
         } else if (selectedPositions.size > 1) {
-            activity.shareMedia(getSelectedMedia())
+            activity.shareMediaPaths(getSelectedPaths())
         }
     }
 
     private fun copyMoveTo(isCopyOperation: Boolean) {
-        val paths = ArrayList<String>()
-        selectedPositions.forEach { paths.add(media[it].path) }
+        val paths = getSelectedPaths()
 
-        val fileDirItems = paths.map { FileDirItem(it, it.getFilenameFromPath()) } as ArrayList
+        val fileDirItems = paths.map {
+            FileDirItem(it, it.getFilenameFromPath())
+        } as ArrayList
+
         activity.tryCopyMoveFilesTo(fileDirItems, isCopyOperation) {
             config.tempFolderPath = ""
             activity.applicationContext.rescanFolderMedia(it)
@@ -293,7 +293,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         }
     }
 
-    private fun getCurrentPath() = media[selectedPositions.first()].path
+    private fun getCurrentPath() = (thumbnailItems[selectedPositions.first()] as ThumbnailMedium).path
 
     private fun deleteFiles() {
         if (selectedPositions.isEmpty()) {
@@ -301,32 +301,38 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         }
 
         val fileDirItems = ArrayList<FileDirItem>(selectedPositions.size)
-        val removeMedia = ArrayList<Medium>(selectedPositions.size)
+        val removeMedia = ArrayList<ThumbnailMedium>(selectedPositions.size)
 
-        if (media.size <= selectedPositions.first()) {
+        if (thumbnailItems.size <= selectedPositions.first()) {
             finishActMode()
             return
         }
 
-        val SAFPath = media[selectedPositions.first()].path
+        val SAFPath = (thumbnailItems[selectedPositions.first()] as ThumbnailMedium).path
         activity.handleSAFDialog(SAFPath) {
             selectedPositions.sortedDescending().forEach {
-                val medium = media[it]
-                fileDirItems.add(FileDirItem(medium.path, medium.name))
-                removeMedia.add(medium)
+                val thumbnailItem = thumbnailItems[it]
+                if (thumbnailItem is ThumbnailMedium) {
+                    fileDirItems.add(FileDirItem(thumbnailItem.path, thumbnailItem.name))
+                    removeMedia.add(thumbnailItem)
+                }
             }
 
-            media.removeAll(removeMedia)
+            thumbnailItems.removeAll(removeMedia)
             listener?.tryDeleteFiles(fileDirItems)
             removeSelectedItems()
         }
     }
 
-    private fun getSelectedMedia(): List<Medium> {
-        val selectedMedia = ArrayList<Medium>(selectedPositions.size)
-        selectedPositions.forEach { selectedMedia.add(media[it]) }
+    private fun getSelectedMedia(): List<ThumbnailMedium> {
+        val selectedMedia = ArrayList<ThumbnailMedium>(selectedPositions.size)
+        selectedPositions.forEach {
+            selectedMedia.add(thumbnailItems[it] as ThumbnailMedium)
+        }
         return selectedMedia
     }
+
+    private fun getSelectedPaths() = getSelectedMedia().map { it.path } as ArrayList<String>
 
     fun updateMedia(newMedia: ArrayList<Medium>) {
         if (newMedia.hashCode() != currentMediaHash || currentGrouping != config.getFolderGrouping(path)) {
@@ -431,6 +437,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         }
         return activity.getString(stringId)
     }
+
+    fun getItemBubbleText(position: Int, sorting: Int) = (thumbnailItems[position] as? ThumbnailMedium)?.getBubbleText(sorting)
 
     private fun setupThumbnailMedium(view: View, medium: ThumbnailMedium) {
         view.apply {
