@@ -40,6 +40,7 @@ import com.simplemobiletools.gallery.dialogs.FilterMediaDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
+import com.simplemobiletools.gallery.models.ThumbnailMedium
 import kotlinx.android.synthetic.main.activity_media.*
 import java.io.File
 import java.io.IOException
@@ -320,7 +321,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             initZoomListener()
             val fastscroller = if (config.scrollHorizontally) media_horizontal_fastscroller else media_vertical_fastscroller
             MediaAdapter(this, media, this, mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent, mAllowPickingMultiple, media_grid, fastscroller, mPath) {
-                itemClicked((it as Medium).path)
+                itemClicked((it as ThumbnailMedium).path)
             }.apply {
                 setupZoomListener(mZoomListener)
                 media_grid.adapter = this
