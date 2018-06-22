@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.adapters
 
 import android.os.Handler
 import android.os.Looper
+import android.text.format.DateFormat
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
@@ -18,9 +19,7 @@ import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.DeleteWithRememberDialog
 import com.simplemobiletools.gallery.extensions.*
-import com.simplemobiletools.gallery.helpers.GROUP_BY_NONE
-import com.simplemobiletools.gallery.helpers.GROUP_DESCENDING
-import com.simplemobiletools.gallery.helpers.VIEW_TYPE_LIST
+import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
 import com.simplemobiletools.gallery.models.ThumbnailItem
 import com.simplemobiletools.gallery.models.ThumbnailMedium
@@ -392,12 +391,42 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
         thumbnailItems.clear()
         for ((key, value) in mediumGroups) {
-            thumbnailItems.add(ThumbnailSection(key))
+            thumbnailItems.add(ThumbnailSection(getFormattedKey(key, currentGrouping)))
             value.forEach {
                 val thumbnailMedium = ThumbnailMedium(it.name, it.path, it.parentPath, it.modified, it.taken, it.size, it.type, it.isFavorite)
                 thumbnailItems.add(thumbnailMedium)
             }
         }
+    }
+
+    private fun getFormattedKey(key: String, grouping: Int): String {
+        return when {
+            grouping and GROUP_BY_LAST_MODIFIED != 0 || grouping and GROUP_BY_DATE_TAKEN != 0 -> formatDate(key)
+            grouping and GROUP_BY_FILE_TYPE != 0 -> getFileTypeString(key)
+            grouping and GROUP_BY_EXTENSION != 0 -> key.toUpperCase()
+            grouping and GROUP_BY_FOLDER != 0 -> activity.humanizePath(key)
+            else -> key
+        }
+    }
+
+    private fun formatDate(timestamp: String): String {
+        return if (timestamp.areDigitsOnly()) {
+            val cal = Calendar.getInstance(Locale.ENGLISH)
+            cal.timeInMillis = timestamp.toLong()
+            DateFormat.format("dd MMM yyyy", cal).toString()
+        } else {
+            ""
+        }
+    }
+
+    private fun getFileTypeString(key: String): String {
+        val stringId = when (key.toInt()) {
+            TYPE_IMAGES -> R.string.images
+            TYPE_VIDEOS -> R.string.videos
+            TYPE_GIFS -> R.string.gifs
+            else -> R.string.raw_images
+        }
+        return activity.getString(stringId)
     }
 
     private fun setupThumbnailMedium(view: View, medium: ThumbnailMedium) {
