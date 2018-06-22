@@ -376,6 +376,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
             return
         }
 
+        mediumGroups.clear()
         media.forEach {
             val key = it.getGroupingKey(currentGrouping)
             if (!mediumGroups.containsKey(key)) {
