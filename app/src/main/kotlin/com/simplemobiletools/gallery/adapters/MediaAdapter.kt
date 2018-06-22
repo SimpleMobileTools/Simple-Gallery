@@ -26,6 +26,7 @@ import com.simplemobiletools.gallery.models.ThumbnailItem
 import com.simplemobiletools.gallery.models.ThumbnailMedium
 import com.simplemobiletools.gallery.models.ThumbnailSection
 import kotlinx.android.synthetic.main.photo_video_item_grid.view.*
+import kotlinx.android.synthetic.main.thumbnail_section.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -71,7 +72,15 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val layoutType = if (isListViewType) R.layout.photo_video_item_list else R.layout.photo_video_item_grid
+        val layoutType = if (viewType == ITEM_SECTION) {
+            R.layout.thumbnail_section
+        } else {
+            if (isListViewType) {
+                R.layout.photo_video_item_list
+            } else {
+                R.layout.photo_video_item_grid
+            }
+        }
         return createViewHolder(layoutType, parent)
     }
 
@@ -92,6 +101,15 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     override fun getItemCount() = thumbnailItems.size
+
+    override fun getItemViewType(position: Int): Int {
+        val tmbItem = thumbnailItems[position]
+        return if (tmbItem is ThumbnailSection) {
+            ITEM_SECTION
+        } else {
+            ITEM_MEDIUM
+        }
+    }
 
     override fun prepareActionMode(menu: Menu) {
         menu.apply {
@@ -135,7 +153,10 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         if (!activity.isActivityDestroyed()) {
             val itemView = holder.itemView
             visibleItemPaths.remove(itemView?.photo_name?.tag)
-            Glide.with(activity).clear(itemView?.medium_thumbnail!!)
+            val tmb = itemView?.medium_thumbnail
+            if (tmb != null) {
+                Glide.with(activity).clear(tmb)
+            }
         }
     }
 
@@ -367,9 +388,13 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
             mediumGroups[key] = value
         }
 
-        media.forEach {
-            val thumbnailMedium = ThumbnailMedium(it.name, it.path, it.parentPath, it.modified, it.taken, it.size, it.type, it.isFavorite)
-            thumbnailItems.add(thumbnailMedium)
+        thumbnailItems.clear()
+        for ((key, value) in mediumGroups) {
+            thumbnailItems.add(ThumbnailSection(key))
+            value.forEach {
+                val thumbnailMedium = ThumbnailMedium(it.name, it.path, it.parentPath, it.modified, it.taken, it.size, it.type, it.isFavorite)
+                thumbnailItems.add(thumbnailMedium)
+            }
         }
     }
 
@@ -407,7 +432,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
     private fun setupThumbnailSection(view: View, section: ThumbnailSection) {
         view.apply {
-
+            thumbnail_section.text = section.title
+            thumbnail_section.setTextColor(textColor)
         }
     }
 
