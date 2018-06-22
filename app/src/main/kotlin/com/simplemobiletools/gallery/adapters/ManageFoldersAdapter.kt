@@ -39,6 +39,8 @@ class ManageFoldersAdapter(activity: BaseSimpleActivity, var folders: ArrayList<
 
     override fun getSelectableItemCount() = folders.size
 
+    override fun getIsItemSelectable(position: Int) = true
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = createViewHolder(R.layout.item_manage_folder, parent)
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

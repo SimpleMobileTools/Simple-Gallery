@@ -145,7 +145,9 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         }
     }
 
-    override fun getSelectableItemCount() = media.size
+    override fun getSelectableItemCount() = thumbnailItems.filter { it is ThumbnailMedium }.size
+
+    override fun getIsItemSelectable(position: Int) = !isASectionTitle(position)
 
     override fun onViewRecycled(holder: ViewHolder) {
         super.onViewRecycled(holder)

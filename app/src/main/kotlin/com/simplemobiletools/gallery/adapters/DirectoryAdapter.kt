@@ -104,6 +104,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
     override fun getSelectableItemCount() = dirs.size
 
+    override fun getIsItemSelectable(position: Int) = true
+
     override fun onViewRecycled(holder: ViewHolder) {
         super.onViewRecycled(holder)
         if (!activity.isActivityDestroyed()) {
