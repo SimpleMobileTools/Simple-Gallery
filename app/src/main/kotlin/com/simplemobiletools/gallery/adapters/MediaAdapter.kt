@@ -2,7 +2,6 @@ package com.simplemobiletools.gallery.adapters
 
 import android.os.Handler
 import android.os.Looper
-import android.text.format.DateFormat
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
@@ -19,19 +18,16 @@ import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.DeleteWithRememberDialog
 import com.simplemobiletools.gallery.extensions.*
-import com.simplemobiletools.gallery.helpers.*
-import com.simplemobiletools.gallery.models.Medium
+import com.simplemobiletools.gallery.helpers.VIEW_TYPE_LIST
 import com.simplemobiletools.gallery.models.ThumbnailItem
 import com.simplemobiletools.gallery.models.ThumbnailMedium
 import com.simplemobiletools.gallery.models.ThumbnailSection
 import kotlinx.android.synthetic.main.photo_video_item_grid.view.*
 import kotlinx.android.synthetic.main.thumbnail_section.view.*
-import java.util.*
-import kotlin.collections.ArrayList
 
-class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
-                   val allowMultiplePicks: Boolean, recyclerView: MyRecyclerView, fastScroller: FastScroller? = null, val path: String,
-                   itemClick: (Any) -> Unit) : MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick) {
+class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<ThumbnailItem>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
+                   val allowMultiplePicks: Boolean, recyclerView: MyRecyclerView, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit) :
+        MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick) {
 
     private val INSTANT_LOAD_DURATION = 2000L
     private val IMAGE_LOAD_DELAY = 100L
@@ -41,13 +37,10 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     private val config = activity.config
     private val isListViewType = config.viewTypeFiles == VIEW_TYPE_LIST
     private var visibleItemPaths = ArrayList<String>()
-    private var thumbnailItems = ArrayList<ThumbnailItem>()
     private var loadImageInstantly = false
     private var delayHandler = Handler(Looper.getMainLooper())
     private var currentMediaHash = media.hashCode()
-    private var currentGrouping = GROUP_BY_NONE
     private val hasOTGConnected = activity.hasOTGConnected()
-    private var mediumGroups = LinkedHashMap<String, ArrayList<Medium>>()
 
     private var scrollHorizontally = config.scrollHorizontally
     private var animateGifs = config.animateGifs
@@ -56,7 +49,6 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
     init {
         setupDragListener(true)
-        groupMedia()
         enableInstantLoad()
     }
 
@@ -84,7 +76,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     }
 
     override fun onBindViewHolder(holder: MyRecyclerViewAdapter.ViewHolder, position: Int) {
-        val tmbItem = thumbnailItems.getOrNull(position) ?: return
+        val tmbItem = media.getOrNull(position) ?: return
         if (tmbItem is ThumbnailMedium) {
             visibleItemPaths.add(tmbItem.path)
         }
@@ -99,10 +91,10 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         bindViewHolder(holder, position, view)
     }
 
-    override fun getItemCount() = thumbnailItems.size
+    override fun getItemCount() = media.size
 
     override fun getItemViewType(position: Int): Int {
-        val tmbItem = thumbnailItems[position]
+        val tmbItem = media[position]
         return if (tmbItem is ThumbnailSection) {
             ITEM_SECTION
         } else {
@@ -145,7 +137,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         }
     }
 
-    override fun getSelectableItemCount() = thumbnailItems.filter { it is ThumbnailMedium }.size
+    override fun getSelectableItemCount() = media.filter { it is ThumbnailMedium }.size
 
     override fun getIsItemSelectable(position: Int) = !isASectionTitle(position)
 
@@ -161,7 +153,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         }
     }
 
-    fun isASectionTitle(position: Int) = thumbnailItems.getOrNull(position) is ThumbnailSection
+    fun isASectionTitle(position: Int) = media.getOrNull(position) is ThumbnailSection
 
     private fun checkHideBtnVisibility(menu: Menu) {
         var hiddenCnt = 0
@@ -199,7 +191,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
 
     private fun showProperties() {
         if (selectedPositions.size <= 1) {
-            PropertiesDialog(activity, (thumbnailItems[selectedPositions.first()] as ThumbnailMedium).path, config.shouldShowHidden)
+            PropertiesDialog(activity, (media[selectedPositions.first()] as ThumbnailMedium).path, config.shouldShowHidden)
         } else {
             val paths = getSelectedPaths()
             PropertiesDialog(activity, paths, config.shouldShowHidden)
@@ -293,7 +285,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         }
     }
 
-    private fun getCurrentPath() = (thumbnailItems[selectedPositions.first()] as ThumbnailMedium).path
+    private fun getCurrentPath() = (media[selectedPositions.first()] as ThumbnailMedium).path
 
     private fun deleteFiles() {
         if (selectedPositions.isEmpty()) {
@@ -303,22 +295,22 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         val fileDirItems = ArrayList<FileDirItem>(selectedPositions.size)
         val removeMedia = ArrayList<ThumbnailMedium>(selectedPositions.size)
 
-        if (thumbnailItems.size <= selectedPositions.first()) {
+        if (media.size <= selectedPositions.first()) {
             finishActMode()
             return
         }
 
-        val SAFPath = (thumbnailItems[selectedPositions.first()] as ThumbnailMedium).path
+        val SAFPath = (media[selectedPositions.first()] as ThumbnailMedium).path
         activity.handleSAFDialog(SAFPath) {
             selectedPositions.sortedDescending().forEach {
-                val thumbnailItem = thumbnailItems[it]
+                val thumbnailItem = media[it]
                 if (thumbnailItem is ThumbnailMedium) {
                     fileDirItems.add(FileDirItem(thumbnailItem.path, thumbnailItem.name))
                     removeMedia.add(thumbnailItem)
                 }
             }
 
-            thumbnailItems.removeAll(removeMedia)
+            media.removeAll(removeMedia)
             listener?.tryDeleteFiles(fileDirItems)
             removeSelectedItems()
         }
@@ -327,19 +319,18 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
     private fun getSelectedMedia(): List<ThumbnailMedium> {
         val selectedMedia = ArrayList<ThumbnailMedium>(selectedPositions.size)
         selectedPositions.forEach {
-            selectedMedia.add(thumbnailItems[it] as ThumbnailMedium)
+            selectedMedia.add(media[it] as ThumbnailMedium)
         }
         return selectedMedia
     }
 
     private fun getSelectedPaths() = getSelectedMedia().map { it.path } as ArrayList<String>
 
-    fun updateMedia(newMedia: ArrayList<Medium>) {
-        if (newMedia.hashCode() != currentMediaHash || currentGrouping != config.getFolderGrouping(path)) {
+    fun updateMedia(newMedia: ArrayList<ThumbnailItem>) {
+        if (newMedia.hashCode() != currentMediaHash) {
             currentMediaHash = newMedia.hashCode()
             Handler().postDelayed({
                 media = newMedia
-                groupMedia()
                 enableInstantLoad()
                 notifyDataSetChanged()
                 finishActMode()
@@ -376,69 +367,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Medium>,
         }, INSTANT_LOAD_DURATION)
     }
 
-    private fun groupMedia() {
-        currentGrouping = config.getFolderGrouping(path)
-        if (currentGrouping and GROUP_BY_NONE != 0) {
-            return
-        }
-
-        mediumGroups.clear()
-        media.forEach {
-            val key = it.getGroupingKey(currentGrouping)
-            if (!mediumGroups.containsKey(key)) {
-                mediumGroups[key] = ArrayList()
-            }
-            mediumGroups[key]!!.add(it)
-        }
-
-        val sortDescending = currentGrouping and GROUP_DESCENDING != 0
-        val sorted = mediumGroups.toSortedMap(if (sortDescending) compareByDescending { it } else compareBy { it })
-        mediumGroups.clear()
-        sorted.forEach { key, value ->
-            mediumGroups[key] = value
-        }
-
-        thumbnailItems.clear()
-        for ((key, value) in mediumGroups) {
-            thumbnailItems.add(ThumbnailSection(getFormattedKey(key, currentGrouping)))
-            value.forEach {
-                val thumbnailMedium = ThumbnailMedium(it.name, it.path, it.parentPath, it.modified, it.taken, it.size, it.type, it.isFavorite)
-                thumbnailItems.add(thumbnailMedium)
-            }
-        }
-    }
-
-    private fun getFormattedKey(key: String, grouping: Int): String {
-        return when {
-            grouping and GROUP_BY_LAST_MODIFIED != 0 || grouping and GROUP_BY_DATE_TAKEN != 0 -> formatDate(key)
-            grouping and GROUP_BY_FILE_TYPE != 0 -> getFileTypeString(key)
-            grouping and GROUP_BY_EXTENSION != 0 -> key.toUpperCase()
-            grouping and GROUP_BY_FOLDER != 0 -> activity.humanizePath(key)
-            else -> key
-        }
-    }
-
-    private fun formatDate(timestamp: String): String {
-        return if (timestamp.areDigitsOnly()) {
-            val cal = Calendar.getInstance(Locale.ENGLISH)
-            cal.timeInMillis = timestamp.toLong()
-            DateFormat.format("dd MMM yyyy", cal).toString()
-        } else {
-            ""
-        }
-    }
-
-    private fun getFileTypeString(key: String): String {
-        val stringId = when (key.toInt()) {
-            TYPE_IMAGES -> R.string.images
-            TYPE_VIDEOS -> R.string.videos
-            TYPE_GIFS -> R.string.gifs
-            else -> R.string.raw_images
-        }
-        return activity.getString(stringId)
-    }
-
-    fun getItemBubbleText(position: Int, sorting: Int) = (thumbnailItems[position] as? ThumbnailMedium)?.getBubbleText(sorting)
+    fun getItemBubbleText(position: Int, sorting: Int) = (media[position] as? ThumbnailMedium)?.getBubbleText(sorting)
 
     private fun setupThumbnailMedium(view: View, medium: ThumbnailMedium) {
         view.apply {

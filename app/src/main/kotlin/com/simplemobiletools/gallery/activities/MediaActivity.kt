@@ -283,8 +283,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         Thread {
             val filtered = mMedia.filter { it.name.contains(text, true) } as ArrayList
             filtered.sortBy { !it.name.startsWith(text, true) }
+            val groupedMedia = MediaFetcher(applicationContext).groupMedia(filtered, mPath)
             runOnUiThread {
-                getMediaAdapter()?.updateMedia(filtered)
+                getMediaAdapter()?.updateMedia(groupedMedia)
             }
         }.start()
     }
@@ -315,12 +316,12 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             return
         }
 
-        val media = mMedia.clone() as ArrayList<Medium>
+        val groupedMedia = MediaFetcher(applicationContext).groupMedia(mMedia.clone() as ArrayList<Medium>, mPath)
         val currAdapter = media_grid.adapter
         if (currAdapter == null) {
             initZoomListener()
             val fastscroller = if (config.scrollHorizontally) media_horizontal_fastscroller else media_vertical_fastscroller
-            MediaAdapter(this, media, this, mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent, mAllowPickingMultiple, media_grid, fastscroller, mPath) {
+            MediaAdapter(this, groupedMedia, this, mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent, mAllowPickingMultiple, media_grid, fastscroller) {
                 itemClicked((it as ThumbnailMedium).path)
             }.apply {
                 setupZoomListener(mZoomListener)
@@ -328,8 +329,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             }
             setupLayoutManager()
         } else {
-            (currAdapter as MediaAdapter).updateMedia(media)
+            (currAdapter as MediaAdapter).updateMedia(groupedMedia)
         }
+
         setupScrollDirection()
     }
 
@@ -359,8 +361,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun getBubbleTextItem(index: Int, sorting: Int) = getMediaAdapter()?.getItemBubbleText(index, sorting) ?: ""
 
     private fun checkLastMediaChanged() {
-        if (isActivityDestroyed())
+        if (isActivityDestroyed()) {
             return
+        }
 
         mLastMediaHandler.removeCallbacksAndMessages(null)
         mLastMediaHandler.postDelayed({

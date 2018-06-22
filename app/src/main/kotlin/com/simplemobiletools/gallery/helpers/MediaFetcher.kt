@@ -4,14 +4,20 @@ import android.content.Context
 import android.database.Cursor
 import android.net.Uri
 import android.provider.MediaStore
+import android.text.format.DateFormat
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
+import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getDistinctPath
 import com.simplemobiletools.gallery.extensions.getOTGFolderChildren
 import com.simplemobiletools.gallery.extensions.shouldFolderBeVisible
 import com.simplemobiletools.gallery.models.Medium
+import com.simplemobiletools.gallery.models.ThumbnailItem
+import com.simplemobiletools.gallery.models.ThumbnailMedium
+import com.simplemobiletools.gallery.models.ThumbnailSection
 import java.io.File
+import java.util.*
 
 class MediaFetcher(val context: Context) {
     var shouldStop = false
@@ -328,5 +334,73 @@ class MediaFetcher(val context: Context) {
             }
             result
         })
+    }
+
+    fun groupMedia(media: ArrayList<Medium>, path: String): ArrayList<ThumbnailItem> {
+        val thumbnailItems = ArrayList<ThumbnailItem>()
+        val mediumGroups = LinkedHashMap<String, ArrayList<Medium>>()
+        val currentGrouping = context.config.getFolderGrouping(path)
+        if (currentGrouping and GROUP_BY_NONE != 0) {
+            media.forEach {
+                val thumbnailMedium = ThumbnailMedium(it.name, it.path, it.parentPath, it.modified, it.taken, it.size, it.type, it.isFavorite)
+                thumbnailItems.add(thumbnailMedium)
+            }
+            return thumbnailItems
+        }
+
+        media.forEach {
+            val key = it.getGroupingKey(currentGrouping)
+            if (!mediumGroups.containsKey(key)) {
+                mediumGroups[key] = ArrayList()
+            }
+            mediumGroups[key]!!.add(it)
+        }
+
+        val sortDescending = currentGrouping and GROUP_DESCENDING != 0
+        val sorted = mediumGroups.toSortedMap(if (sortDescending) compareByDescending { it } else compareBy { it })
+        mediumGroups.clear()
+        sorted.forEach { key, value ->
+            mediumGroups[key] = value
+        }
+
+        for ((key, value) in mediumGroups) {
+            thumbnailItems.add(ThumbnailSection(getFormattedKey(key, currentGrouping)))
+            value.forEach {
+                val thumbnailMedium = ThumbnailMedium(it.name, it.path, it.parentPath, it.modified, it.taken, it.size, it.type, it.isFavorite)
+                thumbnailItems.add(thumbnailMedium)
+            }
+        }
+
+        return thumbnailItems
+    }
+
+    private fun getFormattedKey(key: String, grouping: Int): String {
+        return when {
+            grouping and GROUP_BY_LAST_MODIFIED != 0 || grouping and GROUP_BY_DATE_TAKEN != 0 -> formatDate(key)
+            grouping and GROUP_BY_FILE_TYPE != 0 -> getFileTypeString(key)
+            grouping and GROUP_BY_EXTENSION != 0 -> key.toUpperCase()
+            grouping and GROUP_BY_FOLDER != 0 -> context.humanizePath(key)
+            else -> key
+        }
+    }
+
+    private fun formatDate(timestamp: String): String {
+        return if (timestamp.areDigitsOnly()) {
+            val cal = Calendar.getInstance(Locale.ENGLISH)
+            cal.timeInMillis = timestamp.toLong()
+            DateFormat.format("dd MMM yyyy", cal).toString()
+        } else {
+            ""
+        }
+    }
+
+    private fun getFileTypeString(key: String): String {
+        val stringId = when (key.toInt()) {
+            TYPE_IMAGES -> R.string.images
+            TYPE_VIDEOS -> R.string.videos
+            TYPE_GIFS -> R.string.gifs
+            else -> R.string.raw_images
+        }
+        return context.getString(stringId)
     }
 }
