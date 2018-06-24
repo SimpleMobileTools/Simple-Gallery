@@ -274,10 +274,13 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                 return true
             }
 
+            // this triggers on device rotation too, avoid doing anything
             override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
-                mIsSearchOpen = false
-                media_refresh_layout.isEnabled = config.enablePullToRefresh
-                searchQueryChanged("")
+                if (mIsSearchOpen) {
+                    mIsSearchOpen = false
+                    media_refresh_layout.isEnabled = config.enablePullToRefresh
+                    searchQueryChanged("")
+                }
                 return true
             }
         })
