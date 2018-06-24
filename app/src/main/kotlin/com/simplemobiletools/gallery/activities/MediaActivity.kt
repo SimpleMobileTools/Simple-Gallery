@@ -649,8 +649,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun increaseColumnCount() {
-        media_vertical_fastscroller.measureRecyclerViewOnRedraw()
-        media_horizontal_fastscroller.measureRecyclerViewOnRedraw()
         config.mediaColumnCnt = ++(media_grid.layoutManager as MyGridLayoutManager).spanCount
         invalidateOptionsMenu()
         media_grid.adapter?.notifyDataSetChanged()
@@ -658,8 +656,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun reduceColumnCount() {
-        media_vertical_fastscroller.measureRecyclerViewOnRedraw()
-        media_horizontal_fastscroller.measureRecyclerViewOnRedraw()
         config.mediaColumnCnt = --(media_grid.layoutManager as MyGridLayoutManager).spanCount
         invalidateOptionsMenu()
         media_grid.adapter?.notifyDataSetChanged()
