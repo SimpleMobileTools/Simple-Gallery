@@ -403,6 +403,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun showSortingDialog() {
         ChangeSortingDialog(this, false, !config.showAll, mPath) {
             mLoadedInitialPhotos = false
+            media_grid.adapter = null
             getMedia()
         }
     }
@@ -411,6 +412,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         FilterMediaDialog(this) {
             mLoadedInitialPhotos = false
             media_refresh_layout.isRefreshing = true
+            media_grid.adapter = null
             getMedia()
         }
     }
@@ -443,6 +445,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun showGroupByDialog() {
         ChangeGroupingDialog(this, mShowAll, mPath) {
             mLoadedInitialPhotos = false
+            media_grid.adapter = null
             getMedia()
         }
     }
@@ -651,6 +654,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         config.mediaColumnCnt = ++(media_grid.layoutManager as MyGridLayoutManager).spanCount
         invalidateOptionsMenu()
         media_grid.adapter?.notifyDataSetChanged()
+        measureRecyclerViewContent(mMedia)
     }
 
     private fun reduceColumnCount() {
@@ -659,6 +663,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         config.mediaColumnCnt = --(media_grid.layoutManager as MyGridLayoutManager).spanCount
         invalidateOptionsMenu()
         media_grid.adapter?.notifyDataSetChanged()
+        measureRecyclerViewContent(mMedia)
     }
 
     private fun isSetWallpaperIntent() = intent.getBooleanExtra(SET_WALLPAPER_INTENT, false)
