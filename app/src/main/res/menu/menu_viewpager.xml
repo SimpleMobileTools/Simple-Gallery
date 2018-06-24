@@ -82,14 +82,14 @@
         android:title="@string/edit"
         app:showAsAction="ifRoom"/>
     <item
-        android:id="@+id/menu_rename"
-        android:icon="@drawable/ic_rename"
-        android:title="@string/rename"
-        app:showAsAction="ifRoom"/>
-    <item
         android:id="@+id/menu_properties"
         android:icon="@drawable/ic_info"
         android:title="@string/properties"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/menu_rename"
+        android:icon="@drawable/ic_rename"
+        android:title="@string/rename"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_show_on_map"
