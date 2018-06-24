@@ -614,6 +614,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
             fullHeight += ((curSectionItems - 1) / layoutManager.spanCount + 1) * mThumbnailHeight
             media_vertical_fastscroller.setContentHeight(fullHeight)
+            media_vertical_fastscroller.setScrollTo(media_grid.computeVerticalScrollOffset())
         }
     }
 
@@ -650,13 +651,15 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun increaseColumnCount() {
         config.mediaColumnCnt = ++(media_grid.layoutManager as MyGridLayoutManager).spanCount
-        invalidateOptionsMenu()
-        media_grid.adapter?.notifyDataSetChanged()
-        measureRecyclerViewContent(mMedia)
+        columnCountChanged()
     }
 
     private fun reduceColumnCount() {
         config.mediaColumnCnt = --(media_grid.layoutManager as MyGridLayoutManager).spanCount
+        columnCountChanged()
+    }
+
+    private fun columnCountChanged() {
         invalidateOptionsMenu()
         media_grid.adapter?.notifyDataSetChanged()
         measureRecyclerViewContent(mMedia)
