@@ -322,6 +322,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun showSortingDialog() {
         ChangeSortingDialog(this, true, false) {
+            directories_grid.adapter = null
             if (config.directorySorting and SORT_BY_DATE_MODIFIED > 0 || config.directorySorting and SORT_BY_DATE_TAKEN > 0) {
                 getDirectories()
             } else {
@@ -334,6 +335,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         FilterMediaDialog(this) {
             mLoadedInitialPhotos = false
             directories_refresh_layout.isRefreshing = true
+            directories_grid.adapter = null
             getDirectories()
         }
     }
