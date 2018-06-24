@@ -425,6 +425,32 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         layoutManager.spanCount = config.dirColumnCnt
     }
 
+    private fun measureRecyclerViewContent(directories: ArrayList<Directory>) {
+        directories_grid.onGlobalLayout {
+            if (config.scrollHorizontally) {
+                calculateContentWidth(directories)
+            } else {
+                calculateContentHeight(directories)
+            }
+        }
+    }
+
+    private fun calculateContentWidth(directories: ArrayList<Directory>) {
+        val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
+        val thumbnailWidth = layoutManager.getChildAt(0)?.width ?: 0
+        val fullWidth = ((directories.size - 1) / layoutManager.spanCount + 1) * thumbnailWidth
+        directories_horizontal_fastscroller.setContentWidth(fullWidth)
+        directories_horizontal_fastscroller.setScrollToX(directories_grid.computeHorizontalScrollOffset())
+    }
+
+    private fun calculateContentHeight(directories: ArrayList<Directory>) {
+        val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
+        val thumbnailHeight = layoutManager.getChildAt(0)?.height ?: 0
+        val fullHeight = ((directories.size - 1) / layoutManager.spanCount + 1) * thumbnailHeight
+        directories_vertical_fastscroller.setContentHeight(fullHeight)
+        directories_vertical_fastscroller.setScrollToY(directories_grid.computeVerticalScrollOffset())
+    }
+
     private fun initZoomListener() {
         if (config.viewTypeFolders == VIEW_TYPE_GRID) {
             val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
@@ -466,19 +492,19 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun increaseColumnCount() {
-        directories_vertical_fastscroller.measureRecyclerViewOnRedraw()
-        directories_horizontal_fastscroller.measureRecyclerViewOnRedraw()
         config.dirColumnCnt = ++(directories_grid.layoutManager as MyGridLayoutManager).spanCount
-        invalidateOptionsMenu()
-        directories_grid.adapter?.notifyDataSetChanged()
+        columnCountChanged()
     }
 
     private fun reduceColumnCount() {
-        directories_vertical_fastscroller.measureRecyclerViewOnRedraw()
-        directories_horizontal_fastscroller.measureRecyclerViewOnRedraw()
         config.dirColumnCnt = --(directories_grid.layoutManager as MyGridLayoutManager).spanCount
+        columnCountChanged()
+    }
+
+    private fun columnCountChanged() {
         invalidateOptionsMenu()
         directories_grid.adapter?.notifyDataSetChanged()
+        measureRecyclerViewContent(getRecyclerAdapter()!!.dirs)
     }
 
     private fun isPickImageIntent(intent: Intent) = isPickIntent(intent) && (hasImageContentData(intent) || isImageType(intent))
@@ -698,7 +724,6 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
             runOnUiThread {
                 directories_refresh_layout.isRefreshing = false
-                directories_vertical_fastscroller.measureRecyclerView()
                 checkPlaceholderVisibility(dirs)
             }
             checkInvalidDirectories(dirs, directoryDao)
@@ -763,12 +788,14 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             (currAdapter as DirectoryAdapter).updateDirs(directories)
         }
 
+        getRecyclerAdapter()?.dirs?.apply {
+            measureRecyclerViewContent(this)
+        }
         setupScrollDirection()
     }
 
     private fun setupScrollDirection() {
         val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFolders == VIEW_TYPE_GRID
-
         directories_vertical_fastscroller.isHorizontal = false
         directories_vertical_fastscroller.beGoneIf(allowHorizontalScroll)
 

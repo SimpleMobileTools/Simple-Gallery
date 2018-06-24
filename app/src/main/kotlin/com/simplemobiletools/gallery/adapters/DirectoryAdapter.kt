@@ -255,7 +255,6 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                     dirs = newDirs
 
                     finishActMode()
-                    fastScroller?.measureRecyclerView()
                     listener?.updateDirectories(newDirs)
                 }
             }
@@ -423,7 +422,6 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             dirs = newDirs
             notifyDataSetChanged()
             finishActMode()
-            fastScroller?.measureRecyclerView()
         }
     }
 
