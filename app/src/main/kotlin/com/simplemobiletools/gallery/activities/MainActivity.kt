@@ -138,8 +138,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         if (mStoredScrollHorizontally != config.scrollHorizontally) {
-            getRecyclerAdapter()?.updateScrollHorizontally(config.viewTypeFolders != VIEW_TYPE_LIST && config.scrollHorizontally)
-            setupScrollDirection()
+            mLoadedInitialPhotos = false
+            directories_grid.adapter = null
+            getDirectories()
         }
 
         if (mStoredTextColor != config.textColor) {
@@ -382,6 +383,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun toggleTemporarilyShowHidden(show: Boolean) {
         mLoadedInitialPhotos = false
         config.temporarilyShowHidden = show
+        directories_grid.adapter = null
         getDirectories()
         invalidateOptionsMenu()
     }

@@ -335,7 +335,6 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                 enableInstantLoad()
                 notifyDataSetChanged()
                 finishActMode()
-                fastScroller?.measureRecyclerView()
             }, 100L)
         }
     }
@@ -353,11 +352,6 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
     fun updateCropThumbnails(cropThumbnails: Boolean) {
         this.cropThumbnails = cropThumbnails
-        notifyDataSetChanged()
-    }
-
-    fun updateScrollHorizontally(scrollHorizontally: Boolean) {
-        this.scrollHorizontally = scrollHorizontally
         notifyDataSetChanged()
     }
 

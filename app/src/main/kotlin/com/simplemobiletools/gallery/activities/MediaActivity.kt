@@ -61,8 +61,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private var mIsSearchOpen = false
     private var mLatestMediaId = 0L
     private var mLatestMediaDateId = 0L
-    private var mSectionTitleHeight = 0
-    private var mThumbnailHeight = 0
     private var mLastMediaHandler = Handler()
     private var mTempShowHiddenHandler = Handler()
     private var mCurrAsyncTask: GetMediaAsynctask? = null
@@ -126,8 +124,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         }
 
         if (mStoredScrollHorizontally != config.scrollHorizontally) {
-            getMediaAdapter()?.updateScrollHorizontally(config.viewTypeFiles != VIEW_TYPE_LIST || !config.scrollHorizontally)
-            setupScrollDirection()
+            mLoadedInitialPhotos = false
+            media_grid.adapter = null
+            getMedia()
         }
 
         if (mStoredTextColor != config.textColor) {
@@ -591,31 +590,48 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun measureRecyclerViewContent(media: ArrayList<ThumbnailItem>) {
-        val layoutManager = media_grid.layoutManager as MyGridLayoutManager
         media_grid.onGlobalLayout {
-            val hasSections = config.getFolderGrouping(mPath) and GROUP_BY_NONE == 0
-            mSectionTitleHeight = if (hasSections) layoutManager.getChildAt(0)?.height ?: 0 else 0
-            mThumbnailHeight = if (hasSections) layoutManager.getChildAt(1)?.height ?: 0 else layoutManager.getChildAt(0)?.height ?: 0
-
-            var fullHeight = 0
-            var curSectionItems = 0
-            media.forEach {
-                if (it is ThumbnailSection) {
-                    fullHeight += mSectionTitleHeight
-                    if (curSectionItems != 0) {
-                        val rows = ((curSectionItems - 1) / layoutManager.spanCount + 1)
-                        fullHeight += rows * mThumbnailHeight
-                    }
-                    curSectionItems = 0
-                } else {
-                    curSectionItems++
-                }
+            if (config.scrollHorizontally) {
+                calculateContentWidth(media)
+            } else {
+                calculateContentHeight(media)
             }
-
-            fullHeight += ((curSectionItems - 1) / layoutManager.spanCount + 1) * mThumbnailHeight
-            media_vertical_fastscroller.setContentHeight(fullHeight)
-            media_vertical_fastscroller.setScrollTo(media_grid.computeVerticalScrollOffset())
         }
+    }
+
+    private fun calculateContentWidth(media: ArrayList<ThumbnailItem>) {
+        val layoutManager = media_grid.layoutManager as MyGridLayoutManager
+        val mThumbnailWidth = layoutManager.getChildAt(0)?.width ?: 0
+        val fullWidth = ((media.size - 1) / layoutManager.spanCount + 1) * mThumbnailWidth
+        media_horizontal_fastscroller.setContentWidth(fullWidth)
+        media_horizontal_fastscroller.setScrollTo(media_grid.computeHorizontalScrollOffset())
+    }
+
+    private fun calculateContentHeight(media: ArrayList<ThumbnailItem>) {
+        val layoutManager = media_grid.layoutManager as MyGridLayoutManager
+        val hasSections = config.getFolderGrouping(mPath) and GROUP_BY_NONE == 0 && !config.scrollHorizontally
+        val mSectionTitleHeight = if (hasSections) layoutManager.getChildAt(0)?.height ?: 0 else 0
+        val mThumbnailHeight = if (hasSections) layoutManager.getChildAt(1)?.height ?: 0 else layoutManager.getChildAt(0)?.height
+                ?: 0
+
+        var fullHeight = 0
+        var curSectionItems = 0
+        media.forEach {
+            if (it is ThumbnailSection) {
+                fullHeight += mSectionTitleHeight
+                if (curSectionItems != 0) {
+                    val rows = ((curSectionItems - 1) / layoutManager.spanCount + 1)
+                    fullHeight += rows * mThumbnailHeight
+                }
+                curSectionItems = 0
+            } else {
+                curSectionItems++
+            }
+        }
+
+        fullHeight += ((curSectionItems - 1) / layoutManager.spanCount + 1) * mThumbnailHeight
+        media_vertical_fastscroller.setContentHeight(fullHeight)
+        media_vertical_fastscroller.setScrollTo(media_grid.computeVerticalScrollOffset())
     }
 
     private fun initZoomListener() {

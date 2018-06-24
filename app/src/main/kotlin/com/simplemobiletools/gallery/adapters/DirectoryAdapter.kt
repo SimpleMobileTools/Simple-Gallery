@@ -442,11 +442,6 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         notifyDataSetChanged()
     }
 
-    fun updateScrollHorizontally(scrollHorizontally: Boolean) {
-        this.scrollHorizontally = scrollHorizontally
-        notifyDataSetChanged()
-    }
-
     private fun setupView(view: View, directory: Directory) {
         view.apply {
             dir_name.text = directory.name
