@@ -192,6 +192,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         val isFolderHidden = File(mPath).containsNoMedia()
         menu.apply {
+            findItem(R.id.group).isVisible = !config.scrollHorizontally
+
             findItem(R.id.hide_folder).isVisible = !isFolderHidden && !mShowAll && mPath != FAVORITES
             findItem(R.id.unhide_folder).isVisible = isFolderHidden && !mShowAll && mPath != FAVORITES
             findItem(R.id.exclude_folder).isVisible = !mShowAll && mPath != FAVORITES
@@ -604,7 +606,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         val mThumbnailWidth = layoutManager.getChildAt(0)?.width ?: 0
         val fullWidth = ((media.size - 1) / layoutManager.spanCount + 1) * mThumbnailWidth
         media_horizontal_fastscroller.setContentWidth(fullWidth)
-        media_horizontal_fastscroller.setScrollTo(media_grid.computeHorizontalScrollOffset())
+        media_horizontal_fastscroller.setScrollToX(media_grid.computeHorizontalScrollOffset())
     }
 
     private fun calculateContentHeight(media: ArrayList<ThumbnailItem>) {
@@ -631,7 +633,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
         fullHeight += ((curSectionItems - 1) / layoutManager.spanCount + 1) * mThumbnailHeight
         media_vertical_fastscroller.setContentHeight(fullHeight)
-        media_vertical_fastscroller.setScrollTo(media_grid.computeVerticalScrollOffset())
+        media_vertical_fastscroller.setScrollToY(media_grid.computeVerticalScrollOffset())
     }
 
     private fun initZoomListener() {

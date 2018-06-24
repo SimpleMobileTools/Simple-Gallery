@@ -342,6 +342,12 @@ class MediaFetcher(val context: Context) {
             return media as ArrayList<ThumbnailItem>
         }
 
+        val thumbnailItems = ArrayList<ThumbnailItem>()
+        if (context.config.scrollHorizontally) {
+            media.mapTo(thumbnailItems) { it }
+            return thumbnailItems
+        }
+
         media.forEach {
             val key = it.getGroupingKey(currentGrouping)
             if (!mediumGroups.containsKey(key)) {
@@ -357,7 +363,6 @@ class MediaFetcher(val context: Context) {
             mediumGroups[key] = value
         }
 
-        val thumbnailItems = ArrayList<ThumbnailItem>()
         for ((key, value) in mediumGroups) {
             thumbnailItems.add(ThumbnailSection(getFormattedKey(key, currentGrouping)))
             thumbnailItems.addAll(value)
