@@ -979,7 +979,7 @@
                 android:clickable="false"
                 android:paddingLeft="@dimen/medium_margin"
                 android:paddingStart="@dimen/medium_margin"
-                android:text="@string/move_items_to_trash_bin"/>
+                android:text="@string/move_items_to_recycle_bin"/>
 
         </RelativeLayout>
     </LinearLayout>
