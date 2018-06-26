@@ -182,13 +182,13 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         bottom_delete.beGone()
 
         bottom_edit.setOnClickListener {
-            if (mUri != null) {
+            if (mUri != null && bottom_actions.alpha == 1f) {
                 openEditor(mUri!!.toString())
             }
         }
 
         bottom_share.setOnClickListener {
-            if (mUri != null) {
+            if (mUri != null && bottom_actions.alpha == 1f) {
                 sharePath(mUri!!.toString())
             }
         }

@@ -762,19 +762,27 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun initBottomActionButtons() {
         bottom_favorite.setOnClickListener {
-            toggleFavorite()
+            if (bottom_actions.alpha == 1f) {
+                toggleFavorite()
+            }
         }
 
         bottom_edit.setOnClickListener {
-            openEditor(getCurrentPath())
+            if (bottom_actions.alpha == 1f) {
+                openEditor(getCurrentPath())
+            }
         }
 
         bottom_share.setOnClickListener {
-            shareMediumPath(getCurrentPath())
+            if (bottom_actions.alpha == 1f) {
+                shareMediumPath(getCurrentPath())
+            }
         }
 
         bottom_delete.setOnClickListener {
-            checkDeleteConfirmation()
+            if (bottom_actions.alpha == 1f) {
+                checkDeleteConfirmation()
+            }
         }
     }
 
