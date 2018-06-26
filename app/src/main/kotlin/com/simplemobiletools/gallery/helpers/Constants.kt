@@ -51,6 +51,7 @@ const val WAS_OTG_HANDLED = "was_otg_handled"
 const val TEMP_SKIP_DELETE_CONFIRMATION = "temp_skip_delete_confirmation"
 const val BOTTOM_ACTIONS = "bottom_actions"
 const val WERE_FAVORITES_PINNED = "were_favorites_pinned"
+const val WAS_RECYCLE_BIN_PINNED = "was_recycle_bin_pinned"
 const val GROUP_BY = "group_by"
 
 // slideshow
@@ -67,6 +68,7 @@ const val SLIDESHOW_SCROLL_DURATION = 500L
 
 const val NOMEDIA = ".nomedia"
 const val FAVORITES = "favorites"
+const val RECYCLE_BIN = "recycle_bin"
 const val SHOW_FAVORITES = "show_favorites"
 const val MAX_COLUMN_COUNT = 20
 const val SHOW_TEMP_HIDDEN_DURATION = 300000L

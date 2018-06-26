@@ -114,6 +114,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             config.addPinnedFolders(hashSetOf(FAVORITES))
             config.wereFavoritesPinned = true
         }
+
+        if (!config.wasRecycleBinPinned) {
+            config.addPinnedFolders(hashSetOf(RECYCLE_BIN))
+            config.wasRecycleBinPinned = true
+        }
     }
 
     override fun onStart() {
