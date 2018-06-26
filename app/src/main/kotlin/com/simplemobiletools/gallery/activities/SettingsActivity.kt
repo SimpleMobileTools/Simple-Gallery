@@ -70,12 +70,13 @@ class SettingsActivity : SimpleActivity() {
         setupSkipDeleteConfirmation()
         updateTextColors(settings_holder)
         setupSectionColors()
+        setupUseRecycleBin()
     }
 
     private fun setupSectionColors() {
         val adjustedPrimaryColor = getAdjustedPrimaryColor()
         arrayListOf(visibility_label, videos_label, thumbnails_label, scrolling_label, fullscreen_media_label, security_label,
-                file_operations_label, extended_details_label).forEach {
+                file_operations_label, extended_details_label, recycle_bin_label).forEach {
             it.setTextColor(adjustedPrimaryColor)
         }
     }
@@ -409,4 +410,12 @@ class SettingsActivity : SimpleActivity() {
         ROTATE_BY_DEVICE_ROTATION -> R.string.screen_rotation_device_rotation
         else -> R.string.screen_rotation_aspect_ratio
     })
+
+    private fun setupUseRecycleBin() {
+        settings_use_recycle_bin.isChecked = config.useRecycleBin
+        settings_use_recycle_bin_holder.setOnClickListener {
+            settings_use_recycle_bin.toggle()
+            config.useRecycleBin = settings_use_recycle_bin.isChecked
+        }
+    }
 }

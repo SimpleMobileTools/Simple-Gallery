@@ -52,6 +52,7 @@ const val TEMP_SKIP_DELETE_CONFIRMATION = "temp_skip_delete_confirmation"
 const val BOTTOM_ACTIONS = "bottom_actions"
 const val WERE_FAVORITES_PINNED = "were_favorites_pinned"
 const val WAS_RECYCLE_BIN_PINNED = "was_recycle_bin_pinned"
+const val USE_RECYCLE_BIN = "use_recycle_bin"
 const val GROUP_BY = "group_by"
 
 // slideshow

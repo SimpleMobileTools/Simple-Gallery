@@ -356,4 +356,8 @@ class Config(context: Context) : BaseConfig(context) {
     var groupBy: Int
         get() = prefs.getInt(GROUP_BY, GROUP_BY_NONE)
         set(groupBy) = prefs.edit().putInt(GROUP_BY, groupBy).apply()
+
+    var useRecycleBin: Boolean
+        get() = prefs.getBoolean(USE_RECYCLE_BIN, true)
+        set(useRecycleBin) = prefs.edit().putBoolean(USE_RECYCLE_BIN, useRecycleBin).apply()
 }
