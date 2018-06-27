@@ -25,10 +25,11 @@ data class Medium(
         @ColumnInfo(name = "date_taken") var taken: Long,
         @ColumnInfo(name = "size") val size: Long,
         @ColumnInfo(name = "type") val type: Int,
-        @ColumnInfo(name = "is_favorite") var isFavorite: Boolean) : Serializable, ThumbnailItem() {
+        @ColumnInfo(name = "is_favorite") var isFavorite: Boolean,
+        @ColumnInfo(name = "deleted_ts") var deletedTS: Int) : Serializable, ThumbnailItem() {
 
     companion object {
-        private const val serialVersionUID = -6553149366975455L
+        private const val serialVersionUID = -6553149366975655L
     }
 
     fun isGif() = type == TYPE_GIFS

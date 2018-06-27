@@ -224,7 +224,7 @@ class MediaFetcher(val context: Context) {
 
             val path = file.absolutePath
             val isFavorite = favoritePaths.contains(path)
-            val medium = Medium(null, filename, path, file.parent, lastModified, dateTaken, size, type, isFavorite)
+            val medium = Medium(null, filename, path, file.parent, lastModified, dateTaken, size, type, isFavorite, 0)
             media.add(medium)
         }
         return media
@@ -281,7 +281,7 @@ class MediaFetcher(val context: Context) {
 
             val path = Uri.decode(file.uri.toString().replaceFirst("${context.config.OTGTreeUri}/document/${context.config.OTGPartition}%3A", OTG_PATH))
             val isFavorite = favoritePaths.contains(path)
-            val medium = Medium(null, filename, path, folder, dateModified, dateTaken, size, type, isFavorite)
+            val medium = Medium(null, filename, path, folder, dateModified, dateTaken, size, type, isFavorite, 0)
             media.add(medium)
         }
 
