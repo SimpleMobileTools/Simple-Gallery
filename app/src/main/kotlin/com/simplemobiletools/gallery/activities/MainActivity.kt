@@ -864,9 +864,16 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         if (getFavoritePaths().isEmpty()) {
-            val dirsFolder = dirs.firstOrNull { it.areFavorites() }
-            if (dirsFolder != null) {
-                invalidDirs.add(dirsFolder)
+            val favoritesFolder = dirs.firstOrNull { it.areFavorites() }
+            if (favoritesFolder != null) {
+                invalidDirs.add(favoritesFolder)
+            }
+        }
+
+        if (config.useRecycleBin) {
+            val binFolder = dirs.firstOrNull { it.path == RECYCLE_BIN }
+            if (binFolder != null && galleryDB.MediumDao().getDeletedMedia().isEmpty()) {
+                invalidDirs.add(binFolder)
             }
         }
 
