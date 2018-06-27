@@ -204,3 +204,21 @@ fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback:
         callback?.invoke(pathsCnt == 0)
     }.start()
 }
+
+fun BaseSimpleActivity.emptyTheRecycleBin(callback: () -> Unit) {
+    Thread {
+        filesDir.deleteRecursively()
+        galleryDB.MediumDao().clearRecycleBin()
+        galleryDB.DirectoryDao().deleteRecycleBin()
+        callback()
+    }.start()
+}
+
+fun BaseSimpleActivity.emptyAndDisableTheRecycleBin(callback: () -> Unit) {
+    Thread {
+        emptyTheRecycleBin {
+            config.useRecycleBin = false
+            callback()
+        }
+    }.start()
+}

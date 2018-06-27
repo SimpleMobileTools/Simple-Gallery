@@ -37,4 +37,7 @@ interface MediumDao {
 
     @Query("UPDATE media SET deleted_ts = :deletedTS WHERE full_path = :path COLLATE NOCASE")
     fun updateDeleted(path: String, deletedTS: Long)
+
+    @Query("DELETE FROM media WHERE deleted_ts != 0")
+    fun clearRecycleBin()
 }

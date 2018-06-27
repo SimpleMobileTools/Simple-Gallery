@@ -198,6 +198,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             findItem(R.id.unhide_folder).isVisible = isFolderHidden && !mShowAll && mPath != FAVORITES && mPath != RECYCLE_BIN
             findItem(R.id.exclude_folder).isVisible = !mShowAll && mPath != FAVORITES && mPath != RECYCLE_BIN
 
+            findItem(R.id.empty_recycle_bin).isVisible = mPath == RECYCLE_BIN
+            findItem(R.id.empty_disable_recycle_bin).isVisible = mPath == RECYCLE_BIN
+
             findItem(R.id.folder_view).isVisible = mShowAll
             findItem(R.id.open_camera).isVisible = mShowAll
             findItem(R.id.about).isVisible = mShowAll
@@ -219,6 +222,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         when (item.itemId) {
             R.id.sort -> showSortingDialog()
             R.id.filter -> showFilterMediaDialog()
+            R.id.empty_recycle_bin -> emptyRecycleBin()
+            R.id.empty_disable_recycle_bin -> emptyAndDisableRecycleBin()
             R.id.toggle_filename -> toggleFilenameVisibility()
             R.id.open_camera -> launchCamera()
             R.id.folder_view -> switchToFolderView()
@@ -415,6 +420,18 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             media_refresh_layout.isRefreshing = true
             media_grid.adapter = null
             getMedia()
+        }
+    }
+
+    private fun emptyRecycleBin() {
+        emptyTheRecycleBin {
+            finish()
+        }
+    }
+
+    private fun emptyAndDisableRecycleBin() {
+        emptyAndDisableTheRecycleBin {
+            finish()
         }
     }
 

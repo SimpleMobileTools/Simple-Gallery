@@ -4,6 +4,7 @@ import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.OnConflictStrategy.REPLACE
 import android.arch.persistence.room.Query
+import com.simplemobiletools.gallery.helpers.RECYCLE_BIN
 import com.simplemobiletools.gallery.models.Directory
 
 @Dao
@@ -25,4 +26,7 @@ interface DirectoryDao {
 
     @Query("UPDATE directories SET thumbnail = :thumbnail, filename = :name, path = :newPath WHERE path = :oldPath COLLATE NOCASE")
     fun updateDirectoryAfterRename(thumbnail: String, name: String, newPath: String, oldPath: String)
+
+    @Query("DELETE FROM directories WHERE path = \'$RECYCLE_BIN\' COLLATE NOCASE")
+    fun deleteRecycleBin()
 }
