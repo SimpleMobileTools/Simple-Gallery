@@ -181,18 +181,23 @@ fun BaseSimpleActivity.tryDeleteFileDirItem(fileDirItem: FileDirItem, allowDelet
     }
 }
 
-fun BaseSimpleActivity.movePathInRecycleBin(path: String, callback: (success: Boolean) -> Unit) {
-    val file = File(path)
-    val internalFile = File(filesDir, path)
-    return try {
-        file.copyRecursively(internalFile, true)
-        val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
-        tryDeleteFileDirItem(fileDirItem, getIsPathDirectory(path), false) {
-            Thread {
-                callback(it)
-            }.start()
+fun BaseSimpleActivity.movePathInRecycleBin(path: String, callback: ((wasSuccess: Boolean) -> Unit)?) {
+    movePathsInRecycleBin(arrayListOf(path), callback)
+}
+
+fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback: ((wasSuccess: Boolean) -> Unit)?) {
+    Thread {
+        var pathsCnt = paths.size
+        paths.forEach {
+            val file = File(it)
+            val internalFile = File(filesDir, it)
+            try {
+                file.copyRecursively(internalFile, true)
+                galleryDB.MediumDao().updateDeleted(it, System.currentTimeMillis())
+                pathsCnt--
+            } catch (ignored: Exception) {
+            }
         }
-    } catch (ignored: Exception) {
-        callback(false)
-    }
+        callback?.invoke(pathsCnt == 0)
+    }.start()
 }

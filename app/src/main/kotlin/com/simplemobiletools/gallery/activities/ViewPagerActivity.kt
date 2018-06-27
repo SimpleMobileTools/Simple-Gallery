@@ -838,19 +838,18 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun deleteConfirmed() {
         val path = getCurrentMedia().getOrNull(mPos)?.path ?: return
+        val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
         if (config.useRecycleBin) {
-            Thread {
-                movePathInRecycleBin(path) {
-                    if (it) {
-                        galleryDB.MediumDao().updateDeleted(path, System.currentTimeMillis())
+            movePathInRecycleBin(path) {
+                if (it) {
+                    tryDeleteFileDirItem(fileDirItem, false, false) {
                         refreshViewPager()
-                    } else {
-                        toast(R.string.unknown_error_occurred)
                     }
+                } else {
+                    toast(R.string.unknown_error_occurred)
                 }
-            }.start()
+            }
         } else {
-            val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
             tryDeleteFileDirItem(fileDirItem, false, true) {
                 refreshViewPager()
             }

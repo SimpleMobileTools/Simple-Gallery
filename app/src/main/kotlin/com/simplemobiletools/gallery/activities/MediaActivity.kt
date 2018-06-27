@@ -772,6 +772,20 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     override fun tryDeleteFiles(fileDirItems: ArrayList<FileDirItem>) {
         val filtered = fileDirItems.filter { it.path.isImageVideoGif() } as ArrayList
+        if (config.useRecycleBin) {
+            movePathsInRecycleBin(filtered.map { it.path } as ArrayList<String>) {
+                if (it) {
+                    deleteFilteredFiles(filtered)
+                } else {
+                    toast(R.string.unknown_error_occurred)
+                }
+            }
+        } else {
+            deleteFilteredFiles(filtered)
+        }
+    }
+
+    private fun deleteFilteredFiles(filtered: ArrayList<FileDirItem>) {
         deleteFiles(filtered) {
             if (!it) {
                 toast(R.string.unknown_error_occurred)
@@ -782,8 +796,11 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
             Thread {
                 val mediumDao = galleryDB.MediumDao()
+                val useRecycleBin = config.useRecycleBin
                 filtered.forEach {
-                    mediumDao.deleteMediumPath(it.path)
+                    if (!useRecycleBin) {
+                        mediumDao.deleteMediumPath(it.path)
+                    }
                 }
             }.start()
 
