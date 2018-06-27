@@ -346,7 +346,8 @@ class MediaFetcher(val context: Context) {
 
     fun groupMedia(media: ArrayList<Medium>, path: String): ArrayList<ThumbnailItem> {
         val mediumGroups = LinkedHashMap<String, ArrayList<Medium>>()
-        val currentGrouping = context.config.getFolderGrouping(path)
+        val pathToCheck = if (path.isEmpty()) SHOW_ALL else path
+        val currentGrouping = context.config.getFolderGrouping(pathToCheck)
         if (currentGrouping and GROUP_BY_NONE != 0) {
             return media as ArrayList<ThumbnailItem>
         }

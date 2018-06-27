@@ -46,7 +46,7 @@ class Config(context: Context) : BaseConfig(context) {
 
     fun getFolderGrouping(path: String): Int {
         var groupBy = prefs.getInt(GROUP_FOLDER_PREFIX + path.toLowerCase(), groupBy)
-        if (path.isNotEmpty() && groupBy and GROUP_BY_FOLDER != 0) {
+        if (path != SHOW_ALL && groupBy and GROUP_BY_FOLDER != 0) {
             groupBy -= GROUP_BY_FOLDER + 1
         }
         return groupBy

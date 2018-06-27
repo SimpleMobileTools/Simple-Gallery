@@ -6,6 +6,7 @@ import com.simplemobiletools.commons.helpers.SORT_BY_DATE_TAKEN
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getFavoritePaths
 import com.simplemobiletools.gallery.helpers.MediaFetcher
+import com.simplemobiletools.gallery.helpers.SHOW_ALL
 import com.simplemobiletools.gallery.models.Medium
 import com.simplemobiletools.gallery.models.ThumbnailItem
 import java.util.*
@@ -31,7 +32,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickImage
         } else {
             mediaFetcher.getFilesFrom(mPath, isPickImage, isPickVideo, getProperDateTaken, favoritePaths)
         }
-        return mediaFetcher.groupMedia(media, mPath)
+        return mediaFetcher.groupMedia(media, if (showAll) SHOW_ALL else mPath)
     }
 
     override fun onPostExecute(media: ArrayList<ThumbnailItem>) {

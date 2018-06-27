@@ -11,18 +11,17 @@ import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.helpers.*
 import kotlinx.android.synthetic.main.dialog_change_grouping.view.*
 
-class ChangeGroupingDialog(val activity: BaseSimpleActivity, val isShowingAll: Boolean, val path: String = "", val callback: () -> Unit) :
+class ChangeGroupingDialog(val activity: BaseSimpleActivity, val path: String = "", val callback: () -> Unit) :
         DialogInterface.OnClickListener {
     private var currGrouping = 0
     private var config = activity.config
+    private val pathToUse = if (path.isEmpty()) SHOW_ALL else path
     private var view: View
 
     init {
         view = activity.layoutInflater.inflate(R.layout.dialog_change_grouping, null).apply {
-            use_for_this_folder_divider.beVisibleIf(!isShowingAll)
-            grouping_dialog_use_for_this_folder.beVisibleIf(!isShowingAll)
-            grouping_dialog_use_for_this_folder.isChecked = config.hasCustomGrouping(path)
-            grouping_dialog_radio_folder.beVisibleIf(isShowingAll)
+            grouping_dialog_use_for_this_folder.isChecked = config.hasCustomGrouping(pathToUse)
+            grouping_dialog_radio_folder.beVisibleIf(path.isEmpty())
         }
 
         AlertDialog.Builder(activity)
@@ -32,7 +31,7 @@ class ChangeGroupingDialog(val activity: BaseSimpleActivity, val isShowingAll: B
                     activity.setupDialogStuff(view, this, R.string.group_by)
                 }
 
-        currGrouping = config.getFolderGrouping(path)
+        currGrouping = config.getFolderGrouping(pathToUse)
         setupGroupRadio()
         setupOrderRadio()
     }
@@ -77,9 +76,9 @@ class ChangeGroupingDialog(val activity: BaseSimpleActivity, val isShowingAll: B
         }
 
         if (view.grouping_dialog_use_for_this_folder.isChecked) {
-            config.saveFolderGrouping(path, grouping)
+            config.saveFolderGrouping(pathToUse, grouping)
         } else {
-            config.removeFolderGrouping(path)
+            config.removeFolderGrouping(pathToUse)
             config.groupBy = grouping
         }
         callback()

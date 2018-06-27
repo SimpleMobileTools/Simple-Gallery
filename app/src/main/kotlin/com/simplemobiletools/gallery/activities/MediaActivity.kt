@@ -477,7 +477,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun showGroupByDialog() {
-        ChangeGroupingDialog(this, mShowAll, mPath) {
+        ChangeGroupingDialog(this, mPath) {
             mLoadedInitialPhotos = false
             media_grid.adapter = null
             getMedia()
@@ -644,7 +644,8 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun calculateContentHeight(media: ArrayList<ThumbnailItem>) {
         val layoutManager = media_grid.layoutManager as MyGridLayoutManager
-        val hasSections = config.getFolderGrouping(mPath) and GROUP_BY_NONE == 0 && !config.scrollHorizontally
+        val pathToCheck = if (mPath.isEmpty()) SHOW_ALL else mPath
+        val hasSections = config.getFolderGrouping(pathToCheck) and GROUP_BY_NONE == 0 && !config.scrollHorizontally
         val sectionTitleHeight = if (hasSections) layoutManager.getChildAt(0)?.height ?: 0 else 0
         val thumbnailHeight = if (hasSections) layoutManager.getChildAt(1)?.height ?: 0 else layoutManager.getChildAt(0)?.height
                 ?: 0
