@@ -279,7 +279,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
     private fun askConfirmDelete() {
         val items = resources.getQuantityString(R.plurals.delete_items, selectedPositions.size, selectedPositions.size)
-        val baseString = if (config.useRecycleBin) R.string.move_to_recycle_bin_confirmation else R.string.deletion_confirmation
+        val isRecycleBin = getSelectedPaths().first().startsWith(activity.filesDir.toString())
+        val baseString = if (config.useRecycleBin && !isRecycleBin) R.string.move_to_recycle_bin_confirmation else R.string.deletion_confirmation
         val question = String.format(resources.getString(baseString), items)
         DeleteWithRememberDialog(activity, question) {
             config.tempSkipDeleteConfirmation = it

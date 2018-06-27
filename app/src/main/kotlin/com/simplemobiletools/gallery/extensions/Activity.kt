@@ -171,12 +171,15 @@ fun BaseSimpleActivity.tryCopyMoveFilesTo(fileDirItems: ArrayList<FileDirItem>, 
 fun BaseSimpleActivity.tryDeleteFileDirItem(fileDirItem: FileDirItem, allowDeleteFolder: Boolean = false, deleteFromDatabase: Boolean,
                                             callback: ((wasSuccess: Boolean) -> Unit)? = null) {
     deleteFile(fileDirItem, allowDeleteFolder) {
-        callback?.invoke(it)
-
         if (deleteFromDatabase) {
             Thread {
                 galleryDB.MediumDao().deleteMediumPath(fileDirItem.path)
+                runOnUiThread {
+                    callback?.invoke(it)
+                }
             }.start()
+        } else {
+            callback?.invoke(it)
         }
     }
 }

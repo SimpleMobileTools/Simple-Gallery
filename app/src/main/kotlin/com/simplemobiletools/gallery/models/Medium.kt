@@ -59,6 +59,8 @@ data class Medium(
         }
     }
 
+    fun getIsInRecycleBin() = deletedTS != 0L
+
     private fun getDayStartTS(ts: Long): String {
         val calendar = Calendar.getInstance(Locale.ENGLISH).apply {
             timeInMillis = ts
