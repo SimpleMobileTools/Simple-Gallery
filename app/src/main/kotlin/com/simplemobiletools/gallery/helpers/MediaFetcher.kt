@@ -211,25 +211,30 @@ class MediaFetcher(val context: Context) {
             if (size <= 0L || (doExtraCheck && !file.exists()))
                 continue
 
-            val lastModified = file.lastModified()
-            var dateTaken = lastModified
-
-            if (getProperDateTaken) {
-                dateTaken = dateTakens.remove(filename) ?: lastModified
-            }
-
-            val type = when {
-                isImage -> TYPE_IMAGES
-                isVideo -> TYPE_VIDEOS
-                isGif -> TYPE_GIFS
-                else -> TYPE_RAWS
-            }
-
             val path = file.absolutePath
-            val isFavorite = favoritePaths.contains(path)
-            val deletedTS = if (folder == RECYCLE_BIN) deletedMedia.firstOrNull { it.path == path }?.deletedTS ?: 0L else 0L
-            val medium = Medium(null, filename, path, file.parent, lastModified, dateTaken, size, type, isFavorite, deletedTS)
-            media.add(medium)
+            if (folder == RECYCLE_BIN) {
+                deletedMedia.firstOrNull { it.path == path }?.apply {
+                    media.add(this)
+                }
+            } else {
+                val lastModified = file.lastModified()
+                var dateTaken = lastModified
+
+                if (getProperDateTaken) {
+                    dateTaken = dateTakens.remove(filename) ?: lastModified
+                }
+
+                val type = when {
+                    isImage -> TYPE_IMAGES
+                    isVideo -> TYPE_VIDEOS
+                    isGif -> TYPE_GIFS
+                    else -> TYPE_RAWS
+                }
+
+                val isFavorite = favoritePaths.contains(path)
+                val medium = Medium(null, filename, path, file.parent, lastModified, dateTaken, size, type, isFavorite, 0L)
+                media.add(medium)
+            }
         }
         return media
     }
