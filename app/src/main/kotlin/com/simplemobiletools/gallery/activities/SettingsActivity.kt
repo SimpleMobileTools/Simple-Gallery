@@ -16,6 +16,7 @@ import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.ManageExtendedDetailsDialog
 import com.simplemobiletools.gallery.extensions.config
+import com.simplemobiletools.gallery.extensions.emptyTheRecycleBin
 import com.simplemobiletools.gallery.helpers.ROTATE_BY_ASPECT_RATIO
 import com.simplemobiletools.gallery.helpers.ROTATE_BY_DEVICE_ROTATION
 import com.simplemobiletools.gallery.helpers.ROTATE_BY_SYSTEM_SETTING
@@ -71,6 +72,7 @@ class SettingsActivity : SimpleActivity() {
         updateTextColors(settings_holder)
         setupSectionColors()
         setupUseRecycleBin()
+        setupEmptyRecycleBin()
     }
 
     private fun setupSectionColors() {
@@ -412,10 +414,18 @@ class SettingsActivity : SimpleActivity() {
     })
 
     private fun setupUseRecycleBin() {
+        settings_empty_recycle_bin_holder.beVisibleIf(config.useRecycleBin)
         settings_use_recycle_bin.isChecked = config.useRecycleBin
         settings_use_recycle_bin_holder.setOnClickListener {
             settings_use_recycle_bin.toggle()
             config.useRecycleBin = settings_use_recycle_bin.isChecked
+            settings_empty_recycle_bin_holder.beVisibleIf(config.useRecycleBin)
+        }
+    }
+
+    private fun setupEmptyRecycleBin() {
+        settings_empty_recycle_bin_holder.setOnClickListener {
+            emptyTheRecycleBin()
         }
     }
 }

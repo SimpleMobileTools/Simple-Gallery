@@ -205,13 +205,13 @@ fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback:
     }.start()
 }
 
-fun BaseSimpleActivity.emptyTheRecycleBin(callback: () -> Unit) {
+fun BaseSimpleActivity.emptyTheRecycleBin(callback: (() -> Unit)? = null) {
     Thread {
         filesDir.deleteRecursively()
         galleryDB.MediumDao().clearRecycleBin()
         galleryDB.DirectoryDao().deleteRecycleBin()
         toast(R.string.recycle_bin_emptied)
-        callback()
+        callback?.invoke()
     }.start()
 }
 
