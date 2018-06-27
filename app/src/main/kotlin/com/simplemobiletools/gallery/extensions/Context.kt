@@ -24,6 +24,7 @@ import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.databases.GalleryDatabase
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.interfaces.DirectoryDao
+import com.simplemobiletools.gallery.interfaces.MediumDao
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
 import com.simplemobiletools.gallery.models.ThumbnailItem
@@ -330,6 +331,10 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
             media.addAll(mediumDao.getFavorites())
         }
 
+        if (path == RECYCLE_BIN) {
+            media.addAll(getUpdatedDeletedMedia(mediumDao))
+        }
+
         val shouldShowHidden = config.shouldShowHidden
         foldersToScan.forEach {
             try {
@@ -367,7 +372,7 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
 
 fun Context.removeInvalidDBDirectories(dirs: ArrayList<Directory>? = null, directoryDao: DirectoryDao = galleryDB.DirectoryDao()) {
     val dirsToCheck = dirs ?: directoryDao.getAll()
-    dirsToCheck.filter { !it.areFavorites() && !getDoesFilePathExist(it.path) && it.path != config.tempFolderPath }.forEach {
+    dirsToCheck.filter { !it.areFavorites() && !it.isRecycleBin() && !getDoesFilePathExist(it.path) && it.path != config.tempFolderPath }.forEach {
         directoryDao.deleteDirPath(it.path)
     }
 }
@@ -387,3 +392,11 @@ fun Context.getOTGFolderChildren(path: String) = getDocumentFile(path)?.listFile
 fun Context.getOTGFolderChildrenNames(path: String) = getOTGFolderChildren(path)?.map { it.name }?.toList()
 
 fun Context.getFavoritePaths() = galleryDB.MediumDao().getFavoritePaths() as ArrayList<String>
+
+fun Context.getUpdatedDeletedMedia(mediumDao: MediumDao): ArrayList<Medium> {
+    val media = mediumDao.getDeletedMedia() as ArrayList<Medium>
+    media.forEach {
+        it.path = File(filesDir, it.path).toString()
+    }
+    return media
+}

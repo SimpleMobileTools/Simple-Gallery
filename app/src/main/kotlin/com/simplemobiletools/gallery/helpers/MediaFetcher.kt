@@ -8,10 +8,7 @@ import android.text.format.DateFormat
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.extensions.getDistinctPath
-import com.simplemobiletools.gallery.extensions.getOTGFolderChildren
-import com.simplemobiletools.gallery.extensions.shouldFolderBeVisible
+import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.models.Medium
 import com.simplemobiletools.gallery.models.ThumbnailItem
 import com.simplemobiletools.gallery.models.ThumbnailSection
@@ -165,10 +162,10 @@ class MediaFetcher(val context: Context) {
                                  favoritePaths: ArrayList<String>): ArrayList<Medium> {
         val media = ArrayList<Medium>()
 
-        val files = if (folder == FAVORITES) {
-            favoritePaths.map { File(it) }.toTypedArray()
-        } else {
-            File(folder).listFiles() ?: return media
+        val files = when (folder) {
+            FAVORITES -> favoritePaths.map { File(it) }.toTypedArray()
+            RECYCLE_BIN -> context.getUpdatedDeletedMedia(context.galleryDB.MediumDao()).map { File(it.path) }.toTypedArray()
+            else -> File(folder).listFiles() ?: return media
         }
 
         val doExtraCheck = context.config.doExtraCheck

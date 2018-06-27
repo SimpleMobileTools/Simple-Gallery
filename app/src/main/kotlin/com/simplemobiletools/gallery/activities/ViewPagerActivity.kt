@@ -60,7 +60,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mPos = -1
     private var mShowAll = false
     private var mIsSlideshowActive = false
-    private var mIsShowingFavorites = false
     private var mRotationDegrees = 0
     private var mPrevHashcode = 0
 
@@ -86,7 +85,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medium)
         (MediaActivity.mMedia.clone() as ArrayList<ThumbnailItem>).filter { it is Medium }.mapTo(mMediaFiles) { it as Medium }
-        mIsShowingFavorites = intent.getBooleanExtra(SHOW_FAVORITES, false)
 
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
@@ -216,7 +214,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         showSystemUI()
 
-        mDirectory = if (mIsShowingFavorites) FAVORITES else mPath.getParentPath()
+        val isShowingFavorites = intent.getBooleanExtra(SHOW_FAVORITES, false)
+        val isShowingRecycleBin = intent.getBooleanExtra(SHOW_RECYCLE_BIN, false)
+        mDirectory = when {
+            isShowingFavorites -> FAVORITES
+            isShowingRecycleBin -> RECYCLE_BIN
+            else -> mPath.getParentPath()
+        }
         if (mDirectory.startsWith(OTG_PATH.trimEnd('/'))) {
             mDirectory += "/"
         }

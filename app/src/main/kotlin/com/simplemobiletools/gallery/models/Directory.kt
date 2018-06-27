@@ -11,6 +11,7 @@ import com.simplemobiletools.commons.helpers.SORT_BY_NAME
 import com.simplemobiletools.commons.helpers.SORT_BY_PATH
 import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
 import com.simplemobiletools.gallery.helpers.FAVORITES
+import com.simplemobiletools.gallery.helpers.RECYCLE_BIN
 import java.io.Serializable
 
 @Entity(tableName = "directories", indices = [Index(value = "path", unique = true)])
@@ -39,4 +40,6 @@ data class Directory(
     }
 
     fun areFavorites() = path == FAVORITES
+
+    fun isRecycleBin() = path == RECYCLE_BIN
 }

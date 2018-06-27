@@ -181,7 +181,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     }
 
     private fun toggleFoldersVisibility(hide: Boolean) {
-        getSelectedPaths().filter { it != FAVORITES }.forEach {
+        getSelectedPaths().filter { it != FAVORITES && it != RECYCLE_BIN }.forEach {
             val path = it
             if (hide) {
                 if (config.wasHideFolderTooltipShown) {
@@ -358,7 +358,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         activity.handleSAFDialog(SAFPath) {
             selectedPositions.sortedDescending().forEach {
                 val directory = dirs[it]
-                if (directory.areFavorites()) {
+                if (directory.areFavorites() || directory.isRecycleBin()) {
                     if (selectedPositions.size == 1) {
                         finishActMode()
                     } else {

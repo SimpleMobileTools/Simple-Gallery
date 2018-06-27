@@ -679,7 +679,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
                     // update directories and media files in the local db, delete invalid items
                     updateDBDirectory(directory)
-                    mediumDao.insertAll(curMedia)
+                    if (!directory.isRecycleBin()) {
+                        mediumDao.insertAll(curMedia)
+                    }
                     getCachedMedia(directory.path, getVideosOnly, getImagesOnly) {
                         it.forEach {
                             if (!curMedia.contains(it)) {
@@ -696,6 +698,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
             val foldersToScan = mediaFetcher.getFoldersToScan()
             foldersToScan.add(FAVORITES)
+            foldersToScan.add(RECYCLE_BIN)
             dirs.forEach {
                 foldersToScan.remove(it.path)
             }
@@ -720,7 +723,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 dirs.add(newDir)
                 showSortedDirs(dirs)
                 directoryDao.insert(newDir)
-                mediumDao.insertAll(newMedia)
+                if (folder != RECYCLE_BIN) {
+                    mediumDao.insertAll(newMedia)
+                }
             }
 
             mIsGettingDirs = false
@@ -764,7 +769,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         val mediaTypes = curMedia.getDirMediaTypes()
-        val dirName = if (path == FAVORITES) getString(R.string.favorites) else checkAppendingHidden(path, hiddenString, includedFolders)
+        val dirName = when (path) {
+            FAVORITES -> getString(R.string.favorites)
+            RECYCLE_BIN -> getString(R.string.recycle_bin)
+            else -> checkAppendingHidden(path, hiddenString, includedFolders)
+        }
 
         val firstItem = curMedia.first()
         val lastItem = curMedia.last()
@@ -822,7 +831,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun checkInvalidDirectories(dirs: ArrayList<Directory>, directoryDao: DirectoryDao) {
         val invalidDirs = ArrayList<Directory>()
-        dirs.filter { !it.areFavorites() }.forEach {
+        dirs.filter { !it.areFavorites() && !it.isRecycleBin() }.forEach {
             if (!getDoesFilePathExist(it.path)) {
                 invalidDirs.add(it)
             } else if (it.path != config.tempFolderPath) {

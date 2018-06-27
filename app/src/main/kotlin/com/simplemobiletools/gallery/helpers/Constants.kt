@@ -71,6 +71,7 @@ const val NOMEDIA = ".nomedia"
 const val FAVORITES = "favorites"
 const val RECYCLE_BIN = "recycle_bin"
 const val SHOW_FAVORITES = "show_favorites"
+const val SHOW_RECYCLE_BIN = "show_recycle_bin"
 const val MAX_COLUMN_COUNT = 20
 const val SHOW_TEMP_HIDDEN_DURATION = 300000L
 const val CLICK_MAX_DURATION = 150

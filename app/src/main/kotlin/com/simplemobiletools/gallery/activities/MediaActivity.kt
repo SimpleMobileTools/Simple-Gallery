@@ -194,9 +194,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         menu.apply {
             findItem(R.id.group).isVisible = !config.scrollHorizontally
 
-            findItem(R.id.hide_folder).isVisible = !isFolderHidden && !mShowAll && mPath != FAVORITES
-            findItem(R.id.unhide_folder).isVisible = isFolderHidden && !mShowAll && mPath != FAVORITES
-            findItem(R.id.exclude_folder).isVisible = !mShowAll && mPath != FAVORITES
+            findItem(R.id.hide_folder).isVisible = !isFolderHidden && !mShowAll && mPath != FAVORITES && mPath != RECYCLE_BIN
+            findItem(R.id.unhide_folder).isVisible = isFolderHidden && !mShowAll && mPath != FAVORITES && mPath != RECYCLE_BIN
+            findItem(R.id.exclude_folder).isVisible = !mShowAll && mPath != FAVORITES && mPath != RECYCLE_BIN
 
             findItem(R.id.folder_view).isVisible = mShowAll
             findItem(R.id.open_camera).isVisible = mShowAll
@@ -304,6 +304,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             if (it) {
                 val dirName = when {
                     mPath == FAVORITES -> getString(R.string.favorites)
+                    mPath == RECYCLE_BIN -> getString(R.string.recycle_bin)
                     mPath == OTG_PATH -> getString(R.string.otg)
                     mPath.startsWith(OTG_PATH) -> mPath.trimEnd('/').substringAfterLast('/')
                     else -> getHumanizedFilename(mPath)
@@ -525,7 +526,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
     private fun isDirEmpty(): Boolean {
         return if (mMedia.size <= 0 && config.filterMedia > 0) {
-            if (mPath != FAVORITES) {
+            if (mPath != FAVORITES && mPath != RECYCLE_BIN) {
                 deleteDirectoryIfEmpty()
                 deleteDBDirectory()
             }
@@ -736,6 +737,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                     putExtra(PATH, path)
                     putExtra(SHOW_ALL, mShowAll)
                     putExtra(SHOW_FAVORITES, mPath == FAVORITES)
+                    putExtra(SHOW_RECYCLE_BIN, mPath == RECYCLE_BIN)
                     startActivity(this)
                 }
             }
@@ -747,7 +749,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             mLatestMediaId = getLatestMediaId()
             mLatestMediaDateId = getLatestMediaByDateId()
             if (!isFromCache) {
-                val mediaToInsert = (mMedia.clone() as ArrayList<ThumbnailItem>).filter { it is Medium }.map { it as Medium }
+                val mediaToInsert = (mMedia.clone() as ArrayList<ThumbnailItem>).filter { it is Medium && it.deletedTS == 0L }.map { it as Medium }
                 galleryDB.MediumDao().insertAll(mediaToInsert)
             }
         }.start()
