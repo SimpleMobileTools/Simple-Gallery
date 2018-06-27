@@ -162,9 +162,15 @@ class MediaFetcher(val context: Context) {
                                  favoritePaths: ArrayList<String>): ArrayList<Medium> {
         val media = ArrayList<Medium>()
 
+        val deletedMedia = if (folder == RECYCLE_BIN) {
+            context.getUpdatedDeletedMedia(context.galleryDB.MediumDao())
+        } else {
+            ArrayList()
+        }
+
         val files = when (folder) {
             FAVORITES -> favoritePaths.map { File(it) }.toTypedArray()
-            RECYCLE_BIN -> context.getUpdatedDeletedMedia(context.galleryDB.MediumDao()).map { File(it.path) }.toTypedArray()
+            RECYCLE_BIN -> deletedMedia.map { File(it.path) }.toTypedArray()
             else -> File(folder).listFiles() ?: return media
         }
 
@@ -221,7 +227,8 @@ class MediaFetcher(val context: Context) {
 
             val path = file.absolutePath
             val isFavorite = favoritePaths.contains(path)
-            val medium = Medium(null, filename, path, file.parent, lastModified, dateTaken, size, type, isFavorite, 0L)
+            val deletedTS = if (folder == RECYCLE_BIN) deletedMedia.firstOrNull { it.path == path }?.deletedTS ?: 0L else 0L
+            val medium = Medium(null, filename, path, file.parent, lastModified, dateTaken, size, type, isFavorite, deletedTS)
             media.add(medium)
         }
         return media
