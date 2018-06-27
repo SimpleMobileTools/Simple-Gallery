@@ -327,7 +327,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         } else {
             val itemsCnt = selectedPositions.size
             val items = resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)
-            var question = String.format(resources.getString(R.string.deletion_confirmation), items)
+            val baseString = if (config.useRecycleBin) R.string.move_to_recycle_bin_confirmation else R.string.deletion_confirmation
+            var question = String.format(resources.getString(baseString), items)
             val warning = resources.getQuantityString(R.plurals.delete_warning, itemsCnt, itemsCnt)
             question += "\n\n$warning"
             ConfirmationDialog(activity, question) {

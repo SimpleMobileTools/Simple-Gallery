@@ -829,7 +829,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun askConfirmDelete() {
-        DeleteWithRememberDialog(this, getString(R.string.proceed_with_deletion)) {
+        val message = if (config.useRecycleBin) R.string.are_you_sure_recycle_bin else R.string.are_you_sure_delete
+        DeleteWithRememberDialog(this, getString(message)) {
             config.tempSkipDeleteConfirmation = it
             deleteConfirmed()
         }
