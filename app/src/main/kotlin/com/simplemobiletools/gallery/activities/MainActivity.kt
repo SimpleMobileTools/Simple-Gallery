@@ -395,6 +395,26 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     override fun deleteFolders(folders: ArrayList<File>) {
         val fileDirItems = folders.map { FileDirItem(it.absolutePath, it.name, true) } as ArrayList<FileDirItem>
+        if (config.useRecycleBin) {
+            val pathsToDelete = ArrayList<String>()
+            fileDirItems.filter { it.isDirectory }.forEach {
+                val files = File(it.path).listFiles()
+                files?.filter { it.absolutePath.isImageVideoGif() }?.mapTo(pathsToDelete) { it.absolutePath }
+            }
+
+            movePathsInRecycleBin(pathsToDelete) {
+                if (it) {
+                    deleteFilteredFolders(fileDirItems, folders)
+                } else {
+                    toast(R.string.unknown_error_occurred)
+                }
+            }
+        } else {
+            deleteFilteredFolders(fileDirItems, folders)
+        }
+    }
+
+    private fun deleteFilteredFolders(fileDirItems: ArrayList<FileDirItem>, folders: ArrayList<File>) {
         deleteFolders(fileDirItems) {
             runOnUiThread {
                 refreshItems()
