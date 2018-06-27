@@ -24,6 +24,7 @@ import java.util.*
 
 class SettingsActivity : SimpleActivity() {
     lateinit var res: Resources
+    private var mRecycleBinContentSize = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -424,15 +425,22 @@ class SettingsActivity : SimpleActivity() {
 
     private fun setupEmptyRecycleBin() {
         Thread {
-            val size = galleryDB.MediumDao().getDeletedMedia().sumByLong { it.size }
+            mRecycleBinContentSize = galleryDB.MediumDao().getDeletedMedia().sumByLong { it.size }
             runOnUiThread {
-                settings_empty_recycle_bin_size.text = size.formatSize()
+                settings_empty_recycle_bin_size.text = mRecycleBinContentSize.formatSize()
             }
         }.start()
 
         settings_empty_recycle_bin_holder.setOnClickListener {
-            emptyTheRecycleBin()
-            settings_empty_recycle_bin_size.text = 0L.formatSize()
+            if (mRecycleBinContentSize == 0L) {
+                toast(R.string.recycle_bin_empty)
+            } else {
+                ConfirmationDialog(this, "", R.string.empty_recycle_bin_confirmation, R.string.yes, R.string.no) {
+                    emptyTheRecycleBin()
+                    mRecycleBinContentSize = 0L
+                    settings_empty_recycle_bin_size.text = 0L.formatSize()
+                }
+            }
         }
     }
 }
