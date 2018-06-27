@@ -118,6 +118,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         if (!config.wasRecycleBinPinned) {
             config.addPinnedFolders(hashSetOf(RECYCLE_BIN))
             config.wasRecycleBinPinned = true
+            config.saveFolderGrouping(SHOW_ALL, GROUP_BY_DATE_TAKEN or GROUP_DESCENDING)
         }
     }
 
