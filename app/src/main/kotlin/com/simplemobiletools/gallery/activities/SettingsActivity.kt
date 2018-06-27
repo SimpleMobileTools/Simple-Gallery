@@ -16,6 +16,7 @@ import com.simplemobiletools.gallery.dialogs.ManageExtendedDetailsDialog
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.emptyTheRecycleBin
 import com.simplemobiletools.gallery.extensions.galleryDB
+import com.simplemobiletools.gallery.extensions.showRecycleBinEmptyingDialog
 import com.simplemobiletools.gallery.helpers.ROTATE_BY_ASPECT_RATIO
 import com.simplemobiletools.gallery.helpers.ROTATE_BY_DEVICE_ROTATION
 import com.simplemobiletools.gallery.helpers.ROTATE_BY_SYSTEM_SETTING
@@ -435,7 +436,7 @@ class SettingsActivity : SimpleActivity() {
             if (mRecycleBinContentSize == 0L) {
                 toast(R.string.recycle_bin_empty)
             } else {
-                ConfirmationDialog(this, "", R.string.empty_recycle_bin_confirmation, R.string.yes, R.string.no) {
+                showRecycleBinEmptyingDialog {
                     emptyTheRecycleBin()
                     mRecycleBinContentSize = 0L
                     settings_empty_recycle_bin_size.text = 0L.formatSize()

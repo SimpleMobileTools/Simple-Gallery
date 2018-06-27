@@ -6,6 +6,7 @@ import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
+import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FAQItem
@@ -232,7 +233,10 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, callback
                 out?.close()
             }
         }
-        callback()
+
+        runOnUiThread {
+            callback()
+        }
     }.start()
 }
 
@@ -253,4 +257,10 @@ fun BaseSimpleActivity.emptyAndDisableTheRecycleBin(callback: () -> Unit) {
             callback()
         }
     }.start()
+}
+
+fun BaseSimpleActivity.showRecycleBinEmptyingDialog(callback: () -> Unit) {
+    ConfirmationDialog(this, "", R.string.empty_recycle_bin_confirmation, R.string.yes, R.string.no) {
+        callback()
+    }
 }

@@ -200,6 +200,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
 
             findItem(R.id.empty_recycle_bin).isVisible = mPath == RECYCLE_BIN
             findItem(R.id.empty_disable_recycle_bin).isVisible = mPath == RECYCLE_BIN
+            findItem(R.id.restore_all_files).isVisible = mPath == RECYCLE_BIN
 
             findItem(R.id.folder_view).isVisible = mShowAll
             findItem(R.id.open_camera).isVisible = mShowAll
@@ -224,6 +225,7 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             R.id.filter -> showFilterMediaDialog()
             R.id.empty_recycle_bin -> emptyRecycleBin()
             R.id.empty_disable_recycle_bin -> emptyAndDisableRecycleBin()
+            R.id.restore_all_files -> restoreAllFiles()
             R.id.toggle_filename -> toggleFilenameVisibility()
             R.id.open_camera -> launchCamera()
             R.id.folder_view -> switchToFolderView()
@@ -424,13 +426,24 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun emptyRecycleBin() {
-        emptyTheRecycleBin {
-            finish()
+        showRecycleBinEmptyingDialog {
+            emptyTheRecycleBin {
+                finish()
+            }
         }
     }
 
     private fun emptyAndDisableRecycleBin() {
-        emptyAndDisableTheRecycleBin {
+        showRecycleBinEmptyingDialog {
+            emptyAndDisableTheRecycleBin {
+                finish()
+            }
+        }
+    }
+
+    private fun restoreAllFiles() {
+        val paths = mMedia.filter { it is Medium }.map { (it as Medium).path } as ArrayList<String>
+        restoreRecycleBinPaths(paths) {
             finish()
         }
     }

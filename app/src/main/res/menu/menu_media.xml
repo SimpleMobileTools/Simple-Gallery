@@ -31,6 +31,10 @@
         android:title="@string/empty_and_disable_recycle_bin"
         app:showAsAction="never"/>
     <item
+        android:id="@+id/restore_all_files"
+        android:title="@string/restore_all_files"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/folder_view"
         android:title="@string/folder_view"
         app:showAsAction="never"/>

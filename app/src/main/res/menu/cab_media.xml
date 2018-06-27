@@ -57,6 +57,10 @@
         android:title="@string/remove_from_favorites"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/cab_restore_recycle_bin_files"
+        android:title="@string/restore_selected_files"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/cab_open_with"
         android:title="@string/open_with"
         app:showAsAction="never"/>

@@ -108,6 +108,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             findItem(R.id.cab_rename).isVisible = isOneItemSelected()
             findItem(R.id.cab_open_with).isVisible = isOneItemSelected()
             findItem(R.id.cab_confirm_selection).isVisible = isAGetIntent && allowMultiplePicks && selectedPositions.size > 0
+            findItem(R.id.cab_restore_recycle_bin_files).isVisible = getSelectedPaths().all { it.startsWith(activity.filesDir.toString()) }
 
             checkHideBtnVisibility(this)
             checkFavoriteBtnVisibility(this)
@@ -128,6 +129,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             R.id.cab_unhide -> toggleFileVisibility(false)
             R.id.cab_add_to_favorites -> toggleFavorites(true)
             R.id.cab_remove_from_favorites -> toggleFavorites(false)
+            R.id.cab_restore_recycle_bin_files -> restoreFiles()
             R.id.cab_share -> shareMedia()
             R.id.cab_copy_to -> copyMoveTo(true)
             R.id.cab_move_to -> copyMoveTo(false)
@@ -242,6 +244,13 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                 finishActMode()
             }
         }.start()
+    }
+
+    private fun restoreFiles() {
+        activity.restoreRecycleBinPaths(getSelectedPaths()) {
+            listener?.refreshItems()
+            finishActMode()
+        }
     }
 
     private fun shareMedia() {
