@@ -82,7 +82,7 @@
         app:showAsAction="never"/>
     <item
         android:id="@+id/menu_edit"
-        android:icon="@drawable/ic_edit"
+        android:icon="@drawable/ic_rename"
         android:title="@string/edit"
         app:showAsAction="ifRoom"/>
     <item
@@ -92,9 +92,8 @@
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_rename"
-        android:icon="@drawable/ic_rename"
         android:title="@string/rename"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="never"/>
     <item
         android:id="@+id/menu_show_on_map"
         android:title="@string/show_on_map"
