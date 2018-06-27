@@ -6,17 +6,16 @@ import android.os.Bundle
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.dialogs.SecurityDialog
-import com.simplemobiletools.commons.extensions.beVisibleIf
-import com.simplemobiletools.commons.extensions.getAdjustedPrimaryColor
-import com.simplemobiletools.commons.extensions.handleHiddenFolderPasswordProtection
-import com.simplemobiletools.commons.extensions.updateTextColors
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PROTECTION_FINGERPRINT
 import com.simplemobiletools.commons.helpers.SHOW_ALL_TABS
+import com.simplemobiletools.commons.helpers.sumByLong
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.ManageExtendedDetailsDialog
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.emptyTheRecycleBin
+import com.simplemobiletools.gallery.extensions.galleryDB
 import com.simplemobiletools.gallery.helpers.ROTATE_BY_ASPECT_RATIO
 import com.simplemobiletools.gallery.helpers.ROTATE_BY_DEVICE_ROTATION
 import com.simplemobiletools.gallery.helpers.ROTATE_BY_SYSTEM_SETTING
@@ -424,8 +423,16 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun setupEmptyRecycleBin() {
+        Thread {
+            val size = galleryDB.MediumDao().getDeletedMedia().sumByLong { it.size }
+            runOnUiThread {
+                settings_empty_recycle_bin_size.text = size.formatSize()
+            }
+        }.start()
+
         settings_empty_recycle_bin_holder.setOnClickListener {
             emptyTheRecycleBin()
+            settings_empty_recycle_bin_size.text = 0L.formatSize()
         }
     }
 }
