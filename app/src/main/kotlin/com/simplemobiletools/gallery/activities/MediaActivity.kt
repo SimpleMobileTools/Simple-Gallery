@@ -444,6 +444,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     private fun restoreAllFiles() {
         val paths = mMedia.filter { it is Medium }.map { (it as Medium).path } as ArrayList<String>
         restoreRecycleBinPaths(paths) {
+            Thread {
+                galleryDB.DirectoryDao().deleteDirPath(RECYCLE_BIN)
+            }.start()
             finish()
         }
     }
