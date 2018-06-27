@@ -368,7 +368,7 @@ class MediaFetcher(val context: Context) {
         val sortDescending = currentGrouping and GROUP_DESCENDING != 0
         val sorted = mediumGroups.toSortedMap(if (sortDescending) compareByDescending { it } else compareBy { it })
         mediumGroups.clear()
-        sorted.forEach { key, value ->
+        for ((key, value) in sorted) {
             mediumGroups[key] = value
         }
 
