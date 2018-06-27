@@ -360,8 +360,9 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
             }
         }) as ArrayList<Medium>
 
-        mediaFetcher.sortMedia(media, config.getFileSorting(path))
-        val grouped = mediaFetcher.groupMedia(media, path)
+        val pathToUse = if (path.isEmpty()) SHOW_ALL else path
+        mediaFetcher.sortMedia(media, config.getFileSorting(pathToUse))
+        val grouped = mediaFetcher.groupMedia(media, pathToUse)
         callback(grouped.clone() as ArrayList<ThumbnailItem>)
 
         val recycleBinPath = filesDir.toString()

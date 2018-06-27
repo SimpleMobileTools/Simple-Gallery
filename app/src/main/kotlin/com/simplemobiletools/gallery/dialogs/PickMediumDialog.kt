@@ -12,6 +12,7 @@ import com.simplemobiletools.gallery.adapters.MediaAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getCachedMedia
+import com.simplemobiletools.gallery.helpers.SHOW_ALL
 import com.simplemobiletools.gallery.helpers.VIEW_TYPE_GRID
 import com.simplemobiletools.gallery.models.Medium
 import com.simplemobiletools.gallery.models.ThumbnailItem
@@ -71,7 +72,7 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
         }
 
         val scrollHorizontally = activity.config.scrollHorizontally && isGridViewType
-        val sorting = activity.config.getFileSorting(path)
+        val sorting = activity.config.getFileSorting(if (path.isEmpty()) SHOW_ALL else path)
         view.apply {
             media_grid.adapter = adapter
 

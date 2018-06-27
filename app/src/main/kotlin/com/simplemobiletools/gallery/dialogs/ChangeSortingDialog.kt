@@ -9,6 +9,7 @@ import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
+import com.simplemobiletools.gallery.helpers.SHOW_ALL
 import kotlinx.android.synthetic.main.dialog_change_sorting.view.*
 
 class ChangeSortingDialog(val activity: BaseSimpleActivity, val isDirectorySorting: Boolean, showFolderCheckbox: Boolean,
@@ -16,13 +17,14 @@ class ChangeSortingDialog(val activity: BaseSimpleActivity, val isDirectorySorti
         DialogInterface.OnClickListener {
     private var currSorting = 0
     private var config = activity.config
+    private var pathToUse = if (!isDirectorySorting && path.isEmpty()) SHOW_ALL else path
     private var view: View
 
     init {
         view = activity.layoutInflater.inflate(R.layout.dialog_change_sorting, null).apply {
             use_for_this_folder_divider.beVisibleIf(showFolderCheckbox)
             sorting_dialog_use_for_this_folder.beVisibleIf(showFolderCheckbox)
-            sorting_dialog_use_for_this_folder.isChecked = config.hasCustomSorting(path)
+            sorting_dialog_use_for_this_folder.isChecked = config.hasCustomSorting(pathToUse)
         }
 
         AlertDialog.Builder(activity)
@@ -32,7 +34,7 @@ class ChangeSortingDialog(val activity: BaseSimpleActivity, val isDirectorySorti
                     activity.setupDialogStuff(view, this, R.string.sort_by)
                 }
 
-        currSorting = if (isDirectorySorting) config.directorySorting else config.getFileSorting(path)
+        currSorting = if (isDirectorySorting) config.directorySorting else config.getFileSorting(pathToUse)
         setupSortRadio()
         setupOrderRadio()
     }
@@ -78,9 +80,9 @@ class ChangeSortingDialog(val activity: BaseSimpleActivity, val isDirectorySorti
             config.directorySorting = sorting
         } else {
             if (view.sorting_dialog_use_for_this_folder.isChecked) {
-                config.saveFileSorting(path, sorting)
+                config.saveFileSorting(pathToUse, sorting)
             } else {
-                config.removeFileSorting(path)
+                config.removeFileSorting(pathToUse)
                 config.sorting = sorting
             }
         }
