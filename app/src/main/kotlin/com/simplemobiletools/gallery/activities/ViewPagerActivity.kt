@@ -589,7 +589,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 }
 
                 if (getDoesFilePathExist(newPath)) {
-                    tryDeleteFileDirItem(FileDirItem(newPath, newPath.getFilenameFromPath()))
+                    tryDeleteFileDirItem(FileDirItem(newPath, newPath.getFilenameFromPath()), false, true)
                 }
 
                 copyFile(tmpPath, newPath)
@@ -618,7 +618,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         } catch (e: Exception) {
             showErrorToast(e)
         } finally {
-            tryDeleteFileDirItem(tmpFileDirItem)
+            tryDeleteFileDirItem(tmpFileDirItem, false, true)
         }
     }
 
@@ -837,9 +837,23 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun deleteConfirmed() {
-        val path = getCurrentMedia()[mPos].path
-        tryDeleteFileDirItem(FileDirItem(path, path.getFilenameFromPath())) {
-            refreshViewPager()
+        val path = getCurrentMedia().getOrNull(mPos)?.path ?: return
+        if (config.useRecycleBin) {
+            Thread {
+                movePathInRecycleBin(path) {
+                    if (it) {
+                        galleryDB.MediumDao().updateDeleted(path, System.currentTimeMillis())
+                        refreshViewPager()
+                    } else {
+                        toast(R.string.unknown_error_occurred)
+                    }
+                }
+            }.start()
+        } else {
+            val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
+            tryDeleteFileDirItem(fileDirItem, false, true) {
+                refreshViewPager()
+            }
         }
     }
 
@@ -926,7 +940,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun deleteDirectoryIfEmpty() {
         val fileDirItem = FileDirItem(mDirectory, mDirectory.getFilenameFromPath(), getIsPathDirectory(mDirectory))
         if (config.deleteEmptyFolders && !fileDirItem.isDownloadsFolder() && fileDirItem.isDirectory && fileDirItem.getProperFileCount(applicationContext, true) == 0) {
-            tryDeleteFileDirItem(fileDirItem, true)
+            tryDeleteFileDirItem(fileDirItem, true, true)
         }
 
         scanPathRecursively(mDirectory)

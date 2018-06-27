@@ -19,7 +19,7 @@ class RefreshMediaReceiver : BroadcastReceiver() {
 
         Thread {
             val medium = Medium(null, path.getFilenameFromPath(), path, path.getParentPath(), System.currentTimeMillis(), System.currentTimeMillis(),
-                    File(path).length(), getFileType(path), false, 0)
+                    File(path).length(), getFileType(path), false, 0L)
             context.galleryDB.MediumDao().insert(medium)
         }.start()
     }

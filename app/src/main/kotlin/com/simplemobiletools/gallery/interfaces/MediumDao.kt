@@ -34,4 +34,7 @@ interface MediumDao {
 
     @Query("UPDATE media SET is_favorite = :isFavorite WHERE full_path = :path COLLATE NOCASE")
     fun updateFavorite(path: String, isFavorite: Boolean)
+
+    @Query("UPDATE media SET deleted_ts = :deletedTS WHERE full_path = :path COLLATE NOCASE")
+    fun updateDeleted(path: String, deletedTS: Long)
 }

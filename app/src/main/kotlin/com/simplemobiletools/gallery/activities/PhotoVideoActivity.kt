@@ -95,7 +95,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             else -> TYPE_RAWS
         }
 
-        mMedium = Medium(null, getFilenameFromUri(mUri!!), mUri.toString(), mUri!!.path.getParentPath(), 0, 0, file.length(), type, false, 0)
+        mMedium = Medium(null, getFilenameFromUri(mUri!!), mUri.toString(), mUri!!.path.getParentPath(), 0, 0, file.length(), type, false, 0L)
         supportActionBar?.title = mMedium!!.name
         bundle.putSerializable(MEDIUM, mMedium)
 

@@ -133,7 +133,7 @@ fun BaseSimpleActivity.removeNoMedia(path: String, callback: (() -> Unit)? = nul
         return
     }
 
-    tryDeleteFileDirItem(file.toFileDirItem(applicationContext)) {
+    tryDeleteFileDirItem(file.toFileDirItem(applicationContext), false, false) {
         callback?.invoke()
     }
 }
@@ -168,12 +168,31 @@ fun BaseSimpleActivity.tryCopyMoveFilesTo(fileDirItems: ArrayList<FileDirItem>, 
     }
 }
 
-fun BaseSimpleActivity.tryDeleteFileDirItem(fileDirItem: FileDirItem, allowDeleteFolder: Boolean = false, callback: ((wasSuccess: Boolean) -> Unit)? = null) {
+fun BaseSimpleActivity.tryDeleteFileDirItem(fileDirItem: FileDirItem, allowDeleteFolder: Boolean = false, deleteFromDatabase: Boolean,
+                                            callback: ((wasSuccess: Boolean) -> Unit)? = null) {
     deleteFile(fileDirItem, allowDeleteFolder) {
         callback?.invoke(it)
 
-        Thread {
-            galleryDB.MediumDao().deleteMediumPath(fileDirItem.path)
-        }.start()
+        if (deleteFromDatabase) {
+            Thread {
+                galleryDB.MediumDao().deleteMediumPath(fileDirItem.path)
+            }.start()
+        }
+    }
+}
+
+fun BaseSimpleActivity.movePathInRecycleBin(path: String, callback: (success: Boolean) -> Unit) {
+    val file = File(path)
+    val internalFile = File(filesDir, path)
+    return try {
+        file.copyRecursively(internalFile, true)
+        val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
+        tryDeleteFileDirItem(fileDirItem, getIsPathDirectory(path), false) {
+            Thread {
+                callback(it)
+            }.start()
+        }
+    } catch (ignored: Exception) {
+        callback(false)
     }
 }

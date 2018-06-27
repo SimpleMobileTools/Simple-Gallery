@@ -275,7 +275,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             if (newFolder.exists() && newFolder.isDirectory) {
                 if (newFolder.list()?.isEmpty() == true) {
                     toast(String.format(getString(R.string.deleting_folder), config.tempFolderPath), Toast.LENGTH_LONG)
-                    tryDeleteFileDirItem(newFolder.toFileDirItem(applicationContext), true)
+                    tryDeleteFileDirItem(newFolder.toFileDirItem(applicationContext), true, true)
                 }
             }
             config.tempFolderPath = ""
