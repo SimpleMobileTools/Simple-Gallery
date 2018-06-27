@@ -7,7 +7,7 @@
     <string name="hidden">(ukryty)</string>
     <string name="excluded">(wykluczony)</string>
     <string name="pin_folder">Przypnij folder</string>
-    <string name="unpin_folder">Wypakuj folder</string>
+    <string name="unpin_folder">Odepnij folder</string>
     <string name="pin_to_the_top">Przypnij na górze</string>
     <string name="show_all">Pokaż wszystko</string>
     <string name="all_folders">Wszystkie foldery</string>
@@ -173,11 +173,11 @@
     <string name="faq_8_title">Co jeśli chcę widzieć tylko.wybrane foldery?</string>
     <string name="faq_8_text">Przejdź do sekcji z wykluczonymi folderami w ustawieniach aplikacji, dodaj tam folder główny (\"/\"), a następnie dodaj pożądane foldery w sekcji z dołączonymi folderami.</string>
     <string name="faq_9_title">Zdjęcia w widoku pełnoekranowym mają dziwne artefakty. Jak mogę to naprawić?</string>
-    <string name="faq_9_text">U ustawieniach aplikacji włącz opcję \'Zamieniaj powiększalne obrazy na te o lepszej jakości\'. Poprawi ona jakość zdjęć, jednak przy bardzo dużych powiększeniach mogą się stać one zbyt rozmazane.</string>
+    <string name="faq_9_text">W ustawieniach aplikacji włącz opcję \'Zamieniaj powiększalne obrazy na te o lepszej jakości\'. Poprawi ona jakość zdjęć, jednak przy bardzo dużych powiększeniach mogą się stać one zbyt rozmazane.</string>
     <string name="faq_10_title">Czy mogę w tej aplikacji przycinać obrazy?</string>
     <string name="faq_10_text">Tak, możesz to zrobić w edytorze, przeciągając krawędzie obrazu. Edytor otworzysz przytrzymując miniaturę obrazu i wybierając opcję \'Edytuj\', bądź wybierając tą samą opcję w menu pełnoekranowym.</string>
-    <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
-    <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
+    <string name="faq_11_title">Czy mogę jakoś grupować miniatury plików?</string>
+    <string name="faq_11_text">Tak. Użyj opcji \'Grupuj według\', gdy jesteś w widoku miniatur. Grupować je możesz według wielu kryteriów, włącznie z datą ich utworzenia. Ponadto, jeśli użyjesz opcji \'Pokazuj całą zawartość folderów\', możesz je także grupować według folderów.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
