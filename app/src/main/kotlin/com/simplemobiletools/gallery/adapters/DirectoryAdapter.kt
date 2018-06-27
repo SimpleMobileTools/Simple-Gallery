@@ -71,8 +71,9 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     override fun getItemCount() = dirs.size
 
     override fun prepareActionMode(menu: Menu) {
+        val selectedPaths = getSelectedPaths()
         menu.apply {
-            findItem(R.id.cab_rename).isVisible = isOneItemSelected()
+            findItem(R.id.cab_rename).isVisible = isOneItemSelected() && !selectedPaths.contains(FAVORITES) && !selectedPaths.contains(RECYCLE_BIN)
             findItem(R.id.cab_change_cover_image).isVisible = isOneItemSelected()
 
             checkHideBtnVisibility(this)
