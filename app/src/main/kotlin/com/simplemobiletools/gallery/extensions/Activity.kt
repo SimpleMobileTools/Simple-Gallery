@@ -210,6 +210,7 @@ fun BaseSimpleActivity.emptyTheRecycleBin(callback: () -> Unit) {
         filesDir.deleteRecursively()
         galleryDB.MediumDao().clearRecycleBin()
         galleryDB.DirectoryDao().deleteRecycleBin()
+        toast(R.string.recycle_bin_emptied)
         callback()
     }.start()
 }
