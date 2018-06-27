@@ -16,6 +16,8 @@ import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.PickDirectoryDialog
 import com.simplemobiletools.gallery.helpers.NOMEDIA
 import java.io.File
+import java.io.InputStream
+import java.io.OutputStream
 import java.util.*
 
 fun Activity.sharePath(path: String) {
@@ -202,6 +204,35 @@ fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback:
             }
         }
         callback?.invoke(pathsCnt == 0)
+    }.start()
+}
+
+fun BaseSimpleActivity.restoreRecycleBinPath(path: String, callback: () -> Unit) {
+    restoreRecycleBinPaths(arrayListOf(path), callback)
+}
+
+fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, callback: () -> Unit) {
+    Thread {
+        val mediumDao = galleryDB.MediumDao()
+        paths.forEach {
+            val source = it
+            val destination = it.removePrefix(filesDir.toString())
+
+            var inputStream: InputStream? = null
+            var out: OutputStream? = null
+            try {
+                out = getFileOutputStreamSync(destination, source.getMimeType())
+                inputStream = getFileInputStreamSync(source)!!
+                inputStream.copyTo(out!!)
+                mediumDao.updateDeleted(destination, 0)
+            } catch (e: Exception) {
+                showErrorToast(e)
+            } finally {
+                inputStream?.close()
+                out?.close()
+            }
+        }
+        callback()
     }.start()
 }
 

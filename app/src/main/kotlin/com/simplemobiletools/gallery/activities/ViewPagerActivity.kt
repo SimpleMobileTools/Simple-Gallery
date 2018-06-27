@@ -298,6 +298,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_unhide).isVisible = currentMedium.name.startsWith('.')
             findItem(R.id.menu_add_to_favorites).isVisible = !currentMedium.isFavorite && !config.bottomActions
             findItem(R.id.menu_remove_from_favorites).isVisible = currentMedium.isFavorite && !config.bottomActions
+            findItem(R.id.menu_restore_file).isVisible = currentMedium.path.startsWith(filesDir.toString())
             findItem(R.id.menu_lock_orientation).isVisible = mRotationDegrees == 0
             findItem(R.id.menu_lock_orientation).title = getString(if (mIsOrientationLocked) R.string.unlock_orientation else R.string.lock_orientation)
             findItem(R.id.menu_rotate).setShowAsAction(
@@ -336,6 +337,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_rotate_left -> rotateImage(270)
             R.id.menu_add_to_favorites -> toggleFavorite()
             R.id.menu_remove_from_favorites -> toggleFavorite()
+            R.id.menu_restore_file -> restoreFile()
             R.id.menu_rotate_one_eighty -> rotateImage(180)
             R.id.menu_lock_orientation -> toggleLockOrientation()
             R.id.menu_save_as -> saveImageAs()
@@ -807,6 +809,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
             invalidateOptionsMenu()
         }.start()
+    }
+
+    private fun restoreFile() {
+        restoreRecycleBinPath(getCurrentPath()) {
+            refreshViewPager()
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
