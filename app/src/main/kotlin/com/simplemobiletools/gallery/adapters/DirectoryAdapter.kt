@@ -76,6 +76,9 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             findItem(R.id.cab_rename).isVisible = isOneItemSelected() && !selectedPaths.contains(FAVORITES) && !selectedPaths.contains(RECYCLE_BIN)
             findItem(R.id.cab_change_cover_image).isVisible = isOneItemSelected()
 
+            findItem(R.id.cab_empty_recycle_bin).isVisible = isOneItemSelected() && selectedPaths.first() == RECYCLE_BIN
+            findItem(R.id.cab_empty_disable_recycle_bin).isVisible = isOneItemSelected() && selectedPaths.first() == RECYCLE_BIN
+
             checkHideBtnVisibility(this)
             checkPinBtnVisibility(this)
         }
@@ -92,6 +95,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             R.id.cab_pin -> pinFolders(true)
             R.id.cab_unpin -> pinFolders(false)
             R.id.cab_hide -> toggleFoldersVisibility(true)
+            R.id.cab_empty_recycle_bin -> emptyRecycleBin()
+            R.id.cab_empty_disable_recycle_bin -> emptyAndDisableRecycleBin()
             R.id.cab_unhide -> toggleFoldersVisibility(false)
             R.id.cab_exclude -> tryExcludeFolder()
             R.id.cab_copy_to -> copyMoveTo(true)
@@ -205,6 +210,18 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                     }
                 }
             }
+        }
+    }
+
+    private fun emptyRecycleBin() {
+        activity.emptyTheRecycleBin {
+            listener?.refreshItems()
+        }
+    }
+
+    private fun emptyAndDisableRecycleBin() {
+        activity.emptyAndDisableTheRecycleBin {
+            listener?.refreshItems()
         }
     }
 

@@ -37,6 +37,14 @@
         android:title="@string/unhide_folder"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/cab_empty_recycle_bin"
+        android:title="@string/empty_recycle_bin"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/cab_empty_disable_recycle_bin"
+        android:title="@string/empty_and_disable_recycle_bin"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/cab_exclude"
         android:title="@string/exclude"
         app:showAsAction="never"/>
