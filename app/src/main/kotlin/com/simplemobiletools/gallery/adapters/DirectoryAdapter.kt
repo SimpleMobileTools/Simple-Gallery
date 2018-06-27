@@ -148,11 +148,11 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     private fun showProperties() {
         if (selectedPositions.size <= 1) {
             val path = dirs[selectedPositions.first()].path
-            if (path != FAVORITES) {
+            if (path != FAVORITES && path != RECYCLE_BIN) {
                 PropertiesDialog(activity, dirs[selectedPositions.first()].path, config.shouldShowHidden)
             }
         } else {
-            PropertiesDialog(activity, getSelectedPaths().filter { it != FAVORITES }.toList(), config.shouldShowHidden)
+            PropertiesDialog(activity, getSelectedPaths().filter { it != FAVORITES && it != RECYCLE_BIN }.toList(), config.shouldShowHidden)
         }
     }
 
@@ -364,6 +364,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                         finishActMode()
                     } else {
                         selectedPositions.remove(it)
+                        toggleItemSelection(false, it)
                     }
                 } else {
                     folders.add(File(directory.path))
