@@ -53,11 +53,6 @@
         android:title="@string/lock_orientation"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/menu_slideshow"
-        android:icon="@drawable/ic_slideshow"
-        android:title="@string/slideshow"
-        app:showAsAction="ifRoom"/>
-    <item
         android:id="@+id/menu_copy_to"
         android:title="@string/copy_to"
         app:showAsAction="never"/>
@@ -90,6 +85,11 @@
         android:id="@+id/menu_properties"
         android:icon="@drawable/ic_info"
         android:title="@string/properties"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/menu_slideshow"
+        android:icon="@drawable/ic_slideshow"
+        android:title="@string/slideshow"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_rename"
