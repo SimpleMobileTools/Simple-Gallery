@@ -154,6 +154,12 @@
     <string name="thumbnails">Miniatyrer</string>
     <string name="fullscreen_media">Visning av media i helskärmsläge</string>
     <string name="extended_details">Utökad information</string>
+    <string name="bottom_actions">Bottom actions</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">Manage visible bottom actions</string>
+    <string name="toggle_favorite">Toggle favorite</string>
+    <string name="orientation_locking">Orientation locking</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>

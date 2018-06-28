@@ -154,6 +154,12 @@
     <string name="thumbnails">Miniatures</string>
     <string name="fullscreen_media">Mitjans a pantalla completa</string>
     <string name="extended_details">Detalls estesos</string>
+    <string name="bottom_actions">Bottom actions</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">Manage visible bottom actions</string>
+    <string name="toggle_favorite">Toggle favorite</string>
+    <string name="orientation_locking">Orientation locking</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Com puc fer que Simple Gallery sigui la galeria de dispositius predeterminada?</string>

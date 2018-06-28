@@ -154,6 +154,12 @@
     <string name="thumbnails">縮圖</string>
     <string name="fullscreen_media">全螢幕媒體檔案</string>
     <string name="extended_details">詳細資訊</string>
+    <string name="bottom_actions">Bottom actions</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">Manage visible bottom actions</string>
+    <string name="toggle_favorite">Toggle favorite</string>
+    <string name="orientation_locking">Orientation locking</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">我如何將簡易相簿設為預設相簿?</string>

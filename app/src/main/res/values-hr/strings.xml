@@ -154,6 +154,12 @@
     <string name="thumbnails">Sličice</string>
     <string name="fullscreen_media">Mediji na cijelom zaslonu</string>
     <string name="extended_details">Proširene pojedinosti</string>
+    <string name="bottom_actions">Bottom actions</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">Manage visible bottom actions</string>
+    <string name="toggle_favorite">Toggle favorite</string>
+    <string name="orientation_locking">Orientation locking</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Kako mogu postaviti Jednostavnu galeriju kao zadanu galeriju uređaja?</string>

@@ -154,6 +154,12 @@
     <string name="thumbnails">Náhľady</string>
     <string name="fullscreen_media">Celoobrazovkový režim</string>
     <string name="extended_details">Rozšírené vlastnosti</string>
+    <string name="bottom_actions">Spodné akčné tlačidlá</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">Upraviť viditeľné spodné akčné tlačidlá</string>
+    <string name="toggle_favorite">Prepnúť obľúbené</string>
+    <string name="orientation_locking">Uzamykanie orientácie zariadenia</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Ako viem spraviť Jednoduchú Galériu predvolenou galériou zariadenia?</string>
