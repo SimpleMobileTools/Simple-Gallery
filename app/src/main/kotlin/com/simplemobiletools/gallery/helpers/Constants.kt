@@ -1,5 +1,7 @@
 package com.simplemobiletools.gallery.helpers
 
+import com.simplemobiletools.commons.helpers.MONTH_SECONDS
+
 // shared preferences
 const val DIRECTORY_SORT_ORDER = "directory_sort_order"
 const val SORT_FOLDER_PREFIX = "sort_folder_"
@@ -76,6 +78,7 @@ const val MAX_COLUMN_COUNT = 20
 const val SHOW_TEMP_HIDDEN_DURATION = 300000L
 const val CLICK_MAX_DURATION = 150
 const val DRAG_THRESHOLD = 8
+const val MONTH_MILLISECONDS = MONTH_SECONDS * 1000L
 
 const val DIRECTORY = "directory"
 const val MEDIUM = "medium"

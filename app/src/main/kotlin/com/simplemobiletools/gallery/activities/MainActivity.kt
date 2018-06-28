@@ -120,6 +120,8 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             config.wasRecycleBinPinned = true
             config.saveFolderGrouping(SHOW_ALL, GROUP_BY_DATE_TAKEN or GROUP_DESCENDING)
         }
+
+        checkRecycleBinItems()
     }
 
     override fun onStart() {
@@ -923,6 +925,20 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 }
             }.start()
         }, LAST_MEDIA_CHECK_PERIOD)
+    }
+
+    private fun checkRecycleBinItems() {
+        if (config.useRecycleBin) {
+            Thread {
+                val mediumDao = galleryDB.MediumDao()
+                val deletedMedia = mediumDao.getDeletedMedia()
+                deletedMedia.forEach {
+                    if (System.currentTimeMillis() > it.deletedTS + MONTH_MILLISECONDS) {
+                        mediumDao.deleteMediumPath(it.path)
+                    }
+                }
+            }.start()
+        }
     }
 
     override fun refreshItems() {
