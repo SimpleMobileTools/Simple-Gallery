@@ -373,17 +373,20 @@ class MediaFetcher(val context: Context) {
             mediumGroups[key] = value
         }
 
+        val today = formatDate(System.currentTimeMillis().toString())
+        val yesterday = formatDate((System.currentTimeMillis() - DAY_SECONDS * 1000).toString())
         for ((key, value) in mediumGroups) {
-            thumbnailItems.add(ThumbnailSection(getFormattedKey(key, currentGrouping)))
+            val sectionKey = getFormattedKey(key, currentGrouping, today, yesterday)
+            thumbnailItems.add(ThumbnailSection(sectionKey))
             thumbnailItems.addAll(value)
         }
 
         return thumbnailItems
     }
 
-    private fun getFormattedKey(key: String, grouping: Int): String {
+    private fun getFormattedKey(key: String, grouping: Int, today: String, yesterday: String): String {
         return when {
-            grouping and GROUP_BY_LAST_MODIFIED != 0 || grouping and GROUP_BY_DATE_TAKEN != 0 -> formatDate(key)
+            grouping and GROUP_BY_LAST_MODIFIED != 0 || grouping and GROUP_BY_DATE_TAKEN != 0 -> getFinalDate(formatDate(key), today, yesterday)
             grouping and GROUP_BY_FILE_TYPE != 0 -> getFileTypeString(key)
             grouping and GROUP_BY_EXTENSION != 0 -> key.toUpperCase()
             grouping and GROUP_BY_FOLDER != 0 -> context.humanizePath(key)
@@ -391,11 +394,19 @@ class MediaFetcher(val context: Context) {
         }
     }
 
+    private fun getFinalDate(date: String, today: String, yesterday: String): String {
+        return when (date) {
+            today -> context.getString(R.string.today)
+            yesterday -> context.getString(R.string.yesterday)
+            else -> date
+        }
+    }
+
     private fun formatDate(timestamp: String): String {
         return if (timestamp.areDigitsOnly()) {
             val cal = Calendar.getInstance(Locale.ENGLISH)
             cal.timeInMillis = timestamp.toLong()
-            DateFormat.format("dd MMM yyyy", cal).toString()
+            return DateFormat.format("dd MMM yyyy", cal).toString()
         } else {
             ""
         }
