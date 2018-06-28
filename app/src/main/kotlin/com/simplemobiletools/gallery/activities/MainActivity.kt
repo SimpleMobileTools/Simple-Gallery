@@ -718,7 +718,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                         }
                     }
                 }
-            } catch (ignored: ConcurrentModificationException) {
+            } catch (ignored: Exception) {
             }
 
             val foldersToScan = mediaFetcher.getFoldersToScan()
@@ -776,7 +776,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         sortedDirs = sortedDirs.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>
 
         runOnUiThread {
-            (directories_grid.adapter as DirectoryAdapter).updateDirs(sortedDirs)
+            (directories_grid.adapter as? DirectoryAdapter)?.updateDirs(sortedDirs)
         }
     }
 
