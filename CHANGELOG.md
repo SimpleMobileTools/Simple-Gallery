@@ -1,6 +1,16 @@
 Changelog
 ==========
 
+Version 4.3.0 *(2018-06-28)*
+----------------------------
+
+ * Added a Recycle Bin
+ * Allow grouping media thumbnails by different criteria
+ * Fixed some calculation glitches around fastscroller
+ * Change the fullscreen Edit icon to a pencil
+ * Allow sorting "Show All" separately
+ * Many smaller stability and UX improvements
+
 Version 4.2.1 *(2018-06-20)*
 ----------------------------
 
