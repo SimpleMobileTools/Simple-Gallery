@@ -49,8 +49,74 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_delete"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bottom_rotate"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bottom_share"/>
+
+    <ImageView
+        android:id="@+id/bottom_rotate"
+        style="@style/MyBorderlessBackgroundStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/medium_margin"
+        android:src="@drawable/ic_rotate_right"
+        app:layout_constraintEnd_toStartOf="@+id/bottom_properties"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bottom_delete"/>
+
+    <ImageView
+        android:id="@+id/bottom_properties"
+        style="@style/MyBorderlessBackgroundStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/medium_margin"
+        android:src="@drawable/ic_properties"
+        app:layout_constraintEnd_toStartOf="@+id/bottom_lock_orientation"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bottom_rotate"/>
+
+    <ImageView
+        android:id="@+id/bottom_lock_orientation"
+        style="@style/MyBorderlessBackgroundStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/medium_margin"
+        android:src="@drawable/ic_orientation_auto"
+        app:layout_constraintEnd_toStartOf="@+id/bottom_slideshow"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bottom_properties"/>
+
+    <ImageView
+        android:id="@+id/bottom_slideshow"
+        style="@style/MyBorderlessBackgroundStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/medium_margin"
+        android:src="@drawable/ic_slideshow"
+        app:layout_constraintEnd_toStartOf="@+id/bottom_show_on_map"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bottom_lock_orientation"/>
+
+    <ImageView
+        android:id="@+id/bottom_show_on_map"
+        style="@style/MyBorderlessBackgroundStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/medium_margin"
+        android:src="@drawable/ic_place"
+        app:layout_constraintEnd_toStartOf="@+id/bottom_toggle_file_visibility"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bottom_slideshow"/>
+
+    <ImageView
+        android:id="@+id/bottom_toggle_file_visibility"
+        style="@style/MyBorderlessBackgroundStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/medium_margin"
+        android:src="@drawable/ic_hide"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bottom_show_on_map"/>
 
 </android.support.constraint.ConstraintLayout>

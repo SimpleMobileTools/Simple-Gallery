@@ -71,7 +71,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mIsOrientationLocked = false
 
     private var mStoredReplaceZoomableImages = false
-    private var mStoredBottomActions = true
     private var mMediaFiles = ArrayList<Medium>()
     private var mFavoritePaths = ArrayList<String>()
 
@@ -121,10 +120,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             refreshViewPager()
         }
 
-        if (mStoredBottomActions != config.bottomActions) {
-            initBottomActions()
-        }
-
+        initBottomActions()
         supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.actionbar_gradient_background))
 
         if (config.maxBrightness) {
@@ -287,19 +283,23 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         menuInflater.inflate(R.menu.menu_viewpager, menu)
         val currentMedium = getCurrentMedium() ?: return true
         currentMedium.isFavorite = mFavoritePaths.contains(currentMedium.path)
+        val visibleBottomActions = if (config.bottomActions) config.visibleBottomActions else 0
 
         menu.apply {
-            findItem(R.id.menu_delete).isVisible = !config.bottomActions
-            findItem(R.id.menu_share).isVisible = !config.bottomActions
-            findItem(R.id.menu_edit).isVisible = !config.bottomActions
-            findItem(R.id.menu_rotate).isVisible = currentMedium.isImage()
+            findItem(R.id.menu_show_on_map).isVisible = visibleBottomActions and BOTTOM_ACTION_SHOW_ON_MAP == 0
+            findItem(R.id.menu_slideshow).isVisible = visibleBottomActions and BOTTOM_ACTION_SLIDESHOW == 0
+            findItem(R.id.menu_properties).isVisible = visibleBottomActions and BOTTOM_ACTION_PROPERTIES == 0
+            findItem(R.id.menu_delete).isVisible = visibleBottomActions and BOTTOM_ACTION_DELETE == 0
+            findItem(R.id.menu_share).isVisible = visibleBottomActions and BOTTOM_ACTION_SHARE == 0
+            findItem(R.id.menu_edit).isVisible = visibleBottomActions and BOTTOM_ACTION_EDIT == 0
+            findItem(R.id.menu_rotate).isVisible = currentMedium.isImage() && visibleBottomActions and BOTTOM_ACTION_ROTATE == 0
             findItem(R.id.menu_save_as).isVisible = mRotationDegrees != 0
-            findItem(R.id.menu_hide).isVisible = !currentMedium.name.startsWith('.')
-            findItem(R.id.menu_unhide).isVisible = currentMedium.name.startsWith('.')
-            findItem(R.id.menu_add_to_favorites).isVisible = !currentMedium.isFavorite && !config.bottomActions
-            findItem(R.id.menu_remove_from_favorites).isVisible = currentMedium.isFavorite && !config.bottomActions
+            findItem(R.id.menu_hide).isVisible = !currentMedium.name.startsWith('.') && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0
+            findItem(R.id.menu_unhide).isVisible = currentMedium.name.startsWith('.') && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0
+            findItem(R.id.menu_add_to_favorites).isVisible = !currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0
+            findItem(R.id.menu_remove_from_favorites).isVisible = currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0
             findItem(R.id.menu_restore_file).isVisible = currentMedium.path.startsWith(filesDir.toString())
-            findItem(R.id.menu_lock_orientation).isVisible = mRotationDegrees == 0
+            findItem(R.id.menu_lock_orientation).isVisible = mRotationDegrees == 0 && visibleBottomActions and BOTTOM_ACTION_ROTATE == 0
             findItem(R.id.menu_lock_orientation).title = getString(if (mIsOrientationLocked) R.string.unlock_orientation else R.string.lock_orientation)
             findItem(R.id.menu_rotate).setShowAsAction(
                     if (mRotationDegrees != 0) {
@@ -309,8 +309,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     })
         }
 
-        if (config.bottomActions) {
-            updateFavoriteIcon(currentMedium)
+        if (visibleBottomActions != 0) {
+            updateBottomActionIcons(currentMedium)
         }
         return true
     }
@@ -350,7 +350,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun storeStateVariables() {
         config.apply {
             mStoredReplaceZoomableImages = replaceZoomableImages
-            mStoredBottomActions = bottomActions
         }
     }
 
@@ -767,34 +766,84 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun initBottomActionButtons() {
+        val visibleBottomActions = config.visibleBottomActions
+        bottom_favorite.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE != 0)
         bottom_favorite.setOnClickListener {
             if (bottom_actions.alpha == 1f) {
                 toggleFavorite()
             }
         }
 
+        bottom_edit.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_EDIT != 0)
         bottom_edit.setOnClickListener {
             if (bottom_actions.alpha == 1f) {
                 openEditor(getCurrentPath())
             }
         }
 
+        bottom_share.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SHARE != 0)
         bottom_share.setOnClickListener {
             if (bottom_actions.alpha == 1f) {
                 shareMediumPath(getCurrentPath())
             }
         }
 
+        bottom_delete.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_DELETE != 0)
         bottom_delete.setOnClickListener {
             if (bottom_actions.alpha == 1f) {
                 checkDeleteConfirmation()
             }
         }
+
+        bottom_rotate.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_ROTATE != 0 && getCurrentMedium()?.isImage() == true)
+        bottom_rotate.setOnClickListener {
+            if (bottom_actions.alpha == 1f) {
+
+            }
+        }
+
+        bottom_properties.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_PROPERTIES != 0)
+        bottom_properties.setOnClickListener {
+            if (bottom_actions.alpha == 1f) {
+                showProperties()
+            }
+        }
+
+        bottom_lock_orientation.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_LOCK_ORIENTATION != 0)
+        bottom_lock_orientation.setOnClickListener {
+            if (bottom_actions.alpha == 1f) {
+
+            }
+        }
+
+        bottom_slideshow.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SLIDESHOW != 0)
+        bottom_slideshow.setOnClickListener {
+            if (bottom_actions.alpha == 1f) {
+                initSlideshow()
+            }
+        }
+
+        bottom_show_on_map.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SHOW_ON_MAP != 0)
+        bottom_show_on_map.setOnClickListener {
+            if (bottom_actions.alpha == 1f) {
+                showOnMap()
+            }
+        }
+
+        bottom_toggle_file_visibility.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY != 0)
+        bottom_toggle_file_visibility.setOnClickListener {
+            if (bottom_actions.alpha == 1f) {
+
+            }
+        }
     }
 
-    private fun updateFavoriteIcon(medium: Medium) {
-        val icon = if (medium.isFavorite) R.drawable.ic_star_on else R.drawable.ic_star_off
-        bottom_favorite.setImageResource(icon)
+    private fun updateBottomActionIcons(medium: Medium) {
+        val favoriteIcon = if (medium.isFavorite) R.drawable.ic_star_on else R.drawable.ic_star_off
+        bottom_favorite.setImageResource(favoriteIcon)
+
+        val hideIcon = if (medium.name.startsWith('.')) R.drawable.ic_unhide else R.drawable.ic_hide
+        bottom_toggle_file_visibility.setImageResource(hideIcon)
     }
 
     private fun toggleFavorite() {
