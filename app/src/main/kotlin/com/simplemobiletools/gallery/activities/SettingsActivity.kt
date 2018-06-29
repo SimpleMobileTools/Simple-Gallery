@@ -12,11 +12,13 @@ import com.simplemobiletools.commons.helpers.SHOW_ALL_TABS
 import com.simplemobiletools.commons.helpers.sumByLong
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.dialogs.ManageBottomActionsDialog
 import com.simplemobiletools.gallery.dialogs.ManageExtendedDetailsDialog
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.emptyTheRecycleBin
 import com.simplemobiletools.gallery.extensions.galleryDB
 import com.simplemobiletools.gallery.extensions.showRecycleBinEmptyingDialog
+import com.simplemobiletools.gallery.helpers.DEFAULT_BOTTOM_ACTIONS
 import com.simplemobiletools.gallery.helpers.ROTATE_BY_ASPECT_RATIO
 import com.simplemobiletools.gallery.helpers.ROTATE_BY_DEVICE_ROTATION
 import com.simplemobiletools.gallery.helpers.ROTATE_BY_SYSTEM_SETTING
@@ -419,7 +421,13 @@ class SettingsActivity : SimpleActivity() {
     private fun setupManageBottomActions() {
         settings_manage_bottom_actions_holder.beVisibleIf(config.bottomActions)
         settings_manage_bottom_actions_holder.setOnClickListener {
-
+            ManageBottomActionsDialog(this) {
+                if (config.visibleBottomActions == 0) {
+                    settings_bottom_actions_holder.callOnClick()
+                    config.bottomActions = false
+                    config.visibleBottomActions = DEFAULT_BOTTOM_ACTIONS
+                }
+            }
         }
     }
 
