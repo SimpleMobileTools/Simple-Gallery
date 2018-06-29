@@ -158,8 +158,9 @@
 
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Upraviť viditeľné spodné akčné tlačidlá</string>
-    <string name="toggle_favorite">Prepnúť obľúbené</string>
+    <string name="toggle_favorite">Prepnutie obľúbenosti</string>
     <string name="orientation_locking">Uzamykanie orientácie zariadenia</string>
+    <string name="toggle_file_visibility">Prepnutie viditeľnosti súboru</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Ako viem spraviť Jednoduchú Galériu predvolenou galériou zariadenia?</string>

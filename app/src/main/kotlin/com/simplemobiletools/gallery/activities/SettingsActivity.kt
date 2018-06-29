@@ -70,16 +70,17 @@ class SettingsActivity : SimpleActivity() {
         setupHideExtendedDetails()
         setupManageExtendedDetails()
         setupSkipDeleteConfirmation()
-        updateTextColors(settings_holder)
-        setupSectionColors()
+        setupManageBottomActions()
         setupUseRecycleBin()
         setupEmptyRecycleBin()
+        updateTextColors(settings_holder)
+        setupSectionColors()
     }
 
     private fun setupSectionColors() {
         val adjustedPrimaryColor = getAdjustedPrimaryColor()
         arrayListOf(visibility_label, videos_label, thumbnails_label, scrolling_label, fullscreen_media_label, security_label,
-                file_operations_label, extended_details_label, recycle_bin_label).forEach {
+                file_operations_label, extended_details_label, bottom_actions_label, recycle_bin_label).forEach {
             it.setTextColor(adjustedPrimaryColor)
         }
     }
@@ -291,14 +292,6 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupBottomActions() {
-        settings_bottom_actions.isChecked = config.bottomActions
-        settings_bottom_actions_holder.setOnClickListener {
-            settings_bottom_actions.toggle()
-            config.bottomActions = settings_bottom_actions.isChecked
-        }
-    }
-
     private fun setupShowMediaCount() {
         settings_show_media_count.isChecked = config.showMediaCount
         settings_show_media_count_holder.setOnClickListener {
@@ -413,6 +406,22 @@ class SettingsActivity : SimpleActivity() {
         ROTATE_BY_DEVICE_ROTATION -> R.string.screen_rotation_device_rotation
         else -> R.string.screen_rotation_aspect_ratio
     })
+
+    private fun setupBottomActions() {
+        settings_bottom_actions.isChecked = config.bottomActions
+        settings_bottom_actions_holder.setOnClickListener {
+            settings_bottom_actions.toggle()
+            config.bottomActions = settings_bottom_actions.isChecked
+            settings_manage_bottom_actions_holder.beVisibleIf(config.bottomActions)
+        }
+    }
+
+    private fun setupManageBottomActions() {
+        settings_manage_bottom_actions_holder.beVisibleIf(config.bottomActions)
+        settings_manage_bottom_actions_holder.setOnClickListener {
+
+        }
+    }
 
     private fun setupUseRecycleBin() {
         settings_empty_recycle_bin_holder.beVisibleIf(config.useRecycleBin)

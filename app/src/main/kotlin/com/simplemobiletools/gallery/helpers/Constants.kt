@@ -52,6 +52,7 @@ const val LAST_FILEPICKER_PATH = "last_filepicker_path"
 const val WAS_OTG_HANDLED = "was_otg_handled"
 const val TEMP_SKIP_DELETE_CONFIRMATION = "temp_skip_delete_confirmation"
 const val BOTTOM_ACTIONS = "bottom_actions"
+const val VISIBLE_BOTTOM_ACTIONS = "visible_bottom_actions"
 const val WERE_FAVORITES_PINNED = "were_favorites_pinned"
 const val WAS_RECYCLE_BIN_PINNED = "was_recycle_bin_pinned"
 const val USE_RECYCLE_BIN = "use_recycle_bin"
@@ -129,3 +130,15 @@ const val GROUP_BY_FILE_TYPE = 8
 const val GROUP_BY_EXTENSION = 16
 const val GROUP_BY_FOLDER = 32
 const val GROUP_DESCENDING = 1024
+
+// bottom actions
+const val BOTTOM_ACTION_TOGGLE_FAVORITE = 1
+const val BOTTOM_ACTION_EDIT = 2
+const val BOTTOM_ACTION_SHARE = 4
+const val BOTTOM_ACTION_DELETE = 8
+const val BOTTOM_ACTION_ROTATE = 16
+const val BOTTOM_ACTION_PROPERTIES = 32
+const val BOTTOM_ACTION_LOCK_ORIENTATION = 64
+const val BOTTOM_ACTION_SLIDESHOW = 128
+const val BOTTOM_ACTION_SHOW_ON_MAP = 256
+const val BOTTOM_ACTION_TOGGLE_VISIBILITY = 512

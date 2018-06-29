@@ -160,6 +160,7 @@
     <string name="manage_bottom_actions">Manage visible bottom actions</string>
     <string name="toggle_favorite">Toggle favorite</string>
     <string name="orientation_locking">Orientation locking</string>
+    <string name="toggle_file_visibility">Toggle file visibility</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Com puc fer que Simple Gallery sigui la galeria de dispositius predeterminada?</string>

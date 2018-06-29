@@ -261,10 +261,6 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(ALLOW_VIDEO_GESTURES, true)
         set(allowVideoGestures) = prefs.edit().putBoolean(ALLOW_VIDEO_GESTURES, allowVideoGestures).apply()
 
-    var bottomActions: Boolean
-        get() = prefs.getBoolean(BOTTOM_ACTIONS, true)
-        set(bottomActions) = prefs.edit().putBoolean(BOTTOM_ACTIONS, bottomActions).apply()
-
     var showMediaCount: Boolean
         get() = prefs.getBoolean(SHOW_MEDIA_COUNT, true)
         set(showMediaCount) = prefs.edit().putBoolean(SHOW_MEDIA_COUNT, showMediaCount).apply()
@@ -360,4 +356,12 @@ class Config(context: Context) : BaseConfig(context) {
     var useRecycleBin: Boolean
         get() = prefs.getBoolean(USE_RECYCLE_BIN, true)
         set(useRecycleBin) = prefs.edit().putBoolean(USE_RECYCLE_BIN, useRecycleBin).apply()
+
+    var bottomActions: Boolean
+        get() = prefs.getBoolean(BOTTOM_ACTIONS, true)
+        set(bottomActions) = prefs.edit().putBoolean(BOTTOM_ACTIONS, bottomActions).apply()
+
+    var visibleBottomActions: Int
+        get() = prefs.getInt(VISIBLE_BOTTOM_ACTIONS, BOTTOM_ACTION_TOGGLE_FAVORITE or BOTTOM_ACTION_EDIT or BOTTOM_ACTION_SHARE or BOTTOM_ACTION_DELETE)
+        set(visibleBottomActions) = prefs.edit().putInt(VISIBLE_BOTTOM_ACTIONS, visibleBottomActions).apply()
 }
