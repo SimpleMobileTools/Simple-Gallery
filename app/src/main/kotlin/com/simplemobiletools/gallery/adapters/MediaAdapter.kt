@@ -162,7 +162,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         var hiddenCnt = 0
         var unhiddenCnt = 0
         getSelectedMedia().forEach {
-            if (it.name.startsWith('.')) {
+            if (it.isHidden()) {
                 hiddenCnt++
             } else {
                 unhiddenCnt++

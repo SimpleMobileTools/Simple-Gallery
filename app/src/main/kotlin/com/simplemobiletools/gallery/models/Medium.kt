@@ -40,6 +40,8 @@ data class Medium(
 
     fun isRaw() = type == TYPE_RAWS
 
+    fun isHidden() = name.startsWith('.')
+
     fun getBubbleText(sorting: Int) = when {
         sorting and SORT_BY_NAME != 0 -> name
         sorting and SORT_BY_PATH != 0 -> path

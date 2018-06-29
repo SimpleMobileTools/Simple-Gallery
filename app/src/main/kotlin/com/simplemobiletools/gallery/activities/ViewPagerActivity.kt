@@ -295,8 +295,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_edit).isVisible = visibleBottomActions and BOTTOM_ACTION_EDIT == 0
             findItem(R.id.menu_rotate).isVisible = currentMedium.isImage() && visibleBottomActions and BOTTOM_ACTION_ROTATE == 0
             findItem(R.id.menu_save_as).isVisible = mRotationDegrees != 0
-            findItem(R.id.menu_hide).isVisible = !currentMedium.name.startsWith('.') && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0
-            findItem(R.id.menu_unhide).isVisible = currentMedium.name.startsWith('.') && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0
+            findItem(R.id.menu_hide).isVisible = !currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0
+            findItem(R.id.menu_unhide).isVisible = currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0
             findItem(R.id.menu_add_to_favorites).isVisible = !currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0
             findItem(R.id.menu_remove_from_favorites).isVisible = currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0
             findItem(R.id.menu_restore_file).isVisible = currentMedium.path.startsWith(filesDir.toString())
@@ -853,7 +853,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val favoriteIcon = if (medium.isFavorite) R.drawable.ic_star_on else R.drawable.ic_star_off
         bottom_favorite.setImageResource(favoriteIcon)
 
-        val hideIcon = if (medium.name.startsWith('.')) R.drawable.ic_unhide else R.drawable.ic_hide
+        val hideIcon = if (medium.isHidden()) R.drawable.ic_unhide else R.drawable.ic_hide
         bottom_toggle_file_visibility.setImageResource(hideIcon)
 
         bottom_rotate.beVisibleIf(config.visibleBottomActions and BOTTOM_ACTION_ROTATE != 0 && getCurrentMedium()?.isImage() == true)
