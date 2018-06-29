@@ -28,10 +28,12 @@ import android.view.WindowManager
 import android.view.animation.DecelerateInterpolator
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
+import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FileDirItem
+import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
@@ -95,7 +97,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         storeStateVariables()
-        initBottomActions()
         initFavorites()
     }
 
@@ -335,10 +336,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_show_on_map -> showOnMap()
             R.id.menu_rotate_right -> rotateImage(90)
             R.id.menu_rotate_left -> rotateImage(270)
+            R.id.menu_rotate_one_eighty -> rotateImage(180)
             R.id.menu_add_to_favorites -> toggleFavorite()
             R.id.menu_remove_from_favorites -> toggleFavorite()
             R.id.menu_restore_file -> restoreFile()
-            R.id.menu_rotate_one_eighty -> rotateImage(180)
             R.id.menu_lock_orientation -> toggleLockOrientation()
             R.id.menu_save_as -> saveImageAs()
             R.id.menu_settings -> launchSettings()
@@ -795,10 +796,20 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         }
 
-        bottom_rotate.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_ROTATE != 0 && getCurrentMedium()?.isImage() == true)
         bottom_rotate.setOnClickListener {
             if (bottom_actions.alpha == 1f) {
+                val items = arrayListOf(
+                        RadioItem(ROTATE_RIGHT, getString(R.string.rotate_right)),
+                        RadioItem(ROTATE_LEFT, getString(R.string.rotate_left)),
+                        RadioItem(ROTATE_ONE_EIGHTY, getString(R.string.rotate_one_eighty)))
 
+                RadioGroupDialog(this, items) {
+                    when (it as Int) {
+                        ROTATE_RIGHT -> rotateImage(90)
+                        ROTATE_LEFT -> rotateImage(270)
+                        ROTATE_ONE_EIGHTY -> rotateImage(180)
+                    }
+                }
             }
         }
 
@@ -844,6 +855,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         val hideIcon = if (medium.name.startsWith('.')) R.drawable.ic_unhide else R.drawable.ic_hide
         bottom_toggle_file_visibility.setImageResource(hideIcon)
+
+        bottom_rotate.beVisibleIf(config.visibleBottomActions and BOTTOM_ACTION_ROTATE != 0 && getCurrentMedium()?.isImage() == true)
     }
 
     private fun toggleFavorite() {
@@ -985,6 +998,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         updatePagerItems(mMediaFiles.toMutableList())
         invalidateOptionsMenu()
         checkOrientation()
+        initBottomActions()
     }
 
     private fun getPositionInList(items: MutableList<Medium>): Int {
