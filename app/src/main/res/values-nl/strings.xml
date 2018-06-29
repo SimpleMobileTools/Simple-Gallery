@@ -154,13 +154,13 @@
     <string name="thumbnails">Miniatuurvoorbeelden</string>
     <string name="fullscreen_media">Volledig scherm</string>
     <string name="extended_details">Uitgebreide informatie</string>
-    <string name="bottom_actions">Bottom actions</string>
+    <string name="bottom_actions">Acties onderaan het scherm</string>
 
     <!-- Bottom actions -->
-    <string name="manage_bottom_actions">Manage visible bottom actions</string>
-    <string name="toggle_favorite">Toggle favorite</string>
-    <string name="orientation_locking">Orientation locking</string>
-    <string name="toggle_file_visibility">Toggle file visibility</string>
+    <string name="manage_bottom_actions">Actieknoppen onderaan beheren</string>
+    <string name="toggle_favorite">Als favoriet instellen</string>
+    <string name="orientation_locking">Schermoriëntatie vergrendelen</string>
+    <string name="toggle_file_visibility">Bestand tonen/verbergen</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
