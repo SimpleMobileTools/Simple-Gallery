@@ -522,7 +522,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
-    private fun toggleFileVisibility(hide: Boolean) {
+    private fun toggleFileVisibility(hide: Boolean, callback: (() -> Unit)? = null) {
         toggleFileVisibility(getCurrentPath(), hide) {
             val newFileName = it.getFilenameFromPath()
             supportActionBar?.title = newFileName
@@ -533,6 +533,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 getCurrentMedia()[mPos] = this
             }
             invalidateOptionsMenu()
+            callback?.invoke()
         }
     }
 
@@ -844,7 +845,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         bottom_toggle_file_visibility.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY != 0)
         bottom_toggle_file_visibility.setOnClickListener {
             if (bottom_actions.alpha == 1f) {
-
+                getCurrentMedium()?.apply {
+                    toggleFileVisibility(!isHidden()) {
+                        updateBottomActionIcons(getCurrentMedium()!!)
+                    }
+                }
             }
         }
     }
