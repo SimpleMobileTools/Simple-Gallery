@@ -20,6 +20,7 @@ import com.google.android.exoplayer2.source.ExtractorMediaSource
 import com.google.android.exoplayer2.source.TrackGroupArray
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray
+import com.google.android.exoplayer2.upstream.ContentDataSource
 import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DataSpec
 import com.google.android.exoplayer2.upstream.FileDataSource
@@ -150,9 +151,10 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             override fun onRenderedFirstFrame() {}
         })
 
-        val uri = Uri.fromFile(File(medium.path))
+        val isContentUri = medium.path.startsWith("content://")
+        val uri = if (isContentUri) Uri.parse(medium.path) else Uri.fromFile(File(medium.path))
         val dataSpec = DataSpec(uri)
-        val fileDataSource = FileDataSource()
+        val fileDataSource = if (isContentUri) ContentDataSource(context) else FileDataSource()
         try {
             fileDataSource.open(dataSpec)
         } catch (e: Exception) {
