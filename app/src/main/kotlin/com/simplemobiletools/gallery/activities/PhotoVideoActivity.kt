@@ -178,15 +178,19 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     }
 
     private fun initBottomActionButtons() {
-        bottom_favorite.beGone()
-        bottom_delete.beGone()
+        arrayListOf(bottom_favorite, bottom_delete, bottom_rotate, bottom_properties, bottom_lock_orientation, bottom_slideshow, bottom_show_on_map, bottom_toggle_file_visibility).forEach {
+            it.beGone()
+        }
 
+        val visibleBottomActions = if (config.bottomActions) config.visibleBottomActions else 0
+        bottom_edit.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_EDIT != 0)
         bottom_edit.setOnClickListener {
             if (mUri != null && bottom_actions.alpha == 1f) {
                 openEditor(mUri!!.toString())
             }
         }
 
+        bottom_share.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SHARE != 0)
         bottom_share.setOnClickListener {
             if (mUri != null && bottom_actions.alpha == 1f) {
                 sharePath(mUri!!.toString())

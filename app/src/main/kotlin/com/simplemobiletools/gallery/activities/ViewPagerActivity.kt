@@ -768,7 +768,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun initBottomActionButtons() {
-        val visibleBottomActions = config.visibleBottomActions
+        val visibleBottomActions = if (config.bottomActions) config.visibleBottomActions else 0
         bottom_favorite.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE != 0)
         bottom_favorite.setOnClickListener {
             if (bottom_actions.alpha == 1f) {
