@@ -38,16 +38,18 @@ import java.io.File
 class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, SeekBar.OnSeekBarChangeListener {
     private val PROGRESS = "progress"
     private val MIN_SKIP_LENGTH = 2000
+    private val HIDE_PAUSE_DELAY = 2000L
     private val PLAY_PAUSE_VISIBLE_ALPHA = 0.8f
 
     private var mTextureView: TextureView? = null
     private var mCurrTimeView: TextView? = null
-    private var mTimerHandler: Handler? = null
     private var mSeekBar: SeekBar? = null
     private var mTimeHolder: View? = null
     private var mView: View? = null
     private var mExoPlayer: SimpleExoPlayer? = null
     private var mVideoSize = Point(0, 0)
+    private var mTimerHandler = Handler()
+    private var mHidePauseHandler = Handler()
 
     private var mIsPlaying = false
     private var mIsDragged = false
@@ -314,7 +316,6 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private fun setupTimeHolder() {
         mSeekBar!!.max = mDuration
         mView!!.video_duration.text = mDuration.getFormattedDuration()
-        mTimerHandler = Handler()
         setupTimer()
     }
 
@@ -327,7 +328,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
                     mCurrTimeView!!.text = mCurrTime.getFormattedDuration()
                 }
 
-                mTimerHandler!!.postDelayed(this, 1000)
+                mTimerHandler.postDelayed(this, 1000)
             }
         })
     }
@@ -362,6 +363,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             return
 
         mIsPlaying = !mIsPlaying
+        mHidePauseHandler.removeCallbacksAndMessages(null)
         if (mIsPlaying) {
             playVideo()
         } else {
@@ -382,6 +384,9 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         mExoPlayer?.playWhenReady = true
         mView!!.video_play_outline.setImageDrawable(resources.getDrawable(R.drawable.img_pause_outline_big))
         activity!!.window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        mHidePauseHandler.postDelayed({
+            mView!!.video_play_outline.animate().alpha(0f).start()
+        }, HIDE_PAUSE_DELAY)
     }
 
     private fun pauseVideo() {
@@ -393,8 +398,11 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         if (!videoEnded()) {
             mExoPlayer?.playWhenReady = false
         }
+
         mView?.video_play_outline?.setImageDrawable(resources.getDrawable(R.drawable.img_play_outline_big))
+        mView!!.video_play_outline.alpha = PLAY_PAUSE_VISIBLE_ALPHA
         activity!!.window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+
     }
 
     private fun videoEnded() = mExoPlayer!!.currentPosition >= mExoPlayer!!.duration
@@ -435,13 +443,14 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private fun cleanup() {
         pauseVideo()
         mCurrTimeView?.text = 0.getFormattedDuration()
-        releaseMediaPlayer()
+        releaseExoPlayer()
         mSeekBar?.progress = 0
-        mTimerHandler?.removeCallbacksAndMessages(null)
+        mTimerHandler.removeCallbacksAndMessages(null)
+        mHidePauseHandler.removeCallbacksAndMessages(null)
         mTextureView = null
     }
 
-    private fun releaseMediaPlayer() {
+    private fun releaseExoPlayer() {
         mExoPlayer?.stop()
         mExoPlayer?.release()
         mExoPlayer = null
@@ -454,7 +463,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     }
 
     override fun onSurfaceTextureDestroyed(surface: SurfaceTexture?): Boolean {
-        releaseMediaPlayer()
+        releaseExoPlayer()
         return false
     }
 
@@ -571,6 +580,13 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
 
         mView!!.video_play_outline.animate().alpha(if (isFullscreen) 0f else PLAY_PAUSE_VISIBLE_ALPHA).start()
+        if (!isFullscreen) {
+            mHidePauseHandler.postDelayed({
+                mView!!.video_play_outline.animate().alpha(0f).start()
+            }, HIDE_PAUSE_DELAY)
+        } else {
+            mHidePauseHandler.removeCallbacksAndMessages(null)
+        }
     }
 
     private fun getExtendedDetailsY(height: Int): Float {
