@@ -584,7 +584,9 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             mHidePauseHandler.removeCallbacksAndMessages(null)
         } else {
             mHidePauseHandler.postDelayed({
-                mView!!.video_play_outline.animate().alpha(0f).start()
+                if (mExoPlayer?.currentPosition ?: 0 > 0) {
+                    mView!!.video_play_outline.animate().alpha(0f).start()
+                }
             }, HIDE_PAUSE_DELAY)
         }
     }
