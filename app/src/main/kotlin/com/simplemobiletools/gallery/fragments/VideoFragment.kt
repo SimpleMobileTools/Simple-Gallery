@@ -579,13 +579,13 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             }
         }
 
-        mView!!.video_play_outline.animate().alpha(if (isFullscreen) 0f else PLAY_PAUSE_VISIBLE_ALPHA).start()
-        if (!isFullscreen) {
+        mView!!.video_play_outline.animate().alpha(if (isFullscreen && mIsPlaying) 0f else PLAY_PAUSE_VISIBLE_ALPHA).start()
+        if (isFullscreen) {
+            mHidePauseHandler.removeCallbacksAndMessages(null)
+        } else {
             mHidePauseHandler.postDelayed({
                 mView!!.video_play_outline.animate().alpha(0f).start()
             }, HIDE_PAUSE_DELAY)
-        } else {
-            mHidePauseHandler.removeCallbacksAndMessages(null)
         }
     }
 
