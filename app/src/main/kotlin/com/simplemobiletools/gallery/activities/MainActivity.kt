@@ -403,6 +403,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     override fun deleteFolders(folders: ArrayList<File>) {
         val fileDirItems = folders.map { FileDirItem(it.absolutePath, it.name, true) } as ArrayList<FileDirItem>
+        fileDirItems.forEach {
+            toast(String.format(getString(R.string.deleting_folder), it.name), Toast.LENGTH_LONG)
+        }
+
         if (config.useRecycleBin) {
             val pathsToDelete = ArrayList<String>()
             fileDirItems.filter { it.isDirectory }.forEach {
