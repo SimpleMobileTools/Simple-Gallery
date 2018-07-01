@@ -71,12 +71,12 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_properties"
-        app:layout_constraintEnd_toStartOf="@+id/bottom_lock_orientation"
+        app:layout_constraintEnd_toStartOf="@+id/bottom_change_orientation"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bottom_rotate"/>
 
     <ImageView
-        android:id="@+id/bottom_lock_orientation"
+        android:id="@+id/bottom_change_orientation"
         style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -95,7 +95,7 @@
         android:src="@drawable/ic_slideshow"
         app:layout_constraintEnd_toStartOf="@+id/bottom_show_on_map"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bottom_lock_orientation"/>
+        app:layout_constraintStart_toEndOf="@+id/bottom_change_orientation"/>
 
     <ImageView
         android:id="@+id/bottom_show_on_map"

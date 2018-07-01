@@ -13,7 +13,6 @@ import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.Matrix
 import android.graphics.drawable.ColorDrawable
-import android.graphics.drawable.Drawable
 import android.media.ExifInterface
 import android.net.Uri
 import android.os.Build
@@ -268,14 +267,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun setupRotation() {
-        if (mIsOrientationLocked) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LOCKED
+        if (!mIsOrientationLocked) {
+            if (config.screenRotation == ROTATE_BY_DEVICE_ROTATION) {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR
+            } else if (config.screenRotation == ROTATE_BY_SYSTEM_SETTING) {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
             }
-        } else if (config.screenRotation == ROTATE_BY_DEVICE_ROTATION) {
-            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR
-        } else if (config.screenRotation == ROTATE_BY_SYSTEM_SETTING) {
-            requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
         }
     }
 
@@ -301,7 +298,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_remove_from_favorites).isVisible = currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0
             findItem(R.id.menu_restore_file).isVisible = currentMedium.path.startsWith(filesDir.toString())
             findItem(R.id.menu_change_orientation).isVisible = mRotationDegrees == 0 && visibleBottomActions and BOTTOM_ACTION_CHANGE_ORIENTATION == 0
-            findItem(R.id.menu_change_orientation).icon = getChangeOrientationIcon()
+            findItem(R.id.menu_change_orientation).icon = resources.getDrawable(getChangeOrientationIcon())
             findItem(R.id.menu_rotate).setShowAsAction(
                     if (mRotationDegrees != 0) {
                         MenuItem.SHOW_AS_ACTION_ALWAYS
@@ -549,12 +546,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun toggleOrientation(orientation: Int) {
         requestedOrientation = orientation
-        mIsOrientationLocked = orientation == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT || orientation == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+        mIsOrientationLocked = orientation != ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
         invalidateOptionsMenu()
     }
 
-    private fun getChangeOrientationIcon(): Drawable {
-        val drawable = if (mIsOrientationLocked) {
+    private fun getChangeOrientationIcon(): Int {
+        return if (mIsOrientationLocked) {
             if (requestedOrientation == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) {
                 R.drawable.ic_orientation_portrait
             } else {
@@ -563,7 +560,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         } else {
             R.drawable.ic_orientation_auto
         }
-        return resources.getDrawable(drawable)
     }
 
     private fun saveImageAs() {
@@ -819,10 +815,16 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         }
 
-        bottom_lock_orientation.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_CHANGE_ORIENTATION != 0)
-        bottom_lock_orientation.setOnClickListener {
+        bottom_change_orientation.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_CHANGE_ORIENTATION != 0)
+        bottom_change_orientation.setOnClickListener {
             if (bottom_actions.alpha == 1f) {
-
+                requestedOrientation = when (requestedOrientation) {
+                    ActivityInfo.SCREEN_ORIENTATION_PORTRAIT -> ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                    ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE -> ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+                    else -> ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                }
+                mIsOrientationLocked = requestedOrientation != ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+                updateBottomActionIcons(getCurrentMedium())
             }
         }
 
@@ -845,7 +847,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             if (bottom_actions.alpha == 1f) {
                 getCurrentMedium()?.apply {
                     toggleFileVisibility(!isHidden()) {
-                        updateBottomActionIcons(getCurrentMedium()!!)
+                        updateBottomActionIcons(getCurrentMedium())
                     }
                 }
             }
@@ -859,7 +861,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
-    private fun updateBottomActionIcons(medium: Medium) {
+    private fun updateBottomActionIcons(medium: Medium?) {
+        if (medium == null) {
+            return
+        }
+
         val favoriteIcon = if (medium.isFavorite) R.drawable.ic_star_on else R.drawable.ic_star_off
         bottom_favorite.setImageResource(favoriteIcon)
 
@@ -867,6 +873,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         bottom_toggle_file_visibility.setImageResource(hideIcon)
 
         bottom_rotate.beVisibleIf(config.visibleBottomActions and BOTTOM_ACTION_ROTATE != 0 && getCurrentMedium()?.isImage() == true)
+        bottom_change_orientation.setImageResource(getChangeOrientationIcon())
     }
 
     private fun toggleFavorite() {
