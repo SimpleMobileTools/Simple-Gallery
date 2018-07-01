@@ -551,7 +551,9 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
         mLoadedInitialPhotos = true
         mCurrAsyncTask?.stopFetching()
         mCurrAsyncTask = GetMediaAsynctask(applicationContext, mPath, mIsGetImageIntent, mIsGetVideoIntent, mShowAll) {
-            gotMedia(it)
+            Thread {
+                gotMedia(it)
+            }.start()
         }
 
         mCurrAsyncTask!!.execute()
@@ -779,15 +781,6 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
     }
 
     private fun gotMedia(media: ArrayList<ThumbnailItem>, isFromCache: Boolean = false) {
-        Thread {
-            mLatestMediaId = getLatestMediaId()
-            mLatestMediaDateId = getLatestMediaByDateId()
-            if (!isFromCache) {
-                val mediaToInsert = (mMedia.clone() as ArrayList<ThumbnailItem>).filter { it is Medium && it.deletedTS == 0L }.map { it as Medium }
-                galleryDB.MediumDao().insertAll(mediaToInsert)
-            }
-        }.start()
-
         mIsGettingMedia = false
         checkLastMediaChanged()
         mMedia = media
@@ -801,8 +794,14 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
             val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFiles == VIEW_TYPE_GRID
             media_vertical_fastscroller.beVisibleIf(media_grid.isVisible() && !allowHorizontalScroll)
             media_horizontal_fastscroller.beVisibleIf(media_grid.isVisible() && allowHorizontalScroll)
-
             setupAdapter()
+        }
+
+        mLatestMediaId = getLatestMediaId()
+        mLatestMediaDateId = getLatestMediaByDateId()
+        if (!isFromCache) {
+            val mediaToInsert = (mMedia.clone() as ArrayList<ThumbnailItem>).filter { it is Medium && it.deletedTS == 0L }.map { it as Medium }
+            galleryDB.MediumDao().insertAll(mediaToInsert)
         }
     }
 
