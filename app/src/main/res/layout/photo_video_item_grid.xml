@@ -45,6 +45,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/medium_thumbnail"
         android:background="@drawable/gradient_background"
+        android:ellipsize="end"
         android:gravity="bottom"
         android:maxLines="3"
         android:paddingBottom="@dimen/small_margin"
