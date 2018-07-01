@@ -131,10 +131,6 @@ const val GROUP_BY_EXTENSION = 16
 const val GROUP_BY_FOLDER = 32
 const val GROUP_DESCENDING = 1024
 
-const val ROTATE_RIGHT = 1
-const val ROTATE_LEFT = 2
-const val ROTATE_ONE_EIGHTY = 3
-
 // bottom actions
 const val BOTTOM_ACTION_TOGGLE_FAVORITE = 1
 const val BOTTOM_ACTION_EDIT = 2

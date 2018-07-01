@@ -28,12 +28,10 @@ import android.view.WindowManager
 import android.view.animation.DecelerateInterpolator
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
-import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FileDirItem
-import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.MyPagerAdapter
 import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
@@ -800,18 +798,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         bottom_rotate.setOnClickListener {
             if (bottom_actions.alpha == 1f) {
-                val items = arrayListOf(
-                        RadioItem(ROTATE_RIGHT, getString(R.string.rotate_right)),
-                        RadioItem(ROTATE_LEFT, getString(R.string.rotate_left)),
-                        RadioItem(ROTATE_ONE_EIGHTY, getString(R.string.rotate_one_eighty)))
-
-                RadioGroupDialog(this, items) {
-                    when (it as Int) {
-                        ROTATE_RIGHT -> rotateImage(90)
-                        ROTATE_LEFT -> rotateImage(270)
-                        ROTATE_ONE_EIGHTY -> rotateImage(180)
-                    }
-                }
+                rotateImage(90)
             }
         }
 
