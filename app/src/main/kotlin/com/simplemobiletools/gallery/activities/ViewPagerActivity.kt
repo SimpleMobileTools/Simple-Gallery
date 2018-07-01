@@ -908,6 +908,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun checkDeleteConfirmation() {
+        if (getCurrentMedium() == null) {
+            return
+        }
+
         if (config.tempSkipDeleteConfirmation || config.skipDeleteConfirmation) {
             deleteConfirmed()
         } else {
