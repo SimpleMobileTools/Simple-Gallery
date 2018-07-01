@@ -13,6 +13,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.Matrix
 import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
 import android.media.ExifInterface
 import android.net.Uri
 import android.os.Build
@@ -299,8 +300,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_add_to_favorites).isVisible = !currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0
             findItem(R.id.menu_remove_from_favorites).isVisible = currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0
             findItem(R.id.menu_restore_file).isVisible = currentMedium.path.startsWith(filesDir.toString())
-            findItem(R.id.menu_lock_orientation).isVisible = mRotationDegrees == 0 && visibleBottomActions and BOTTOM_ACTION_ROTATE == 0
-            findItem(R.id.menu_lock_orientation).title = getString(if (mIsOrientationLocked) R.string.unlock_orientation else R.string.lock_orientation)
+            findItem(R.id.menu_change_orientation).isVisible = mRotationDegrees == 0 && visibleBottomActions and BOTTOM_ACTION_CHANGE_ORIENTATION == 0
+            findItem(R.id.menu_change_orientation).icon = getChangeOrientationIcon()
             findItem(R.id.menu_rotate).setShowAsAction(
                     if (mRotationDegrees != 0) {
                         MenuItem.SHOW_AS_ACTION_ALWAYS
@@ -339,7 +340,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_add_to_favorites -> toggleFavorite()
             R.id.menu_remove_from_favorites -> toggleFavorite()
             R.id.menu_restore_file -> restoreFile()
-            R.id.menu_lock_orientation -> toggleLockOrientation()
+            R.id.menu_force_portrait -> toggleOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+            R.id.menu_force_landscape -> toggleOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
+            R.id.menu_default_orientation -> toggleOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
             R.id.menu_save_as -> saveImageAs()
             R.id.menu_settings -> launchSettings()
             else -> return super.onOptionsItemSelected(item)
@@ -544,16 +547,23 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         supportInvalidateOptionsMenu()
     }
 
-    private fun toggleLockOrientation() {
-        mIsOrientationLocked = !mIsOrientationLocked
-        if (mIsOrientationLocked) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LOCKED
+    private fun toggleOrientation(orientation: Int) {
+        requestedOrientation = orientation
+        mIsOrientationLocked = orientation == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT || orientation == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+        invalidateOptionsMenu()
+    }
+
+    private fun getChangeOrientationIcon(): Drawable {
+        val drawable = if (mIsOrientationLocked) {
+            if (requestedOrientation == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) {
+                R.drawable.ic_orientation_portrait
+            } else {
+                R.drawable.ic_orientation_landscape
             }
         } else {
-            setupRotation()
+            R.drawable.ic_orientation_auto
         }
-        invalidateOptionsMenu()
+        return resources.getDrawable(drawable)
     }
 
     private fun saveImageAs() {
@@ -809,7 +819,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         }
 
-        bottom_lock_orientation.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_LOCK_ORIENTATION != 0)
+        bottom_lock_orientation.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_CHANGE_ORIENTATION != 0)
         bottom_lock_orientation.setOnClickListener {
             if (bottom_actions.alpha == 1f) {
 

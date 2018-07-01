@@ -63,7 +63,7 @@
             android:text="@string/properties"/>
 
         <com.simplemobiletools.commons.views.MyAppCompatCheckbox
-            android:id="@+id/manage_bottom_actions_lock_orientation"
+            android:id="@+id/manage_bottom_actions_change_orientation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/activity_margin"
