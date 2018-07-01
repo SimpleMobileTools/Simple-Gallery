@@ -535,7 +535,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         invalidateOptionsMenu()
         directories_grid.adapter?.notifyDataSetChanged()
         getRecyclerAdapter()?.dirs?.apply {
-            measureRecyclerViewContent()
+            measureRecyclerViewContent(this)
         }
     }
 
