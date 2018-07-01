@@ -32,6 +32,7 @@ import com.simplemobiletools.gallery.dialogs.FilterMediaDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.interfaces.DirectoryDao
+import com.simplemobiletools.gallery.interfaces.DirectoryOperationsListener
 import com.simplemobiletools.gallery.models.AlbumCover
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
@@ -39,7 +40,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.io.*
 import java.util.*
 
-class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
+class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private val PICK_MEDIA = 2
     private val PICK_WALLPAPER = 3
     private val LAST_MEDIA_CHECK_PERIOD = 3000L

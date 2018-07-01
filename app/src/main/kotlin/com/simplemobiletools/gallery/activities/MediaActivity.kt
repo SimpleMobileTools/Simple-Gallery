@@ -39,6 +39,7 @@ import com.simplemobiletools.gallery.dialogs.ExcludeFolderDialog
 import com.simplemobiletools.gallery.dialogs.FilterMediaDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.*
+import com.simplemobiletools.gallery.interfaces.MediaOperationsListener
 import com.simplemobiletools.gallery.models.Medium
 import com.simplemobiletools.gallery.models.ThumbnailItem
 import com.simplemobiletools.gallery.models.ThumbnailSection
@@ -47,7 +48,7 @@ import java.io.File
 import java.io.IOException
 import java.util.*
 
-class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
+class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private val LAST_MEDIA_CHECK_PERIOD = 3000L
 
     private var mPath = ""

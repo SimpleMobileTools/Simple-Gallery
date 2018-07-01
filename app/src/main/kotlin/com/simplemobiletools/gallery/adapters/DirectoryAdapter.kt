@@ -21,6 +21,7 @@ import com.simplemobiletools.gallery.dialogs.ExcludeFolderDialog
 import com.simplemobiletools.gallery.dialogs.PickMediumDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.*
+import com.simplemobiletools.gallery.interfaces.DirectoryOperationsListener
 import com.simplemobiletools.gallery.models.AlbumCover
 import com.simplemobiletools.gallery.models.Directory
 import kotlinx.android.synthetic.main.directory_item_list.view.*
@@ -28,7 +29,7 @@ import java.io.File
 import java.util.*
 import kotlin.collections.ArrayList
 
-class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directory>, val listener: DirOperationsListener?, recyclerView: MyRecyclerView,
+class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directory>, val listener: DirectoryOperationsListener?, recyclerView: MyRecyclerView,
                        val isPickIntent: Boolean, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit) :
         MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick) {
 
@@ -493,15 +494,5 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 dir_location.applyColorFilter(textColor)
             }
         }
-    }
-
-    interface DirOperationsListener {
-        fun refreshItems()
-
-        fun deleteFolders(folders: ArrayList<File>)
-
-        fun recheckPinnedFolders()
-
-        fun updateDirectories(directories: ArrayList<Directory>)
     }
 }

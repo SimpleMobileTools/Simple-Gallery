@@ -19,6 +19,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.DeleteWithRememberDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.VIEW_TYPE_LIST
+import com.simplemobiletools.gallery.interfaces.MediaOperationsListener
 import com.simplemobiletools.gallery.models.Medium
 import com.simplemobiletools.gallery.models.ThumbnailItem
 import com.simplemobiletools.gallery.models.ThumbnailSection
@@ -414,13 +415,5 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             thumbnail_section.text = section.title
             thumbnail_section.setTextColor(textColor)
         }
-    }
-
-    interface MediaOperationsListener {
-        fun refreshItems()
-
-        fun tryDeleteFiles(fileDirItems: ArrayList<FileDirItem>)
-
-        fun selectedPaths(paths: ArrayList<String>)
     }
 }
