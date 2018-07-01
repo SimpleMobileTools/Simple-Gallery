@@ -24,10 +24,10 @@
     <string name="brightness">Helderheid</string>
     <string name="lock_orientation">Schermoriëntatie vergrendelen</string>
     <string name="unlock_orientation">Schermoriëntatie ontgrendelen</string>
-    <string name="change_orientation">Change orientation</string>
-    <string name="force_portrait">Force portrait</string>
-    <string name="force_landscape">Force landscape</string>
-    <string name="use_default_orientation">Use default orientation</string>
+    <string name="change_orientation">Schermoriëntatie wijzigen</string>
+    <string name="force_portrait">Portretmodus forceren</string>
+    <string name="force_landscape">Landschapsmodus forceren</string>
+    <string name="use_default_orientation">Standaardmodus gebruiken</string>
 
     <!-- Filter -->
     <string name="filter_media">Media filteren</string>
