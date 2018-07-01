@@ -293,6 +293,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_delete).isVisible = visibleBottomActions and BOTTOM_ACTION_DELETE == 0
             findItem(R.id.menu_share).isVisible = visibleBottomActions and BOTTOM_ACTION_SHARE == 0
             findItem(R.id.menu_edit).isVisible = visibleBottomActions and BOTTOM_ACTION_EDIT == 0
+            findItem(R.id.menu_rename).isVisible = visibleBottomActions and BOTTOM_ACTION_RENAME == 0
             findItem(R.id.menu_rotate).isVisible = currentMedium.isImage() && visibleBottomActions and BOTTOM_ACTION_ROTATE == 0
             findItem(R.id.menu_save_as).isVisible = mRotationDegrees != 0
             findItem(R.id.menu_hide).isVisible = !currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0
@@ -850,6 +851,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                         updateBottomActionIcons(getCurrentMedium()!!)
                     }
                 }
+            }
+        }
+
+        bottom_rename.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_RENAME != 0)
+        bottom_rename.setOnClickListener {
+            if (bottom_actions.alpha == 1f) {
+                renameFile()
             }
         }
     }

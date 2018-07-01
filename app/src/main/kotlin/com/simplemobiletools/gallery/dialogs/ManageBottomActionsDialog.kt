@@ -24,6 +24,7 @@ class ManageBottomActionsDialog(val activity: BaseSimpleActivity, val callback: 
             manage_bottom_actions_slideshow.isChecked = actions and BOTTOM_ACTION_PROPERTIES != 0
             manage_bottom_actions_show_on_map.isChecked = actions and BOTTOM_ACTION_SHOW_ON_MAP != 0
             manage_bottom_actions_toggle_visibility.isChecked = actions and BOTTOM_ACTION_TOGGLE_VISIBILITY != 0
+            manage_bottom_actions_rename.isChecked = actions and BOTTOM_ACTION_RENAME != 0
         }
 
         AlertDialog.Builder(activity)
@@ -57,6 +58,8 @@ class ManageBottomActionsDialog(val activity: BaseSimpleActivity, val callback: 
                 result += BOTTOM_ACTION_SHOW_ON_MAP
             if (manage_bottom_actions_toggle_visibility.isChecked)
                 result += BOTTOM_ACTION_TOGGLE_VISIBILITY
+            if (manage_bottom_actions_rename.isChecked)
+                result += BOTTOM_ACTION_RENAME
         }
 
         activity.config.visibleBottomActions = result
