@@ -187,10 +187,6 @@ fun BaseSimpleActivity.tryDeleteFileDirItem(fileDirItem: FileDirItem, allowDelet
     }
 }
 
-fun BaseSimpleActivity.movePathInRecycleBin(path: String, callback: ((wasSuccess: Boolean) -> Unit)?) {
-    movePathsInRecycleBin(arrayListOf(path), callback)
-}
-
 fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback: ((wasSuccess: Boolean) -> Unit)?) {
     Thread {
         var pathsCnt = paths.size

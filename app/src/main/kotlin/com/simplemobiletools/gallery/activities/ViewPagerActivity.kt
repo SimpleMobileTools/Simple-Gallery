@@ -935,7 +935,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val path = getCurrentMedia().getOrNull(mPos)?.path ?: return
         val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
         if (config.useRecycleBin && !getCurrentMedium()!!.getIsInRecycleBin()) {
-            movePathInRecycleBin(path) {
+            movePathsInRecycleBin(arrayListOf(path)) {
                 if (it) {
                     tryDeleteFileDirItem(fileDirItem, false, false) {
                         refreshViewPager()
