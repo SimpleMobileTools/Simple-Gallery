@@ -24,6 +24,10 @@
     <string name="brightness">Helderheid</string>
     <string name="lock_orientation">Schermoriëntatie vergrendelen</string>
     <string name="unlock_orientation">Schermoriëntatie ontgrendelen</string>
+    <string name="change_orientation">Change orientation</string>
+    <string name="force_portrait">Force portrait</string>
+    <string name="force_landscape">Force landscape</string>
+    <string name="use_default_orientation">Use default orientation</string>
 
     <!-- Filter -->
     <string name="filter_media">Media filteren</string>
@@ -159,7 +163,6 @@
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Actieknoppen onderaan beheren</string>
     <string name="toggle_favorite">Als favoriet instellen</string>
-    <string name="orientation_locking">Schermoriëntatie vergrendelen</string>
     <string name="toggle_file_visibility">Bestand tonen/verbergen</string>
 
     <!-- FAQ -->

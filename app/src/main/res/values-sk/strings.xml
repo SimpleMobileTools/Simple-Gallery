@@ -24,6 +24,10 @@
     <string name="brightness">Jas</string>
     <string name="lock_orientation">Uzamknúť otočenie obrazovky</string>
     <string name="unlock_orientation">Odomknúť otočenie obrazovky</string>
+    <string name="change_orientation">Zmeniť otočenie obrazovky</string>
+    <string name="force_portrait">Vynútiť orientáciu na výšku</string>
+    <string name="force_landscape">Vynútiť orientáciu na šírku</string>
+    <string name="use_default_orientation">Použiť predvolenú orientáciu</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter médií</string>
@@ -159,7 +163,6 @@
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Upraviť viditeľné spodné akčné tlačidlá</string>
     <string name="toggle_favorite">Prepnutie obľúbenosti</string>
-    <string name="orientation_locking">Uzamykanie orientácie zariadenia</string>
     <string name="toggle_file_visibility">Prepnutie viditeľnosti súboru</string>
 
     <!-- FAQ -->

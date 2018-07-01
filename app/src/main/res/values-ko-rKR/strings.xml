@@ -24,6 +24,10 @@
     <string name="brightness">밝기</string>
     <string name="lock_orientation">사진회전 잠금</string>
     <string name="unlock_orientation">사진회전 해제</string>
+    <string name="change_orientation">Change orientation</string>
+    <string name="force_portrait">Force portrait</string>
+    <string name="force_landscape">Force landscape</string>
+    <string name="use_default_orientation">Use default orientation</string>
 
     <!-- Filter -->
     <string name="filter_media">미디어 필터 설정</string>
@@ -159,7 +163,6 @@
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Manage visible bottom actions</string>
     <string name="toggle_favorite">Toggle favorite</string>
-    <string name="orientation_locking">Orientation locking</string>
     <string name="toggle_file_visibility">Toggle file visibility</string>
 
     <!-- FAQ -->

@@ -24,6 +24,10 @@
     <string name="brightness">明るさ</string>
     <string name="lock_orientation">画面の向きを固定する</string>
     <string name="unlock_orientation">向きの固定を解除する</string>
+    <string name="change_orientation">Change orientation</string>
+    <string name="force_portrait">Force portrait</string>
+    <string name="force_landscape">Force landscape</string>
+    <string name="use_default_orientation">Use default orientation</string>
 
     <!-- Filter -->
     <string name="filter_media">表示するメディアの種類</string>
@@ -159,7 +163,6 @@
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Manage visible bottom actions</string>
     <string name="toggle_favorite">Toggle favorite</string>
-    <string name="orientation_locking">Orientation locking</string>
     <string name="toggle_file_visibility">Toggle file visibility</string>
 
     <!-- FAQ -->
