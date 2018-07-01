@@ -933,6 +933,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun deleteConfirmed() {
         val path = getCurrentMedia().getOrNull(mPos)?.path ?: return
+        if (getIsPathDirectory(path)) {
+            return
+        }
+
         val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
         if (config.useRecycleBin && !getCurrentMedium()!!.getIsInRecycleBin()) {
             movePathsInRecycleBin(arrayListOf(path)) {
