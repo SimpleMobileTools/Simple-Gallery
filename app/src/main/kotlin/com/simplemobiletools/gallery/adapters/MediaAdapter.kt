@@ -331,7 +331,9 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     private fun getSelectedMedia(): List<Medium> {
         val selectedMedia = ArrayList<Medium>(selectedPositions.size)
         selectedPositions.forEach {
-            selectedMedia.add(media[it] as Medium)
+            (media.getOrNull(it) as? Medium)?.apply {
+                selectedMedia.add(this)
+            }
         }
         return selectedMedia
     }
