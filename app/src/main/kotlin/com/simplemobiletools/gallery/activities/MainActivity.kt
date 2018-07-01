@@ -652,6 +652,14 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun gotDirectories(newDirs: ArrayList<Directory>) {
+        // if hidden item showing is disabled but all Favorite items are hidden, hide the Favorites folder
+        if (!config.shouldShowHidden) {
+            val favoritesFolder = newDirs.firstOrNull { it.areFavorites() }
+            if (favoritesFolder != null && favoritesFolder.tmb.getFilenameFromPath().startsWith('.')) {
+                newDirs.remove(favoritesFolder)
+            }
+        }
+
         val dirs = getSortedDirectories(newDirs)
         var isPlaceholderVisible = dirs.isEmpty()
 
