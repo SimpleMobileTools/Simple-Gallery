@@ -534,7 +534,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun columnCountChanged() {
         invalidateOptionsMenu()
         directories_grid.adapter?.notifyDataSetChanged()
-        measureRecyclerViewContent(getRecyclerAdapter()!!.dirs)
+        getRecyclerAdapter()?.dirs?.apply {
+            measureRecyclerViewContent()
+        }
     }
 
     private fun isPickImageIntent(intent: Intent) = isPickIntent(intent) && (hasImageContentData(intent) || isImageType(intent))
