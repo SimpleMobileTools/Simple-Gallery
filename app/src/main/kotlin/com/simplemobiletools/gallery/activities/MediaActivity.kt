@@ -543,12 +543,17 @@ class MediaActivity : SimpleActivity(), MediaAdapter.MediaOperationsListener {
                 } else {
                     gotMedia(it, true)
                 }
+                startAsyncTask()
             }
         } else {
             media_refresh_layout.isRefreshing = true
+            startAsyncTask()
         }
 
         mLoadedInitialPhotos = true
+    }
+
+    private fun startAsyncTask() {
         mCurrAsyncTask?.stopFetching()
         mCurrAsyncTask = GetMediaAsynctask(applicationContext, mPath, mIsGetImageIntent, mIsGetVideoIntent, mShowAll) {
             Thread {
