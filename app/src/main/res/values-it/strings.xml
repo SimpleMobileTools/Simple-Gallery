@@ -24,10 +24,10 @@
     <string name="brightness">Luminosità</string>
     <string name="lock_orientation">Blocca orientamento</string>
     <string name="unlock_orientation">Sblocca orientamento</string>
-    <string name="change_orientation">Change orientation</string>
-    <string name="force_portrait">Force portrait</string>
-    <string name="force_landscape">Force landscape</string>
-    <string name="use_default_orientation">Use default orientation</string>
+    <string name="change_orientation">Cambia orientamento</string>
+    <string name="force_portrait">Forza verticale</string>
+    <string name="force_landscape">Forza orizzontale</string>
+    <string name="use_default_orientation">Usa l'orientamento predefinito</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtra i media</string>
@@ -158,12 +158,12 @@
     <string name="thumbnails">Miniature</string>
     <string name="fullscreen_media">Media a schermo intero</string>
     <string name="extended_details">Dettagli estesi</string>
-    <string name="bottom_actions">Bottom actions</string>
+    <string name="bottom_actions">Azioni inferiori</string>
 
     <!-- Bottom actions -->
-    <string name="manage_bottom_actions">Manage visible bottom actions</string>
-    <string name="toggle_favorite">Toggle favorite</string>
-    <string name="toggle_file_visibility">Toggle file visibility</string>
+    <string name="manage_bottom_actions">Gestisci la visibilità delle azioni</string>
+    <string name="toggle_favorite">Attiva / disattiva preferito</string>
+    <string name="toggle_file_visibility">Attiva / disattiva la visibilità dei file</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Come posso impostare Simple Gallery come galleria predefinita del dispositivo?</string>
