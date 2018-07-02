@@ -250,6 +250,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 checkSystemUI()
                 if (!bottom_actions.isGone()) {
                     bottom_actions.animate().alpha(if (mIsFullScreen) 0f else 1f).start()
+                    arrayOf(bottom_favorite, bottom_edit, bottom_share, bottom_delete, bottom_rotate, bottom_properties, bottom_change_orientation,
+                            bottom_slideshow, bottom_show_on_map, bottom_toggle_file_visibility, bottom_rename).forEach {
+                        it.isClickable = !mIsFullScreen
+                    }
                 }
             }
         }
@@ -776,88 +780,66 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val visibleBottomActions = if (config.bottomActions) config.visibleBottomActions else 0
         bottom_favorite.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE != 0)
         bottom_favorite.setOnClickListener {
-            if (bottom_actions.alpha == 1f) {
-                toggleFavorite()
-            }
+            toggleFavorite()
         }
 
         bottom_edit.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_EDIT != 0)
         bottom_edit.setOnClickListener {
-            if (bottom_actions.alpha == 1f) {
-                openEditor(getCurrentPath())
-            }
+            openEditor(getCurrentPath())
         }
 
         bottom_share.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SHARE != 0)
         bottom_share.setOnClickListener {
-            if (bottom_actions.alpha == 1f) {
-                shareMediumPath(getCurrentPath())
-            }
+            shareMediumPath(getCurrentPath())
         }
 
         bottom_delete.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_DELETE != 0)
         bottom_delete.setOnClickListener {
-            if (bottom_actions.alpha == 1f) {
-                checkDeleteConfirmation()
-            }
+            checkDeleteConfirmation()
         }
 
         bottom_rotate.setOnClickListener {
-            if (bottom_actions.alpha == 1f) {
-                rotateImage(90)
-            }
+            rotateImage(90)
         }
 
         bottom_properties.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_PROPERTIES != 0)
         bottom_properties.setOnClickListener {
-            if (bottom_actions.alpha == 1f) {
-                showProperties()
-            }
+            showProperties()
         }
 
         bottom_change_orientation.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_CHANGE_ORIENTATION != 0)
         bottom_change_orientation.setOnClickListener {
-            if (bottom_actions.alpha == 1f) {
-                requestedOrientation = when (requestedOrientation) {
-                    ActivityInfo.SCREEN_ORIENTATION_PORTRAIT -> ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-                    ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE -> ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
-                    else -> ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-                }
-                mIsOrientationLocked = requestedOrientation != ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
-                updateBottomActionIcons(getCurrentMedium())
+            requestedOrientation = when (requestedOrientation) {
+                ActivityInfo.SCREEN_ORIENTATION_PORTRAIT -> ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE -> ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+                else -> ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
             }
+            mIsOrientationLocked = requestedOrientation != ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+            updateBottomActionIcons(getCurrentMedium())
         }
 
         bottom_slideshow.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SLIDESHOW != 0)
         bottom_slideshow.setOnClickListener {
-            if (bottom_actions.alpha == 1f) {
-                initSlideshow()
-            }
+            initSlideshow()
         }
 
         bottom_show_on_map.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SHOW_ON_MAP != 0)
         bottom_show_on_map.setOnClickListener {
-            if (bottom_actions.alpha == 1f) {
-                showOnMap()
-            }
+            showOnMap()
         }
 
         bottom_toggle_file_visibility.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY != 0)
         bottom_toggle_file_visibility.setOnClickListener {
-            if (bottom_actions.alpha == 1f) {
-                getCurrentMedium()?.apply {
-                    toggleFileVisibility(!isHidden()) {
-                        updateBottomActionIcons(getCurrentMedium())
-                    }
+            getCurrentMedium()?.apply {
+                toggleFileVisibility(!isHidden()) {
+                    updateBottomActionIcons(getCurrentMedium())
                 }
             }
         }
 
         bottom_rename.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_RENAME != 0)
         bottom_rename.setOnClickListener {
-            if (bottom_actions.alpha == 1f) {
-                renameFile()
-            }
+            renameFile()
         }
     }
 
