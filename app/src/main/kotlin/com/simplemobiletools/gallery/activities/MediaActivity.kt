@@ -813,6 +813,9 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     override fun tryDeleteFiles(fileDirItems: ArrayList<FileDirItem>) {
         val filtered = fileDirItems.filter { it.path.isImageVideoGif() } as ArrayList
+        val deletingItems = resources.getQuantityString(R.plurals.deleting_items, filtered.size, filtered.size)
+        toast(deletingItems)
+
         if (config.useRecycleBin && !filtered.first().path.startsWith(filesDir.toString())) {
             movePathsInRecycleBin(filtered.map { it.path } as ArrayList<String>) {
                 if (it) {
