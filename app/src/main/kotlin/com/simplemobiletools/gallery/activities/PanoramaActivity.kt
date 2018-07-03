@@ -77,7 +77,7 @@ open class PanoramaActivity : SimpleActivity() {
 
     private fun checkIntent() {
         val path = intent.getStringExtra(PATH)
-        if (path != null) {
+        if (path == null) {
             toast(R.string.invalid_image_path)
             finish()
             return
