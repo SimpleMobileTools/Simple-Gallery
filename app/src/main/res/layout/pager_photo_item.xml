@@ -18,6 +18,16 @@
         android:layout_height="match_parent"
         android:visibility="gone"/>
 
+    <ImageView
+        android:id="@+id/panorama_outline"
+        android:layout_width="@dimen/play_outline_size_big"
+        android:layout_height="@dimen/play_outline_size_big"
+        android:layout_centerInParent="true"
+        android:background="@android:color/transparent"
+        android:padding="@dimen/big_margin"
+        android:src="@drawable/ic_panorama"
+        android:visibility="gone"/>
+
     <TextView
         android:id="@+id/photo_details"
         android:layout_width="wrap_content"

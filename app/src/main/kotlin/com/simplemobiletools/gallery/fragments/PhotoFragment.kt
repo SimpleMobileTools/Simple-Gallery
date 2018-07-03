@@ -36,6 +36,8 @@ import com.simplemobiletools.gallery.helpers.ROTATE_BY_ASPECT_RATIO
 import com.simplemobiletools.gallery.models.Medium
 import it.sephiroth.android.library.exif2.ExifInterface
 import kotlinx.android.synthetic.main.pager_photo_item.view.*
+import org.apache.sanselan.common.byteSources.ByteSourceInputStream
+import org.apache.sanselan.formats.jpeg.JpegImageParser
 import pl.droidsonroids.gif.GifDrawable
 import java.io.File
 import java.io.FileOutputStream
@@ -46,6 +48,7 @@ class PhotoFragment : ViewPagerFragment() {
     private var isFullscreen = false
     private var wasInit = false
     private var useHalfResolution = false
+    private var isPanorama = false
     private var imageOrientation = -1
     private var gifDrawable: GifDrawable? = null
 
@@ -118,6 +121,7 @@ class PhotoFragment : ViewPagerFragment() {
         loadImage()
         initExtendedDetails()
         wasInit = true
+        checkIfPanorama()
 
         return view
     }
@@ -327,6 +331,18 @@ class PhotoFragment : ViewPagerFragment() {
                 })
             }
         }
+    }
+
+    private fun checkIfPanorama() {
+        isPanorama = try {
+            val inputStream = if (medium.path.startsWith("content:/")) context!!.contentResolver.openInputStream(Uri.parse(medium.path)) else File(medium.path).inputStream()
+            val imageParser = JpegImageParser().getXmpXml(ByteSourceInputStream(inputStream, medium.name), HashMap<String, Any>())
+            imageParser.contains("GPano:UsePanoramaViewer=\"True\"", true)
+        } catch (e: Exception) {
+            false
+        }
+
+        view.panorama_outline.beVisibleIf(isPanorama)
     }
 
     private fun getImageOrientation(): Int {
