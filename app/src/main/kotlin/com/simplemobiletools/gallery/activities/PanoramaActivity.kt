@@ -17,7 +17,10 @@ import com.simplemobiletools.gallery.helpers.PATH
 import kotlinx.android.synthetic.main.activity_panorama.*
 
 open class PanoramaActivity : SimpleActivity() {
+    private val CARDBOARD_DISPLAY_MODE = 3
+
     private var isFullScreen = true
+    private var isExploreEnabled = true
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         useDynamicTheme = false
@@ -28,6 +31,16 @@ open class PanoramaActivity : SimpleActivity() {
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
         (cardboard.layoutParams as RelativeLayout.LayoutParams).bottomMargin = navigationBarHeight
         (explore.layoutParams as RelativeLayout.LayoutParams).bottomMargin = navigationBarHeight
+
+        cardboard.setOnClickListener {
+            panorama_view.displayMode = CARDBOARD_DISPLAY_MODE
+        }
+
+        explore.setOnClickListener {
+            isExploreEnabled = !isExploreEnabled
+            panorama_view.setPureTouchTracking(isExploreEnabled)
+            explore.setImageResource(if (isExploreEnabled) R.drawable.ic_explore else R.drawable.ic_explore_off)
+        }
 
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
