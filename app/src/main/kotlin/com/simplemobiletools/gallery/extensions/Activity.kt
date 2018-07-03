@@ -78,15 +78,21 @@ fun SimpleActivity.launchAbout() {
             or LICENSE_SUBSAMPLING or LICENSE_PATTERN or LICENSE_REPRINT or LICENSE_GIF_DRAWABLE or LICENSE_PHOTOVIEW or LICENSE_EXOPLAYER, BuildConfig.VERSION_NAME, faqItems)
 }
 
-fun AppCompatActivity.showSystemUI() {
-    supportActionBar?.show()
+fun AppCompatActivity.showSystemUI(toggleActionBarVisibility: Boolean) {
+    if (toggleActionBarVisibility) {
+        supportActionBar?.show()
+    }
+
     window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
             View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
             View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
 }
 
-fun AppCompatActivity.hideSystemUI() {
-    supportActionBar?.hide()
+fun AppCompatActivity.hideSystemUI(toggleActionBarVisibility: Boolean) {
+    if (toggleActionBarVisibility) {
+        supportActionBar?.hide()
+    }
+
     window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
             View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
             View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or

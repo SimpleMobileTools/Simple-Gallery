@@ -85,7 +85,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             }
         }
 
-        showSystemUI()
+        showSystemUI(true)
         val bundle = Bundle()
         val file = File(mUri.toString())
         val type = when {
@@ -201,9 +201,9 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     override fun fragmentClicked() {
         mIsFullScreen = !mIsFullScreen
         if (mIsFullScreen) {
-            hideSystemUI()
+            hideSystemUI(true)
         } else {
-            showSystemUI()
+            showSystemUI(true)
         }
 
         if (!bottom_actions.isGone()) {

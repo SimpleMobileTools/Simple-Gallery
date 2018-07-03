@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.fragments
 
+import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -26,12 +27,15 @@ import com.davemorrissey.labs.subscaleview.ImageSource
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
+import com.simplemobiletools.commons.helpers.isLollipopPlus
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.activities.PanoramaActivity
 import com.simplemobiletools.gallery.activities.PhotoActivity
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
 import com.simplemobiletools.gallery.helpers.MEDIUM
+import com.simplemobiletools.gallery.helpers.PATH
 import com.simplemobiletools.gallery.helpers.ROTATE_BY_ASPECT_RATIO
 import com.simplemobiletools.gallery.models.Medium
 import it.sephiroth.android.library.exif2.ExifInterface
@@ -65,6 +69,7 @@ class PhotoFragment : ViewPagerFragment() {
             photo_view.setOnClickListener { photoClicked() }
             instant_prev_item.setOnClickListener { listener?.goToPrevItem() }
             instant_next_item.setOnClickListener { listener?.goToNextItem() }
+            panorama_outline.setOnClickListener { openPanorama() }
 
             instant_prev_item.parentView = container
             instant_next_item.parentView = container
@@ -290,6 +295,13 @@ class PhotoFragment : ViewPagerFragment() {
         }
     }
 
+    private fun openPanorama() {
+        Intent(context, PanoramaActivity::class.java).apply {
+            putExtra(PATH, medium.path)
+            startActivity(this)
+        }
+    }
+
     private fun addZoomableView() {
         if (!context!!.config.replaceZoomableImages && medium.isImage() && isFragmentVisible && view.subsampling_view.isGone()) {
             ViewPagerActivity.wasDecodedByGlide = false
@@ -342,7 +354,7 @@ class PhotoFragment : ViewPagerFragment() {
             false
         }
 
-        view.panorama_outline.beVisibleIf(isPanorama)
+        view.panorama_outline.beVisibleIf(isPanorama && isLollipopPlus())
     }
 
     private fun getImageOrientation(): Int {

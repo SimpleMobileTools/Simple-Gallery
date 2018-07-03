@@ -207,7 +207,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             config.isThirdPartyIntent = true
         }
 
-        showSystemUI()
+        showSystemUI(true)
 
         val isShowingFavorites = intent.getBooleanExtra(SHOW_FAVORITES, false)
         val isShowingRecycleBin = intent.getBooleanExtra(SHOW_RECYCLE_BIN, false)
@@ -379,7 +379,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (getMediaForSlideshow()) {
             view_pager.onGlobalLayout {
                 if (!isActivityDestroyed()) {
-                    hideSystemUI()
+                    hideSystemUI(true)
                     mSlideshowInterval = config.slideshowInterval
                     mSlideshowMoveBackwards = config.slideshowMoveBackwards
                     mIsSlideshowActive = true
@@ -457,7 +457,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun stopSlideshow() {
         if (mIsSlideshowActive) {
             mIsSlideshowActive = false
-            showSystemUI()
+            showSystemUI(true)
             mSlideshowHandler.removeCallbacksAndMessages(null)
             window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         }
@@ -1072,10 +1072,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun checkSystemUI() {
         if (mIsFullScreen) {
-            hideSystemUI()
+            hideSystemUI(true)
         } else {
             stopSlideshow()
-            showSystemUI()
+            showSystemUI(true)
         }
     }
 
