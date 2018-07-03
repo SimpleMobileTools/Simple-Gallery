@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.activities
 
+import android.content.res.Configuration
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.View
@@ -13,6 +14,7 @@ import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.hideSystemUI
 import com.simplemobiletools.gallery.extensions.navigationBarHeight
+import com.simplemobiletools.gallery.extensions.navigationBarWidth
 import com.simplemobiletools.gallery.extensions.showSystemUI
 import com.simplemobiletools.gallery.helpers.PATH
 import kotlinx.android.synthetic.main.activity_panorama.*
@@ -29,8 +31,7 @@ open class PanoramaActivity : SimpleActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_panorama)
         supportActionBar?.hide()
-        (cardboard.layoutParams as RelativeLayout.LayoutParams).bottomMargin = navigationBarHeight
-        (explore.layoutParams as RelativeLayout.LayoutParams).bottomMargin = navigationBarHeight
+        setupButtonMargins()
 
         cardboard.setOnClickListener {
             panorama_view.displayMode = CARDBOARD_DISPLAY_MODE
@@ -108,6 +109,20 @@ open class PanoramaActivity : SimpleActivity() {
             isFullScreen = visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
             toggleButtonVisibility()
         }
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration?) {
+        super.onConfigurationChanged(newConfig)
+        setupButtonMargins()
+    }
+
+    private fun setupButtonMargins() {
+        (cardboard.layoutParams as RelativeLayout.LayoutParams).apply {
+            bottomMargin = navigationBarHeight
+            rightMargin = navigationBarWidth
+        }
+
+        (explore.layoutParams as RelativeLayout.LayoutParams).bottomMargin = navigationBarHeight
     }
 
     private fun toggleButtonVisibility() {

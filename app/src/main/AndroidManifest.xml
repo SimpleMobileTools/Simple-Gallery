@@ -118,8 +118,8 @@
 
         <activity
             android:name=".activities.PanoramaActivity"
-            android:theme="@style/FullScreenTheme"
-            android:configChanges="orientation|keyboardHidden|screenSize"/>
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/FullScreenTheme"/>
 
         <activity
             android:name=".activities.IncludedFoldersActivity"
