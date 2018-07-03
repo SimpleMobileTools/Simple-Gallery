@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.Window
 import android.widget.RelativeLayout
+import com.google.vr.sdk.widgets.pano.VrPanoramaEventListener
 import com.google.vr.sdk.widgets.pano.VrPanoramaView
 import com.simplemobiletools.commons.extensions.beVisible
 import com.simplemobiletools.commons.extensions.toast
@@ -19,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_panorama.*
 open class PanoramaActivity : SimpleActivity() {
     private val CARDBOARD_DISPLAY_MODE = 3
 
-    private var isFullScreen = true
+    private var isFullScreen = false
     private var isExploreEnabled = true
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +29,6 @@ open class PanoramaActivity : SimpleActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_panorama)
         supportActionBar?.hide()
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
         (cardboard.layoutParams as RelativeLayout.LayoutParams).bottomMargin = navigationBarHeight
         (explore.layoutParams as RelativeLayout.LayoutParams).bottomMargin = navigationBarHeight
 
@@ -82,6 +82,11 @@ open class PanoramaActivity : SimpleActivity() {
                         loadImageFromBitmap(bitmap, options)
                         setFlingingEnabled(true)
                         setPureTouchTracking(true)
+                        setEventListener(object : VrPanoramaEventListener() {
+                            override fun onClick() {
+                                handleClick()
+                            }
+                        })
 
                         // add custom buttons so we can position them and toggle visibility as desired
                         setFullscreenButtonEnabled(false)
