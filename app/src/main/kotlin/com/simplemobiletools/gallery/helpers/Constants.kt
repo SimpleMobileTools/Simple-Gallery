@@ -57,6 +57,7 @@ const val WERE_FAVORITES_PINNED = "were_favorites_pinned"
 const val WAS_RECYCLE_BIN_PINNED = "was_recycle_bin_pinned"
 const val USE_RECYCLE_BIN = "use_recycle_bin"
 const val GROUP_BY = "group_by"
+const val EVER_SHOWN_FOLDERS = "ever_shown_folders"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"

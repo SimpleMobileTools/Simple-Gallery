@@ -364,4 +364,9 @@ class Config(context: Context) : BaseConfig(context) {
     var visibleBottomActions: Int
         get() = prefs.getInt(VISIBLE_BOTTOM_ACTIONS, DEFAULT_BOTTOM_ACTIONS)
         set(visibleBottomActions) = prefs.edit().putInt(VISIBLE_BOTTOM_ACTIONS, visibleBottomActions).apply()
+
+    // if a user hides a folder, then enables temporary hidden folder displaying, make sure we show it properly
+    var everShownFolders: Set<String>
+        get() = prefs.getStringSet(EVER_SHOWN_FOLDERS, HashSet<String>())
+        set(everShownFolders) = prefs.edit().putStringSet(EVER_SHOWN_FOLDERS, everShownFolders).apply()
 }

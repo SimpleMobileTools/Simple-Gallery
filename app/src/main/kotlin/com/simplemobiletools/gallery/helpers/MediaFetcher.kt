@@ -114,7 +114,7 @@ class MediaFetcher(val context: Context) {
         val foldersToIgnore = arrayListOf("/storage/emulated/legacy")
         val config = context.config
         val includedFolders = config.includedFolders
-        var foldersToScan = ArrayList<String>()
+        var foldersToScan = config.everShownFolders.toList() as ArrayList
 
         cursor.use {
             if (cursor.moveToFirst()) {

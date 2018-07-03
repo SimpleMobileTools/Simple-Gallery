@@ -780,6 +780,14 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             checkPlaceholderVisibility(dirs)
         }
         checkInvalidDirectories(dirs, directoryDao)
+
+        val everShownFolders = config.everShownFolders as HashSet
+        dirs.mapTo(everShownFolders) { it.path }
+
+        try {
+            config.everShownFolders = everShownFolders
+        } catch (ignored: Exception) {
+        }
     }
 
     private fun checkPlaceholderVisibility(dirs: ArrayList<Directory>) {
