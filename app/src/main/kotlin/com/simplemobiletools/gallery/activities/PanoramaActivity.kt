@@ -129,8 +129,20 @@ open class PanoramaActivity : SimpleActivity() {
         setupButtonMargins()
     }
 
-    private fun getBitmapToLoad(path: String): Bitmap {
-        val bitmap = BitmapFactory.decodeFile(path)
+    private fun getBitmapToLoad(path: String): Bitmap? {
+        val options = BitmapFactory.Options()
+        options.inSampleSize = 1
+        var bitmap: Bitmap? = null
+
+        for (i in 0..10) {
+            try {
+                bitmap = BitmapFactory.decodeFile(path, options)
+                break
+            } catch (e: OutOfMemoryError) {
+                options.inSampleSize *= 2
+            }
+        }
+
         return bitmap
     }
 
