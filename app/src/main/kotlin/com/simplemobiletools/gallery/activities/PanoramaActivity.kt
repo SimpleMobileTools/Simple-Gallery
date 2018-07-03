@@ -1,6 +1,7 @@
 package com.simplemobiletools.gallery.activities
 
 import android.content.res.Configuration
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.view.View
@@ -9,6 +10,7 @@ import android.widget.RelativeLayout
 import com.google.vr.sdk.widgets.pano.VrPanoramaEventListener
 import com.google.vr.sdk.widgets.pano.VrPanoramaView
 import com.simplemobiletools.commons.extensions.beVisible
+import com.simplemobiletools.commons.extensions.showErrorToast
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.gallery.R
@@ -24,6 +26,7 @@ open class PanoramaActivity : SimpleActivity() {
 
     private var isFullScreen = false
     private var isExploreEnabled = true
+    private var isRendering = false
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         useDynamicTheme = false
@@ -56,27 +59,37 @@ open class PanoramaActivity : SimpleActivity() {
     override fun onResume() {
         super.onResume()
         panorama_view.resumeRendering()
+        isRendering = true
     }
 
     override fun onPause() {
         super.onPause()
         panorama_view.pauseRendering()
+        isRendering = false
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        panorama_view.shutdown()
+        if (isRendering) {
+            panorama_view.shutdown()
+        }
     }
 
     private fun checkIntent() {
         val path = intent.getStringExtra(PATH)
+        if (path != null) {
+            toast(R.string.invalid_image_path)
+            finish()
+            return
+        }
+
         intent.removeExtra(PATH)
 
         try {
             val options = VrPanoramaView.Options()
             options.inputType = VrPanoramaView.Options.TYPE_MONO
             Thread {
-                val bitmap = BitmapFactory.decodeFile(path)
+                val bitmap = getBitmapToLoad(path)
                 runOnUiThread {
                     panorama_view.apply {
                         beVisible()
@@ -102,7 +115,7 @@ open class PanoramaActivity : SimpleActivity() {
                 }
             }.start()
         } catch (e: Exception) {
-
+            showErrorToast(e)
         }
 
         window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
@@ -114,6 +127,11 @@ open class PanoramaActivity : SimpleActivity() {
     override fun onConfigurationChanged(newConfig: Configuration?) {
         super.onConfigurationChanged(newConfig)
         setupButtonMargins()
+    }
+
+    private fun getBitmapToLoad(path: String): Bitmap {
+        val bitmap = BitmapFactory.decodeFile(path)
+        return bitmap
     }
 
     private fun setupButtonMargins() {
