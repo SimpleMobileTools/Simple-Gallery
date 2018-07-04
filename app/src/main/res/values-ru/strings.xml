@@ -27,7 +27,7 @@
     <string name="change_orientation">Изменение ориентации</string>
     <string name="force_portrait">Всегда портретная</string>
     <string name="force_landscape">Всегда альбомная</string>
-    <string name="use_default_orientation">Не менять</string>
+    <string name="use_default_orientation">Не менять ориентацию</string>
 
     <!-- Filter -->
     <string name="filter_media">Фильтр медиа</string>
