@@ -786,7 +786,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         try {
             config.everShownFolders = everShownFolders
-        } catch (ignored: Exception) {
+        } catch (e: Exception) {
+            config.everShownFolders = HashSet()
         }
     }
 
