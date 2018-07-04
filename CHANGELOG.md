@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 4.3.2 *(2018-07-04)*
+----------------------------
+
+ * Added Panorama photo support
+ * Allow customizing visible fullscreen bottom actions
+ * Allow forcing portrait/landscape modes at fullscreen view
+ * Use Exoplayer for playing videos
+ * Many smaller UX and stability improvements
+
 Version 4.3.1 *(2018-06-28)*
 ----------------------------
 
