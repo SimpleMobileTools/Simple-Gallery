@@ -436,7 +436,11 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
     private fun getSelectedPaths(): HashSet<String> {
         val paths = HashSet<String>(selectedPositions.size)
-        selectedPositions.forEach { paths.add(dirs[it].path) }
+        selectedPositions.forEach {
+            (dirs.getOrNull(it))?.apply {
+                paths.add(path)
+            }
+        }
         return paths
     }
 
