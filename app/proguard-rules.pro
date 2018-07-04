@@ -1,2 +1,3 @@
 -keep class com.simplemobiletools.** { *; }
 -dontwarn com.simplemobiletools.**
+-dontwarn org.apache.**
