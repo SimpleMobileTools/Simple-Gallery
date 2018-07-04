@@ -2,6 +2,11 @@
 <resources>
 
     <!-- Release notes -->
+    <string name="release_184">
+        Added Panorama photo support\n
+        Allow forcing portrait/landscape orientation at fullscreen view\n
+        Allow customizing visible fullscreen bottom actions in the app settings
+    </string>
     <string name="release_182">
         Allow grouping media thumbnails by some criteria\n
         Added a Recycle Bin enabled by default, can be disabled in Settings, or from the Bin itself
