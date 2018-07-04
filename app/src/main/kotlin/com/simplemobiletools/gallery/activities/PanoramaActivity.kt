@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.activities
 import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.view.Window
@@ -14,10 +15,7 @@ import com.simplemobiletools.commons.extensions.showErrorToast
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.extensions.hideSystemUI
-import com.simplemobiletools.gallery.extensions.navigationBarHeight
-import com.simplemobiletools.gallery.extensions.navigationBarWidth
-import com.simplemobiletools.gallery.extensions.showSystemUI
+import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.PATH
 import kotlinx.android.synthetic.main.activity_panorama.*
 
@@ -60,6 +58,9 @@ open class PanoramaActivity : SimpleActivity() {
         super.onResume()
         panorama_view.resumeRendering()
         isRendering = true
+        if (config.blackBackground) {
+            updateStatusbarColor(Color.BLACK)
+        }
     }
 
     override fun onPause() {
