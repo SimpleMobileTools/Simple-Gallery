@@ -177,8 +177,9 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     override fun onResume() {
         super.onResume()
         activity!!.updateTextColors(mView!!.video_holder)
-        val allowVideoGestures = context!!.config.allowVideoGestures
-        val allowInstantChange = context!!.config.allowInstantChange
+        val config = context!!.config
+        val allowVideoGestures = config.allowVideoGestures
+        val allowInstantChange = config.allowInstantChange
         mView!!.apply {
             video_volume_controller.beVisibleIf(allowVideoGestures)
             video_brightness_controller.beVisibleIf(allowVideoGestures)
@@ -187,14 +188,15 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             instant_next_item.beVisibleIf(allowInstantChange)
         }
 
-        if (context!!.config.showExtendedDetails != mStoredShowExtendedDetails || context!!.config.extendedDetails != mStoredExtendedDetails) {
+        if (config.showExtendedDetails != mStoredShowExtendedDetails || config.extendedDetails != mStoredExtendedDetails) {
             checkExtendedDetails()
         }
 
-        if (context!!.config.bottomActions != mStoredBottomActions) {
+        if (config.bottomActions != mStoredBottomActions) {
             initTimeHolder()
         }
 
+        mView!!.video_time_holder.setBackgroundResource(if (config.bottomActions) 0 else R.drawable.gradient_background)
         storeStateVariables()
     }
 
