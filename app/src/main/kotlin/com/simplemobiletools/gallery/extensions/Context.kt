@@ -395,7 +395,7 @@ fun Context.updateDBDirectory(directory: Directory) {
 
 fun Context.getOTGFolderChildren(path: String) = getDocumentFile(path)?.listFiles()
 
-fun Context.getOTGFolderChildrenNames(path: String) = getOTGFolderChildren(path)?.map { it.name }?.toList()
+fun Context.getOTGFolderChildrenNames(path: String) = getOTGFolderChildren(path)?.map { it.name }?.toMutableList()
 
 fun Context.getFavoritePaths() = galleryDB.MediumDao().getFavoritePaths() as ArrayList<String>
 

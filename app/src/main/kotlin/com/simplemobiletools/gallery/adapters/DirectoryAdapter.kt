@@ -158,7 +158,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 PropertiesDialog(activity, dirs[selectedPositions.first()].path, config.shouldShowHidden)
             }
         } else {
-            PropertiesDialog(activity, getSelectedPaths().filter { it != FAVORITES && it != RECYCLE_BIN }.toList(), config.shouldShowHidden)
+            PropertiesDialog(activity, getSelectedPaths().filter { it != FAVORITES && it != RECYCLE_BIN }.toMutableList(), config.shouldShowHidden)
         }
     }
 
@@ -236,7 +236,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         dirs.forEach {
             it.name = activity.checkAppendingHidden(it.path, hidden, includedFolders)
         }
-        listener?.updateDirectories(dirs.toList() as ArrayList)
+        listener?.updateDirectories(dirs.toMutableList() as ArrayList)
         activity.runOnUiThread {
             updateDirs(dirs)
         }
@@ -287,7 +287,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     private fun tryExcludeFolder() {
         val paths = getSelectedPaths().filter { it != PATH }.toSet()
         if (paths.size == 1) {
-            ExcludeFolderDialog(activity, paths.toList()) {
+            ExcludeFolderDialog(activity, paths.toMutableList()) {
                 listener?.refreshItems()
                 finishActMode()
             }
