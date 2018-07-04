@@ -8,11 +8,17 @@ import com.simplemobiletools.gallery.models.Medium
 
 @Dao
 interface MediumDao {
-    @Query("SELECT filename, full_path, parent_path, last_modified, date_taken, size, type, is_favorite FROM media WHERE parent_path = :path")
+    @Query("SELECT filename, full_path, parent_path, last_modified, date_taken, size, type, is_favorite, deleted_ts FROM media WHERE deleted_ts = 0 AND parent_path = :path COLLATE NOCASE")
     fun getMediaFromPath(path: String): List<Medium>
 
-    @Query("SELECT full_path FROM media WHERE is_favorite = 1")
+    @Query("SELECT filename, full_path, parent_path, last_modified, date_taken, size, type, is_favorite, deleted_ts FROM media WHERE deleted_ts = 0 AND is_favorite = 1")
+    fun getFavorites(): List<Medium>
+
+    @Query("SELECT full_path FROM media WHERE deleted_ts = 0 AND is_favorite = 1")
     fun getFavoritePaths(): List<String>
+
+    @Query("SELECT filename, full_path, parent_path, last_modified, date_taken, size, type, is_favorite, deleted_ts FROM media WHERE deleted_ts != 0")
+    fun getDeletedMedia(): List<Medium>
 
     @Insert(onConflict = REPLACE)
     fun insert(medium: Medium)
@@ -20,12 +26,18 @@ interface MediumDao {
     @Insert(onConflict = REPLACE)
     fun insertAll(media: List<Medium>)
 
-    @Query("DELETE FROM media WHERE full_path = :path")
+    @Query("DELETE FROM media WHERE full_path = :path COLLATE NOCASE")
     fun deleteMediumPath(path: String)
 
-    @Query("UPDATE OR REPLACE media SET filename = :newFilename, full_path = :newFullPath, parent_path = :newParentPath WHERE full_path = :oldPath")
+    @Query("UPDATE OR REPLACE media SET filename = :newFilename, full_path = :newFullPath, parent_path = :newParentPath WHERE full_path = :oldPath COLLATE NOCASE")
     fun updateMedium(oldPath: String, newParentPath: String, newFilename: String, newFullPath: String)
 
-    @Query("UPDATE media SET is_favorite = :isFavorite WHERE full_path = :path")
+    @Query("UPDATE media SET is_favorite = :isFavorite WHERE full_path = :path COLLATE NOCASE")
     fun updateFavorite(path: String, isFavorite: Boolean)
+
+    @Query("UPDATE media SET deleted_ts = :deletedTS WHERE full_path = :path COLLATE NOCASE")
+    fun updateDeleted(path: String, deletedTS: Long)
+
+    @Query("DELETE FROM media WHERE deleted_ts != 0")
+    fun clearRecycleBin()
 }

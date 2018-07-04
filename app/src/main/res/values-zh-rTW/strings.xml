@@ -24,13 +24,17 @@
     <string name="brightness">亮度</string>
     <string name="lock_orientation">鎖定方向</string>
     <string name="unlock_orientation">解除鎖定方向</string>
+    <string name="change_orientation">改變方向</string>
+    <string name="force_portrait">強制直向</string>
+    <string name="force_landscape">強制橫向</string>
+    <string name="use_default_orientation">使用預設方向</string>
 
     <!-- Filter -->
     <string name="filter_media">篩選媒體檔案</string>
     <string name="images">圖片</string>
     <string name="videos">影片</string>
     <string name="gifs">GIF</string>
-    <string name="raw_images">RAW images</string>
+    <string name="raw_images">RAW圖檔</string>
     <string name="no_media_with_filters">選擇的篩選條件未發現媒體檔案。</string>
     <string name="change_filters_underlined"><u>更改篩選條件</u></string>
 
@@ -111,11 +115,11 @@
     <string name="change_view_type">改變瀏覽類型</string>
     <string name="grid">格狀</string>
     <string name="list">列表</string>
-    <string name="group_direct_subfolders">Group direct subfolders</string>
+    <string name="group_direct_subfolders">歸類子資料夾</string>
 
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Group by</string>
-    <string name="do_not_group_files">Do not group files</string>
+    <string name="group_by">歸類</string>
+    <string name="do_not_group_files">不歸類檔案</string>
     <string name="by_folder">資料夾</string>
     <string name="by_last_modified">最後修改</string>
     <string name="by_date_taken">拍照日期</string>
@@ -148,12 +152,18 @@
     <string name="replace_zoomable_images">可深度縮放的圖片用品質更佳的來取代</string>
     <string name="hide_extended_details">狀態欄隱藏時，同時隱藏詳細資訊</string>
     <string name="do_extra_check">進行額外檢查，避免顯示無效的檔案</string>
-    <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
+    <string name="show_at_bottom">在螢幕底部顯示一些操作按鈕</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">縮圖</string>
     <string name="fullscreen_media">全螢幕媒體檔案</string>
     <string name="extended_details">詳細資訊</string>
+    <string name="bottom_actions">底部操作</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">管理可見的底部操作</string>
+    <string name="toggle_favorite">加入/移除我的最愛</string>
+    <string name="toggle_file_visibility">檔案顯示/隱藏</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">我如何將簡易相簿設為預設相簿?</string>
@@ -178,6 +188,8 @@
     <string name="faq_9_text">可啊，[設定]內有個開關叫做「可深度縮放的圖片用品質更佳的來取代」，你能用用看。這會提高圖片的品質，不過一旦你放大太多就會模糊掉。</string>
     <string name="faq_10_title">我可以用這程式裁減圖片嗎?</string>
     <string name="faq_10_text">是的，你能夠在編輯器內拉動圖片角落來裁剪圖片。要進入編輯器，你可以長按圖片縮圖然後選擇[編輯]，或是在全螢幕檢視下選擇[編輯]。</string>
+    <string name="faq_11_title">我可以歸類媒體檔案的縮圖嗎?</string>
+    <string name="faq_11_text">當然，只要在縮圖瀏覽中使用[歸類]選單項目就可以了。你能依多種條件歸類檔案，包含拍照日期。如果你使用了[資料夾內容全部顯示]功能，你還能以資料夾來歸類。</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

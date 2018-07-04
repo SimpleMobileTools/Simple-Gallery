@@ -1,6 +1,37 @@
 Changelog
 ==========
 
+Version 4.3.2 *(2018-07-04)*
+----------------------------
+
+ * Added Panorama photo support
+ * Allow customizing visible fullscreen bottom actions
+ * Allow forcing portrait/landscape modes at fullscreen view
+ * Use Exoplayer for playing videos
+ * Many smaller UX and stability improvements
+
+Version 4.3.1 *(2018-06-28)*
+----------------------------
+
+ * Adding some crashfixes
+
+Version 4.3.0 *(2018-06-28)*
+----------------------------
+
+ * Added a Recycle Bin
+ * Allow grouping media thumbnails by different criteria
+ * Fixed some calculation glitches around fastscroller
+ * Change the fullscreen Edit icon to a pencil
+ * Allow sorting "Show All" separately
+ * Many smaller stability and UX improvements
+
+Version 4.2.1 *(2018-06-20)*
+----------------------------
+
+ * Allow selecting Favorite items for easy access
+ * Fix sorting by Date Taken after files have been copied
+ * Couple other stability and UX improvements
+
 Version 4.2.0 *(2018-06-18)*
 ----------------------------
 

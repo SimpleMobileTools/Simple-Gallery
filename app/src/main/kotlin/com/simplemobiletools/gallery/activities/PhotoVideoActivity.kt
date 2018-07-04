@@ -85,7 +85,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             }
         }
 
-        showSystemUI()
+        showSystemUI(true)
         val bundle = Bundle()
         val file = File(mUri.toString())
         val type = when {
@@ -95,7 +95,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             else -> TYPE_RAWS
         }
 
-        mMedium = Medium(null, getFilenameFromUri(mUri!!), mUri.toString(), mUri!!.path.getParentPath(), 0, 0, file.length(), type, false)
+        mMedium = Medium(null, getFilenameFromUri(mUri!!), mUri.toString(), mUri!!.path.getParentPath(), 0, 0, file.length(), type, false, 0L)
         supportActionBar?.title = mMedium!!.name
         bundle.putSerializable(MEDIUM, mMedium)
 
@@ -178,24 +178,32 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     }
 
     private fun initBottomActionButtons() {
-        bottom_favorite.beGone()
-        bottom_delete.beGone()
-
-        bottom_edit.setOnClickListener {
-            openEditor(mUri!!.toString())
+        arrayListOf(bottom_favorite, bottom_delete, bottom_rotate, bottom_properties, bottom_change_orientation, bottom_slideshow, bottom_show_on_map, bottom_toggle_file_visibility).forEach {
+            it.beGone()
         }
 
+        val visibleBottomActions = if (config.bottomActions) config.visibleBottomActions else 0
+        bottom_edit.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_EDIT != 0)
+        bottom_edit.setOnClickListener {
+            if (mUri != null && bottom_actions.alpha == 1f) {
+                openEditor(mUri!!.toString())
+            }
+        }
+
+        bottom_share.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SHARE != 0)
         bottom_share.setOnClickListener {
-            sharePath(mUri!!.toString())
+            if (mUri != null && bottom_actions.alpha == 1f) {
+                sharePath(mUri!!.toString())
+            }
         }
     }
 
     override fun fragmentClicked() {
         mIsFullScreen = !mIsFullScreen
         if (mIsFullScreen) {
-            hideSystemUI()
+            hideSystemUI(true)
         } else {
-            showSystemUI()
+            showSystemUI(true)
         }
 
         if (!bottom_actions.isGone()) {

@@ -24,13 +24,17 @@
     <string name="brightness">亮度</string>
     <string name="lock_orientation">锁定方向</string>
     <string name="unlock_orientation">解锁方向</string>
+    <string name="change_orientation">Change orientation</string>
+    <string name="force_portrait">Force portrait</string>
+    <string name="force_landscape">Force landscape</string>
+    <string name="use_default_orientation">Use default orientation</string>
 
     <!-- Filter -->
     <string name="filter_media">要显示的媒体文件</string>
     <string name="images">图片</string>
     <string name="videos">视频</string>
     <string name="gifs">GIFs</string>
-    <string name="raw_images">RAW images</string>
+    <string name="raw_images">RAW 图片</string>
     <string name="no_media_with_filters">所选的过滤器没有找到媒体文件。</string>
     <string name="change_filters_underlined"><u>更改过滤器</u></string>
 
@@ -111,16 +115,16 @@
     <string name="change_view_type">更改视图类型</string>
     <string name="grid">网格</string>
     <string name="list">列表</string>
-    <string name="group_direct_subfolders">Group direct subfolders</string>
+    <string name="group_direct_subfolders">直接分组文件夹</string>
 
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Group by</string>
-    <string name="do_not_group_files">Do not group files</string>
-    <string name="by_folder">Folder</string>
-    <string name="by_last_modified">Last modified</string>
-    <string name="by_date_taken">Date taken</string>
-    <string name="by_file_type">File type</string>
-    <string name="by_extension">Extension</string>
+    <string name="group_by">分组依据</string>
+    <string name="do_not_group_files">禁用文件分组</string>
+    <string name="by_folder">目录</string>
+    <string name="by_last_modified">最近修改</string>
+    <string name="by_date_taken">拍摄时间</string>
+    <string name="by_file_type">文件类型</string>
+    <string name="by_extension">扩展</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">自动播放</string>
@@ -148,12 +152,18 @@
     <string name="replace_zoomable_images">用质量更好的图像替换可深度缩放的图像</string>
     <string name="hide_extended_details">当状态栏隐藏时隐藏扩展详情</string>
     <string name="do_extra_check">额外检查以避免显示无效的文件</string>
-    <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
+    <string name="show_at_bottom">在屏幕底部显示一些操作按钮</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">缩略图</string>
     <string name="fullscreen_media">全屏显示媒体</string>
     <string name="extended_details">扩展详情</string>
+    <string name="bottom_actions">Bottom actions</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">Manage visible bottom actions</string>
+    <string name="toggle_favorite">Toggle favorite</string>
+    <string name="toggle_file_visibility">Toggle file visibility</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">如何把简约图库设置为设备的默认图库？</string>
@@ -176,6 +186,8 @@
     <string name="faq_9_text">在设置中有一个“用质量更好的图像替换可深度缩放的图像”开关，打开它后就可以提高图像的显示质量，但是一旦尝试放大太多次，它们就又会变得模糊不清。</string>
     <string name="faq_10_title">可以裁剪图片吗？</string>
     <string name="faq_10_text">当然，通过长按图片缩略图并选择编辑，或在全屏视图中选择编辑来打开编辑器。你可以通过拖动图片边角来剪裁图像。</string>
+    <string name="faq_11_title">我能将媒体文件缩略图分组吗？</string>
+    <string name="faq_11_text">当然，只需在缩略图视图中使用\"分组依据\"菜单项即可。您可以依据多个条件对文件进行分组，包括拍摄日期。如果您使用了\"显示所有文件夹内容\"功能，则可以按文件夹对它们进行分组。</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

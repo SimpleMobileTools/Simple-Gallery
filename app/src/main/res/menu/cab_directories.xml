@@ -23,7 +23,7 @@
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/cab_rename"
-        android:icon="@drawable/ic_rename"
+        android:icon="@drawable/ic_rename_new"
         android:title="@string/rename"
         app:showAsAction="ifRoom"/>
     <item
@@ -36,6 +36,14 @@
         android:icon="@drawable/ic_unhide"
         android:title="@string/unhide_folder"
         app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/cab_empty_recycle_bin"
+        android:title="@string/empty_recycle_bin"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/cab_empty_disable_recycle_bin"
+        android:title="@string/empty_and_disable_recycle_bin"
+        app:showAsAction="never"/>
     <item
         android:id="@+id/cab_exclude"
         android:title="@string/exclude"

@@ -36,6 +36,28 @@ class Config(context: Context) : BaseConfig(context) {
 
     fun hasCustomSorting(path: String) = prefs.contains(SORT_FOLDER_PREFIX + path.toLowerCase())
 
+    fun saveFolderGrouping(path: String, value: Int) {
+        if (path.isEmpty()) {
+            groupBy = value
+        } else {
+            prefs.edit().putInt(GROUP_FOLDER_PREFIX + path.toLowerCase(), value).apply()
+        }
+    }
+
+    fun getFolderGrouping(path: String): Int {
+        var groupBy = prefs.getInt(GROUP_FOLDER_PREFIX + path.toLowerCase(), groupBy)
+        if (path != SHOW_ALL && groupBy and GROUP_BY_FOLDER != 0) {
+            groupBy -= GROUP_BY_FOLDER + 1
+        }
+        return groupBy
+    }
+
+    fun removeFolderGrouping(path: String) {
+        prefs.edit().remove(GROUP_FOLDER_PREFIX + path.toLowerCase()).apply()
+    }
+
+    fun hasCustomGrouping(path: String) = prefs.contains(GROUP_FOLDER_PREFIX + path.toLowerCase())
+
     var wasHideFolderTooltipShown: Boolean
         get() = prefs.getBoolean(HIDE_FOLDER_TOOLTIP_SHOWN, false)
         set(wasShown) = prefs.edit().putBoolean(HIDE_FOLDER_TOOLTIP_SHOWN, wasShown).apply()
@@ -239,10 +261,6 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(ALLOW_VIDEO_GESTURES, true)
         set(allowVideoGestures) = prefs.edit().putBoolean(ALLOW_VIDEO_GESTURES, allowVideoGestures).apply()
 
-    var bottomActions: Boolean
-        get() = prefs.getBoolean(BOTTOM_ACTIONS, true)
-        set(bottomActions) = prefs.edit().putBoolean(BOTTOM_ACTIONS, bottomActions).apply()
-
     var showMediaCount: Boolean
         get() = prefs.getBoolean(SHOW_MEDIA_COUNT, true)
         set(showMediaCount) = prefs.edit().putBoolean(SHOW_MEDIA_COUNT, showMediaCount).apply()
@@ -322,4 +340,33 @@ class Config(context: Context) : BaseConfig(context) {
     var tempSkipDeleteConfirmation: Boolean
         get() = prefs.getBoolean(TEMP_SKIP_DELETE_CONFIRMATION, false)
         set(tempSkipDeleteConfirmation) = prefs.edit().putBoolean(TEMP_SKIP_DELETE_CONFIRMATION, tempSkipDeleteConfirmation).apply()
+
+    var wereFavoritesPinned: Boolean
+        get() = prefs.getBoolean(WERE_FAVORITES_PINNED, false)
+        set(wereFavoritesPinned) = prefs.edit().putBoolean(WERE_FAVORITES_PINNED, wereFavoritesPinned).apply()
+
+    var wasRecycleBinPinned: Boolean
+        get() = prefs.getBoolean(WAS_RECYCLE_BIN_PINNED, false)
+        set(wasRecycleBinPinned) = prefs.edit().putBoolean(WAS_RECYCLE_BIN_PINNED, wasRecycleBinPinned).apply()
+
+    var groupBy: Int
+        get() = prefs.getInt(GROUP_BY, GROUP_BY_NONE)
+        set(groupBy) = prefs.edit().putInt(GROUP_BY, groupBy).apply()
+
+    var useRecycleBin: Boolean
+        get() = prefs.getBoolean(USE_RECYCLE_BIN, true)
+        set(useRecycleBin) = prefs.edit().putBoolean(USE_RECYCLE_BIN, useRecycleBin).apply()
+
+    var bottomActions: Boolean
+        get() = prefs.getBoolean(BOTTOM_ACTIONS, true)
+        set(bottomActions) = prefs.edit().putBoolean(BOTTOM_ACTIONS, bottomActions).apply()
+
+    var visibleBottomActions: Int
+        get() = prefs.getInt(VISIBLE_BOTTOM_ACTIONS, DEFAULT_BOTTOM_ACTIONS)
+        set(visibleBottomActions) = prefs.edit().putInt(VISIBLE_BOTTOM_ACTIONS, visibleBottomActions).apply()
+
+    // if a user hides a folder, then enables temporary hidden folder displaying, make sure we show it properly
+    var everShownFolders: Set<String>
+        get() = prefs.getStringSet(EVER_SHOWN_FOLDERS, HashSet<String>())
+        set(everShownFolders) = prefs.edit().putStringSet(EVER_SHOWN_FOLDERS, everShownFolders).apply()
 }

@@ -32,6 +32,7 @@ import com.simplemobiletools.gallery.dialogs.FilterMediaDialog
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.interfaces.DirectoryDao
+import com.simplemobiletools.gallery.interfaces.DirectoryOperationsListener
 import com.simplemobiletools.gallery.models.AlbumCover
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
@@ -39,7 +40,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.io.*
 import java.util.*
 
-class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
+class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private val PICK_MEDIA = 2
     private val PICK_WALLPAPER = 3
     private val LAST_MEDIA_CHECK_PERIOD = 3000L
@@ -109,6 +110,19 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         if (!config.wasOTGHandled && hasPermission(PERMISSION_WRITE_STORAGE)) {
             checkOTGInclusion()
         }
+
+        if (!config.wereFavoritesPinned) {
+            config.addPinnedFolders(hashSetOf(FAVORITES))
+            config.wereFavoritesPinned = true
+        }
+
+        if (!config.wasRecycleBinPinned) {
+            config.addPinnedFolders(hashSetOf(RECYCLE_BIN))
+            config.wasRecycleBinPinned = true
+            config.saveFolderGrouping(SHOW_ALL, GROUP_BY_DATE_TAKEN or GROUP_DESCENDING)
+        }
+
+        checkRecycleBinItems()
     }
 
     override fun onStart() {
@@ -133,8 +147,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         if (mStoredScrollHorizontally != config.scrollHorizontally) {
-            getRecyclerAdapter()?.updateScrollHorizontally(config.viewTypeFolders != VIEW_TYPE_LIST && config.scrollHorizontally)
-            setupScrollDirection()
+            mLoadedInitialPhotos = false
+            directories_grid.adapter = null
+            getDirectories()
         }
 
         if (mStoredTextColor != config.textColor) {
@@ -207,8 +222,10 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             menuInflater.inflate(R.menu.menu_main_intent, menu)
         } else {
             menuInflater.inflate(R.menu.menu_main, menu)
-            menu.findItem(R.id.increase_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt < MAX_COLUMN_COUNT
-            menu.findItem(R.id.reduce_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt > 1
+            menu.apply {
+                findItem(R.id.increase_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt < MAX_COLUMN_COUNT
+                findItem(R.id.reduce_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt > 1
+            }
         }
         menu.findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden
         menu.findItem(R.id.stop_showing_hidden).isVisible = config.temporarilyShowHidden
@@ -264,7 +281,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             if (newFolder.exists() && newFolder.isDirectory) {
                 if (newFolder.list()?.isEmpty() == true) {
                     toast(String.format(getString(R.string.deleting_folder), config.tempFolderPath), Toast.LENGTH_LONG)
-                    tryDeleteFileDirItem(newFolder.toFileDirItem(applicationContext), true)
+                    tryDeleteFileDirItem(newFolder.toFileDirItem(applicationContext), true, true)
                 }
             }
             config.tempFolderPath = ""
@@ -317,10 +334,13 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun showSortingDialog() {
         ChangeSortingDialog(this, true, false) {
+            directories_grid.adapter = null
             if (config.directorySorting and SORT_BY_DATE_MODIFIED > 0 || config.directorySorting and SORT_BY_DATE_TAKEN > 0) {
                 getDirectories()
             } else {
-                gotDirectories(getCurrentlyDisplayedDirs())
+                Thread {
+                    gotDirectories(getCurrentlyDisplayedDirs())
+                }.start()
             }
         }
     }
@@ -329,6 +349,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         FilterMediaDialog(this) {
             mLoadedInitialPhotos = false
             directories_refresh_layout.isRefreshing = true
+            directories_grid.adapter = null
             getDirectories()
         }
     }
@@ -336,7 +357,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun showAllMedia() {
         config.showAll = true
         Intent(this, MediaActivity::class.java).apply {
-            putExtra(DIRECTORY, "/")
+            putExtra(DIRECTORY, "")
 
             if (mIsThirdPartyIntent) {
                 handleMediaIntent(this)
@@ -375,12 +396,37 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     private fun toggleTemporarilyShowHidden(show: Boolean) {
         mLoadedInitialPhotos = false
         config.temporarilyShowHidden = show
+        directories_grid.adapter = null
         getDirectories()
         invalidateOptionsMenu()
     }
 
     override fun deleteFolders(folders: ArrayList<File>) {
         val fileDirItems = folders.map { FileDirItem(it.absolutePath, it.name, true) } as ArrayList<FileDirItem>
+        fileDirItems.forEach {
+            toast(String.format(getString(R.string.deleting_folder), it.name), Toast.LENGTH_LONG)
+        }
+
+        if (config.useRecycleBin) {
+            val pathsToDelete = ArrayList<String>()
+            fileDirItems.filter { it.isDirectory }.forEach {
+                val files = File(it.path).listFiles()
+                files?.filter { it.absolutePath.isImageVideoGif() }?.mapTo(pathsToDelete) { it.absolutePath }
+            }
+
+            movePathsInRecycleBin(pathsToDelete) {
+                if (it) {
+                    deleteFilteredFolders(fileDirItems, folders)
+                } else {
+                    toast(R.string.unknown_error_occurred)
+                }
+            }
+        } else {
+            deleteFilteredFolders(fileDirItems, folders)
+        }
+    }
+
+    private fun deleteFilteredFolders(fileDirItems: ArrayList<FileDirItem>, folders: ArrayList<File>) {
         deleteFolders(fileDirItems) {
             runOnUiThread {
                 refreshItems()
@@ -414,6 +460,32 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         layoutManager.spanCount = config.dirColumnCnt
+    }
+
+    private fun measureRecyclerViewContent(directories: ArrayList<Directory>) {
+        directories_grid.onGlobalLayout {
+            if (config.scrollHorizontally) {
+                calculateContentWidth(directories)
+            } else {
+                calculateContentHeight(directories)
+            }
+        }
+    }
+
+    private fun calculateContentWidth(directories: ArrayList<Directory>) {
+        val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
+        val thumbnailWidth = layoutManager.getChildAt(0)?.width ?: 0
+        val fullWidth = ((directories.size - 1) / layoutManager.spanCount + 1) * thumbnailWidth
+        directories_horizontal_fastscroller.setContentWidth(fullWidth)
+        directories_horizontal_fastscroller.setScrollToX(directories_grid.computeHorizontalScrollOffset())
+    }
+
+    private fun calculateContentHeight(directories: ArrayList<Directory>) {
+        val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
+        val thumbnailHeight = layoutManager.getChildAt(0)?.height ?: 0
+        val fullHeight = ((directories.size - 1) / layoutManager.spanCount + 1) * thumbnailHeight
+        directories_vertical_fastscroller.setContentHeight(fullHeight)
+        directories_vertical_fastscroller.setScrollToY(directories_grid.computeVerticalScrollOffset())
     }
 
     private fun initZoomListener() {
@@ -451,25 +523,29 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         FilePickerDialog(this, internalStoragePath, false, config.shouldShowHidden) {
             CreateNewFolderDialog(this, it) {
                 config.tempFolderPath = it
-                gotDirectories(addTempFolderIfNeeded(getCurrentlyDisplayedDirs()))
+                Thread {
+                    gotDirectories(addTempFolderIfNeeded(getCurrentlyDisplayedDirs()))
+                }.start()
             }
         }
     }
 
     private fun increaseColumnCount() {
-        directories_vertical_fastscroller.measureRecyclerViewOnRedraw()
-        directories_horizontal_fastscroller.measureRecyclerViewOnRedraw()
         config.dirColumnCnt = ++(directories_grid.layoutManager as MyGridLayoutManager).spanCount
-        invalidateOptionsMenu()
-        directories_grid.adapter?.notifyDataSetChanged()
+        columnCountChanged()
     }
 
     private fun reduceColumnCount() {
-        directories_vertical_fastscroller.measureRecyclerViewOnRedraw()
-        directories_horizontal_fastscroller.measureRecyclerViewOnRedraw()
         config.dirColumnCnt = --(directories_grid.layoutManager as MyGridLayoutManager).spanCount
+        columnCountChanged()
+    }
+
+    private fun columnCountChanged() {
         invalidateOptionsMenu()
         directories_grid.adapter?.notifyDataSetChanged()
+        getRecyclerAdapter()?.dirs?.apply {
+            measureRecyclerViewContent(this)
+        }
     }
 
     private fun isPickImageIntent(intent: Intent) = isPickIntent(intent) && (hasImageContentData(intent) || isImageType(intent))
@@ -585,6 +661,14 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
     }
 
     private fun gotDirectories(newDirs: ArrayList<Directory>) {
+        // if hidden item showing is disabled but all Favorite items are hidden, hide the Favorites folder
+        if (!config.shouldShowHidden) {
+            val favoritesFolder = newDirs.firstOrNull { it.areFavorites() }
+            if (favoritesFolder != null && favoritesFolder.tmb.getFilenameFromPath().startsWith('.')) {
+                newDirs.remove(favoritesFolder)
+            }
+        }
+
         val dirs = getSortedDirectories(newDirs)
         var isPlaceholderVisible = dirs.isEmpty()
 
@@ -598,98 +682,113 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         // cached folders have been loaded, recheck folders one by one starting with the first displayed
-        Thread {
-            val mediaFetcher = MediaFetcher(applicationContext)
-            val getImagesOnly = mIsPickImageIntent || mIsGetImageContentIntent
-            val getVideosOnly = mIsPickVideoIntent || mIsGetVideoContentIntent
-            val hiddenString = getString(R.string.hidden)
-            val albumCovers = config.parseAlbumCovers()
-            val includedFolders = config.includedFolders
-            val isSortingAscending = config.directorySorting and SORT_DESCENDING == 0
-            val mediumDao = galleryDB.MediumDao()
-            val directoryDao = galleryDB.DirectoryDao()
-            val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0
-            val favoritePaths = getFavoritePaths()
+        val mediaFetcher = MediaFetcher(applicationContext)
+        val getImagesOnly = mIsPickImageIntent || mIsGetImageContentIntent
+        val getVideosOnly = mIsPickVideoIntent || mIsGetVideoContentIntent
+        val hiddenString = getString(R.string.hidden)
+        val albumCovers = config.parseAlbumCovers()
+        val includedFolders = config.includedFolders
+        val isSortingAscending = config.directorySorting and SORT_DESCENDING == 0
+        val mediumDao = galleryDB.MediumDao()
+        val directoryDao = galleryDB.DirectoryDao()
+        val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0
+        val favoritePaths = getFavoritePaths()
 
-            try {
-                for (directory in dirs) {
-                    val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, favoritePaths)
-                    val newDir = if (curMedia.isEmpty()) {
-                        directory
-                    } else {
-                        createDirectoryFromMedia(directory.path, curMedia, albumCovers, hiddenString, includedFolders, isSortingAscending)
-                    }
+        try {
+            for (directory in dirs) {
+                val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, favoritePaths)
+                val newDir = if (curMedia.isEmpty()) {
+                    directory
+                } else {
+                    createDirectoryFromMedia(directory.path, curMedia, albumCovers, hiddenString, includedFolders, isSortingAscending)
+                }
 
-                    // we are looping through the already displayed folders looking for changes, do not do anything if nothing changed
-                    if (directory == newDir) {
-                        continue
-                    }
+                // we are looping through the already displayed folders looking for changes, do not do anything if nothing changed
+                if (directory == newDir) {
+                    continue
+                }
 
-                    directory.apply {
-                        tmb = newDir.tmb
-                        name = newDir.name
-                        mediaCnt = newDir.mediaCnt
-                        modified = newDir.modified
-                        taken = newDir.taken
-                        this@apply.size = newDir.size
-                        types = newDir.types
-                    }
+                directory.apply {
+                    tmb = newDir.tmb
+                    name = newDir.name
+                    mediaCnt = newDir.mediaCnt
+                    modified = newDir.modified
+                    taken = newDir.taken
+                    this@apply.size = newDir.size
+                    types = newDir.types
+                }
 
-                    showSortedDirs(dirs)
+                showSortedDirs(dirs)
 
-                    // update directories and media files in the local db, delete invalid items
-                    updateDBDirectory(directory)
+                // update directories and media files in the local db, delete invalid items
+                updateDBDirectory(directory)
+                if (!directory.isRecycleBin()) {
                     mediumDao.insertAll(curMedia)
-                    getCachedMedia(directory.path, getVideosOnly, getImagesOnly) {
-                        it.forEach {
-                            if (!curMedia.contains(it)) {
-                                mediumDao.deleteMediumPath(it.path)
+                }
+                getCachedMedia(directory.path, getVideosOnly, getImagesOnly) {
+                    it.forEach {
+                        if (!curMedia.contains(it)) {
+                            val path = (it as? Medium)?.path
+                            if (path != null) {
+                                mediumDao.deleteMediumPath(path)
                             }
                         }
                     }
                 }
-            } catch (ignored: ConcurrentModificationException) {
+            }
+        } catch (ignored: Exception) {
+        }
+
+        val foldersToScan = mediaFetcher.getFoldersToScan()
+        foldersToScan.add(FAVORITES)
+        foldersToScan.add(RECYCLE_BIN)
+        dirs.forEach {
+            foldersToScan.remove(it.path)
+        }
+
+        // check the remaining folders which were not cached at all yet
+        for (folder in foldersToScan) {
+            val newMedia = mediaFetcher.getFilesFrom(folder, getImagesOnly, getVideosOnly, getProperDateTaken, favoritePaths)
+            if (newMedia.isEmpty()) {
+                continue
             }
 
-            val foldersToScan = mediaFetcher.getFoldersToScan()
-            dirs.forEach {
-                foldersToScan.remove(it.path)
+            if (isPlaceholderVisible) {
+                isPlaceholderVisible = false
+                runOnUiThread {
+                    directories_empty_text_label.beGone()
+                    directories_empty_text.beGone()
+                    directories_grid.beVisible()
+                }
             }
 
-            // check the remaining folders which were not cached at all yet
-            for (folder in foldersToScan) {
-                val newMedia = mediaFetcher.getFilesFrom(folder, getImagesOnly, getVideosOnly, getProperDateTaken, favoritePaths)
-                if (newMedia.isEmpty()) {
-                    continue
-                }
-
-                if (isPlaceholderVisible) {
-                    isPlaceholderVisible = false
-                    runOnUiThread {
-                        directories_empty_text_label.beGone()
-                        directories_empty_text.beGone()
-                        directories_grid.beVisible()
-                    }
-                }
-
-                val newDir = createDirectoryFromMedia(folder, newMedia, albumCovers, hiddenString, includedFolders, isSortingAscending)
-                dirs.add(newDir)
-                showSortedDirs(dirs)
-                directoryDao.insert(newDir)
+            val newDir = createDirectoryFromMedia(folder, newMedia, albumCovers, hiddenString, includedFolders, isSortingAscending)
+            dirs.add(newDir)
+            showSortedDirs(dirs)
+            directoryDao.insert(newDir)
+            if (folder != RECYCLE_BIN) {
                 mediumDao.insertAll(newMedia)
             }
+        }
 
-            mIsGettingDirs = false
-            mLoadedInitialPhotos = true
-            checkLastMediaChanged()
+        mIsGettingDirs = false
+        mLoadedInitialPhotos = true
+        checkLastMediaChanged()
 
-            runOnUiThread {
-                directories_refresh_layout.isRefreshing = false
-                directories_vertical_fastscroller.measureRecyclerView()
-                checkPlaceholderVisibility(dirs)
-            }
-            checkInvalidDirectories(dirs, directoryDao)
-        }.start()
+        runOnUiThread {
+            directories_refresh_layout.isRefreshing = false
+            checkPlaceholderVisibility(dirs)
+        }
+        checkInvalidDirectories(dirs, directoryDao)
+
+        val everShownFolders = config.everShownFolders as HashSet
+        dirs.mapTo(everShownFolders) { it.path }
+
+        try {
+            config.everShownFolders = everShownFolders
+        } catch (e: Exception) {
+            config.everShownFolders = HashSet()
+        }
     }
 
     private fun checkPlaceholderVisibility(dirs: ArrayList<Directory>) {
@@ -703,7 +802,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         sortedDirs = sortedDirs.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>
 
         runOnUiThread {
-            (directories_grid.adapter as DirectoryAdapter).updateDirs(sortedDirs)
+            (directories_grid.adapter as? DirectoryAdapter)?.updateDirs(sortedDirs)
         }
     }
 
@@ -721,7 +820,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }
 
         val mediaTypes = curMedia.getDirMediaTypes()
-        val dirName = checkAppendingHidden(path, hiddenString, includedFolders)
+        val dirName = when (path) {
+            FAVORITES -> getString(R.string.favorites)
+            RECYCLE_BIN -> getString(R.string.recycle_bin)
+            else -> checkAppendingHidden(path, hiddenString, includedFolders)
+        }
 
         val firstItem = curMedia.first()
         val lastItem = curMedia.last()
@@ -733,10 +836,11 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun setupAdapter(dirs: ArrayList<Directory>) {
         val currAdapter = directories_grid.adapter
+        val directories = dirs.clone() as ArrayList<Directory>
         if (currAdapter == null) {
             initZoomListener()
             val fastscroller = if (config.scrollHorizontally) directories_horizontal_fastscroller else directories_vertical_fastscroller
-            DirectoryAdapter(this, dirs, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent), fastscroller) {
+            DirectoryAdapter(this, directories, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent), fastscroller) {
                 val path = (it as Directory).path
                 if (path != config.tempFolderPath) {
                     itemClicked(path)
@@ -746,15 +850,17 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 directories_grid.adapter = this
             }
         } else {
-            (currAdapter as DirectoryAdapter).updateDirs(dirs)
+            (currAdapter as DirectoryAdapter).updateDirs(directories)
         }
 
+        getRecyclerAdapter()?.dirs?.apply {
+            measureRecyclerViewContent(this)
+        }
         setupScrollDirection()
     }
 
     private fun setupScrollDirection() {
         val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFolders == VIEW_TYPE_GRID
-
         directories_vertical_fastscroller.isHorizontal = false
         directories_vertical_fastscroller.beGoneIf(allowHorizontalScroll)
 
@@ -776,7 +882,7 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
 
     private fun checkInvalidDirectories(dirs: ArrayList<Directory>, directoryDao: DirectoryDao) {
         val invalidDirs = ArrayList<Directory>()
-        dirs.forEach {
+        dirs.filter { !it.areFavorites() && !it.isRecycleBin() }.forEach {
             if (!getDoesFilePathExist(it.path)) {
                 invalidDirs.add(it)
             } else if (it.path != config.tempFolderPath) {
@@ -785,6 +891,20 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
                 if (!hasMediaFile) {
                     invalidDirs.add(it)
                 }
+            }
+        }
+
+        if (getFavoritePaths().isEmpty()) {
+            val favoritesFolder = dirs.firstOrNull { it.areFavorites() }
+            if (favoritesFolder != null) {
+                invalidDirs.add(favoritesFolder)
+            }
+        }
+
+        if (config.useRecycleBin) {
+            val binFolder = dirs.firstOrNull { it.path == RECYCLE_BIN }
+            if (binFolder != null && galleryDB.MediumDao().getDeletedMedia().isEmpty()) {
+                invalidDirs.add(binFolder)
             }
         }
 
@@ -833,12 +953,28 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
         }, LAST_MEDIA_CHECK_PERIOD)
     }
 
+    private fun checkRecycleBinItems() {
+        if (config.useRecycleBin) {
+            Thread {
+                val mediumDao = galleryDB.MediumDao()
+                val deletedMedia = mediumDao.getDeletedMedia()
+                deletedMedia.forEach {
+                    if (System.currentTimeMillis() > it.deletedTS + MONTH_MILLISECONDS) {
+                        mediumDao.deleteMediumPath(it.path)
+                    }
+                }
+            }.start()
+        }
+    }
+
     override fun refreshItems() {
         getDirectories()
     }
 
     override fun recheckPinnedFolders() {
-        gotDirectories(movePinnedDirectoriesToFront(getCurrentlyDisplayedDirs()))
+        Thread {
+            gotDirectories(movePinnedDirectoriesToFront(getCurrentlyDisplayedDirs()))
+        }.start()
     }
 
     override fun updateDirectories(directories: ArrayList<Directory>) {
@@ -896,6 +1032,9 @@ class MainActivity : SimpleActivity(), DirectoryAdapter.DirOperationsListener {
             add(Release(177, R.string.release_177))
             add(Release(178, R.string.release_178))
             add(Release(180, R.string.release_180))
+            add(Release(181, R.string.release_181))
+            add(Release(182, R.string.release_182))
+            add(Release(184, R.string.release_184))
             checkWhatsNew(this, BuildConfig.VERSION_CODE)
         }
     }

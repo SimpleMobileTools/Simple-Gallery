@@ -24,6 +24,10 @@
     <string name="brightness">Helligkeit</string>
     <string name="lock_orientation">Bildschirmausrichtung sperren</string>
     <string name="unlock_orientation">Bildschirmausrichtung entsperren</string>
+    <string name="change_orientation">Change orientation</string>
+    <string name="force_portrait">Force portrait</string>
+    <string name="force_landscape">Force landscape</string>
+    <string name="use_default_orientation">Use default orientation</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter</string>
@@ -154,6 +158,12 @@
     <string name="thumbnails">Thumbnails</string>
     <string name="fullscreen_media">Vollbild-Medien</string>
     <string name="extended_details">Erweiterte Details</string>
+    <string name="bottom_actions">Bottom actions</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">Manage visible bottom actions</string>
+    <string name="toggle_favorite">Toggle favorite</string>
+    <string name="toggle_file_visibility">Toggle file visibility</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Wie kann ich Schlichte Galerie als Standardanwendung auswählen?</string>
@@ -178,6 +188,8 @@
     <string name="faq_9_text">Ja, es gibt einen Schalter in den Einstellungen gekennzeichnet mit \"Stark zoombare Bilder durch Bilder mit hoher Qualität ersetzen\". Dieser wird die Bildqualität verbessern, aber sie werden bei sehr hoher Zoomstufe unscharf.</string>
     <string name="faq_10_title">Kann ich mit dieser App Bilder zuschneiden?</string>
     <string name="faq_10_text">Ja, du kannst Bilder über das Ziehen der Bildecken im Editor zuschneiden. Du gelangst zum Editor indem du lange auf ein Vorschaubild drückst und Bearbeiten auswählst oder durch Auswählen von Bearbeiten in der Vollbildansicht.</string>
+    <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
+    <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

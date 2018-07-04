@@ -9,7 +9,7 @@ import com.simplemobiletools.gallery.interfaces.MediumDao
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
 
-@Database(entities = [(Directory::class), (Medium::class)], version = 3)
+@Database(entities = [(Directory::class), (Medium::class)], version = 4)
 abstract class GalleryDatabase : RoomDatabase() {
 
     abstract fun DirectoryDao(): DirectoryDao

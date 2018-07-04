@@ -24,8 +24,10 @@ import com.simplemobiletools.gallery.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.databases.GalleryDatabase
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.interfaces.DirectoryDao
+import com.simplemobiletools.gallery.interfaces.MediumDao
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
+import com.simplemobiletools.gallery.models.ThumbnailItem
 import com.simplemobiletools.gallery.views.MySquareImageView
 import pl.droidsonroids.gif.GifDrawable
 import java.io.File
@@ -163,11 +165,15 @@ fun Context.rescanFolderMediaSync(path: String) {
             Thread {
                 val newMedia = it
                 val mediumDao = galleryDB.MediumDao()
-                mediumDao.insertAll(newMedia)
+                val media = newMedia.filter { it is Medium } as ArrayList<Medium>
+                mediumDao.insertAll(media)
 
                 cached.forEach {
                     if (!newMedia.contains(it)) {
-                        mediumDao.deleteMediumPath(it.path)
+                        val mediumPath = (it as? Medium)?.path
+                        if (mediumPath != null) {
+                            mediumDao.deleteMediumPath(mediumPath)
+                        }
                     }
                 }
             }.start()
@@ -315,11 +321,20 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
     }.start()
 }
 
-fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, callback: (ArrayList<Medium>) -> Unit) {
+fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, callback: (ArrayList<ThumbnailItem>) -> Unit) {
     Thread {
+        val mediaFetcher = MediaFetcher(this)
         val mediumDao = galleryDB.MediumDao()
-        val foldersToScan = if (path == "/") MediaFetcher(this).getFoldersToScan() else arrayListOf(path)
+        val foldersToScan = if (path.isEmpty()) mediaFetcher.getFoldersToScan() else arrayListOf(path)
         var media = ArrayList<Medium>()
+        if (path == FAVORITES) {
+            media.addAll(mediumDao.getFavorites())
+        }
+
+        if (path == RECYCLE_BIN) {
+            media.addAll(getUpdatedDeletedMedia(mediumDao))
+        }
+
         val shouldShowHidden = config.shouldShowHidden
         foldersToScan.forEach {
             try {
@@ -345,18 +360,25 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
             }
         }) as ArrayList<Medium>
 
-        MediaFetcher(this).sortMedia(media, config.getFileSorting(path))
-        callback(media.clone() as ArrayList<Medium>)
+        val pathToUse = if (path.isEmpty()) SHOW_ALL else path
+        mediaFetcher.sortMedia(media, config.getFileSorting(pathToUse))
+        val grouped = mediaFetcher.groupMedia(media, pathToUse)
+        callback(grouped.clone() as ArrayList<ThumbnailItem>)
 
+        val recycleBinPath = filesDir.toString()
         media.filter { !getDoesFilePathExist(it.path) }.forEach {
-            mediumDao.deleteMediumPath(it.path)
+            if (it.path.startsWith(recycleBinPath)) {
+                mediumDao.deleteMediumPath(it.path.removePrefix(recycleBinPath))
+            } else {
+                mediumDao.deleteMediumPath(it.path)
+            }
         }
     }.start()
 }
 
 fun Context.removeInvalidDBDirectories(dirs: ArrayList<Directory>? = null, directoryDao: DirectoryDao = galleryDB.DirectoryDao()) {
     val dirsToCheck = dirs ?: directoryDao.getAll()
-    dirsToCheck.filter { !getDoesFilePathExist(it.path) && it.path != config.tempFolderPath }.forEach {
+    dirsToCheck.filter { !it.areFavorites() && !it.isRecycleBin() && !getDoesFilePathExist(it.path) && it.path != config.tempFolderPath }.forEach {
         directoryDao.deleteDirPath(it.path)
     }
 }
@@ -373,6 +395,14 @@ fun Context.updateDBDirectory(directory: Directory) {
 
 fun Context.getOTGFolderChildren(path: String) = getDocumentFile(path)?.listFiles()
 
-fun Context.getOTGFolderChildrenNames(path: String) = getOTGFolderChildren(path)?.map { it.name }?.toList()
+fun Context.getOTGFolderChildrenNames(path: String) = getOTGFolderChildren(path)?.map { it.name }?.toMutableList()
 
 fun Context.getFavoritePaths() = galleryDB.MediumDao().getFavoritePaths() as ArrayList<String>
+
+fun Context.getUpdatedDeletedMedia(mediumDao: MediumDao): ArrayList<Medium> {
+    val media = mediumDao.getDeletedMedia() as ArrayList<Medium>
+    media.forEach {
+        it.path = File(filesDir, it.path).toString()
+    }
+    return media
+}

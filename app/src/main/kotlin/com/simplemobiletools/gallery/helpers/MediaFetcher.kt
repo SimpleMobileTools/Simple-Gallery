@@ -4,14 +4,16 @@ import android.content.Context
 import android.database.Cursor
 import android.net.Uri
 import android.provider.MediaStore
+import android.text.format.DateFormat
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
-import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.extensions.getDistinctPath
-import com.simplemobiletools.gallery.extensions.getOTGFolderChildren
-import com.simplemobiletools.gallery.extensions.shouldFolderBeVisible
+import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.models.Medium
+import com.simplemobiletools.gallery.models.ThumbnailItem
+import com.simplemobiletools.gallery.models.ThumbnailSection
 import java.io.File
+import java.util.*
 
 class MediaFetcher(val context: Context) {
     var shouldStop = false
@@ -112,7 +114,7 @@ class MediaFetcher(val context: Context) {
         val foldersToIgnore = arrayListOf("/storage/emulated/legacy")
         val config = context.config
         val includedFolders = config.includedFolders
-        var foldersToScan = ArrayList<String>()
+        var foldersToScan = config.everShownFolders.toMutableList() as ArrayList
 
         cursor.use {
             if (cursor.moveToFirst()) {
@@ -159,7 +161,19 @@ class MediaFetcher(val context: Context) {
     private fun getMediaInFolder(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int, getProperDateTaken: Boolean,
                                  favoritePaths: ArrayList<String>): ArrayList<Medium> {
         val media = ArrayList<Medium>()
-        val files = File(folder).listFiles() ?: return media
+
+        val deletedMedia = if (folder == RECYCLE_BIN) {
+            context.getUpdatedDeletedMedia(context.galleryDB.MediumDao())
+        } else {
+            ArrayList()
+        }
+
+        val files = when (folder) {
+            FAVORITES -> favoritePaths.map { File(it) }.toTypedArray()
+            RECYCLE_BIN -> deletedMedia.map { File(it.path) }.toTypedArray()
+            else -> File(folder).listFiles() ?: return media
+        }
+
         val doExtraCheck = context.config.doExtraCheck
         val showHidden = context.config.shouldShowHidden
         val dateTakens = if (getProperDateTaken) getFolderDateTakens(folder) else HashMap()
@@ -197,24 +211,30 @@ class MediaFetcher(val context: Context) {
             if (size <= 0L || (doExtraCheck && !file.exists()))
                 continue
 
-            val lastModified = file.lastModified()
-            var dateTaken = lastModified
-
-            if (getProperDateTaken) {
-                dateTaken = dateTakens.remove(filename) ?: lastModified
-            }
-
-            val type = when {
-                isImage -> TYPE_IMAGES
-                isVideo -> TYPE_VIDEOS
-                isGif -> TYPE_GIFS
-                else -> TYPE_RAWS
-            }
-
             val path = file.absolutePath
-            val isFavorite = favoritePaths.contains(path)
-            val medium = Medium(null, filename, path, folder, lastModified, dateTaken, size, type, isFavorite)
-            media.add(medium)
+            if (folder == RECYCLE_BIN) {
+                deletedMedia.firstOrNull { it.path == path }?.apply {
+                    media.add(this)
+                }
+            } else {
+                val lastModified = file.lastModified()
+                var dateTaken = lastModified
+
+                if (getProperDateTaken) {
+                    dateTaken = dateTakens.remove(filename) ?: lastModified
+                }
+
+                val type = when {
+                    isImage -> TYPE_IMAGES
+                    isVideo -> TYPE_VIDEOS
+                    isGif -> TYPE_GIFS
+                    else -> TYPE_RAWS
+                }
+
+                val isFavorite = favoritePaths.contains(path)
+                val medium = Medium(null, filename, path, file.parent, lastModified, dateTaken, size, type, isFavorite, 0L)
+                media.add(medium)
+            }
         }
         return media
     }
@@ -270,7 +290,7 @@ class MediaFetcher(val context: Context) {
 
             val path = Uri.decode(file.uri.toString().replaceFirst("${context.config.OTGTreeUri}/document/${context.config.OTGPartition}%3A", OTG_PATH))
             val isFavorite = favoritePaths.contains(path)
-            val medium = Medium(null, filename, path, folder, dateModified, dateTaken, size, type, isFavorite)
+            val medium = Medium(null, filename, path, folder, dateModified, dateTaken, size, type, isFavorite, 0L)
             media.add(medium)
         }
 
@@ -322,5 +342,83 @@ class MediaFetcher(val context: Context) {
             }
             result
         })
+    }
+
+    fun groupMedia(media: ArrayList<Medium>, path: String): ArrayList<ThumbnailItem> {
+        val mediumGroups = LinkedHashMap<String, ArrayList<Medium>>()
+        val pathToCheck = if (path.isEmpty()) SHOW_ALL else path
+        val currentGrouping = context.config.getFolderGrouping(pathToCheck)
+        if (currentGrouping and GROUP_BY_NONE != 0) {
+            return media as ArrayList<ThumbnailItem>
+        }
+
+        val thumbnailItems = ArrayList<ThumbnailItem>()
+        if (context.config.scrollHorizontally) {
+            media.mapTo(thumbnailItems) { it }
+            return thumbnailItems
+        }
+
+        media.forEach {
+            val key = it.getGroupingKey(currentGrouping)
+            if (!mediumGroups.containsKey(key)) {
+                mediumGroups[key] = ArrayList()
+            }
+            mediumGroups[key]!!.add(it)
+        }
+
+        val sortDescending = currentGrouping and GROUP_DESCENDING != 0
+        val sorted = mediumGroups.toSortedMap(if (sortDescending) compareByDescending { it } else compareBy { it })
+        mediumGroups.clear()
+        for ((key, value) in sorted) {
+            mediumGroups[key] = value
+        }
+
+        val today = formatDate(System.currentTimeMillis().toString())
+        val yesterday = formatDate((System.currentTimeMillis() - DAY_SECONDS * 1000).toString())
+        for ((key, value) in mediumGroups) {
+            val sectionKey = getFormattedKey(key, currentGrouping, today, yesterday)
+            thumbnailItems.add(ThumbnailSection(sectionKey))
+            thumbnailItems.addAll(value)
+        }
+
+        return thumbnailItems
+    }
+
+    private fun getFormattedKey(key: String, grouping: Int, today: String, yesterday: String): String {
+        return when {
+            grouping and GROUP_BY_LAST_MODIFIED != 0 || grouping and GROUP_BY_DATE_TAKEN != 0 -> getFinalDate(formatDate(key), today, yesterday)
+            grouping and GROUP_BY_FILE_TYPE != 0 -> getFileTypeString(key)
+            grouping and GROUP_BY_EXTENSION != 0 -> key.toUpperCase()
+            grouping and GROUP_BY_FOLDER != 0 -> context.humanizePath(key)
+            else -> key
+        }
+    }
+
+    private fun getFinalDate(date: String, today: String, yesterday: String): String {
+        return when (date) {
+            today -> context.getString(R.string.today)
+            yesterday -> context.getString(R.string.yesterday)
+            else -> date
+        }
+    }
+
+    private fun formatDate(timestamp: String): String {
+        return if (timestamp.areDigitsOnly()) {
+            val cal = Calendar.getInstance(Locale.ENGLISH)
+            cal.timeInMillis = timestamp.toLong()
+            return DateFormat.format("dd MMM yyyy", cal).toString()
+        } else {
+            ""
+        }
+    }
+
+    private fun getFileTypeString(key: String): String {
+        val stringId = when (key.toInt()) {
+            TYPE_IMAGES -> R.string.images
+            TYPE_VIDEOS -> R.string.videos
+            TYPE_GIFS -> R.string.gifs
+            else -> R.string.raw_images
+        }
+        return context.getString(stringId)
     }
 }

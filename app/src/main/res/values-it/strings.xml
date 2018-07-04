@@ -10,7 +10,7 @@
     <string name="unpin_folder">Sblocca cartella</string>
     <string name="pin_to_the_top">Fissa in alto</string>
     <string name="show_all">Mostra tutti i contenuti</string>
-    <string name="all_folders">Tutti i media</string>
+    <string name="all_folders">Tutte le cartelle</string>
     <string name="folder_view">Visualizza a cartelle</string>
     <string name="other_folder">Altra cartella</string>
     <string name="show_on_map">Mostra sulla mappa</string>
@@ -24,13 +24,17 @@
     <string name="brightness">Luminosità</string>
     <string name="lock_orientation">Blocca orientamento</string>
     <string name="unlock_orientation">Sblocca orientamento</string>
+    <string name="change_orientation">Cambia orientamento</string>
+    <string name="force_portrait">Forza verticale</string>
+    <string name="force_landscape">Forza orizzontale</string>
+    <string name="use_default_orientation">Usa l'orientamento predefinito</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtra i media</string>
     <string name="images">Immagini</string>
     <string name="videos">Video</string>
     <string name="gifs">GIF</string>
-    <string name="raw_images">RAW images</string>
+    <string name="raw_images">Immagini RAW</string>
     <string name="no_media_with_filters">Nessun file trovato per il filtro selezionato.</string>
     <string name="change_filters_underlined"><u>Cambia filtro</u></string>
 
@@ -111,16 +115,16 @@
     <string name="change_view_type">Cambia modalità visualizzazione</string>
     <string name="grid">Griglia</string>
     <string name="list">Elenco</string>
-    <string name="group_direct_subfolders">Group direct subfolders</string>
+    <string name="group_direct_subfolders">Raggruppa sottocartelle dirette</string>
 
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Group by</string>
-    <string name="do_not_group_files">Do not group files</string>
-    <string name="by_folder">Folder</string>
-    <string name="by_last_modified">Last modified</string>
-    <string name="by_date_taken">Date taken</string>
-    <string name="by_file_type">File type</string>
-    <string name="by_extension">Extension</string>
+    <string name="group_by">Raggruppa per</string>
+    <string name="do_not_group_files">Non raggruppare i file</string>
+    <string name="by_folder">Cartella</string>
+    <string name="by_last_modified">Ultima modifica</string>
+    <string name="by_date_taken">Data creazione</string>
+    <string name="by_file_type">Tipo di file</string>
+    <string name="by_extension">Estensione</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Riproduci i video automaticamente</string>
@@ -148,12 +152,18 @@
     <string name="replace_zoomable_images">Sostituisci le immagini ingrandibili a fondo con altre di migliore qualità</string>
     <string name="hide_extended_details">Nascondi i dettagli estesi quando la barra di stato è nascosta</string>
     <string name="do_extra_check">Fai un controllo ulteriore per evitare di mostrare file non validi</string>
-    <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
+    <string name="show_at_bottom">Mostra alcuni pulsanti azione in fondo allo schermo</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniature</string>
     <string name="fullscreen_media">Media a schermo intero</string>
     <string name="extended_details">Dettagli estesi</string>
+    <string name="bottom_actions">Azioni inferiori</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">Gestisci la visibilità delle azioni</string>
+    <string name="toggle_favorite">Attiva / disattiva preferito</string>
+    <string name="toggle_file_visibility">Attiva / disattiva la visibilità dei file</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Come posso impostare Simple Gallery come galleria predefinita del dispositivo?</string>
@@ -178,6 +188,8 @@
     <string name="faq_9_text">Sì, c\'è un\'opzione nelle impostazioni che dice \"Sostituisci le immagini ingrandibili a fondo con altre di migliore qualità\", puoi usare quella. Ciò migliorerà la qualità delle immagini, ma saranno sfuocate quando proverai a ingrandirle troppo.</string>
     <string name="faq_10_title">Posso ritagliare le immagini con questa app?</string>
     <string name="faq_10_text">Sì, puoi ritagliare le immagini nell\'editor, trascinando gli angoli dell\'immagine. Puoi usare l\'editor sia premendo a lungo la miniatura di un\'immagine e selezionando Modifica, o selezionando Modifica mentre la vedi a schermo intero.</string>
+    <string name="faq_11_title">Posso raggruppare in qualche modo le miniature dei file?</string>
+    <string name="faq_11_text">Certo, usa il menu \"Raggruppa per\" mentre visualizzi le miniature. Puoi raggruppare i file con diversi criteri, incluso la data di creazione. Se utilizzi la funzione \"Mostra tutti i contenuti\" puoi anche raggrupparli per cartelle.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

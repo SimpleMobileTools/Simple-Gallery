@@ -1,8 +1,11 @@
 package com.simplemobiletools.gallery.helpers
 
+import com.simplemobiletools.commons.helpers.MONTH_SECONDS
+
 // shared preferences
 const val DIRECTORY_SORT_ORDER = "directory_sort_order"
 const val SORT_FOLDER_PREFIX = "sort_folder_"
+const val GROUP_FOLDER_PREFIX = "group_folder_"
 const val SHOW_HIDDEN_MEDIA = "show_hidden_media"
 const val TEMPORARILY_SHOW_HIDDEN = "temporarily_show_hidden"
 const val IS_THIRD_PARTY_INTENT = "is_third_party_intent"
@@ -49,6 +52,12 @@ const val LAST_FILEPICKER_PATH = "last_filepicker_path"
 const val WAS_OTG_HANDLED = "was_otg_handled"
 const val TEMP_SKIP_DELETE_CONFIRMATION = "temp_skip_delete_confirmation"
 const val BOTTOM_ACTIONS = "bottom_actions"
+const val VISIBLE_BOTTOM_ACTIONS = "visible_bottom_actions"
+const val WERE_FAVORITES_PINNED = "were_favorites_pinned"
+const val WAS_RECYCLE_BIN_PINNED = "was_recycle_bin_pinned"
+const val USE_RECYCLE_BIN = "use_recycle_bin"
+const val GROUP_BY = "group_by"
+const val EVER_SHOWN_FOLDERS = "ever_shown_folders"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"
@@ -64,10 +73,14 @@ const val SLIDESHOW_SCROLL_DURATION = 500L
 
 const val NOMEDIA = ".nomedia"
 const val FAVORITES = "favorites"
+const val RECYCLE_BIN = "recycle_bin"
+const val SHOW_FAVORITES = "show_favorites"
+const val SHOW_RECYCLE_BIN = "show_recycle_bin"
 const val MAX_COLUMN_COUNT = 20
 const val SHOW_TEMP_HIDDEN_DURATION = 300000L
 const val CLICK_MAX_DURATION = 150
 const val DRAG_THRESHOLD = 8
+const val MONTH_MILLISECONDS = MONTH_SECONDS * 1000L
 
 const val DIRECTORY = "directory"
 const val MEDIUM = "medium"
@@ -110,3 +123,26 @@ const val TYPE_RAWS = 8
 const val LOCAITON_INTERNAL = 1
 const val LOCATION_SD = 2
 const val LOCATION_OTG = 3
+
+const val GROUP_BY_NONE = 1
+const val GROUP_BY_LAST_MODIFIED = 2
+const val GROUP_BY_DATE_TAKEN = 4
+const val GROUP_BY_FILE_TYPE = 8
+const val GROUP_BY_EXTENSION = 16
+const val GROUP_BY_FOLDER = 32
+const val GROUP_DESCENDING = 1024
+
+// bottom actions
+const val BOTTOM_ACTION_TOGGLE_FAVORITE = 1
+const val BOTTOM_ACTION_EDIT = 2
+const val BOTTOM_ACTION_SHARE = 4
+const val BOTTOM_ACTION_DELETE = 8
+const val BOTTOM_ACTION_ROTATE = 16
+const val BOTTOM_ACTION_PROPERTIES = 32
+const val BOTTOM_ACTION_CHANGE_ORIENTATION = 64
+const val BOTTOM_ACTION_SLIDESHOW = 128
+const val BOTTOM_ACTION_SHOW_ON_MAP = 256
+const val BOTTOM_ACTION_TOGGLE_VISIBILITY = 512
+const val BOTTOM_ACTION_RENAME = 1024
+
+const val DEFAULT_BOTTOM_ACTIONS = BOTTOM_ACTION_TOGGLE_FAVORITE or BOTTOM_ACTION_EDIT or BOTTOM_ACTION_SHARE or BOTTOM_ACTION_DELETE

@@ -13,7 +13,7 @@ class DeleteWithRememberDialog(val activity: Activity, val message: String, val 
     init {
         view.delete_remember_title.text = message
         val builder = AlertDialog.Builder(activity)
-                .setPositiveButton(R.string.yes, { dialog, which -> dialogConfirmed() })
+                .setPositiveButton(R.string.yes) { dialog, which -> dialogConfirmed() }
                 .setNegativeButton(R.string.no, null)
 
         dialog = builder.create().apply {

@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.fragments
 
+import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -26,16 +27,21 @@ import com.davemorrissey.labs.subscaleview.ImageSource
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
+import com.simplemobiletools.commons.helpers.isLollipopPlus
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.activities.PanoramaActivity
 import com.simplemobiletools.gallery.activities.PhotoActivity
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.GlideRotateTransformation
 import com.simplemobiletools.gallery.helpers.MEDIUM
+import com.simplemobiletools.gallery.helpers.PATH
 import com.simplemobiletools.gallery.helpers.ROTATE_BY_ASPECT_RATIO
 import com.simplemobiletools.gallery.models.Medium
 import it.sephiroth.android.library.exif2.ExifInterface
 import kotlinx.android.synthetic.main.pager_photo_item.view.*
+import org.apache.sanselan.common.byteSources.ByteSourceInputStream
+import org.apache.sanselan.formats.jpeg.JpegImageParser
 import pl.droidsonroids.gif.GifDrawable
 import java.io.File
 import java.io.FileOutputStream
@@ -46,6 +52,7 @@ class PhotoFragment : ViewPagerFragment() {
     private var isFullscreen = false
     private var wasInit = false
     private var useHalfResolution = false
+    private var isPanorama = false
     private var imageOrientation = -1
     private var gifDrawable: GifDrawable? = null
 
@@ -62,6 +69,7 @@ class PhotoFragment : ViewPagerFragment() {
             photo_view.setOnClickListener { photoClicked() }
             instant_prev_item.setOnClickListener { listener?.goToPrevItem() }
             instant_next_item.setOnClickListener { listener?.goToNextItem() }
+            panorama_outline.setOnClickListener { openPanorama() }
 
             instant_prev_item.parentView = container
             instant_next_item.parentView = container
@@ -118,6 +126,7 @@ class PhotoFragment : ViewPagerFragment() {
         loadImage()
         initExtendedDetails()
         wasInit = true
+        checkIfPanorama()
 
         return view
     }
@@ -286,6 +295,13 @@ class PhotoFragment : ViewPagerFragment() {
         }
     }
 
+    private fun openPanorama() {
+        Intent(context, PanoramaActivity::class.java).apply {
+            putExtra(PATH, medium.path)
+            startActivity(this)
+        }
+    }
+
     private fun addZoomableView() {
         if (!context!!.config.replaceZoomableImages && medium.isImage() && isFragmentVisible && view.subsampling_view.isGone()) {
             ViewPagerActivity.wasDecodedByGlide = false
@@ -327,6 +343,18 @@ class PhotoFragment : ViewPagerFragment() {
                 })
             }
         }
+    }
+
+    private fun checkIfPanorama() {
+        isPanorama = try {
+            val inputStream = if (medium.path.startsWith("content:/")) context!!.contentResolver.openInputStream(Uri.parse(medium.path)) else File(medium.path).inputStream()
+            val imageParser = JpegImageParser().getXmpXml(ByteSourceInputStream(inputStream, medium.name), HashMap<String, Any>())
+            imageParser.contains("GPano:UsePanoramaViewer=\"True\"", true)
+        } catch (e: Exception) {
+            false
+        }
+
+        view.panorama_outline.beVisibleIf(isPanorama && isLollipopPlus())
     }
 
     private fun getImageOrientation(): Int {

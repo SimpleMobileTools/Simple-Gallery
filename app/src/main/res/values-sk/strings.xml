@@ -24,6 +24,10 @@
     <string name="brightness">Jas</string>
     <string name="lock_orientation">Uzamknúť otočenie obrazovky</string>
     <string name="unlock_orientation">Odomknúť otočenie obrazovky</string>
+    <string name="change_orientation">Zmeniť otočenie obrazovky</string>
+    <string name="force_portrait">Vynútiť orientáciu na výšku</string>
+    <string name="force_landscape">Vynútiť orientáciu na šírku</string>
+    <string name="use_default_orientation">Použiť predvolenú orientáciu</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter médií</string>
@@ -154,6 +158,12 @@
     <string name="thumbnails">Náhľady</string>
     <string name="fullscreen_media">Celoobrazovkový režim</string>
     <string name="extended_details">Rozšírené vlastnosti</string>
+    <string name="bottom_actions">Spodné akčné tlačidlá</string>
+
+    <!-- Bottom actions -->
+    <string name="manage_bottom_actions">Upraviť viditeľné spodné akčné tlačidlá</string>
+    <string name="toggle_favorite">Prepnutie obľúbenosti</string>
+    <string name="toggle_file_visibility">Prepnutie viditeľnosti súboru</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Ako viem spraviť Jednoduchú Galériu predvolenou galériou zariadenia?</string>
@@ -178,6 +188,8 @@
     <string name="faq_9_text">Áno, v nastaveniach je prepínač s textom \"Nahradiť hlboko priblížiteľné obrázky s obrázkami s lepšou kvalitou\", môžete ho skúsiť. Spôsobí to vyššiu kvalitu obrázkov, po priblížení sa ale budú rozmazávať oveľa skôr.</string>
     <string name="faq_10_title">Dá sa s touto aplikáciou orezať obrázky?</string>
     <string name="faq_10_text">Áno, orezanie je možné v editore, potiahnutím rohov obrázkov. Do editoru sa môžete dostať buď dlhým podržaním náhľadu obrázku a zvolením menu položky Upraviť, alebo zvolením Upraviť pri celoobrazovkovom režime.</string>
+    <string name="faq_11_title">Viem nejakým spôsobom zoskupiť náhľady súborov?</string>
+    <string name="faq_11_text">Áno, použitím funkcie \"Zoskupiť podľa\" na menu obrazovky s náhľadmi. Zoskupenie je možné na základe rozličných kritérií vrátane Dátumu vytvorenia. Ak použijete funkciu \"Zobraziť obsah všetkých priečinkov\", viete ich zoskupiť aj podľa priečinkov.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

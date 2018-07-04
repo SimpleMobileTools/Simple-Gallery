@@ -6,6 +6,7 @@ import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
+import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FAQItem
@@ -15,8 +16,9 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.PickDirectoryDialog
 import com.simplemobiletools.gallery.helpers.NOMEDIA
-import com.simplemobiletools.gallery.models.Medium
 import java.io.File
+import java.io.InputStream
+import java.io.OutputStream
 import java.util.*
 
 fun Activity.sharePath(path: String) {
@@ -27,12 +29,11 @@ fun Activity.sharePaths(paths: ArrayList<String>) {
     sharePathsIntent(paths, BuildConfig.APPLICATION_ID)
 }
 
-fun Activity.shareMedium(medium: Medium) {
-    sharePath(medium.path)
+fun Activity.shareMediumPath(path: String) {
+    sharePath(path)
 }
 
-fun Activity.shareMedia(media: List<Medium>) {
-    val paths = media.map { it.path } as ArrayList
+fun Activity.shareMediaPaths(paths: ArrayList<String>) {
     sharePaths(paths)
 }
 
@@ -59,7 +60,7 @@ fun Activity.launchCamera() {
 
 fun SimpleActivity.launchAbout() {
     val faqItems = arrayListOf(
-            FAQItem(R.string.faq_3_title_commons, R.string.faq_3_text_commons),
+            FAQItem(R.string.faq_5_title_commons, R.string.faq_5_text_commons),
             FAQItem(R.string.faq_1_title, R.string.faq_1_text),
             FAQItem(R.string.faq_2_title, R.string.faq_2_text),
             FAQItem(R.string.faq_3_title, R.string.faq_3_text),
@@ -70,21 +71,29 @@ fun SimpleActivity.launchAbout() {
             FAQItem(R.string.faq_8_title, R.string.faq_8_text),
             FAQItem(R.string.faq_9_title, R.string.faq_9_text),
             FAQItem(R.string.faq_10_title, R.string.faq_10_text),
+            FAQItem(R.string.faq_11_title, R.string.faq_11_text),
             FAQItem(R.string.faq_2_title_commons, R.string.faq_2_text_commons))
 
     startAboutActivity(R.string.app_name, LICENSE_GLIDE or LICENSE_CROPPER or LICENSE_MULTISELECT or LICENSE_RTL
-            or LICENSE_SUBSAMPLING or LICENSE_PATTERN or LICENSE_REPRINT or LICENSE_GIF_DRAWABLE or LICENSE_PHOTOVIEW, BuildConfig.VERSION_NAME, faqItems)
+            or LICENSE_SUBSAMPLING or LICENSE_PATTERN or LICENSE_REPRINT or LICENSE_GIF_DRAWABLE or LICENSE_PHOTOVIEW or LICENSE_EXOPLAYER or
+            LICENSE_PANORAMA_VIEW or LICENSE_SANSELAN, BuildConfig.VERSION_NAME, faqItems)
 }
 
-fun AppCompatActivity.showSystemUI() {
-    supportActionBar?.show()
+fun AppCompatActivity.showSystemUI(toggleActionBarVisibility: Boolean) {
+    if (toggleActionBarVisibility) {
+        supportActionBar?.show()
+    }
+
     window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
             View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
             View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
 }
 
-fun AppCompatActivity.hideSystemUI() {
-    supportActionBar?.hide()
+fun AppCompatActivity.hideSystemUI(toggleActionBarVisibility: Boolean) {
+    if (toggleActionBarVisibility) {
+        supportActionBar?.hide()
+    }
+
     window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
             View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
             View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
@@ -134,7 +143,7 @@ fun BaseSimpleActivity.removeNoMedia(path: String, callback: (() -> Unit)? = nul
         return
     }
 
-    tryDeleteFileDirItem(file.toFileDirItem(applicationContext)) {
+    tryDeleteFileDirItem(file.toFileDirItem(applicationContext), false, false) {
         callback?.invoke()
     }
 }
@@ -169,12 +178,92 @@ fun BaseSimpleActivity.tryCopyMoveFilesTo(fileDirItems: ArrayList<FileDirItem>, 
     }
 }
 
-fun BaseSimpleActivity.tryDeleteFileDirItem(fileDirItem: FileDirItem, allowDeleteFolder: Boolean = false, callback: ((wasSuccess: Boolean) -> Unit)? = null) {
+fun BaseSimpleActivity.tryDeleteFileDirItem(fileDirItem: FileDirItem, allowDeleteFolder: Boolean = false, deleteFromDatabase: Boolean,
+                                            callback: ((wasSuccess: Boolean) -> Unit)? = null) {
     deleteFile(fileDirItem, allowDeleteFolder) {
-        callback?.invoke(it)
+        if (deleteFromDatabase) {
+            Thread {
+                galleryDB.MediumDao().deleteMediumPath(fileDirItem.path)
+                runOnUiThread {
+                    callback?.invoke(it)
+                }
+            }.start()
+        } else {
+            callback?.invoke(it)
+        }
+    }
+}
 
-        Thread {
-            galleryDB.MediumDao().deleteMediumPath(fileDirItem.path)
-        }.start()
+fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback: ((wasSuccess: Boolean) -> Unit)?) {
+    Thread {
+        var pathsCnt = paths.size
+        paths.forEach {
+            val file = File(it)
+            val internalFile = File(filesDir, it)
+            try {
+                file.copyRecursively(internalFile, true)
+                galleryDB.MediumDao().updateDeleted(it, System.currentTimeMillis())
+                pathsCnt--
+            } catch (ignored: Exception) {
+            }
+        }
+        callback?.invoke(pathsCnt == 0)
+    }.start()
+}
+
+fun BaseSimpleActivity.restoreRecycleBinPath(path: String, callback: () -> Unit) {
+    restoreRecycleBinPaths(arrayListOf(path), callback)
+}
+
+fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, callback: () -> Unit) {
+    Thread {
+        val mediumDao = galleryDB.MediumDao()
+        paths.forEach {
+            val source = it
+            val destination = it.removePrefix(filesDir.toString())
+
+            var inputStream: InputStream? = null
+            var out: OutputStream? = null
+            try {
+                out = getFileOutputStreamSync(destination, source.getMimeType())
+                inputStream = getFileInputStreamSync(source)!!
+                inputStream.copyTo(out!!)
+                mediumDao.updateDeleted(destination, 0)
+            } catch (e: Exception) {
+                showErrorToast(e)
+            } finally {
+                inputStream?.close()
+                out?.close()
+            }
+        }
+
+        runOnUiThread {
+            callback()
+        }
+    }.start()
+}
+
+fun BaseSimpleActivity.emptyTheRecycleBin(callback: (() -> Unit)? = null) {
+    Thread {
+        filesDir.deleteRecursively()
+        galleryDB.MediumDao().clearRecycleBin()
+        galleryDB.DirectoryDao().deleteRecycleBin()
+        toast(R.string.recycle_bin_emptied)
+        callback?.invoke()
+    }.start()
+}
+
+fun BaseSimpleActivity.emptyAndDisableTheRecycleBin(callback: () -> Unit) {
+    Thread {
+        emptyTheRecycleBin {
+            config.useRecycleBin = false
+            callback()
+        }
+    }.start()
+}
+
+fun BaseSimpleActivity.showRecycleBinEmptyingDialog(callback: () -> Unit) {
+    ConfirmationDialog(this, "", R.string.empty_recycle_bin_confirmation, R.string.yes, R.string.no) {
+        callback()
     }
 }

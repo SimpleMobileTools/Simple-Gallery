@@ -28,7 +28,7 @@ class ManageExtendedDetailsDialog(val activity: BaseSimpleActivity, val callback
         }
 
         AlertDialog.Builder(activity)
-                .setPositiveButton(R.string.ok, { dialog, which -> dialogConfirmed() })
+                .setPositiveButton(R.string.ok) { dialog, which -> dialogConfirmed() }
                 .setNegativeButton(R.string.cancel, null)
                 .create().apply {
             activity.setupDialogStuff(view, this)
