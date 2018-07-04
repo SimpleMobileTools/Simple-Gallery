@@ -75,7 +75,8 @@ fun SimpleActivity.launchAbout() {
             FAQItem(R.string.faq_2_title_commons, R.string.faq_2_text_commons))
 
     startAboutActivity(R.string.app_name, LICENSE_GLIDE or LICENSE_CROPPER or LICENSE_MULTISELECT or LICENSE_RTL
-            or LICENSE_SUBSAMPLING or LICENSE_PATTERN or LICENSE_REPRINT or LICENSE_GIF_DRAWABLE or LICENSE_PHOTOVIEW or LICENSE_EXOPLAYER, BuildConfig.VERSION_NAME, faqItems)
+            or LICENSE_SUBSAMPLING or LICENSE_PATTERN or LICENSE_REPRINT or LICENSE_GIF_DRAWABLE or LICENSE_PHOTOVIEW or LICENSE_EXOPLAYER or
+            LICENSE_PANORAMA_VIEW or LICENSE_SANSELAN, BuildConfig.VERSION_NAME, faqItems)
 }
 
 fun AppCompatActivity.showSystemUI(toggleActionBarVisibility: Boolean) {
