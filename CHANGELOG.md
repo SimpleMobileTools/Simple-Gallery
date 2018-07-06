@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 4.3.3 *(2018-07-06)*
+----------------------------
+
+ * Couple stability improvements and glitch fixes
+
 Version 4.3.2 *(2018-07-04)*
 ----------------------------
 
