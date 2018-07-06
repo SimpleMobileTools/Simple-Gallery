@@ -456,8 +456,10 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
     private fun releaseExoPlayer() {
         mExoPlayer?.stop()
-        mExoPlayer?.release()
-        mExoPlayer = null
+        Thread {
+            mExoPlayer?.release()
+            mExoPlayer = null
+        }.start()
     }
 
     override fun onSurfaceTextureSizeChanged(surface: SurfaceTexture?, width: Int, height: Int) {
