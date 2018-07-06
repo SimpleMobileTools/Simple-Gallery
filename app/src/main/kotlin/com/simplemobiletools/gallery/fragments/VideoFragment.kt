@@ -386,7 +386,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
         mIsPlaying = true
         mExoPlayer?.playWhenReady = true
-        mView!!.video_play_outline.setImageDrawable(resources.getDrawable(R.drawable.img_pause_outline_big))
+        mView!!.video_play_outline.setImageResource(R.drawable.ic_pause)
         activity!!.window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         mHidePauseHandler.postDelayed({
             mView!!.video_play_outline.animate().alpha(0f).start()
@@ -403,7 +403,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             mExoPlayer?.playWhenReady = false
         }
 
-        mView?.video_play_outline?.setImageDrawable(resources.getDrawable(R.drawable.img_play_outline_big))
+        mView?.video_play_outline?.setImageResource(R.drawable.ic_play)
         mView!!.video_play_outline.alpha = PLAY_PAUSE_VISIBLE_ALPHA
         activity!!.window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
