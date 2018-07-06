@@ -316,7 +316,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         val SAFPath = (media[selectedPositions.first()] as Medium).path
         activity.handleSAFDialog(SAFPath) {
             selectedPositions.sortedDescending().forEach {
-                val thumbnailItem = media[it]
+                val thumbnailItem = media.getOrNull(it)
                 if (thumbnailItem is Medium) {
                     fileDirItems.add(FileDirItem(thumbnailItem.path, thumbnailItem.name))
                     removeMedia.add(thumbnailItem)

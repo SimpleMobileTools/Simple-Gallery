@@ -380,17 +380,19 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
         activity.handleSAFDialog(SAFPath) {
             selectedPositions.sortedDescending().forEach {
-                val directory = dirs[it]
-                if (directory.areFavorites() || directory.isRecycleBin()) {
-                    if (selectedPositions.size == 1) {
-                        finishActMode()
+                val directory = dirs.getOrNull(it)
+                if (directory != null) {
+                    if (directory.areFavorites() || directory.isRecycleBin()) {
+                        if (selectedPositions.size == 1) {
+                            finishActMode()
+                        } else {
+                            selectedPositions.remove(it)
+                            toggleItemSelection(false, it)
+                        }
                     } else {
-                        selectedPositions.remove(it)
-                        toggleItemSelection(false, it)
+                        folders.add(File(directory.path))
+                        removeFolders.add(directory)
                     }
-                } else {
-                    folders.add(File(directory.path))
-                    removeFolders.add(directory)
                 }
             }
 
