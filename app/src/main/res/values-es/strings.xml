@@ -24,10 +24,10 @@
     <string name="brightness">Brillo</string>
     <string name="lock_orientation">Bloquear orientación</string>
     <string name="unlock_orientation">Desbloquear orientación</string>
-    <string name="change_orientation">Change orientation</string>
-    <string name="force_portrait">Force portrait</string>
-    <string name="force_landscape">Force landscape</string>
-    <string name="use_default_orientation">Use default orientation</string>
+    <string name="change_orientation">Cambiar orientación</string>
+    <string name="force_portrait">Forzar retrato</string>
+    <string name="force_landscape">Forzar paisaje</string>
+    <string name="use_default_orientation">Usar la orientación por defecto</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtro de medios</string>
