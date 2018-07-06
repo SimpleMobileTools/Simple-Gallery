@@ -34,7 +34,7 @@
     <string name="images">Imatges</string>
     <string name="videos">Vídeos</string>
     <string name="gifs">GIFs</string>
-    <string name="raw_images">RAW images</string>
+    <string name="raw_images">Imatges RAW</string>
     <string name="no_media_with_filters">No s\'han tronat arxius amb els filtres seleccionats.</string>
     <string name="change_filters_underlined"><u>Canviar filtres</u></string>
 
@@ -152,7 +152,7 @@
     <string name="replace_zoomable_images">Substituïr imatges ampliades per les de millor quialitat</string>
     <string name="hide_extended_details">Amaga els detalls estesos quan la barra d\'estat està amagada</string>
     <string name="do_extra_check">Fer una verificació addicional per evitar que es mostrin fitxers no vàlids</string>
-    <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
+    <string name="show_at_bottom">Mostra alguns botons d\'acció a la part inferior de la pantalla</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
