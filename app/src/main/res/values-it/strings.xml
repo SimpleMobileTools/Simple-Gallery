@@ -27,7 +27,7 @@
     <string name="change_orientation">Cambia orientamento</string>
     <string name="force_portrait">Forza verticale</string>
     <string name="force_landscape">Forza orizzontale</string>
-    <string name="use_default_orientation">Usa l'orientamento predefinito</string>
+    <string name="use_default_orientation">Usa l\'orientamento predefinito</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtra i media</string>
