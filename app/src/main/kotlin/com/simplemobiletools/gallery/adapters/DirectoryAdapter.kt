@@ -72,6 +72,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     override fun getItemCount() = dirs.size
 
     override fun prepareActionMode(menu: Menu) {
+        if (getSelectedPaths().isEmpty()) {
+            return
+        }
+
         val selectedPaths = getSelectedPaths()
         menu.apply {
             findItem(R.id.cab_rename).isVisible = isOneItemSelected() && !selectedPaths.contains(FAVORITES) && !selectedPaths.contains(RECYCLE_BIN)
