@@ -406,7 +406,6 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         mView?.video_play_outline?.setImageResource(R.drawable.ic_play)
         mView?.video_play_outline?.alpha = PLAY_PAUSE_VISIBLE_ALPHA
         activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-
     }
 
     private fun videoEnded() = mExoPlayer!!.currentPosition >= mExoPlayer!!.duration
