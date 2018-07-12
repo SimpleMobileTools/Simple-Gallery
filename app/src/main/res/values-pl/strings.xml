@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Prosta Galeria</string>
+    <string name="app_name">Prosta galeria</string>
     <string name="app_launcher_name">Galeria</string>
     <string name="edit">Edytuj</string>
     <string name="open_camera">Uruchom aplikację aparatu</string>
@@ -24,10 +24,10 @@
     <string name="brightness">Jasność</string>
     <string name="lock_orientation">Zablokuj orientację ekranu</string>
     <string name="unlock_orientation">Odblokuj orientację ekranu</string>
-    <string name="change_orientation">Change orientation</string>
-    <string name="force_portrait">Force portrait</string>
-    <string name="force_landscape">Force landscape</string>
-    <string name="use_default_orientation">Use default orientation</string>
+    <string name="change_orientation">Zmień orientację ekranu</string>
+    <string name="force_portrait">Wymuś pionową</string>
+    <string name="force_landscape">Wymuś poziomą</string>
+    <string name="use_default_orientation">Używaj systemowej</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtruj multimedia</string>
@@ -158,12 +158,12 @@
     <string name="thumbnails">Miniatury</string>
     <string name="fullscreen_media">Widok pełnoekranowy</string>
     <string name="extended_details">Dodatkowe szczegóły</string>
-    <string name="bottom_actions">Bottom actions</string>
+    <string name="bottom_actions">Przyciski na dolnym pasku</string>
 
     <!-- Bottom actions -->
-    <string name="manage_bottom_actions">Manage visible bottom actions</string>
-    <string name="toggle_favorite">Toggle favorite</string>
-    <string name="toggle_file_visibility">Toggle file visibility</string>
+    <string name="manage_bottom_actions">Zarządzaj przyciskami na dolnym pasku</string>
+    <string name="toggle_favorite">Ulubione</string>
+    <string name="toggle_file_visibility">Widoczność plików</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Jak mogę ustawić tą aplikację jako domyślną aplikację galerii?</string>
