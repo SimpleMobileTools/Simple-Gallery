@@ -58,6 +58,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mLoadedInitialPhotos = false
     private var mIsPasswordProtectionPending = false
     private var mWasProtectionHandled = false
+    private var mShouldStopFetching = false
     private var mLatestMediaId = 0L
     private var mLatestMediaDateId = 0L
     private var mLastMediaHandler = Handler()
@@ -323,6 +324,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             return
         }
 
+        mShouldStopFetching = true
         mIsGettingDirs = true
         val getImagesOnly = mIsPickImageIntent || mIsGetImageContentIntent
         val getVideosOnly = mIsPickVideoIntent || mIsGetVideoContentIntent
@@ -347,7 +349,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun showFilterMediaDialog() {
         FilterMediaDialog(this) {
-            mLoadedInitialPhotos = false
+            mShouldStopFetching = true
             directories_refresh_layout.isRefreshing = true
             directories_grid.adapter = null
             getDirectories()
@@ -662,6 +664,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun gotDirectories(newDirs: ArrayList<Directory>) {
         // if hidden item showing is disabled but all Favorite items are hidden, hide the Favorites folder
+        mIsGettingDirs = false
+        mShouldStopFetching = false
         if (!config.shouldShowHidden) {
             val favoritesFolder = newDirs.firstOrNull { it.areFavorites() }
             if (favoritesFolder != null && favoritesFolder.tmb.getFilenameFromPath().startsWith('.')) {
@@ -696,6 +700,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         try {
             for (directory in dirs) {
+                if (mShouldStopFetching) {
+                    return
+                }
+
                 val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, favoritePaths)
                 val newDir = if (curMedia.isEmpty()) {
                     directory
@@ -748,6 +756,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         // check the remaining folders which were not cached at all yet
         for (folder in foldersToScan) {
+            if (mShouldStopFetching) {
+                return
+            }
+
             val newMedia = mediaFetcher.getFilesFrom(folder, getImagesOnly, getVideosOnly, getProperDateTaken, favoritePaths)
             if (newMedia.isEmpty()) {
                 continue
@@ -771,7 +783,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             }
         }
 
-        mIsGettingDirs = false
         mLoadedInitialPhotos = true
         checkLastMediaChanged()
 
