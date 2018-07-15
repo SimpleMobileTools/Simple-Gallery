@@ -40,4 +40,7 @@ interface MediumDao {
 
     @Query("DELETE FROM media WHERE deleted_ts != 0")
     fun clearRecycleBin()
+
+    @Query("UPDATE media SET is_favorite = 0")
+    fun clearFavorites()
 }

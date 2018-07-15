@@ -99,7 +99,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             R.id.cab_rename -> renameDir()
             R.id.cab_pin -> pinFolders(true)
             R.id.cab_unpin -> pinFolders(false)
-            R.id.cab_empty_recycle_bin -> emptyRecycleBin()
+            R.id.cab_empty_recycle_bin -> tryEmptyRecycleBin(true)
             R.id.cab_empty_disable_recycle_bin -> emptyAndDisableRecycleBin()
             R.id.cab_hide -> toggleFoldersVisibility(true)
             R.id.cab_unhide -> toggleFoldersVisibility(false)
@@ -218,11 +218,19 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         }
     }
 
-    private fun emptyRecycleBin() {
-        activity.showRecycleBinEmptyingDialog {
-            activity.emptyTheRecycleBin {
-                listener?.refreshItems()
+    private fun tryEmptyRecycleBin(askConfirmation: Boolean) {
+        if (askConfirmation) {
+            activity.showRecycleBinEmptyingDialog {
+                emptyRecycleBin()
             }
+        } else {
+            emptyRecycleBin()
+        }
+    }
+
+    private fun emptyRecycleBin() {
+        activity.emptyTheRecycleBin {
+            listener?.refreshItems()
         }
     }
 
@@ -350,21 +358,27 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
     private fun askConfirmDelete() {
         if (config.skipDeleteConfirmation) {
-            deleteFiles()
+            deleteFolders()
         } else {
             val itemsCnt = selectedPositions.size
             val items = resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)
-            val baseString = if (config.useRecycleBin) R.string.move_to_recycle_bin_confirmation else R.string.deletion_confirmation
+            val fileDirItem = dirs.getOrNull(selectedPositions.first()) ?: return
+            val baseString = if (!config.useRecycleBin || (isOneItemSelected() && fileDirItem.isRecycleBin()) || (isOneItemSelected() && fileDirItem.areFavorites())) {
+                R.string.deletion_confirmation
+            } else {
+                R.string.move_to_recycle_bin_confirmation
+            }
+
             var question = String.format(resources.getString(baseString), items)
             val warning = resources.getQuantityString(R.plurals.delete_warning, itemsCnt, itemsCnt)
             question += "\n\n$warning"
             ConfirmationDialog(activity, question) {
-                deleteFiles()
+                deleteFolders()
             }
         }
     }
 
-    private fun deleteFiles() {
+    private fun deleteFolders() {
         if (selectedPositions.isEmpty()) {
             return
         }
@@ -387,6 +401,15 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 val directory = dirs.getOrNull(it)
                 if (directory != null) {
                     if (directory.areFavorites() || directory.isRecycleBin()) {
+                        if (directory.isRecycleBin()) {
+                            tryEmptyRecycleBin(false)
+                        } else {
+                            Thread {
+                                activity.galleryDB.MediumDao().clearFavorites()
+                                listener?.refreshItems()
+                            }.start()
+                        }
+
                         if (selectedPositions.size == 1) {
                             finishActMode()
                         } else {
