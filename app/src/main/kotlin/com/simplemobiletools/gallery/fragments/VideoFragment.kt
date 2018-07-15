@@ -56,7 +56,8 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private var mIsDragged = false
     private var mIsFullscreen = false
     private var mIsFragmentVisible = false
-    private var mWasInit = false
+    private var mWasFragmentInit = false
+    private var mIsExoPlayerInitialized = false
     private var mCurrTime = 0
     private var mDuration = 0
 
@@ -94,7 +95,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
 
         checkFullscreen()
-        mWasInit = true
+        mWasFragmentInit = true
 
         mView!!.apply {
             brightnessSideScroll = video_brightness_controller
@@ -120,6 +121,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             override fun onTracksChanged(trackGroups: TrackGroupArray?, trackSelections: TrackSelectionArray?) {}
 
             override fun onPlayerError(error: ExoPlaybackException?) {
+                mIsExoPlayerInitialized = false
                 activity?.showErrorToast(error.toString())
             }
 
@@ -134,6 +136,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             override fun onTimelineChanged(timeline: Timeline?, manifest: Any?, reason: Int) {}
 
             override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
+                mIsExoPlayerInitialized = playbackState == Player.STATE_READY || playbackState == Player.STATE_ENDED
                 when (playbackState) {
                     Player.STATE_READY -> videoPrepared()
                     Player.STATE_ENDED -> videoCompleted()
@@ -151,20 +154,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             override fun onRenderedFirstFrame() {}
         })
 
-        val isContentUri = medium.path.startsWith("content://")
-        val uri = if (isContentUri) Uri.parse(medium.path) else Uri.fromFile(File(medium.path))
-        val dataSpec = DataSpec(uri)
-        val fileDataSource = if (isContentUri) ContentDataSource(context) else FileDataSource()
-        try {
-            fileDataSource.open(dataSpec)
-        } catch (e: Exception) {
-            activity?.showErrorToast(e)
-        }
-
-        val factory = DataSource.Factory { fileDataSource }
-        val audioSource = ExtractorMediaSource(fileDataSource.uri, factory, DefaultExtractorsFactory(), null, null)
-        mExoPlayer!!.audioStreamType = AudioManager.STREAM_MUSIC
-        mExoPlayer!!.prepare(audioSource)
+        initExoPlayer()
         medium.path.getVideoResolution()?.apply {
             mVideoSize.x = x
             mVideoSize.y = y
@@ -237,6 +227,23 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         checkExtendedDetails()
     }
 
+    private fun initExoPlayer() {
+        val isContentUri = medium.path.startsWith("content://")
+        val uri = if (isContentUri) Uri.parse(medium.path) else Uri.fromFile(File(medium.path))
+        val dataSpec = DataSpec(uri)
+        val fileDataSource = if (isContentUri) ContentDataSource(context) else FileDataSource()
+        try {
+            fileDataSource.open(dataSpec)
+        } catch (e: Exception) {
+            activity?.showErrorToast(e)
+        }
+
+        val factory = DataSource.Factory { fileDataSource }
+        val audioSource = ExtractorMediaSource(fileDataSource.uri, factory, DefaultExtractorsFactory(), null, null)
+        mExoPlayer!!.audioStreamType = AudioManager.STREAM_MUSIC
+        mExoPlayer!!.prepare(audioSource)
+    }
+
     override fun setMenuVisibility(menuVisible: Boolean) {
         super.setMenuVisibility(menuVisible)
         if (mIsFragmentVisible && !menuVisible) {
@@ -244,7 +251,11 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
 
         mIsFragmentVisible = menuVisible
-        if (menuVisible && mWasInit) {
+        if (menuVisible && mWasFragmentInit) {
+            if (!mIsExoPlayerInitialized) {
+                initExoPlayer()
+            }
+
             if (context?.config?.autoplayVideos == true) {
                 playVideo()
             }
