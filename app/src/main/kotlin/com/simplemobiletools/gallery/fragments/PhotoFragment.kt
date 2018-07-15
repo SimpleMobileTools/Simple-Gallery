@@ -349,7 +349,7 @@ class PhotoFragment : ViewPagerFragment() {
         isPanorama = try {
             val inputStream = if (medium.path.startsWith("content:/")) context!!.contentResolver.openInputStream(Uri.parse(medium.path)) else File(medium.path).inputStream()
             val imageParser = JpegImageParser().getXmpXml(ByteSourceInputStream(inputStream, medium.name), HashMap<String, Any>())
-            imageParser.contains("GPano:UsePanoramaViewer=\"True\"", true)
+            imageParser.contains("GPano:UsePanoramaViewer=\"True\"", true) || imageParser.contains("<GPano:UsePanoramaViewer>True</GPano:UsePanoramaViewer>", true)
         } catch (e: Exception) {
             false
         }
