@@ -74,10 +74,6 @@
         android:title="@string/move_to"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/menu_set_as"
-        android:title="@string/set_as"
-        app:showAsAction="never"/>
-    <item
         android:id="@+id/menu_open_with"
         android:title="@string/open_with"
         app:showAsAction="never"/>
@@ -103,6 +99,11 @@
         android:id="@+id/menu_slideshow"
         android:icon="@drawable/ic_slideshow"
         android:title="@string/slideshow"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/menu_set_as"
+        android:icon="@drawable/ic_set_as"
+        android:title="@string/set_as"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_rename"
