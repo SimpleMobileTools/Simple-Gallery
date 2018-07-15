@@ -230,6 +230,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         refreshViewPager()
+        view_pager.offscreenPageLimit = 2
 
         if (config.blackBackground) {
             view_pager.background = ColorDrawable(Color.BLACK)
@@ -1104,10 +1105,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
     override fun onPageSelected(position: Int) {
-        if (view_pager.offscreenPageLimit == 1) {
-            view_pager.offscreenPageLimit = 2
-        }
-
         if (mPos != position) {
             mPos = position
             updateActionbarTitle()
