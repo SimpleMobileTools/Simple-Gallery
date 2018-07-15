@@ -317,7 +317,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                     mPath.startsWith(OTG_PATH) -> mPath.trimEnd('/').substringAfterLast('/')
                     else -> getHumanizedFilename(mPath)
                 }
-                supportActionBar?.title = if (mShowAll) resources.getString(R.string.all_folders) else dirName
+                updateActionBarTitle(if (mShowAll) resources.getString(R.string.all_folders) else dirName)
                 getMedia()
                 setupLayoutManager()
             } else {
