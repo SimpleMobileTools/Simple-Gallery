@@ -251,7 +251,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
         mIsFragmentVisible = menuVisible
         if (menuVisible && mWasFragmentInit) {
-            if (!mIsExoPlayerInitialized) {
+            if (!mIsExoPlayerInitialized && mExoPlayer != null) {
                 initExoPlayer()
             }
 
