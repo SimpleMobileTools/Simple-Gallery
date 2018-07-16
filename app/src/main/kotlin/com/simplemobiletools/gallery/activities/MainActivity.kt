@@ -809,7 +809,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun showSortedDirs(dirs: ArrayList<Directory>) {
-        var sortedDirs = getSortedDirectories(dirs).clone() as ArrayList<Directory>
+        var sortedDirs = getSortedDirectories(dirs)
         sortedDirs = sortedDirs.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>
 
         runOnUiThread {
@@ -847,11 +847,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun setupAdapter(dirs: ArrayList<Directory>) {
         val currAdapter = directories_grid.adapter
-        val directories = dirs.clone() as ArrayList<Directory>
         if (currAdapter == null) {
             initZoomListener()
             val fastscroller = if (config.scrollHorizontally) directories_horizontal_fastscroller else directories_vertical_fastscroller
-            DirectoryAdapter(this, directories, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent), fastscroller) {
+            DirectoryAdapter(this, dirs.clone() as ArrayList<Directory>, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent), fastscroller) {
                 val path = (it as Directory).path
                 if (path != config.tempFolderPath) {
                     itemClicked(path)
@@ -861,7 +860,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 directories_grid.adapter = this
             }
         } else {
-            (currAdapter as DirectoryAdapter).updateDirs(directories)
+            (currAdapter as DirectoryAdapter).updateDirs(dirs)
         }
 
         getRecyclerAdapter()?.dirs?.apply {

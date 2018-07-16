@@ -474,9 +474,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     }
 
     fun updateDirs(newDirs: ArrayList<Directory>) {
-        if (newDirs.hashCode() != currentDirectoriesHash) {
-            currentDirectoriesHash = newDirs.hashCode()
-            dirs = newDirs
+        val directories = newDirs.clone() as ArrayList<Directory>
+        if (directories.hashCode() != currentDirectoriesHash) {
+            currentDirectoriesHash = directories.hashCode()
+            dirs = directories
             notifyDataSetChanged()
             finishActMode()
         }

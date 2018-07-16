@@ -342,10 +342,11 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     private fun getSelectedPaths() = getSelectedMedia().map { it.path } as ArrayList<String>
 
     fun updateMedia(newMedia: ArrayList<ThumbnailItem>) {
-        if (newMedia.hashCode() != currentMediaHash) {
-            currentMediaHash = newMedia.hashCode()
+        val thumbnailItems = newMedia.clone() as ArrayList<ThumbnailItem>
+        if (thumbnailItems.hashCode() != currentMediaHash) {
+            currentMediaHash = thumbnailItems.hashCode()
             Handler().postDelayed({
-                media = newMedia
+                media = thumbnailItems
                 enableInstantLoad()
                 notifyDataSetChanged()
                 finishActMode()

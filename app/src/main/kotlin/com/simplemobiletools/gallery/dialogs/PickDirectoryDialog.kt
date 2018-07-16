@@ -61,7 +61,7 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
             return
 
         shownDirectories = dirs
-        val adapter = DirectoryAdapter(activity, dirs, null, view.directories_grid, true) {
+        val adapter = DirectoryAdapter(activity, dirs.clone() as ArrayList<Directory>, null, view.directories_grid, true) {
             if ((it as Directory).path.trimEnd('/') == sourcePath) {
                 activity.toast(R.string.source_and_destination_same)
                 return@DirectoryAdapter

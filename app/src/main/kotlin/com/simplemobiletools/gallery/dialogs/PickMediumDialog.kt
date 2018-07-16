@@ -64,7 +64,7 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
             return
 
         shownMedia = media
-        val adapter = MediaAdapter(activity, shownMedia, null, true, false, view.media_grid, null) {
+        val adapter = MediaAdapter(activity, shownMedia.clone() as ArrayList<ThumbnailItem>, null, true, false, view.media_grid, null) {
             if (it is Medium) {
                 callback(it.path)
                 dialog.dismiss()
