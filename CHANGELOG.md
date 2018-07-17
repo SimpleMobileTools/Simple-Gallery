@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 4.3.5 *(2018-07-17)*
+----------------------------
+
+ * Fixed some Recycle bin related issues
+ * A few more UX and stability improvements
+
 Version 4.3.4 *(2018-07-15)*
 ----------------------------
 
