@@ -227,7 +227,7 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, callback
         val mediumDao = galleryDB.MediumDao()
         paths.forEach {
             val source = it
-            val destination = it.removePrefix(filesDir.toString())
+            val destination = it.removePrefix(filesDir.absolutePath)
 
             var inputStream: InputStream? = null
             var out: OutputStream? = null

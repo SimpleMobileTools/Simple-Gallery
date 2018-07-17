@@ -365,7 +365,7 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
         val grouped = mediaFetcher.groupMedia(media, pathToUse)
         callback(grouped.clone() as ArrayList<ThumbnailItem>)
 
-        val recycleBinPath = filesDir.toString()
+        val recycleBinPath = filesDir.absolutePath
         media.filter { !getDoesFilePathExist(it.path) }.forEach {
             if (it.path.startsWith(recycleBinPath)) {
                 mediumDao.deleteMediumPath(it.path.removePrefix(recycleBinPath))

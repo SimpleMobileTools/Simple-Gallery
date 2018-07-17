@@ -302,7 +302,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_unhide).isVisible = currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0
             findItem(R.id.menu_add_to_favorites).isVisible = !currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0
             findItem(R.id.menu_remove_from_favorites).isVisible = currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0
-            findItem(R.id.menu_restore_file).isVisible = currentMedium.path.startsWith(filesDir.toString())
+            findItem(R.id.menu_restore_file).isVisible = currentMedium.path.startsWith(filesDir.absolutePath)
             findItem(R.id.menu_change_orientation).isVisible = mRotationDegrees == 0 && visibleBottomActions and BOTTOM_ACTION_CHANGE_ORIENTATION == 0
             findItem(R.id.menu_change_orientation).icon = resources.getDrawable(getChangeOrientationIcon())
             findItem(R.id.menu_rotate).setShowAsAction(
@@ -587,7 +587,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         }
 
-        val tmpPath = "$filesDir/.tmp_${newPath.getFilenameFromPath()}"
+        val tmpPath = "${filesDir.absolutePath}/.tmp_${newPath.getFilenameFromPath()}"
         val tmpFileDirItem = FileDirItem(tmpPath, tmpPath.getFilenameFromPath())
         try {
             getFileOutputStream(tmpFileDirItem) {

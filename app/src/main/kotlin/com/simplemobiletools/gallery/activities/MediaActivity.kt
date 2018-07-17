@@ -817,7 +817,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         val deletingItems = resources.getQuantityString(R.plurals.deleting_items, filtered.size, filtered.size)
         toast(deletingItems)
 
-        if (config.useRecycleBin && !filtered.first().path.startsWith(filesDir.toString())) {
+        if (config.useRecycleBin && !filtered.first().path.startsWith(filesDir.absolutePath)) {
             movePathsInRecycleBin(filtered.map { it.path } as ArrayList<String>) {
                 if (it) {
                     deleteFilteredFiles(filtered)
