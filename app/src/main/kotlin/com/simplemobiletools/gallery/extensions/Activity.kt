@@ -201,14 +201,16 @@ fun BaseSimpleActivity.tryDeleteFileDirItem(fileDirItem: FileDirItem, allowDelet
 
 fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback: ((wasSuccess: Boolean) -> Unit)?) {
     Thread {
+        val mediumDao = galleryDB.MediumDao()
         var pathsCnt = paths.size
         paths.forEach {
             val file = File(it)
             val internalFile = File(filesDir, it)
             try {
-                file.copyRecursively(internalFile, true)
-                galleryDB.MediumDao().updateDeleted(it, System.currentTimeMillis())
-                pathsCnt--
+                if (file.copyRecursively(internalFile, true)) {
+                    mediumDao.updateDeleted(it, System.currentTimeMillis())
+                    pathsCnt--
+                }
             } catch (ignored: Exception) {
             }
         }
