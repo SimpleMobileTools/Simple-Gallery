@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.helpers
 
 import android.content.Context
 import android.content.res.Configuration
+import android.os.Environment
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.simplemobiletools.commons.helpers.BaseConfig
@@ -367,6 +368,12 @@ class Config(context: Context) : BaseConfig(context) {
 
     // if a user hides a folder, then enables temporary hidden folder displaying, make sure we show it properly
     var everShownFolders: Set<String>
-        get() = prefs.getStringSet(EVER_SHOWN_FOLDERS, HashSet<String>())
+        get() = prefs.getStringSet(EVER_SHOWN_FOLDERS, getEverShownFolders())
         set(everShownFolders) = prefs.edit().putStringSet(EVER_SHOWN_FOLDERS, everShownFolders).apply()
+
+    fun getEverShownFolders() = hashSetOf(
+            internalStoragePath,
+            Environment.DIRECTORY_DCIM,
+            Environment.DIRECTORY_PICTURES
+    )
 }
