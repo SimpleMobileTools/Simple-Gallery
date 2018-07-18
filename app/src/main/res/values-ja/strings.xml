@@ -153,6 +153,7 @@
     <string name="hide_extended_details">ステータスバーが非表示の時は詳細を隠す</string>
     <string name="do_extra_check">無効なファイルを見せない調整を行う</string>
     <string name="show_at_bottom">画面下部にアクションボタンを表示</string>
+    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">サムネイル設定</string>

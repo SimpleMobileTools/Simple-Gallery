@@ -153,6 +153,7 @@
     <string name="hide_extended_details">Uitgebreide informatie niet tonen als de statusbalk is verborgen</string>
     <string name="do_extra_check">Ongeldige bestanden verbergen</string>
     <string name="show_at_bottom">Enkele actieknoppen onderaan het scherm tonen</string>
+    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatuurvoorbeelden</string>

@@ -153,6 +153,7 @@
     <string name="hide_extended_details">Не показывать подробности при скрытой строке состояния</string>
     <string name="do_extra_check">Делать дополнительную проверку, чтобы избежать показа неподдерживаемых файлов</string>
     <string name="show_at_bottom">Показывать кнопки действий в нижней части экрана</string>
+    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюры</string>

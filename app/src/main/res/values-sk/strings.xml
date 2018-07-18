@@ -153,6 +153,7 @@
     <string name="hide_extended_details">Skryť rozšírené vlastnosti ak je skrytá stavová lišta</string>
     <string name="do_extra_check">Predísť zobrazovaniu neplatných súborov dodatočnou kontrolou</string>
     <string name="show_at_bottom">Zobraziť niektoré akčné tlačidlá na spodku obrazovky</string>
+    <string name="show_recycle_bin">Zobraziť odpadkový kôš na obrazovke s priečinkami</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Náhľady</string>

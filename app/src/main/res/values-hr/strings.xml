@@ -153,6 +153,7 @@
     <string name="hide_extended_details">Sakrij proširene pojedinosti kada je traka statusa skrivena</string>
     <string name="do_extra_check">Napravite dodatnu provjeru da biste izbjegli prikazivanje nevažećih datoteka</string>
     <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
+    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>

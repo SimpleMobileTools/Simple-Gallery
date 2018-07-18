@@ -153,6 +153,7 @@
     <string name="hide_extended_details">当状态栏隐藏时隐藏扩展详情</string>
     <string name="do_extra_check">额外检查以避免显示无效的文件</string>
     <string name="show_at_bottom">在屏幕底部显示一些操作按钮</string>
+    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">缩略图</string>

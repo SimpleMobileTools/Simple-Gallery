@@ -153,6 +153,7 @@
     <string name="hide_extended_details">Erweiterte Details nicht anzeigen, wenn die Systemleiste versteckt ist</string>
     <string name="do_extra_check">Zusätzliche Überprüfung, um ungültige Dateien nicht anzuzeigen</string>
     <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
+    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>
