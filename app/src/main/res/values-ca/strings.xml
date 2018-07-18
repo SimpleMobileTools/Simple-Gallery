@@ -153,7 +153,7 @@
     <string name="hide_extended_details">Amaga els detalls estesos quan la barra d\'estat està amagada</string>
     <string name="do_extra_check">Fer una verificació addicional per evitar que es mostrin fitxers no vàlids</string>
     <string name="show_at_bottom">Mostra alguns botons d\'acció a la part inferior de la pantalla</string>
-    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
+    <string name="show_recycle_bin">Mostra la paperera de reciclatge a la pantalla de carpetes</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
