@@ -23,6 +23,7 @@ import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.openEditor
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_edit.*
+import kotlinx.android.synthetic.main.bottom_actions_aspect_ratio.*
 import kotlinx.android.synthetic.main.bottom_editor_actions.*
 import java.io.*
 
@@ -158,6 +159,26 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         bottom_aspect_ratio.setOnClickListener {
             currPrimaryAction = if (currPrimaryAction == PRIMARY_ASPECT_RATIO) 0 else PRIMARY_ASPECT_RATIO
             updatePrimaryActions()
+        }
+
+        setupAspectRatios()
+    }
+
+    private fun setupAspectRatios() {
+        bottom_aspect_ratio_free.setOnClickListener {
+
+        }
+
+        bottom_aspect_ratio_one_one.setOnClickListener {
+
+        }
+
+        bottom_aspect_ratio_four_three.setOnClickListener {
+
+        }
+
+        bottom_aspect_ratio_sixteen_nine.setOnClickListener {
+
         }
     }
 

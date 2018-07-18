@@ -88,13 +88,14 @@
     <string name="flip_horizontally">قلب أفقيا</string>
     <string name="flip_vertically">قلب عموديا</string>
     <string name="edit_with">تعديل باستخدام</string>
+    <string name="free_aspect_ratio">Free</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">خلفية بسيطة</string>
     <string name="set_as_wallpaper">تعيين كخلفية الشاشة</string>
     <string name="set_as_wallpaper_failed">فشل الإعداد كخلفية</string>
     <string name="set_as_wallpaper_with">تعيين كخلفية بواسطة:</string>
-    <string name="setting_wallpaper">... جار تعيين الخلفية ...</string>
+    <string name="setting_wallpaper">… جار تعيين الخلفية ...</string>
     <string name="wallpaper_set_successfully">تم تعيبن الخلفية بنجاح</string>
     <string name="portrait_aspect_ratio">صورة نسبة العرض إلى الارتفاع</string>
     <string name="landscape_aspect_ratio">نسبة العرض إلى الارتفاع في المناظر الطبيعية</string>

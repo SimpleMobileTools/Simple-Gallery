@@ -84,6 +84,7 @@
     <string name="flip_horizontally">Okreni horizontalno</string>
     <string name="flip_vertically">Okreni vertikalno</string>
     <string name="edit_with">Uredi pomoću</string>
+    <string name="free_aspect_ratio">Free</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Jednostavna pozadina</string>

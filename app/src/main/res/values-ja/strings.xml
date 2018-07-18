@@ -84,6 +84,7 @@
     <string name="flip_horizontally">水平方向に反転</string>
     <string name="flip_vertically">垂直方向に反転</string>
     <string name="edit_with">他のアプリで編集</string>
+    <string name="free_aspect_ratio">Free</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">シンプル壁紙</string>
