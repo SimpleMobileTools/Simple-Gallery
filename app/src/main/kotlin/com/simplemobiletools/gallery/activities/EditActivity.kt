@@ -20,7 +20,8 @@ import com.simplemobiletools.gallery.dialogs.ResizeDialog
 import com.simplemobiletools.gallery.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.extensions.openEditor
 import com.theartofdev.edmodo.cropper.CropImageView
-import kotlinx.android.synthetic.main.view_crop_image.*
+import kotlinx.android.synthetic.main.activity_edit.*
+import kotlinx.android.synthetic.main.bottom_editor_actions.*
 import java.io.*
 
 class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener {
@@ -37,7 +38,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.view_crop_image)
+        setContentView(R.layout.activity_edit)
 
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
@@ -90,6 +91,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             if (isCropIntent && shouldCropSquare())
                 setFixedAspectRatio(true)
         }
+
+        setupBottomActions()
     }
 
     override fun onResume() {
@@ -106,21 +109,29 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_editor, menu)
-        menu.findItem(R.id.resize).isVisible = !isCropIntent
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.save_as -> crop_image_view.getCroppedImageAsync()
-            R.id.rotate -> crop_image_view.rotateImage(90)
-            R.id.resize -> resizeImage()
             R.id.flip_horizontally -> flipImage(true)
             R.id.flip_vertically -> flipImage(false)
             R.id.edit -> editWith()
             else -> return super.onOptionsItemSelected(item)
         }
         return true
+    }
+
+    private fun setupBottomActions() {
+        bottom_rotate.setOnClickListener {
+            crop_image_view.rotateImage(90)
+        }
+
+        bottom_resize.beGoneIf(isCropIntent)
+        bottom_resize.setOnClickListener {
+            resizeImage()
+        }
     }
 
     private fun resizeImage() {

@@ -7,16 +7,6 @@
         android:title="@string/save_as"
         app:showAsAction="always"/>
     <item
-        android:id="@+id/rotate"
-        android:icon="@drawable/ic_rotate_right"
-        android:title="@string/rotate"
-        app:showAsAction="ifRoom"/>
-    <item
-        android:id="@+id/resize"
-        android:icon="@drawable/ic_minimize"
-        android:title="@string/resize"
-        app:showAsAction="ifRoom"/>
-    <item
         android:id="@+id/flip"
         android:icon="@drawable/ic_flip"
         android:title="@string/flip"

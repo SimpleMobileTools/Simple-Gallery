@@ -16,7 +16,7 @@ import com.simplemobiletools.commons.helpers.isNougatPlus
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.R
 import com.theartofdev.edmodo.cropper.CropImageView
-import kotlinx.android.synthetic.main.view_crop_image.*
+import kotlinx.android.synthetic.main.activity_edit.*
 
 class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener {
     private val PICK_IMAGE = 1
@@ -28,7 +28,7 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.view_crop_image)
+        setContentView(R.layout.activity_set_wallpaper)
 
         if (intent.data == null) {
             val pickIntent = Intent(applicationContext, MainActivity::class.java)
