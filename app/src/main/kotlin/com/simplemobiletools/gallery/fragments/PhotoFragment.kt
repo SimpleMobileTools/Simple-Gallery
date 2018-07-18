@@ -47,7 +47,9 @@ import java.io.File
 import java.io.FileOutputStream
 
 class PhotoFragment : ViewPagerFragment() {
-    private var DEFAULT_DOUBLE_TAP_ZOOM = 2f
+    private val DEFAULT_DOUBLE_TAP_ZOOM = 2f
+    private val ZOOMABLE_VIEW_LOAD_DELAY = 1500L
+
     private var isFragmentVisible = false
     private var isFullscreen = false
     private var wasInit = false
@@ -55,6 +57,7 @@ class PhotoFragment : ViewPagerFragment() {
     private var isPanorama = false
     private var imageOrientation = -1
     private var gifDrawable: GifDrawable? = null
+    private var loadZoomableViewHandler = Handler()
 
     private var storedShowExtendedDetails = false
     private var storedHideExtendedDetails = false
@@ -184,7 +187,9 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun photoFragmentVisibilityChanged(isVisible: Boolean) {
         if (isVisible) {
-            addZoomableView()
+            scheduleZoomableView()
+        } else {
+            loadZoomableViewHandler.removeCallbacksAndMessages(null)
         }
     }
 
@@ -276,8 +281,9 @@ class PhotoFragment : ViewPagerFragment() {
                         }
 
                         override fun onResourceReady(resource: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                            if (isFragmentVisible)
-                                addZoomableView()
+                            if (isFragmentVisible) {
+                                scheduleZoomableView()
+                            }
                             return false
                         }
                     }).into(view.photo_view)
@@ -302,46 +308,53 @@ class PhotoFragment : ViewPagerFragment() {
         }
     }
 
-    private fun addZoomableView() {
-        if (!context!!.config.replaceZoomableImages && medium.isImage() && isFragmentVisible && view.subsampling_view.isGone()) {
-            ViewPagerActivity.wasDecodedByGlide = false
-            view.subsampling_view.apply {
-                maxScale = 10f
-                beVisible()
-                isQuickScaleEnabled = context.config.oneFingerZoom
-                setResetScaleOnSizeChange(context.config.screenRotation != ROTATE_BY_ASPECT_RATIO)
-                setImage(ImageSource.uri(getPathToLoad(medium)))
-                orientation = if (imageOrientation == -1) SubsamplingScaleImageView.ORIENTATION_USE_EXIF else degreesForRotation(imageOrientation)
-                setEagerLoadingEnabled(false)
-                setExecutor(AsyncTask.SERIAL_EXECUTOR)
-                setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {
-                    override fun onImageLoaded() {
-                    }
-
-                    override fun onReady() {
-                        background = ColorDrawable(if (context.config.blackBackground) Color.BLACK else context.config.backgroundColor)
-                        val useWidth = if (imageOrientation == ORIENTATION_ROTATE_90 || imageOrientation == ORIENTATION_ROTATE_270) sHeight else sWidth
-                        val useHeight = if (imageOrientation == ORIENTATION_ROTATE_90 || imageOrientation == ORIENTATION_ROTATE_270) sWidth else sHeight
-                        setDoubleTapZoomScale(getDoubleTapZoomScale(useWidth, useHeight))
-                    }
-
-                    override fun onTileLoadError(e: Exception?) {
-                    }
-
-                    override fun onPreviewReleased() {
-                    }
-
-                    override fun onImageLoadError(e: Exception) {
-                        background = ColorDrawable(Color.TRANSPARENT)
-                        beGone()
-                    }
-
-                    override fun onPreviewLoadError(e: Exception?) {
-                        background = ColorDrawable(Color.TRANSPARENT)
-                        beGone()
-                    }
-                })
+    private fun scheduleZoomableView() {
+        loadZoomableViewHandler.removeCallbacksAndMessages(null)
+        loadZoomableViewHandler.postDelayed({
+            if (isFragmentVisible && !context!!.config.replaceZoomableImages && medium.isImage() && view.subsampling_view.isGone()) {
+                addZoomableView()
             }
+        }, ZOOMABLE_VIEW_LOAD_DELAY)
+    }
+
+    private fun addZoomableView() {
+        ViewPagerActivity.wasDecodedByGlide = false
+        view.subsampling_view.apply {
+            maxScale = 10f
+            beVisible()
+            isQuickScaleEnabled = context.config.oneFingerZoom
+            setResetScaleOnSizeChange(context.config.screenRotation != ROTATE_BY_ASPECT_RATIO)
+            setImage(ImageSource.uri(getPathToLoad(medium)))
+            orientation = if (imageOrientation == -1) SubsamplingScaleImageView.ORIENTATION_USE_EXIF else degreesForRotation(imageOrientation)
+            setEagerLoadingEnabled(false)
+            setExecutor(AsyncTask.SERIAL_EXECUTOR)
+            setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {
+                override fun onImageLoaded() {
+                }
+
+                override fun onReady() {
+                    background = ColorDrawable(if (context.config.blackBackground) Color.BLACK else context.config.backgroundColor)
+                    val useWidth = if (imageOrientation == ORIENTATION_ROTATE_90 || imageOrientation == ORIENTATION_ROTATE_270) sHeight else sWidth
+                    val useHeight = if (imageOrientation == ORIENTATION_ROTATE_90 || imageOrientation == ORIENTATION_ROTATE_270) sWidth else sHeight
+                    setDoubleTapZoomScale(getDoubleTapZoomScale(useWidth, useHeight))
+                }
+
+                override fun onTileLoadError(e: Exception?) {
+                }
+
+                override fun onPreviewReleased() {
+                }
+
+                override fun onImageLoadError(e: Exception) {
+                    background = ColorDrawable(Color.TRANSPARENT)
+                    beGone()
+                }
+
+                override fun onPreviewLoadError(e: Exception?) {
+                    background = ColorDrawable(Color.TRANSPARENT)
+                    beGone()
+                }
+            })
         }
     }
 
@@ -431,6 +444,7 @@ class PhotoFragment : ViewPagerFragment() {
             Glide.with(context!!).clear(view.photo_view)
             view.subsampling_view.recycle()
         }
+        loadZoomableViewHandler.removeCallbacksAndMessages(null)
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
