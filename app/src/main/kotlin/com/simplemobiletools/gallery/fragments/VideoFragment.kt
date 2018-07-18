@@ -431,7 +431,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
-    private fun videoEnded() = mExoPlayer!!.currentPosition >= mExoPlayer!!.duration
+    private fun videoEnded() = mExoPlayer?.currentPosition ?: 0 >= mExoPlayer?.duration ?: 0
 
     private fun setProgress(seconds: Int) {
         mExoPlayer!!.seekTo(seconds * 1000L)
