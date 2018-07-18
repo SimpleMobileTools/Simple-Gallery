@@ -58,6 +58,7 @@ const val WAS_RECYCLE_BIN_PINNED = "was_recycle_bin_pinned"
 const val USE_RECYCLE_BIN = "use_recycle_bin"
 const val GROUP_BY = "group_by"
 const val EVER_SHOWN_FOLDERS = "ever_shown_folders"
+const val SHOW_RECYCLE_BIN_AT_FOLDERS = "show_recycle_bin_at_folders"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"

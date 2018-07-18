@@ -749,7 +749,12 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         val foldersToScan = mediaFetcher.getFoldersToScan()
         foldersToScan.add(FAVORITES)
-        foldersToScan.add(RECYCLE_BIN)
+        if (config.showRecycleBinAtFolders) {
+            foldersToScan.add(RECYCLE_BIN)
+        } else {
+            foldersToScan.remove(RECYCLE_BIN)
+        }
+
         dirs.forEach {
             foldersToScan.remove(it.path)
         }

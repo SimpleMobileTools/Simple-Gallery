@@ -376,4 +376,8 @@ class Config(context: Context) : BaseConfig(context) {
             Environment.DIRECTORY_DCIM,
             Environment.DIRECTORY_PICTURES
     )
+
+    var showRecycleBinAtFolders: Boolean
+        get() = prefs.getBoolean(SHOW_RECYCLE_BIN_AT_FOLDERS, true)
+        set(showRecycleBinAtFolders) = prefs.edit().putBoolean(SHOW_RECYCLE_BIN_AT_FOLDERS, showRecycleBinAtFolders).apply()
 }

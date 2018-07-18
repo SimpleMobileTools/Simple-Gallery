@@ -75,6 +75,7 @@ class SettingsActivity : SimpleActivity() {
         setupSkipDeleteConfirmation()
         setupManageBottomActions()
         setupUseRecycleBin()
+        setupShowRecycleBin()
         setupEmptyRecycleBin()
         updateTextColors(settings_holder)
         setupSectionColors()
@@ -441,11 +442,20 @@ class SettingsActivity : SimpleActivity() {
 
     private fun setupUseRecycleBin() {
         settings_empty_recycle_bin_holder.beVisibleIf(config.useRecycleBin)
+        settings_show_recycle_bin_holder.beVisibleIf(config.useRecycleBin)
         settings_use_recycle_bin.isChecked = config.useRecycleBin
         settings_use_recycle_bin_holder.setOnClickListener {
             settings_use_recycle_bin.toggle()
             config.useRecycleBin = settings_use_recycle_bin.isChecked
             settings_empty_recycle_bin_holder.beVisibleIf(config.useRecycleBin)
+        }
+    }
+
+    private fun setupShowRecycleBin() {
+        settings_show_recycle_bin.isChecked = config.showRecycleBinAtFolders
+        settings_show_recycle_bin_holder.setOnClickListener {
+            settings_show_recycle_bin.toggle()
+            config.showRecycleBinAtFolders = settings_show_recycle_bin.isChecked
         }
     }
 

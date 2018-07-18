@@ -288,6 +288,11 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
         } catch (e: SQLiteException) {
             ArrayList<Directory>()
         }
+
+        if (!config.showRecycleBinAtFolders) {
+            directories.removeAll { it.isRecycleBin() }
+        }
+
         val shouldShowHidden = config.shouldShowHidden
         val excludedPaths = config.excludedFolders
         val includedPaths = config.includedFolders
