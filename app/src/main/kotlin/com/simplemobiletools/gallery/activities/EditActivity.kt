@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Bitmap.CompressFormat
+import android.graphics.Color
 import android.graphics.Point
 import android.net.Uri
 import android.os.Bundle
@@ -18,6 +19,7 @@ import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.dialogs.ResizeDialog
 import com.simplemobiletools.gallery.dialogs.SaveAsDialog
+import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.openEditor
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.activity_edit.*
@@ -34,10 +36,15 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private val ASPECT_RATIO_FOUR_THREE = 2
     private val ASPECT_RATIO_SIXTEEN_NINE = 3
 
+    // constants for bottom primary action groups
+    private val PRIMARY_NONE = 0
+    private val PRIMARY_ASPECT_RATIO = 1
+
     private lateinit var uri: Uri
     private lateinit var saveUri: Uri
     private var resizeWidth = 0
     private var resizeHeight = 0
+    private var currPrimaryAction = 0
     private var isCropIntent = false
     private var isEditingWithThirdParty = false
     private var currentAspectRatio = ASPECT_RATIO_ANY
@@ -147,6 +154,25 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         bottom_flip_vertically.setOnClickListener {
             crop_image_view.flipImageVertically()
         }
+
+        bottom_aspect_ratio.setOnClickListener {
+            currPrimaryAction = if (currPrimaryAction == PRIMARY_ASPECT_RATIO) 0 else PRIMARY_ASPECT_RATIO
+            updatePrimaryActions()
+        }
+    }
+
+    private fun updatePrimaryActions() {
+        val primaryColor = config.primaryColor
+        arrayOf(bottom_aspect_ratio).forEach {
+            it.applyColorFilter(Color.WHITE)
+        }
+
+        val primaryActionView = when (currPrimaryAction) {
+            PRIMARY_ASPECT_RATIO -> bottom_aspect_ratio
+            else -> null
+        }
+
+        primaryActionView?.applyColorFilter(primaryColor)
     }
 
     private fun resizeImage() {
