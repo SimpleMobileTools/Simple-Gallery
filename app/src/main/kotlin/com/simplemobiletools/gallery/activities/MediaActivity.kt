@@ -261,7 +261,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private fun setupSearch(menu: Menu) {
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         mSearchMenuItem = menu.findItem(R.id.search)
-        (mSearchMenuItem!!.actionView as SearchView).apply {
+        (mSearchMenuItem?.actionView as? SearchView)?.apply {
             setSearchableInfo(searchManager.getSearchableInfo(componentName))
             isSubmitButtonEnabled = false
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
