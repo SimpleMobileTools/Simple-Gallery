@@ -205,7 +205,7 @@ fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback:
         var pathsCnt = paths.size
         paths.forEach {
             val file = File(it)
-            val internalFile = File(filesDir, it)
+            val internalFile = File(filesDir.absolutePath, it)
             try {
                 if (file.copyRecursively(internalFile, true)) {
                     mediumDao.updateDeleted(it, System.currentTimeMillis())

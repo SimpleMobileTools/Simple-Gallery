@@ -402,7 +402,7 @@ fun Context.getFavoritePaths() = galleryDB.MediumDao().getFavoritePaths() as Arr
 fun Context.getUpdatedDeletedMedia(mediumDao: MediumDao): ArrayList<Medium> {
     val media = mediumDao.getDeletedMedia() as ArrayList<Medium>
     media.forEach {
-        it.path = File(filesDir, it.path).toString()
+        it.path = File(filesDir.absolutePath, it.path).toString()
     }
     return media
 }
