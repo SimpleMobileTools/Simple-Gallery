@@ -153,7 +153,7 @@
     <string name="hide_extended_details">Ocultar detalles ampliados cuando la barra de estado está oculta</string>
     <string name="do_extra_check">Hacer una comprobación adicional para evitar mostrar archivos inválidos</string>
     <string name="show_at_bottom">Mostrar algunos botones de acción en la parte inferior de la pantalla</string>
-    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
+    <string name="show_recycle_bin">Muestra la papelera de reciclaje en la pantalla de carpetas</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
