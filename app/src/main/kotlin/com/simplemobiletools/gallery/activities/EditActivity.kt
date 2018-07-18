@@ -32,7 +32,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private val ASPECT_Y = "aspectY"
     private val CROP = "crop"
 
-    private val ASPECT_RATIO_ANY = 0
+    private val ASPECT_RATIO_FREE = 0
     private val ASPECT_RATIO_ONE_ONE = 1
     private val ASPECT_RATIO_FOUR_THREE = 2
     private val ASPECT_RATIO_SIXTEEN_NINE = 3
@@ -48,7 +48,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private var currPrimaryAction = 0
     private var isCropIntent = false
     private var isEditingWithThirdParty = false
-    private var currentAspectRatio = ASPECT_RATIO_ANY
+    private var currentAspectRatio = ASPECT_RATIO_FREE
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -139,6 +139,11 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun setupBottomActions() {
+        setupPrimaryActionButtons()
+        setupAspectRatioButtons()
+    }
+
+    private fun setupPrimaryActionButtons() {
         bottom_rotate.setOnClickListener {
             crop_image_view.rotateImage(90)
         }
@@ -157,33 +162,71 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
 
         bottom_aspect_ratio.setOnClickListener {
-            currPrimaryAction = if (currPrimaryAction == PRIMARY_ASPECT_RATIO) 0 else PRIMARY_ASPECT_RATIO
-            updatePrimaryActions()
+            currPrimaryAction = if (currPrimaryAction == PRIMARY_ASPECT_RATIO) {
+                bottom_aspect_ratios.beGone()
+                PRIMARY_NONE
+            } else {
+                bottom_aspect_ratios.beVisible()
+                PRIMARY_ASPECT_RATIO
+            }
+            updatePrimaryActionButtons()
         }
-
-        setupAspectRatios()
     }
 
-    private fun setupAspectRatios() {
+    private fun setupAspectRatioButtons() {
         bottom_aspect_ratio_free.setOnClickListener {
-
+            updateAspectRatio(ASPECT_RATIO_FREE)
         }
 
         bottom_aspect_ratio_one_one.setOnClickListener {
-
+            updateAspectRatio(ASPECT_RATIO_ONE_ONE)
         }
 
         bottom_aspect_ratio_four_three.setOnClickListener {
-
+            updateAspectRatio(ASPECT_RATIO_FOUR_THREE)
         }
 
         bottom_aspect_ratio_sixteen_nine.setOnClickListener {
+            updateAspectRatio(ASPECT_RATIO_SIXTEEN_NINE)
+        }
+        updateAspectRatioButtons()
+    }
 
+    private fun updateAspectRatio(aspectRatio: Int) {
+        currentAspectRatio = aspectRatio
+        updateAspectRatioButtons()
+
+        crop_image_view.apply {
+            if (aspectRatio == ASPECT_RATIO_FREE) {
+                setFixedAspectRatio(false)
+            } else {
+                val newAspectRatio = when (aspectRatio) {
+                    ASPECT_RATIO_ONE_ONE -> Pair(1, 1)
+                    ASPECT_RATIO_FOUR_THREE -> Pair(4, 3)
+                    else -> Pair(16, 9)
+                }
+
+                setAspectRatio(newAspectRatio.first, newAspectRatio.second)
+            }
         }
     }
 
-    private fun updatePrimaryActions() {
-        val primaryColor = config.primaryColor
+    private fun updateAspectRatioButtons() {
+        arrayOf(bottom_aspect_ratio_free, bottom_aspect_ratio_one_one, bottom_aspect_ratio_four_three, bottom_aspect_ratio_sixteen_nine).forEach {
+            it.setTextColor(Color.WHITE)
+        }
+
+        val currentAspectRatioButton = when (currentAspectRatio) {
+            ASPECT_RATIO_FREE -> bottom_aspect_ratio_free
+            ASPECT_RATIO_ONE_ONE -> bottom_aspect_ratio_one_one
+            ASPECT_RATIO_FOUR_THREE -> bottom_aspect_ratio_four_three
+            else -> bottom_aspect_ratio_sixteen_nine
+        }
+
+        currentAspectRatioButton.setTextColor(config.primaryColor)
+    }
+
+    private fun updatePrimaryActionButtons() {
         arrayOf(bottom_aspect_ratio).forEach {
             it.applyColorFilter(Color.WHITE)
         }
@@ -193,7 +236,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             else -> null
         }
 
-        primaryActionView?.applyColorFilter(primaryColor)
+        primaryActionView?.applyColorFilter(config.primaryColor)
     }
 
     private fun resizeImage() {
