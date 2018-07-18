@@ -27,9 +27,20 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_minimize"
-        app:layout_constraintEnd_toStartOf="@+id/bottom_flip_horizontally"
+        app:layout_constraintEnd_toStartOf="@+id/bottom_aspect_ratio"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bottom_rotate"/>
+
+    <ImageView
+        android:id="@+id/bottom_aspect_ratio"
+        style="@style/MyBorderlessBackgroundStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/medium_margin"
+        android:src="@drawable/ic_aspect_ratio"
+        app:layout_constraintEnd_toStartOf="@+id/bottom_flip_horizontally"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bottom_resize"/>
 
     <ImageView
         android:id="@+id/bottom_flip_horizontally"
@@ -40,7 +51,7 @@
         android:src="@drawable/ic_flip_horizontally"
         app:layout_constraintEnd_toStartOf="@+id/bottom_flip_vertically"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bottom_resize"/>
+        app:layout_constraintStart_toEndOf="@+id/bottom_aspect_ratio"/>
 
     <ImageView
         android:id="@+id/bottom_flip_vertically"

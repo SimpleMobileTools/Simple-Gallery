@@ -29,12 +29,18 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private val ASPECT_Y = "aspectY"
     private val CROP = "crop"
 
+    private val ASPECT_RATIO_ANY = 0
+    private val ASPECT_RATIO_ONE_ONE = 1
+    private val ASPECT_RATIO_FOUR_THREE = 2
+    private val ASPECT_RATIO_SIXTEEN_NINE = 3
+
     private lateinit var uri: Uri
     private lateinit var saveUri: Uri
     private var resizeWidth = 0
     private var resizeHeight = 0
     private var isCropIntent = false
     private var isEditingWithThirdParty = false
+    private var currentAspectRatio = ASPECT_RATIO_ANY
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -88,8 +94,11 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             setOnCropImageCompleteListener(this@EditActivity)
             setImageUriAsync(uri)
 
-            if (isCropIntent && shouldCropSquare())
+            if (isCropIntent && shouldCropSquare()) {
+                currentAspectRatio = ASPECT_RATIO_ONE_ONE
                 setFixedAspectRatio(true)
+                bottom_aspect_ratio.beGone()
+            }
         }
 
         setupBottomActions()
