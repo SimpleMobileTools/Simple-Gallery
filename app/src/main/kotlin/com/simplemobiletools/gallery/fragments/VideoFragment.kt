@@ -5,6 +5,7 @@ import android.content.res.Configuration
 import android.graphics.Point
 import android.graphics.SurfaceTexture
 import android.media.AudioManager
+import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -14,6 +15,7 @@ import android.view.*
 import android.view.animation.AnimationUtils
 import android.widget.SeekBar
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.google.android.exoplayer2.*
 import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory
 import com.google.android.exoplayer2.source.ExtractorMediaSource
@@ -110,54 +112,24 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
             video_curr_time.setOnClickListener { skip(false) }
             video_duration.setOnClickListener { skip(true) }
+            Glide.with(context!!).load(medium.path).into(video_preview)
         }
 
         mExoPlayer = ExoPlayerFactory.newSimpleInstance(context, DefaultTrackSelector())
-        mExoPlayer!!.addListener(object : Player.EventListener {
-            override fun onPlaybackParametersChanged(playbackParameters: PlaybackParameters?) {}
+        initExoPlayerListeners()
 
-            override fun onSeekProcessed() {}
-
-            override fun onTracksChanged(trackGroups: TrackGroupArray?, trackSelections: TrackSelectionArray?) {}
-
-            override fun onPlayerError(error: ExoPlaybackException?) {
-                mIsExoPlayerInitialized = false
-            }
-
-            override fun onLoadingChanged(isLoading: Boolean) {}
-
-            override fun onPositionDiscontinuity(reason: Int) {}
-
-            override fun onRepeatModeChanged(repeatMode: Int) {}
-
-            override fun onShuffleModeEnabledChanged(shuffleModeEnabled: Boolean) {}
-
-            override fun onTimelineChanged(timeline: Timeline?, manifest: Any?, reason: Int) {}
-
-            override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
-                mIsExoPlayerInitialized = playbackState == Player.STATE_READY || playbackState == Player.STATE_ENDED
-                when (playbackState) {
-                    Player.STATE_READY -> videoPrepared()
-                    Player.STATE_ENDED -> videoCompleted()
-                }
-            }
-        })
-
-        mExoPlayer!!.addVideoListener(object : VideoListener {
-            override fun onVideoSizeChanged(width: Int, height: Int, unappliedRotationDegrees: Int, pixelWidthHeightRatio: Float) {
-                mVideoSize.x = width
-                mVideoSize.y = height
-                setVideoSize()
-            }
-
-            override fun onRenderedFirstFrame() {}
-        })
-
-        initExoPlayer()
         medium.path.getVideoResolution()?.apply {
             mVideoSize.x = x
             mVideoSize.y = y
             setVideoSize()
+        }
+
+        setupVideoDuration()
+
+        mView!!.video_surface.onGlobalLayout {
+            if (mIsFragmentVisible && context?.config?.autoplayVideos == true) {
+                playVideo()
+            }
         }
 
         return mView
@@ -202,6 +174,25 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
     }
 
+    override fun setMenuVisibility(menuVisible: Boolean) {
+        super.setMenuVisibility(menuVisible)
+        if (mIsFragmentVisible && !menuVisible) {
+            pauseVideo()
+        }
+
+        mIsFragmentVisible = menuVisible
+        if (mWasFragmentInit && menuVisible && context?.config?.autoplayVideos == true) {
+            playVideo()
+        }
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        setVideoSize()
+        initTimeHolder()
+        checkExtendedDetails()
+    }
+
     private fun storeStateVariables() {
         context!!.config.apply {
             mStoredShowExtendedDetails = showExtendedDetails
@@ -243,29 +234,46 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         mExoPlayer!!.prepare(audioSource)
     }
 
-    override fun setMenuVisibility(menuVisible: Boolean) {
-        super.setMenuVisibility(menuVisible)
-        if (mIsFragmentVisible && !menuVisible) {
-            pauseVideo()
-        }
+    private fun initExoPlayerListeners() {
+        mExoPlayer!!.addListener(object : Player.EventListener {
+            override fun onPlaybackParametersChanged(playbackParameters: PlaybackParameters?) {}
 
-        mIsFragmentVisible = menuVisible
-        if (menuVisible && mWasFragmentInit) {
-            if (!mIsExoPlayerInitialized && mExoPlayer != null) {
-                initExoPlayer()
+            override fun onSeekProcessed() {}
+
+            override fun onTracksChanged(trackGroups: TrackGroupArray?, trackSelections: TrackSelectionArray?) {}
+
+            override fun onPlayerError(error: ExoPlaybackException?) {
+                mIsExoPlayerInitialized = false
             }
 
-            if (context?.config?.autoplayVideos == true) {
-                playVideo()
-            }
-        }
-    }
+            override fun onLoadingChanged(isLoading: Boolean) {}
 
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        setVideoSize()
-        initTimeHolder()
-        checkExtendedDetails()
+            override fun onPositionDiscontinuity(reason: Int) {}
+
+            override fun onRepeatModeChanged(repeatMode: Int) {}
+
+            override fun onShuffleModeEnabledChanged(shuffleModeEnabled: Boolean) {}
+
+            override fun onTimelineChanged(timeline: Timeline?, manifest: Any?, reason: Int) {}
+
+            override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
+                mIsExoPlayerInitialized = playbackState == Player.STATE_READY || playbackState == Player.STATE_ENDED
+                when (playbackState) {
+                    Player.STATE_READY -> videoPrepared()
+                    Player.STATE_ENDED -> videoCompleted()
+                }
+            }
+        })
+
+        mExoPlayer!!.addVideoListener(object : VideoListener {
+            override fun onVideoSizeChanged(width: Int, height: Int, unappliedRotationDegrees: Int, pixelWidthHeightRatio: Float) {
+                mVideoSize.x = width
+                mVideoSize.y = height
+                setVideoSize()
+            }
+
+            override fun onRenderedFirstFrame() {}
+        })
     }
 
     private fun toggleFullscreen() {
@@ -390,6 +398,11 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             return
         }
 
+        if (mView!!.video_preview.isVisible()) {
+            mView!!.video_preview.beGone()
+            initExoPlayer()
+        }
+
         if (videoEnded()) {
             setProgress(0)
         }
@@ -424,6 +437,18 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         mExoPlayer!!.seekTo(seconds * 1000L)
         mSeekBar!!.progress = seconds
         mCurrTimeView!!.text = seconds.getFormattedDuration()
+    }
+
+    private fun setupVideoDuration() {
+        try {
+            val retriever = MediaMetadataRetriever()
+            retriever.setDataSource(medium.path)
+            mDuration = Math.round(retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION).toInt() / 1000f)
+        } catch (ignored: Exception) {
+        }
+
+        setupTimeHolder()
+        setProgress(0)
     }
 
     private fun videoPrepared() {
