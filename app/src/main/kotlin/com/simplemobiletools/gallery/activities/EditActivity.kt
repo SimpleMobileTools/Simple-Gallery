@@ -115,8 +115,6 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.save_as -> crop_image_view.getCroppedImageAsync()
-            R.id.flip_horizontally -> flipImage(true)
-            R.id.flip_vertically -> flipImage(false)
             R.id.edit -> editWith()
             else -> return super.onOptionsItemSelected(item)
         }
@@ -131,6 +129,14 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         bottom_resize.beGoneIf(isCropIntent)
         bottom_resize.setOnClickListener {
             resizeImage()
+        }
+
+        bottom_flip_horizontally.setOnClickListener {
+            crop_image_view.flipImageHorizontally()
+        }
+
+        bottom_flip_vertically.setOnClickListener {
+            crop_image_view.flipImageVertically()
         }
     }
 
@@ -256,14 +262,6 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         setResult(Activity.RESULT_OK, intent)
         scanFinalPath(file.absolutePath)
         out.close()
-    }
-
-    private fun flipImage(horizontally: Boolean) {
-        if (horizontally) {
-            crop_image_view.flipImageHorizontally()
-        } else {
-            crop_image_view.flipImageVertically()
-        }
     }
 
     private fun editWith() {
