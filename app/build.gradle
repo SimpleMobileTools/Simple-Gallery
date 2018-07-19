@@ -57,6 +57,7 @@ dependencies {
     implementation 'com.google.android.exoplayer:exoplayer-core:2.8.2'
     implementation 'com.google.vr:sdk-panowidget:1.150.0'
     implementation 'org.apache.sanselan:sanselan:0.97-incubator'
+    implementation 'info.androidhive:imagefilters:1.0.7'
 
     kapt "android.arch.persistence.room:compiler:1.1.1"
     implementation "android.arch.persistence.room:runtime:1.1.1"

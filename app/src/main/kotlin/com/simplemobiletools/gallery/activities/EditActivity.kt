@@ -11,24 +11,35 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
+import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.adapters.FiltersAdapter
 import com.simplemobiletools.gallery.dialogs.ResizeDialog
 import com.simplemobiletools.gallery.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.openEditor
+import com.simplemobiletools.gallery.models.FilterItem
 import com.theartofdev.edmodo.cropper.CropImageView
+import com.zomato.photofilters.FilterPack
 import kotlinx.android.synthetic.main.activity_edit.*
 import kotlinx.android.synthetic.main.bottom_actions_aspect_ratio.*
+import kotlinx.android.synthetic.main.bottom_editor_actions_filter.*
 import kotlinx.android.synthetic.main.bottom_editor_crop_rotate_actions.*
 import kotlinx.android.synthetic.main.bottom_editor_primary_actions.*
 import java.io.*
 
 class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener {
+    companion object {
+        init {
+            System.loadLibrary("NativeImageProcessor")
+        }
+    }
+
     private val ASPECT_X = "aspectX"
     private val ASPECT_Y = "aspectY"
     private val CROP = "crop"
@@ -237,9 +248,27 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         bottom_editor_filter_actions.beVisibleIf(currPrimaryAction == PRIMARY_ACTION_FILTER)
         bottom_editor_crop_rotate_actions.beVisibleIf(currPrimaryAction == PRIMARY_ACTION_CROP_ROTATE)
 
+        if (currPrimaryAction == PRIMARY_ACTION_FILTER) {
+            Thread {
+                val size = resources.getDimension(R.dimen.bottom_filters_thumbnail_height).toInt()
+                val bitmap = Glide.with(this).asBitmap().load(uri).submit(size, size).get()
+                runOnUiThread {
+                    val filterItems = FilterPack.getFilterPack(this).map { FilterItem(bitmap, it) } as ArrayList<FilterItem>
+
+                    val adapter = FiltersAdapter(filterItems) {
+
+                    }
+
+                    bottom_actions_filter_list.adapter = adapter
+                    adapter.notifyDataSetChanged()
+                }
+            }.start()
+        }
+
         if (currPrimaryAction != PRIMARY_ACTION_CROP_ROTATE) {
             bottom_aspect_ratios.beGone()
             currCropRotateAction = CROP_ROTATE_NONE
+            updateCropRotateActionButtons()
         }
     }
 
