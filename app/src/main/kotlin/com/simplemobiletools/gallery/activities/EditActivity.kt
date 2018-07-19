@@ -234,11 +234,11 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
 
         currentPrimaryActionButton?.applyColorFilter(config.primaryColor)
-        if (currPrimaryAction == PRIMARY_ACTION_CROP_ROTATE) {
-            bottom_editor_edit_actions.beVisible()
-        } else {
+        bottom_editor_filter_actions.beVisibleIf(currPrimaryAction == PRIMARY_ACTION_FILTER)
+        bottom_editor_crop_rotate_actions.beVisibleIf(currPrimaryAction == PRIMARY_ACTION_CROP_ROTATE)
+
+        if (currPrimaryAction != PRIMARY_ACTION_CROP_ROTATE) {
             bottom_aspect_ratios.beGone()
-            bottom_editor_edit_actions.beGone()
             currCropRotateAction = CROP_ROTATE_NONE
         }
     }
