@@ -165,9 +165,11 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
         bottom_aspect_ratio.setOnClickListener {
             currPrimaryAction = if (currPrimaryAction == PRIMARY_ASPECT_RATIO) {
+                crop_image_view.guidelines = CropImageView.Guidelines.OFF
                 bottom_aspect_ratios.beGone()
                 PRIMARY_NONE
             } else {
+                crop_image_view.guidelines = CropImageView.Guidelines.ON
                 bottom_aspect_ratios.beVisible()
                 PRIMARY_ASPECT_RATIO
             }
