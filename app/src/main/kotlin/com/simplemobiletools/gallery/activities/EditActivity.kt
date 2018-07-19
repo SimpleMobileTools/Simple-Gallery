@@ -45,7 +45,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private lateinit var saveUri: Uri
     private var resizeWidth = 0
     private var resizeHeight = 0
-    private var currPrimaryAction = 0
+    private var currPrimaryAction = PRIMARY_NONE
     private var isCropIntent = false
     private var isEditingWithThirdParty = false
     private var currentAspectRatio = ASPECT_RATIO_FREE
@@ -101,6 +101,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         crop_image_view.apply {
             setOnCropImageCompleteListener(this@EditActivity)
             setImageUriAsync(uri)
+            guidelines = CropImageView.Guidelines.ON
 
             if (isCropIntent && shouldCropSquare()) {
                 currentAspectRatio = ASPECT_RATIO_ONE_ONE
@@ -110,6 +111,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
 
         setupBottomActions()
+        bottom_aspect_ratio.performClick()
     }
 
     override fun onResume() {
