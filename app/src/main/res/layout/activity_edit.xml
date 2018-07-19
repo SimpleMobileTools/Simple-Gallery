@@ -19,11 +19,19 @@
         layout="@layout/bottom_actions_aspect_ratio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/bottom_editor_actions"
+        android:layout_above="@+id/bottom_editor_edit_actions"
         android:visibility="gone"/>
 
     <include
-        android:id="@+id/bottom_editor_actions"
-        layout="@layout/bottom_editor_actions"/>
+        android:id="@+id/bottom_editor_edit_actions"
+        layout="@layout/bottom_editor_crop_rotate_actions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_editor_primary_actions"
+        android:visibility="gone"/>
+
+    <include
+        android:id="@+id/bottom_editor_primary_actions"
+        layout="@layout/bottom_editor_primary_actions"/>
 
 </RelativeLayout>
