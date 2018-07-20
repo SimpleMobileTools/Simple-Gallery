@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.helpers
 
+import android.graphics.Bitmap
 import com.simplemobiletools.gallery.models.FilterItem
 import java.util.*
 
@@ -13,7 +14,7 @@ object FilterThumbnailsManager {
 
     fun processThumbs(): ArrayList<FilterItem> {
         for (filterItem in filterThumbnails) {
-            filterItem.bitmap = filterItem.filter.processFilter(filterItem.bitmap)
+            filterItem.bitmap = filterItem.filter.processFilter(Bitmap.createBitmap(filterItem.bitmap))
             processedThumbnails.add(filterItem)
         }
         return processedThumbnails
