@@ -254,14 +254,15 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 val size = resources.getDimension(R.dimen.bottom_filters_thumbnail_height).toInt()
                 val bitmap = Glide.with(this).asBitmap().load(uri).submit(size, size).get()
                 runOnUiThread {
-                    FilterThumbnailsManager.clearThumbs()
+                    val filterThumbnailsManager = FilterThumbnailsManager()
+                    filterThumbnailsManager.clearThumbs()
 
                     FilterPack.getFilterPack(this).forEach {
                         val filterItem = FilterItem(bitmap, it)
-                        FilterThumbnailsManager.addThumb(filterItem)
+                        filterThumbnailsManager.addThumb(filterItem)
                     }
 
-                    val filterItems = FilterThumbnailsManager.processThumbs()
+                    val filterItems = filterThumbnailsManager.processThumbs()
                     val adapter = FiltersAdapter(filterItems) {
 
                     }
