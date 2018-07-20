@@ -23,6 +23,7 @@ import com.simplemobiletools.gallery.dialogs.ResizeDialog
 import com.simplemobiletools.gallery.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.openEditor
+import com.simplemobiletools.gallery.helpers.FilterThumbnailsManager
 import com.simplemobiletools.gallery.models.FilterItem
 import com.theartofdev.edmodo.cropper.CropImageView
 import com.zomato.photofilters.FilterPack
@@ -253,8 +254,14 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 val size = resources.getDimension(R.dimen.bottom_filters_thumbnail_height).toInt()
                 val bitmap = Glide.with(this).asBitmap().load(uri).submit(size, size).get()
                 runOnUiThread {
-                    val filterItems = FilterPack.getFilterPack(this).map { FilterItem(bitmap, it) } as ArrayList<FilterItem>
+                    FilterThumbnailsManager.clearThumbs()
 
+                    FilterPack.getFilterPack(this).forEach {
+                        val filterItem = FilterItem(bitmap, it)
+                        FilterThumbnailsManager.addThumb(filterItem)
+                    }
+
+                    val filterItems = FilterThumbnailsManager.processThumbs()
                     val adapter = FiltersAdapter(filterItems) {
 
                     }
