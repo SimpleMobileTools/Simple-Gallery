@@ -249,7 +249,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         bottom_editor_filter_actions.beVisibleIf(currPrimaryAction == PRIMARY_ACTION_FILTER)
         bottom_editor_crop_rotate_actions.beVisibleIf(currPrimaryAction == PRIMARY_ACTION_CROP_ROTATE)
 
-        if (currPrimaryAction == PRIMARY_ACTION_FILTER) {
+        if (currPrimaryAction == PRIMARY_ACTION_FILTER && bottom_actions_filter_list.adapter == null) {
             Thread {
                 val size = resources.getDimension(R.dimen.bottom_filters_thumbnail_height).toInt()
                 val bitmap = Glide.with(this).asBitmap().load(uri).submit(size, size).get()
