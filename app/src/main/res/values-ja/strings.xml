@@ -5,11 +5,11 @@
     <string name="edit">編集</string>
     <string name="open_camera">カメラを開く</string>
     <string name="hidden">(非表示)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(除外)</string>
     <string name="pin_folder">フォルダをピン留めする</string>
     <string name="unpin_folder">フォルダのピン留めを外す</string>
     <string name="pin_to_the_top">トップにピン留めする</string>
-    <string name="show_all">全てを表示</string>
+    <string name="show_all">すべてを表示</string>
     <string name="all_folders">すべてのフォルダ</string>
     <string name="folder_view">フォルダを選択する</string>
     <string name="other_folder">その他のフォルダ</string>
@@ -114,13 +114,13 @@
     <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Group by</string>
-    <string name="do_not_group_files">Do not group files</string>
-    <string name="by_folder">Folder</string>
-    <string name="by_last_modified">Last modified</string>
-    <string name="by_date_taken">Date taken</string>
-    <string name="by_file_type">File type</string>
-    <string name="by_extension">Extension</string>
+    <string name="group_by">グループで表示</string>
+    <string name="do_not_group_files">グループで表示しない</string>
+    <string name="by_folder">フォルダー</string>
+    <string name="by_last_modified">更新日時</string>
+    <string name="by_date_taken">撮影日時</string>
+    <string name="by_file_type">ファイルの種類</string>
+    <string name="by_extension">拡張子</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">ビデオを自動再生する</string>
@@ -148,7 +148,7 @@
     <string name="replace_zoomable_images">ズーム可能な画像をより高画質なものに置き換える</string>
     <string name="hide_extended_details">ステータスバーが非表示の時は詳細を表示しない</string>
     <string name="do_extra_check">無効なファイルを表示しないための調査を行います</string>
-    <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
+    <string name="show_at_bottom">画面の下部にいくつかのアクションボタンを表示する</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">サムネイル</string>
