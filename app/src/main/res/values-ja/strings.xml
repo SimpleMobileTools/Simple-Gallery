@@ -5,11 +5,11 @@
     <string name="edit">編集</string>
     <string name="open_camera">カメラを開く</string>
     <string name="hidden">(非表示)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(除外)</string>
     <string name="pin_folder">フォルダをピン留めする</string>
     <string name="unpin_folder">フォルダのピン留めを外す</string>
     <string name="pin_to_the_top">トップにピン留めする</string>
-    <string name="show_all">全てを表示</string>
+    <string name="show_all">すべてを表示</string>
     <string name="all_folders">すべてのフォルダ</string>
     <string name="folder_view">フォルダを選択する</string>
     <string name="other_folder">その他のフォルダ</string>
@@ -122,7 +122,7 @@
     <string name="group_by">グループ分け</string>
     <string name="do_not_group_files">何もしない</string>
     <string name="by_folder">フォルダ</string>
-    <string name="by_last_modified">最終更新</string>
+    <string name="by_last_modified">更新日時</string>
     <string name="by_date_taken">撮影日時</string>
     <string name="by_file_type">ファイル形式</string>
     <string name="by_extension">拡張子</string>
@@ -153,8 +153,8 @@
     <string name="replace_zoomable_images">ズームが可能な画像を高画質な物にする</string>
     <string name="hide_extended_details">ステータスバーが非表示の時は詳細を隠す</string>
     <string name="do_extra_check">無効なファイルを見せない調整を行う</string>
-    <string name="show_at_bottom">画面下部にアクションボタンを表示</string>
-    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
+    <string name="show_at_bottom">画面下部にアクションボタンを表示する</string>
+    <string name="show_recycle_bin">フォルダ画面にごみ箱を表示する</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">サムネイル設定</string>
