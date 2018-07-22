@@ -6,11 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/default_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/activity_margin"/>
+
     <com.theartofdev.edmodo.cropper.CropImageView
         android:id="@+id/crop_image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/activity_margin"
+        android:visibility="gone"
         app:cropBackgroundColor="@color/crop_image_view_background"
         app:cropInitialCropWindowPaddingRatio="0"/>
 

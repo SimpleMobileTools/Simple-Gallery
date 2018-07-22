@@ -115,19 +115,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
 
         isCropIntent = intent.extras?.get(CROP) == "true"
-
-        crop_image_view.apply {
-            setOnCropImageCompleteListener(this@EditActivity)
-            setImageUriAsync(uri)
-            guidelines = CropImageView.Guidelines.ON
-
-            if (isCropIntent && shouldCropSquare()) {
-                currAspectRatio = ASPECT_RATIO_ONE_ONE
-                setFixedAspectRatio(true)
-                bottom_aspect_ratio.beGone()
-            }
-        }
-
+        Glide.with(this).load(uri).into(default_image_view)
         setupBottomActions()
     }
 
@@ -155,6 +143,20 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             else -> return super.onOptionsItemSelected(item)
         }
         return true
+    }
+
+    private fun loadCropImageView() {
+        crop_image_view.apply {
+            setOnCropImageCompleteListener(this@EditActivity)
+            setImageUriAsync(uri)
+            guidelines = CropImageView.Guidelines.ON
+
+            if (isCropIntent && shouldCropSquare()) {
+                currAspectRatio = ASPECT_RATIO_ONE_ONE
+                setFixedAspectRatio(true)
+                bottom_aspect_ratio.beGone()
+            }
+        }
     }
 
     private fun setupBottomActions() {
