@@ -73,7 +73,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private var isCropIntent = false
     private var isEditingWithThirdParty = false
 
-    private var shownBitmap: Bitmap? = null
+    private var initialBitmap: Bitmap? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -128,8 +128,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 .listener(object : RequestListener<Bitmap> {
                     override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean) = false
 
-                    override fun onResourceReady(resource: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                        shownBitmap = resource
+                    override fun onResourceReady(bitmap: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+                        initialBitmap = bitmap
                         return false
                     }
                 }).into(default_image_view)
@@ -287,7 +287,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
                     val filterItems = filterThumbnailsManager.processThumbs()
                     val adapter = FiltersAdapter(applicationContext, filterItems) {
-                        val newBitmap = Bitmap.createBitmap(shownBitmap)
+                        val newBitmap = Bitmap.createBitmap(initialBitmap)
                         default_image_view.setImageBitmap(it.filter.processFilter(newBitmap))
                     }
 
