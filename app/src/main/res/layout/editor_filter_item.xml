@@ -4,16 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/editor_filter_item_holder"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:paddingLeft="@dimen/tiny_margin"
-    android:paddingRight="@dimen/tiny_margin"
-    android:paddingTop="@dimen/tiny_margin">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/editor_filter_item_thumbnail"
         android:layout_width="@dimen/bottom_filters_thumbnail_height"
         android:layout_height="@dimen/bottom_filters_thumbnail_height"
-        android:layout_above="@+id/editor_filter_item_label"/>
+        android:layout_above="@+id/editor_filter_item_label"
+        android:background="@drawable/stroke_background"
+        android:padding="1dp"/>
 
     <TextView
         android:id="@+id/editor_filter_item_label"

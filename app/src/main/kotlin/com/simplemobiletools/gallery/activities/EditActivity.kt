@@ -286,7 +286,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     }
 
                     val filterItems = filterThumbnailsManager.processThumbs()
-                    val adapter = FiltersAdapter(filterItems) {
+                    val adapter = FiltersAdapter(applicationContext, filterItems) {
                         val newBitmap = Bitmap.createBitmap(shownBitmap)
                         default_image_view.setImageBitmap(it.filter.processFilter(newBitmap))
                     }
