@@ -122,18 +122,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
 
         isCropIntent = intent.extras?.get(CROP) == "true"
-        Glide.with(this)
-                .asBitmap()
-                .load(uri)
-                .listener(object : RequestListener<Bitmap> {
-                    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean) = false
-
-                    override fun onResourceReady(bitmap: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                        initialBitmap = bitmap
-                        return false
-                    }
-                }).into(default_image_view)
-
+        loadDefaultImageView()
         setupBottomActions()
     }
 
@@ -156,15 +145,41 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.save_as -> crop_image_view.getCroppedImageAsync()
+            R.id.save_as -> saveImage()
             R.id.edit -> editWith()
             else -> return super.onOptionsItemSelected(item)
         }
         return true
     }
 
+    private fun loadDefaultImageView() {
+        default_image_view.beVisible()
+        crop_image_view.beGone()
+        Glide.with(this)
+                .asBitmap()
+                .load(uri)
+                .listener(object : RequestListener<Bitmap> {
+                    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean) = false
+
+                    override fun onResourceReady(bitmap: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+                        val currentFilter = getFiltersAdapter()?.getCurrentFilter()
+                        if (initialBitmap != null && currentFilter != null && currentFilter.filter.name != getString(R.string.none)) {
+                            default_image_view.onGlobalLayout {
+                                applyFilter(currentFilter)
+                            }
+                        } else {
+                            initialBitmap = bitmap
+                        }
+
+                        return false
+                    }
+                }).into(default_image_view)
+    }
+
     private fun loadCropImageView() {
+        default_image_view.beGone()
         crop_image_view.apply {
+            beVisible()
             setOnCropImageCompleteListener(this@EditActivity)
             setImageUriAsync(uri)
             guidelines = CropImageView.Guidelines.ON
@@ -176,6 +191,16 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             }
         }
     }
+
+    private fun saveImage() {
+        if (crop_image_view.isVisible()) {
+            crop_image_view.getCroppedImageAsync()
+        } else {
+            val currentFilter = getFiltersAdapter()?.getCurrentFilter()
+        }
+    }
+
+    private fun getFiltersAdapter() = bottom_actions_filter_list.adapter as? FiltersAdapter
 
     private fun setupBottomActions() {
         setupPrimaryActionButtons()
@@ -255,6 +280,12 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun updatePrimaryActionButtons() {
+        if (crop_image_view.isGone() && currPrimaryAction == PRIMARY_ACTION_CROP_ROTATE) {
+            loadCropImageView()
+        } else if (default_image_view.isGone() && currPrimaryAction == PRIMARY_ACTION_FILTER) {
+            loadDefaultImageView()
+        }
+
         arrayOf(bottom_primary_filter, bottom_primary_crop_rotate).forEach {
             it.applyColorFilter(Color.WHITE)
         }
@@ -287,8 +318,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
                     val filterItems = filterThumbnailsManager.processThumbs()
                     val adapter = FiltersAdapter(applicationContext, filterItems) {
-                        val newBitmap = Bitmap.createBitmap(initialBitmap)
-                        default_image_view.setImageBitmap(it.filter.processFilter(newBitmap))
+                        applyFilter(it)
                     }
 
                     bottom_actions_filter_list.adapter = adapter
@@ -302,6 +332,11 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             currCropRotateAction = CROP_ROTATE_NONE
             updateCropRotateActionButtons()
         }
+    }
+
+    private fun applyFilter(filterItem: FilterItem) {
+        val newBitmap = Bitmap.createBitmap(initialBitmap)
+        default_image_view.setImageBitmap(filterItem.filter.processFilter(newBitmap))
     }
 
     private fun updateAspectRatio(aspectRatio: Int) {
