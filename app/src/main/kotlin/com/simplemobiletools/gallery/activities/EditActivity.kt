@@ -12,6 +12,10 @@ import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
@@ -69,6 +73,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private var isCropIntent = false
     private var isEditingWithThirdParty = false
 
+    private var shownBitmap: Bitmap? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit)
@@ -116,7 +122,18 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
 
         isCropIntent = intent.extras?.get(CROP) == "true"
-        Glide.with(this).load(uri).into(default_image_view)
+        Glide.with(this)
+                .asBitmap()
+                .load(uri)
+                .listener(object : RequestListener<Bitmap> {
+                    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean) = false
+
+                    override fun onResourceReady(resource: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+                        shownBitmap = resource
+                        return false
+                    }
+                }).into(default_image_view)
+
         setupBottomActions()
     }
 
@@ -270,7 +287,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
                     val filterItems = filterThumbnailsManager.processThumbs()
                     val adapter = FiltersAdapter(filterItems) {
-
+                        val newBitmap = Bitmap.createBitmap(shownBitmap)
+                        default_image_view.setImageBitmap(it.filter.processFilter(newBitmap))
                     }
 
                     bottom_actions_filter_list.adapter = adapter

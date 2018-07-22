@@ -13,6 +13,7 @@
         android:layout_height="@dimen/bottom_filters_height"
         android:background="@color/crop_image_view_background"
         android:orientation="horizontal"
+        android:overScrollMode="never"
         app:layoutManager="com.simplemobiletools.commons.views.MyLinearLayoutManager"/>
 
 </RelativeLayout>
