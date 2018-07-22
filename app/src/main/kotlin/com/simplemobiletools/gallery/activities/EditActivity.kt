@@ -27,6 +27,7 @@ import com.simplemobiletools.gallery.helpers.FilterThumbnailsManager
 import com.simplemobiletools.gallery.models.FilterItem
 import com.theartofdev.edmodo.cropper.CropImageView
 import com.zomato.photofilters.FilterPack
+import com.zomato.photofilters.imageprocessors.Filter
 import kotlinx.android.synthetic.main.activity_edit.*
 import kotlinx.android.synthetic.main.bottom_actions_aspect_ratio.*
 import kotlinx.android.synthetic.main.bottom_editor_actions_filter.*
@@ -258,6 +259,9 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 runOnUiThread {
                     val filterThumbnailsManager = FilterThumbnailsManager()
                     filterThumbnailsManager.clearThumbs()
+
+                    val noFilter = Filter(getString(R.string.none))
+                    filterThumbnailsManager.addThumb(FilterItem(bitmap, noFilter))
 
                     FilterPack.getFilterPack(this).forEach {
                         val filterItem = FilterItem(bitmap, it)
