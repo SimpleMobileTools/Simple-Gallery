@@ -179,6 +179,12 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                             initialBitmap = bitmap
                         }
 
+                        if (isCropIntent) {
+                            loadCropImageView()
+                            bottom_primary_filter.beGone()
+                            bottom_primary_crop_rotate.performClick()
+                        }
+
                         return false
                     }
                 }).into(default_image_view)
