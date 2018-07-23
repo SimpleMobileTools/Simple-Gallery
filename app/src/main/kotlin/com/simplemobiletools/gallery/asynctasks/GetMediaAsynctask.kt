@@ -5,7 +5,9 @@ import android.os.AsyncTask
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_TAKEN
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.getFavoritePaths
+import com.simplemobiletools.gallery.helpers.FAVORITES
 import com.simplemobiletools.gallery.helpers.MediaFetcher
+import com.simplemobiletools.gallery.helpers.RECYCLE_BIN
 import com.simplemobiletools.gallery.helpers.SHOW_ALL
 import com.simplemobiletools.gallery.models.Medium
 import com.simplemobiletools.gallery.models.ThumbnailItem
@@ -21,7 +23,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickImage
         val getProperDateTaken = context.config.getFileSorting(pathToUse) and SORT_BY_DATE_TAKEN != 0
         val favoritePaths = context.getFavoritePaths()
         val media = if (showAll) {
-            val foldersToScan = mediaFetcher.getFoldersToScan()
+            val foldersToScan = mediaFetcher.getFoldersToScan().filter { it != RECYCLE_BIN && it != FAVORITES }
             val media = ArrayList<Medium>()
             foldersToScan.forEach {
                 val newMedia = mediaFetcher.getFilesFrom(it, isPickImage, isPickVideo, getProperDateTaken, favoritePaths)

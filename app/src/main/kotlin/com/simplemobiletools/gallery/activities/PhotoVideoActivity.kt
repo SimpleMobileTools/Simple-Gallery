@@ -48,8 +48,6 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
                 finish()
             }
         }
-
-        initBottomActions()
     }
 
     override fun onResume() {
@@ -88,14 +86,15 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         showSystemUI(true)
         val bundle = Bundle()
         val file = File(mUri.toString())
+        val filename = getFilenameFromUri(mUri!!)
         val type = when {
-            file.isImageFast() -> TYPE_IMAGES
-            file.isVideoFast() -> TYPE_VIDEOS
-            file.isGif() -> TYPE_GIFS
+            filename.isImageFast() -> TYPE_IMAGES
+            filename.isVideoFast() -> TYPE_VIDEOS
+            filename.isGif() -> TYPE_GIFS
             else -> TYPE_RAWS
         }
 
-        mMedium = Medium(null, getFilenameFromUri(mUri!!), mUri.toString(), mUri!!.path.getParentPath(), 0, 0, file.length(), type, false, 0L)
+        mMedium = Medium(null, filename, mUri.toString(), mUri!!.path.getParentPath(), 0, 0, file.length(), type, false, 0L)
         supportActionBar?.title = mMedium!!.name
         bundle.putSerializable(MEDIUM, mMedium)
 
@@ -114,6 +113,8 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             val isFullscreen = visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
             mFragment?.fullscreenToggled(isFullscreen)
         }
+
+        initBottomActions()
     }
 
     override fun onConfigurationChanged(newConfig: Configuration?) {
@@ -132,12 +133,13 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.photo_video_menu, menu)
+        val visibleBottomActions = if (config.bottomActions) config.visibleBottomActions else 0
 
         menu.apply {
-            findItem(R.id.menu_set_as).isVisible = mMedium?.isImage() == true
-            findItem(R.id.menu_edit).isVisible = mMedium?.isImage() == true && mUri?.scheme == "file" && !config.bottomActions
-            findItem(R.id.menu_properties).isVisible = mUri?.scheme == "file"
-            findItem(R.id.menu_share).isVisible = !config.bottomActions
+            findItem(R.id.menu_set_as).isVisible = mMedium?.isImage() == true && visibleBottomActions and BOTTOM_ACTION_SET_AS == 0
+            findItem(R.id.menu_edit).isVisible = mMedium?.isImage() == true && mUri?.scheme == "file" && visibleBottomActions and BOTTOM_ACTION_EDIT == 0
+            findItem(R.id.menu_properties).isVisible = mUri?.scheme == "file" && visibleBottomActions and BOTTOM_ACTION_PROPERTIES == 0
+            findItem(R.id.menu_share).isVisible = visibleBottomActions and BOTTOM_ACTION_SHARE == 0
         }
 
         return true
@@ -183,7 +185,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         }
 
         val visibleBottomActions = if (config.bottomActions) config.visibleBottomActions else 0
-        bottom_edit.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_EDIT != 0)
+        bottom_edit.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_EDIT != 0 && mMedium?.isImage() == true)
         bottom_edit.setOnClickListener {
             if (mUri != null && bottom_actions.alpha == 1f) {
                 openEditor(mUri!!.toString())
@@ -195,6 +197,11 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             if (mUri != null && bottom_actions.alpha == 1f) {
                 sharePath(mUri!!.toString())
             }
+        }
+
+        bottom_set_as.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SET_AS != 0 && mMedium?.isImage() == true)
+        bottom_set_as.setOnClickListener {
+            setAs(mUri!!.toString())
         }
     }
 

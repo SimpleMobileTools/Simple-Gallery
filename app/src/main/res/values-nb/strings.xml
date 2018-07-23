@@ -84,6 +84,7 @@
     <string name="flip_horizontally">Speilvend horisontalt</string>
     <string name="flip_vertically">Speilvend vertikalt</string>
     <string name="edit_with">Rediger med</string>
+    <string name="free_aspect_ratio">Free</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Bakgrunnsbilde</string>
@@ -153,6 +154,7 @@
     <string name="hide_extended_details">Skjul utvidede detaljer når statuslinjen er skjult</string>
     <string name="do_extra_check">Gjør en ekstra sjekk for å unngå visning av ugyldige filer</string>
     <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
+    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Minibilder</string>

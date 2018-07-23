@@ -84,6 +84,7 @@
     <string name="flip_horizontally">水平翻轉</string>
     <string name="flip_vertically">垂直翻轉</string>
     <string name="edit_with">用其他程式編輯</string>
+    <string name="free_aspect_ratio">Free</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">簡易桌布</string>
@@ -153,6 +154,7 @@
     <string name="hide_extended_details">狀態欄隱藏時，同時隱藏詳細資訊</string>
     <string name="do_extra_check">進行額外檢查，避免顯示無效的檔案</string>
     <string name="show_at_bottom">在螢幕底部顯示一些操作按鈕</string>
+    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">縮圖</string>

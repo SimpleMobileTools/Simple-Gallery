@@ -6,6 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/video_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
     <TextureView
         android:id="@+id/video_surface"
         android:layout_width="wrap_content"
@@ -41,9 +46,9 @@
         android:layout_width="@dimen/play_outline_size_big"
         android:layout_height="@dimen/play_outline_size_big"
         android:layout_centerInParent="true"
-        android:background="@android:color/transparent"
-        android:padding="@dimen/big_margin"
-        android:src="@drawable/img_play_outline_big"/>
+        android:background="@drawable/circle_black_background_with_inset"
+        android:padding="26dp"
+        android:src="@drawable/ic_play"/>
 
     <TextView
         android:id="@+id/slide_info"
@@ -80,8 +85,7 @@
         android:id="@+id/video_time_holder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/gradient_background">
+        android:layout_alignParentBottom="true">
 
         <TextView
             android:id="@+id/video_curr_time"

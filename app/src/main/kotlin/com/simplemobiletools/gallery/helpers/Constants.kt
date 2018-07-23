@@ -58,6 +58,7 @@ const val WAS_RECYCLE_BIN_PINNED = "was_recycle_bin_pinned"
 const val USE_RECYCLE_BIN = "use_recycle_bin"
 const val GROUP_BY = "group_by"
 const val EVER_SHOWN_FOLDERS = "ever_shown_folders"
+const val SHOW_RECYCLE_BIN_AT_FOLDERS = "show_recycle_bin_at_folders"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"
@@ -144,5 +145,6 @@ const val BOTTOM_ACTION_SLIDESHOW = 128
 const val BOTTOM_ACTION_SHOW_ON_MAP = 256
 const val BOTTOM_ACTION_TOGGLE_VISIBILITY = 512
 const val BOTTOM_ACTION_RENAME = 1024
+const val BOTTOM_ACTION_SET_AS = 2048
 
 const val DEFAULT_BOTTOM_ACTIONS = BOTTOM_ACTION_TOGGLE_FAVORITE or BOTTOM_ACTION_EDIT or BOTTOM_ACTION_SHARE or BOTTOM_ACTION_DELETE

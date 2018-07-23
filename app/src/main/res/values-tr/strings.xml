@@ -84,6 +84,7 @@
     <string name="flip_horizontally">Yatay</string>
     <string name="flip_vertically">Dikey</string>
     <string name="edit_with">Edit with</string>
+    <string name="free_aspect_ratio">Free</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Basit Duvar Kağıdı</string>
@@ -153,6 +154,7 @@
     <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
     <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
     <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
+    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>

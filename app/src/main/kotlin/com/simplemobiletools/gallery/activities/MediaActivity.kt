@@ -261,7 +261,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private fun setupSearch(menu: Menu) {
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         mSearchMenuItem = menu.findItem(R.id.search)
-        (mSearchMenuItem!!.actionView as SearchView).apply {
+        (mSearchMenuItem?.actionView as? SearchView)?.apply {
             setSearchableInfo(searchManager.getSearchableInfo(componentName))
             isSubmitButtonEnabled = false
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -317,7 +317,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                     mPath.startsWith(OTG_PATH) -> mPath.trimEnd('/').substringAfterLast('/')
                     else -> getHumanizedFilename(mPath)
                 }
-                supportActionBar?.title = if (mShowAll) resources.getString(R.string.all_folders) else dirName
+                updateActionBarTitle(if (mShowAll) resources.getString(R.string.all_folders) else dirName)
                 getMedia()
                 setupLayoutManager()
             } else {
@@ -338,7 +338,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         if (currAdapter == null) {
             initZoomListener()
             val fastscroller = if (config.scrollHorizontally) media_horizontal_fastscroller else media_vertical_fastscroller
-            MediaAdapter(this, mMedia, this, mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent, mAllowPickingMultiple, media_grid, fastscroller) {
+            MediaAdapter(this, mMedia.clone() as ArrayList<ThumbnailItem>, this, mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent,
+                    mAllowPickingMultiple, media_grid, fastscroller) {
                 if (it is Medium) {
                     itemClicked(it.path)
                 }
@@ -806,7 +807,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         mLatestMediaId = getLatestMediaId()
         mLatestMediaDateId = getLatestMediaByDateId()
         if (!isFromCache) {
-            val mediaToInsert = (mMedia.clone() as ArrayList<ThumbnailItem>).filter { it is Medium && it.deletedTS == 0L }.map { it as Medium }
+            val mediaToInsert = (mMedia).filter { it is Medium && it.deletedTS == 0L }.map { it as Medium }
             galleryDB.MediumDao().insertAll(mediaToInsert)
         }
     }
@@ -816,7 +817,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         val deletingItems = resources.getQuantityString(R.plurals.deleting_items, filtered.size, filtered.size)
         toast(deletingItems)
 
-        if (config.useRecycleBin && !filtered.first().path.startsWith(filesDir.toString())) {
+        if (config.useRecycleBin && !filtered.first().path.startsWith(filesDir.absolutePath)) {
             movePathsInRecycleBin(filtered.map { it.path } as ArrayList<String>) {
                 if (it) {
                     deleteFilteredFiles(filtered)

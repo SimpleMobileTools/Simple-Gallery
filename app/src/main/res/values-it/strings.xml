@@ -27,7 +27,7 @@
     <string name="change_orientation">Cambia orientamento</string>
     <string name="force_portrait">Forza verticale</string>
     <string name="force_landscape">Forza orizzontale</string>
-    <string name="use_default_orientation">Usa l'orientamento predefinito</string>
+    <string name="use_default_orientation">Usa l\'orientamento predefinito</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtra i media</string>
@@ -84,6 +84,7 @@
     <string name="flip_horizontally">Capovolgi orizzontalmente</string>
     <string name="flip_vertically">Capovolgi verticalmente</string>
     <string name="edit_with">Modifica con</string>
+    <string name="free_aspect_ratio">Free</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Sfondo semplice</string>
@@ -153,6 +154,7 @@
     <string name="hide_extended_details">Nascondi i dettagli estesi quando la barra di stato è nascosta</string>
     <string name="do_extra_check">Fai un controllo ulteriore per evitare di mostrare file non validi</string>
     <string name="show_at_bottom">Mostra alcuni pulsanti azione in fondo allo schermo</string>
+    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniature</string>

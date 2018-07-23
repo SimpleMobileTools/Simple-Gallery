@@ -1,6 +1,27 @@
 Changelog
 ==========
 
+Version 4.3.5 *(2018-07-17)*
+----------------------------
+
+ * Fixed some Recycle bin related issues
+ * A few more UX and stability improvements
+
+Version 4.3.4 *(2018-07-15)*
+----------------------------
+
+ * Fixed disappearing launcher icon after changing its color on some devices
+ * Fixed some video related errors
+ * Added "Set as" as an available action at the fullscreen bottom actions
+ * Do the appropriate actions at trying to delete the Recycle Bin or Favorites folders
+ * Fixed a glitch with some panorama images not recognized properly
+ * Avoid blank screen at toggling "Temporarily show hidden"
+
+Version 4.3.3 *(2018-07-06)*
+----------------------------
+
+ * Couple stability improvements and glitch fixes
+
 Version 4.3.2 *(2018-07-04)*
 ----------------------------
 

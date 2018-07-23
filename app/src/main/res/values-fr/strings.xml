@@ -84,6 +84,7 @@
     <string name="flip_horizontally">Retourner horizontalement</string>
     <string name="flip_vertically">Retourner verticalement</string>
     <string name="edit_with">Éditer avec</string>
+    <string name="free_aspect_ratio">Free</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple fond d\'écran</string>
@@ -153,6 +154,7 @@
     <string name="hide_extended_details">Masquer les détails supplémentaires lorsque la barre d\'état est masquée</string>
     <string name="do_extra_check">Faire une vérification supplémentaire pour éviter de montrer des fichiers invalides</string>
     <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
+    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Vignettes</string>

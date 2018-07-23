@@ -38,6 +38,7 @@ class SettingsActivity : SimpleActivity() {
     override fun onResume() {
         super.onResume()
 
+        setupPurchaseThankYou()
         setupCustomizeColors()
         setupUseEnglish()
         setupAvoidWhatsNew()
@@ -74,6 +75,7 @@ class SettingsActivity : SimpleActivity() {
         setupSkipDeleteConfirmation()
         setupManageBottomActions()
         setupUseRecycleBin()
+        setupShowRecycleBin()
         setupEmptyRecycleBin()
         updateTextColors(settings_holder)
         setupSectionColors()
@@ -84,6 +86,13 @@ class SettingsActivity : SimpleActivity() {
         arrayListOf(visibility_label, videos_label, thumbnails_label, scrolling_label, fullscreen_media_label, security_label,
                 file_operations_label, extended_details_label, bottom_actions_label, recycle_bin_label).forEach {
             it.setTextColor(adjustedPrimaryColor)
+        }
+    }
+
+    private fun setupPurchaseThankYou() {
+        settings_purchase_thank_you_holder.beVisibleIf(config.appRunCount > 10 && !isThankYouInstalled())
+        settings_purchase_thank_you_holder.setOnClickListener {
+            launchPurchaseThankYouIntent()
         }
     }
 
@@ -433,11 +442,20 @@ class SettingsActivity : SimpleActivity() {
 
     private fun setupUseRecycleBin() {
         settings_empty_recycle_bin_holder.beVisibleIf(config.useRecycleBin)
+        settings_show_recycle_bin_holder.beVisibleIf(config.useRecycleBin)
         settings_use_recycle_bin.isChecked = config.useRecycleBin
         settings_use_recycle_bin_holder.setOnClickListener {
             settings_use_recycle_bin.toggle()
             config.useRecycleBin = settings_use_recycle_bin.isChecked
             settings_empty_recycle_bin_holder.beVisibleIf(config.useRecycleBin)
+        }
+    }
+
+    private fun setupShowRecycleBin() {
+        settings_show_recycle_bin.isChecked = config.showRecycleBinAtFolders
+        settings_show_recycle_bin_holder.setOnClickListener {
+            settings_show_recycle_bin.toggle()
+            config.showRecycleBinAtFolders = settings_show_recycle_bin.isChecked
         }
     }
 

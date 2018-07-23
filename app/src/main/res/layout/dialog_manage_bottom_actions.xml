@@ -102,5 +102,13 @@
             android:paddingTop="@dimen/activity_margin"
             android:text="@string/rename"/>
 
+        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+            android:id="@+id/manage_bottom_actions_set_as"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/activity_margin"
+            android:paddingTop="@dimen/activity_margin"
+            android:text="@string/set_as"/>
+
     </LinearLayout>
 </ScrollView>

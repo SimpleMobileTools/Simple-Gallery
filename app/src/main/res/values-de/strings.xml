@@ -25,9 +25,9 @@
     <string name="lock_orientation">Bildschirmausrichtung sperren</string>
     <string name="unlock_orientation">Bildschirmausrichtung entsperren</string>
     <string name="change_orientation">Change orientation</string>
-    <string name="force_portrait">Force portrait</string>
-    <string name="force_landscape">Force landscape</string>
-    <string name="use_default_orientation">Use default orientation</string>
+    <string name="force_portrait">Hochkant erzwingen</string>
+    <string name="force_landscape">Breitbild erzwingen</string>
+    <string name="use_default_orientation">Standard Ausrichtung benutzen</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter</string>
@@ -84,6 +84,7 @@
     <string name="flip_horizontally">Horizontal spiegeln</string>
     <string name="flip_vertically">Vertikal spiegeln</string>
     <string name="edit_with">Bearbeiten mit</string>
+    <string name="free_aspect_ratio">Free</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Schlichter Hintergrund</string>
@@ -153,6 +154,7 @@
     <string name="hide_extended_details">Erweiterte Details nicht anzeigen, wenn die Systemleiste versteckt ist</string>
     <string name="do_extra_check">Zusätzliche Überprüfung, um ungültige Dateien nicht anzuzeigen</string>
     <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
+    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>

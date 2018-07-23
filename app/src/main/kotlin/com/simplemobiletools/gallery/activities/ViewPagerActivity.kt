@@ -230,6 +230,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         refreshViewPager()
+        view_pager.offscreenPageLimit = 2
 
         if (config.blackBackground) {
             view_pager.background = ColorDrawable(Color.BLACK)
@@ -295,12 +296,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_edit).isVisible = visibleBottomActions and BOTTOM_ACTION_EDIT == 0
             findItem(R.id.menu_rename).isVisible = visibleBottomActions and BOTTOM_ACTION_RENAME == 0
             findItem(R.id.menu_rotate).isVisible = currentMedium.isImage() && visibleBottomActions and BOTTOM_ACTION_ROTATE == 0
+            findItem(R.id.menu_set_as).isVisible = visibleBottomActions and BOTTOM_ACTION_SET_AS == 0
             findItem(R.id.menu_save_as).isVisible = mRotationDegrees != 0
             findItem(R.id.menu_hide).isVisible = !currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0
             findItem(R.id.menu_unhide).isVisible = currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0
             findItem(R.id.menu_add_to_favorites).isVisible = !currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0
             findItem(R.id.menu_remove_from_favorites).isVisible = currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0
-            findItem(R.id.menu_restore_file).isVisible = currentMedium.path.startsWith(filesDir.toString())
+            findItem(R.id.menu_restore_file).isVisible = currentMedium.path.startsWith(filesDir.absolutePath)
             findItem(R.id.menu_change_orientation).isVisible = mRotationDegrees == 0 && visibleBottomActions and BOTTOM_ACTION_CHANGE_ORIENTATION == 0
             findItem(R.id.menu_change_orientation).icon = resources.getDrawable(getChangeOrientationIcon())
             findItem(R.id.menu_rotate).setShowAsAction(
@@ -585,7 +587,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         }
 
-        val tmpPath = "$filesDir/.tmp_${newPath.getFilenameFromPath()}"
+        val tmpPath = "${filesDir.absolutePath}/.tmp_${newPath.getFilenameFromPath()}"
         val tmpFileDirItem = FileDirItem(tmpPath, tmpPath.getFilenameFromPath())
         try {
             getFileOutputStream(tmpFileDirItem) {
@@ -841,6 +843,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         bottom_rename.setOnClickListener {
             renameFile()
         }
+
+        bottom_set_as.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_SET_AS != 0)
+        bottom_set_as.setOnClickListener {
+            setAs(getCurrentPath())
+        }
     }
 
     private fun updateBottomActionIcons(medium: Medium?) {
@@ -915,7 +922,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun deleteConfirmed() {
         val path = getCurrentMedia().getOrNull(mPos)?.path ?: return
-        if (getIsPathDirectory(path)) {
+        if (getIsPathDirectory(path) || !path.isImageVideoGif()) {
             return
         }
 
@@ -1104,10 +1111,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
     override fun onPageSelected(position: Int) {
-        if (view_pager.offscreenPageLimit == 1) {
-            view_pager.offscreenPageLimit = 2
-        }
-
         if (mPos != position) {
             mPos = position
             updateActionbarTitle()

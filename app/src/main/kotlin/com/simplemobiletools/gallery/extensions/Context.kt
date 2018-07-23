@@ -288,6 +288,11 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
         } catch (e: SQLiteException) {
             ArrayList<Directory>()
         }
+
+        if (!config.showRecycleBinAtFolders) {
+            directories.removeAll { it.isRecycleBin() }
+        }
+
         val shouldShowHidden = config.shouldShowHidden
         val excludedPaths = config.excludedFolders
         val includedPaths = config.includedFolders
@@ -365,7 +370,7 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
         val grouped = mediaFetcher.groupMedia(media, pathToUse)
         callback(grouped.clone() as ArrayList<ThumbnailItem>)
 
-        val recycleBinPath = filesDir.toString()
+        val recycleBinPath = filesDir.absolutePath
         media.filter { !getDoesFilePathExist(it.path) }.forEach {
             if (it.path.startsWith(recycleBinPath)) {
                 mediumDao.deleteMediumPath(it.path.removePrefix(recycleBinPath))
@@ -402,7 +407,7 @@ fun Context.getFavoritePaths() = galleryDB.MediumDao().getFavoritePaths() as Arr
 fun Context.getUpdatedDeletedMedia(mediumDao: MediumDao): ArrayList<Medium> {
     val media = mediumDao.getDeletedMedia() as ArrayList<Medium>
     media.forEach {
-        it.path = File(filesDir, it.path).toString()
+        it.path = File(filesDir.absolutePath, it.path).toString()
     }
     return media
 }

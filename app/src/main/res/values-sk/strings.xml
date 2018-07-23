@@ -84,6 +84,7 @@
     <string name="flip_horizontally">Preklopiť vodorovne</string>
     <string name="flip_vertically">Preklopiť zvisle</string>
     <string name="edit_with">Upraviť s</string>
+    <string name="free_aspect_ratio">Voľný</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Jednoduchá tapeta</string>
@@ -153,6 +154,7 @@
     <string name="hide_extended_details">Skryť rozšírené vlastnosti ak je skrytá stavová lišta</string>
     <string name="do_extra_check">Predísť zobrazovaniu neplatných súborov dodatočnou kontrolou</string>
     <string name="show_at_bottom">Zobraziť niektoré akčné tlačidlá na spodku obrazovky</string>
+    <string name="show_recycle_bin">Zobraziť odpadkový kôš na obrazovke s priečinkami</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Náhľady</string>

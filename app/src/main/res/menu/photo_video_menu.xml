@@ -18,8 +18,9 @@
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_set_as"
+        android:icon="@drawable/ic_set_as"
         android:title="@string/set_as"
-        app:showAsAction="never"/>
+        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/menu_open_with"
         android:title="@string/open_with"

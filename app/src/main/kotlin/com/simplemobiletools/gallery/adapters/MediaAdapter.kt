@@ -109,7 +109,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             findItem(R.id.cab_rename).isVisible = isOneItemSelected()
             findItem(R.id.cab_open_with).isVisible = isOneItemSelected()
             findItem(R.id.cab_confirm_selection).isVisible = isAGetIntent && allowMultiplePicks && selectedPositions.size > 0
-            findItem(R.id.cab_restore_recycle_bin_files).isVisible = getSelectedPaths().all { it.startsWith(activity.filesDir.toString()) }
+            findItem(R.id.cab_restore_recycle_bin_files).isVisible = getSelectedPaths().all { it.startsWith(activity.filesDir.absolutePath) }
 
             checkHideBtnVisibility(this)
             checkFavoriteBtnVisibility(this)
@@ -289,7 +289,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
     private fun askConfirmDelete() {
         val items = resources.getQuantityString(R.plurals.delete_items, selectedPositions.size, selectedPositions.size)
-        val isRecycleBin = getSelectedPaths().first().startsWith(activity.filesDir.toString())
+        val isRecycleBin = getSelectedPaths().first().startsWith(activity.filesDir.absolutePath)
         val baseString = if (config.useRecycleBin && !isRecycleBin) R.string.move_to_recycle_bin_confirmation else R.string.deletion_confirmation
         val question = String.format(resources.getString(baseString), items)
         DeleteWithRememberDialog(activity, question) {
@@ -316,7 +316,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         val SAFPath = (media[selectedPositions.first()] as Medium).path
         activity.handleSAFDialog(SAFPath) {
             selectedPositions.sortedDescending().forEach {
-                val thumbnailItem = media[it]
+                val thumbnailItem = media.getOrNull(it)
                 if (thumbnailItem is Medium) {
                     fileDirItems.add(FileDirItem(thumbnailItem.path, thumbnailItem.name))
                     removeMedia.add(thumbnailItem)
@@ -342,10 +342,11 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     private fun getSelectedPaths() = getSelectedMedia().map { it.path } as ArrayList<String>
 
     fun updateMedia(newMedia: ArrayList<ThumbnailItem>) {
-        if (newMedia.hashCode() != currentMediaHash) {
-            currentMediaHash = newMedia.hashCode()
+        val thumbnailItems = newMedia.clone() as ArrayList<ThumbnailItem>
+        if (thumbnailItems.hashCode() != currentMediaHash) {
+            currentMediaHash = thumbnailItems.hashCode()
             Handler().postDelayed({
-                media = newMedia
+                media = thumbnailItems
                 enableInstantLoad()
                 notifyDataSetChanged()
                 finishActMode()

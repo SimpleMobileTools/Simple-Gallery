@@ -151,6 +151,11 @@ fun BaseSimpleActivity.removeNoMedia(path: String, callback: (() -> Unit)? = nul
 fun BaseSimpleActivity.toggleFileVisibility(oldPath: String, hide: Boolean, callback: ((newPath: String) -> Unit)? = null) {
     val path = oldPath.getParentPath()
     var filename = oldPath.getFilenameFromPath()
+    if ((hide && filename.startsWith('.')) || (!hide && !filename.startsWith('.'))) {
+        callback?.invoke(oldPath)
+        return
+    }
+
     filename = if (hide) {
         ".${filename.trimStart('.')}"
     } else {
@@ -196,14 +201,16 @@ fun BaseSimpleActivity.tryDeleteFileDirItem(fileDirItem: FileDirItem, allowDelet
 
 fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback: ((wasSuccess: Boolean) -> Unit)?) {
     Thread {
+        val mediumDao = galleryDB.MediumDao()
         var pathsCnt = paths.size
         paths.forEach {
             val file = File(it)
-            val internalFile = File(filesDir, it)
+            val internalFile = File(filesDir.absolutePath, it)
             try {
-                file.copyRecursively(internalFile, true)
-                galleryDB.MediumDao().updateDeleted(it, System.currentTimeMillis())
-                pathsCnt--
+                if (file.copyRecursively(internalFile, true)) {
+                    mediumDao.updateDeleted(it, System.currentTimeMillis())
+                    pathsCnt--
+                }
             } catch (ignored: Exception) {
             }
         }
@@ -220,7 +227,7 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, callback
         val mediumDao = galleryDB.MediumDao()
         paths.forEach {
             val source = it
-            val destination = it.removePrefix(filesDir.toString())
+            val destination = it.removePrefix(filesDir.absolutePath)
 
             var inputStream: InputStream? = null
             var out: OutputStream? = null
