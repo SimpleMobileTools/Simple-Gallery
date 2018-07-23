@@ -177,6 +177,11 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
                     override fun onResourceReady(bitmap: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
                         val currentFilter = getFiltersAdapter()?.getCurrentFilter()
+                        if (initialBitmap == null) {
+                            loadCropImageView()
+                            bottomCropRotateClicked()
+                        }
+
                         if (initialBitmap != null && currentFilter != null && currentFilter.filter.name != getString(R.string.none)) {
                             default_image_view.onGlobalLayout {
                                 applyFilter(currentFilter)
@@ -186,9 +191,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                         }
 
                         if (isCropIntent) {
-                            loadCropImageView()
                             bottom_primary_filter.beGone()
-                            bottomCropRotateClicked()
                         }
 
                         return false
