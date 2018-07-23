@@ -13,8 +13,10 @@ import android.view.Menu
 import android.view.MenuItem
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
@@ -155,9 +157,15 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private fun loadDefaultImageView() {
         default_image_view.beVisible()
         crop_image_view.beGone()
+
+        val options = RequestOptions()
+                .skipMemoryCache(true)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+
         Glide.with(this)
                 .asBitmap()
                 .load(uri)
+                .apply(options)
                 .listener(object : RequestListener<Bitmap> {
                     override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean) = false
 
@@ -196,7 +204,23 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         if (crop_image_view.isVisible()) {
             crop_image_view.getCroppedImageAsync()
         } else {
-            val currentFilter = getFiltersAdapter()?.getCurrentFilter()
+            val currentFilter = getFiltersAdapter()?.getCurrentFilter() ?: return
+            val filePathGetter = getNewFilePath()
+            SaveAsDialog(this, filePathGetter.first, filePathGetter.second) {
+                toast(R.string.saving)
+
+                // clean up everything to free as much memory as possible
+                default_image_view.setImageResource(0)
+                crop_image_view.setImageBitmap(null)
+                bottom_actions_filter_list.adapter = null
+                bottom_actions_filter_list.beGone()
+
+                Thread {
+                    val originalBitmap = Glide.with(applicationContext).asBitmap().load(uri).submit(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL).get()
+                    currentFilter.filter.processFilter(originalBitmap)
+                    saveBitmapToFile(originalBitmap, it, false)
+                }.start()
+            }
         }
     }
 
@@ -423,7 +447,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         if (result.error == null) {
             if (isCropIntent) {
                 if (saveUri.scheme == "file") {
-                    saveBitmapToFile(result.bitmap, saveUri.path)
+                    saveBitmapToFile(result.bitmap, saveUri.path, true)
                 } else {
                     var inputStream: InputStream? = null
                     var outputStream: OutputStream? = null
@@ -447,27 +471,12 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 }
             } else if (saveUri.scheme == "file") {
                 SaveAsDialog(this, saveUri.path, true) {
-                    saveBitmapToFile(result.bitmap, it)
+                    saveBitmapToFile(result.bitmap, it, true)
                 }
             } else if (saveUri.scheme == "content") {
-                var newPath = applicationContext.getRealPathFromURI(saveUri) ?: ""
-                var shouldAppendFilename = true
-                if (newPath.isEmpty()) {
-                    val filename = applicationContext.getFilenameFromContentUri(saveUri) ?: ""
-                    if (filename.isNotEmpty()) {
-                        val path = if (intent.extras?.containsKey(REAL_FILE_PATH) == true) intent.getStringExtra(REAL_FILE_PATH).getParentPath() else internalStoragePath
-                        newPath = "$path/$filename"
-                        shouldAppendFilename = false
-                    }
-                }
-
-                if (newPath.isEmpty()) {
-                    newPath = "$internalStoragePath/${getCurrentFormattedDateTime()}.${saveUri.toString().getFilenameExtension()}"
-                    shouldAppendFilename = false
-                }
-
-                SaveAsDialog(this, newPath, shouldAppendFilename) {
-                    saveBitmapToFile(result.bitmap, it)
+                val filePathGetter = getNewFilePath()
+                SaveAsDialog(this, filePathGetter.first, filePathGetter.second) {
+                    saveBitmapToFile(result.bitmap, it, true)
                 }
             } else {
                 toast(R.string.unknown_file_location)
@@ -477,14 +486,34 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
     }
 
-    private fun saveBitmapToFile(bitmap: Bitmap, path: String) {
+    private fun getNewFilePath(): Pair<String, Boolean> {
+        var newPath = applicationContext.getRealPathFromURI(saveUri) ?: ""
+        var shouldAppendFilename = true
+        if (newPath.isEmpty()) {
+            val filename = applicationContext.getFilenameFromContentUri(saveUri) ?: ""
+            if (filename.isNotEmpty()) {
+                val path = if (intent.extras?.containsKey(REAL_FILE_PATH) == true) intent.getStringExtra(REAL_FILE_PATH).getParentPath() else internalStoragePath
+                newPath = "$path/$filename"
+                shouldAppendFilename = false
+            }
+        }
+
+        if (newPath.isEmpty()) {
+            newPath = "$internalStoragePath/${getCurrentFormattedDateTime()}.${saveUri.toString().getFilenameExtension()}"
+            shouldAppendFilename = false
+        }
+
+        return Pair(newPath, shouldAppendFilename)
+    }
+
+    private fun saveBitmapToFile(bitmap: Bitmap, path: String, showSavingToast: Boolean) {
         try {
             Thread {
                 val file = File(path)
                 val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
                 getFileOutputStream(fileDirItem, true) {
                     if (it != null) {
-                        saveBitmap(file, bitmap, it)
+                        saveBitmap(file, bitmap, it, showSavingToast)
                     } else {
                         toast(R.string.image_editing_failed)
                     }
@@ -497,8 +526,11 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
     }
 
-    private fun saveBitmap(file: File, bitmap: Bitmap, out: OutputStream) {
-        toast(R.string.saving)
+    private fun saveBitmap(file: File, bitmap: Bitmap, out: OutputStream, showSavingToast: Boolean) {
+        if (showSavingToast) {
+            toast(R.string.saving)
+        }
+
         if (resizeWidth > 0 && resizeHeight > 0) {
             val resized = Bitmap.createScaledBitmap(bitmap, resizeWidth, resizeHeight, false)
             resized.compress(file.absolutePath.getCompressionFormat(), 90, out)
