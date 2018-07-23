@@ -16,7 +16,8 @@ import com.simplemobiletools.commons.helpers.isNougatPlus
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.R
 import com.theartofdev.edmodo.cropper.CropImageView
-import kotlinx.android.synthetic.main.activity_edit.*
+import kotlinx.android.synthetic.main.activity_set_wallpaper.*
+import kotlinx.android.synthetic.main.bottom_set_wallpaper_actions.*
 
 class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener {
     private val PICK_IMAGE = 1
@@ -39,6 +40,7 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
         }
 
         handleImage(intent)
+        setupBottomActions()
     }
 
     private fun handleImage(intent: Intent) {
@@ -58,27 +60,30 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
         setupAspectRatio()
     }
 
+    private fun setupBottomActions() {
+        bottom_set_wallpaper_aspect_ratio.setOnClickListener {
+            changeAspectRatio(!isLandscapeRatio)
+        }
+
+        bottom_set_wallpaper_rotate.setOnClickListener {
+            crop_image_view.rotateImage(90)
+        }
+    }
+
     private fun setupAspectRatio() {
         val wallpaperWidth = if (isLandscapeRatio) wallpaperManager.desiredMinimumWidth else wallpaperManager.desiredMinimumWidth / 2
         crop_image_view.setAspectRatio(wallpaperWidth, wallpaperManager.desiredMinimumHeight)
+        bottom_set_wallpaper_aspect_ratio.setImageResource(if (isLandscapeRatio) R.drawable.ic_minimize else R.drawable.ic_maximize)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_set_wallpaper, menu)
-
-        menu.apply {
-            findItem(R.id.portrait_aspect_ratio).isVisible = isLandscapeRatio
-            findItem(R.id.landscape_aspect_ratio).isVisible = !isLandscapeRatio
-        }
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.save -> confirmWallpaper()
-            R.id.rotate -> crop_image_view.rotateImage(90)
-            R.id.portrait_aspect_ratio -> changeAspectRatio(false)
-            R.id.landscape_aspect_ratio -> changeAspectRatio(true)
             else -> return super.onOptionsItemSelected(item)
         }
         return true
@@ -87,7 +92,6 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
     private fun changeAspectRatio(isLandscape: Boolean) {
         isLandscapeRatio = isLandscape
         setupAspectRatio()
-        invalidateOptionsMenu()
     }
 
     @SuppressLint("InlinedApi")
