@@ -228,9 +228,13 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 bottom_actions_filter_list.beGone()
 
                 Thread {
-                    val originalBitmap = Glide.with(applicationContext).asBitmap().load(uri).submit(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL).get()
-                    currentFilter.filter.processFilter(originalBitmap)
-                    saveBitmapToFile(originalBitmap, it, false)
+                    try {
+                        val originalBitmap = Glide.with(applicationContext).asBitmap().load(uri).submit(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL).get()
+                        currentFilter.filter.processFilter(originalBitmap)
+                        saveBitmapToFile(originalBitmap, it, false)
+                    } catch (e: OutOfMemoryError) {
+                        toast(R.string.out_of_memory_error)
+                    }
                 }.start()
             }
         }
