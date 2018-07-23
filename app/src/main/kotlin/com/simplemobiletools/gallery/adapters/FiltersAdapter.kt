@@ -12,7 +12,7 @@ import com.simplemobiletools.gallery.models.FilterItem
 import kotlinx.android.synthetic.main.editor_filter_item.view.*
 import java.util.*
 
-class FiltersAdapter(val context: Context, val filterItems: ArrayList<FilterItem>, val itemClick: (FilterItem) -> Unit) : RecyclerView.Adapter<FiltersAdapter.ViewHolder>(),
+class FiltersAdapter(val context: Context, val filterItems: ArrayList<FilterItem>, val itemClick: (Int) -> Unit) : RecyclerView.Adapter<FiltersAdapter.ViewHolder>(),
         FilterAdapterListener {
 
     private var currentSelection = filterItems.first()
@@ -31,11 +31,12 @@ class FiltersAdapter(val context: Context, val filterItems: ArrayList<FilterItem
 
     override fun getCurrentFilter() = currentSelection
 
-    override fun setCurrentFilter(filterItem: FilterItem) {
+    override fun setCurrentFilter(position: Int) {
+        val filterItem = filterItems.getOrNull(position) ?: return
         if (currentSelection != filterItem) {
             currentSelection = filterItem
             notifyDataSetChanged()
-            itemClick.invoke(filterItem)
+            itemClick.invoke(position)
         }
     }
 
@@ -51,7 +52,7 @@ class FiltersAdapter(val context: Context, val filterItems: ArrayList<FilterItem
                 }
 
                 setOnClickListener {
-                    filterAdapterListener.setCurrentFilter(filterItem)
+                    filterAdapterListener.setCurrentFilter(adapterPosition)
                 }
             }
             return itemView
