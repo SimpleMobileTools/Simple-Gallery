@@ -11,6 +11,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.RelativeLayout
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -124,6 +125,11 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
 
         isCropIntent = intent.extras?.get(CROP) == "true"
+        if (isCropIntent) {
+            bottom_editor_primary_actions.beGone()
+            (bottom_editor_crop_rotate_actions.layoutParams as RelativeLayout.LayoutParams).addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, 1)
+        }
+
         loadDefaultImageView()
         setupBottomActions()
     }
@@ -182,7 +188,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                         if (isCropIntent) {
                             loadCropImageView()
                             bottom_primary_filter.beGone()
-                            bottom_primary_crop_rotate.performClick()
+                            bottomCropRotateClicked()
                         }
 
                         return false
@@ -240,22 +246,30 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     private fun setupPrimaryActionButtons() {
         bottom_primary_filter.setOnClickListener {
-            currPrimaryAction = if (currPrimaryAction == PRIMARY_ACTION_FILTER) {
-                PRIMARY_ACTION_NONE
-            } else {
-                PRIMARY_ACTION_FILTER
-            }
-            updatePrimaryActionButtons()
+            bottomFilterClicked()
         }
 
         bottom_primary_crop_rotate.setOnClickListener {
-            currPrimaryAction = if (currPrimaryAction == PRIMARY_ACTION_CROP_ROTATE) {
-                PRIMARY_ACTION_NONE
-            } else {
-                PRIMARY_ACTION_CROP_ROTATE
-            }
-            updatePrimaryActionButtons()
+            bottomCropRotateClicked()
         }
+    }
+
+    private fun bottomFilterClicked() {
+        currPrimaryAction = if (currPrimaryAction == PRIMARY_ACTION_FILTER) {
+            PRIMARY_ACTION_NONE
+        } else {
+            PRIMARY_ACTION_FILTER
+        }
+        updatePrimaryActionButtons()
+    }
+
+    private fun bottomCropRotateClicked() {
+        currPrimaryAction = if (currPrimaryAction == PRIMARY_ACTION_CROP_ROTATE) {
+            PRIMARY_ACTION_NONE
+        } else {
+            PRIMARY_ACTION_CROP_ROTATE
+        }
+        updatePrimaryActionButtons()
     }
 
     private fun setupCropRotateActionButtons() {
