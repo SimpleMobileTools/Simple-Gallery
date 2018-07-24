@@ -191,7 +191,7 @@
     <string name="faq_10_title">Kann ich mit dieser App Bilder zuschneiden?</string>
     <string name="faq_10_text">Ja, du kannst Bilder über das Ziehen der Bildecken im Editor zuschneiden. Du gelangst zum Editor indem du lange auf ein Vorschaubild drückst und Bearbeiten auswählst oder durch Auswählen von Bearbeiten in der Vollbildansicht.</string>
     <string name="faq_11_title">Kann ich Mediendatei-Thumbnails irgendwie gruppieren?</string>
-    <string name="faq_11_text">Verwenden Sie einfach den Menüeintrag \"Gruppieren nach\" in der Miniaturansicht. Sie können Dateien nach mehreren Kriterien gruppieren, einschließlich Aufnahmedatum. Wenn Sie die Funktion "Alle Ordnerinhalte anzeigen" verwenden, können Sie sie auch nach Ordnern gruppieren.</string>
+    <string name="faq_11_text">Verwenden Sie einfach den Menüeintrag \"Gruppieren nach\" in der Miniaturansicht. Sie können Dateien nach mehreren Kriterien gruppieren, einschließlich Aufnahmedatum. Wenn Sie die Funktion \"Alle Ordnerinhalte anzeigen\" verwenden, können Sie sie auch nach Ordnern gruppieren.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
