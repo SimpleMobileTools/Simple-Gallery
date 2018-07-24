@@ -365,6 +365,8 @@ class PhotoFragment : ViewPagerFragment() {
             imageParser.contains("GPano:UsePanoramaViewer=\"True\"", true) || imageParser.contains("<GPano:UsePanoramaViewer>True</GPano:UsePanoramaViewer>", true)
         } catch (e: Exception) {
             false
+        } catch (e: OutOfMemoryError) {
+            false
         }
 
         view.panorama_outline.beVisibleIf(isPanorama && isLollipopPlus())
