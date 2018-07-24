@@ -389,6 +389,7 @@ class PhotoFragment : ViewPagerFragment() {
                 orient = exif2.getTag(ExifInterface.TAG_ORIENTATION)?.getValueAsInt(defaultOrientation) ?: defaultOrientation
             }
         } catch (ignored: Exception) {
+        } catch (ignored: OutOfMemoryError) {
         }
         return orient
     }
