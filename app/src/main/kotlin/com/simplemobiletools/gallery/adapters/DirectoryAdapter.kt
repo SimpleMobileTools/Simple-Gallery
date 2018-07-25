@@ -423,7 +423,6 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 }
             }
 
-            dirs.removeAll(removeFolders)
             listener?.deleteFolders(folders)
         }
     }
