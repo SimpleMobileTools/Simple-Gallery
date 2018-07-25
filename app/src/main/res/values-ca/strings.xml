@@ -28,6 +28,9 @@
     <string name="force_portrait">Forçar vertical</string>
     <string name="force_landscape">Forçar horitzontal</string>
     <string name="use_default_orientation">Fer servir la orientació per defecte</string>
+    <string name="fix_date_taken">Fix Date Taken value</string>
+    <string name="fixing">Fixing…</string>
+    <string name="dates_fixed_successfully">Dates fixed successfully</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtre d\'arxius</string>
@@ -192,6 +195,8 @@
     <string name="faq_10_text">Sí, pots retallar imatges a l\'editor, arrossegant les cantonades de la imatge. Pots accedir a l\'editor prement una miniatura d\'imatge i seleccionant Edita o seleccionant Edita des de la visualització de pantalla completa.</string>
     <string name="faq_11_title">Puc agrupar d\'alguna manera les miniatures del fitxer multimèdia?</string>
     <string name="faq_11_text">Si, només heu d\'utilitzar l\'ítem del menú \"Agrupar per\" mentre es troba a la vista en miniatura. Podeu agrupar fitxers amb diversos criteris, inclòs data de presa. Si utilitzeu la funció \"Mostra el contingut de totes les carpetes\", també podeu agrupar-les per carpetes.</string>
+    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
+    <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
@@ -199,9 +204,9 @@
     <string name="app_long_description">
         Una eina senzilla que es pot fer servir per veure imatges i vídeos. Els elements es poden ordenar per data, mida o nom, tant ascendent com descendent. Es pot fer zoom a les imatges. Els arxius de mitjans es mostren en múltiples columnes depenent de la mida de la pantalla i es pot canviar el número de columnes mitjançant gestos. Permet canviar el nom, compartir, esborrar, i moure. Les imatges també es poden retalla, rotar o utilitzar com a fons de pantalla directament des de l\'aplicació.
 
-        Gallery també s'ofereix per us de tercers, per visualitzar imatges/vídeos, agregar adjunts a clients de correu, etc. Es perfecta per l\'ús diari.
+        Gallery també s\'ofereix per us de tercers, per visualitzar imatges/vídeos, agregar adjunts a clients de correu, etc. Es perfecta per l\'ús diari.
 
-        El permís d\'empremtes dactilars és necessari per bloquejar la visibilitat d'elements ocults o tota l\'aplicació.
+        El permís d\'empremtes dactilars és necessari per bloquejar la visibilitat d\'elements ocults o tota l\'aplicació.
 
         No conté ni publicitat ni permisos innecessaris. Es totalment Lliure i proporciona colors personalitzables.
 

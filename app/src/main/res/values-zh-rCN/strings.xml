@@ -28,6 +28,9 @@
     <string name="force_portrait">Force portrait</string>
     <string name="force_landscape">Force landscape</string>
     <string name="use_default_orientation">Use default orientation</string>
+    <string name="fix_date_taken">Fix Date Taken value</string>
+    <string name="fixing">Fixing…</string>
+    <string name="dates_fixed_successfully">Dates fixed successfully</string>
 
     <!-- Filter -->
     <string name="filter_media">要显示的媒体文件</string>
@@ -190,6 +193,8 @@
     <string name="faq_10_text">当然，通过长按图片缩略图并选择编辑，或在全屏视图中选择编辑来打开编辑器。你可以通过拖动图片边角来剪裁图像。</string>
     <string name="faq_11_title">我能将媒体文件缩略图分组吗？</string>
     <string name="faq_11_text">当然，只需在缩略图视图中使用\"分组依据\"菜单项即可。您可以依据多个条件对文件进行分组，包括拍摄日期。如果您使用了\"显示所有文件夹内容\"功能，则可以按文件夹对它们进行分组。</string>
+    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
+    <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

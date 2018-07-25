@@ -28,6 +28,9 @@
     <string name="force_portrait">Forzar retrato</string>
     <string name="force_landscape">Forzar paisaje</string>
     <string name="use_default_orientation">Usar la orientación por defecto</string>
+    <string name="fix_date_taken">Fix Date Taken value</string>
+    <string name="fixing">Fixing…</string>
+    <string name="dates_fixed_successfully">Dates fixed successfully</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtro de medios</string>
@@ -192,6 +195,8 @@
     <string name="faq_10_text">Sí, puede recortar imágenes en el editor arrastrando las esquinas de la imagen. Puede acceder al editor pulsando prolongadamente una imagen en miniatura y seleccionando Editar, o seleccionando Editar en la vista de pantalla completa.</string>
     <string name="faq_11_title">¿Puedo de alguna manera agrupar miniaturas de archivos multimedia?</string>
     <string name="faq_11_text">Claro, solo use el elemento de menú \"Agrupar por \" mientras esté en la vista de miniaturas. Puede agrupar archivos según varios criterios, incluida la Fecha de toma. Si usa la función \"Mostrar todo el contenido de las carpetas\" también puede agruparlas por carpetas.</string>
+    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
+    <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
