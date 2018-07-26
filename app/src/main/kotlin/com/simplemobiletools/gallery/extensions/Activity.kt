@@ -236,7 +236,9 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, callback
                 out = getFileOutputStreamSync(destination, source.getMimeType())
                 inputStream = getFileInputStreamSync(source)!!
                 inputStream.copyTo(out!!)
-                mediumDao.updateDeleted(destination, 0)
+                if (File(source).length() == File(destination).length()) {
+                    mediumDao.updateDeleted(destination, 0)
+                }
             } catch (e: Exception) {
                 showErrorToast(e)
             } finally {
