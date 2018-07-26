@@ -500,10 +500,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
     override fun onSurfaceTextureUpdated(surface: SurfaceTexture?) {}
 
-    override fun onSurfaceTextureDestroyed(surface: SurfaceTexture?): Boolean {
-        releaseExoPlayer()
-        return false
-    }
+    override fun onSurfaceTextureDestroyed(surface: SurfaceTexture?) = false
 
     override fun onSurfaceTextureAvailable(surface: SurfaceTexture?, width: Int, height: Int) {
         Thread {
