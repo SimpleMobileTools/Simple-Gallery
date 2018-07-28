@@ -28,9 +28,9 @@
     <string name="force_portrait">Portretmodus forceren</string>
     <string name="force_landscape">Landschapsmodus forceren</string>
     <string name="use_default_orientation">Standaardmodus gebruiken</string>
-    <string name="fix_date_taken">Fix Date Taken value</string>
-    <string name="fixing">Fixing…</string>
-    <string name="dates_fixed_successfully">Dates fixed successfully</string>
+    <string name="fix_date_taken">Datum opname corrigeren</string>
+    <string name="fixing">Corrigeren…</string>
+    <string name="dates_fixed_successfully">Datums zijn gecorrigeerd</string>
 
     <!-- Filter -->
     <string name="filter_media">Media filteren</string>
