@@ -28,9 +28,9 @@
     <string name="force_portrait">Hochkant erzwingen</string>
     <string name="force_landscape">Breitbild erzwingen</string>
     <string name="use_default_orientation">Standard Ausrichtung benutzen</string>
-    <string name="fix_date_taken">Fix Date Taken value</string>
-    <string name="fixing">Fixing…</string>
-    <string name="dates_fixed_successfully">Dates fixed successfully</string>
+    <string name="fix_date_taken">Aufnahmedatum reparieren</string>
+    <string name="fixing">Repariere…</string>
+    <string name="dates_fixed_successfully">Datum erfolgreich repariert</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter</string>
@@ -126,7 +126,7 @@
     <string name="do_not_group_files">Dateien nicht gruppieren</string>
     <string name="by_folder">Ordner</string>
     <string name="by_last_modified">Zuletzt geändert</string>
-    <string name="by_date_taken">Erstelldatum</string>
+    <string name="by_date_taken">Aufnahmedatum</string>
     <string name="by_file_type">Dateityp</string>
     <string name="by_extension">Extension</string>
 
@@ -144,7 +144,7 @@
     <string name="black_background_at_fullscreen">Schwarzer Hintergrund &amp; schwarze Systemleiste im Vollbild</string>
     <string name="scroll_thumbnails_horizontally">Kacheln horizontal scrollen</string>
     <string name="hide_system_ui_at_fullscreen">Systemleiste im Vollbild ausblenden</string>
-    <string name="delete_empty_folders">Nach Löschen leere Ordner löschen</string>
+    <string name="delete_empty_folders">Nach Löschen, leere Ordner löschen</string>
     <string name="allow_photo_gestures">Fotohelligkeit mit vertikalen Gesten ändern</string>
     <string name="allow_video_gestures">Gesten für Videolautstärke/Helligkeit zulassen</string>
     <string name="show_media_count">Medienanzahl bei Ordnern anzeigen</string>
