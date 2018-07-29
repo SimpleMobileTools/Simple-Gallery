@@ -28,9 +28,9 @@
     <string name="force_portrait">Wymuś pionową</string>
     <string name="force_landscape">Wymuś poziomą</string>
     <string name="use_default_orientation">Używaj systemowej</string>
-    <string name="fix_date_taken">Fix Date Taken value</string>
-    <string name="fixing">Fixing…</string>
-    <string name="dates_fixed_successfully">Dates fixed successfully</string>
+    <string name="fix_date_taken">Napraw datę utworzenia</string>
+    <string name="fixing">Naprawiam…</string>
+    <string name="dates_fixed_successfully">Daty zostały naprawione</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtruj multimedia</string>
@@ -42,7 +42,7 @@
     <string name="change_filters_underlined"><u>Zmień filtry</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Ta funkcja ukrywa foldery, dodając do nich pusty plik .nomedia. Aby móc je zobaczyć, należy włączyć opcję \'Pokazuj ukryte foldery\' w ustawieniach. Kontynuować?</string>
+    <string name="hide_folder_description">Ta funkcja ukrywa foldery, dodając do nich pusty plik \'.nomedia\'. Aby móc je zobaczyć, należy włączyć opcję \'Pokazuj ukryte foldery\' w ustawieniach. Kontynuować?</string>
     <string name="exclude">Wyklucz</string>
     <string name="excluded_folders">Wykluczone foldery</string>
     <string name="manage_excluded_folders">Zarządzaj wykluczonymi folderami</string>
@@ -53,7 +53,7 @@
     <string name="remove_all_description">Usunąć wszystkie foldery z listy wykluczonych? Foldery nie zostaną fizycznie usunięte.</string>
    <string name="hidden_folders">Ukryte foldery</string>
     <string name="manage_hidden_folders">Zarządzaj ukrytymi folderami</string>
-    <string name="hidden_folders_placeholder">Zdaje się, że nie masz żadnych folderów z plikiem \".nomedia\".</string>
+    <string name="hidden_folders_placeholder">Zdaje się, że nie masz żadnych folderów z plikiem \'.nomedia\'.</string>
 
     <!-- Include folders -->
     <string name="include_folders">Dołączone foldery</string>
@@ -154,7 +154,7 @@
     <string name="one_finger_zoom">Zezwalaj na powiększanie jednym palcem w widoku pełnoekranowym</string>
     <string name="allow_instant_change">Zezwalaj na natychmiastową zmianę multimediów po kliknięciu boków ekranu</string>
     <string name="replace_zoomable_images">Zamieniaj powiększalne obrazy na te o lepszej jakości</string>
-    <string name="hide_extended_details">Ukrywaj dodatkowe szczegóły gdy pasek stanu jest ukryty</string>
+    <string name="hide_extended_details">Ukrywaj dodatkowe szczegóły, gdy pasek stanu jest ukryty</string>
     <string name="do_extra_check">Dodatkowe sprawdzenie w celu uniknięcia pokazywania niewłaściwych plików</string>
     <string name="show_at_bottom">Pokazuj niektóre przyciski akcji na dole ekranu</string>
     <string name="show_recycle_bin">Pokazuj kosz w widoku folderów</string>
@@ -182,10 +182,10 @@
     <string name="faq_5_title">Jaka jest różnica między ukryciem, a wykluczeniem folderu?</string>
     <string name="faq_5_text">Wykluczenie działa tylko w obrębie niniejszej aplikacji (wszędzie indziej pliki są normalnie widoczne), ukrywanie - w obrębie całego systemu (nie widać ich nigdzie), dodawany jest wtedy do folderu pusty plik \'.nomedia\', który możesz usunąć w dowolnym menedżerze plików.</string>
     <string name="faq_6_title">Dlaczego pokazują mi się foldery z okładkami do piosenek i tym podobne rzeczy?</string>
-    <string name="faq_6_text">Aplikacja niestety nie wie, czy dane zdjęcie jest okładką od piosenki czy czymś innym. Aby ukryć niechciane rzeczy, przytrzymaj je i wybierz opcję \'Wyklucz\' z paska akcji.</string>
+    <string name="faq_6_text">Aplikacja nie wie, czy dany obraz jest okładką od piosenki czy czymś innym. Aby ukryć niechciane rzeczy, przytrzymaj je i wybierz opcję \'Wyklucz\' z paska akcji.</string>
     <string name="faq_7_title">Nie pokazuje(-ą) mi się folder(y) ze zdjęciami / filmami. Co mogę zrobić?</string>
     <string name="faq_7_text">Wejdź do ustawień aplikacji i w sekcji z dołączonymi folderami dodaj tenże folder do listy.</string>
-    <string name="faq_8_title">Co jeśli chcę widzieć tylko.wybrane foldery?</string>
+    <string name="faq_8_title">Co jeśli chcę widzieć tylko wybrane foldery?</string>
     <string name="faq_8_text">Przejdź do sekcji z wykluczonymi folderami w ustawieniach aplikacji, dodaj tam folder główny (\"/\"), a następnie dodaj pożądane foldery w sekcji z dołączonymi folderami.</string>
     <string name="faq_9_title">Zdjęcia w widoku pełnoekranowym mają dziwne artefakty. Jak mogę to naprawić?</string>
     <string name="faq_9_text">W ustawieniach aplikacji włącz opcję \'Zamieniaj powiększalne obrazy na te o lepszej jakości\'. Poprawi ona jakość zdjęć, jednak przy bardzo dużych powiększeniach mogą się stać one zbyt rozmazane.</string>
@@ -193,8 +193,8 @@
     <string name="faq_10_text">Tak, możesz to zrobić w edytorze, przeciągając krawędzie obrazu. Edytor otworzysz przytrzymując miniaturę obrazu i wybierając opcję \'Edytuj\', bądź wybierając tą samą opcję w menu pełnoekranowym.</string>
     <string name="faq_11_title">Czy mogę jakoś grupować miniatury plików?</string>
     <string name="faq_11_text">Tak. Użyj opcji \'Grupuj według\', gdy jesteś w widoku miniatur. Grupować je możesz według wielu kryteriów, włącznie z datą ich utworzenia. Ponadto, jeśli użyjesz opcji \'Pokazuj całą zawartość folderów\', możesz je także grupować według folderów.</string>
-    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
-    <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
+    <string name="faq_12_title">Sortowanie według daty utworzenia nie działa poprawnie. Dlaczego tak się dzieje i jak mogę to naprawić?</string>
+    <string name="faq_12_text">Dzieje się tak, gdyż prawdopodobnie pliki zostały skądś do urządzenia skopiowane. Naprawić to można wybierając miniatury plików, a następnie opcję \'Napraw datę utworzenia\'.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
