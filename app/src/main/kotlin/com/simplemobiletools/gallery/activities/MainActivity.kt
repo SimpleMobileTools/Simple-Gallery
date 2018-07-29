@@ -33,6 +33,7 @@ import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.interfaces.DirectoryDao
 import com.simplemobiletools.gallery.interfaces.DirectoryOperationsListener
+import com.simplemobiletools.gallery.interfaces.MediumDao
 import com.simplemobiletools.gallery.models.AlbumCover
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
@@ -73,10 +74,16 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mStoredTextColor = 0
     private var mStoredPrimaryColor = 0
 
+    private lateinit var mMediumDao: MediumDao
+    private lateinit var mDirectoryDao: DirectoryDao
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         appLaunched(BuildConfig.APPLICATION_ID)
+
+        mMediumDao = galleryDB.MediumDao()
+        mDirectoryDao = galleryDB.DirectoryDao()
 
         config.temporarilyShowHidden = false
         config.tempSkipDeleteConfirmation = false
@@ -435,9 +442,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             }
 
             Thread {
-                val directoryDao = galleryDB.DirectoryDao()
                 folders.filter { !it.exists() }.forEach {
-                    directoryDao.deleteDirPath(it.absolutePath)
+                    mDirectoryDao.deleteDirPath(it.absolutePath)
                 }
             }.start()
         }
@@ -693,8 +699,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val albumCovers = config.parseAlbumCovers()
         val includedFolders = config.includedFolders
         val isSortingAscending = config.directorySorting and SORT_DESCENDING == 0
-        val mediumDao = galleryDB.MediumDao()
-        val directoryDao = galleryDB.DirectoryDao()
         val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0
         val favoritePaths = getFavoritePaths()
 
@@ -731,14 +735,14 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 // update directories and media files in the local db, delete invalid items
                 updateDBDirectory(directory)
                 if (!directory.isRecycleBin()) {
-                    mediumDao.insertAll(curMedia)
+                    mMediumDao.insertAll(curMedia)
                 }
                 getCachedMedia(directory.path, getVideosOnly, getImagesOnly) {
                     it.forEach {
                         if (!curMedia.contains(it)) {
                             val path = (it as? Medium)?.path
                             if (path != null) {
-                                mediumDao.deleteMediumPath(path)
+                                mMediumDao.deleteMediumPath(path)
                             }
                         }
                     }
@@ -782,9 +786,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             val newDir = createDirectoryFromMedia(folder, newMedia, albumCovers, hiddenString, includedFolders, isSortingAscending)
             dirs.add(newDir)
             showSortedDirs(dirs)
-            directoryDao.insert(newDir)
+            mDirectoryDao.insert(newDir)
             if (folder != RECYCLE_BIN) {
-                mediumDao.insertAll(newMedia)
+                mMediumDao.insertAll(newMedia)
             }
         }
 
@@ -795,7 +799,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             directories_refresh_layout.isRefreshing = false
             checkPlaceholderVisibility(dirs)
         }
-        checkInvalidDirectories(dirs, directoryDao)
+        checkInvalidDirectories(dirs)
 
         val everShownFolders = config.everShownFolders as HashSet
         dirs.mapTo(everShownFolders) { it.path }
@@ -895,7 +899,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
     }
 
-    private fun checkInvalidDirectories(dirs: ArrayList<Directory>, directoryDao: DirectoryDao) {
+    private fun checkInvalidDirectories(dirs: ArrayList<Directory>) {
         val invalidDirs = ArrayList<Directory>()
         dirs.filter { !it.areFavorites() && !it.isRecycleBin() }.forEach {
             if (!getDoesFilePathExist(it.path)) {
@@ -918,7 +922,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         if (config.useRecycleBin) {
             val binFolder = dirs.firstOrNull { it.path == RECYCLE_BIN }
-            if (binFolder != null && galleryDB.MediumDao().getDeletedMedia().isEmpty()) {
+            if (binFolder != null && mMediumDao.getDeletedMedia().isEmpty()) {
                 invalidDirs.add(binFolder)
             }
         }
@@ -927,7 +931,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             dirs.removeAll(invalidDirs)
             showSortedDirs(dirs)
             invalidDirs.forEach {
-                directoryDao.deleteDirPath(it.path)
+                mDirectoryDao.deleteDirPath(it.path)
             }
         }
     }
@@ -971,11 +975,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun checkRecycleBinItems() {
         if (config.useRecycleBin) {
             Thread {
-                val mediumDao = galleryDB.MediumDao()
-                val deletedMedia = mediumDao.getDeletedMedia()
+                val deletedMedia = mMediumDao.getDeletedMedia()
                 deletedMedia.forEach {
                     if (System.currentTimeMillis() > it.deletedTS + MONTH_MILLISECONDS) {
-                        mediumDao.deleteMediumPath(it.path)
+                        mMediumDao.deleteMediumPath(it.path)
                     }
                 }
             }.start()
