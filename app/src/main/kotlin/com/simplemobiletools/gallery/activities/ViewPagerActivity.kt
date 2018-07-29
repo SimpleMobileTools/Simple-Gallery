@@ -294,12 +294,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_delete).isVisible = visibleBottomActions and BOTTOM_ACTION_DELETE == 0
             findItem(R.id.menu_share).isVisible = visibleBottomActions and BOTTOM_ACTION_SHARE == 0
             findItem(R.id.menu_edit).isVisible = visibleBottomActions and BOTTOM_ACTION_EDIT == 0
-            findItem(R.id.menu_rename).isVisible = visibleBottomActions and BOTTOM_ACTION_RENAME == 0
+            findItem(R.id.menu_rename).isVisible = visibleBottomActions and BOTTOM_ACTION_RENAME == 0 && !currentMedium.getIsInRecycleBin()
             findItem(R.id.menu_rotate).isVisible = currentMedium.isImage() && visibleBottomActions and BOTTOM_ACTION_ROTATE == 0
             findItem(R.id.menu_set_as).isVisible = visibleBottomActions and BOTTOM_ACTION_SET_AS == 0
             findItem(R.id.menu_save_as).isVisible = mRotationDegrees != 0
-            findItem(R.id.menu_hide).isVisible = !currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0
-            findItem(R.id.menu_unhide).isVisible = currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0
+            findItem(R.id.menu_hide).isVisible = !currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0 && !currentMedium.getIsInRecycleBin()
+            findItem(R.id.menu_unhide).isVisible = currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0 && !currentMedium.getIsInRecycleBin()
             findItem(R.id.menu_add_to_favorites).isVisible = !currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0
             findItem(R.id.menu_remove_from_favorites).isVisible = currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0
             findItem(R.id.menu_restore_file).isVisible = currentMedium.path.startsWith(filesDir.absolutePath)
@@ -839,7 +839,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         }
 
-        bottom_rename.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_RENAME != 0)
+        bottom_rename.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_RENAME != 0 && !getCurrentMedium()!!.getIsInRecycleBin())
         bottom_rename.setOnClickListener {
             renameFile()
         }
