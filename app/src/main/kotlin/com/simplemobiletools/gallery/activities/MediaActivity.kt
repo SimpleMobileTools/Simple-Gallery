@@ -454,7 +454,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     private fun restoreAllFiles() {
         val paths = mMedia.filter { it is Medium }.map { (it as Medium).path } as ArrayList<String>
-        restoreRecycleBinPaths(paths) {
+        restoreRecycleBinPaths(paths, mMediumDao) {
             Thread {
                 mDirectoryDao.deleteDirPath(RECYCLE_BIN)
             }.start()
@@ -546,7 +546,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
         mIsGettingMedia = true
         if (!mLoadedInitialPhotos) {
-            getCachedMedia(mPath, mIsGetVideoIntent, mIsGetImageIntent) {
+            getCachedMedia(mPath, mIsGetVideoIntent, mIsGetImageIntent, mMediumDao) {
                 if (it.isEmpty()) {
                     runOnUiThread {
                         media_refresh_layout.isRefreshing = true
@@ -834,7 +834,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         toast(deletingItems)
 
         if (config.useRecycleBin && !filtered.first().path.startsWith(filesDir.absolutePath)) {
-            movePathsInRecycleBin(filtered.map { it.path } as ArrayList<String>) {
+            movePathsInRecycleBin(filtered.map { it.path } as ArrayList<String>, mMediumDao) {
                 if (it) {
                     deleteFilteredFiles(filtered)
                 } else {

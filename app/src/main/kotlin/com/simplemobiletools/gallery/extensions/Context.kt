@@ -181,9 +181,9 @@ fun Context.rescanFolderMediaSync(path: String) {
     }
 }
 
-fun Context.storeDirectoryItems(items: ArrayList<Directory>) {
+fun Context.storeDirectoryItems(items: ArrayList<Directory>, directoryDao: DirectoryDao) {
     Thread {
-        galleryDB.DirectoryDao().insertAll(items)
+        directoryDao.insertAll(items)
     }.start()
 }
 
@@ -280,9 +280,8 @@ fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boo
     builder.apply(options).transition(DrawableTransitionOptions.withCrossFade()).into(target)
 }
 
-fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, callback: (ArrayList<Directory>) -> Unit) {
+fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, directoryDao: DirectoryDao = galleryDB.DirectoryDao(), callback: (ArrayList<Directory>) -> Unit) {
     Thread {
-        val directoryDao = galleryDB.DirectoryDao()
         val directories = try {
             directoryDao.getAll() as ArrayList<Directory>
         } catch (e: SQLiteException) {
@@ -326,10 +325,10 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
     }.start()
 }
 
-fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, callback: (ArrayList<ThumbnailItem>) -> Unit) {
+fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, mediumDao: MediumDao = galleryDB.MediumDao(),
+                           callback: (ArrayList<ThumbnailItem>) -> Unit) {
     Thread {
         val mediaFetcher = MediaFetcher(this)
-        val mediumDao = galleryDB.MediumDao()
         val foldersToScan = if (path.isEmpty()) mediaFetcher.getFoldersToScan() else arrayListOf(path)
         var media = ArrayList<Medium>()
         if (path == FAVORITES) {
@@ -394,8 +393,8 @@ fun Context.updateDBMediaPath(oldPath: String, newPath: String) {
     galleryDB.MediumDao().updateMedium(oldPath, newParentPath, newFilename, newPath)
 }
 
-fun Context.updateDBDirectory(directory: Directory) {
-    galleryDB.DirectoryDao().updateDirectory(directory.path, directory.tmb, directory.mediaCnt, directory.modified, directory.taken, directory.size, directory.types)
+fun Context.updateDBDirectory(directory: Directory, directoryDao: DirectoryDao) {
+    directoryDao.updateDirectory(directory.path, directory.tmb, directory.mediaCnt, directory.modified, directory.taken, directory.size, directory.types)
 }
 
 fun Context.getOTGFolderChildren(path: String) = getDocumentFile(path)?.listFiles()

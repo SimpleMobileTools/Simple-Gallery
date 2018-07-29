@@ -336,7 +336,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val getImagesOnly = mIsPickImageIntent || mIsGetImageContentIntent
         val getVideosOnly = mIsPickVideoIntent || mIsGetVideoContentIntent
 
-        getCachedDirectories(getVideosOnly, getImagesOnly) {
+        getCachedDirectories(getVideosOnly, getImagesOnly, mDirectoryDao) {
             gotDirectories(addTempFolderIfNeeded(it))
         }
     }
@@ -423,7 +423,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 files?.filter { it.absolutePath.isImageVideoGif() }?.mapTo(pathsToDelete) { it.absolutePath }
             }
 
-            movePathsInRecycleBin(pathsToDelete) {
+            movePathsInRecycleBin(pathsToDelete, mMediumDao) {
                 if (it) {
                     deleteFilteredFolders(fileDirItems, folders)
                 } else {
@@ -733,11 +733,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 showSortedDirs(dirs)
 
                 // update directories and media files in the local db, delete invalid items
-                updateDBDirectory(directory)
+                updateDBDirectory(directory, mDirectoryDao)
                 if (!directory.isRecycleBin()) {
                     mMediumDao.insertAll(curMedia)
                 }
-                getCachedMedia(directory.path, getVideosOnly, getImagesOnly) {
+                getCachedMedia(directory.path, getVideosOnly, getImagesOnly, mMediumDao) {
                     it.forEach {
                         if (!curMedia.contains(it)) {
                             val path = (it as? Medium)?.path
@@ -997,7 +997,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     override fun updateDirectories(directories: ArrayList<Directory>) {
         Thread {
-            storeDirectoryItems(directories)
+            storeDirectoryItems(directories, mDirectoryDao)
             removeInvalidDBDirectories()
         }.start()
     }

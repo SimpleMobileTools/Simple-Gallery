@@ -16,6 +16,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.PickDirectoryDialog
 import com.simplemobiletools.gallery.helpers.NOMEDIA
+import com.simplemobiletools.gallery.interfaces.MediumDao
 import java.io.File
 import java.io.InputStream
 import java.io.OutputStream
@@ -200,9 +201,8 @@ fun BaseSimpleActivity.tryDeleteFileDirItem(fileDirItem: FileDirItem, allowDelet
     }
 }
 
-fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback: ((wasSuccess: Boolean) -> Unit)?) {
+fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, mediumDao: MediumDao = galleryDB.MediumDao(), callback: ((wasSuccess: Boolean) -> Unit)?) {
     Thread {
-        val mediumDao = galleryDB.MediumDao()
         var pathsCnt = paths.size
         paths.forEach {
             val file = File(it)
@@ -220,12 +220,11 @@ fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback:
 }
 
 fun BaseSimpleActivity.restoreRecycleBinPath(path: String, callback: () -> Unit) {
-    restoreRecycleBinPaths(arrayListOf(path), callback)
+    restoreRecycleBinPaths(arrayListOf(path), galleryDB.MediumDao(), callback)
 }
 
-fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, callback: () -> Unit) {
+fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, mediumDao: MediumDao = galleryDB.MediumDao(), callback: () -> Unit) {
     Thread {
-        val mediumDao = galleryDB.MediumDao()
         paths.forEach {
             val source = it
             val destination = it.removePrefix(filesDir.absolutePath)
