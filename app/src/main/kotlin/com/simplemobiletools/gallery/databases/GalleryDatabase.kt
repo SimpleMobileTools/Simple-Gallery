@@ -26,6 +26,7 @@ abstract class GalleryDatabase : RoomDatabase() {
                         db = Room.databaseBuilder(context.applicationContext, GalleryDatabase::class.java, "gallery.db")
                                 .fallbackToDestructiveMigration()
                                 .build()
+                        db!!.openHelper.setWriteAheadLoggingEnabled(true)
                     }
                 }
             }

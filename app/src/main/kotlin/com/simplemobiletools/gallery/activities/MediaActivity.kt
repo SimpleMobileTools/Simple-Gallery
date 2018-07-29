@@ -572,6 +572,13 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 deleteDirectoryIfEmpty()
                 deleteDBDirectory()
             }
+
+            if (mPath == FAVORITES) {
+                Thread {
+                    galleryDB.DirectoryDao().deleteDirPath(FAVORITES)
+                }.start()
+            }
+
             finish()
             true
         } else {

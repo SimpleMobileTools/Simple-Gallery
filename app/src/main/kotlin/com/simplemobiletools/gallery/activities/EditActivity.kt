@@ -9,6 +9,7 @@ import android.graphics.Point
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.RelativeLayout
@@ -177,6 +178,11 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
                     override fun onResourceReady(bitmap: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
                         val currentFilter = getFiltersAdapter()?.getCurrentFilter()
+                        if (initialBitmap == null) {
+                            loadCropImageView()
+                            bottomCropRotateClicked()
+                        }
+
                         if (initialBitmap != null && currentFilter != null && currentFilter.filter.name != getString(R.string.none)) {
                             default_image_view.onGlobalLayout {
                                 applyFilter(currentFilter)
@@ -186,9 +192,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                         }
 
                         if (isCropIntent) {
-                            loadCropImageView()
                             bottom_primary_filter.beGone()
-                            bottomCropRotateClicked()
                         }
 
                         return false
@@ -228,9 +232,13 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 bottom_actions_filter_list.beGone()
 
                 Thread {
-                    val originalBitmap = Glide.with(applicationContext).asBitmap().load(uri).submit(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL).get()
-                    currentFilter.filter.processFilter(originalBitmap)
-                    saveBitmapToFile(originalBitmap, it, false)
+                    try {
+                        val originalBitmap = Glide.with(applicationContext).asBitmap().load(uri).submit(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL).get()
+                        currentFilter.filter.processFilter(originalBitmap)
+                        saveBitmapToFile(originalBitmap, it, false)
+                    } catch (e: OutOfMemoryError) {
+                        toast(R.string.out_of_memory_error)
+                    }
                 }.start()
             }
         }
@@ -346,8 +354,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
         if (currPrimaryAction == PRIMARY_ACTION_FILTER && bottom_actions_filter_list.adapter == null) {
             Thread {
-                val size = resources.getDimension(R.dimen.bottom_filters_thumbnail_height).toInt()
-                val bitmap = Glide.with(this).asBitmap().load(uri).submit(size, size).get()
+                val thumbnailSize = resources.getDimension(R.dimen.bottom_filters_thumbnail_size).toInt()
+                val bitmap = Glide.with(this).asBitmap().load(uri).submit(thumbnailSize, thumbnailSize).get()
                 runOnUiThread {
                     val filterThumbnailsManager = FilterThumbnailsManager()
                     filterThumbnailsManager.clearThumbs()
@@ -362,7 +370,14 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
                     val filterItems = filterThumbnailsManager.processThumbs()
                     val adapter = FiltersAdapter(applicationContext, filterItems) {
-                        applyFilter(it)
+                        val layoutManager = bottom_actions_filter_list.layoutManager as LinearLayoutManager
+                        applyFilter(filterItems[it])
+
+                        if (it == layoutManager.findLastCompletelyVisibleItemPosition() || it == layoutManager.findLastVisibleItemPosition()) {
+                            bottom_actions_filter_list.smoothScrollBy(thumbnailSize, 0)
+                        } else if (it == layoutManager.findFirstCompletelyVisibleItemPosition() || it == layoutManager.findFirstVisibleItemPosition()) {
+                            bottom_actions_filter_list.smoothScrollBy(-thumbnailSize, 0)
+                        }
                     }
 
                     bottom_actions_filter_list.adapter = adapter

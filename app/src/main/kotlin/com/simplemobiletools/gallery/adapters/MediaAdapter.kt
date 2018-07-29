@@ -1,7 +1,10 @@
 package com.simplemobiletools.gallery.adapters
 
+import android.content.ContentProviderOperation
+import android.media.ExifInterface
 import android.os.Handler
 import android.os.Looper
+import android.provider.MediaStore
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
@@ -25,6 +28,9 @@ import com.simplemobiletools.gallery.models.ThumbnailItem
 import com.simplemobiletools.gallery.models.ThumbnailSection
 import kotlinx.android.synthetic.main.photo_video_item_grid.view.*
 import kotlinx.android.synthetic.main.thumbnail_section.view.*
+import java.lang.Exception
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<ThumbnailItem>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
                    val allowMultiplePicks: Boolean, recyclerView: MyRecyclerView, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit) :
@@ -32,6 +38,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
     private val INSTANT_LOAD_DURATION = 2000L
     private val IMAGE_LOAD_DELAY = 100L
+    private val BATCH_SIZE = 100
     private val ITEM_SECTION = 0
     private val ITEM_MEDIUM = 1
 
@@ -136,6 +143,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             R.id.cab_move_to -> copyMoveTo(false)
             R.id.cab_select_all -> selectAll()
             R.id.cab_open_with -> activity.openPath(getCurrentPath(), true)
+            R.id.cab_fix_date_taken -> fixDateTaken()
             R.id.cab_set_as -> activity.setAs(getCurrentPath())
             R.id.cab_delete -> checkDeleteConfirmation()
         }
@@ -277,6 +285,45 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                 listener?.refreshItems()
             }
         }
+    }
+
+    private fun fixDateTaken() {
+        activity.toast(R.string.fixing)
+        Thread {
+            try {
+                val operations = ArrayList<ContentProviderOperation>()
+                val paths = getSelectedPaths()
+                for (path in paths) {
+                    val dateTime = ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME) ?: continue
+                    val format = "yyyy:MM:dd kk:mm:ss"
+                    val formatter = SimpleDateFormat(format, Locale.getDefault())
+                    val timestamp = formatter.parse(dateTime).time
+
+                    val uri = activity.getFileUri(path)
+                    ContentProviderOperation.newUpdate(uri).apply {
+                        val selection = "${MediaStore.Images.Media.DATA} = ?"
+                        val selectionArgs = arrayOf(path)
+                        withSelection(selection, selectionArgs)
+                        withValue(MediaStore.Images.Media.DATE_TAKEN, timestamp)
+                        operations.add(build())
+                    }
+
+                    if (operations.size % BATCH_SIZE == 0) {
+                        activity.contentResolver.applyBatch(MediaStore.AUTHORITY, operations)
+                        operations.clear()
+                    }
+                }
+
+                activity.contentResolver.applyBatch(MediaStore.AUTHORITY, operations)
+                activity.toast(R.string.dates_fixed_successfully)
+                activity.runOnUiThread {
+                    listener?.refreshItems()
+                    finishActMode()
+                }
+            } catch (e: Exception) {
+                activity.showErrorToast(e)
+            }
+        }.start()
     }
 
     private fun checkDeleteConfirmation() {

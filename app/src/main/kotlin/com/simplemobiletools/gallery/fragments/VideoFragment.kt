@@ -500,13 +500,12 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
     override fun onSurfaceTextureUpdated(surface: SurfaceTexture?) {}
 
-    override fun onSurfaceTextureDestroyed(surface: SurfaceTexture?): Boolean {
-        releaseExoPlayer()
-        return false
-    }
+    override fun onSurfaceTextureDestroyed(surface: SurfaceTexture?) = false
 
     override fun onSurfaceTextureAvailable(surface: SurfaceTexture?, width: Int, height: Int) {
-        mExoPlayer?.setVideoSurface(Surface(mTextureView!!.surfaceTexture))
+        Thread {
+            mExoPlayer?.setVideoSurface(Surface(mTextureView!!.surfaceTexture))
+        }.start()
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)

@@ -192,7 +192,16 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     }
 
     private fun toggleFoldersVisibility(hide: Boolean) {
-        getSelectedPaths().filter { it != FAVORITES && it != RECYCLE_BIN }.forEach {
+        val selectedPaths = getSelectedPaths()
+        if (hide && selectedPaths.contains(RECYCLE_BIN)) {
+            config.showRecycleBinAtFolders = false
+            if (selectedPaths.size == 1) {
+                listener?.refreshItems()
+                finishActMode()
+            }
+        }
+
+        selectedPaths.filter { it != FAVORITES && it != RECYCLE_BIN }.forEach {
             val path = it
             if (hide) {
                 if (config.wasHideFolderTooltipShown) {
@@ -297,7 +306,16 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     }
 
     private fun tryExcludeFolder() {
-        val paths = getSelectedPaths().filter { it != PATH && it != RECYCLE_BIN && it != FAVORITES }.toSet()
+        val selectedPaths = getSelectedPaths()
+        val paths = selectedPaths.filter { it != PATH && it != RECYCLE_BIN && it != FAVORITES }.toSet()
+        if (selectedPaths.contains(RECYCLE_BIN)) {
+            config.showRecycleBinAtFolders = false
+            if (selectedPaths.size == 1) {
+                listener?.refreshItems()
+                finishActMode()
+            }
+        }
+
         if (paths.size == 1) {
             ExcludeFolderDialog(activity, paths.toMutableList()) {
                 listener?.refreshItems()
@@ -423,7 +441,6 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 }
             }
 
-            dirs.removeAll(removeFolders)
             listener?.deleteFolders(folders)
         }
     }

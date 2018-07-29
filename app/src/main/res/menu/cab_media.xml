@@ -61,6 +61,10 @@
         android:title="@string/restore_selected_files"
         app:showAsAction="never"/>
     <item
+        android:id="@+id/cab_fix_date_taken"
+        android:title="@string/fix_date_taken"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/cab_open_with"
         android:title="@string/open_with"
         app:showAsAction="never"/>

@@ -1,6 +1,16 @@
 Changelog
 ==========
 
+Version 4.4.0 *(2018-07-26)*
+----------------------------
+
+ * Reworked the editor, added some filters
+ * Allow hiding the Recycle Bin from the main screen folders
+ * Added a menu item for fixing file Date Taken
+ * Fixed some glitches around recycle bin item restoring
+ * Fixed some issues with video playback on resume
+ * Many other UX and stability improvements
+
 Version 4.3.5 *(2018-07-17)*
 ----------------------------
 

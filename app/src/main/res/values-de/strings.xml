@@ -5,7 +5,7 @@
     <string name="edit">Bearbeiten</string>
     <string name="open_camera">Kamera öffnen</string>
     <string name="hidden">(versteckt)</string>
-    <string name="excluded">(ausgenohmen)</string>
+    <string name="excluded">(ausgenommen)</string>
     <string name="pin_folder">Ordner anheften</string>
     <string name="unpin_folder">Ordner loslösen</string>
     <string name="pin_to_the_top">Oben anheften</string>
@@ -24,10 +24,13 @@
     <string name="brightness">Helligkeit</string>
     <string name="lock_orientation">Bildschirmausrichtung sperren</string>
     <string name="unlock_orientation">Bildschirmausrichtung entsperren</string>
-    <string name="change_orientation">Change orientation</string>
+    <string name="change_orientation">Bildschirmausrichtung ändern</string>
     <string name="force_portrait">Hochkant erzwingen</string>
     <string name="force_landscape">Breitbild erzwingen</string>
     <string name="use_default_orientation">Standard Ausrichtung benutzen</string>
+    <string name="fix_date_taken">Fix Date Taken value</string>
+    <string name="fixing">Fixing…</string>
+    <string name="dates_fixed_successfully">Dates fixed successfully</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter</string>
@@ -84,7 +87,7 @@
     <string name="flip_horizontally">Horizontal spiegeln</string>
     <string name="flip_vertically">Vertikal spiegeln</string>
     <string name="edit_with">Bearbeiten mit</string>
-    <string name="free_aspect_ratio">Free</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="free_aspect_ratio">Frei</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Schlichter Hintergrund</string>
@@ -124,7 +127,7 @@
     <string name="by_folder">Ordner</string>
     <string name="by_last_modified">Zuletzt geändert</string>
     <string name="by_date_taken">Erstelldatum</string>
-    <string name="by_file_type">Dateitype</string>
+    <string name="by_file_type">Dateityp</string>
     <string name="by_extension">Extension</string>
 
     <!-- Settings -->
@@ -153,19 +156,19 @@
     <string name="replace_zoomable_images">Stark zoombare Bilder durch Bilder mit hoher Qualität ersetzen</string>
     <string name="hide_extended_details">Erweiterte Details nicht anzeigen, wenn die Systemleiste versteckt ist</string>
     <string name="do_extra_check">Zusätzliche Überprüfung, um ungültige Dateien nicht anzuzeigen</string>
-    <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
-    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
+    <string name="show_at_bottom">Einige Aktionstasten am unteren Bildschirmrand anzeigen</string>
+    <string name="show_recycle_bin">Papierkorb auf dem Ordnerbildschirm anzeigen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>
     <string name="fullscreen_media">Vollbild-Medien</string>
     <string name="extended_details">Erweiterte Details</string>
-    <string name="bottom_actions">Bottom actions</string>
+    <string name="bottom_actions">Untere Aktionen</string>
 
     <!-- Bottom actions -->
-    <string name="manage_bottom_actions">Manage visible bottom actions</string>
-    <string name="toggle_favorite">Toggle favorite</string>
-    <string name="toggle_file_visibility">Toggle file visibility</string>
+    <string name="manage_bottom_actions">Sichtbare untere Aktionen verwalten</string>
+    <string name="toggle_favorite">Favoriten umschalten</string>
+    <string name="toggle_file_visibility">Schaltet die Sichtbarkeit von Dateien um</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Wie kann ich Schlichte Galerie als Standardanwendung auswählen?</string>
@@ -190,8 +193,10 @@
     <string name="faq_9_text">Ja, es gibt einen Schalter in den Einstellungen gekennzeichnet mit \"Stark zoombare Bilder durch Bilder mit hoher Qualität ersetzen\". Dieser wird die Bildqualität verbessern, aber sie werden bei sehr hoher Zoomstufe unscharf.</string>
     <string name="faq_10_title">Kann ich mit dieser App Bilder zuschneiden?</string>
     <string name="faq_10_text">Ja, du kannst Bilder über das Ziehen der Bildecken im Editor zuschneiden. Du gelangst zum Editor indem du lange auf ein Vorschaubild drückst und Bearbeiten auswählst oder durch Auswählen von Bearbeiten in der Vollbildansicht.</string>
-    <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
-    <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
+    <string name="faq_11_title">Kann ich Mediendatei-Thumbnails irgendwie gruppieren?</string>
+    <string name="faq_11_text">Verwenden Sie einfach den Menüeintrag \"Gruppieren nach\" in der Miniaturansicht. Sie können Dateien nach mehreren Kriterien gruppieren, einschließlich Aufnahmedatum. Wenn Sie die Funktion \"Alle Ordnerinhalte anzeigen\" verwenden, können Sie sie auch nach Ordnern gruppieren.</string>
+    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
+    <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

@@ -28,6 +28,9 @@
     <string name="force_portrait">Vynútiť orientáciu na výšku</string>
     <string name="force_landscape">Vynútiť orientáciu na šírku</string>
     <string name="use_default_orientation">Použiť predvolenú orientáciu</string>
+    <string name="fix_date_taken">Opraviť dátum vytvorenia</string>
+    <string name="fixing">Opravuje sa…</string>
+    <string name="dates_fixed_successfully">Dátumy boli úspešne opravené</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter médií</string>
@@ -192,6 +195,8 @@
     <string name="faq_10_text">Áno, orezanie je možné v editore, potiahnutím rohov obrázkov. Do editoru sa môžete dostať buď dlhým podržaním náhľadu obrázku a zvolením menu položky Upraviť, alebo zvolením Upraviť pri celoobrazovkovom režime.</string>
     <string name="faq_11_title">Viem nejakým spôsobom zoskupiť náhľady súborov?</string>
     <string name="faq_11_text">Áno, použitím funkcie \"Zoskupiť podľa\" na menu obrazovky s náhľadmi. Zoskupenie je možné na základe rozličných kritérií vrátane Dátumu vytvorenia. Ak použijete funkciu \"Zobraziť obsah všetkých priečinkov\", viete ich zoskupiť aj podľa priečinkov.</string>
+    <string name="faq_12_title">Radenie podľa dátumu vytvorenia nefunguje správne, ako ho viem opraviť?</string>
+    <string name="faq_12_text">Je to pravdepodobne spôsobené kopírovaním súborov. Viete to opraviť označením jednotlivých náhľadov súborov a zvoliť \"Opraviť dátum vytvorenia\".</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

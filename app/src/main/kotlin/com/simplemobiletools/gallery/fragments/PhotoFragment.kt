@@ -365,6 +365,8 @@ class PhotoFragment : ViewPagerFragment() {
             imageParser.contains("GPano:UsePanoramaViewer=\"True\"", true) || imageParser.contains("<GPano:UsePanoramaViewer>True</GPano:UsePanoramaViewer>", true)
         } catch (e: Exception) {
             false
+        } catch (e: OutOfMemoryError) {
+            false
         }
 
         view.panorama_outline.beVisibleIf(isPanorama && isLollipopPlus())
@@ -387,6 +389,7 @@ class PhotoFragment : ViewPagerFragment() {
                 orient = exif2.getTag(ExifInterface.TAG_ORIENTATION)?.getValueAsInt(defaultOrientation) ?: defaultOrientation
             }
         } catch (ignored: Exception) {
+        } catch (ignored: OutOfMemoryError) {
         }
         return orient
     }

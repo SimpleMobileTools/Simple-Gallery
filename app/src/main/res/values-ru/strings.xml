@@ -28,6 +28,9 @@
     <string name="force_portrait">Всегда портретная</string>
     <string name="force_landscape">Всегда альбомная</string>
     <string name="use_default_orientation">Не менять ориентацию</string>
+    <string name="fix_date_taken">Fix Date Taken value</string>
+    <string name="fixing">Fixing…</string>
+    <string name="dates_fixed_successfully">Dates fixed successfully</string>
 
     <!-- Filter -->
     <string name="filter_media">Фильтр медиа</string>
@@ -192,6 +195,8 @@
     <string name="faq_10_text">Да, вы можете обрезать изображения в редакторе, перетаскивая за углы. К редактированию можно перейти, выбрав соответсвующий пункт в меню, открывающемуся длительным нажатием на миниатюру или изображение в полноэкранном режиме.</string>
     <string name="faq_11_title">Могу ли я как-то сгруппировать миниатюры медиафайлов?</string>
     <string name="faq_11_text">Конечно, просто используйте пункт меню \"Группировать по…\" во время просмотра миниатюр. Вы можете группировать файлы по нескольким критериям, включая дату съёмки. Если вы используете функцию \"Отобразить все медиафайлы\", то также можете группировать их по папкам.</string>
+    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
+    <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
