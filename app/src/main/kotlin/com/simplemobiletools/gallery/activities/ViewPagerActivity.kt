@@ -1104,7 +1104,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun getCurrentMedia() = if (mAreSlideShowMediaVisible) mSlideshowMedia else mMediaFiles
 
-    private fun getCurrentPath() = getCurrentMedium()!!.path
+    private fun getCurrentPath() = getCurrentMedium()?.path ?: ""
 
     private fun getCurrentFile() = File(getCurrentPath())
 
