@@ -79,7 +79,7 @@ fun SimpleActivity.launchAbout() {
     val licenses = LICENSE_GLIDE or LICENSE_CROPPER or LICENSE_MULTISELECT or LICENSE_RTL or LICENSE_SUBSAMPLING or LICENSE_PATTERN or
             LICENSE_REPRINT or LICENSE_GIF_DRAWABLE or LICENSE_PHOTOVIEW or LICENSE_EXOPLAYER or LICENSE_PANORAMA_VIEW or LICENSE_SANSELAN or LICENSE_FILTERS
 
-    startAboutActivity(R.string.app_name, licenses, BuildConfig.VERSION_NAME, faqItems)
+    startAboutActivity(R.string.app_name, licenses, BuildConfig.VERSION_NAME, faqItems, true)
 }
 
 fun AppCompatActivity.showSystemUI(toggleActionBarVisibility: Boolean) {
