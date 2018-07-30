@@ -245,7 +245,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
-            mIsFullScreen = visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
+            mIsFullScreen = if (visibility and View.SYSTEM_UI_FLAG_LOW_PROFILE == 0) {
+                false
+            } else {
+                visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
+            }
+
             view_pager.adapter?.let {
                 (it as MyPagerAdapter).toggleFullscreen(mIsFullScreen)
                 checkSystemUI()
