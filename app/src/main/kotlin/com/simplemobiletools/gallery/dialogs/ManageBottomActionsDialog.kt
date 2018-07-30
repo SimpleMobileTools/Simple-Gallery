@@ -21,7 +21,7 @@ class ManageBottomActionsDialog(val activity: BaseSimpleActivity, val callback: 
             manage_bottom_actions_rotate.isChecked = actions and BOTTOM_ACTION_ROTATE != 0
             manage_bottom_actions_properties.isChecked = actions and BOTTOM_ACTION_PROPERTIES != 0
             manage_bottom_actions_change_orientation.isChecked = actions and BOTTOM_ACTION_CHANGE_ORIENTATION != 0
-            manage_bottom_actions_slideshow.isChecked = actions and BOTTOM_ACTION_PROPERTIES != 0
+            manage_bottom_actions_slideshow.isChecked = actions and BOTTOM_ACTION_SLIDESHOW != 0
             manage_bottom_actions_show_on_map.isChecked = actions and BOTTOM_ACTION_SHOW_ON_MAP != 0
             manage_bottom_actions_toggle_visibility.isChecked = actions and BOTTOM_ACTION_TOGGLE_VISIBILITY != 0
             manage_bottom_actions_rename.isChecked = actions and BOTTOM_ACTION_RENAME != 0
