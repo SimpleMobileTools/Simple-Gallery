@@ -89,7 +89,6 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
 
         mIsFullscreen = activity!!.window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN == View.SYSTEM_UI_FLAG_FULLSCREEN
-        mView!!.video_play_outline.alpha = if (mIsFullscreen) 0f else PLAY_PAUSE_VISIBLE_ALPHA
 
         setupPlayer()
         if (savedInstanceState != null) {
@@ -411,9 +410,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         mExoPlayer?.playWhenReady = true
         mView!!.video_play_outline.setImageResource(R.drawable.ic_pause)
         activity!!.window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-        mHidePauseHandler.postDelayed({
-            mView!!.video_play_outline.animate().alpha(0f).start()
-        }, HIDE_PAUSE_DELAY)
+        schedulePlayPauseFadeOut()
     }
 
     private fun pauseVideo() {
@@ -429,6 +426,14 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         mView?.video_play_outline?.setImageResource(R.drawable.ic_play)
         mView?.video_play_outline?.alpha = PLAY_PAUSE_VISIBLE_ALPHA
         activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        schedulePlayPauseFadeOut()
+    }
+
+    private fun schedulePlayPauseFadeOut() {
+        mHidePauseHandler.removeCallbacksAndMessages(null)
+        mHidePauseHandler.postDelayed({
+            mView!!.video_play_outline.animate().alpha(0f).start()
+        }, HIDE_PAUSE_DELAY)
     }
 
     private fun videoEnded() = mExoPlayer?.currentPosition ?: 0 >= mExoPlayer?.duration ?: 0
