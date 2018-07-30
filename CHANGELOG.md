@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 4.4.1 *(2018-07-30)*
+----------------------------
+
+ * Hide both Play and Pause video buttons after 2 secs
+ * Improve Immersive mode fullscreen behaviour
+ * Some other stability improvements
+
 Version 4.4.0 *(2018-07-26)*
 ----------------------------
 
