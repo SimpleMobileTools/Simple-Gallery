@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 4.4.3 *(2018-08-01)*
+----------------------------
+
+ * Removed the More Donating Options from the Purchase Thank You dialog
+
 Version 4.4.2 *(2018-08-01)*
 ----------------------------
 
