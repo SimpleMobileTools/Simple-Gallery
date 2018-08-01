@@ -60,6 +60,9 @@ fun Activity.launchCamera() {
 }
 
 fun SimpleActivity.launchAbout() {
+    val licenses = LICENSE_GLIDE or LICENSE_CROPPER or LICENSE_MULTISELECT or LICENSE_RTL or LICENSE_SUBSAMPLING or LICENSE_PATTERN or
+            LICENSE_REPRINT or LICENSE_GIF_DRAWABLE or LICENSE_PHOTOVIEW or LICENSE_EXOPLAYER or LICENSE_PANORAMA_VIEW or LICENSE_SANSELAN or LICENSE_FILTERS
+
     val faqItems = arrayListOf(
             FAQItem(R.string.faq_5_title_commons, R.string.faq_5_text_commons),
             FAQItem(R.string.faq_1_title, R.string.faq_1_text),
@@ -75,9 +78,6 @@ fun SimpleActivity.launchAbout() {
             FAQItem(R.string.faq_11_title, R.string.faq_11_text),
             FAQItem(R.string.faq_12_title, R.string.faq_12_text),
             FAQItem(R.string.faq_2_title_commons, R.string.faq_2_text_commons))
-
-    val licenses = LICENSE_GLIDE or LICENSE_CROPPER or LICENSE_MULTISELECT or LICENSE_RTL or LICENSE_SUBSAMPLING or LICENSE_PATTERN or
-            LICENSE_REPRINT or LICENSE_GIF_DRAWABLE or LICENSE_PHOTOVIEW or LICENSE_EXOPLAYER or LICENSE_PANORAMA_VIEW or LICENSE_SANSELAN or LICENSE_FILTERS
 
     startAboutActivity(R.string.app_name, licenses, BuildConfig.VERSION_NAME, faqItems, true)
 }
