@@ -28,9 +28,9 @@
     <string name="force_portrait">Hochkant erzwingen</string>
     <string name="force_landscape">Breitbild erzwingen</string>
     <string name="use_default_orientation">Standard Ausrichtung benutzen</string>
-    <string name="fix_date_taken">Aufnahmedatum reparieren</string>
-    <string name="fixing">Repariere…</string>
-    <string name="dates_fixed_successfully">Datum erfolgreich repariert</string>
+    <string name="fix_date_taken">Aufnahmedatum korrigieren</string>
+    <string name="fixing">Korrigiere…</string>
+    <string name="dates_fixed_successfully">Datum erfolgreich korrigiert</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter</string>
