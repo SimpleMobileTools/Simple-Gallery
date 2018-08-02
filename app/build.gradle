@@ -11,8 +11,8 @@ android {
         applicationId "com.simplemobiletools.gallery"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 191
-        versionName "4.4.3"
+        versionCode 192
+        versionName "4.4.4"
         multiDexEnabled true
         setProperty("archivesBaseName", "gallery")
     }
