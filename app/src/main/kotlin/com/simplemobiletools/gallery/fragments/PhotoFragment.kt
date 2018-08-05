@@ -48,7 +48,7 @@ import java.io.FileOutputStream
 
 class PhotoFragment : ViewPagerFragment() {
     private val DEFAULT_DOUBLE_TAP_ZOOM = 2f
-    private val ZOOMABLE_VIEW_LOAD_DELAY = 1500L
+    private val ZOOMABLE_VIEW_LOAD_DELAY = 1000L
 
     private var isFragmentVisible = false
     private var isFullscreen = false
