@@ -234,17 +234,10 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun loadBitmap(degrees: Int = 0) {
-        var targetWidth = ViewPagerActivity.screenWidth
-        var targetHeight = ViewPagerActivity.screenHeight
-        if (degrees == 0) {
-            targetWidth /= 2
-            targetHeight /= 2
-        }
-
         val picasso = Picasso.get()
                 .load(File(medium.path))
                 .centerInside()
-                .resize(targetWidth, targetHeight)
+                .resize(ViewPagerActivity.screenWidth, ViewPagerActivity.screenHeight)
 
         if (degrees != 0) {
             picasso.rotate(degrees.toFloat())
