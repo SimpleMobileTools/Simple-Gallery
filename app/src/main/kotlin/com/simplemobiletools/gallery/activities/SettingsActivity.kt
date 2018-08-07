@@ -68,7 +68,6 @@ class SettingsActivity : SimpleActivity() {
         setupEnablePullToRefresh()
         setupOneFingerZoom()
         setupAllowInstantChange()
-        setupReplaceZoomableImages()
         setupShowExtendedDetails()
         setupHideExtendedDetails()
         setupManageExtendedDetails()
@@ -348,14 +347,6 @@ class SettingsActivity : SimpleActivity() {
         settings_allow_instant_change_holder.setOnClickListener {
             settings_allow_instant_change.toggle()
             config.allowInstantChange = settings_allow_instant_change.isChecked
-        }
-    }
-
-    private fun setupReplaceZoomableImages() {
-        settings_replace_zoomable_images.isChecked = config.replaceZoomableImages
-        settings_replace_zoomable_images_holder.setOnClickListener {
-            settings_replace_zoomable_images.toggle()
-            config.replaceZoomableImages = settings_replace_zoomable_images.isChecked
         }
     }
 

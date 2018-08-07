@@ -189,10 +189,6 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(ALLOW_INSTANT_CHANGE, false)
         set(allowInstantChange) = prefs.edit().putBoolean(ALLOW_INSTANT_CHANGE, allowInstantChange).apply()
 
-    var replaceZoomableImages: Boolean
-        get() = prefs.getBoolean(REPLACE_ZOOMABLE_IMAGES, false)
-        set(replaceZoomableImages) = prefs.edit().putBoolean(REPLACE_ZOOMABLE_IMAGES, replaceZoomableImages).apply()
-
     private fun getDirectoryColumnsField(): String {
         val isPortrait = context.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
         return if (isPortrait) {

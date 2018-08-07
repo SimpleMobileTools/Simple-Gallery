@@ -70,7 +70,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mAreSlideShowMediaVisible = false
     private var mIsOrientationLocked = false
 
-    private var mStoredReplaceZoomableImages = false
     private var mMediaFiles = ArrayList<Medium>()
     private var mFavoritePaths = ArrayList<String>()
 
@@ -93,7 +92,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         }
 
-        storeStateVariables()
         initFavorites()
     }
 
@@ -111,11 +109,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         } else {
             setTranslucentNavigation()
-        }
-
-        if (mStoredReplaceZoomableImages != config.replaceZoomableImages) {
-            mPrevHashcode = 0
-            refreshViewPager()
         }
 
         initBottomActions()
@@ -138,7 +131,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun onPause() {
         super.onPause()
         stopSlideshow()
-        storeStateVariables()
     }
 
     override fun onDestroy() {
@@ -355,12 +347,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             else -> return super.onOptionsItemSelected(item)
         }
         return true
-    }
-
-    private fun storeStateVariables() {
-        config.apply {
-            mStoredReplaceZoomableImages = replaceZoomableImages
-        }
     }
 
     private fun updatePagerItems(media: MutableList<Medium>) {
