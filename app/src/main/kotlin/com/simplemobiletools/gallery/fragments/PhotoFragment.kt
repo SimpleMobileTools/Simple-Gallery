@@ -240,9 +240,10 @@ class PhotoFragment : ViewPagerFragment() {
             Picasso.get()
                     .load(File(medium.path))
                     .centerInside()
-                    .fit()
+                    .resize(ViewPagerActivity.screenWidth / 2, ViewPagerActivity.screenHeight / 2)
                     .into(view.photo_view, object : Callback {
                         override fun onSuccess() {
+                            view.photo_view.isZoomable = false
                             if (isFragmentVisible) {
                                 scheduleZoomableView()
                             }
