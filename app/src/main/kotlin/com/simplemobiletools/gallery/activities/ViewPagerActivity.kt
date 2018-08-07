@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.activities
 
 import android.animation.Animator
 import android.animation.ValueAnimator
+import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Intent
@@ -965,9 +966,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         initBottomActionsLayout()
     }
 
+    @SuppressLint("NewApi")
     private fun measureScreen() {
         val metrics = DisplayMetrics()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        if (isJellyBean1Plus()) {
             windowManager.defaultDisplay.getRealMetrics(metrics)
             screenWidth = metrics.widthPixels
             screenHeight = metrics.heightPixels

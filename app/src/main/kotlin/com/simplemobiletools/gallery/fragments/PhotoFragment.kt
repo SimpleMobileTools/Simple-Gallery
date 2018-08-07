@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.fragments
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Bitmap
@@ -11,6 +12,7 @@ import android.media.ExifInterface.*
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,6 +21,7 @@ import com.davemorrissey.labs.subscaleview.ImageSource
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
+import com.simplemobiletools.commons.helpers.isJellyBean1Plus
 import com.simplemobiletools.commons.helpers.isLollipopPlus
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.PanoramaActivity
@@ -39,7 +42,7 @@ import java.io.FileOutputStream
 
 class PhotoFragment : ViewPagerFragment() {
     private val DEFAULT_DOUBLE_TAP_ZOOM = 2f
-    private val ZOOMABLE_VIEW_LOAD_DELAY = 500L
+    private val ZOOMABLE_VIEW_LOAD_DELAY = 300L
 
     private var isFragmentVisible = false
     private var isFullscreen = false
@@ -76,6 +79,10 @@ class PhotoFragment : ViewPagerFragment() {
                     }
                 }
             }
+        }
+
+        if (ViewPagerActivity.screenWidth == 0 || ViewPagerActivity.screenHeight == 0) {
+            measureScreen()
         }
 
         storeStateVariables()
@@ -164,6 +171,20 @@ class PhotoFragment : ViewPagerFragment() {
             storedShowExtendedDetails = showExtendedDetails
             storedHideExtendedDetails = hideExtendedDetails
             storedExtendedDetails = extendedDetails
+        }
+    }
+
+    @SuppressLint("NewApi")
+    private fun measureScreen() {
+        val metrics = DisplayMetrics()
+        if (isJellyBean1Plus()) {
+            activity!!.windowManager.defaultDisplay.getRealMetrics(metrics)
+            ViewPagerActivity.screenWidth = metrics.widthPixels
+            ViewPagerActivity.screenHeight = metrics.heightPixels
+        } else {
+            activity!!.windowManager.defaultDisplay.getMetrics(metrics)
+            ViewPagerActivity.screenWidth = metrics.widthPixels
+            ViewPagerActivity.screenHeight = metrics.heightPixels
         }
     }
 
