@@ -824,7 +824,10 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         mLatestMediaDateId = getLatestMediaByDateId()
         if (!isFromCache) {
             val mediaToInsert = (mMedia).filter { it is Medium && it.deletedTS == 0L }.map { it as Medium }
-            mMediumDao.insertAll(mediaToInsert)
+            try {
+                mMediumDao.insertAll(mediaToInsert)
+            } catch (e: Exception) {
+            }
         }
     }
 
