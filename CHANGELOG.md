@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 4.5.0 *(2018-08-07)*
+----------------------------
+
+ * Use real Move instead of the old copy/delete if both source and destination are on the internal storage
+ * Remake the fullscreen view, always use deep zoomable images with good quality
+ * Couple stability improvements
+
 Version 4.4.4 *(2018-08-02)*
 ----------------------------
 
