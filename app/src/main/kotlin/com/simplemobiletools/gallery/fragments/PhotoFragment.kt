@@ -15,8 +15,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.request.RequestOptions
 import com.davemorrissey.labs.subscaleview.ImageSource
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import com.simplemobiletools.commons.extensions.*
@@ -236,33 +234,32 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun loadBitmap(degrees: Int = 0) {
+        var targetWidth = ViewPagerActivity.screenWidth
+        var targetHeight = ViewPagerActivity.screenHeight
         if (degrees == 0) {
-            Picasso.get()
-                    .load(File(medium.path))
-                    .centerInside()
-                    .resize(ViewPagerActivity.screenWidth / 2, ViewPagerActivity.screenHeight / 2)
-                    .into(view.photo_view, object : Callback {
-                        override fun onSuccess() {
-                            view.photo_view.isZoomable = false
-                            if (isFragmentVisible) {
-                                scheduleZoomableView()
-                            }
-                        }
-
-                        override fun onError(e: Exception) {}
-                    })
-        } else {
-            val options = RequestOptions()
-                    .diskCacheStrategy(DiskCacheStrategy.NONE)
-                    .transform(GlideRotateTransformation(degrees))
-
-            Glide.with(this)
-                    .asBitmap()
-                    .load(getPathToLoad(medium))
-                    .thumbnail(0.2f)
-                    .apply(options)
-                    .into(view.photo_view)
+            targetWidth /= 2
+            targetHeight /= 2
         }
+
+        val picasso = Picasso.get()
+                .load(File(medium.path))
+                .centerInside()
+                .resize(targetWidth, targetHeight)
+
+        if (degrees != 0) {
+            picasso.rotate(degrees.toFloat())
+        }
+
+        picasso.into(view.photo_view, object : Callback {
+            override fun onSuccess() {
+                view.photo_view.isZoomable = degrees != 0
+                if (isFragmentVisible && degrees == 0) {
+                    scheduleZoomableView()
+                }
+            }
+
+            override fun onError(e: Exception) {}
+        })
     }
 
     private fun openPanorama() {
@@ -379,6 +376,7 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     fun rotateImageViewBy(degrees: Int) {
+        loadZoomableViewHandler.removeCallbacksAndMessages(null)
         view.subsampling_view.beGone()
         loadBitmap(degrees)
     }
