@@ -153,7 +153,7 @@
     <string name="manage_extended_details">Gerenciar detalhes extendidos</string>
     <string name="one_finger_zoom">Permitir zoom com um dedo quando em exibição de tela cheia</string>
     <string name="allow_instant_change">Permitir alternância instantânia de mídia clicando nas laterais da tela</string>
-    <string name="replace_zoomable_images">Substituir imagens aptas a grande quantitade de zoom por imagens de melhor qualidade</string>
+    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
     <string name="hide_extended_details">Ocultar detalhes extendidos quando a barra de status estiver oculta</string>
     <string name="do_extra_check">Realizar verificação extra para evitar mostrar arquivos inválidos</string>
     <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>

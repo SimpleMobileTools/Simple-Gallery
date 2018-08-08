@@ -153,7 +153,7 @@
     <string name="manage_extended_details">要显示的详细信息项目</string>
     <string name="one_finger_zoom">单指缩放</string>
     <string name="allow_instant_change">通过单击屏幕边缘来切换媒体</string>
-    <string name="replace_zoomable_images">用质量更好的图像替换可深度缩放的图像</string>
+    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
     <string name="hide_extended_details">当状态栏隐藏时隐藏扩展详情</string>
     <string name="do_extra_check">额外检查以避免显示无效的文件</string>
     <string name="show_at_bottom">在屏幕底部显示一些操作按钮</string>

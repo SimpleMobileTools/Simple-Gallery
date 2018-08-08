@@ -153,7 +153,7 @@
     <string name="manage_extended_details">확장된 세부정보 관리</string>
     <string name="one_finger_zoom">전체화면 모드에서 한 손가락으로 확대 및 축소</string>
     <string name="allow_instant_change">측면 클릭으로 미디어 즉시변경</string>
-    <string name="replace_zoomable_images">확대 축소 가능한 이미지를 더 좋은 품질로 교체</string>
+    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
     <string name="hide_extended_details">상태 표시 줄이 숨겨져있을 때 확장 된 세부 정보 숨김</string>
     <string name="do_extra_check">잘못된 파일 표시를 방지하기 위해 추가 검사 수행</string>
     <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>

@@ -154,7 +154,7 @@
     <string name="manage_extended_details">Διαχείριση εκτεταμένων λεπτομερειών</string>
     <string name="one_finger_zoom">Να επιτρέπεται μεγένθυση με ένα δάχτυλο σε πλήρη οθόνη</string>
     <string name="allow_instant_change">Να επιτρέπεται η άμεση αλλαγή των μέσων με το άγγιγμα στις άκρες της οθόνης</string>
-    <string name="replace_zoomable_images">Αντικατάσταση των φωτογραφιών που απαιτούν ζούμ με άλλες καλύτερης ποιότητας</string>
+    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
     <string name="hide_extended_details">Απόκρυψη λεπτομερειών όταν η μπάρα κατάστασης είναι κρυμμένη</string>
     <string name="do_extra_check">Επιπλέον έλεγχος για την αποφυγή εμφάνισης λανθασμένων αρχείων</string>
     <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>

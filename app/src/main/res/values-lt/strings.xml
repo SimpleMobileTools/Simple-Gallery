@@ -153,7 +153,7 @@
     <string name="manage_extended_details">Tvarkykite išsamią informaciją</string>
     <string name="one_finger_zoom">Leisti vienu pirštu pritraukti viso ekrano rėžime</string>
     <string name="allow_instant_change">Leiskite akimirksniu keisti mediją spustelėdami ekrano šonuose</string>
-    <string name="replace_zoomable_images">Pakeisti giliai priartinamus atvaizdus su geresnės kokybės atvaizdais</string>
+    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
     <string name="hide_extended_details">Slėpti išsamią informaciją, kai būsenos juosta yra paslėpta</string>
     <string name="do_extra_check">Atlikti papildomą patikrinimą, kad nebūtų rodomos sugadintos bylos</string>
     <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>

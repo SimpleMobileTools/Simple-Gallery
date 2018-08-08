@@ -153,7 +153,7 @@
     <string name="manage_extended_details">詳細表示を管理する</string>
     <string name="one_finger_zoom">メディアを指ひとつでズーム可能にする</string>
     <string name="allow_instant_change">画面の端を押してメディアをスライドする</string>
-    <string name="replace_zoomable_images">ズームが可能な画像を高画質な物にする</string>
+    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
     <string name="hide_extended_details">ステータスバーが非表示の時は詳細を隠す</string>
     <string name="do_extra_check">無効なファイルを見せない調整を行う</string>
     <string name="show_at_bottom">画面下部にアクションボタンを表示する</string>

@@ -153,7 +153,7 @@
     <string name="manage_extended_details">Manage extended details</string>
     <string name="one_finger_zoom">Tillad zoom med en finger når medier er i fuldskærm</string>
     <string name="allow_instant_change">Tillad skift af medie ved klik på skærmens sider</string>
-    <string name="replace_zoomable_images">Erstat stærkt zoombare billeder med nogle i bedre kvalitet</string>
+    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
     <string name="hide_extended_details">Skjul udvidede oplysninger når statuslinjen er skjult</string>
     <string name="do_extra_check">Tjek en ekstra gang for at undgå visning af ugyldige filer</string>
     <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>

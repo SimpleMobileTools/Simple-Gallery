@@ -153,7 +153,7 @@
     <string name="manage_extended_details">Gestisci le informazioni estese</string>
     <string name="one_finger_zoom">Abilita zoom con un dito su media a schermo intero</string>
     <string name="allow_instant_change">Cambia media istantaneamente toccando sui lati dello schermo</string>
-    <string name="replace_zoomable_images">Sostituisci le immagini ingrandibili a fondo con altre di migliore qualità</string>
+    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
     <string name="hide_extended_details">Nascondi i dettagli estesi quando la barra di stato è nascosta</string>
     <string name="do_extra_check">Fai un controllo ulteriore per evitare di mostrare file non validi</string>
     <string name="show_at_bottom">Mostra alcuni pulsanti azione in fondo allo schermo</string>

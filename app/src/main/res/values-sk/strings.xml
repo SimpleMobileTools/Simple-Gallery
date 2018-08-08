@@ -153,7 +153,7 @@
     <string name="manage_extended_details">Spravovať rozšírené vlastnosti</string>
     <string name="one_finger_zoom">Povoliť približovanie jedným prstom v celoobrazovkovom režime</string>
     <string name="allow_instant_change">Povoliť instantné prepínanie médií kliknutím na okraj obrazovky</string>
-    <string name="replace_zoomable_images">Nahradiť hlboko priblížiteľné obrázky s obrázkami s lepšou kvalitou</string>
+    <string name="allow_deep_zooming_images">Povoliť hlboké približovanie obrázkov</string>
     <string name="hide_extended_details">Skryť rozšírené vlastnosti ak je skrytá stavová lišta</string>
     <string name="do_extra_check">Predísť zobrazovaniu neplatných súborov dodatočnou kontrolou</string>
     <string name="show_at_bottom">Zobraziť niektoré akčné tlačidlá na spodku obrazovky</string>

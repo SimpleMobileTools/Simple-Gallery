@@ -153,7 +153,7 @@
     <string name="manage_extended_details">Manage extended details</string>
     <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
     <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
-    <string name="replace_zoomable_images">Replace deep zoomable images with better quality ones</string>
+    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
     <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
     <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
     <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
