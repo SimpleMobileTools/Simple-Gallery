@@ -66,6 +66,7 @@ class SettingsActivity : SimpleActivity() {
         setupKeepLastModified()
         setupShowInfoBubble()
         setupEnablePullToRefresh()
+        setupAllowZoomingImages()
         setupOneFingerZoom()
         setupAllowInstantChange()
         setupShowExtendedDetails()
@@ -331,6 +332,16 @@ class SettingsActivity : SimpleActivity() {
         settings_enable_pull_to_refresh_holder.setOnClickListener {
             settings_enable_pull_to_refresh.toggle()
             config.enablePullToRefresh = settings_enable_pull_to_refresh.isChecked
+        }
+    }
+
+    private fun setupAllowZoomingImages() {
+        settings_one_finger_zoom_holder.beVisibleIf(config.allowZoomingImages)
+        settings_allow_zooming_images.isChecked = config.allowZoomingImages
+        settings_allow_zooming_images_holder.setOnClickListener {
+            settings_allow_zooming_images.toggle()
+            config.allowZoomingImages = settings_allow_zooming_images.isChecked
+            settings_one_finger_zoom_holder.beVisibleIf(config.allowZoomingImages)
         }
     }
 
