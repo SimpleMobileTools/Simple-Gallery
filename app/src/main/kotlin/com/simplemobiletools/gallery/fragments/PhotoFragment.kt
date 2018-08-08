@@ -200,6 +200,8 @@ class PhotoFragment : ViewPagerFragment() {
         if (isVisible) {
             scheduleZoomableView()
         } else {
+            view.subsampling_view.recycle()
+            view.subsampling_view.beGone()
             loadZoomableViewHandler.removeCallbacksAndMessages(null)
         }
     }
@@ -303,6 +305,7 @@ class PhotoFragment : ViewPagerFragment() {
     private fun addZoomableView() {
         val rotation = degreesForRotation(imageOrientation)
         view.subsampling_view.apply {
+            background = ColorDrawable(Color.TRANSPARENT)
             setBitmapDecoderFactory { PicassoDecoder(medium.path, Picasso.get(), rotation) }
             setRegionDecoderFactory { PicassoRegionDecoder() }
             maxScale = 10f
