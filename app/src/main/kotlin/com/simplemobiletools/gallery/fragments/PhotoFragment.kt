@@ -265,8 +265,9 @@ class PhotoFragment : ViewPagerFragment() {
             targetHeight = (targetHeight * 0.8).toInt()
         }
 
+        val pathToLoad = if (medium.path.startsWith("content://")) medium.path else "file://${medium.path}"
         val picasso = Picasso.get()
-                .load(File(medium.path))
+                .load(pathToLoad)
                 .centerInside()
                 .resize(targetWidth, targetHeight)
 
