@@ -322,6 +322,7 @@ class PhotoFragment : ViewPagerFragment() {
                 }
 
                 override fun onImageLoadError(e: Exception) {
+                    view.photo_view.isZoomable = true
                     background = ColorDrawable(Color.TRANSPARENT)
                     beGone()
                 }
