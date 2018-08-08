@@ -255,10 +255,18 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun loadBitmap(degrees: Int = 0) {
+        var targetWidth = ViewPagerActivity.screenWidth
+        var targetHeight = ViewPagerActivity.screenHeight
+
+        if (context?.config?.allowZoomingImages == true) {
+            targetWidth = (targetWidth * 0.8).toInt()
+            targetHeight = (targetHeight * 0.8).toInt()
+        }
+
         val picasso = Picasso.get()
                 .load(File(medium.path))
                 .centerInside()
-                .resize(ViewPagerActivity.screenWidth, ViewPagerActivity.screenHeight)
+                .resize(targetWidth, targetHeight)
 
         if (degrees != 0) {
             picasso.rotate(degrees.toFloat())
@@ -266,7 +274,7 @@ class PhotoFragment : ViewPagerFragment() {
 
         picasso.into(view.photo_view, object : Callback {
             override fun onSuccess() {
-                view.photo_view.isZoomable = degrees != 0
+                view.photo_view.isZoomable = degrees != 0 || context?.config?.allowZoomingImages == false
                 if (isFragmentVisible && degrees == 0) {
                     scheduleZoomableView()
                 }
@@ -286,7 +294,7 @@ class PhotoFragment : ViewPagerFragment() {
     private fun scheduleZoomableView() {
         loadZoomableViewHandler.removeCallbacksAndMessages(null)
         loadZoomableViewHandler.postDelayed({
-            if (isFragmentVisible && medium.isImage() && view.subsampling_view.isGone()) {
+            if (isFragmentVisible && context?.config?.allowZoomingImages == true && medium.isImage() && view.subsampling_view.isGone()) {
                 addZoomableView()
             }
         }, ZOOMABLE_VIEW_LOAD_DELAY)
