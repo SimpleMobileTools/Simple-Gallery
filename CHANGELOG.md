@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 4.5.2 *(2018-08-08)*
+----------------------------
+
+ * Adding a toggle for disabling deep zoomable images
+ * Fix displaying third party images
+ * Couple smaller UX fixes
+
 Version 4.5.1 *(2018-08-07)*
 ----------------------------
 
