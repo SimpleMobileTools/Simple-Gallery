@@ -24,20 +24,20 @@
     <string name="brightness">Brilho</string>
     <string name="lock_orientation">Bloquear orientação</string>
     <string name="unlock_orientation">Desbloquear orientação</string>
-    <string name="change_orientation">Change orientation</string>
-    <string name="force_portrait">Force portrait</string>
-    <string name="force_landscape">Force landscape</string>
-    <string name="use_default_orientation">Use default orientation</string>
-    <string name="fix_date_taken">Fix Date Taken value</string>
-    <string name="fixing">Fixing…</string>
-    <string name="dates_fixed_successfully">Dates fixed successfully</string>
+    <string name="change_orientation">Alterar orientação</string>
+    <string name="force_portrait">Impor modo vertical</string>
+    <string name="force_landscape">Impor modo horizontal</string>
+    <string name="use_default_orientation">Usar predefinição</string>
+    <string name="fix_date_taken">Corrigir data de obtenção</string>
+    <string name="fixing">A corrigir…</string>
+    <string name="dates_fixed_successfully">Dados corrigidos com sucesso</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrar multimédia</string>
     <string name="images">Imagens</string>
     <string name="videos">Vídeos</string>
     <string name="gifs">GIF</string>
-    <string name="raw_images">RAW images</string>
+    <string name="raw_images">Imagens RAW</string>
     <string name="no_media_with_filters">Não foram encontrados ficheiros que cumpram os requisitos.</string>
     <string name="change_filters_underlined"><u>Alterar filtros</u></string>
 
@@ -87,7 +87,7 @@
     <string name="flip_horizontally">Horizontalmente</string>
     <string name="flip_vertically">Verticalmente</string>
     <string name="edit_with">Editar com</string>
-    <string name="free_aspect_ratio">Free</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="free_aspect_ratio">Livre</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
@@ -119,16 +119,16 @@
     <string name="change_view_type">Tipo de exibição</string>
     <string name="grid">Grelha</string>
     <string name="list">Lista</string>
-    <string name="group_direct_subfolders">Group direct subfolders</string>
+    <string name="group_direct_subfolders">Agrupar sub-pastas</string>
 
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Group by</string>
-    <string name="do_not_group_files">Do not group files</string>
-    <string name="by_folder">Folder</string>
-    <string name="by_last_modified">Last modified</string>
-    <string name="by_date_taken">Date taken</string>
-    <string name="by_file_type">File type</string>
-    <string name="by_extension">Extension</string>
+    <string name="group_by">Agrupar por</string>
+    <string name="do_not_group_files">Não agrupar ficheiros</string>
+    <string name="by_folder">Pasta</string>
+    <string name="by_last_modified">Última modificação</string>
+    <string name="by_date_taken">Data de obtenção</string>
+    <string name="by_file_type">Tipo de ficheiro</string>
+    <string name="by_extension">Extensão</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Reproduzir vídeos automaticamente</string>
@@ -156,19 +156,19 @@
     <string name="allow_deep_zooming_images">Allow deep zooming images</string>
     <string name="hide_extended_details">Ocultar detalhes extra se a barra de estado estiver oculta</string>
     <string name="do_extra_check">Efetuar uma dupla verificação para evitar mostrar os ficheiros inválidos</string>
-    <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
-    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
+    <string name="show_at_bottom">Mostrar alguns botões de ação na base do ecrã</string>
+    <string name="show_recycle_bin">Mostrar reciclagem no ecrã de pastas</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
     <string name="fullscreen_media">Multimédia em ecrã completo</string>
     <string name="extended_details">Detalhes extra</string>
-    <string name="bottom_actions">Bottom actions</string>
+    <string name="bottom_actions">Ações em baixo</string>
 
     <!-- Bottom actions -->
-    <string name="manage_bottom_actions">Manage visible bottom actions</string>
-    <string name="toggle_favorite">Toggle favorite</string>
-    <string name="toggle_file_visibility">Toggle file visibility</string>
+    <string name="manage_bottom_actions">Gerir botões de ação</string>
+    <string name="toggle_favorite">Alternar favoritos</string>
+    <string name="toggle_file_visibility">Alternar visibilidade dos ficheiros</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
