@@ -28,9 +28,9 @@
     <string name="force_portrait">Forza verticale</string>
     <string name="force_landscape">Forza orizzontale</string>
     <string name="use_default_orientation">Usa l\'orientamento predefinito</string>
-    <string name="fix_date_taken">Fix Date Taken value</string>
-    <string name="fixing">Fixing…</string>
-    <string name="dates_fixed_successfully">Dates fixed successfully</string>
+    <string name="fix_date_taken">Correggi valore Data acquisizione</string>
+    <string name="fixing">Correzione…</string>
+    <string name="dates_fixed_successfully">Date aggiornate correttamente</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtra i media</string>
@@ -87,7 +87,7 @@
     <string name="flip_horizontally">Capovolgi orizzontalmente</string>
     <string name="flip_vertically">Capovolgi verticalmente</string>
     <string name="edit_with">Modifica con</string>
-    <string name="free_aspect_ratio">Free</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="free_aspect_ratio">Libero</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Sfondo semplice</string>
@@ -153,11 +153,11 @@
     <string name="manage_extended_details">Gestisci le informazioni estese</string>
     <string name="one_finger_zoom">Abilita zoom con un dito su media a schermo intero</string>
     <string name="allow_instant_change">Cambia media istantaneamente toccando sui lati dello schermo</string>
-    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
+    <string name="allow_deep_zooming_images">Permetti zoom immagini profondo</string>
     <string name="hide_extended_details">Nascondi i dettagli estesi quando la barra di stato è nascosta</string>
     <string name="do_extra_check">Fai un controllo ulteriore per evitare di mostrare file non validi</string>
     <string name="show_at_bottom">Mostra alcuni pulsanti azione in fondo allo schermo</string>
-    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
+    <string name="show_recycle_bin">Mostra il cestino nella schermata delle cartelle</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniature</string>
@@ -195,8 +195,8 @@
     <string name="faq_10_text">Sì, puoi ritagliare le immagini nell\'editor, trascinando gli angoli dell\'immagine. Puoi usare l\'editor sia premendo a lungo la miniatura di un\'immagine e selezionando Modifica, o selezionando Modifica mentre la vedi a schermo intero.</string>
     <string name="faq_11_title">Posso raggruppare in qualche modo le miniature dei file?</string>
     <string name="faq_11_text">Certo, usa il menu \"Raggruppa per\" mentre visualizzi le miniature. Puoi raggruppare i file con diversi criteri, incluso la data di creazione. Se utilizzi la funzione \"Mostra tutti i contenuti\" puoi anche raggrupparli per cartelle.</string>
-    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
-    <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
+    <string name="faq_12_title">L\'ordinamento per data acquisizione sembra non funzionare bene, come posso risolvere?</string>
+    <string name="faq_12_text">Probabilmente è causato dai file copiati da altre parti. Puoi risolvere selezionando le miniature dei file e scegliendo \"Correggi valore Data acquisizione\".</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
