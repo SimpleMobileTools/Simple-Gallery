@@ -196,10 +196,8 @@
     <string name="faq_10_text">Sì, puoi ritagliare le immagini nell\'editor, trascinando gli angoli dell\'immagine. Puoi usare l\'editor sia premendo a lungo la miniatura di un\'immagine e selezionando Modifica, o selezionando Modifica mentre la vedi a schermo intero.</string>
     <string name="faq_11_title">Posso raggruppare in qualche modo le miniature dei file?</string>
     <string name="faq_11_text">Certo, usa il menu \"Raggruppa per\" mentre visualizzi le miniature. Puoi raggruppare i file con diversi criteri, incluso la data di creazione. Se utilizzi la funzione \"Mostra tutti i contenuti\" puoi anche raggrupparli per cartelle.</string>
-    <string name="faq_12_title">L\'ordinamento per data acquisizione sembra non funzionare bene, come posso 
-risolvere?</string>
-    <string name="faq_12_text">Probabilmente è causato dai file copiati da altre parti. Puoi risolvere selezionando 
-le miniature dei file e scegliendo \"Correggi valore Data acquisizione\".</string>
+    <string name="faq_12_title">L\'ordinamento per data acquisizione sembra non funzionare bene, come posso risolvere?</string>
+    <string name="faq_12_text">Probabilmente è causato dai file copiati da altre parti. Puoi risolvere selezionando le miniature dei file e scegliendo \"Correggi valore Data acquisizione\".</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
