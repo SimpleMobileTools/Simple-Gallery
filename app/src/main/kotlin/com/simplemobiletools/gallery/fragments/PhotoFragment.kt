@@ -266,7 +266,7 @@ class PhotoFragment : ViewPagerFragment() {
         }
 
         var pathToLoad = if (medium.path.startsWith("content://")) medium.path else "file://${medium.path}"
-        pathToLoad = pathToLoad.replace("#", "%23")
+        pathToLoad = pathToLoad.replace("%", "%25").replace("#", "%23")
         val picasso = Picasso.get()
                 .load(pathToLoad)
                 .centerInside()
