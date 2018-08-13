@@ -16,6 +16,13 @@ import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.DecodeFormat
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.RequestOptions
 import com.davemorrissey.labs.subscaleview.ImageSource
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import com.simplemobiletools.commons.extensions.*
@@ -285,10 +292,43 @@ class PhotoFragment : ViewPagerFragment() {
                     }
                 }
 
-                override fun onError(e: Exception) {}
+                override fun onError(e: Exception) {
+                    tryLoadingWithGlide()
+                }
             })
         } catch (ignored: Exception) {
         }
+    }
+
+    private fun tryLoadingWithGlide() {
+        var targetWidth = if (ViewPagerActivity.screenWidth == 0) com.bumptech.glide.request.target.Target.SIZE_ORIGINAL else ViewPagerActivity.screenWidth
+        var targetHeight = if (ViewPagerActivity.screenHeight == 0) com.bumptech.glide.request.target.Target.SIZE_ORIGINAL else ViewPagerActivity.screenHeight
+
+        if (imageOrientation == ORIENTATION_ROTATE_90) {
+            targetWidth = targetHeight
+            targetHeight = com.bumptech.glide.request.target.Target.SIZE_ORIGINAL
+        }
+
+        val options = RequestOptions()
+                .signature(medium.path.getFileSignature())
+                .format(DecodeFormat.PREFER_ARGB_8888)
+                .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                .override(targetWidth, targetHeight)
+
+        Glide.with(this)
+                .asBitmap()
+                .load(getPathToLoad(medium))
+                .apply(options)
+                .listener(object : RequestListener<Bitmap> {
+                    override fun onLoadFailed(e: GlideException?, model: Any?, target: com.bumptech.glide.request.target.Target<Bitmap>?, isFirstResource: Boolean): Boolean = false
+
+                    override fun onResourceReady(resource: Bitmap?, model: Any?, target: com.bumptech.glide.request.target.Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+                        if (isFragmentVisible) {
+                            scheduleZoomableView()
+                        }
+                        return false
+                    }
+                }).into(view.photo_view)
     }
 
     private fun openPanorama() {
