@@ -16,7 +16,6 @@ import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.bumptech.glide.Glide
 import com.davemorrissey.labs.subscaleview.ImageSource
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import com.simplemobiletools.commons.extensions.*
@@ -437,7 +436,6 @@ class PhotoFragment : ViewPagerFragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         if (activity?.isActivityDestroyed() == false) {
-            Glide.with(context!!).clear(view.photo_view)
             view.subsampling_view.recycle()
         }
         loadZoomableViewHandler.removeCallbacksAndMessages(null)
