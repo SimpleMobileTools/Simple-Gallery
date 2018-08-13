@@ -267,25 +267,29 @@ class PhotoFragment : ViewPagerFragment() {
 
         var pathToLoad = if (medium.path.startsWith("content://")) medium.path else "file://${medium.path}"
         pathToLoad = pathToLoad.replace("%", "%25").replace("#", "%23")
-        val picasso = Picasso.get()
-                .load(pathToLoad)
-                .centerInside()
-                .resize(targetWidth, targetHeight)
 
-        if (degrees != 0) {
-            picasso.rotate(degrees.toFloat())
-        }
+        try {
+            val picasso = Picasso.get()
+                    .load(pathToLoad)
+                    .centerInside()
+                    .resize(targetWidth, targetHeight)
 
-        picasso.into(view.photo_view, object : Callback {
-            override fun onSuccess() {
-                view.photo_view.isZoomable = degrees != 0 || context?.config?.allowZoomingImages == false
-                if (isFragmentVisible && degrees == 0) {
-                    scheduleZoomableView()
-                }
+            if (degrees != 0) {
+                picasso.rotate(degrees.toFloat())
             }
 
-            override fun onError(e: Exception) {}
-        })
+            picasso.into(view.photo_view, object : Callback {
+                override fun onSuccess() {
+                    view.photo_view.isZoomable = degrees != 0 || context?.config?.allowZoomingImages == false
+                    if (isFragmentVisible && degrees == 0) {
+                        scheduleZoomableView()
+                    }
+                }
+
+                override fun onError(e: Exception) {}
+            })
+        } catch (ignored: Exception) {
+        }
     }
 
     private fun openPanorama() {
