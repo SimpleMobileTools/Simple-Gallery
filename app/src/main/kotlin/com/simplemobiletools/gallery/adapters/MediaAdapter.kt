@@ -292,6 +292,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         Thread {
             try {
                 val operations = ArrayList<ContentProviderOperation>()
+                val mediumDao = activity.galleryDB.MediumDao()
                 val paths = getSelectedPaths()
                 for (path in paths) {
                     val dateTime = ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME) ?: continue
@@ -312,6 +313,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                         activity.contentResolver.applyBatch(MediaStore.AUTHORITY, operations)
                         operations.clear()
                     }
+
+                    mediumDao.updateFavoriteDateTaken(path, timestamp)
                 }
 
                 activity.contentResolver.applyBatch(MediaStore.AUTHORITY, operations)
