@@ -85,8 +85,12 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         mMediumDao = galleryDB.MediumDao()
         mDirectoryDao = galleryDB.DirectoryDao()
 
-        config.temporarilyShowHidden = false
-        config.tempSkipDeleteConfirmation = false
+        if (savedInstanceState == null) {
+            config.temporarilyShowHidden = false
+            config.tempSkipDeleteConfirmation = false
+            removeTempFolder()
+        }
+
         mIsPickImageIntent = isPickImageIntent(intent)
         mIsPickVideoIntent = isPickVideoIntent(intent)
         mIsGetImageContentIntent = isGetImageContentIntent(intent)
@@ -97,7 +101,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         mIsThirdPartyIntent = mIsPickImageIntent || mIsPickVideoIntent || mIsGetImageContentIntent || mIsGetVideoContentIntent ||
                 mIsGetAnyContentIntent || mIsSetWallpaperIntent
 
-        removeTempFolder()
         directories_refresh_layout.setOnRefreshListener { getDirectories() }
         storeStateVariables()
         checkWhatsNewDialog()
@@ -216,11 +219,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     override fun onDestroy() {
         super.onDestroy()
-        config.temporarilyShowHidden = false
-        config.tempSkipDeleteConfirmation = false
-        mTempShowHiddenHandler.removeCallbacksAndMessages(null)
-        removeTempFolder()
         if (!isChangingConfigurations) {
+            config.temporarilyShowHidden = false
+            config.tempSkipDeleteConfirmation = false
+            mTempShowHiddenHandler.removeCallbacksAndMessages(null)
+            removeTempFolder()
             GalleryDatabase.destroyInstance()
         }
     }
