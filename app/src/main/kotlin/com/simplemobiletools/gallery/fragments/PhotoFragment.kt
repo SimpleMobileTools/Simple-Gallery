@@ -155,6 +155,7 @@ class PhotoFragment : ViewPagerFragment() {
             photo_brightness_controller.beVisibleIf(allowPhotoGestures)
             instant_prev_item.beVisibleIf(allowInstantChange)
             instant_next_item.beVisibleIf(allowInstantChange)
+            photo_view.setAllowFingerDragZoom(activity!!.config.oneFingerZoom)
         }
 
         storeStateVariables()

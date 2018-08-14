@@ -336,7 +336,6 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun setupAllowZoomingImages() {
-        settings_one_finger_zoom_holder.beVisibleIf(config.allowZoomingImages)
         settings_allow_zooming_images.isChecked = config.allowZoomingImages
         settings_allow_zooming_images_holder.setOnClickListener {
             settings_allow_zooming_images.toggle()
