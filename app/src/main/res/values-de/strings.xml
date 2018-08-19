@@ -153,7 +153,7 @@
     <string name="manage_extended_details">Eigenschaften auswählen</string>
     <string name="one_finger_zoom">Ein-Finger-Zoom im Vollbild zulassen</string>
     <string name="allow_instant_change">Beim Tippen auf eine Bildschirmseite sofort zwischen Medien wechseln</string>
-    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
+    <string name="allow_deep_zooming_images">Starkes Zoomen zulassen</string>
     <string name="hide_extended_details">Erweiterte Details nicht anzeigen, wenn die Systemleiste versteckt ist</string>
     <string name="do_extra_check">Zusätzliche Überprüfung, um ungültige Dateien nicht anzuzeigen</string>
     <string name="show_at_bottom">Einige Aktionstasten am unteren Bildschirmrand anzeigen</string>
@@ -195,8 +195,8 @@
     <string name="faq_10_text">Ja, du kannst Bilder über das Ziehen der Bildecken im Editor zuschneiden. Du gelangst zum Editor indem du lange auf ein Vorschaubild drückst und Bearbeiten auswählst oder durch Auswählen von Bearbeiten in der Vollbildansicht.</string>
     <string name="faq_11_title">Kann ich Mediendatei-Thumbnails irgendwie gruppieren?</string>
     <string name="faq_11_text">Verwenden Sie einfach den Menüeintrag \"Gruppieren nach\" in der Miniaturansicht. Sie können Dateien nach mehreren Kriterien gruppieren, einschließlich Aufnahmedatum. Wenn Sie die Funktion \"Alle Ordnerinhalte anzeigen\" verwenden, können Sie sie auch nach Ordnern gruppieren.</string>
-    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
-    <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
+    <string name="faq_12_title">Die Sortierung nach Datum ist nicht korrekt, wie kann ich das korrigieren?</string>
+    <string name="faq_12_text">Die wahrscheinliche Ursache ist, dass deine Bilder von woanders kopiert worden sind. In diesem Fall solltest du die Miniatur-Ansichten der Bilder durch etwas längeres Antippen markieren und dann im Menü oben rechts die Funktion \'Aufnahmedatum korrigieren\' ausführen.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
