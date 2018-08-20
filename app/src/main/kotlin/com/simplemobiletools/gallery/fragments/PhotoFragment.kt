@@ -274,14 +274,6 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun loadBitmap(degrees: Int = 0) {
-        var targetWidth = ViewPagerActivity.screenWidth
-        var targetHeight = ViewPagerActivity.screenHeight
-
-        if (context?.config?.allowZoomingImages == true) {
-            targetWidth = (targetWidth * 0.8).toInt()
-            targetHeight = (targetHeight * 0.8).toInt()
-        }
-
         var pathToLoad = if (medium.path.startsWith("content://")) medium.path else "file://${medium.path}"
         pathToLoad = pathToLoad.replace("%", "%25").replace("#", "%23")
 
@@ -289,7 +281,7 @@ class PhotoFragment : ViewPagerFragment() {
             val picasso = Picasso.get()
                     .load(pathToLoad)
                     .centerInside()
-                    .resize(targetWidth, targetHeight)
+                    .resize(ViewPagerActivity.screenWidth, ViewPagerActivity.screenHeight)
 
             if (degrees != 0) {
                 picasso.rotate(degrees.toFloat())
