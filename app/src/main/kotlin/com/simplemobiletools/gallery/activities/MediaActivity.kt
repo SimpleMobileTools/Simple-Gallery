@@ -533,7 +533,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun deleteDirectoryIfEmpty() {
-        val fileDirItem = FileDirItem(mPath, mPath.getFilenameFromPath())
+        val fileDirItem = FileDirItem(mPath, mPath.getFilenameFromPath(), true)
         if (config.deleteEmptyFolders && !fileDirItem.isDownloadsFolder() && fileDirItem.isDirectory && fileDirItem.getProperFileCount(applicationContext, true) == 0) {
             tryDeleteFileDirItem(fileDirItem, true, true)
         }
