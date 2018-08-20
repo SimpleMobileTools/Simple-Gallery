@@ -295,7 +295,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                 val mediumDao = activity.galleryDB.MediumDao()
                 val paths = getSelectedPaths()
                 for (path in paths) {
-                    val dateTime = ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME) ?: continue
+                    val dateTime = ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME_ORIGINAL)
+                            ?: ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME)
                     val format = "yyyy:MM:dd kk:mm:ss"
                     val formatter = SimpleDateFormat(format, Locale.getDefault())
                     val timestamp = formatter.parse(dateTime).time
