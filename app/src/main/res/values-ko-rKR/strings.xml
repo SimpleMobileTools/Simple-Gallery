@@ -38,6 +38,7 @@
     <string name="videos">비디오</string>
     <string name="gifs">GIFs</string>
     <string name="raw_images">RAW images</string>
+    <string name="svgs">SVGs</string>
     <string name="no_media_with_filters">설정된 필터와 일치하는 컨텐츠가 존재하지 않습니다.</string>
     <string name="change_filters_underlined"><u>필터 변경</u></string>
 

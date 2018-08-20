@@ -40,6 +40,8 @@ data class Medium(
 
     fun isRaw() = type == TYPE_RAWS
 
+    fun isSvg() = type == TYPE_SVGS
+
     fun isHidden() = name.startsWith('.')
 
     fun getBubbleText(sorting: Int) = when {

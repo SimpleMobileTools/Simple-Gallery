@@ -38,6 +38,7 @@
     <string name="videos">Vídeos</string>
     <string name="gifs">GIFs</string>
     <string name="raw_images">Imatges RAW</string>
+    <string name="svgs">SVGs</string>
     <string name="no_media_with_filters">No s\'han tronat arxius amb els filtres seleccionats.</string>
     <string name="change_filters_underlined"><u>Canviar filtres</u></string>
 

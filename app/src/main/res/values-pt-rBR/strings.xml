@@ -38,6 +38,7 @@
     <string name="videos">Vídeos</string>
     <string name="gifs">GIFs</string>
     <string name="raw_images">RAW images</string>
+    <string name="svgs">SVGs</string>
     <string name="no_media_with_filters">Nenhum arquivo de mídia encontrado a partir dos filtros selecionados.</string>
     <string name="change_filters_underlined"><u>Mudar filtros</u></string>
 

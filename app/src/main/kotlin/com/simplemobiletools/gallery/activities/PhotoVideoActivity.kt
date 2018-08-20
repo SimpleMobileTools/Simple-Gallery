@@ -91,7 +91,8 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             filename.isImageFast() -> TYPE_IMAGES
             filename.isVideoFast() -> TYPE_VIDEOS
             filename.isGif() -> TYPE_GIFS
-            else -> TYPE_RAWS
+            filename.isRawFast() -> TYPE_RAWS
+            else -> TYPE_SVGS
         }
 
         mMedium = Medium(null, filename, mUri.toString(), mUri!!.path.getParentPath(), 0, 0, file.length(), type, false, 0L)

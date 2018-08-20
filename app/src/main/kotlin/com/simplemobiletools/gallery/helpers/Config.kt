@@ -174,7 +174,7 @@ class Config(context: Context) : BaseConfig(context) {
         set(darkBackground) = prefs.edit().putBoolean(DARK_BACKGROUND, darkBackground).apply()
 
     var filterMedia: Int
-        get() = prefs.getInt(FILTER_MEDIA, TYPE_IMAGES or TYPE_VIDEOS or TYPE_GIFS or TYPE_RAWS)
+        get() = prefs.getInt(FILTER_MEDIA, TYPE_IMAGES or TYPE_VIDEOS or TYPE_GIFS or TYPE_RAWS or TYPE_SVGS)
         set(filterMedia) = prefs.edit().putInt(FILTER_MEDIA, filterMedia).apply()
 
     var dirColumnCnt: Int

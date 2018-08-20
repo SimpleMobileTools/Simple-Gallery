@@ -1,9 +1,6 @@
 package com.simplemobiletools.gallery.extensions
 
-import com.simplemobiletools.gallery.helpers.TYPE_GIFS
-import com.simplemobiletools.gallery.helpers.TYPE_IMAGES
-import com.simplemobiletools.gallery.helpers.TYPE_RAWS
-import com.simplemobiletools.gallery.helpers.TYPE_VIDEOS
+import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
 
 fun ArrayList<Medium>.getDirMediaTypes(): Int {
@@ -22,6 +19,10 @@ fun ArrayList<Medium>.getDirMediaTypes(): Int {
 
     if (any { it.isRaw() }) {
         types += TYPE_RAWS
+    }
+
+    if (any { it.isSvg() }) {
+        types += TYPE_SVGS
     }
 
     return types

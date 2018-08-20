@@ -350,7 +350,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 paths.addAll(getOTGFilePaths(path, showHidden))
             } else if (path != FAVORITES) {
                 File(path).listFiles()?.filter {
-                    !activity.getIsPathDirectory(it.absolutePath) && it.isImageVideoGif() && (showHidden || !it.name.startsWith('.'))
+                    !activity.getIsPathDirectory(it.absolutePath) && it.isMediaFile() && (showHidden || !it.name.startsWith('.'))
                 }?.mapTo(paths) { it.absolutePath }
             }
         }
@@ -366,7 +366,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     private fun getOTGFilePaths(path: String, showHidden: Boolean): ArrayList<String> {
         val paths = ArrayList<String>()
         activity.getOTGFolderChildren(path)?.forEach {
-            if (!it.isDirectory && it.name.isImageVideoGif() && (showHidden || !it.name.startsWith('.'))) {
+            if (!it.isDirectory && it.name.isMediaFile() && (showHidden || !it.name.startsWith('.'))) {
                 val relativePath = it.uri.path.substringAfterLast("${activity.config.OTGPartition}:")
                 paths.add("$OTG_PATH$relativePath")
             }
@@ -524,7 +524,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 directory.tmb.isImageFast() -> TYPE_IMAGES
                 directory.tmb.isVideoFast() -> TYPE_VIDEOS
                 directory.tmb.isGif() -> TYPE_GIFS
-                else -> TYPE_RAWS
+                directory.tmb.isRawFast() -> TYPE_RAWS
+                else -> TYPE_SVGS
             }
 
             activity.loadImage(thumbnailType, directory.tmb, dir_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
