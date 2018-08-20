@@ -346,6 +346,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(WAS_RECYCLE_BIN_PINNED, false)
         set(wasRecycleBinPinned) = prefs.edit().putBoolean(WAS_RECYCLE_BIN_PINNED, wasRecycleBinPinned).apply()
 
+    var wasSVGShowingHandled: Boolean
+        get() = prefs.getBoolean(WAS_SVG_SHOWING_HANDLED, false)
+        set(wasSVGShowingHandled) = prefs.edit().putBoolean(WAS_SVG_SHOWING_HANDLED, wasSVGShowingHandled).apply()
+
     var groupBy: Int
         get() = prefs.getInt(GROUP_BY, GROUP_BY_NONE)
         set(groupBy) = prefs.edit().putInt(GROUP_BY, groupBy).apply()

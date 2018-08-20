@@ -133,6 +133,13 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             config.saveFolderGrouping(SHOW_ALL, GROUP_BY_DATE_TAKEN or GROUP_DESCENDING)
         }
 
+        if (!config.wasSVGShowingHandled) {
+            config.wasSVGShowingHandled = true
+            if (config.filterMedia and TYPE_SVGS == 0) {
+                config.filterMedia += TYPE_SVGS
+            }
+        }
+
         checkRecycleBinItems()
     }
 
