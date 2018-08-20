@@ -123,7 +123,7 @@
     <string name="group_direct_subfolders">Direkte Unterordner gruppieren</string>
 
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Gruppieren nach...</string>
+    <string name="group_by">Gruppieren nach</string>
     <string name="do_not_group_files">Dateien nicht gruppieren</string>
     <string name="by_folder">Ordner</string>
     <string name="by_last_modified">Datum der letzten Änderung</string>
@@ -194,7 +194,7 @@
     <string name="faq_10_title">Kann ich mit dieser App Bilder zuschneiden?</string>
     <string name="faq_10_text">Ja, du kannst Bilder über das Ziehen der Bildecken im Editor zuschneiden. Du gelangst zum Editor indem du lange auf ein Vorschaubild drückst und Bearbeiten auswählst oder durch Auswählen von Bearbeiten in der Vollbildansicht.</string>
     <string name="faq_11_title">Kann ich Mediendatei-Thumbnails irgendwie gruppieren?</string>
-    <string name="faq_11_text">Verwende dazu den Menüeintrag \"Gruppieren nach...\" in der Miniaturansicht. Du kannst Dateien nach mehreren Kriterien gruppieren, einschließlich Aufnahmedatum. Wenn Du die Funktion \"Alle Ordnerinhalte anzeigen\" verwendest, kannst du sie auch nach Ordnern gruppieren.</string>
+    <string name="faq_11_text">Verwende dazu den Menüeintrag \"Gruppieren nach\" in der Miniaturansicht. Du kannst Dateien nach mehreren Kriterien gruppieren, einschließlich Aufnahmedatum. Wenn Du die Funktion \"Alle Ordnerinhalte anzeigen\" verwendest, kannst du sie auch nach Ordnern gruppieren.</string>
     <string name="faq_12_title">Die Sortierung nach Datum ist nicht korrekt, wie kann ich das korrigieren?</string>
     <string name="faq_12_text">Die wahrscheinliche Ursache ist, dass deine Bilder von woanders kopiert worden sind. In diesem Fall solltest du die Miniatur-Ansichten der Bilder durch etwas längeres Antippen markieren und dann im Menü oben rechts die Funktion \'Aufnahmedatum korrigieren\' ausführen.</string>
 
