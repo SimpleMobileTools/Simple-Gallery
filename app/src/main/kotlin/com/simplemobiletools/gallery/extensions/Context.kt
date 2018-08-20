@@ -6,6 +6,7 @@ import android.content.res.Configuration
 import android.database.Cursor
 import android.database.sqlite.SQLiteException
 import android.graphics.Point
+import android.graphics.drawable.PictureDrawable
 import android.media.AudioManager
 import android.os.Build
 import android.provider.MediaStore
@@ -28,6 +29,7 @@ import com.simplemobiletools.gallery.interfaces.MediumDao
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
 import com.simplemobiletools.gallery.models.ThumbnailItem
+import com.simplemobiletools.gallery.svg.SvgSoftwareLayerSetter
 import com.simplemobiletools.gallery.views.MySquareImageView
 import pl.droidsonroids.gif.GifDrawable
 import java.io.File
@@ -232,6 +234,8 @@ fun Context.loadImage(type: Int, path: String, target: MySquareImageView, horizo
         } catch (e: OutOfMemoryError) {
             loadJpg(path, target, cropThumbnails)
         }
+    } else if (type == TYPE_SVGS) {
+        loadSVG(path, target, cropThumbnails)
     }
 }
 
@@ -277,7 +281,22 @@ fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boo
             .load(path)
 
     if (cropThumbnails) options.centerCrop() else options.fitCenter()
-    builder.apply(options).transition(DrawableTransitionOptions.withCrossFade()).into(target)
+    builder.apply(options)
+            .transition(DrawableTransitionOptions.withCrossFade())
+            .into(target)
+}
+
+fun Context.loadSVG(path: String, target: MySquareImageView, cropThumbnails: Boolean) {
+    target.scaleType = if (cropThumbnails) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
+
+    val options = RequestOptions().signature(path.getFileSignature())
+    Glide.with(applicationContext)
+            .`as`(PictureDrawable::class.java)
+            .listener(SvgSoftwareLayerSetter())
+            .load(path)
+            .apply(options)
+            .transition(DrawableTransitionOptions.withCrossFade())
+            .into(target)
 }
 
 fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, directoryDao: DirectoryDao = galleryDB.DirectoryDao(), callback: (ArrayList<Directory>) -> Unit) {
