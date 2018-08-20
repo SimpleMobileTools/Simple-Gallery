@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.Matrix
 import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.PictureDrawable
 import android.media.ExifInterface.*
 import android.net.Uri
 import android.os.Bundle
@@ -36,6 +37,7 @@ import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
+import com.simplemobiletools.gallery.svg.SvgSoftwareLayerSetter
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import it.sephiroth.android.library.exif2.ExifInterface
@@ -165,7 +167,7 @@ class PhotoFragment : ViewPagerFragment() {
         super.setMenuVisibility(menuVisible)
         isFragmentVisible = menuVisible
         if (wasInit) {
-            if (medium.isGif()) {
+            if (medium.isGIF()) {
                 gifFragmentVisibilityChanged(menuVisible)
             } else {
                 photoFragmentVisibilityChanged(menuVisible)
@@ -233,10 +235,10 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun loadImage() {
         imageOrientation = getImageOrientation()
-        if (medium.isGif()) {
-            loadGif()
-        } else {
-            loadBitmap()
+        when {
+            medium.isGIF() -> loadGif()
+            medium.isSVG() -> loadSVG()
+            else -> loadBitmap()
         }
     }
 
@@ -261,6 +263,14 @@ class PhotoFragment : ViewPagerFragment() {
             gifDrawable = null
             loadBitmap()
         }
+    }
+
+    private fun loadSVG() {
+        Glide.with(this)
+                .`as`(PictureDrawable::class.java)
+                .listener(SvgSoftwareLayerSetter())
+                .load(medium.path)
+                .into(view.photo_view)
     }
 
     private fun loadBitmap(degrees: Int = 0) {

@@ -13,7 +13,7 @@ fun ArrayList<Medium>.getDirMediaTypes(): Int {
         types += TYPE_VIDEOS
     }
 
-    if (any { it.isGif() }) {
+    if (any { it.isGIF() }) {
         types += TYPE_GIFS
     }
 
@@ -21,7 +21,7 @@ fun ArrayList<Medium>.getDirMediaTypes(): Int {
         types += TYPE_RAWS
     }
 
-    if (any { it.isSvg() }) {
+    if (any { it.isSVG() }) {
         types += TYPE_SVGS
     }
 

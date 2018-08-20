@@ -32,7 +32,7 @@ data class Medium(
         private const val serialVersionUID = -6553149366975655L
     }
 
-    fun isGif() = type == TYPE_GIFS
+    fun isGIF() = type == TYPE_GIFS
 
     fun isImage() = type == TYPE_IMAGES
 
@@ -40,7 +40,7 @@ data class Medium(
 
     fun isRaw() = type == TYPE_RAWS
 
-    fun isSvg() = type == TYPE_SVGS
+    fun isSVG() = type == TYPE_SVGS
 
     fun isHidden() = name.startsWith('.')
 

@@ -290,7 +290,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_properties).isVisible = visibleBottomActions and BOTTOM_ACTION_PROPERTIES == 0
             findItem(R.id.menu_delete).isVisible = visibleBottomActions and BOTTOM_ACTION_DELETE == 0
             findItem(R.id.menu_share).isVisible = visibleBottomActions and BOTTOM_ACTION_SHARE == 0
-            findItem(R.id.menu_edit).isVisible = visibleBottomActions and BOTTOM_ACTION_EDIT == 0
+            findItem(R.id.menu_edit).isVisible = visibleBottomActions and BOTTOM_ACTION_EDIT == 0 && !currentMedium.isSVG()
             findItem(R.id.menu_rename).isVisible = visibleBottomActions and BOTTOM_ACTION_RENAME == 0 && !currentMedium.getIsInRecycleBin()
             findItem(R.id.menu_rotate).isVisible = currentMedium.isImage() && visibleBottomActions and BOTTOM_ACTION_ROTATE == 0
             findItem(R.id.menu_set_as).isVisible = visibleBottomActions and BOTTOM_ACTION_SET_AS == 0
@@ -459,7 +459,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun scheduleSwipe() {
         mSlideshowHandler.removeCallbacksAndMessages(null)
         if (mIsSlideshowActive) {
-            if (getCurrentMedium()!!.isImage() || getCurrentMedium()!!.isGif()) {
+            if (getCurrentMedium()!!.isImage() || getCurrentMedium()!!.isGIF()) {
                 mSlideshowHandler.postDelayed({
                     if (mIsSlideshowActive && !isActivityDestroyed()) {
                         swipeToNextMedium()
@@ -482,11 +482,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         if (!config.slideshowIncludeVideos) {
-            mSlideshowMedia = mSlideshowMedia.filter { it.isImage() || it.isGif() } as MutableList
+            mSlideshowMedia = mSlideshowMedia.filter { it.isImage() || it.isGIF() } as MutableList
         }
 
         if (!config.slideshowIncludeGIFs) {
-            mSlideshowMedia = mSlideshowMedia.filter { !it.isGif() } as MutableList
+            mSlideshowMedia = mSlideshowMedia.filter { !it.isGIF() } as MutableList
         }
 
         if (config.slideshowRandomOrder) {
@@ -776,7 +776,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             toggleFavorite()
         }
 
-        bottom_edit.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_EDIT != 0)
+        bottom_edit.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_EDIT != 0 && getCurrentMedium()?.isSVG() == false)
         bottom_edit.setOnClickListener {
             openEditor(getCurrentPath())
         }
