@@ -296,7 +296,9 @@ class PhotoFragment : ViewPagerFragment() {
                 }
 
                 override fun onError(e: Exception) {
-                    tryLoadingWithGlide()
+                    if (context != null) {
+                        tryLoadingWithGlide()
+                    }
                 }
             })
         } catch (ignored: Exception) {
@@ -318,7 +320,7 @@ class PhotoFragment : ViewPagerFragment() {
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                 .override(targetWidth, targetHeight)
 
-        Glide.with(this)
+        Glide.with(context!!)
                 .asBitmap()
                 .load(getPathToLoad(medium))
                 .apply(options)
