@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 4.6.1 *(2018-08-21)*
+----------------------------
+
+ * Added a crashfix at loading fullscreen images
+
 Version 4.6.0 *(2018-08-20)*
 ----------------------------
 
