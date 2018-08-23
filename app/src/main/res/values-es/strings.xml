@@ -154,15 +154,15 @@
     <string name="manage_extended_details">Administrar detalles ampliados</string>
     <string name="one_finger_zoom">Permitir zoom con un dedo en pantalla completa</string>
     <string name="allow_instant_change">Permitir el cambio instantáneo de medios haciendo clic en los lados de la pantalla</string>
-    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
+    <string name="allow_deep_zooming_images">Permitir zoom profundo</string>
     <string name="hide_extended_details">Ocultar detalles ampliados cuando la barra de estado está oculta</string>
     <string name="do_extra_check">Hacer una comprobación adicional para evitar mostrar archivos inválidos</string>
     <string name="show_at_bottom">Mostrar algunos botones de acción en la parte inferior de la pantalla</string>
-    <string name="show_recycle_bin">Muestra la papelera de reciclaje en la pantalla de carpetas</string>
+    <string name="show_recycle_bin">Mostrar la papelera de reciclaje en la pantalla de carpetas</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
-    <string name="fullscreen_media">Medios a pantalla compelta</string>
+    <string name="fullscreen_media">Medios a pantalla completa</string>
     <string name="extended_details">Detalles ampliados</string>
     <string name="bottom_actions">Acciones en la parte inferior</string>
 
@@ -174,9 +174,9 @@
     <!-- FAQ -->
     <string name="faq_1_title">¿Cómo puedo hacer que Simple Gallery sea la galería de dispositivos predeterminada?</string>
     <string name="faq_1_text">Primero tiene que encontrar la galería predeterminada actualmente en la sección Aplicaciones de la configuración de su dispositivo, busque un botón que diga algo como \"Abrir por defecto \", haga clic en él, luego seleccione \"Borrar valores predeterminados \".
-        La próxima vez que intente abrir una imagen o video, debería ver un selector de aplicaciones, donde puede seleccionar Galería simple y convertirla en la aplicación predeterminada.</string>
+        La próxima vez que intente abrir una imagen o video, debería ver un selector de aplicaciones, donde puede seleccionar Galería Simple y convertirla en la aplicación predeterminada.</string>
     <string name="faq_2_title">He protegido la aplicación con una contraseña, pero la he olvidado. ¿Que puedo hacer?</string>
-    <string name="faq_2_text">Puedes resolverlo de 2 maneras. Puede reinstalar la aplicación o encontrar la aplicación en la configuración de su dispositivo y seleccionar \"Borrar datos \". Restablecerá todas sus configuraciones, no eliminará ningún archivo multimedia.</string>
+    <string name="faq_2_text">Puede resolverlo de 2 maneras. Puede reinstalar la aplicación o encontrar la aplicación en la configuración de su dispositivo y seleccionar \"Borrar datos \". Restablecerá todas sus configuraciones, no eliminará ningún archivo multimedia.</string>
     <string name="faq_3_title">¿Cómo puedo hacer que un álbum siempre aparezca en la parte superior?</string>
     <string name="faq_3_text">Puede aguantar pulsado el álbum deseado y seleccionar el ícono Pin en el menú de acción, que lo fijará en la parte superior. También puede anclar varias carpetas, los artículos fijados se ordenarán por el método de clasificación predeterminado.</string>
     <string name="faq_4_title">¿Cómo puedo avanzar videos?</string>
@@ -191,7 +191,7 @@
     <string name="faq_8_text">Agregar una carpeta en las carpetas incluidas no excluye automáticamente nada. Lo que puede hacer es ir a Ajustes -> Administrar carpetas excluidas, excluir la carpeta raíz \"/\", luego agregar las carpetas deseadas en Configuración -> Administrar carpetas incluidas.
         Esto hará que solo las carpetas seleccionadas sean visibles, ya que tanto la exclusión como la inclusión son recursivas y si una carpeta está excluida e incluida, aparecerá.</string>
     <string name="faq_9_title">Las imágenes a pantalla completa tienen artefactos extraños, ¿puedo de alguna manera mejorar la calidad?</string>
-    <string name="faq_9_text">Sí, hay una alternancia en Configuración que dice \"Reemplazar imágenes con zoom profundo con las de mejor calidad\", puedes usar eso. Mejorará la calidad de las imágenes, pero se volverán borrosas una vez que intente ampliar demasiado.</string>
+    <string name="faq_9_text">Sí, hay una alternancia en Ajustes que dice \"Reemplazar imágenes con zoom profundo con las de mejor calidad\", puede usar eso. Mejorará la calidad de las imágenes, pero se volverán borrosas una vez que intente ampliar demasiado.</string>
     <string name="faq_10_title">¿Puedo recortar imágenes con esta aplicación?</string>
     <string name="faq_10_text">Sí, puede recortar imágenes en el editor arrastrando las esquinas de la imagen. Puede acceder al editor pulsando prolongadamente una imagen en miniatura y seleccionando Editar, o seleccionando Editar en la vista de pantalla completa.</string>
     <string name="faq_11_title">¿Puedo de alguna manera agrupar miniaturas de archivos multimedia?</string>
