@@ -3,7 +3,7 @@
     <string name="app_name">Simple Gallery</string>
     <string name="app_launcher_name">Галерея</string>
     <string name="edit">Редактировать</string>
-    <string name="open_camera">Открыть камеру</string>
+    <string name="open_camera">Камера</string>
     <string name="hidden">(скрыто)</string>
     <string name="excluded">(исключено)</string>
     <string name="pin_folder">Закрепить папку</string>
@@ -11,8 +11,8 @@
     <string name="pin_to_the_top">Закрепить сверху</string>
     <string name="show_all">Отобразить все медиафайлы</string>
     <string name="all_folders">Все медиафайлы</string>
-    <string name="folder_view">Переключиться вид на папки</string>
-    <string name="other_folder">Другая папка</string>
+    <string name="folder_view">Папки</string>
+    <string name="other_folder">Выбор папки</string>
     <string name="show_on_map">Показать место съёмки</string>
     <string name="unknown_location">Место съёмки не указано</string>
     <string name="increase_column_count">Добавить столбец</string>
@@ -28,9 +28,9 @@
     <string name="force_portrait">Всегда портретная</string>
     <string name="force_landscape">Всегда альбомная</string>
     <string name="use_default_orientation">Не менять ориентацию</string>
-    <string name="fix_date_taken">Исправить дату съёмки</string>
+    <string name="fix_date_taken">Исправить дату</string>
     <string name="fixing">Исправление…</string>
-    <string name="dates_fixed_successfully">Даты успешно исправлены</string>
+    <string name="dates_fixed_successfully">Даты исправлены</string>
 
     <!-- Filter -->
     <string name="filter_media">Фильтр медиа</string>
@@ -38,12 +38,12 @@
     <string name="videos">Видео</string>
     <string name="gifs">GIF</string>
     <string name="raw_images">Изображения RAW</string>
-    <string name="svgs">SVGs</string>
+    <string name="svgs">Изображения SVG</string>
     <string name="no_media_with_filters">При заданных фильтрах медиафайлы не найдены</string>
     <string name="change_filters_underlined"><u>Изменить фильтры</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Эта функция скрывает папку, добавляя в неё файл \".nomedia\"; будут скрыты все подпапки. Можно показать их, переключая \"Показывать скрытые папки\" в настройках. Продолжить?</string>
+    <string name="hide_folder_description">Эта функция скрывает папку, добавляя в неё файл \".nomedia\". Также будут скрыты все подпапки. Можно показать их, переключая \"Показывать скрытые папки\" в настройках. Продолжить?</string>
     <string name="exclude">Исключить</string>
     <string name="excluded_folders">Исключённые папки</string>
     <string name="manage_excluded_folders">Управление исключёнными папками</string>
@@ -59,7 +59,7 @@
     <!-- Include folders -->
     <string name="include_folders">Включённые папки</string>
     <string name="manage_included_folders">Управление включёнными папками</string>
-    <string name="add_folder">Добавление папки</string>
+    <string name="add_folder">Добавить папку</string>
     <string name="included_activity_placeholder">Если у вас есть папки, содержащие медиафайлы, но не распознанные приложением, вы можете добавить их вручную.\n\nДобавление папки не приводит к исключению каких-либо других.</string>
 
     <!-- Resizing -->
@@ -77,7 +77,7 @@
     <string name="path">Путь</string>
     <string name="invalid_image_path">Недопустимый путь изображения</string>
     <string name="image_editing_failed">Редактирование изображения не удалось</string>
-    <string name="edit_image_with">Редактирование изображений в:</string>
+    <string name="edit_image_with">Редактировать изображение в:</string>
     <string name="no_editor_found">Ни одного редактора изображений не найдено</string>
     <string name="unknown_file_location">Неизвестное местоположение файла</string>
     <string name="error_saving_file">Не удалось перезаписать исходный файл</string>
@@ -88,15 +88,15 @@
     <string name="flip_horizontally">По горизонтали</string>
     <string name="flip_vertically">По вертикали</string>
     <string name="edit_with">Редактировать в…</string>
-    <string name="free_aspect_ratio">Произвольное</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="free_aspect_ratio">Произвольно</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Простые обои</string>
     <string name="set_as_wallpaper">Установить в качестве обоев</string>
     <string name="set_as_wallpaper_failed">Не удалось установить</string>
-    <string name="set_as_wallpaper_with">Установить в качестве обоев в:</string>
+    <string name="set_as_wallpaper_with">Установить в качестве обоев с помощью</string>
     <string name="setting_wallpaper">Установка обоев…</string>
-    <string name="wallpaper_set_successfully">Обои успешно установлены</string>
+    <string name="wallpaper_set_successfully">Обои установлены</string>
     <string name="portrait_aspect_ratio">Портретная ориентация</string>
     <string name="landscape_aspect_ratio">Альбомная ориентация</string>
     <string name="home_screen">Домашний экран</string>
@@ -109,15 +109,15 @@
     <string name="include_photos">Использовать изображения</string>
     <string name="include_videos">Использовать видео</string>
     <string name="include_gifs">Использовать GIF</string>
-    <string name="random_order">Случайный порядок</string>
+    <string name="random_order">В случайном порядке</string>
     <string name="use_fade">Эффект затухания</string>
     <string name="move_backwards">В обратном порядке</string>
     <string name="loop_slideshow">Зациклить</string>
     <string name="slideshow_ended">Слайдшоу завершилось</string>
-    <string name="no_media_for_slideshow">Никаких медиафайлов для слайдшоу не было найдено</string>
+    <string name="no_media_for_slideshow">Медиафайлов для слайдшоу не было найдено</string>
 
     <!-- View types -->
-    <string name="change_view_type">Режим отображения</string>
+    <string name="change_view_type">Вид</string>
     <string name="grid">Сетка</string>
     <string name="list">Список</string>
     <string name="group_direct_subfolders">Группировать вложенные папки</string>
@@ -127,14 +127,14 @@
     <string name="do_not_group_files">Не группировать файлы</string>
     <string name="by_folder">Папка</string>
     <string name="by_last_modified">Последнее изменение</string>
-    <string name="by_date_taken">Дата съёмки</string>
+    <string name="by_date_taken">Дата</string>
     <string name="by_file_type">Тип файла</string>
     <string name="by_extension">Расширение</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Воспроизводить видео автоматически</string>
     <string name="toggle_filename">Переключить отображение имени файла</string>
-    <string name="loop_videos">Повторять видео</string>
+    <string name="loop_videos">Повтор видео</string>
     <string name="animate_gifs">Анимировать эскизы GIF</string>
     <string name="max_brightness">Максимальная яркость при просмотре файлов</string>
     <string name="crop_thumbnails">Нарезать миниатюры в квадраты</string>
@@ -146,17 +146,17 @@
     <string name="scroll_thumbnails_horizontally">Прокрутка эскизов по горизонтали</string>
     <string name="hide_system_ui_at_fullscreen">Автоматически скрывать системный интерфейс при просмотре изображения</string>
     <string name="delete_empty_folders">Удалять пустые папки после удаления их содержимого</string>
-    <string name="allow_photo_gestures">Управлять яркостью при просмотре изображения с помощью вертикальных жестов</string>
-    <string name="allow_video_gestures">Управлять громкостью и яркостью при просмотре видео с помощью вертикальных жестов</string>
+    <string name="allow_photo_gestures">Управление яркостью при просмотре изображения вертикальными жестами</string>
+    <string name="allow_video_gestures">Управление громкостью и яркостью при просмотре видео вертикальными жестами</string>
     <string name="show_media_count">Показывать количество файлов в папках</string>
     <string name="replace_share_with_rotate">Заменить \"Поделиться\" на \"Повернуть\" в меню при просмотре изображения</string>
-    <string name="show_extended_details">Показывать подробности о файле</string>
-    <string name="manage_extended_details">Выбрать подробности файла</string>
+    <string name="show_extended_details">Показывать сведения о файле</string>
+    <string name="manage_extended_details">Выбор сведений о файле</string>
     <string name="one_finger_zoom">Масштабирование одним пальцем при просмотре изображения</string>
     <string name="allow_instant_change">Мгновенное переключение медиафайлов нажатием по краю экрана</string>
-    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
-    <string name="hide_extended_details">Не показывать подробности при скрытой строке состояния</string>
-    <string name="do_extra_check">Делать дополнительную проверку, чтобы избежать показа неподдерживаемых файлов</string>
+    <string name="allow_deep_zooming_images">Включить полное масштабирование</string>
+    <string name="hide_extended_details">Скрывать сведения о файле при скрытой строке состояния</string>
+    <string name="do_extra_check">Дополнительная проверка, чтобы избежать показа неподдерживаемых файлов</string>
     <string name="show_at_bottom">Показывать кнопки действий в нижней части экрана</string>
     <string name="show_recycle_bin">Показывать корзину вместе с папками</string>
 
@@ -196,8 +196,8 @@
     <string name="faq_10_text">Да, вы можете обрезать изображения в редакторе, перетаскивая за углы. К редактированию можно перейти, выбрав соответсвующий пункт в меню, открывающемуся длительным нажатием на миниатюру или изображение в полноэкранном режиме.</string>
     <string name="faq_11_title">Могу ли я как-то сгруппировать миниатюры медиафайлов?</string>
     <string name="faq_11_text">Конечно, просто используйте пункт меню \"Группировать по…\" во время просмотра миниатюр. Вы можете группировать файлы по нескольким критериям, включая дату съёмки. Если вы используете функцию \"Отобразить все медиафайлы\", то также можете группировать их по папкам.</string>
-    <string name="faq_12_title">Сортировка по дате съёмки, похоже, не работает должным образом. Как это можно исправить?</string>
-    <string name="faq_12_text">Скорее всего, проблема вызвано тем, что файлы были откуда-то скопированы. Это можно исправить, выделив миниатюры файлов и выбрав \"Исправить дату съёмки\".</string>
+    <string name="faq_12_title">Сортировка по дате, похоже, не работает должным образом. Как это можно исправить?</string>
+    <string name="faq_12_text">Скорее всего, проблема вызвано тем, что файлы были откуда-то скопированы. Это можно исправить, выделив миниатюры файлов и выбрав \"Исправить дату\".</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
