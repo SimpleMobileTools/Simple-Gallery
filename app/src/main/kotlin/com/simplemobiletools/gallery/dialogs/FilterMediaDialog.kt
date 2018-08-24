@@ -5,10 +5,7 @@ import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.helpers.TYPE_GIFS
-import com.simplemobiletools.gallery.helpers.TYPE_IMAGES
-import com.simplemobiletools.gallery.helpers.TYPE_RAWS
-import com.simplemobiletools.gallery.helpers.TYPE_VIDEOS
+import com.simplemobiletools.gallery.helpers.*
 import kotlinx.android.synthetic.main.dialog_filter_media.view.*
 
 class FilterMediaDialog(val activity: BaseSimpleActivity, val callback: (result: Int) -> Unit) {
@@ -21,6 +18,7 @@ class FilterMediaDialog(val activity: BaseSimpleActivity, val callback: (result:
             filter_media_videos.isChecked = filterMedia and TYPE_VIDEOS != 0
             filter_media_gifs.isChecked = filterMedia and TYPE_GIFS != 0
             filter_media_raws.isChecked = filterMedia and TYPE_RAWS != 0
+            filter_media_svgs.isChecked = filterMedia and TYPE_SVGS != 0
         }
 
         AlertDialog.Builder(activity)
@@ -41,6 +39,8 @@ class FilterMediaDialog(val activity: BaseSimpleActivity, val callback: (result:
             result += TYPE_GIFS
         if (view.filter_media_raws.isChecked)
             result += TYPE_RAWS
+        if (view.filter_media_svgs.isChecked)
+            result += TYPE_SVGS
 
         activity.config.filterMedia = result
         callback(result)

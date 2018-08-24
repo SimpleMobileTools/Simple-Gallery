@@ -113,7 +113,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
     override fun prepareActionMode(menu: Menu) {
         menu.apply {
-            findItem(R.id.cab_rename).isVisible = isOneItemSelected()
+            findItem(R.id.cab_rename).isVisible = isOneItemSelected() && getSelectedMedia().firstOrNull()?.getIsInRecycleBin() == false
             findItem(R.id.cab_open_with).isVisible = isOneItemSelected()
             findItem(R.id.cab_confirm_selection).isVisible = isAGetIntent && allowMultiplePicks && selectedPositions.size > 0
             findItem(R.id.cab_restore_recycle_bin_files).isVisible = getSelectedPaths().all { it.startsWith(activity.filesDir.absolutePath) }
@@ -292,9 +292,11 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         Thread {
             try {
                 val operations = ArrayList<ContentProviderOperation>()
+                val mediumDao = activity.galleryDB.MediumDao()
                 val paths = getSelectedPaths()
                 for (path in paths) {
-                    val dateTime = ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME) ?: continue
+                    val dateTime = ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME_ORIGINAL)
+                            ?: ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME)
                     val format = "yyyy:MM:dd kk:mm:ss"
                     val formatter = SimpleDateFormat(format, Locale.getDefault())
                     val timestamp = formatter.parse(dateTime).time
@@ -312,6 +314,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                         activity.contentResolver.applyBatch(MediaStore.AUTHORITY, operations)
                         operations.clear()
                     }
+
+                    mediumDao.updateFavoriteDateTaken(path, timestamp)
                 }
 
                 activity.contentResolver.applyBatch(MediaStore.AUTHORITY, operations)

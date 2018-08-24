@@ -38,6 +38,7 @@
     <string name="videos">Videor</string>
     <string name="gifs">GIF-bilder</string>
     <string name="raw_images">RAW images</string>
+    <string name="svgs">SVGs</string>
     <string name="no_media_with_filters">Inga mediefiler hittades med valda filter.</string>
     <string name="change_filters_underlined"><u>Ändra filter</u></string>
 
@@ -153,7 +154,7 @@
     <string name="manage_extended_details">Hantera utökad information</string>
     <string name="one_finger_zoom">Tillåt zoomning med ett finger när media visas i helskärmsläge</string>
     <string name="allow_instant_change">Tillåt snabbyte av media genom tryckning på skärmens kanter</string>
-    <string name="replace_zoomable_images">Ersätt djupt zoombara bilder med bilder av bättre kvalitet</string>
+    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
     <string name="hide_extended_details">Dölj utökad information när statusfältet är dolt</string>
     <string name="do_extra_check">Gör en extra kontroll för att hindra ogiltiga filer från att visas</string>
     <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>

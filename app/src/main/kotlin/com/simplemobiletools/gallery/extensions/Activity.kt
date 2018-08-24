@@ -16,6 +16,7 @@ import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.SimpleActivity
 import com.simplemobiletools.gallery.dialogs.PickDirectoryDialog
 import com.simplemobiletools.gallery.helpers.NOMEDIA
+import com.simplemobiletools.gallery.interfaces.MediumDao
 import java.io.File
 import java.io.InputStream
 import java.io.OutputStream
@@ -59,6 +60,9 @@ fun Activity.launchCamera() {
 }
 
 fun SimpleActivity.launchAbout() {
+    val licenses = LICENSE_GLIDE or LICENSE_CROPPER or LICENSE_MULTISELECT or LICENSE_RTL or LICENSE_SUBSAMPLING or LICENSE_PATTERN or
+            LICENSE_REPRINT or LICENSE_GIF_DRAWABLE or LICENSE_PHOTOVIEW or LICENSE_PICASSO or LICENSE_EXOPLAYER or LICENSE_PANORAMA_VIEW or LICENSE_SANSELAN or LICENSE_FILTERS
+
     val faqItems = arrayListOf(
             FAQItem(R.string.faq_5_title_commons, R.string.faq_5_text_commons),
             FAQItem(R.string.faq_1_title, R.string.faq_1_text),
@@ -69,15 +73,12 @@ fun SimpleActivity.launchAbout() {
             FAQItem(R.string.faq_6_title, R.string.faq_6_text),
             FAQItem(R.string.faq_7_title, R.string.faq_7_text),
             FAQItem(R.string.faq_8_title, R.string.faq_8_text),
-            FAQItem(R.string.faq_9_title, R.string.faq_9_text),
             FAQItem(R.string.faq_10_title, R.string.faq_10_text),
             FAQItem(R.string.faq_11_title, R.string.faq_11_text),
             FAQItem(R.string.faq_12_title, R.string.faq_12_text),
             FAQItem(R.string.faq_2_title_commons, R.string.faq_2_text_commons))
 
-    startAboutActivity(R.string.app_name, LICENSE_GLIDE or LICENSE_CROPPER or LICENSE_MULTISELECT or LICENSE_RTL
-            or LICENSE_SUBSAMPLING or LICENSE_PATTERN or LICENSE_REPRINT or LICENSE_GIF_DRAWABLE or LICENSE_PHOTOVIEW or LICENSE_EXOPLAYER or
-            LICENSE_PANORAMA_VIEW or LICENSE_SANSELAN or LICENSE_FILTERS, BuildConfig.VERSION_NAME, faqItems)
+    startAboutActivity(R.string.app_name, licenses, BuildConfig.VERSION_NAME, faqItems, true)
 }
 
 fun AppCompatActivity.showSystemUI(toggleActionBarVisibility: Boolean) {
@@ -200,9 +201,8 @@ fun BaseSimpleActivity.tryDeleteFileDirItem(fileDirItem: FileDirItem, allowDelet
     }
 }
 
-fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback: ((wasSuccess: Boolean) -> Unit)?) {
+fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, mediumDao: MediumDao = galleryDB.MediumDao(), callback: ((wasSuccess: Boolean) -> Unit)?) {
     Thread {
-        val mediumDao = galleryDB.MediumDao()
         var pathsCnt = paths.size
         paths.forEach {
             val file = File(it)
@@ -220,12 +220,11 @@ fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, callback:
 }
 
 fun BaseSimpleActivity.restoreRecycleBinPath(path: String, callback: () -> Unit) {
-    restoreRecycleBinPaths(arrayListOf(path), callback)
+    restoreRecycleBinPaths(arrayListOf(path), galleryDB.MediumDao(), callback)
 }
 
-fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, callback: () -> Unit) {
+fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, mediumDao: MediumDao = galleryDB.MediumDao(), callback: () -> Unit) {
     Thread {
-        val mediumDao = galleryDB.MediumDao()
         paths.forEach {
             val source = it
             val destination = it.removePrefix(filesDir.absolutePath)

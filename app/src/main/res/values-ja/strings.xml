@@ -28,9 +28,9 @@
     <string name="force_portrait">縦で固定</string>
     <string name="force_landscape">横で固定</string>
     <string name="use_default_orientation">デフォルト仕様</string>
-    <string name="fix_date_taken">Fix Date Taken value</string>
-    <string name="fixing">Fixing…</string>
-    <string name="dates_fixed_successfully">Dates fixed successfully</string>
+    <string name="fix_date_taken">撮影日の値を修正</string>
+    <string name="fixing">修正中…</string>
+    <string name="dates_fixed_successfully">撮影日が正常に修正されました</string>
 
     <!-- Filter -->
     <string name="filter_media">表示する形式</string>
@@ -38,6 +38,7 @@
     <string name="videos">ビデオ</string>
     <string name="gifs">GIF</string>
     <string name="raw_images">RAW</string>
+    <string name="svgs">SVGs</string>
     <string name="no_media_with_filters">条件に該当するメディアがありません。</string>
     <string name="change_filters_underlined"><u>絞り込み条件を変更</u></string>
 
@@ -82,7 +83,7 @@
     <string name="error_saving_file">元のファイルを上書きできません</string>
     <string name="rotate_left">左に回転</string>
     <string name="rotate_right">右に回転</string>
-    <string name="rotate_one_eighty">180o回転</string>
+    <string name="rotate_one_eighty">180度回転</string>
     <string name="flip">反転</string>
     <string name="flip_horizontally">水平方向に反転</string>
     <string name="flip_vertically">垂直方向に反転</string>
@@ -153,7 +154,7 @@
     <string name="manage_extended_details">詳細表示を管理する</string>
     <string name="one_finger_zoom">メディアを指ひとつでズーム可能にする</string>
     <string name="allow_instant_change">画面の端を押してメディアをスライドする</string>
-    <string name="replace_zoomable_images">ズームが可能な画像を高画質な物にする</string>
+    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
     <string name="hide_extended_details">ステータスバーが非表示の時は詳細を隠す</string>
     <string name="do_extra_check">無効なファイルを見せない調整を行う</string>
     <string name="show_at_bottom">画面下部にアクションボタンを表示する</string>

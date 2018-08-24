@@ -10,13 +10,15 @@
         android:id="@+id/default_image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/bottom_filters_thumbnail_size"/>
+        android:layout_above="@+id/bottom_editor_crop_rotate_actions"
+        android:layout_marginBottom="@dimen/activity_margin"/>
 
     <com.theartofdev.edmodo.cropper.CropImageView
         android:id="@+id/crop_image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/bottom_filters_thumbnail_size"
+        android:layout_above="@+id/bottom_editor_crop_rotate_actions"
+        android:layout_marginBottom="@dimen/activity_margin"
         android:visibility="gone"
         app:cropBackgroundColor="@color/crop_image_view_background"
         app:cropInitialCropWindowPaddingRatio="0"/>

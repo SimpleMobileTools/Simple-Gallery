@@ -1,6 +1,60 @@
 Changelog
 ==========
 
+Version 4.6.1 *(2018-08-21)*
+----------------------------
+
+ * Added a crashfix at loading fullscreen images
+
+Version 4.6.0 *(2018-08-20)*
+----------------------------
+
+ * Added support for SVGs
+ * Improved fullscreen image quality and performance
+ * Properly show files with hastags and percentage signs in their paths
+ * Many other smaller UX improvements
+
+Version 4.5.2 *(2018-08-08)*
+----------------------------
+
+ * Adding a toggle for disabling deep zoomable images
+ * Fix displaying third party images
+ * Couple smaller UX fixes
+
+Version 4.5.1 *(2018-08-07)*
+----------------------------
+
+ * Adding a crashfix
+
+Version 4.5.0 *(2018-08-07)*
+----------------------------
+
+ * Use real Move instead of the old copy/delete if both source and destination are on the internal storage
+ * Remake the fullscreen view, always use deep zoomable images with good quality
+ * Couple stability improvements
+
+Version 4.4.4 *(2018-08-02)*
+----------------------------
+
+ * Adding a crashfix
+
+Version 4.4.3 *(2018-08-01)*
+----------------------------
+
+ * Removed the More Donating Options from the Purchase Thank You dialog
+
+Version 4.4.2 *(2018-08-01)*
+----------------------------
+
+ * Removed the homepage from About section
+
+Version 4.4.1 *(2018-07-30)*
+----------------------------
+
+ * Hide both Play and Pause video buttons after 2 secs
+ * Improved Immersive mode fullscreen behaviour
+ * Some other stability improvements
+
 Version 4.4.0 *(2018-07-26)*
 ----------------------------
 

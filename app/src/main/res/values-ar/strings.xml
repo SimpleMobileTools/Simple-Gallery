@@ -38,6 +38,7 @@
     <string name="videos">الفديوهات</string>
     <string name="gifs">الصور المتحركة</string>
     <string name="raw_images">RAW images</string>
+    <string name="svgs">SVGs</string>
     <string name="no_media_with_filters">لم يتم العثور على ملفات وسائط مع الفلاتر المحددة</string>
     <string name="change_filters_underlined"><u >تغيير الفلاتر</u></string>
 
@@ -157,7 +158,7 @@
     <string name="manage_extended_details">إدارة المجلدات المستبعدة</string>
     <string name="one_finger_zoom">السماح بتكبير الوسائط بأصبع واحد في وضع ملء الشاشة</string>
     <string name="allow_instant_change">السماح بتغيير الوسائط على الفور من خلال النقر على جوانب الشاشة</string>
-    <string name="replace_zoomable_images">استبدل الصور التي يمكن تكبيرها بعمق باستخدام صور ذات جودة أفضل</string>
+    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
     <string name="hide_extended_details">إخفاء التفاصيل الموسعة عند إخفاء شريط الحالة</string>
     <string name="do_extra_check">قم بإجراء فحص إضافي لتجنب إظهار الملفات التالفة</string>
     <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>

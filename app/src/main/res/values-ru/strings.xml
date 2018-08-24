@@ -38,6 +38,7 @@
     <string name="videos">Видео</string>
     <string name="gifs">GIF</string>
     <string name="raw_images">Изображения RAW</string>
+    <string name="svgs">SVGs</string>
     <string name="no_media_with_filters">При заданных фильтрах медиафайлы не найдены</string>
     <string name="change_filters_underlined"><u>Изменить фильтры</u></string>
 
@@ -153,7 +154,7 @@
     <string name="manage_extended_details">Выбрать подробности файла</string>
     <string name="one_finger_zoom">Масштабирование одним пальцем при просмотре изображения</string>
     <string name="allow_instant_change">Мгновенное переключение медиафайлов нажатием по краю экрана</string>
-    <string name="replace_zoomable_images">Заменять масштабируемые изображения высококачественными</string>
+    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
     <string name="hide_extended_details">Не показывать подробности при скрытой строке состояния</string>
     <string name="do_extra_check">Делать дополнительную проверку, чтобы избежать показа неподдерживаемых файлов</string>
     <string name="show_at_bottom">Показывать кнопки действий в нижней части экрана</string>

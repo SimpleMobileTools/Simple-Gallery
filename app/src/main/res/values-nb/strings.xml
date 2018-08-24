@@ -24,20 +24,21 @@
     <string name="brightness">Lysstyrke</string>
     <string name="lock_orientation">Lås skjermorientering</string>
     <string name="unlock_orientation">Lås opp skjermorientering</string>
-    <string name="change_orientation">Change orientation</string>
-    <string name="force_portrait">Force portrait</string>
-    <string name="force_landscape">Force landscape</string>
-    <string name="use_default_orientation">Use default orientation</string>
-    <string name="fix_date_taken">Fix Date Taken value</string>
-    <string name="fixing">Fixing…</string>
-    <string name="dates_fixed_successfully">Dates fixed successfully</string>
+    <string name="change_orientation">Endre orientering</string>
+    <string name="force_portrait">Framtving portrett</string>
+    <string name="force_landscape">Framtving landskap</string>
+    <string name="use_default_orientation">Bruk standardorientering</string>
+    <string name="fix_date_taken">Korriger Dato tatt-verdi</string>
+    <string name="fixing">Korrigerer…</string>
+    <string name="dates_fixed_successfully">Datoer er korrigerte</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrer media</string>
     <string name="images">Bilder</string>
     <string name="videos">Videoer</string>
     <string name="gifs">GIF-bilder</string>
-    <string name="raw_images">RAW images</string>
+    <string name="raw_images">RAW-format-bilder</string>
+    <string name="svgs">SVGs</string>
     <string name="no_media_with_filters">Ingen media-filer er funnet med de valgte filtrene.</string>
     <string name="change_filters_underlined"><u>Endre filtere</u></string>
 
@@ -87,7 +88,7 @@
     <string name="flip_horizontally">Speilvend horisontalt</string>
     <string name="flip_vertically">Speilvend vertikalt</string>
     <string name="edit_with">Rediger med</string>
-    <string name="free_aspect_ratio">Free</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="free_aspect_ratio">Fri</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Bakgrunnsbilde</string>
@@ -122,13 +123,13 @@
     <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Group by</string>
-    <string name="do_not_group_files">Do not group files</string>
-    <string name="by_folder">Folder</string>
-    <string name="by_last_modified">Last modified</string>
-    <string name="by_date_taken">Date taken</string>
-    <string name="by_file_type">File type</string>
-    <string name="by_extension">Extension</string>
+    <string name="group_by">Grupper etter</string>
+    <string name="do_not_group_files">Ikke grupper filer</string>
+    <string name="by_folder">Mappe</string>
+    <string name="by_last_modified">Sist endret</string>
+    <string name="by_date_taken">Dato tatt</string>
+    <string name="by_file_type">Filtype</string>
+    <string name="by_extension">Endelse</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Avspill videoer automatisk</string>
@@ -153,22 +154,22 @@
     <string name="manage_extended_details">Velg detaljer</string>
     <string name="one_finger_zoom">Tillat en-finger-zoom i mediavisningen</string>
     <string name="allow_instant_change">Tillat å skifte media øyeblikkelig ved å trykke på kanten av skjermen</string>
-    <string name="replace_zoomable_images">Erstatt dyp-zoombare bilder med bilder av bedre kvalitet</string>
+    <string name="allow_deep_zooming_images">Tillat dyp bildezooming</string>
     <string name="hide_extended_details">Skjul utvidede detaljer når statuslinjen er skjult</string>
     <string name="do_extra_check">Gjør en ekstra sjekk for å unngå visning av ugyldige filer</string>
-    <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
-    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
+    <string name="show_at_bottom">Vis noen handlingsknapper nederst på skjermen</string>
+    <string name="show_recycle_bin">Vis papirkurven på mappeskjermen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Minibilder</string>
     <string name="fullscreen_media">Mediavisning</string>
     <string name="extended_details">Utvidede detaljer</string>
-    <string name="bottom_actions">Bottom actions</string>
+    <string name="bottom_actions">Handlinger nederst</string>
 
     <!-- Bottom actions -->
-    <string name="manage_bottom_actions">Manage visible bottom actions</string>
-    <string name="toggle_favorite">Toggle favorite</string>
-    <string name="toggle_file_visibility">Toggle file visibility</string>
+    <string name="manage_bottom_actions">Behandle nedre handlingsknapper</string>
+    <string name="toggle_favorite">Favoritt av/på</string>
+    <string name="toggle_file_visibility">Filsynlighet av/på</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>

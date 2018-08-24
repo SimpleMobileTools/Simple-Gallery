@@ -66,9 +66,9 @@ class SettingsActivity : SimpleActivity() {
         setupKeepLastModified()
         setupShowInfoBubble()
         setupEnablePullToRefresh()
+        setupAllowZoomingImages()
         setupOneFingerZoom()
         setupAllowInstantChange()
-        setupReplaceZoomableImages()
         setupShowExtendedDetails()
         setupHideExtendedDetails()
         setupManageExtendedDetails()
@@ -335,6 +335,15 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
+    private fun setupAllowZoomingImages() {
+        settings_allow_zooming_images.isChecked = config.allowZoomingImages
+        settings_allow_zooming_images_holder.setOnClickListener {
+            settings_allow_zooming_images.toggle()
+            config.allowZoomingImages = settings_allow_zooming_images.isChecked
+            settings_one_finger_zoom_holder.beVisibleIf(config.allowZoomingImages)
+        }
+    }
+
     private fun setupOneFingerZoom() {
         settings_one_finger_zoom.isChecked = config.oneFingerZoom
         settings_one_finger_zoom_holder.setOnClickListener {
@@ -348,14 +357,6 @@ class SettingsActivity : SimpleActivity() {
         settings_allow_instant_change_holder.setOnClickListener {
             settings_allow_instant_change.toggle()
             config.allowInstantChange = settings_allow_instant_change.isChecked
-        }
-    }
-
-    private fun setupReplaceZoomableImages() {
-        settings_replace_zoomable_images.isChecked = config.replaceZoomableImages
-        settings_replace_zoomable_images_holder.setOnClickListener {
-            settings_replace_zoomable_images.toggle()
-            config.replaceZoomableImages = settings_replace_zoomable_images.isChecked
         }
     }
 

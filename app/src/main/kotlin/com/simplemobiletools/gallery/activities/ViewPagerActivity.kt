@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.activities
 
 import android.animation.Animator
 import android.animation.ValueAnimator
+import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Intent
@@ -70,14 +71,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mAreSlideShowMediaVisible = false
     private var mIsOrientationLocked = false
 
-    private var mStoredReplaceZoomableImages = false
     private var mMediaFiles = ArrayList<Medium>()
     private var mFavoritePaths = ArrayList<String>()
 
     companion object {
         var screenWidth = 0
         var screenHeight = 0
-        var wasDecodedByGlide = false
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -94,7 +93,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         }
 
-        storeStateVariables()
         initFavorites()
     }
 
@@ -112,11 +110,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         } else {
             setTranslucentNavigation()
-        }
-
-        if (mStoredReplaceZoomableImages != config.replaceZoomableImages) {
-            mPrevHashcode = 0
-            refreshViewPager()
         }
 
         initBottomActions()
@@ -139,7 +132,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun onPause() {
         super.onPause()
         stopSlideshow()
-        storeStateVariables()
     }
 
     override fun onDestroy() {
@@ -245,7 +237,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
-            mIsFullScreen = visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
+            mIsFullScreen = if (visibility and View.SYSTEM_UI_FLAG_LOW_PROFILE == 0) {
+                false
+            } else {
+                visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
+            }
+
             view_pager.adapter?.let {
                 (it as MyPagerAdapter).toggleFullscreen(mIsFullScreen)
                 checkSystemUI()
@@ -293,13 +290,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_properties).isVisible = visibleBottomActions and BOTTOM_ACTION_PROPERTIES == 0
             findItem(R.id.menu_delete).isVisible = visibleBottomActions and BOTTOM_ACTION_DELETE == 0
             findItem(R.id.menu_share).isVisible = visibleBottomActions and BOTTOM_ACTION_SHARE == 0
-            findItem(R.id.menu_edit).isVisible = visibleBottomActions and BOTTOM_ACTION_EDIT == 0
-            findItem(R.id.menu_rename).isVisible = visibleBottomActions and BOTTOM_ACTION_RENAME == 0
+            findItem(R.id.menu_edit).isVisible = visibleBottomActions and BOTTOM_ACTION_EDIT == 0 && !currentMedium.isSVG()
+            findItem(R.id.menu_rename).isVisible = visibleBottomActions and BOTTOM_ACTION_RENAME == 0 && !currentMedium.getIsInRecycleBin()
             findItem(R.id.menu_rotate).isVisible = currentMedium.isImage() && visibleBottomActions and BOTTOM_ACTION_ROTATE == 0
             findItem(R.id.menu_set_as).isVisible = visibleBottomActions and BOTTOM_ACTION_SET_AS == 0
             findItem(R.id.menu_save_as).isVisible = mRotationDegrees != 0
-            findItem(R.id.menu_hide).isVisible = !currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0
-            findItem(R.id.menu_unhide).isVisible = currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0
+            findItem(R.id.menu_hide).isVisible = !currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0 && !currentMedium.getIsInRecycleBin()
+            findItem(R.id.menu_unhide).isVisible = currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0 && !currentMedium.getIsInRecycleBin()
             findItem(R.id.menu_add_to_favorites).isVisible = !currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0
             findItem(R.id.menu_remove_from_favorites).isVisible = currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0
             findItem(R.id.menu_restore_file).isVisible = currentMedium.path.startsWith(filesDir.absolutePath)
@@ -351,12 +348,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             else -> return super.onOptionsItemSelected(item)
         }
         return true
-    }
-
-    private fun storeStateVariables() {
-        config.apply {
-            mStoredReplaceZoomableImages = replaceZoomableImages
-        }
     }
 
     private fun updatePagerItems(media: MutableList<Medium>) {
@@ -468,7 +459,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun scheduleSwipe() {
         mSlideshowHandler.removeCallbacksAndMessages(null)
         if (mIsSlideshowActive) {
-            if (getCurrentMedium()!!.isImage() || getCurrentMedium()!!.isGif()) {
+            if (getCurrentMedium()!!.isImage() || getCurrentMedium()!!.isGIF()) {
                 mSlideshowHandler.postDelayed({
                     if (mIsSlideshowActive && !isActivityDestroyed()) {
                         swipeToNextMedium()
@@ -491,11 +482,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         if (!config.slideshowIncludeVideos) {
-            mSlideshowMedia = mSlideshowMedia.filter { it.isImage() || it.isGif() } as MutableList
+            mSlideshowMedia = mSlideshowMedia.filter { it.isImage() || it.isGIF() } as MutableList
         }
 
         if (!config.slideshowIncludeGIFs) {
-            mSlideshowMedia = mSlideshowMedia.filter { !it.isGif() } as MutableList
+            mSlideshowMedia = mSlideshowMedia.filter { !it.isGIF() } as MutableList
         }
 
         if (config.slideshowRandomOrder) {
@@ -785,7 +776,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             toggleFavorite()
         }
 
-        bottom_edit.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_EDIT != 0)
+        bottom_edit.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_EDIT != 0 && getCurrentMedium()?.isSVG() == false)
         bottom_edit.setOnClickListener {
             openEditor(getCurrentPath())
         }
@@ -839,7 +830,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         }
 
-        bottom_rename.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_RENAME != 0)
+        bottom_rename.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_RENAME != 0 && getCurrentMedium()?.getIsInRecycleBin() == false)
         bottom_rename.setOnClickListener {
             renameFile()
         }
@@ -922,7 +913,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun deleteConfirmed() {
         val path = getCurrentMedia().getOrNull(mPos)?.path ?: return
-        if (getIsPathDirectory(path) || !path.isImageVideoGif()) {
+        if (getIsPathDirectory(path) || !path.isMediaFile()) {
             return
         }
 
@@ -975,9 +966,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         initBottomActionsLayout()
     }
 
+    @SuppressLint("NewApi")
     private fun measureScreen() {
         val metrics = DisplayMetrics()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        if (isJellyBean1Plus()) {
             windowManager.defaultDisplay.getRealMetrics(metrics)
             screenWidth = metrics.widthPixels
             screenHeight = metrics.heightPixels
@@ -1104,7 +1096,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun getCurrentMedia() = if (mAreSlideShowMediaVisible) mSlideshowMedia else mMediaFiles
 
-    private fun getCurrentPath() = getCurrentMedium()!!.path
+    private fun getCurrentPath() = getCurrentMedium()?.path ?: ""
 
     private fun getCurrentFile() = File(getCurrentPath())
 

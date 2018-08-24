@@ -28,9 +28,9 @@
     <string name="force_portrait">Portretmodus forceren</string>
     <string name="force_landscape">Landschapsmodus forceren</string>
     <string name="use_default_orientation">Standaardmodus gebruiken</string>
-    <string name="fix_date_taken">Fix Date Taken value</string>
-    <string name="fixing">Fixing…</string>
-    <string name="dates_fixed_successfully">Dates fixed successfully</string>
+    <string name="fix_date_taken">Datum opname corrigeren</string>
+    <string name="fixing">Corrigeren…</string>
+    <string name="dates_fixed_successfully">Datums zijn gecorrigeerd</string>
 
     <!-- Filter -->
     <string name="filter_media">Media filteren</string>
@@ -38,6 +38,7 @@
     <string name="videos">Video\'s</string>
     <string name="gifs">GIF-bestanden</string>
     <string name="raw_images">RAW-afbeeldingen</string>
+    <string name="svgs">SVG-vectorafbeeldingen</string>
     <string name="no_media_with_filters">Er zijn geen bestanden gevonden met de huidige filters.</string>
     <string name="change_filters_underlined"><u>Filters aanpassen</u></string>
 
@@ -153,7 +154,7 @@
     <string name="manage_extended_details">Uitgebreide informatie</string>
     <string name="one_finger_zoom">Met één vinger zoomen in volledig scherm</string>
     <string name="allow_instant_change">Direct naar vorige/volgende door op de zijkanten van het scherm te tikken</string>
-    <string name="replace_zoomable_images">In hoge kwaliteit weergeven (ten koste van ver inzoomen)</string>
+    <string name="allow_deep_zooming_images">Verder inzoomen mogelijk maken</string>
     <string name="hide_extended_details">Uitgebreide informatie niet tonen als de statusbalk is verborgen</string>
     <string name="do_extra_check">Ongeldige bestanden verbergen</string>
     <string name="show_at_bottom">Enkele actieknoppen onderaan het scherm tonen</string>

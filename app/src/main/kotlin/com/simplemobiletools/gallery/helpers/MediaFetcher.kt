@@ -78,6 +78,10 @@ class MediaFetcher(val context: Context) {
             }
         }
 
+        if (filterMedia and TYPE_SVGS != 0) {
+            query.append("${MediaStore.Images.Media.DATA} LIKE ? OR ")
+        }
+
         var selectionQuery = query.toString().trim().removeSuffix("OR")
         selectionQuery += ") AND "
         return selectionQuery
@@ -105,6 +109,10 @@ class MediaFetcher(val context: Context) {
             rawExtensions.forEach {
                 args.add("%$it")
             }
+        }
+
+        if (filterMedia and TYPE_SVGS != 0) {
+            args.add("%.svg")
         }
 
         return args
@@ -188,8 +196,9 @@ class MediaFetcher(val context: Context) {
             val isVideo = if (isImage) false else filename.isVideoFast()
             val isGif = if (isImage || isVideo) false else filename.isGif()
             val isRaw = if (isImage || isVideo || isGif) false else filename.isRawFast()
+            val isSvg = if (isImage || isVideo || isGif || isRaw) false else filename.isSvg()
 
-            if (!isImage && !isVideo && !isGif && !isRaw)
+            if (!isImage && !isVideo && !isGif && !isRaw && !isSvg)
                 continue
 
             if (isVideo && (isPickImage || filterMedia and TYPE_VIDEOS == 0))
@@ -202,6 +211,9 @@ class MediaFetcher(val context: Context) {
                 continue
 
             if (isRaw && filterMedia and TYPE_RAWS == 0)
+                continue
+
+            if (isSvg && filterMedia and TYPE_SVGS == 0)
                 continue
 
             if (!showHidden && filename.startsWith('.'))
@@ -228,7 +240,8 @@ class MediaFetcher(val context: Context) {
                     isImage -> TYPE_IMAGES
                     isVideo -> TYPE_VIDEOS
                     isGif -> TYPE_GIFS
-                    else -> TYPE_RAWS
+                    isRaw -> TYPE_RAWS
+                    else -> TYPE_SVGS
                 }
 
                 val isFavorite = favoritePaths.contains(path)
@@ -255,8 +268,9 @@ class MediaFetcher(val context: Context) {
             val isVideo = if (isImage) false else filename.isVideoFast()
             val isGif = if (isImage || isVideo) false else filename.isGif()
             val isRaw = if (isImage || isVideo || isGif) false else filename.isRawFast()
+            val isSvg = if (isImage || isVideo || isGif || isRaw) false else filename.isSvg()
 
-            if (!isImage && !isVideo && !isGif || !isRaw)
+            if (!isImage && !isVideo && !isGif && !isRaw && !isSvg)
                 continue
 
             if (isVideo && (isPickImage || filterMedia and TYPE_VIDEOS == 0))
@@ -269,6 +283,9 @@ class MediaFetcher(val context: Context) {
                 continue
 
             if (isRaw && filterMedia and TYPE_RAWS == 0)
+                continue
+
+            if (isSvg && filterMedia and TYPE_SVGS == 0)
                 continue
 
             if (!showHidden && filename.startsWith('.'))
@@ -285,7 +302,8 @@ class MediaFetcher(val context: Context) {
                 isImage -> TYPE_IMAGES
                 isVideo -> TYPE_VIDEOS
                 isGif -> TYPE_GIFS
-                else -> TYPE_RAWS
+                isRaw -> TYPE_RAWS
+                else -> TYPE_SVGS
             }
 
             val path = Uri.decode(file.uri.toString().replaceFirst("${context.config.OTGTreeUri}/document/${context.config.OTGPartition}%3A", OTG_PATH))
@@ -417,7 +435,8 @@ class MediaFetcher(val context: Context) {
             TYPE_IMAGES -> R.string.images
             TYPE_VIDEOS -> R.string.videos
             TYPE_GIFS -> R.string.gifs
-            else -> R.string.raw_images
+            TYPE_RAWS -> R.string.raw_images
+            else -> R.string.svgs
         }
         return context.getString(stringId)
     }

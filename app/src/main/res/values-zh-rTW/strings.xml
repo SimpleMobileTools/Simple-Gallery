@@ -28,9 +28,9 @@
     <string name="force_portrait">強制直向</string>
     <string name="force_landscape">強制橫向</string>
     <string name="use_default_orientation">使用預設方向</string>
-    <string name="fix_date_taken">Fix Date Taken value</string>
-    <string name="fixing">Fixing…</string>
-    <string name="dates_fixed_successfully">Dates fixed successfully</string>
+    <string name="fix_date_taken">修復拍照日期數值</string>
+    <string name="fixing">修復中…</string>
+    <string name="dates_fixed_successfully">日期修復成功</string>
 
     <!-- Filter -->
     <string name="filter_media">篩選媒體檔案</string>
@@ -38,6 +38,7 @@
     <string name="videos">影片</string>
     <string name="gifs">GIF</string>
     <string name="raw_images">RAW圖檔</string>
+    <string name="svgs">SVGs</string>
     <string name="no_media_with_filters">選擇的篩選條件未發現媒體檔案。</string>
     <string name="change_filters_underlined"><u>更改篩選條件</u></string>
 
@@ -87,7 +88,7 @@
     <string name="flip_horizontally">水平翻轉</string>
     <string name="flip_vertically">垂直翻轉</string>
     <string name="edit_with">用其他程式編輯</string>
-    <string name="free_aspect_ratio">Free</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="free_aspect_ratio">自由</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">簡易桌布</string>
@@ -153,11 +154,11 @@
     <string name="manage_extended_details">管理詳細資訊</string>
     <string name="one_finger_zoom">全螢幕時允許單指縮放</string>
     <string name="allow_instant_change">允許點擊螢幕邊緣來快速切換媒體檔案</string>
-    <string name="replace_zoomable_images">可深度縮放的圖片用品質更佳的來取代</string>
+    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
     <string name="hide_extended_details">狀態欄隱藏時，同時隱藏詳細資訊</string>
     <string name="do_extra_check">進行額外檢查，避免顯示無效的檔案</string>
     <string name="show_at_bottom">在螢幕底部顯示一些操作按鈕</string>
-    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
+    <string name="show_recycle_bin">在資料夾畫面顯示回收桶</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">縮圖</string>
@@ -166,9 +167,9 @@
     <string name="bottom_actions">底部操作</string>
 
     <!-- Bottom actions -->
-    <string name="manage_bottom_actions">管理可見的底部操作</string>
-    <string name="toggle_favorite">加入/移除我的最愛</string>
-    <string name="toggle_file_visibility">檔案顯示/隱藏</string>
+    <string name="manage_bottom_actions">管理要顯示的底部操作</string>
+    <string name="toggle_favorite">我的最愛</string>
+    <string name="toggle_file_visibility">檔案顯示</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">我如何將簡易相簿設為預設相簿?</string>
@@ -195,8 +196,8 @@
     <string name="faq_10_text">是的，你能夠在編輯器內拉動圖片角落來裁剪圖片。要進入編輯器，你可以長按圖片縮圖然後選擇[編輯]，或是在全螢幕檢視下選擇[編輯]。</string>
     <string name="faq_11_title">我可以歸類媒體檔案的縮圖嗎?</string>
     <string name="faq_11_text">當然，只要在縮圖瀏覽中使用[歸類]選單項目就可以了。你能依多種條件歸類檔案，包含拍照日期。如果你使用了[資料夾內容全部顯示]功能，你還能以資料夾來歸類。</string>
-    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
-    <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
+    <string name="faq_12_title">依拍照日期排序似乎沒正確運作，我該如何修復?</string>
+    <string name="faq_12_text">那很可能是由於檔案從某處複製過來所造成的。你可以選擇檔案縮圖，然後選擇\"修復拍照日期數值\"來進行修復。</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

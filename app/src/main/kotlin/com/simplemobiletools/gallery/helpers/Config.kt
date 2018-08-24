@@ -174,7 +174,7 @@ class Config(context: Context) : BaseConfig(context) {
         set(darkBackground) = prefs.edit().putBoolean(DARK_BACKGROUND, darkBackground).apply()
 
     var filterMedia: Int
-        get() = prefs.getInt(FILTER_MEDIA, TYPE_IMAGES or TYPE_VIDEOS or TYPE_GIFS or TYPE_RAWS)
+        get() = prefs.getInt(FILTER_MEDIA, TYPE_IMAGES or TYPE_VIDEOS or TYPE_GIFS or TYPE_RAWS or TYPE_SVGS)
         set(filterMedia) = prefs.edit().putInt(FILTER_MEDIA, filterMedia).apply()
 
     var dirColumnCnt: Int
@@ -188,10 +188,6 @@ class Config(context: Context) : BaseConfig(context) {
     var allowInstantChange: Boolean
         get() = prefs.getBoolean(ALLOW_INSTANT_CHANGE, false)
         set(allowInstantChange) = prefs.edit().putBoolean(ALLOW_INSTANT_CHANGE, allowInstantChange).apply()
-
-    var replaceZoomableImages: Boolean
-        get() = prefs.getBoolean(REPLACE_ZOOMABLE_IMAGES, false)
-        set(replaceZoomableImages) = prefs.edit().putBoolean(REPLACE_ZOOMABLE_IMAGES, replaceZoomableImages).apply()
 
     private fun getDirectoryColumnsField(): String {
         val isPortrait = context.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
@@ -350,6 +346,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(WAS_RECYCLE_BIN_PINNED, false)
         set(wasRecycleBinPinned) = prefs.edit().putBoolean(WAS_RECYCLE_BIN_PINNED, wasRecycleBinPinned).apply()
 
+    var wasSVGShowingHandled: Boolean
+        get() = prefs.getBoolean(WAS_SVG_SHOWING_HANDLED, false)
+        set(wasSVGShowingHandled) = prefs.edit().putBoolean(WAS_SVG_SHOWING_HANDLED, wasSVGShowingHandled).apply()
+
     var groupBy: Int
         get() = prefs.getInt(GROUP_BY, GROUP_BY_NONE)
         set(groupBy) = prefs.edit().putInt(GROUP_BY, groupBy).apply()
@@ -380,4 +380,8 @@ class Config(context: Context) : BaseConfig(context) {
     var showRecycleBinAtFolders: Boolean
         get() = prefs.getBoolean(SHOW_RECYCLE_BIN_AT_FOLDERS, true)
         set(showRecycleBinAtFolders) = prefs.edit().putBoolean(SHOW_RECYCLE_BIN_AT_FOLDERS, showRecycleBinAtFolders).apply()
+
+    var allowZoomingImages: Boolean
+        get() = prefs.getBoolean(ALLOW_ZOOMING_IMAGES, true)
+        set(allowZoomingImages) = prefs.edit().putBoolean(ALLOW_ZOOMING_IMAGES, allowZoomingImages).apply()
 }

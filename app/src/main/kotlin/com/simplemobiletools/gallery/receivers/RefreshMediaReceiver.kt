@@ -6,10 +6,7 @@ import android.content.Intent
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.REFRESH_PATH
 import com.simplemobiletools.gallery.extensions.galleryDB
-import com.simplemobiletools.gallery.helpers.TYPE_GIFS
-import com.simplemobiletools.gallery.helpers.TYPE_IMAGES
-import com.simplemobiletools.gallery.helpers.TYPE_RAWS
-import com.simplemobiletools.gallery.helpers.TYPE_VIDEOS
+import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
 import java.io.File
 
@@ -28,6 +25,7 @@ class RefreshMediaReceiver : BroadcastReceiver() {
         path.isImageFast() -> TYPE_IMAGES
         path.isVideoFast() -> TYPE_VIDEOS
         path.isGif() -> TYPE_GIFS
-        else -> TYPE_RAWS
+        path.isRawFast() -> TYPE_RAWS
+        else -> TYPE_SVGS
     }
 }

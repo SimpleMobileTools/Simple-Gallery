@@ -45,7 +45,6 @@ const val EXTENDED_DETAILS = "extended_details"
 const val HIDE_EXTENDED_DETAILS = "hide_extended_details"
 const val ONE_FINGER_ZOOM = "one_finger_zoom"
 const val ALLOW_INSTANT_CHANGE = "allow_instant_change"
-const val REPLACE_ZOOMABLE_IMAGES = "replace_zoomable_images"
 const val DO_EXTRA_CHECK = "do_extra_check"
 const val WAS_NEW_APP_SHOWN = "was_new_app_shown_clock"
 const val LAST_FILEPICKER_PATH = "last_filepicker_path"
@@ -59,6 +58,8 @@ const val USE_RECYCLE_BIN = "use_recycle_bin"
 const val GROUP_BY = "group_by"
 const val EVER_SHOWN_FOLDERS = "ever_shown_folders"
 const val SHOW_RECYCLE_BIN_AT_FOLDERS = "show_recycle_bin_at_folders"
+const val ALLOW_ZOOMING_IMAGES = "allow_zooming_images"
+const val WAS_SVG_SHOWING_HANDLED = "was_svg_showing_handled"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"
@@ -120,6 +121,7 @@ const val TYPE_IMAGES = 1
 const val TYPE_VIDEOS = 2
 const val TYPE_GIFS = 4
 const val TYPE_RAWS = 8
+const val TYPE_SVGS = 16
 
 const val LOCAITON_INTERNAL = 1
 const val LOCATION_SD = 2

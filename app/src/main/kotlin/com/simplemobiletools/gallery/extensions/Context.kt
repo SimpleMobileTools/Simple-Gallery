@@ -6,6 +6,7 @@ import android.content.res.Configuration
 import android.database.Cursor
 import android.database.sqlite.SQLiteException
 import android.graphics.Point
+import android.graphics.drawable.PictureDrawable
 import android.media.AudioManager
 import android.os.Build
 import android.provider.MediaStore
@@ -28,6 +29,7 @@ import com.simplemobiletools.gallery.interfaces.MediumDao
 import com.simplemobiletools.gallery.models.Directory
 import com.simplemobiletools.gallery.models.Medium
 import com.simplemobiletools.gallery.models.ThumbnailItem
+import com.simplemobiletools.gallery.svg.SvgSoftwareLayerSetter
 import com.simplemobiletools.gallery.views.MySquareImageView
 import pl.droidsonroids.gif.GifDrawable
 import java.io.File
@@ -181,9 +183,9 @@ fun Context.rescanFolderMediaSync(path: String) {
     }
 }
 
-fun Context.storeDirectoryItems(items: ArrayList<Directory>) {
+fun Context.storeDirectoryItems(items: ArrayList<Directory>, directoryDao: DirectoryDao) {
     Thread {
-        galleryDB.DirectoryDao().insertAll(items)
+        directoryDao.insertAll(items)
     }.start()
 }
 
@@ -232,6 +234,8 @@ fun Context.loadImage(type: Int, path: String, target: MySquareImageView, horizo
         } catch (e: OutOfMemoryError) {
             loadJpg(path, target, cropThumbnails)
         }
+    } else if (type == TYPE_SVGS) {
+        loadSVG(path, target, cropThumbnails)
     }
 }
 
@@ -277,12 +281,26 @@ fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boo
             .load(path)
 
     if (cropThumbnails) options.centerCrop() else options.fitCenter()
-    builder.apply(options).transition(DrawableTransitionOptions.withCrossFade()).into(target)
+    builder.apply(options)
+            .transition(DrawableTransitionOptions.withCrossFade())
+            .into(target)
 }
 
-fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, callback: (ArrayList<Directory>) -> Unit) {
+fun Context.loadSVG(path: String, target: MySquareImageView, cropThumbnails: Boolean) {
+    target.scaleType = if (cropThumbnails) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
+
+    val options = RequestOptions().signature(path.getFileSignature())
+    Glide.with(applicationContext)
+            .`as`(PictureDrawable::class.java)
+            .listener(SvgSoftwareLayerSetter())
+            .load(path)
+            .apply(options)
+            .transition(DrawableTransitionOptions.withCrossFade())
+            .into(target)
+}
+
+fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, directoryDao: DirectoryDao = galleryDB.DirectoryDao(), callback: (ArrayList<Directory>) -> Unit) {
     Thread {
-        val directoryDao = galleryDB.DirectoryDao()
         val directories = try {
             directoryDao.getAll() as ArrayList<Directory>
         } catch (e: SQLiteException) {
@@ -306,7 +324,8 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
                 (filterMedia and TYPE_IMAGES != 0 && it.types and TYPE_IMAGES != 0) ||
                         (filterMedia and TYPE_VIDEOS != 0 && it.types and TYPE_VIDEOS != 0) ||
                         (filterMedia and TYPE_GIFS != 0 && it.types and TYPE_GIFS != 0) ||
-                        (filterMedia and TYPE_RAWS != 0 && it.types and TYPE_RAWS != 0)
+                        (filterMedia and TYPE_RAWS != 0 && it.types and TYPE_RAWS != 0) ||
+                        (filterMedia and TYPE_SVGS != 0 && it.types and TYPE_SVGS != 0)
             }
         }) as ArrayList<Directory>
 
@@ -326,10 +345,10 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
     }.start()
 }
 
-fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, callback: (ArrayList<ThumbnailItem>) -> Unit) {
+fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, mediumDao: MediumDao = galleryDB.MediumDao(),
+                           callback: (ArrayList<ThumbnailItem>) -> Unit) {
     Thread {
         val mediaFetcher = MediaFetcher(this)
-        val mediumDao = galleryDB.MediumDao()
         val foldersToScan = if (path.isEmpty()) mediaFetcher.getFoldersToScan() else arrayListOf(path)
         var media = ArrayList<Medium>()
         if (path == FAVORITES) {
@@ -361,7 +380,8 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
                 (filterMedia and TYPE_IMAGES != 0 && it.type == TYPE_IMAGES) ||
                         (filterMedia and TYPE_VIDEOS != 0 && it.type == TYPE_VIDEOS) ||
                         (filterMedia and TYPE_GIFS != 0 && it.type == TYPE_GIFS) ||
-                        (filterMedia and TYPE_RAWS != 0 && it.type == TYPE_RAWS)
+                        (filterMedia and TYPE_RAWS != 0 && it.type == TYPE_RAWS) ||
+                        (filterMedia and TYPE_SVGS != 0 && it.type == TYPE_SVGS)
             }
         }) as ArrayList<Medium>
 
@@ -394,8 +414,8 @@ fun Context.updateDBMediaPath(oldPath: String, newPath: String) {
     galleryDB.MediumDao().updateMedium(oldPath, newParentPath, newFilename, newPath)
 }
 
-fun Context.updateDBDirectory(directory: Directory) {
-    galleryDB.DirectoryDao().updateDirectory(directory.path, directory.tmb, directory.mediaCnt, directory.modified, directory.taken, directory.size, directory.types)
+fun Context.updateDBDirectory(directory: Directory, directoryDao: DirectoryDao) {
+    directoryDao.updateDirectory(directory.path, directory.tmb, directory.mediaCnt, directory.modified, directory.taken, directory.size, directory.types)
 }
 
 fun Context.getOTGFolderChildren(path: String) = getDocumentFile(path)?.listFiles()
