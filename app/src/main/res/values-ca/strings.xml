@@ -28,9 +28,9 @@
     <string name="force_portrait">Forçar vertical</string>
     <string name="force_landscape">Forçar horitzontal</string>
     <string name="use_default_orientation">Fer servir la orientació per defecte</string>
-    <string name="fix_date_taken">Fix Date Taken value</string>
-    <string name="fixing">Fixing…</string>
-    <string name="dates_fixed_successfully">Dates fixed successfully</string>
+    <string name="fix_date_taken">Fixar la data de presa</string>
+    <string name="fixing">Fixant…</string>
+    <string name="dates_fixed_successfully">Data fixada correctament</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtre d\'arxius</string>
@@ -154,7 +154,7 @@
     <string name="manage_extended_details">Gestioneu els detalls ampliats</string>
     <string name="one_finger_zoom">Permet fer zoom amb un sol dit a pantalla complerta</string>
     <string name="allow_instant_change">Permet canviar els mitjans de manera instantània fent clic als costats de la pantalla</string>
-    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
+    <string name="allow_deep_zooming_images">Permet imatges de zoom profund</string>
     <string name="hide_extended_details">Amaga els detalls estesos quan la barra d\'estat està amagada</string>
     <string name="do_extra_check">Fer una verificació addicional per evitar que es mostrin fitxers no vàlids</string>
     <string name="show_at_bottom">Mostra alguns botons d\'acció a la part inferior de la pantalla</string>
@@ -196,8 +196,8 @@
     <string name="faq_10_text">Sí, pots retallar imatges a l\'editor, arrossegant les cantonades de la imatge. Pots accedir a l\'editor prement una miniatura d\'imatge i seleccionant Edita o seleccionant Edita des de la visualització de pantalla completa.</string>
     <string name="faq_11_title">Puc agrupar d\'alguna manera les miniatures del fitxer multimèdia?</string>
     <string name="faq_11_text">Si, només heu d\'utilitzar l\'ítem del menú \"Agrupar per\" mentre es troba a la vista en miniatura. Podeu agrupar fitxers amb diversos criteris, inclòs data de presa. Si utilitzeu la funció \"Mostra el contingut de totes les carpetes\", també podeu agrupar-les per carpetes.</string>
-    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
-    <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
+    <string name="faq_12_title">L\'ordenació per data que de presa no sembla funcionar correctament, com puc solucionar-ho?</string>
+    <string name="faq_12_text">Probablement, els fitxers es copiïn en un lloc incorrecte. Podeu arreglar-ho si seleccioneu les miniatures del fitxer i seleccioneu \"Fixar data de presa\".</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
