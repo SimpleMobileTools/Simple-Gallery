@@ -521,11 +521,11 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             dir_path?.text = "${directory.path.substringBeforeLast("/")}/"
             photo_cnt.text = directory.mediaCnt.toString()
             val thumbnailType = when {
-                directory.tmb.isImageFast() -> TYPE_IMAGES
                 directory.tmb.isVideoFast() -> TYPE_VIDEOS
                 directory.tmb.isGif() -> TYPE_GIFS
                 directory.tmb.isRawFast() -> TYPE_RAWS
-                else -> TYPE_SVGS
+                directory.tmb.isSvg() -> TYPE_SVGS
+                else -> TYPE_IMAGES
             }
 
             activity.loadImage(thumbnailType, directory.tmb, dir_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
