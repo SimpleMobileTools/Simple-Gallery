@@ -5,8 +5,7 @@
     android:id="@+id/bottom_editor_primary_actions_wrapper"
     android:layout_width="match_parent"
     android:layout_height="@dimen/bottom_actions_height"
-    android:layout_alignParentBottom="true"
-    android:background="@drawable/gradient_background_lighter">
+    android:layout_alignParentBottom="true">
 
     <ImageView
         android:id="@+id/bottom_primary_filter"

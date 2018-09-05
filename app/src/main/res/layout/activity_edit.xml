@@ -23,6 +23,13 @@
         app:cropBackgroundColor="@color/crop_image_view_background"
         app:cropInitialCropWindowPaddingRatio="0"/>
 
+    <RelativeLayout
+        android:id="@+id/bottom_editor_actions_background"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottom_editor_actions_shadow_height"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/gradient_background_lighter"/>
+
     <include
         android:id="@+id/bottom_aspect_ratios"
         layout="@layout/bottom_actions_aspect_ratio"

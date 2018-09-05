@@ -13,4 +13,5 @@
     <dimen name="bottom_actions_height">64dp</dimen>
     <dimen name="bottom_filters_thumbnail_size">76dp</dimen>
     <dimen name="bottom_filters_height">90dp</dimen>
+    <dimen name="bottom_editor_actions_shadow_height">180dp</dimen>
 </resources>
