@@ -4,13 +4,13 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.2"
 
     defaultConfig {
         applicationId "com.simplemobiletools.gallery"
         minSdkVersion 16
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 197
         versionName "4.6.1"
         multiDexEnabled true
@@ -47,12 +47,12 @@ ext {
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:4.6.14'
+    implementation 'com.simplemobiletools:commons:4.7.3'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.0'
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
-    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.12'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.15'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'com.google.android.exoplayer:exoplayer-core:2.8.2'
     implementation 'com.google.vr:sdk-panowidget:1.150.0'
     implementation 'org.apache.sanselan:sanselan:0.97-incubator'
