@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 4.6.2 *(2018-09-05)*
+----------------------------
+
+ * Fixed opening some email client attachments and MMS images
+ * Attempt to fix lagging at zooming in on some devices
+ * Couple other smaller bugfixes and improvements
+
 Version 4.6.1 *(2018-08-21)*
 ----------------------------
 
