@@ -42,10 +42,6 @@ android {
     }
 }
 
-ext {
-    leakCanaryVersion = '1.5.4'
-}
-
 dependencies {
     implementation 'com.simplemobiletools:commons:4.7.3'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.0'
