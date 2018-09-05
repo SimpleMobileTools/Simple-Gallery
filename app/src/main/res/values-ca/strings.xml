@@ -49,7 +49,7 @@
     <string name="manage_excluded_folders">Gestionar carpetes excloses</string>
     <string name="exclude_folder_description">Això exclou la selecció juntament amb les carpetes, només de Simple Gallery. Pots gestionar les carpetes excloses en els Ajustaments.</string>
     <string name="exclude_folder_parent">Excloure millor la carpeta superior?</string>
-    <string name="excluded_activity_placeholder">Excloure les carpetes les ocultarà junt amb les seves subcarpetes, però només a Simple Gallery. Seguirant sent visibles a altres aplicacions.\\n\\nSi vols ocultar-les d'altres aplicacions fes servir la opció Ocultar.</string>
+    <string name="excluded_activity_placeholder">Excloure les carpetes les ocultarà junt amb les seves subcarpetes, però només a Simple Gallery. Seguirant sent visibles a altres aplicacions.\\n\\nSi vols ocultar-les d\'altres aplicacions fes servir la opció Ocultar.</string>
     <string name="remove_all">Eliminar tot</string>
     <string name="remove_all_description">Eliminar totes les carpetes de la llista d\'excloses? Això no eliminarà les carpetes.</string>
     <string name="hidden_folders">Carpetes ocultes</string>
@@ -178,7 +178,7 @@
     <string name="faq_2_title">Vaig bloquejar l\'aplicació amb una contrasenya, però l\'he oblidat. Què puc fer?</string>
     <string name="faq_2_text">Es pot resoldre de dues maneres. Podeu tornar a instal·lar l\'aplicació o trobar l\'aplicació a la configuració del dispositiu i seleccionar \"Esborrar dades \". Això reiniciarà totes les configuracions, no eliminarà cap fitxer multimèdia.</string>
     <string name="faq_3_title">Com puc fer que un àlbum sempre aparegui a la part superior?</string>
-    <string name="faq_3_text">Podeu prémer l\'àlbum desitjat i seleccionar la icona de la xinxeta al menú d\'acció i el fixarà a la part superior. També podeu enganxar diverses carpetes, els elements fixats s'ordenaran pel mètode de classificació predeterminat.</string>
+    <string name="faq_3_text">Podeu prémer l\'àlbum desitjat i seleccionar la icona de la xinxeta al menú d\'acció i el fixarà a la part superior. També podeu enganxar diverses carpetes, els elements fixats s\'ordenaran pel mètode de classificació predeterminat.</string>
     <string name="faq_4_title">Com puc fer avançar els vídeos?</string>
     <string name="faq_4_text">Podeu fer clic als textos actuals o de duració màxima que hi ha a prop de la barra de cerca, això mourà el vídeo cap a enrere o cap endavant.</string>
     <string name="faq_5_title">Quina és la diferència entre ocultar i excloure una carpeta?</string>
@@ -211,7 +211,7 @@
 
         No conté ni publicitat ni permisos innecessaris. Es totalment Lliure i proporciona colors personalitzables.
 
-        Aquesta aplicació es només una peça d'una sèrie més gran d'aplicacions. Pots trobar la resta a https://www.simplemobiletools.com
+        Aquesta aplicació es només una peça d\'una sèrie més gran d\'aplicacions. Pots trobar la resta a https://www.simplemobiletools.com
     </string>
 
     <!--
