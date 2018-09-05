@@ -19,7 +19,7 @@ class PicassoRegionDecoder : ImageRegionDecoder {
         synchronized(decoderLock) {
             val options = BitmapFactory.Options()
             options.inSampleSize = sampleSize
-            options.inPreferredConfig = Bitmap.Config.ARGB_8888
+            options.inPreferredConfig = Bitmap.Config.RGB_565
             val bitmap = decoder!!.decodeRegion(rect, options)
             return bitmap ?: throw RuntimeException("Region decoder returned null bitmap - image format may not be supported")
         }
