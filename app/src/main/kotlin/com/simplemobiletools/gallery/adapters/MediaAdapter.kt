@@ -297,7 +297,12 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                 for (path in paths) {
                     val dateTime = ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME_ORIGINAL)
                             ?: ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME) ?: continue
-                    val format = "yyyy:MM:dd kk:mm:ss"
+
+                    // some formats contain a "T" in the middle, some don't
+                    // sample dates: 2015-07-26T14:55:23, 2018:09:05 15:09:05
+                    val t = if (dateTime.substring(10, 11) == "T") "\'T\'" else " "
+                    val separator = dateTime.substring(4, 5)
+                    val format = "yyyy${separator}MM${separator}dd${t}kk:mm:ss"
                     val formatter = SimpleDateFormat(format, Locale.getDefault())
                     val timestamp = formatter.parse(dateTime).time
 
