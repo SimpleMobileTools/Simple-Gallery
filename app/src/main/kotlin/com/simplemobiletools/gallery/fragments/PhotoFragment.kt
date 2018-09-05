@@ -354,7 +354,9 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun addZoomableView() {
         val rotation = degreesForRotation(imageOrientation)
+
         view.subsampling_view.apply {
+            setMinimumTileDpi(getMinTileDpi())
             background = ColorDrawable(Color.TRANSPARENT)
             setBitmapDecoderFactory { PicassoDecoder(medium.path, Picasso.get(), rotation) }
             setRegionDecoderFactory { PicassoRegionDecoder() }
@@ -393,6 +395,16 @@ class PhotoFragment : ViewPagerFragment() {
                     beGone()
                 }
             })
+        }
+    }
+
+    private fun getMinTileDpi(): Int {
+        val metrics = resources.displayMetrics
+        val averageDpi = (metrics.xdpi + metrics.ydpi) / 2
+        return when {
+            averageDpi > 400 -> 320
+            averageDpi > 300 -> 240
+            else -> 160
         }
     }
 
