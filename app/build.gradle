@@ -70,9 +70,6 @@ dependencies {
 
     // implementation 'com.github.chrisbanes:PhotoView:2.1.4'
     implementation 'com.github.tibbi:PhotoView:2.1.4-fork'
-
-    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
-    releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
 }
 
 Properties props = new Properties()
