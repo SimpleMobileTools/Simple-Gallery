@@ -5,7 +5,7 @@
     <string name="edit">Uredi</string>
     <string name="open_camera">Otvori kameru</string>
     <string name="hidden">(skriveno)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(izuzeto)</string>
     <string name="pin_folder">Prikvači mapu</string>
     <string name="unpin_folder">Otkvači mapu</string>
     <string name="pin_to_the_top">Prikvači na vrh</string>
@@ -22,14 +22,14 @@
     <string name="use_default">Koristi zadano</string>
     <string name="volume">Glasnoća</string>
     <string name="brightness">Svjetlina</string>
-    <string name="lock_orientation">Zaključaj rotaciju</string>
-    <string name="unlock_orientation">Otključaj rotaciju</string>
-    <string name="change_orientation">Change orientation</string>
-    <string name="force_portrait">Force portrait</string>
-    <string name="force_landscape">Force landscape</string>
-    <string name="use_default_orientation">Use default orientation</string>
-    <string name="fix_date_taken">Fix Date Taken value</string>
-    <string name="fixing">Fixing…</string>
+    <string name="lock_orientation">Zaključaj orijentaciju slike</string>
+    <string name="unlock_orientation">Otključaj orijentaciju slike</string>
+    <string name="change_orientation">Promijeni orijentaciju slike</string>
+    <string name="force_portrait">Prikaz slike u portretnom formatu</string>
+    <string name="force_landscape">Prikaz slike u pejzažnom načinu rada</string>
+    <string name="use_default_orientation">Koristi zadanu orijentaciju slike</string>
+    <string name="fix_date_taken">Ispravi vrijednost datuma snimanja</string>
+    <string name="fixing">Popravljam…</string>
     <string name="dates_fixed_successfully">Dates fixed successfully</string>
 
     <!-- Filter -->
@@ -37,8 +37,8 @@
     <string name="images">Slike</string>
     <string name="videos">Video</string>
     <string name="gifs">GIF-ovi</string>
-    <string name="raw_images">RAW images</string>
-    <string name="svgs">SVGs</string>
+    <string name="raw_images">RAW slike</string>
+    <string name="svgs">SVG-ovi</string>
     <string name="no_media_with_filters">Nije pronađena nijedna datoteka s odabranim filtrom.</string>
     <string name="change_filters_underlined"><u>Promijeni filter</u></string>
 
@@ -88,7 +88,7 @@
     <string name="flip_horizontally">Okreni horizontalno</string>
     <string name="flip_vertically">Okreni vertikalno</string>
     <string name="edit_with">Uredi pomoću</string>
-    <string name="free_aspect_ratio">Free</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="free_aspect_ratio">Slobodan odabir</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Jednostavna pozadina</string>
@@ -123,13 +123,13 @@
     <string name="group_direct_subfolders">Group direct subfolders</string>
 
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Group by</string>
-    <string name="do_not_group_files">Do not group files</string>
-    <string name="by_folder">Folder</string>
-    <string name="by_last_modified">Last modified</string>
-    <string name="by_date_taken">Date taken</string>
-    <string name="by_file_type">File type</string>
-    <string name="by_extension">Extension</string>
+    <string name="group_by">Grupiraj po</string>
+    <string name="do_not_group_files">Nemoj grupirati ove datoteke</string>
+    <string name="by_folder">Mapa</string>
+    <string name="by_last_modified">Zadnje uređivano</string>
+    <string name="by_date_taken">Datum snimanja</string>
+    <string name="by_file_type">Tip datoteke</string>
+    <string name="by_extension">Vrsta datoteke</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Automatsko pokretanje videa</string>
@@ -157,19 +157,19 @@
     <string name="allow_deep_zooming_images">Allow deep zooming images</string>
     <string name="hide_extended_details">Sakrij proširene pojedinosti kada je traka statusa skrivena</string>
     <string name="do_extra_check">Napravite dodatnu provjeru da biste izbjegli prikazivanje nevažećih datoteka</string>
-    <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
-    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
+    <string name="show_at_bottom">Pokažite neke gumbe za radnju pri dnu zaslona</string>
+    <string name="show_recycle_bin">Prikažite koš za smeće na zaslonu mapa</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>
     <string name="fullscreen_media">Mediji na cijelom zaslonu</string>
     <string name="extended_details">Proširene pojedinosti</string>
-    <string name="bottom_actions">Bottom actions</string>
+    <string name="bottom_actions">Radnju pri dnu zaslona</string>
 
     <!-- Bottom actions -->
-    <string name="manage_bottom_actions">Manage visible bottom actions</string>
-    <string name="toggle_favorite">Toggle favorite</string>
-    <string name="toggle_file_visibility">Toggle file visibility</string>
+    <string name="manage_bottom_actions">Upravljaj radnjama pri dnu zaslona</string>
+    <string name="toggle_favorite">Uključi/isključi favorite</string>
+    <string name="toggle_file_visibility">Uključi/isključi vidljivost datoteka</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Kako mogu postaviti Jednostavnu galeriju kao zadanu galeriju uređaja?</string>
@@ -194,10 +194,10 @@
     <string name="faq_9_text">Da, u "Postavkama" postoji opcija "Zamjena duboko zumiranih slika s kvalitetnijim slikama", ali slike će biti zamućene ako zumirate previše.</string>
     <string name="faq_10_title">Mogu li izrezati slike pomoću ove aplikacije?</string>
     <string name="faq_10_text">Da, možete obrezati slike u uređivaču povlačenjem uglova. Možete doći do uređivača dugim pritiskom na minijaturu slike i odabirom Uređivanje ili odabirom Uredi iz prikaza preko cijelog zaslona.</string>
-    <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
-    <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
-    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
-    <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
+    <string name="faq_11_title">Mogu li nekako grupirati sličice medijskih datoteka?</string>
+    <string name="faq_11_text">Naravno, koristeći stavku izbornika \"Grupiraj po\" u prikazu sličica. Možete grupirati datoteke prema više kriterija, uključujući datum snimanja. Ako koristite funkciju "Prikaži sve sadržaje mape", možete ih grupirati i mapama.</string>
+    <string name="faq_12_title">Sortiranje po datumu nije točno, kako to mogu ispraviti?</string>
+    <string name="faq_12_text">Vjerojatno uzrok tome da su Vaše slike kopirane s drugih mjesta. U tom slučaju trebali biste dugo dodirnuti sličice prikazanih slika, a zatim u izborniku u gornjem desnom kutu, odabrati funkciju 'Ispravi vrijednost datuma snimanja'.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
