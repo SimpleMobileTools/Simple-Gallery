@@ -38,7 +38,7 @@
     <string name="videos">Vídeos</string>
     <string name="gifs">GIF</string>
     <string name="raw_images">Imagens RAW</string>
-    <string name="svgs">SVGs</string>
+    <string name="svgs">SVG</string>
     <string name="no_media_with_filters">Não foram encontrados ficheiros que cumpram os requisitos.</string>
     <string name="change_filters_underlined"><u>Alterar filtros</u></string>
 
@@ -154,7 +154,7 @@
     <string name="manage_extended_details">Gerir detalhes exibidos</string>
     <string name="one_finger_zoom">Permitir ampliação com um dedo se em ecrã completo</string>
     <string name="allow_instant_change">Permitir troca imediata de ficheiro ao tocar nas margens do ecrã</string>
-    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
+    <string name="allow_deep_zooming_images">Perimitir ampliação profunda de imagens</string>
     <string name="hide_extended_details">Ocultar detalhes extra se a barra de estado estiver oculta</string>
     <string name="do_extra_check">Efetuar uma dupla verificação para evitar mostrar os ficheiros inválidos</string>
     <string name="show_at_bottom">Mostrar alguns botões de ação na base do ecrã</string>
