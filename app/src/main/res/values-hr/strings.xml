@@ -197,7 +197,7 @@
     <string name="faq_11_title">Mogu li nekako grupirati sličice medijskih datoteka?</string>
     <string name="faq_11_text">Naravno, koristeći stavku izbornika \"Grupiraj po\" u prikazu sličica. Možete grupirati datoteke prema više kriterija, uključujući datum snimanja. Ako koristite funkciju "Prikaži sve sadržaje mape", možete ih grupirati i mapama.</string>
     <string name="faq_12_title">Sortiranje po datumu nije točno, kako to mogu ispraviti?</string>
-    <string name="faq_12_text">Vjerojatno uzrok tome da su Vaše slike kopirane s drugih mjesta. U tom slučaju trebali biste dugo dodirnuti sličice prikazanih slika, a zatim u izborniku u gornjem desnom kutu, odabrati funkciju 'Ispravi vrijednost datuma snimanja'.</string>
+    <string name="faq_12_text">Vjerojatno uzrok tome da su Vaše slike kopirane s drugih mjesta. U tom slučaju trebali biste dugo dodirnuti sličice prikazanih slika, a zatim u izborniku u gornjem desnom kutu, odabrati funkciju \'Ispravi vrijednost datuma snimanja\'.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
