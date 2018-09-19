@@ -60,6 +60,7 @@ const val EVER_SHOWN_FOLDERS = "ever_shown_folders"
 const val SHOW_RECYCLE_BIN_AT_FOLDERS = "show_recycle_bin_at_folders"
 const val ALLOW_ZOOMING_IMAGES = "allow_zooming_images"
 const val WAS_SVG_SHOWING_HANDLED = "was_svg_showing_handled"
+const val LAST_BIN_CHECK = "last_bin_check"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"

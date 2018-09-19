@@ -384,4 +384,8 @@ class Config(context: Context) : BaseConfig(context) {
     var allowZoomingImages: Boolean
         get() = prefs.getBoolean(ALLOW_ZOOMING_IMAGES, true)
         set(allowZoomingImages) = prefs.edit().putBoolean(ALLOW_ZOOMING_IMAGES, allowZoomingImages).apply()
+
+    var lastBinCheck: Long
+        get() = prefs.getLong(LAST_BIN_CHECK, 0L)
+        set(lastBinCheck) = prefs.edit().putLong(LAST_BIN_CHECK, lastBinCheck).apply()
 }

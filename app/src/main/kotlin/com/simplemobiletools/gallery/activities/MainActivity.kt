@@ -89,6 +89,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             config.temporarilyShowHidden = false
             config.tempSkipDeleteConfirmation = false
             removeTempFolder()
+            checkRecycleBinItems()
         }
 
         mIsPickImageIntent = isPickImageIntent(intent)
@@ -139,8 +140,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 config.filterMedia += TYPE_SVGS
             }
         }
-
-        checkRecycleBinItems()
     }
 
     override fun onStart() {
@@ -982,16 +981,15 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }, LAST_MEDIA_CHECK_PERIOD)
     }
 
+
     private fun checkRecycleBinItems() {
-        if (config.useRecycleBin) {
-            Thread {
-                val deletedMedia = mMediumDao.getDeletedMedia()
-                deletedMedia.forEach {
-                    if (System.currentTimeMillis() > it.deletedTS + MONTH_MILLISECONDS) {
-                        mMediumDao.deleteMediumPath(it.path)
-                    }
-                }
-            }.start()
+        if (config.useRecycleBin && config.lastBinCheck < System.currentTimeMillis() - DAY_SECONDS * 1000) {
+            config.lastBinCheck = System.currentTimeMillis()
+            Handler().postDelayed({
+                Thread {
+                    mMediumDao.deleteOldRecycleBinItems(System.currentTimeMillis() - MONTH_MILLISECONDS)
+                }.start()
+            }, 3000L)
         }
     }
 
