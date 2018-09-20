@@ -402,8 +402,8 @@ class PhotoFragment : ViewPagerFragment() {
         val metrics = resources.displayMetrics
         val averageDpi = (metrics.xdpi + metrics.ydpi) / 2
         return when {
-            averageDpi > 400 -> 320
-            averageDpi > 300 -> 240
+            averageDpi > 400 -> 280
+            averageDpi > 300 -> 220
             else -> 160
         }
     }
