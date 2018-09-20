@@ -391,11 +391,13 @@ class PhotoFragment : ViewPagerFragment() {
                 override fun onImageLoadError(e: Exception) {
                     view.photo_view.isZoomable = true
                     background = ColorDrawable(Color.TRANSPARENT)
+                    isSubsamplingVisible = false
                     beGone()
                 }
 
                 override fun onPreviewLoadError(e: Exception?) {
                     background = ColorDrawable(Color.TRANSPARENT)
+                    isSubsamplingVisible = false
                     beGone()
                 }
             })
