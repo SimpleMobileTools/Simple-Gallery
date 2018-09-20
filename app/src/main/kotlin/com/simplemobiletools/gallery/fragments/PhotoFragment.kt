@@ -56,6 +56,7 @@ class PhotoFragment : ViewPagerFragment() {
     private var isFullscreen = false
     private var wasInit = false
     private var isPanorama = false
+    private var isSubsamplingVisible = false    // checking view.visibility is unreliable, use an extra variable for it
     private var imageOrientation = -1
     private var gifDrawable: GifDrawable? = null
     private var loadZoomableViewHandler = Handler()
@@ -209,6 +210,7 @@ class PhotoFragment : ViewPagerFragment() {
         if (isVisible) {
             scheduleZoomableView()
         } else {
+            isSubsamplingVisible = false
             view.subsampling_view.recycle()
             view.subsampling_view.beGone()
             loadZoomableViewHandler.removeCallbacksAndMessages(null)
@@ -346,7 +348,7 @@ class PhotoFragment : ViewPagerFragment() {
     private fun scheduleZoomableView() {
         loadZoomableViewHandler.removeCallbacksAndMessages(null)
         loadZoomableViewHandler.postDelayed({
-            if (isFragmentVisible && context?.config?.allowZoomingImages == true && medium.isImage() && view.subsampling_view.isGone()) {
+            if (isFragmentVisible && context?.config?.allowZoomingImages == true && medium.isImage() && !isSubsamplingVisible) {
                 addZoomableView()
             }
         }, ZOOMABLE_VIEW_LOAD_DELAY)
@@ -354,17 +356,19 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun addZoomableView() {
         val rotation = degreesForRotation(imageOrientation)
+        val path = getPathToLoad(medium)
+        isSubsamplingVisible = true
 
         view.subsampling_view.apply {
             setMinimumTileDpi(getMinTileDpi())
             background = ColorDrawable(Color.TRANSPARENT)
-            setBitmapDecoderFactory { PicassoDecoder(medium.path, Picasso.get(), rotation) }
+            setBitmapDecoderFactory { PicassoDecoder(path, Picasso.get(), rotation) }
             setRegionDecoderFactory { PicassoRegionDecoder() }
             maxScale = 10f
             beVisible()
             isQuickScaleEnabled = context.config.oneFingerZoom
             setResetScaleOnSizeChange(context.config.screenRotation != ROTATE_BY_ASPECT_RATIO)
-            setImage(ImageSource.uri(getPathToLoad(medium)))
+            setImage(ImageSource.uri(path))
             orientation = rotation
             setEagerLoadingEnabled(false)
             setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {
@@ -466,6 +470,7 @@ class PhotoFragment : ViewPagerFragment() {
     fun rotateImageViewBy(degrees: Int) {
         loadZoomableViewHandler.removeCallbacksAndMessages(null)
         view.subsampling_view.beGone()
+        isSubsamplingVisible = false
         loadBitmap(degrees)
     }
 
