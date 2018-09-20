@@ -61,8 +61,8 @@ dependencies {
     implementation "android.arch.persistence.room:runtime:1.1.1"
     annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
 
-    //implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.9.0'
-    implementation 'com.github.tibbi:subsampling-scale-image-view:v3.10.0-fork'
+    //implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.10.0'
+    implementation 'com.github.tibbi:subsampling-scale-image-view:v3.10.1-fork'
 
     // implementation 'com.github.chrisbanes:PhotoView:2.1.4'
     implementation 'com.github.tibbi:PhotoView:2.1.4-fork'
