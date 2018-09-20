@@ -10,7 +10,8 @@ class PicassoRegionDecoder : ImageRegionDecoder {
     private val decoderLock = Any()
 
     override fun init(context: Context, uri: Uri): Point {
-        val inputStream = context.contentResolver.openInputStream(uri)
+        val newUri = Uri.parse(uri.toString().replace("%", "%25").replace("#", "%23"))
+        val inputStream = context.contentResolver.openInputStream(newUri)
         decoder = BitmapRegionDecoder.newInstance(inputStream, false)
         return Point(decoder!!.width, decoder!!.height)
     }
