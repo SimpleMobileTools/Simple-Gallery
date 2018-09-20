@@ -981,7 +981,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }, LAST_MEDIA_CHECK_PERIOD)
     }
 
-
     private fun checkRecycleBinItems() {
         if (config.useRecycleBin && config.lastBinCheck < System.currentTimeMillis() - DAY_SECONDS * 1000) {
             config.lastBinCheck = System.currentTimeMillis()
