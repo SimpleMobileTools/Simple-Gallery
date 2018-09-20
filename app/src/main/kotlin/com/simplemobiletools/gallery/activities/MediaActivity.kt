@@ -832,7 +832,11 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     override fun tryDeleteFiles(fileDirItems: ArrayList<FileDirItem>) {
-        val filtered = fileDirItems.filter { it.path.isMediaFile() } as ArrayList
+        val filtered = fileDirItems.filter { File(it.path).isFile && it.path.isMediaFile() } as ArrayList
+        if (filtered.isEmpty()) {
+            return
+        }
+
         val deletingItems = resources.getQuantityString(R.plurals.deleting_items, filtered.size, filtered.size)
         toast(deletingItems)
 

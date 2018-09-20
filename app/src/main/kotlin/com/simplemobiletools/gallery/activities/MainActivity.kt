@@ -420,9 +420,13 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     override fun deleteFolders(folders: ArrayList<File>) {
-        val fileDirItems = folders.map { FileDirItem(it.absolutePath, it.name, true) } as ArrayList<FileDirItem>
+        val fileDirItems = folders.asSequence().filter { it.isDirectory }.map { FileDirItem(it.absolutePath, it.name, true) }.toMutableList() as ArrayList<FileDirItem>
+        if (fileDirItems.isEmpty()) {
+            return
+        }
+
         fileDirItems.forEach {
-            toast(String.format(getString(R.string.deleting_folder), it.name), Toast.LENGTH_LONG)
+            toast(String.format(getString(R.string.deleting_folder), it.name))
         }
 
         if (config.useRecycleBin) {

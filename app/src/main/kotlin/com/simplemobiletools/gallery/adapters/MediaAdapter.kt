@@ -28,7 +28,6 @@ import com.simplemobiletools.gallery.models.ThumbnailItem
 import com.simplemobiletools.gallery.models.ThumbnailSection
 import kotlinx.android.synthetic.main.photo_video_item_grid.view.*
 import kotlinx.android.synthetic.main.thumbnail_section.view.*
-import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 
