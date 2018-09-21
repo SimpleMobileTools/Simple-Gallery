@@ -1,6 +1,16 @@
 Changelog
 ==========
 
+Version 4.6.3 *(2018-09-21)*
+----------------------------
+
+ * Improved zooming performance at fullscreen view
+ * Fixed showing conflict resolution dialog at Move
+ * Fixed selection check icons at horizontal scrolling
+ * Fixed displaying some fullscreen images, where file path contained percentage sign or hashtag
+ * Optimized many database operations
+ * Fixed many other smaller issues
+
 Version 4.6.2 *(2018-09-05)*
 ----------------------------
 
