@@ -11,6 +11,7 @@ import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.PictureDrawable
 import android.media.ExifInterface.*
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.util.DisplayMetrics
@@ -47,10 +48,17 @@ import org.apache.sanselan.formats.jpeg.JpegImageParser
 import pl.droidsonroids.gif.GifDrawable
 import java.io.File
 import java.io.FileOutputStream
+import java.util.*
 
 class PhotoFragment : ViewPagerFragment() {
     private val DEFAULT_DOUBLE_TAP_ZOOM = 2f
     private val ZOOMABLE_VIEW_LOAD_DELAY = 300L
+
+    // devices with good displays, but the rest of the hardware not good enough for them
+    private val WEIRD_DEVICES = arrayListOf(
+            "motorola xt1685",
+            "google nexus 5x"
+    )
 
     private var isFragmentVisible = false
     private var isFullscreen = false
@@ -408,7 +416,9 @@ class PhotoFragment : ViewPagerFragment() {
     private fun getMinTileDpi(): Int {
         val metrics = resources.displayMetrics
         val averageDpi = (metrics.xdpi + metrics.ydpi) / 2
+        val device = "${Build.BRAND} ${Build.MODEL}".toLowerCase()
         return when {
+            WEIRD_DEVICES.contains(device) -> 240
             averageDpi > 400 -> 280
             averageDpi > 300 -> 220
             else -> 160
