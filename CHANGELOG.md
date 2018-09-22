@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 4.6.4 *(2018-09-22)*
+----------------------------
+
+ * Fixed lag at zooming fullscreen images on some devices
+
 Version 4.6.3 *(2018-09-21)*
 ----------------------------
 
