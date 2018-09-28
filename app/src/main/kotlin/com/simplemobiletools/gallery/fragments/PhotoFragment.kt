@@ -71,6 +71,9 @@ class PhotoFragment : ViewPagerFragment() {
 
     private var storedShowExtendedDetails = false
     private var storedHideExtendedDetails = false
+    private var storedAllowDeepZoomableImages = false
+    private var storedShowHighestQuality = false
+    private var storedAllowOneFingerZoom = false
     private var storedExtendedDetails = 0
 
     lateinit var view: ViewGroup
@@ -155,18 +158,26 @@ class PhotoFragment : ViewPagerFragment() {
 
     override fun onResume() {
         super.onResume()
-        if (wasInit && (context!!.config.showExtendedDetails != storedShowExtendedDetails || context!!.config.extendedDetails != storedExtendedDetails)) {
+        val config = context!!.config
+        if (wasInit && (config.showExtendedDetails != storedShowExtendedDetails || config.extendedDetails != storedExtendedDetails)) {
             initExtendedDetails()
         }
 
-        val allowPhotoGestures = context!!.config.allowPhotoGestures
-        val allowInstantChange = context!!.config.allowInstantChange
+        if (wasInit && (config.allowZoomingImages != storedAllowDeepZoomableImages || config.showHighestQuality != storedShowHighestQuality ||
+                        config.oneFingerZoom != storedAllowOneFingerZoom)) {
+            isSubsamplingVisible = false
+            view.subsampling_view.beGone()
+            loadImage()
+        }
+
+        val allowPhotoGestures = config.allowPhotoGestures
+        val allowInstantChange = config.allowInstantChange
 
         view.apply {
             photo_brightness_controller.beVisibleIf(allowPhotoGestures)
             instant_prev_item.beVisibleIf(allowInstantChange)
             instant_next_item.beVisibleIf(allowInstantChange)
-            photo_view.setAllowFingerDragZoom(activity!!.config.oneFingerZoom)
+            photo_view.setAllowFingerDragZoom(config.oneFingerZoom)
         }
 
         storeStateVariables()
@@ -188,6 +199,9 @@ class PhotoFragment : ViewPagerFragment() {
         context!!.config.apply {
             storedShowExtendedDetails = showExtendedDetails
             storedHideExtendedDetails = hideExtendedDetails
+            storedAllowDeepZoomableImages = allowZoomingImages
+            storedShowHighestQuality = showHighestQuality
+            storedAllowOneFingerZoom = oneFingerZoom
             storedExtendedDetails = extendedDetails
         }
     }
@@ -369,9 +383,7 @@ class PhotoFragment : ViewPagerFragment() {
 
         view.subsampling_view.apply {
             setMaxTileSize(4096)
-            if (!context!!.config.showHighestQuality) {
-                setMinimumTileDpi(getMinTileDpi())
-            }
+            setMinimumTileDpi(if (context!!.config.showHighestQuality) -1 else getMinTileDpi())
             background = ColorDrawable(Color.TRANSPARENT)
             setBitmapDecoderFactory { PicassoDecoder(path, Picasso.get(), rotation) }
             setRegionDecoderFactory { PicassoRegionDecoder() }
