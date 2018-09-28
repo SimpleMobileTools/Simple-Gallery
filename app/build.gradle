@@ -5,7 +5,7 @@ apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
-    buildToolsVersion "28.0.2"
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         applicationId "com.simplemobiletools.gallery"
@@ -43,7 +43,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:4.7.17'
+    implementation 'com.simplemobiletools:commons:4.8.0'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.0'
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
