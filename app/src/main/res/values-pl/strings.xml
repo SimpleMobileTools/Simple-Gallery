@@ -159,6 +159,8 @@
     <string name="do_extra_check">Dodatkowe sprawdzenie w celu uniknięcia pokazywania niewłaściwych plików</string>
     <string name="show_at_bottom">Pokazuj niektóre przyciski akcji na dole ekranu</string>
     <string name="show_recycle_bin">Pokazuj kosz w widoku folderów</string>
+    <string name="deep_zoomable_images">Deep zoomable images</string>
+    <string name="show_highest_quality">Show images in the highest possible quality</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatury</string>

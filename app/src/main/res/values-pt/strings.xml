@@ -159,6 +159,8 @@
     <string name="do_extra_check">Efetuar uma dupla verificação para evitar mostrar os ficheiros inválidos</string>
     <string name="show_at_bottom">Mostrar alguns botões de ação na base do ecrã</string>
     <string name="show_recycle_bin">Mostrar reciclagem no ecrã de pastas</string>
+    <string name="deep_zoomable_images">Deep zoomable images</string>
+    <string name="show_highest_quality">Show images in the highest possible quality</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>

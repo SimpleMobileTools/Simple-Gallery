@@ -159,6 +159,8 @@
     <string name="do_extra_check">Zusätzliche Überprüfung, um ungültige Dateien nicht anzuzeigen</string>
     <string name="show_at_bottom">Ausgewählte Funktionen am unteren Bildschirmrand anzeigen</string>
     <string name="show_recycle_bin">Papierkorb auf dem Ordnerbildschirm anzeigen</string>
+    <string name="deep_zoomable_images">Deep zoomable images</string>
+    <string name="show_highest_quality">Show images in the highest possible quality</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>

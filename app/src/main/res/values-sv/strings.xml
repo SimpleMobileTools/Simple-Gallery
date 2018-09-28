@@ -159,6 +159,8 @@
     <string name="do_extra_check">Gör en extra kontroll för att hindra ogiltiga filer från att visas</string>
     <string name="show_at_bottom">Visa några åtgärdsknappar längst ned på skärmen</string>
     <string name="show_recycle_bin">Visa Papperskorgen i mappvyn</string>
+    <string name="deep_zoomable_images">Deep zoomable images</string>
+    <string name="show_highest_quality">Show images in the highest possible quality</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatyrer</string>

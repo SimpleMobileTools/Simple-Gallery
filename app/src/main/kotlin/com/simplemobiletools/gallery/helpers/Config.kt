@@ -388,4 +388,8 @@ class Config(context: Context) : BaseConfig(context) {
     var lastBinCheck: Long
         get() = prefs.getLong(LAST_BIN_CHECK, 0L)
         set(lastBinCheck) = prefs.edit().putLong(LAST_BIN_CHECK, lastBinCheck).apply()
+
+    var showHighestQuality: Boolean
+        get() = prefs.getBoolean(SHOW_HIGHEST_QUALITY, false)
+        set(showHighestQuality) = prefs.edit().putBoolean(SHOW_HIGHEST_QUALITY, showHighestQuality).apply()
 }

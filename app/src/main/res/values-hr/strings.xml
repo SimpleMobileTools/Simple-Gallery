@@ -159,6 +159,8 @@
     <string name="do_extra_check">Napravite dodatnu provjeru da biste izbjegli prikazivanje nevažećih datoteka</string>
     <string name="show_at_bottom">Pokažite neke gumbe za radnju pri dnu zaslona</string>
     <string name="show_recycle_bin">Prikažite koš za smeće na zaslonu mapa</string>
+    <string name="deep_zoomable_images">Deep zoomable images</string>
+    <string name="show_highest_quality">Show images in the highest possible quality</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>
