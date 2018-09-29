@@ -114,7 +114,7 @@
     <string name="move_backwards">В обратном порядке</string>
     <string name="loop_slideshow">Зациклить</string>
     <string name="slideshow_ended">Слайдшоу завершилось</string>
-    <string name="no_media_for_slideshow">Медиафайлов для слайдшоу не было найдено</string>
+    <string name="no_media_for_slideshow">Медиафайлов для слайдшоу не найдено</string>
 
     <!-- View types -->
     <string name="change_view_type">Вид</string>
@@ -159,8 +159,8 @@
     <string name="do_extra_check">Дополнительная проверка, чтобы избежать показа неподдерживаемых файлов</string>
     <string name="show_at_bottom">Показывать кнопки действий в нижней части экрана</string>
     <string name="show_recycle_bin">Показывать корзину вместе с папками</string>
-    <string name="deep_zoomable_images">Deep zoomable images</string>
-    <string name="show_highest_quality">Show images in the highest possible quality</string>
+    <string name="deep_zoomable_images">Масштабируемые изображения</string>
+    <string name="show_highest_quality">Показывать изображения с максимально высоким качеством</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюры</string>
