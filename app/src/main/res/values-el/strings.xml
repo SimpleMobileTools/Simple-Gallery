@@ -147,8 +147,7 @@
     <string name="hide_system_ui_at_fullscreen">Αυτόματη απόκρυψη στοιχείων συστήματος σε πλήρη οθόνη</string>
     <string name="delete_empty_folders">Διαγραφή άδειων φακέλων, όταν διαγραφεί το περιεχόμενό τους</string>
     <string name="allow_photo_gestures">Να επιτρέπεται ο έλεγχος φωτεινότητας με κατακόρυφες κινήσεις</string>
-    <string name="allow_video_gestures">Να επιτρέπεται ο έλεγχος έντασης του βίντεο και φωτεινότητας με κατακόρυφες
-        κινήσεις (gestures)</string>
+    <string name="allow_video_gestures">Να επιτρέπεται ο έλεγχος έντασης του βίντεο και φωτεινότητας με κατακόρυφες κινήσεις (gestures)</string>
     <string name="show_media_count">Εμφάνιση του αριθμού πολυμέσων στον φάκελο, στην κύρια οθόνη</string>
     <string name="replace_share_with_rotate">Αντικατάσταση της "Κοινής χρήσης" με "Περιστροφή" στο μενού πλήρους οθόνης</string>
     <string name="show_extended_details">Εμφάνιση λεπτομερειών στα πολυμέσα σε κατάσταση πλήρους οθόνης</string>
@@ -160,6 +159,8 @@
     <string name="do_extra_check">Επιπλέον έλεγχος για την αποφυγή εμφάνισης λανθασμένων αρχείων</string>
     <string name="show_at_bottom">Εμφάνιση μερικών κουμπιών λειτουργιών στο κάτω μέρος της οθόνης</string>
     <string name="show_recycle_bin">Εμφάνιση του κάδου ανακύκλωσης στην οθόνη φακέλων</string>
+    <string name="deep_zoomable_images">Deep zoomable images</string>
+    <string name="show_highest_quality">Show images in the highest possible quality</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Εικονίδια</string>

@@ -22,10 +22,10 @@ class RefreshMediaReceiver : BroadcastReceiver() {
     }
 
     private fun getFileType(path: String) = when {
-        path.isImageFast() -> TYPE_IMAGES
         path.isVideoFast() -> TYPE_VIDEOS
         path.isGif() -> TYPE_GIFS
         path.isRawFast() -> TYPE_RAWS
-        else -> TYPE_SVGS
+        path.isSvg() -> TYPE_SVGS
+        else -> TYPE_IMAGES
     }
 }

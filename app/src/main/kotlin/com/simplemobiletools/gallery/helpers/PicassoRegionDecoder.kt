@@ -10,7 +10,8 @@ class PicassoRegionDecoder : ImageRegionDecoder {
     private val decoderLock = Any()
 
     override fun init(context: Context, uri: Uri): Point {
-        val inputStream = context.contentResolver.openInputStream(uri)
+        val newUri = Uri.parse(uri.toString().replace("%", "%25").replace("#", "%23"))
+        val inputStream = context.contentResolver.openInputStream(newUri)
         decoder = BitmapRegionDecoder.newInstance(inputStream, false)
         return Point(decoder!!.width, decoder!!.height)
     }
@@ -19,7 +20,7 @@ class PicassoRegionDecoder : ImageRegionDecoder {
         synchronized(decoderLock) {
             val options = BitmapFactory.Options()
             options.inSampleSize = sampleSize
-            options.inPreferredConfig = Bitmap.Config.ARGB_8888
+            options.inPreferredConfig = Bitmap.Config.RGB_565
             val bitmap = decoder!!.decodeRegion(rect, options)
             return bitmap ?: throw RuntimeException("Region decoder returned null bitmap - image format may not be supported")
         }

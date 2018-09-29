@@ -163,6 +163,8 @@
     <string name="do_extra_check">قم بإجراء فحص إضافي لتجنب إظهار الملفات التالفة</string>
     <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
     <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
+    <string name="deep_zoomable_images">Deep zoomable images</string>
+    <string name="show_highest_quality">Show images in the highest possible quality</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">المصغرات</string>

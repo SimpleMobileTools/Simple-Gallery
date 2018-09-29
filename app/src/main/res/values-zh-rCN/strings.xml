@@ -159,6 +159,8 @@
     <string name="do_extra_check">额外检查以避免显示无效的文件</string>
     <string name="show_at_bottom">在屏幕底部显示一些操作按钮</string>
     <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
+    <string name="deep_zoomable_images">Deep zoomable images</string>
+    <string name="show_highest_quality">Show images in the highest possible quality</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">缩略图</string>

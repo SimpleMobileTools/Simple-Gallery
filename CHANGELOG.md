@@ -1,6 +1,28 @@
 Changelog
 ==========
 
+Version 4.6.4 *(2018-09-22)*
+----------------------------
+
+ * Fixed lag at zooming fullscreen images on some devices
+
+Version 4.6.3 *(2018-09-21)*
+----------------------------
+
+ * Improved zooming performance at fullscreen view
+ * Fixed showing conflict resolution dialog at Move
+ * Fixed selection check icons at horizontal scrolling
+ * Fixed displaying some fullscreen images, where file path contained percentage sign or hashtag
+ * Optimized many database operations
+ * Fixed many other smaller issues
+
+Version 4.6.2 *(2018-09-05)*
+----------------------------
+
+ * Fixed opening some email client attachments and MMS images
+ * Attempt to fix lagging at zooming in on some devices
+ * Couple other smaller bugfixes and improvements
+
 Version 4.6.1 *(2018-08-21)*
 ----------------------------
 

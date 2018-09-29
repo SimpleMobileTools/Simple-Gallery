@@ -1,6 +1,7 @@
 package com.simplemobiletools.gallery.interfaces
 
 import android.arch.persistence.room.Dao
+import android.arch.persistence.room.Delete
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.OnConflictStrategy.REPLACE
 import android.arch.persistence.room.Query
@@ -26,8 +27,14 @@ interface MediumDao {
     @Insert(onConflict = REPLACE)
     fun insertAll(media: List<Medium>)
 
+    @Delete
+    fun deleteMedia(vararg medium: Medium)
+
     @Query("DELETE FROM media WHERE full_path = :path COLLATE NOCASE")
     fun deleteMediumPath(path: String)
+
+    @Query("DELETE FROM media WHERE deleted_ts < :timestmap")
+    fun deleteOldRecycleBinItems(timestmap: Long)
 
     @Query("UPDATE OR REPLACE media SET filename = :newFilename, full_path = :newFullPath, parent_path = :newParentPath WHERE full_path = :oldPath COLLATE NOCASE")
     fun updateMedium(oldPath: String, newParentPath: String, newFilename: String, newFullPath: String)

@@ -67,6 +67,7 @@ class SettingsActivity : SimpleActivity() {
         setupShowInfoBubble()
         setupEnablePullToRefresh()
         setupAllowZoomingImages()
+        setupShowHighestQuality()
         setupOneFingerZoom()
         setupAllowInstantChange()
         setupShowExtendedDetails()
@@ -84,7 +85,7 @@ class SettingsActivity : SimpleActivity() {
     private fun setupSectionColors() {
         val adjustedPrimaryColor = getAdjustedPrimaryColor()
         arrayListOf(visibility_label, videos_label, thumbnails_label, scrolling_label, fullscreen_media_label, security_label,
-                file_operations_label, extended_details_label, bottom_actions_label, recycle_bin_label).forEach {
+                file_operations_label, deep_zoomable_images_label, extended_details_label, bottom_actions_label, recycle_bin_label).forEach {
             it.setTextColor(adjustedPrimaryColor)
         }
     }
@@ -337,10 +338,24 @@ class SettingsActivity : SimpleActivity() {
 
     private fun setupAllowZoomingImages() {
         settings_allow_zooming_images.isChecked = config.allowZoomingImages
+        updateDeepZoomToggleButtons()
         settings_allow_zooming_images_holder.setOnClickListener {
             settings_allow_zooming_images.toggle()
             config.allowZoomingImages = settings_allow_zooming_images.isChecked
-            settings_one_finger_zoom_holder.beVisibleIf(config.allowZoomingImages)
+            updateDeepZoomToggleButtons()
+        }
+    }
+
+    private fun updateDeepZoomToggleButtons() {
+        settings_one_finger_zoom_holder.beVisibleIf(config.allowZoomingImages)
+        settings_show_highest_quality_holder.beVisibleIf(config.allowZoomingImages)
+    }
+
+    private fun setupShowHighestQuality() {
+        settings_show_highest_quality.isChecked = config.showHighestQuality
+        settings_show_highest_quality_holder.setOnClickListener {
+            settings_show_highest_quality.toggle()
+            config.showHighestQuality = settings_show_highest_quality.isChecked
         }
     }
 

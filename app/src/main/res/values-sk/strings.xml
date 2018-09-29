@@ -159,6 +159,8 @@
     <string name="do_extra_check">Predísť zobrazovaniu neplatných súborov dodatočnou kontrolou</string>
     <string name="show_at_bottom">Zobraziť niektoré akčné tlačidlá na spodku obrazovky</string>
     <string name="show_recycle_bin">Zobraziť odpadkový kôš na obrazovke s priečinkami</string>
+    <string name="deep_zoomable_images">Hlboko priblížiteľné obrázky</string>
+    <string name="show_highest_quality">Zobrazovať obrázky v najlepšej možnej kvalite</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Náhľady</string>

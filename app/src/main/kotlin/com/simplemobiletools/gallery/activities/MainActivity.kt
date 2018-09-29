@@ -89,6 +89,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             config.temporarilyShowHidden = false
             config.tempSkipDeleteConfirmation = false
             removeTempFolder()
+            checkRecycleBinItems()
         }
 
         mIsPickImageIntent = isPickImageIntent(intent)
@@ -139,8 +140,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 config.filterMedia += TYPE_SVGS
             }
         }
-
-        checkRecycleBinItems()
     }
 
     override fun onStart() {
@@ -421,9 +420,14 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     override fun deleteFolders(folders: ArrayList<File>) {
-        val fileDirItems = folders.map { FileDirItem(it.absolutePath, it.name, true) } as ArrayList<FileDirItem>
-        fileDirItems.forEach {
-            toast(String.format(getString(R.string.deleting_folder), it.name), Toast.LENGTH_LONG)
+        val fileDirItems = folders.asSequence().filter { it.isDirectory }.map { FileDirItem(it.absolutePath, it.name, true) }.toMutableList() as ArrayList<FileDirItem>
+        when {
+            fileDirItems.isEmpty() -> return
+            fileDirItems.size == 1 -> toast(String.format(getString(R.string.deleting_folder), fileDirItems.first().name))
+            else -> {
+                val deletingItems = resources.getQuantityString(R.plurals.deleting_items, fileDirItems.size, fileDirItems.size)
+                toast(deletingItems)
+            }
         }
 
         if (config.useRecycleBin) {
@@ -983,15 +987,13 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun checkRecycleBinItems() {
-        if (config.useRecycleBin) {
-            Thread {
-                val deletedMedia = mMediumDao.getDeletedMedia()
-                deletedMedia.forEach {
-                    if (System.currentTimeMillis() > it.deletedTS + MONTH_MILLISECONDS) {
-                        mMediumDao.deleteMediumPath(it.path)
-                    }
-                }
-            }.start()
+        if (config.useRecycleBin && config.lastBinCheck < System.currentTimeMillis() - DAY_SECONDS * 1000) {
+            config.lastBinCheck = System.currentTimeMillis()
+            Handler().postDelayed({
+                Thread {
+                    mMediumDao.deleteOldRecycleBinItems(System.currentTimeMillis() - MONTH_MILLISECONDS)
+                }.start()
+            }, 3000L)
         }
     }
 

@@ -38,7 +38,7 @@
     <string name="videos">Video</string>
     <string name="gifs">GIF</string>
     <string name="raw_images">Immagini RAW</string>
-    <string name="svgs">SVGs</string>
+    <string name="svgs">SVG</string>
     <string name="no_media_with_filters">Nessun file trovato per il filtro selezionato.</string>
     <string name="change_filters_underlined"><u>Cambia filtro</u></string>
 
@@ -159,6 +159,8 @@
     <string name="do_extra_check">Fai un controllo ulteriore per evitare di mostrare file non validi</string>
     <string name="show_at_bottom">Mostra alcuni pulsanti azione in fondo allo schermo</string>
     <string name="show_recycle_bin">Mostra il cestino nella schermata delle cartelle</string>
+    <string name="deep_zoomable_images">Deep zoomable images</string>
+    <string name="show_highest_quality">Show images in the highest possible quality</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniature</string>

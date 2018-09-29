@@ -88,11 +88,11 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         val file = File(mUri.toString())
         val filename = getFilenameFromUri(mUri!!)
         val type = when {
-            filename.isImageFast() -> TYPE_IMAGES
             filename.isVideoFast() -> TYPE_VIDEOS
             filename.isGif() -> TYPE_GIFS
             filename.isRawFast() -> TYPE_RAWS
-            else -> TYPE_SVGS
+            filename.isSvg() -> TYPE_SVGS
+            else -> TYPE_IMAGES
         }
 
         mMedium = Medium(null, filename, mUri.toString(), mUri!!.path.getParentPath(), 0, 0, file.length(), type, false, 0L)

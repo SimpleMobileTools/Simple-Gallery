@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Gallery</string>
-    <string name="app_launcher_name">Gallery</string>
-    <string name="edit">Edit</string>
-    <string name="open_camera">Open camera</string>
-    <string name="hidden">(hidden)</string>
-    <string name="excluded">(excluded)</string>
-    <string name="pin_folder">Pin folder</string>
-    <string name="unpin_folder">Unpin folder</string>
+    <string name="app_name">Sadə Qalereya</string>
+    <string name="app_launcher_name">Qalereya</string>
+    <string name="edit">Redaktə</string>
+    <string name="open_camera">Kameranı aç</string>
+    <string name="hidden">(gizli)</string>
+    <string name="excluded">(xaric edilmiş)</string>
+    <string name="pin_folder">Pin qovluğu</string>
+    <string name="unpin_folder">Unpin qovluğu</string>
     <string name="pin_to_the_top">Pin to the top</string>
     <string name="show_all">Show all folders content</string>
     <string name="all_folders">All folders</string>
@@ -203,7 +203,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">A gallery for viewing photos and videos without ads.</string>
+    <string name="app_short_description">Şəkil və videolara baxmaq üçün reklamsız qalereya.</string>
     <string name="app_long_description">
         A simple tool usable for viewing photos and videos. Items can be sorted by date, size, name both ascending or descending, photos can be zoomed in. Media files are shown in multiple columns depending on the size of the display, you can change the column count by pinch gestures. They can be renamed, shared, deleted, copied, moved. Images can also be cropped, rotated, flipped or set as Wallpaper directly from the app.
 

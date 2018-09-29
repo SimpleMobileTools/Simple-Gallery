@@ -159,6 +159,8 @@
     <string name="do_extra_check">Дополнительная проверка, чтобы избежать показа неподдерживаемых файлов</string>
     <string name="show_at_bottom">Показывать кнопки действий в нижней части экрана</string>
     <string name="show_recycle_bin">Показывать корзину вместе с папками</string>
+    <string name="deep_zoomable_images">Deep zoomable images</string>
+    <string name="show_highest_quality">Show images in the highest possible quality</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюры</string>

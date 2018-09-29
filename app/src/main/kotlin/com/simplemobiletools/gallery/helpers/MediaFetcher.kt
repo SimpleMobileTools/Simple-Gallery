@@ -237,11 +237,11 @@ class MediaFetcher(val context: Context) {
                 }
 
                 val type = when {
-                    isImage -> TYPE_IMAGES
                     isVideo -> TYPE_VIDEOS
                     isGif -> TYPE_GIFS
                     isRaw -> TYPE_RAWS
-                    else -> TYPE_SVGS
+                    isSvg -> TYPE_SVGS
+                    else -> TYPE_IMAGES
                 }
 
                 val isFavorite = favoritePaths.contains(path)
@@ -299,11 +299,11 @@ class MediaFetcher(val context: Context) {
             val dateModified = file.lastModified()
 
             val type = when {
-                isImage -> TYPE_IMAGES
                 isVideo -> TYPE_VIDEOS
                 isGif -> TYPE_GIFS
                 isRaw -> TYPE_RAWS
-                else -> TYPE_SVGS
+                isSvg -> TYPE_SVGS
+                else -> TYPE_IMAGES
             }
 
             val path = Uri.decode(file.uri.toString().replaceFirst("${context.config.OTGTreeUri}/document/${context.config.OTGPartition}%3A", OTG_PATH))
