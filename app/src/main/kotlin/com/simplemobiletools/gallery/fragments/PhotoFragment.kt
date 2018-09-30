@@ -382,7 +382,7 @@ class PhotoFragment : ViewPagerFragment() {
         isSubsamplingVisible = true
 
         view.subsampling_view.apply {
-            setMaxTileSize(4096)
+            setMaxTileSize(if (context!!.config.showHighestQuality) Integer.MAX_VALUE else 4096)
             setMinimumTileDpi(if (context!!.config.showHighestQuality) -1 else getMinTileDpi())
             background = ColorDrawable(Color.TRANSPARENT)
             setBitmapDecoderFactory { PicassoDecoder(path, Picasso.get(), rotation) }
