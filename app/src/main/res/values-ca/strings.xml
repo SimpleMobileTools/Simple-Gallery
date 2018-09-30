@@ -200,6 +200,10 @@
     <string name="faq_11_text">Si, només heu d\'utilitzar l\'ítem del menú \"Agrupar per\" mentre es troba a la vista en miniatura. Podeu agrupar fitxers amb diversos criteris, inclòs data de presa. Si utilitzeu la funció \"Mostra el contingut de totes les carpetes\", també podeu agrupar-les per carpetes.</string>
     <string name="faq_12_title">L\'ordenació per data que de presa no sembla funcionar correctament, com puc solucionar-ho?</string>
     <string name="faq_12_text">Probablement, els fitxers es copiïn en un lloc incorrecte. Podeu arreglar-ho si seleccioneu les miniatures del fitxer i seleccioneu \"Fixar data de presa\".</string>
+    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
+    <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
+    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
+    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

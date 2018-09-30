@@ -200,6 +200,10 @@
     <string name="faq_11_text">當然，只要在縮圖瀏覽中使用[歸類]選單項目就可以了。你能依多種條件歸類檔案，包含拍照日期。如果你使用了[資料夾內容全部顯示]功能，你還能以資料夾來歸類。</string>
     <string name="faq_12_title">依拍照日期排序似乎沒正確運作，我該如何修復?</string>
     <string name="faq_12_text">那很可能是由於檔案從某處複製過來所造成的。你可以選擇檔案縮圖，然後選擇\"修復拍照日期數值\"來進行修復。</string>
+    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
+    <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
+    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
+    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

@@ -199,6 +199,10 @@
     <string name="faq_11_text">Verwende dazu den Menüeintrag \"Gruppieren nach\" in der Miniaturansicht. Du kannst Dateien nach mehreren Kriterien gruppieren, einschließlich Aufnahmedatum. Wenn Du die Funktion \"Alle Ordnerinhalte anzeigen\" verwendest, kannst du sie auch nach Ordnern gruppieren.</string>
     <string name="faq_12_title">Die Sortierung nach Datum ist nicht korrekt, wie kann ich das korrigieren?</string>
     <string name="faq_12_text">Die wahrscheinliche Ursache ist, dass deine Bilder von woanders kopiert worden sind. In diesem Fall solltest du die Miniatur-Ansichten der Bilder durch etwas längeres Antippen markieren und dann im Menü oben rechts die Funktion \'Aufnahmedatum korrigieren\' ausführen.</string>
+    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
+    <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
+    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
+    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

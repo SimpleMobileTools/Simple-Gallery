@@ -200,6 +200,10 @@
     <string name="faq_11_text">Конечно, просто используйте пункт меню \"Группировать по…\" во время просмотра миниатюр. Вы можете группировать файлы по нескольким критериям, включая дату съёмки. Если вы используете функцию \"Отобразить все медиафайлы\", то также можете группировать их по папкам.</string>
     <string name="faq_12_title">Сортировка по дате, похоже, не работает должным образом. Как это можно исправить?</string>
     <string name="faq_12_text">Скорее всего, проблема вызвано тем, что файлы были откуда-то скопированы. Это можно исправить, выделив миниатюры файлов и выбрав \"Исправить дату\".</string>
+    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
+    <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
+    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
+    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

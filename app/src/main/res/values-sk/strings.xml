@@ -200,6 +200,10 @@
     <string name="faq_11_text">Áno, použitím funkcie \"Zoskupiť podľa\" na menu obrazovky s náhľadmi. Zoskupenie je možné na základe rozličných kritérií vrátane Dátumu vytvorenia. Ak použijete funkciu \"Zobraziť obsah všetkých priečinkov\", viete ich zoskupiť aj podľa priečinkov.</string>
     <string name="faq_12_title">Radenie podľa dátumu vytvorenia nefunguje správne, ako ho viem opraviť?</string>
     <string name="faq_12_text">Je to pravdepodobne spôsobené kopírovaním súborov. Viete to opraviť označením jednotlivých náhľadov súborov a zvoliť \"Opraviť dátum vytvorenia\".</string>
+    <string name="faq_13_title">Na obrázkoch vidno nejaké farebné pásy. Ako viem zlepšiť kvalitu obrázkov?</string>
+    <string name="faq_13_text">Súčasné riešenie funguje správne v drvivej väčšine prípadov, ak ale chcete zobraziť obrázky v lepšej kvalite, môžete povoliť možnosť \"Zobraziť obrázky v najlepšej možnej kvalite\" v nastaveniach aplikácie, v sekcií \"Hlboko priblížiteľné obrázky\".</string>
+    <string name="faq_14_title">Skryl som súbor/priečinok, ako ho viem odkryť?</string>
+    <string name="faq_14_text">Môžete buď použiť menu tlačidlo \"Dočasne zobraziť skryté položky\" na hlavnej obrazovke, alebo v nastaveniach aplikácie zapnúť možnosť \"Zobraziť skryté položky\", tým sa skryté položky zobrazia. Ak ich chcete odkryť, stačí ich dlho podržať a zvoliť možnosť \"Odkryť\". Priečinky sú skrývané pridaním skrytého súboru \".nomedia\", ten viete vymazať aj ľubovoľným správcom súborov.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
