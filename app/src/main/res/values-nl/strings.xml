@@ -159,8 +159,8 @@
     <string name="do_extra_check">Ongeldige bestanden verbergen</string>
     <string name="show_at_bottom">Enkele actieknoppen onderaan het scherm tonen</string>
     <string name="show_recycle_bin">Prullenbak weergeven in de mapweergave</string>
-    <string name="deep_zoomable_images">Deep zoomable images</string>
-    <string name="show_highest_quality">Show images in the highest possible quality</string>
+    <string name="deep_zoomable_images">Afbeeldingen ver inzoomen</string>
+    <string name="show_highest_quality">Afbeeldingen in de hoogst mogelijke kwaliteit weergeven</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatuurvoorbeelden</string>
