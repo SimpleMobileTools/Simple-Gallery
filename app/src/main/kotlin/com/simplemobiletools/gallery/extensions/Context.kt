@@ -44,7 +44,7 @@ val Context.navigationBarWidth: Int get() = if (navigationBarRight) navigationBa
 
 internal val Context.navigationBarSize: Point
     get() = when {
-        navigationBarRight -> Point(realScreenSize.x - usableScreenSize.x, usableScreenSize.y)
+        navigationBarRight -> Point(newNavigationBarHeight, usableScreenSize.y)
         navigationBarBottom -> Point(usableScreenSize.x, newNavigationBarHeight)
         else -> Point()
     }
