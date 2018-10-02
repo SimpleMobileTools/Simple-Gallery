@@ -5,6 +5,7 @@
     <string name="edit">Redaguoti</string>
     <string name="open_camera">Atidaryti fotoaparatą</string>
     <string name="hidden">(paslėpta)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Prisegti aplanką</string>
     <string name="unpin_folder">Atsegti aplanką</string>
     <string name="pin_to_the_top">Prisegti į viršų</string>
@@ -21,7 +22,6 @@
     <string name="use_default">Naudoti numatytąjį</string>
     <string name="volume">Garsas</string>
     <string name="brightness">Ryškumas</string>
-    <string name="do_not_ask_again">Šiame seanse daugiau neklausti</string>
     <string name="lock_orientation">Užrakinti orientaciją</string>
     <string name="unlock_orientation">Atrakinti orientaciją</string>
     <string name="change_orientation">Change orientation</string>
