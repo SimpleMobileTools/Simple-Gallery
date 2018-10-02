@@ -84,7 +84,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         setContentView(R.layout.activity_medium)
 
         top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
-        if (isOreoPlus()) {
+        if (isPiePlus()) {
             window.attributes.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         }
