@@ -555,8 +555,8 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun getExtendedDetailsY(height: Int): Float {
         val smallMargin = resources.getDimension(R.dimen.small_margin)
-        val fullscreenOffset = context!!.navigationBarHeight.toFloat() - smallMargin
+        val fullscreenOffset = smallMargin + if (isFullscreen) 0 else context!!.navigationBarHeight
         val actionsHeight = if (context!!.config.bottomActions && !isFullscreen) resources.getDimension(R.dimen.bottom_actions_height) else 0f
-        return context!!.usableScreenSize.y - height - actionsHeight + if (isFullscreen) fullscreenOffset else -smallMargin
+        return context!!.realScreenSize.y - height - actionsHeight - fullscreenOffset
     }
 }

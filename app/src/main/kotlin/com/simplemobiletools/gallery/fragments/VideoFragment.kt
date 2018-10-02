@@ -627,8 +627,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
     private fun getExtendedDetailsY(height: Int): Float {
         val smallMargin = resources.getDimension(R.dimen.small_margin)
-        val timeHolderHeight = mTimeHolder!!.height - context!!.navigationBarHeight.toFloat()
-        val fullscreenOffset = context!!.navigationBarHeight.toFloat() - smallMargin
-        return context!!.usableScreenSize.y - height + if (mIsFullscreen) fullscreenOffset else -(timeHolderHeight + smallMargin)
+        val fullscreenOffset = smallMargin + if (mIsFullscreen) 0 else mTimeHolder!!.height
+        return context!!.realScreenSize.y.toFloat() - height - fullscreenOffset
     }
 }
