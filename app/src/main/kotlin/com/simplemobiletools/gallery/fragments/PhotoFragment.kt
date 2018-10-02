@@ -82,6 +82,7 @@ class PhotoFragment : ViewPagerFragment() {
         view = (inflater.inflate(R.layout.pager_photo_item, container, false) as ViewGroup).apply {
             subsampling_view.setOnClickListener { photoClicked() }
             photo_view.setOnClickListener { photoClicked() }
+            gif_view.setOnClickListener { photoClicked() }
             instant_prev_item.setOnClickListener { listener?.goToPrevItem() }
             instant_next_item.setOnClickListener { listener?.goToNextItem() }
             panorama_outline.setOnClickListener { openPanorama() }
