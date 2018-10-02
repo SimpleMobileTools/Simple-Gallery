@@ -278,3 +278,19 @@ fun BaseSimpleActivity.showRecycleBinEmptyingDialog(callback: () -> Unit) {
         callback()
     }
 }
+
+fun BaseSimpleActivity.getStatusBarHeight(): Int {
+    var statusBarHeight = 0
+    val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
+    if (resourceId > 0) {
+        statusBarHeight = resources.getDimensionPixelSize(resourceId)
+    }
+    return statusBarHeight
+}
+
+fun BaseSimpleActivity.getActionBarHeight(): Int {
+    val styledAttributes = theme.obtainStyledAttributes(intArrayOf(android.R.attr.actionBarSize))
+    val actionBarHeight = styledAttributes.getDimension(0, 0f)
+    styledAttributes.recycle()
+    return actionBarHeight.toInt()
+}

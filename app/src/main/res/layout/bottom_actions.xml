@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/bottom_actions_height"
     android:layout_alignParentBottom="true"
-    android:background="@drawable/gradient_background_lighter"
+    android:background="@drawable/gradient_background"
     android:paddingTop="@dimen/medium_margin">
 
     <ImageView
