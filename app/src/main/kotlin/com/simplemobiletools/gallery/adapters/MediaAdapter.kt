@@ -177,8 +177,9 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             }
         }
 
-        menu.findItem(R.id.cab_hide).isVisible = unhiddenCnt > 0
-        menu.findItem(R.id.cab_unhide).isVisible = hiddenCnt > 0
+        val isInRecycleBin = getSelectedMedia().firstOrNull()?.getIsInRecycleBin() == true
+        menu.findItem(R.id.cab_hide).isVisible = unhiddenCnt > 0 && !isInRecycleBin
+        menu.findItem(R.id.cab_unhide).isVisible = hiddenCnt > 0 && !isInRecycleBin
     }
 
     private fun checkFavoriteBtnVisibility(menu: Menu) {
