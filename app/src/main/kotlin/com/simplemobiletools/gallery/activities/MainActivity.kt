@@ -425,7 +425,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             fileDirItems.isEmpty() -> return
             fileDirItems.size == 1 -> toast(String.format(getString(R.string.deleting_folder), fileDirItems.first().name))
             else -> {
-                val deletingItems = resources.getQuantityString(R.plurals.deleting_items, fileDirItems.size, fileDirItems.size)
+                val baseString = if (config.useRecycleBin) R.plurals.moving_items_into_bin else R.plurals.delete_items
+                val deletingItems = resources.getQuantityString(baseString, fileDirItems.size, fileDirItems.size)
                 toast(deletingItems)
             }
         }

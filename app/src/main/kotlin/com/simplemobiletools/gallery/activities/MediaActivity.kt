@@ -837,10 +837,10 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             return
         }
 
-        val deletingItems = resources.getQuantityString(R.plurals.deleting_items, filtered.size, filtered.size)
-        toast(deletingItems)
-
         if (config.useRecycleBin && !filtered.first().path.startsWith(filesDir.absolutePath)) {
+            val movingItems = resources.getQuantityString(R.plurals.moving_items_into_bin, filtered.size, filtered.size)
+            toast(movingItems)
+
             movePathsInRecycleBin(filtered.map { it.path } as ArrayList<String>, mMediumDao) {
                 if (it) {
                     deleteFilteredFiles(filtered)
@@ -849,6 +849,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 }
             }
         } else {
+            val deletingItems = resources.getQuantityString(R.plurals.deleting_items, filtered.size, filtered.size)
+            toast(deletingItems)
             deleteFilteredFiles(filtered)
         }
     }
