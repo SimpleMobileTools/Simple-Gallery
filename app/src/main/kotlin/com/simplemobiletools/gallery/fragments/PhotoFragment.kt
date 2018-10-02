@@ -45,7 +45,7 @@ import it.sephiroth.android.library.exif2.ExifInterface
 import kotlinx.android.synthetic.main.pager_photo_item.view.*
 import org.apache.sanselan.common.byteSources.ByteSourceInputStream
 import org.apache.sanselan.formats.jpeg.JpegImageParser
-import pl.droidsonroids.gif.GifDrawable
+import pl.droidsonroids.gif.InputSource
 import java.io.File
 import java.io.FileOutputStream
 import java.util.*
@@ -66,7 +66,6 @@ class PhotoFragment : ViewPagerFragment() {
     private var isPanorama = false
     private var isSubsamplingVisible = false    // checking view.visibility is unreliable, use an extra variable for it
     private var imageOrientation = -1
-    private var gifDrawable: GifDrawable? = null
     private var loadZoomableViewHandler = Handler()
 
     private var storedShowExtendedDetails = false
@@ -187,9 +186,7 @@ class PhotoFragment : ViewPagerFragment() {
         super.setMenuVisibility(menuVisible)
         isFragmentVisible = menuVisible
         if (wasInit) {
-            if (medium.isGIF()) {
-                gifFragmentVisibilityChanged(menuVisible)
-            } else {
+            if (!medium.isGIF()) {
                 photoFragmentVisibilityChanged(menuVisible)
             }
         }
@@ -217,14 +214,6 @@ class PhotoFragment : ViewPagerFragment() {
             activity!!.windowManager.defaultDisplay.getMetrics(metrics)
             ViewPagerActivity.screenWidth = metrics.widthPixels
             ViewPagerActivity.screenHeight = metrics.heightPixels
-        }
-    }
-
-    private fun gifFragmentVisibilityChanged(isVisible: Boolean) {
-        if (isVisible) {
-            gifDrawable?.start()
-        } else {
-            gifDrawable?.stop()
         }
     }
 
@@ -269,22 +258,18 @@ class PhotoFragment : ViewPagerFragment() {
     private fun loadGif() {
         try {
             val pathToLoad = getPathToLoad(medium)
-            gifDrawable = if (pathToLoad.startsWith("content://") || pathToLoad.startsWith("file://")) {
-                GifDrawable(context!!.contentResolver, Uri.parse(pathToLoad))
+            val source = if (pathToLoad.startsWith("content://") || pathToLoad.startsWith("file://")) {
+                InputSource.UriSource(context!!.contentResolver, Uri.parse(pathToLoad))
             } else {
-                GifDrawable(pathToLoad)
+                InputSource.FileSource(pathToLoad)
             }
 
-            if (!isFragmentVisible) {
-                gifDrawable!!.stop()
-            }
-
-            view.photo_view.setImageDrawable(gifDrawable)
+            view.photo_view.beGone()
+            view.gif_view.beVisible()
+            view.gif_view.setInputSource(source)
         } catch (e: Exception) {
-            gifDrawable = null
             loadBitmap()
         } catch (e: OutOfMemoryError) {
-            gifDrawable = null
             loadBitmap()
         }
     }
