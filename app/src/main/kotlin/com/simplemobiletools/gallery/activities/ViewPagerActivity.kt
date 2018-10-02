@@ -527,6 +527,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             config.tempFolderPath = ""
             if (!isCopyOperation) {
                 refreshViewPager()
+                updateFavoritePaths(fileDirItems, it)
             }
         }
     }

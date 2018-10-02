@@ -283,6 +283,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             activity.applicationContext.rescanFolderMedia(fileDirItems.first().getParentPath())
             if (!isCopyOperation) {
                 listener?.refreshItems()
+                activity.updateFavoritePaths(fileDirItems, it)
             }
         }
     }

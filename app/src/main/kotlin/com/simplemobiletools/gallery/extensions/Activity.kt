@@ -278,3 +278,12 @@ fun BaseSimpleActivity.showRecycleBinEmptyingDialog(callback: () -> Unit) {
         callback()
     }
 }
+
+fun BaseSimpleActivity.updateFavoritePaths(fileDirItems: ArrayList<FileDirItem>, destination: String) {
+    Thread {
+        fileDirItems.forEach {
+            val newPath = "$destination/${it.name}"
+            updateDBMediaPath(it.path, newPath)
+        }
+    }.start()
+}
