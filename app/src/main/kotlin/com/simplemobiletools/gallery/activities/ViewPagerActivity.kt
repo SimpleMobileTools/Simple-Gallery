@@ -257,10 +257,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             view_pager.adapter?.let {
                 (it as MyPagerAdapter).toggleFullscreen(mIsFullScreen)
                 checkSystemUI()
-                if (!bottom_actions.isGone()) {
-                    val newAlpha = if (mIsFullScreen) 0f else 1f
+                val newAlpha = if (mIsFullScreen) 0f else 1f
+                top_shadow.animate().alpha(newAlpha).start()
+                if (bottom_actions.isVisible()) {
                     bottom_actions.animate().alpha(newAlpha).start()
-                    top_shadow.animate().alpha(newAlpha).start()
                     arrayOf(bottom_favorite, bottom_edit, bottom_share, bottom_delete, bottom_rotate, bottom_properties, bottom_change_orientation,
                             bottom_slideshow, bottom_show_on_map, bottom_toggle_file_visibility, bottom_rename).forEach {
                         it.isClickable = !mIsFullScreen
