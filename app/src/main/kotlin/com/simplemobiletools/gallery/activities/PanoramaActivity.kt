@@ -1,12 +1,15 @@
 package com.simplemobiletools.gallery.activities
 
+import android.annotation.TargetApi
 import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.Window
+import android.view.WindowManager
 import android.widget.RelativeLayout
 import com.google.vr.sdk.widgets.pano.VrPanoramaEventListener
 import com.google.vr.sdk.widgets.pano.VrPanoramaView
@@ -14,6 +17,8 @@ import com.simplemobiletools.commons.extensions.beVisible
 import com.simplemobiletools.commons.extensions.showErrorToast
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
+import com.simplemobiletools.commons.helpers.isLollipopPlus
+import com.simplemobiletools.commons.helpers.isPiePlus
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.PATH
@@ -32,6 +37,12 @@ open class PanoramaActivity : SimpleActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_panorama)
         supportActionBar?.hide()
+
+        if (isPiePlus()) {
+            window.attributes.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        }
+
         setupButtonMargins()
 
         cardboard.setOnClickListener {
@@ -54,12 +65,17 @@ open class PanoramaActivity : SimpleActivity() {
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onResume() {
         super.onResume()
         panorama_view.resumeRendering()
         isRendering = true
         if (config.blackBackground) {
             updateStatusbarColor(Color.BLACK)
+        }
+
+        if (isLollipopPlus()) {
+            window.statusBarColor = resources.getColor(R.color.circle_black_background)
         }
     }
 
