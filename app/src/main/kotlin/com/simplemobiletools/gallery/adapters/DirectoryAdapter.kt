@@ -366,7 +366,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     private fun getOTGFilePaths(path: String, showHidden: Boolean): ArrayList<String> {
         val paths = ArrayList<String>()
         activity.getOTGFolderChildren(path)?.forEach {
-            if (!it.isDirectory && it.name.isMediaFile() && (showHidden || !it.name.startsWith('.'))) {
+            if (!it.isDirectory && it.name!!.isMediaFile() && (showHidden || !it.name!!.startsWith('.'))) {
                 val relativePath = it.uri.path.substringAfterLast("${activity.config.OTGPartition}:")
                 paths.add("$OTG_PATH$relativePath")
             }

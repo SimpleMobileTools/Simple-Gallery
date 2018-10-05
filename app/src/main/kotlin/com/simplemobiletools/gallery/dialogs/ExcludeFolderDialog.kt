@@ -1,6 +1,6 @@
 package com.simplemobiletools.gallery.dialogs
 
-import android.support.v7.app.AlertDialog
+import androidx.appcompat.app.AlertDialog
 import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.RadioGroup
