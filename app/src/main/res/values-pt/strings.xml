@@ -161,6 +161,7 @@
     <string name="show_recycle_bin">Mostrar reciclagem no ecrã de pastas</string>
     <string name="deep_zoomable_images">Deep zoomable images</string>
     <string name="show_highest_quality">Show images in the highest possible quality</string>
+    <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>

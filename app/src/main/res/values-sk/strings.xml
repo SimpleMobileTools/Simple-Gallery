@@ -161,6 +161,7 @@
     <string name="show_recycle_bin">Zobraziť odpadkový kôš na obrazovke s priečinkami</string>
     <string name="deep_zoomable_images">Hlboko priblížiteľné obrázky</string>
     <string name="show_highest_quality">Zobrazovať obrázky v najlepšej možnej kvalite</string>
+    <string name="show_recycle_bin_last">Zobraziť odpadkový kôš ako poslednú položku na hlavnej obrazovke</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Náhľady</string>
