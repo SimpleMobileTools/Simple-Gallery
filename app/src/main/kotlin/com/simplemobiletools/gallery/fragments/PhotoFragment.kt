@@ -163,11 +163,15 @@ class PhotoFragment : ViewPagerFragment() {
             initExtendedDetails()
         }
 
-        if (wasInit && (config.allowZoomingImages != storedAllowDeepZoomableImages || config.showHighestQuality != storedShowHighestQuality ||
-                        config.oneFingerZoom != storedAllowOneFingerZoom)) {
-            isSubsamplingVisible = false
-            view.subsampling_view.beGone()
-            loadImage()
+        if (wasInit) {
+            if (config.allowZoomingImages != storedAllowDeepZoomableImages || config.showHighestQuality != storedShowHighestQuality ||
+                    config.oneFingerZoom != storedAllowOneFingerZoom) {
+                isSubsamplingVisible = false
+                view.subsampling_view.beGone()
+                loadImage()
+            } else if (medium.isGIF()) {
+                loadGif()
+            }
         }
 
         val allowPhotoGestures = config.allowPhotoGestures
@@ -518,7 +522,18 @@ class PhotoFragment : ViewPagerFragment() {
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        loadImage()
+
+        // avoid GIFs being skewed, played in wrong aspect ratio
+        if (medium.isGIF()) {
+            view.onGlobalLayout {
+                Handler().postDelayed({
+                    loadGif()
+                }, 50)
+            }
+        } else {
+            loadImage()
+        }
+
         initExtendedDetails()
     }
 
