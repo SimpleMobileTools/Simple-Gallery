@@ -161,7 +161,7 @@
     <string name="show_recycle_bin">Prullenbak weergeven in de mapweergave</string>
     <string name="deep_zoomable_images">Afbeeldingen ver inzoomen</string>
     <string name="show_highest_quality">Afbeeldingen in de hoogst mogelijke kwaliteit weergeven</string>
-    <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
+    <string name="show_recycle_bin_last">Prullenbak als laatste item tonen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatuurvoorbeelden</string>
