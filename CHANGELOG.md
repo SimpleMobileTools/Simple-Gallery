@@ -1,6 +1,32 @@
 Changelog
 ==========
 
+Version 4.6.5 *(2018-10-02)*
+----------------------------
+
+ * Added notch support for Android 9
+ * Allow faster video seeking by dragging a finger at the bottom seekbar
+ * Use a different way of displaying fullscreen GIFs
+ * Added a new toggle for trying to show the best possible image quality
+ * Keep Favorite items marked after moving
+ * Fixed some glitches related to toggling fullscreen mode
+ * Many other smaller improvements
+
+Version 4.6.4 *(2018-09-22)*
+----------------------------
+
+ * Fixed lag at zooming fullscreen images on some devices
+
+Version 4.6.3 *(2018-09-21)*
+----------------------------
+
+ * Improved zooming performance at fullscreen view
+ * Fixed showing conflict resolution dialog at Move
+ * Fixed selection check icons at horizontal scrolling
+ * Fixed displaying some fullscreen images, where file path contained percentage sign or hashtag
+ * Optimized many database operations
+ * Fixed many other smaller issues
+
 Version 4.6.2 *(2018-09-05)*
 ----------------------------
 

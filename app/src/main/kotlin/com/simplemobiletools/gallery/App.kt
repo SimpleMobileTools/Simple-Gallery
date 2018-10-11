@@ -1,6 +1,6 @@
 package com.simplemobiletools.gallery
 
-import android.support.multidex.MultiDexApplication
+import androidx.multidex.MultiDexApplication
 import com.github.ajalt.reprint.core.Reprint
 import com.simplemobiletools.commons.extensions.checkUseEnglish
 

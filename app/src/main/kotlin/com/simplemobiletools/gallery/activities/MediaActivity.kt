@@ -9,13 +9,14 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
-import android.support.v4.view.MenuItemCompat
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.SearchView
 import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.appcompat.widget.SearchView
+import androidx.core.view.MenuItemCompat
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.SimpleTarget
@@ -629,10 +630,10 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private fun setupGridLayoutManager() {
         val layoutManager = media_grid.layoutManager as MyGridLayoutManager
         if (config.scrollHorizontally) {
-            layoutManager.orientation = GridLayoutManager.HORIZONTAL
+            layoutManager.orientation = RecyclerView.HORIZONTAL
             media_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
         } else {
-            layoutManager.orientation = GridLayoutManager.VERTICAL
+            layoutManager.orientation = RecyclerView.VERTICAL
             media_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         }
 
@@ -721,7 +722,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private fun setupListLayoutManager() {
         val layoutManager = media_grid.layoutManager as MyGridLayoutManager
         layoutManager.spanCount = 1
-        layoutManager.orientation = GridLayoutManager.VERTICAL
+        layoutManager.orientation = RecyclerView.VERTICAL
         media_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         mZoomListener = null
     }
@@ -832,11 +833,15 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     override fun tryDeleteFiles(fileDirItems: ArrayList<FileDirItem>) {
-        val filtered = fileDirItems.filter { it.path.isMediaFile() } as ArrayList
-        val deletingItems = resources.getQuantityString(R.plurals.deleting_items, filtered.size, filtered.size)
-        toast(deletingItems)
+        val filtered = fileDirItems.filter { File(it.path).isFile && it.path.isMediaFile() } as ArrayList
+        if (filtered.isEmpty()) {
+            return
+        }
 
         if (config.useRecycleBin && !filtered.first().path.startsWith(filesDir.absolutePath)) {
+            val movingItems = resources.getQuantityString(R.plurals.moving_items_into_bin, filtered.size, filtered.size)
+            toast(movingItems)
+
             movePathsInRecycleBin(filtered.map { it.path } as ArrayList<String>, mMediumDao) {
                 if (it) {
                     deleteFilteredFiles(filtered)
@@ -845,6 +850,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 }
             }
         } else {
+            val deletingItems = resources.getQuantityString(R.plurals.deleting_items, filtered.size, filtered.size)
+            toast(deletingItems)
             deleteFilteredFiles(filtered)
         }
     }

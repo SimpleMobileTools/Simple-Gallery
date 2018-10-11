@@ -1,7 +1,7 @@
 package com.simplemobiletools.gallery.dialogs
 
-import android.support.v7.app.AlertDialog
-import android.support.v7.widget.GridLayoutManager
+import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.beGoneIf
 import com.simplemobiletools.commons.extensions.beVisibleIf
@@ -26,7 +26,7 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
 
     init {
         (view.media_grid.layoutManager as MyGridLayoutManager).apply {
-            orientation = if (activity.config.scrollHorizontally && isGridViewType) GridLayoutManager.HORIZONTAL else GridLayoutManager.VERTICAL
+            orientation = if (activity.config.scrollHorizontally && isGridViewType) RecyclerView.HORIZONTAL else RecyclerView.VERTICAL
             spanCount = if (isGridViewType) activity.config.mediaColumnCnt else 1
         }
 

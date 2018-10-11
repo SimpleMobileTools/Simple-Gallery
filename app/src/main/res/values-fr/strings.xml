@@ -160,9 +160,8 @@
     <string name="show_at_bottom">Afficher quelques boutons d\'action en bas de l\'écran</string>
     <string name="show_recycle_bin">Afficher la corbeille à l\'écran Dossiers</string>
     <string name="deep_zoomable_images">Deep zoomable images</string>
-    <string name="show_highest_quality">Montrer des images de la plus haute qualité possible</string>
+    <string name="show_highest_quality">Show images in the highest possible quality</string>
     <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
-
 
     <!-- Setting sections -->
     <string name="thumbnails">Vignettes</string>
@@ -208,8 +207,18 @@
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Un album pour visionner photos et vidéos sans publicité.</string>
-    <string name="app_long_description">Un simple outil pour visionner les photos et les vidéos. Elles peuvent être triées par dates, tailles, noms dans les deux sens (alphabétique comme désalphabétique), il est possible de zoomer sur les photos. Les fichiers sont affichés sur de multiples colonnes en fonction de la taille de l\'écran, vous pouvez changer le nombre de colonnes par pincement. Elles peuvent être renommées, partagées, supprimées, copiées et déplacées. Les images peuvent en plus être tournées, rognées ou être définies comme fond d\'écran directement depuis l\'application.          La galerie est également proposée pour une utilisation comme tierce partie pour la prévisualisation des images/vidéos, ajouter des pièces jointes aux clients email, etc… C\'est parfait pour un usage au quotidien.          L\'autorisation d\'empreinte digitale est nécessaire pour verrouiller les dossiers cachés et/ou l\'application.          L\'application ne contient ni publicité ni autorisation inutile. Elle est totalement opensource et est également fournie avec des couleurs personnalisables.          Cette application fait partie d\'une plus grande suite. Vous pouvez trouver les autres applications sur https://www.simplemobiletools.com</string>
-
+    <string name="app_long_description">
+          Un simple outil pour visionner les photos et les vidéos. Elles peuvent être triées par dates, tailles, noms dans les deux sens (alphabétique comme désalphabétique), il est possible de zoomer sur les photos. Les fichiers sont affichés sur de multiples colonnes en fonction de la taille de l\'écran, vous pouvez changer le nombre de colonnes par pincement. Elles peuvent être renommées, partagées, supprimées, copiées et déplacées. Les images peuvent en plus être tournées, rognées ou être définies comme fond d\'écran directement depuis l\'application.
+      
+          La galerie est également proposée pour une utilisation comme tierce partie pour la prévisualisation des images/vidéos, ajouter des pièces jointes aux clients email, etc… C\'est parfait pour un usage au quotidien.
+      
+          L\'autorisation d\'empreinte digitale est nécessaire pour verrouiller les dossiers cachés et/ou l\'application.
+      
+          L\'application ne contient ni publicité ni autorisation inutile. Elle est totalement opensource et est également fournie avec des couleurs personnalisables.
+          
+          Cette application fait partie d\'une plus grande suite. Vous pouvez trouver les autres applications sur https://www.simplemobiletools.com
+      </string>
+  
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

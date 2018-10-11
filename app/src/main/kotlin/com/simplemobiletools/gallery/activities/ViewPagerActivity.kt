@@ -20,7 +20,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
-import android.support.v4.view.ViewPager
+import androidx.viewpager.widget.ViewPager
 import android.util.DisplayMetrics
 import android.view.Menu
 import android.view.MenuItem
@@ -82,6 +82,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medium)
+
+        top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
+        if (isPiePlus()) {
+            window.attributes.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        }
+
         (MediaActivity.mMedia.clone() as ArrayList<ThumbnailItem>).filter { it is Medium }.mapTo(mMediaFiles) { it as Medium }
 
         handlePermission(PERMISSION_WRITE_STORAGE) {
@@ -113,7 +120,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         initBottomActions()
-        supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.actionbar_gradient_background))
 
         if (config.maxBrightness) {
             val attributes = window.attributes
@@ -126,6 +132,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         if (config.blackBackground) {
             updateStatusbarColor(Color.BLACK)
+        }
+
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        if (isLollipopPlus()) {
+            window.statusBarColor = Color.TRANSPARENT
         }
     }
 
@@ -246,8 +257,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             view_pager.adapter?.let {
                 (it as MyPagerAdapter).toggleFullscreen(mIsFullScreen)
                 checkSystemUI()
-                if (!bottom_actions.isGone()) {
-                    bottom_actions.animate().alpha(if (mIsFullScreen) 0f else 1f).start()
+                val newAlpha = if (mIsFullScreen) 0f else 1f
+                top_shadow.animate().alpha(newAlpha).start()
+                if (bottom_actions.isVisible()) {
+                    bottom_actions.animate().alpha(newAlpha).start()
                     arrayOf(bottom_favorite, bottom_edit, bottom_share, bottom_delete, bottom_rotate, bottom_properties, bottom_change_orientation,
                             bottom_slideshow, bottom_show_on_map, bottom_toggle_file_visibility, bottom_rename).forEach {
                         it.isClickable = !mIsFullScreen
@@ -514,6 +527,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             config.tempFolderPath = ""
             if (!isCopyOperation) {
                 refreshViewPager()
+                updateFavoritePaths(fileDirItems, it)
             }
         }
     }

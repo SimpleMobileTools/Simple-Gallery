@@ -159,6 +159,9 @@
     <string name="do_extra_check">Fai un controllo ulteriore per evitare di mostrare file non validi</string>
     <string name="show_at_bottom">Mostra alcuni pulsanti azione in fondo allo schermo</string>
     <string name="show_recycle_bin">Mostra il cestino nella schermata delle cartelle</string>
+    <string name="deep_zoomable_images">Immagini ingrandibili a fondo</string>
+    <string name="show_highest_quality">Mostra le immagini alla massima qualità possibile</string>
+    <string name="show_recycle_bin_last">Mostra il cestino come ultimo elemento nella schermata principale</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniature</string>
@@ -198,6 +201,10 @@
     <string name="faq_11_text">Certo, usa il menu \"Raggruppa per\" mentre visualizzi le miniature. Puoi raggruppare i file con diversi criteri, incluso la data di creazione. Se utilizzi la funzione \"Mostra tutti i contenuti\" puoi anche raggrupparli per cartelle.</string>
     <string name="faq_12_title">L\'ordinamento per data acquisizione sembra non funzionare bene, come posso risolvere?</string>
     <string name="faq_12_text">Probabilmente è causato dai file copiati da altre parti. Puoi risolvere selezionando le miniature dei file e scegliendo \"Correggi valore Data acquisizione\".</string>
+    <string name="faq_13_title">Vedo curvature di colore nelle immagini. Come posso migliorarne la qualità?</string>
+    <string name="faq_13_text">L\'attuale soluzione per visualizzare immagini funziona bene nella maggior parte dei casi, ma se vuoi una qualità ancora maggiore, puoi attivare \"Mostra le immagini alla massima qualità possibile\" nelle impostazioni dell\'app, nella sezione \"Immagini ingrandibili a fondo\".</string>
+    <string name="faq_14_title">Ho nascosto un file/una cartella. Come posso mostrarlo/a di nuovo?</string>
+    <string name="faq_14_text">Puoi premere \"Mostra temporaneamente nascosti\" nel menu della schermata principale, oppure attivare \"Mostra gli elementi nascosti\" nelle impostazioni dell\'app per vedere l\'elemento nascosto. Se vuoi che resti visibile, premilo a lungo e seleziona \"Non nascondere\". Le cartelle vengono nascoste aggiungendo un file nascosto \".nomedia\" all\'interno di esse, puoi anche eliminare il file con qualsiasi gestore di file.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

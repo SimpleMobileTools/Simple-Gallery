@@ -7,12 +7,13 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
-import android.support.v7.widget.GridLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.Toast
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
@@ -420,9 +421,15 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     override fun deleteFolders(folders: ArrayList<File>) {
-        val fileDirItems = folders.map { FileDirItem(it.absolutePath, it.name, true) } as ArrayList<FileDirItem>
-        fileDirItems.forEach {
-            toast(String.format(getString(R.string.deleting_folder), it.name), Toast.LENGTH_LONG)
+        val fileDirItems = folders.asSequence().filter { it.isDirectory }.map { FileDirItem(it.absolutePath, it.name, true) }.toMutableList() as ArrayList<FileDirItem>
+        when {
+            fileDirItems.isEmpty() -> return
+            fileDirItems.size == 1 -> toast(String.format(getString(R.string.deleting_folder), fileDirItems.first().name))
+            else -> {
+                val baseString = if (config.useRecycleBin) R.plurals.moving_items_into_bin else R.plurals.delete_items
+                val deletingItems = resources.getQuantityString(baseString, fileDirItems.size, fileDirItems.size)
+                toast(deletingItems)
+            }
         }
 
         if (config.useRecycleBin) {
@@ -469,10 +476,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun setupGridLayoutManager() {
         val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
         if (config.scrollHorizontally) {
-            layoutManager.orientation = GridLayoutManager.HORIZONTAL
+            layoutManager.orientation = RecyclerView.HORIZONTAL
             directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
         } else {
-            layoutManager.orientation = GridLayoutManager.VERTICAL
+            layoutManager.orientation = RecyclerView.VERTICAL
             directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         }
 
@@ -531,7 +538,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun setupListLayoutManager() {
         val layoutManager = directories_grid.layoutManager as MyGridLayoutManager
         layoutManager.spanCount = 1
-        layoutManager.orientation = GridLayoutManager.VERTICAL
+        layoutManager.orientation = RecyclerView.VERTICAL
         directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         mZoomListener = null
     }
@@ -915,7 +922,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 invalidDirs.add(it)
             } else if (it.path != config.tempFolderPath) {
                 val children = if (it.path.startsWith(OTG_PATH)) getOTGFolderChildrenNames(it.path) else File(it.path).list()?.asList()
-                val hasMediaFile = children?.any { it.isMediaFile() } ?: false
+                val hasMediaFile = children?.any { it?.isMediaFile() == true } ?: false
                 if (!hasMediaFile) {
                     invalidDirs.add(it)
                 }
@@ -980,7 +987,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             }.start()
         }, LAST_MEDIA_CHECK_PERIOD)
     }
-
 
     private fun checkRecycleBinItems() {
         if (config.useRecycleBin && config.lastBinCheck < System.currentTimeMillis() - DAY_SECONDS * 1000) {
@@ -1061,6 +1067,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             add(Release(181, R.string.release_181))
             add(Release(182, R.string.release_182))
             add(Release(184, R.string.release_184))
+            add(Release(201, R.string.release_201))
             checkWhatsNew(this, BuildConfig.VERSION_CODE)
         }
     }

@@ -28,7 +28,6 @@ import com.simplemobiletools.gallery.models.ThumbnailItem
 import com.simplemobiletools.gallery.models.ThumbnailSection
 import kotlinx.android.synthetic.main.photo_video_item_grid.view.*
 import kotlinx.android.synthetic.main.thumbnail_section.view.*
-import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -178,8 +177,9 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             }
         }
 
-        menu.findItem(R.id.cab_hide).isVisible = unhiddenCnt > 0
-        menu.findItem(R.id.cab_unhide).isVisible = hiddenCnt > 0
+        val isInRecycleBin = getSelectedMedia().firstOrNull()?.getIsInRecycleBin() == true
+        menu.findItem(R.id.cab_hide).isVisible = unhiddenCnt > 0 && !isInRecycleBin
+        menu.findItem(R.id.cab_unhide).isVisible = hiddenCnt > 0 && !isInRecycleBin
     }
 
     private fun checkFavoriteBtnVisibility(menu: Menu) {
@@ -283,6 +283,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             activity.applicationContext.rescanFolderMedia(fileDirItems.first().getParentPath())
             if (!isCopyOperation) {
                 listener?.refreshItems()
+                activity.updateFavoritePaths(fileDirItems, it)
             }
         }
     }

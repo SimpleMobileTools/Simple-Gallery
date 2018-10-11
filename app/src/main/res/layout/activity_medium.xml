@@ -14,4 +14,10 @@
         android:id="@+id/bottom_actions"
         layout="@layout/bottom_actions"/>
 
+    <ImageView
+        android:id="@+id/top_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_status_action_height"
+        android:background="@drawable/gradient_background_flipped"/>
+
 </RelativeLayout>
