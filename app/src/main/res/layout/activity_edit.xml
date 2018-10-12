@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/bottom_editor_actions_shadow_height"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/gradient_background_lighter"/>
+        android:background="@drawable/gradient_background"/>
 
     <include
         android:id="@+id/bottom_aspect_ratios"

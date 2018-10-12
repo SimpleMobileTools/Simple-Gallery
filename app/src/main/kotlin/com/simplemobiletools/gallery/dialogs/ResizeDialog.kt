@@ -1,7 +1,7 @@
 package com.simplemobiletools.gallery.dialogs
 
 import android.graphics.Point
-import android.support.v7.app.AlertDialog
+import androidx.appcompat.app.AlertDialog
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText

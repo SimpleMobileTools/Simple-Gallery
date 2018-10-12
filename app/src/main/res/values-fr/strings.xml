@@ -161,6 +161,7 @@
     <string name="show_recycle_bin">Afficher la corbeille à l\'écran Dossiers</string>
     <string name="deep_zoomable_images">Deep zoomable images</string>
     <string name="show_highest_quality">Show images in the highest possible quality</string>
+    <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Vignettes</string>
@@ -198,22 +199,26 @@
     <string name="faq_11_text">Bien sûr, il vous suffit d\'utiliser l\'option de menu \"Grouper par\" lorsque vous êtes dans l\'affichage des vignettes. Vous pouvez regrouper les fichiers selon plusieurs critères, y compris la date de prise de vue. Si vous utilisez la fonction \"Afficher le contenu de tous les dossiers\", vous pouvez également les regrouper par dossiers.</string>
     <string name="faq_12_title">Le tri par date prise ne semble pas fonctionner correctement, comment puis-je le corriger ?</string>
     <string name="faq_12_text">Il est très probablement causé par les fichiers copiés quelque part. Vous pouvez le corriger en sélectionnant les vignettes du fichier et en sélectionnant \"Fix Date Taken value\".</string>
+    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
+    <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
+    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
+    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Un album pour visionner photos et vidéos sans publicité.</string>
     <string name="app_long_description">
-        Un simple outil pour visionner les photos et les vidéos. Elles peuvent être triées par dates, tailles, noms dans les deux sens (alphabétique comme désalphabétique), il est possible de zoomer sur les photos. Les fichiers sont affichés sur de multiples colonnes en fonction de la taille de l\'écran, vous pouvez changer le nombre de colonnes par pincement. Elles peuvent être renommées, partagées, supprimées, copiées et déplacées. Les images peuvent en plus être tournées, rognées ou être définies comme fond d\'écran directement depuis l\'application.
-
-        La galerie est également proposée pour une utilisation comme tierce partie pour la prévisualisation des images/vidéos, ajouter des pièces jointes aux clients email, etc… C\'est parfait pour un usage au quotidien.
-
-        L\'autorisation d\'empreinte digitale est nécessaire pour verrouiller les dossiers cachés et/ou l\'application.
-
-        L\'application ne contient ni publicité ni autorisation inutile. Elle est totalement opensource et est également fournie avec des couleurs personnalisables.
-
-        Cette application fait partie d\'une plus grande suite. Vous pouvez trouver les autres applications sur https://www.simplemobiletools.com
-    </string>
-
+          Un simple outil pour visionner les photos et les vidéos. Elles peuvent être triées par dates, tailles, noms dans les deux sens (alphabétique comme désalphabétique), il est possible de zoomer sur les photos. Les fichiers sont affichés sur de multiples colonnes en fonction de la taille de l\'écran, vous pouvez changer le nombre de colonnes par pincement. Elles peuvent être renommées, partagées, supprimées, copiées et déplacées. Les images peuvent en plus être tournées, rognées ou être définies comme fond d\'écran directement depuis l\'application.
+      
+          La galerie est également proposée pour une utilisation comme tierce partie pour la prévisualisation des images/vidéos, ajouter des pièces jointes aux clients email, etc… C\'est parfait pour un usage au quotidien.
+      
+          L\'autorisation d\'empreinte digitale est nécessaire pour verrouiller les dossiers cachés et/ou l\'application.
+      
+          L\'application ne contient ni publicité ni autorisation inutile. Elle est totalement opensource et est également fournie avec des couleurs personnalisables.
+          
+          Cette application fait partie d\'une plus grande suite. Vous pouvez trouver les autres applications sur https://www.simplemobiletools.com
+      </string>
+  
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

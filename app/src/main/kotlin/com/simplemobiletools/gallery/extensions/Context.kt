@@ -44,10 +44,39 @@ val Context.navigationBarWidth: Int get() = if (navigationBarRight) navigationBa
 
 internal val Context.navigationBarSize: Point
     get() = when {
-        navigationBarRight -> Point(realScreenSize.x - usableScreenSize.x, usableScreenSize.y)
-        navigationBarBottom -> Point(usableScreenSize.x, realScreenSize.y - usableScreenSize.y)
+        navigationBarRight -> Point(newNavigationBarHeight, usableScreenSize.y)
+        navigationBarBottom -> Point(usableScreenSize.x, newNavigationBarHeight)
         else -> Point()
     }
+
+internal val Context.newNavigationBarHeight: Int
+    get() {
+        var navigationBarHeight = 0
+        val resourceId = resources.getIdentifier("navigation_bar_height", "dimen", "android")
+        if (resourceId > 0) {
+            navigationBarHeight = resources.getDimensionPixelSize(resourceId)
+        }
+        return navigationBarHeight
+    }
+
+internal val Context.statusBarHeight: Int
+    get() {
+        var statusBarHeight = 0
+        val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
+        if (resourceId > 0) {
+            statusBarHeight = resources.getDimensionPixelSize(resourceId)
+        }
+        return statusBarHeight
+    }
+
+internal val Context.actionBarHeight: Int
+    get() {
+        val styledAttributes = theme.obtainStyledAttributes(intArrayOf(android.R.attr.actionBarSize))
+        val actionBarHeight = styledAttributes.getDimension(0, 0f)
+        styledAttributes.recycle()
+        return actionBarHeight.toInt()
+    }
+
 
 val Context.usableScreenSize: Point
     get() {

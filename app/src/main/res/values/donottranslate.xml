@@ -2,6 +2,10 @@
 <resources>
 
     <!-- Release notes -->
+    <string name="release_201">
+        Added a new settings toggle \"Show images in the highest possible quality\"\n
+        Allow faster video seeking by dragging a finger at the bottom seekbar
+    </string>
     <string name="release_184">
         Added Panorama photo support\n
         Allow forcing portrait/landscape orientation at fullscreen view\n

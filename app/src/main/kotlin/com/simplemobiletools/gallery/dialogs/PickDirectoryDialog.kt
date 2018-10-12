@@ -1,7 +1,7 @@
 package com.simplemobiletools.gallery.dialogs
 
-import android.support.v7.app.AlertDialog
-import android.support.v7.widget.GridLayoutManager
+import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.beGoneIf
@@ -27,14 +27,14 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
 
     init {
         (view.directories_grid.layoutManager as MyGridLayoutManager).apply {
-            orientation = if (activity.config.scrollHorizontally && isGridViewType) GridLayoutManager.HORIZONTAL else GridLayoutManager.VERTICAL
+            orientation = if (activity.config.scrollHorizontally && isGridViewType) RecyclerView.HORIZONTAL else RecyclerView.VERTICAL
             spanCount = if (isGridViewType) activity.config.dirColumnCnt else 1
         }
 
         dialog = AlertDialog.Builder(activity)
                 .setPositiveButton(R.string.ok, null)
                 .setNegativeButton(R.string.cancel, null)
-                .setNeutralButton(R.string.other_folder, { dialogInterface, i -> showOtherFolder() })
+                .setNeutralButton(R.string.other_folder) { dialogInterface, i -> showOtherFolder() }
                 .create().apply {
                     activity.setupDialogStuff(view, this, R.string.select_destination)
                 }

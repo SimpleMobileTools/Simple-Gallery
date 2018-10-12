@@ -1,7 +1,7 @@
 package com.simplemobiletools.gallery.dialogs
 
 import android.app.Activity
-import android.support.v7.app.AlertDialog
+import androidx.appcompat.app.AlertDialog
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.gallery.R
 import kotlinx.android.synthetic.main.dialog_delete_with_remember.view.*

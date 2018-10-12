@@ -45,7 +45,7 @@ import it.sephiroth.android.library.exif2.ExifInterface
 import kotlinx.android.synthetic.main.pager_photo_item.view.*
 import org.apache.sanselan.common.byteSources.ByteSourceInputStream
 import org.apache.sanselan.formats.jpeg.JpegImageParser
-import pl.droidsonroids.gif.GifDrawable
+import pl.droidsonroids.gif.InputSource
 import java.io.File
 import java.io.FileOutputStream
 import java.util.*
@@ -66,7 +66,6 @@ class PhotoFragment : ViewPagerFragment() {
     private var isPanorama = false
     private var isSubsamplingVisible = false    // checking view.visibility is unreliable, use an extra variable for it
     private var imageOrientation = -1
-    private var gifDrawable: GifDrawable? = null
     private var loadZoomableViewHandler = Handler()
 
     private var storedShowExtendedDetails = false
@@ -83,6 +82,7 @@ class PhotoFragment : ViewPagerFragment() {
         view = (inflater.inflate(R.layout.pager_photo_item, container, false) as ViewGroup).apply {
             subsampling_view.setOnClickListener { photoClicked() }
             photo_view.setOnClickListener { photoClicked() }
+            gif_view.setOnClickListener { photoClicked() }
             instant_prev_item.setOnClickListener { listener?.goToPrevItem() }
             instant_next_item.setOnClickListener { listener?.goToNextItem() }
             panorama_outline.setOnClickListener { openPanorama() }
@@ -163,11 +163,15 @@ class PhotoFragment : ViewPagerFragment() {
             initExtendedDetails()
         }
 
-        if (wasInit && (config.allowZoomingImages != storedAllowDeepZoomableImages || config.showHighestQuality != storedShowHighestQuality ||
-                        config.oneFingerZoom != storedAllowOneFingerZoom)) {
-            isSubsamplingVisible = false
-            view.subsampling_view.beGone()
-            loadImage()
+        if (wasInit) {
+            if (config.allowZoomingImages != storedAllowDeepZoomableImages || config.showHighestQuality != storedShowHighestQuality ||
+                    config.oneFingerZoom != storedAllowOneFingerZoom) {
+                isSubsamplingVisible = false
+                view.subsampling_view.beGone()
+                loadImage()
+            } else if (medium.isGIF()) {
+                loadGif()
+            }
         }
 
         val allowPhotoGestures = config.allowPhotoGestures
@@ -187,9 +191,7 @@ class PhotoFragment : ViewPagerFragment() {
         super.setMenuVisibility(menuVisible)
         isFragmentVisible = menuVisible
         if (wasInit) {
-            if (medium.isGIF()) {
-                gifFragmentVisibilityChanged(menuVisible)
-            } else {
+            if (!medium.isGIF()) {
                 photoFragmentVisibilityChanged(menuVisible)
             }
         }
@@ -217,14 +219,6 @@ class PhotoFragment : ViewPagerFragment() {
             activity!!.windowManager.defaultDisplay.getMetrics(metrics)
             ViewPagerActivity.screenWidth = metrics.widthPixels
             ViewPagerActivity.screenHeight = metrics.heightPixels
-        }
-    }
-
-    private fun gifFragmentVisibilityChanged(isVisible: Boolean) {
-        if (isVisible) {
-            gifDrawable?.start()
-        } else {
-            gifDrawable?.stop()
         }
     }
 
@@ -269,22 +263,18 @@ class PhotoFragment : ViewPagerFragment() {
     private fun loadGif() {
         try {
             val pathToLoad = getPathToLoad(medium)
-            gifDrawable = if (pathToLoad.startsWith("content://") || pathToLoad.startsWith("file://")) {
-                GifDrawable(context!!.contentResolver, Uri.parse(pathToLoad))
+            val source = if (pathToLoad.startsWith("content://") || pathToLoad.startsWith("file://")) {
+                InputSource.UriSource(context!!.contentResolver, Uri.parse(pathToLoad))
             } else {
-                GifDrawable(pathToLoad)
+                InputSource.FileSource(pathToLoad)
             }
 
-            if (!isFragmentVisible) {
-                gifDrawable!!.stop()
-            }
-
-            view.photo_view.setImageDrawable(gifDrawable)
+            view.photo_view.beGone()
+            view.gif_view.beVisible()
+            view.gif_view.setInputSource(source)
         } catch (e: Exception) {
-            gifDrawable = null
             loadBitmap()
         } catch (e: OutOfMemoryError) {
-            gifDrawable = null
             loadBitmap()
         }
     }
@@ -382,7 +372,7 @@ class PhotoFragment : ViewPagerFragment() {
         isSubsamplingVisible = true
 
         view.subsampling_view.apply {
-            setMaxTileSize(4096)
+            setMaxTileSize(if (context!!.config.showHighestQuality) Integer.MAX_VALUE else 4096)
             setMinimumTileDpi(if (context!!.config.showHighestQuality) -1 else getMinTileDpi())
             background = ColorDrawable(Color.TRANSPARENT)
             setBitmapDecoderFactory { PicassoDecoder(path, Picasso.get(), rotation) }
@@ -532,7 +522,18 @@ class PhotoFragment : ViewPagerFragment() {
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        loadImage()
+
+        // avoid GIFs being skewed, played in wrong aspect ratio
+        if (medium.isGIF()) {
+            view.onGlobalLayout {
+                Handler().postDelayed({
+                    loadGif()
+                }, 50)
+            }
+        } else {
+            loadImage()
+        }
+
         initExtendedDetails()
     }
 
@@ -555,8 +556,8 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun getExtendedDetailsY(height: Int): Float {
         val smallMargin = resources.getDimension(R.dimen.small_margin)
-        val fullscreenOffset = context!!.navigationBarHeight.toFloat() - smallMargin
+        val fullscreenOffset = smallMargin + if (isFullscreen) 0 else context!!.navigationBarHeight
         val actionsHeight = if (context!!.config.bottomActions && !isFullscreen) resources.getDimension(R.dimen.bottom_actions_height) else 0f
-        return context!!.usableScreenSize.y - height - actionsHeight + if (isFullscreen) fullscreenOffset else -smallMargin
+        return context!!.realScreenSize.y - height - actionsHeight - fullscreenOffset
     }
 }
