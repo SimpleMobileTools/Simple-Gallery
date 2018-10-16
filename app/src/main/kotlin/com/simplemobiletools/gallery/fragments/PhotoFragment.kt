@@ -1,6 +1,5 @@
 package com.simplemobiletools.gallery.fragments
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Bitmap
@@ -29,8 +28,6 @@ import com.davemorrissey.labs.subscaleview.ImageSource
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
-import com.simplemobiletools.commons.helpers.isJellyBean1Plus
-import com.simplemobiletools.commons.helpers.isLollipopPlus
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.PanoramaActivity
 import com.simplemobiletools.gallery.activities.PhotoActivity
@@ -208,18 +205,11 @@ class PhotoFragment : ViewPagerFragment() {
         }
     }
 
-    @SuppressLint("NewApi")
     private fun measureScreen() {
         val metrics = DisplayMetrics()
-        if (isJellyBean1Plus()) {
-            activity!!.windowManager.defaultDisplay.getRealMetrics(metrics)
-            ViewPagerActivity.screenWidth = metrics.widthPixels
-            ViewPagerActivity.screenHeight = metrics.heightPixels
-        } else {
-            activity!!.windowManager.defaultDisplay.getMetrics(metrics)
-            ViewPagerActivity.screenWidth = metrics.widthPixels
-            ViewPagerActivity.screenHeight = metrics.heightPixels
-        }
+        activity!!.windowManager.defaultDisplay.getRealMetrics(metrics)
+        ViewPagerActivity.screenWidth = metrics.widthPixels
+        ViewPagerActivity.screenHeight = metrics.heightPixels
     }
 
     private fun photoFragmentVisibilityChanged(isVisible: Boolean) {
@@ -280,7 +270,7 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun loadSVG() {
-        Glide.with(this)
+        Glide.with(context!!)
                 .`as`(PictureDrawable::class.java)
                 .listener(SvgSoftwareLayerSetter())
                 .load(medium.path)
@@ -440,7 +430,7 @@ class PhotoFragment : ViewPagerFragment() {
             false
         }
 
-        view.panorama_outline.beVisibleIf(isPanorama && isLollipopPlus())
+        view.panorama_outline.beVisibleIf(isPanorama)
     }
 
     private fun getImageOrientation(): Int {
@@ -514,7 +504,7 @@ class PhotoFragment : ViewPagerFragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        if (activity?.isActivityDestroyed() == false) {
+        if (activity?.isDestroyed == false) {
             view.subsampling_view.recycle()
         }
         loadZoomableViewHandler.removeCallbacksAndMessages(null)

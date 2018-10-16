@@ -3,8 +3,8 @@ package com.simplemobiletools.gallery.extensions
 import android.app.Activity
 import android.content.Intent
 import android.provider.MediaStore
-import androidx.appcompat.app.AppCompatActivity
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
@@ -60,8 +60,8 @@ fun Activity.launchCamera() {
 }
 
 fun SimpleActivity.launchAbout() {
-    val licenses = LICENSE_GLIDE or LICENSE_CROPPER or LICENSE_MULTISELECT or LICENSE_RTL or LICENSE_SUBSAMPLING or LICENSE_PATTERN or
-            LICENSE_REPRINT or LICENSE_GIF_DRAWABLE or LICENSE_PHOTOVIEW or LICENSE_PICASSO or LICENSE_EXOPLAYER or LICENSE_PANORAMA_VIEW or LICENSE_SANSELAN or LICENSE_FILTERS
+    val licenses = LICENSE_GLIDE or LICENSE_CROPPER or LICENSE_RTL or LICENSE_SUBSAMPLING or LICENSE_PATTERN or LICENSE_REPRINT or LICENSE_GIF_DRAWABLE or
+            LICENSE_PHOTOVIEW or LICENSE_PICASSO or LICENSE_EXOPLAYER or LICENSE_PANORAMA_VIEW or LICENSE_SANSELAN or LICENSE_FILTERS
 
     val faqItems = arrayListOf(
             FAQItem(R.string.faq_5_title_commons, R.string.faq_5_text_commons),

@@ -1,11 +1,9 @@
 package com.simplemobiletools.gallery.activities
 
-import android.annotation.TargetApi
 import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.Window
@@ -17,7 +15,6 @@ import com.simplemobiletools.commons.extensions.beVisible
 import com.simplemobiletools.commons.extensions.showErrorToast
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
-import com.simplemobiletools.commons.helpers.isLollipopPlus
 import com.simplemobiletools.commons.helpers.isPiePlus
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.*
@@ -65,7 +62,6 @@ open class PanoramaActivity : SimpleActivity() {
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onResume() {
         super.onResume()
         panorama_view.resumeRendering()
@@ -74,9 +70,7 @@ open class PanoramaActivity : SimpleActivity() {
             updateStatusbarColor(Color.BLACK)
         }
 
-        if (isLollipopPlus()) {
-            window.statusBarColor = resources.getColor(R.color.circle_black_background)
-        }
+        window.statusBarColor = resources.getColor(R.color.circle_black_background)
     }
 
     override fun onPause() {

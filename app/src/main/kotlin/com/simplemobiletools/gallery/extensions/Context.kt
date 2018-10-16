@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteException
 import android.graphics.Point
 import android.graphics.drawable.PictureDrawable
 import android.media.AudioManager
-import android.os.Build
 import android.provider.MediaStore
 import android.view.WindowManager
 import android.widget.ImageView
@@ -88,8 +87,7 @@ val Context.usableScreenSize: Point
 val Context.realScreenSize: Point
     get() {
         val size = Point()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
-            windowManager.defaultDisplay.getRealSize(size)
+        windowManager.defaultDisplay.getRealSize(size)
         return size
     }
 

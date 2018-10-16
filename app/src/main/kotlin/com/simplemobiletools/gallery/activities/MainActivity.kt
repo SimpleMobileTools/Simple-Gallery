@@ -12,7 +12,6 @@ import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.Toast
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
@@ -966,7 +965,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun checkLastMediaChanged() {
-        if (isActivityDestroyed()) {
+        if (isDestroyed) {
             return
         }
 

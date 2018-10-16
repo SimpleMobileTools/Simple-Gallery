@@ -2,7 +2,6 @@ package com.simplemobiletools.gallery.activities
 
 import android.animation.Animator
 import android.animation.ValueAnimator
-import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Intent
@@ -20,13 +19,13 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
-import androidx.viewpager.widget.ViewPager
 import android.util.DisplayMetrics
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.DecelerateInterpolator
+import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
@@ -103,7 +102,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         initFavorites()
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onResume() {
         super.onResume()
         if (!hasPermission(PERMISSION_WRITE_STORAGE)) {
@@ -112,9 +110,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         if (config.bottomActions) {
-            if (isLollipopPlus()) {
-                window.navigationBarColor = Color.TRANSPARENT
-            }
+            window.navigationBarColor = Color.TRANSPARENT
         } else {
             setTranslucentNavigation()
         }
@@ -135,9 +131,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        if (isLollipopPlus()) {
-            window.statusBarColor = Color.TRANSPARENT
-        }
+        window.statusBarColor = Color.TRANSPARENT
     }
 
     override fun onPause() {
@@ -225,7 +219,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         supportActionBar?.title = mPath.getFilenameFromPath()
 
         view_pager.onGlobalLayout {
-            if (!isActivityDestroyed()) {
+            if (!isDestroyed) {
                 if (mMediaFiles.isNotEmpty()) {
                     gotMedia(mMediaFiles as ArrayList<ThumbnailItem>)
                 }
@@ -365,7 +359,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun updatePagerItems(media: MutableList<Medium>) {
         val pagerAdapter = MyPagerAdapter(this, supportFragmentManager, media)
-        if (!isActivityDestroyed()) {
+        if (!isDestroyed) {
             view_pager.apply {
                 adapter = pagerAdapter
                 currentItem = mPos
@@ -384,7 +378,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun startSlideshow() {
         if (getMediaForSlideshow()) {
             view_pager.onGlobalLayout {
-                if (!isActivityDestroyed()) {
+                if (!isDestroyed) {
                     hideSystemUI(true)
                     mSlideshowInterval = config.slideshowInterval
                     mSlideshowMoveBackwards = config.slideshowMoveBackwards
@@ -474,7 +468,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (mIsSlideshowActive) {
             if (getCurrentMedium()!!.isImage() || getCurrentMedium()!!.isGIF()) {
                 mSlideshowHandler.postDelayed({
-                    if (mIsSlideshowActive && !isActivityDestroyed()) {
+                    if (mIsSlideshowActive && !isDestroyed) {
                         swipeToNextMedium()
                     }
                 }, mSlideshowInterval * 1000L)
@@ -980,18 +974,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         initBottomActionsLayout()
     }
 
-    @SuppressLint("NewApi")
     private fun measureScreen() {
         val metrics = DisplayMetrics()
-        if (isJellyBean1Plus()) {
-            windowManager.defaultDisplay.getRealMetrics(metrics)
-            screenWidth = metrics.widthPixels
-            screenHeight = metrics.heightPixels
-        } else {
-            windowManager.defaultDisplay.getMetrics(metrics)
-            screenWidth = metrics.widthPixels
-            screenHeight = metrics.heightPixels
-        }
+        windowManager.defaultDisplay.getRealMetrics(metrics)
+        screenWidth = metrics.widthPixels
+        screenHeight = metrics.heightPixels
     }
 
     private fun refreshViewPager() {

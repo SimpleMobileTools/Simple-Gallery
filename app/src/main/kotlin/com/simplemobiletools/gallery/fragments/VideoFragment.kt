@@ -1,13 +1,11 @@
 package com.simplemobiletools.gallery.fragments
 
-import android.annotation.TargetApi
 import android.content.res.Configuration
 import android.graphics.Point
 import android.graphics.SurfaceTexture
 import android.media.AudioManager
 import android.media.MediaMetadataRetriever
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.util.DisplayMetrics
@@ -28,7 +26,6 @@ import com.google.android.exoplayer2.upstream.DataSpec
 import com.google.android.exoplayer2.upstream.FileDataSource
 import com.google.android.exoplayer2.video.VideoListener
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.isJellyBean1Plus
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.VideoActivity
 import com.simplemobiletools.gallery.extensions.*
@@ -312,27 +309,21 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     }
 
     private fun hasNavBar(): Boolean {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            val display = context!!.windowManager.defaultDisplay
+        val display = context!!.windowManager.defaultDisplay
 
-            val realDisplayMetrics = DisplayMetrics()
-            display.getRealMetrics(realDisplayMetrics)
+        val realDisplayMetrics = DisplayMetrics()
+        display.getRealMetrics(realDisplayMetrics)
 
-            val realHeight = realDisplayMetrics.heightPixels
-            val realWidth = realDisplayMetrics.widthPixels
+        val realHeight = realDisplayMetrics.heightPixels
+        val realWidth = realDisplayMetrics.widthPixels
 
-            val displayMetrics = DisplayMetrics()
-            display.getMetrics(displayMetrics)
+        val displayMetrics = DisplayMetrics()
+        display.getMetrics(displayMetrics)
 
-            val displayHeight = displayMetrics.heightPixels
-            val displayWidth = displayMetrics.widthPixels
+        val displayHeight = displayMetrics.heightPixels
+        val displayWidth = displayMetrics.widthPixels
 
-            realWidth - displayWidth > 0 || realHeight - displayHeight > 0
-        } else {
-            val hasMenuKey = ViewConfiguration.get(context).hasPermanentMenuKey()
-            val hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK)
-            !hasMenuKey && !hasBackKey
-        }
+        return realWidth - displayWidth > 0 || realHeight - displayHeight > 0
     }
 
     private fun setupTimeHolder() {
@@ -514,7 +505,6 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }.start()
     }
 
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private fun setVideoSize() {
         if (activity == null || mTextureView == null)
             return
@@ -524,15 +514,10 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         val screenWidth: Int
         val screenHeight: Int
 
-        if (isJellyBean1Plus()) {
-            val realMetrics = DisplayMetrics()
-            display.getRealMetrics(realMetrics)
-            screenWidth = realMetrics.widthPixels
-            screenHeight = realMetrics.heightPixels
-        } else {
-            screenWidth = display.width
-            screenHeight = display.height
-        }
+        val realMetrics = DisplayMetrics()
+        display.getRealMetrics(realMetrics)
+        screenWidth = realMetrics.widthPixels
+        screenHeight = realMetrics.heightPixels
 
         val screenProportion = screenWidth.toFloat() / screenHeight.toFloat()
 
