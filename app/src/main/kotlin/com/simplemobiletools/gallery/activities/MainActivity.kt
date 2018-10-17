@@ -885,7 +885,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         } catch (e: Exception) {
             config.everShownFolders = HashSet()
         }
-        mDirs = dirs
+        mDirs = dirs.clone() as ArrayList<Directory>
     }
 
     private fun checkPlaceholderVisibility(dirs: ArrayList<Directory>) {
