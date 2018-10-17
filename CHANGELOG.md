@@ -1,6 +1,16 @@
 Changelog
 ==========
 
+Version 5.0.0 *(2018-10-17)*
+----------------------------
+
+ * Increased the minimal required Android OS version to 5 (Lollipop)
+ * Rewrote file selection for more robustness
+ * Added a new option for showing the Recycle Bin as the last folder
+ * Added Search for searching folders by names
+ * Replaced the G+ button with Reddit
+ * Couple smaller glitch fixes and improvements
+
 Version 4.6.5 *(2018-10-02)*
 ----------------------------
 
