@@ -992,7 +992,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             config.lastBinCheck = System.currentTimeMillis()
             Handler().postDelayed({
                 Thread {
-                    mMediumDao.deleteOldRecycleBinItems(System.currentTimeMillis() - MONTH_MILLISECONDS)
+                    try {
+                        mMediumDao.deleteOldRecycleBinItems(System.currentTimeMillis() - MONTH_MILLISECONDS)
+                    } catch (e: Exception) {
+                    }
                 }.start()
             }, 3000L)
         }
