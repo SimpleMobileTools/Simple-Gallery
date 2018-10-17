@@ -1,7 +1,9 @@
 package com.simplemobiletools.gallery.activities
 
 import android.app.Activity
+import android.app.SearchManager
 import android.content.ClipData
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -12,6 +14,8 @@ import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
+import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
@@ -60,11 +64,14 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mIsPasswordProtectionPending = false
     private var mWasProtectionHandled = false
     private var mShouldStopFetching = false
+    private var mIsSearchOpen = false
     private var mLatestMediaId = 0L
     private var mLatestMediaDateId = 0L
     private var mLastMediaHandler = Handler()
     private var mTempShowHiddenHandler = Handler()
     private var mZoomListener: MyRecyclerView.MyZoomListener? = null
+    private var mSearchMenuItem: MenuItem? = null
+    private var mDirs = ArrayList<Directory>()
 
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
@@ -213,6 +220,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     override fun onStop() {
         super.onStop()
+        mSearchMenuItem?.collapseActionView()
+
         if (config.temporarilyShowHidden || config.tempSkipDeleteConfirmation) {
             mTempShowHiddenHandler.postDelayed({
                 config.temporarilyShowHidden = false
@@ -244,8 +253,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 findItem(R.id.reduce_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt > 1
             }
         }
+
         menu.findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden
         menu.findItem(R.id.stop_showing_hidden).isVisible = config.temporarilyShowHidden
+        setupSearch(menu)
         return true
     }
 
@@ -290,6 +301,55 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             mStoredTextColor = textColor
             mStoredPrimaryColor = primaryColor
         }
+    }
+
+    private fun setupSearch(menu: Menu) {
+        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        mSearchMenuItem = menu.findItem(R.id.search)
+        (mSearchMenuItem?.actionView as? SearchView)?.apply {
+            setSearchableInfo(searchManager.getSearchableInfo(componentName))
+            isSubmitButtonEnabled = false
+            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String) = false
+
+                override fun onQueryTextChange(newText: String): Boolean {
+                    if (mIsSearchOpen) {
+                        searchQueryChanged(newText)
+                    }
+                    return true
+                }
+            })
+        }
+
+        MenuItemCompat.setOnActionExpandListener(mSearchMenuItem, object : MenuItemCompat.OnActionExpandListener {
+            override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
+                mIsSearchOpen = true
+                directories_refresh_layout.isEnabled = false
+                return true
+            }
+
+            // this triggers on device rotation too, avoid doing anything
+            override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
+                if (mIsSearchOpen) {
+                    mIsSearchOpen = false
+                    directories_refresh_layout.isEnabled = config.enablePullToRefresh
+                    searchQueryChanged("")
+                }
+                return true
+            }
+        })
+    }
+
+    private fun searchQueryChanged(text: String) {
+        Thread {
+            val filtered = getUniqueSortedDirs(mDirs).filter { it.name.contains(text, true) } as ArrayList
+            filtered.sortBy { !it.name.startsWith(text, true) }
+
+            runOnUiThread {
+                getRecyclerAdapter()?.updateDirs(filtered)
+                measureRecyclerViewContent(filtered)
+            }
+        }.start()
     }
 
     private fun removeTempFolder() {
@@ -824,6 +884,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         } catch (e: Exception) {
             config.everShownFolders = HashSet()
         }
+        mDirs = dirs
     }
 
     private fun checkPlaceholderVisibility(dirs: ArrayList<Directory>) {
@@ -833,12 +894,15 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun showSortedDirs(dirs: ArrayList<Directory>) {
-        var sortedDirs = dirs.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>
-        sortedDirs = getSortedDirectories(sortedDirs)
-
+        val updatedDirs = getUniqueSortedDirs(dirs)
         runOnUiThread {
-            (directories_grid.adapter as? DirectoryAdapter)?.updateDirs(sortedDirs)
+            (directories_grid.adapter as? DirectoryAdapter)?.updateDirs(updatedDirs)
         }
+    }
+
+    private fun getUniqueSortedDirs(dirs: ArrayList<Directory>): ArrayList<Directory> {
+        val sortedDirs = dirs.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>
+        return getSortedDirectories(sortedDirs)
     }
 
     private fun createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, albumCovers: ArrayList<AlbumCover>, hiddenString: String,
@@ -884,7 +948,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 directories_grid.adapter = this
             }
         } else {
-            (currAdapter as DirectoryAdapter).updateDirs(dirs)
+            showSortedDirs(dirs)
         }
 
         getRecyclerAdapter()?.dirs?.apply {
