@@ -123,6 +123,14 @@ fun Context.movePinnedDirectoriesToFront(dirs: ArrayList<Directory>): ArrayList<
             dirs.add(0, newFolder)
         }
     }
+
+    if (config.useRecycleBin && config.showRecycleBinAtFolders && config.showRecycleBinLast) {
+        val binIndex = dirs.indexOfFirst { it.isRecycleBin() }
+        if (binIndex != -1) {
+            val bin = dirs.removeAt(binIndex)
+            dirs.add(bin)
+        }
+    }
     return dirs
 }
 
@@ -334,7 +342,7 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
             ArrayList<Directory>()
         }
 
-        if (!config.showRecycleBinAtFolders) {
+        if (!config.showRecycleBinAtFolders || !config.useRecycleBin) {
             directories.removeAll { it.isRecycleBin() }
         }
 

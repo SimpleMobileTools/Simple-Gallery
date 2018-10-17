@@ -89,6 +89,9 @@ class Config(context: Context) : BaseConfig(context) {
         val currPinnedFolders = HashSet<String>(pinnedFolders)
         currPinnedFolders.addAll(paths)
         pinnedFolders = currPinnedFolders
+        if (paths.contains(RECYCLE_BIN)) {
+            showRecycleBinLast = false
+        }
     }
 
     fun removePinnedFolders(paths: Set<String>) {
@@ -392,4 +395,8 @@ class Config(context: Context) : BaseConfig(context) {
     var showHighestQuality: Boolean
         get() = prefs.getBoolean(SHOW_HIGHEST_QUALITY, false)
         set(showHighestQuality) = prefs.edit().putBoolean(SHOW_HIGHEST_QUALITY, showHighestQuality).apply()
+
+    var showRecycleBinLast: Boolean
+        get() = prefs.getBoolean(SHOW_RECYCLE_BIN_LAST, false)
+        set(showRecycleBinLast) = prefs.edit().putBoolean(SHOW_RECYCLE_BIN_LAST, showRecycleBinLast).apply()
 }
