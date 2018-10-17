@@ -833,8 +833,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun showSortedDirs(dirs: ArrayList<Directory>) {
-        var sortedDirs = getSortedDirectories(dirs)
-        sortedDirs = sortedDirs.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>
+        var sortedDirs = dirs.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>
+        sortedDirs = getSortedDirectories(sortedDirs)
 
         runOnUiThread {
             (directories_grid.adapter as? DirectoryAdapter)?.updateDirs(sortedDirs)
