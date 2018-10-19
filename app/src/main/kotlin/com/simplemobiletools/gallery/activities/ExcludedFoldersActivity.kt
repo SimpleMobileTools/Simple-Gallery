@@ -20,7 +20,7 @@ class ExcludedFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
 
     private fun updateFolders() {
         val folders = ArrayList<String>()
-        config.excludedFolders.mapTo(folders, { it })
+        config.excludedFolders.mapTo(folders) { it }
         manage_folders_placeholder.apply {
             text = getString(R.string.excluded_activity_placeholder)
             beVisibleIf(folders.isEmpty())
@@ -49,7 +49,7 @@ class ExcludedFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
     }
 
     private fun addFolder() {
-        FilePickerDialog(this, config.lastFilepickerPath, false, config.shouldShowHidden) {
+        FilePickerDialog(this, config.lastFilepickerPath, false, config.shouldShowHidden, false, true) {
             config.lastFilepickerPath = it
             config.addExcludedFolder(it)
             updateFolders()

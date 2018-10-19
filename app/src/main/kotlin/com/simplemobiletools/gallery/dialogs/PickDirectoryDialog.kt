@@ -21,6 +21,7 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
     var shownDirectories = ArrayList<Directory>()
     var view = activity.layoutInflater.inflate(R.layout.dialog_directory_picker, null)
     var isGridViewType = activity.config.viewTypeFolders == VIEW_TYPE_GRID
+    var showHidden = activity.config.shouldShowHidden
 
     init {
         (view.directories_grid.layoutManager as MyGridLayoutManager).apply {
@@ -38,6 +39,7 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
                         view.directories_show_hidden.setOnClickListener {
                             activity.handleHiddenFolderPasswordProtection {
                                 view.directories_show_hidden.beGone()
+                                showHidden = true
                                 fetchDirectories(true)
                             }
                         }
@@ -58,8 +60,7 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
     }
 
     private fun showOtherFolder() {
-        val showHidden = activity.config.shouldShowHidden
-        FilePickerDialog(activity, sourcePath, false, showHidden, true) {
+        FilePickerDialog(activity, sourcePath, false, showHidden, true, true) {
             callback(it)
         }
     }
