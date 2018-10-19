@@ -112,7 +112,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
 
         mExoPlayer = ExoPlayerFactory.newSimpleInstance(context, DefaultTrackSelector())
-        mExoPlayer!!.setSeekParameters(SeekParameters.CLOSEST_SYNC)
+        mExoPlayer!!.seekParameters = SeekParameters.CLOSEST_SYNC
         initExoPlayerListeners()
 
         medium.path.getVideoResolution()?.apply {

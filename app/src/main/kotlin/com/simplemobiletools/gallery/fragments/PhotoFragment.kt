@@ -33,7 +33,10 @@ import com.simplemobiletools.gallery.activities.PanoramaActivity
 import com.simplemobiletools.gallery.activities.PhotoActivity
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.*
-import com.simplemobiletools.gallery.helpers.*
+import com.simplemobiletools.gallery.helpers.MEDIUM
+import com.simplemobiletools.gallery.helpers.PATH
+import com.simplemobiletools.gallery.helpers.PicassoDecoder
+import com.simplemobiletools.gallery.helpers.PicassoRegionDecoder
 import com.simplemobiletools.gallery.models.Medium
 import com.simplemobiletools.gallery.svg.SvgSoftwareLayerSetter
 import com.squareup.picasso.Callback
@@ -216,10 +219,7 @@ class PhotoFragment : ViewPagerFragment() {
         if (isVisible) {
             scheduleZoomableView()
         } else {
-            isSubsamplingVisible = false
-            view.subsampling_view.recycle()
-            view.subsampling_view.beGone()
-            loadZoomableViewHandler.removeCallbacksAndMessages(null)
+            hideZoomableView()
         }
     }
 
@@ -370,7 +370,7 @@ class PhotoFragment : ViewPagerFragment() {
             maxScale = 10f
             beVisible()
             isQuickScaleEnabled = context.config.oneFingerZoom
-            setResetScaleOnSizeChange(context.config.screenRotation != ROTATE_BY_ASPECT_RATIO)
+            setResetScaleOnSizeChange(false)
             setImage(ImageSource.uri(path))
             orientation = rotation
             setEagerLoadingEnabled(false)
@@ -521,10 +521,20 @@ class PhotoFragment : ViewPagerFragment() {
                 }, 50)
             }
         } else {
+            hideZoomableView()
             loadImage()
         }
 
         initExtendedDetails()
+    }
+
+    private fun hideZoomableView() {
+        if (context?.config?.allowZoomingImages == true) {
+            isSubsamplingVisible = false
+            view.subsampling_view.recycle()
+            view.subsampling_view.beGone()
+            loadZoomableViewHandler.removeCallbacksAndMessages(null)
+        }
     }
 
     private fun photoClicked() {
