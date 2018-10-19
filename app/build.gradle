@@ -70,7 +70,7 @@ dependencies {
     implementation 'com.github.tibbi:subsampling-scale-image-view:v3.10.1-fork'
 
     // implementation 'com.github.chrisbanes:PhotoView:2.1.4'
-    implementation 'com.github.tibbi:PhotoView:2.2.0-fork'
+    implementation 'com.github.tibbi:PhotoView:2.2.1-fork'
 }
 
 Properties props = new Properties()
