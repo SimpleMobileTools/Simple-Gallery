@@ -748,6 +748,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         // if hidden item showing is disabled but all Favorite items are hidden, hide the Favorites folder
         mIsGettingDirs = false
         mShouldStopFetching = false
+
         if (!config.shouldShowHidden) {
             val favoritesFolder = newDirs.firstOrNull { it.areFavorites() }
             if (favoritesFolder != null && favoritesFolder.tmb.getFilenameFromPath().startsWith('.')) {
@@ -774,9 +775,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val hiddenString = getString(R.string.hidden)
         val albumCovers = config.parseAlbumCovers()
         val includedFolders = config.includedFolders
+        val tempFolderPath = config.tempFolderPath
         val isSortingAscending = config.directorySorting and SORT_DESCENDING == 0
         val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0
         val favoritePaths = getFavoritePaths()
+        val dirPathsToRemove = ArrayList<String>()
 
         try {
             for (directory in dirs) {
@@ -786,6 +789,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
                 val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, favoritePaths)
                 val newDir = if (curMedia.isEmpty()) {
+                    if (directory.path != tempFolderPath) {
+                        dirPathsToRemove.add(directory.path)
+                    }
                     directory
                 } else {
                     createDirectoryFromMedia(directory.path, curMedia, albumCovers, hiddenString, includedFolders, isSortingAscending)
@@ -825,6 +831,15 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 }
             }
         } catch (ignored: Exception) {
+        }
+
+        if (dirPathsToRemove.isNotEmpty()) {
+            val dirsToRemove = dirs.filter { dirPathsToRemove.contains(it.path) }
+            dirsToRemove.forEach {
+                mDirectoryDao.deleteDirPath(it.path)
+            }
+            dirs.removeAll(dirsToRemove)
+            showSortedDirs(dirs)
         }
 
         val foldersToScan = mediaFetcher.getFoldersToScan()
