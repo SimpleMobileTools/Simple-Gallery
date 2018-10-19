@@ -4,10 +4,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
-import com.simplemobiletools.commons.extensions.beGoneIf
-import com.simplemobiletools.commons.extensions.beVisibleIf
-import com.simplemobiletools.commons.extensions.setupDialogStuff
-import com.simplemobiletools.commons.extensions.toast
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.adapters.DirectoryAdapter
@@ -36,10 +33,22 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
                 .setNegativeButton(R.string.cancel, null)
                 .setNeutralButton(R.string.other_folder) { dialogInterface, i -> showOtherFolder() }
                 .create().apply {
-                    activity.setupDialogStuff(view, this, R.string.select_destination)
+                    activity.setupDialogStuff(view, this, R.string.select_destination) {
+                        view.directories_show_hidden.beVisibleIf(!context.config.shouldShowHidden)
+                        view.directories_show_hidden.setOnClickListener {
+                            activity.handleHiddenFolderPasswordProtection {
+                                view.directories_show_hidden.beGone()
+                                fetchDirectories(true)
+                            }
+                        }
+                    }
                 }
 
-        activity.getCachedDirectories {
+        fetchDirectories(false)
+    }
+
+    private fun fetchDirectories(forceShowHidden: Boolean) {
+        activity.getCachedDirectories(forceShowHidden = forceShowHidden) {
             if (it.isNotEmpty()) {
                 activity.runOnUiThread {
                     gotDirectories(activity.addTempFolderIfNeeded(it))

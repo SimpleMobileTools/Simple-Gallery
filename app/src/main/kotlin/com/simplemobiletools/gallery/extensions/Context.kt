@@ -334,7 +334,7 @@ fun Context.loadSVG(path: String, target: MySquareImageView, cropThumbnails: Boo
             .into(target)
 }
 
-fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, directoryDao: DirectoryDao = galleryDB.DirectoryDao(), callback: (ArrayList<Directory>) -> Unit) {
+fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, directoryDao: DirectoryDao = galleryDB.DirectoryDao(), forceShowHidden: Boolean = false, callback: (ArrayList<Directory>) -> Unit) {
     Thread {
         val directories = try {
             directoryDao.getAll() as ArrayList<Directory>
@@ -346,7 +346,7 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
             directories.removeAll { it.isRecycleBin() }
         }
 
-        val shouldShowHidden = config.shouldShowHidden
+        val shouldShowHidden = config.shouldShowHidden || forceShowHidden
         val excludedPaths = config.excludedFolders
         val includedPaths = config.includedFolders
         var filteredDirectories = directories.filter { it.path.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden) } as ArrayList<Directory>
