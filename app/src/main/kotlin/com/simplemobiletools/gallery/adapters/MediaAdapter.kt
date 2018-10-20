@@ -103,14 +103,20 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     }
 
     override fun prepareActionMode(menu: Menu) {
+        val selectedItems = getSelectedItems()
+        if (selectedItems.isEmpty()) {
+            return
+        }
+
+        val selectedPaths = selectedItems.map { it.path } as ArrayList<String>
         menu.apply {
-            findItem(R.id.cab_rename).isVisible = isOneItemSelected() && getSelectedItems().firstOrNull()?.getIsInRecycleBin() == false
+            findItem(R.id.cab_rename).isVisible = isOneItemSelected() && selectedItems.firstOrNull()?.getIsInRecycleBin() == false
             findItem(R.id.cab_open_with).isVisible = isOneItemSelected()
             findItem(R.id.cab_confirm_selection).isVisible = isAGetIntent && allowMultiplePicks && selectedKeys.size > 0
-            findItem(R.id.cab_restore_recycle_bin_files).isVisible = getSelectedPaths().all { it.startsWith(activity.filesDir.absolutePath) }
+            findItem(R.id.cab_restore_recycle_bin_files).isVisible = selectedPaths.all { it.startsWith(activity.filesDir.absolutePath) }
 
-            checkHideBtnVisibility(this)
-            checkFavoriteBtnVisibility(this)
+            checkHideBtnVisibility(this, selectedItems)
+            checkFavoriteBtnVisibility(this, selectedItems)
         }
     }
 
@@ -152,8 +158,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         super.onViewRecycled(holder)
         if (!activity.isDestroyed) {
             val itemView = holder.itemView
-            visibleItemPaths.remove(itemView?.photo_name?.tag)
-            val tmb = itemView?.medium_thumbnail
+            visibleItemPaths.remove(itemView.photo_name?.tag)
+            val tmb = itemView.medium_thumbnail
             if (tmb != null) {
                 Glide.with(activity).clear(tmb)
             }
@@ -162,10 +168,10 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
     fun isASectionTitle(position: Int) = media.getOrNull(position) is ThumbnailSection
 
-    private fun checkHideBtnVisibility(menu: Menu) {
+    private fun checkHideBtnVisibility(menu: Menu, selectedItems: ArrayList<Medium>) {
         var hiddenCnt = 0
         var unhiddenCnt = 0
-        getSelectedItems().forEach {
+        selectedItems.forEach {
             if (it.isHidden()) {
                 hiddenCnt++
             } else {
@@ -173,15 +179,15 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             }
         }
 
-        val isInRecycleBin = getSelectedItems().firstOrNull()?.getIsInRecycleBin() == true
+        val isInRecycleBin = selectedItems.firstOrNull()?.getIsInRecycleBin() == true
         menu.findItem(R.id.cab_hide).isVisible = unhiddenCnt > 0 && !isInRecycleBin
         menu.findItem(R.id.cab_unhide).isVisible = hiddenCnt > 0 && !isInRecycleBin
     }
 
-    private fun checkFavoriteBtnVisibility(menu: Menu) {
+    private fun checkFavoriteBtnVisibility(menu: Menu, selectedItems: ArrayList<Medium>) {
         var favoriteCnt = 0
         var nonFavoriteCnt = 0
-        getSelectedItems().forEach {
+        selectedItems.forEach {
             if (it.isFavorite) {
                 favoriteCnt++
             } else {

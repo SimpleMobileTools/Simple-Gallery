@@ -61,11 +61,11 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     override fun getItemCount() = dirs.size
 
     override fun prepareActionMode(menu: Menu) {
-        if (getSelectedPaths().isEmpty()) {
+        val selectedPaths = getSelectedPaths()
+        if (selectedPaths.isEmpty()) {
             return
         }
 
-        val selectedPaths = getSelectedPaths()
         menu.apply {
             findItem(R.id.cab_rename).isVisible = isOneItemSelected() && !selectedPaths.contains(FAVORITES) && !selectedPaths.contains(RECYCLE_BIN)
             findItem(R.id.cab_change_cover_image).isVisible = isOneItemSelected()
@@ -73,8 +73,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             findItem(R.id.cab_empty_recycle_bin).isVisible = isOneItemSelected() && selectedPaths.first() == RECYCLE_BIN
             findItem(R.id.cab_empty_disable_recycle_bin).isVisible = isOneItemSelected() && selectedPaths.first() == RECYCLE_BIN
 
-            checkHideBtnVisibility(this)
-            checkPinBtnVisibility(this)
+            checkHideBtnVisibility(this, selectedPaths)
+            checkPinBtnVisibility(this, selectedPaths)
         }
     }
 
@@ -117,10 +117,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         }
     }
 
-    private fun checkHideBtnVisibility(menu: Menu) {
+    private fun checkHideBtnVisibility(menu: Menu, selectedPaths: ArrayList<String>) {
         var hiddenCnt = 0
         var unhiddenCnt = 0
-        getSelectedPaths().forEach {
+        selectedPaths.forEach {
             if (File(it).doesThisOrParentHaveNoMedia()) {
                 hiddenCnt++
             } else {
@@ -132,11 +132,11 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         menu.findItem(R.id.cab_unhide).isVisible = hiddenCnt > 0
     }
 
-    private fun checkPinBtnVisibility(menu: Menu) {
+    private fun checkPinBtnVisibility(menu: Menu, selectedPaths: ArrayList<String>) {
         val pinnedFolders = config.pinnedFolders
         var pinnedCnt = 0
         var unpinnedCnt = 0
-        getSelectedPaths().forEach {
+        selectedPaths.forEach {
             if (pinnedFolders.contains(it)) {
                 pinnedCnt++
             } else {
