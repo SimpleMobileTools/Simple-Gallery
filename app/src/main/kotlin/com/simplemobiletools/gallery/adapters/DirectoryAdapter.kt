@@ -66,12 +66,13 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             return
         }
 
+        val isOneItemSelected = isOneItemSelected()
         menu.apply {
-            findItem(R.id.cab_rename).isVisible = isOneItemSelected() && !selectedPaths.contains(FAVORITES) && !selectedPaths.contains(RECYCLE_BIN)
-            findItem(R.id.cab_change_cover_image).isVisible = isOneItemSelected()
+            findItem(R.id.cab_rename).isVisible = isOneItemSelected && !selectedPaths.contains(FAVORITES) && !selectedPaths.contains(RECYCLE_BIN)
+            findItem(R.id.cab_change_cover_image).isVisible = isOneItemSelected
 
-            findItem(R.id.cab_empty_recycle_bin).isVisible = isOneItemSelected() && selectedPaths.first() == RECYCLE_BIN
-            findItem(R.id.cab_empty_disable_recycle_bin).isVisible = isOneItemSelected() && selectedPaths.first() == RECYCLE_BIN
+            findItem(R.id.cab_empty_recycle_bin).isVisible = isOneItemSelected && selectedPaths.first() == RECYCLE_BIN
+            findItem(R.id.cab_empty_disable_recycle_bin).isVisible = isOneItemSelected && selectedPaths.first() == RECYCLE_BIN
 
             checkHideBtnVisibility(this, selectedPaths)
             checkPinBtnVisibility(this, selectedPaths)

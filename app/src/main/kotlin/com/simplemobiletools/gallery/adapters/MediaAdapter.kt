@@ -108,10 +108,11 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             return
         }
 
+        val isOneItemSelected = isOneItemSelected()
         val selectedPaths = selectedItems.map { it.path } as ArrayList<String>
         menu.apply {
-            findItem(R.id.cab_rename).isVisible = isOneItemSelected() && selectedItems.firstOrNull()?.getIsInRecycleBin() == false
-            findItem(R.id.cab_open_with).isVisible = isOneItemSelected()
+            findItem(R.id.cab_rename).isVisible = isOneItemSelected && selectedItems.firstOrNull()?.getIsInRecycleBin() == false
+            findItem(R.id.cab_open_with).isVisible = isOneItemSelected
             findItem(R.id.cab_confirm_selection).isVisible = isAGetIntent && allowMultiplePicks && selectedKeys.size > 0
             findItem(R.id.cab_restore_recycle_bin_files).isVisible = selectedPaths.all { it.startsWith(activity.filesDir.absolutePath) }
 
