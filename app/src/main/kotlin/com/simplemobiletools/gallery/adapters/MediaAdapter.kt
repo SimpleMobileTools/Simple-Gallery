@@ -113,7 +113,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         menu.apply {
             findItem(R.id.cab_rename).isVisible = isOneItemSelected && selectedItems.firstOrNull()?.getIsInRecycleBin() == false
             findItem(R.id.cab_open_with).isVisible = isOneItemSelected
-            findItem(R.id.cab_confirm_selection).isVisible = isAGetIntent && allowMultiplePicks && selectedKeys.size > 0
+            findItem(R.id.cab_confirm_selection).isVisible = isAGetIntent && allowMultiplePicks && selectedKeys.isNotEmpty()
             findItem(R.id.cab_restore_recycle_bin_files).isVisible = selectedPaths.all { it.startsWith(activity.filesDir.absolutePath) }
 
             checkHideBtnVisibility(this, selectedItems)
@@ -170,34 +170,14 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     fun isASectionTitle(position: Int) = media.getOrNull(position) is ThumbnailSection
 
     private fun checkHideBtnVisibility(menu: Menu, selectedItems: ArrayList<Medium>) {
-        var hiddenCnt = 0
-        var unhiddenCnt = 0
-        selectedItems.forEach {
-            if (it.isHidden()) {
-                hiddenCnt++
-            } else {
-                unhiddenCnt++
-            }
-        }
-
         val isInRecycleBin = selectedItems.firstOrNull()?.getIsInRecycleBin() == true
-        menu.findItem(R.id.cab_hide).isVisible = unhiddenCnt > 0 && !isInRecycleBin
-        menu.findItem(R.id.cab_unhide).isVisible = hiddenCnt > 0 && !isInRecycleBin
+        menu.findItem(R.id.cab_hide).isVisible = !isInRecycleBin && selectedItems.any { !it.isHidden() }
+        menu.findItem(R.id.cab_unhide).isVisible = !isInRecycleBin && selectedItems.any { it.isHidden() }
     }
 
     private fun checkFavoriteBtnVisibility(menu: Menu, selectedItems: ArrayList<Medium>) {
-        var favoriteCnt = 0
-        var nonFavoriteCnt = 0
-        selectedItems.forEach {
-            if (it.isFavorite) {
-                favoriteCnt++
-            } else {
-                nonFavoriteCnt++
-            }
-        }
-
-        menu.findItem(R.id.cab_add_to_favorites).isVisible = nonFavoriteCnt > 0
-        menu.findItem(R.id.cab_remove_from_favorites).isVisible = favoriteCnt > 0
+        menu.findItem(R.id.cab_add_to_favorites).isVisible = selectedItems.any { !it.isFavorite }
+        menu.findItem(R.id.cab_remove_from_favorites).isVisible = selectedItems.any { it.isFavorite }
     }
 
     private fun confirmSelection() {
