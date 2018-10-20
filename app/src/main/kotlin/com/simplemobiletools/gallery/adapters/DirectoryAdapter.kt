@@ -317,10 +317,9 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             config.removePinnedFolders(getSelectedPaths().toHashSet())
         }
 
+        currentDirectoriesHash = 0
         pinnedFolders = config.pinnedFolders
         listener?.recheckPinnedFolders()
-        notifyDataSetChanged()
-        finishActMode()
     }
 
     private fun copyMoveTo(isCopyOperation: Boolean) {
