@@ -91,52 +91,5 @@
         android:visibility="gone"
         tools:text="My video\nAnother line"/>
 
-    <RelativeLayout
-        android:id="@+id/video_time_holder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
-
-        <TextView
-            android:id="@+id/video_curr_time"
-            style="@style/MyBorderlessBackgroundStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignTop="@+id/video_seekbar"
-            android:layout_alignBottom="@+id/video_seekbar"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:gravity="center_vertical"
-            android:paddingLeft="@dimen/activity_margin"
-            android:paddingRight="@dimen/activity_margin"
-            android:textColor="@android:color/white"
-            tools:text="00:00"/>
-
-        <com.simplemobiletools.commons.views.MySeekBar
-            android:id="@+id/video_seekbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_toStartOf="@+id/video_duration"
-            android:layout_toLeftOf="@+id/video_duration"
-            android:layout_toEndOf="@+id/video_curr_time"
-            android:layout_toRightOf="@+id/video_curr_time"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingBottom="@dimen/activity_margin"/>
-
-        <TextView
-            android:id="@+id/video_duration"
-            style="@style/MyBorderlessBackgroundStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/video_seekbar"
-            android:layout_alignBottom="@+id/video_seekbar"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:gravity="center_vertical"
-            android:paddingLeft="@dimen/activity_margin"
-            android:paddingRight="@dimen/activity_margin"
-            android:textColor="@android:color/white"
-            tools:text="00:00"/>
-
-    </RelativeLayout>
+    <include layout="@layout/bottom_video_time_holder"/>
 </RelativeLayout>
