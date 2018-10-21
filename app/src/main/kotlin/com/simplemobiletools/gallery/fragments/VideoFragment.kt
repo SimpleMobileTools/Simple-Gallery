@@ -85,6 +85,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             mTimeHolder = video_time_holder
             mBrightnessSideScroll = video_brightness_controller
             mVolumeSideScroll = video_volume_controller
+            mCurrTimeView = video_curr_time
         }
 
         storeStateVariables()
@@ -317,7 +318,6 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
         mTimeHolder.setPadding(left, top, right, bottom)
 
-        mCurrTimeView = mView!!.video_curr_time
         mSeekBar = mView!!.video_seekbar
         mSeekBar!!.setOnSeekBarChangeListener(this)
         mTimeHolder.beInvisibleIf(mIsFullscreen)
@@ -604,10 +604,10 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         if (mExoPlayer == null)
             return
 
-        if (!mIsPlaying) {
-            togglePlayPause()
-        } else {
+        if (mIsPlaying) {
             mExoPlayer!!.playWhenReady = true
+        } else {
+            togglePlayPause()
         }
 
         mIsDragged = false
