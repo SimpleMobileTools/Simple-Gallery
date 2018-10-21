@@ -20,4 +20,13 @@
         android:padding="@dimen/activity_margin"
         android:src="@drawable/ic_explore"/>
 
+    <ImageView
+        android:id="@+id/video_play_outline"
+        android:layout_width="@dimen/play_outline_size_big"
+        android:layout_height="@dimen/play_outline_size_big"
+        android:layout_centerInParent="true"
+        android:background="@drawable/circle_black_background_with_inset"
+        android:padding="26dp"
+        android:src="@drawable/ic_pause"/>
+
 </RelativeLayout>

@@ -4,6 +4,7 @@ import android.content.res.Configuration
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
@@ -19,7 +20,9 @@ import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.hideSystemUI
 import com.simplemobiletools.gallery.extensions.navigationBarHeight
 import com.simplemobiletools.gallery.extensions.showSystemUI
+import com.simplemobiletools.gallery.helpers.HIDE_PLAY_PAUSE_DELAY
 import com.simplemobiletools.gallery.helpers.PATH
+import com.simplemobiletools.gallery.helpers.PLAY_PAUSE_VISIBLE_ALPHA
 import kotlinx.android.synthetic.main.activity_panorama_video.*
 import java.io.File
 
@@ -27,6 +30,9 @@ open class PanoramaVideoActivity : SimpleActivity() {
     private var isFullScreen = false
     private var isExploreEnabled = true
     private var isRendering = false
+    private var isPlaying = true
+
+    private var mHidePlayPauseHandler = Handler()
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         useDynamicTheme = false
@@ -80,6 +86,10 @@ open class PanoramaVideoActivity : SimpleActivity() {
         if (isRendering) {
             vr_video_view.shutdown()
         }
+
+        if (!isChangingConfigurations) {
+            mHidePlayPauseHandler.removeCallbacksAndMessages(null)
+        }
     }
 
     private fun checkIntent() {
@@ -98,6 +108,7 @@ open class PanoramaVideoActivity : SimpleActivity() {
 
             vr_video_view.apply {
                 loadVideo(Uri.fromFile(File(path)), options)
+                schedulePlayPauseFadeOut()
                 setFlingingEnabled(true)
                 setPureTouchTracking(true)
 
@@ -117,6 +128,10 @@ open class PanoramaVideoActivity : SimpleActivity() {
                     }
                 })
             }
+
+            video_play_outline.setOnClickListener {
+                togglePlayPause()
+            }
         } catch (e: Exception) {
             showErrorToast(e)
         }
@@ -130,6 +145,37 @@ open class PanoramaVideoActivity : SimpleActivity() {
     override fun onConfigurationChanged(newConfig: Configuration?) {
         super.onConfigurationChanged(newConfig)
         setupButtonMargins()
+    }
+
+    private fun togglePlayPause() {
+        isPlaying = !isPlaying
+        mHidePlayPauseHandler.removeCallbacksAndMessages(null)
+        video_play_outline.alpha = PLAY_PAUSE_VISIBLE_ALPHA
+        schedulePlayPauseFadeOut()
+        if (isPlaying) {
+            playVideo()
+        } else {
+            pauseVideo()
+        }
+    }
+
+    private fun playVideo() {
+        vr_video_view.playVideo()
+        video_play_outline.setImageResource(R.drawable.ic_pause)
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+    }
+
+    private fun pauseVideo() {
+        vr_video_view.pauseVideo()
+        video_play_outline.setImageResource(R.drawable.ic_play)
+        window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+    }
+
+    private fun schedulePlayPauseFadeOut() {
+        mHidePlayPauseHandler.removeCallbacksAndMessages(null)
+        mHidePlayPauseHandler.postDelayed({
+            video_play_outline.animate().alpha(0f).start()
+        }, HIDE_PLAY_PAUSE_DELAY)
     }
 
     private fun setupButtonMargins() {

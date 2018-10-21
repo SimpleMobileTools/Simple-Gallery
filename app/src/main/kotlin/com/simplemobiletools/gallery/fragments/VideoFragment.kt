@@ -32,6 +32,7 @@ import com.simplemobiletools.gallery.activities.VideoActivity
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
+import kotlinx.android.synthetic.main.activity_panorama_video.*
 import kotlinx.android.synthetic.main.pager_video_item.view.*
 import java.io.File
 
@@ -415,6 +416,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         mIsPlaying = true
         mExoPlayer?.playWhenReady = true
         mView!!.video_play_outline.setImageResource(R.drawable.ic_pause)
+        video_play_outline.alpha = PLAY_PAUSE_VISIBLE_ALPHA
         activity!!.window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         schedulePlayPauseFadeOut()
     }
