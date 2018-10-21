@@ -38,7 +38,6 @@ import java.io.File
 
 class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, SeekBar.OnSeekBarChangeListener {
     private val PROGRESS = "progress"
-    private val MIN_SKIP_LENGTH = 2000
 
     private var mTextureView: TextureView? = null
     private var mCurrTimeView: TextView? = null

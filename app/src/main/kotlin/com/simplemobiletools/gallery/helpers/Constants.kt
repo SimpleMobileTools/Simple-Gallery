@@ -88,6 +88,7 @@ const val DRAG_THRESHOLD = 8
 const val MONTH_MILLISECONDS = MONTH_SECONDS * 1000L
 const val HIDE_PLAY_PAUSE_DELAY = 500L
 const val PLAY_PAUSE_VISIBLE_ALPHA = 0.8f
+const val MIN_SKIP_LENGTH = 2000
 
 const val DIRECTORY = "directory"
 const val MEDIUM = "medium"

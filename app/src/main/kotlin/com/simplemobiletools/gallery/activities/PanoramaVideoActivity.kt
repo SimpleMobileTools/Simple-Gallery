@@ -25,6 +25,7 @@ import com.simplemobiletools.gallery.extensions.hideSystemUI
 import com.simplemobiletools.gallery.extensions.navigationBarHeight
 import com.simplemobiletools.gallery.extensions.showSystemUI
 import com.simplemobiletools.gallery.helpers.HIDE_PLAY_PAUSE_DELAY
+import com.simplemobiletools.gallery.helpers.MIN_SKIP_LENGTH
 import com.simplemobiletools.gallery.helpers.PATH
 import com.simplemobiletools.gallery.helpers.PLAY_PAUSE_VISIBLE_ALPHA
 import kotlinx.android.synthetic.main.activity_panorama_video.*
@@ -112,6 +113,9 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
         }
 
         intent.removeExtra(PATH)
+
+        video_curr_time.setOnClickListener { skip(false) }
+        video_duration.setOnClickListener { skip(true) }
 
         try {
             val options = VrVideoView.Options()
@@ -209,6 +213,7 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
     }
 
     private fun playVideo() {
+        video_play_outline.setImageResource(R.drawable.ic_pause)
         if (mCurrTime == mDuration) {
             setVideoProgress(0)
             mPlayOnReady = true
@@ -216,7 +221,6 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
         }
 
         vr_video_view.playVideo()
-        video_play_outline.setImageResource(R.drawable.ic_pause)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
@@ -283,6 +287,22 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
             hideSystemUI(false)
         } else {
             showSystemUI(false)
+        }
+    }
+
+    private fun skip(forward: Boolean) {
+        if (forward && mCurrTime == mDuration) {
+            return
+        }
+
+        val curr = vr_video_view.currentPosition
+        val twoPercents = Math.max((vr_video_view.duration / 50).toInt(), MIN_SKIP_LENGTH)
+        val newProgress = if (forward) curr + twoPercents else curr - twoPercents
+        val roundProgress = Math.round(newProgress / 1000f)
+        val limitedProgress = Math.max(Math.min(vr_video_view.duration.toInt(), roundProgress), 0)
+        setVideoProgress(limitedProgress)
+        if (!mIsPlaying) {
+            togglePlayPause()
         }
     }
 
