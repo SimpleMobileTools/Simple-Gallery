@@ -9,9 +9,9 @@
 
     <ImageView
         android:id="@+id/bottom_primary_filter"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/normal_margin"
         android:src="@drawable/ic_photo_filter"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,9 +22,9 @@
 
     <ImageView
         android:id="@+id/bottom_primary_crop_rotate"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/normal_margin"
         android:src="@drawable/ic_crop_rotate"
         app:layout_constraintBottom_toBottomOf="parent"

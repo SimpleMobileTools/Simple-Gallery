@@ -9,13 +9,13 @@
 
     <TextView
         android:id="@+id/video_curr_time"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignTop="@+id/video_seekbar"
         android:layout_alignBottom="@+id/video_seekbar"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:gravity="center_vertical"
         android:paddingLeft="@dimen/activity_margin"
         android:paddingRight="@dimen/activity_margin"
@@ -35,13 +35,13 @@
 
     <TextView
         android:id="@+id/video_duration"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/video_seekbar"
         android:layout_alignBottom="@+id/video_seekbar"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:gravity="center_vertical"
         android:paddingLeft="@dimen/activity_margin"
         android:paddingRight="@dimen/activity_margin"

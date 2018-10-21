@@ -9,9 +9,9 @@
 
     <TextView
         android:id="@+id/bottom_aspect_ratio_free"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/activity_margin"
         android:text="@string/free_aspect_ratio"
         android:textAllCaps="true"
@@ -23,9 +23,9 @@
 
     <TextView
         android:id="@+id/bottom_aspect_ratio_one_one"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/activity_margin"
         android:text="1:1"
         android:textColor="@android:color/white"
@@ -36,9 +36,9 @@
 
     <TextView
         android:id="@+id/bottom_aspect_ratio_four_three"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/activity_margin"
         android:text="4:3"
         android:textColor="@android:color/white"
@@ -49,9 +49,9 @@
 
     <TextView
         android:id="@+id/bottom_aspect_ratio_sixteen_nine"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/activity_margin"
         android:text="16:9"
         android:textColor="@android:color/white"

@@ -10,9 +10,9 @@
 
     <ImageView
         android:id="@+id/bottom_set_wallpaper_aspect_ratio"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/normal_margin"
         android:src="@drawable/ic_minimize"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,9 +23,9 @@
 
     <ImageView
         android:id="@+id/bottom_set_wallpaper_rotate"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/normal_margin"
         android:src="@drawable/ic_rotate_right"
         app:layout_constraintBottom_toBottomOf="parent"
