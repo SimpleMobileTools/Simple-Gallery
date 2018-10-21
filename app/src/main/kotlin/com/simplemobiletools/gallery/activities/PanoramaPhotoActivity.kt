@@ -21,7 +21,7 @@ import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.PATH
 import kotlinx.android.synthetic.main.activity_panorama.*
 
-open class PanoramaActivity : SimpleActivity() {
+open class PanoramaPhotoActivity : SimpleActivity() {
     private val CARDBOARD_DISPLAY_MODE = 3
 
     private var isFullScreen = false

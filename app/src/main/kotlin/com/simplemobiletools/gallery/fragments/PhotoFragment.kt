@@ -29,7 +29,7 @@ import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.activities.PanoramaActivity
+import com.simplemobiletools.gallery.activities.PanoramaPhotoActivity
 import com.simplemobiletools.gallery.activities.PhotoActivity
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.*
@@ -341,7 +341,7 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun openPanorama() {
-        Intent(context, PanoramaActivity::class.java).apply {
+        Intent(context, PanoramaPhotoActivity::class.java).apply {
             putExtra(PATH, medium.path)
             startActivity(this)
         }
