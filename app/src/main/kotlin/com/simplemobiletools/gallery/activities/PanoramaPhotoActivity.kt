@@ -24,7 +24,7 @@ import kotlinx.android.synthetic.main.activity_panorama_photo.*
 open class PanoramaPhotoActivity : SimpleActivity() {
     private val CARDBOARD_DISPLAY_MODE = 3
 
-    private var isFullScreen = false
+    private var isFullscreen = false
     private var isExploreEnabled = true
     private var isRendering = false
 
@@ -131,7 +131,7 @@ open class PanoramaPhotoActivity : SimpleActivity() {
         }
 
         window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
-            isFullScreen = visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
+            isFullscreen = visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
             toggleButtonVisibility()
         }
     }
@@ -159,8 +159,9 @@ open class PanoramaPhotoActivity : SimpleActivity() {
     }
 
     private fun setupButtonMargins() {
+        val navBarHeight = navigationBarHeight
         (cardboard.layoutParams as RelativeLayout.LayoutParams).apply {
-            bottomMargin = navigationBarHeight
+            bottomMargin = navBarHeight
             rightMargin = navigationBarWidth
         }
 
@@ -168,17 +169,17 @@ open class PanoramaPhotoActivity : SimpleActivity() {
     }
 
     private fun toggleButtonVisibility() {
-        cardboard.animate().alpha(if (isFullScreen) 0f else 1f)
-        cardboard.isClickable = !isFullScreen
+        cardboard.animate().alpha(if (isFullscreen) 0f else 1f)
+        cardboard.isClickable = !isFullscreen
 
-        explore.animate().alpha(if (isFullScreen) 0f else 1f)
-        explore.isClickable = !isFullScreen
+        explore.animate().alpha(if (isFullscreen) 0f else 1f)
+        explore.isClickable = !isFullscreen
     }
 
     private fun handleClick() {
-        isFullScreen = !isFullScreen
+        isFullscreen = !isFullscreen
         toggleButtonVisibility()
-        if (isFullScreen) {
+        if (isFullscreen) {
             hideSystemUI(false)
         } else {
             showSystemUI(false)

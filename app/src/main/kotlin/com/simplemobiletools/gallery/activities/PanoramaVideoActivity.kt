@@ -20,10 +20,7 @@ import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.isPiePlus
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.extensions.config
-import com.simplemobiletools.gallery.extensions.hideSystemUI
-import com.simplemobiletools.gallery.extensions.navigationBarHeight
-import com.simplemobiletools.gallery.extensions.showSystemUI
+import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.HIDE_PLAY_PAUSE_DELAY
 import com.simplemobiletools.gallery.helpers.MIN_SKIP_LENGTH
 import com.simplemobiletools.gallery.helpers.PATH
@@ -33,6 +30,8 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
 import java.io.File
 
 open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListener {
+    private val CARDBOARD_DISPLAY_MODE = 3
+
     private var mIsFullscreen = false
     private var mIsExploreEnabled = true
     private var mIsRendering = false
@@ -58,6 +57,10 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
         }
 
         setupButtonMargins()
+
+        cardboard.setOnClickListener {
+            vr_video_view.displayMode = CARDBOARD_DISPLAY_MODE
+        }
 
         explore.setOnClickListener {
             mIsExploreEnabled = !mIsExploreEnabled
@@ -254,14 +257,27 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
     }
 
     private fun setupButtonMargins() {
-        (video_time_holder.layoutParams as RelativeLayout.LayoutParams).bottomMargin = navigationBarHeight
+        val navBarHeight = navigationBarHeight
+        video_time_holder.apply {
+            (layoutParams as RelativeLayout.LayoutParams).bottomMargin = navBarHeight
+            setPadding(paddingLeft, paddingTop, navigationBarWidth, paddingBottom)
+        }
+
         video_time_holder.onGlobalLayout {
-            (explore.layoutParams as RelativeLayout.LayoutParams).bottomMargin = navigationBarHeight + video_time_holder.height
+            (explore.layoutParams as RelativeLayout.LayoutParams).bottomMargin = navBarHeight + video_time_holder.height
+
+            (cardboard.layoutParams as RelativeLayout.LayoutParams).apply {
+                bottomMargin = navBarHeight + video_time_holder.height
+                rightMargin = navigationBarWidth
+            }
             explore.requestLayout()
         }
     }
 
     private fun toggleButtonVisibility() {
+        cardboard.animate().alpha(if (mIsFullscreen) 0f else 1f)
+        cardboard.isClickable = !mIsFullscreen
+
         explore.animate().alpha(if (mIsFullscreen) 0f else 1f)
         explore.isClickable = !mIsFullscreen
 
