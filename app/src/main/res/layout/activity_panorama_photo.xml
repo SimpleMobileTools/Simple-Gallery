@@ -13,6 +13,13 @@
         android:visibility="gone"/>
 
     <ImageView
+        android:id="@+id/panorama_gradient_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/gradient_background"/>
+
+    <ImageView
         android:id="@+id/cardboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -56,7 +56,7 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         }
 
-        setupButtonMargins()
+        setupButtons()
 
         cardboard.setOnClickListener {
             vr_video_view.displayMode = CARDBOARD_DISPLAY_MODE
@@ -179,7 +179,7 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
 
     override fun onConfigurationChanged(newConfig: Configuration?) {
         super.onConfigurationChanged(newConfig)
-        setupButtonMargins()
+        setupButtons()
     }
 
     private fun setupDuration(duration: Long) {
@@ -256,7 +256,7 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
         }, HIDE_PLAY_PAUSE_DELAY)
     }
 
-    private fun setupButtonMargins() {
+    private fun setupButtons() {
         val navBarHeight = navigationBarHeight
         video_time_holder.apply {
             (layoutParams as RelativeLayout.LayoutParams).bottomMargin = navBarHeight
@@ -270,16 +270,17 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
                 bottomMargin = navBarHeight + video_time_holder.height
                 rightMargin = navigationBarWidth
             }
+            vr_view_gradient_background.layoutParams.height = navBarHeight + video_time_holder.height + explore.height
             explore.requestLayout()
         }
     }
 
     private fun toggleButtonVisibility() {
-        cardboard.animate().alpha(if (mIsFullscreen) 0f else 1f)
-        cardboard.isClickable = !mIsFullscreen
-
-        explore.animate().alpha(if (mIsFullscreen) 0f else 1f)
-        explore.isClickable = !mIsFullscreen
+        val newAlpha = if (mIsFullscreen) 0f else 1f
+        arrayOf(cardboard, explore, vr_view_gradient_background).forEach {
+            it.animate().alpha(newAlpha)
+            it.isClickable = !mIsFullscreen
+        }
 
         var anim = android.R.anim.fade_in
         if (mIsFullscreen) {

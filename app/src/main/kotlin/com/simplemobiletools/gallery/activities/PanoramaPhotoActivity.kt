@@ -12,6 +12,7 @@ import android.widget.RelativeLayout
 import com.google.vr.sdk.widgets.pano.VrPanoramaEventListener
 import com.google.vr.sdk.widgets.pano.VrPanoramaView
 import com.simplemobiletools.commons.extensions.beVisible
+import com.simplemobiletools.commons.extensions.onGlobalLayout
 import com.simplemobiletools.commons.extensions.showErrorToast
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
@@ -166,14 +167,17 @@ open class PanoramaPhotoActivity : SimpleActivity() {
         }
 
         (explore.layoutParams as RelativeLayout.LayoutParams).bottomMargin = navigationBarHeight
+
+        cardboard.onGlobalLayout {
+            panorama_gradient_background.layoutParams.height = navBarHeight + cardboard.height
+        }
     }
 
     private fun toggleButtonVisibility() {
-        cardboard.animate().alpha(if (isFullscreen) 0f else 1f)
-        cardboard.isClickable = !isFullscreen
-
-        explore.animate().alpha(if (isFullscreen) 0f else 1f)
-        explore.isClickable = !isFullscreen
+        arrayOf(cardboard, explore, panorama_gradient_background).forEach {
+            it.animate().alpha(if (isFullscreen) 0f else 1f)
+            it.isClickable = !isFullscreen
+        }
     }
 
     private fun handleClick() {
