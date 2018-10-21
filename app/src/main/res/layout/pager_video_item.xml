@@ -60,12 +60,22 @@
         android:alpha="0"
         android:background="@drawable/black_rounded_background"
         android:gravity="center"
-        android:paddingBottom="@dimen/medium_margin"
         android:paddingLeft="@dimen/activity_margin"
-        android:paddingRight="@dimen/activity_margin"
         android:paddingTop="@dimen/medium_margin"
+        android:paddingRight="@dimen/activity_margin"
+        android:paddingBottom="@dimen/medium_margin"
         android:textColor="@android:color/white"
         android:textSize="@dimen/extra_big_text_size"/>
+
+    <ImageView
+        android:id="@+id/panorama_outline"
+        android:layout_width="@dimen/play_outline_size_big"
+        android:layout_height="@dimen/play_outline_size_big"
+        android:layout_centerInParent="true"
+        android:background="@drawable/circle_black_background_with_inset"
+        android:padding="28dp"
+        android:src="@drawable/ic_panorama"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/video_details"
@@ -92,10 +102,10 @@
             style="@style/MyBorderlessBackgroundStyle"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_alignBottom="@+id/video_seekbar"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:layout_alignTop="@+id/video_seekbar"
+            android:layout_alignBottom="@+id/video_seekbar"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:gravity="center_vertical"
             android:paddingLeft="@dimen/activity_margin"
             android:paddingRight="@dimen/activity_margin"
@@ -106,22 +116,22 @@
             android:id="@+id/video_seekbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/video_curr_time"
-            android:layout_toLeftOf="@+id/video_duration"
-            android:layout_toRightOf="@+id/video_curr_time"
             android:layout_toStartOf="@+id/video_duration"
-            android:paddingBottom="@dimen/activity_margin"
-            android:paddingTop="@dimen/activity_margin"/>
+            android:layout_toLeftOf="@+id/video_duration"
+            android:layout_toEndOf="@+id/video_curr_time"
+            android:layout_toRightOf="@+id/video_curr_time"
+            android:paddingTop="@dimen/activity_margin"
+            android:paddingBottom="@dimen/activity_margin"/>
 
         <TextView
             android:id="@+id/video_duration"
             style="@style/MyBorderlessBackgroundStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/video_seekbar"
             android:layout_alignBottom="@+id/video_seekbar"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/video_seekbar"
             android:gravity="center_vertical"
             android:paddingLeft="@dimen/activity_margin"
             android:paddingRight="@dimen/activity_margin"
