@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.fragments
 
+import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Point
 import android.graphics.SurfaceTexture
@@ -26,10 +27,12 @@ import com.google.android.exoplayer2.upstream.FileDataSource
 import com.google.android.exoplayer2.video.VideoListener
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
+import com.simplemobiletools.gallery.activities.PanoramaVideoActivity
 import com.simplemobiletools.gallery.activities.VideoActivity
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.MEDIUM
 import com.simplemobiletools.gallery.helpers.MediaSideScroll
+import com.simplemobiletools.gallery.helpers.PATH
 import com.simplemobiletools.gallery.models.Medium
 import kotlinx.android.synthetic.main.pager_video_item.view.*
 import java.io.File
@@ -77,6 +80,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             video_curr_time.setOnClickListener { skip(false) }
             video_duration.setOnClickListener { skip(true) }
             video_holder.setOnClickListener { toggleFullscreen() }
+            panorama_outline.setOnClickListener { openPanorama() }
 
             // adding an empty click listener just to avoid ripple animation at toggling fullscreen
             video_seekbar.setOnClickListener { }
@@ -609,6 +613,13 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
 
         mIsDragged = false
+    }
+
+    private fun openPanorama() {
+        Intent(context, PanoramaVideoActivity::class.java).apply {
+            putExtra(PATH, medium.path)
+            startActivity(this)
+        }
     }
 
     override fun fullscreenToggled(isFullscreen: Boolean) {

@@ -56,6 +56,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
     implementation 'com.google.android.exoplayer:exoplayer-core:2.9.0'
     implementation 'com.google.vr:sdk-panowidget:1.170.0'
+    implementation 'com.google.vr:sdk-videowidget:1.170.0'
     implementation 'org.apache.sanselan:sanselan:0.97-incubator'
     implementation 'info.androidhive:imagefilters:1.0.7'
     implementation 'com.squareup.picasso:picasso:2.71828'

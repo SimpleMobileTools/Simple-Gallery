@@ -128,6 +128,11 @@
             android:theme="@style/FullScreenTheme"/>
 
         <activity
+            android:name=".activities.PanoramaVideoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/FullScreenTheme"/>
+
+        <activity
             android:name=".activities.IncludedFoldersActivity"
             android:label="@string/include_folders"
             android:parentActivityName=".activities.SettingsActivity"/>

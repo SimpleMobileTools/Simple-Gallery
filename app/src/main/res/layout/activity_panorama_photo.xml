@@ -16,8 +16,8 @@
         android:id="@+id/cardboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
         android:padding="@dimen/activity_margin"
         android:src="@drawable/ic_cardboard"/>
 
@@ -25,8 +25,8 @@
         android:id="@+id/explore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
         android:padding="@dimen/activity_margin"
         android:src="@drawable/ic_explore"/>
 
