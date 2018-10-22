@@ -91,7 +91,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             if (context.config.allowDownGesture) {
                 video_preview.setOnTouchListener { v, event ->
                     handleEvent(event)
-                    true
+                    false
                 }
 
                 video_surface.setOnTouchListener { v, event ->
