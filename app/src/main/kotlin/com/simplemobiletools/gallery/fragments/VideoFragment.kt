@@ -77,6 +77,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             video_curr_time.setOnClickListener { skip(false) }
             video_duration.setOnClickListener { skip(true) }
             video_holder.setOnClickListener { toggleFullscreen() }
+            video_preview.setOnClickListener { toggleFullscreen() }
             panorama_outline.setOnClickListener { openPanorama() }
 
             // adding an empty click listener just to avoid ripple animation at toggling fullscreen
