@@ -38,7 +38,7 @@
     <string name="videos">Filmy</string>
     <string name="gifs">GIFy</string>
     <string name="raw_images">Obrazy RAW</string>
-    <string name="svgs">SVGs</string>
+    <string name="svgs">Obrazy SVG</string>
     <string name="no_media_with_filters">Nie znalazłem multimediów z wybranymi filtrami.</string>
     <string name="change_filters_underlined"><u>Zmień filtry</u></string>
 
@@ -159,10 +159,10 @@
     <string name="do_extra_check">Dodatkowe sprawdzenie w celu uniknięcia pokazywania niewłaściwych plików</string>
     <string name="show_at_bottom">Pokazuj niektóre przyciski akcji na dole ekranu</string>
     <string name="show_recycle_bin">Pokazuj kosz w widoku folderów</string>
-    <string name="deep_zoomable_images">Deep zoomable images</string>
-    <string name="show_highest_quality">Show images in the highest possible quality</string>
-    <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
-    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
+    <string name="deep_zoomable_images">Duże powiększanie obrazów</string>
+    <string name="show_highest_quality">Pokazuj obrazy w najwyższej możliwej rozdzielczości</string>
+    <string name="show_recycle_bin_last">Pokazuj kosz jako ostatni element na głównym ekranie</string>
+    <string name="allow_down_gesture">Zezwalaj na zamykanie pełnoekranowego widoku gestem pociągnięcia w dół</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatury</string>
@@ -200,10 +200,10 @@
     <string name="faq_11_text">Tak. Użyj opcji \'Grupuj według\', gdy jesteś w widoku miniatur. Grupować je możesz według wielu kryteriów, włącznie z datą ich utworzenia. Ponadto, jeśli użyjesz opcji \'Pokazuj całą zawartość folderów\', możesz je także grupować według folderów.</string>
     <string name="faq_12_title">Sortowanie według daty utworzenia nie działa poprawnie. Dlaczego tak się dzieje i jak mogę to naprawić?</string>
     <string name="faq_12_text">Dzieje się tak, gdyż prawdopodobnie pliki zostały skądś do urządzenia skopiowane. Naprawić to można wybierając miniatury plików, a następnie opcję \'Napraw datę utworzenia\'.</string>
-    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
-    <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
-    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
-    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too.</string>
+    <string name="faq_13_title">Na obrazach widzę wyraźne zmiany w kolorach. Jak mogę to naprawić?</string>
+    <string name="faq_13_text">Obecne rozwiązanie służące wyświetlaniu obrazów działa jak powinno w większości w przypadków. Jeśli jednak tak nie jest, pomocna może okazać się opcja \"Pokazuj obrazy w najwyższej możliwej jakości\" w sekcji \"Duże powiększanie obrazów\".</string>
+    <string name="faq_14_title">Mam ukryte pliki i / lub foldery. Jak mogę zobaczyć?</string>
+    <string name="faq_14_text">Możesz to zrobić albo wybierając opcję \"Tymczasowo pokaż ukryte multimedia\" w menu na ekranie głównym, lub \"Pokazuj ukryte elementy\" w ustawieniach. Foldery są ukrywane poprzez dodanie do nich pustego, ukrytego pliku \".nomedia\", usunąć go możesz dowolnym menedżerem plików.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
