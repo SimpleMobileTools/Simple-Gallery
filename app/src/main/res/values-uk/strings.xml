@@ -162,7 +162,7 @@
     <string name="deep_zoomable_images">Глибокомасштабовані зображення</string>
     <string name="show_highest_quality">Показувати зображення в найвищій можливій якості</string>
     <string name="show_recycle_bin_last">Показувати \"Кошик\" останнім елементом на головному екрані</string>
-    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
+    <string name="allow_down_gesture">Дозволити закриття повноекранного перегляду свайпом згори вниз</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Ескізи</string>
