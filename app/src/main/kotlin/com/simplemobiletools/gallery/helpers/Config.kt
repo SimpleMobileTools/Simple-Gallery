@@ -399,4 +399,8 @@ class Config(context: Context) : BaseConfig(context) {
     var showRecycleBinLast: Boolean
         get() = prefs.getBoolean(SHOW_RECYCLE_BIN_LAST, false)
         set(showRecycleBinLast) = prefs.edit().putBoolean(SHOW_RECYCLE_BIN_LAST, showRecycleBinLast).apply()
+
+    var allowDownGesture: Boolean
+        get() = prefs.getBoolean(ALLOW_DOWN_GESTURE, true)
+        set(allowDownGesture) = prefs.edit().putBoolean(ALLOW_DOWN_GESTURE, allowDownGesture).apply()
 }

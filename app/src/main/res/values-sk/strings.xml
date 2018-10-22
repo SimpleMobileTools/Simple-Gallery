@@ -146,7 +146,7 @@
     <string name="scroll_thumbnails_horizontally">Prehliadať miniatúry vodorovne</string>
     <string name="hide_system_ui_at_fullscreen">Automaticky skrývať systémové lišty pri celoobrazovkových médiách</string>
     <string name="delete_empty_folders">Odstrániť prázdne priečinky po vymazaní ich obsahu</string>
-    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
+    <string name="allow_photo_gestures">Povoliť ovládanie jasu vertikálnymi ťahmi</string>
     <string name="allow_video_gestures">Povoliť ovládanie hlasitosti a jasu videí vertikálnymi ťahmi</string>
     <string name="show_media_count">Zobraziť počet médií v priečinku na hlavnej obrazovke</string>
     <string name="replace_share_with_rotate">Nahradiť Zdieľanie s Otočením v celoobrazovkovom menu</string>
@@ -162,6 +162,7 @@
     <string name="deep_zoomable_images">Hlboko priblížiteľné obrázky</string>
     <string name="show_highest_quality">Zobrazovať obrázky v najlepšej možnej kvalite</string>
     <string name="show_recycle_bin_last">Zobraziť odpadkový kôš ako poslednú položku na hlavnej obrazovke</string>
+    <string name="allow_down_gesture">Povoliť zatváranie celoobrazovkového režimu potiahnutím prsta dole</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Náhľady</string>

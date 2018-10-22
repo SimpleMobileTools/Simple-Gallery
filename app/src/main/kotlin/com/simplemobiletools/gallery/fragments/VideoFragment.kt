@@ -88,14 +88,16 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             mVolumeSideScroll = video_volume_controller
             mCurrTimeView = video_curr_time
 
-            video_preview.setOnTouchListener { v, event ->
-                handleEvent(event)
-                true
-            }
+            if (context.config.allowDownGesture) {
+                video_preview.setOnTouchListener { v, event ->
+                    handleEvent(event)
+                    true
+                }
 
-            video_surface.setOnTouchListener { v, event ->
-                handleEvent(event)
-                false
+                video_surface.setOnTouchListener { v, event ->
+                    handleEvent(event)
+                    false
+                }
             }
         }
 

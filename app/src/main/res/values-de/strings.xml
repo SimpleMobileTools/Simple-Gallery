@@ -162,6 +162,7 @@
     <string name="deep_zoomable_images">Stark vergrösserbare Bilder</string>
     <string name="show_highest_quality">Zeige Bilder in der höchstmöglichen Qualität</string>
     <string name="show_recycle_bin_last">Zeige den Papierkorb als letztes Element auf dem Hauptbildschirm</string>
+    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>

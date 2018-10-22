@@ -101,16 +101,18 @@ class PhotoFragment : ViewPagerFragment() {
                 }
             }
 
-            gif_view.setOnTouchListener { v, event ->
-                handleEvent(event)
-                false
-            }
-
-            subsampling_view.setOnTouchListener { v, event ->
-                if (view.subsampling_view.scale == mOriginalSubsamplingScale) {
+            if (context.config.allowDownGesture) {
+                gif_view.setOnTouchListener { v, event ->
                     handleEvent(event)
+                    false
                 }
-                false
+
+                subsampling_view.setOnTouchListener { v, event ->
+                    if (view.subsampling_view.scale == mOriginalSubsamplingScale) {
+                        handleEvent(event)
+                    }
+                    false
+                }
             }
         }
 

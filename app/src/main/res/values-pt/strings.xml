@@ -162,6 +162,7 @@
     <string name="deep_zoomable_images">Deep zoomable images</string>
     <string name="show_highest_quality">Mostrar fotos com a melhor qualidade possível</string>
     <string name="show_recycle_bin_last">Mostrar a reciclagem como o último item do ecrã principal</string>
+    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>

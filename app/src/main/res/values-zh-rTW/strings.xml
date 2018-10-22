@@ -162,6 +162,7 @@
     <string name="deep_zoomable_images">可深度縮放的圖片</string>
     <string name="show_highest_quality">以最高品質顯示圖片</string>
     <string name="show_recycle_bin_last">回收桶顯示在主畫面最後一項</string>
+    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">縮圖</string>

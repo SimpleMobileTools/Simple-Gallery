@@ -162,6 +162,7 @@
     <string name="deep_zoomable_images">深度放大图像</string>
     <string name="show_highest_quality">以最高质量显示图像</string>
     <string name="show_recycle_bin_last">在主屏幕界面的最后一项显示回收站</string>
+    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">缩略图</string>

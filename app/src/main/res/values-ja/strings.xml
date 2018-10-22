@@ -162,6 +162,7 @@
     <string name="deep_zoomable_images">画像のズームを深くする</string>
     <string name="show_highest_quality">可能な限り高品質で画像を表示</string>
     <string name="show_recycle_bin_last">ごみ箱をメイン画面の最後に表示</string>
+    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">サムネイル設定</string>

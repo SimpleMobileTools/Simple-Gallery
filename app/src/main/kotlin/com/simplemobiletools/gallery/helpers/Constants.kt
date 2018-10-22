@@ -63,6 +63,7 @@ const val ALLOW_ZOOMING_IMAGES = "allow_zooming_images"
 const val WAS_SVG_SHOWING_HANDLED = "was_svg_showing_handled"
 const val LAST_BIN_CHECK = "last_bin_check"
 const val SHOW_HIGHEST_QUALITY = "show_highest_quality"
+const val ALLOW_DOWN_GESTURE = "allow_down_gesture"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"
