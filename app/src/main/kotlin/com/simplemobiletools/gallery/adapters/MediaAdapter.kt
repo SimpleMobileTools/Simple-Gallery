@@ -355,7 +355,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             return
         }
 
-        val SAFPath = getFirstSelectedItemPath() ?: return
+        val SAFPath = getSelectedPaths().firstOrNull { activity.isPathOnSD(it) } ?: getFirstSelectedItemPath() ?: return
         activity.handleSAFDialog(SAFPath) {
             val fileDirItems = ArrayList<FileDirItem>(selectedKeys.size)
             val removeMedia = ArrayList<Medium>(selectedKeys.size)
