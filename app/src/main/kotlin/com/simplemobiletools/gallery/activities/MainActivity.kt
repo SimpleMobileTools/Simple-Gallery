@@ -901,6 +901,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             config.everShownFolders = HashSet()
         }
         mDirs = dirs.clone() as ArrayList<Directory>
+
+        if (config.appRunCount < 5 && mDirs.size > 100) {
+            excludeSpamFolders()
+        }
     }
 
     private fun checkPlaceholderVisibility(dirs: ArrayList<Directory>) {
@@ -1078,6 +1082,79 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     }
                 }.start()
             }, 3000L)
+        }
+    }
+
+    // exclude probably unwanted folders, for example facebook stickers are split between hundreds of separate folders like
+    // /storage/emulated/0/Android/data/com.facebook.orca/files/stickers/175139712676531/209575122566323
+    // /storage/emulated/0/Android/data/com.facebook.orca/files/stickers/497837993632037/499671223448714
+    private fun excludeSpamFolders() {
+        Thread {
+            try {
+                val internalPath = config.internalStoragePath
+                val sdPath = config.sdCardPath
+                val pathParts = ArrayList<ArrayList<String>>()
+                mDirs.asSequence().map { it.path.removePrefix(internalPath).removePrefix(sdPath) }.sorted().toList().forEach {
+                    val parts = it.split("/").asSequence().filter { it.isNotEmpty() }.toMutableList() as ArrayList<String>
+                    if (parts.size > 3) {
+                        pathParts.add(parts)
+                    }
+                }
+
+                val keys = getLongestCommonStrings(pathParts)
+                pathParts.clear()
+                keys.forEach { it ->
+                    val parts = it.split("/").asSequence().filter { it.isNotEmpty() }.toMutableList() as ArrayList<String>
+                    pathParts.add(parts)
+                }
+
+                getLongestCommonStrings(pathParts).forEach {
+                    var file = File("$internalPath/$it")
+                    if (file.exists()) {
+                        config.addExcludedFolder(file.absolutePath)
+                    } else {
+                        file = File("$sdPath/$it")
+                        if (file.exists()) {
+                            config.addExcludedFolder(file.absolutePath)
+                        }
+                    }
+                }
+            } catch (e: Exception) {
+            }
+        }.start()
+    }
+
+    private fun getLongestCommonStrings(pathParts: ArrayList<ArrayList<String>>): ArrayList<String> {
+        val commonStrings = ArrayList<String>()
+        return try {
+            val cnt = pathParts.size
+            for (i in 0..cnt) {
+                var longestCommonString = ""
+                for (j in i..cnt) {
+                    var currentCommonString = ""
+                    if (i != j) {
+                        val originalParts = pathParts.getOrNull(i)
+                        val otherParts = pathParts.getOrNull(j)
+                        if (originalParts != null && otherParts != null) {
+                            originalParts.forEachIndexed { index, string ->
+                                if (string == otherParts.getOrNull(index)) {
+                                    currentCommonString += "$string/"
+                                    if (currentCommonString.length > longestCommonString.length) {
+                                        longestCommonString = currentCommonString.trimEnd('/')
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (longestCommonString.isNotEmpty()) {
+                    commonStrings.add(longestCommonString)
+                }
+            }
+            commonStrings.groupingBy { it }.eachCount().filter { it.value > 5 && it.key.length > 10 }.map { it.key }.toMutableList() as ArrayList<String>
+        } catch (e: Exception) {
+            ArrayList()
         }
     }
 
