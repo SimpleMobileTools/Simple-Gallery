@@ -13,6 +13,7 @@ import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
+import com.simplemobiletools.commons.dialogs.RenameItemsDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.models.FileDirItem
@@ -111,7 +112,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         val isOneItemSelected = isOneItemSelected()
         val selectedPaths = selectedItems.map { it.path } as ArrayList<String>
         menu.apply {
-            findItem(R.id.cab_rename).isVisible = isOneItemSelected && selectedItems.firstOrNull()?.getIsInRecycleBin() == false
+            findItem(R.id.cab_rename).isVisible = selectedItems.firstOrNull()?.getIsInRecycleBin() == false
             findItem(R.id.cab_open_with).isVisible = isOneItemSelected
             findItem(R.id.cab_confirm_selection).isVisible = isAGetIntent && allowMultiplePicks && selectedKeys.isNotEmpty()
             findItem(R.id.cab_restore_recycle_bin_files).isVisible = selectedPaths.all { it.startsWith(activity.filesDir.absolutePath) }
@@ -195,17 +196,25 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     }
 
     private fun renameFile() {
-        val oldPath = getFirstSelectedItemPath() ?: return
-        RenameItemDialog(activity, oldPath) {
-            Thread {
-                activity.updateDBMediaPath(oldPath, it)
+        if (selectedKeys.size == 1) {
+            val oldPath = getFirstSelectedItemPath() ?: return
+            RenameItemDialog(activity, oldPath) {
+                Thread {
+                    activity.updateDBMediaPath(oldPath, it)
 
-                activity.runOnUiThread {
-                    enableInstantLoad()
-                    listener?.refreshItems()
-                    finishActMode()
-                }
-            }.start()
+                    activity.runOnUiThread {
+                        enableInstantLoad()
+                        listener?.refreshItems()
+                        finishActMode()
+                    }
+                }.start()
+            }
+        } else {
+            RenameItemsDialog(activity, getSelectedPaths()) {
+                enableInstantLoad()
+                listener?.refreshItems()
+                finishActMode()
+            }
         }
     }
 

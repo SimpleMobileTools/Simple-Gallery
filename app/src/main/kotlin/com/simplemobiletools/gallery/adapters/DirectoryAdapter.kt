@@ -10,6 +10,7 @@ import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
+import com.simplemobiletools.commons.dialogs.RenameItemsDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.models.FileDirItem
@@ -68,7 +69,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
         val isOneItemSelected = isOneItemSelected()
         menu.apply {
-            findItem(R.id.cab_rename).isVisible = isOneItemSelected && !selectedPaths.contains(FAVORITES) && !selectedPaths.contains(RECYCLE_BIN)
+            findItem(R.id.cab_rename).isVisible = !selectedPaths.contains(FAVORITES) && !selectedPaths.contains(RECYCLE_BIN)
             findItem(R.id.cab_change_cover_image).isVisible = isOneItemSelected
 
             findItem(R.id.cab_empty_recycle_bin).isVisible = isOneItemSelected && selectedPaths.first() == RECYCLE_BIN
@@ -141,26 +142,33 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     }
 
     private fun renameDir() {
-        val firstDir = getFirstSelectedItem() ?: return
-        val sourcePath = firstDir.path
-        val dir = File(sourcePath)
-        if (activity.isAStorageRootFolder(dir.absolutePath)) {
-            activity.toast(R.string.rename_folder_root)
-            return
-        }
+        if (selectedKeys.size == 1) {
+            val firstDir = getFirstSelectedItem() ?: return
+            val sourcePath = firstDir.path
+            val dir = File(sourcePath)
+            if (activity.isAStorageRootFolder(dir.absolutePath)) {
+                activity.toast(R.string.rename_folder_root)
+                return
+            }
 
-        RenameItemDialog(activity, dir.absolutePath) {
-            activity.runOnUiThread {
-                firstDir.apply {
-                    path = it
-                    name = it.getFilenameFromPath()
-                    tmb = File(it, tmb.getFilenameFromPath()).absolutePath
+            RenameItemDialog(activity, dir.absolutePath) {
+                activity.runOnUiThread {
+                    firstDir.apply {
+                        path = it
+                        name = it.getFilenameFromPath()
+                        tmb = File(it, tmb.getFilenameFromPath()).absolutePath
+                    }
+                    updateDirs(dirs)
+                    Thread {
+                        activity.galleryDB.DirectoryDao().updateDirectoryAfterRename(firstDir.tmb, firstDir.name, firstDir.path, sourcePath)
+                        listener?.refreshItems()
+                    }.start()
                 }
-                updateDirs(dirs)
-                Thread {
-                    activity.galleryDB.DirectoryDao().updateDirectoryAfterRename(firstDir.tmb, firstDir.name, firstDir.path, sourcePath)
-                    listener?.refreshItems()
-                }.start()
+            }
+        } else {
+            val paths = getSelectedPaths().filter { !activity.isAStorageRootFolder(it) } as ArrayList<String>
+            RenameItemsDialog(activity, paths) {
+                listener?.refreshItems()
             }
         }
     }
