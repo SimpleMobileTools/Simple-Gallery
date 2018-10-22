@@ -1,4 +1,4 @@
-package com.simplemobiletools.gallery.helpers
+package com.simplemobiletools.gallery.views
 
 import android.app.Activity
 import android.content.Context
@@ -13,6 +13,8 @@ import android.widget.TextView
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.audioManager
+import com.simplemobiletools.gallery.helpers.CLICK_MAX_DURATION
+import com.simplemobiletools.gallery.helpers.DRAG_THRESHOLD
 
 // allow horizontal swipes through the layout, else it can cause glitches at zoomed in images
 class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(context, attrs) {

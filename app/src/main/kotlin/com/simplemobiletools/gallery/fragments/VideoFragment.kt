@@ -32,6 +32,7 @@ import com.simplemobiletools.gallery.activities.VideoActivity
 import com.simplemobiletools.gallery.extensions.*
 import com.simplemobiletools.gallery.helpers.*
 import com.simplemobiletools.gallery.models.Medium
+import com.simplemobiletools.gallery.views.MediaSideScroll
 import kotlinx.android.synthetic.main.bottom_video_time_holder.view.*
 import kotlinx.android.synthetic.main.pager_video_item.view.*
 import java.io.File
