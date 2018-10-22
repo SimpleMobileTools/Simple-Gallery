@@ -15,7 +15,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
@@ -74,13 +73,8 @@ class PhotoFragment : ViewPagerFragment() {
     private var storedAllowDeepZoomableImages = false
     private var storedShowHighestQuality = false
     private var storedAllowOneFingerZoom = false
-    private var storedExtendedDetails = 0
-
-    private var mTouchDownX = 0f
-    private var mTouchDownY = 0f
     private var mOriginalSubsamplingScale = 0f
-    private var mCloseDownThreshold = 100f
-    private var mIgnoreCloseDown = false
+    private var storedExtendedDetails = 0
 
     lateinit var view: ViewGroup
     lateinit var medium: Medium
@@ -113,7 +107,9 @@ class PhotoFragment : ViewPagerFragment() {
             }
 
             subsampling_view.setOnTouchListener { v, event ->
-                handleEvent(event)
+                if (view.subsampling_view.scale == mOriginalSubsamplingScale) {
+                    handleEvent(event)
+                }
                 false
             }
         }
@@ -557,29 +553,6 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun photoClicked() {
         listener?.fragmentClicked()
-    }
-
-    private fun handleEvent(event: MotionEvent) {
-        if (view.subsampling_view.scale != mOriginalSubsamplingScale) {
-            return
-        }
-
-        when (event.actionMasked) {
-            MotionEvent.ACTION_DOWN -> {
-                mTouchDownX = event.x
-                mTouchDownY = event.y
-            }
-            MotionEvent.ACTION_POINTER_DOWN -> mIgnoreCloseDown = true
-            MotionEvent.ACTION_UP -> {
-                val diffX = mTouchDownX - event.x
-                val diffY = mTouchDownY - event.y
-
-                if (!mIgnoreCloseDown && Math.abs(diffY) > Math.abs(diffX) && diffY < -mCloseDownThreshold) {
-                    activity?.supportFinishAfterTransition()
-                }
-                mIgnoreCloseDown = false
-            }
-        }
     }
 
     override fun fullscreenToggled(isFullscreen: Boolean) {

@@ -86,6 +86,16 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             mBrightnessSideScroll = video_brightness_controller
             mVolumeSideScroll = video_volume_controller
             mCurrTimeView = video_curr_time
+
+            video_preview.setOnTouchListener { v, event ->
+                handleEvent(event)
+                true
+            }
+
+            video_surface.setOnTouchListener { v, event ->
+                handleEvent(event)
+                false
+            }
         }
 
         storeStateVariables()
