@@ -159,9 +159,10 @@
     <string name="do_extra_check">Hacer una comprobación adicional para evitar mostrar archivos inválidos</string>
     <string name="show_at_bottom">Mostrar algunos botones de acción en la parte inferior de la pantalla</string>
     <string name="show_recycle_bin">Mostrar la papelera de reciclaje en la pantalla de carpetas</string>
-    <string name="deep_zoomable_images">Deep zoomable images</string>
-    <string name="show_highest_quality">Show images in the highest possible quality</string>
-    <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
+    <string name="deep_zoomable_images">Imágenes ampliables con zoom</string>
+    <string name="show_highest_quality">Muestra imágenes con la mayor calidad posible</string>
+    <string name="show_recycle_bin_last">Mostrar la Papelera de reciclaje como el último elemento en la pantalla principal</string>
+    <string name="allow_down_gesture">Permite cerrar la vista de pantalla completa con un gesto hacia abajo.</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>

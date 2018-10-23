@@ -13,6 +13,7 @@ import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
+import com.simplemobiletools.commons.dialogs.RenameItemsDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.models.FileDirItem
@@ -61,14 +62,6 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
     override fun getActionMenuId() = R.menu.cab_media
 
-    override fun prepareItemSelection(viewHolder: ViewHolder) {
-        viewHolder.itemView?.medium_check?.background?.applyColorFilter(primaryColor)
-    }
-
-    override fun markViewHolderSelection(select: Boolean, viewHolder: ViewHolder?) {
-        viewHolder?.itemView?.medium_check?.beVisibleIf(select)
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutType = if (viewType == ITEM_SECTION) {
             R.layout.thumbnail_section
@@ -89,14 +82,14 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         }
 
         val allowLongPress = !allowMultiplePicks && tmbItem is Medium
-        val view = holder.bindView(tmbItem, tmbItem is Medium, allowLongPress) { itemView, adapterPosition ->
+        holder.bindView(tmbItem, tmbItem is Medium, allowLongPress) { itemView, adapterPosition ->
             if (tmbItem is Medium) {
                 setupThumbnail(itemView, tmbItem)
             } else {
                 setupSection(itemView, tmbItem as ThumbnailSection)
             }
         }
-        bindViewHolder(holder, position, view)
+        bindViewHolder(holder)
     }
 
     override fun getItemCount() = media.size
@@ -111,19 +104,26 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     }
 
     override fun prepareActionMode(menu: Menu) {
-        menu.apply {
-            findItem(R.id.cab_rename).isVisible = isOneItemSelected() && getSelectedMedia().firstOrNull()?.getIsInRecycleBin() == false
-            findItem(R.id.cab_open_with).isVisible = isOneItemSelected()
-            findItem(R.id.cab_confirm_selection).isVisible = isAGetIntent && allowMultiplePicks && selectedPositions.size > 0
-            findItem(R.id.cab_restore_recycle_bin_files).isVisible = getSelectedPaths().all { it.startsWith(activity.filesDir.absolutePath) }
+        val selectedItems = getSelectedItems()
+        if (selectedItems.isEmpty()) {
+            return
+        }
 
-            checkHideBtnVisibility(this)
-            checkFavoriteBtnVisibility(this)
+        val isOneItemSelected = isOneItemSelected()
+        val selectedPaths = selectedItems.map { it.path } as ArrayList<String>
+        menu.apply {
+            findItem(R.id.cab_rename).isVisible = selectedItems.firstOrNull()?.getIsInRecycleBin() == false
+            findItem(R.id.cab_open_with).isVisible = isOneItemSelected
+            findItem(R.id.cab_confirm_selection).isVisible = isAGetIntent && allowMultiplePicks && selectedKeys.isNotEmpty()
+            findItem(R.id.cab_restore_recycle_bin_files).isVisible = selectedPaths.all { it.startsWith(activity.filesDir.absolutePath) }
+
+            checkHideBtnVisibility(this, selectedItems)
+            checkFavoriteBtnVisibility(this, selectedItems)
         }
     }
 
     override fun actionItemPressed(id: Int) {
-        if (selectedPositions.isEmpty()) {
+        if (selectedKeys.isEmpty()) {
             return
         }
 
@@ -141,9 +141,9 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             R.id.cab_copy_to -> copyMoveTo(true)
             R.id.cab_move_to -> copyMoveTo(false)
             R.id.cab_select_all -> selectAll()
-            R.id.cab_open_with -> activity.openPath(getCurrentPath(), true)
+            R.id.cab_open_with -> openPath()
             R.id.cab_fix_date_taken -> fixDateTaken()
-            R.id.cab_set_as -> activity.setAs(getCurrentPath())
+            R.id.cab_set_as -> setAs()
             R.id.cab_delete -> checkDeleteConfirmation()
         }
     }
@@ -152,12 +152,16 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
     override fun getIsItemSelectable(position: Int) = !isASectionTitle(position)
 
+    override fun getItemSelectionKey(position: Int) = (media.getOrNull(position) as? Medium)?.path?.hashCode()
+
+    override fun getItemKeyPosition(key: Int) = media.indexOfFirst { (it as? Medium)?.path?.hashCode() == key }
+
     override fun onViewRecycled(holder: ViewHolder) {
         super.onViewRecycled(holder)
-        if (!activity.isActivityDestroyed()) {
+        if (!activity.isDestroyed) {
             val itemView = holder.itemView
-            visibleItemPaths.remove(itemView?.photo_name?.tag)
-            val tmb = itemView?.medium_thumbnail
+            visibleItemPaths.remove(itemView.photo_name?.tag)
+            val tmb = itemView.medium_thumbnail
             if (tmb != null) {
                 Glide.with(activity).clear(tmb)
             }
@@ -166,35 +170,15 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
     fun isASectionTitle(position: Int) = media.getOrNull(position) is ThumbnailSection
 
-    private fun checkHideBtnVisibility(menu: Menu) {
-        var hiddenCnt = 0
-        var unhiddenCnt = 0
-        getSelectedMedia().forEach {
-            if (it.isHidden()) {
-                hiddenCnt++
-            } else {
-                unhiddenCnt++
-            }
-        }
-
-        val isInRecycleBin = getSelectedMedia().firstOrNull()?.getIsInRecycleBin() == true
-        menu.findItem(R.id.cab_hide).isVisible = unhiddenCnt > 0 && !isInRecycleBin
-        menu.findItem(R.id.cab_unhide).isVisible = hiddenCnt > 0 && !isInRecycleBin
+    private fun checkHideBtnVisibility(menu: Menu, selectedItems: ArrayList<Medium>) {
+        val isInRecycleBin = selectedItems.firstOrNull()?.getIsInRecycleBin() == true
+        menu.findItem(R.id.cab_hide).isVisible = !isInRecycleBin && selectedItems.any { !it.isHidden() }
+        menu.findItem(R.id.cab_unhide).isVisible = !isInRecycleBin && selectedItems.any { it.isHidden() }
     }
 
-    private fun checkFavoriteBtnVisibility(menu: Menu) {
-        var favoriteCnt = 0
-        var nonFavoriteCnt = 0
-        getSelectedMedia().forEach {
-            if (it.isFavorite) {
-                favoriteCnt++
-            } else {
-                nonFavoriteCnt++
-            }
-        }
-
-        menu.findItem(R.id.cab_add_to_favorites).isVisible = nonFavoriteCnt > 0
-        menu.findItem(R.id.cab_remove_from_favorites).isVisible = favoriteCnt > 0
+    private fun checkFavoriteBtnVisibility(menu: Menu, selectedItems: ArrayList<Medium>) {
+        menu.findItem(R.id.cab_add_to_favorites).isVisible = selectedItems.any { !it.isFavorite }
+        menu.findItem(R.id.cab_remove_from_favorites).isVisible = selectedItems.any { it.isFavorite }
     }
 
     private fun confirmSelection() {
@@ -202,8 +186,9 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     }
 
     private fun showProperties() {
-        if (selectedPositions.size <= 1) {
-            PropertiesDialog(activity, (media[selectedPositions.first()] as Medium).path, config.shouldShowHidden)
+        if (selectedKeys.size <= 1) {
+            val path = getFirstSelectedItemPath() ?: return
+            PropertiesDialog(activity, path, config.shouldShowHidden)
         } else {
             val paths = getSelectedPaths()
             PropertiesDialog(activity, paths, config.shouldShowHidden)
@@ -211,27 +196,46 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     }
 
     private fun renameFile() {
-        val oldPath = getCurrentPath()
-        RenameItemDialog(activity, oldPath) {
-            Thread {
-                activity.updateDBMediaPath(oldPath, it)
+        if (selectedKeys.size == 1) {
+            val oldPath = getFirstSelectedItemPath() ?: return
+            RenameItemDialog(activity, oldPath) {
+                Thread {
+                    activity.updateDBMediaPath(oldPath, it)
 
-                activity.runOnUiThread {
-                    enableInstantLoad()
-                    listener?.refreshItems()
-                    finishActMode()
-                }
-            }.start()
+                    activity.runOnUiThread {
+                        enableInstantLoad()
+                        listener?.refreshItems()
+                        finishActMode()
+                    }
+                }.start()
+            }
+        } else {
+            RenameItemsDialog(activity, getSelectedPaths()) {
+                enableInstantLoad()
+                listener?.refreshItems()
+                finishActMode()
+            }
         }
     }
 
     private fun editFile() {
-        activity.openEditor(getCurrentPath())
+        val path = getFirstSelectedItemPath() ?: return
+        activity.openEditor(path)
+    }
+
+    private fun openPath() {
+        val path = getFirstSelectedItemPath() ?: return
+        activity.openPath(path, true)
+    }
+
+    private fun setAs() {
+        val path = getFirstSelectedItemPath() ?: return
+        activity.setAs(path)
     }
 
     private fun toggleFileVisibility(hide: Boolean) {
         Thread {
-            getSelectedMedia().forEach {
+            getSelectedItems().forEach {
                 activity.toggleFileVisibility(it.path, hide)
             }
             activity.runOnUiThread {
@@ -244,7 +248,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     private fun toggleFavorites(add: Boolean) {
         Thread {
             val mediumDao = activity.galleryDB.MediumDao()
-            getSelectedMedia().forEach {
+            getSelectedItems().forEach {
                 it.isFavorite = add
                 mediumDao.updateFavorite(it.path, add)
             }
@@ -263,9 +267,9 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     }
 
     private fun shareMedia() {
-        if (selectedPositions.size == 1 && selectedPositions.first() != -1) {
-            activity.shareMediumPath(getSelectedMedia().first().path)
-        } else if (selectedPositions.size > 1) {
+        if (selectedKeys.size == 1 && selectedKeys.first() != -1) {
+            activity.shareMediumPath(getSelectedItems().first().path)
+        } else if (selectedKeys.size > 1) {
             activity.shareMediaPaths(getSelectedPaths())
         }
     }
@@ -345,7 +349,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     }
 
     private fun askConfirmDelete() {
-        val items = resources.getQuantityString(R.plurals.delete_items, selectedPositions.size, selectedPositions.size)
+        val items = resources.getQuantityString(R.plurals.delete_items, selectedKeys.size, selectedKeys.size)
         val isRecycleBin = getSelectedPaths().first().startsWith(activity.filesDir.absolutePath)
         val baseString = if (config.useRecycleBin && !isRecycleBin) R.string.move_to_recycle_bin_confirmation else R.string.deletion_confirmation
         val question = String.format(resources.getString(baseString), items)
@@ -355,48 +359,35 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         }
     }
 
-    private fun getCurrentPath() = (media[selectedPositions.first()] as Medium).path
-
     private fun deleteFiles() {
-        if (selectedPositions.isEmpty()) {
+        if (selectedKeys.isEmpty()) {
             return
         }
 
-        val fileDirItems = ArrayList<FileDirItem>(selectedPositions.size)
-        val removeMedia = ArrayList<Medium>(selectedPositions.size)
-
-        if (media.size <= selectedPositions.first()) {
-            finishActMode()
-            return
-        }
-
-        val SAFPath = (media[selectedPositions.first()] as Medium).path
+        val SAFPath = getSelectedPaths().firstOrNull { activity.isPathOnSD(it) } ?: getFirstSelectedItemPath() ?: return
         activity.handleSAFDialog(SAFPath) {
-            selectedPositions.sortedDescending().forEach {
-                val thumbnailItem = media.getOrNull(it)
-                if (thumbnailItem is Medium) {
-                    fileDirItems.add(FileDirItem(thumbnailItem.path, thumbnailItem.name))
-                    removeMedia.add(thumbnailItem)
-                }
+            val fileDirItems = ArrayList<FileDirItem>(selectedKeys.size)
+            val removeMedia = ArrayList<Medium>(selectedKeys.size)
+            val position = getSelectedItemPositions()
+
+            getSelectedItems().forEach {
+                fileDirItems.add(FileDirItem(it.path, it.name))
+                removeMedia.add(it)
             }
 
             media.removeAll(removeMedia)
             listener?.tryDeleteFiles(fileDirItems)
-            removeSelectedItems()
+            removeSelectedItems(position)
         }
     }
 
-    private fun getSelectedMedia(): List<Medium> {
-        val selectedMedia = ArrayList<Medium>(selectedPositions.size)
-        selectedPositions.forEach {
-            (media.getOrNull(it) as? Medium)?.apply {
-                selectedMedia.add(this)
-            }
-        }
-        return selectedMedia
-    }
+    private fun getSelectedItems() = media.filter { selectedKeys.contains((it as? Medium)?.path?.hashCode()) } as ArrayList<Medium>
 
-    private fun getSelectedPaths() = getSelectedMedia().map { it.path } as ArrayList<String>
+    private fun getSelectedPaths() = getSelectedItems().map { it.path } as ArrayList<String>
+
+    private fun getFirstSelectedItemPath() = getItemWithKey(selectedKeys.first())?.path
+
+    private fun getItemWithKey(key: Int): Medium? = media.firstOrNull { (it as? Medium)?.path?.hashCode() == key } as? Medium
 
     fun updateMedia(newMedia: ArrayList<ThumbnailItem>) {
         val thumbnailItems = newMedia.clone() as ArrayList<ThumbnailItem>
@@ -437,11 +428,17 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     fun getItemBubbleText(position: Int, sorting: Int) = (media[position] as? Medium)?.getBubbleText(sorting)
 
     private fun setupThumbnail(view: View, medium: Medium) {
+        val isSelected = selectedKeys.contains(medium.path.hashCode())
         view.apply {
             play_outline.beVisibleIf(medium.isVideo())
             photo_name.beVisibleIf(displayFilenames || isListViewType)
             photo_name.text = medium.name
             photo_name.tag = medium.path
+
+            medium_check?.beVisibleIf(isSelected)
+            if (isSelected) {
+                medium_check?.background?.applyColorFilter(primaryColor)
+            }
 
             var path = medium.path
             if (hasOTGConnected && path.startsWith(OTG_PATH)) {

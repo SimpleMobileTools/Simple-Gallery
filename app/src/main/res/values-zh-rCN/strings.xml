@@ -24,13 +24,13 @@
     <string name="brightness">亮度</string>
     <string name="lock_orientation">锁定方向</string>
     <string name="unlock_orientation">解锁方向</string>
-    <string name="change_orientation">Change orientation</string>
-    <string name="force_portrait">Force portrait</string>
-    <string name="force_landscape">Force landscape</string>
-    <string name="use_default_orientation">Use default orientation</string>
-    <string name="fix_date_taken">Fix Date Taken value</string>
-    <string name="fixing">Fixing…</string>
-    <string name="dates_fixed_successfully">Dates fixed successfully</string>
+    <string name="change_orientation">改变方向</string>
+    <string name="force_portrait">强制竖屏</string>
+    <string name="force_landscape">强制横屏</string>
+    <string name="use_default_orientation">默认</string>
+    <string name="fix_date_taken">修复拍摄日期</string>
+    <string name="fixing">正在修复…</string>
+    <string name="dates_fixed_successfully">日期修复成功</string>
 
     <!-- Filter -->
     <string name="filter_media">要显示的媒体文件</string>
@@ -88,7 +88,7 @@
     <string name="flip_horizontally">水平翻转</string>
     <string name="flip_vertically">垂直翻转</string>
     <string name="edit_with">编辑方式</string>
-    <string name="free_aspect_ratio">Free</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="free_aspect_ratio">自由</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">简约壁纸</string>
@@ -154,25 +154,26 @@
     <string name="manage_extended_details">要显示的详细信息项目</string>
     <string name="one_finger_zoom">单指缩放</string>
     <string name="allow_instant_change">通过单击屏幕边缘来切换媒体</string>
-    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
+    <string name="allow_deep_zooming_images">允许深度放大图像</string>
     <string name="hide_extended_details">当状态栏隐藏时隐藏扩展详情</string>
     <string name="do_extra_check">额外检查以避免显示无效的文件</string>
-    <string name="show_at_bottom">在屏幕底部显示一些操作按钮</string>
-    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
-    <string name="deep_zoomable_images">Deep zoomable images</string>
-    <string name="show_highest_quality">Show images in the highest possible quality</string>
-    <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
+    <string name="show_at_bottom">显示底栏</string>
+    <string name="show_recycle_bin">在文件夹界面显示回收站</string>
+    <string name="deep_zoomable_images">深度放大图像</string>
+    <string name="show_highest_quality">以最高质量显示图像</string>
+    <string name="show_recycle_bin_last">在主屏幕界面的最后一项显示回收站</string>
+    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">缩略图</string>
     <string name="fullscreen_media">全屏显示媒体</string>
     <string name="extended_details">扩展详情</string>
-    <string name="bottom_actions">Bottom actions</string>
+    <string name="bottom_actions">底栏选项</string>
 
     <!-- Bottom actions -->
-    <string name="manage_bottom_actions">Manage visible bottom actions</string>
-    <string name="toggle_favorite">Toggle favorite</string>
-    <string name="toggle_file_visibility">Toggle file visibility</string>
+    <string name="manage_bottom_actions">管理底栏选项</string>
+    <string name="toggle_favorite">收藏</string>
+    <string name="toggle_file_visibility">隐藏文件</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">如何把简约图库设置为设备的默认图库？</string>
@@ -197,12 +198,12 @@
     <string name="faq_10_text">当然，通过长按图片缩略图并选择编辑，或在全屏视图中选择编辑来打开编辑器。你可以通过拖动图片边角来剪裁图像。</string>
     <string name="faq_11_title">我能将媒体文件缩略图分组吗？</string>
     <string name="faq_11_text">当然，只需在缩略图视图中使用\"分组依据\"菜单项即可。您可以依据多个条件对文件进行分组，包括拍摄日期。如果您使用了\"显示所有文件夹内容\"功能，则可以按文件夹对它们进行分组。</string>
-    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
-    <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
-    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
-    <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
-    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
-    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too.</string>
+    <string name="faq_12_title">按拍摄日期排序似乎有异常，我该如何解决？</string>
+    <string name="faq_12_text">很可能是因为图片是从某处复制过来的。您可以长按文件缩略图并选择\"修复拍摄日期\"来修复它。</string>
+    <string name="faq_13_title">我看到图像上有一些色带。如何提高提高质量？</string>
+    <string name="faq_13_text">目前显示图像的方案在绝大多数情况下都能正常工作，如果您想要更好的图像质量，您可以在设置中启用\"以最高质量显示图像\"。</string>
+    <string name="faq_14_title">我隐藏了某个文件/文件夹。如何取消隐藏？</string>
+    <string name="faq_14_text">您可以点击主界面上的\"暂时显示隐藏的项目\"选项，或在设置中开启\"显示隐藏的项目\"。 如果你想取消隐藏它，长按它并选择\"取消隐藏\"即可。 我们是通过向文件夹中添加\".nomedia\"文件来隐藏文件夹的，使用文件管理器删除该文件也可以取消隐藏。</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

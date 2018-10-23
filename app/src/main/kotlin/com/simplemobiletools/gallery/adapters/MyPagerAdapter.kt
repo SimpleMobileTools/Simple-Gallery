@@ -2,11 +2,11 @@ package com.simplemobiletools.gallery.adapters
 
 import android.os.Bundle
 import android.os.Parcelable
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.PagerAdapter
-import android.view.ViewGroup
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.fragments.PhotoFragment
 import com.simplemobiletools.gallery.fragments.VideoFragment

@@ -1,6 +1,37 @@
 Changelog
 ==========
 
+Version 5.1.0 *(2018-10-23)*
+----------------------------
+
+ * Added support for panorama videos
+ * Added an extra check to avoid trying deleting files without write permission
+ * Added an initial implementation of renaming multiple items at once
+ * Added some performance improvements at item de/selection
+ * Allow enabling hidden item visibility at the copy/move destination picker
+ * Allow closing fullscreen view with swipe down gestures (can be disabled in settings)
+ * Fixed a glitch with Favorite items getting unselected every day
+ * Fixed exposure time displayed at long exposure photos
+ * Fixed fullscreen images being sometimes totally zoomed in after device rotation
+ * Fixed slideshow direction
+ * Made loading initial fullscreen view quicker and fullscreen toggling more reliable
+ * Not sure what else, nobody reads this anyway
+
+Version 5.0.1 *(2018-10-17)*
+----------------------------
+
+ * Adding some crashfixes
+
+Version 5.0.0 *(2018-10-17)*
+----------------------------
+
+ * Increased the minimal required Android OS version to 5 (Lollipop)
+ * Rewrote file selection for more robustness
+ * Added a new option for showing the Recycle Bin as the last folder
+ * Added Search for searching folders by names
+ * Replaced the G+ button with Reddit
+ * Couple smaller glitch fixes and improvements
+
 Version 4.6.5 *(2018-10-02)*
 ----------------------------
 

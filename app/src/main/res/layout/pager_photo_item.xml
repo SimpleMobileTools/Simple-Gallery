@@ -47,7 +47,7 @@
         android:visibility="gone"
         tools:text="My image\nAnother line"/>
 
-    <com.simplemobiletools.gallery.helpers.MediaSideScroll
+    <com.simplemobiletools.gallery.views.MediaSideScroll
         android:id="@+id/photo_brightness_controller"
         android:layout_width="@dimen/media_side_slider_width"
         android:layout_height="match_parent"

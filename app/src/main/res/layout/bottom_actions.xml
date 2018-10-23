@@ -11,9 +11,9 @@
 
     <ImageView
         android:id="@+id/bottom_favorite"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_star_off"
         app:layout_constraintEnd_toStartOf="@+id/bottom_edit"
@@ -22,9 +22,9 @@
 
     <ImageView
         android:id="@+id/bottom_edit"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_edit"
         app:layout_constraintEnd_toStartOf="@+id/bottom_share"
@@ -33,9 +33,9 @@
 
     <ImageView
         android:id="@+id/bottom_share"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_share"
         app:layout_constraintEnd_toStartOf="@+id/bottom_delete"
@@ -44,9 +44,9 @@
 
     <ImageView
         android:id="@+id/bottom_delete"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_delete"
         app:layout_constraintEnd_toStartOf="@+id/bottom_rotate"
@@ -55,9 +55,9 @@
 
     <ImageView
         android:id="@+id/bottom_rotate"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_rotate_right"
         app:layout_constraintEnd_toStartOf="@+id/bottom_properties"
@@ -66,9 +66,9 @@
 
     <ImageView
         android:id="@+id/bottom_properties"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_properties"
         app:layout_constraintEnd_toStartOf="@+id/bottom_change_orientation"
@@ -77,9 +77,9 @@
 
     <ImageView
         android:id="@+id/bottom_change_orientation"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_orientation_auto"
         app:layout_constraintEnd_toStartOf="@+id/bottom_slideshow"
@@ -88,9 +88,9 @@
 
     <ImageView
         android:id="@+id/bottom_slideshow"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_slideshow"
         app:layout_constraintEnd_toStartOf="@+id/bottom_show_on_map"
@@ -99,9 +99,9 @@
 
     <ImageView
         android:id="@+id/bottom_show_on_map"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_place"
         app:layout_constraintEnd_toStartOf="@+id/bottom_toggle_file_visibility"
@@ -110,9 +110,9 @@
 
     <ImageView
         android:id="@+id/bottom_toggle_file_visibility"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_hide"
         app:layout_constraintEnd_toStartOf="@+id/bottom_rename"
@@ -121,9 +121,9 @@
 
     <ImageView
         android:id="@+id/bottom_rename"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_rename_new"
         app:layout_constraintEnd_toEndOf="@+id/bottom_set_as"
@@ -132,9 +132,9 @@
 
     <ImageView
         android:id="@+id/bottom_set_as"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_set_as"
         app:layout_constraintEnd_toEndOf="parent"

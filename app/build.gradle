@@ -9,10 +9,10 @@ android {
 
     defaultConfig {
         applicationId "com.simplemobiletools.gallery"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 28
-        versionCode 201
-        versionName "4.6.5"
+        versionCode 204
+        versionName "5.1.0"
         multiDexEnabled true
         setProperty("archivesBaseName", "gallery")
     }
@@ -40,17 +40,23 @@ android {
         checkReleaseBuilds false
         abortOnError false
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:4.9.1'
+    implementation 'com.simplemobiletools:commons:5.2.0'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.0'
     implementation 'androidx.multidex:multidex:2.0.0'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.15'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
-    implementation 'com.google.android.exoplayer:exoplayer-core:2.8.4'
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.9.0'
     implementation 'com.google.vr:sdk-panowidget:1.170.0'
+    implementation 'com.google.vr:sdk-videowidget:1.170.0'
     implementation 'org.apache.sanselan:sanselan:0.97-incubator'
     implementation 'info.androidhive:imagefilters:1.0.7'
     implementation 'com.squareup.picasso:picasso:2.71828'
@@ -65,7 +71,7 @@ dependencies {
     implementation 'com.github.tibbi:subsampling-scale-image-view:v3.10.1-fork'
 
     // implementation 'com.github.chrisbanes:PhotoView:2.1.4'
-    implementation 'com.github.tibbi:PhotoView:2.1.4-fork'
+    implementation 'com.github.tibbi:PhotoView:2.2.1-fork'
 }
 
 Properties props = new Properties()

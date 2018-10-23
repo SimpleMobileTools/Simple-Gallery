@@ -162,6 +162,7 @@
     <string name="deep_zoomable_images">Βαθιά μεγέθυνση εικόνων</string>
     <string name="show_highest_quality">Εμφάνιση εικόνων με την υψηλότερη δυνατή ποιότητα</string>
     <string name="show_recycle_bin_last">Εμφάνιση του Κάδου ως τελευταίο στοιχείο στην κύρια οθόνη</string>
+    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Εικονίδια</string>

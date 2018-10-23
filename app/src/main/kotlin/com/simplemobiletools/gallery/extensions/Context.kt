@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteException
 import android.graphics.Point
 import android.graphics.drawable.PictureDrawable
 import android.media.AudioManager
-import android.os.Build
 import android.provider.MediaStore
 import android.view.WindowManager
 import android.widget.ImageView
@@ -88,8 +87,7 @@ val Context.usableScreenSize: Point
 val Context.realScreenSize: Point
     get() {
         val size = Point()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
-            windowManager.defaultDisplay.getRealSize(size)
+        windowManager.defaultDisplay.getRealSize(size)
         return size
     }
 
@@ -123,6 +121,14 @@ fun Context.movePinnedDirectoriesToFront(dirs: ArrayList<Directory>): ArrayList<
         if (newFolder != null) {
             dirs.remove(newFolder)
             dirs.add(0, newFolder)
+        }
+    }
+
+    if (config.useRecycleBin && config.showRecycleBinAtFolders && config.showRecycleBinLast) {
+        val binIndex = dirs.indexOfFirst { it.isRecycleBin() }
+        if (binIndex != -1) {
+            val bin = dirs.removeAt(binIndex)
+            dirs.add(bin)
         }
     }
     return dirs
@@ -328,7 +334,7 @@ fun Context.loadSVG(path: String, target: MySquareImageView, cropThumbnails: Boo
             .into(target)
 }
 
-fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, directoryDao: DirectoryDao = galleryDB.DirectoryDao(), callback: (ArrayList<Directory>) -> Unit) {
+fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, directoryDao: DirectoryDao = galleryDB.DirectoryDao(), forceShowHidden: Boolean = false, callback: (ArrayList<Directory>) -> Unit) {
     Thread {
         val directories = try {
             directoryDao.getAll() as ArrayList<Directory>
@@ -336,11 +342,11 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
             ArrayList<Directory>()
         }
 
-        if (!config.showRecycleBinAtFolders) {
+        if (!config.showRecycleBinAtFolders || !config.useRecycleBin) {
             directories.removeAll { it.isRecycleBin() }
         }
 
-        val shouldShowHidden = config.shouldShowHidden
+        val shouldShowHidden = config.shouldShowHidden || forceShowHidden
         val excludedPaths = config.excludedFolders
         val includedPaths = config.includedFolders
         var filteredDirectories = directories.filter { it.path.shouldFolderBeVisible(excludedPaths, includedPaths, shouldShowHidden) } as ArrayList<Directory>

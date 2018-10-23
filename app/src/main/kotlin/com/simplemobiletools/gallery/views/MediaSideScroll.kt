@@ -1,4 +1,4 @@
-package com.simplemobiletools.gallery.helpers
+package com.simplemobiletools.gallery.views
 
 import android.app.Activity
 import android.content.Context
@@ -13,6 +13,8 @@ import android.widget.TextView
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.audioManager
+import com.simplemobiletools.gallery.helpers.CLICK_MAX_DURATION
+import com.simplemobiletools.gallery.helpers.DRAG_THRESHOLD
 
 // allow horizontal swipes through the layout, else it can cause glitches at zoomed in images
 class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(context, attrs) {
@@ -30,8 +32,8 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
     private var mSlideInfoText = ""
     private var mSlideInfoFadeHandler = Handler()
     private var mParentView: ViewGroup? = null
+    private var activity: Activity? = null
 
-    private lateinit var activity: Activity
     private lateinit var slideInfoView: TextView
     private lateinit var callback: (Float, Float) -> Unit
 
@@ -55,7 +57,7 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
-        if (mPassTouches) {
+        if (mPassTouches && activity == null) {
             return false
         }
 
@@ -112,11 +114,11 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
         return true
     }
 
-    private fun getCurrentVolume() = activity.audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
+    private fun getCurrentVolume() = activity!!.audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
 
     private fun getCurrentBrightness(): Int {
         return try {
-            Settings.System.getInt(activity.contentResolver, Settings.System.SCREEN_BRIGHTNESS)
+            Settings.System.getInt(activity!!.contentResolver, Settings.System.SCREEN_BRIGHTNESS)
         } catch (e: Settings.SettingNotFoundException) {
             70
         }
@@ -132,11 +134,11 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
 
     private fun volumePercentChanged(percent: Int) {
         val stream = AudioManager.STREAM_MUSIC
-        val maxVolume = activity.audioManager.getStreamMaxVolume(stream)
+        val maxVolume = activity!!.audioManager.getStreamMaxVolume(stream)
         val percentPerPoint = 100 / maxVolume
         val addPoints = percent / percentPerPoint
         val newVolume = Math.min(maxVolume, Math.max(0, mTouchDownValue + addPoints))
-        activity.audioManager.setStreamVolume(stream, newVolume, 0)
+        activity!!.audioManager.setStreamVolume(stream, newVolume, 0)
 
         val absolutePercent = ((newVolume / maxVolume.toFloat()) * 100).toInt()
         showValue(absolutePercent)
@@ -156,9 +158,9 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
         val absolutePercent = ((newBrightness / maxBrightness) * 100).toInt()
         showValue(absolutePercent)
 
-        val attributes = activity.window.attributes
+        val attributes = activity!!.window.attributes
         attributes.screenBrightness = absolutePercent / 100f
-        activity.window.attributes = attributes
+        activity!!.window.attributes = attributes
 
         mSlideInfoFadeHandler.removeCallbacksAndMessages(null)
         mSlideInfoFadeHandler.postDelayed({

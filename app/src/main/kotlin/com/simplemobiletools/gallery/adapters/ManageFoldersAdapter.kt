@@ -25,12 +25,6 @@ class ManageFoldersAdapter(activity: BaseSimpleActivity, var folders: ArrayList<
 
     override fun prepareActionMode(menu: Menu) {}
 
-    override fun prepareItemSelection(viewHolder: ViewHolder) {}
-
-    override fun markViewHolderSelection(select: Boolean, viewHolder: ViewHolder?) {
-        viewHolder?.itemView?.manage_folder_holder?.isSelected = select
-    }
-
     override fun actionItemPressed(id: Int) {
         when (id) {
             R.id.cab_remove -> removeSelection()
@@ -41,20 +35,27 @@ class ManageFoldersAdapter(activity: BaseSimpleActivity, var folders: ArrayList<
 
     override fun getIsItemSelectable(position: Int) = true
 
+    override fun getItemSelectionKey(position: Int) = folders.getOrNull(position)?.hashCode()
+
+    override fun getItemKeyPosition(key: Int) = folders.indexOfFirst { it.hashCode() == key }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = createViewHolder(R.layout.item_manage_folder, parent)
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val folder = folders[position]
-        val view = holder.bindView(folder, true, true) { itemView, adapterPosition ->
+        holder.bindView(folder, true, true) { itemView, adapterPosition ->
             setupView(itemView, folder)
         }
-        bindViewHolder(holder, position, view)
+        bindViewHolder(holder)
     }
 
     override fun getItemCount() = folders.size
 
+    private fun getSelectedItems() = folders.filter { selectedKeys.contains(it.hashCode()) } as ArrayList<String>
+
     private fun setupView(view: View, folder: String) {
         view.apply {
+            manage_folder_holder?.isSelected = selectedKeys.contains(folder.hashCode())
             manage_folder_title.apply {
                 text = folder
                 setTextColor(config.textColor)
@@ -63,20 +64,20 @@ class ManageFoldersAdapter(activity: BaseSimpleActivity, var folders: ArrayList<
     }
 
     private fun removeSelection() {
-        val removeFolders = ArrayList<String>(selectedPositions.size)
+        val removeFolders = ArrayList<String>(selectedKeys.size)
+        val positions = getSelectedItemPositions()
 
-        selectedPositions.sortedDescending().forEach {
-            val folder = folders[it]
-            removeFolders.add(folder)
+        getSelectedItems().forEach {
+            removeFolders.add(it)
             if (isShowingExcludedFolders) {
-                config.removeExcludedFolder(folder)
+                config.removeExcludedFolder(it)
             } else {
-                config.removeIncludedFolder(folder)
+                config.removeIncludedFolder(it)
             }
         }
 
         folders.removeAll(removeFolders)
-        removeSelectedItems()
+        removeSelectedItems(positions)
         if (folders.isEmpty()) {
             listener?.refreshItems()
         }

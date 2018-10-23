@@ -10,7 +10,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
-import com.simplemobiletools.commons.extensions.isActivityDestroyed
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.commons.helpers.isNougatPlus
 import com.simplemobiletools.commons.models.RadioItem
@@ -113,7 +112,7 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
 
     @SuppressLint("NewApi")
     override fun onCropImageComplete(view: CropImageView?, result: CropImageView.CropResult) {
-        if (isActivityDestroyed())
+        if (isDestroyed)
             return
 
         if (result.error == null) {

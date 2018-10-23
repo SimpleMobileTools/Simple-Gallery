@@ -398,7 +398,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun checkLastMediaChanged() {
-        if (isActivityDestroyed()) {
+        if (isDestroyed) {
             return
         }
 

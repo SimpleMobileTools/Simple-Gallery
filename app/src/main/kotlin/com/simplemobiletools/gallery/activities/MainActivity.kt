@@ -1,7 +1,9 @@
 package com.simplemobiletools.gallery.activities
 
 import android.app.Activity
+import android.app.SearchManager
 import android.content.ClipData
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -12,7 +14,8 @@ import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.Toast
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.appcompat.widget.SearchView
+import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
@@ -61,11 +64,14 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mIsPasswordProtectionPending = false
     private var mWasProtectionHandled = false
     private var mShouldStopFetching = false
+    private var mIsSearchOpen = false
     private var mLatestMediaId = 0L
     private var mLatestMediaDateId = 0L
     private var mLastMediaHandler = Handler()
     private var mTempShowHiddenHandler = Handler()
     private var mZoomListener: MyRecyclerView.MyZoomListener? = null
+    private var mSearchMenuItem: MenuItem? = null
+    private var mDirs = ArrayList<Directory>()
 
     private var mStoredAnimateGifs = true
     private var mStoredCropThumbnails = true
@@ -214,6 +220,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     override fun onStop() {
         super.onStop()
+        mSearchMenuItem?.collapseActionView()
+
         if (config.temporarilyShowHidden || config.tempSkipDeleteConfirmation) {
             mTempShowHiddenHandler.postDelayed({
                 config.temporarilyShowHidden = false
@@ -243,10 +251,13 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             menu.apply {
                 findItem(R.id.increase_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt < MAX_COLUMN_COUNT
                 findItem(R.id.reduce_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt > 1
+                setupSearch(this)
             }
         }
+
         menu.findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden
         menu.findItem(R.id.stop_showing_hidden).isVisible = config.temporarilyShowHidden
+
         return true
     }
 
@@ -291,6 +302,55 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             mStoredTextColor = textColor
             mStoredPrimaryColor = primaryColor
         }
+    }
+
+    private fun setupSearch(menu: Menu) {
+        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        mSearchMenuItem = menu.findItem(R.id.search)
+        (mSearchMenuItem?.actionView as? SearchView)?.apply {
+            setSearchableInfo(searchManager.getSearchableInfo(componentName))
+            isSubmitButtonEnabled = false
+            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String) = false
+
+                override fun onQueryTextChange(newText: String): Boolean {
+                    if (mIsSearchOpen) {
+                        searchQueryChanged(newText)
+                    }
+                    return true
+                }
+            })
+        }
+
+        MenuItemCompat.setOnActionExpandListener(mSearchMenuItem, object : MenuItemCompat.OnActionExpandListener {
+            override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
+                mIsSearchOpen = true
+                directories_refresh_layout.isEnabled = false
+                return true
+            }
+
+            // this triggers on device rotation too, avoid doing anything
+            override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
+                if (mIsSearchOpen) {
+                    mIsSearchOpen = false
+                    directories_refresh_layout.isEnabled = config.enablePullToRefresh
+                    searchQueryChanged("")
+                }
+                return true
+            }
+        })
+    }
+
+    private fun searchQueryChanged(text: String) {
+        Thread {
+            val filtered = getUniqueSortedDirs(mDirs).filter { it.name.contains(text, true) } as ArrayList
+            filtered.sortBy { !it.name.startsWith(text, true) }
+
+            runOnUiThread {
+                getRecyclerAdapter()?.updateDirs(filtered)
+                measureRecyclerViewContent(filtered)
+            }
+        }.start()
     }
 
     private fun removeTempFolder() {
@@ -544,7 +604,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun createNewFolder() {
-        FilePickerDialog(this, internalStoragePath, false, config.shouldShowHidden) {
+        FilePickerDialog(this, internalStoragePath, false, config.shouldShowHidden, false, true) {
             CreateNewFolderDialog(this, it) {
                 config.tempFolderPath = it
                 Thread {
@@ -688,6 +748,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         // if hidden item showing is disabled but all Favorite items are hidden, hide the Favorites folder
         mIsGettingDirs = false
         mShouldStopFetching = false
+
         if (!config.shouldShowHidden) {
             val favoritesFolder = newDirs.firstOrNull { it.areFavorites() }
             if (favoritesFolder != null && favoritesFolder.tmb.getFilenameFromPath().startsWith('.')) {
@@ -714,9 +775,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val hiddenString = getString(R.string.hidden)
         val albumCovers = config.parseAlbumCovers()
         val includedFolders = config.includedFolders
+        val tempFolderPath = config.tempFolderPath
         val isSortingAscending = config.directorySorting and SORT_DESCENDING == 0
         val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0
         val favoritePaths = getFavoritePaths()
+        val dirPathsToRemove = ArrayList<String>()
 
         try {
             for (directory in dirs) {
@@ -726,6 +789,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
                 val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, favoritePaths)
                 val newDir = if (curMedia.isEmpty()) {
+                    if (directory.path != tempFolderPath) {
+                        dirPathsToRemove.add(directory.path)
+                    }
                     directory
                 } else {
                     createDirectoryFromMedia(directory.path, curMedia, albumCovers, hiddenString, includedFolders, isSortingAscending)
@@ -767,9 +833,18 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         } catch (ignored: Exception) {
         }
 
+        if (dirPathsToRemove.isNotEmpty()) {
+            val dirsToRemove = dirs.filter { dirPathsToRemove.contains(it.path) }
+            dirsToRemove.forEach {
+                mDirectoryDao.deleteDirPath(it.path)
+            }
+            dirs.removeAll(dirsToRemove)
+            showSortedDirs(dirs)
+        }
+
         val foldersToScan = mediaFetcher.getFoldersToScan()
         foldersToScan.add(FAVORITES)
-        if (config.showRecycleBinAtFolders) {
+        if (config.useRecycleBin && config.showRecycleBinAtFolders) {
             foldersToScan.add(RECYCLE_BIN)
         } else {
             foldersToScan.remove(RECYCLE_BIN)
@@ -825,6 +900,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         } catch (e: Exception) {
             config.everShownFolders = HashSet()
         }
+        mDirs = dirs.clone() as ArrayList<Directory>
+
+        if (config.appRunCount < 5 && mDirs.size > 100) {
+            excludeSpamFolders()
+        }
     }
 
     private fun checkPlaceholderVisibility(dirs: ArrayList<Directory>) {
@@ -834,12 +914,15 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun showSortedDirs(dirs: ArrayList<Directory>) {
-        var sortedDirs = getSortedDirectories(dirs)
-        sortedDirs = sortedDirs.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>
-
+        val updatedDirs = getUniqueSortedDirs(dirs)
         runOnUiThread {
-            (directories_grid.adapter as? DirectoryAdapter)?.updateDirs(sortedDirs)
+            (directories_grid.adapter as? DirectoryAdapter)?.updateDirs(updatedDirs)
         }
+    }
+
+    private fun getUniqueSortedDirs(dirs: ArrayList<Directory>): ArrayList<Directory> {
+        val sortedDirs = dirs.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>
+        return getSortedDirectories(sortedDirs)
     }
 
     private fun createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, albumCovers: ArrayList<AlbumCover>, hiddenString: String,
@@ -885,7 +968,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 directories_grid.adapter = this
             }
         } else {
-            (currAdapter as DirectoryAdapter).updateDirs(dirs)
+            showSortedDirs(dirs)
         }
 
         getRecyclerAdapter()?.dirs?.apply {
@@ -966,7 +1049,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun checkLastMediaChanged() {
-        if (isActivityDestroyed()) {
+        if (isDestroyed) {
             return
         }
 
@@ -993,9 +1076,85 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             config.lastBinCheck = System.currentTimeMillis()
             Handler().postDelayed({
                 Thread {
-                    mMediumDao.deleteOldRecycleBinItems(System.currentTimeMillis() - MONTH_MILLISECONDS)
+                    try {
+                        mMediumDao.deleteOldRecycleBinItems(System.currentTimeMillis() - MONTH_MILLISECONDS)
+                    } catch (e: Exception) {
+                    }
                 }.start()
             }, 3000L)
+        }
+    }
+
+    // exclude probably unwanted folders, for example facebook stickers are split between hundreds of separate folders like
+    // /storage/emulated/0/Android/data/com.facebook.orca/files/stickers/175139712676531/209575122566323
+    // /storage/emulated/0/Android/data/com.facebook.orca/files/stickers/497837993632037/499671223448714
+    private fun excludeSpamFolders() {
+        Thread {
+            try {
+                val internalPath = config.internalStoragePath
+                val sdPath = config.sdCardPath
+                val pathParts = ArrayList<ArrayList<String>>()
+                mDirs.asSequence().map { it.path.removePrefix(internalPath).removePrefix(sdPath) }.sorted().toList().forEach {
+                    val parts = it.split("/").asSequence().filter { it.isNotEmpty() }.toMutableList() as ArrayList<String>
+                    if (parts.size > 3) {
+                        pathParts.add(parts)
+                    }
+                }
+
+                val keys = getLongestCommonStrings(pathParts)
+                pathParts.clear()
+                keys.forEach { it ->
+                    val parts = it.split("/").asSequence().filter { it.isNotEmpty() }.toMutableList() as ArrayList<String>
+                    pathParts.add(parts)
+                }
+
+                getLongestCommonStrings(pathParts).forEach {
+                    var file = File("$internalPath/$it")
+                    if (file.exists()) {
+                        config.addExcludedFolder(file.absolutePath)
+                    } else {
+                        file = File("$sdPath/$it")
+                        if (file.exists()) {
+                            config.addExcludedFolder(file.absolutePath)
+                        }
+                    }
+                }
+            } catch (e: Exception) {
+            }
+        }.start()
+    }
+
+    private fun getLongestCommonStrings(pathParts: ArrayList<ArrayList<String>>): ArrayList<String> {
+        val commonStrings = ArrayList<String>()
+        return try {
+            val cnt = pathParts.size
+            for (i in 0..cnt) {
+                var longestCommonString = ""
+                for (j in i..cnt) {
+                    var currentCommonString = ""
+                    if (i != j) {
+                        val originalParts = pathParts.getOrNull(i)
+                        val otherParts = pathParts.getOrNull(j)
+                        if (originalParts != null && otherParts != null) {
+                            originalParts.forEachIndexed { index, string ->
+                                if (string == otherParts.getOrNull(index)) {
+                                    currentCommonString += "$string/"
+                                    if (currentCommonString.length > longestCommonString.length) {
+                                        longestCommonString = currentCommonString.trimEnd('/')
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (longestCommonString.isNotEmpty()) {
+                    commonStrings.add(longestCommonString)
+                }
+            }
+            commonStrings.groupingBy { it }.eachCount().filter { it.value > 5 && it.key.length > 10 }.map { it.key }.toMutableList() as ArrayList<String>
+        } catch (e: Exception) {
+            ArrayList()
         }
     }
 
@@ -1068,6 +1227,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             add(Release(182, R.string.release_182))
             add(Release(184, R.string.release_184))
             add(Release(201, R.string.release_201))
+            add(Release(202, R.string.release_202))
             checkWhatsNew(this, BuildConfig.VERSION_CODE)
         }
     }

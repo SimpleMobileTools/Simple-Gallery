@@ -1,43 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/directories_grid_holder"
+    android:id="@+id/directories_holder"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingTop="@dimen/activity_margin">
+    android:layout_height="match_parent">
 
-    <com.simplemobiletools.commons.views.MyRecyclerView
-        android:id="@+id/directories_grid"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none"
-        app:layoutManager="com.simplemobiletools.commons.views.MyGridLayoutManager"
-        app:spanCount="@integer/directory_columns_vertical_scroll"/>
-
-    <com.simplemobiletools.commons.views.FastScroller
-        android:id="@+id/directories_vertical_fastscroller"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:paddingLeft="@dimen/normal_margin"
-        android:paddingStart="@dimen/normal_margin">
-
-        <include layout="@layout/fastscroller_handle_vertical"/>
-
-    </com.simplemobiletools.commons.views.FastScroller>
-
-    <com.simplemobiletools.commons.views.FastScroller
-        android:id="@+id/directories_horizontal_fastscroller"
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/directories_grid_holder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:paddingTop="@dimen/normal_margin">
+        android:paddingTop="@dimen/activity_margin">
 
-        <include layout="@layout/fastscroller_handle_horizontal"/>
+        <com.simplemobiletools.commons.views.MyRecyclerView
+            android:id="@+id/directories_grid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            app:layoutManager="com.simplemobiletools.commons.views.MyGridLayoutManager"
+            app:spanCount="@integer/directory_columns_vertical_scroll"/>
 
-    </com.simplemobiletools.commons.views.FastScroller>
-</RelativeLayout>
+        <com.simplemobiletools.commons.views.FastScroller
+            android:id="@+id/directories_vertical_fastscroller"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:paddingStart="@dimen/normal_margin"
+            android:paddingLeft="@dimen/normal_margin">
+
+            <include layout="@layout/fastscroller_handle_vertical"/>
+
+        </com.simplemobiletools.commons.views.FastScroller>
+
+        <com.simplemobiletools.commons.views.FastScroller
+            android:id="@+id/directories_horizontal_fastscroller"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:paddingTop="@dimen/normal_margin">
+
+            <include layout="@layout/fastscroller_handle_horizontal"/>
+
+        </com.simplemobiletools.commons.views.FastScroller>
+    </RelativeLayout>
+
+    <com.simplemobiletools.commons.views.MyFloatingActionButton
+        android:id="@+id/directories_show_hidden"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/activity_margin"
+        android:src="@drawable/ic_unhide"
+        android:visibility="gone"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

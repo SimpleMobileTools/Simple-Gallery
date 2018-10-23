@@ -1,7 +1,0 @@
-<resources>
-
-    <style name="FullScreenTheme" parent="AppTheme.Base">
-        <item name="android:windowTranslucentNavigation">true</item>
-    </style>
-
-</resources>

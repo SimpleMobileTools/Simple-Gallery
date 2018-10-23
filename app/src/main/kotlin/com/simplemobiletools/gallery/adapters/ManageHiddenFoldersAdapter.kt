@@ -27,12 +27,6 @@ class ManageHiddenFoldersAdapter(activity: BaseSimpleActivity, var folders: Arra
 
     override fun prepareActionMode(menu: Menu) {}
 
-    override fun prepareItemSelection(viewHolder: ViewHolder) {}
-
-    override fun markViewHolderSelection(select: Boolean, viewHolder: ViewHolder?) {
-        viewHolder?.itemView?.manage_folder_holder?.isSelected = select
-    }
-
     override fun actionItemPressed(id: Int) {
         when (id) {
             R.id.cab_unhide -> tryUnhideFolders()
@@ -43,20 +37,27 @@ class ManageHiddenFoldersAdapter(activity: BaseSimpleActivity, var folders: Arra
 
     override fun getIsItemSelectable(position: Int) = true
 
+    override fun getItemSelectionKey(position: Int) = folders.getOrNull(position)?.hashCode()
+
+    override fun getItemKeyPosition(key: Int) = folders.indexOfFirst { it.hashCode() == key }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = createViewHolder(R.layout.item_manage_folder, parent)
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val folder = folders[position]
-        val view = holder.bindView(folder, true, true) { itemView, adapterPosition ->
+        holder.bindView(folder, true, true) { itemView, adapterPosition ->
             setupView(itemView, folder)
         }
-        bindViewHolder(holder, position, view)
+        bindViewHolder(holder)
     }
 
     override fun getItemCount() = folders.size
 
+    private fun getSelectedItems() = folders.filter { selectedKeys.contains(it.hashCode()) } as ArrayList<String>
+
     private fun setupView(view: View, folder: String) {
         view.apply {
+            manage_folder_holder?.isSelected = selectedKeys.contains(folder.hashCode())
             manage_folder_title.apply {
                 text = folder
                 setTextColor(config.textColor)
@@ -65,12 +66,12 @@ class ManageHiddenFoldersAdapter(activity: BaseSimpleActivity, var folders: Arra
     }
 
     private fun tryUnhideFolders() {
-        val removeFolders = ArrayList<String>(selectedPositions.size)
+        val removeFolders = ArrayList<String>(selectedKeys.size)
 
         val sdCardPaths = ArrayList<String>()
-        selectedPositions.forEach {
-            if (activity.isPathOnSD(folders[it])) {
-                sdCardPaths.add(folders[it])
+        getSelectedItems().forEach {
+            if (activity.isPathOnSD(it)) {
+                sdCardPaths.add(it)
             }
         }
 
@@ -84,14 +85,14 @@ class ManageHiddenFoldersAdapter(activity: BaseSimpleActivity, var folders: Arra
     }
 
     private fun unhideFolders(removeFolders: ArrayList<String>) {
-        selectedPositions.sortedDescending().forEach {
-            val folder = folders[it]
-            removeFolders.add(folder)
-            activity.removeNoMedia(folder)
+        val position = getSelectedItemPositions()
+        getSelectedItems().forEach {
+            removeFolders.add(it)
+            activity.removeNoMedia(it)
         }
 
         folders.removeAll(removeFolders)
-        removeSelectedItems()
+        removeSelectedItems(position)
         if (folders.isEmpty()) {
             listener?.refreshItems()
         }

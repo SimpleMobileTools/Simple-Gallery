@@ -1,6 +1,5 @@
 package com.simplemobiletools.gallery.fragments
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Bitmap
@@ -29,14 +28,15 @@ import com.davemorrissey.labs.subscaleview.ImageSource
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
-import com.simplemobiletools.commons.helpers.isJellyBean1Plus
-import com.simplemobiletools.commons.helpers.isLollipopPlus
 import com.simplemobiletools.gallery.R
-import com.simplemobiletools.gallery.activities.PanoramaActivity
+import com.simplemobiletools.gallery.activities.PanoramaPhotoActivity
 import com.simplemobiletools.gallery.activities.PhotoActivity
 import com.simplemobiletools.gallery.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.extensions.*
-import com.simplemobiletools.gallery.helpers.*
+import com.simplemobiletools.gallery.helpers.MEDIUM
+import com.simplemobiletools.gallery.helpers.PATH
+import com.simplemobiletools.gallery.helpers.PicassoDecoder
+import com.simplemobiletools.gallery.helpers.PicassoRegionDecoder
 import com.simplemobiletools.gallery.models.Medium
 import com.simplemobiletools.gallery.svg.SvgSoftwareLayerSetter
 import com.squareup.picasso.Callback
@@ -73,6 +73,7 @@ class PhotoFragment : ViewPagerFragment() {
     private var storedAllowDeepZoomableImages = false
     private var storedShowHighestQuality = false
     private var storedAllowOneFingerZoom = false
+    private var mOriginalSubsamplingScale = 0f
     private var storedExtendedDetails = 0
 
     lateinit var view: ViewGroup
@@ -97,6 +98,20 @@ class PhotoFragment : ViewPagerFragment() {
                     } else {
                         photo_view.sendFakeClick(x, y)
                     }
+                }
+            }
+
+            if (context.config.allowDownGesture) {
+                gif_view.setOnTouchListener { v, event ->
+                    handleEvent(event)
+                    false
+                }
+
+                subsampling_view.setOnTouchListener { v, event ->
+                    if (view.subsampling_view.scale == mOriginalSubsamplingScale) {
+                        handleEvent(event)
+                    }
+                    false
                 }
             }
         }
@@ -208,28 +223,18 @@ class PhotoFragment : ViewPagerFragment() {
         }
     }
 
-    @SuppressLint("NewApi")
     private fun measureScreen() {
         val metrics = DisplayMetrics()
-        if (isJellyBean1Plus()) {
-            activity!!.windowManager.defaultDisplay.getRealMetrics(metrics)
-            ViewPagerActivity.screenWidth = metrics.widthPixels
-            ViewPagerActivity.screenHeight = metrics.heightPixels
-        } else {
-            activity!!.windowManager.defaultDisplay.getMetrics(metrics)
-            ViewPagerActivity.screenWidth = metrics.widthPixels
-            ViewPagerActivity.screenHeight = metrics.heightPixels
-        }
+        activity!!.windowManager.defaultDisplay.getRealMetrics(metrics)
+        ViewPagerActivity.screenWidth = metrics.widthPixels
+        ViewPagerActivity.screenHeight = metrics.heightPixels
     }
 
     private fun photoFragmentVisibilityChanged(isVisible: Boolean) {
         if (isVisible) {
             scheduleZoomableView()
         } else {
-            isSubsamplingVisible = false
-            view.subsampling_view.recycle()
-            view.subsampling_view.beGone()
-            loadZoomableViewHandler.removeCallbacksAndMessages(null)
+            hideZoomableView()
         }
     }
 
@@ -280,7 +285,7 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun loadSVG() {
-        Glide.with(this)
+        Glide.with(context!!)
                 .`as`(PictureDrawable::class.java)
                 .listener(SvgSoftwareLayerSetter())
                 .load(medium.path)
@@ -351,7 +356,7 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun openPanorama() {
-        Intent(context, PanoramaActivity::class.java).apply {
+        Intent(context, PanoramaPhotoActivity::class.java).apply {
             putExtra(PATH, medium.path)
             startActivity(this)
         }
@@ -380,7 +385,7 @@ class PhotoFragment : ViewPagerFragment() {
             maxScale = 10f
             beVisible()
             isQuickScaleEnabled = context.config.oneFingerZoom
-            setResetScaleOnSizeChange(context.config.screenRotation != ROTATE_BY_ASPECT_RATIO)
+            setResetScaleOnSizeChange(false)
             setImage(ImageSource.uri(path))
             orientation = rotation
             setEagerLoadingEnabled(false)
@@ -393,6 +398,7 @@ class PhotoFragment : ViewPagerFragment() {
                     val useWidth = if (imageOrientation == ORIENTATION_ROTATE_90 || imageOrientation == ORIENTATION_ROTATE_270) sHeight else sWidth
                     val useHeight = if (imageOrientation == ORIENTATION_ROTATE_90 || imageOrientation == ORIENTATION_ROTATE_270) sWidth else sHeight
                     setDoubleTapZoomScale(getDoubleTapZoomScale(useWidth, useHeight))
+                    mOriginalSubsamplingScale = scale
                 }
 
                 override fun onTileLoadError(e: Exception?) {
@@ -440,7 +446,7 @@ class PhotoFragment : ViewPagerFragment() {
             false
         }
 
-        view.panorama_outline.beVisibleIf(isPanorama && isLollipopPlus())
+        view.panorama_outline.beVisibleIf(isPanorama)
     }
 
     private fun getImageOrientation(): Int {
@@ -514,7 +520,7 @@ class PhotoFragment : ViewPagerFragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        if (activity?.isActivityDestroyed() == false) {
+        if (activity?.isDestroyed == false) {
             view.subsampling_view.recycle()
         }
         loadZoomableViewHandler.removeCallbacksAndMessages(null)
@@ -531,10 +537,20 @@ class PhotoFragment : ViewPagerFragment() {
                 }, 50)
             }
         } else {
+            hideZoomableView()
             loadImage()
         }
 
         initExtendedDetails()
+    }
+
+    private fun hideZoomableView() {
+        if (context?.config?.allowZoomingImages == true) {
+            isSubsamplingVisible = false
+            view.subsampling_view.recycle()
+            view.subsampling_view.beGone()
+            loadZoomableViewHandler.removeCallbacksAndMessages(null)
+        }
     }
 
     private fun photoClicked() {

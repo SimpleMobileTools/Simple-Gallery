@@ -18,10 +18,7 @@ import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.extensions.emptyTheRecycleBin
 import com.simplemobiletools.gallery.extensions.galleryDB
 import com.simplemobiletools.gallery.extensions.showRecycleBinEmptyingDialog
-import com.simplemobiletools.gallery.helpers.DEFAULT_BOTTOM_ACTIONS
-import com.simplemobiletools.gallery.helpers.ROTATE_BY_ASPECT_RATIO
-import com.simplemobiletools.gallery.helpers.ROTATE_BY_DEVICE_ROTATION
-import com.simplemobiletools.gallery.helpers.ROTATE_BY_SYSTEM_SETTING
+import com.simplemobiletools.gallery.helpers.*
 import kotlinx.android.synthetic.main.activity_settings.*
 import java.util.*
 
@@ -61,6 +58,7 @@ class SettingsActivity : SimpleActivity() {
         setupDeleteEmptyFolders()
         setupAllowPhotoGestures()
         setupAllowVideoGestures()
+        setupAllowDownGesture()
         setupBottomActions()
         setupShowMediaCount()
         setupKeepLastModified()
@@ -77,6 +75,7 @@ class SettingsActivity : SimpleActivity() {
         setupManageBottomActions()
         setupUseRecycleBin()
         setupShowRecycleBin()
+        setupShowRecycleBinLast()
         setupEmptyRecycleBin()
         updateTextColors(settings_holder)
         setupSectionColors()
@@ -304,6 +303,14 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
+    private fun setupAllowDownGesture() {
+        settings_allow_down_gesture.isChecked = config.allowDownGesture
+        settings_allow_down_gesture_holder.setOnClickListener {
+            settings_allow_down_gesture.toggle()
+            config.allowDownGesture = settings_allow_down_gesture.isChecked
+        }
+    }
+
     private fun setupShowMediaCount() {
         settings_show_media_count.isChecked = config.showMediaCount
         settings_show_media_count_holder.setOnClickListener {
@@ -459,11 +466,14 @@ class SettingsActivity : SimpleActivity() {
     private fun setupUseRecycleBin() {
         settings_empty_recycle_bin_holder.beVisibleIf(config.useRecycleBin)
         settings_show_recycle_bin_holder.beVisibleIf(config.useRecycleBin)
+        settings_show_recycle_bin_last_holder.beVisibleIf(config.useRecycleBin && config.showRecycleBinAtFolders)
         settings_use_recycle_bin.isChecked = config.useRecycleBin
         settings_use_recycle_bin_holder.setOnClickListener {
             settings_use_recycle_bin.toggle()
             config.useRecycleBin = settings_use_recycle_bin.isChecked
             settings_empty_recycle_bin_holder.beVisibleIf(config.useRecycleBin)
+            settings_show_recycle_bin_holder.beVisibleIf(config.useRecycleBin)
+            settings_show_recycle_bin_last_holder.beVisibleIf(config.useRecycleBin && config.showRecycleBinAtFolders)
         }
     }
 
@@ -472,6 +482,18 @@ class SettingsActivity : SimpleActivity() {
         settings_show_recycle_bin_holder.setOnClickListener {
             settings_show_recycle_bin.toggle()
             config.showRecycleBinAtFolders = settings_show_recycle_bin.isChecked
+            settings_show_recycle_bin_last_holder.beVisibleIf(config.useRecycleBin && config.showRecycleBinAtFolders)
+        }
+    }
+
+    private fun setupShowRecycleBinLast() {
+        settings_show_recycle_bin_last.isChecked = config.showRecycleBinLast
+        settings_show_recycle_bin_last_holder.setOnClickListener {
+            settings_show_recycle_bin_last.toggle()
+            config.showRecycleBinLast = settings_show_recycle_bin_last.isChecked
+            if (config.showRecycleBinLast) {
+                config.removePinnedFolders(setOf(RECYCLE_BIN))
+            }
         }
     }
 

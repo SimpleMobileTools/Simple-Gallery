@@ -162,6 +162,7 @@
     <string name="deep_zoomable_images">Deep zoomable images</string>
     <string name="show_highest_quality">Show images in the highest possible quality</string>
     <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
+    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">섬네일</string>

@@ -58,10 +58,12 @@ const val USE_RECYCLE_BIN = "use_recycle_bin"
 const val GROUP_BY = "group_by"
 const val EVER_SHOWN_FOLDERS = "ever_shown_folders"
 const val SHOW_RECYCLE_BIN_AT_FOLDERS = "show_recycle_bin_at_folders"
+const val SHOW_RECYCLE_BIN_LAST = "show_recycle_bin_last"
 const val ALLOW_ZOOMING_IMAGES = "allow_zooming_images"
 const val WAS_SVG_SHOWING_HANDLED = "was_svg_showing_handled"
 const val LAST_BIN_CHECK = "last_bin_check"
 const val SHOW_HIGHEST_QUALITY = "show_highest_quality"
+const val ALLOW_DOWN_GESTURE = "allow_down_gesture"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"
@@ -85,6 +87,9 @@ const val SHOW_TEMP_HIDDEN_DURATION = 300000L
 const val CLICK_MAX_DURATION = 150
 const val DRAG_THRESHOLD = 8
 const val MONTH_MILLISECONDS = MONTH_SECONDS * 1000L
+const val HIDE_PLAY_PAUSE_DELAY = 500L
+const val PLAY_PAUSE_VISIBLE_ALPHA = 0.8f
+const val MIN_SKIP_LENGTH = 2000
 
 const val DIRECTORY = "directory"
 const val MEDIUM = "medium"
