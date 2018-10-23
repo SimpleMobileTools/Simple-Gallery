@@ -146,8 +146,8 @@
     <string name="scroll_thumbnails_horizontally">Horizontaal scrollen</string>
     <string name="hide_system_ui_at_fullscreen">Statusbalk automatisch verbergen in volledig scherm</string>
     <string name="delete_empty_folders">Lege mappen verwijderen na leegmaken</string>
-    <string name="allow_photo_gestures">Helderheid voor afbeeldingen aanpassen met verticale gebaren</string>
-    <string name="allow_video_gestures">Volume en helderheid voor video\'s aanpassen met verticale gebaren</string>
+    <string name="allow_photo_gestures">Helderheid voor afbeeldingen aanpassen met verticale veeggebaren</string>
+    <string name="allow_video_gestures">Volume en helderheid voor video\'s aanpassen met verticale veeggebaren</string>
     <string name="show_media_count">Aantallen in mappen tonen</string>
     <string name="replace_share_with_rotate">Menu-item Draaien vastzetten in volledig scherm (in plaats van Delen)</string>
     <string name="show_extended_details">Uitgebreide informatie tonen in volledig scherm</string>
@@ -162,7 +162,7 @@
     <string name="deep_zoomable_images">Afbeeldingen ver inzoomen</string>
     <string name="show_highest_quality">Afbeeldingen in de hoogst mogelijke kwaliteit weergeven</string>
     <string name="show_recycle_bin_last">Prullenbak als laatste item tonen</string>
-    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
+    <string name="allow_down_gesture">Naar beneden vegen om volledig scherm af te sluiten</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatuurvoorbeelden</string>
