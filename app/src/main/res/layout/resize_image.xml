@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/activity_margin">
+    android:paddingLeft="@dimen/activity_margin"
+    android:paddingTop="@dimen/activity_margin"
+    android:paddingRight="@dimen/activity_margin">
 
     <com.simplemobiletools.commons.views.MyTextView
         android:id="@+id/image_width_label"
@@ -29,8 +31,8 @@
         android:id="@+id/image_height_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
         android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
         android:layout_toRightOf="@+id/image_width_label"
         android:text="@string/height"/>
 
@@ -38,9 +40,9 @@
         android:id="@+id/image_height"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/image_height_label"
-        android:layout_alignStart="@+id/image_height_label"
         android:layout_below="@+id/image_width_label"
+        android:layout_alignStart="@+id/image_height_label"
+        android:layout_alignLeft="@+id/image_height_label"
         android:inputType="number"
         android:maxLength="6"
         android:maxLines="1"
@@ -54,8 +56,8 @@
         android:layout_below="@+id/image_height"
         android:layout_marginTop="@dimen/activity_margin"
         android:checked="true"
-        android:paddingBottom="@dimen/activity_margin"
         android:paddingTop="@dimen/activity_margin"
+        android:paddingBottom="@dimen/activity_margin"
         android:text="@string/keep_aspect_ratio"/>
 
 </RelativeLayout>

@@ -1,15 +1,10 @@
 package com.simplemobiletools.gallery.dialogs
 
 import android.graphics.Point
-import androidx.appcompat.app.AlertDialog
-import android.text.Editable
-import android.text.TextWatcher
 import android.widget.EditText
+import androidx.appcompat.app.AlertDialog
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
-import com.simplemobiletools.commons.extensions.setupDialogStuff
-import com.simplemobiletools.commons.extensions.showKeyboard
-import com.simplemobiletools.commons.extensions.toast
-import com.simplemobiletools.commons.extensions.value
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.R
 import kotlinx.android.synthetic.main.resize_image.view.*
 
@@ -24,49 +19,33 @@ class ResizeDialog(val activity: BaseSimpleActivity, val size: Point, val callba
 
         val ratio = size.x / size.y.toFloat()
 
-        widthView.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-                if (widthView.hasFocus()) {
-                    var width = getViewValue(widthView)
-                    if (width > size.x) {
-                        widthView.setText(size.x.toString())
-                        width = size.x
-                    }
+        widthView.onTextChangeListener {
+            if (widthView.hasFocus()) {
+                var width = getViewValue(widthView)
+                if (width > size.x) {
+                    widthView.setText(size.x.toString())
+                    width = size.x
+                }
 
-                    if (view.keep_aspect_ratio.isChecked) {
-                        heightView.setText((width / ratio).toInt().toString())
-                    }
+                if (view.keep_aspect_ratio.isChecked) {
+                    heightView.setText((width / ratio).toInt().toString())
                 }
             }
+        }
 
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            }
+        heightView.onTextChangeListener {
+            if (heightView.hasFocus()) {
+                var height = getViewValue(heightView)
+                if (height > size.y) {
+                    heightView.setText(size.y.toString())
+                    height = size.y
+                }
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            }
-        })
-
-        heightView.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-                if (heightView.hasFocus()) {
-                    var height = getViewValue(heightView)
-                    if (height > size.y) {
-                        heightView.setText(size.y.toString())
-                        height = size.y
-                    }
-
-                    if (view.keep_aspect_ratio.isChecked) {
-                        widthView.setText((height * ratio).toInt().toString())
-                    }
+                if (view.keep_aspect_ratio.isChecked) {
+                    widthView.setText((height * ratio).toInt().toString())
                 }
             }
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            }
-        })
+        }
 
         AlertDialog.Builder(activity)
                 .setPositiveButton(R.string.ok, null)
