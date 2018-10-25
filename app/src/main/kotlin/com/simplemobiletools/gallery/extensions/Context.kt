@@ -139,6 +139,11 @@ fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Direct
     val sorting = config.directorySorting
     val dirs = source.clone() as ArrayList<Directory>
 
+    if (sorting and SORT_BY_RANDOM != 0) {
+        dirs.shuffle()
+        return movePinnedDirectoriesToFront(dirs)
+    }
+
     dirs.sortWith(Comparator { o1, o2 ->
         o1 as Directory
         o2 as Directory

@@ -60,6 +60,14 @@
                 android:paddingTop="@dimen/medium_margin"
                 android:text="@string/date_taken"/>
 
+            <com.simplemobiletools.commons.views.MyCompatRadioButton
+                android:id="@+id/sorting_dialog_radio_random"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/medium_margin"
+                android:paddingTop="@dimen/medium_margin"
+                android:text="@string/random"/>
+
         </RadioGroup>
 
         <include
