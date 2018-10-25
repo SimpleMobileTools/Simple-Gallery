@@ -10,7 +10,6 @@ import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.R
 import com.simplemobiletools.gallery.extensions.config
 import com.simplemobiletools.gallery.helpers.SHOW_ALL
-import com.simplemobiletools.gallery.helpers.SORT_BY_RANDOM
 import kotlinx.android.synthetic.main.dialog_change_sorting.view.*
 
 class ChangeSortingDialog(val activity: BaseSimpleActivity, val isDirectorySorting: Boolean, showFolderCheckbox: Boolean,

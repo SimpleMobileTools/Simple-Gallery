@@ -343,7 +343,7 @@ class MediaFetcher(val context: Context) {
         return dateTakens
     }
 
-    fun sortMedia (media: ArrayList<Medium>, sorting: Int) {
+    fun sortMedia(media: ArrayList<Medium>, sorting: Int) {
         if (sorting and SORT_BY_RANDOM != 0) {
             media.shuffle()
             return
