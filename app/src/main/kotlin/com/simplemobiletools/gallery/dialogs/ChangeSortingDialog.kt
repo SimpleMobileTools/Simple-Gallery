@@ -47,6 +47,7 @@ class ChangeSortingDialog(val activity: BaseSimpleActivity, val isDirectorySorti
             currSorting and SORT_BY_SIZE != 0 -> sortingRadio.sorting_dialog_radio_size
             currSorting and SORT_BY_DATE_MODIFIED != 0 -> sortingRadio.sorting_dialog_radio_last_modified
             currSorting and SORT_BY_DATE_TAKEN != 0 -> sortingRadio.sorting_dialog_radio_date_taken
+            currSorting and SORT_BY_RANDOM != 0 -> sortingRadio.sorting_dialog_radio_random
             else -> sortingRadio.sorting_dialog_radio_name
         }
         sortBtn.isChecked = true
@@ -69,6 +70,7 @@ class ChangeSortingDialog(val activity: BaseSimpleActivity, val isDirectorySorti
             R.id.sorting_dialog_radio_path -> SORT_BY_PATH
             R.id.sorting_dialog_radio_size -> SORT_BY_SIZE
             R.id.sorting_dialog_radio_last_modified -> SORT_BY_DATE_MODIFIED
+            R.id.sorting_dialog_radio_random -> SORT_BY_RANDOM
             else -> SORT_BY_DATE_TAKEN
         }
 

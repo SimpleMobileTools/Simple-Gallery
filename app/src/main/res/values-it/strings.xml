@@ -162,7 +162,7 @@
     <string name="deep_zoomable_images">Immagini ingrandibili a fondo</string>
     <string name="show_highest_quality">Mostra le immagini alla massima qualità possibile</string>
     <string name="show_recycle_bin_last">Mostra il cestino come ultimo elemento nella schermata principale</string>
-    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
+    <string name="allow_down_gesture">Chiudi la visuale a schermo intero con un gesto verso il basso</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniature</string>

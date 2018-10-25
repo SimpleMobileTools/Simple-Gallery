@@ -142,7 +142,7 @@
     <string name="screen_rotation_system_setting">系统设置</string>
     <string name="screen_rotation_device_rotation">设备方向</string>
     <string name="screen_rotation_aspect_ratio">根据长宽比</string>
-    <string name="black_background_at_fullscreen">全屏时使用黑色背景和状态栏​</string>
+    <string name="black_background_at_fullscreen">全屏时使用黑色背景和状态栏</string>
     <string name="scroll_thumbnails_horizontally">水平滚动缩略图</string>
     <string name="hide_system_ui_at_fullscreen">全屏时自动隐藏状态栏</string>
     <string name="delete_empty_folders">删除没有内容的空文件夹</string>
@@ -162,7 +162,7 @@
     <string name="deep_zoomable_images">深度放大图像</string>
     <string name="show_highest_quality">以最高质量显示图像</string>
     <string name="show_recycle_bin_last">在主屏幕界面的最后一项显示回收站</string>
-    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
+    <string name="allow_down_gesture">使用下滑手势关闭全屏视图</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">缩略图</string>

@@ -982,9 +982,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun refreshViewPager() {
-        GetMediaAsynctask(applicationContext, mDirectory, false, false, mShowAll) {
-            gotMedia(it)
-        }.execute()
+        if (config.getFileSorting(mDirectory) and SORT_BY_RANDOM == 0) {
+            GetMediaAsynctask(applicationContext, mDirectory, false, false, mShowAll) {
+                gotMedia(it)
+            }.execute()
+        }
     }
 
     private fun gotMedia(thumbnailItems: ArrayList<ThumbnailItem>) {

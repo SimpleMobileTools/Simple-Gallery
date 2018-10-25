@@ -1,9 +1,10 @@
 package com.simplemobiletools.gallery.databases
 
+import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import android.content.Context
+import com.simplemobiletools.gallery.objects.MyExecutor
 import com.simplemobiletools.gallery.interfaces.DirectoryDao
 import com.simplemobiletools.gallery.interfaces.MediumDao
 import com.simplemobiletools.gallery.models.Directory
@@ -25,6 +26,7 @@ abstract class GalleryDatabase : RoomDatabase() {
                     if (db == null) {
                         db = Room.databaseBuilder(context.applicationContext, GalleryDatabase::class.java, "gallery.db")
                                 .fallbackToDestructiveMigration()
+                                .setQueryExecutor(MyExecutor.myExecutor)
                                 .build()
                         db!!.openHelper.setWriteAheadLoggingEnabled(true)
                     }

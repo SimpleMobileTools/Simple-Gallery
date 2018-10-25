@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 5.1.1 *(2018-10-23)*
+----------------------------
+
+ * Fixing the inability to delete SD card files
+
 Version 5.1.0 *(2018-10-23)*
 ----------------------------
 
