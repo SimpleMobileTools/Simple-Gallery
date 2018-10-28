@@ -53,6 +53,8 @@ import java.io.InputStream
 import java.io.OutputStream
 import java.util.*
 
+private val SLIDESHOW_INITED_ON_START_KEY = "SLIDESHOW_INITED_ON_START"
+
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
     private var mPath = ""
     private var mDirectory = ""
@@ -68,6 +70,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mSlideshowMoveBackwards = false
     private var mSlideshowMedia = mutableListOf<Medium>()
     private var mAreSlideShowMediaVisible = false
+    private var mSlideshowInitedOnStart = false
+
     private var mIsOrientationLocked = false
 
     private var mMediaFiles = ArrayList<Medium>()
@@ -100,6 +104,23 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         initFavorites()
+        handleSlideshowRequest(savedInstanceState)
+    }
+
+    private fun handleSlideshowRequest(state: Bundle?) {
+        if (intent.getBooleanExtra(SLIDESHOW_START_ON_ENTER, false)) {
+            if (state == null || !state.getBoolean(SLIDESHOW_INITED_ON_START_KEY, false)) {
+                mSlideshowHandler.post {
+                    initSlideshow()
+                }
+            }
+            mSlideshowInitedOnStart = true
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putBoolean(SLIDESHOW_INITED_ON_START_KEY, mSlideshowInitedOnStart)
     }
 
     override fun onResume() {
@@ -247,7 +268,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             } else {
                 visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
             }
-
             view_pager.adapter?.let {
                 (it as MyPagerAdapter).toggleFullscreen(mIsFullScreen)
                 checkSystemUI()
