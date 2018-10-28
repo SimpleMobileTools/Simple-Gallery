@@ -9,10 +9,10 @@ import android.graphics.Point
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.RelativeLayout
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.DiskCacheStrategy
