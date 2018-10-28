@@ -1004,7 +1004,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun gotMedia(thumbnailItems: ArrayList<ThumbnailItem>) {
-        val media = thumbnailItems.filter { it is Medium }.map { it as Medium } as ArrayList<Medium>
+        val media = thumbnailItems.asSequence().filter { it is Medium }.map { it as Medium }.toMutableList() as ArrayList<Medium>
         if (isDirEmpty(media) || media.hashCode() == mPrevHashcode) {
             return
         }

@@ -64,20 +64,24 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         mUri = intent.data ?: return
         if (intent.extras?.containsKey(REAL_FILE_PATH) == true) {
             val realPath = intent.extras.getString(REAL_FILE_PATH)
-            sendViewPagerIntent(realPath)
-            finish()
-            return
+            if (realPath?.getFilenameFromPath()?.contains('.') == true) {
+                sendViewPagerIntent(realPath)
+                finish()
+                return
+            }
         }
 
         mIsFromGallery = intent.getBooleanExtra(IS_FROM_GALLERY, false)
         if (mUri!!.scheme == "file") {
-            scanPathRecursively(mUri!!.path)
-            sendViewPagerIntent(mUri!!.path)
-            finish()
-            return
+            if (mUri!!.path?.getFilenameFromPath()?.contains('.') == true) {
+                scanPathRecursively(mUri!!.path)
+                sendViewPagerIntent(mUri!!.path)
+                finish()
+                return
+            }
         } else {
             val path = applicationContext.getRealPathFromURI(mUri!!) ?: ""
-            if (path != mUri.toString() && path.isNotEmpty() && mUri!!.authority != "mms") {
+            if (path != mUri.toString() && path.isNotEmpty() && mUri!!.authority != "mms" && mUri!!.path.getFilenameFromPath().contains('.')) {
                 scanPathRecursively(mUri!!.path)
                 sendViewPagerIntent(path)
                 finish()
