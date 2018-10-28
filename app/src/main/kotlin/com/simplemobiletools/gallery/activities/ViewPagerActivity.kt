@@ -25,6 +25,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.view.animation.DecelerateInterpolator
+import android.widget.Toast
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
@@ -524,6 +525,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun copyMoveTo(isCopyOperation: Boolean) {
         val currPath = getCurrentPath()
+        if (!isCopyOperation && currPath.startsWith(recycleBinPath)) {
+            toast(R.string.moving_recycle_bin_items_disabled, Toast.LENGTH_LONG)
+            return
+        }
+
         val fileDirItems = arrayListOf(FileDirItem(currPath, currPath.getFilenameFromPath()))
         tryCopyMoveFilesTo(fileDirItems, isCopyOperation) {
             config.tempFolderPath = ""

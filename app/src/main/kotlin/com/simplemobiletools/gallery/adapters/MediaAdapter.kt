@@ -8,6 +8,7 @@ import android.provider.MediaStore
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
@@ -277,9 +278,18 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     private fun copyMoveTo(isCopyOperation: Boolean) {
         val paths = getSelectedPaths()
 
-        val fileDirItems = paths.map {
+        val recycleBinPath = activity.recycleBinPath
+        val fileDirItems = paths.asSequence().filter { isCopyOperation || !it.startsWith(recycleBinPath) }.map {
             FileDirItem(it, it.getFilenameFromPath())
-        } as ArrayList
+        }.toMutableList() as ArrayList
+
+        if (!isCopyOperation && paths.any { it.startsWith(recycleBinPath) }) {
+            activity.toast(R.string.moving_recycle_bin_items_disabled, Toast.LENGTH_LONG)
+        }
+
+        if (fileDirItems.isEmpty()) {
+            return
+        }
 
         activity.tryCopyMoveFilesTo(fileDirItems, isCopyOperation) {
             config.tempFolderPath = ""
