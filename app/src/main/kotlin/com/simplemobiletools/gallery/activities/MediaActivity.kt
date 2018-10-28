@@ -249,9 +249,9 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
             R.id.increase_column_count -> increaseColumnCount()
             R.id.reduce_column_count -> reduceColumnCount()
+            R.id.slideshow -> startSlideshow()
             R.id.settings -> launchSettings()
             R.id.about -> launchAbout()
-            R.id.slideshow -> startSlideshow()
             else -> return super.onOptionsItemSelected(item)
         }
         return true
@@ -260,10 +260,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private fun startSlideshow() {
         if (mMedia.isNotEmpty()) {
             Intent(this, ViewPagerActivity::class.java).apply {
-                val item = mMedia[0]
-                if (item is Medium) {
-                    putExtra(PATH, item.path)
-                }
+                val item = mMedia.firstOrNull { it is Medium } as? Medium ?: return
+                putExtra(PATH, item.path)
                 putExtra(SHOW_ALL, mShowAll)
                 putExtra(SLIDESHOW_START_ON_ENTER, true)
                 startActivity(this)
