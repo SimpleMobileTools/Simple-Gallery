@@ -104,6 +104,10 @@ val Context.config: Config get() = Config.newInstance(applicationContext)
 
 val Context.galleryDB: GalleryDatabase get() = GalleryDatabase.getInstance(applicationContext)
 
+val Context.recycleBin: File get() = filesDir
+
+val Context.recycleBinPath: String get() = filesDir.absolutePath
+
 fun Context.movePinnedDirectoriesToFront(dirs: ArrayList<Directory>): ArrayList<Directory> {
     val foundFolders = ArrayList<Directory>()
     val pinnedFolders = config.pinnedFolders
@@ -430,7 +434,6 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
         val grouped = mediaFetcher.groupMedia(media, pathToUse)
         callback(grouped.clone() as ArrayList<ThumbnailItem>)
 
-        val recycleBinPath = filesDir.absolutePath
         val mediaToDelete = ArrayList<Medium>()
         media.filter { !getDoesFilePathExist(it.path) }.forEach {
             if (it.path.startsWith(recycleBinPath)) {
@@ -470,7 +473,7 @@ fun Context.getFavoritePaths() = galleryDB.MediumDao().getFavoritePaths() as Arr
 fun Context.getUpdatedDeletedMedia(mediumDao: MediumDao): ArrayList<Medium> {
     val media = mediumDao.getDeletedMedia() as ArrayList<Medium>
     media.forEach {
-        it.path = File(filesDir.absolutePath, it.path).toString()
+        it.path = File(recycleBinPath, it.path).toString()
     }
     return media
 }

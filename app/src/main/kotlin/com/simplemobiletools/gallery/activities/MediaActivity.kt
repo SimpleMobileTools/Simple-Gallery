@@ -851,7 +851,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             return
         }
 
-        if (config.useRecycleBin && !filtered.first().path.startsWith(filesDir.absolutePath)) {
+        if (config.useRecycleBin && !filtered.first().path.startsWith(recycleBinPath)) {
             val movingItems = resources.getQuantityString(R.plurals.moving_items_into_bin, filtered.size, filtered.size)
             toast(movingItems)
 

@@ -208,7 +208,7 @@ fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, mediumDao
         var pathsCnt = paths.size
         paths.forEach {
             val file = File(it)
-            val internalFile = File(filesDir.absolutePath, it)
+            val internalFile = File(recycleBinPath, it)
             try {
                 if (file.copyRecursively(internalFile, true)) {
                     mediumDao.updateDeleted(it, System.currentTimeMillis())
@@ -229,7 +229,7 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, mediumDa
     Thread {
         paths.forEach {
             val source = it
-            val destination = it.removePrefix(filesDir.absolutePath)
+            val destination = it.removePrefix(recycleBinPath)
 
             var inputStream: InputStream? = null
             var out: OutputStream? = null
@@ -256,7 +256,7 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, mediumDa
 
 fun BaseSimpleActivity.emptyTheRecycleBin(callback: (() -> Unit)? = null) {
     Thread {
-        filesDir.deleteRecursively()
+        recycleBin.deleteRecursively()
         galleryDB.MediumDao().clearRecycleBin()
         galleryDB.DirectoryDao().deleteRecycleBin()
         toast(R.string.recycle_bin_emptied)

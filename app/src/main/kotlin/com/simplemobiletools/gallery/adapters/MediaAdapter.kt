@@ -115,7 +115,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             findItem(R.id.cab_rename).isVisible = selectedItems.firstOrNull()?.getIsInRecycleBin() == false
             findItem(R.id.cab_open_with).isVisible = isOneItemSelected
             findItem(R.id.cab_confirm_selection).isVisible = isAGetIntent && allowMultiplePicks && selectedKeys.isNotEmpty()
-            findItem(R.id.cab_restore_recycle_bin_files).isVisible = selectedPaths.all { it.startsWith(activity.filesDir.absolutePath) }
+            findItem(R.id.cab_restore_recycle_bin_files).isVisible = selectedPaths.all { it.startsWith(activity.recycleBinPath) }
 
             checkHideBtnVisibility(this, selectedItems)
             checkFavoriteBtnVisibility(this, selectedItems)
@@ -350,7 +350,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
     private fun askConfirmDelete() {
         val items = resources.getQuantityString(R.plurals.delete_items, selectedKeys.size, selectedKeys.size)
-        val isRecycleBin = getSelectedPaths().first().startsWith(activity.filesDir.absolutePath)
+        val isRecycleBin = getSelectedPaths().first().startsWith(activity.recycleBinPath)
         val baseString = if (config.useRecycleBin && !isRecycleBin) R.string.move_to_recycle_bin_confirmation else R.string.deletion_confirmation
         val question = String.format(resources.getString(baseString), items)
         DeleteWithRememberDialog(activity, question) {
