@@ -188,7 +188,8 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     }
 
     private fun initBottomActionButtons() {
-        arrayListOf(bottom_favorite, bottom_delete, bottom_rotate, bottom_properties, bottom_change_orientation, bottom_slideshow, bottom_show_on_map, bottom_toggle_file_visibility).forEach {
+        arrayListOf(bottom_favorite, bottom_delete, bottom_rotate, bottom_properties, bottom_change_orientation, bottom_slideshow, bottom_show_on_map,
+                bottom_toggle_file_visibility, bottom_rename).forEach {
             it.beGone()
         }
 
