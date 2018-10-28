@@ -452,9 +452,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun slideshowEnded(forward: Boolean) {
         if (config.loopSlideshow) {
             if (forward) {
-                view_pager.setCurrentItem(view_pager.adapter!!.count - 1, false)
-            } else {
                 view_pager.setCurrentItem(0, false)
+            } else {
+                view_pager.setCurrentItem(view_pager.adapter!!.count - 1, false)
             }
         } else {
             stopSlideshow()
