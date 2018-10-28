@@ -162,6 +162,7 @@ class PhotoFragment : ViewPagerFragment() {
         initExtendedDetails()
         wasInit = true
         checkIfPanorama()
+        updateInstantSwitchWidths()
 
         return view
     }
@@ -542,6 +543,7 @@ class PhotoFragment : ViewPagerFragment() {
         }
 
         initExtendedDetails()
+        updateInstantSwitchWidths()
     }
 
     private fun hideZoomableView() {
@@ -555,6 +557,12 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun photoClicked() {
         listener?.fragmentClicked()
+    }
+
+    private fun updateInstantSwitchWidths() {
+        val newWidth = resources.getDimension(R.dimen.instant_change_bar_width) + if (activity?.portrait == false) activity!!.navigationBarWidth else 0
+        view.instant_prev_item.layoutParams.width = newWidth.toInt()
+        view.instant_next_item.layoutParams.width = newWidth.toInt()
     }
 
     override fun fullscreenToggled(isFullscreen: Boolean) {
