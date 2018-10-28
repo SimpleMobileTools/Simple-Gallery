@@ -87,4 +87,8 @@
         android:id="@+id/about"
         android:title="@string/about"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/slideshow"
+        android:title="@string/slideshow"
+        app:showAsAction="never"/>
 </menu>

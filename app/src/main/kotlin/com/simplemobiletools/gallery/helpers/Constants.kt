@@ -76,6 +76,7 @@ const val SLIDESHOW_MOVE_BACKWARDS = "slideshow_move_backwards"
 const val SLIDESHOW_LOOP = "loop_slideshow"
 const val SLIDESHOW_DEFAULT_INTERVAL = 5
 const val SLIDESHOW_SCROLL_DURATION = 500L
+const val SLIDESHOW_START_ON_ENTER= "slideshow_start_on_enter"
 
 const val NOMEDIA = ".nomedia"
 const val FAVORITES = "favorites"
