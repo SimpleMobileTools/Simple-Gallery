@@ -664,12 +664,20 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == PICK_MEDIA && resultData != null) {
                 val resultIntent = Intent()
+                var resultUri: Uri? = null
                 if (mIsThirdPartyIntent) {
                     when {
-                        intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true -> fillExtraOutput(resultData)
+                        intent.extras?.containsKey(MediaStore.EXTRA_OUTPUT) == true -> {
+                            resultUri = fillExtraOutput(resultData)
+                        }
                         resultData.extras?.containsKey(PICKED_PATHS) == true -> fillPickedPaths(resultData, resultIntent)
                         else -> fillIntentPath(resultData, resultIntent)
                     }
+                }
+
+                if (resultUri != null) {
+                    resultIntent.data = resultUri
+                    resultIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                 }
 
                 setResult(Activity.RESULT_OK, resultIntent)
@@ -682,22 +690,25 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         super.onActivityResult(requestCode, resultCode, resultData)
     }
 
-    private fun fillExtraOutput(resultData: Intent) {
-        val path = resultData.data.path
+    private fun fillExtraOutput(resultData: Intent): Uri? {
+        val file = File(resultData.data.path)
         var inputStream: InputStream? = null
         var outputStream: OutputStream? = null
         try {
             val output = intent.extras.get(MediaStore.EXTRA_OUTPUT) as Uri
-            inputStream = FileInputStream(File(path))
+            inputStream = FileInputStream(file)
             outputStream = contentResolver.openOutputStream(output)
             inputStream.copyTo(outputStream)
         } catch (e: SecurityException) {
             showErrorToast(e)
         } catch (ignored: FileNotFoundException) {
+            return getFilePublicUri(file, BuildConfig.APPLICATION_ID)
         } finally {
             inputStream?.close()
             outputStream?.close()
         }
+
+        return null
     }
 
     private fun fillPickedPaths(resultData: Intent, resultIntent: Intent) {
