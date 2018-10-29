@@ -38,7 +38,7 @@
     <string name="videos">Videoer</string>
     <string name="gifs">GIF-bilder</string>
     <string name="raw_images">RAW-format-bilder</string>
-    <string name="svgs">SVGs</string>
+    <string name="svgs">SVG-bilder</string>
     <string name="no_media_with_filters">Ingen media-filer er funnet med de valgte filtrene.</string>
     <string name="change_filters_underlined"><u>Endre filtere</u></string>
 
@@ -159,10 +159,10 @@
     <string name="do_extra_check">Gjør en ekstra sjekk for å unngå visning av ugyldige filer</string>
     <string name="show_at_bottom">Vis noen handlingsknapper nederst på skjermen</string>
     <string name="show_recycle_bin">Vis papirkurven på mappeskjermen</string>
-    <string name="deep_zoomable_images">Deep zoomable images</string>
-    <string name="show_highest_quality">Show images in the highest possible quality</string>
-    <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
-    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
+    <string name="deep_zoomable_images">Dyp zoombare bilder</string>
+    <string name="show_highest_quality">Vis bilder i høyest mulig kvalitet</string>
+    <string name="show_recycle_bin_last">Vis papirkurven som siste element på hovedskjermen</string>
+    <string name="allow_down_gesture">Tillat lukking av mediavisningen med en nedoverbevegelse</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Minibilder</string>
