@@ -429,16 +429,20 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             initExoPlayer()
         }
 
-        if (videoEnded()) {
+        val wasEnded = videoEnded()
+        if (wasEnded) {
             setProgress(0)
         }
 
+        if (!wasEnded || context?.config?.loopVideos == false) {
+            mView.video_play_outline.setImageResource(R.drawable.ic_pause)
+            mView.video_play_outline.alpha = PLAY_PAUSE_VISIBLE_ALPHA
+        }
+
+        schedulePlayPauseFadeOut()
         mIsPlaying = true
         mExoPlayer?.playWhenReady = true
-        mView.video_play_outline.setImageResource(R.drawable.ic_pause)
-        mView.video_play_outline.alpha = PLAY_PAUSE_VISIBLE_ALPHA
         activity!!.window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-        schedulePlayPauseFadeOut()
     }
 
     private fun pauseVideo() {
@@ -453,8 +457,8 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
         mView.video_play_outline?.setImageResource(R.drawable.ic_play)
         mView.video_play_outline?.alpha = PLAY_PAUSE_VISIBLE_ALPHA
-        activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         schedulePlayPauseFadeOut()
+        activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
     private fun schedulePlayPauseFadeOut() {
@@ -464,7 +468,11 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }, HIDE_PLAY_PAUSE_DELAY)
     }
 
-    private fun videoEnded() = mExoPlayer?.currentPosition ?: 0 >= mExoPlayer?.duration ?: 0
+    private fun videoEnded(): Boolean {
+        val currentPos = mExoPlayer?.currentPosition ?: 0
+        val duration = mExoPlayer?.duration ?: 0
+        return currentPos != 0L && currentPos >= duration
+    }
 
     private fun setProgress(seconds: Int) {
         mExoPlayer?.seekTo(seconds * 1000L)
