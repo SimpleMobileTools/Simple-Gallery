@@ -898,7 +898,7 @@
             android:textSize="@dimen/smaller_text_size"/>
 
         <RelativeLayout
-            android:id="@+id/settings_password_protection_holder"
+            android:id="@+id/settings_hidden_item_password_protection_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/medium_margin"
@@ -909,7 +909,7 @@
             android:paddingBottom="@dimen/activity_margin">
 
             <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_password_protection"
+                android:id="@+id/settings_hidden_item_password_protection"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"

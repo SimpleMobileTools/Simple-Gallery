@@ -53,7 +53,7 @@ class SettingsActivity : SimpleActivity() {
         setupScrollHorizontally()
         setupScreenRotation()
         setupHideSystemUI()
-        setupPasswordProtection()
+        setupHiddenItemPasswordProtection()
         setupAppPasswordProtection()
         setupDeleteEmptyFolders()
         setupAllowPhotoGestures()
@@ -235,14 +235,14 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupPasswordProtection() {
-        settings_password_protection.isChecked = config.isPasswordProtectionOn
-        settings_password_protection_holder.setOnClickListener {
+    private fun setupHiddenItemPasswordProtection() {
+        settings_hidden_item_password_protection.isChecked = config.isPasswordProtectionOn
+        settings_hidden_item_password_protection_holder.setOnClickListener {
             val tabToShow = if (config.isPasswordProtectionOn) config.protectionType else SHOW_ALL_TABS
             SecurityDialog(this, config.passwordHash, tabToShow) { hash, type, success ->
                 if (success) {
                     val hasPasswordProtection = config.isPasswordProtectionOn
-                    settings_password_protection.isChecked = !hasPasswordProtection
+                    settings_hidden_item_password_protection.isChecked = !hasPasswordProtection
                     config.isPasswordProtectionOn = !hasPasswordProtection
                     config.passwordHash = if (hasPasswordProtection) "" else hash
                     config.protectionType = type
