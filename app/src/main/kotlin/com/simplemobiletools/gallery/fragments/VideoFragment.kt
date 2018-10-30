@@ -629,6 +629,11 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     }
 
     override fun onStopTrackingTouch(seekBar: SeekBar) {
+        if (mIsPanorama) {
+            openPanorama()
+            return
+        }
+
         if (mExoPlayer == null)
             return
 
