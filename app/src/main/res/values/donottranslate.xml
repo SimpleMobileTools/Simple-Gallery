@@ -2,6 +2,7 @@
 <resources>
 
     <!-- Release notes -->
+    <string name="release_206">Added a new option for password protecting file deletion/move</string>
     <string name="release_202">Added a new option for showing the Recycle Bin as the last folder</string>
     <string name="release_201">
         Added a new settings toggle \"Show images in the highest possible quality\"\n
