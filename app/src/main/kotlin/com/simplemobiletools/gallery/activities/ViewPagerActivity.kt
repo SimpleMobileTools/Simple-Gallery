@@ -270,7 +270,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         if (intent.extras?.containsKey(IS_VIEW_INTENT) == true) {
             if (isShowHiddenFlagNeeded()) {
-                if (!config.isPasswordProtectionOn) {
+                if (!config.isHiddenPasswordProtectionOn) {
                     config.temporarilyShowHidden = true
                 }
             }

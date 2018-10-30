@@ -117,7 +117,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             showFilterMediaDialog()
         }
 
-        mIsPasswordProtectionPending = config.appPasswordProtectionOn
+        mIsPasswordProtectionPending = config.isAppPasswordProtectionOn
         setupLatestMediaId()
 
         // notify some users about the Clock app
