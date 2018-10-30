@@ -36,9 +36,13 @@ import com.simplemobiletools.gallery.views.MediaSideScroll
 import kotlinx.android.synthetic.main.bottom_video_time_holder.view.*
 import kotlinx.android.synthetic.main.pager_video_item.view.*
 import java.io.File
+import java.io.FileInputStream
+import java.nio.ByteBuffer
+import java.nio.channels.FileChannel
 
 class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, SeekBar.OnSeekBarChangeListener {
     private val PROGRESS = "progress"
+    private val FILE_CHANNEL_CONTAINERS = arrayListOf("moov", "trak", "mdia", "minf", "udta", "stbl")
 
     private var mTextureView: TextureView? = null
     private var mCurrTimeView: TextView? = null
@@ -112,10 +116,11 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
         mIsFullscreen = activity!!.window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN == View.SYSTEM_UI_FLAG_FULLSCREEN
         initTimeHolder()
+        checkIfPanorama()
+
         medium.path.getVideoResolution()?.apply {
             mVideoSize.x = x
             mVideoSize.y = y
-            mIsPanorama = x == y * 2
             if (mIsPanorama) {
                 mView.apply {
                     panorama_outline.beVisible()
@@ -626,6 +631,67 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
 
         mIsDragged = false
+    }
+
+    private fun checkIfPanorama() {
+        try {
+            val fis = FileInputStream(File(medium.path))
+            parseFileChannel(fis.channel, 0, 0, 0)
+        } catch (ignored: Exception) {
+        } catch (ignored: OutOfMemoryError) {
+        }
+    }
+
+    // based on https://github.com/sannies/mp4parser/blob/master/examples/src/main/java/com/google/code/mp4parser/example/PrintStructure.java
+    private fun parseFileChannel(fc: FileChannel, level: Int, start: Long, end: Long) {
+        try {
+            var iteration = 0
+            var currEnd = end
+            fc.position(start)
+            if (currEnd <= 0) {
+                currEnd = start + fc.size()
+            }
+
+            while (currEnd - fc.position() > 8) {
+                // just a check to avoid deadloop at some videos
+                if (iteration++ > 50) {
+                    return
+                }
+
+                val begin = fc.position()
+                val byteBuffer = ByteBuffer.allocate(8)
+                fc.read(byteBuffer)
+                byteBuffer.rewind()
+                val size = IsoTypeReader.readUInt32(byteBuffer)
+                val type = IsoTypeReader.read4cc(byteBuffer)
+                val newEnd = begin + size
+
+                if (type == "uuid") {
+                    val fis = FileInputStream(File(medium.path))
+                    fis.skip(begin)
+
+                    val sb = StringBuilder()
+                    val buffer = ByteArray(1024)
+                    while (true) {
+                        val n = fis.read(buffer)
+                        if (n != -1) {
+                            sb.append(String(buffer, 0, n))
+                        } else {
+                            break
+                        }
+                    }
+                    mIsPanorama = sb.toString().contains("<GSpherical:Spherical>true") || sb.toString().contains("GSpherical:Spherical=\"True\"")
+                    return
+                }
+
+                if (FILE_CHANNEL_CONTAINERS.contains(type)) {
+                    parseFileChannel(fc, level + 1, begin + 8, newEnd)
+                }
+
+                fc.position(newEnd)
+            }
+        } catch (ignored: Exception) {
+        }
     }
 
     private fun openPanorama() {
