@@ -140,7 +140,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             R.id.cab_restore_recycle_bin_files -> restoreFiles()
             R.id.cab_share -> shareMedia()
             R.id.cab_copy_to -> copyMoveTo(true)
-            R.id.cab_move_to -> copyMoveTo(false)
+            R.id.cab_move_to -> moveFilesTo()
             R.id.cab_select_all -> selectAll()
             R.id.cab_open_with -> openPath()
             R.id.cab_fix_date_taken -> fixDateTaken()
@@ -275,6 +275,12 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         }
     }
 
+    private fun moveFilesTo() {
+        activity.handleDeletePasswordProtection {
+            copyMoveTo(false)
+        }
+    }
+
     private fun copyMoveTo(isCopyOperation: Boolean) {
         val paths = getSelectedPaths()
 
@@ -351,7 +357,11 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     }
 
     private fun checkDeleteConfirmation() {
-        if (config.tempSkipDeleteConfirmation || config.skipDeleteConfirmation) {
+        if (config.isDeletePasswordProtectionOn) {
+            activity.handleDeletePasswordProtection {
+                deleteFiles()
+            }
+        } else if (config.tempSkipDeleteConfirmation || config.skipDeleteConfirmation) {
             deleteFiles()
         } else {
             askConfirmDelete()

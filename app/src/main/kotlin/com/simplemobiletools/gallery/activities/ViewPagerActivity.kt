@@ -202,7 +202,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_set_as -> setAs(getCurrentPath())
             R.id.menu_slideshow -> initSlideshow()
             R.id.menu_copy_to -> copyMoveTo(true)
-            R.id.menu_move_to -> copyMoveTo(false)
+            R.id.menu_move_to -> moveFileTo()
             R.id.menu_open_with -> openPath(getCurrentPath(), true)
             R.id.menu_hide -> toggleFileVisibility(true)
             R.id.menu_unhide -> toggleFileVisibility(false)
@@ -520,6 +520,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             updatePagerItems(mSlideshowMedia)
             mAreSlideShowMediaVisible = true
             true
+        }
+    }
+
+    private fun moveFileTo() {
+        handleDeletePasswordProtection {
+            copyMoveTo(false)
         }
     }
 
@@ -918,7 +924,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
-        if (config.tempSkipDeleteConfirmation || config.skipDeleteConfirmation) {
+        if (config.isDeletePasswordProtectionOn) {
+            handleDeletePasswordProtection {
+                deleteConfirmed()
+            }
+        } else if (config.tempSkipDeleteConfirmation || config.skipDeleteConfirmation) {
             deleteConfirmed()
         } else {
             askConfirmDelete()

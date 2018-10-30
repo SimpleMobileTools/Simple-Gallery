@@ -96,7 +96,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             R.id.cab_unhide -> toggleFoldersVisibility(false)
             R.id.cab_exclude -> tryExcludeFolder()
             R.id.cab_copy_to -> copyMoveTo(true)
-            R.id.cab_move_to -> copyMoveTo(false)
+            R.id.cab_move_to -> moveFilesTo()
             R.id.cab_select_all -> selectAll()
             R.id.cab_delete -> askConfirmDelete()
             R.id.cab_select_photo -> changeAlbumCover(false)
@@ -310,6 +310,12 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         listener?.recheckPinnedFolders()
     }
 
+    private fun moveFilesTo() {
+        activity.handleDeletePasswordProtection {
+            copyMoveTo(false)
+        }
+    }
+
     private fun copyMoveTo(isCopyOperation: Boolean) {
         val paths = ArrayList<String>()
         val showHidden = activity.config.shouldShowHidden
@@ -343,23 +349,27 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     }
 
     private fun askConfirmDelete() {
-        if (config.skipDeleteConfirmation) {
-            deleteFolders()
-        } else {
-            val itemsCnt = selectedKeys.size
-            val items = resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)
-            val fileDirItem = getFirstSelectedItem() ?: return
-            val baseString = if (!config.useRecycleBin || (isOneItemSelected() && fileDirItem.isRecycleBin()) || (isOneItemSelected() && fileDirItem.areFavorites())) {
-                R.string.deletion_confirmation
-            } else {
-                R.string.move_to_recycle_bin_confirmation
-            }
-
-            var question = String.format(resources.getString(baseString), items)
-            val warning = resources.getQuantityString(R.plurals.delete_warning, itemsCnt, itemsCnt)
-            question += "\n\n$warning"
-            ConfirmationDialog(activity, question) {
+        when {
+            config.isDeletePasswordProtectionOn -> activity.handleDeletePasswordProtection {
                 deleteFolders()
+            }
+            config.skipDeleteConfirmation -> deleteFolders()
+            else -> {
+                val itemsCnt = selectedKeys.size
+                val items = resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)
+                val fileDirItem = getFirstSelectedItem() ?: return
+                val baseString = if (!config.useRecycleBin || (isOneItemSelected() && fileDirItem.isRecycleBin()) || (isOneItemSelected() && fileDirItem.areFavorites())) {
+                    R.string.deletion_confirmation
+                } else {
+                    R.string.move_to_recycle_bin_confirmation
+                }
+
+                var question = String.format(resources.getString(baseString), items)
+                val warning = resources.getQuantityString(R.plurals.delete_warning, itemsCnt, itemsCnt)
+                question += "\n\n$warning"
+                ConfirmationDialog(activity, question) {
+                    deleteFolders()
+                }
             }
         }
     }
