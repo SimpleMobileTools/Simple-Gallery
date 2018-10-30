@@ -1,6 +1,18 @@
 Changelog
 ==========
 
+Version 5.1.2 *(2018-10-30)*
+----------------------------
+
+ * Added a new option for password protecting file deletion/move
+ * Improved panorama video detection
+ * Improved the opening of media files without file extension
+ * Disabled move operation on Recycle bin items, use Restore
+ * Fixed handling of some third party image picker intents
+ * Fixed slideshow looping and a couple other UX glitches
+ * Improved the stability of retrieving cached files
+ * Hi
+
 Version 5.1.1 *(2018-10-23)*
 ----------------------------
 
