@@ -221,6 +221,7 @@
 
         Táto aplikace je jen jednou ze skupiny aplikací. Všechny tyto aplikace naleznete na https://www.simplemobiletools.com
     </string>
+    <string name="remember_last_video">Remember last video playback position</string>
 
     <!--
         Haven't found some strings? There's more at

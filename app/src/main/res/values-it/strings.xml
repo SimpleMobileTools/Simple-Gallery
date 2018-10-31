@@ -221,6 +221,7 @@
 
         Questa app è solo una piccola parte di una grande serie di altre app. Puoi trovarle tutte su https://www.simplemobiletools.com
     </string>
+    <string name="remember_last_video">Remember last video playback position</string>
 
     <!--
         Haven't found some strings? There's more at

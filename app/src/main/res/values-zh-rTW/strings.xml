@@ -221,6 +221,7 @@
 		
         這程式只是一系列眾多應用程式的其中一項，你可以在這發現更多 https://www.simplemobiletools.com
     </string>
+    <string name="remember_last_video">Remember last video playback position</string>
 
     <!--
         Haven't found some strings? There's more at

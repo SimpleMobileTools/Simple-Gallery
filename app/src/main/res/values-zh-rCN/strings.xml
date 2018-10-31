@@ -219,6 +219,7 @@
 
         这个应用只是一系列应用中的一小部份。您可以在 https://www.simplemobiletools.com 找到其余的应用。
     </string>
+    <string name="remember_last_video">Remember last video playback position</string>
 
     <!--
         Haven't found some strings? There's more at

@@ -221,6 +221,7 @@
 
         Simple Gallery — это приложение из серии Simple Mobile Tools. Остальные приложения из этой серии можно найти здесь: https://www.simplemobiletools.com
     </string>
+    <string name="remember_last_video">Remember last video playback position</string>
 
     <!--
         Haven't found some strings? There's more at

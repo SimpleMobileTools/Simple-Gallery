@@ -221,6 +221,7 @@
 
         Tämä sovellus on vain yksi osa suurempaa kokoelmaa. Löydät loput osoitteesta https://www.simplemobiletools.com
     </string>
+    <string name="remember_last_video">Remember last video playback position</string>
 
     <!--
         Haven't found some strings? There's more at

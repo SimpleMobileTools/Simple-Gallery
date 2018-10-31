@@ -225,6 +225,7 @@
 
         이 앱은 다양한 시리즈의 모바일앱 중 하나입니다. 나머지는 https://www.simplemobiletools.com 에서 찾아보실 수 있습니다.
     </string>
+    <string name="remember_last_video">Remember last video playback position</string>
 
     <!--
         Haven't found some strings? There's more at
