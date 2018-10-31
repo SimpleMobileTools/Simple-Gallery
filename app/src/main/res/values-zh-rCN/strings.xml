@@ -210,15 +210,31 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">一个没有广告，用来观看照片及视频的相册。</string>
     <string name="app_long_description">
-        一个观看照片和视频的简单实用工具。项目可以根据日期、大小、名称来递增或递减排序，照片可以缩放。媒体文件根据屏幕的大小排列在多个方格中，您可以使用缩放手势来调整每一列的方格数量。媒体文件可以被重命名、分享、删除、复制以及移动。照片亦可被剪切、旋转或是直接在应用中设为壁纸。
+        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
 
-        相册亦提供能让第三方应用预览图片／视频、向电子邮件客户端添加附件等的功能。非常适合日常使用。
+        It is open source, contains no ads or unnecessary permissions.
 
-        这个应用需要指纹权限来锁定隐藏的项目或是整个应用。
+        Let\'s list some of its features worth mentioning:
+        1. Search
+        2. Slideshow
+        3. Notch support
+        4. Pinning folders to the top
+        5. Filtering media files by type
+        6. Recycle bin for easy file recovery
+        7. Fullscreen view orientation locking
+        8. Marking favorite files for easy access
+        9. Quick fullscreen media closing with down gesture
+        10. An editor for modifying images and applying filters
+        11. Password protection for protecting hidden items or the whole app
+        12. Changing the thumbnail column count with gestures or menu buttons
+        13. Customizable bottom actions at the fullscreen view for quick access
+        14. Showing extended details over fullscreen media with desired file properties
+        15. Several different ways of sorting or grouping items, both ascending and descending
+        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
 
-        应用不包含广告与不必要的权限。它是完全开放源代码的，并内置自定义颜色主题。
+        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
 
-        这个应用只是一系列应用中的一小部份。您可以在 https://www.simplemobiletools.com 找到其余的应用。
+        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
     </string>
 
     <!--
