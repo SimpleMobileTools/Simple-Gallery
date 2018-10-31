@@ -211,15 +211,31 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Una galería para ver fotos y vídeos sin publicidad.</string>
     <string name="app_long_description">
-        Una herramienta sencilla que se puede usar para ver fotos y vídeos. Los elementos se pueden ordenar por fecha, tamaño, nombre tanto ascendente como descendente; se puede hacer zoom en las fotos. Los archivos de medios se muestran en múltiples columnas dependiendo del tamaño de la pantalla, y se puede cambiar el número de columnas mediante gestos. Permite renombrar, compartir, borrar, mover. Las imágenes también se pueden recortar, rotar o usarse como fondo de pantalla directamente desde la aplicación.
+        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
 
-        Gallery también se ofrece para uso de terceros para previsualizar imágenes/vídeos, agregar adjuntos en clientes de correo, etc. Es perfecta para uso diario.
+        It is open source, contains no ads or unnecessary permissions.
 
-        El permiso de huella digital es necesario para bloquear la visibilidad de elementos ocultos o toda la aplicación.
+        Let\'s list some of its features worth mentioning:
+        1. Search
+        2. Slideshow
+        3. Notch support
+        4. Pinning folders to the top
+        5. Filtering media files by type
+        6. Recycle bin for easy file recovery
+        7. Fullscreen view orientation locking
+        8. Marking favorite files for easy access
+        9. Quick fullscreen media closing with down gesture
+        10. An editor for modifying images and applying filters
+        11. Password protection for protecting hidden items or the whole app
+        12. Changing the thumbnail column count with gestures or menu buttons
+        13. Customizable bottom actions at the fullscreen view for quick access
+        14. Showing extended details over fullscreen media with desired file properties
+        15. Several different ways of sorting or grouping items, both ascending and descending
+        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
 
-        No contiene publicidad ni permisos innecesarios. Es totalmente libre, proporciona colores personalizables.
+        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
 
-        Esta aplicación es solamente una pieza de una serie más grande de aplicaciones. Puede encontrar el resto en https://www.simplemobiletools.com
+        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
     </string>
 
     <!--

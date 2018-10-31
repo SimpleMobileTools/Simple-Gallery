@@ -211,13 +211,29 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Galéria na prezeranie obrázkov a videí bez reklám.</string>
     <string name="app_long_description">
-        Jednoduchá nástroj použiteľný na prezeranie obrázkov a videí. Položky môžu byť zoradené podľa dátumu, veľkosti, názvu oboma smermi, obrázky je možné aj priblížiť. Položky sú zobrazované vo viacerých stĺpcoch v závislosti od veľkosti displeja, počet stĺpcov je možné meniť pomocou gesta prstami. Súbory môžete premenovať, zdieľať, mazať, kopírovať, premiestňovať. Obrázky môžete orezať, otočiť, alebo nastaviť ako tapeta priamo v aplikácií.
+        Nastaviteľná galéria na zobrazovanie množstva rozličných druhov obrázkov a videí, vrátane SVG, RAW súborov, panoramatických fotiek a videí.
 
-        Galéria je tiež poskytovaná pre použitie treťou stranou pre prehliadanie fotiek a videí, pridávanie príloh v emailových klientoch. Je perfektná na každodenné použitie.
+        Je open source, neobsahuje reklamy, ani nepotrebné oprávnenia.
 
-        Prístup ku odtlačkom prstov je potrebný pre uzamykanie skrytých položiek, alebo celej apky.
+        Tu je niekoľko funkcií hodných spomenutia:
+        1. Vyhľadávanie
+        2. Slideshow
+        3. Podpora pre zárez v displeji
+        4. Pripínanie priečinkov na vrch
+        5. Filtrovanie médií podľa typu
+        6. Odpadkový kôš pre jednoduchú obnovu súborov
+        7. Uzamykanie orientácie celoobrazovkového režimu
+        8. Označovanie obľúbených položiek pre jednoduchý prístup
+        9. Rýchle ukončovanie celoobrazovkového režimu pomocou potiahnutia prstom dole
+        10. Editor na úpravu obrázkov a aplikáciu filtrov
+        11. Ochrana heslom pre zobrazovanie skrytých súborov, alebo celej aplikácie
+        12. Zmena počtu stĺpcov s náhľadmi buď gestúrami, alebo pomocou menu tlačidiel
+        13. Nastaviteľné spodné akcie na celoobrazovkovom režime pre rýchly prístup
+        14. Zobrazenie nastaviteľných rozšírených vlastností ponad celoobrazovkové médiá
+        15. Niekoľko rozličných spôsobov radenia a zoskupovania položiek vzostupne, alebo zostupne
+        16. Ukrývanie priečinkov (ovplyvňuje aj iné aplikácie), alebo ich vylúčenie (ovplyvní iba Jednoduchú galériu)
 
-        Neobsahuje žiadne reklamy a nepotrebné oprávnenia. Je opensource, poskytuje možnosť zmeny farieb.
+        Prístup k odtlačkom prstov je potrebný pre ochranu zobrazenia skrytých položiek, celej aplikácie, alebo ochranu súborov pred ich odstránením.
 
         Táto aplikácia je iba jednou zo skupiny aplikácií. Ostatné viete nájsť na https://www.simplemobiletools.com
     </string>

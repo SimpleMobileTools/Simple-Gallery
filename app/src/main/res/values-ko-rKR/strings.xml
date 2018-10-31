@@ -211,19 +211,31 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">광고없이 사진과 동영상을 볼 수 있는 갤러리.</string>
     <string name="app_long_description">
-        사진과 동영상을 간편하게 관리 할 수 있는 툴입니다.
-        
-        날짜, 크기, 이름을 기준으로 정렬 할 수 있으며 사진을 확대 할 수 있습니다. 미디어 파일은 디스플레이의 크기에 맞춰 여러 열로 표시되며 핀치 제스처를 이용하여 변경 할 수도 있습니다.
-        
-        이름변경, 공유, 삭제, 복사, 이동, 이미지편집, 배경화면 설정 등의 기능을 제공합니다.
+        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
 
-        갤러리는 \'이미지/비디오 미리보기\', \'이메일 클라이언트에서 첨부파일 추가하기\' 등의 기능을 서드파티 애플리케이션에 제공합니다. 언제나 완벽하게 사용할 수 있습니다.
+        It is open source, contains no ads or unnecessary permissions.
 
-        앱을 잠그거나 숨김파일을 보기위하여 지문인식 기능을 사용하는 경우 지문사용 권한이 필요합니다.
+        Let\'s list some of its features worth mentioning:
+        1. Search
+        2. Slideshow
+        3. Notch support
+        4. Pinning folders to the top
+        5. Filtering media files by type
+        6. Recycle bin for easy file recovery
+        7. Fullscreen view orientation locking
+        8. Marking favorite files for easy access
+        9. Quick fullscreen media closing with down gesture
+        10. An editor for modifying images and applying filters
+        11. Password protection for protecting hidden items or the whole app
+        12. Changing the thumbnail column count with gestures or menu buttons
+        13. Customizable bottom actions at the fullscreen view for quick access
+        14. Showing extended details over fullscreen media with desired file properties
+        15. Several different ways of sorting or grouping items, both ascending and descending
+        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
 
-        광고가 포함되어 있거나, 불필요한 권한을 요청하지 않습니다. 이 앱의 모든 소스는 오픈소스이며, 사용자가 직접 애플리케이션의 컬러를 설정 할 수 있습니다.
+        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
 
-        이 앱은 다양한 시리즈의 모바일앱 중 하나입니다. 나머지는 https://www.simplemobiletools.com 에서 찾아보실 수 있습니다.
+        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
     </string>
 
     <!--
