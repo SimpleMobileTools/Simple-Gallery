@@ -133,6 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Reproduir vídeos automàticament</string>
+    <string name="remember_last_video">Remember last video playback position</string>
     <string name="toggle_filename">Canviar la visibilitat del nom d\'arxiu</string>
     <string name="loop_videos">Reproducció continua de vídeos</string>
     <string name="animate_gifs">Animar les miniatures dels GIFs</string>
@@ -221,7 +222,6 @@
 
         Aquesta aplicació es només una peça d\'una sèrie més gran d\'aplicacions. Pots trobar la resta a https://www.simplemobiletools.com
     </string>
-    <string name="remember_last_video">Remember last video playback position</string>
 
     <!--
         Haven't found some strings? There's more at

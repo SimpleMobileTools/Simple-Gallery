@@ -133,6 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Groti vaizdo įrašus automatiškai</string>
+    <string name="remember_last_video">Remember last video playback position</string>
     <string name="toggle_filename">Perjungti bylos pavadinimo matomumą</string>
     <string name="loop_videos">Klipuoti vaizdo įrašus</string>
     <string name="animate_gifs">Animuoti GIF\'us miniatiūrose</string>
@@ -221,7 +222,6 @@
         
         Ši programėle yra vienina iš keletos mūsų programėlių. Likusias Jūs galite rasti čia http://www.simplemobiletools.com
     </string>
-    <string name="remember_last_video">Remember last video playback position</string>
 
     <!--
         Haven't found some strings? There's more at

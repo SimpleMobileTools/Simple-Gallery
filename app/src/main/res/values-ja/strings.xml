@@ -133,6 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">ビデオを自動再生</string>
+    <string name="remember_last_video">Remember last video playback position</string>
     <string name="toggle_filename">ファイル名の表示を切り替え</string>
     <string name="loop_videos">ビデオを繰り返し再生</string>
     <string name="animate_gifs">アニメーションGIFを動かす</string>
@@ -221,7 +222,6 @@
 
         このアプリは、大きな一連のアプリの一つです。 他のアプリは https://www.simplemobiletools.com で見つけることができます
     </string>
-    <string name="remember_last_video">Remember last video playback position</string>
 
     <!--
         Haven't found some strings? There's more at

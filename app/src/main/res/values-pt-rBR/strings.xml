@@ -133,6 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Reproduzir vídeos automaticamente</string>
+    <string name="remember_last_video">Remember last video playback position</string>
     <string name="toggle_filename">Mostrar/ocultar nome do arquivo</string>
     <string name="loop_videos">Reproduzir vídeos em ciclo</string>
     <string name="animate_gifs">Animação de GIFs nas miniaturas</string>
@@ -221,7 +222,6 @@
 
         Este aplicativo é apenas parte de um conjunto mais vasto de aplicações. Saiba mais em https://www.simplemobiletools.com
     </string>
-    <string name="remember_last_video">Remember last video playback position</string>
 
     <!--
         Não encontrou todas as cadeias a traduzir? Existem mais algumas em:

@@ -137,6 +137,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">تشغيل الفديوهات تلقائيا</string>
+    <string name="remember_last_video" >Remember last video playback position</string>
     <string name="toggle_filename">تبديل رؤية اسم الملف</string>
     <string name="loop_videos">حلقة الفيديو</string>
     <string name="animate_gifs">عرض صور GIF المتحركة في الصور المصغرة</string>
@@ -214,7 +215,6 @@
     <string name="app_short_description">استوديو لعرض الصور والفيديو بدون اعلانات.</string>
     <string name="app_long_description">أداة بسيطة تستخدام لعرض الصور ومقاطع الفيديو. يمكن فرز العناصر حسب التاريخ والحجم والاسم على حد سواء تصاعدي أو تنازلي، يمكن تكبير الصور. يتم عرض ملفات الوسائط في أعمدة متعددة اعتمادا على حجم الشاشة، يمكنك تغيير عدد الأعمدة عبر إيماءاة القرص . يمكن إعادة تسميته، مشاركة، حذف، نسخ، نقل. ويمكن أيضا اقتصاص الصور، استدارة، او قلب أو تعيين كخلفية مباشرة من التطبيق. يتم عرض المحتوى أيضا للاستخدام طرف ثالث لمعاينة الصور / الفيديو، إضافة المرفقات في برامج البريد الإلكتروني الخ انه مثالي للاستخدام اليومي. لا يحتوي على إعلانات أو أذونات لا حاجة لها. مفتوح المصدر بشكل كلي ، ويوفر الألوان للتخصيص. هذا التطبيق هو مجرد قطعة واحدة من سلسلة أكبر من التطبيقات. يمكنك العثور على بقيتهم هنا\n
   https://www.simplemobiletools.com</string>
-    <string name="remember_last_video" >Remember last video playback position</string>
 
     <!--
         Haven't found some strings? There's more at

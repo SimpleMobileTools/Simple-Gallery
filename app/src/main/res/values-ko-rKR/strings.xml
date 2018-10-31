@@ -133,6 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">비디오 자동재생</string>
+    <string name="remember_last_video">Remember last video playback position</string>
     <string name="toggle_filename">파일이름 보기</string>
     <string name="loop_videos">비디오 반복</string>
     <string name="animate_gifs">섬네일에서 GIFs 애니메이션 활성화</string>
@@ -225,7 +226,6 @@
 
         이 앱은 다양한 시리즈의 모바일앱 중 하나입니다. 나머지는 https://www.simplemobiletools.com 에서 찾아보실 수 있습니다.
     </string>
-    <string name="remember_last_video">Remember last video playback position</string>
 
     <!--
         Haven't found some strings? There's more at

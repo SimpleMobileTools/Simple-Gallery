@@ -133,6 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Videos automatisch abspielen</string>
+    <string name="remember_last_video">Remember last video playback position</string>
     <string name="toggle_filename">Beschriftungen ein/aus</string>
     <string name="loop_videos">Videos in Endlosschleife abspielen</string>
     <string name="animate_gifs">Kacheln von GIFs animieren</string>
@@ -220,7 +221,6 @@
 
         Diese App ist nur eine aus einer größeren Serie von schlichten Apps. Der Rest davon findet sich auf https://www.simplemobiletools.com
     </string>
-    <string name="remember_last_video">Remember last video playback position</string>
 
     <!--
         Haven't found some strings? There's more at

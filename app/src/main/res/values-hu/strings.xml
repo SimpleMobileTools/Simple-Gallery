@@ -133,6 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Play videos automatically</string>
+    <string name="remember_last_video">Remember last video playback position</string>
     <string name="toggle_filename">Toggle filename visibility</string>
     <string name="loop_videos">Loop videos</string>
     <string name="animate_gifs">Animate GIFs at thumbnails</string>
@@ -221,7 +222,6 @@
 
         This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
     </string>
-    <string name="remember_last_video">Remember last video playback position</string>
 
     <!--
         Haven't found some strings? There's more at
