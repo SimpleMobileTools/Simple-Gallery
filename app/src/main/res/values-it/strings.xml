@@ -211,31 +211,31 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Una galleria per visualizzare foto e video senza pubblicità.</string>
     <string name="app_long_description">
-        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
+        Una galleria altamente personalizzabile e capace di visualizzare tipi di file immagini e video differenti, fra cui SVG, RAW, foto panoramiche e video.
 
-        It is open source, contains no ads or unnecessary permissions.
+        È open source, non contiene pubblicità e permessi superflui.
 
-        Let\'s list some of its features worth mentioning:
-        1. Search
-        2. Slideshow
-        3. Notch support
-        4. Pinning folders to the top
-        5. Filtering media files by type
-        6. Recycle bin for easy file recovery
-        7. Fullscreen view orientation locking
-        8. Marking favorite files for easy access
-        9. Quick fullscreen media closing with down gesture
-        10. An editor for modifying images and applying filters
-        11. Password protection for protecting hidden items or the whole app
-        12. Changing the thumbnail column count with gestures or menu buttons
-        13. Customizable bottom actions at the fullscreen view for quick access
-        14. Showing extended details over fullscreen media with desired file properties
-        15. Several different ways of sorting or grouping items, both ascending and descending
-        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
+        Alcune funzionalità che vale la pena accennare:
+        1. Ricerca
+        2. Presentazione
+        3. Supporto al notch
+        4. Fissare le cartelle in alto
+        5. Filtro dei file per tipo
+        6. Cestino per un recupero facile dei file
+        7. Blocco dell'orientamento nella vista a schermo intero
+        8. Selezionare file preferiti per un accesso facile
+        9. Chisura rapida della vista schermo intero con un movimento verso il basso
+        10. Un editor per modificare le immagini ed applicare filtri
+        11. Protezione con password per proteggere elementi nascosti o l'intera applicazione
+        12. Cambio delle colonne delle anteprime con un movimento o tramite dei pulsanti nel menu
+        13. Pulsanti rapidi per azioni personalizzabili nella vista schermo intero
+        14. Visualizzazione di determinati dettagli aggiuntivi nella vista a schermo intero
+        15. Molti modi per ordinare o raggruppare gli elementi, sia in ordine crescente che decrescente
+        16. Cartelle nascoste (anche per altre applicazioni), cartelle escluse (solo per Simple Gallery)
 
-        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
-
-        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
+        Il permesso di leggere le impronte digitali è necessario per il blocco della visibilità degli elementi, dell'intera applicazione o per proteggere alcuni file dalla loro eliminazione.
+        
+        Questa applicazione è solamente una di una serie più grande. Si possono trovare le altre su https://www.simplemobiletools.com
     </string>
 
     <!--
