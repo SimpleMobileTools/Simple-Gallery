@@ -373,9 +373,9 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getString(LAST_VIDEO_PATH, "")
         set(lastVideoPath) = prefs.edit().putString(LAST_VIDEO_PATH, lastVideoPath).apply()
 
-    var lastVideoProgress: Int
-        get() = prefs.getInt(LAST_VIDEO_PROGRESS, 0)
-        set(lastVideoProgress) = prefs.edit().putInt(LAST_VIDEO_PROGRESS, lastVideoProgress).apply()
+    var lastVideoPosition: Int
+        get() = prefs.getInt(LAST_VIDEO_POSITION, 0)
+        set(lastVideoPosition) = prefs.edit().putInt(LAST_VIDEO_POSITION, lastVideoPosition).apply()
 
     var visibleBottomActions: Int
         get() = prefs.getInt(VISIBLE_BOTTOM_ACTIONS, DEFAULT_BOTTOM_ACTIONS)
