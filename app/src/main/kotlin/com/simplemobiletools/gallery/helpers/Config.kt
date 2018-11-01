@@ -148,10 +148,6 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(AUTOPLAY_VIDEOS, false)
         set(autoplay) = prefs.edit().putBoolean(AUTOPLAY_VIDEOS, autoplay).apply()
 
-    var rememberLastVideo: Boolean
-        get() = prefs.getBoolean(REMEMBER_LAST_VIDEO, false)
-        set(rememberVideo) = prefs.edit().putBoolean(REMEMBER_LAST_VIDEO, rememberVideo).apply()
-
     var animateGifs: Boolean
         get() = prefs.getBoolean(ANIMATE_GIFS, false)
         set(animateGifs) = prefs.edit().putBoolean(ANIMATE_GIFS, animateGifs).apply()
@@ -369,8 +365,12 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(BOTTOM_ACTIONS, true)
         set(bottomActions) = prefs.edit().putBoolean(BOTTOM_ACTIONS, bottomActions).apply()
 
+    var rememberLastVideoPosition: Boolean
+        get() = prefs.getBoolean(REMEMBER_LAST_VIDEO_POSITION, false)
+        set(rememberLastVideoPosition) = prefs.edit().putBoolean(REMEMBER_LAST_VIDEO_POSITION, rememberLastVideoPosition).apply()
+
     var lastVideoPath: String
-        get() = prefs.getString(LAST_VIDEO_PATH, "/")
+        get() = prefs.getString(LAST_VIDEO_PATH, "")
         set(lastVideoPath) = prefs.edit().putString(LAST_VIDEO_PATH, lastVideoPath).apply()
 
     var lastVideoProgress: Int

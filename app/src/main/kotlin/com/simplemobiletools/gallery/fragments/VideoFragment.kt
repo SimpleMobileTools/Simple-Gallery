@@ -66,7 +66,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private var mStoredHideExtendedDetails = false
     private var mStoredBottomActions = true
     private var mStoredExtendedDetails = 0
-    private var mStoredRememberLastVideo = false
+    private var mStoredRememberLastVideoPosition = false
     private var mStoredLastVideoPath = ""
     private var mStoredLastVideoProgress = 0
 
@@ -170,8 +170,8 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
 
         setupVideoDuration()
-        if (mStoredRememberLastVideo) {
-            setSavedProgress()
+        if (mStoredRememberLastVideoPosition) {
+            setLastVideoSavedProgress()
         }
 
         updateInstantSwitchWidths()
@@ -208,7 +208,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     override fun onPause() {
         super.onPause()
         pauseVideo()
-        if (mStoredRememberLastVideo) {
+        if (mStoredRememberLastVideoPosition) {
             saveVideoProgress()
         }
 
@@ -248,7 +248,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             mStoredHideExtendedDetails = hideExtendedDetails
             mStoredExtendedDetails = extendedDetails
             mStoredBottomActions = bottomActions
-            mStoredRememberLastVideo = rememberLastVideo
+            mStoredRememberLastVideoPosition = rememberLastVideoPosition
             mStoredLastVideoPath = lastVideoPath
             mStoredLastVideoProgress = lastVideoProgress
         }
@@ -342,21 +342,20 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         listener?.fragmentClicked()
     }
 
-    private fun setSavedProgress() {
+    private fun setLastVideoSavedProgress() {
         if (mStoredLastVideoPath == medium.path && mStoredLastVideoProgress > 0) {
             setProgress(mStoredLastVideoProgress)
         }
     }
 
     private fun initTimeHolder() {
-        val res = resources
         val left = 0
         val top = 0
         var right = 0
         var bottom = 0
 
         if (hasNavBar()) {
-            if (res.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
                 bottom += context!!.navigationBarHeight
             } else {
                 right += context!!.navigationBarWidth
@@ -466,9 +465,9 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             setProgress(0)
         }
 
-        if (mStoredRememberLastVideo) {
-            setSavedProgress()
-            clearSavedProgress()
+        if (mStoredRememberLastVideoPosition) {
+            setLastVideoSavedProgress()
+            clearLastVideoSavedProgress()
         }
 
         if (!wasEnded || context?.config?.loopVideos == false) {
@@ -482,9 +481,9 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         activity!!.window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
-    private fun clearSavedProgress() {
+    private fun clearLastVideoSavedProgress() {
         mStoredLastVideoProgress = 0
-        mStoredLastVideoPath = "/"
+        mStoredLastVideoPath = ""
     }
 
     private fun pauseVideo() {

@@ -133,7 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Odtwarzaj filmy automatycznie</string>
-    <string name="remember_last_video">Remember last video playback position</string>
+    <string name="remember_last_video_position">Remember last video playback position</string>
     <string name="toggle_filename">Pokazuj / ukrywaj nazwy plików</string>
     <string name="loop_videos">Zapętlaj odtwarzanie filmów</string>
     <string name="animate_gifs">Animowane miniatury GIFów</string>

@@ -133,7 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Toista videot automaattisesti</string>
-    <string name="remember_last_video">Remember last video playback position</string>
+    <string name="remember_last_video_position">Remember last video playback position</string>
     <string name="toggle_filename">Tiedostonimien näkyvyys</string>
     <string name="loop_videos">Jatkuvat videot</string>
     <string name="animate_gifs">Animoi GIFit pienoiskuvissa</string>

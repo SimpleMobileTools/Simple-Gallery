@@ -279,7 +279,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/settings_remember_last_video_holder"
+            android:id="@+id/settings_remember_last_video_position_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/medium_margin"
@@ -290,14 +290,14 @@
             android:paddingBottom="@dimen/activity_margin">
 
             <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_remember_last_video"
+                android:id="@+id/settings_remember_last_video_position"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:paddingLeft="@dimen/medium_margin"
-                android:text="@string/remember_last_video"
+                android:text="@string/remember_last_video_position"
                 app:switchPadding="@dimen/medium_margin" />
 
         </RelativeLayout>

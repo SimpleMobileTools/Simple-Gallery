@@ -177,10 +177,10 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun setupRememberLastVideo() {
-        settings_remember_last_video.isChecked = config.rememberLastVideo
-        settings_remember_last_video_holder.setOnClickListener {
-            settings_remember_last_video.toggle()
-            config.rememberLastVideo = settings_remember_last_video.isChecked
+        settings_remember_last_video_position.isChecked = config.rememberLastVideoPosition
+        settings_remember_last_video_position_holder.setOnClickListener {
+            settings_remember_last_video_position.toggle()
+            config.rememberLastVideoPosition = settings_remember_last_video_position.isChecked
         }
     }
 
