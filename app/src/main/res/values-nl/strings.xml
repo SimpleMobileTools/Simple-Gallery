@@ -212,7 +212,7 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Een galerij voor afbeeldingen en video\'s, zonder advertenties.</string>
     <string name="app_long_description">
-        Een zeer goed aan te passen galerij voor afbeeldingen en video\'s in vele bestandsformaten, waaronder SVG, RAW, panoramafoto's en -video\'s.
+        Een zeer goed aan te passen galerij voor afbeeldingen en video\'s in vele bestandsformaten, waaronder SVG, RAW, panoramafoto\'s en -video\'s.
 
         Deze app is open-source, bevat geen advertenties en vraagt niet om onnodige machtigingen.
 
