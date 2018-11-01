@@ -62,18 +62,23 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
     private fun checkIntent(savedInstanceState: Bundle? = null) {
         mUri = intent.data ?: return
+        var filename = getFilenameFromUri(mUri!!)
         if (intent.extras?.containsKey(REAL_FILE_PATH) == true) {
             val realPath = intent.extras.getString(REAL_FILE_PATH)
-            if (realPath?.getFilenameFromPath()?.contains('.') == true) {
-                sendViewPagerIntent(realPath)
-                finish()
-                return
+            if (realPath != null) {
+                if (realPath.getFilenameFromPath().contains('.') || filename.contains('.')) {
+                    sendViewPagerIntent(realPath)
+                    finish()
+                    return
+                } else {
+                    filename = realPath.getFilenameFromPath()
+                }
             }
         }
 
         mIsFromGallery = intent.getBooleanExtra(IS_FROM_GALLERY, false)
         if (mUri!!.scheme == "file") {
-            if (mUri!!.path?.getFilenameFromPath()?.contains('.') == true) {
+            if (filename.contains('.')) {
                 scanPathRecursively(mUri!!.path)
                 sendViewPagerIntent(mUri!!.path)
                 finish()
@@ -81,7 +86,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             }
         } else {
             val path = applicationContext.getRealPathFromURI(mUri!!) ?: ""
-            if (path != mUri.toString() && path.isNotEmpty() && mUri!!.authority != "mms" && mUri!!.path.getFilenameFromPath().contains('.')) {
+            if (path != mUri.toString() && path.isNotEmpty() && mUri!!.authority != "mms" && filename.contains('.')) {
                 scanPathRecursively(mUri!!.path)
                 sendViewPagerIntent(path)
                 finish()
@@ -97,7 +102,6 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         showSystemUI(true)
         val bundle = Bundle()
         val file = File(mUri.toString())
-        val filename = getFilenameFromUri(mUri!!)
         val type = when {
             filename.isVideoFast() -> TYPE_VIDEOS
             filename.isGif() -> TYPE_GIFS
@@ -106,6 +110,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             else -> TYPE_IMAGES
         }
 
+        mIsVideo = type == TYPE_VIDEOS
         mMedium = Medium(null, filename, mUri.toString(), mUri!!.path.getParentPath(), 0, 0, file.length(), type, false, 0L)
         supportActionBar?.title = mMedium!!.name
         bundle.putSerializable(MEDIUM, mMedium)
