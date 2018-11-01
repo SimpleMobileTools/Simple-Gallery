@@ -133,7 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Відтворювати відео автоматично</string>
-    <string name="remember_last_video_position">Remember last video playback position</string>
+    <string name="remember_last_video_position">Запам\'ятовувати місце зупинки перегляду</string>
     <string name="toggle_filename">Перемкнути відображення імені файлу</string>
     <string name="loop_videos">Зациклити відео</string>
     <string name="animate_gifs">Анімувати ескізи GIF-файлів</string>
@@ -212,31 +212,31 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Галерея для перегляду фото та відео без реклами.</string>
     <string name="app_long_description">
-        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
+        Тонко налаштовувана галерея, здатна відображати зображення та відео різноманітних типів, включаючи SVG-зображення, RAW-зображення,панорамні фото і відео.
 
-        It is open source, contains no ads or unnecessary permissions.
+        Джерельний код галереї відкритий, вона не містить реклами та не вимагає зайвих дозволів.
 
-        Let\'s list some of its features worth mentioning:
-        1. Search
-        2. Slideshow
-        3. Notch support
-        4. Pinning folders to the top
-        5. Filtering media files by type
-        6. Recycle bin for easy file recovery
-        7. Fullscreen view orientation locking
-        8. Marking favorite files for easy access
-        9. Quick fullscreen media closing with down gesture
-        10. An editor for modifying images and applying filters
-        11. Password protection for protecting hidden items or the whole app
-        12. Changing the thumbnail column count with gestures or menu buttons
-        13. Customizable bottom actions at the fullscreen view for quick access
-        14. Showing extended details over fullscreen media with desired file properties
-        15. Several different ways of sorting or grouping items, both ascending and descending
-        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
+        Ось кілька її переваг, які варто згадати:
+        1. Пошук
+        2. Слайдшоу
+        3. Підтримка закладок (Notch)
+        4. Закріплення тек вгорі екрану
+        5. Фільтрування медіафайлів за типом
+        6. Кошик для легкого відновлення файлів
+        7. Фіксація повороту екрану при повноекранному перегляді
+        8. Позначення улюблених файлів для швидкого доступу
+        9. Швидке закриття повноекранного перегляду жестом згори вниз
+        10. Редактор для редагування зображень та накладання фільтрів
+        11. Захист паролем для захисту прихованих елементів або всього додатку
+        12. Зміна кількості колонок піктограм жестом чи через меню
+        13. Налаштовувані кнопки швидких дій внизу екрану при повноекранному перегляді
+        14. Показ детальної інформації з обраними властивостями файлу при повноекранному перегляді
+        15. Кілька різних способів сортування або групування елементів - як за зростанням, так і за спаданням
+        16. Приховування тек (і в інших додатках також), виключення тек (тільки в Simple Gallery)
 
-        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
+        Дозвіл на доступ до відбитку пальця потрібен для блокування або видимості прихованих елементів, або всього додатку, або для захисту файлів від видалення.
 
-        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
+        Цей додаток входить в велику серію додатків. Ви можете знайти їх на https://www.simplemobiletools.com
     </string>
 
     <!--
