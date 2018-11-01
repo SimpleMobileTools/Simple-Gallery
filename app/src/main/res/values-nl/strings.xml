@@ -212,31 +212,31 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Een galerij voor afbeeldingen en video\'s, zonder advertenties.</string>
     <string name="app_long_description">
-        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
+        Een zeer goed aan te passen galerij voor afbeeldingen en video\'s in vele bestandsformaten, waaronder SVG, RAW, panoramafoto\'s en -video\'s.
 
-        It is open source, contains no ads or unnecessary permissions.
+        Deze app is open-source, bevat geen advertenties en vraagt niet om onnodige machtigingen.
 
-        Let\'s list some of its features worth mentioning:
-        1. Search
-        2. Slideshow
-        3. Notch support
-        4. Pinning folders to the top
-        5. Filtering media files by type
-        6. Recycle bin for easy file recovery
-        7. Fullscreen view orientation locking
-        8. Marking favorite files for easy access
-        9. Quick fullscreen media closing with down gesture
-        10. An editor for modifying images and applying filters
-        11. Password protection for protecting hidden items or the whole app
-        12. Changing the thumbnail column count with gestures or menu buttons
-        13. Customizable bottom actions at the fullscreen view for quick access
-        14. Showing extended details over fullscreen media with desired file properties
-        15. Several different ways of sorting or grouping items, both ascending and descending
-        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
+        Een lijst met de belangrijkste mogelijkheden:
+        1. Zoeken
+        2. Diavoorstelling
+        3. Ondersteuning voor schermen met een inkeping
+        4. Mappen bovenaan vastzetten
+        5. Media filteren op bestandstype
+        6. Een prullenbak
+        7. Oriëntatie vastzetten voor volledig scherm
+        8. Favorieten
+        9. Veeggebaren in volledig scherm
+        10. Afbeeldingen bewerken en filters toepassen
+        11. Verborgen items of de gehele app beveiligen met een wachtwoord
+        12. Het aantal kolommen aanpassen via veeggebaren of menuknoppen
+        13. De acties op de werkbalk in volledig scherm aanpassen
+        14. Uitgebreide informatie tonen over de bestanden in volledig scherm
+        15. Items sorteren en groeperen op verschillende manieren
+        16. Mappen verbergen (ook voor andere apps), of mappen uitsluiten (alleen voor deze app)
 
-        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
+        De machtiging voor vingerafdrukken is benodigd voor het beveiligen van verborgen items, of de hele app, of om te voorkomen dat bestanden kunnen worden verwijderd.
 
-        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
+        Deze app is onderdeel van een grotere collectie. De andere apps zijn te vinden op https://www.simplemobiletools.com
     </string>
 
     <!--
