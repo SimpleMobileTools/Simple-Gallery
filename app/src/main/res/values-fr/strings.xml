@@ -133,6 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Lecture automatique des vidéos</string>
+    <string name="remember_last_video">Remember last video playback position</string>
     <string name="toggle_filename">Permuter la visibilité des noms de fichier</string>
     <string name="loop_videos">Lecture en boucle des vidéos</string>
     <string name="animate_gifs">GIFs animés sur les miniatures</string>
@@ -235,7 +236,7 @@
 
         This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
       </string>
-  
+
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

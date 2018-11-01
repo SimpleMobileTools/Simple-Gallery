@@ -66,6 +66,9 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private var mStoredHideExtendedDetails = false
     private var mStoredBottomActions = true
     private var mStoredExtendedDetails = 0
+    private var mStoredRememberLastVideo = false
+    private var mStoredLastVideoPath = ""
+    private var mStoredLastVideoProgress = 0
 
     private lateinit var mTimeHolder: View
     private lateinit var mBrightnessSideScroll: MediaSideScroll
@@ -167,6 +170,10 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
 
         setupVideoDuration()
+        if (mStoredRememberLastVideo) {
+            setSavedProgress()
+        }
+
         updateInstantSwitchWidths()
 
         return mView
@@ -201,6 +208,10 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     override fun onPause() {
         super.onPause()
         pauseVideo()
+        if (mStoredRememberLastVideo) {
+            saveVideoProgress()
+        }
+
         storeStateVariables()
     }
 
@@ -237,6 +248,9 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             mStoredHideExtendedDetails = hideExtendedDetails
             mStoredExtendedDetails = extendedDetails
             mStoredBottomActions = bottomActions
+            mStoredRememberLastVideo = rememberLastVideo
+            mStoredLastVideoPath = lastVideoPath
+            mStoredLastVideoProgress = lastVideoProgress
         }
     }
 
@@ -251,6 +265,18 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         mTextureView!!.surfaceTextureListener = this
 
         checkExtendedDetails()
+    }
+
+    private fun saveVideoProgress() {
+        if (!videoEnded()) {
+            mStoredLastVideoProgress = mExoPlayer!!.currentPosition.toInt() / 1000
+            mStoredLastVideoPath = medium.path
+        }
+
+        context!!.config.apply {
+            lastVideoProgress = mStoredLastVideoProgress
+            lastVideoPath = mStoredLastVideoPath
+        }
     }
 
     private fun initExoPlayer() {
@@ -314,6 +340,12 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
     private fun toggleFullscreen() {
         listener?.fragmentClicked()
+    }
+
+    private fun setSavedProgress() {
+        if (mStoredLastVideoPath == medium.path && mStoredLastVideoProgress > 0) {
+            setProgress(mStoredLastVideoProgress)
+        }
     }
 
     private fun initTimeHolder() {
@@ -434,6 +466,11 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             setProgress(0)
         }
 
+        if (mStoredRememberLastVideo) {
+            setSavedProgress()
+            clearSavedProgress()
+        }
+
         if (!wasEnded || context?.config?.loopVideos == false) {
             mView.video_play_outline.setImageResource(R.drawable.ic_pause)
             mView.video_play_outline.alpha = PLAY_PAUSE_VISIBLE_ALPHA
@@ -443,6 +480,11 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         mIsPlaying = true
         mExoPlayer?.playWhenReady = true
         activity!!.window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+    }
+
+    private fun clearSavedProgress() {
+        mStoredLastVideoProgress = 0
+        mStoredLastVideoPath = "/"
     }
 
     private fun pauseVideo() {

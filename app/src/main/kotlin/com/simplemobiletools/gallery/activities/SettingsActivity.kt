@@ -45,6 +45,7 @@ class SettingsActivity : SimpleActivity() {
         setupShowHiddenItems()
         setupDoExtraCheck()
         setupAutoplayVideos()
+        setupRememberLastVideo()
         setupLoopVideos()
         setupAnimateGifs()
         setupMaxBrightness()
@@ -172,6 +173,14 @@ class SettingsActivity : SimpleActivity() {
         settings_autoplay_videos_holder.setOnClickListener {
             settings_autoplay_videos.toggle()
             config.autoplayVideos = settings_autoplay_videos.isChecked
+        }
+    }
+
+    private fun setupRememberLastVideo() {
+        settings_remember_last_video.isChecked = config.rememberLastVideo
+        settings_remember_last_video_holder.setOnClickListener {
+            settings_remember_last_video.toggle()
+            config.rememberLastVideo = settings_remember_last_video.isChecked
         }
     }
 

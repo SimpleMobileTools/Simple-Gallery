@@ -137,6 +137,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">تشغيل الفديوهات تلقائيا</string>
+    <string name="remember_last_video" >Remember last video playback position</string>
     <string name="toggle_filename">تبديل رؤية اسم الملف</string>
     <string name="loop_videos">حلقة الفيديو</string>
     <string name="animate_gifs">عرض صور GIF المتحركة في الصور المصغرة</string>

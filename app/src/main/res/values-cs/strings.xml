@@ -133,6 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Automaticky přehrávat videa</string>
+    <string name="remember_last_video">Remember last video playback position</string>
     <string name="toggle_filename">Přepnout viditelnost názvů souborů</string>
     <string name="loop_videos">Přehrávat videa ve smyčce</string>
     <string name="animate_gifs">Animovat náhledy souborů GIF</string>

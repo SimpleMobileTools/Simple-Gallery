@@ -133,6 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Reproducir vídeos automticamente</string>
+    <string name="remember_last_video">Remember last video playback position</string>
     <string name="toggle_filename">Mudar a visibilidade do ficheiro</string>
     <string name="loop_videos">videos en bucle</string>
     <string name="animate_gifs">Animar os GIFs na icona</string>

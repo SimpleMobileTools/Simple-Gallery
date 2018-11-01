@@ -133,6 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Αυτόματη αναπαραγωγή βίντεο</string>
+    <string name="remember_last_video">Remember last video playback position</string>
     <string name="toggle_filename">Αλλαγή προβολής ονόματος αρχείων</string>
     <string name="loop_videos">Επανάληψη βίντεο</string>
     <string name="animate_gifs">Εμφάνιση κινούμενων GIFs στα εικονίδια</string>
