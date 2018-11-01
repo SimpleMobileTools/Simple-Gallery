@@ -736,7 +736,10 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
                             break
                         }
                     }
-                    mIsPanorama = sb.toString().contains("<GSpherical:Spherical>true") || sb.toString().contains("GSpherical:Spherical=\"True\"")
+
+                    val xmlString = sb.toString().toLowerCase()
+                    mIsPanorama = xmlString.contains("gspherical:projectiontype>equirectangular") ||
+                            xmlString.contains("gspherical:projectiontype=\"equirectangular\"")
                     return
                 }
 
