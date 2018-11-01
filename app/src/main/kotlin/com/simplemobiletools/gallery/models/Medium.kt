@@ -15,7 +15,7 @@ import com.simplemobiletools.gallery.helpers.*
 import java.io.Serializable
 import java.util.*
 
-@Entity(tableName = "media", indices = [(Index(value = "full_path", unique = true))])
+@Entity(tableName = "media", indices = [(Index(value = ["full_path"], unique = true))])
 data class Medium(
         @PrimaryKey(autoGenerate = true) var id: Long?,
         @ColumnInfo(name = "filename") var name: String,

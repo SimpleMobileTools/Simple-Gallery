@@ -14,7 +14,7 @@ import com.simplemobiletools.gallery.helpers.FAVORITES
 import com.simplemobiletools.gallery.helpers.RECYCLE_BIN
 import java.io.Serializable
 
-@Entity(tableName = "directories", indices = [Index(value = "path", unique = true)])
+@Entity(tableName = "directories", indices = [Index(value = ["path"], unique = true)])
 data class Directory(
         @PrimaryKey(autoGenerate = true) var id: Long?,
         @ColumnInfo(name = "path") var path: String,
