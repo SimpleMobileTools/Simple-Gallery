@@ -133,7 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Reproduir vídeos automàticament</string>
-    <string name="remember_last_video_position">Remember last video playback position</string>
+    <string name="remember_last_video_position">Recordeu la posició de la darrera reproducció de vídeo</string>
     <string name="toggle_filename">Canviar la visibilitat del nom d\'arxiu</string>
     <string name="loop_videos">Reproducció continua de vídeos</string>
     <string name="animate_gifs">Animar les miniatures dels GIFs</string>
@@ -212,31 +212,31 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Una galeria per veure imatges i vídeos sense publicitat.</string>
     <string name="app_long_description">
-        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
+        Una galeria molt personalitzable capaç de mostrar molts tipus d\'imatge i de vídeo diferents, inclosos SVGs, RAWs, fotos panoràmiques i vídeos.
 
-        It is open source, contains no ads or unnecessary permissions.
+        És de codi obert, no conté anuncis ni permisos innecessaris.
 
-        Let\'s list some of its features worth mentioning:
-        1. Search
-        2. Slideshow
-        3. Notch support
-        4. Pinning folders to the top
-        5. Filtering media files by type
-        6. Recycle bin for easy file recovery
-        7. Fullscreen view orientation locking
-        8. Marking favorite files for easy access
-        9. Quick fullscreen media closing with down gesture
-        10. An editor for modifying images and applying filters
-        11. Password protection for protecting hidden items or the whole app
-        12. Changing the thumbnail column count with gestures or menu buttons
-        13. Customizable bottom actions at the fullscreen view for quick access
-        14. Showing extended details over fullscreen media with desired file properties
-        15. Several different ways of sorting or grouping items, both ascending and descending
-        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
+        Anem a enumerar algunes de les seves característiques que val la pena esmentar:
+        1. Cerca
+        2. Presentació de diapositives
+        3. Suport per notch
+        4. Enganxar carpetes a la part superior
+        5. Filtrar fitxers multimèdia per tipus
+        6. Paperera de reciclatge per a una fàcil recuperació d\'arxius
+        7. Bloqueig d\'orientació de la vista en pantalla completa
+        8. Marcatge dels fitxers preferits per facilitar l\'accés
+        9. Tancament ràpid de mitjans de pantalla amb gest d\'avall
+        10. Un editor per modificar imatges i aplicar filtres
+        11. Protecció per contrasenya per protegir elements ocults o tota l\'aplicació
+        12. Canviar el número de columnes en miniatura amb gestos o botons de menú
+        13. Botons inferiors personalitzables a la vista de pantalla completa per a un accés ràpid
+        14. Mostrar detalls ampliats sobre els suports de pantalla completa amb les propietats del fitxer desitjades
+        15. Diverses maneres diferents de classificar o agrupar elements, tant ascendents com descendents
+        16. Ocultació de carpetes (també afecta altres aplicacions), eExclusió de carpetes (afecta només a la Galeria simple)
 
-        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
+        El permís d\'empremtes dactilars és necessari per bloquejar la visibilitat d\'elements ocults, l\'aplicació sencera o la protecció dels fitxers.
 
-        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
+        Aquesta aplicació és només una part d'una sèrie més gran d\'aplicacions. Podeu trobar la resta a https://www.simplemobiletools.com
     </string>
 
     <!--
