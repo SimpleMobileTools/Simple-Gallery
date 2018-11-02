@@ -133,7 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Video\'s automatisch afspelen</string>
-    <string name="remember_last_video_position">Remember last video playback position</string>
+    <string name="remember_last_video_position">Laatste positie in video\'s onthouden</string>
     <string name="toggle_filename">Bestandsnamen tonen</string>
     <string name="loop_videos">Video\'s herhalen</string>
     <string name="animate_gifs">GIF-bestanden afspelen in overzicht</string>
