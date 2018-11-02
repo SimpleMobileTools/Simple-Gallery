@@ -133,7 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Reproducir vídeos automáticamente</string>
-    <string name="remember_last_video_position">Remember last video playback position</string>
+    <string name="remember_last_video_position">Recuerde la última posición de reproducción de video</string>
     <string name="toggle_filename">Cambiar la visibilidad del nombre de archivo</string>
     <string name="loop_videos">Reproducción continua de vídeos</string>
     <string name="animate_gifs">Animar las miniaturas de GIFs</string>
@@ -212,31 +212,31 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Una galería para ver fotos y vídeos sin publicidad.</string>
     <string name="app_long_description">
-        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
+        Una galería altamente personalizable capaz de mostrar diferentes tipos de imágenes y videos, incluyendo SVG, RAW, fotos panorámicas y videos.
 
-        It is open source, contains no ads or unnecessary permissions.
+        Es de código abierto, no contiene anuncios o permisos innecesarios.
 
-        Let\'s list some of its features worth mentioning:
-        1. Search
-        2. Slideshow
-        3. Notch support
-        4. Pinning folders to the top
-        5. Filtering media files by type
-        6. Recycle bin for easy file recovery
-        7. Fullscreen view orientation locking
-        8. Marking favorite files for easy access
-        9. Quick fullscreen media closing with down gesture
-        10. An editor for modifying images and applying filters
-        11. Password protection for protecting hidden items or the whole app
-        12. Changing the thumbnail column count with gestures or menu buttons
-        13. Customizable bottom actions at the fullscreen view for quick access
-        14. Showing extended details over fullscreen media with desired file properties
-        15. Several different ways of sorting or grouping items, both ascending and descending
-        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
+        Vamos a enumerar algunas de sus características que vale la pena mencionar:
+        1. Buscar
+        2. Presentación de diapositivas
+        3. Soporte de muesca
+        4. Fijado de carpetas en la parte superior.
+        5. Filtrado de archivos multimedia por tipo
+        6. Papelera de reciclaje para una fácil recuperación de archivos
+        7. Bloqueo de orientación de vista de pantalla completa
+        8. Marcar los archivos favoritos para facilitar el acceso
+        9. Cierre rápido de medios a pantalla completa con gesto hacia abajo.
+        10. Un editor para modificar imágenes y aplicar filtros.
+        11. Protección de contraseña para proteger elementos ocultos o la aplicación completa
+        12. Cambiar el número de la columna de miniaturas con gestos o botones de menú
+        13. Acciones inferiores personalizables en la vista de pantalla completa para un acceso rápido
+        14. Mostrar detalles extendidos en medios de pantalla completa con las propiedades de archivo deseadas
+        15. Varias formas diferentes de clasificar o agrupar elementos, tanto ascendentes como descendentes
+        16. Ocultar carpetas (afecta también a otras aplicaciones), excluyendo carpetas (afecta solo a Simple Gallery)
 
-        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
+        El permiso de huella digital es necesario para bloquear la visibilidad de los elementos ocultos, la aplicación completa o proteger los archivos para evitar que se eliminen.
 
-        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
+        Esta aplicación es solo una parte de una serie más grande de aplicaciones. Puede encontrar el resto de ellos en https://www.simplemobiletools.com
     </string>
 
     <!--
