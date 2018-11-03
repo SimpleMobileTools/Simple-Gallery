@@ -133,7 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Avspill videoer automatisk</string>
-    <string name="remember_last_video_position">Remember last video playback position</string>
+    <string name="remember_last_video_position">Husk siste videoavspillingsposisjon</string>
     <string name="toggle_filename">Vis/skjul filnavn</string>
     <string name="loop_videos">Gjenta videoer</string>
     <string name="animate_gifs">Animert GIF i minibildevisning</string>
