@@ -1,7 +1,6 @@
 package com.simplemobiletools.gallery.activities
 
 import android.content.Intent
-import android.content.res.Resources
 import android.os.Bundle
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
@@ -23,13 +22,11 @@ import kotlinx.android.synthetic.main.activity_settings.*
 import java.util.*
 
 class SettingsActivity : SimpleActivity() {
-    lateinit var res: Resources
     private var mRecycleBinContentSize = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
-        res = resources
     }
 
     override fun onResume() {
@@ -447,9 +444,9 @@ class SettingsActivity : SimpleActivity() {
         settings_screen_rotation.text = getScreenRotationText()
         settings_screen_rotation_holder.setOnClickListener {
             val items = arrayListOf(
-                    RadioItem(ROTATE_BY_SYSTEM_SETTING, res.getString(R.string.screen_rotation_system_setting)),
-                    RadioItem(ROTATE_BY_DEVICE_ROTATION, res.getString(R.string.screen_rotation_device_rotation)),
-                    RadioItem(ROTATE_BY_ASPECT_RATIO, res.getString(R.string.screen_rotation_aspect_ratio)))
+                    RadioItem(ROTATE_BY_SYSTEM_SETTING, getString(R.string.screen_rotation_system_setting)),
+                    RadioItem(ROTATE_BY_DEVICE_ROTATION, getString(R.string.screen_rotation_device_rotation)),
+                    RadioItem(ROTATE_BY_ASPECT_RATIO, getString(R.string.screen_rotation_aspect_ratio)))
 
             RadioGroupDialog(this@SettingsActivity, items, config.screenRotation) {
                 config.screenRotation = it as Int
