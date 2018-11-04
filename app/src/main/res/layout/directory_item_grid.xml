@@ -8,7 +8,7 @@
     android:focusable="true"
     android:padding="1px">
 
-    <com.simplemobiletools.gallery.views.MySquareImageView
+    <com.simplemobiletools.gallery.pro.views.MySquareImageView
         android:id="@+id/dir_thumbnail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
