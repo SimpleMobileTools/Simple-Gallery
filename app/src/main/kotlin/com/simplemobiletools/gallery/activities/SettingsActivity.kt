@@ -32,7 +32,7 @@ class SettingsActivity : SimpleActivity() {
     override fun onResume() {
         super.onResume()
 
-        setupPurchaseThankYou()
+        setupUpgradeToPro()
         setupCustomizeColors()
         setupUseEnglish()
         setupManageIncludedFolders()
@@ -87,10 +87,10 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupPurchaseThankYou() {
-        settings_purchase_thank_you_holder.beVisibleIf(config.appRunCount > 10 && !isThankYouInstalled())
-        settings_purchase_thank_you_holder.setOnClickListener {
-            launchPurchaseThankYouIntent()
+    private fun setupUpgradeToPro() {
+        settings_upgrade_to_pro_holder.beGoneIf(isAProApp())
+        settings_upgrade_to_pro_holder.setOnClickListener {
+            launchUpgradeToProIntent()
         }
     }
 

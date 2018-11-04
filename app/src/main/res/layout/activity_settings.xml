@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:id="@+id/settings_purchase_thank_you_holder"
+            android:id="@+id/settings_upgrade_to_pro_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/medium_margin"
@@ -24,13 +24,13 @@
             android:paddingBottom="@dimen/activity_margin">
 
             <com.simplemobiletools.commons.views.MyTextView
-                android:id="@+id/settings_purchase_thank_you"
+                android:id="@+id/settings_upgrade_to_pro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:paddingStart="@dimen/medium_margin"
                 android:paddingLeft="@dimen/medium_margin"
-                android:text="@string/purchase_simple_thank_you"/>
+                android:text="@string/upgrade_to_pro"/>
 
         </RelativeLayout>
 

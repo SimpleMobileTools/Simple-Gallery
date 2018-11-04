@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
+import com.simplemobiletools.commons.dialogs.UpgradeToProDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FileDirItem
@@ -146,6 +147,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             if (config.filterMedia and TYPE_SVGS == 0) {
                 config.filterMedia += TYPE_SVGS
             }
+        }
+
+        if (!config.wasInitialUpgradeToProShown) {
+            UpgradeToProDialog(this)
+            config.wasInitialUpgradeToProShown = true
         }
     }
 
