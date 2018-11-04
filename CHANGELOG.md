@@ -1,6 +1,17 @@
 Changelog
 ==========
 
+Version 5.1.3 *(2018-11-04)*
+----------------------------
+
+ * Adding an option to store last video playback position (by mathevs)
+ * Adding a "Keep both" conflict resolution at copy/move (by Doubl3MM)
+ * Improved panoramic video detection
+ * Remove some glitches related to third party file opening
+ * Do not exclude the Data folder by default
+ * Removed the "Avoid showing Whats New at app startup" option
+ * This version of the app is no longer maintained. Please upgrade to the Pro version. It is free till Nov 12 2018. You can find the Upgrade button at the top of the app Settings.
+
 Version 5.1.2 *(2018-10-30)*
 ----------------------------
 
