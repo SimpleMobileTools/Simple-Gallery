@@ -133,7 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">自动播放</string>
-    <string name="remember_last_video_position">Remember last video playback position</string>
+    <string name="remember_last_video_position">记住上次视频播放位置</string>
     <string name="toggle_filename">显示文件名</string>
     <string name="loop_videos">循环播放视频</string>
     <string name="animate_gifs">GIF 缩略图</string>
@@ -210,31 +210,31 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">一个没有广告，用来观看照片及视频的相册。</string>
     <string name="app_long_description">
-        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
+        一个高度可定制的图库，支持很多的图像和视频类型，包括SVG，RAW，全景照片和视频。
 
-        It is open source, contains no ads or unnecessary permissions.
+        本应用是开源的，没有广告以及不必要的权限。
 
-        Let\'s list some of its features worth mentioning:
-        1. Search
-        2. Slideshow
-        3. Notch support
-        4. Pinning folders to the top
-        5. Filtering media files by type
-        6. Recycle bin for easy file recovery
-        7. Fullscreen view orientation locking
-        8. Marking favorite files for easy access
-        9. Quick fullscreen media closing with down gesture
-        10. An editor for modifying images and applying filters
-        11. Password protection for protecting hidden items or the whole app
-        12. Changing the thumbnail column count with gestures or menu buttons
-        13. Customizable bottom actions at the fullscreen view for quick access
-        14. Showing extended details over fullscreen media with desired file properties
-        15. Several different ways of sorting or grouping items, both ascending and descending
-        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
+        列举一些值得一提的功能：
+        1.搜索
+        2.幻灯片
+        3.支持留海屏
+        4.固定文件夹到顶部
+        5.按类型过滤媒体文件
+        6.回收站（便于恢复文件）
+        7.全屏视图方向锁定
+        8.标记收藏文件以便于访问
+        9.使用下滑手势关闭全屏视图
+        10.图片编辑器，可用于修改图像和应用滤镜
+        11.密码保护，可用于保护应用和隐藏项目
+        12.可使用手势或菜单按钮来更改缩略图列数
+        13.可自定义全屏视图中的底栏操作按钮，方便快速
+        14.在全屏视图下显示文件属性具有的扩展详细信息
+        15.按照不同的方式对项目进行排序或分组，包括升序和降序
+        16.隐藏文件夹（会影响其他应用），排除文件夹（仅影响本应用）
 
-        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
+        如需锁定隐藏项目的可见性，或是锁定本应用，或是保护文件不被删除，则需要指纹权限。
 
-        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
+        这个应用只是一个更大的应用系列的一小部分。您可以在https://www.simplemobiletools.com找到其余的应用。
     </string>
 
     <!--
