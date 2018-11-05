@@ -38,7 +38,7 @@
     <string name="videos">Videoer</string>
     <string name="gifs">GIF-bilder</string>
     <string name="raw_images">RAW-format-bilder</string>
-    <string name="svgs">SVGs</string>
+    <string name="svgs">SVG-bilder</string>
     <string name="no_media_with_filters">Ingen media-filer er funnet med de valgte filtrene.</string>
     <string name="change_filters_underlined"><u>Endre filtere</u></string>
 
@@ -133,6 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Avspill videoer automatisk</string>
+    <string name="remember_last_video_position">Husk siste videoavspillingsposisjon</string>
     <string name="toggle_filename">Vis/skjul filnavn</string>
     <string name="loop_videos">Gjenta videoer</string>
     <string name="animate_gifs">Animert GIF i minibildevisning</string>
@@ -159,10 +160,10 @@
     <string name="do_extra_check">Gjør en ekstra sjekk for å unngå visning av ugyldige filer</string>
     <string name="show_at_bottom">Vis noen handlingsknapper nederst på skjermen</string>
     <string name="show_recycle_bin">Vis papirkurven på mappeskjermen</string>
-    <string name="deep_zoomable_images">Deep zoomable images</string>
-    <string name="show_highest_quality">Show images in the highest possible quality</string>
-    <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
-    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
+    <string name="deep_zoomable_images">Dyp zoombare bilder</string>
+    <string name="show_highest_quality">Vis bilder i høyest mulig kvalitet</string>
+    <string name="show_recycle_bin_last">Vis papirkurven som siste element på hovedskjermen</string>
+    <string name="allow_down_gesture">Tillat lukking av mediavisningen med en nedoverbevegelse</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Minibilder</string>
@@ -211,13 +212,29 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">A gallery for viewing photos and videos without ads.</string>
     <string name="app_long_description">
-        A simple tool usable for viewing photos and videos. Items can be sorted by date, size, name both ascending or descending, photos can be zoomed in. Media files are shown in multiple columns depending on the size of the display, you can change the column count by pinch gestures. They can be renamed, shared, deleted, copied, moved. Images can also be cropped, rotated, flipped or set as Wallpaper directly from the app.
+        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
 
-        The Gallery is also offered for third party usage for previewing images / videos, adding attachments at email clients etc. It\'s perfect for everyday usage.
+        It is open source, contains no ads or unnecessary permissions.
 
-        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+        Let\'s list some of its features worth mentioning:
+        1. Search
+        2. Slideshow
+        3. Notch support
+        4. Pinning folders to the top
+        5. Filtering media files by type
+        6. Recycle bin for easy file recovery
+        7. Fullscreen view orientation locking
+        8. Marking favorite files for easy access
+        9. Quick fullscreen media closing with down gesture
+        10. An editor for modifying images and applying filters
+        11. Password protection for protecting hidden items or the whole app
+        12. Changing the thumbnail column count with gestures or menu buttons
+        13. Customizable bottom actions at the fullscreen view for quick access
+        14. Showing extended details over fullscreen media with desired file properties
+        15. Several different ways of sorting or grouping items, both ascending and descending
+        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
 
-        Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
+        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
 
         This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
     </string>

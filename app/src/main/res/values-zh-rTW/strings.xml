@@ -133,6 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">自動播放影片</string>
+    <string name="remember_last_video_position">Remember last video playback position</string>
     <string name="toggle_filename">顯示檔案名稱</string>
     <string name="loop_videos">影片循環播放</string>
     <string name="animate_gifs">縮圖顯示GIF動畫</string>
@@ -211,15 +212,31 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">一個用來瀏覽相片和影片，且沒有廣告的相簿。</string>
     <string name="app_long_description">
-        一個用來瀏覽相片和影片的簡單工具。可以根據日期、大小、名稱來遞增或遞減排序項目，相片能被縮放。媒體檔案會依畫面大小呈現在數個欄位內，你可以使用縮放手勢來改變欄數。媒體檔案可以重新命名、分享、刪除、複製、移動；圖片還能縮放、旋轉、翻轉，或者直接設為桌布。
-		
-        這相簿也支援第三方使用，像是預覽圖片/影片、添加電子信箱附件…等功能，日常使用上相當適合。
+        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
 
-        指紋權限用來鎖定隱藏的項目或是整個程式。
+        It is open source, contains no ads or unnecessary permissions.
 
-        不包含廣告及非必要的權限，而且完全開放原始碼，並提供自訂顏色。
-		
-        這程式只是一系列眾多應用程式的其中一項，你可以在這發現更多 https://www.simplemobiletools.com
+        Let\'s list some of its features worth mentioning:
+        1. Search
+        2. Slideshow
+        3. Notch support
+        4. Pinning folders to the top
+        5. Filtering media files by type
+        6. Recycle bin for easy file recovery
+        7. Fullscreen view orientation locking
+        8. Marking favorite files for easy access
+        9. Quick fullscreen media closing with down gesture
+        10. An editor for modifying images and applying filters
+        11. Password protection for protecting hidden items or the whole app
+        12. Changing the thumbnail column count with gestures or menu buttons
+        13. Customizable bottom actions at the fullscreen view for quick access
+        14. Showing extended details over fullscreen media with desired file properties
+        15. Several different ways of sorting or grouping items, both ascending and descending
+        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
+
+        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
+
+        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
     </string>
 
     <!--

@@ -133,6 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Reproducir vídeos automáticamente</string>
+    <string name="remember_last_video_position">Recuerde la última posición de reproducción de video</string>
     <string name="toggle_filename">Cambiar la visibilidad del nombre de archivo</string>
     <string name="loop_videos">Reproducción continua de vídeos</string>
     <string name="animate_gifs">Animar las miniaturas de GIFs</string>
@@ -211,15 +212,31 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Una galería para ver fotos y vídeos sin publicidad.</string>
     <string name="app_long_description">
-        Una herramienta sencilla que se puede usar para ver fotos y vídeos. Los elementos se pueden ordenar por fecha, tamaño, nombre tanto ascendente como descendente; se puede hacer zoom en las fotos. Los archivos de medios se muestran en múltiples columnas dependiendo del tamaño de la pantalla, y se puede cambiar el número de columnas mediante gestos. Permite renombrar, compartir, borrar, mover. Las imágenes también se pueden recortar, rotar o usarse como fondo de pantalla directamente desde la aplicación.
+        Una galería altamente personalizable capaz de mostrar diferentes tipos de imágenes y videos, incluyendo SVG, RAW, fotos panorámicas y videos.
 
-        Gallery también se ofrece para uso de terceros para previsualizar imágenes/vídeos, agregar adjuntos en clientes de correo, etc. Es perfecta para uso diario.
+        Es de código abierto, no contiene anuncios o permisos innecesarios.
 
-        El permiso de huella digital es necesario para bloquear la visibilidad de elementos ocultos o toda la aplicación.
+        Vamos a enumerar algunas de sus características que vale la pena mencionar:
+        1. Buscar
+        2. Presentación de diapositivas
+        3. Soporte de muesca
+        4. Fijado de carpetas en la parte superior.
+        5. Filtrado de archivos multimedia por tipo
+        6. Papelera de reciclaje para una fácil recuperación de archivos
+        7. Bloqueo de orientación de vista de pantalla completa
+        8. Marcar los archivos favoritos para facilitar el acceso
+        9. Cierre rápido de medios a pantalla completa con gesto hacia abajo.
+        10. Un editor para modificar imágenes y aplicar filtros.
+        11. Protección de contraseña para proteger elementos ocultos o la aplicación completa
+        12. Cambiar el número de la columna de miniaturas con gestos o botones de menú
+        13. Acciones inferiores personalizables en la vista de pantalla completa para un acceso rápido
+        14. Mostrar detalles extendidos en medios de pantalla completa con las propiedades de archivo deseadas
+        15. Varias formas diferentes de clasificar o agrupar elementos, tanto ascendentes como descendentes
+        16. Ocultar carpetas (afecta también a otras aplicaciones), excluyendo carpetas (afecta solo a Simple Gallery)
 
-        No contiene publicidad ni permisos innecesarios. Es totalmente libre, proporciona colores personalizables.
+        El permiso de huella digital es necesario para bloquear la visibilidad de los elementos ocultos, la aplicación completa o proteger los archivos para evitar que se eliminen.
 
-        Esta aplicación es solamente una pieza de una serie más grande de aplicaciones. Puede encontrar el resto en https://www.simplemobiletools.com
+        Esta aplicación es solo una parte de una serie más grande de aplicaciones. Puede encontrar el resto de ellos en https://www.simplemobiletools.com
     </string>
 
     <!--

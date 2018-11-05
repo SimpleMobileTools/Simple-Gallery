@@ -133,6 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Reproduir vídeos automàticament</string>
+    <string name="remember_last_video_position">Recordeu la posició de la darrera reproducció de vídeo</string>
     <string name="toggle_filename">Canviar la visibilitat del nom d\'arxiu</string>
     <string name="loop_videos">Reproducció continua de vídeos</string>
     <string name="animate_gifs">Animar les miniatures dels GIFs</string>
@@ -211,15 +212,31 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Una galeria per veure imatges i vídeos sense publicitat.</string>
     <string name="app_long_description">
-        Una eina senzilla que es pot fer servir per veure imatges i vídeos. Els elements es poden ordenar per data, mida o nom, tant ascendent com descendent. Es pot fer zoom a les imatges. Els arxius de mitjans es mostren en múltiples columnes depenent de la mida de la pantalla i es pot canviar el número de columnes mitjançant gestos. Permet canviar el nom, compartir, esborrar, i moure. Les imatges també es poden retalla, rotar o utilitzar com a fons de pantalla directament des de l\'aplicació.
+        Una galeria molt personalitzable capaç de mostrar molts tipus d\'imatge i de vídeo diferents, inclosos SVGs, RAWs, fotos panoràmiques i vídeos.
 
-        Gallery també s\'ofereix per us de tercers, per visualitzar imatges/vídeos, agregar adjunts a clients de correu, etc. Es perfecta per l\'ús diari.
+        És de codi obert, no conté anuncis ni permisos innecessaris.
 
-        El permís d\'empremtes dactilars és necessari per bloquejar la visibilitat d\'elements ocults o tota l\'aplicació.
+        Anem a enumerar algunes de les seves característiques que val la pena esmentar:
+        1. Cerca
+        2. Presentació de diapositives
+        3. Suport per notch
+        4. Enganxar carpetes a la part superior
+        5. Filtrar fitxers multimèdia per tipus
+        6. Paperera de reciclatge per a una fàcil recuperació d\'arxius
+        7. Bloqueig d\'orientació de la vista en pantalla completa
+        8. Marcatge dels fitxers preferits per facilitar l\'accés
+        9. Tancament ràpid de mitjans de pantalla amb gest d\'avall
+        10. Un editor per modificar imatges i aplicar filtres
+        11. Protecció per contrasenya per protegir elements ocults o tota l\'aplicació
+        12. Canviar el número de columnes en miniatura amb gestos o botons de menú
+        13. Botons inferiors personalitzables a la vista de pantalla completa per a un accés ràpid
+        14. Mostrar detalls ampliats sobre els suports de pantalla completa amb les propietats del fitxer desitjades
+        15. Diverses maneres diferents de classificar o agrupar elements, tant ascendents com descendents
+        16. Ocultació de carpetes (també afecta altres aplicacions), eExclusió de carpetes (afecta només a la Galeria simple)
 
-        No conté ni publicitat ni permisos innecessaris. Es totalment Lliure i proporciona colors personalitzables.
+        El permís d\'empremtes dactilars és necessari per bloquejar la visibilitat d\'elements ocults, l\'aplicació sencera o la protecció dels fitxers.
 
-        Aquesta aplicació es només una peça d\'una sèrie més gran d\'aplicacions. Pots trobar la resta a https://www.simplemobiletools.com
+        Aquesta aplicació és només una part d\'una sèrie més gran d\'aplicacions. Podeu trobar la resta a https://www.simplemobiletools.com
     </string>
 
     <!--

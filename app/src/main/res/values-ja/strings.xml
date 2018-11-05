@@ -133,6 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">ビデオを自動再生</string>
+    <string name="remember_last_video_position">Remember last video playback position</string>
     <string name="toggle_filename">ファイル名の表示を切り替え</string>
     <string name="loop_videos">ビデオを繰り返し再生</string>
     <string name="animate_gifs">アニメーションGIFを動かす</string>
@@ -211,15 +212,31 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">写真やビデオを見るためのギャラリー。広告はありません。</string>
     <string name="app_long_description">
-        写真やビデオを見るためのシンプルなツール。 日付、サイズ、名前で、昇順または降順にアイテムを並べ替えることができ、写真は拡大表示できます。 メディアファイルは、画面のサイズに応じて最適な列数で表示されます。 名前の変更、共有、削除、コピー、移動が可能です。 画像をトリミング、回転、または壁紙としてアプリから直接設定することもできます。
+        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
 
-        ギャラリーは、画像やビデオのプレビュー、メールクライアントで添付ファイルの追加など、サードパーティの用途にも提供されます。 日々の使用には最適です。
+        It is open source, contains no ads or unnecessary permissions.
 
-        隠しアイテムを表示したりアプリそのものをロックするには指紋認証の許可が必要です。
+        Let\'s list some of its features worth mentioning:
+        1. Search
+        2. Slideshow
+        3. Notch support
+        4. Pinning folders to the top
+        5. Filtering media files by type
+        6. Recycle bin for easy file recovery
+        7. Fullscreen view orientation locking
+        8. Marking favorite files for easy access
+        9. Quick fullscreen media closing with down gesture
+        10. An editor for modifying images and applying filters
+        11. Password protection for protecting hidden items or the whole app
+        12. Changing the thumbnail column count with gestures or menu buttons
+        13. Customizable bottom actions at the fullscreen view for quick access
+        14. Showing extended details over fullscreen media with desired file properties
+        15. Several different ways of sorting or grouping items, both ascending and descending
+        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
 
-        広告や不要なアクセス許可は含まれていません。 完全にオープンソースで、ダークテーマも提供しています。
+        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
 
-        このアプリは、大きな一連のアプリの一つです。 他のアプリは https://www.simplemobiletools.com で見つけることができます
+        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
     </string>
 
     <!--

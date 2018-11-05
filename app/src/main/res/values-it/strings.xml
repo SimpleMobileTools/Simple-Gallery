@@ -133,6 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Riproduci i video automaticamente</string>
+    <string name="remember_last_video_position">Remember last video playback position</string>
     <string name="toggle_filename">Visibilità nome del file</string>
     <string name="loop_videos">Ripeti i video</string>
     <string name="animate_gifs">Anima le GIF in miniatura</string>
@@ -211,15 +212,31 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Una galleria per visualizzare foto e video senza pubblicità.</string>
     <string name="app_long_description">
-        Un semplice strumento per visualizzare foto e video. Gli elementi possono essere ordinati per data, dimensioni, nome sia ascendente che discendente; le foto possono essere ingrandite. I file sono mostrati in colonne multiple a seconda delle dimensioni dello schermo, puoi modificare il numero di colonne con il tocco. Possono essere rinominate, condivise, eliminate, copiate, spostate. Le immagini possono anche essere ritagliate, ruotate o impostate come sfondo direttamente dalla app.
+        Una galleria altamente personalizzabile e capace di visualizzare tipi di file immagini e video differenti, fra cui SVG, RAW, foto panoramiche e video.
 
-        Simple Gallery è anche offerta per utilizzo di terze parti per anteprime di immagini / video, aggiunta di allegati ai client email, ecc. È perfetta per un uso quotidiano.
+        È open source, non contiene pubblicità e permessi superflui.
 
-        L\'autorizzazione per le impronte è necessaria per bloccare la visibilità di alcuni elementi o dell\'intera app.
+        Alcune funzionalità che vale la pena accennare:
+        1. Ricerca
+        2. Presentazione
+        3. Supporto al notch
+        4. Fissare le cartelle in alto
+        5. Filtro dei file per tipo
+        6. Cestino per un recupero facile dei file
+        7. Blocco dell\'orientamento nella vista a schermo intero
+        8. Selezionare file preferiti per un accesso facile
+        9. Chisura rapida della vista schermo intero con un movimento verso il basso
+        10. Un editor per modificare le immagini ed applicare filtri
+        11. Protezione con password per proteggere elementi nascosti o l\'intera applicazione
+        12. Cambio delle colonne delle anteprime con un movimento o tramite dei pulsanti nel menu
+        13. Pulsanti rapidi per azioni personalizzabili nella vista schermo intero
+        14. Visualizzazione di determinati dettagli aggiuntivi nella vista a schermo intero
+        15. Molti modi per ordinare o raggruppare gli elementi, sia in ordine crescente che decrescente
+        16. Cartelle nascoste (anche per altre applicazioni), cartelle escluse (solo per Simple Gallery)
 
-        Non contiene pubblicità o autorizzazioni non necessarie. È completamente opensource, offre colori personalizzabili.
-
-        Questa app è solo una piccola parte di una grande serie di altre app. Puoi trovarle tutte su https://www.simplemobiletools.com
+        Il permesso di leggere le impronte digitali è necessario per il blocco della visibilità degli elementi, dell\'intera applicazione o per proteggere alcuni file dalla loro eliminazione.
+        
+        Questa applicazione è solamente una di una serie più grande. Si possono trovare le altre su https://www.simplemobiletools.com
     </string>
 
     <!--

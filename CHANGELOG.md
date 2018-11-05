@@ -1,6 +1,34 @@
 Changelog
 ==========
 
+Version 6.0.0 *(2018-11-04)*
+----------------------------
+
+ * Initial Pro version
+
+Version 5.1.3 *(2018-11-04)*
+----------------------------
+
+ * Adding an option to store last video playback position (by mathevs)
+ * Adding a "Keep both" conflict resolution at copy/move (by Doubl3MM)
+ * Improved panoramic video detection
+ * Remove some glitches related to third party file opening
+ * Do not exclude the Data folder by default
+ * Removed the "Avoid showing Whats New at app startup" option
+ * This version of the app is no longer maintained. Please upgrade to the Pro version. It is free till Nov 12 2018. You can find the Upgrade button at the top of the app Settings.
+
+Version 5.1.2 *(2018-10-30)*
+----------------------------
+
+ * Added a new option for password protecting file deletion/move
+ * Improved panorama video detection
+ * Improved the opening of media files without file extension
+ * Disabled move operation on Recycle bin items, use Restore
+ * Fixed handling of some third party image picker intents
+ * Fixed slideshow looping and a couple other UX glitches
+ * Improved the stability of retrieving cached files
+ * Hi
+
 Version 5.1.1 *(2018-10-23)*
 ----------------------------
 

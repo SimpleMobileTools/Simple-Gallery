@@ -133,6 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Videos automatisch abspielen</string>
+    <string name="remember_last_video_position">Remember last video playback position</string>
     <string name="toggle_filename">Beschriftungen ein/aus</string>
     <string name="loop_videos">Videos in Endlosschleife abspielen</string>
     <string name="animate_gifs">Kacheln von GIFs animieren</string>
@@ -210,15 +211,31 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Eine schlichte Galerie zum Betrachten von Bildern und Videos, ganz ohne Werbung.</string>
     <string name="app_long_description">
-        Eine schlichte App zum Betrachten von Bildern und Videos. Alle Medien können nach Datum, Größe, Name sowie auf- oder absteigend sortiert werden, in Bilder kann auch hineingezoomt werden. Die Vorschau-Kacheln werden in mehreren Spalten abhängig von der Displaygröße angezeigt, die Spaltenanzahl ist mit Zweifingergesten änderbar. Die Medien können umbenannt, geteilt, gelöscht, kopiert und verschoben werden. Bilder können direkt aus der App heraus zugeschnitten, gedreht oder als Hintergrund festgelegt werden.
+        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
 
-        Diese Galerie bietet auch für Drittanbieter einige Funktionen an: zur Vorschau von Bildern/Videos, zum Hinzufügen von Anhängen bei Email-Apps, etc. Sie ist perfekt für den täglichen Gebrauch.
+        It is open source, contains no ads or unnecessary permissions.
 
-        Die Berechtigung für Fingerabdrücke wird nur benötigt, um die Sichtbarkeit von versteckten Dateien oder die gesamte App zu sperren.
+        Let\'s list some of its features worth mentioning:
+        1. Search
+        2. Slideshow
+        3. Notch support
+        4. Pinning folders to the top
+        5. Filtering media files by type
+        6. Recycle bin for easy file recovery
+        7. Fullscreen view orientation locking
+        8. Marking favorite files for easy access
+        9. Quick fullscreen media closing with down gesture
+        10. An editor for modifying images and applying filters
+        11. Password protection for protecting hidden items or the whole app
+        12. Changing the thumbnail column count with gestures or menu buttons
+        13. Customizable bottom actions at the fullscreen view for quick access
+        14. Showing extended details over fullscreen media with desired file properties
+        15. Several different ways of sorting or grouping items, both ascending and descending
+        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
 
-        Beinhaltet keine Werbung oder unnötige Berechtigungen. Sie ist komplett Open Source, alle verwendeten Farben sind anpassbar.
+        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
 
-        Diese App ist nur eine aus einer größeren Serie von schlichten Apps. Der Rest davon findet sich auf https://www.simplemobiletools.com
+        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
     </string>
 
     <!--

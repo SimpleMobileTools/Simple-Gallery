@@ -4,15 +4,33 @@
 
 A gallery for viewing photos and videos.
 
-A simple tool usable for viewing photos and videos. Items can be sorted by date, size, name both ascending or descending, photos can be zoomed in. Media files are shown in multiple columns depending on the size of the display, you can change the column count by pinch gestures. They can be renamed, shared, deleted, copied, moved. Images can also be cropped, rotated, flipped or set as Wallpaper directly from the app.
+A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
 
-The Gallery is also offered for third party usage for previewing images / videos, adding attachments at email clients etc. It's perfect for everyday usage.
+It is open source, contains no ads or unnecessary permissions.
 
-Contains no ads or unnecessary permissions. It is fully opensource, provides customizable colors.
+Let's list some of its features worth mentioning:
+1. Search
+2. Slideshow
+3. Notch support
+4. Pinning folders to the top
+5. Filtering media files by type
+6. Recycle bin for easy file recovery
+7. Fullscreen view orientation locking
+8. Marking favorite files for easy access
+9. Quick fullscreen media closing with down gesture
+10. An editor for modifying images and applying filters
+11. Password protection for protecting hidden items or the whole app
+12. Changing the thumbnail column count with gestures or menu buttons
+13. Customizable bottom actions at the fullscreen view for quick access
+14. Showing extended details over fullscreen media with desired file properties
+15. Several different ways of sorting or grouping items, both ascending and descending
+16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
 
-This app is just one piece of a bigger series of apps. You can find the rest of them at http://www.simplemobiletools.com
+The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
 
-<a href='https://play.google.com/store/apps/details?id=com.simplemobiletools.gallery'><img src='http://simplemobiletools.github.io/assets/public/google-play.png' alt='Get it on Google Play' height='45' /></a>
+This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
+
+<a href='https://play.google.com/store/apps/details?id=com.simplemobiletools.gallery.pro'><img src='http://simplemobiletools.github.io/assets/public/google-play.png' alt='Get it on Google Play' height='45' /></a>
 <a href='https://f-droid.org/packages/com.simplemobiletools.gallery'><img src='http://simplemobiletools.github.io/assets/public/f-droid.png' alt='Get it on F-Droid' height='45' /></a>
 
 <div style="display:flex;">

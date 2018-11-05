@@ -133,6 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Video\'s automatisch afspelen</string>
+    <string name="remember_last_video_position">Laatste positie in video\'s onthouden</string>
     <string name="toggle_filename">Bestandsnamen tonen</string>
     <string name="loop_videos">Video\'s herhalen</string>
     <string name="animate_gifs">GIF-bestanden afspelen in overzicht</string>
@@ -211,15 +212,31 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Een galerij voor afbeeldingen en video\'s, zonder advertenties.</string>
     <string name="app_long_description">
-        Een eenvoudige galerij voor afbeeldingen en video\'s. Bestanden kunnen worden gesorteerd op datum, grootte en naam. Afbeeldingen kunnen in- en uitgezoomd worden. Bestanden worden afhankelijk van de schermgrootte weergegeven in kolommen, waarbij het aantal kolommen kan worden aangepast via knijpgebaren. Bestanden kunnen worden gedeeld, hernoemd, gekopieerd, verplaatst en verwijderd. Afbeeldingen kunnen ook worden bijgesneden, gedraaid, gekanteld of direct vanuit de app als achtergrond worden ingesteld.
+        Een zeer goed aan te passen galerij voor afbeeldingen en video\'s in vele bestandsformaten, waaronder SVG, RAW, panoramafoto\'s en -video\'s.
 
-        De galerij kan ook worden gebruikt voor het bekijken van afbeeldingen of video\'s vanuit andere apps, om bijlagen toe te voegen in e-mail, etc. Perfect voor dagelijks gebruik.
+        Deze app is open-source, bevat geen advertenties en vraagt niet om onnodige machtigingen.
 
-        De machtiging voor het uitlezen van vingerafdrukken is benodigd voor het vergendelen van verborgen items of de gehele app.
+        Een lijst met de belangrijkste mogelijkheden:
+        1. Zoeken
+        2. Diavoorstelling
+        3. Ondersteuning voor schermen met een inkeping
+        4. Mappen bovenaan vastzetten
+        5. Media filteren op bestandstype
+        6. Een prullenbak
+        7. Oriëntatie vastzetten voor volledig scherm
+        8. Favorieten
+        9. Veeggebaren in volledig scherm
+        10. Afbeeldingen bewerken en filters toepassen
+        11. Verborgen items of de gehele app beveiligen met een wachtwoord
+        12. Het aantal kolommen aanpassen via veeggebaren of menuknoppen
+        13. De acties op de werkbalk in volledig scherm aanpassen
+        14. Uitgebreide informatie tonen over de bestanden in volledig scherm
+        15. Items sorteren en groeperen op verschillende manieren
+        16. Mappen verbergen (ook voor andere apps), of mappen uitsluiten (alleen voor deze app)
 
-        Bevat geen advertenties of onnodige machtigingen. Volledig open-source. Kleuren van de app kunnen worden aangepast.
+        De machtiging voor vingerafdrukken is benodigd voor het beveiligen van verborgen items, of de hele app, of om te voorkomen dat bestanden kunnen worden verwijderd.
 
-        Deze app is onderdeel van een grotere verzameling. Vind de andere apps op https://www.simplemobiletools.com
+        Deze app is onderdeel van een grotere collectie. De andere apps zijn te vinden op https://www.simplemobiletools.com
     </string>
 
     <!--

@@ -130,10 +130,10 @@
     <string name="by_date_taken">Date de prise de vue</string>
     <string name="by_file_type">Type de fichier</string>
     <string name="by_extension">Extension</string>
-    <string name="use_for_this_folder">Définir pour ce dossier uniquement</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Lecture automatique des vidéos</string>
+    <string name="remember_last_video_position">Remember last video playback position</string>
     <string name="toggle_filename">Permuter la visibilité des noms de fichier</string>
     <string name="loop_videos">Lecture en boucle des vidéos</string>
     <string name="animate_gifs">GIFs animés sur les miniatures</string>
@@ -158,7 +158,6 @@
     <string name="allow_deep_zooming_images">Utiliser le zoom maximal des images</string>
     <string name="hide_extended_details">Ne pas afficher les informations supplémentaires si la barre d\'état est masquée</string>
     <string name="do_extra_check">Éviter l\'affichage de fichiers non conformes</string>
-    <string name="show_hidden_items">Afficher les éléments masqués</string>
     <string name="show_at_bottom">Afficher les boutons d\'action</string>
     <string name="show_recycle_bin">Afficher la corbeille en vue \"Dossier\"</string>
     <string name="deep_zoomable_images">Niveau de zoom maximal des images</string>
@@ -211,17 +210,33 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Une galerie pour visionner photos et vidéos sans publicité.</string>
     <string name="app_long_description">
-          Un outil simple pour visionner les photos et les vidéos. Elles peuvent être triées par dates, dimensions, noms dans les deux ordres (alphabétique ou alphabétique inversé), il est possible de zoomer sur les photos. Les fichiers sont affichés sur de multiples colonnes en fonction de la dimension de l\'écran, vous pouvez changer le nombre de colonnes par pincement. Elles peuvent être renommées, partagées, supprimées, copiées et déplacées. Les images peuvent en plus être pivotées, rognées ou être définies comme fond d\'écran directement depuis l\'application.
-      
-          La galerie est également proposée pour une utilisation comme tierce partie pour la prévisualisation des images/vidéos, ajouter des pièces jointes aux clients de courriel, etc… C\'est parfait pour un usage au quotidien.
-      
-          L\'autorisation d\'empreinte digitale est nécessaire pour verrouiller les dossiers masqués et/ou l\'application.
-      
-          L\'application ne contient ni publicité, ni autorisation inutile. Elle est totalement opensource et est également fournie avec des couleurs personnalisables.
-          
-          Cette application fait partie d\'une plus grande suite. Vous pouvez trouver les autres applications sur https://www.simplemobiletools.com
+          A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
+
+        It is open source, contains no ads or unnecessary permissions.
+
+        Let\'s list some of its features worth mentioning:
+        1. Search
+        2. Slideshow
+        3. Notch support
+        4. Pinning folders to the top
+        5. Filtering media files by type
+        6. Recycle bin for easy file recovery
+        7. Fullscreen view orientation locking
+        8. Marking favorite files for easy access
+        9. Quick fullscreen media closing with down gesture
+        10. An editor for modifying images and applying filters
+        11. Password protection for protecting hidden items or the whole app
+        12. Changing the thumbnail column count with gestures or menu buttons
+        13. Customizable bottom actions at the fullscreen view for quick access
+        14. Showing extended details over fullscreen media with desired file properties
+        15. Several different ways of sorting or grouping items, both ascending and descending
+        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
+
+        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
+
+        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
       </string>
-  
+
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res

@@ -133,6 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Automaticky přehrávat videa</string>
+    <string name="remember_last_video_position">Remember last video playback position</string>
     <string name="toggle_filename">Přepnout viditelnost názvů souborů</string>
     <string name="loop_videos">Přehrávat videa ve smyčce</string>
     <string name="animate_gifs">Animovat náhledy souborů GIF</string>
@@ -211,15 +212,31 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Galerie na prohlížení obrázků a videí bez reklam.</string>
     <string name="app_long_description">
-        Jednoduchý nástroj použitelný na prohlížení obrázků a videí. Položky mohou být seřazeny podle data, velikosti či názvu vzestupně i sestupně. Obrázky lze přiblížit. Položky jsou zobrazeny ve více sloupcích v závislosti na velikosti displeje, počet sloupců je možné měnit gestem. Soubory můžete přejmenovávat, sdílet, mazat, kopírovat i přesouvat. Obrázky lze ořezávat, otáčen, nebo nastavit jako tapetu přímo v aplikaci.
+        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
 
-        Galerie je též k disposici ostatním aplikacím za účelem zobrazení fotografií a videí a přidávání příloh v e-mailových klientech. Je vhodná ke každodennímu použití.
+        It is open source, contains no ads or unnecessary permissions.
 
-        The fingerprint permission is needed for locking either hidden item visibility, or the whole app.
+        Let\'s list some of its features worth mentioning:
+        1. Search
+        2. Slideshow
+        3. Notch support
+        4. Pinning folders to the top
+        5. Filtering media files by type
+        6. Recycle bin for easy file recovery
+        7. Fullscreen view orientation locking
+        8. Marking favorite files for easy access
+        9. Quick fullscreen media closing with down gesture
+        10. An editor for modifying images and applying filters
+        11. Password protection for protecting hidden items or the whole app
+        12. Changing the thumbnail column count with gestures or menu buttons
+        13. Customizable bottom actions at the fullscreen view for quick access
+        14. Showing extended details over fullscreen media with desired file properties
+        15. Several different ways of sorting or grouping items, both ascending and descending
+        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
 
-        Neobsahuje žádné reklamy ani nepotřebná oprávnění a má otevřený zdrojový kód. Poskytuje možnost změny barev rozhraní.
+        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
 
-        Táto aplikace je jen jednou ze skupiny aplikací. Všechny tyto aplikace naleznete na https://www.simplemobiletools.com
+        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
     </string>
 
     <!--

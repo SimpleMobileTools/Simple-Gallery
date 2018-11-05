@@ -133,6 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Automatsko pokretanje videa</string>
+    <string name="remember_last_video_position">Remember last video playback position</string>
     <string name="toggle_filename">Uključi prikaz naziva datoteka</string>
     <string name="loop_videos">Ponavljanje videa</string>
     <string name="animate_gifs">Prikaz animacije GIF-ova na sličicama</string>
@@ -211,15 +212,31 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Galerija za gledanje fotografija i videozapisa bez oglasa.</string>
     <string name="app_long_description">
-        Jednostavan alat za pregled slika, GIFova i videa. Datoteke možete sortirati po datumu, veličini, imenu i to uzlazno i silazno. Također možete zumirati slike. Medijski sadržaj se prikazuje u višestrukim stupcima ovisno o veličini ekrana, a vi samo možete birati broj stupaca s gestom štipkanja. Možete preimenovati, dijeliti, brisati, kopirati, premještati datoteke. Slike također možete izrezati, rotirati ili postaviki kao pozadinu ekrana, odmah iz aplikacije.
+        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
 
-        Galerija se također može koristiti za pregledavanje slika i videa u drugim aplikacijama, prikačivanja datoteka u e-mail aplikacije itd. Savršeno za svakodnevno korištenje.
+        It is open source, contains no ads or unnecessary permissions.
 
-        Dopuštenje otiska prsta je potrebno za zaključavanje prikaza skrivene stavke ili cijele aplikacije.
+        Let\'s list some of its features worth mentioning:
+        1. Search
+        2. Slideshow
+        3. Notch support
+        4. Pinning folders to the top
+        5. Filtering media files by type
+        6. Recycle bin for easy file recovery
+        7. Fullscreen view orientation locking
+        8. Marking favorite files for easy access
+        9. Quick fullscreen media closing with down gesture
+        10. An editor for modifying images and applying filters
+        11. Password protection for protecting hidden items or the whole app
+        12. Changing the thumbnail column count with gestures or menu buttons
+        13. Customizable bottom actions at the fullscreen view for quick access
+        14. Showing extended details over fullscreen media with desired file properties
+        15. Several different ways of sorting or grouping items, both ascending and descending
+        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
 
-        Ne sadrži oglase ili nepotrebne dozvole. Aplikacije je otvorenog koda, pruža prilagodljive boje.
+        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
 
-        Ova je aplikacija samo dio većeg broja aplikacija. Možete pronaći ostatak na https://www.simplemobiletools.com
+        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
     </string>
 
     <!--
