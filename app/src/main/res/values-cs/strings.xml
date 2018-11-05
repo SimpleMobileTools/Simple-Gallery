@@ -4,11 +4,11 @@
     <string name="app_launcher_name">Galerie</string>
     <string name="edit">Upravit</string>
     <string name="open_camera">Spustit fotoaparát</string>
-    <string name="hidden">(skryté)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="hidden">(skryto)</string>
+    <string name="excluded">(vyloučeno)</string>
     <string name="pin_folder">Připnout složku</string>
     <string name="unpin_folder">Odepnout složku</string>
-    <string name="pin_to_the_top">Pin to the top</string>
+    <string name="pin_to_the_top">Připnout nahoru</string>
     <string name="show_all">Zobrazit obsah všech složek</string>
     <string name="all_folders">Všechny složky</string>
     <string name="folder_view">Přepnout na zobrazení složek</string>
@@ -17,33 +17,33 @@
     <string name="unknown_location">Neznámá poloha</string>
     <string name="increase_column_count">Zvýšit počet sloupců</string>
     <string name="reduce_column_count">Snížit počet sloupců</string>
-    <string name="change_cover_image">Change cover image</string>
-    <string name="select_photo">Select photo</string>
-    <string name="use_default">Use default</string>
-    <string name="volume">Volume</string>
-    <string name="brightness">Brightness</string>
-    <string name="lock_orientation">Lock orientation</string>
-    <string name="unlock_orientation">Unlock orientation</string>
-    <string name="change_orientation">Change orientation</string>
-    <string name="force_portrait">Force portrait</string>
-    <string name="force_landscape">Force landscape</string>
-    <string name="use_default_orientation">Use default orientation</string>
-    <string name="fix_date_taken">Fix Date Taken value</string>
-    <string name="fixing">Fixing…</string>
-    <string name="dates_fixed_successfully">Dates fixed successfully</string>
+    <string name="change_cover_image">Změnit obal alba</string>
+    <string name="select_photo">Vybrat fotografii</string>
+    <string name="use_default">Použít výchozí</string>
+    <string name="volume">Hlasitost</string>
+    <string name="brightness">Jas</string>
+    <string name="lock_orientation">Uzamknout orientaci</string>
+    <string name="unlock_orientation">Odemknout orientaci</string>
+    <string name="change_orientation">Změnit orientaci</string>
+    <string name="force_portrait">Vynutit orientaci na výšku</string>
+    <string name="force_landscape">Vynutit orientaci na šířku</string>
+    <string name="use_default_orientation">Použít výchozí orientaci</string>
+    <string name="fix_date_taken">Opravit datum vytvoření</string>
+    <string name="fixing">Opravuji…</string>
+    <string name="dates_fixed_successfully">Datumy byly úspěšně opraveny</string>
 
     <!-- Filter -->
-    <string name="filter_media">Filter media</string>
-    <string name="images">Images</string>
-    <string name="videos">Videos</string>
-    <string name="gifs">GIFs</string>
-    <string name="raw_images">RAW images</string>
-    <string name="svgs">SVGs</string>
-    <string name="no_media_with_filters">No media files have been found with the selected filters.</string>
-    <string name="change_filters_underlined"><u>Change filters</u></string>
+    <string name="filter_media">Filtr médií</string>
+    <string name="images">Obrázky</string>
+    <string name="videos">Videa</string>
+    <string name="gifs">GIFy</string>
+    <string name="raw_images">RAW obrázky</string>
+    <string name="svgs">SVGčka</string>
+    <string name="no_media_with_filters">Se zvolenými filtry nebyly nalezeny žádné médiální soubory.</string>
+    <string name="change_filters_underlined"><u>Změnit filtry</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Tato funkce skryje složku, včetně podsložek, přidáním souboru \'.nomedia\'. Zobrazíte je zvolením možnosti \'Zobrazit skryté položky\' v nastavení. Pokračovat?</string>
+    <string name="hide_folder_description">Tato funkce skryje složku včetně podsložek přidáním souboru \'.nomedia\'. Zobrazíte je zvolením možnosti \'Zobrazit skryté položky\' v nastavení. Pokračovat?</string>
     <string name="exclude">Vyloučit</string>
     <string name="excluded_folders">Vyloučené složky</string>
     <string name="manage_excluded_folders">Spravovat vyloučené složky</string>
@@ -52,9 +52,9 @@
     <string name="excluded_activity_placeholder">Vyloučené složky budou spolu s podsložkami vyloučeny jen z Jednoduché Galerie, ostatní aplikace je nadále uvidí.\n\nPokud je chcete skrýt i před ostatními aplikacemi, použijte funkci Skrýt.</string>
     <string name="remove_all">Odstranit všechny</string>
     <string name="remove_all_description">Odstranit všechny složky ze seznamu vyloučených? Tato operace neodstraní obsah složek.</string>
-    <string name="hidden_folders">Hidden folders</string>
-    <string name="manage_hidden_folders">Manage hidden folders</string>
-    <string name="hidden_folders_placeholder">Seems like you don\'t have any folders hidden with a \".nomedia\" file.</string>
+    <string name="hidden_folders">Skryté složky</string>
+    <string name="manage_hidden_folders">Spravovat skryté složky</string>
+    <string name="hidden_folders_placeholder">Zdá se, že nemáte žádné složky skryté pomocí souboru \".nomedia\".</string>
 
     <!-- Include folders -->
     <string name="include_folders">Přidané složky</string>
@@ -87,8 +87,8 @@
     <string name="flip">Překlopit</string>
     <string name="flip_horizontally">Překlopit vodorovně</string>
     <string name="flip_vertically">Překlopit svisle</string>
-    <string name="edit_with">Edit with</string>
-    <string name="free_aspect_ratio">Free</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="edit_with">Upravit s</string>
+    <string name="free_aspect_ratio">Volný</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Jednoduchá tapeta</string>
@@ -97,146 +97,146 @@
     <string name="set_as_wallpaper_with">Nastavit jako tapetu pomocí:</string>
     <string name="setting_wallpaper">Nastavuje se tapeta&#8230;</string>
     <string name="wallpaper_set_successfully">Tapeta byla úspěšně změněna</string>
-    <string name="portrait_aspect_ratio">Portrait aspect ratio</string>
-    <string name="landscape_aspect_ratio">Landscape aspect ratio</string>
-    <string name="home_screen">Home screen</string>
-    <string name="lock_screen">Lock screen</string>
-    <string name="home_and_lock_screen">Home and lock screen</string>
+    <string name="portrait_aspect_ratio">Poměr stran na výšku</string>
+    <string name="landscape_aspect_ratio">Poměr stran na šířku</string>
+    <string name="home_screen">Domovská obrazovka</string>
+    <string name="lock_screen">Zamykací obrazovka</string>
+    <string name="home_and_lock_screen">Domovská a zamykací obrazovka</string>
 
     <!-- Slideshow -->
-    <string name="slideshow">Slideshow</string>
-    <string name="interval">Interval (seconds):</string>
-    <string name="include_photos">Include photos</string>
-    <string name="include_videos">Include videos</string>
-    <string name="include_gifs">Include GIFs</string>
-    <string name="random_order">Random order</string>
-    <string name="use_fade">Use fade animations</string>
-    <string name="move_backwards">Move backwards</string>
-    <string name="loop_slideshow">Loop slideshow</string>
-    <string name="slideshow_ended">The slideshow ended</string>
-    <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
+    <string name="slideshow">Prezentace</string>
+    <string name="interval">Interval (sekundy):</string>
+    <string name="include_photos">Zahrnout fotografie</string>
+    <string name="include_videos">Zahrnout videa</string>
+    <string name="include_gifs">Zahrnout GIFy</string>
+    <string name="random_order">Náhodné pořadí</string>
+    <string name="use_fade">Použít miznoucí animace</string>
+    <string name="move_backwards">Jít opačným směrem</string>
+    <string name="loop_slideshow">Smyčková prezentace</string>
+    <string name="slideshow_ended">Prezentace skončila</string>
+    <string name="no_media_for_slideshow">Nebyla nalezena žádná média pro prezentaci</string>
 
     <!-- View types -->
-    <string name="change_view_type">Change view type</string>
-    <string name="grid">Grid</string>
-    <string name="list">List</string>
-    <string name="group_direct_subfolders">Group direct subfolders</string>
+    <string name="change_view_type">Změnit typ zobrazení</string>
+    <string name="grid">Mřížka</string>
+    <string name="list">Seznam</string>
+    <string name="group_direct_subfolders">Sloučit přímé podsložky</string>
 
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Group by</string>
-    <string name="do_not_group_files">Do not group files</string>
-    <string name="by_folder">Folder</string>
-    <string name="by_last_modified">Last modified</string>
-    <string name="by_date_taken">Date taken</string>
-    <string name="by_file_type">File type</string>
-    <string name="by_extension">Extension</string>
+    <string name="group_by">Seskupit podle</string>
+    <string name="do_not_group_files">Soubory neseskupovat</string>
+    <string name="by_folder">Složky</string>
+    <string name="by_last_modified">Data poslední úpravy</string>
+    <string name="by_date_taken">Data pořízení</string>
+    <string name="by_file_type">Typu souboru</string>
+    <string name="by_extension">Přípony</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Automaticky přehrávat videa</string>
-    <string name="remember_last_video_position">Remember last video playback position</string>
+    <string name="remember_last_video_position">Zapamatovat pozici posledního přehraného videa</string>
     <string name="toggle_filename">Přepnout viditelnost názvů souborů</string>
     <string name="loop_videos">Přehrávat videa ve smyčce</string>
     <string name="animate_gifs">Animovat náhledy souborů GIF</string>
     <string name="max_brightness">Nastavit jas obrazovky na max při zobrazení médií</string>
-    <string name="crop_thumbnails">Crop thumbnails into squares</string>
-    <string name="screen_rotation_by">Rotate fullscreen media by</string>
-    <string name="screen_rotation_system_setting">System setting</string>
-    <string name="screen_rotation_device_rotation">Device rotation</string>
-    <string name="screen_rotation_aspect_ratio">Aspect ratio</string>
-    <string name="black_background_at_fullscreen">Black background and status bar at fullscreen media</string>
-    <string name="scroll_thumbnails_horizontally">Scroll thumbnails horizontally</string>
-    <string name="hide_system_ui_at_fullscreen">Automatically hide system UI at fullscreen media</string>
-    <string name="delete_empty_folders">Delete empty folders after deleting their content</string>
-    <string name="allow_photo_gestures">Allow controlling photo brightness with vertical gestures</string>
-    <string name="allow_video_gestures">Allow controlling video volume and brightness with vertical gestures</string>
-    <string name="show_media_count">Show folder media count on the main view</string>
-    <string name="replace_share_with_rotate">Replace Share with Rotate at fullscreen menu</string>
-    <string name="show_extended_details">Show extended details over fullscreen media</string>
-    <string name="manage_extended_details">Manage extended details</string>
-    <string name="one_finger_zoom">Allow one finger zoom at fullscreen media</string>
-    <string name="allow_instant_change">Allow instantly changing media by clicking on screen sides</string>
-    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
-    <string name="hide_extended_details">Hide extended details when status bar is hidden</string>
-    <string name="do_extra_check">Do an extra check to avoid showing invalid files</string>
-    <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
-    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
-    <string name="deep_zoomable_images">Deep zoomable images</string>
-    <string name="show_highest_quality">Show images in the highest possible quality</string>
-    <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
-    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
+    <string name="crop_thumbnails">Oříznout náhledy na čtverce</string>
+    <string name="screen_rotation_by">Otočit média podle</string>
+    <string name="screen_rotation_system_setting">Systémového nastavení</string>
+    <string name="screen_rotation_device_rotation">Otočení zařízení</string>
+    <string name="screen_rotation_aspect_ratio">Poměru stran</string>
+    <string name="black_background_at_fullscreen">Černé pozadí a stavová lišta při médiích na celou obrazovku</string>
+    <string name="scroll_thumbnails_horizontally">Prohlížet miniatury vodorovně</string>
+    <string name="hide_system_ui_at_fullscreen">Automaticky skrývat systémové lišty při celoobrazovkových médiích</string>
+    <string name="delete_empty_folders">Odstranit prázdné složky po smazání jejich obsahu</string>
+    <string name="allow_photo_gestures">Povolit ovládání jasu vertikálními tahy</string>
+    <string name="allow_video_gestures">Povolit ovládání hlasitosti a jasu videí vertikálními tahy</string>
+    <string name="show_media_count">Zobrazit počet médií ve složce na hlavní obrazovce</string>
+    <string name="replace_share_with_rotate">Nahradit Sdílení s Otočením v celoobrazovkovém menu</string>
+    <string name="show_extended_details">Zobrazit rozšířené vlastnosti přes celoobrazovkové média</string>
+    <string name="manage_extended_details">Spravovat rozšířené vlastnosti</string>
+    <string name="one_finger_zoom">Povolit přibližování jedním prstem v celoobrazovkovém režimu</string>
+    <string name="allow_instant_change">Povolit okamžité přepínání médií kliknutím na okraj obrazovky</string>
+    <string name="allow_deep_zooming_images">Povolit hluboké přibližování obrázků</string>
+    <string name="hide_extended_details">Skrýt rozšířené vlastnosti pokud je skrytá stavová lišta</string>
+    <string name="do_extra_check">Předejít zobrazování neplatných souborů dodatečnou kontrolou</string>
+    <string name="show_at_bottom">Zobrazit některé akční tlačítka na spodní straně obrazovky</string>
+    <string name="show_recycle_bin">Zobrazit odpadkový koš na obrazovce se složkami</string>
+    <string name="deep_zoomable_images">Hluboce priblížitelné obrázky</string>
+    <string name="show_highest_quality">Zobrazit obrázky v nejlepší možné kvalitě</string>
+    <string name="show_recycle_bin_last">Zobrazit odpadkový koš jako poslední položku na hlavní obrazovce</string>
+    <string name="allow_down_gesture">Povolit zavírání celoobrazovkového režimu tažením prstu dolů</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Thumbnails</string>
-    <string name="fullscreen_media">Fullscreen media</string>
-    <string name="extended_details">Extended details</string>
-    <string name="bottom_actions">Bottom actions</string>
+    <string name="thumbnails">Náhledy</string>
+    <string name="fullscreen_media">Celoobrazovkový režim</string>
+    <string name="extended_details">Rozšířené vlastnosti</string>
+    <string name="bottom_actions">Spodní skční tlačítka</string>
 
     <!-- Bottom actions -->
-    <string name="manage_bottom_actions">Manage visible bottom actions</string>
-    <string name="toggle_favorite">Toggle favorite</string>
-    <string name="toggle_file_visibility">Toggle file visibility</string>
+    <string name="manage_bottom_actions">Upravit viditelné spodní akční tlačítka</string>
+    <string name="toggle_favorite">Přepnutí oblíbenosti</string>
+    <string name="toggle_file_visibility">Přepnutí viditelnosti souboru</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
-    <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
-        The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
-    <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do?</string>
-    <string name="faq_2_text">You can solve it in 2 ways. You can either reinstall the app, or find the app in your device settings and select \"Clear data\". It will reset all your settings, it will not remove any media files.</string>
-    <string name="faq_3_title">How can I make an album always appear at the top?</string>
-    <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actionmenu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
-    <string name="faq_4_title">How can I fast-forward videos?</string>
-    <string name="faq_4_text">You can click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
-    <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
-    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
-    <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
-    <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
-    <string name="faq_7_title">A folder with images isn\'t showing up, what can I do?</string>
-    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
-    <string name="faq_8_title">What if I want just a few particular folders visible?</string>
-    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
-        That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
-    <string name="faq_9_title">Fullscreen images have weird artifacts, can I somehow improve the quality?</string>
-    <string name="faq_9_text">Yea, there is a toggle in Settings saying \"Replace deep zoomable images with better quality ones\", you can use that. It will improve the quality of the images, but they will get blurred once you try zooming in too much.</string>
-    <string name="faq_10_title">Can I crop images with this app?</string>
-    <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
-    <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
-    <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
-    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
-    <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
-    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
-    <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
-    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
-    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too.</string>
+    <string name="faq_1_title">Jak můžu udělat Jednoduchou Galerii výchozí galerií zařízení?</string>
+    <string name="faq_1_text">Nejdřív musíte najít v nastavení zařízení sekci Aplikace, současnou výchozí galerii, zvolit tlačítko s textem ve smyslu \"Nastavení výchozího otevírání\" a následně \"Vymazat výchozí nastavení\".
+        Pokud potom zkusíte otevřít obrázek nebo video, zobrazí se seznam aplikací, kde můžete zvolit Jednoduchou Galerii a nastavit ji jako výchozí.</string>
+    <string name="faq_2_title">Uzamknul jsem aplikaci heslem, ale zapomněl jsem ho. Co můžu udělat?</string>
+    <string name="faq_2_text">Můžete to vyriešǐť 2 způsoby. Můžete aplikaci buď přeinstalovat nebo ji najít v nastavení zařízení a zvolit \"Vymazat data\". Vymaže to pouze nastavení, nikoli soubory.</string>
+    <string name="faq_3_title">Jak můžu dosáhnout, aby bylo dané album stále zobrazeno první?</string>
+    <string name="faq_3_text">Můžete označit danou složku dlouhým podržením a zvolit tlačítko s obrázkem připínáčku, to jej připne na vrch. Můžete připnout i více složek, budou seřazeny podle zvoleného řazení.</string>
+    <string name="faq_4_title">Jak můžu rychle posunout videa?</string>
+    <string name="faq_4_text">Můžete kliknout na texty současné nebo maximální délky videa, které jsou vedle indikátoru současného progresu. To posune video buď vpřed, nebo vzad.</string>
+    <string name="faq_5_title">Jaký je rozdíl mezi Skrytím a Vyloučením složky?</string>
+    <string name="faq_5_text">Zatímco vyloučení předejde zobrazení složky pouze vrámci Jednoduché Galerie, skrytí ho ukryje vrámci celého systému, tedy to ovlivní i ostatní galerie. Skrytí funguje pomocí vytvoření prázdného \".nomedia\" souboru v daném adresáři, který můžete vymazat i nějakým správcem souborů.</string>
+    <string name="faq_6_title">Proč se mi zobrazují složky s obaly hudebních alb, nebo nálepkami?</string>
+    <string name="faq_6_text">Může se stát, že se vám zobrazí také neobvyklé složky. Můžete je ale jednoduše skrýt pomocí jejich zvolení dlouhým podržením a zvolením Vyloučit. Pokud na následujícím dialogu zvolíte vyloučení rodičovské složky, pravděpodobně budou vyloučeny i ostatní podobné složky.</string>
+    <string name="faq_7_title">Složka s fotkami se mi nezobrazuje, co můžu udělat?</string>
+    <string name="faq_7_text">Může to mít několik důvodů, řešení je ale jednoduché. Jděte do Nastavení -> Spravovat přidané složky, zvolte Plus a zvolte požadovanou složku.</string>
+    <string name="faq_8_title">Co v případě, že chci mít zobrazeno pouze několik složek?</string>
+    <string name="faq_8_text">Přidání složky mezi Přidané složky automaticky nevyloučí ostatní. Můžete ale jít do Nastavení -> Spravovat vyloučené složky a zvolit Kořenovou složku \"/\", následně přidat požadované složky v Nastavení -> Spravovat přidané složky.
+        To způsobí, že budou zobrazeny pouze vyžádané složky, protože vyloučení i přidání fungují rekurzivně a pokud je složka vyloučena i přidaná, bude viditelná.</string>
+    <string name="faq_9_title">Fotky přes celou obrazovku mají zhoršenou kvalitu, můžu to nějak zlepšit?</string>
+    <string name="faq_9_text">Ano, v nastavení je přepínač s textem \"Nahradit hluboko priblížiteľné obrázky s obrázky s lepší kvalitou\", můžete to zkusit. Způsobí to vyšší kvalitu obrázků, po přiblížení se ale budou rozmazávat mnohem dříve.</string>
+    <string name="faq_10_title">Můžu s touto aplikací oříznout obrázky?</string>
+    <string name="faq_10_text">Ano, oříznutí je možné v editoru potažením rohů obrázků. Do editoru se můžete dostat buď dlouhým podržením náhledu obrázku a zvolením menu položky Upravit nebo zvolením Upravit při celoobrazovkovém režimu.</string>
+    <string name="faq_11_title">Můžu nějakým způsobem seskupit náhledy souborů?</string>
+    <string name="faq_11_text">Ano, použitím funkce \"Seskupit podle\" v menu obrazovky s náhledy. Seskupení je možné na základě různých kritérií včetně data vytvoření. Pokud použijete funkci \"Zobrazit obsah všech složek\", můžete je seskupit také podle složek.</string>
+    <string name="faq_12_title">Řazení podle data vytvoření nefunguje správně, jak to můžu opravit?</string>
+    <string name="faq_12_text">Je to pravděpodobně způsobeno kopírováním souborů. Můžete to opravit označením jednotlivých náhledů souborů a zvolit  \"Opravit datum vytvoření\".</string>
+    <string name="faq_13_title">Na obrázcích vidím nějaké barevné pásy. Jak můžu zlepšit kvalitu obrázků?</string>
+    <string name="faq_13_text">Současné řešení funguje správně v drtivé většině případů, pokud ale chcete zobrazit obrázky v lepší kvalitě, můžete povolit možnost \"Zobrazit obrázky v nejlepší možné kvalitě\" v nastavení aplikace v sekcí \"Hluboko priblížitelné obrázky\".</string>
+    <string name="faq_14_title">Skryl jsem soubor/složku, jak to můžu odkrýt?</string>
+    <string name="faq_14_text">Můžete buď použít menu tlačítko \"Dočasně zobrazit skryté položky\" na hlavní obrazovce, nebo v nastavení aplikace zapnout možnost \"Zobrazit skryté položky\", tím se skryté položky zobrazí. Pokud je chcete odkrýt, stačí je dlouho podržet a zvolit možnost \"Odkrýt\". Složky jsou skrývané přidáním souboru \".nomedia\", ten můžete vymazat i libovolným správcem souborů.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Galerie na prohlížení obrázků a videí bez reklam.</string>
     <string name="app_long_description">
-        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
+        Přizpůsobitelná galerie na zobrazování množství rozličných druhů obrázků a videí, včetně SVG, RAW souborů, panoramatických fotek a videí.
 
-        It is open source, contains no ads or unnecessary permissions.
+        Je open source, neobsahuje reklamy a nepotřebné oprávnění.
 
-        Let\'s list some of its features worth mentioning:
-        1. Search
-        2. Slideshow
-        3. Notch support
-        4. Pinning folders to the top
-        5. Filtering media files by type
-        6. Recycle bin for easy file recovery
-        7. Fullscreen view orientation locking
-        8. Marking favorite files for easy access
-        9. Quick fullscreen media closing with down gesture
-        10. An editor for modifying images and applying filters
-        11. Password protection for protecting hidden items or the whole app
-        12. Changing the thumbnail column count with gestures or menu buttons
-        13. Customizable bottom actions at the fullscreen view for quick access
-        14. Showing extended details over fullscreen media with desired file properties
-        15. Several different ways of sorting or grouping items, both ascending and descending
-        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
+        Seznamte se s některými funkcemi, které stojí za zmínku:
+        1. Vyhledávání
+        2. Prezentace
+        3. Podpora pro výřez v displeji
+        4. Připínání složek na vrch
+        5. Filtování médií podle typu
+        6. Odpadkový koš pro snadnou obnovu souborů
+        7. Uzamykání orientace celoobrazovkového režimu
+        8. Označování oblíbených položek pro snadný přístup
+        9. Rychlé ukončování celoobrazovkového režimu pomocí potažení prstu dolů
+        10. Editor pro úpravu obrázků a aplikaci filtrů
+        11. Ochrana heslem pro zobrazování skrytých souborů nebo celé aplikace
+        12. Změna počtu sloupců s náhledy buď gesty nebo pomocí menu tlačítek
+        13. Nastavitelné spodní akce na celoobrazovkovém režimu pro rychlý přístup
+        14. Zobrazení nastavitelných rozšířených vlastností přes celoobrazovkové média
+        15. Několik různých způsobů řazení a seskupování položek vzestupně nebo sestupně
+        16. Ukrývání složek (ovlivňuje i jiné aplikace), nebo jejich vyloučení (ovlivní pouze Jednoduchou galerii)
 
-        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
+        Oprávnění k otiskům prstů je potřebný pro ochranu zobrazení skrytých položek, celé aplikace, nebo ochranu souborů před jejich odstraněním.
 
-        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
+        Tato aplikace je pouze jednou ze skupiny aplikací. Ostatní můžete najít na https://www.simplemobiletools.com
     </string>
 
     <!--
