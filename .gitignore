@@ -8,4 +8,4 @@
 /build
 /captures
 keystore.jks
-signing.properties
+keystore.properties
