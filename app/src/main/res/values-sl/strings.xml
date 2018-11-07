@@ -47,7 +47,7 @@
     <string name="exclude">Izključi</string>
     <string name="excluded_folders">Izključene mape</string>
     <string name="manage_excluded_folders">Urejaj izključene mape</string>
-    <string name="exclude_folder_description">Izbira bo skupaj s podamapami izključena zgolj iz te Galerije. Izključene mape lahko urejate v Nastavitvah.</string>
+    <string name="exclude_folder_description">Izbira bo skupaj s podmapami izključena zgolj iz te Galerije. Izključene mape lahko urejate v Nastavitvah.</string>
     <string name="exclude_folder_parent">Namesto tega izključim nadredno mapo?</string>
     <string name="excluded_activity_placeholder">Izključevanje map jih bo skupaj s podmapami skrilo zgolj v tej Galeriji, v ostalih aplikacijah bodo normalno vidne.\n\nČe jih želite skriti tudi v drugih aplikacijah, uporabite funkcijo Skrij.</string>
     <string name="remove_all">Odstrani vse</string>
@@ -114,7 +114,7 @@
     <string name="move_backwards">Premik nazaj</string>
     <string name="loop_slideshow">Ponavljaj diaprojekcijo</string>
     <string name="slideshow_ended">Diaprojekcija se je zaključila</string>
-    <string name="no_media_for_slideshow">Ne najdem datotek za daprojekcijo</string>
+    <string name="no_media_for_slideshow">Ne najdem datotek za diaprojekcijo</string>
 
     <!-- View types -->
     <string name="change_view_type">Spremeni tip pogleda</string>
@@ -144,7 +144,7 @@
     <string name="screen_rotation_device_rotation">Obračanje naprave</string>
     <string name="screen_rotation_aspect_ratio">Razmerje stranic</string>
     <string name="black_background_at_fullscreen">Črno ozadje in statusna vrstica pri celozaslonskem mediju</string>
-    <string name="scroll_thumbnails_horizontally">Skrolaj sličice horizontalno</string>
+    <string name="scroll_thumbnails_horizontally">Horizontalno pomikanje sličic</string>
     <string name="hide_system_ui_at_fullscreen">Avtomatično skrij sistemski UI v celozaslonskem načinu</string>
     <string name="delete_empty_folders">Izbriši prazne mape po brisanju njihove vsebine</string>
     <string name="allow_photo_gestures">Dovoli nadzor svetlosti fotografije z vertikalnimi gestami</string>
@@ -182,32 +182,31 @@
         Ko boste naslednjič želeli odpreti fotografijo ali videoposnetek, bi se moral pokazati izbirnik, v katerem lahko izberete Simple galerijo in jo določite kot privzeto aplikacijo.</string>
     <string name="faq_2_title">Aplikacijo sem zaklenil z geslom, ki se ga ne spomnim več. Kaj lahko naredimo?</string>
     <string name="faq_2_text">To lahko rešite na 2 načina. Lahko ali ponovno namestite aplikacijo ali pa jo poiščete v nastavitvah in kliknete \"Počisti podatke\". To bo ponastavilo vaše nastavitve, ne bo pa izbrisalo nobenih datotek.</string>
-    <string name="faq_3_title">How can I make an album always appear at the top?</string>
-    <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actionmenu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
-    <string name="faq_4_title">How can I fast-forward videos?</string>
-    <string name="faq_4_text">You can click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
-    <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
-    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
-    <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
-    <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
-    <string name="faq_7_title">A folder with images isn\'t showing up, what can I do?</string>
-    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
-    <string name="faq_8_title">What if I want just a few particular folders visible?</string>
-    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
-        That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
-    <string name="faq_9_title">Fullscreen images have weird artifacts, can I somehow improve the quality?</string>
-    <string name="faq_9_text">Yea, there is a toggle in Settings saying \"Replace deep zoomable images with better quality ones\", you can use that. It will improve the quality of the images, but they will get blurred once you try zooming in too much.</string>
-    <string name="faq_10_title">Can I crop images with this app?</string>
-    <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
-    <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
-    <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
-    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
-    <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
-    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
-    <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
-    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
-    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too.</string>
-
+    <string name="faq_3_title">Kako nastaviti, da se določen album vedno prikaže na vrhu?</string>
+    <string name="faq_3_text">Z dolgim pritiskom na album se vam prikaže meni, v katerem je na voljo bucika, s katero pripnete album na željeno mesto. Na ta način lahko pripnete več albumov, ki bodo razvrščeni v skladu s privzetim načinom razvrščanja.</string>
+    <string name="faq_4_title">Ali lahko hitro predvajam videoposnetke?</string>
+    <string name="faq_4_text">Lahko kliknete na napis trenutnega ali maksimalnega trajanja poleg vrstice položaja, kar premakne/preskoči video naprej ali nazaj.</string>
+    <string name="faq_5_title">Kakšna je razlika med skrivanjem in izključevanjem mape?</string>
+    <string name="faq_5_text">Izključevanje mape jo skrije le v Simple galeriji, medtem ko jo skrivanje skrije tudi v ostalih aplikacijah oz. galerijah. Deluje tako, da kreira prazno \".nomedia\" datoteko v izbrani mapi, katero lahko odstranite tudi s katerimkoli urejevalnikom datotek.</string>
+    <string name="faq_6_title">Zakaj se v galeriji prikažejo datoteke z naslovnicami glasbenih map ali nalepk?</string>
+    <string name="faq_6_text">Lahko se zgodi, da se vam prikažejo nepoznani albumi, ki vsebujejo tovrstne datoteke. Lahko jih preprosto skrijete tako, da z dolgim pritiskom na album prikličete meni in tam izberete Izključi. V naslednjem oknu lahko izberete tudi nadrejeno mapo, obstaja pa verjetnost, da bo to preprečilo tudi prikazovanje ostalih povezanih albumov.</string>
+    <string name="faq_7_title">Mapa s slikami se ne prikaže. Kaj naj naredim?</string>
+    <string name="faq_7_text">Razlogi so lahko različni, rešitev je vseeno preprosta. Pojdite v Nastavitve in izberite Urejaj vključene mape, izberite plus in poiščite željeno mapo.</string>
+    <string name="faq_8_title">Kaj, če želim prikazati le nekaj izbranih map?</string>
+    <string name="faq_8_text">Dodajanje mape med vključene mape avtomatično ne izključi ničesar. Lahko pa naredite sledeče: v Nastavitvah -> Urejaj izključene mape izključite korensko mapo \"/\", željene mape pa dodajte v Nastavitvah -> Urejaj vključene mape.
+        To bo naredilo vidne le vključene mape, saj sta tako vključevanje kot tudi izključevanje rekurzivna, kar pomeni, da je mapa, ki je istočasno izključena in vključena, vidna.</string>
+    <string name="faq_9_title">Celozaslonske slike imajo čuden izgled, lahko kako popravim kvaliteto?</string>
+    <string name="faq_9_text">Da, v Nastavitvah je opcija \"Nadomesti globoko povečljive slike z bolj kvalitetnimi\", ki jo lahko uporabite. To bo slike izboljšalo, vendar bodo te bolj zamegljene, ko jih boste želeli preveč povečati.</string>
+    <string name="faq_10_title">Ali lahko obrezujem slike s to aplikacijo?</string>
+    <string name="faq_10_text">Da, slike lahko obrezujete z vlečenjem kotov slike. Do urejevalnika lahko pridete z dolgim pritiskom na sličico fotografije in izborom opcije Uredi ali izborom funkcije Uredi iz celozaslonskega načina prikaza.</string>
+    <string name="faq_11_title">Ali lahko združujem sličice medijskih datotek?</string>
+    <string name="faq_11_text">Seveda, uporabite \"Združi po\" opcijo v meniju, ki je na voljo v pregledu sličic. Datoteke lahko združujete po različnih kriterijih, vključujoč po datumu posnetka. Če uporabite funkcijo \"Prikaži vso vsebino map\" jih lahko združujete tudi po mapah.</string>
+    <string name="faq_12_title">Kot kaže razvrščanje po datumu posnetka ne deluje pravilno. Kako lahko to popravim?</string>
+    <string name="faq_12_text">To se najverjetneje zgodi po kopiranju datotek iz nekje drugje. To lahko popravite tako, da izberete sličice in uporabite funkcijo \"Popravi datum posnetka\".</string>
+    <string name="faq_13_title">Opaziti je slabo barvno povezovanje na slikah. Kako lahko izboljšam kvaliteto?</string>
+    <string name="faq_13_text">Trenutna rešitev prikazovanja slik deluje dobro v veliki večini primerov, če pa vseeno želite višjo kvaliteto, lahko uporabite funkcijo \"Prikaži slike v najvišji možni kvaliteti\" v Nastavitvah v razdelku \"Globoko povečljive slike\".</string>
+    <string name="faq_14_title">Skril sem mapo/datoteko. Kako jo lahko zopet prikažem?</string>
+    <string name="faq_14_text">Lahko uporabite funkcijo \"Začasno prikaži skrite elemente\", ki se nahaja v meniju na glavnem zaslonu ali preklopite \"Prikaži skrite elemente\" v Nastavitvah aplikacije. Če želite element označiti kot viden, z dolgim pritiskom nanj prikličite meni in izberite \"Prikaži\". Skrivanje map deluje tako, da se kreira prazno \".nomedia\" datoteko v izbrani mapi, ki jo lahko odstranite tudi s katerimkoli urejevalnikom datotek.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Galerija za ogled fotografij in videoposnetkov brez reklam.</string>
