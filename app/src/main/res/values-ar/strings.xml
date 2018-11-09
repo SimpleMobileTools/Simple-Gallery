@@ -143,6 +143,7 @@
     <string name="animate_gifs">عرض صور GIF المتحركة في الصور المصغرة</string>
     <string name="max_brightness">أقصى سطوع عند عرض الوسائط</string>
     <string name="crop_thumbnails">قص الصور المصغرة الى مستطيلات</string>
+    <string name="video_length_thumbnails">Show length of the video</string>
     <string name="screen_rotation_by">تدوير وسائط ملء الشاشة بواسطة</string>
     <string name="screen_rotation_system_setting">اعدادات النظام</string>
     <string name="screen_rotation_device_rotation">تدوير الجهاز</string>

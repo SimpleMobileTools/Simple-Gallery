@@ -139,6 +139,7 @@
     <string name="animate_gifs">Animar os GIFs na icona</string>
     <string name="max_brightness">Brillo ao máximo cando mire medios</string>
     <string name="crop_thumbnails">Recortar iconas a cadrados</string>
+    <string name="video_length_thumbnails">Show length of the video</string>
     <string name="screen_rotation_by">Rotar medios a pantalla completa a</string>
     <string name="screen_rotation_system_setting">Axuste do sistema</string>
     <string name="screen_rotation_device_rotation">Rotación do dispositivo</string>

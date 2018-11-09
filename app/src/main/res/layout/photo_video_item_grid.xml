@@ -39,6 +39,23 @@
         android:visibility="gone"/>
 
     <TextView
+        android:id="@+id/video_duration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/gradient_background"
+        android:ellipsize="end"
+        android:gravity="right"
+        android:maxLines="1"
+        android:paddingBottom="@dimen/small_margin"
+        android:paddingLeft="@dimen/small_margin"
+        android:paddingRight="@dimen/small_margin"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/normal_text_size"
+        android:visibility="gone"/>
+
+    <TextView
         android:id="@+id/photo_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -139,6 +139,7 @@
     <string name="animate_gifs">Animér GIF\'er i miniaturer</string>
     <string name="max_brightness">Maksimal lysstyrke ved fuldskærmsvisning af medier</string>
     <string name="crop_thumbnails">Beskær miniaturer til kvadrater</string>
+    <string name="video_length_thumbnails">Show length of the video</string>
     <string name="screen_rotation_by">Roter fuldskærmsmedier efter</string>
     <string name="screen_rotation_system_setting">Systemindstilling</string>
     <string name="screen_rotation_device_rotation">Enhedens orientering</string>

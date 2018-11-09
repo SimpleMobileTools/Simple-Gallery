@@ -139,6 +139,7 @@
     <string name="animate_gifs">GIF 缩略图</string>
     <string name="max_brightness">浏览时最大亮度</string>
     <string name="crop_thumbnails">裁剪缩略图</string>
+    <string name="video_length_thumbnails">Show length of the video</string>
     <string name="screen_rotation_by">全屏方向</string>
     <string name="screen_rotation_system_setting">系统设置</string>
     <string name="screen_rotation_device_rotation">设备方向</string>

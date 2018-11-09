@@ -139,6 +139,7 @@
     <string name="animate_gifs">Animuoti GIF\'us miniatiūrose</string>
     <string name="max_brightness">Maksimalus ryškumas, kai medija peržiūrima viso ekrano rėžimu</string>
     <string name="crop_thumbnails">Apkirpti miniatiūras kvadratu</string>
+    <string name="video_length_thumbnails">Show length of the video</string>
     <string name="screen_rotation_by">Sukti viso ekrano mediją pagal</string>
     <string name="screen_rotation_system_setting">Sistemos nustatymai</string>
     <string name="screen_rotation_device_rotation">Įrenginio sukimas</string>
