@@ -133,7 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Αυτόματη αναπαραγωγή βίντεο</string>
-    <string name="remember_last_video_position">Remember last video playback position</string>
+    <string name="remember_last_video_position">Απομνημόνευση της τελευταίας θέσης αναπαραγωγής βίντεο</string>
     <string name="toggle_filename">Αλλαγή προβολής ονόματος αρχείων</string>
     <string name="loop_videos">Επανάληψη βίντεο</string>
     <string name="animate_gifs">Εμφάνιση κινούμενων GIFs στα εικονίδια</string>
@@ -163,7 +163,7 @@
     <string name="deep_zoomable_images">Βαθιά μεγέθυνση εικόνων</string>
     <string name="show_highest_quality">Εμφάνιση εικόνων με την υψηλότερη δυνατή ποιότητα</string>
     <string name="show_recycle_bin_last">Εμφάνιση του Κάδου ως τελευταίο στοιχείο στην κύρια οθόνη</string>
-    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
+    <string name="allow_down_gesture">Επιτρέψτε το κλείσιμο προβολής πλήρους οθόνης με χειρονομία προς τα κάτω</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Εικονίδια</string>
@@ -212,31 +212,31 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Μία Gallery για την προβολή φωτογραφιών και βίντεο χωρίς διαφημίσεις.</string>
     <string name="app_long_description">
-        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
+        Μια εξαιρετικά προσαρμόσιμη Gallery ικανή να εμφανίζει πολλούς διαφορετικούς τύπους εικόνας και βίντεο, όπως SVGs, RAWs, πανοραμικές φωτογραφίες και βίντεο.
 
-        It is open source, contains no ads or unnecessary permissions.
+        Είναι ανοικτού κώδικα, δεν περιέχει διαφημίσεις ή περιττά δικαιώματα.
 
-        Let\'s list some of its features worth mentioning:
-        1. Search
+        Ας περιγράψουμε μερικά από τα χαρακτηριστικά που αξίζει να αναφέρουμε:
+        1. Αναζήτηση
         2. Slideshow
-        3. Notch support
-        4. Pinning folders to the top
-        5. Filtering media files by type
-        6. Recycle bin for easy file recovery
-        7. Fullscreen view orientation locking
-        8. Marking favorite files for easy access
-        9. Quick fullscreen media closing with down gesture
-        10. An editor for modifying images and applying filters
-        11. Password protection for protecting hidden items or the whole app
-        12. Changing the thumbnail column count with gestures or menu buttons
-        13. Customizable bottom actions at the fullscreen view for quick access
-        14. Showing extended details over fullscreen media with desired file properties
-        15. Several different ways of sorting or grouping items, both ascending and descending
-        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
+        3. Υποστήριξη Notch
+        4. Καρφίτσωμα φακέλων στην αρχή
+        5. Φιλτράρισμα αρχείων πολυμέσων ανά τύπο
+        6. Κάδος για εύκολη ανάκτηση αρχείων
+        7. Κλείδωμα προσανατολισμού πλήρους οθόνης
+        8. Σήμανση αγαπημένων αρχείων για εύκολη πρόσβαση
+        9. Γρήγορο κλείσιμο πολυμέσων πλήρους οθόνης με χειρονομία κάτω
+        10. Ένα πρόγρ. επεξεργασίας εικόνων για τροποποίηση και εφαρμογή φίλτρων
+        11. Προστασία με κωδικό για προστασία κρυφών στοιχείων ή ολόκληρης της εφαρμ.
+        12. Αλλαγή αριθμού στήλης μικρογραφιών με χειρονομίες ή με πλήκτρα μενού
+        13. Προσαρμόσιμες λειτουργίες κάτω σε πλήρη οθόνη για γρήγορη πρόσβαση
+        14. Εμφάνιση πρόσθετων λεπτομ. πολυμέσων σε πλήρη οθόνη με επιθυμητές ιδιότητες αρχείου
+        15. Διάφοροι διαφορετικοί τρόποι Ταξιν/Ομαδοπ, τόσο προς τα επάνω ή κάτω
+        16. Απόκρυψη φακέλων (επηρεάζει και άλλες εφαρμ.), με εξαίρεση τους φακέλους (επηρεάζει μόνο την Simple Gallery)
 
-        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
+        Το δικαίωμα δακτυλικών αποτυπωμάτων είναι απαραίτητο για το κλείδωμα, είτε της προβολής κρυφών στοιχείων, ή της εφαρμογής ή των αρχείων από τη διαγραφή τους.
 
-        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
+        Αυτή η εφαρμογή είναι μόνο ένα μέρος μιας ευρείας σειράς εφαρμογών. Μπορείτε να βρείτε τις υπόλοιπες στο https://www.simplemobiletools.com
     </string>
 
     <!--
