@@ -114,7 +114,7 @@
     <string name="move_backwards">Scorri al contrario</string>
     <string name="loop_slideshow">Ripeti presentazione</string>
     <string name="slideshow_ended">La presentazione è terminata</string>
-    <string name="no_media_for_slideshow">Nessun media trovato per la presentazione</string>
+    <string name="no_media_for_slideshow">Nessun file trovato per la presentazione</string>
 
     <!-- View types -->
     <string name="change_view_type">Cambia modalità visualizzazione</string>
@@ -133,7 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Riproduci i video automaticamente</string>
-    <string name="remember_last_video_position">Remember last video playback position</string>
+    <string name="remember_last_video_position">Ricorda l\'ultimo stato di riproduzione dei video</string>
     <string name="toggle_filename">Visibilità nome del file</string>
     <string name="loop_videos">Ripeti i video</string>
     <string name="animate_gifs">Anima le GIF in miniatura</string>
@@ -214,7 +214,7 @@
     <string name="app_long_description">
         Una galleria altamente personalizzabile e capace di visualizzare tipi di file immagini e video differenti, fra cui SVG, RAW, foto panoramiche e video.
 
-        È open source, non contiene pubblicità e permessi superflui.
+        È open source, non contiene pubblicità e autorizzazioni superflue.
 
         Alcune funzionalità che vale la pena accennare:
         1. Ricerca
@@ -234,7 +234,7 @@
         15. Molti modi per ordinare o raggruppare gli elementi, sia in ordine crescente che decrescente
         16. Cartelle nascoste (anche per altre applicazioni), cartelle escluse (solo per Simple Gallery)
 
-        Il permesso di leggere le impronte digitali è necessario per il blocco della visibilità degli elementi, dell\'intera applicazione o per proteggere alcuni file dalla loro eliminazione.
+        L'autorizzazione per leggere le impronte digitali è necessaria per il blocco della visibilità degli elementi, dell\'intera applicazione o per proteggere alcuni file dalla loro eliminazione.
         
         Questa applicazione è solamente una di una serie più grande. Si possono trovare le altre su https://www.simplemobiletools.com
     </string>
