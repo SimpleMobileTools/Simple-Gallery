@@ -139,6 +139,7 @@
     <string name="animate_gifs">アニメーションGIFを動かす</string>
     <string name="max_brightness">再生時には明るさを最大にする</string>
     <string name="crop_thumbnails">サムネイルを正方形に切り取る</string>
+    <string name="video_length_thumbnails">Show length of the video</string>
     <string name="screen_rotation_by">フルスクリーン再生の表示切り替え</string>
     <string name="screen_rotation_system_setting">システム設定に従う</string>
     <string name="screen_rotation_device_rotation">端末の向きに従う</string>

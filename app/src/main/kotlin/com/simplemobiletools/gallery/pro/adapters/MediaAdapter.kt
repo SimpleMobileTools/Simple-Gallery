@@ -451,6 +451,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         val isSelected = selectedKeys.contains(medium.path.hashCode())
         view.apply {
             play_outline.beVisibleIf(medium.isVideo())
+            video_duration.text = getFormatedVideoLength(medium)
+            video_duration.beVisibleIf(medium.isVideo() && config.videoLengthThumbnail)
             photo_name.beVisibleIf(displayFilenames || isListViewType)
             photo_name.text = medium.name
             photo_name.tag = medium.path
@@ -490,5 +492,14 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             thumbnail_section.text = section.title
             thumbnail_section.setTextColor(textColor)
         }
+    }
+
+    private fun getFormatedVideoLength(medium: Medium): String {
+        if (medium.isVideo()) {
+            val retriever = MediaMetadataRetriever()
+            retriever.setDataSource(medium.path)
+            return Math.round(retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION).toInt() / 1000f).getFormattedDuration()
+        }
+        return ""
     }
 }

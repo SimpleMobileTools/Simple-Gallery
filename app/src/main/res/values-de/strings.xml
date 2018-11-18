@@ -139,6 +139,7 @@
     <string name="animate_gifs">Kacheln von GIFs animieren</string>
     <string name="max_brightness">Helligkeit beim Betrachten maximieren</string>
     <string name="crop_thumbnails">Kacheln quadratisch zuschneiden</string>
+    <string name="video_length_thumbnails">Show length of the video</string>
     <string name="screen_rotation_by">Im Vollbild ausrichten nach:</string>
     <string name="screen_rotation_system_setting">Systemeinstellung</string>
     <string name="screen_rotation_device_rotation">Gerätedrehung</string>

@@ -139,6 +139,7 @@
     <string name="animate_gifs">Animera GIF-bilders miniatyrer</string>
     <string name="max_brightness">Maximal ljusstyrka när media visas i helskärmsläge</string>
     <string name="crop_thumbnails">Beskär miniatyrer till kvadrater</string>
+    <string name="video_length_thumbnails">Show length of the video</string>
     <string name="screen_rotation_by">Rotera media i helskärmsläge</string>
     <string name="screen_rotation_system_setting">Systeminställning</string>
     <string name="screen_rotation_device_rotation">Enhetens rotation</string>

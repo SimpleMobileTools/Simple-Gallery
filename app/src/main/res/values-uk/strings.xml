@@ -139,6 +139,7 @@
     <string name="animate_gifs">Анімувати ескізи GIF-файлів</string>
     <string name="max_brightness">Максимальна яскравість екрану при повноекранному перегляді медіафайлу</string>
     <string name="crop_thumbnails">Обрізати ескізи у квадрат</string>
+    <string name="video_length_thumbnails">Show length of the video</string>
     <string name="screen_rotation_by">При повноекранному перегляді обертати за…</string>
     <string name="screen_rotation_system_setting">системними налаштуваннями</string>
     <string name="screen_rotation_device_rotation">поворотом пристрою</string>

@@ -139,6 +139,7 @@
     <string name="animate_gifs">Animovať GIF súbory pri náhľade</string>
     <string name="max_brightness">Maximálny jas pri prezeraní médií</string>
     <string name="crop_thumbnails">Orezať náhľady na štvorce</string>
+    <string name="video_length_thumbnails">Show length of the video</string>
     <string name="screen_rotation_by">Otáčať obrazovku podľa Rotate fullscreen media by</string>
     <string name="screen_rotation_system_setting">Systémového nastavenia</string>
     <string name="screen_rotation_device_rotation">Otočenia zariadenia</string>
