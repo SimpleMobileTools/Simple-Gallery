@@ -6,47 +6,47 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_margin"
-    android:paddingRight="@dimen/activity_margin"
-    android:paddingTop="@dimen/activity_margin">
+    android:paddingTop="@dimen/activity_margin"
+    android:paddingRight="@dimen/activity_margin">
 
     <com.simplemobiletools.commons.views.MyAppCompatCheckbox
         android:id="@+id/filter_media_images"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/activity_margin"
         android:paddingTop="@dimen/activity_margin"
+        android:paddingBottom="@dimen/activity_margin"
         android:text="@string/images"/>
 
     <com.simplemobiletools.commons.views.MyAppCompatCheckbox
         android:id="@+id/filter_media_videos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/activity_margin"
         android:paddingTop="@dimen/activity_margin"
+        android:paddingBottom="@dimen/activity_margin"
         android:text="@string/videos"/>
 
     <com.simplemobiletools.commons.views.MyAppCompatCheckbox
         android:id="@+id/filter_media_gifs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/activity_margin"
         android:paddingTop="@dimen/activity_margin"
+        android:paddingBottom="@dimen/activity_margin"
         android:text="@string/gifs"/>
 
     <com.simplemobiletools.commons.views.MyAppCompatCheckbox
         android:id="@+id/filter_media_raws"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/activity_margin"
         android:paddingTop="@dimen/activity_margin"
+        android:paddingBottom="@dimen/activity_margin"
         android:text="@string/raw_images"/>
 
     <com.simplemobiletools.commons.views.MyAppCompatCheckbox
         android:id="@+id/filter_media_svgs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/activity_margin"
         android:paddingTop="@dimen/activity_margin"
+        android:paddingBottom="@dimen/activity_margin"
         android:text="@string/svgs"/>
 
 </LinearLayout>

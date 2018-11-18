@@ -17,10 +17,10 @@
         android:id="@+id/dir_check"
         android:layout_width="@dimen/selection_check_size"
         android:layout_height="@dimen/selection_check_size"
+        android:layout_alignRight="@+id/dir_shadow_holder"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/dir_shadow_holder"
         android:layout_margin="@dimen/small_margin"
         android:background="@drawable/circle_background"
         android:padding="@dimen/tiny_margin"
@@ -31,8 +31,8 @@
         android:id="@+id/dir_pin"
         android:layout_width="@dimen/selection_check_size"
         android:layout_height="@dimen/selection_check_size"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_margin="@dimen/small_margin"
         android:background="@drawable/circle_black_background"
@@ -45,8 +45,8 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/tmb_shadow_height"
         android:layout_alignLeft="@+id/dir_bottom_holder"
-        android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/dir_bottom_holder"
+        android:layout_alignParentBottom="true"
         android:background="@drawable/gradient_background"/>
 
     <LinearLayout
@@ -54,14 +54,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/dir_thumbnail"
-        android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/dir_thumbnail"
+        android:layout_alignParentBottom="true"
         android:gravity="bottom"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/small_margin"
         android:paddingLeft="@dimen/medium_margin"
+        android:paddingTop="@dimen/small_margin"
         android:paddingRight="@dimen/medium_margin"
-        android:paddingTop="@dimen/small_margin">
+        android:paddingBottom="@dimen/small_margin">
 
         <TextView
             android:id="@+id/dir_name"
@@ -86,12 +86,12 @@
         android:id="@+id/dir_location"
         android:layout_width="@dimen/sd_card_icon_size"
         android:layout_height="@dimen/sd_card_icon_size"
-        android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/dir_bottom_holder"
+        android:layout_alignParentBottom="true"
         android:alpha="0.8"
-        android:paddingBottom="@dimen/small_margin"
         android:paddingEnd="@dimen/small_margin"
         android:paddingRight="@dimen/small_margin"
+        android:paddingBottom="@dimen/small_margin"
         android:src="@drawable/ic_sd_card"
         android:visibility="gone"/>
 

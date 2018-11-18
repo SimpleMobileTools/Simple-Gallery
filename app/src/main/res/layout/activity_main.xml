@@ -17,8 +17,8 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:paddingLeft="@dimen/big_margin"
-            android:paddingRight="@dimen/big_margin"
             android:paddingTop="@dimen/activity_margin"
+            android:paddingRight="@dimen/big_margin"
             android:text="@string/no_media_with_filters"
             android:textSize="@dimen/bigger_text_size"
             android:visibility="gone"/>
@@ -49,8 +49,8 @@
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:paddingLeft="@dimen/normal_margin"
             android:paddingStart="@dimen/normal_margin"
+            android:paddingLeft="@dimen/normal_margin"
             android:visibility="gone">
 
             <include layout="@layout/fastscroller_handle_vertical"/>
@@ -61,9 +61,9 @@
             android:id="@+id/directories_horizontal_fastscroller"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
             android:paddingTop="@dimen/normal_margin"
             android:visibility="gone">
 
