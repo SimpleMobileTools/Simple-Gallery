@@ -43,7 +43,7 @@
     <string name="change_filters_underlined"><u>Alterar filtros</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Esta opção oculta uma pasta com a adição de um ficheiro \'.nomedia\' na pasta, e irá ocultar todas as subpastas existentes. Pode ver as pastas com a opção \'Mostrar pastas ocultas\'. Continuar?</string>
+    <string name="hide_folder_description">Esta opção oculta uma pasta com a adição de um ficheiro \'.nomedia\' e irá ocultar todas as sub-pastas existentes. Pode ver as pastas com a opção \'Mostrar pastas ocultas\'. Continuar?</string>
     <string name="exclude">Exclusão</string>
     <string name="excluded_folders">Pastas excluídas</string>
     <string name="manage_excluded_folders">Gerir pastas excluídas</string>
@@ -133,7 +133,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Reproduzir vídeos automaticamente</string>
-    <string name="remember_last_video_position">Remember last video playback position</string>
+    <string name="remember_last_video_position">Memorizar posição da reprodução</string>
     <string name="toggle_filename">Mostrar/ocultar nome do ficheiro</string>
     <string name="loop_videos">Vídeos em ciclo</string>
     <string name="animate_gifs">Animação de GIF nas miniaturas</string>
@@ -155,15 +155,15 @@
     <string name="manage_extended_details">Gerir detalhes exibidos</string>
     <string name="one_finger_zoom">Permitir ampliação com um dedo se em ecrã completo</string>
     <string name="allow_instant_change">Permitir troca imediata de ficheiro ao tocar nas margens do ecrã</string>
-    <string name="allow_deep_zooming_images">Perimitir ampliação profunda de imagens</string>
+    <string name="allow_deep_zooming_images">Permitir ampliação profunda de imagens</string>
     <string name="hide_extended_details">Ocultar detalhes extra se a barra de estado estiver oculta</string>
-    <string name="do_extra_check">Efetuar uma dupla verificação para evitar mostrar os ficheiros inválidos</string>
+    <string name="do_extra_check">Dupla verificação para evitar mostrar os ficheiros inválidos</string>
     <string name="show_at_bottom">Mostrar alguns botões de ação na base do ecrã</string>
     <string name="show_recycle_bin">Mostrar reciclagem no ecrã de pastas</string>
-    <string name="deep_zoomable_images">Deep zoomable images</string>
+    <string name="deep_zoomable_images">Ampliação de imagens</string>
     <string name="show_highest_quality">Mostrar fotos com a melhor qualidade possível</string>
     <string name="show_recycle_bin_last">Mostrar a reciclagem como o último item do ecrã principal</string>
-    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
+    <string name="allow_down_gesture">Sair de ecrã completo com um gesto para baixo</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
@@ -212,31 +212,31 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Uma aplicação para ver fotografias e vídeos.</string>
     <string name="app_long_description">
-        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
+        Um aplicação capaz de mostrar diversos tipos de imagens e vídeos incluíndo SVG, RAW, fotos panorâmicas e vídeos.
 
-        It is open source, contains no ads or unnecessary permissions.
+        É totalmente open source, não tem anúncios nem requer permissões desnecessárias.
 
-        Let\'s list some of its features worth mentioning:
-        1. Search
-        2. Slideshow
-        3. Notch support
-        4. Pinning folders to the top
-        5. Filtering media files by type
-        6. Recycle bin for easy file recovery
-        7. Fullscreen view orientation locking
-        8. Marking favorite files for easy access
-        9. Quick fullscreen media closing with down gesture
-        10. An editor for modifying images and applying filters
-        11. Password protection for protecting hidden items or the whole app
-        12. Changing the thumbnail column count with gestures or menu buttons
-        13. Customizable bottom actions at the fullscreen view for quick access
-        14. Showing extended details over fullscreen media with desired file properties
-        15. Several different ways of sorting or grouping items, both ascending and descending
-        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
+        Algumas das suas funcionalidades:
+        1. Pesquisa
+        2. Apresentações
+        3. Suporte notch
+        4. Fixação de pastas
+        5. Filtro de ficheiros por tipo
+        6. Reciclagem para recuperação de ficheiros
+        7. Possibilidade de bloquer a orientação da vista
+        8. Possibilidade de marcar ficheiros como favoritos
+        9. Possibilidade de sair de ecrã completo com um gesto
+        10. Editor para modificar imagens e aplicar filtros
+        11. Possibilidade de proteger ficheiros com palavra-passe
+        12. Possibilidade de alterar o número de colunas com gestos ou botões de menu
+        13. Botões de ação personalizados
+        14. Possibilidade de mostrar detalhes extra em ecrã completo bem como as propriedades dos ficheiros
+        15. Diversas formas para organizar e agrupar itens
+        16. Proteção de pastas (com efeito nas outras aplicações) e exclusão de pastas (apenas Simple Gallery)
 
-        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
+        A permissão Impressão digital é necessária para proteger a visibilidade dos itens ocultos, a aplicação e/ou para impedir a eliminação dos ficheiros.
 
-        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
+        Esta aplicação é apenas parte de um conjunto mais vasto de aplicações. Saiba mais em http://www.simplemobiletools.com
     </string>
 
     <!--
