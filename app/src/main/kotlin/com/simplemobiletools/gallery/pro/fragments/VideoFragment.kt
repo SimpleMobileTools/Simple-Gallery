@@ -523,7 +523,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     }
 
     private fun setupVideoDuration() {
-        mDuration = medium.getVideoLength()
+        mDuration = medium.getVideoDuration()
         setupTimeHolder()
         setPosition(0)
     }

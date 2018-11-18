@@ -78,7 +78,7 @@ data class Medium(
         return calendar.timeInMillis.toString()
     }
 
-    fun getVideoLength(): Int {
+    fun getVideoDuration(): Int {
         var seconds = 0
         try {
             if (isVideo()) {
