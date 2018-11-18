@@ -8,7 +8,6 @@ import com.simplemobiletools.gallery.pro.interfaces.DirectoryDao
 import com.simplemobiletools.gallery.pro.interfaces.MediumDao
 import com.simplemobiletools.gallery.pro.models.Directory
 import com.simplemobiletools.gallery.pro.models.Medium
-import com.simplemobiletools.gallery.pro.objects.MyExecutor
 
 @Database(entities = [Directory::class, Medium::class], version = 4)
 abstract class GalleryDatabase : RoomDatabase() {
@@ -26,9 +25,7 @@ abstract class GalleryDatabase : RoomDatabase() {
                     if (db == null) {
                         db = Room.databaseBuilder(context.applicationContext, GalleryDatabase::class.java, "gallery.db")
                                 .fallbackToDestructiveMigration()
-                                .setQueryExecutor(MyExecutor.myExecutor)
                                 .build()
-                        db!!.openHelper.setWriteAheadLoggingEnabled(true)
                     }
                 }
             }
