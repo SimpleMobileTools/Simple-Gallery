@@ -139,7 +139,7 @@
     <string name="animate_gifs">Animowane miniatury GIFów</string>
     <string name="max_brightness">Maksymalna jasność podczas wyświetlania multimediów</string>
     <string name="crop_thumbnails">Przycinaj miniatury do kwadratów</string>
-    <string name="video_length_thumbnails">Show length of the video</string>
+    <string name="show_thumbnail_video_duration">Show video durations</string>
     <string name="screen_rotation_by">Obracaj pełnoekranowe multimedia według</string>
     <string name="screen_rotation_system_setting">Ustawień systemowych</string>
     <string name="screen_rotation_device_rotation">Orientacji urządzenia</string>

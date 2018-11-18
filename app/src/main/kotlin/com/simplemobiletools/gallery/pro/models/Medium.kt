@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.pro.models
 
+import android.media.MediaMetadataRetriever
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
@@ -75,5 +76,18 @@ data class Medium(
         }
 
         return calendar.timeInMillis.toString()
+    }
+
+    fun getVideoLength(): Int {
+        var seconds = 0
+        try {
+            if (isVideo()) {
+                val retriever = MediaMetadataRetriever()
+                retriever.setDataSource(path)
+                seconds = Math.round(retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION).toInt() / 1000f)
+            }
+        } catch (e: Exception) {
+        }
+        return seconds
     }
 }

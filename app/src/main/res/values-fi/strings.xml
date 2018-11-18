@@ -139,7 +139,7 @@
     <string name="animate_gifs">Animoi GIFit pienoiskuvissa</string>
     <string name="max_brightness">Täysi kirkkaus mediaa katsoessa</string>
     <string name="crop_thumbnails">Leikkaa pienoiskuvat neliöiksi</string>
-    <string name="video_length_thumbnails">Show length of the video</string>
+    <string name="show_thumbnail_video_duration">Show video durations</string>
     <string name="screen_rotation_by">Käännä koko ruudun mediaa</string>
     <string name="screen_rotation_system_setting">Järjestelmän asetukset</string>
     <string name="screen_rotation_device_rotation">Laitteen kierto</string>

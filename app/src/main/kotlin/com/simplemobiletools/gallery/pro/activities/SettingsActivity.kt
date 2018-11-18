@@ -57,7 +57,7 @@ class SettingsActivity : SimpleActivity() {
         setupAllowVideoGestures()
         setupAllowDownGesture()
         setupBottomActions()
-        setupVideoLength()
+        setupThumbnailVideoDuration()
         setupShowMediaCount()
         setupKeepLastModified()
         setupShowInfoBubble()
@@ -197,11 +197,11 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupVideoLength() {
-        settings_show_video_length.isChecked = config.videoLengthThumbnail
-        settings_show_video_length_holder.setOnClickListener {
-            settings_show_video_length.toggle()
-            config.videoLengthThumbnail = settings_show_video_length.isChecked
+    private fun setupThumbnailVideoDuration() {
+        settings_show_thumbnail_video_duration.isChecked = config.showThumbnailVideoDuration
+        settings_show_thumbnail_video_duration_holder.setOnClickListener {
+            settings_show_thumbnail_video_duration.toggle()
+            config.showThumbnailVideoDuration = settings_show_thumbnail_video_duration.isChecked
         }
     }
 

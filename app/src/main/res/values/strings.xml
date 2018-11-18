@@ -139,7 +139,7 @@
     <string name="animate_gifs">Animate GIFs at thumbnails</string>
     <string name="max_brightness">Max brightness when viewing fullscreen media</string>
     <string name="crop_thumbnails">Crop thumbnails into squares</string>
-    <string name="video_length_thumbnails">Show length of the video</string>
+    <string name="show_thumbnail_video_duration">Show video durations</string>
     <string name="screen_rotation_by">Rotate fullscreen media by</string>
     <string name="screen_rotation_system_setting">System setting</string>
     <string name="screen_rotation_device_rotation">Device rotation</string>

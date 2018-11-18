@@ -139,7 +139,7 @@
     <string name="animate_gifs">縮圖顯示GIF動畫</string>
     <string name="max_brightness">瀏覽時最大亮度</string>
     <string name="crop_thumbnails">縮圖裁剪成正方形</string>
-    <string name="video_length_thumbnails">Show length of the video</string>
+    <string name="show_thumbnail_video_duration">Show video durations</string>
     <string name="screen_rotation_by">全螢幕時旋轉方向</string>
     <string name="screen_rotation_system_setting">系統設定方向</string>
     <string name="screen_rotation_device_rotation">裝置實際方向</string>

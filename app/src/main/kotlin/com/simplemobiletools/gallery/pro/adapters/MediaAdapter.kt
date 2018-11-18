@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.pro.adapters
 
 import android.content.ContentProviderOperation
 import android.media.ExifInterface
+import android.media.MediaMetadataRetriever
 import android.os.Handler
 import android.os.Looper
 import android.provider.MediaStore
@@ -451,11 +452,15 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         val isSelected = selectedKeys.contains(medium.path.hashCode())
         view.apply {
             play_outline.beVisibleIf(medium.isVideo())
-            video_duration.text = getFormatedVideoLength(medium)
-            video_duration.beVisibleIf(medium.isVideo() && config.videoLengthThumbnail)
             photo_name.beVisibleIf(displayFilenames || isListViewType)
             photo_name.text = medium.name
             photo_name.tag = medium.path
+
+            val showVideoDuration = medium.isVideo() && config.showThumbnailVideoDuration
+            if (showVideoDuration) {
+                video_duration.text = medium.getVideoLength().getFormattedDuration()
+            }
+            video_duration.beVisibleIf(showVideoDuration)
 
             medium_check?.beVisibleIf(isSelected)
             if (isSelected) {
@@ -494,7 +499,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         }
     }
 
-    private fun getFormatedVideoLength(medium: Medium): String {
+    private fun getFormattedVideoLength(medium: Medium): String {
         if (medium.isVideo()) {
             val retriever = MediaMetadataRetriever()
             retriever.setDataSource(medium.path)

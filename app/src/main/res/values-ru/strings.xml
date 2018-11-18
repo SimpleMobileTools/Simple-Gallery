@@ -139,7 +139,7 @@
     <string name="animate_gifs">Анимировать эскизы GIF</string>
     <string name="max_brightness">Максимальная яркость при просмотре файлов</string>
     <string name="crop_thumbnails">Нарезать миниатюры в квадраты</string>
-    <string name="video_length_thumbnails">Show length of the video</string>
+    <string name="show_thumbnail_video_duration">Show video durations</string>
     <string name="screen_rotation_by">Поворот экрана при просмотре изображения</string>
     <string name="screen_rotation_system_setting">Использовать системные настройки</string>
     <string name="screen_rotation_device_rotation">При повороте устройства</string>

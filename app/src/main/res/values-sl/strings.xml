@@ -139,7 +139,7 @@
     <string name="animate_gifs">Animiraj GIFe v predogledu</string>
     <string name="max_brightness">Najvišja svetlost pri celozaslonskem predvajanju</string>
     <string name="crop_thumbnails">Obreži predoglede slik v kvadrate</string>
-    <string name="video_length_thumbnails">Show length of the video</string>
+    <string name="show_thumbnail_video_duration">Show video durations</string>
     <string name="screen_rotation_by">Zavrti celozaslonski medij za</string>
     <string name="screen_rotation_system_setting">Sistemska nastavitev</string>
     <string name="screen_rotation_device_rotation">Obračanje naprave</string>

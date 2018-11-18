@@ -15,7 +15,7 @@ const val LOOP_VIDEOS = "loop_videos"
 const val ANIMATE_GIFS = "animate_gifs"
 const val MAX_BRIGHTNESS = "max_brightness"
 const val CROP_THUMBNAILS = "crop_thumbnails"
-const val VIDEO_LENGTH_THUMBNAIL = "video_length_thumbnail"
+const val SHOW_THUMBNAIL_VIDEO_DURATION = "show_thumbnail_video_duration"
 const val SCREEN_ROTATION = "screen_rotation"
 const val DISPLAY_FILE_NAMES = "display_file_names"
 const val DARK_BACKGROUND = "dark_background"
@@ -80,7 +80,7 @@ const val SLIDESHOW_MOVE_BACKWARDS = "slideshow_move_backwards"
 const val SLIDESHOW_LOOP = "loop_slideshow"
 const val SLIDESHOW_DEFAULT_INTERVAL = 5
 const val SLIDESHOW_SCROLL_DURATION = 500L
-const val SLIDESHOW_START_ON_ENTER= "slideshow_start_on_enter"
+const val SLIDESHOW_START_ON_ENTER = "slideshow_start_on_enter"
 
 const val NOMEDIA = ".nomedia"
 const val FAVORITES = "favorites"

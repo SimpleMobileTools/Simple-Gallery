@@ -152,9 +152,9 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(CROP_THUMBNAILS, true)
         set(cropThumbnails) = prefs.edit().putBoolean(CROP_THUMBNAILS, cropThumbnails).apply()
 
-    var videoLengthThumbnail: Boolean
-        get() = prefs.getBoolean(VIDEO_LENGTH_THUMBNAIL, false)
-        set(videolengthThumbnail) = prefs.edit().putBoolean(VIDEO_LENGTH_THUMBNAIL, videolengthThumbnail).apply()
+    var showThumbnailVideoDuration: Boolean
+        get() = prefs.getBoolean(SHOW_THUMBNAIL_VIDEO_DURATION, false)
+        set(showThumbnailVideoDuration) = prefs.edit().putBoolean(SHOW_THUMBNAIL_VIDEO_DURATION, showThumbnailVideoDuration).apply()
 
     var screenRotation: Int
         get() = prefs.getInt(SCREEN_ROTATION, ROTATE_BY_SYSTEM_SETTING)
