@@ -20,7 +20,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/photo_name"
+        android:layout_alignRight="@+id/medium_name"
         android:layout_margin="@dimen/small_margin"
         android:background="@drawable/circle_background"
         android:padding="@dimen/tiny_margin"
@@ -56,7 +56,7 @@
         android:visibility="gone"/>
 
     <TextView
-        android:id="@+id/photo_name"
+        android:id="@+id/medium_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/medium_thumbnail"

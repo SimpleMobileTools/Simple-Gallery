@@ -162,7 +162,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         super.onViewRecycled(holder)
         if (!activity.isDestroyed) {
             val itemView = holder.itemView
-            visibleItemPaths.remove(itemView.photo_name?.tag)
+            visibleItemPaths.remove(itemView.medium_name?.tag)
             val tmb = itemView.medium_thumbnail
             if (tmb != null) {
                 Glide.with(activity).clear(tmb)
@@ -452,9 +452,9 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         val isSelected = selectedKeys.contains(medium.path.hashCode())
         view.apply {
             play_outline.beVisibleIf(medium.isVideo())
-            photo_name.beVisibleIf(displayFilenames || isListViewType)
-            photo_name.text = medium.name
-            photo_name.tag = medium.path
+            medium_name.beVisibleIf(displayFilenames || isListViewType)
+            medium_name.text = medium.name
+            medium_name.tag = medium.path
 
             val showVideoDuration = medium.isVideo() && config.showThumbnailVideoDuration
             if (showVideoDuration) {
@@ -486,7 +486,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             }
 
             if (isListViewType) {
-                photo_name.setTextColor(textColor)
+                medium_name.setTextColor(textColor)
                 play_outline.applyColorFilter(textColor)
             }
         }
