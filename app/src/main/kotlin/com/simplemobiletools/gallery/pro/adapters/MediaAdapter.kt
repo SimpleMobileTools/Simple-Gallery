@@ -313,6 +313,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         activity.toast(R.string.fixing)
         Thread {
             try {
+                var didUpdateFile = false
                 val operations = ArrayList<ContentProviderOperation>()
                 val mediumDao = activity.galleryDB.MediumDao()
                 val paths = getSelectedPaths()
@@ -343,10 +344,11 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                     }
 
                     mediumDao.updateFavoriteDateTaken(path, timestamp)
+                    didUpdateFile = true
                 }
 
                 activity.contentResolver.applyBatch(MediaStore.AUTHORITY, operations)
-                activity.toast(R.string.dates_fixed_successfully)
+                activity.toast(if (didUpdateFile) R.string.dates_fixed_successfully else R.string.unknown_error_occurred)
                 activity.runOnUiThread {
                     listener?.refreshItems()
                     finishActMode()
