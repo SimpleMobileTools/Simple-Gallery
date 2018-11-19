@@ -139,7 +139,7 @@
     <string name="animate_gifs">GIF-bestanden afspelen in overzicht</string>
     <string name="max_brightness">Maximale helderheid in volledig scherm</string>
     <string name="crop_thumbnails">Miniatuurvoorbeelden bijsnijden</string>
-    <string name="show_thumbnail_video_duration">Show video durations</string>
+    <string name="show_thumbnail_video_duration">Lengte van video\'s tonen</string>
     <string name="screen_rotation_by">Media in volledig scherm roteren volgens</string>
     <string name="screen_rotation_system_setting">Systeeminstelling</string>
     <string name="screen_rotation_device_rotation">Oriëntatie van apparaat</string>
