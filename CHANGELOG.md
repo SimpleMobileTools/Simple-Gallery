@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 6.0.2 *(2018-11-19)*
+----------------------------
+
+ * Adding a crashfix related to showing video duration
+
 Version 6.0.1 *(2018-11-19)*
 ----------------------------
 
