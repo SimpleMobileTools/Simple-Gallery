@@ -139,7 +139,7 @@
     <string name="animate_gifs">Animert GIF i minibildevisning</string>
     <string name="max_brightness">Maks lysstyrke ved mediavisning</string>
     <string name="crop_thumbnails">Beskjær minibilder i kvadrater</string>
-    <string name="show_thumbnail_video_duration">Show video durations</string>
+    <string name="show_thumbnail_video_duration">Vis videolengde</string>
     <string name="screen_rotation_by">Roter media etter</string>
     <string name="screen_rotation_system_setting">Systeminnstilling</string>
     <string name="screen_rotation_device_rotation">Enhetsrotasjon</string>
