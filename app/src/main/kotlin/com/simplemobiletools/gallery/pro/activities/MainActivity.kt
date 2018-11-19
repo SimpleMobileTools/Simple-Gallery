@@ -239,7 +239,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             config.tempSkipDeleteConfirmation = false
             mTempShowHiddenHandler.removeCallbacksAndMessages(null)
             removeTempFolder()
-            GalleryDatabase.destroyInstance()
+
+            if (!config.showAll) {
+                GalleryDatabase.destroyInstance()
+            }
         }
     }
 
