@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/media_item_holder"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -52,6 +53,20 @@
         android:paddingBottom="6dp"
         android:src="@drawable/img_play_outline_empty"
         android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/video_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="6dp"
+        android:layout_toLeftOf="@+id/play_outline"
+        android:paddingLeft="@dimen/small_margin"
+        android:paddingRight="@dimen/small_margin"
+        android:paddingBottom="@dimen/small_margin"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/normal_text_size"
+        tools:text="00:05"/>
 
     <TextView
         android:id="@+id/dir_list_divider"
