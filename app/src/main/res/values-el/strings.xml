@@ -139,7 +139,7 @@
     <string name="animate_gifs">Εμφάνιση κινούμενων GIFs στα εικονίδια</string>
     <string name="max_brightness">Μέγιστη φωτεινότητα κατά την προβολή πλήρους οθόνης</string>
     <string name="crop_thumbnails">Κόψιμο εικονιδίων σε τετράγωνα</string>
-    <string name="show_thumbnail_video_duration">Show video durations</string>
+    <string name="show_thumbnail_video_duration">Εμφάνιση διάρκειας βίντεο</string>
     <string name="screen_rotation_by">Περιστροφή σε πλήρη οθόνη απο</string>
     <string name="screen_rotation_system_setting">Ρυθμίσεις συστήματος</string>
     <string name="screen_rotation_device_rotation">Περιστροφή συσκευής</string>
