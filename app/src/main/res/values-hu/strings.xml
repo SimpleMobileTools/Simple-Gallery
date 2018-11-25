@@ -140,7 +140,7 @@
     <string name="animate_gifs">Animált GIF miniatűr</string>
     <string name="max_brightness">Maximális fényerő a teljes képernyős médiánál</string>
     <string name="crop_thumbnails">Miniatűrök négyzet alakúra vágva</string>
-    <string name="show_thumbnail_video_duration">Show video durations</string>
+    <string name="show_thumbnail_video_duration">Mutassa a videó időtartamát</string>
     <string name="screen_rotation_by">Teljes képernyős média forgatása</string>
     <string name="screen_rotation_system_setting">Rendszer beállítások</string>
     <string name="screen_rotation_device_rotation">Eszköz elforgatás</string>
