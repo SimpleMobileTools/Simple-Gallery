@@ -133,13 +133,13 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">自動播放影片</string>
-    <string name="remember_last_video_position">Remember last video playback position</string>
+    <string name="remember_last_video_position">記住影片上次撥放位置</string>
     <string name="toggle_filename">顯示檔案名稱</string>
     <string name="loop_videos">影片循環播放</string>
     <string name="animate_gifs">縮圖顯示GIF動畫</string>
     <string name="max_brightness">瀏覽時最大亮度</string>
     <string name="crop_thumbnails">縮圖裁剪成正方形</string>
-    <string name="show_thumbnail_video_duration">Show video durations</string>
+    <string name="show_thumbnail_video_duration">顯示影片長度</string>
     <string name="screen_rotation_by">全螢幕時旋轉方向</string>
     <string name="screen_rotation_system_setting">系統設定方向</string>
     <string name="screen_rotation_device_rotation">裝置實際方向</string>
@@ -164,7 +164,7 @@
     <string name="deep_zoomable_images">可深度縮放的圖片</string>
     <string name="show_highest_quality">以最高品質顯示圖片</string>
     <string name="show_recycle_bin_last">回收桶顯示在主畫面最後一項</string>
-    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
+    <string name="allow_down_gesture">允許用下滑手勢來關閉全螢幕檢視</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">縮圖</string>
@@ -213,31 +213,31 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">一個用來瀏覽相片和影片，且沒有廣告的相簿。</string>
     <string name="app_long_description">
-        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
+        一個高自訂性的相簿，能夠顯示許多不同的圖片和影片類型，包含SVGs、RAWs、全景相片和影片。
 
-        It is open source, contains no ads or unnecessary permissions.
+        它是開源的，而且不包含廣告及非必要的權限。
 
-        Let\'s list some of its features worth mentioning:
-        1. Search
-        2. Slideshow
-        3. Notch support
-        4. Pinning folders to the top
-        5. Filtering media files by type
-        6. Recycle bin for easy file recovery
-        7. Fullscreen view orientation locking
-        8. Marking favorite files for easy access
-        9. Quick fullscreen media closing with down gesture
-        10. An editor for modifying images and applying filters
-        11. Password protection for protecting hidden items or the whole app
-        12. Changing the thumbnail column count with gestures or menu buttons
-        13. Customizable bottom actions at the fullscreen view for quick access
-        14. Showing extended details over fullscreen media with desired file properties
-        15. Several different ways of sorting or grouping items, both ascending and descending
-        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
+        讓我們列出一些值得一提的功能:
+        1. 搜尋
+        2. 投影片
+        3. 支援瀏海螢幕
+        4. 釘選資料夾在頂端
+        5. 以類型篩選媒體檔案
+        6. 輕鬆恢復檔案的回收桶
+        7. 鎖定全螢幕檢視的方向
+        8. 標記我的最愛檔案以輕鬆存取
+        9. 下滑手勢來快速關閉全螢幕媒體
+        10. 一個編輯器來修改圖片和添加濾鏡
+        11. 用密碼保護隱藏的項目或整個應用程式
+        12. 用手勢或選單按鈕來改變縮圖欄數
+        13. 在全螢幕檢視下，自訂底部操作來快速存取
+        14. 在全螢幕媒體顯示，要求的檔案屬性其詳細資訊
+        15. 幾種不同的排序或歸類項目的方式，包含遞增和遞減
+        16. 隱藏資料夾(也影響其他程式)，排除資料夾(只影響簡易相簿)
 
-        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
+        指紋權限用來鎖定隱藏的項目、整個應用程式，或保護檔案不被刪除。
 
-        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
+        這程式只是一系列眾多應用程式的其中一項，你可以在這發現更多  https://www.simplemobiletools.com
     </string>
 
     <!--
