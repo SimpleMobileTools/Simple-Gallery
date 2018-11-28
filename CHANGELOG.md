@@ -19,6 +19,12 @@ Version 6.0.0 *(2018-11-04)*
 
  * Initial Pro version
 
+Version 5.1.4 *(2018-11-28)*
+----------------------------
+
+ * Make sure the "Upgrade to Pro" popup isn't shown at first launch
+ * This version of the app is no longer maintained, please upgrade to the Pro version. You can find the Upgrade button at the top of the app Settings.
+
 Version 5.1.3 *(2018-11-04)*
 ----------------------------
 
@@ -28,7 +34,6 @@ Version 5.1.3 *(2018-11-04)*
  * Remove some glitches related to third party file opening
  * Do not exclude the Data folder by default
  * Removed the "Avoid showing Whats New at app startup" option
- * This version of the app is no longer maintained. Please upgrade to the Pro version. It is free till Nov 12 2018. You can find the Upgrade button at the top of the app Settings.
 
 Version 5.1.2 *(2018-10-30)*
 ----------------------------
