@@ -139,7 +139,7 @@
     <string name="animate_gifs">Animação de GIF nas miniaturas</string>
     <string name="max_brightness">Brilho máximo permitido</string>
     <string name="crop_thumbnails">Recortar miniaturas em quadrados</string>
-    <string name="show_thumbnail_video_duration">Show video durations</string>
+    <string name="show_thumbnail_video_duration">Mostrar duração do vídeo</string>
     <string name="screen_rotation_by">Rodar em ecrã completo por</string>
     <string name="screen_rotation_system_setting">Definições do sistema</string>
     <string name="screen_rotation_device_rotation">Rotação do dispositivo</string>
