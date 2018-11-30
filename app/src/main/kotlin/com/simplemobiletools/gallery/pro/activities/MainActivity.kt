@@ -928,15 +928,15 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun showSortedDirs(dirs: ArrayList<Directory>) {
-        val updatedDirs = getUniqueSortedDirs(dirs)
+        val updatedDirs = getUniqueSortedDirs(dirs).toMutableList() as ArrayList
         runOnUiThread {
             (directories_grid.adapter as? DirectoryAdapter)?.updateDirs(updatedDirs)
         }
     }
 
     private fun getUniqueSortedDirs(dirs: ArrayList<Directory>): ArrayList<Directory> {
-        val sortedDirs = dirs.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>
-        return getSortedDirectories(sortedDirs)
+        val distinctDirs = dirs.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>
+        return getSortedDirectories(distinctDirs)
     }
 
     private fun createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, albumCovers: ArrayList<AlbumCover>, hiddenString: String,
