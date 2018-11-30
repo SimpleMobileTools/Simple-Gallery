@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.pro.fragments
 
+import android.provider.MediaStore
 import android.view.MotionEvent
 import androidx.fragment.app.Fragment
 import com.simplemobiletools.commons.extensions.*
@@ -56,7 +57,7 @@ abstract class ViewPagerFragment : Fragment() {
         }
 
         if (detailsFlag and EXT_LAST_MODIFIED != 0) {
-            file.lastModified().formatDate().let { if (it.isNotEmpty()) details.appendln(it) }
+            getFileLastModified(file).let { if (it.isNotEmpty()) details.appendln(it) }
         }
 
         if (detailsFlag and EXT_DATE_TAKEN != 0) {
@@ -74,6 +75,23 @@ abstract class ViewPagerFragment : Fragment() {
     }
 
     fun getPathToLoad(medium: Medium) = if (medium.path.startsWith(OTG_PATH)) medium.path.getOTGPublicPath(context!!) else medium.path
+
+    private fun getFileLastModified(file: File): String {
+        val projection = arrayOf(MediaStore.Images.Media.DATE_MODIFIED)
+        val uri = MediaStore.Files.getContentUri("external")
+        val selection = "${MediaStore.MediaColumns.DATA} = ?"
+        val selectionArgs = arrayOf(file.absolutePath)
+        val cursor = context!!.contentResolver.query(uri, projection, selection, selectionArgs, null)
+        cursor?.use {
+            return if (cursor.moveToFirst()) {
+                val dateModified = cursor.getLongValue(MediaStore.Images.Media.DATE_MODIFIED) * 1000L
+                dateModified.formatDate()
+            } else {
+                file.lastModified().formatDate()
+            }
+        }
+        return ""
+    }
 
     protected fun handleEvent(event: MotionEvent) {
         when (event.actionMasked) {
