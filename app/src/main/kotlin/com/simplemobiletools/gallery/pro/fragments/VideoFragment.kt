@@ -144,7 +144,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             checkFullscreen()
             mWasFragmentInit = true
 
-            mExoPlayer = ExoPlayerFactory.newSimpleInstance(context, DefaultTrackSelector())
+            mExoPlayer = ExoPlayerFactory.newSimpleInstance(context)
             mExoPlayer!!.seekParameters = SeekParameters.CLOSEST_SYNC
             initExoPlayerListeners()
 
