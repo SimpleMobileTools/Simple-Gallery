@@ -801,7 +801,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     return
                 }
 
-                val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, favoritePaths)
+                val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, favoritePaths, false)
                 val newDir = if (curMedia.isEmpty()) {
                     if (directory.path != tempFolderPath) {
                         dirPathsToRemove.add(directory.path)
@@ -874,7 +874,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 return
             }
 
-            val newMedia = mediaFetcher.getFilesFrom(folder, getImagesOnly, getVideosOnly, getProperDateTaken, favoritePaths)
+            val newMedia = mediaFetcher.getFilesFrom(folder, getImagesOnly, getVideosOnly, getProperDateTaken, favoritePaths, false)
             if (newMedia.isEmpty()) {
                 continue
             }

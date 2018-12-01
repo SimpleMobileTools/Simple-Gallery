@@ -460,7 +460,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
             val showVideoDuration = medium.isVideo() && config.showThumbnailVideoDuration
             if (showVideoDuration) {
-                video_duration.text = medium.getVideoDuration().getFormattedDuration()
+                video_duration.text = medium.videoDuration.getFormattedDuration()
                 video_duration.setTextColor(textColor)
             }
             video_duration.beVisibleIf(showVideoDuration)

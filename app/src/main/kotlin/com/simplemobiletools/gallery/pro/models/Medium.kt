@@ -1,6 +1,5 @@
 package com.simplemobiletools.gallery.pro.models
 
-import android.media.MediaMetadataRetriever
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
@@ -26,6 +25,7 @@ data class Medium(
         @ColumnInfo(name = "date_taken") var taken: Long,
         @ColumnInfo(name = "size") val size: Long,
         @ColumnInfo(name = "type") val type: Int,
+        @ColumnInfo(name = "video_duration") val videoDuration: Int,
         @ColumnInfo(name = "is_favorite") var isFavorite: Boolean,
         @ColumnInfo(name = "deleted_ts") var deletedTS: Long) : Serializable, ThumbnailItem() {
 
@@ -76,18 +76,5 @@ data class Medium(
         }
 
         return calendar.timeInMillis.toString()
-    }
-
-    fun getVideoDuration(): Int {
-        var seconds = 0
-        try {
-            if (isVideo()) {
-                val retriever = MediaMetadataRetriever()
-                retriever.setDataSource(path)
-                seconds = Math.round(retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION).toInt() / 1000f)
-            }
-        } catch (e: Exception) {
-        }
-        return seconds
     }
 }

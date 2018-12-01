@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.pro.extensions
 
+import android.media.MediaMetadataRetriever
 import com.bumptech.glide.signature.ObjectKey
 import com.simplemobiletools.commons.helpers.OTG_PATH
 import java.io.File
@@ -42,4 +43,15 @@ fun String.getDistinctPath(): String {
     } catch (e: IOException) {
         toLowerCase()
     }
+}
+
+fun String.getVideoDuration(): Int {
+    var seconds = 0
+    try {
+        val retriever = MediaMetadataRetriever()
+        retriever.setDataSource(this)
+        seconds = Math.round(retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION).toInt() / 1000f)
+    } catch (e: Exception) {
+    }
+    return seconds
 }
