@@ -380,16 +380,10 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         val realDisplayMetrics = DisplayMetrics()
         display.getRealMetrics(realDisplayMetrics)
 
-        val realHeight = realDisplayMetrics.heightPixels
-        val realWidth = realDisplayMetrics.widthPixels
-
         val displayMetrics = DisplayMetrics()
         display.getMetrics(displayMetrics)
 
-        val displayHeight = displayMetrics.heightPixels
-        val displayWidth = displayMetrics.widthPixels
-
-        return realWidth - displayWidth > 0 || realHeight - displayHeight > 0
+        return (realDisplayMetrics.widthPixels - displayMetrics.widthPixels > 0) || (realDisplayMetrics.heightPixels - displayMetrics.heightPixels > 0)
     }
 
     private fun setupTimeHolder() {
