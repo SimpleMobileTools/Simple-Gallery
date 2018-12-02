@@ -214,7 +214,9 @@ fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, mediumDao
                     mediumDao.updateDeleted(it, System.currentTimeMillis())
                     pathsCnt--
                 }
-            } catch (ignored: Exception) {
+            } catch (e: Exception) {
+                showErrorToast(e)
+                return@forEach
             }
         }
         callback?.invoke(pathsCnt == 0)
