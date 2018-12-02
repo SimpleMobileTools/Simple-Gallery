@@ -470,10 +470,11 @@ fun Context.getOTGFolderChildrenNames(path: String) = getOTGFolderChildren(path)
 
 fun Context.getFavoritePaths() = galleryDB.MediumDao().getFavoritePaths() as ArrayList<String>
 
+// remove the "recycle_bin" from the file path prefix, replace it with real bin path /data/user...
 fun Context.getUpdatedDeletedMedia(mediumDao: MediumDao): ArrayList<Medium> {
     val media = mediumDao.getDeletedMedia() as ArrayList<Medium>
     media.forEach {
-        it.path = File(recycleBinPath, it.path).toString()
+        it.path = File(recycleBinPath, it.path.removePrefix(RECYCLE_BIN)).toString()
     }
     return media
 }
