@@ -1105,71 +1105,42 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun excludeSpamFolders() {
         Thread {
             try {
-                val internalPath = config.internalStoragePath
-                val sdPath = config.sdCardPath
-                val pathParts = ArrayList<ArrayList<String>>()
-                mDirs.asSequence().map { it.path.removePrefix(internalPath).removePrefix(sdPath) }.sorted().toList().forEach {
-                    val parts = it.split("/").asSequence().filter { it.isNotEmpty() }.toMutableList() as ArrayList<String>
-                    if (parts.size > 3) {
-                        pathParts.add(parts)
+                val internalPath = internalStoragePath
+                val checkedPaths = ArrayList<String>()
+                val oftenRepeatedPaths = ArrayList<String>()
+                val paths = mDirs.map { it.path.removePrefix(internalPath) }.toMutableList() as ArrayList<String>
+                paths.forEach {
+                    val parts = it.split("/")
+                    var currentString = ""
+                    for (i in 0 until parts.size) {
+                        currentString += "${parts[i]}/"
+
+                        if (!checkedPaths.contains(currentString)) {
+                            val cnt = paths.count { it.startsWith(currentString) }
+                            if (cnt > 50) {
+                                oftenRepeatedPaths.add(currentString)
+                            }
+                        }
+
+                        checkedPaths.add(currentString)
                     }
                 }
 
-                val keys = getLongestCommonStrings(pathParts)
-                pathParts.clear()
-                keys.forEach { it ->
-                    val parts = it.split("/").asSequence().filter { it.isNotEmpty() }.toMutableList() as ArrayList<String>
-                    pathParts.add(parts)
+                val substringToRemove = oftenRepeatedPaths.filter {
+                    val path = it
+                    it == "/" || oftenRepeatedPaths.any { it != path && it.startsWith(path) }
                 }
 
-                getLongestCommonStrings(pathParts).forEach {
-                    var file = File("$internalPath/$it")
+                oftenRepeatedPaths.removeAll(substringToRemove)
+                oftenRepeatedPaths.forEach {
+                    val file = File("$internalPath/$it")
                     if (file.exists()) {
                         config.addExcludedFolder(file.absolutePath)
-                    } else {
-                        file = File("$sdPath/$it")
-                        if (file.exists()) {
-                            config.addExcludedFolder(file.absolutePath)
-                        }
                     }
                 }
             } catch (e: Exception) {
             }
         }.start()
-    }
-
-    private fun getLongestCommonStrings(pathParts: ArrayList<ArrayList<String>>): ArrayList<String> {
-        val commonStrings = ArrayList<String>()
-        return try {
-            val cnt = pathParts.size
-            for (i in 0..cnt) {
-                var longestCommonString = ""
-                for (j in i..cnt) {
-                    var currentCommonString = ""
-                    if (i != j) {
-                        val originalParts = pathParts.getOrNull(i)
-                        val otherParts = pathParts.getOrNull(j)
-                        if (originalParts != null && otherParts != null) {
-                            originalParts.forEachIndexed { index, string ->
-                                if (string == otherParts.getOrNull(index)) {
-                                    currentCommonString += "$string/"
-                                    if (currentCommonString.length > longestCommonString.length) {
-                                        longestCommonString = currentCommonString.trimEnd('/')
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if (longestCommonString.isNotEmpty()) {
-                    commonStrings.add(longestCommonString)
-                }
-            }
-            commonStrings.groupingBy { it }.eachCount().filter { it.value > 5 && it.key.length > 10 }.map { it.key }.toMutableList() as ArrayList<String>
-        } catch (e: Exception) {
-            ArrayList()
-        }
     }
 
     override fun refreshItems() {
