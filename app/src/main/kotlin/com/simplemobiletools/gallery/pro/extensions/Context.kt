@@ -218,7 +218,7 @@ fun Context.rescanFolderMediaSync(path: String) {
                     if (!newMedia.contains(it)) {
                         val mediumPath = (it as? Medium)?.path
                         if (mediumPath != null) {
-                            mediumDao.deleteMediumPath(mediumPath)
+                            deleteDBPath(mediumDao, mediumPath)
                         }
                     }
                 }
@@ -437,7 +437,7 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
         val mediaToDelete = ArrayList<Medium>()
         media.filter { !getDoesFilePathExist(it.path) }.forEach {
             if (it.path.startsWith(recycleBinPath)) {
-                mediumDao.deleteMediumPath(it.path.removePrefix(recycleBinPath))
+                deleteDBPath(mediumDao, it.path)
             } else {
                 mediaToDelete.add(it)
             }
@@ -477,4 +477,8 @@ fun Context.getUpdatedDeletedMedia(mediumDao: MediumDao): ArrayList<Medium> {
         it.path = File(recycleBinPath, it.path.removePrefix(RECYCLE_BIN)).toString()
     }
     return media
+}
+
+fun Context.deleteDBPath(mediumDao: MediumDao, path: String) {
+    mediumDao.deleteMediumPath(path.replaceFirst(recycleBinPath, RECYCLE_BIN))
 }

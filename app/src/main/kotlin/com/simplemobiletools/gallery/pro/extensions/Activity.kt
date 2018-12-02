@@ -193,7 +193,7 @@ fun BaseSimpleActivity.tryDeleteFileDirItem(fileDirItem: FileDirItem, allowDelet
     deleteFile(fileDirItem, allowDeleteFolder) {
         if (deleteFromDatabase) {
             Thread {
-                galleryDB.MediumDao().deleteMediumPath(fileDirItem.path)
+                deleteDBPath(galleryDB.MediumDao(), fileDirItem.path)
                 runOnUiThread {
                     callback?.invoke(it)
                 }

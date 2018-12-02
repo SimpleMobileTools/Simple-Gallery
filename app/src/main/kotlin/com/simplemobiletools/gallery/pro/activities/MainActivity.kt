@@ -847,7 +847,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                         if (!curMedia.contains(it)) {
                             val path = (it as? Medium)?.path
                             if (path != null) {
-                                mMediumDao.deleteMediumPath(path)
+                                deleteDBPath(mMediumDao, path)
                             }
                         }
                     }

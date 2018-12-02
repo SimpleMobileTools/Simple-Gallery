@@ -884,8 +884,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             Thread {
                 val useRecycleBin = config.useRecycleBin
                 filtered.forEach {
-                    if (!useRecycleBin) {
-                        mMediumDao.deleteMediumPath(it.path)
+                    if (it.path.startsWith(recycleBinPath) || !useRecycleBin) {
+                        deleteDBPath(mMediumDao, it.path)
                     }
                 }
             }.start()
