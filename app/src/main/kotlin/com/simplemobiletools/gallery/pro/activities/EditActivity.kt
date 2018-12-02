@@ -333,7 +333,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
 
         bottom_aspect_ratio_other.setOnClickListener {
-            OtherAspectRatioDialog(this) {
+            OtherAspectRatioDialog(this, lastOtherAspectRatio) {
                 lastOtherAspectRatio = it
                 updateAspectRatio(ASPECT_RATIO_OTHER)
             }

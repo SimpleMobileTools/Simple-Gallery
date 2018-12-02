@@ -6,7 +6,7 @@ import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.gallery.pro.R
 import kotlinx.android.synthetic.main.dialog_other_aspect_ratio.view.*
 
-class OtherAspectRatioDialog(val activity: BaseSimpleActivity, val callback: (aspectRatio: Pair<Int, Int>) -> Unit) {
+class OtherAspectRatioDialog(val activity: BaseSimpleActivity, val lastOtherAspectRatio: Pair<Int, Int>?, val callback: (aspectRatio: Pair<Int, Int>) -> Unit) {
     private val dialog: AlertDialog
 
     init {
@@ -24,6 +24,28 @@ class OtherAspectRatioDialog(val activity: BaseSimpleActivity, val callback: (as
             other_aspect_ratio_3_5.setOnClickListener { ratioPicked(Pair(3, 5)) }
             other_aspect_ratio_9_16.setOnClickListener { ratioPicked(Pair(9, 16)) }
             other_aspect_ratio_9_19.setOnClickListener { ratioPicked(Pair(9, 19)) }
+
+            val radio1SelectedItemId = when (lastOtherAspectRatio) {
+                Pair(2, 1) -> other_aspect_ratio_2_1.id
+                Pair(3, 2) -> other_aspect_ratio_3_2.id
+                Pair(4, 3) -> other_aspect_ratio_4_3.id
+                Pair(5, 3) -> other_aspect_ratio_5_3.id
+                Pair(16, 9) -> other_aspect_ratio_16_9.id
+                Pair(19, 9) -> other_aspect_ratio_19_9.id
+                else -> 0
+            }
+            other_aspect_ratio_dialog_radio_1.check(radio1SelectedItemId)
+
+            val radio2SelectedItemId = when (lastOtherAspectRatio) {
+                Pair(1, 2) -> other_aspect_ratio_1_2.id
+                Pair(2, 3) -> other_aspect_ratio_2_3.id
+                Pair(3, 4) -> other_aspect_ratio_3_4.id
+                Pair(3, 5) -> other_aspect_ratio_3_5.id
+                Pair(9, 16) -> other_aspect_ratio_9_16.id
+                Pair(9, 19) -> other_aspect_ratio_9_19.id
+                else -> 0
+            }
+            other_aspect_ratio_dialog_radio_2.check(radio2SelectedItemId)
         }
 
         dialog = AlertDialog.Builder(activity)
