@@ -130,6 +130,10 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
         loadDefaultImageView()
         setupBottomActions()
+
+        if (config.lastEditorCropAspectRatio == ASPECT_RATIO_OTHER) {
+            lastOtherAspectRatio = Pair(config.lastEditorCropOtherAspectRatioX, config.lastEditorCropOtherAspectRatioY)
+        }
         updateAspectRatio(config.lastEditorCropAspectRatio)
     }
 
@@ -330,6 +334,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         bottom_aspect_ratio_other.setOnClickListener {
             OtherAspectRatioDialog(this, lastOtherAspectRatio) {
                 lastOtherAspectRatio = it
+                config.lastEditorCropOtherAspectRatioX = it.first
+                config.lastEditorCropOtherAspectRatioY = it.second
                 updateAspectRatio(ASPECT_RATIO_OTHER)
             }
         }

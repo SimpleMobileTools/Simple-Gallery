@@ -415,4 +415,12 @@ class Config(context: Context) : BaseConfig(context) {
     var lastEditorCropAspectRatio: Int
         get() = prefs.getInt(LAST_EDITOR_CROP_ASPECT_RATIO, ASPECT_RATIO_FREE)
         set(lastEditorCropAspectRatio) = prefs.edit().putInt(LAST_EDITOR_CROP_ASPECT_RATIO, lastEditorCropAspectRatio).apply()
+
+    var lastEditorCropOtherAspectRatioX: Int
+        get() = prefs.getInt(LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_X, 2)
+        set(lastEditorCropOtherAspectRatioX) = prefs.edit().putInt(LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_X, lastEditorCropOtherAspectRatioX).apply()
+
+    var lastEditorCropOtherAspectRatioY: Int
+        get() = prefs.getInt(LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y, 1)
+        set(lastEditorCropOtherAspectRatioY) = prefs.edit().putInt(LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y, lastEditorCropOtherAspectRatioY).apply()
 }
