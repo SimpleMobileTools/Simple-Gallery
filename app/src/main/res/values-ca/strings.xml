@@ -89,6 +89,7 @@
     <string name="flip_vertically">Verticalment</string>
     <string name="edit_with">Editar amb</string>
     <string name="free_aspect_ratio">Lliure</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Other</string>              <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Fons de pantalla de Simple Gallery</string>
