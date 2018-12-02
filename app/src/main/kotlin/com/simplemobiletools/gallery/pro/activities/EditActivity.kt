@@ -27,6 +27,7 @@ import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.FiltersAdapter
+import com.simplemobiletools.gallery.pro.dialogs.OtherAspectRatioDialog
 import com.simplemobiletools.gallery.pro.dialogs.ResizeDialog
 import com.simplemobiletools.gallery.pro.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.pro.extensions.config
@@ -58,6 +59,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private val ASPECT_RATIO_ONE_ONE = 1
     private val ASPECT_RATIO_FOUR_THREE = 2
     private val ASPECT_RATIO_SIXTEEN_NINE = 3
+    private val ASPECT_RATIO_OTHER = 4
 
     // constants for bottom primary action groups
     private val PRIMARY_ACTION_NONE = 0
@@ -71,6 +73,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private lateinit var saveUri: Uri
     private var resizeWidth = 0
     private var resizeHeight = 0
+    private var lastOtherAspectRatio: Pair<Int, Int>? = null
     private var currPrimaryAction = PRIMARY_ACTION_NONE
     private var currCropRotateAction = CROP_ROTATE_NONE
     private var currAspectRatio = ASPECT_RATIO_FREE
@@ -328,6 +331,14 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         bottom_aspect_ratio_sixteen_nine.setOnClickListener {
             updateAspectRatio(ASPECT_RATIO_SIXTEEN_NINE)
         }
+
+        bottom_aspect_ratio_other.setOnClickListener {
+            OtherAspectRatioDialog(this) {
+                lastOtherAspectRatio = it
+                updateAspectRatio(ASPECT_RATIO_OTHER)
+            }
+        }
+
         updateAspectRatioButtons()
     }
 
@@ -409,7 +420,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 val newAspectRatio = when (aspectRatio) {
                     ASPECT_RATIO_ONE_ONE -> Pair(1, 1)
                     ASPECT_RATIO_FOUR_THREE -> Pair(4, 3)
-                    else -> Pair(16, 9)
+                    ASPECT_RATIO_SIXTEEN_NINE -> Pair(16, 9)
+                    else -> Pair(lastOtherAspectRatio!!.first, lastOtherAspectRatio!!.second)
                 }
 
                 setAspectRatio(newAspectRatio.first, newAspectRatio.second)
@@ -418,7 +430,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun updateAspectRatioButtons() {
-        arrayOf(bottom_aspect_ratio_free, bottom_aspect_ratio_one_one, bottom_aspect_ratio_four_three, bottom_aspect_ratio_sixteen_nine).forEach {
+        arrayOf(bottom_aspect_ratio_free, bottom_aspect_ratio_one_one, bottom_aspect_ratio_four_three, bottom_aspect_ratio_sixteen_nine, bottom_aspect_ratio_other).forEach {
             it.setTextColor(Color.WHITE)
         }
 
@@ -426,7 +438,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             ASPECT_RATIO_FREE -> bottom_aspect_ratio_free
             ASPECT_RATIO_ONE_ONE -> bottom_aspect_ratio_one_one
             ASPECT_RATIO_FOUR_THREE -> bottom_aspect_ratio_four_three
-            else -> bottom_aspect_ratio_sixteen_nine
+            ASPECT_RATIO_SIXTEEN_NINE -> bottom_aspect_ratio_sixteen_nine
+            else -> bottom_aspect_ratio_other
         }
 
         currentAspectRatioButton.setTextColor(config.primaryColor)
