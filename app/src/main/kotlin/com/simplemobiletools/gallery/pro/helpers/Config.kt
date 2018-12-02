@@ -411,4 +411,8 @@ class Config(context: Context) : BaseConfig(context) {
     var allowDownGesture: Boolean
         get() = prefs.getBoolean(ALLOW_DOWN_GESTURE, true)
         set(allowDownGesture) = prefs.edit().putBoolean(ALLOW_DOWN_GESTURE, allowDownGesture).apply()
+
+    var lastEditorCropAspectRatio: Int
+        get() = prefs.getInt(LAST_EDITOR_CROP_ASPECT_RATIO, ASPECT_RATIO_FREE)
+        set(lastEditorCropAspectRatio) = prefs.edit().putInt(LAST_EDITOR_CROP_ASPECT_RATIO, lastEditorCropAspectRatio).apply()
 }

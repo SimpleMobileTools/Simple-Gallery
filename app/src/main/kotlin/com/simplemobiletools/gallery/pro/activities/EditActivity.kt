@@ -32,7 +32,7 @@ import com.simplemobiletools.gallery.pro.dialogs.ResizeDialog
 import com.simplemobiletools.gallery.pro.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.extensions.openEditor
-import com.simplemobiletools.gallery.pro.helpers.FilterThumbnailsManager
+import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.FilterItem
 import com.theartofdev.edmodo.cropper.CropImageView
 import com.zomato.photofilters.FilterPack
@@ -54,12 +54,6 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private val ASPECT_X = "aspectX"
     private val ASPECT_Y = "aspectY"
     private val CROP = "crop"
-
-    private val ASPECT_RATIO_FREE = 0
-    private val ASPECT_RATIO_ONE_ONE = 1
-    private val ASPECT_RATIO_FOUR_THREE = 2
-    private val ASPECT_RATIO_SIXTEEN_NINE = 3
-    private val ASPECT_RATIO_OTHER = 4
 
     // constants for bottom primary action groups
     private val PRIMARY_ACTION_NONE = 0
@@ -136,6 +130,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
         loadDefaultImageView()
         setupBottomActions()
+        updateAspectRatio(config.lastEditorCropAspectRatio)
     }
 
     override fun onResume() {
@@ -411,6 +406,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     private fun updateAspectRatio(aspectRatio: Int) {
         currAspectRatio = aspectRatio
+        config.lastEditorCropAspectRatio = aspectRatio
         updateAspectRatioButtons()
 
         crop_image_view.apply {
