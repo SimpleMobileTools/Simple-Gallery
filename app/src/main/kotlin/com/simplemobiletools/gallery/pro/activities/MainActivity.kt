@@ -1126,7 +1126,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
                         if (!checkedPaths.contains(currentString)) {
                             val cnt = paths.count { it.startsWith(currentString) }
-                            if (cnt > 50) {
+                            if (cnt > 50 && currentString.startsWith("/Android/data")) {
                                 oftenRepeatedPaths.add(currentString)
                             }
                         }
