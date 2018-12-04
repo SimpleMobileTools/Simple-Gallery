@@ -88,8 +88,8 @@
     <string name="flip_horizontally">Tükrözés vízszintesen</string>
     <string name="flip_vertically">Tükrözés függőlegesen</string>
     <string name="edit_with">Szerkesztés ezzel</string>
-    <string name="free_aspect_ratio">Szabad</string>                <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+    <string name="free_aspect_ratio">Kötetlen</string>                <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Egyéb</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <!-- Set wallpaper -->
