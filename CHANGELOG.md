@@ -1,6 +1,16 @@
 Changelog
 ==========
 
+Version 6.0.3 *(2018-12-02)*
+----------------------------
+
+ * Added multiple predefined aspect ratios at the Editor + remember the last used ratio
+ * Fix some issue with deleted items not appearing in the Recycle Bin, causing the app to take up too much space
+ * At delete/copy/move operations on folders apply them only on the visible files, take filters/hiding into account
+ * Do not exclude whole Data folder by default, be smarter about filtering out spam folders
+ * Added support for Sony RAW ".arw" files
+ * Optimize video duration fetching at thumbnails
+
 Version 6.0.2 *(2018-11-19)*
 ----------------------------
 
