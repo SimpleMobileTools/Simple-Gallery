@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 6.0.4 *(2018-12-04)*
+----------------------------
+
+ * Limit automatic spam folder exclusion to the "/Android/data" folder
+
 Version 6.0.3 *(2018-12-02)*
 ----------------------------
 
