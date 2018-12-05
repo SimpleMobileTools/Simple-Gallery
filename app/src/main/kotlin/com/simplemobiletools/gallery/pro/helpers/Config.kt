@@ -117,7 +117,7 @@ class Config(context: Context) : BaseConfig(context) {
     }
 
     var excludedFolders: MutableSet<String>
-        get() = prefs.getStringSet(EXCLUDED_FOLDERS, HashSet<String>())
+        get() = prefs.getStringSet(EXCLUDED_FOLDERS, HashSet())
         set(excludedFolders) = prefs.edit().remove(EXCLUDED_FOLDERS).putStringSet(EXCLUDED_FOLDERS, excludedFolders).apply()
 
     fun addIncludedFolder(path: String) {
@@ -151,6 +151,10 @@ class Config(context: Context) : BaseConfig(context) {
     var cropThumbnails: Boolean
         get() = prefs.getBoolean(CROP_THUMBNAILS, true)
         set(cropThumbnails) = prefs.edit().putBoolean(CROP_THUMBNAILS, cropThumbnails).apply()
+
+    var showThumbnailVideoDuration: Boolean
+        get() = prefs.getBoolean(SHOW_THUMBNAIL_VIDEO_DURATION, false)
+        set(showThumbnailVideoDuration) = prefs.edit().putBoolean(SHOW_THUMBNAIL_VIDEO_DURATION, showThumbnailVideoDuration).apply()
 
     var screenRotation: Int
         get() = prefs.getInt(SCREEN_ROTATION, ROTATE_BY_SYSTEM_SETTING)
@@ -407,4 +411,16 @@ class Config(context: Context) : BaseConfig(context) {
     var allowDownGesture: Boolean
         get() = prefs.getBoolean(ALLOW_DOWN_GESTURE, true)
         set(allowDownGesture) = prefs.edit().putBoolean(ALLOW_DOWN_GESTURE, allowDownGesture).apply()
+
+    var lastEditorCropAspectRatio: Int
+        get() = prefs.getInt(LAST_EDITOR_CROP_ASPECT_RATIO, ASPECT_RATIO_FREE)
+        set(lastEditorCropAspectRatio) = prefs.edit().putInt(LAST_EDITOR_CROP_ASPECT_RATIO, lastEditorCropAspectRatio).apply()
+
+    var lastEditorCropOtherAspectRatioX: Int
+        get() = prefs.getInt(LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_X, 2)
+        set(lastEditorCropOtherAspectRatioX) = prefs.edit().putInt(LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_X, lastEditorCropOtherAspectRatioX).apply()
+
+    var lastEditorCropOtherAspectRatioY: Int
+        get() = prefs.getInt(LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y, 1)
+        set(lastEditorCropOtherAspectRatioY) = prefs.edit().putInt(LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y, lastEditorCropOtherAspectRatioY).apply()
 }

@@ -239,7 +239,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             config.tempSkipDeleteConfirmation = false
             mTempShowHiddenHandler.removeCallbacksAndMessages(null)
             removeTempFolder()
-            GalleryDatabase.destroyInstance()
+
+            if (!config.showAll) {
+                GalleryDatabase.destroyInstance()
+            }
         }
     }
 
@@ -494,9 +497,18 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         if (config.useRecycleBin) {
             val pathsToDelete = ArrayList<String>()
+            val filter = config.filterMedia
+            val showHidden = config.shouldShowHidden
             fileDirItems.filter { it.isDirectory }.forEach {
                 val files = File(it.path).listFiles()
-                files?.filter { it.absolutePath.isMediaFile() }?.mapTo(pathsToDelete) { it.absolutePath }
+                files?.filter {
+                    it.absolutePath.isMediaFile() && (showHidden || !it.name.startsWith('.')) &&
+                            ((it.isImageFast() && filter and TYPE_IMAGES != 0) ||
+                                    (it.isVideoFast() && filter and TYPE_VIDEOS != 0) ||
+                                    (it.isGif() && filter and TYPE_GIFS != 0) ||
+                                    (it.isRawFast() && filter and TYPE_RAWS != 0) ||
+                                    (it.isSvg() && filter and TYPE_SVGS != 0))
+                }?.mapTo(pathsToDelete) { it.absolutePath }
             }
 
             movePathsInRecycleBin(pathsToDelete, mMediumDao) {
@@ -798,7 +810,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     return
                 }
 
-                val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, favoritePaths)
+                val curMedia = mediaFetcher.getFilesFrom(directory.path, getImagesOnly, getVideosOnly, getProperDateTaken, favoritePaths, false)
                 val newDir = if (curMedia.isEmpty()) {
                     if (directory.path != tempFolderPath) {
                         dirPathsToRemove.add(directory.path)
@@ -835,7 +847,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                         if (!curMedia.contains(it)) {
                             val path = (it as? Medium)?.path
                             if (path != null) {
-                                mMediumDao.deleteMediumPath(path)
+                                deleteDBPath(mMediumDao, path)
                             }
                         }
                     }
@@ -871,7 +883,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 return
             }
 
-            val newMedia = mediaFetcher.getFilesFrom(folder, getImagesOnly, getVideosOnly, getProperDateTaken, favoritePaths)
+            val newMedia = mediaFetcher.getFilesFrom(folder, getImagesOnly, getVideosOnly, getProperDateTaken, favoritePaths, false)
             if (newMedia.isEmpty()) {
                 continue
             }
@@ -913,7 +925,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
         mDirs = dirs.clone() as ArrayList<Directory>
 
-        if (config.appRunCount < 5 && mDirs.size > 100) {
+        if (mDirs.size > 100) {
             excludeSpamFolders()
         }
     }
@@ -925,15 +937,15 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun showSortedDirs(dirs: ArrayList<Directory>) {
-        val updatedDirs = getUniqueSortedDirs(dirs)
+        val updatedDirs = getUniqueSortedDirs(dirs).toMutableList() as ArrayList
         runOnUiThread {
             (directories_grid.adapter as? DirectoryAdapter)?.updateDirs(updatedDirs)
         }
     }
 
     private fun getUniqueSortedDirs(dirs: ArrayList<Directory>): ArrayList<Directory> {
-        val sortedDirs = dirs.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>
-        return getSortedDirectories(sortedDirs)
+        val distinctDirs = dirs.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>
+        return getSortedDirectories(distinctDirs)
     }
 
     private fun createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, albumCovers: ArrayList<AlbumCover>, hiddenString: String,
@@ -1102,71 +1114,42 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun excludeSpamFolders() {
         Thread {
             try {
-                val internalPath = config.internalStoragePath
-                val sdPath = config.sdCardPath
-                val pathParts = ArrayList<ArrayList<String>>()
-                mDirs.asSequence().map { it.path.removePrefix(internalPath).removePrefix(sdPath) }.sorted().toList().forEach {
-                    val parts = it.split("/").asSequence().filter { it.isNotEmpty() }.toMutableList() as ArrayList<String>
-                    if (parts.size > 3) {
-                        pathParts.add(parts)
+                val internalPath = internalStoragePath
+                val checkedPaths = ArrayList<String>()
+                val oftenRepeatedPaths = ArrayList<String>()
+                val paths = mDirs.map { it.path.removePrefix(internalPath) }.toMutableList() as ArrayList<String>
+                paths.forEach {
+                    val parts = it.split("/")
+                    var currentString = ""
+                    for (i in 0 until parts.size) {
+                        currentString += "${parts[i]}/"
+
+                        if (!checkedPaths.contains(currentString)) {
+                            val cnt = paths.count { it.startsWith(currentString) }
+                            if (cnt > 50 && currentString.startsWith("/Android/data", true)) {
+                                oftenRepeatedPaths.add(currentString)
+                            }
+                        }
+
+                        checkedPaths.add(currentString)
                     }
                 }
 
-                val keys = getLongestCommonStrings(pathParts)
-                pathParts.clear()
-                keys.forEach { it ->
-                    val parts = it.split("/").asSequence().filter { it.isNotEmpty() }.toMutableList() as ArrayList<String>
-                    pathParts.add(parts)
+                val substringToRemove = oftenRepeatedPaths.filter {
+                    val path = it
+                    it == "/" || oftenRepeatedPaths.any { it != path && it.startsWith(path) }
                 }
 
-                getLongestCommonStrings(pathParts).forEach {
-                    var file = File("$internalPath/$it")
+                oftenRepeatedPaths.removeAll(substringToRemove)
+                oftenRepeatedPaths.forEach {
+                    val file = File("$internalPath/$it")
                     if (file.exists()) {
                         config.addExcludedFolder(file.absolutePath)
-                    } else {
-                        file = File("$sdPath/$it")
-                        if (file.exists()) {
-                            config.addExcludedFolder(file.absolutePath)
-                        }
                     }
                 }
             } catch (e: Exception) {
             }
         }.start()
-    }
-
-    private fun getLongestCommonStrings(pathParts: ArrayList<ArrayList<String>>): ArrayList<String> {
-        val commonStrings = ArrayList<String>()
-        return try {
-            val cnt = pathParts.size
-            for (i in 0..cnt) {
-                var longestCommonString = ""
-                for (j in i..cnt) {
-                    var currentCommonString = ""
-                    if (i != j) {
-                        val originalParts = pathParts.getOrNull(i)
-                        val otherParts = pathParts.getOrNull(j)
-                        if (originalParts != null && otherParts != null) {
-                            originalParts.forEachIndexed { index, string ->
-                                if (string == otherParts.getOrNull(index)) {
-                                    currentCommonString += "$string/"
-                                    if (currentCommonString.length > longestCommonString.length) {
-                                        longestCommonString = currentCommonString.trimEnd('/')
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if (longestCommonString.isNotEmpty()) {
-                    commonStrings.add(longestCommonString)
-                }
-            }
-            commonStrings.groupingBy { it }.eachCount().filter { it.value > 5 && it.key.length > 10 }.map { it.key }.toMutableList() as ArrayList<String>
-        } catch (e: Exception) {
-            ArrayList()
-        }
     }
 
     override fun refreshItems() {

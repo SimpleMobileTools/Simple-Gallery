@@ -88,7 +88,8 @@
     <string name="flip_horizontally">Przewróć w poziomie</string>
     <string name="flip_vertically">Przewróć w pionie</string>
     <string name="edit_with">Edytuj w:</string>
-    <string name="free_aspect_ratio">Wolne</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="free_aspect_ratio">Wolne</string>                 <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Tapeta</string>
@@ -133,12 +134,13 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Odtwarzaj filmy automatycznie</string>
-    <string name="remember_last_video_position">Remember last video playback position</string>
+    <string name="remember_last_video_position">Pamiętaj ostatni moment odtwarzania filmów</string>
     <string name="toggle_filename">Pokazuj / ukrywaj nazwy plików</string>
     <string name="loop_videos">Zapętlaj odtwarzanie filmów</string>
     <string name="animate_gifs">Animowane miniatury GIFów</string>
     <string name="max_brightness">Maksymalna jasność podczas wyświetlania multimediów</string>
     <string name="crop_thumbnails">Przycinaj miniatury do kwadratów</string>
+    <string name="show_thumbnail_video_duration">Pokazuj czas trwania filmów</string>
     <string name="screen_rotation_by">Obracaj pełnoekranowe multimedia według</string>
     <string name="screen_rotation_system_setting">Ustawień systemowych</string>
     <string name="screen_rotation_device_rotation">Orientacji urządzenia</string>
@@ -202,39 +204,39 @@
     <string name="faq_12_title">Sortowanie według daty utworzenia nie działa poprawnie. Dlaczego tak się dzieje i jak mogę to naprawić?</string>
     <string name="faq_12_text">Dzieje się tak, gdyż prawdopodobnie pliki zostały skądś do urządzenia skopiowane. Naprawić to można wybierając miniatury plików, a następnie opcję \'Napraw datę utworzenia\'.</string>
     <string name="faq_13_title">Na obrazach widzę wyraźne zmiany w kolorach. Jak mogę to naprawić?</string>
-    <string name="faq_13_text">Obecne rozwiązanie służące wyświetlaniu obrazów działa jak powinno w większości w przypadków. Jeśli jednak tak nie jest, pomocna może okazać się opcja \"Pokazuj obrazy w najwyższej możliwej jakości\" w sekcji \"Duże powiększanie obrazów\".</string>
+    <string name="faq_13_text">Obecne rozwiązanie służące wyświetlaniu obrazów działa jak powinno w większości w przypadków. Jeśli jednak tak nie jest, pomocna może okazać się opcja \'Pokazuj obrazy w najwyższej możliwej jakości\' w sekcji \'Duże powiększanie obrazów\'.</string>
     <string name="faq_14_title">Mam ukryte pliki i / lub foldery. Jak mogę zobaczyć?</string>
-    <string name="faq_14_text">Możesz to zrobić albo wybierając opcję \"Tymczasowo pokaż ukryte multimedia\" w menu na ekranie głównym, lub \"Pokazuj ukryte elementy\" w ustawieniach. Foldery są ukrywane poprzez dodanie do nich pustego, ukrytego pliku \".nomedia\", usunąć go możesz dowolnym menedżerem plików.</string>
+    <string name="faq_14_text">Możesz to zrobić albo wybierając opcję \'Tymczasowo pokaż ukryte multimedia\' w menu na ekranie głównym, lub \'Pokazuj ukryte elementy\' w ustawieniach. Foldery są ukrywane poprzez dodanie do nich pustego, ukrytego pliku \'.nomedia\'. Usunąć go możesz dowolnym menedżerem plików.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Prosta galeria bez reklam do przeglądania obrazów i filmów.</string>
     <string name="app_long_description">
-        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
+        Wysoce konfigurowalna galeria obsługująca wiele formatów obrazów i filmów, w tym SVG, RAW oraz multimedia panoramiczne.
+        
+        Jest otwartoźródłowa, nie zawiera reklam i nie potrzebuje masy uprawnień.
 
-        It is open source, contains no ads or unnecessary permissions.
+        Oto lista wartych wspomnienia funkcji:
+        1. Wyszukiwanie
+        2. Pokazy slajdów
+        3. Wsparcie dla wcięć w ekranach
+        4. Przypinanie folderów
+        5. Filtrowanie plików według typu
+        6. Kosz dla łatwego odzyskiwania plików
+        7. Blokowanie orientacji ekranu w widoku pełnoekranowym
+        8. Oznaczanie plików jako ulubione dla łatwiejszego do nich dostępu
+        9. Szybkie zamykanie pełnoekranowego widoku gestem pociągnięcia w dół
+        10. Edytor do szybkich modyfikacji i poprawek
+        11. Ochrona plików i/lub całej aplikacji hasłem
+        12. Zmiana ilości kolumn w widoku miniatur gestami lub w menu
+        13. Konfigurowalne przyciski akcji w widoku pełnoekranowym
+        14. Rozszerzone informacje o multimediach w widoku pełnoekranowym
+        15. Wiele sposobów sortowania i grupowania plików i folderów, rosnąco i malejąco
+        16. Ukrywanie folderów (wszędzie) i ich wykluczanie (tylko w obrębie tej aplikacji)
 
-        Let\'s list some of its features worth mentioning:
-        1. Search
-        2. Slideshow
-        3. Notch support
-        4. Pinning folders to the top
-        5. Filtering media files by type
-        6. Recycle bin for easy file recovery
-        7. Fullscreen view orientation locking
-        8. Marking favorite files for easy access
-        9. Quick fullscreen media closing with down gesture
-        10. An editor for modifying images and applying filters
-        11. Password protection for protecting hidden items or the whole app
-        12. Changing the thumbnail column count with gestures or menu buttons
-        13. Customizable bottom actions at the fullscreen view for quick access
-        14. Showing extended details over fullscreen media with desired file properties
-        15. Several different ways of sorting or grouping items, both ascending and descending
-        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
+        Uprawnienie odnośnie odcisków palców potrzebne jest do blokowania widoczności plików i folderów, do ochrony przed ich usunięciem i do blokowania dostępu do aplikacji.
 
-        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
-
-        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
+        Aplikacja ta jest tylko częścią serii. Pozostałe znajdziesz tutaj: https://www.simplemobiletools.com
     </string>
 
     <!--

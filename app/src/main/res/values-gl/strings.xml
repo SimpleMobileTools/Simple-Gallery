@@ -88,7 +88,8 @@
     <string name="flip_horizontally">Voltear horizontalmente</string>
     <string name="flip_vertically">Voltear verticalmente</string>
     <string name="edit_with">Editar con</string>
-    <string name="free_aspect_ratio">Free</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="free_aspect_ratio">Free</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Fondo de pantalla</string>
@@ -139,6 +140,7 @@
     <string name="animate_gifs">Animar os GIFs na icona</string>
     <string name="max_brightness">Brillo ao máximo cando mire medios</string>
     <string name="crop_thumbnails">Recortar iconas a cadrados</string>
+    <string name="show_thumbnail_video_duration">Show video durations</string>
     <string name="screen_rotation_by">Rotar medios a pantalla completa a</string>
     <string name="screen_rotation_system_setting">Axuste do sistema</string>
     <string name="screen_rotation_device_rotation">Rotación do dispositivo</string>

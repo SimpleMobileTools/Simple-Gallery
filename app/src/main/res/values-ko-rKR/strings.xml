@@ -88,7 +88,8 @@
     <string name="flip_horizontally">가로 반전</string>
     <string name="flip_vertically">세로 반전</string>
     <string name="edit_with">이미지편집 프로그램 연결</string>
-    <string name="free_aspect_ratio">Free</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="free_aspect_ratio">Free</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
@@ -139,6 +140,7 @@
     <string name="animate_gifs">섬네일에서 GIFs 애니메이션 활성화</string>
     <string name="max_brightness">미디어 최대 밝기</string>
     <string name="crop_thumbnails">미리보기 사각형으로 자름</string>
+    <string name="show_thumbnail_video_duration">Show video durations</string>
     <string name="screen_rotation_by">전체화면으로 회전기준</string>
     <string name="screen_rotation_system_setting">시스템 설정</string>
     <string name="screen_rotation_device_rotation">디바이스 회전</string>

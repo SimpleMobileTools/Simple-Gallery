@@ -218,7 +218,7 @@ fun Context.rescanFolderMediaSync(path: String) {
                     if (!newMedia.contains(it)) {
                         val mediumPath = (it as? Medium)?.path
                         if (mediumPath != null) {
-                            mediumDao.deleteMediumPath(mediumPath)
+                            deleteDBPath(mediumDao, mediumPath)
                         }
                     }
                 }
@@ -437,7 +437,7 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
         val mediaToDelete = ArrayList<Medium>()
         media.filter { !getDoesFilePathExist(it.path) }.forEach {
             if (it.path.startsWith(recycleBinPath)) {
-                mediumDao.deleteMediumPath(it.path.removePrefix(recycleBinPath))
+                deleteDBPath(mediumDao, it.path)
             } else {
                 mediaToDelete.add(it)
             }
@@ -470,10 +470,15 @@ fun Context.getOTGFolderChildrenNames(path: String) = getOTGFolderChildren(path)
 
 fun Context.getFavoritePaths() = galleryDB.MediumDao().getFavoritePaths() as ArrayList<String>
 
+// remove the "recycle_bin" from the file path prefix, replace it with real bin path /data/user...
 fun Context.getUpdatedDeletedMedia(mediumDao: MediumDao): ArrayList<Medium> {
     val media = mediumDao.getDeletedMedia() as ArrayList<Medium>
     media.forEach {
-        it.path = File(recycleBinPath, it.path).toString()
+        it.path = File(recycleBinPath, it.path.removePrefix(RECYCLE_BIN)).toString()
     }
     return media
+}
+
+fun Context.deleteDBPath(mediumDao: MediumDao, path: String) {
+    mediumDao.deleteMediumPath(path.replaceFirst(recycleBinPath, RECYCLE_BIN))
 }

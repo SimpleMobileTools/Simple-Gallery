@@ -88,7 +88,8 @@
     <string name="flip_horizontally">Horizontaal kantelen</string>
     <string name="flip_vertically">Verticaal kantelen</string>
     <string name="edit_with">Bewerken met</string>
-    <string name="free_aspect_ratio">Vrij</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="free_aspect_ratio">Vrij</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Anders</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Achtergrond</string>
@@ -139,6 +140,7 @@
     <string name="animate_gifs">GIF-bestanden afspelen in overzicht</string>
     <string name="max_brightness">Maximale helderheid in volledig scherm</string>
     <string name="crop_thumbnails">Miniatuurvoorbeelden bijsnijden</string>
+    <string name="show_thumbnail_video_duration">Lengte van video\'s tonen</string>
     <string name="screen_rotation_by">Media in volledig scherm roteren volgens</string>
     <string name="screen_rotation_system_setting">Systeeminstelling</string>
     <string name="screen_rotation_device_rotation">Oriëntatie van apparaat</string>

@@ -34,6 +34,7 @@ import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.MediaAdapter
 import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
+import com.simplemobiletools.gallery.pro.databases.GalleryDatabase
 import com.simplemobiletools.gallery.pro.dialogs.ChangeGroupingDialog
 import com.simplemobiletools.gallery.pro.dialogs.ChangeSortingDialog
 import com.simplemobiletools.gallery.pro.dialogs.ExcludeFolderDialog
@@ -192,6 +193,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         if (config.showAll && !isChangingConfigurations) {
             config.temporarilyShowHidden = false
             config.tempSkipDeleteConfirmation = false
+            GalleryDatabase.destroyInstance()
         }
 
         mTempShowHiddenHandler.removeCallbacksAndMessages(null)
@@ -882,8 +884,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             Thread {
                 val useRecycleBin = config.useRecycleBin
                 filtered.forEach {
-                    if (!useRecycleBin) {
-                        mMediumDao.deleteMediumPath(it.path)
+                    if (it.path.startsWith(recycleBinPath) || !useRecycleBin) {
+                        deleteDBPath(mMediumDao, it.path)
                     }
                 }
             }.start()

@@ -4,7 +4,6 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Point
 import android.graphics.SurfaceTexture
-import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
@@ -145,7 +144,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             checkFullscreen()
             mWasFragmentInit = true
 
-            mExoPlayer = ExoPlayerFactory.newSimpleInstance(context, DefaultTrackSelector())
+            mExoPlayer = ExoPlayerFactory.newSimpleInstance(context)
             mExoPlayer!!.seekParameters = SeekParameters.CLOSEST_SYNC
             initExoPlayerListeners()
 
@@ -381,16 +380,10 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         val realDisplayMetrics = DisplayMetrics()
         display.getRealMetrics(realDisplayMetrics)
 
-        val realHeight = realDisplayMetrics.heightPixels
-        val realWidth = realDisplayMetrics.widthPixels
-
         val displayMetrics = DisplayMetrics()
         display.getMetrics(displayMetrics)
 
-        val displayHeight = displayMetrics.heightPixels
-        val displayWidth = displayMetrics.widthPixels
-
-        return realWidth - displayWidth > 0 || realHeight - displayHeight > 0
+        return (realDisplayMetrics.widthPixels - displayMetrics.widthPixels > 0) || (realDisplayMetrics.heightPixels - displayMetrics.heightPixels > 0)
     }
 
     private fun setupTimeHolder() {
@@ -524,13 +517,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     }
 
     private fun setupVideoDuration() {
-        try {
-            val retriever = MediaMetadataRetriever()
-            retriever.setDataSource(medium.path)
-            mDuration = Math.round(retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION).toInt() / 1000f)
-        } catch (ignored: Exception) {
-        }
-
+        mDuration = medium.path.getVideoDuration()
         setupTimeHolder()
         setPosition(0)
     }

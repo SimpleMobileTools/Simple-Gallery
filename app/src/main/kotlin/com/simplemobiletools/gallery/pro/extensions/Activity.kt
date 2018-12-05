@@ -16,6 +16,7 @@ import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.SimpleActivity
 import com.simplemobiletools.gallery.pro.dialogs.PickDirectoryDialog
 import com.simplemobiletools.gallery.pro.helpers.NOMEDIA
+import com.simplemobiletools.gallery.pro.helpers.RECYCLE_BIN
 import com.simplemobiletools.gallery.pro.interfaces.MediumDao
 import java.io.File
 import java.io.InputStream
@@ -192,7 +193,7 @@ fun BaseSimpleActivity.tryDeleteFileDirItem(fileDirItem: FileDirItem, allowDelet
     deleteFile(fileDirItem, allowDeleteFolder) {
         if (deleteFromDatabase) {
             Thread {
-                galleryDB.MediumDao().deleteMediumPath(fileDirItem.path)
+                deleteDBPath(galleryDB.MediumDao(), fileDirItem.path)
                 runOnUiThread {
                     callback?.invoke(it)
                 }
@@ -211,10 +212,12 @@ fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, mediumDao
             val internalFile = File(recycleBinPath, it)
             try {
                 if (file.copyRecursively(internalFile, true)) {
-                    mediumDao.updateDeleted(it, System.currentTimeMillis())
+                    mediumDao.updateDeleted("$RECYCLE_BIN$it", System.currentTimeMillis(), it)
                     pathsCnt--
                 }
-            } catch (ignored: Exception) {
+            } catch (e: Exception) {
+                showErrorToast(e)
+                return@forEach
             }
         }
         callback?.invoke(pathsCnt == 0)
@@ -238,7 +241,7 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, mediumDa
                 inputStream = getFileInputStreamSync(source)!!
                 inputStream.copyTo(out!!)
                 if (File(source).length() == File(destination).length()) {
-                    mediumDao.updateDeleted(destination, 0)
+                    mediumDao.updateDeleted(destination.removePrefix(recycleBinPath), 0, "$RECYCLE_BIN$destination")
                 }
             } catch (e: Exception) {
                 showErrorToast(e)

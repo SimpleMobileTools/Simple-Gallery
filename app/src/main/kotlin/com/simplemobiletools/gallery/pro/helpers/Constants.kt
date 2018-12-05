@@ -15,6 +15,7 @@ const val LOOP_VIDEOS = "loop_videos"
 const val ANIMATE_GIFS = "animate_gifs"
 const val MAX_BRIGHTNESS = "max_brightness"
 const val CROP_THUMBNAILS = "crop_thumbnails"
+const val SHOW_THUMBNAIL_VIDEO_DURATION = "show_thumbnail_video_duration"
 const val SCREEN_ROTATION = "screen_rotation"
 const val DISPLAY_FILE_NAMES = "display_file_names"
 const val DARK_BACKGROUND = "dark_background"
@@ -67,6 +68,9 @@ const val WAS_SVG_SHOWING_HANDLED = "was_svg_showing_handled"
 const val LAST_BIN_CHECK = "last_bin_check"
 const val SHOW_HIGHEST_QUALITY = "show_highest_quality"
 const val ALLOW_DOWN_GESTURE = "allow_down_gesture"
+const val LAST_EDITOR_CROP_ASPECT_RATIO = "last_editor_crop_aspect_ratio"
+const val LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_X = "last_editor_crop_other_aspect_ratio_x"
+const val LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y = "last_editor_crop_other_aspect_ratio_y"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"
@@ -79,7 +83,7 @@ const val SLIDESHOW_MOVE_BACKWARDS = "slideshow_move_backwards"
 const val SLIDESHOW_LOOP = "loop_slideshow"
 const val SLIDESHOW_DEFAULT_INTERVAL = 5
 const val SLIDESHOW_SCROLL_DURATION = 500L
-const val SLIDESHOW_START_ON_ENTER= "slideshow_start_on_enter"
+const val SLIDESHOW_START_ON_ENTER = "slideshow_start_on_enter"
 
 const val NOMEDIA = ".nomedia"
 const val FAVORITES = "favorites"
@@ -161,3 +165,10 @@ const val BOTTOM_ACTION_RENAME = 1024
 const val BOTTOM_ACTION_SET_AS = 2048
 
 const val DEFAULT_BOTTOM_ACTIONS = BOTTOM_ACTION_TOGGLE_FAVORITE or BOTTOM_ACTION_EDIT or BOTTOM_ACTION_SHARE or BOTTOM_ACTION_DELETE
+
+// aspect ratios used at the editor for cropping
+const val ASPECT_RATIO_FREE = 0
+const val ASPECT_RATIO_ONE_ONE = 1
+const val ASPECT_RATIO_FOUR_THREE = 2
+const val ASPECT_RATIO_SIXTEEN_NINE = 3
+const val ASPECT_RATIO_OTHER = 4

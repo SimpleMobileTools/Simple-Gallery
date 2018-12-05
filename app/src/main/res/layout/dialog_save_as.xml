@@ -18,10 +18,10 @@
         android:id="@+id/save_as_path"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/activity_margin"
         android:layout_marginLeft="@dimen/activity_margin"
-        android:paddingRight="@dimen/small_margin"
-        android:paddingTop="@dimen/small_margin"/>
+        android:layout_marginBottom="@dimen/activity_margin"
+        android:paddingTop="@dimen/small_margin"
+        android:paddingRight="@dimen/small_margin"/>
 
     <com.simplemobiletools.commons.views.MyEditText
         android:id="@+id/save_as_name"

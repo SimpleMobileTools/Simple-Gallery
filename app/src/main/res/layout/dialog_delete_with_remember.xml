@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingLeft="@dimen/big_margin"
-    android:paddingRight="@dimen/big_margin"
-    android:paddingTop="@dimen/big_margin">
+    android:paddingTop="@dimen/big_margin"
+    android:paddingRight="@dimen/big_margin">
 
     <com.simplemobiletools.commons.views.MyTextView
         android:id="@+id/delete_remember_title"

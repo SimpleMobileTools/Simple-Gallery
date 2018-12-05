@@ -1,3 +1,0 @@
-STORE_FILE=/path/to/your.keystore
-KEY_ALIAS=projectkeyalias
-PASSWORD=yourpass

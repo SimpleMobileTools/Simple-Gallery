@@ -25,6 +25,7 @@ data class Medium(
         @ColumnInfo(name = "date_taken") var taken: Long,
         @ColumnInfo(name = "size") val size: Long,
         @ColumnInfo(name = "type") val type: Int,
+        @ColumnInfo(name = "video_duration") val videoDuration: Int,
         @ColumnInfo(name = "is_favorite") var isFavorite: Boolean,
         @ColumnInfo(name = "deleted_ts") var deletedTS: Long) : Serializable, ThumbnailItem() {
 

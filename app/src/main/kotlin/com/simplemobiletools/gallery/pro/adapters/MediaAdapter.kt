@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.pro.adapters
 
 import android.content.ContentProviderOperation
 import android.media.ExifInterface
+import android.media.MediaMetadataRetriever
 import android.os.Handler
 import android.os.Looper
 import android.provider.MediaStore
@@ -161,7 +162,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         super.onViewRecycled(holder)
         if (!activity.isDestroyed) {
             val itemView = holder.itemView
-            visibleItemPaths.remove(itemView.photo_name?.tag)
+            visibleItemPaths.remove(itemView.medium_name?.tag)
             val tmb = itemView.medium_thumbnail
             if (tmb != null) {
                 Glide.with(activity).clear(tmb)
@@ -312,6 +313,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         activity.toast(R.string.fixing)
         Thread {
             try {
+                var didUpdateFile = false
                 val operations = ArrayList<ContentProviderOperation>()
                 val mediumDao = activity.galleryDB.MediumDao()
                 val paths = getSelectedPaths()
@@ -342,10 +344,11 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                     }
 
                     mediumDao.updateFavoriteDateTaken(path, timestamp)
+                    didUpdateFile = true
                 }
 
                 activity.contentResolver.applyBatch(MediaStore.AUTHORITY, operations)
-                activity.toast(R.string.dates_fixed_successfully)
+                activity.toast(if (didUpdateFile) R.string.dates_fixed_successfully else R.string.unknown_error_occurred)
                 activity.runOnUiThread {
                     listener?.refreshItems()
                     finishActMode()
@@ -451,9 +454,16 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         val isSelected = selectedKeys.contains(medium.path.hashCode())
         view.apply {
             play_outline.beVisibleIf(medium.isVideo())
-            photo_name.beVisibleIf(displayFilenames || isListViewType)
-            photo_name.text = medium.name
-            photo_name.tag = medium.path
+            medium_name.beVisibleIf(displayFilenames || isListViewType)
+            medium_name.text = medium.name
+            medium_name.tag = medium.path
+
+            val showVideoDuration = medium.isVideo() && config.showThumbnailVideoDuration
+            if (showVideoDuration) {
+                video_duration.text = medium.videoDuration.getFormattedDuration()
+                video_duration.setTextColor(textColor)
+            }
+            video_duration.beVisibleIf(showVideoDuration)
 
             medium_check?.beVisibleIf(isSelected)
             if (isSelected) {
@@ -479,7 +489,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             }
 
             if (isListViewType) {
-                photo_name.setTextColor(textColor)
+                medium_name.setTextColor(textColor)
                 play_outline.applyColorFilter(textColor)
             }
         }
@@ -490,5 +500,14 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             thumbnail_section.text = section.title
             thumbnail_section.setTextColor(textColor)
         }
+    }
+
+    private fun getFormattedVideoLength(medium: Medium): String {
+        if (medium.isVideo()) {
+            val retriever = MediaMetadataRetriever()
+            retriever.setDataSource(medium.path)
+            return Math.round(retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION).toInt() / 1000f).getFormattedDuration()
+        }
+        return ""
     }
 }

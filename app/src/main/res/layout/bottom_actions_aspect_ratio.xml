@@ -56,8 +56,22 @@
         android:text="16:9"
         android:textColor="@android:color/white"
         android:textSize="@dimen/big_text_size"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bottom_aspect_ratio_other"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bottom_aspect_ratio_four_three"/>
+
+    <TextView
+        android:id="@+id/bottom_aspect_ratio_other"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="@dimen/activity_margin"
+        android:text="@string/other_aspect_ratio"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/big_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bottom_aspect_ratio_sixteen_nine"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

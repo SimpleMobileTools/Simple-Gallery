@@ -11,71 +11,71 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingLeft="@dimen/activity_margin"
-        android:paddingRight="@dimen/activity_margin"
-        android:paddingTop="@dimen/medium_margin">
+        android:paddingTop="@dimen/medium_margin"
+        android:paddingRight="@dimen/activity_margin">
 
         <com.simplemobiletools.commons.views.MyAppCompatCheckbox
             android:id="@+id/manage_extended_details_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/activity_margin"
             android:paddingTop="@dimen/activity_margin"
+            android:paddingBottom="@dimen/activity_margin"
             android:text="@string/filename"/>
 
         <com.simplemobiletools.commons.views.MyAppCompatCheckbox
             android:id="@+id/manage_extended_details_path"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/activity_margin"
             android:paddingTop="@dimen/activity_margin"
+            android:paddingBottom="@dimen/activity_margin"
             android:text="@string/path"/>
 
         <com.simplemobiletools.commons.views.MyAppCompatCheckbox
             android:id="@+id/manage_extended_details_size"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/activity_margin"
             android:paddingTop="@dimen/activity_margin"
+            android:paddingBottom="@dimen/activity_margin"
             android:text="@string/size"/>
 
         <com.simplemobiletools.commons.views.MyAppCompatCheckbox
             android:id="@+id/manage_extended_details_resolution"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/activity_margin"
             android:paddingTop="@dimen/activity_margin"
+            android:paddingBottom="@dimen/activity_margin"
             android:text="@string/resolution"/>
 
         <com.simplemobiletools.commons.views.MyAppCompatCheckbox
             android:id="@+id/manage_extended_details_last_modified"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/activity_margin"
             android:paddingTop="@dimen/activity_margin"
+            android:paddingBottom="@dimen/activity_margin"
             android:text="@string/last_modified"/>
 
         <com.simplemobiletools.commons.views.MyAppCompatCheckbox
             android:id="@+id/manage_extended_details_date_taken"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/activity_margin"
             android:paddingTop="@dimen/activity_margin"
+            android:paddingBottom="@dimen/activity_margin"
             android:text="@string/date_taken"/>
 
         <com.simplemobiletools.commons.views.MyAppCompatCheckbox
             android:id="@+id/manage_extended_details_camera"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/activity_margin"
             android:paddingTop="@dimen/activity_margin"
+            android:paddingBottom="@dimen/activity_margin"
             android:text="@string/camera"/>
 
         <com.simplemobiletools.commons.views.MyAppCompatCheckbox
             android:id="@+id/manage_extended_details_exif"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/activity_margin"
             android:paddingTop="@dimen/activity_margin"
+            android:paddingBottom="@dimen/activity_margin"
             android:text="@string/exif"/>
 
         <ImageView
@@ -89,24 +89,24 @@
             android:id="@+id/manage_extended_details_duration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/activity_margin"
             android:paddingTop="@dimen/activity_margin"
+            android:paddingBottom="@dimen/activity_margin"
             android:text="@string/duration"/>
 
         <com.simplemobiletools.commons.views.MyAppCompatCheckbox
             android:id="@+id/manage_extended_details_artist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/activity_margin"
             android:paddingTop="@dimen/activity_margin"
+            android:paddingBottom="@dimen/activity_margin"
             android:text="@string/artist"/>
 
         <com.simplemobiletools.commons.views.MyAppCompatCheckbox
             android:id="@+id/manage_extended_details_album"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/activity_margin"
             android:paddingTop="@dimen/activity_margin"
+            android:paddingBottom="@dimen/activity_margin"
             android:text="@string/album"/>
 
     </LinearLayout>

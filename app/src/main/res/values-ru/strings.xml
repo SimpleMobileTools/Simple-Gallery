@@ -88,7 +88,8 @@
     <string name="flip_horizontally">По горизонтали</string>
     <string name="flip_vertically">По вертикали</string>
     <string name="edit_with">Редактировать в…</string>
-    <string name="free_aspect_ratio">Произвольно</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="free_aspect_ratio">Произвольно</string>               <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Other</string>                    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Простые обои</string>
@@ -138,7 +139,8 @@
     <string name="loop_videos">Повтор видео</string>
     <string name="animate_gifs">Анимировать эскизы GIF</string>
     <string name="max_brightness">Максимальная яркость при просмотре файлов</string>
-    <string name="crop_thumbnails">Нарезать миниатюры в квадраты</string>
+    <string name="crop_thumbnails">Нарезать миниатюры на квадраты</string>
+    <string name="show_thumbnail_video_duration">Показывать длительность видео</string>
     <string name="screen_rotation_by">Поворот экрана при просмотре изображения</string>
     <string name="screen_rotation_system_setting">Использовать системные настройки</string>
     <string name="screen_rotation_device_rotation">При повороте устройства</string>

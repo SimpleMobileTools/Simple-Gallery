@@ -88,7 +88,8 @@
     <string name="flip_horizontally">Retourner horizontalement</string>
     <string name="flip_vertically">Retourner verticalement</string>
     <string name="edit_with">Modifier avec</string>
-    <string name="free_aspect_ratio">Libre</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="free_aspect_ratio">Libre</string>                 <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Fond d\'écran simple</string>
@@ -139,6 +140,7 @@
     <string name="animate_gifs">GIFs animés sur les miniatures</string>
     <string name="max_brightness">Luminosité maximale</string>
     <string name="crop_thumbnails">Recadrer les miniatures en carrés</string>
+    <string name="show_thumbnail_video_duration">Show video durations</string>
     <string name="screen_rotation_by">Pivoter l\'affichage selon</string>
     <string name="screen_rotation_system_setting">Paramètres système</string>
     <string name="screen_rotation_device_rotation">Rotation de l\'appareil</string>

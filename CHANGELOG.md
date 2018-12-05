@@ -1,10 +1,44 @@
 Changelog
 ==========
 
+Version 6.0.4 *(2018-12-04)*
+----------------------------
+
+ * Limit automatic spam folder exclusion to the "/Android/data" folder
+
+Version 6.0.3 *(2018-12-02)*
+----------------------------
+
+ * Added multiple predefined aspect ratios at the Editor + remember the last used ratio
+ * Fix some issue with deleted items not appearing in the Recycle Bin, causing the app to take up too much space
+ * At delete/copy/move operations on folders apply them only on the visible files, take filters/hiding into account
+ * Do not exclude whole Data folder by default, be smarter about filtering out spam folders
+ * Added support for Sony RAW ".arw" files
+ * Optimize video duration fetching at thumbnails
+
+Version 6.0.2 *(2018-11-19)*
+----------------------------
+
+ * Adding a crashfix related to showing video duration
+
+Version 6.0.1 *(2018-11-19)*
+----------------------------
+
+ * Added optional displaying video duration on thumbnails
+ * Fixed keeping last_modified value at copy/move in some cases
+ * Exclude the Data folder by default
+ * Many translation, UX and stability improvements
+
 Version 6.0.0 *(2018-11-04)*
 ----------------------------
 
  * Initial Pro version
+
+Version 5.1.4 *(2018-11-28)*
+----------------------------
+
+ * Make sure the "Upgrade to Pro" popup isn't shown at first launch
+ * This version of the app is no longer maintained, please upgrade to the Pro version. You can find the Upgrade button at the top of the app Settings.
 
 Version 5.1.3 *(2018-11-04)*
 ----------------------------
@@ -15,7 +49,6 @@ Version 5.1.3 *(2018-11-04)*
  * Remove some glitches related to third party file opening
  * Do not exclude the Data folder by default
  * Removed the "Avoid showing Whats New at app startup" option
- * This version of the app is no longer maintained. Please upgrade to the Pro version. It is free till Nov 12 2018. You can find the Upgrade button at the top of the app Settings.
 
 Version 5.1.2 *(2018-10-30)*
 ----------------------------

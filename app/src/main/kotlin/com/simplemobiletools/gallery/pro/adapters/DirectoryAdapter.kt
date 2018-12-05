@@ -323,8 +323,15 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             if (it.startsWith(OTG_PATH)) {
                 paths.addAll(getOTGFilePaths(it, showHidden))
             } else if (it != FAVORITES) {
+                val filter = config.filterMedia
                 File(it).listFiles()?.filter {
-                    !activity.getIsPathDirectory(it.absolutePath) && it.isMediaFile() && (showHidden || !it.name.startsWith('.'))
+                    !activity.getIsPathDirectory(it.absolutePath) &&
+                            it.absolutePath.isMediaFile() && (showHidden || !it.name.startsWith('.')) &&
+                            ((it.isImageFast() && filter and TYPE_IMAGES != 0) ||
+                                    (it.isVideoFast() && filter and TYPE_VIDEOS != 0) ||
+                                    (it.isGif() && filter and TYPE_GIFS != 0) ||
+                                    (it.isRawFast() && filter and TYPE_RAWS != 0) ||
+                                    (it.isSvg() && filter and TYPE_SVGS != 0))
                 }?.mapTo(paths) { it.absolutePath }
             }
         }
@@ -339,8 +346,16 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
     private fun getOTGFilePaths(path: String, showHidden: Boolean): ArrayList<String> {
         val paths = ArrayList<String>()
-        activity.getOTGFolderChildren(path)?.forEach {
-            if (!it.isDirectory && it.name!!.isMediaFile() && (showHidden || !it.name!!.startsWith('.'))) {
+        val filter = config.filterMedia
+        activity.getOTGFolderChildren(path)?.filter { it.name != null }?.forEach {
+            if (!it.isDirectory &&
+                    it.name!!.isMediaFile() && (showHidden || !it.name!!.startsWith('.')) &&
+                    ((it.name!!.isImageFast() && filter and TYPE_IMAGES != 0) ||
+                            (it.name!!.isVideoFast() && filter and TYPE_VIDEOS != 0) ||
+                            (it.name!!.isGif() && filter and TYPE_GIFS != 0) ||
+                            (it.name!!.isRawFast() && filter and TYPE_RAWS != 0) ||
+                            (it.name!!.isSvg() && filter and TYPE_SVGS != 0))
+            ) {
                 val relativePath = it.uri.path.substringAfterLast("${activity.config.OTGPartition}:")
                 paths.add("$OTG_PATH$relativePath")
             }

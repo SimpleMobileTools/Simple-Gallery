@@ -88,7 +88,8 @@
     <string name="flip_horizontally">Speilvend horisontalt</string>
     <string name="flip_vertically">Speilvend vertikalt</string>
     <string name="edit_with">Rediger med</string>
-    <string name="free_aspect_ratio">Fri</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="free_aspect_ratio">Fri</string>               <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Other</string>            <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Bakgrunnsbilde</string>
@@ -139,6 +140,7 @@
     <string name="animate_gifs">Animert GIF i minibildevisning</string>
     <string name="max_brightness">Maks lysstyrke ved mediavisning</string>
     <string name="crop_thumbnails">Beskjær minibilder i kvadrater</string>
+    <string name="show_thumbnail_video_duration">Vis videolengde</string>
     <string name="screen_rotation_by">Roter media etter</string>
     <string name="screen_rotation_system_setting">Systeminnstilling</string>
     <string name="screen_rotation_device_rotation">Enhetsrotasjon</string>

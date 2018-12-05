@@ -88,7 +88,8 @@
     <string name="flip_horizontally">Horizontal spiegeln</string>
     <string name="flip_vertically">Vertikal spiegeln</string>
     <string name="edit_with">Bearbeiten mit:</string>
-    <string name="free_aspect_ratio">Beliebiges Seitenverhältnis</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="free_aspect_ratio">Beliebiges</string>                        <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Other</string>                            <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Schlichter Hintergrund</string>
@@ -133,12 +134,13 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Videos automatisch abspielen</string>
-    <string name="remember_last_video_position">Remember last video playback position</string>
+    <string name="remember_last_video_position">Letzte Videowiedergabeposition erinnern</string>
     <string name="toggle_filename">Beschriftungen ein/aus</string>
     <string name="loop_videos">Videos in Endlosschleife abspielen</string>
     <string name="animate_gifs">Kacheln von GIFs animieren</string>
     <string name="max_brightness">Helligkeit beim Betrachten maximieren</string>
     <string name="crop_thumbnails">Kacheln quadratisch zuschneiden</string>
+    <string name="show_thumbnail_video_duration">Show video durations</string>
     <string name="screen_rotation_by">Im Vollbild ausrichten nach:</string>
     <string name="screen_rotation_system_setting">Systemeinstellung</string>
     <string name="screen_rotation_device_rotation">Gerätedrehung</string>
@@ -163,7 +165,7 @@
     <string name="deep_zoomable_images">Stark vergrösserbare Bilder</string>
     <string name="show_highest_quality">Zeige Bilder in der höchstmöglichen Qualität</string>
     <string name="show_recycle_bin_last">Zeige den Papierkorb als letztes Element auf dem Hauptbildschirm</string>
-    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
+    <string name="allow_down_gesture">Erlaube das Schließen der Vollbildansicht mit einer Abwärtsgeste</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>
@@ -211,31 +213,31 @@
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Eine schlichte Galerie zum Betrachten von Bildern und Videos, ganz ohne Werbung.</string>
     <string name="app_long_description">
-        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
+        Eine stark anpassbare Galerie fähig zur Anzeige von diversen Bild- und Videoarten u. a. SVG, RAW, Panoramafotos und -videos. 
 
-        It is open source, contains no ads or unnecessary permissions.
+        Sie ist Open Source, enthält keine Werbung und verlangt keine unnötigen Berechtigungen.
 
-        Let\'s list some of its features worth mentioning:
-        1. Search
-        2. Slideshow
-        3. Notch support
-        4. Pinning folders to the top
-        5. Filtering media files by type
-        6. Recycle bin for easy file recovery
-        7. Fullscreen view orientation locking
-        8. Marking favorite files for easy access
-        9. Quick fullscreen media closing with down gesture
-        10. An editor for modifying images and applying filters
-        11. Password protection for protecting hidden items or the whole app
-        12. Changing the thumbnail column count with gestures or menu buttons
-        13. Customizable bottom actions at the fullscreen view for quick access
-        14. Showing extended details over fullscreen media with desired file properties
-        15. Several different ways of sorting or grouping items, both ascending and descending
-        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
+        Hier eine Liste von einigen nennenswerten Eigenschaften:
+        1. Suche
+        2. Diashow
+        3. Kerbenunterstützung
+        4. Ordner zuoberst anheften
+        5. Mediendateien nach Typ filtern
+        6. Papierkorb für die einfache Dateiwiederherstellung
+        7. Orientierung der Vollbildansicht arretieren
+        8. Markierung von favorisierten Dateien für einfachen Zugriff
+        9. Rasches Schliessen der Vollbildansicht durch Abwärtsgeste
+        10. Ein Editor für die Bearbeitung von Bildern und die Anwendung von Filtern
+        11. Passwortschutz für den Schutz von versteckten Elementen oder der ganzen App
+        12. Ändern der Vorschauspaltenanzahl mit Gesten oder Menüknöpfen
+        13. Anpassbare Aktionen am unteren Ende der Vollbildansicht für raschen Zugriff 
+        14. Anzeigen von weiteren Eigenschaften der Datei in der Vollbildansicht
+        15. Diverse Arten der Sortierung oder Gruppierung von Elementen, beides an- und absteigend
+        16. Ordner verstecken (betrifft andere Apps ebenfalls) und ausschliessen (betrifft nur Schlichte Galerie) 
 
-        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
+        Die Fingerabdruckberechtigung ist nötig für entweder das Festsetzen der Sichtbarkeit von versteckten Elementen/der ganzen App oder das Schützen von Dateien vor dem Löschen. 
 
-        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
+        Diese App ist nur ein Teil einer grösseren Serie von Apps. Der Rest befindet sich unter https://www.simplemobiletools.com .
     </string>
 
     <!--

@@ -88,7 +88,8 @@
     <string name="flip_horizontally">Pyöräytä vaakasuoraan</string>
     <string name="flip_vertically">Pyöräytä pystysuoraan</string>
     <string name="edit_with">Muokkaa sovelluksella</string>
-    <string name="free_aspect_ratio">Free</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="free_aspect_ratio">Free</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
@@ -139,6 +140,7 @@
     <string name="animate_gifs">Animoi GIFit pienoiskuvissa</string>
     <string name="max_brightness">Täysi kirkkaus mediaa katsoessa</string>
     <string name="crop_thumbnails">Leikkaa pienoiskuvat neliöiksi</string>
+    <string name="show_thumbnail_video_duration">Show video durations</string>
     <string name="screen_rotation_by">Käännä koko ruudun mediaa</string>
     <string name="screen_rotation_system_setting">Järjestelmän asetukset</string>
     <string name="screen_rotation_device_rotation">Laitteen kierto</string>

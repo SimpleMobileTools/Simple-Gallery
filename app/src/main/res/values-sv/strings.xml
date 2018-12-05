@@ -88,7 +88,8 @@
     <string name="flip_horizontally">Vänd horisontellt</string>
     <string name="flip_vertically">Vänd vertikalt</string>
     <string name="edit_with">Redigera med</string>
-    <string name="free_aspect_ratio">Fritt</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="free_aspect_ratio">Fritt</string>                 <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Bakgrund</string>
@@ -139,6 +140,7 @@
     <string name="animate_gifs">Animera GIF-bilders miniatyrer</string>
     <string name="max_brightness">Maximal ljusstyrka när media visas i helskärmsläge</string>
     <string name="crop_thumbnails">Beskär miniatyrer till kvadrater</string>
+    <string name="show_thumbnail_video_duration">Show video durations</string>
     <string name="screen_rotation_by">Rotera media i helskärmsläge</string>
     <string name="screen_rotation_system_setting">Systeminställning</string>
     <string name="screen_rotation_device_rotation">Enhetens rotation</string>
@@ -160,9 +162,9 @@
     <string name="do_extra_check">Gör en extra kontroll för att hindra ogiltiga filer från att visas</string>
     <string name="show_at_bottom">Visa några åtgärdsknappar längst ned på skärmen</string>
     <string name="show_recycle_bin">Visa Papperskorgen i mappvyn</string>
-    <string name="deep_zoomable_images">Deep zoomable images</string>
-    <string name="show_highest_quality">Show images in the highest possible quality</string>
-    <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
+    <string name="deep_zoomable_images">Djupt zoombara bilder</string>
+    <string name="show_highest_quality">Visa bilder i högsta möjliga kvalitet</string>
+    <string name="show_recycle_bin_last">Visa Papperskorgen som det sista objektet i huvudvyn</string>
     <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
 
     <!-- Setting sections -->

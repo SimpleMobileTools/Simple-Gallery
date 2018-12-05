@@ -4,7 +4,7 @@
     android:id="@+id/panorama_holder"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF000000">
+    android:background="@color/md_grey_black">
 
     <com.google.vr.sdk.widgets.pano.VrPanoramaView
         android:id="@+id/panorama_view"

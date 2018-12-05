@@ -18,7 +18,8 @@ import java.util.*
 class MediaFetcher(val context: Context) {
     var shouldStop = false
 
-    fun getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean, getProperDateTaken: Boolean, favoritePaths: ArrayList<String>): ArrayList<Medium> {
+    fun getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean, getProperDateTaken: Boolean, favoritePaths: ArrayList<String>,
+                     getVideoDurations: Boolean): ArrayList<Medium> {
         val filterMedia = context.config.filterMedia
         if (filterMedia == 0) {
             return ArrayList()
@@ -26,10 +27,10 @@ class MediaFetcher(val context: Context) {
 
         val curMedia = ArrayList<Medium>()
         if (curPath.startsWith(OTG_PATH)) {
-            val newMedia = getMediaOnOTG(curPath, isPickImage, isPickVideo, filterMedia, favoritePaths)
+            val newMedia = getMediaOnOTG(curPath, isPickImage, isPickVideo, filterMedia, favoritePaths, getVideoDurations)
             curMedia.addAll(newMedia)
         } else {
-            val newMedia = getMediaInFolder(curPath, isPickImage, isPickVideo, filterMedia, getProperDateTaken, favoritePaths)
+            val newMedia = getMediaInFolder(curPath, isPickImage, isPickVideo, filterMedia, getProperDateTaken, favoritePaths, getVideoDurations)
             curMedia.addAll(newMedia)
         }
 
@@ -122,7 +123,7 @@ class MediaFetcher(val context: Context) {
         val foldersToIgnore = arrayListOf("/storage/emulated/legacy")
         val config = context.config
         val includedFolders = config.includedFolders
-        var foldersToScan = config.everShownFolders.toMutableList() as ArrayList
+        var foldersToScan = config.everShownFolders.filter { it == FAVORITES || it == RECYCLE_BIN || context.getDoesFilePathExist(it) }.toMutableList() as ArrayList
 
         cursor.use {
             if (cursor.moveToFirst()) {
@@ -167,7 +168,7 @@ class MediaFetcher(val context: Context) {
     }
 
     private fun getMediaInFolder(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int, getProperDateTaken: Boolean,
-                                 favoritePaths: ArrayList<String>): ArrayList<Medium> {
+                                 favoritePaths: ArrayList<String>, getVideoDurations: Boolean): ArrayList<Medium> {
         val media = ArrayList<Medium>()
 
         val deletedMedia = if (folder == RECYCLE_BIN) {
@@ -231,6 +232,7 @@ class MediaFetcher(val context: Context) {
             } else {
                 val lastModified = file.lastModified()
                 var dateTaken = lastModified
+                val videoDuration = if (getVideoDurations && isVideo) path.getVideoDuration() else 0
 
                 if (getProperDateTaken) {
                     dateTaken = dateTakens.remove(filename) ?: lastModified
@@ -245,14 +247,15 @@ class MediaFetcher(val context: Context) {
                 }
 
                 val isFavorite = favoritePaths.contains(path)
-                val medium = Medium(null, filename, path, file.parent, lastModified, dateTaken, size, type, isFavorite, 0L)
+                val medium = Medium(null, filename, path, file.parent, lastModified, dateTaken, size, type, videoDuration, isFavorite, 0L)
                 media.add(medium)
             }
         }
         return media
     }
 
-    private fun getMediaOnOTG(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int, favoritePaths: ArrayList<String>): ArrayList<Medium> {
+    private fun getMediaOnOTG(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int, favoritePaths: ArrayList<String>,
+                              getVideoDurations: Boolean): ArrayList<Medium> {
         val media = ArrayList<Medium>()
         val files = context.getDocumentFile(folder)?.listFiles() ?: return media
         val doExtraCheck = context.config.doExtraCheck
@@ -307,8 +310,9 @@ class MediaFetcher(val context: Context) {
             }
 
             val path = Uri.decode(file.uri.toString().replaceFirst("${context.config.OTGTreeUri}/document/${context.config.OTGPartition}%3A", OTG_PATH))
+            val videoDuration = if (getVideoDurations) path.getVideoDuration() else 0
             val isFavorite = favoritePaths.contains(path)
-            val medium = Medium(null, filename, path, folder, dateModified, dateTaken, size, type, isFavorite, 0L)
+            val medium = Medium(null, filename, path, folder, dateModified, dateTaken, size, type, videoDuration, isFavorite, 0L)
             media.add(medium)
         }
 

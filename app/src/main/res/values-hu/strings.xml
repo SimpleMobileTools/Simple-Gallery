@@ -21,7 +21,7 @@
     <string name="select_photo">Válasszon fotót</string>
     <string name="use_default">Alapértelmezett használata</string>
     <string name="volume">Hangerő</string>
-    <string name="brightness">Fényesség</string>
+    <string name="brightness">Fényerő</string>
     <string name="lock_orientation">Tájolás zárolása</string>
     <string name="unlock_orientation">Tájolás feloldása</string>
     <string name="change_orientation">Tájolás változtatása</string>
@@ -88,7 +88,8 @@
     <string name="flip_horizontally">Tükrözés vízszintesen</string>
     <string name="flip_vertically">Tükrözés függőlegesen</string>
     <string name="edit_with">Szerkesztés ezzel</string>
-    <string name="free_aspect_ratio">Szabad</string>
+    <string name="free_aspect_ratio">Kötetlen</string>                <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Egyéb</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <!-- Set wallpaper -->
@@ -124,8 +125,8 @@
     <string name="group_direct_subfolders">Közvetlen almappa csoport</string>
 
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Csoport</string>
-    <string name="do_not_group_files">Nincsenek csoportosított fájlok</string>
+    <string name="group_by">Csoportosítás</string>
+    <string name="do_not_group_files">Nincs csoportosítás</string>
     <string name="by_folder">Mappa</string>
     <string name="by_last_modified">Utolsó módosítás</string>
     <string name="by_date_taken">Dátum</string>
@@ -140,6 +141,7 @@
     <string name="animate_gifs">Animált GIF miniatűr</string>
     <string name="max_brightness">Maximális fényerő a teljes képernyős médiánál</string>
     <string name="crop_thumbnails">Miniatűrök négyzet alakúra vágva</string>
+    <string name="show_thumbnail_video_duration">Mutassa a videó időtartamát</string>
     <string name="screen_rotation_by">Teljes képernyős média forgatása</string>
     <string name="screen_rotation_system_setting">Rendszer beállítások</string>
     <string name="screen_rotation_device_rotation">Eszköz elforgatás</string>
@@ -150,7 +152,7 @@
     <string name="delete_empty_folders">Az üres mappák törlése a tartalom törlése után</string>
     <string name="allow_photo_gestures">Engedélyezi a kép fényerő módosítást függőleges gesztusokkal</string>
     <string name="allow_video_gestures">Engedélyezi a videó hangerő és fényerő módosítást függőleges gesztusokkal</string>
-    <string name="show_media_count">Mutassa be a mappák számát a főnézetben</string>
+    <string name="show_media_count">Mutassa a fájlok számát a mappákban</string>
     <string name="replace_share_with_rotate">Cserélje meg a Megosztást a Forgatással a teljes képernyős menüben</string>
     <string name="show_extended_details">Mutassa a kiterjesztett adatokat a teljes képernyős médián keresztül</string>
     <string name="manage_extended_details">Bővített részletek kezelése</string>

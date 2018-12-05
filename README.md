@@ -31,7 +31,7 @@ The fingerprint permission is needed for locking either hidden item visibility, 
 This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
 
 <a href='https://play.google.com/store/apps/details?id=com.simplemobiletools.gallery.pro'><img src='http://simplemobiletools.github.io/assets/public/google-play.png' alt='Get it on Google Play' height='45' /></a>
-<a href='https://f-droid.org/packages/com.simplemobiletools.gallery'><img src='http://simplemobiletools.github.io/assets/public/f-droid.png' alt='Get it on F-Droid' height='45' /></a>
+<a href='https://f-droid.org/packages/com.simplemobiletools.gallery.pro'><img src='http://simplemobiletools.github.io/assets/public/f-droid.png' alt='Get it on F-Droid' height='45' /></a>
 
 <div style="display:flex;">
 <img alt="App image" src="fastlane/metadata/android/en-US/images/phoneScreenshots/app.jpg" width="30%">

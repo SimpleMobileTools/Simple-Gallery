@@ -88,7 +88,8 @@
     <string name="flip_horizontally">Okreni horizontalno</string>
     <string name="flip_vertically">Okreni vertikalno</string>
     <string name="edit_with">Uredi pomoću</string>
-    <string name="free_aspect_ratio">Slobodan odabir</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="free_aspect_ratio">Slobodan odabir</string>           <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Other</string>                    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Jednostavna pozadina</string>
@@ -139,6 +140,7 @@
     <string name="animate_gifs">Prikaz animacije GIF-ova na sličicama</string>
     <string name="max_brightness">Maksimalna svjetlina pri pregledu datoteka</string>
     <string name="crop_thumbnails">Izreži sličice u kvadrate</string>
+    <string name="show_thumbnail_video_duration">Show video durations</string>
     <string name="screen_rotation_by">Rotiraj datoteku u punom zaslonu za</string>
     <string name="screen_rotation_system_setting">Postavke sustava</string>
     <string name="screen_rotation_device_rotation">Rotacija uređaja</string>
