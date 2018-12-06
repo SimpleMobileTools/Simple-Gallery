@@ -126,10 +126,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             NewAppDialog(this, NEW_APP_PACKAGE, "Simple Clock")
         }*/
 
-        if (!config.wasOTGHandled && hasPermission(PERMISSION_WRITE_STORAGE)) {
-            checkOTGInclusion()
-        }
-
         if (!config.wereFavoritesPinned) {
             config.addPinnedFolders(hashSetOf(FAVORITES))
             config.wereFavoritesPinned = true
@@ -385,6 +381,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun tryLoadGallery() {
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
+                if (!config.wasOTGHandled && hasPermission(PERMISSION_WRITE_STORAGE)) {
+                    checkOTGInclusion()
+                }
+
                 if (config.showAll) {
                     showAllMedia()
                 } else {
