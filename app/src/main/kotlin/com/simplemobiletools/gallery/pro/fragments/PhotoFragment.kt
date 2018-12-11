@@ -26,6 +26,9 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.davemorrissey.labs.subscaleview.ImageSource
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
+import com.davemorrissey.labs.subscaleview.decoder.DecoderFactory
+import com.davemorrissey.labs.subscaleview.decoder.ImageDecoder
+import com.davemorrissey.labs.subscaleview.decoder.ImageRegionDecoder
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.gallery.pro.R
@@ -377,18 +380,26 @@ class PhotoFragment : ViewPagerFragment() {
         val path = getPathToLoad(medium)
         isSubsamplingVisible = true
 
+        val bitmapDecoder = object : DecoderFactory<ImageDecoder> {
+            override fun make() = PicassoDecoder(path, Picasso.get(), rotation)
+        }
+
+        val regionDecoder = object : DecoderFactory<ImageRegionDecoder> {
+            override fun make() = PicassoRegionDecoder()
+        }
+
         view.subsampling_view.apply {
             setMaxTileSize(if (context!!.config.showHighestQuality) Integer.MAX_VALUE else 4096)
             setMinimumTileDpi(if (context!!.config.showHighestQuality) -1 else getMinTileDpi())
             background = ColorDrawable(Color.TRANSPARENT)
-            setBitmapDecoderFactory { PicassoDecoder(path, Picasso.get(), rotation) }
-            setRegionDecoderFactory { PicassoRegionDecoder() }
+            setBitmapDecoderFactory(bitmapDecoder)
+            setRegionDecoderFactory(regionDecoder)
             maxScale = 10f
             beVisible()
             isQuickScaleEnabled = context.config.oneFingerZoom
             setResetScaleOnSizeChange(false)
             setImage(ImageSource.uri(path))
-            orientation = rotation
+            setOrientation(rotation)
             setEagerLoadingEnabled(false)
             setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {
                 override fun onImageLoaded() {
@@ -402,7 +413,7 @@ class PhotoFragment : ViewPagerFragment() {
                     mOriginalSubsamplingScale = scale
                 }
 
-                override fun onTileLoadError(e: Exception?) {
+                override fun onTileLoadError(e: Exception) {
                 }
 
                 override fun onPreviewReleased() {
@@ -415,7 +426,7 @@ class PhotoFragment : ViewPagerFragment() {
                     beGone()
                 }
 
-                override fun onPreviewLoadError(e: Exception?) {
+                override fun onPreviewLoadError(e: Exception) {
                     background = ColorDrawable(Color.TRANSPARENT)
                     isSubsamplingVisible = false
                     beGone()
