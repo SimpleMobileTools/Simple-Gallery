@@ -585,7 +585,15 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         mCurrAsyncTask?.stopFetching()
         mCurrAsyncTask = GetMediaAsynctask(applicationContext, mPath, mIsGetImageIntent, mIsGetVideoIntent, mShowAll) {
             Thread {
-                gotMedia(it)
+                val oldMedia = mMedia.clone() as ArrayList<ThumbnailItem>
+                val newMedia = it
+                gotMedia(newMedia, false)
+                try {
+                    oldMedia.filter { !newMedia.contains(it) }.mapNotNull { it as? Medium }.filter { !File(it.path).exists() }.forEach {
+                        mMediumDao.deleteMediumPath(it.path)
+                    }
+                } catch (e: Exception) {
+                }
             }.start()
         }
 
@@ -820,7 +828,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         }
     }
 
-    private fun gotMedia(media: ArrayList<ThumbnailItem>, isFromCache: Boolean = false) {
+    private fun gotMedia(media: ArrayList<ThumbnailItem>, isFromCache: Boolean) {
         mIsGettingMedia = false
         checkLastMediaChanged()
         mMedia = media
