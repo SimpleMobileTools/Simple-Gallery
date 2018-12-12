@@ -19,11 +19,9 @@ import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
-import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FileDirItem
-import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.models.Release
 import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -32,6 +30,7 @@ import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.pro.databases.GalleryDatabase
 import com.simplemobiletools.gallery.pro.dialogs.ChangeSortingDialog
+import com.simplemobiletools.gallery.pro.dialogs.ChangeViewTypeDialog
 import com.simplemobiletools.gallery.pro.dialogs.FilterMediaDialog
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.*
@@ -451,12 +450,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun changeViewType() {
-        val items = arrayListOf(
-                RadioItem(VIEW_TYPE_GRID, getString(R.string.grid)),
-                RadioItem(VIEW_TYPE_LIST, getString(R.string.list)))
-
-        RadioGroupDialog(this, items, config.viewTypeFolders) {
-            config.viewTypeFolders = it as Int
+        ChangeViewTypeDialog(this) {
             invalidateOptionsMenu()
             setupLayoutManager()
             val dirs = getCurrentlyDisplayedDirs()

@@ -423,4 +423,8 @@ class Config(context: Context) : BaseConfig(context) {
     var lastEditorCropOtherAspectRatioY: Int
         get() = prefs.getInt(LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y, 1)
         set(lastEditorCropOtherAspectRatioY) = prefs.edit().putInt(LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y, lastEditorCropOtherAspectRatioY).apply()
+
+    var groupDirectSubfolders: Boolean
+        get() = prefs.getBoolean(GROUP_DIRECT_SUBFOLDERS, false)
+        set(groupDirectSubfolders) = prefs.edit().putBoolean(GROUP_DIRECT_SUBFOLDERS, groupDirectSubfolders).apply()
 }
