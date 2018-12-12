@@ -926,11 +926,16 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun getDirectParentSubfolders(folders: HashSet<String>): HashSet<String> {
         val internalPath = internalStoragePath
         val sdPath = sdCardPath
-        val currentPaths = HashSet<String>()
+        val currentPaths = LinkedHashSet<String>()
         folders.forEach {
+            val path = it
             if (it != internalPath && it != sdPath) {
-                val parent = File(it).parent
-                currentPaths.add(parent)
+                if (folders.any { it != path && (File(path).parent == it || File(it).parent == File(path).parent) }) {
+                    val parent = File(it).parent
+                    currentPaths.add(parent)
+                } else {
+                    currentPaths.add(it)
+                }
             }
         }
 
@@ -938,7 +943,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         currentPaths.forEach {
             val path = it
             currentPaths.forEach {
-                if (it != path && it.startsWith(path)) {
+                if (it != path && File(it).parent == path) {
                     areDirectSubfoldersAvailable = true
                 }
             }
