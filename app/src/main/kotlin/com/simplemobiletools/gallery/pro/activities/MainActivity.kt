@@ -453,9 +453,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         ChangeViewTypeDialog(this) {
             invalidateOptionsMenu()
             setupLayoutManager()
-            val dirs = getCurrentlyDisplayedDirs()
             directories_grid.adapter = null
-            setupAdapter(dirs)
+            setupAdapter(mDirs)
         }
     }
 
@@ -762,10 +761,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun gotDirectories(newDirs: ArrayList<Directory>) {
-        // if hidden item showing is disabled but all Favorite items are hidden, hide the Favorites folder
         mIsGettingDirs = false
         mShouldStopFetching = false
 
+        // if hidden item showing is disabled but all Favorite items are hidden, hide the Favorites folder
         if (!config.shouldShowHidden) {
             val favoritesFolder = newDirs.firstOrNull { it.areFavorites() }
             if (favoritesFolder != null && favoritesFolder.tmb.getFilenameFromPath().startsWith('.')) {
@@ -924,16 +923,57 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
     }
 
+    private fun getDirectParentSubfolders(folders: HashSet<String>): HashSet<String> {
+        val internalPath = internalStoragePath
+        val sdPath = sdCardPath
+        val currentPaths = HashSet<String>()
+        folders.forEach {
+            if (it != internalPath && it != sdPath) {
+                val parent = File(it).parent
+                currentPaths.add(parent)
+            }
+        }
+
+        var areDirectSubfoldersAvailable = false
+        currentPaths.forEach {
+            val path = it
+            currentPaths.forEach {
+                if (it != path && it.startsWith(path)) {
+                    areDirectSubfoldersAvailable = true
+                }
+            }
+        }
+
+        folders.clear()
+        folders.addAll(currentPaths)
+        return if (areDirectSubfoldersAvailable) {
+            getDirectParentSubfolders(folders)
+        } else {
+            folders
+        }
+    }
+
     private fun checkPlaceholderVisibility(dirs: ArrayList<Directory>) {
         directories_empty_text_label.beVisibleIf(dirs.isEmpty() && mLoadedInitialPhotos)
         directories_empty_text.beVisibleIf(dirs.isEmpty() && mLoadedInitialPhotos)
         directories_grid.beVisibleIf(directories_empty_text_label.isGone())
     }
 
-    private fun showSortedDirs(dirs: ArrayList<Directory>) {
+    private fun showSortedDirs(dirs: ArrayList<Directory>, checkSubfolders: Boolean = true) {
         val updatedDirs = getUniqueSortedDirs(dirs).toMutableList() as ArrayList
+        val dirsToShow = if (checkSubfolders) getDirsToShow(updatedDirs) else updatedDirs
         runOnUiThread {
-            (directories_grid.adapter as? DirectoryAdapter)?.updateDirs(updatedDirs)
+            (directories_grid.adapter as? DirectoryAdapter)?.updateDirs(dirsToShow)
+        }
+    }
+
+    private fun getDirsToShow(dirs: ArrayList<Directory>): ArrayList<Directory> {
+        return if (config.groupDirectSubfolders) {
+            val dirFolders = dirs.map { it.path }.sorted().toMutableSet() as HashSet<String>
+            val foldersToShow = getDirectParentSubfolders(dirFolders)
+            dirs.filter { foldersToShow.contains(it.path) } as ArrayList<Directory>
+        } else {
+            dirs
         }
     }
 
@@ -972,10 +1012,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun setupAdapter(dirs: ArrayList<Directory>) {
         val currAdapter = directories_grid.adapter
+        val dirsToShow = getDirsToShow(dirs)
         if (currAdapter == null) {
             initZoomListener()
             val fastscroller = if (config.scrollHorizontally) directories_horizontal_fastscroller else directories_vertical_fastscroller
-            DirectoryAdapter(this, dirs.clone() as ArrayList<Directory>, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent), fastscroller) {
+            DirectoryAdapter(this, dirsToShow.clone() as ArrayList<Directory>, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent), fastscroller) {
                 val path = (it as Directory).path
                 if (path != config.tempFolderPath) {
                     itemClicked(path)
@@ -985,7 +1026,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 directories_grid.adapter = this
             }
         } else {
-            showSortedDirs(dirs)
+            showSortedDirs(dirsToShow, false)
         }
 
         getRecyclerAdapter()?.dirs?.apply {
