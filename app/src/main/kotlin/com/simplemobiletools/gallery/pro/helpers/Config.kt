@@ -257,6 +257,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(ALLOW_VIDEO_GESTURES, true)
         set(allowVideoGestures) = prefs.edit().putBoolean(ALLOW_VIDEO_GESTURES, allowVideoGestures).apply()
 
+    var playVideosExternally: Boolean
+        get() = prefs.getBoolean(PLAY_VIDEOS_EXTERNALLY, false)
+        set(playVideosExternally) = prefs.edit().putBoolean(PLAY_VIDEOS_EXTERNALLY, playVideosExternally).apply()
+
     var showMediaCount: Boolean
         get() = prefs.getBoolean(SHOW_MEDIA_COUNT, true)
         set(showMediaCount) = prefs.edit().putBoolean(SHOW_MEDIA_COUNT, showMediaCount).apply()

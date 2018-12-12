@@ -151,6 +151,7 @@
     <string name="delete_empty_folders">Borrar cartafoles baldeiros cando elmine o seu contido</string>
     <string name="allow_photo_gestures">Permitir controlar o brillo da foto con xestos verticais</string>
     <string name="allow_video_gestures">Permitir controlar o volume do vídeo e o brillo con xestos verticáis</string>
+    <string name="play_videos_externally">Play videos externally</string>
     <string name="show_media_count">Mostrar a conta de medios do cartafol na vista principal</string>
     <string name="replace_share_with_rotate">Substituír Compartir con Rotar no menú de pantalla completa</string>
     <string name="show_extended_details">Mostrar información pormenorizada sobre medios a pantalla completa</string>

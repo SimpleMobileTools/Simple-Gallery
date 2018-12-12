@@ -151,6 +151,7 @@
     <string name="delete_empty_folders">Odstrániť prázdne priečinky po vymazaní ich obsahu</string>
     <string name="allow_photo_gestures">Povoliť ovládanie jasu vertikálnymi ťahmi</string>
     <string name="allow_video_gestures">Povoliť ovládanie hlasitosti a jasu videí vertikálnymi ťahmi</string>
+    <string name="play_videos_externally">Play videos externally</string>
     <string name="show_media_count">Zobraziť počet médií v priečinku na hlavnej obrazovke</string>
     <string name="replace_share_with_rotate">Nahradiť Zdieľanie s Otočením v celoobrazovkovom menu</string>
     <string name="show_extended_details">Zobraziť rozšírené vlastnosti ponad celoobrazovkové médiá</string>

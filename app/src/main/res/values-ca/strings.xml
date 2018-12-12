@@ -151,6 +151,7 @@
     <string name="delete_empty_folders">Eliminar carpetes buides després d\'esborrar el seu contingut</string>
     <string name="allow_photo_gestures">Permet controlar la brillantor amb gestos verticals</string>
     <string name="allow_video_gestures">Permet controlar el volum i la brillantor del vídeo amb gestos verticals</string>
+    <string name="play_videos_externally">Play videos externally</string>
     <string name="show_media_count">Mostrar el número de mitjans de les carpetes a la vista principal</string>
     <string name="replace_share_with_rotate">Reemplaçar Compartir per Girar al menú de pantalla complerta</string>
     <string name="show_extended_details">Mostrar detalls estesos sobre mitjans a pantalla complerta</string>

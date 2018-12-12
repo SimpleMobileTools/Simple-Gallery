@@ -152,6 +152,7 @@
     <string name="delete_empty_folders">Az üres mappák törlése a tartalom törlése után</string>
     <string name="allow_photo_gestures">Engedélyezi a kép fényerő módosítást függőleges gesztusokkal</string>
     <string name="allow_video_gestures">Engedélyezi a videó hangerő és fényerő módosítást függőleges gesztusokkal</string>
+    <string name="play_videos_externally">Play videos externally</string>
     <string name="show_media_count">Mutassa a fájlok számát a mappákban</string>
     <string name="replace_share_with_rotate">Cserélje meg a Megosztást a Forgatással a teljes képernyős menüben</string>
     <string name="show_extended_details">Mutassa a kiterjesztett adatokat a teljes képernyős médián keresztül</string>

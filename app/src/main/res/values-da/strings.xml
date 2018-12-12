@@ -151,6 +151,7 @@
     <string name="delete_empty_folders">Slet tomme mapper efter sletning af deres indhold</string>
     <string name="allow_photo_gestures">Tillad kontrol af lysstyrke på billeder med lodrette bevægelser</string>
     <string name="allow_video_gestures">Tillad kontrol af videolyd og lysstyrke med lodrette bevægelser</string>
+    <string name="play_videos_externally">Play videos externally</string>
     <string name="show_media_count">Vis antal filer i hver mappe i oversigten</string>
     <string name="replace_share_with_rotate">Erstat Del med Roter i fuldskærmsmenuen</string>
     <string name="show_extended_details">Vis udvidede oplysninger over medier i fuldskærm</string>

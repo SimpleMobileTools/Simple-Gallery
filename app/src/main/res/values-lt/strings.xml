@@ -151,6 +151,7 @@
     <string name="delete_empty_folders">Ištrinti tuščius aplankus po jų turinio ištrynimo</string>
     <string name="allow_photo_gestures">Leisti valdyti nuotraukų ryškumą vertikaliais gestais</string>
     <string name="allow_video_gestures">Leisti kontroliuoti vaizdo įrašo garsumą ir ryškumą vertikaliais gestais</string>
+    <string name="play_videos_externally">Play videos externally</string>
     <string name="show_media_count">Rodyti aplanko bylų skaičių pagrindiniame rodinyje</string>
     <string name="replace_share_with_rotate">Pakeisti bendrinti su rotacija  viso ekrano meniu</string>
     <string name="show_extended_details">Rodyti išsamią informaciją per visą ekraną</string>

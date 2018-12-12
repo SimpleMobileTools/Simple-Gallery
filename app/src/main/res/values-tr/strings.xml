@@ -151,6 +151,7 @@
     <string name="delete_empty_folders">İçeriğini sildikten sonra boş klasörleri sil</string>
     <string name="allow_photo_gestures">Dikey hareketlerle fotoğraf parlaklığının kontrolüne izin ver</string>
     <string name="allow_video_gestures">Video sesini ve parlaklığını dikey hareketlerle kontrol etmeye izin ver</string>
+    <string name="play_videos_externally">Play videos externally</string>
     <string name="show_media_count">Ana görünümde klasör medya sayısını göster</string>
     <string name="replace_share_with_rotate">Tam ekran menüsünde Döndür ile Paylaş\'ın yerini değiştir</string>
     <string name="show_extended_details">Tam ekran medya üzerinde genişletilmiş ayrıntıları göster</string>

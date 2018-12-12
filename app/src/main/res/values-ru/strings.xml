@@ -151,6 +151,7 @@
     <string name="delete_empty_folders">Удалять пустые папки после удаления их содержимого</string>
     <string name="allow_photo_gestures">Управление яркостью при просмотре изображения вертикальными жестами</string>
     <string name="allow_video_gestures">Управление громкостью и яркостью при просмотре видео вертикальными жестами</string>
+    <string name="play_videos_externally">Play videos externally</string>
     <string name="show_media_count">Показывать количество файлов в папках</string>
     <string name="replace_share_with_rotate">Заменить \"Поделиться\" на \"Повернуть\" в меню при просмотре изображения</string>
     <string name="show_extended_details">Показывать сведения о файле</string>

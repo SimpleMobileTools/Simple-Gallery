@@ -151,6 +151,7 @@
     <string name="delete_empty_folders">Видаляти порожні теки після видалення їх вмісту</string>
     <string name="allow_photo_gestures">Дозволити керування яскравістю фотографій вертикальними жестами</string>
     <string name="allow_video_gestures">Дозволити керування яскравістю та гучністю відео вертикальними жестами</string>
+    <string name="play_videos_externally">Play videos externally</string>
     <string name="show_media_count">Показувати кількість файлів у теці на головному екрані</string>
     <string name="replace_share_with_rotate">Замінити \"Поділитися\" на \"Обернути\" в повноекранному меню</string>
     <string name="show_extended_details">Показувати розширені подробиці при повноекранному перегляді</string>

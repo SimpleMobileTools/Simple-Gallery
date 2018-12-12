@@ -67,6 +67,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private var mStoredBottomActions = true
     private var mStoredExtendedDetails = 0
     private var mStoredRememberLastVideoPosition = false
+    private var mStoredPlayVideosExternally = false
     private var mStoredLastVideoPath = ""
     private var mStoredLastVideoPosition = 0
 
@@ -249,6 +250,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             mStoredExtendedDetails = extendedDetails
             mStoredBottomActions = bottomActions
             mStoredRememberLastVideoPosition = rememberLastVideoPosition
+            mStoredPlayVideosExternally = playVideosExternally
             mStoredLastVideoPath = lastVideoPath
             mStoredLastVideoPosition = lastVideoPosition
         }
@@ -445,6 +447,12 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     }
 
     fun playVideo() {
+        if (mStoredPlayVideosExternally) {
+            mIsPlaying = false
+            activity?.openPath(medium.path, false)
+            return
+        }
+
         if (mExoPlayer == null) {
             return
         }

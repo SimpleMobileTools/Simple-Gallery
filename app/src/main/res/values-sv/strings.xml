@@ -151,6 +151,7 @@
     <string name="delete_empty_folders">Ta bort tomma mappar när deras innehåll tas bort</string>
     <string name="allow_photo_gestures">Tillåt styrning av fotoljusstyrka med vertikala gester</string>
     <string name="allow_video_gestures">Tillåt styrning av videovolym och videoljusstyrka med vertikala gester</string>
+    <string name="play_videos_externally">Play videos externally</string>
     <string name="show_media_count">Visa antalet mediefiler i varje mapp i huvudvyn</string>
     <string name="replace_share_with_rotate">Ersätt Dela med Rotera i helskärmsmenyn</string>
     <string name="show_extended_details">Visa utökad information över media i helskärmsläge</string>

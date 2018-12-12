@@ -56,6 +56,7 @@ class SettingsActivity : SimpleActivity() {
         setupAllowPhotoGestures()
         setupAllowVideoGestures()
         setupAllowDownGesture()
+        setupPlayVideosExternally()
         setupBottomActions()
         setupThumbnailVideoDuration()
         setupShowMediaCount()
@@ -329,6 +330,14 @@ class SettingsActivity : SimpleActivity() {
         settings_allow_down_gesture_holder.setOnClickListener {
             settings_allow_down_gesture.toggle()
             config.allowDownGesture = settings_allow_down_gesture.isChecked
+        }
+    }
+
+    private fun setupPlayVideosExternally() {
+        settings_play_videos_externally.isChecked = config.playVideosExternally
+        settings_play_videos_externally_holder.setOnClickListener {
+            settings_play_videos_externally.toggle()
+            config.playVideosExternally = settings_play_videos_externally.isChecked
         }
     }
 

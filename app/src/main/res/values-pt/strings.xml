@@ -151,6 +151,7 @@
     <string name="delete_empty_folders">Apagar as pastas vazias depois de remover o seu conteúdo</string>
     <string name="allow_photo_gestures">Permitir controlo do brilho das fotos com gestos verticais</string>
     <string name="allow_video_gestures">Permitir controlo do volume e do brilho dos vídeos através de gestos verticais</string>
+    <string name="play_videos_externally">Play videos externally</string>
     <string name="show_media_count">Mostrar número de ficheiros na vista principal</string>
     <string name="replace_share_with_rotate">Substituir a opção Partilhar pela opção Rodar se em ecrã completo</string>
     <string name="show_extended_details">Mostrar detalhes se em ecrã completo</string>
