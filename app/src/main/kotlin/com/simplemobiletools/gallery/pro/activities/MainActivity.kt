@@ -929,12 +929,12 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val currentPaths = LinkedHashSet<String>()
         folders.forEach {
             val path = it
-            if (it != internalPath && it != sdPath) {
+            if (path != internalPath && path != sdPath) {
                 if (folders.any { it != path && (File(path).parent == it || File(it).parent == File(path).parent) }) {
-                    val parent = File(it).parent
+                    val parent = File(path).parent
                     currentPaths.add(parent)
                 } else {
-                    currentPaths.add(it)
+                    currentPaths.add(path)
                 }
             }
         }
