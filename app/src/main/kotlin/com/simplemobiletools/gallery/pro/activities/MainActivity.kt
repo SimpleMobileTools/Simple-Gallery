@@ -313,7 +313,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
                 override fun onQueryTextChange(newText: String): Boolean {
                     if (mIsSearchOpen) {
-                        searchQueryChanged(newText)
+                        setupAdapter(mDirs, newText)
                     }
                     return true
                 }
@@ -332,23 +332,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 if (mIsSearchOpen) {
                     mIsSearchOpen = false
                     directories_refresh_layout.isEnabled = config.enablePullToRefresh
-                    searchQueryChanged("")
+                    setupAdapter(mDirs, "")
                 }
                 return true
             }
         })
-    }
-
-    private fun searchQueryChanged(text: String) {
-        Thread {
-            val filtered = getUniqueSortedDirs(mDirs).filter { it.name.contains(text, true) } as ArrayList
-            filtered.sortBy { !it.name.startsWith(text, true) }
-
-            runOnUiThread {
-                getRecyclerAdapter()?.updateDirs(filtered)
-                measureRecyclerViewContent(filtered)
-            }
-        }.start()
     }
 
     private fun removeTempFolder() {
@@ -828,7 +816,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     types = newDir.types
                 }
 
-                showSortedDirs(dirs)
+                setupAdapter(dirs)
 
                 // update directories and media files in the local db, delete invalid items
                 updateDBDirectory(directory, mDirectoryDao)
@@ -855,7 +843,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 mDirectoryDao.deleteDirPath(it.path)
             }
             dirs.removeAll(dirsToRemove)
-            showSortedDirs(dirs)
+            setupAdapter(dirs)
         }
 
         val foldersToScan = mediaFetcher.getFoldersToScan()
@@ -892,7 +880,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
             val newDir = createDirectoryFromMedia(folder, newMedia, albumCovers, hiddenString, includedFolders, isSortingAscending)
             dirs.add(newDir)
-            showSortedDirs(dirs)
+            setupAdapter(dirs)
             mDirectoryDao.insert(newDir)
             if (folder != RECYCLE_BIN) {
                 mMediumDao.insertAll(newMedia)
@@ -964,14 +952,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         directories_grid.beVisibleIf(directories_empty_text_label.isGone())
     }
 
-    private fun showSortedDirs(dirs: ArrayList<Directory>, checkSubfolders: Boolean = true) {
-        val updatedDirs = getUniqueSortedDirs(dirs).toMutableList() as ArrayList
-        val dirsToShow = if (checkSubfolders) getDirsToShow(updatedDirs) else updatedDirs
-        runOnUiThread {
-            (directories_grid.adapter as? DirectoryAdapter)?.updateDirs(dirsToShow)
-        }
-    }
-
     private fun getDirsToShow(dirs: ArrayList<Directory>): ArrayList<Directory> {
         return if (config.groupDirectSubfolders) {
             val dirFolders = dirs.map { it.path }.sorted().toMutableSet() as HashSet<String>
@@ -1015,29 +995,33 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         return Directory(null, path, thumbnail, dirName, curMedia.size, lastModified, dateTaken, size, getPathLocation(path), mediaTypes)
     }
 
-    private fun setupAdapter(dirs: ArrayList<Directory>) {
+    private fun setupAdapter(dirs: ArrayList<Directory>, textToSearch: String = "") {
         val currAdapter = directories_grid.adapter
-        val dirsToShow = getDirsToShow(dirs)
+        val updatedDirs = getUniqueSortedDirs(dirs).toMutableList() as ArrayList
+        var dirsToShow = getDirsToShow(updatedDirs).clone() as ArrayList<Directory>
         if (currAdapter == null) {
             initZoomListener()
             val fastscroller = if (config.scrollHorizontally) directories_horizontal_fastscroller else directories_vertical_fastscroller
-            DirectoryAdapter(this, dirsToShow.clone() as ArrayList<Directory>, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent), fastscroller) {
+            DirectoryAdapter(this, dirsToShow, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent), fastscroller) {
                 val path = (it as Directory).path
                 if (path != config.tempFolderPath) {
                     itemClicked(path)
                 }
+                measureRecyclerViewContent(dirsToShow)
             }.apply {
                 setupZoomListener(mZoomListener)
                 directories_grid.adapter = this
             }
+            setupScrollDirection()
         } else {
-            showSortedDirs(dirsToShow, false)
+            if (textToSearch.isNotEmpty()) {
+                dirsToShow = dirsToShow.filter { it.name.contains(textToSearch, true) }.sortedBy { !it.name.startsWith(textToSearch, true) }.toMutableList() as ArrayList
+            }
+            runOnUiThread {
+                (directories_grid.adapter as? DirectoryAdapter)?.updateDirs(dirsToShow)
+                measureRecyclerViewContent(dirsToShow)
+            }
         }
-
-        getRecyclerAdapter()?.dirs?.apply {
-            measureRecyclerViewContent(this)
-        }
-        setupScrollDirection()
     }
 
     private fun setupScrollDirection() {
@@ -1091,7 +1075,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         if (invalidDirs.isNotEmpty()) {
             dirs.removeAll(invalidDirs)
-            showSortedDirs(dirs)
+            setupAdapter(dirs)
             invalidDirs.forEach {
                 mDirectoryDao.deleteDirPath(it.path)
             }
