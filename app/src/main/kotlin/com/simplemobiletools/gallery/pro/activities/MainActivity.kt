@@ -962,11 +962,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
     }
 
-    private fun getUniqueSortedDirs(dirs: ArrayList<Directory>): ArrayList<Directory> {
-        val distinctDirs = dirs.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>
-        return getSortedDirectories(distinctDirs)
-    }
-
     private fun createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, albumCovers: ArrayList<AlbumCover>, hiddenString: String,
                                          includedFolders: MutableSet<String>, isSortingAscending: Boolean): Directory {
         var thumbnail = curMedia.firstOrNull { getDoesFilePathExist(it.path) }?.path ?: ""
@@ -997,8 +992,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun setupAdapter(dirs: ArrayList<Directory>, textToSearch: String = "") {
         val currAdapter = directories_grid.adapter
-        val updatedDirs = getUniqueSortedDirs(dirs).toMutableList() as ArrayList
-        var dirsToShow = getDirsToShow(updatedDirs).clone() as ArrayList<Directory>
+        val distinctDirs = dirs.distinctBy { it.path.getDistinctPath() }.toMutableList() as ArrayList<Directory>
+        val sortedDirs = getSortedDirectories(distinctDirs)
+        var dirsToShow = getDirsToShow(sortedDirs).clone() as ArrayList<Directory>
+
         if (currAdapter == null) {
             initZoomListener()
             val fastscroller = if (config.scrollHorizontally) directories_horizontal_fastscroller else directories_vertical_fastscroller
