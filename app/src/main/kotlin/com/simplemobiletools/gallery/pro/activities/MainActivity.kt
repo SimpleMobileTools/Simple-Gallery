@@ -1032,11 +1032,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 if (path != config.tempFolderPath) {
                     itemClicked(path)
                 }
-                measureRecyclerViewContent(dirsToShow)
             }.apply {
                 setupZoomListener(mZoomListener)
                 directories_grid.adapter = this
             }
+            measureRecyclerViewContent(dirsToShow)
             setupScrollDirection()
         } else {
             if (textToSearch.isNotEmpty()) {
