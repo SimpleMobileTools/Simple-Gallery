@@ -503,7 +503,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         view.apply {
             dir_name.text = directory.name
             dir_path?.text = "${directory.path.substringBeforeLast("/")}/"
-            photo_cnt.text = directory.mediaCnt.toString()
+            photo_cnt.text = directory.subfoldersMediaCount.toString()
             val thumbnailType = when {
                 directory.tmb.isVideoFast() -> TYPE_VIDEOS
                 directory.tmb.isGif() -> TYPE_GIFS

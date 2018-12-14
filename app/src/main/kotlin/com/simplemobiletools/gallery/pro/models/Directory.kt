@@ -1,9 +1,6 @@
 package com.simplemobiletools.gallery.pro.models
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.Index
-import androidx.room.PrimaryKey
+import androidx.room.*
 import com.simplemobiletools.commons.extensions.formatDate
 import com.simplemobiletools.commons.extensions.formatSize
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
@@ -23,8 +20,11 @@ data class Directory(
         @ColumnInfo(name = "last_modified") var modified: Long,
         @ColumnInfo(name = "date_taken") var taken: Long,
         @ColumnInfo(name = "size") var size: Long,
-        @ColumnInfo(name = "location") val location: Int,
-        @ColumnInfo(name = "media_types") var types: Int) {
+        @ColumnInfo(name = "location") var location: Int,
+        @ColumnInfo(name = "media_types") var types: Int,
+        @Ignore var subfoldersMediaCount: Int = 0) {        // used with "Group direct subfolders" enabled to count subfolder media counts
+
+    constructor() : this(null, "", "", "", 0, 0L, 0L, 0L, 0, 0, 0)
 
     fun getBubbleText(sorting: Int) = when {
         sorting and SORT_BY_NAME != 0 -> name

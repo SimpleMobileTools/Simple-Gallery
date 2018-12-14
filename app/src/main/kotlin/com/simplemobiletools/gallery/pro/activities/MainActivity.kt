@@ -957,10 +957,30 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun getDirsToShow(dirs: ArrayList<Directory>): ArrayList<Directory> {
         return if (config.groupDirectSubfolders) {
+            dirs.forEach { it.subfoldersMediaCount = it.mediaCnt }
             val dirFolders = dirs.map { it.path }.sorted().toMutableSet() as HashSet<String>
             val foldersToShow = getDirectParentSubfolders(dirFolders)
-            dirs.filter { foldersToShow.contains(it.path) } as ArrayList<Directory>
+            val newDirs = dirs.filter { foldersToShow.contains(it.path) } as ArrayList<Directory>
+
+            // update the directory media counts, add all subfolder media counts to it
+            dirs.forEach {
+                val mainDir = it
+                var longestSharedPath = ""
+                newDirs.forEach {
+                    if (it.path != mainDir.path && mainDir.path.startsWith(it.path, true) && it.path.length > longestSharedPath.length) {
+                        longestSharedPath = it.path
+                    }
+                }
+
+                val mainFolder = newDirs.firstOrNull { it.path == longestSharedPath }
+                if (mainFolder != null) {
+                    mainFolder.subfoldersMediaCount += mainDir.mediaCnt
+                }
+            }
+
+            newDirs
         } else {
+            dirs.forEach { it.subfoldersMediaCount = it.mediaCnt }
             dirs
         }
     }
