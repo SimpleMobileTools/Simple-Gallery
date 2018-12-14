@@ -22,9 +22,12 @@ data class Directory(
         @ColumnInfo(name = "size") var size: Long,
         @ColumnInfo(name = "location") var location: Int,
         @ColumnInfo(name = "media_types") var types: Int,
-        @Ignore var subfoldersMediaCount: Int = 0) {        // used with "Group direct subfolders" enabled to count subfolder media counts
 
-    constructor() : this(null, "", "", "", 0, 0L, 0L, 0L, 0, 0, 0)
+        // used with "Group direct subfolders" enabled
+        @Ignore var subfoldersCount: Int = 0,
+        @Ignore var subfoldersMediaCount: Int = 0) {
+
+    constructor() : this(null, "", "", "", 0, 0L, 0L, 0L, 0, 0, 0, 0)
 
     fun getBubbleText(sorting: Int) = when {
         sorting and SORT_BY_NAME != 0 -> name

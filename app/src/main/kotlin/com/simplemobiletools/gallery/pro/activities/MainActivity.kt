@@ -957,7 +957,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun getDirsToShow(dirs: ArrayList<Directory>): ArrayList<Directory> {
         return if (config.groupDirectSubfolders) {
-            dirs.forEach { it.subfoldersMediaCount = it.mediaCnt }
+            dirs.forEach {
+                it.subfoldersCount = 1
+                it.subfoldersMediaCount = it.mediaCnt
+            }
+
             val dirFolders = dirs.map { it.path }.sorted().toMutableSet() as HashSet<String>
             val foldersToShow = getDirectParentSubfolders(dirFolders)
             val newDirs = dirs.filter { foldersToShow.contains(it.path) } as ArrayList<Directory>
@@ -968,6 +972,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 var longestSharedPath = ""
                 newDirs.forEach {
                     if (it.path != mainDir.path && mainDir.path.startsWith(it.path, true) && it.path.length > longestSharedPath.length) {
+                        it.subfoldersCount += 1
                         longestSharedPath = it.path
                     }
                 }
