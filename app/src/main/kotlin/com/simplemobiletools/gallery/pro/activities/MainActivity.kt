@@ -17,6 +17,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.*
@@ -356,8 +357,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         Thread {
             if (hasOTGConnected()) {
                 runOnUiThread {
-                    handleOTGPermission {
-                        config.addIncludedFolder(OTG_PATH)
+                    ConfirmationDialog(this, getString(R.string.otg_detected), positive = R.string.ok, negative = 0) {
+                        handleOTGPermission {
+                            config.addIncludedFolder(OTG_PATH)
+                        }
                     }
                 }
                 config.wasOTGHandled = true
