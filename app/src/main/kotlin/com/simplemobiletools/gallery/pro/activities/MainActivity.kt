@@ -1028,9 +1028,12 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             initZoomListener()
             val fastscroller = if (config.scrollHorizontally) directories_horizontal_fastscroller else directories_vertical_fastscroller
             DirectoryAdapter(this, dirsToShow, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent), fastscroller) {
-                val path = (it as Directory).path
-                if (path != config.tempFolderPath) {
-                    itemClicked(path)
+                val clickedDir = it as Directory
+                if (clickedDir.subfoldersCount == 1 || !config.groupDirectSubfolders) {
+                    val path = clickedDir.path
+                    if (path != config.tempFolderPath) {
+                        itemClicked(path)
+                    }
                 }
             }.apply {
                 setupZoomListener(mZoomListener)
