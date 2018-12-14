@@ -12,7 +12,6 @@ import com.simplemobiletools.commons.helpers.SORT_BY_PATH
 import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
 import com.simplemobiletools.gallery.pro.helpers.FAVORITES
 import com.simplemobiletools.gallery.pro.helpers.RECYCLE_BIN
-import java.io.Serializable
 
 @Entity(tableName = "directories", indices = [Index(value = ["path"], unique = true)])
 data class Directory(
@@ -25,11 +24,7 @@ data class Directory(
         @ColumnInfo(name = "date_taken") var taken: Long,
         @ColumnInfo(name = "size") var size: Long,
         @ColumnInfo(name = "location") val location: Int,
-        @ColumnInfo(name = "media_types") var types: Int) : Serializable {
-
-    companion object {
-        private const val serialVersionUID = -6553345863555455L
-    }
+        @ColumnInfo(name = "media_types") var types: Int) {
 
     fun getBubbleText(sorting: Int) = when {
         sorting and SORT_BY_NAME != 0 -> name
