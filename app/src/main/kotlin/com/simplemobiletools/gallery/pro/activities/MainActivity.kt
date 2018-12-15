@@ -958,43 +958,41 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun getDirsToShow(dirs: ArrayList<Directory>): ArrayList<Directory> {
         return if (config.groupDirectSubfolders) {
             dirs.forEach {
-                it.subfoldersCount = 1
+                it.subfoldersCount = 0
                 it.subfoldersMediaCount = it.mediaCnt
             }
 
             val dirFolders = dirs.map { it.path }.sorted().toMutableSet() as HashSet<String>
             val foldersToShow = getDirectParentSubfolders(dirFolders)
-            val newDirs = dirs.filter { foldersToShow.contains(it.path) } as ArrayList<Directory>
-
-            // update the directory media counts, add all subfolder media counts to it
-            for (dir in dirs) {
-                var longestSharedPath = ""
-                for (newDir in newDirs) {
-                    if (newDir.path == dir.path) {
-                        longestSharedPath = dir.path
-                        continue
-                    }
-
-                    if (dir.path.startsWith(newDir.path, true) && newDir.path.length > longestSharedPath.length) {
-                        longestSharedPath = newDir.path
-                    }
-                }
-
-                val parentFolder = newDirs.firstOrNull { it.path == longestSharedPath }
-                parentFolder?.apply {
-                    subfoldersCount++
-                }
-
-                val mainFolder = newDirs.firstOrNull { it.path == longestSharedPath }
-                if (mainFolder != null) {
-                    mainFolder.subfoldersMediaCount += dir.mediaCnt
-                }
-            }
-
-            newDirs
+            val parentDirs = dirs.filter { foldersToShow.contains(it.path) } as ArrayList<Directory>
+            updateSubfolderCounts(dirs, parentDirs)
+            parentDirs
         } else {
             dirs.forEach { it.subfoldersMediaCount = it.mediaCnt }
             dirs
+        }
+    }
+
+    private fun updateSubfolderCounts(children: ArrayList<Directory>, parentDirs: ArrayList<Directory>) {
+        for (child in children) {
+            var longestSharedPath = ""
+            for (parentDir in parentDirs) {
+                if (parentDir.path == child.path) {
+                    longestSharedPath = child.path
+                    continue
+                }
+
+                if (child.path.startsWith(parentDir.path, true) && parentDir.path.length > longestSharedPath.length) {
+                    longestSharedPath = parentDir.path
+                }
+            }
+
+            parentDirs.firstOrNull { it.path == longestSharedPath }?.apply {
+                subfoldersCount++
+                if (path != child.path) {
+                    subfoldersMediaCount += child.mediaCnt
+                }
+            }
         }
     }
 
