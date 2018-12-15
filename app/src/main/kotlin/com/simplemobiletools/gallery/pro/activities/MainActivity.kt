@@ -67,6 +67,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mIsSearchOpen = false
     private var mLatestMediaId = 0L
     private var mLatestMediaDateId = 0L
+    private var mCurrentPathPrefix = ""     // used at "Group direct subfolders" for navigation
     private var mLastMediaHandler = Handler()
     private var mTempShowHiddenHandler = Handler()
     private var mZoomListener: MyRecyclerView.MyZoomListener? = null
@@ -920,8 +921,12 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val currentPaths = LinkedHashSet<String>()
         folders.forEach {
             val path = it
-            if (path != internalPath && path != sdPath) {
-                if (folders.any { it != path && (File(path).parent == it || File(it).parent == File(path).parent) }) {
+            if (!path.equals(internalPath, true) && !path.equals(sdPath, true)) {
+                if (mCurrentPathPrefix.isNotEmpty()) {
+                    if (File(path).parent.equals(mCurrentPathPrefix, true) || path == mCurrentPathPrefix) {
+                        currentPaths.add(path)
+                    }
+                } else if (folders.any { !it.equals(path, true) && (File(path).parent.equals(it, true) || File(it).parent.equals(File(path).parent, true)) }) {
                     val parent = File(path).parent
                     currentPaths.add(parent)
                 } else {
@@ -934,10 +939,14 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         currentPaths.forEach {
             val path = it
             currentPaths.forEach {
-                if (it != path && File(it).parent == path) {
+                if (!it.equals(path) && File(it).parent.equals(path)) {
                     areDirectSubfoldersAvailable = true
                 }
             }
+        }
+
+        if (folders.size == currentPaths.size) {
+            return currentPaths
         }
 
         folders.clear()
@@ -1035,11 +1044,14 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             val fastscroller = if (config.scrollHorizontally) directories_horizontal_fastscroller else directories_vertical_fastscroller
             DirectoryAdapter(this, dirsToShow, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent), fastscroller) {
                 val clickedDir = it as Directory
+                val path = clickedDir.path
                 if (clickedDir.subfoldersCount == 1 || !config.groupDirectSubfolders) {
-                    val path = clickedDir.path
                     if (path != config.tempFolderPath) {
                         itemClicked(path)
                     }
+                } else {
+                    mCurrentPathPrefix = path
+                    setupAdapter(mDirs, "")
                 }
             }.apply {
                 setupZoomListener(mZoomListener)
