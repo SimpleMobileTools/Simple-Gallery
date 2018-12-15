@@ -1006,10 +1006,13 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 }
             }
 
+            // make sure we count only the proper direct subfolders, grouped the same way as on the main screen
             parentDirs.firstOrNull { it.path == longestSharedPath }?.apply {
-                subfoldersCount++
-                if (path != child.path) {
-                    subfoldersMediaCount += child.mediaCnt
+                if (path.equals(child.path, true) || path.equals(File(child.path).parent, true) || children.any { it.path.equals(File(child.path).parent, true) }) {
+                    subfoldersCount++
+                    if (path != child.path) {
+                        subfoldersMediaCount += child.mediaCnt
+                    }
                 }
             }
         }
