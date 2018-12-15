@@ -975,6 +975,16 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             val foldersToShow = getDirectParentSubfolders(dirFolders)
             val parentDirs = dirs.filter { foldersToShow.contains(it.path) } as ArrayList<Directory>
             updateSubfolderCounts(dirs, parentDirs)
+
+            // show the current folder as an available option too, not just subfolders
+            if (mCurrentPathPrefix.isNotEmpty()) {
+                val currentFolder = mDirs.firstOrNull { parentDirs.firstOrNull { it.path == mCurrentPathPrefix } == null && it.path == mCurrentPathPrefix }
+                currentFolder?.apply {
+                    subfoldersCount = 1
+                    parentDirs.add(this)
+                }
+            }
+
             parentDirs
         } else {
             dirs.forEach { it.subfoldersMediaCount = it.mediaCnt }
