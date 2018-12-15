@@ -967,19 +967,27 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             val newDirs = dirs.filter { foldersToShow.contains(it.path) } as ArrayList<Directory>
 
             // update the directory media counts, add all subfolder media counts to it
-            dirs.forEach {
-                val mainDir = it
+            for (dir in dirs) {
                 var longestSharedPath = ""
-                newDirs.forEach {
-                    if (it.path != mainDir.path && mainDir.path.startsWith(it.path, true) && it.path.length > longestSharedPath.length) {
-                        it.subfoldersCount += 1
-                        longestSharedPath = it.path
+                for (newDir in newDirs) {
+                    if (newDir.path == dir.path) {
+                        longestSharedPath = dir.path
+                        continue
                     }
+
+                    if (dir.path.startsWith(newDir.path, true) && newDir.path.length > longestSharedPath.length) {
+                        longestSharedPath = newDir.path
+                    }
+                }
+
+                val parentFolder = newDirs.firstOrNull { it.path == longestSharedPath }
+                parentFolder?.apply {
+                    subfoldersCount++
                 }
 
                 val mainFolder = newDirs.firstOrNull { it.path == longestSharedPath }
                 if (mainFolder != null) {
-                    mainFolder.subfoldersMediaCount += mainDir.mediaCnt
+                    mainFolder.subfoldersMediaCount += dir.mediaCnt
                 }
             }
 
