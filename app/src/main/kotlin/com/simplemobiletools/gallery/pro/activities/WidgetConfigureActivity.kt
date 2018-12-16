@@ -169,7 +169,7 @@ class WidgetConfigureActivity : SimpleActivity() {
             val path = directoryDB.getDirectoryThumbnail(folderPath)
             if (path != null) {
                 runOnUiThread {
-                    loadJpg(path, config_image, true)
+                    loadJpg(path, config_image, config.cropThumbnails)
                 }
             }
         }.start()
