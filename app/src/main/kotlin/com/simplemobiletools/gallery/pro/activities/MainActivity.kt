@@ -1094,6 +1094,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 measureRecyclerViewContent(dirsToShow)
             }
         }
+
+        // recyclerview sometimes becomes empty at init/update, triggering an invisible refresh like this seems to work fine
+        directories_grid.postDelayed({
+            directories_grid.scrollBy(0, 0)
+        }, 500)
     }
 
     private fun setupScrollDirection() {
