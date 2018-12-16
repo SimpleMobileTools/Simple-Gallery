@@ -107,6 +107,8 @@ val Context.galleryDB: GalleryDatabase get() = GalleryDatabase.getInstance(appli
 
 val Context.widgetsDB: WidgetsDao get() = GalleryDatabase.getInstance(applicationContext).WidgetsDao()
 
+val Context.directoryDB: DirectoryDao get() = GalleryDatabase.getInstance(applicationContext).DirectoryDao()
+
 val Context.recycleBin: File get() = filesDir
 
 val Context.recycleBinPath: String get() = filesDir.absolutePath

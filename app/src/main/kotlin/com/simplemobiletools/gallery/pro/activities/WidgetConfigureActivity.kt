@@ -11,10 +11,7 @@ import com.simplemobiletools.commons.dialogs.ColorPickerDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.dialogs.PickDirectoryDialog
-import com.simplemobiletools.gallery.pro.extensions.config
-import com.simplemobiletools.gallery.pro.extensions.getCachedDirectories
-import com.simplemobiletools.gallery.pro.extensions.loadJpg
-import com.simplemobiletools.gallery.pro.extensions.widgetsDB
+import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.MyWidgetProvider
 import com.simplemobiletools.gallery.pro.models.Directory
 import com.simplemobiletools.gallery.pro.models.Widget
@@ -83,7 +80,7 @@ class WidgetConfigureActivity : SimpleActivity() {
         val views = RemoteViews(packageName, R.layout.widget)
         views.setBackgroundColor(R.id.widget_holder, mBgColor)
         AppWidgetManager.getInstance(this).updateAppWidget(mWidgetId, views)
-        val widget = Widget(null, mWidgetId, "/storage/emulated/0")
+        val widget = Widget(null, mWidgetId, mFolderPath)
         Thread {
             widgetsDB.insertOrUpdate(widget)
         }.start()
@@ -135,11 +132,13 @@ class WidgetConfigureActivity : SimpleActivity() {
 
     private fun updateFolderImage(folderPath: String) {
         mFolderPath = folderPath
-        val tmb = mDirectories.firstOrNull { it.path == folderPath }?.tmb
-        if (tmb != null) {
-            runOnUiThread {
-                loadJpg(tmb, config_image, true)
+        Thread {
+            val path = directoryDB.getDirectoryThumbnail(folderPath)
+            if (path != null) {
+                runOnUiThread {
+                    loadJpg(path, config_image, true)
+                }
             }
-        }
+        }.start()
     }
 }

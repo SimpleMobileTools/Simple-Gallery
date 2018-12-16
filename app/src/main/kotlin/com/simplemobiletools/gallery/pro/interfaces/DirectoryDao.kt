@@ -29,4 +29,7 @@ interface DirectoryDao {
 
     @Query("DELETE FROM directories WHERE path = \'$RECYCLE_BIN\' COLLATE NOCASE")
     fun deleteRecycleBin()
+
+    @Query("SELECT thumbnail FROM directories WHERE path = :path")
+    fun getDirectoryThumbnail(path: String): String?
 }
