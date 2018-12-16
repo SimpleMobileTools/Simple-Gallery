@@ -118,6 +118,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         media_empty_text.setOnClickListener {
             showFilterMediaDialog()
         }
+
+        updateWidgets()
     }
 
     override fun onStart() {
