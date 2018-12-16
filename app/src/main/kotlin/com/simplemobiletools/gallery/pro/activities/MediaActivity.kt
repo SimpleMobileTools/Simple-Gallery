@@ -697,8 +697,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         val pathToCheck = if (mPath.isEmpty()) SHOW_ALL else mPath
         val hasSections = config.getFolderGrouping(pathToCheck) and GROUP_BY_NONE == 0 && !config.scrollHorizontally
         val sectionTitleHeight = if (hasSections) layoutManager.getChildAt(0)?.height ?: 0 else 0
-        val thumbnailHeight = if (hasSections) layoutManager.getChildAt(1)?.height ?: 0 else layoutManager.getChildAt(0)?.height
-                ?: 0
+        val thumbnailHeight = if (hasSections) layoutManager.getChildAt(1)?.height ?: 0 else layoutManager.getChildAt(0)?.height ?: 0
 
         var fullHeight = 0
         var curSectionItems = 0

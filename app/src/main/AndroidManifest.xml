@@ -215,6 +215,15 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".activities.WidgetConfigureActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyWidgetConfigTheme">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
@@ -231,6 +240,18 @@
             <intent-filter>
                 <action android:name="com.simplemobiletools.REFRESH_MEDIA"/>
             </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".helpers.MyWidgetProvider"
+            android:icon="@mipmap/ic_launcher">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_info"/>
         </receiver>
 
         <activity-alias

@@ -25,6 +25,7 @@ import com.simplemobiletools.gallery.pro.databases.GalleryDatabase
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.interfaces.DirectoryDao
 import com.simplemobiletools.gallery.pro.interfaces.MediumDao
+import com.simplemobiletools.gallery.pro.interfaces.WidgetsDao
 import com.simplemobiletools.gallery.pro.models.Directory
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
@@ -103,6 +104,8 @@ fun Context.launchSettings() {
 val Context.config: Config get() = Config.newInstance(applicationContext)
 
 val Context.galleryDB: GalleryDatabase get() = GalleryDatabase.getInstance(applicationContext)
+
+val Context.widgetsDB: WidgetsDao get() = GalleryDatabase.getInstance(applicationContext).WidgetsDao()
 
 val Context.recycleBin: File get() = filesDir
 
