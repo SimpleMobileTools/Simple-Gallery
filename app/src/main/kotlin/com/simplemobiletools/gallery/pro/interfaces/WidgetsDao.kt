@@ -14,6 +14,6 @@ interface WidgetsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertOrUpdate(widget: Widget): Long
 
-    @Query("DELETE FROM widgets WHERE folder_path = :folderPath")
-    fun deleteNoteWidgets(folderPath: String)
+    @Query("DELETE FROM widgets WHERE widget_id = :widgetId")
+    fun deleteWidgetId(widgetId: Int)
 }

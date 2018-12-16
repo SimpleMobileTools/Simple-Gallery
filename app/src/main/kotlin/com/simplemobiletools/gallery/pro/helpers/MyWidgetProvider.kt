@@ -30,9 +30,8 @@ class MyWidgetProvider : AppWidgetProvider() {
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
         super.onUpdate(context, appWidgetManager, appWidgetIds)
         Thread {
-            val widgets = context.widgetsDB.getWidgets()
             val config = context.config
-            widgets.forEach {
+            context.widgetsDB.getWidgets().forEach {
                 val views = RemoteViews(context.packageName, R.layout.widget).apply {
                     setBackgroundColor(R.id.widget_holder, config.widgetBgColor)
                     setVisibleIf(R.id.widget_folder_name, config.showWidgetFolderName)
@@ -58,6 +57,15 @@ class MyWidgetProvider : AppWidgetProvider() {
 
                 setupAppOpenIntent(context, views, R.id.widget_holder, it)
                 appWidgetManager.updateAppWidget(it.widgetId, views)
+            }
+        }.start()
+    }
+
+    override fun onDeleted(context: Context, appWidgetIds: IntArray) {
+        super.onDeleted(context, appWidgetIds)
+        Thread {
+            appWidgetIds.forEach {
+                context.widgetsDB.deleteWidgetId(it)
             }
         }.start()
     }
