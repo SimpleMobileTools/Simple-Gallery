@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:configure="com.simplemobiletools.gallery.pro.activities.WidgetConfigureActivity"
     android:initialLayout="@layout/widget"
-    android:minWidth="40dp"
+    android:minWidth="@dimen/widget_initial_width"
     android:minHeight="40dp"
     android:minResizeWidth="40dp"
     android:minResizeHeight="40dp"

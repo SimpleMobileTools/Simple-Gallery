@@ -145,6 +145,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 config.filterMedia += TYPE_SVGS
             }
         }
+
+        updateWidgets()
     }
 
     override fun onStart() {

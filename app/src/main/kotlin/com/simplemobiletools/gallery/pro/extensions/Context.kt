@@ -1,5 +1,7 @@
 package com.simplemobiletools.gallery.pro.extensions
 
+import android.appwidget.AppWidgetManager
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
@@ -486,4 +488,15 @@ fun Context.getUpdatedDeletedMedia(mediumDao: MediumDao): ArrayList<Medium> {
 
 fun Context.deleteDBPath(mediumDao: MediumDao, path: String) {
     mediumDao.deleteMediumPath(path.replaceFirst(recycleBinPath, RECYCLE_BIN))
+}
+
+fun Context.updateWidgets() {
+    val widgetIDs = AppWidgetManager.getInstance(applicationContext).getAppWidgetIds(ComponentName(applicationContext, MyWidgetProvider::class.java))
+    if (widgetIDs.isNotEmpty()) {
+        Intent(applicationContext, MyWidgetProvider::class.java).apply {
+            action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
+            putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, widgetIDs)
+            sendBroadcast(this)
+        }
+    }
 }

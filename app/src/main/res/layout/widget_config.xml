@@ -33,9 +33,10 @@
 
     <RelativeLayout
         android:id="@+id/config_image_holder"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_below="@+id/folder_picker_holder">
+        android:layout_width="134dp"
+        android:layout_height="134dp"
+        android:layout_below="@+id/folder_picker_holder"
+        android:padding="@dimen/normal_margin">
 
         <com.simplemobiletools.gallery.pro.views.MySquareImageView
             android:id="@+id/config_image"
