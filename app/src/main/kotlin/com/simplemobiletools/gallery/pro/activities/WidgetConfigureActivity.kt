@@ -15,7 +15,7 @@ import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.MyWidgetProvider
 import com.simplemobiletools.gallery.pro.models.Directory
 import com.simplemobiletools.gallery.pro.models.Widget
-import kotlinx.android.synthetic.main.widget_config.*
+import kotlinx.android.synthetic.main.activity_widget_config.*
 
 class WidgetConfigureActivity : SimpleActivity() {
     private var mBgAlpha = 0f
@@ -29,7 +29,7 @@ class WidgetConfigureActivity : SimpleActivity() {
         useDynamicTheme = false
         super.onCreate(savedInstanceState)
         setResult(RESULT_CANCELED)
-        setContentView(R.layout.widget_config)
+        setContentView(R.layout.activity_widget_config)
         initVariables()
 
         mWidgetId = intent.extras?.getInt(AppWidgetManager.EXTRA_APPWIDGET_ID) ?: AppWidgetManager.INVALID_APPWIDGET_ID
