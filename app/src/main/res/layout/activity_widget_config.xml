@@ -54,7 +54,7 @@
             android:layout_marginLeft="@dimen/activity_margin"
             android:background="@drawable/button_background"
             android:padding="@dimen/normal_margin"
-            android:text="@string/internal"/>
+            tools:text="@string/internal"/>
 
     </RelativeLayout>
 
