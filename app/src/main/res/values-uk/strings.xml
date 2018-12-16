@@ -132,6 +132,9 @@
     <string name="by_file_type">типом файлу</string>
     <string name="by_extension">розширенням</string>
 
+    <!-- Widgets -->
+    <string name="folder_on_widget">Folder shown on the widget:</string>
+
     <!-- Settings -->
     <string name="autoplay_videos">Відтворювати відео автоматично</string>
     <string name="remember_last_video_position">Запам\'ятовувати місце зупинки перегляду</string>

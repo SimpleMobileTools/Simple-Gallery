@@ -132,6 +132,9 @@
     <string name="by_file_type">Tipus de fitxer</string>
     <string name="by_extension">Extensió</string>
 
+    <!-- Widgets -->
+    <string name="folder_on_widget">Folder shown on the widget:</string>
+
     <!-- Settings -->
     <string name="autoplay_videos">Reproduir vídeos automàticament</string>
     <string name="remember_last_video_position">Recordeu la posició de la darrera reproducció de vídeo</string>

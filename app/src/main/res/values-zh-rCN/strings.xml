@@ -132,6 +132,9 @@
     <string name="by_file_type">文件类型</string>
     <string name="by_extension">扩展</string>
 
+    <!-- Widgets -->
+    <string name="folder_on_widget">Folder shown on the widget:</string>
+
     <!-- Settings -->
     <string name="autoplay_videos">自动播放</string>
     <string name="remember_last_video_position">记住上次视频播放位置</string>

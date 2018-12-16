@@ -132,6 +132,9 @@
     <string name="by_file_type">File type</string>
     <string name="by_extension">Extension</string>
 
+    <!-- Widgets -->
+    <string name="folder_on_widget">Folder shown on the widget:</string>
+
     <!-- Settings -->
     <string name="autoplay_videos">Groti vaizdo įrašus automatiškai</string>
     <string name="remember_last_video_position">Remember last video playback position</string>

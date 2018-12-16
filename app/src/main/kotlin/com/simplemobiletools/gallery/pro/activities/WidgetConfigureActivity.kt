@@ -4,6 +4,7 @@ import android.app.Activity
 import android.appwidget.AppWidgetManager
 import android.content.Intent
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.widget.RemoteViews
 import com.simplemobiletools.commons.dialogs.ColorPickerDialog
@@ -37,6 +38,8 @@ class WidgetConfigureActivity : SimpleActivity() {
         config_save.setOnClickListener { saveConfig() }
         config_bg_color.setOnClickListener { pickBackgroundColor() }
         config_save.setTextColor(getAdjustedPrimaryColor())
+        updateTextColors(folder_picker_holder)
+        folder_picker_holder.background = ColorDrawable(config.backgroundColor)
     }
 
     private fun initVariables() {

@@ -132,6 +132,9 @@
     <string name="by_file_type">檔案類型</string>
     <string name="by_extension">副檔名</string>
 
+    <!-- Widgets -->
+    <string name="folder_on_widget">Folder shown on the widget:</string>
+
     <!-- Settings -->
     <string name="autoplay_videos">自動播放影片</string>
     <string name="remember_last_video_position">記住影片上次撥放位置</string>

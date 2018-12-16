@@ -132,6 +132,9 @@
     <string name="by_file_type">Jenis file</string>
     <string name="by_extension">Ekstensi</string>
 
+    <!-- Widgets -->
+    <string name="folder_on_widget">Folder shown on the widget:</string>
+
     <!-- Settings -->
     <string name="autoplay_videos">Putar video otomatis</string>
     <string name="remember_last_video_position">Ingat posisi pemutaran terakhir</string>

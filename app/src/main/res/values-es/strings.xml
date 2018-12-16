@@ -132,6 +132,9 @@
     <string name="by_file_type">Tipo de fichero</string>
     <string name="by_extension">Extensión</string>
 
+    <!-- Widgets -->
+    <string name="folder_on_widget">Folder shown on the widget:</string>
+
     <!-- Settings -->
     <string name="autoplay_videos">Reproducir vídeos automáticamente</string>
     <string name="remember_last_video_position">Recuerde la última posición de reproducción de video</string>

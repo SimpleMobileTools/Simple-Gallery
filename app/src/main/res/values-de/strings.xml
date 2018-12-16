@@ -132,6 +132,9 @@
     <string name="by_file_type">Dateityp (Bilder/Videos)</string>
     <string name="by_extension">Dateierweiterung</string>
 
+    <!-- Widgets -->
+    <string name="folder_on_widget">Folder shown on the widget:</string>
+
     <!-- Settings -->
     <string name="autoplay_videos">Videos automatisch abspielen</string>
     <string name="remember_last_video_position">Letzte Videowiedergabeposition erinnern</string>

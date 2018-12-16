@@ -8,9 +8,34 @@
     android:layout_margin="@dimen/activity_margin">
 
     <RelativeLayout
+        android:id="@+id/folder_picker_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_margin">
+
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/folder_picker_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/normal_margin"
+            android:text="@string/folder_on_widget"/>
+
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/folder_picker_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/folder_picker_label"
+            android:background="@drawable/button_background"
+            android:padding="@dimen/normal_margin"
+            android:text="@string/internal"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/config_image_holder"
         android:layout_width="110dp"
         android:layout_height="110dp"
+        android:layout_below="@+id/folder_picker_holder"
         android:padding="@dimen/activity_margin">
 
         <ImageView
