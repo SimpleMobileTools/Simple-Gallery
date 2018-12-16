@@ -8,7 +8,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.widget.RemoteViews
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -47,7 +46,7 @@ class MyWidgetProvider : AppWidgetProvider() {
                 if (context.config.cropThumbnails) options.centerCrop() else options.fitCenter()
 
                 Handler(Looper.getMainLooper()).post {
-                    val widgetSize = context.resources.getDimension(R.dimen.widget_initial_width).toInt()
+                    val widgetSize = context.resources.getDimension(R.dimen.widget_initial_size).toInt()
                     val componentName = ComponentName(context, MyWidgetProvider::class.java)
                     val appWidgetTarget = object : AppWidgetTarget(context, widgetSize, widgetSize, R.id.widget_imageview, views, componentName) {}
 

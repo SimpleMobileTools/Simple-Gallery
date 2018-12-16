@@ -96,6 +96,12 @@
             android:paddingRight="@dimen/activity_margin"/>
     </RelativeLayout>
 
+    <ImageView
+        android:id="@+id/config_text_color"
+        android:layout_width="@dimen/widget_colorpicker_size"
+        android:layout_height="@dimen/widget_colorpicker_size"
+        android:layout_alignParentBottom="true"/>
+
     <Button
         android:id="@+id/config_save"
         android:layout_width="wrap_content"

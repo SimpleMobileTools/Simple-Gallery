@@ -22,6 +22,7 @@ class WidgetConfigureActivity : SimpleActivity() {
     private var mWidgetId = 0
     private var mBgColor = 0
     private var mBgColorWithoutTransparency = 0
+    private var mTextColor = 0
     private var mFolderPath = ""
     private var mDirectories = ArrayList<Directory>()
 
@@ -40,10 +41,11 @@ class WidgetConfigureActivity : SimpleActivity() {
 
         config_save.setOnClickListener { saveConfig() }
         config_bg_color.setOnClickListener { pickBackgroundColor() }
+        config_text_color.setOnClickListener { pickTextColor() }
         folder_picker_value.setOnClickListener { changeSelectedFolder() }
         config_image_holder.setOnClickListener { changeSelectedFolder() }
-        folder_picker_show_folder_name_holder.setOnClickListener {  }
-        config_save.setTextColor(getAdjustedPrimaryColor())
+        folder_picker_show_folder_name.isChecked = config.showWidgetFolderName
+        folder_picker_show_folder_name_holder.setOnClickListener { toggleFolderNameDisplay() }
         updateTextColors(folder_picker_holder)
         folder_picker_holder.background = ColorDrawable(config.backgroundColor)
 
@@ -75,12 +77,16 @@ class WidgetConfigureActivity : SimpleActivity() {
             }
         }
         updateBackgroundColor()
+
+        mTextColor = config.widgetTextColor
+        updateTextColor()
     }
 
     private fun saveConfig() {
         val views = RemoteViews(packageName, R.layout.widget)
         views.setBackgroundColor(R.id.widget_holder, mBgColor)
         AppWidgetManager.getInstance(this).updateAppWidget(mWidgetId, views)
+        config.showWidgetFolderName = folder_picker_show_folder_name.isChecked
         val widget = Widget(null, mWidgetId, mFolderPath)
         Thread {
             widgetsDB.insertOrUpdate(widget)
@@ -116,11 +122,25 @@ class WidgetConfigureActivity : SimpleActivity() {
         config_bg_color.setFillWithStroke(mBgColor, Color.BLACK)
     }
 
+    private fun updateTextColor() {
+        config_save.setTextColor(mTextColor)
+        config_text_color.setFillWithStroke(mTextColor, Color.BLACK)
+    }
+
     private fun pickBackgroundColor() {
         ColorPickerDialog(this, mBgColorWithoutTransparency) { wasPositivePressed, color ->
             if (wasPositivePressed) {
                 mBgColorWithoutTransparency = color
                 updateBackgroundColor()
+            }
+        }
+    }
+
+    private fun pickTextColor() {
+        ColorPickerDialog(this, mTextColor) { wasPositivePressed, color ->
+            if (wasPositivePressed) {
+                mTextColor = color
+                updateTextColor()
             }
         }
     }
@@ -141,5 +161,9 @@ class WidgetConfigureActivity : SimpleActivity() {
                 }
             }
         }.start()
+    }
+
+    private fun toggleFolderNameDisplay() {
+        folder_picker_show_folder_name.toggle()
     }
 }

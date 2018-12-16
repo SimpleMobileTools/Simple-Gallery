@@ -72,6 +72,7 @@ const val LAST_EDITOR_CROP_ASPECT_RATIO = "last_editor_crop_aspect_ratio"
 const val LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_X = "last_editor_crop_other_aspect_ratio_x"
 const val LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y = "last_editor_crop_other_aspect_ratio_y"
 const val GROUP_DIRECT_SUBFOLDERS = "group_direct_subfolders"
+const val SHOW_WIDGET_FOLDER_NAME = "show_widget_folder_name"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"
