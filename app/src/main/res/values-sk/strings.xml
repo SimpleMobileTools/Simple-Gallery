@@ -134,6 +134,7 @@
 
     <!-- Widgets -->
     <string name="folder_on_widget">Priečinok zobrazený vo widgete:</string>
+    <string name="show_folder_name">Zobraziť názov priečinka</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Spúšťať videá automaticky</string>
