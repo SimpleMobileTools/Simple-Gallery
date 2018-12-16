@@ -2,6 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/config_holder"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -59,15 +60,29 @@
 
     <RelativeLayout
         android:id="@+id/config_image_holder"
-        android:layout_width="134dp"
-        android:layout_height="134dp"
-        android:layout_below="@+id/folder_picker_holder"
-        android:padding="@dimen/normal_margin">
+        android:layout_width="@dimen/widget_initial_size"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/folder_picker_holder">
 
         <com.simplemobiletools.gallery.pro.views.MySquareImageView
             android:id="@+id/config_image"
+            android:layout_width="@dimen/widget_initial_size"
+            android:layout_height="@dimen/widget_initial_size"
+            android:layout_marginLeft="@dimen/normal_margin"
+            android:layout_marginTop="@dimen/normal_margin"
+            android:layout_marginRight="@dimen/normal_margin"/>
+
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/config_folder_name"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/config_image"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="1"
+            android:padding="@dimen/tiny_margin"
+            android:textSize="@dimen/bigger_text_size"
+            tools:text="@string/internal"/>
 
     </RelativeLayout>
 

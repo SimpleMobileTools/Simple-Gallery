@@ -241,10 +241,21 @@ fun Context.storeDirectoryItems(items: ArrayList<Directory>, directoryDao: Direc
 }
 
 fun Context.checkAppendingHidden(path: String, hidden: String, includedFolders: MutableSet<String>): String {
-    val dirName = when (path) {
+    val dirName = getFolderNameFromPath(path)
+    return if (File(path).doesThisOrParentHaveNoMedia() && !path.isThisOrParentIncluded(includedFolders)) {
+        "$dirName $hidden"
+    } else {
+        dirName
+    }
+}
+
+fun Context.getFolderNameFromPath(path: String): String {
+    return when (path) {
         internalStoragePath -> getString(R.string.internal)
         sdCardPath -> getString(R.string.sd_card)
         OTG_PATH -> getString(R.string.otg)
+        FAVORITES -> getString(R.string.favorites)
+        RECYCLE_BIN -> getString(R.string.recycle_bin)
         else -> {
             if (path.startsWith(OTG_PATH)) {
                 path.trimEnd('/').substringAfterLast('/')
@@ -252,12 +263,6 @@ fun Context.checkAppendingHidden(path: String, hidden: String, includedFolders: 
                 path.getFilenameFromPath()
             }
         }
-    }
-
-    return if (File(path).doesThisOrParentHaveNoMedia() && !path.isThisOrParentIncluded(includedFolders)) {
-        "$dirName $hidden"
-    } else {
-        dirName
     }
 }
 

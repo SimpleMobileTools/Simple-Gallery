@@ -6,6 +6,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.widget.RelativeLayout
 import android.widget.RemoteViews
 import com.simplemobiletools.commons.dialogs.ColorPickerDialog
 import com.simplemobiletools.commons.extensions.*
@@ -45,7 +46,12 @@ class WidgetConfigureActivity : SimpleActivity() {
         folder_picker_value.setOnClickListener { changeSelectedFolder() }
         config_image_holder.setOnClickListener { changeSelectedFolder() }
         folder_picker_show_folder_name.isChecked = config.showWidgetFolderName
-        folder_picker_show_folder_name_holder.setOnClickListener { toggleFolderNameDisplay() }
+        handleFolderNameDisplay()
+        folder_picker_show_folder_name_holder.setOnClickListener {
+            folder_picker_show_folder_name.toggle()
+            handleFolderNameDisplay()
+        }
+
         updateTextColors(folder_picker_holder)
         folder_picker_holder.background = ColorDrawable(config.backgroundColor)
 
@@ -124,6 +130,7 @@ class WidgetConfigureActivity : SimpleActivity() {
 
     private fun updateTextColor() {
         config_save.setTextColor(mTextColor)
+        config_folder_name.setTextColor(mTextColor)
         config_text_color.setFillWithStroke(mTextColor, Color.BLACK)
     }
 
@@ -146,13 +153,17 @@ class WidgetConfigureActivity : SimpleActivity() {
     }
 
     private fun changeSelectedFolder() {
-        PickDirectoryDialog(this, mFolderPath, false) {
+        PickDirectoryDialog(this, "", false) {
             updateFolderImage(it)
         }
     }
 
     private fun updateFolderImage(folderPath: String) {
         mFolderPath = folderPath
+        runOnUiThread {
+            config_folder_name.text = getFolderNameFromPath(folderPath)
+        }
+
         Thread {
             val path = directoryDB.getDirectoryThumbnail(folderPath)
             if (path != null) {
@@ -163,7 +174,9 @@ class WidgetConfigureActivity : SimpleActivity() {
         }.start()
     }
 
-    private fun toggleFolderNameDisplay() {
-        folder_picker_show_folder_name.toggle()
+    private fun handleFolderNameDisplay() {
+        val showFolderName = folder_picker_show_folder_name.isChecked
+        config_folder_name.beVisibleIf(showFolderName)
+        (config_image.layoutParams as RelativeLayout.LayoutParams).bottomMargin = if (showFolderName) 0 else resources.getDimension(R.dimen.normal_margin).toInt()
     }
 }

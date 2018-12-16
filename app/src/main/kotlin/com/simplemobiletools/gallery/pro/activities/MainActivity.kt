@@ -1048,18 +1048,13 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             }
         }
 
-        val mediaTypes = curMedia.getDirMediaTypes()
-        val dirName = when (path) {
-            FAVORITES -> getString(R.string.favorites)
-            RECYCLE_BIN -> getString(R.string.recycle_bin)
-            else -> checkAppendingHidden(path, hiddenString, includedFolders)
-        }
-
         val firstItem = curMedia.first()
         val lastItem = curMedia.last()
+        val dirName = checkAppendingHidden(path, hiddenString, includedFolders)
         val lastModified = if (isSortingAscending) Math.min(firstItem.modified, lastItem.modified) else Math.max(firstItem.modified, lastItem.modified)
         val dateTaken = if (isSortingAscending) Math.min(firstItem.taken, lastItem.taken) else Math.max(firstItem.taken, lastItem.taken)
         val size = curMedia.sumByLong { it.size }
+        val mediaTypes = curMedia.getDirMediaTypes()
         return Directory(null, path, thumbnail, dirName, curMedia.size, lastModified, dateTaken, size, getPathLocation(path), mediaTypes)
     }
 
