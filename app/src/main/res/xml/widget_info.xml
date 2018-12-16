@@ -4,7 +4,7 @@
     android:configure="com.simplemobiletools.gallery.pro.activities.WidgetConfigureActivity"
     android:initialLayout="@layout/widget"
     android:minWidth="@dimen/widget_initial_size"
-    android:minHeight="@dimen/widget_initial_size"
+    android:minHeight="40dp"
     android:minResizeWidth="40dp"
     android:minResizeHeight="40dp"
     android:resizeMode="horizontal|vertical"/>

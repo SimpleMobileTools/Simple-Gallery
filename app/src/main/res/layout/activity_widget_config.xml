@@ -60,7 +60,7 @@
 
     <RelativeLayout
         android:id="@+id/config_image_holder"
-        android:layout_width="@dimen/widget_initial_size"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/folder_picker_holder">
 
@@ -68,6 +68,7 @@
             android:id="@+id/config_image"
             android:layout_width="@dimen/widget_initial_size"
             android:layout_height="@dimen/widget_initial_size"
+            android:layout_centerHorizontal="true"
             android:layout_marginLeft="@dimen/normal_margin"
             android:layout_marginTop="@dimen/normal_margin"
             android:layout_marginRight="@dimen/normal_margin"/>
