@@ -67,7 +67,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mIsSearchOpen = false
     private var mLatestMediaId = 0L
     private var mLatestMediaDateId = 0L
-    private var mCurrentPathPrefix = ""     // used at "Group direct subfolders" for navigation
+    private var mCurrentPathPrefix = ""                 // used at "Group direct subfolders" for navigation
+    private var mOpenedSubfolders = arrayListOf("")     // used at "Group direct subfolders" for navigating Up with the back button
     private var mLastMediaHandler = Handler()
     private var mTempShowHiddenHandler = Handler()
     private var mZoomListener: MyRecyclerView.MyZoomListener? = null
@@ -240,6 +241,20 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             if (!config.showAll) {
                 GalleryDatabase.destroyInstance()
             }
+        }
+    }
+
+    override fun onBackPressed() {
+        if (config.groupDirectSubfolders) {
+            if (mCurrentPathPrefix.isEmpty()) {
+                super.onBackPressed()
+            } else {
+                mOpenedSubfolders.removeAt(mOpenedSubfolders.size - 1)
+                mCurrentPathPrefix = mOpenedSubfolders.last()
+                setupAdapter(mDirs)
+            }
+        } else {
+            super.onBackPressed()
         }
     }
 
@@ -1064,6 +1079,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     }
                 } else {
                     mCurrentPathPrefix = path
+                    mOpenedSubfolders.add(path)
                     setupAdapter(mDirs, "")
                 }
             }.apply {
