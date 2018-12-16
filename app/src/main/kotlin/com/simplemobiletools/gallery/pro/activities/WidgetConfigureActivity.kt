@@ -42,6 +42,7 @@ class WidgetConfigureActivity : SimpleActivity() {
         config_bg_color.setOnClickListener { pickBackgroundColor() }
         folder_picker_value.setOnClickListener { changeSelectedFolder() }
         config_image_holder.setOnClickListener { changeSelectedFolder() }
+        folder_picker_show_folder_name_holder.setOnClickListener {  }
         config_save.setTextColor(getAdjustedPrimaryColor())
         updateTextColors(folder_picker_holder)
         folder_picker_holder.background = ColorDrawable(config.backgroundColor)

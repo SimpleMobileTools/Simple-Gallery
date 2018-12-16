@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/config_holder"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -11,13 +12,37 @@
         android:id="@+id/folder_picker_holder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/activity_margin">
+        android:paddingBottom="@dimen/activity_margin">
+
+        <RelativeLayout
+            android:id="@+id/folder_picker_show_folder_name_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:paddingLeft="@dimen/activity_margin"
+            android:paddingTop="@dimen/activity_margin"
+            android:paddingRight="@dimen/medium_margin"
+            android:paddingBottom="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/folder_picker_show_folder_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:text="@string/show_folder_name"
+                app:switchPadding="@dimen/medium_margin"/>
+
+        </RelativeLayout>
 
         <com.simplemobiletools.commons.views.MyTextView
             android:id="@+id/folder_picker_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/folder_picker_show_folder_name_holder"
+            android:layout_marginTop="@dimen/small_margin"
             android:layout_marginBottom="@dimen/normal_margin"
+            android:paddingLeft="@dimen/activity_margin"
             android:text="@string/folder_on_widget"/>
 
         <com.simplemobiletools.commons.views.MyTextView
@@ -25,6 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/folder_picker_label"
+            android:layout_marginLeft="@dimen/activity_margin"
             android:background="@drawable/button_background"
             android:padding="@dimen/normal_margin"
             android:text="@string/internal"/>
