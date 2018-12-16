@@ -16,7 +16,7 @@ import com.simplemobiletools.gallery.pro.helpers.VIEW_TYPE_GRID
 import com.simplemobiletools.gallery.pro.models.Directory
 import kotlinx.android.synthetic.main.dialog_directory_picker.view.*
 
-class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: String, val showOtherFolderButton: Boolean, val callback: (path: String) -> Unit) {
+class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: String, showOtherFolderButton: Boolean, val callback: (path: String) -> Unit) {
     var dialog: AlertDialog
     var shownDirectories = ArrayList<Directory>()
     var view = activity.layoutInflater.inflate(R.layout.dialog_directory_picker, null)
@@ -56,6 +56,10 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
     private fun fetchDirectories(forceShowHidden: Boolean) {
         activity.getCachedDirectories(forceShowHidden = forceShowHidden) {
             if (it.isNotEmpty()) {
+                it.forEach {
+                    it.subfoldersMediaCount = it.mediaCnt
+                }
+
                 activity.runOnUiThread {
                     gotDirectories(activity.addTempFolderIfNeeded(it))
                 }
