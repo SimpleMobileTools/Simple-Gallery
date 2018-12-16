@@ -16,7 +16,7 @@ import com.simplemobiletools.gallery.pro.helpers.VIEW_TYPE_GRID
 import com.simplemobiletools.gallery.pro.models.Directory
 import kotlinx.android.synthetic.main.dialog_directory_picker.view.*
 
-class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: String, val callback: (path: String) -> Unit) {
+class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: String, val showOtherFolderButton: Boolean, val callback: (path: String) -> Unit) {
     var dialog: AlertDialog
     var shownDirectories = ArrayList<Directory>()
     var view = activity.layoutInflater.inflate(R.layout.dialog_directory_picker, null)
@@ -29,22 +29,26 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
             spanCount = if (isGridViewType) activity.config.dirColumnCnt else 1
         }
 
-        dialog = AlertDialog.Builder(activity)
+        val builder = AlertDialog.Builder(activity)
                 .setPositiveButton(R.string.ok, null)
                 .setNegativeButton(R.string.cancel, null)
-                .setNeutralButton(R.string.other_folder) { dialogInterface, i -> showOtherFolder() }
-                .create().apply {
-                    activity.setupDialogStuff(view, this, R.string.select_destination) {
-                        view.directories_show_hidden.beVisibleIf(!context.config.shouldShowHidden)
-                        view.directories_show_hidden.setOnClickListener {
-                            activity.handleHiddenFolderPasswordProtection {
-                                view.directories_show_hidden.beGone()
-                                showHidden = true
-                                fetchDirectories(true)
-                            }
-                        }
+
+        if (showOtherFolderButton) {
+            builder.setNeutralButton(R.string.other_folder) { dialogInterface, i -> showOtherFolder() }
+        }
+
+        dialog = builder.create().apply {
+            activity.setupDialogStuff(view, this, R.string.select_destination) {
+                view.directories_show_hidden.beVisibleIf(!context.config.shouldShowHidden)
+                view.directories_show_hidden.setOnClickListener {
+                    activity.handleHiddenFolderPasswordProtection {
+                        view.directories_show_hidden.beGone()
+                        showHidden = true
+                        fetchDirectories(true)
                     }
                 }
+            }
+        }
 
         fetchDirectories(false)
     }
