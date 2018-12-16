@@ -14,12 +14,11 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.AppWidgetTarget
 import com.simplemobiletools.commons.extensions.setBackgroundColor
+import com.simplemobiletools.commons.extensions.setText
+import com.simplemobiletools.commons.extensions.setVisibleIf
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.MediaActivity
-import com.simplemobiletools.gallery.pro.extensions.config
-import com.simplemobiletools.gallery.pro.extensions.directoryDB
-import com.simplemobiletools.gallery.pro.extensions.getFileSignature
-import com.simplemobiletools.gallery.pro.extensions.widgetsDB
+import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.models.Widget
 
 class MyWidgetProvider : AppWidgetProvider() {
@@ -36,8 +35,12 @@ class MyWidgetProvider : AppWidgetProvider() {
         super.onUpdate(context, appWidgetManager, appWidgetIds)
         Thread {
             context.widgetsDB.getWidgets().forEach {
-                val views = RemoteViews(context.packageName, R.layout.widget)
-                views.setBackgroundColor(R.id.widget_holder, context.config.widgetBgColor)
+                val views = RemoteViews(context.packageName, R.layout.widget).apply {
+                    setBackgroundColor(R.id.widget_holder, context.config.widgetBgColor)
+                    setVisibleIf(R.id.widget_folder_name, context.config.showWidgetFolderName)
+                    setTextColor(R.id.widget_folder_name, context.config.widgetTextColor)
+                    setText(R.id.widget_folder_name, context.getFolderNameFromPath(it.folderPath))
+                }
 
                 val path = context.directoryDB.getDirectoryThumbnail(it.folderPath)
                 val options = RequestOptions()

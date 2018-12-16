@@ -12,4 +12,16 @@
         android:layout_height="wrap_content"
         tools:src="@mipmap/ic_launcher"/>
 
+    <TextView
+        android:id="@+id/widget_folder_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/widget_imageview"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:lines="1"
+        android:padding="@dimen/tiny_margin"
+        android:textSize="@dimen/bigger_text_size"
+        tools:text="@string/internal"/>
+
 </RelativeLayout>
