@@ -821,7 +821,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 }
 
                 // we are looping through the already displayed folders looking for changes, do not do anything if nothing changed
-                if (directory == newDir) {
+                if (directory.copy(subfoldersCount = 0, subfoldersMediaCount = 0) == newDir) {
                     continue
                 }
 
