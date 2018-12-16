@@ -133,8 +133,8 @@
     <string name="by_extension">Estensione</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Folder shown on the widget:</string>
-    <string name="show_folder_name">Show folder name</string>
+    <string name="folder_on_widget">Cartella mostrata nel widget:</string>
+    <string name="show_folder_name">Mostra il nome della cartella</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Riproduci i video automaticamente</string>
