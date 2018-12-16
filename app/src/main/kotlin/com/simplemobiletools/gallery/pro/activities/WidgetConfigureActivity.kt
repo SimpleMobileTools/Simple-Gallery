@@ -10,11 +10,13 @@ import android.widget.RemoteViews
 import com.simplemobiletools.commons.dialogs.ColorPickerDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.pro.R
+import com.simplemobiletools.gallery.pro.dialogs.PickDirectoryDialog
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.extensions.getCachedDirectories
 import com.simplemobiletools.gallery.pro.extensions.loadJpg
 import com.simplemobiletools.gallery.pro.extensions.widgetsDB
 import com.simplemobiletools.gallery.pro.helpers.MyWidgetProvider
+import com.simplemobiletools.gallery.pro.models.Directory
 import com.simplemobiletools.gallery.pro.models.Widget
 import kotlinx.android.synthetic.main.widget_config.*
 
@@ -23,6 +25,8 @@ class WidgetConfigureActivity : SimpleActivity() {
     private var mWidgetId = 0
     private var mBgColor = 0
     private var mBgColorWithoutTransparency = 0
+    private var mFolderPath = ""
+    private var mDirectories = ArrayList<Directory>()
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         useDynamicTheme = false
@@ -39,16 +43,17 @@ class WidgetConfigureActivity : SimpleActivity() {
 
         config_save.setOnClickListener { saveConfig() }
         config_bg_color.setOnClickListener { pickBackgroundColor() }
+        folder_picker_value.setOnClickListener { changeSelectedFolder() }
+        config_image_holder.setOnClickListener { changeSelectedFolder() }
         config_save.setTextColor(getAdjustedPrimaryColor())
         updateTextColors(folder_picker_holder)
         folder_picker_holder.background = ColorDrawable(config.backgroundColor)
 
         getCachedDirectories(false, false) {
-            val path = it.firstOrNull()?.tmb
+            mDirectories = it
+            val path = it.firstOrNull()?.path
             if (path != null) {
-                runOnUiThread {
-                    loadJpg(path, config_image, true)
-                }
+                updateFolderImage(path)
             }
         }
     }
@@ -118,6 +123,22 @@ class WidgetConfigureActivity : SimpleActivity() {
             if (wasPositivePressed) {
                 mBgColorWithoutTransparency = color
                 updateBackgroundColor()
+            }
+        }
+    }
+
+    private fun changeSelectedFolder() {
+        PickDirectoryDialog(this, mFolderPath) {
+            updateFolderImage(it)
+        }
+    }
+
+    private fun updateFolderImage(folderPath: String) {
+        mFolderPath = folderPath
+        val tmb = mDirectories.firstOrNull { it.path == folderPath }?.tmb
+        if (tmb != null) {
+            runOnUiThread {
+                loadJpg(tmb, config_image, true)
             }
         }
     }
