@@ -372,7 +372,12 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             config.skipDeleteConfirmation -> deleteFolders()
             else -> {
                 val itemsCnt = selectedKeys.size
-                val items = resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)
+                val items = if (itemsCnt == 1) {
+                    "\"${getSelectedPaths().first().getFilenameFromPath()}\""
+                } else {
+                    resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)
+                }
+
                 val fileDirItem = getFirstSelectedItem() ?: return
                 val baseString = if (!config.useRecycleBin || (isOneItemSelected() && fileDirItem.isRecycleBin()) || (isOneItemSelected() && fileDirItem.areFavorites())) {
                     R.string.deletion_confirmation
