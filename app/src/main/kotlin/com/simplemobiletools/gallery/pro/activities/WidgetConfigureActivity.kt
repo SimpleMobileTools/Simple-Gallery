@@ -11,6 +11,8 @@ import com.simplemobiletools.commons.dialogs.ColorPickerDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.config
+import com.simplemobiletools.gallery.pro.extensions.getCachedDirectories
+import com.simplemobiletools.gallery.pro.extensions.loadJpg
 import com.simplemobiletools.gallery.pro.extensions.widgetsDB
 import com.simplemobiletools.gallery.pro.helpers.MyWidgetProvider
 import com.simplemobiletools.gallery.pro.models.Widget
@@ -40,6 +42,15 @@ class WidgetConfigureActivity : SimpleActivity() {
         config_save.setTextColor(getAdjustedPrimaryColor())
         updateTextColors(folder_picker_holder)
         folder_picker_holder.background = ColorDrawable(config.backgroundColor)
+
+        getCachedDirectories(false, false) {
+            val path = it.firstOrNull()?.tmb
+            if (path != null) {
+                runOnUiThread {
+                    loadJpg(path, config_image, true)
+                }
+            }
+        }
     }
 
     private fun initVariables() {

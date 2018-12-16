@@ -35,10 +35,9 @@
         android:id="@+id/config_image_holder"
         android:layout_width="110dp"
         android:layout_height="110dp"
-        android:layout_below="@+id/folder_picker_holder"
-        android:padding="@dimen/activity_margin">
+        android:layout_below="@+id/folder_picker_holder">
 
-        <ImageView
+        <com.simplemobiletools.gallery.pro.views.MySquareImageView
             android:id="@+id/config_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
