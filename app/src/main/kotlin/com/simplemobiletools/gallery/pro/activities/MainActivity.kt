@@ -938,7 +938,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val currentPaths = LinkedHashSet<String>()
         folders.forEach {
             val path = it
-            if (!path.equals(internalPath, true) && !path.equals(sdPath, true)) {
+            if (!path.equals(internalPath, true) && !path.equals(sdPath, true) && path != RECYCLE_BIN && path != FAVORITES) {
                 if (mCurrentPathPrefix.isNotEmpty()) {
                     if (File(path).parent.equals(mCurrentPathPrefix, true) || path == mCurrentPathPrefix) {
                         currentPaths.add(path)
@@ -956,10 +956,18 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         currentPaths.forEach {
             val path = it
             currentPaths.forEach {
-                if (!it.equals(path) && File(it).parent.equals(path)) {
+                if (!it.equals(path) && File(it).parent?.equals(path) == true) {
                     areDirectSubfoldersAvailable = true
                 }
             }
+        }
+
+        if (mCurrentPathPrefix.isEmpty() && folders.contains(RECYCLE_BIN)) {
+            currentPaths.add(RECYCLE_BIN)
+        }
+
+        if (mCurrentPathPrefix.isEmpty() && folders.contains(FAVORITES)) {
+            currentPaths.add(FAVORITES)
         }
 
         if (folders.size == currentPaths.size) {
