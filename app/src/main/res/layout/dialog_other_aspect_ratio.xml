@@ -84,6 +84,16 @@
                 android:text="19:9"
                 android:textSize="@dimen/bigger_text_size"/>
 
+            <com.simplemobiletools.commons.views.MyCompatRadioButton
+                android:id="@+id/other_aspect_ratio_custom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/small_margin"
+                android:paddingTop="@dimen/normal_margin"
+                android:paddingBottom="@dimen/normal_margin"
+                android:text="@string/custom"
+                android:textSize="@dimen/bigger_text_size"/>
+
         </RadioGroup>
 
         <RadioGroup
