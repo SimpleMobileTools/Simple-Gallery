@@ -9,9 +9,12 @@
     <ImageView
         android:id="@+id/widget_imageview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_above="@+id/widget_folder_name"
+        android:layout_centerInParent="true"
+        android:paddingLeft="@dimen/tiny_margin"
         android:paddingTop="@dimen/tiny_margin"
+        android:paddingRight="@dimen/tiny_margin"
         tools:src="@mipmap/ic_launcher"/>
 
     <TextView

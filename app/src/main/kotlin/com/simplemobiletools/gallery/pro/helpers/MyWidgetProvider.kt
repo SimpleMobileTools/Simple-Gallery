@@ -5,6 +5,7 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.widget.RemoteViews
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -31,7 +32,7 @@ class MyWidgetProvider : AppWidgetProvider() {
         super.onUpdate(context, appWidgetManager, appWidgetIds)
         Thread {
             val config = context.config
-            context.widgetsDB.getWidgets().forEach {
+            context.widgetsDB.getWidgets().filter { appWidgetIds.contains(it.widgetId) }.forEach {
                 val views = RemoteViews(context.packageName, R.layout.widget).apply {
                     setBackgroundColor(R.id.widget_holder, config.widgetBgColor)
                     setVisibleIf(R.id.widget_folder_name, config.showWidgetFolderName)
@@ -45,7 +46,12 @@ class MyWidgetProvider : AppWidgetProvider() {
                         .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                 if (context.config.cropThumbnails) options.centerCrop() else options.fitCenter()
 
-                val widgetSize = context.resources.getDimension(R.dimen.widget_initial_size).toInt()
+                val density = context.resources.displayMetrics.density
+                val appWidgetOptions = appWidgetManager.getAppWidgetOptions(appWidgetIds.first())
+                val width = appWidgetOptions.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH)
+                val height = appWidgetOptions.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT)
+
+                val widgetSize = (Math.max(width, height) * density).toInt()
                 val image = Glide.with(context)
                         .asBitmap()
                         .load(path)
@@ -59,6 +65,11 @@ class MyWidgetProvider : AppWidgetProvider() {
                 appWidgetManager.updateAppWidget(it.widgetId, views)
             }
         }.start()
+    }
+
+    override fun onAppWidgetOptionsChanged(context: Context, appWidgetManager: AppWidgetManager, appWidgetId: Int, newOptions: Bundle) {
+        super.onAppWidgetOptionsChanged(context, appWidgetManager, appWidgetId, newOptions)
+        onUpdate(context, appWidgetManager, intArrayOf(appWidgetId))
     }
 
     override fun onDeleted(context: Context, appWidgetIds: IntArray) {
