@@ -133,8 +133,8 @@
     <string name="by_extension">Extensie</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Folder shown on the widget:</string>
-    <string name="show_folder_name">Show folder name</string>
+    <string name="folder_on_widget">Map tonen in de widget:</string>
+    <string name="show_folder_name">Mapnaam tonen</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Video\'s automatisch afspelen</string>
