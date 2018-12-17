@@ -80,6 +80,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         var screenHeight = 0
     }
 
+    @TargetApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medium)
@@ -336,6 +337,24 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     }
                 }
             }
+        }
+
+        if (intent.action == "com.android.camera.action.REVIEW") {
+            Thread {
+                if (galleryDB.MediumDao().getMediaFromPath(mPath).isEmpty()) {
+                    val type = when {
+                        mPath.isVideoFast() -> TYPE_VIDEOS
+                        mPath.isGif() -> TYPE_GIFS
+                        mPath.isSvg() -> TYPE_SVGS
+                        mPath.isRawFast() -> TYPE_RAWS
+                        else -> TYPE_IMAGES
+                    }
+
+                    val duration = if (type == TYPE_VIDEOS) mPath.getVideoDuration() else 0
+                    val medium = Medium(null, mPath.getFilenameFromPath(), mPath, mPath.getParentPath(), System.currentTimeMillis(), System.currentTimeMillis(), File(mPath).length(), type, duration, false, 0)
+                    galleryDB.MediumDao().insert(medium)
+                }
+            }.start()
         }
     }
 
