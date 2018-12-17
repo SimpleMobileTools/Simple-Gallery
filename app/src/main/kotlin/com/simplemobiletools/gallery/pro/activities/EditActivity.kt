@@ -593,14 +593,17 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             bitmap.compress(file.absolutePath.getCompressionFormat(), 90, out)
         }
 
+        var inputStream: InputStream? = null
         try {
             if (isNougatPlus()) {
-                val inputStream = contentResolver.openInputStream(uri)
+                inputStream = contentResolver.openInputStream(uri)
                 val oldExif = ExifInterface(inputStream)
                 val newExif = ExifInterface(file.absolutePath)
                 oldExif.copyTo(newExif, false)
             }
         } catch (e: Exception) {
+        } finally {
+            inputStream?.close()
         }
 
         setResult(Activity.RESULT_OK, intent)
