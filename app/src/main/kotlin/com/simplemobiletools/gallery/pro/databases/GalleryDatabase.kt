@@ -30,6 +30,7 @@ abstract class GalleryDatabase : RoomDatabase() {
                 synchronized(GalleryDatabase::class) {
                     if (db == null) {
                         db = Room.databaseBuilder(context.applicationContext, GalleryDatabase::class.java, "gallery.db")
+                                .fallbackToDestructiveMigration()
                                 .addMigrations(MIGRATION_4_5)
                                 .addMigrations(MIGRATION_5_6)
                                 .build()
