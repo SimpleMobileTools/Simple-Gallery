@@ -57,11 +57,11 @@ android {
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:5.5.17'
+    implementation 'com.simplemobiletools:commons:5.5.18'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'androidx.multidex:multidex:2.0.0'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
-    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.15'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.16'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha2'
     implementation 'com.google.android.exoplayer:exoplayer-core:2.9.2'
     implementation 'com.google.vr:sdk-panowidget:1.170.0'
