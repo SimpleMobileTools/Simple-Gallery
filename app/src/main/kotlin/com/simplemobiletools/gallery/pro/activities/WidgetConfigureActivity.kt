@@ -98,7 +98,7 @@ class WidgetConfigureActivity : SimpleActivity() {
             widgetsDB.insertOrUpdate(widget)
         }.start()
 
-        storeWidgetBackground()
+        storeWidgetColors()
         requestWidgetUpdate()
 
         Intent().apply {
@@ -108,9 +108,10 @@ class WidgetConfigureActivity : SimpleActivity() {
         finish()
     }
 
-    private fun storeWidgetBackground() {
+    private fun storeWidgetColors() {
         config.apply {
             widgetBgColor = mBgColor
+            widgetTextColor = mTextColor
         }
     }
 

@@ -224,7 +224,6 @@ fun Context.getDirectParentSubfolders(folders: HashSet<String>, currentPathPrefi
                 // /storage/emulated/0/Pictures/Images and
                 // /storage/emulated/0/Pictures/Screenshots,
                 // but /storage/emulated/0/Pictures is empty, show Images and Screenshots as separate folders, do not group them at /Pictures
-
                 val parent = File(path).parent
                 if (folders.contains(parent)) {
                     currentPaths.add(parent)
