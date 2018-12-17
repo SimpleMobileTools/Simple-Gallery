@@ -341,7 +341,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 val dirName = when {
                     mPath == FAVORITES -> getString(R.string.favorites)
                     mPath == RECYCLE_BIN -> getString(R.string.recycle_bin)
-                    mPath == OTG_PATH -> getString(R.string.otg)
+                    mPath == OTG_PATH -> getString(R.string.usb)
                     mPath.startsWith(OTG_PATH) -> mPath.trimEnd('/').substringAfterLast('/')
                     else -> getHumanizedFilename(mPath)
                 }

@@ -375,7 +375,7 @@ fun Context.getFolderNameFromPath(path: String): String {
     return when (path) {
         internalStoragePath -> getString(R.string.internal)
         sdCardPath -> getString(R.string.sd_card)
-        OTG_PATH -> getString(R.string.otg)
+        OTG_PATH -> getString(R.string.usb)
         FAVORITES -> getString(R.string.favorites)
         RECYCLE_BIN -> getString(R.string.recycle_bin)
         else -> {
