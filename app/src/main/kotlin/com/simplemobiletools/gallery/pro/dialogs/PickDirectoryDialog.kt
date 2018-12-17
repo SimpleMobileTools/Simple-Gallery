@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.pro.dialogs
 
+import android.view.KeyEvent
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
@@ -8,20 +9,20 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.DirectoryAdapter
-import com.simplemobiletools.gallery.pro.extensions.addTempFolderIfNeeded
-import com.simplemobiletools.gallery.pro.extensions.config
-import com.simplemobiletools.gallery.pro.extensions.getCachedDirectories
-import com.simplemobiletools.gallery.pro.extensions.getSortedDirectories
+import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.VIEW_TYPE_GRID
 import com.simplemobiletools.gallery.pro.models.Directory
 import kotlinx.android.synthetic.main.dialog_directory_picker.view.*
 
 class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: String, showOtherFolderButton: Boolean, val callback: (path: String) -> Unit) {
-    var dialog: AlertDialog
-    var shownDirectories = ArrayList<Directory>()
-    var view = activity.layoutInflater.inflate(R.layout.dialog_directory_picker, null)
-    var isGridViewType = activity.config.viewTypeFolders == VIEW_TYPE_GRID
-    var showHidden = activity.config.shouldShowHidden
+    private var dialog: AlertDialog
+    private var shownDirectories = ArrayList<Directory>()
+    private var allDirectories = ArrayList<Directory>()
+    private var openedSubfolders = arrayListOf("")
+    private var view = activity.layoutInflater.inflate(R.layout.dialog_directory_picker, null)
+    private var isGridViewType = activity.config.viewTypeFolders == VIEW_TYPE_GRID
+    private var showHidden = activity.config.shouldShowHidden
+    private var currentPathPrefix = ""
 
     init {
         (view.directories_grid.layoutManager as MyGridLayoutManager).apply {
@@ -32,6 +33,12 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
         val builder = AlertDialog.Builder(activity)
                 .setPositiveButton(R.string.ok, null)
                 .setNegativeButton(R.string.cancel, null)
+                .setOnKeyListener { dialogInterface, i, keyEvent ->
+                    if (keyEvent.action == KeyEvent.ACTION_UP && i == KeyEvent.KEYCODE_BACK) {
+                        backPressed()
+                    }
+                    true
+                }
 
         if (showOtherFolderButton) {
             builder.setNeutralButton(R.string.other_folder) { dialogInterface, i -> showOtherFolder() }
@@ -74,18 +81,32 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
     }
 
     private fun gotDirectories(newDirs: ArrayList<Directory>) {
-        val dirs = activity.getSortedDirectories(newDirs)
-        if (dirs.hashCode() == shownDirectories.hashCode())
+        if (allDirectories.isEmpty()) {
+            allDirectories = newDirs.clone() as ArrayList<Directory>
+        }
+        val distinctDirs = newDirs.distinctBy { it.path.getDistinctPath() }.toMutableList() as ArrayList<Directory>
+        val sortedDirs = activity.getSortedDirectories(distinctDirs)
+        val dirs = activity.getDirsToShow(sortedDirs, allDirectories, currentPathPrefix).clone() as ArrayList<Directory>
+        if (dirs.hashCode() == shownDirectories.hashCode()) {
             return
+        }
 
         shownDirectories = dirs
         val adapter = DirectoryAdapter(activity, dirs.clone() as ArrayList<Directory>, null, view.directories_grid, true) {
-            if ((it as Directory).path.trimEnd('/') == sourcePath) {
-                activity.toast(R.string.source_and_destination_same)
-                return@DirectoryAdapter
+            val clickedDir = it as Directory
+            val path = clickedDir.path
+            if (clickedDir.subfoldersCount == 1 || !activity.config.groupDirectSubfolders) {
+                if (path.trimEnd('/') == sourcePath) {
+                    activity.toast(R.string.source_and_destination_same)
+                    return@DirectoryAdapter
+                } else {
+                    callback(path)
+                    dialog.dismiss()
+                }
             } else {
-                callback(it.path)
-                dialog.dismiss()
+                currentPathPrefix = path
+                openedSubfolders.add(path)
+                gotDirectories(allDirectories)
             }
         }
 
@@ -111,6 +132,20 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
                     directories_vertical_fastscroller.updateBubbleText(dirs[it].getBubbleText(sorting))
                 }
             }
+        }
+    }
+
+    private fun backPressed() {
+        if (activity.config.groupDirectSubfolders) {
+            if (currentPathPrefix.isEmpty()) {
+                dialog.dismiss()
+            } else {
+                openedSubfolders.removeAt(openedSubfolders.size - 1)
+                currentPathPrefix = openedSubfolders.last()
+                gotDirectories(allDirectories)
+            }
+        } else {
+            dialog.dismiss()
         }
     }
 }
