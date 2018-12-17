@@ -35,6 +35,10 @@ import com.simplemobiletools.gallery.pro.svg.SvgSoftwareLayerSetter
 import com.simplemobiletools.gallery.pro.views.MySquareImageView
 import pl.droidsonroids.gif.GifDrawable
 import java.io.File
+import java.util.HashSet
+import java.util.LinkedHashSet
+import kotlin.Comparator
+import kotlin.collections.ArrayList
 
 val Context.portrait get() = resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
 val Context.audioManager get() = getSystemService(Context.AUDIO_SERVICE) as AudioManager
@@ -173,6 +177,111 @@ fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Direct
     })
 
     return movePinnedDirectoriesToFront(dirs)
+}
+
+fun Context.getDirsToShow(dirs: ArrayList<Directory>, allDirs: ArrayList<Directory>, currentPathPrefix: String): ArrayList<Directory> {
+    return if (config.groupDirectSubfolders) {
+        dirs.forEach {
+            it.subfoldersCount = 0
+            it.subfoldersMediaCount = it.mediaCnt
+        }
+
+        val dirFolders = dirs.map { it.path }.sorted().toMutableSet() as HashSet<String>
+        val foldersToShow = getDirectParentSubfolders(dirFolders, currentPathPrefix)
+        val parentDirs = dirs.filter { foldersToShow.contains(it.path) } as ArrayList<Directory>
+        updateSubfolderCounts(dirs, parentDirs)
+
+        // show the current folder as an available option too, not just subfolders
+        if (currentPathPrefix.isNotEmpty()) {
+            val currentFolder = allDirs.firstOrNull { parentDirs.firstOrNull { it.path == currentPathPrefix } == null && it.path == currentPathPrefix }
+            currentFolder?.apply {
+                subfoldersCount = 1
+                parentDirs.add(this)
+            }
+        }
+
+        parentDirs
+    } else {
+        dirs.forEach { it.subfoldersMediaCount = it.mediaCnt }
+        dirs
+    }
+}
+
+fun Context.getDirectParentSubfolders(folders: HashSet<String>, currentPathPrefix: String): HashSet<String> {
+    val internalPath = internalStoragePath
+    val sdPath = sdCardPath
+    val currentPaths = LinkedHashSet<String>()
+    folders.forEach {
+        val path = it
+        if (!path.equals(internalPath, true) && !path.equals(sdPath, true) && path != RECYCLE_BIN && path != FAVORITES) {
+            if (currentPathPrefix.isNotEmpty()) {
+                if (File(path).parent.equals(currentPathPrefix, true) || path == currentPathPrefix) {
+                    currentPaths.add(path)
+                }
+            } else if (folders.any { !it.equals(path, true) && (File(path).parent.equals(it, true) || File(it).parent.equals(File(path).parent, true)) }) {
+                val parent = File(path).parent
+                currentPaths.add(parent)
+            } else {
+                currentPaths.add(path)
+            }
+        }
+    }
+
+    var areDirectSubfoldersAvailable = false
+    currentPaths.forEach {
+        val path = it
+        currentPaths.forEach {
+            if (!it.equals(path) && File(it).parent?.equals(path) == true) {
+                areDirectSubfoldersAvailable = true
+            }
+        }
+    }
+
+    if (currentPathPrefix.isEmpty() && folders.contains(RECYCLE_BIN)) {
+        currentPaths.add(RECYCLE_BIN)
+    }
+
+    if (currentPathPrefix.isEmpty() && folders.contains(FAVORITES)) {
+        currentPaths.add(FAVORITES)
+    }
+
+    if (folders.size == currentPaths.size) {
+        return currentPaths
+    }
+
+    folders.clear()
+    folders.addAll(currentPaths)
+    return if (areDirectSubfoldersAvailable) {
+        getDirectParentSubfolders(folders, currentPathPrefix)
+    } else {
+        folders
+    }
+}
+
+fun Context.updateSubfolderCounts(children: ArrayList<Directory>, parentDirs: ArrayList<Directory>) {
+    for (child in children) {
+        var longestSharedPath = ""
+        for (parentDir in parentDirs) {
+            if (parentDir.path == child.path) {
+                longestSharedPath = child.path
+                continue
+            }
+
+            if (child.path.startsWith(parentDir.path, true) && parentDir.path.length > longestSharedPath.length) {
+                longestSharedPath = parentDir.path
+            }
+        }
+
+        // make sure we count only the proper direct subfolders, grouped the same way as on the main screen
+        parentDirs.firstOrNull { it.path == longestSharedPath }?.apply {
+            if (path.equals(child.path, true) || path.equals(File(child.path).parent, true) || children.any { it.path.equals(File(child.path).parent, true) }) {
+                subfoldersCount++
+                if (path != child.path) {
+                    subfoldersMediaCount += child.mediaCnt
+                }
+            }
+        }
+    }
 }
 
 fun Context.getNoMediaFolders(callback: (folders: ArrayList<String>) -> Unit) {

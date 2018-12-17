@@ -932,115 +932,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
     }
 
-    private fun getDirectParentSubfolders(folders: HashSet<String>): HashSet<String> {
-        val internalPath = internalStoragePath
-        val sdPath = sdCardPath
-        val currentPaths = LinkedHashSet<String>()
-        folders.forEach {
-            val path = it
-            if (!path.equals(internalPath, true) && !path.equals(sdPath, true) && path != RECYCLE_BIN && path != FAVORITES) {
-                if (mCurrentPathPrefix.isNotEmpty()) {
-                    if (File(path).parent.equals(mCurrentPathPrefix, true) || path == mCurrentPathPrefix) {
-                        currentPaths.add(path)
-                    }
-                } else if (folders.any { !it.equals(path, true) && (File(path).parent.equals(it, true) || File(it).parent.equals(File(path).parent, true)) }) {
-                    val parent = File(path).parent
-                    currentPaths.add(parent)
-                } else {
-                    currentPaths.add(path)
-                }
-            }
-        }
-
-        var areDirectSubfoldersAvailable = false
-        currentPaths.forEach {
-            val path = it
-            currentPaths.forEach {
-                if (!it.equals(path) && File(it).parent?.equals(path) == true) {
-                    areDirectSubfoldersAvailable = true
-                }
-            }
-        }
-
-        if (mCurrentPathPrefix.isEmpty() && folders.contains(RECYCLE_BIN)) {
-            currentPaths.add(RECYCLE_BIN)
-        }
-
-        if (mCurrentPathPrefix.isEmpty() && folders.contains(FAVORITES)) {
-            currentPaths.add(FAVORITES)
-        }
-
-        if (folders.size == currentPaths.size) {
-            return currentPaths
-        }
-
-        folders.clear()
-        folders.addAll(currentPaths)
-        return if (areDirectSubfoldersAvailable) {
-            getDirectParentSubfolders(folders)
-        } else {
-            folders
-        }
-    }
-
     private fun checkPlaceholderVisibility(dirs: ArrayList<Directory>) {
         directories_empty_text_label.beVisibleIf(dirs.isEmpty() && mLoadedInitialPhotos)
         directories_empty_text.beVisibleIf(dirs.isEmpty() && mLoadedInitialPhotos)
         directories_grid.beVisibleIf(directories_empty_text_label.isGone())
-    }
-
-    private fun getDirsToShow(dirs: ArrayList<Directory>): ArrayList<Directory> {
-        return if (config.groupDirectSubfolders) {
-            dirs.forEach {
-                it.subfoldersCount = 0
-                it.subfoldersMediaCount = it.mediaCnt
-            }
-
-            val dirFolders = dirs.map { it.path }.sorted().toMutableSet() as HashSet<String>
-            val foldersToShow = getDirectParentSubfolders(dirFolders)
-            val parentDirs = dirs.filter { foldersToShow.contains(it.path) } as ArrayList<Directory>
-            updateSubfolderCounts(dirs, parentDirs)
-
-            // show the current folder as an available option too, not just subfolders
-            if (mCurrentPathPrefix.isNotEmpty()) {
-                val currentFolder = mDirs.firstOrNull { parentDirs.firstOrNull { it.path == mCurrentPathPrefix } == null && it.path == mCurrentPathPrefix }
-                currentFolder?.apply {
-                    subfoldersCount = 1
-                    parentDirs.add(this)
-                }
-            }
-
-            parentDirs
-        } else {
-            dirs.forEach { it.subfoldersMediaCount = it.mediaCnt }
-            dirs
-        }
-    }
-
-    private fun updateSubfolderCounts(children: ArrayList<Directory>, parentDirs: ArrayList<Directory>) {
-        for (child in children) {
-            var longestSharedPath = ""
-            for (parentDir in parentDirs) {
-                if (parentDir.path == child.path) {
-                    longestSharedPath = child.path
-                    continue
-                }
-
-                if (child.path.startsWith(parentDir.path, true) && parentDir.path.length > longestSharedPath.length) {
-                    longestSharedPath = parentDir.path
-                }
-            }
-
-            // make sure we count only the proper direct subfolders, grouped the same way as on the main screen
-            parentDirs.firstOrNull { it.path == longestSharedPath }?.apply {
-                if (path.equals(child.path, true) || path.equals(File(child.path).parent, true) || children.any { it.path.equals(File(child.path).parent, true) }) {
-                    subfoldersCount++
-                    if (path != child.path) {
-                        subfoldersMediaCount += child.mediaCnt
-                    }
-                }
-            }
-        }
     }
 
     private fun createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, albumCovers: ArrayList<AlbumCover>, hiddenString: String,
@@ -1070,7 +965,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val currAdapter = directories_grid.adapter
         val distinctDirs = dirs.distinctBy { it.path.getDistinctPath() }.toMutableList() as ArrayList<Directory>
         val sortedDirs = getSortedDirectories(distinctDirs)
-        var dirsToShow = getDirsToShow(sortedDirs).clone() as ArrayList<Directory>
+        var dirsToShow = getDirsToShow(sortedDirs, mDirs, mCurrentPathPrefix).clone() as ArrayList<Directory>
 
         if (currAdapter == null) {
             initZoomListener()
