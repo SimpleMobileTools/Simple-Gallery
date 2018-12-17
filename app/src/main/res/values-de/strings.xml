@@ -133,8 +133,8 @@
     <string name="by_extension">Dateierweiterung</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Folder shown on the widget:</string>
-    <string name="show_folder_name">Show folder name</string>
+    <string name="folder_on_widget">Ordner, der auf dem Widget angezeigt wird:</string>
+    <string name="show_folder_name">Ordnernamen anzeigen</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Videos automatisch abspielen</string>
@@ -144,7 +144,7 @@
     <string name="animate_gifs">Kacheln von GIFs animieren</string>
     <string name="max_brightness">Helligkeit beim Betrachten maximieren</string>
     <string name="crop_thumbnails">Kacheln quadratisch zuschneiden</string>
-    <string name="show_thumbnail_video_duration">Show video durations</string>
+    <string name="show_thumbnail_video_duration">Videodauer anzeigen</string>
     <string name="screen_rotation_by">Im Vollbild ausrichten nach:</string>
     <string name="screen_rotation_system_setting">Systemeinstellung</string>
     <string name="screen_rotation_device_rotation">Gerätedrehung</string>
