@@ -211,16 +211,26 @@ fun Context.getDirectParentSubfolders(folders: HashSet<String>, currentPathPrefi
     val internalPath = internalStoragePath
     val sdPath = sdCardPath
     val currentPaths = LinkedHashSet<String>()
+
     folders.forEach {
         val path = it
-        if (!path.equals(internalPath, true) && !path.equals(sdPath, true) && path != RECYCLE_BIN && path != FAVORITES) {
+        if (path != RECYCLE_BIN && path != FAVORITES && !path.equals(internalPath, true) && !path.equals(sdPath, true)) {
             if (currentPathPrefix.isNotEmpty()) {
-                if (File(path).parent.equals(currentPathPrefix, true) || path == currentPathPrefix) {
+                if (path == currentPathPrefix || File(path).parent.equals(currentPathPrefix, true)) {
                     currentPaths.add(path)
                 }
             } else if (folders.any { !it.equals(path, true) && (File(path).parent.equals(it, true) || File(it).parent.equals(File(path).parent, true)) }) {
+                // if we have folders like
+                // /storage/emulated/0/Pictures/Images and
+                // /storage/emulated/0/Pictures/Screenshots,
+                // but /storage/emulated/0/Pictures is empty, show Images and Screenshots as separate folders, do not group them at /Pictures
+
                 val parent = File(path).parent
-                currentPaths.add(parent)
+                if (folders.contains(parent)) {
+                    currentPaths.add(parent)
+                } else {
+                    currentPaths.add(path)
+                }
             } else {
                 currentPaths.add(path)
             }
