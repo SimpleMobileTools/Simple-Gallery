@@ -40,9 +40,9 @@ class MyWidgetProvider : AppWidgetProvider() {
                     setText(R.id.widget_folder_name, context.getFolderNameFromPath(it.folderPath))
                 }
 
-                val path = context.directoryDB.getDirectoryThumbnail(it.folderPath)
+                val path = context.directoryDB.getDirectoryThumbnail(it.folderPath) ?: return@forEach
                 val options = RequestOptions()
-                        .signature(path!!.getFileSignature())
+                        .signature(path.getFileSignature())
                         .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                 if (context.config.cropThumbnails) options.centerCrop() else options.fitCenter()
 
