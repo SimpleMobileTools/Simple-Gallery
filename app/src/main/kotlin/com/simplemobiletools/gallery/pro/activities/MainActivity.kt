@@ -984,7 +984,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 }
             }.apply {
                 setupZoomListener(mZoomListener)
-                directories_grid.adapter = this
+                runOnUiThread {
+                    directories_grid.adapter = this
+                }
             }
             measureRecyclerViewContent(dirsToShow)
             setupScrollDirection()
