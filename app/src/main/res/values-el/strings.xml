@@ -133,8 +133,8 @@
     <string name="by_extension">Επέκταση</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Folder shown on the widget:</string>
-    <string name="show_folder_name">Show folder name</string>
+    <string name="folder_on_widget">Εμφάνιση φακέλου στο widget:</string>
+    <string name="show_folder_name">Εμφάνιση ονόματος φακέλου</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Αυτόματη αναπαραγωγή βίντεο</string>
