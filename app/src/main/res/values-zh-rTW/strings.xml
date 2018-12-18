@@ -133,8 +133,8 @@
     <string name="by_extension">副檔名</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Folder shown on the widget:</string>
-    <string name="show_folder_name">Show folder name</string>
+    <string name="folder_on_widget">在小工具顯示資料夾:</string>
+    <string name="show_folder_name">顯示資料夾名稱</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">自動播放影片</string>
