@@ -133,8 +133,8 @@
     <string name="by_extension">розширенням</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Folder shown on the widget:</string>
-    <string name="show_folder_name">Show folder name</string>
+    <string name="folder_on_widget">Тека, що відображається на віджеті:</string>
+    <string name="show_folder_name">Показувати ім\'я теки</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Відтворювати відео автоматично</string>
