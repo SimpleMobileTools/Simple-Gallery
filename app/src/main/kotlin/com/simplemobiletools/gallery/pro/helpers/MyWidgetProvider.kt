@@ -52,14 +52,16 @@ class MyWidgetProvider : AppWidgetProvider() {
                 val height = appWidgetOptions.getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_HEIGHT)
 
                 val widgetSize = (Math.max(width, height) * density).toInt()
-                val image = Glide.with(context)
-                        .asBitmap()
-                        .load(path)
-                        .apply(options)
-                        .submit(widgetSize, widgetSize)
-                        .get()
-
-                views.setImageViewBitmap(R.id.widget_imageview, image)
+                try {
+                    val image = Glide.with(context)
+                            .asBitmap()
+                            .load(path)
+                            .apply(options)
+                            .submit(widgetSize, widgetSize)
+                            .get()
+                    views.setImageViewBitmap(R.id.widget_imageview, image)
+                } catch (e: Exception) {
+                }
 
                 setupAppOpenIntent(context, views, R.id.widget_holder, it)
                 appWidgetManager.updateAppWidget(it.widgetId, views)
