@@ -133,12 +133,12 @@
     <string name="by_extension">Расширение</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Folder shown on the widget:</string>
-    <string name="show_folder_name">Show folder name</string>
+    <string name="folder_on_widget">Папка, отображаемая на виджете:</string>
+    <string name="show_folder_name">Показать имя папки</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Воспроизводить видео автоматически</string>
-    <string name="remember_last_video_position">Запоминать позицию воспроизведения видео</string>
+    <string name="remember_last_video_position">Запоминать позицию воспроизведения последнего видео</string>
     <string name="toggle_filename">Переключить отображение имени файла</string>
     <string name="loop_videos">Повтор видео</string>
     <string name="animate_gifs">Анимировать эскизы GIF</string>
