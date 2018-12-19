@@ -1,12 +1,15 @@
 package com.simplemobiletools.gallery.pro.activities
 
+import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Bitmap.CompressFormat
 import android.graphics.Color
 import android.graphics.Point
+import android.media.ExifInterface
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.Menu
@@ -24,6 +27,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
+import com.simplemobiletools.commons.helpers.isNougatPlus
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.FiltersAdapter
@@ -576,6 +580,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.N)
     private fun saveBitmap(file: File, bitmap: Bitmap, out: OutputStream, showSavingToast: Boolean) {
         if (showSavingToast) {
             toast(R.string.saving)
@@ -587,6 +592,20 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         } else {
             bitmap.compress(file.absolutePath.getCompressionFormat(), 90, out)
         }
+
+        var inputStream: InputStream? = null
+        try {
+            if (isNougatPlus()) {
+                inputStream = contentResolver.openInputStream(uri)
+                val oldExif = ExifInterface(inputStream)
+                val newExif = ExifInterface(file.absolutePath)
+                oldExif.copyTo(newExif, false)
+            }
+        } catch (e: Exception) {
+        } finally {
+            inputStream?.close()
+        }
+
         setResult(Activity.RESULT_OK, intent)
         scanFinalPath(file.absolutePath)
         out.close()

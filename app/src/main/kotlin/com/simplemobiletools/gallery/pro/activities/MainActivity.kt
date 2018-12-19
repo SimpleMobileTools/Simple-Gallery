@@ -17,13 +17,12 @@ import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
-import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FileDirItem
-import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.models.Release
 import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -32,6 +31,7 @@ import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.DirectoryAdapter
 import com.simplemobiletools.gallery.pro.databases.GalleryDatabase
 import com.simplemobiletools.gallery.pro.dialogs.ChangeSortingDialog
+import com.simplemobiletools.gallery.pro.dialogs.ChangeViewTypeDialog
 import com.simplemobiletools.gallery.pro.dialogs.FilterMediaDialog
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.*
@@ -67,6 +67,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private var mIsSearchOpen = false
     private var mLatestMediaId = 0L
     private var mLatestMediaDateId = 0L
+    private var mCurrentPathPrefix = ""                 // used at "Group direct subfolders" for navigation
+    private var mOpenedSubfolders = arrayListOf("")     // used at "Group direct subfolders" for navigating Up with the back button
     private var mLastMediaHandler = Handler()
     private var mTempShowHiddenHandler = Handler()
     private var mZoomListener: MyRecyclerView.MyZoomListener? = null
@@ -126,10 +128,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             NewAppDialog(this, NEW_APP_PACKAGE, "Simple Clock")
         }*/
 
-        if (!config.wasOTGHandled && hasPermission(PERMISSION_WRITE_STORAGE)) {
-            checkOTGInclusion()
-        }
-
         if (!config.wereFavoritesPinned) {
             config.addPinnedFolders(hashSetOf(FAVORITES))
             config.wereFavoritesPinned = true
@@ -147,6 +145,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 config.filterMedia += TYPE_SVGS
             }
         }
+
+        updateWidgets()
     }
 
     override fun onStart() {
@@ -246,6 +246,20 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
     }
 
+    override fun onBackPressed() {
+        if (config.groupDirectSubfolders) {
+            if (mCurrentPathPrefix.isEmpty()) {
+                super.onBackPressed()
+            } else {
+                mOpenedSubfolders.removeAt(mOpenedSubfolders.size - 1)
+                mCurrentPathPrefix = mOpenedSubfolders.last()
+                setupAdapter(mDirs)
+            }
+        } else {
+            super.onBackPressed()
+        }
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         if (mIsThirdPartyIntent) {
             menuInflater.inflate(R.menu.menu_main_intent, menu)
@@ -318,7 +332,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
                 override fun onQueryTextChange(newText: String): Boolean {
                     if (mIsSearchOpen) {
-                        searchQueryChanged(newText)
+                        setupAdapter(mDirs, newText)
                     }
                     return true
                 }
@@ -337,23 +351,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 if (mIsSearchOpen) {
                     mIsSearchOpen = false
                     directories_refresh_layout.isEnabled = config.enablePullToRefresh
-                    searchQueryChanged("")
+                    setupAdapter(mDirs, "")
                 }
                 return true
             }
         })
-    }
-
-    private fun searchQueryChanged(text: String) {
-        Thread {
-            val filtered = getUniqueSortedDirs(mDirs).filter { it.name.contains(text, true) } as ArrayList
-            filtered.sortBy { !it.name.startsWith(text, true) }
-
-            runOnUiThread {
-                getRecyclerAdapter()?.updateDirs(filtered)
-                measureRecyclerViewContent(filtered)
-            }
-        }.start()
     }
 
     private fun removeTempFolder() {
@@ -373,8 +375,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         Thread {
             if (hasOTGConnected()) {
                 runOnUiThread {
-                    handleOTGPermission {
-                        config.addIncludedFolder(OTG_PATH)
+                    ConfirmationDialog(this, getString(R.string.usb_detected), positive = R.string.ok, negative = 0) {
+                        handleOTGPermission {
+                            config.addIncludedFolder(OTG_PATH)
+                        }
                     }
                 }
                 config.wasOTGHandled = true
@@ -385,6 +389,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun tryLoadGallery() {
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
+                if (!config.wasOTGHandled && hasPermission(PERMISSION_WRITE_STORAGE)) {
+                    checkOTGInclusion()
+                }
+
                 if (config.showAll) {
                     showAllMedia()
                 } else {
@@ -451,17 +459,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun changeViewType() {
-        val items = arrayListOf(
-                RadioItem(VIEW_TYPE_GRID, getString(R.string.grid)),
-                RadioItem(VIEW_TYPE_LIST, getString(R.string.list)))
-
-        RadioGroupDialog(this, items, config.viewTypeFolders) {
-            config.viewTypeFolders = it as Int
+        ChangeViewTypeDialog(this) {
             invalidateOptionsMenu()
             setupLayoutManager()
-            val dirs = getCurrentlyDisplayedDirs()
             directories_grid.adapter = null
-            setupAdapter(dirs)
+            setupAdapter(mDirs)
         }
     }
 
@@ -768,10 +770,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun gotDirectories(newDirs: ArrayList<Directory>) {
-        // if hidden item showing is disabled but all Favorite items are hidden, hide the Favorites folder
         mIsGettingDirs = false
         mShouldStopFetching = false
 
+        // if hidden item showing is disabled but all Favorite items are hidden, hide the Favorites folder
         if (!config.shouldShowHidden) {
             val favoritesFolder = newDirs.firstOrNull { it.areFavorites() }
             if (favoritesFolder != null && favoritesFolder.tmb.getFilenameFromPath().startsWith('.')) {
@@ -821,7 +823,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 }
 
                 // we are looping through the already displayed folders looking for changes, do not do anything if nothing changed
-                if (directory == newDir) {
+                if (directory.copy(subfoldersCount = 0, subfoldersMediaCount = 0) == newDir) {
                     continue
                 }
 
@@ -835,7 +837,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     types = newDir.types
                 }
 
-                showSortedDirs(dirs)
+                setupAdapter(dirs)
 
                 // update directories and media files in the local db, delete invalid items
                 updateDBDirectory(directory, mDirectoryDao)
@@ -862,7 +864,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 mDirectoryDao.deleteDirPath(it.path)
             }
             dirs.removeAll(dirsToRemove)
-            showSortedDirs(dirs)
+            setupAdapter(dirs)
         }
 
         val foldersToScan = mediaFetcher.getFoldersToScan()
@@ -899,7 +901,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
             val newDir = createDirectoryFromMedia(folder, newMedia, albumCovers, hiddenString, includedFolders, isSortingAscending)
             dirs.add(newDir)
-            showSortedDirs(dirs)
+            setupAdapter(dirs)
             mDirectoryDao.insert(newDir)
             if (folder != RECYCLE_BIN) {
                 mMediumDao.insertAll(newMedia)
@@ -936,18 +938,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         directories_grid.beVisibleIf(directories_empty_text_label.isGone())
     }
 
-    private fun showSortedDirs(dirs: ArrayList<Directory>) {
-        val updatedDirs = getUniqueSortedDirs(dirs).toMutableList() as ArrayList
-        runOnUiThread {
-            (directories_grid.adapter as? DirectoryAdapter)?.updateDirs(updatedDirs)
-        }
-    }
-
-    private fun getUniqueSortedDirs(dirs: ArrayList<Directory>): ArrayList<Directory> {
-        val distinctDirs = dirs.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>
-        return getSortedDirectories(distinctDirs)
-    }
-
     private fun createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, albumCovers: ArrayList<AlbumCover>, hiddenString: String,
                                          includedFolders: MutableSet<String>, isSortingAscending: Boolean): Directory {
         var thumbnail = curMedia.firstOrNull { getDoesFilePathExist(it.path) }?.path ?: ""
@@ -961,43 +951,59 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             }
         }
 
-        val mediaTypes = curMedia.getDirMediaTypes()
-        val dirName = when (path) {
-            FAVORITES -> getString(R.string.favorites)
-            RECYCLE_BIN -> getString(R.string.recycle_bin)
-            else -> checkAppendingHidden(path, hiddenString, includedFolders)
-        }
-
         val firstItem = curMedia.first()
         val lastItem = curMedia.last()
+        val dirName = checkAppendingHidden(path, hiddenString, includedFolders)
         val lastModified = if (isSortingAscending) Math.min(firstItem.modified, lastItem.modified) else Math.max(firstItem.modified, lastItem.modified)
         val dateTaken = if (isSortingAscending) Math.min(firstItem.taken, lastItem.taken) else Math.max(firstItem.taken, lastItem.taken)
         val size = curMedia.sumByLong { it.size }
+        val mediaTypes = curMedia.getDirMediaTypes()
         return Directory(null, path, thumbnail, dirName, curMedia.size, lastModified, dateTaken, size, getPathLocation(path), mediaTypes)
     }
 
-    private fun setupAdapter(dirs: ArrayList<Directory>) {
+    private fun setupAdapter(dirs: ArrayList<Directory>, textToSearch: String = "") {
         val currAdapter = directories_grid.adapter
+        val distinctDirs = dirs.distinctBy { it.path.getDistinctPath() }.toMutableList() as ArrayList<Directory>
+        val sortedDirs = getSortedDirectories(distinctDirs)
+        var dirsToShow = getDirsToShow(sortedDirs, mDirs, mCurrentPathPrefix).clone() as ArrayList<Directory>
+
         if (currAdapter == null) {
             initZoomListener()
             val fastscroller = if (config.scrollHorizontally) directories_horizontal_fastscroller else directories_vertical_fastscroller
-            DirectoryAdapter(this, dirs.clone() as ArrayList<Directory>, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent), fastscroller) {
-                val path = (it as Directory).path
-                if (path != config.tempFolderPath) {
-                    itemClicked(path)
+            DirectoryAdapter(this, dirsToShow, this, directories_grid, isPickIntent(intent) || isGetAnyContentIntent(intent), fastscroller) {
+                val clickedDir = it as Directory
+                val path = clickedDir.path
+                if (clickedDir.subfoldersCount == 1 || !config.groupDirectSubfolders) {
+                    if (path != config.tempFolderPath) {
+                        itemClicked(path)
+                    }
+                } else {
+                    mCurrentPathPrefix = path
+                    mOpenedSubfolders.add(path)
+                    setupAdapter(mDirs, "")
                 }
             }.apply {
                 setupZoomListener(mZoomListener)
-                directories_grid.adapter = this
+                runOnUiThread {
+                    directories_grid.adapter = this
+                    setupScrollDirection()
+                }
             }
+            measureRecyclerViewContent(dirsToShow)
         } else {
-            showSortedDirs(dirs)
+            if (textToSearch.isNotEmpty()) {
+                dirsToShow = dirsToShow.filter { it.name.contains(textToSearch, true) }.sortedBy { !it.name.startsWith(textToSearch, true) }.toMutableList() as ArrayList
+            }
+            runOnUiThread {
+                (directories_grid.adapter as? DirectoryAdapter)?.updateDirs(dirsToShow)
+                measureRecyclerViewContent(dirsToShow)
+            }
         }
 
-        getRecyclerAdapter()?.dirs?.apply {
-            measureRecyclerViewContent(this)
-        }
-        setupScrollDirection()
+        // recyclerview sometimes becomes empty at init/update, triggering an invisible refresh like this seems to work fine
+        directories_grid.postDelayed({
+            directories_grid.scrollBy(0, 0)
+        }, 500)
     }
 
     private fun setupScrollDirection() {
@@ -1051,7 +1057,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         if (invalidDirs.isNotEmpty()) {
             dirs.removeAll(invalidDirs)
-            showSortedDirs(dirs)
+            setupAdapter(dirs)
             invalidDirs.forEach {
                 mDirectoryDao.deleteDirPath(it.path)
             }
@@ -1223,6 +1229,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             add(Release(201, R.string.release_201))
             add(Release(202, R.string.release_202))
             add(Release(206, R.string.release_206))
+            add(Release(213, R.string.release_213))
             checkWhatsNew(this, BuildConfig.VERSION_CODE)
         }
     }

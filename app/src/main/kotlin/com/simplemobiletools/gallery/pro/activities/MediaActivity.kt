@@ -118,6 +118,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         media_empty_text.setOnClickListener {
             showFilterMediaDialog()
         }
+
+        updateWidgets()
     }
 
     override fun onStart() {
@@ -339,7 +341,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 val dirName = when {
                     mPath == FAVORITES -> getString(R.string.favorites)
                     mPath == RECYCLE_BIN -> getString(R.string.recycle_bin)
-                    mPath == OTG_PATH -> getString(R.string.otg)
+                    mPath == OTG_PATH -> getString(R.string.usb)
                     mPath.startsWith(OTG_PATH) -> mPath.trimEnd('/').substringAfterLast('/')
                     else -> getHumanizedFilename(mPath)
                 }
@@ -585,7 +587,15 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         mCurrAsyncTask?.stopFetching()
         mCurrAsyncTask = GetMediaAsynctask(applicationContext, mPath, mIsGetImageIntent, mIsGetVideoIntent, mShowAll) {
             Thread {
-                gotMedia(it)
+                val oldMedia = mMedia.clone() as ArrayList<ThumbnailItem>
+                val newMedia = it
+                gotMedia(newMedia, false)
+                try {
+                    oldMedia.filter { !newMedia.contains(it) }.mapNotNull { it as? Medium }.filter { !File(it.path).exists() }.forEach {
+                        mMediumDao.deleteMediumPath(it.path)
+                    }
+                } catch (e: Exception) {
+                }
             }.start()
         }
 
@@ -689,8 +699,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         val pathToCheck = if (mPath.isEmpty()) SHOW_ALL else mPath
         val hasSections = config.getFolderGrouping(pathToCheck) and GROUP_BY_NONE == 0 && !config.scrollHorizontally
         val sectionTitleHeight = if (hasSections) layoutManager.getChildAt(0)?.height ?: 0 else 0
-        val thumbnailHeight = if (hasSections) layoutManager.getChildAt(1)?.height ?: 0 else layoutManager.getChildAt(0)?.height
-                ?: 0
+        val thumbnailHeight = if (hasSections) layoutManager.getChildAt(1)?.height ?: 0 else layoutManager.getChildAt(0)?.height ?: 0
 
         var fullHeight = 0
         var curSectionItems = 0
@@ -820,7 +829,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         }
     }
 
-    private fun gotMedia(media: ArrayList<ThumbnailItem>, isFromCache: Boolean = false) {
+    private fun gotMedia(media: ArrayList<ThumbnailItem>, isFromCache: Boolean) {
         mIsGettingMedia = false
         checkLastMediaChanged()
         mMedia = media

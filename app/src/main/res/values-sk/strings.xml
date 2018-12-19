@@ -132,6 +132,10 @@
     <string name="by_file_type">Typu súboru</string>
     <string name="by_extension">Prípony</string>
 
+    <!-- Widgets -->
+    <string name="folder_on_widget">Priečinok zobrazený vo widgete:</string>
+    <string name="show_folder_name">Zobraziť názov priečinka</string>
+
     <!-- Settings -->
     <string name="autoplay_videos">Spúšťať videá automaticky</string>
     <string name="remember_last_video_position">Zapamätať si pozíciu posledného prehraného videa</string>

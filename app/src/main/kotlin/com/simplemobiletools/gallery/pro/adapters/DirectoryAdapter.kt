@@ -38,6 +38,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     private var showMediaCount = config.showMediaCount
     private var animateGifs = config.animateGifs
     private var cropThumbnails = config.cropThumbnails
+    private var groupDirectSubfolders = config.groupDirectSubfolders
     private var currentDirectoriesHash = dirs.hashCode()
 
     init {
@@ -371,7 +372,12 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             config.skipDeleteConfirmation -> deleteFolders()
             else -> {
                 val itemsCnt = selectedKeys.size
-                val items = resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)
+                val items = if (itemsCnt == 1) {
+                    "\"${getSelectedPaths().first().getFilenameFromPath()}\""
+                } else {
+                    resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)
+                }
+
                 val fileDirItem = getFirstSelectedItem() ?: return
                 val baseString = if (!config.useRecycleBin || (isOneItemSelected() && fileDirItem.isRecycleBin()) || (isOneItemSelected() && fileDirItem.areFavorites())) {
                     R.string.deletion_confirmation
@@ -501,9 +507,9 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     private fun setupView(view: View, directory: Directory) {
         val isSelected = selectedKeys.contains(directory.path.hashCode())
         view.apply {
-            dir_name.text = directory.name
+            dir_name.text = if (groupDirectSubfolders) "${directory.name} (${directory.subfoldersCount})" else directory.name
             dir_path?.text = "${directory.path.substringBeforeLast("/")}/"
-            photo_cnt.text = directory.mediaCnt.toString()
+            photo_cnt.text = directory.subfoldersMediaCount.toString()
             val thumbnailType = when {
                 directory.tmb.isVideoFast() -> TYPE_VIDEOS
                 directory.tmb.isGif() -> TYPE_GIFS

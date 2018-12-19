@@ -132,6 +132,10 @@
     <string name="by_file_type">Τύπο αρχείου</string>
     <string name="by_extension">Επέκταση</string>
 
+    <!-- Widgets -->
+    <string name="folder_on_widget">Εμφάνιση φακέλου στο widget:</string>
+    <string name="show_folder_name">Εμφάνιση ονόματος φακέλου</string>
+
     <!-- Settings -->
     <string name="autoplay_videos">Αυτόματη αναπαραγωγή βίντεο</string>
     <string name="remember_last_video_position">Απομνημόνευση της τελευταίας θέσης αναπαραγωγής βίντεο</string>

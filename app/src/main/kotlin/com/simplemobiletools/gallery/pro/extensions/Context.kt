@@ -1,5 +1,7 @@
 package com.simplemobiletools.gallery.pro.extensions
 
+import android.appwidget.AppWidgetManager
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
@@ -25,6 +27,7 @@ import com.simplemobiletools.gallery.pro.databases.GalleryDatabase
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.interfaces.DirectoryDao
 import com.simplemobiletools.gallery.pro.interfaces.MediumDao
+import com.simplemobiletools.gallery.pro.interfaces.WidgetsDao
 import com.simplemobiletools.gallery.pro.models.Directory
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
@@ -32,6 +35,10 @@ import com.simplemobiletools.gallery.pro.svg.SvgSoftwareLayerSetter
 import com.simplemobiletools.gallery.pro.views.MySquareImageView
 import pl.droidsonroids.gif.GifDrawable
 import java.io.File
+import java.util.HashSet
+import java.util.LinkedHashSet
+import kotlin.Comparator
+import kotlin.collections.ArrayList
 
 val Context.portrait get() = resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
 val Context.audioManager get() = getSystemService(Context.AUDIO_SERVICE) as AudioManager
@@ -104,6 +111,10 @@ val Context.config: Config get() = Config.newInstance(applicationContext)
 
 val Context.galleryDB: GalleryDatabase get() = GalleryDatabase.getInstance(applicationContext)
 
+val Context.widgetsDB: WidgetsDao get() = GalleryDatabase.getInstance(applicationContext).WidgetsDao()
+
+val Context.directoryDB: DirectoryDao get() = GalleryDatabase.getInstance(applicationContext).DirectoryDao()
+
 val Context.recycleBin: File get() = filesDir
 
 val Context.recycleBinPath: String get() = filesDir.absolutePath
@@ -159,6 +170,10 @@ fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Direct
             else -> o1.taken.compareTo(o2.taken)
         }
 
+        if (result == 0) {
+            result = AlphanumericComparator().compare(o1.path.toLowerCase(), o2.path.toLowerCase())
+        }
+
         if (sorting and SORT_DESCENDING != 0) {
             result *= -1
         }
@@ -166,6 +181,120 @@ fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Direct
     })
 
     return movePinnedDirectoriesToFront(dirs)
+}
+
+fun Context.getDirsToShow(dirs: ArrayList<Directory>, allDirs: ArrayList<Directory>, currentPathPrefix: String): ArrayList<Directory> {
+    return if (config.groupDirectSubfolders) {
+        dirs.forEach {
+            it.subfoldersCount = 0
+            it.subfoldersMediaCount = it.mediaCnt
+        }
+
+        val dirFolders = dirs.map { it.path }.sorted().toMutableSet() as HashSet<String>
+        val foldersToShow = getDirectParentSubfolders(dirFolders, currentPathPrefix)
+        val parentDirs = dirs.filter { foldersToShow.contains(it.path) } as ArrayList<Directory>
+        updateSubfolderCounts(dirs, parentDirs)
+
+        // show the current folder as an available option too, not just subfolders
+        if (currentPathPrefix.isNotEmpty()) {
+            val currentFolder = allDirs.firstOrNull { parentDirs.firstOrNull { it.path == currentPathPrefix } == null && it.path == currentPathPrefix }
+            currentFolder?.apply {
+                subfoldersCount = 1
+                parentDirs.add(this)
+            }
+        }
+
+        parentDirs
+    } else {
+        dirs.forEach { it.subfoldersMediaCount = it.mediaCnt }
+        dirs
+    }
+}
+
+fun Context.getDirectParentSubfolders(folders: HashSet<String>, currentPathPrefix: String): HashSet<String> {
+    val internalPath = internalStoragePath
+    val sdPath = sdCardPath
+    val currentPaths = LinkedHashSet<String>()
+
+    folders.forEach {
+        val path = it
+        if (path != RECYCLE_BIN && path != FAVORITES && !path.equals(internalPath, true) && !path.equals(sdPath, true)) {
+            if (currentPathPrefix.isNotEmpty()) {
+                if (path == currentPathPrefix || File(path).parent.equals(currentPathPrefix, true)) {
+                    currentPaths.add(path)
+                }
+            } else if (folders.any { !it.equals(path, true) && (File(path).parent.equals(it, true) || File(it).parent.equals(File(path).parent, true)) }) {
+                // if we have folders like
+                // /storage/emulated/0/Pictures/Images and
+                // /storage/emulated/0/Pictures/Screenshots,
+                // but /storage/emulated/0/Pictures is empty, show Images and Screenshots as separate folders, do not group them at /Pictures
+                val parent = File(path).parent
+                if (folders.contains(parent)) {
+                    currentPaths.add(parent)
+                } else {
+                    currentPaths.add(path)
+                }
+            } else {
+                currentPaths.add(path)
+            }
+        }
+    }
+
+    var areDirectSubfoldersAvailable = false
+    currentPaths.forEach {
+        val path = it
+        currentPaths.forEach {
+            if (!it.equals(path) && File(it).parent?.equals(path) == true) {
+                areDirectSubfoldersAvailable = true
+            }
+        }
+    }
+
+    if (currentPathPrefix.isEmpty() && folders.contains(RECYCLE_BIN)) {
+        currentPaths.add(RECYCLE_BIN)
+    }
+
+    if (currentPathPrefix.isEmpty() && folders.contains(FAVORITES)) {
+        currentPaths.add(FAVORITES)
+    }
+
+    if (folders.size == currentPaths.size) {
+        return currentPaths
+    }
+
+    folders.clear()
+    folders.addAll(currentPaths)
+    return if (areDirectSubfoldersAvailable) {
+        getDirectParentSubfolders(folders, currentPathPrefix)
+    } else {
+        folders
+    }
+}
+
+fun Context.updateSubfolderCounts(children: ArrayList<Directory>, parentDirs: ArrayList<Directory>) {
+    for (child in children) {
+        var longestSharedPath = ""
+        for (parentDir in parentDirs) {
+            if (parentDir.path == child.path) {
+                longestSharedPath = child.path
+                continue
+            }
+
+            if (child.path.startsWith(parentDir.path, true) && parentDir.path.length > longestSharedPath.length) {
+                longestSharedPath = parentDir.path
+            }
+        }
+
+        // make sure we count only the proper direct subfolders, grouped the same way as on the main screen
+        parentDirs.firstOrNull { it.path == longestSharedPath }?.apply {
+            if (path.equals(child.path, true) || path.equals(File(child.path).parent, true) || children.any { it.path.equals(File(child.path).parent, true) }) {
+                subfoldersCount++
+                if (path != child.path) {
+                    subfoldersMediaCount += child.mediaCnt
+                }
+            }
+        }
+    }
 }
 
 fun Context.getNoMediaFolders(callback: (folders: ArrayList<String>) -> Unit) {
@@ -234,10 +363,21 @@ fun Context.storeDirectoryItems(items: ArrayList<Directory>, directoryDao: Direc
 }
 
 fun Context.checkAppendingHidden(path: String, hidden: String, includedFolders: MutableSet<String>): String {
-    val dirName = when (path) {
+    val dirName = getFolderNameFromPath(path)
+    return if (File(path).doesThisOrParentHaveNoMedia() && !path.isThisOrParentIncluded(includedFolders)) {
+        "$dirName $hidden"
+    } else {
+        dirName
+    }
+}
+
+fun Context.getFolderNameFromPath(path: String): String {
+    return when (path) {
         internalStoragePath -> getString(R.string.internal)
         sdCardPath -> getString(R.string.sd_card)
-        OTG_PATH -> getString(R.string.otg)
+        OTG_PATH -> getString(R.string.usb)
+        FAVORITES -> getString(R.string.favorites)
+        RECYCLE_BIN -> getString(R.string.recycle_bin)
         else -> {
             if (path.startsWith(OTG_PATH)) {
                 path.trimEnd('/').substringAfterLast('/')
@@ -245,12 +385,6 @@ fun Context.checkAppendingHidden(path: String, hidden: String, includedFolders: 
                 path.getFilenameFromPath()
             }
         }
-    }
-
-    return if (File(path).doesThisOrParentHaveNoMedia() && !path.isThisOrParentIncluded(includedFolders)) {
-        "$dirName $hidden"
-    } else {
-        dirName
     }
 }
 
@@ -481,4 +615,15 @@ fun Context.getUpdatedDeletedMedia(mediumDao: MediumDao): ArrayList<Medium> {
 
 fun Context.deleteDBPath(mediumDao: MediumDao, path: String) {
     mediumDao.deleteMediumPath(path.replaceFirst(recycleBinPath, RECYCLE_BIN))
+}
+
+fun Context.updateWidgets() {
+    val widgetIDs = AppWidgetManager.getInstance(applicationContext).getAppWidgetIds(ComponentName(applicationContext, MyWidgetProvider::class.java))
+    if (widgetIDs.isNotEmpty()) {
+        Intent(applicationContext, MyWidgetProvider::class.java).apply {
+            action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
+            putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, widgetIDs)
+            sendBroadcast(this)
+        }
+    }
 }

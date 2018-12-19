@@ -15,4 +15,5 @@
     <dimen name="bottom_filters_height">90dp</dimen>
     <dimen name="bottom_editor_actions_shadow_height">180dp</dimen>
     <dimen name="default_status_action_height">86dp</dimen>
+    <dimen name="widget_initial_size">110dp</dimen>
 </resources>

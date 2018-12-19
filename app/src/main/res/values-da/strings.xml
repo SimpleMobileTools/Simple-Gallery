@@ -6,9 +6,9 @@
     <string name="open_camera">Åbn kamera</string>
     <string name="hidden">(skjult)</string>
     <string name="excluded">(ekskluderet)</string>
-    <string name="pin_folder">Pin folder</string>
-    <string name="unpin_folder">Unpin folder</string>
-    <string name="pin_to_the_top">Pin to the top</string>
+    <string name="pin_folder">Fastgør mappe</string>
+    <string name="unpin_folder">Fjern fastgørelse af mappe</string>
+    <string name="pin_to_the_top">Fastgør til toppen</string>
     <string name="show_all">Vis indholdet af alle mapper</string>
     <string name="all_folders">Alle mapper</string>
     <string name="folder_view">Skift til mappevisning</string>
@@ -17,19 +17,19 @@
     <string name="unknown_location">Ukendt placering</string>
     <string name="increase_column_count">Flere kolonner</string>
     <string name="reduce_column_count">Færre kolonner</string>
-    <string name="change_cover_image">Change cover image</string>
-    <string name="select_photo">Select photo</string>
-    <string name="use_default">Use default</string>
-    <string name="volume">Volume</string>
-    <string name="brightness">Brightness</string>
+    <string name="change_cover_image">Skift cover billede</string>
+    <string name="select_photo">Vælg billede</string>
+    <string name="use_default">Brug standard</string>
+    <string name="volume">Lydstyrke</string>
+    <string name="brightness">Lysstyrke</string>
     <string name="lock_orientation">Lås orientering</string>
     <string name="unlock_orientation">Lås orientering op</string>
-    <string name="change_orientation">Change orientation</string>
-    <string name="force_portrait">Force portrait</string>
-    <string name="force_landscape">Force landscape</string>
-    <string name="use_default_orientation">Use default orientation</string>
-    <string name="fix_date_taken">Fix Date Taken value</string>
-    <string name="fixing">Fixing…</string>
+    <string name="change_orientation">Skift orientering</string>
+    <string name="force_portrait">Tving portræt</string>
+    <string name="force_landscape">Tving landskab</string>
+    <string name="use_default_orientation">Brug standard orientering</string>
+    <string name="fix_date_taken">Fiks Dato Taget værdi</string>
+    <string name="fixing">Fikser…</string>
     <string name="dates_fixed_successfully">Dates fixed successfully</string>
 
     <!-- Filter -->
@@ -63,17 +63,17 @@
     <string name="included_activity_placeholder">Hvis du har mapper med mediefiler som appen ikke har fundet, kan du manuelt tilføje dem her.\n\nDet vil ikke ekskludere andre mapper.</string>
 
     <!-- Resizing -->
-    <string name="resize">Skaler</string>
-    <string name="resize_and_save">Resize selection and save</string>
-    <string name="width">Width</string>
-    <string name="height">Height</string>
-    <string name="keep_aspect_ratio">Keep aspect ratio</string>
-    <string name="invalid_values">Please enter a valid resolution</string>
+    <string name="resize">Skalér</string>
+    <string name="resize_and_save">Skalér valgte elementer og gem</string>
+    <string name="width">Bredde</string>
+    <string name="height">Højde</string>
+    <string name="keep_aspect_ratio">Bevar billedeforhold</string>
+    <string name="invalid_values">Indtast en gyldig opløsning</string>
 
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="save">Gem</string>
-    <string name="rotate">Roter</string>
+    <string name="rotate">Rotér</string>
     <string name="path">Sti</string>
     <string name="invalid_image_path">Ugyldig sti til billede</string>
     <string name="image_editing_failed">Redigering af billede mislykkedes</string>
@@ -81,9 +81,9 @@
     <string name="no_editor_found">Der blev ikke fundet en editor til billedbehandling</string>
     <string name="unknown_file_location">Ukendt filplacering</string>
     <string name="error_saving_file">Kunne ikke overskrive kildefilen</string>
-    <string name="rotate_left">Roter mod venstre</string>
-    <string name="rotate_right">Roter mod højre</string>
-    <string name="rotate_one_eighty">Roter 180º</string>
+    <string name="rotate_left">Rotér mod venstre</string>
+    <string name="rotate_right">Rotér mod højre</string>
+    <string name="rotate_one_eighty">Rotér 180º</string>
     <string name="flip">Spejlvend</string>
     <string name="flip_horizontally">Spejlvend vandret</string>
     <string name="flip_vertically">Spejlvend lodret</string>
@@ -121,27 +121,31 @@
     <string name="change_view_type">Skift visning</string>
     <string name="grid">Gitter</string>
     <string name="list">Liste</string>
-    <string name="group_direct_subfolders">Group direct subfolders</string>
+    <string name="group_direct_subfolders">Gruppér direkte undermapper</string>
 
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Group by</string>
-    <string name="do_not_group_files">Do not group files</string>
-    <string name="by_folder">Folder</string>
-    <string name="by_last_modified">Last modified</string>
-    <string name="by_date_taken">Date taken</string>
-    <string name="by_file_type">File type</string>
-    <string name="by_extension">Extension</string>
+    <string name="group_by">Gruppér efter</string>
+    <string name="do_not_group_files">Gruppér ikke filer</string>
+    <string name="by_folder">Mappe</string>
+    <string name="by_last_modified">Sidst ændret</string>
+    <string name="by_date_taken">Dato taget</string>
+    <string name="by_file_type">Filtype</string>
+    <string name="by_extension">Filudvidelse</string>
+
+    <!-- Widgets -->
+    <string name="folder_on_widget">Mappe vist på widget:</string>
+    <string name="show_folder_name">Vis mappenavn</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Afspil automatisk videoer</string>
-    <string name="remember_last_video_position">Remember last video playback position</string>
-    <string name="toggle_filename">Toggle filename visibility</string>
+    <string name="remember_last_video_position">Husk sidste position ved videoafspilning</string>
+    <string name="toggle_filename">Skift filnavnets synlighed</string>
     <string name="loop_videos">Kør videoer i sløjfe</string>
     <string name="animate_gifs">Animér GIF\'er i miniaturer</string>
     <string name="max_brightness">Maksimal lysstyrke ved fuldskærmsvisning af medier</string>
     <string name="crop_thumbnails">Beskær miniaturer til kvadrater</string>
-    <string name="show_thumbnail_video_duration">Show video durations</string>
-    <string name="screen_rotation_by">Roter fuldskærmsmedier efter</string>
+    <string name="show_thumbnail_video_duration">Vis varighed på video</string>
+    <string name="screen_rotation_by">Rotér fuldskærmsmedier efter</string>
     <string name="screen_rotation_system_setting">Systemindstilling</string>
     <string name="screen_rotation_device_rotation">Enhedens orientering</string>
     <string name="screen_rotation_aspect_ratio">Billedformat</string>
@@ -150,33 +154,33 @@
     <string name="hide_system_ui_at_fullscreen">Skjul automatisk systemets brugerflade ved fuldskærmsvisning af medier</string>
     <string name="delete_empty_folders">Slet tomme mapper efter sletning af deres indhold</string>
     <string name="allow_photo_gestures">Tillad kontrol af lysstyrke på billeder med lodrette bevægelser</string>
-    <string name="allow_video_gestures">Tillad kontrol af videolyd og lysstyrke med lodrette bevægelser</string>
+    <string name="allow_video_gestures">Tillad kontrol af lyd- og lysstyrke på videoer med lodrette bevægelser</string>
     <string name="show_media_count">Vis antal filer i hver mappe i oversigten</string>
-    <string name="replace_share_with_rotate">Erstat Del med Roter i fuldskærmsmenuen</string>
+    <string name="replace_share_with_rotate">Erstat Del med Rotér i fuldskærmsmenuen</string>
     <string name="show_extended_details">Vis udvidede oplysninger over medier i fuldskærm</string>
-    <string name="manage_extended_details">Manage extended details</string>
+    <string name="manage_extended_details">Administrer udvidede oplysninger</string>
     <string name="one_finger_zoom">Tillad zoom med en finger når medier er i fuldskærm</string>
     <string name="allow_instant_change">Tillad skift af medie ved klik på skærmens sider</string>
     <string name="allow_deep_zooming_images">Allow deep zooming images</string>
     <string name="hide_extended_details">Skjul udvidede oplysninger når statuslinjen er skjult</string>
     <string name="do_extra_check">Tjek en ekstra gang for at undgå visning af ugyldige filer</string>
-    <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
-    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
+    <string name="show_at_bottom">Vis handlingsknapper i bunden af skærmen</string>
+    <string name="show_recycle_bin">Vis papirkurven ved mappevisning</string>
     <string name="deep_zoomable_images">Deep zoomable images</string>
-    <string name="show_highest_quality">Show images in the highest possible quality</string>
-    <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
+    <string name="show_highest_quality">Vis billeder i den højst mulige kvalitet</string>
+    <string name="show_recycle_bin_last">Vis papirkurven som sidste element på hovedskærmen</string>
     <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Thumbnails</string>
-    <string name="fullscreen_media">Fullscreen media</string>
+    <string name="thumbnails">Miniaturer</string>
+    <string name="fullscreen_media">Fuldskærmsmedier</string>
     <string name="extended_details">Flere oplysninger</string>
-    <string name="bottom_actions">Bottom actions</string>
+    <string name="bottom_actions">Handlingsknapper</string>
 
     <!-- Bottom actions -->
-    <string name="manage_bottom_actions">Manage visible bottom actions</string>
-    <string name="toggle_favorite">Toggle favorite</string>
-    <string name="toggle_file_visibility">Toggle file visibility</string>
+    <string name="manage_bottom_actions">Administrer synlige handlingsknapper</string>
+    <string name="toggle_favorite">Favorit</string>
+    <string name="toggle_file_visibility">Synlighed</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
@@ -212,7 +216,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">A gallery for viewing photos and videos without ads.</string>
+    <string name="app_short_description">Et galleri til visning af billeder og videoer uden reklamer.</string>
     <string name="app_long_description">
         A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
 

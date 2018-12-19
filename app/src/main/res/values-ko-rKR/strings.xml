@@ -132,6 +132,10 @@
     <string name="by_file_type">File type</string>
     <string name="by_extension">Extension</string>
 
+    <!-- Widgets -->
+    <string name="folder_on_widget">Folder shown on the widget:</string>
+    <string name="show_folder_name">Show folder name</string>
+
     <!-- Settings -->
     <string name="autoplay_videos">비디오 자동재생</string>
     <string name="remember_last_video_position">Remember last video playback position</string>

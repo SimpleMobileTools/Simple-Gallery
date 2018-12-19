@@ -89,7 +89,7 @@
     <string name="flip_vertically">垂直翻转</string>
     <string name="edit_with">编辑方式</string>
     <string name="free_aspect_ratio">自由</string>                <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Other</string>             <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+    <string name="other_aspect_ratio">其他</string>             <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">简约壁纸</string>
@@ -132,6 +132,10 @@
     <string name="by_file_type">文件类型</string>
     <string name="by_extension">扩展</string>
 
+    <!-- Widgets -->
+    <string name="folder_on_widget">Folder shown on the widget:</string>
+    <string name="show_folder_name">Show folder name</string>
+
     <!-- Settings -->
     <string name="autoplay_videos">自动播放</string>
     <string name="remember_last_video_position">记住上次视频播放位置</string>
@@ -140,7 +144,7 @@
     <string name="animate_gifs">GIF 缩略图</string>
     <string name="max_brightness">浏览时最大亮度</string>
     <string name="crop_thumbnails">裁剪缩略图</string>
-    <string name="show_thumbnail_video_duration">Show video durations</string>
+    <string name="show_thumbnail_video_duration">显示视频时长</string>
     <string name="screen_rotation_by">全屏方向</string>
     <string name="screen_rotation_system_setting">系统设置</string>
     <string name="screen_rotation_device_rotation">设备方向</string>

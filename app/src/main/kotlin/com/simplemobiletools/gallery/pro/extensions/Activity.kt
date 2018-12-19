@@ -149,6 +149,7 @@ fun BaseSimpleActivity.removeNoMedia(path: String, callback: (() -> Unit)? = nul
     }
 
     tryDeleteFileDirItem(file.toFileDirItem(applicationContext), false, false) {
+        scanPathRecursively(file.parent)
         callback?.invoke()
     }
 }
@@ -183,7 +184,7 @@ fun BaseSimpleActivity.tryCopyMoveFilesTo(fileDirItems: ArrayList<FileDirItem>, 
     }
 
     val source = fileDirItems[0].getParentPath()
-    PickDirectoryDialog(this, source) {
+    PickDirectoryDialog(this, source, true) {
         copyMoveFilesTo(fileDirItems, source.trimEnd('/'), it, isCopyOperation, true, config.shouldShowHidden, callback)
     }
 }

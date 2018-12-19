@@ -2,6 +2,10 @@
 <resources>
 
     <!-- Release notes -->
+    <string name="release_213">
+        Added an initial widget implementation for creating homescreen folder shortcuts\n
+        Added optional grouping of direct subfolders, as a check at the \"Change view type\" dialog
+    </string>
     <string name="release_206">Added a new option for password protecting file deletion/move</string>
     <string name="release_202">Added a new option for showing the Recycle Bin as the last folder</string>
     <string name="release_201">

@@ -17,6 +17,7 @@ class OtherAspectRatioDialog(val activity: BaseSimpleActivity, val lastOtherAspe
             other_aspect_ratio_5_3.setOnClickListener { ratioPicked(Pair(5, 3)) }
             other_aspect_ratio_16_9.setOnClickListener { ratioPicked(Pair(16, 9)) }
             other_aspect_ratio_19_9.setOnClickListener { ratioPicked(Pair(19, 9)) }
+            other_aspect_ratio_custom.setOnClickListener { customRatioPicked() }
 
             other_aspect_ratio_1_2.setOnClickListener { ratioPicked(Pair(1, 2)) }
             other_aspect_ratio_2_3.setOnClickListener { ratioPicked(Pair(2, 3)) }
@@ -46,6 +47,10 @@ class OtherAspectRatioDialog(val activity: BaseSimpleActivity, val lastOtherAspe
                 else -> 0
             }
             other_aspect_ratio_dialog_radio_2.check(radio2SelectedItemId)
+
+            if (radio1SelectedItemId == 0 && radio2SelectedItemId == 0) {
+                other_aspect_ratio_dialog_radio_1.check(other_aspect_ratio_custom.id)
+            }
         }
 
         dialog = AlertDialog.Builder(activity)
@@ -53,6 +58,13 @@ class OtherAspectRatioDialog(val activity: BaseSimpleActivity, val lastOtherAspe
                 .create().apply {
                     activity.setupDialogStuff(view, this)
                 }
+    }
+
+    private fun customRatioPicked() {
+        CustomAspectRatioDialog(activity, lastOtherAspectRatio) {
+            callback(it)
+            dialog.dismiss()
+        }
     }
 
     private fun ratioPicked(pair: Pair<Int, Int>) {

@@ -89,7 +89,7 @@
     <string name="flip_vertically">Verticalmente</string>
     <string name="edit_with">Editar com</string>
     <string name="free_aspect_ratio">Livre</string>                 <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+    <string name="other_aspect_ratio">Outro</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
@@ -131,6 +131,10 @@
     <string name="by_date_taken">Data de obtenção</string>
     <string name="by_file_type">Tipo de ficheiro</string>
     <string name="by_extension">Extensão</string>
+
+    <!-- Widgets -->
+    <string name="folder_on_widget">Folder shown on the widget:</string>
+    <string name="show_folder_name">Show folder name</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Reproduzir vídeos automaticamente</string>

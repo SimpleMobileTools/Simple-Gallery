@@ -1,6 +1,21 @@
 Changelog
 ==========
 
+Version 6.1.1 *(2018-12-18)*
+----------------------------
+
+ * Fixing some crashes
+
+Version 6.1.0 *(2018-12-17)*
+----------------------------
+
+ * Added an initial widget implementation for creating homescreen folder shortcuts
+ * Added optional grouping of direct subfolders, as a check at the "Change view type" dialog
+ * Added an option to set custom crop aspect ratio at the editor
+ * Save exif data at edited files on Android 7+
+ * Handle only Mass Storage USB devices, ignore the rest
+ * Many other smaller UX/stability/performance improvements
+
 Version 6.0.4 *(2018-12-04)*
 ----------------------------
 

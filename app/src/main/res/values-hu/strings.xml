@@ -133,6 +133,10 @@
     <string name="by_file_type">Fájl típus</string>
     <string name="by_extension">Kiterjesztés</string>
 
+    <!-- Widgets -->
+    <string name="folder_on_widget">Mappa mutatása a widgeten:</string>
+    <string name="show_folder_name">Mutassa a mappa nevét</string>
+
     <!-- Settings -->
     <string name="autoplay_videos">Automatikus videó lejátszás</string>
     <string name="remember_last_video_position">Emlékezzen a videó utolsó lejátszási pozícióra</string>

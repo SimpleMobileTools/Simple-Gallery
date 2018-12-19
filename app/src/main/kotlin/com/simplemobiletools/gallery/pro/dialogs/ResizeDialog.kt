@@ -6,11 +6,11 @@ import androidx.appcompat.app.AlertDialog
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.pro.R
-import kotlinx.android.synthetic.main.resize_image.view.*
+import kotlinx.android.synthetic.main.dialog_resize_image.view.*
 
 class ResizeDialog(val activity: BaseSimpleActivity, val size: Point, val callback: (newSize: Point) -> Unit) {
     init {
-        val view = activity.layoutInflater.inflate(R.layout.resize_image, null)
+        val view = activity.layoutInflater.inflate(R.layout.dialog_resize_image, null)
         val widthView = view.image_width
         val heightView = view.image_height
 
@@ -69,7 +69,7 @@ class ResizeDialog(val activity: BaseSimpleActivity, val size: Point, val callba
                 }
     }
 
-    fun getViewValue(view: EditText): Int {
+    private fun getViewValue(view: EditText): Int {
         val textValue = view.value
         return if (textValue.isEmpty()) 0 else textValue.toInt()
     }

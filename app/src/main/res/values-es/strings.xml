@@ -89,7 +89,7 @@
     <string name="flip_vertically">Verticalmente</string>
     <string name="edit_with">Editar con</string>
     <string name="free_aspect_ratio">Libre</string>                 <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+    <string name="other_aspect_ratio">Otros</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Fondos de pantalla Simple Gallery</string>
@@ -132,6 +132,10 @@
     <string name="by_file_type">Tipo de fichero</string>
     <string name="by_extension">Extensión</string>
 
+    <!-- Widgets -->
+    <string name="folder_on_widget">Carpeta mostrada en el widget:</string>
+    <string name="show_folder_name">Mostrar nombre de carpeta</string>
+
     <!-- Settings -->
     <string name="autoplay_videos">Reproducir vídeos automáticamente</string>
     <string name="remember_last_video_position">Recuerde la última posición de reproducción de video</string>
@@ -140,7 +144,7 @@
     <string name="animate_gifs">Animar las miniaturas de GIFs</string>
     <string name="max_brightness">Brillo máximo cuando se muestra multimedia</string>
     <string name="crop_thumbnails">Recortar miniaturas en cuadrados</string>
-    <string name="show_thumbnail_video_duration">Show video durations</string>
+    <string name="show_thumbnail_video_duration">Mostrar duración del video</string>
     <string name="screen_rotation_by">Rotar multimedia en pantalla completa según</string>
     <string name="screen_rotation_system_setting">Configuración del sistema</string>
     <string name="screen_rotation_device_rotation">Rotación del dispositivo</string>

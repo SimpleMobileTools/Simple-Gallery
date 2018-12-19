@@ -1,9 +1,6 @@
 package com.simplemobiletools.gallery.pro.models
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.Index
-import androidx.room.PrimaryKey
+import androidx.room.*
 import com.simplemobiletools.commons.extensions.formatDate
 import com.simplemobiletools.commons.extensions.formatSize
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_MODIFIED
@@ -12,7 +9,6 @@ import com.simplemobiletools.commons.helpers.SORT_BY_PATH
 import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
 import com.simplemobiletools.gallery.pro.helpers.FAVORITES
 import com.simplemobiletools.gallery.pro.helpers.RECYCLE_BIN
-import java.io.Serializable
 
 @Entity(tableName = "directories", indices = [Index(value = ["path"], unique = true)])
 data class Directory(
@@ -24,12 +20,14 @@ data class Directory(
         @ColumnInfo(name = "last_modified") var modified: Long,
         @ColumnInfo(name = "date_taken") var taken: Long,
         @ColumnInfo(name = "size") var size: Long,
-        @ColumnInfo(name = "location") val location: Int,
-        @ColumnInfo(name = "media_types") var types: Int) : Serializable {
+        @ColumnInfo(name = "location") var location: Int,
+        @ColumnInfo(name = "media_types") var types: Int,
 
-    companion object {
-        private const val serialVersionUID = -6553345863555455L
-    }
+        // used with "Group direct subfolders" enabled
+        @Ignore var subfoldersCount: Int = 0,
+        @Ignore var subfoldersMediaCount: Int = 0) {
+
+    constructor() : this(null, "", "", "", 0, 0L, 0L, 0L, 0, 0, 0, 0)
 
     fun getBubbleText(sorting: Int) = when {
         sorting and SORT_BY_NAME != 0 -> name

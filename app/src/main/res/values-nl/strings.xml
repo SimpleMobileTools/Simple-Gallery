@@ -132,6 +132,10 @@
     <string name="by_file_type">Bestandstype</string>
     <string name="by_extension">Extensie</string>
 
+    <!-- Widgets -->
+    <string name="folder_on_widget">Map tonen in de widget:</string>
+    <string name="show_folder_name">Mapnaam tonen</string>
+
     <!-- Settings -->
     <string name="autoplay_videos">Video\'s automatisch afspelen</string>
     <string name="remember_last_video_position">Laatste positie in video\'s onthouden</string>
@@ -160,7 +164,7 @@
     <string name="allow_deep_zooming_images">Verder inzoomen mogelijk maken</string>
     <string name="hide_extended_details">Uitgebreide informatie niet tonen als de statusbalk is verborgen</string>
     <string name="do_extra_check">Ongeldige bestanden verbergen</string>
-    <string name="show_at_bottom">Enkele actieknoppen onderaan het scherm tonen</string>
+    <string name="show_at_bottom">Enkele actieknoppen onder aan het scherm tonen</string>
     <string name="show_recycle_bin">Prullenbak weergeven in de mapweergave</string>
     <string name="deep_zoomable_images">Afbeeldingen ver inzoomen</string>
     <string name="show_highest_quality">Afbeeldingen in de hoogst mogelijke kwaliteit weergeven</string>
@@ -171,7 +175,7 @@
     <string name="thumbnails">Miniatuurvoorbeelden</string>
     <string name="fullscreen_media">Volledig scherm</string>
     <string name="extended_details">Uitgebreide informatie</string>
-    <string name="bottom_actions">Acties onderaan het scherm</string>
+    <string name="bottom_actions">Acties onder aan het scherm</string>
 
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Actieknoppen onderaan beheren</string>
