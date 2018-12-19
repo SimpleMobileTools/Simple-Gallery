@@ -133,8 +133,8 @@
     <string name="by_extension">Расширение</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Папка, отображаемая на виджете:</string>
-    <string name="show_folder_name">Показать имя папки</string>
+    <string name="folder_on_widget">Папка на виджете:</string>
+    <string name="show_folder_name">Имя папки</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Воспроизводить видео автоматически</string>
