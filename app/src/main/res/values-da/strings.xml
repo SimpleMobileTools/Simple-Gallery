@@ -30,15 +30,15 @@
     <string name="use_default_orientation">Brug standard orientering</string>
     <string name="fix_date_taken">Fiks Dato Taget værdi</string>
     <string name="fixing">Fikser…</string>
-    <string name="dates_fixed_successfully">Dates fixed successfully</string>
+    <string name="dates_fixed_successfully">Datoer fikset med succes</string>
 
     <!-- Filter -->
-    <string name="filter_media">Filtrer medier</string>
+    <string name="filter_media">Filtrér medier</string>
     <string name="images">Billeder</string>
     <string name="videos">Videoer</string>
     <string name="gifs">GIF\'er</string>
-    <string name="raw_images">RAW images</string>
-    <string name="svgs">SVGs</string>
+    <string name="raw_images">RAW billeder</string>
+    <string name="svgs">SVG\'er</string>
     <string name="no_media_with_filters">Der blev ikke fundet nogen filer med det valgte filter.</string>
     <string name="change_filters_underlined"><u>Skift filter</u></string>
 
@@ -67,7 +67,7 @@
     <string name="resize_and_save">Skalér valgte elementer og gem</string>
     <string name="width">Bredde</string>
     <string name="height">Højde</string>
-    <string name="keep_aspect_ratio">Bevar billedeforhold</string>
+    <string name="keep_aspect_ratio">Bevar billedforhold</string>
     <string name="invalid_values">Indtast en gyldig opløsning</string>
 
     <!-- Editor -->
@@ -88,8 +88,8 @@
     <string name="flip_horizontally">Spejlvend vandret</string>
     <string name="flip_vertically">Spejlvend lodret</string>
     <string name="edit_with">Rediger med</string>
-    <string name="free_aspect_ratio">Free</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+    <string name="free_aspect_ratio">Fri</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Andet</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
@@ -111,7 +111,7 @@
     <string name="include_videos">Inkluder videoer</string>
     <string name="include_gifs">Inkluder GIF\'er</string>
     <string name="random_order">Tilfældig rækkefølge</string>
-    <string name="use_fade">Use fade animations</string>
+    <string name="use_fade">Brug udtonende animationer</string>
     <string name="move_backwards">Kør baglæns</string>
     <string name="loop_slideshow">Endeløs kørsel</string>
     <string name="slideshow_ended">Slideshowet endte</string>
