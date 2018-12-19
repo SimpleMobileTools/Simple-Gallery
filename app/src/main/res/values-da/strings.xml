@@ -28,8 +28,8 @@
     <string name="force_portrait">Tving portræt</string>
     <string name="force_landscape">Tving landskab</string>
     <string name="use_default_orientation">Brug standard orientering</string>
-    <string name="fix_date_taken">Fix Date Taken value</string>
-    <string name="fixing">Fixing…</string>
+    <string name="fix_date_taken">Fiks Dato Taget værdi</string>
+    <string name="fixing">Fikser…</string>
     <string name="dates_fixed_successfully">Dates fixed successfully</string>
 
     <!-- Filter -->
@@ -63,8 +63,8 @@
     <string name="included_activity_placeholder">Hvis du har mapper med mediefiler som appen ikke har fundet, kan du manuelt tilføje dem her.\n\nDet vil ikke ekskludere andre mapper.</string>
 
     <!-- Resizing -->
-    <string name="resize">Skaler</string>
-    <string name="resize_and_save">Resize selection and save</string>
+    <string name="resize">Skalér</string>
+    <string name="resize_and_save">Skalér valgte elementer og gem</string>
     <string name="width">Bredde</string>
     <string name="height">Højde</string>
     <string name="keep_aspect_ratio">Bevar billedeforhold</string>
@@ -130,16 +130,16 @@
     <string name="by_last_modified">Sidst ændret</string>
     <string name="by_date_taken">Dato taget</string>
     <string name="by_file_type">Filtype</string>
-    <string name="by_extension">Extension</string>
+    <string name="by_extension">Filudvidelse</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Folder shown on the widget:</string>
-    <string name="show_folder_name">Show folder name</string>
+    <string name="folder_on_widget">Mappe vist på widget:</string>
+    <string name="show_folder_name">Vis mappenavn</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Afspil automatisk videoer</string>
     <string name="remember_last_video_position">Husk sidste position ved videoafspilning</string>
-    <string name="toggle_filename">Skift filnavnets synlinghed</string>
+    <string name="toggle_filename">Skift filnavnets synlighed</string>
     <string name="loop_videos">Kør videoer i sløjfe</string>
     <string name="animate_gifs">Animér GIF\'er i miniaturer</string>
     <string name="max_brightness">Maksimal lysstyrke ved fuldskærmsvisning af medier</string>
@@ -158,29 +158,29 @@
     <string name="show_media_count">Vis antal filer i hver mappe i oversigten</string>
     <string name="replace_share_with_rotate">Erstat Del med Rotér i fuldskærmsmenuen</string>
     <string name="show_extended_details">Vis udvidede oplysninger over medier i fuldskærm</string>
-    <string name="manage_extended_details">Manage extended details</string>
+    <string name="manage_extended_details">Administrer udvidede oplysninger</string>
     <string name="one_finger_zoom">Tillad zoom med en finger når medier er i fuldskærm</string>
     <string name="allow_instant_change">Tillad skift af medie ved klik på skærmens sider</string>
     <string name="allow_deep_zooming_images">Allow deep zooming images</string>
     <string name="hide_extended_details">Skjul udvidede oplysninger når statuslinjen er skjult</string>
     <string name="do_extra_check">Tjek en ekstra gang for at undgå visning af ugyldige filer</string>
-    <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
-    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
+    <string name="show_at_bottom">Vis handlingsknapper i bunden af skærmen</string>
+    <string name="show_recycle_bin">Vis papirkurven ved mappevisning</string>
     <string name="deep_zoomable_images">Deep zoomable images</string>
-    <string name="show_highest_quality">Show images in the highest possible quality</string>
-    <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
+    <string name="show_highest_quality">Vis billeder i den højst mulige kvalitet</string>
+    <string name="show_recycle_bin_last">Vis papirkurven som sidste element på hovedskærmen</string>
     <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Thumbnails</string>
-    <string name="fullscreen_media">Fullscreen media</string>
+    <string name="thumbnails">Miniaturer</string>
+    <string name="fullscreen_media">Fuldskærmsmedier</string>
     <string name="extended_details">Flere oplysninger</string>
-    <string name="bottom_actions">Bottom actions</string>
+    <string name="bottom_actions">Handlingsknapper</string>
 
     <!-- Bottom actions -->
-    <string name="manage_bottom_actions">Manage visible bottom actions</string>
-    <string name="toggle_favorite">Toggle favorite</string>
-    <string name="toggle_file_visibility">Toggle file visibility</string>
+    <string name="manage_bottom_actions">Administrer synlige handlingsknapper</string>
+    <string name="toggle_favorite">Favorit</string>
+    <string name="toggle_file_visibility">Synlighed</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
