@@ -26,9 +26,11 @@ class MediaFetcher(val context: Context) {
         }
 
         val curMedia = ArrayList<Medium>()
-        if (curPath.startsWith(OTG_PATH)) {
-            val newMedia = getMediaOnOTG(curPath, isPickImage, isPickVideo, filterMedia, favoritePaths, getVideoDurations)
-            curMedia.addAll(newMedia)
+        if (curPath.startsWith(OTG_PATH, true)) {
+            if (context.hasOTGConnected()) {
+                val newMedia = getMediaOnOTG(curPath, isPickImage, isPickVideo, filterMedia, favoritePaths, getVideoDurations)
+                curMedia.addAll(newMedia)
+            }
         } else {
             val newMedia = getMediaInFolder(curPath, isPickImage, isPickVideo, filterMedia, getProperDateTaken, favoritePaths, getVideoDurations)
             curMedia.addAll(newMedia)
