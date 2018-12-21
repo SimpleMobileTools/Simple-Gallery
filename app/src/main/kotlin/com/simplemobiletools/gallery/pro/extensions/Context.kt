@@ -170,10 +170,6 @@ fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Direct
             else -> o1.taken.compareTo(o2.taken)
         }
 
-        if (result == 0) {
-            result = AlphanumericComparator().compare(o1.path.toLowerCase(), o2.path.toLowerCase())
-        }
-
         if (sorting and SORT_DESCENDING != 0) {
             result *= -1
         }
