@@ -194,12 +194,12 @@ class MediaFetcher(val context: Context) {
                 break
             }
 
-            val filename = file.name
-            val isImage = filename.isImageFast()
-            val isVideo = if (isImage) false else filename.isVideoFast()
-            val isGif = if (isImage || isVideo) false else filename.isGif()
-            val isRaw = if (isImage || isVideo || isGif) false else filename.isRawFast()
-            val isSvg = if (isImage || isVideo || isGif || isRaw) false else filename.isSvg()
+            val path = file.absolutePath
+            val isImage = path.isImageFast()
+            val isVideo = if (isImage) false else path.isVideoFast()
+            val isGif = if (isImage || isVideo) false else path.isGif()
+            val isRaw = if (isImage || isVideo || isGif) false else path.isRawFast()
+            val isSvg = if (isImage || isVideo || isGif || isRaw) false else path.isSvg()
 
             if (!isImage && !isVideo && !isGif && !isRaw && !isSvg)
                 continue
@@ -219,6 +219,7 @@ class MediaFetcher(val context: Context) {
             if (isSvg && filterMedia and TYPE_SVGS == 0)
                 continue
 
+            val filename = file.name
             if (!showHidden && filename.startsWith('.'))
                 continue
 
@@ -226,7 +227,6 @@ class MediaFetcher(val context: Context) {
             if (size <= 0L || (doExtraCheck && !file.exists()))
                 continue
 
-            val path = file.absolutePath
             if (folder == RECYCLE_BIN) {
                 deletedMedia.firstOrNull { it.path == path }?.apply {
                     media.add(this)
