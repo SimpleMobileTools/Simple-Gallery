@@ -55,7 +55,7 @@ import java.util.*
 
 class PhotoFragment : ViewPagerFragment() {
     private val DEFAULT_DOUBLE_TAP_ZOOM = 2f
-    private val ZOOMABLE_VIEW_LOAD_DELAY = 300L
+    private val ZOOMABLE_VIEW_LOAD_DELAY = 150L
 
     // devices with good displays, but the rest of the hardware not good enough for them
     private val WEIRD_DEVICES = arrayListOf(
