@@ -22,7 +22,8 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
     var dialog: AlertDialog
     var shownMedia = ArrayList<ThumbnailItem>()
     val view = activity.layoutInflater.inflate(R.layout.dialog_medium_picker, null)
-    var isGridViewType = activity.config.viewTypeFiles == VIEW_TYPE_GRID
+    val viewType = activity.config.getFolderViewType(if (activity.config.showAll) SHOW_ALL else path)
+    var isGridViewType = viewType == VIEW_TYPE_GRID
 
     init {
         (view.media_grid.layoutManager as MyGridLayoutManager).apply {
@@ -64,7 +65,7 @@ class PickMediumDialog(val activity: BaseSimpleActivity, val path: String, val c
             return
 
         shownMedia = media
-        val adapter = MediaAdapter(activity, shownMedia.clone() as ArrayList<ThumbnailItem>, null, true, false, view.media_grid, null) {
+        val adapter = MediaAdapter(activity, shownMedia.clone() as ArrayList<ThumbnailItem>, null, true, false, path, view.media_grid, null) {
             if (it is Medium) {
                 callback(it.path)
                 dialog.dismiss()

@@ -219,10 +219,10 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden
             findItem(R.id.stop_showing_hidden).isVisible = config.temporarilyShowHidden
 
-            findItem(R.id.increase_column_count).isVisible = config.viewTypeFiles == VIEW_TYPE_GRID && config.mediaColumnCnt < MAX_COLUMN_COUNT
-            findItem(R.id.reduce_column_count).isVisible = config.viewTypeFiles == VIEW_TYPE_GRID && config.mediaColumnCnt > 1
-
-            findItem(R.id.toggle_filename).isVisible = config.viewTypeFiles == VIEW_TYPE_GRID
+            val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
+            findItem(R.id.increase_column_count).isVisible = viewType == VIEW_TYPE_GRID && config.mediaColumnCnt < MAX_COLUMN_COUNT
+            findItem(R.id.reduce_column_count).isVisible = viewType == VIEW_TYPE_GRID && config.mediaColumnCnt > 1
+            findItem(R.id.toggle_filename).isVisible = viewType == VIEW_TYPE_GRID
         }
 
         setupSearch(menu)
@@ -362,7 +362,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             initZoomListener()
             val fastscroller = if (config.scrollHorizontally) media_horizontal_fastscroller else media_vertical_fastscroller
             MediaAdapter(this, mMedia.clone() as ArrayList<ThumbnailItem>, this, mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent,
-                    mAllowPickingMultiple, media_grid, fastscroller) {
+                    mAllowPickingMultiple, mPath, media_grid, fastscroller) {
                 if (it is Medium) {
                     itemClicked(it.path)
                 }
@@ -380,7 +380,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun setupScrollDirection() {
-        val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFiles == VIEW_TYPE_GRID
+        val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
+        val allowHorizontalScroll = config.scrollHorizontally && viewType == VIEW_TYPE_GRID
         media_vertical_fastscroller.isHorizontal = false
         media_vertical_fastscroller.beGoneIf(allowHorizontalScroll)
 
@@ -488,7 +489,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun changeViewType() {
-        ChangeViewTypeDialog(this, false) {
+        ChangeViewTypeDialog(this, false, mPath) {
             invalidateOptionsMenu()
             setupLayoutManager()
             media_grid.adapter = null
@@ -636,7 +637,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun setupLayoutManager() {
-        if (config.viewTypeFiles == VIEW_TYPE_GRID) {
+        val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
+        if (viewType == VIEW_TYPE_GRID) {
             setupGridLayoutManager()
         } else {
             setupListLayoutManager()
@@ -712,7 +714,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun initZoomListener() {
-        if (config.viewTypeFiles == VIEW_TYPE_GRID) {
+        val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
+        if (viewType == VIEW_TYPE_GRID) {
             val layoutManager = media_grid.layoutManager as MyGridLayoutManager
             mZoomListener = object : MyRecyclerView.MyZoomListener {
                 override fun zoomIn() {
@@ -830,7 +833,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             media_empty_text.beVisibleIf(media.isEmpty() && !isFromCache)
             media_grid.beVisibleIf(media_empty_text_label.isGone())
 
-            val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFiles == VIEW_TYPE_GRID
+            val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
+            val allowHorizontalScroll = config.scrollHorizontally && viewType == VIEW_TYPE_GRID
             media_vertical_fastscroller.beVisibleIf(media_grid.isVisible() && !allowHorizontalScroll)
             media_horizontal_fastscroller.beVisibleIf(media_grid.isVisible() && allowHorizontalScroll)
             setupAdapter()

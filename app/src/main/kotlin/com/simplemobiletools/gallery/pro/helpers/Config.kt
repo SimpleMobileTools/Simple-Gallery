@@ -59,6 +59,22 @@ class Config(context: Context) : BaseConfig(context) {
 
     fun hasCustomGrouping(path: String) = prefs.contains(GROUP_FOLDER_PREFIX + path.toLowerCase())
 
+    fun saveFolderViewType(path: String, value: Int) {
+        if (path.isEmpty()) {
+            viewTypeFiles = value
+        } else {
+            prefs.edit().putInt(VIEW_TYPE_PREFIX + path.toLowerCase(), value).apply()
+        }
+    }
+
+    fun getFolderViewType(path: String) = prefs.getInt(VIEW_TYPE_PREFIX + path.toLowerCase(), viewTypeFiles)
+
+    fun removeFolderViewType(path: String) {
+        prefs.edit().remove(VIEW_TYPE_PREFIX + path.toLowerCase()).apply()
+    }
+
+    fun hasCustomViewType(path: String) = prefs.contains(VIEW_TYPE_PREFIX + path.toLowerCase())
+
     var wasHideFolderTooltipShown: Boolean
         get() = prefs.getBoolean(HIDE_FOLDER_TOOLTIP_SHOWN, false)
         set(wasShown) = prefs.edit().putBoolean(HIDE_FOLDER_TOOLTIP_SHOWN, wasShown).apply()

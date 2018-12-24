@@ -787,7 +787,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         runOnUiThread {
             checkPlaceholderVisibility(dirs)
 
-            val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFiles == VIEW_TYPE_GRID
+            val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFolders == VIEW_TYPE_GRID
             directories_vertical_fastscroller.beVisibleIf(directories_grid.isVisible() && !allowHorizontalScroll)
             directories_horizontal_fastscroller.beVisibleIf(directories_grid.isVisible() && allowHorizontalScroll)
             setupAdapter(dirs)

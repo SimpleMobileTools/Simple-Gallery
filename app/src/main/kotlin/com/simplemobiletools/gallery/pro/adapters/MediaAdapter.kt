@@ -24,6 +24,7 @@ import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.dialogs.DeleteWithRememberDialog
 import com.simplemobiletools.gallery.pro.extensions.*
+import com.simplemobiletools.gallery.pro.helpers.SHOW_ALL
 import com.simplemobiletools.gallery.pro.helpers.VIEW_TYPE_LIST
 import com.simplemobiletools.gallery.pro.interfaces.MediaOperationsListener
 import com.simplemobiletools.gallery.pro.models.Medium
@@ -35,7 +36,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<ThumbnailItem>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
-                   val allowMultiplePicks: Boolean, recyclerView: MyRecyclerView, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit) :
+                   val allowMultiplePicks: Boolean, val path: String, recyclerView: MyRecyclerView, fastScroller: FastScroller? = null, itemClick: (Any) -> Unit) :
         MyRecyclerViewAdapter(activity, recyclerView, fastScroller, itemClick) {
 
     private val INSTANT_LOAD_DURATION = 2000L
@@ -45,7 +46,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     private val ITEM_MEDIUM = 1
 
     private val config = activity.config
-    private val isListViewType = config.viewTypeFiles == VIEW_TYPE_LIST
+    private val viewType = config.getFolderViewType(if (config.showAll) SHOW_ALL else path)
+    private val isListViewType = viewType == VIEW_TYPE_LIST
     private var visibleItemPaths = ArrayList<String>()
     private var loadImageInstantly = false
     private var delayHandler = Handler(Looper.getMainLooper())
