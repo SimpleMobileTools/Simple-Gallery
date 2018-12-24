@@ -22,23 +22,18 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
-import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REQUEST_EDIT_IMAGE
 import com.simplemobiletools.commons.models.FileDirItem
-import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.MediaAdapter
 import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.pro.databases.GalleryDatabase
-import com.simplemobiletools.gallery.pro.dialogs.ChangeGroupingDialog
-import com.simplemobiletools.gallery.pro.dialogs.ChangeSortingDialog
-import com.simplemobiletools.gallery.pro.dialogs.ExcludeFolderDialog
-import com.simplemobiletools.gallery.pro.dialogs.FilterMediaDialog
+import com.simplemobiletools.gallery.pro.dialogs.*
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.interfaces.DirectoryDao
@@ -493,12 +488,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun changeViewType() {
-        val items = arrayListOf(
-                RadioItem(VIEW_TYPE_GRID, getString(R.string.grid)),
-                RadioItem(VIEW_TYPE_LIST, getString(R.string.list)))
-
-        RadioGroupDialog(this, items, config.viewTypeFiles) {
-            config.viewTypeFiles = it as Int
+        ChangeViewTypeDialog(this, false) {
             invalidateOptionsMenu()
             setupLayoutManager()
             media_grid.adapter = null

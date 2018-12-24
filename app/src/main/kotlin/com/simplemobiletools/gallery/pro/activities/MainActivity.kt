@@ -459,7 +459,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun changeViewType() {
-        ChangeViewTypeDialog(this) {
+        ChangeViewTypeDialog(this, true) {
             invalidateOptionsMenu()
             setupLayoutManager()
             directories_grid.adapter = null
