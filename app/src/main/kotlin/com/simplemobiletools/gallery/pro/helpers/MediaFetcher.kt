@@ -19,7 +19,7 @@ class MediaFetcher(val context: Context) {
     var shouldStop = false
 
     fun getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean, getProperDateTaken: Boolean, favoritePaths: ArrayList<String>,
-                     getVideoDurations: Boolean): ArrayList<Medium> {
+                     getVideoDurations: Boolean, sortMedia: Boolean = true): ArrayList<Medium> {
         val filterMedia = context.config.filterMedia
         if (filterMedia == 0) {
             return ArrayList()
@@ -36,7 +36,10 @@ class MediaFetcher(val context: Context) {
             curMedia.addAll(newMedia)
         }
 
-        sortMedia(curMedia, context.config.getFileSorting(curPath))
+        if (sortMedia) {
+            sortMedia(curMedia, context.config.getFileSorting(curPath))
+        }
+
         return curMedia
     }
 
@@ -364,6 +367,11 @@ class MediaFetcher(val context: Context) {
                 sorting and SORT_BY_SIZE != 0 -> o1.size.compareTo(o2.size)
                 sorting and SORT_BY_DATE_MODIFIED != 0 -> o1.modified.compareTo(o2.modified)
                 else -> o1.taken.compareTo(o2.taken)
+            }
+
+            // do just a quick extra sorting if the original sorting is equal, does not need to be accurate in all cases
+            if (result == 0 && sorting and SORT_BY_NAME == 0 && sorting and SORT_BY_PATH == 0) {
+                result = o1.name.compareTo(o2.name)
             }
 
             if (sorting and SORT_DESCENDING != 0) {
