@@ -79,7 +79,8 @@ fun SimpleActivity.launchAbout() {
             FAQItem(R.string.faq_12_title, R.string.faq_12_text),
             FAQItem(R.string.faq_13_title, R.string.faq_13_text),
             FAQItem(R.string.faq_14_title, R.string.faq_14_text),
-            FAQItem(R.string.faq_2_title_commons, R.string.faq_2_text_commons))
+            FAQItem(R.string.faq_2_title_commons, R.string.faq_2_text_commons),
+            FAQItem(R.string.faq_6_title_commons, R.string.faq_6_text_commons))
 
     startAboutActivity(R.string.app_name, licenses, BuildConfig.VERSION_NAME, faqItems, true)
 }
