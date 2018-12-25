@@ -133,8 +133,8 @@
     <string name="by_extension">扩展</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Folder shown on the widget:</string>
-    <string name="show_folder_name">Show folder name</string>
+    <string name="folder_on_widget">要在小部件上显示的文件夹:</string>
+    <string name="show_folder_name">显示文件夹名称</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">自动播放</string>
