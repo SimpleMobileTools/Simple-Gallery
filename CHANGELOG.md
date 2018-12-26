@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.1.3 *(2018-12-26)*
+----------------------------
+
+ * Fixed a glitch at zooming fullscreen images with double tap
+ * Hide favorite items from hidden folders, if showing hidden items is disabled
+
 Version 6.1.2 *(2018-12-24)*
 ----------------------------
 
