@@ -133,8 +133,8 @@
     <string name="by_extension">Přípony</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Folder shown on the widget:</string>
-    <string name="show_folder_name">Show folder name</string>
+    <string name="folder_on_widget">Složka zobrazená na widgetu:</string>
+    <string name="show_folder_name">Zobrazit název složky</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Automaticky přehrávat videa</string>
@@ -144,7 +144,7 @@
     <string name="animate_gifs">Animovat náhledy souborů GIF</string>
     <string name="max_brightness">Nastavit jas obrazovky na max při zobrazení médií</string>
     <string name="crop_thumbnails">Oříznout náhledy na čtverce</string>
-    <string name="show_thumbnail_video_duration">Show video durations</string>
+    <string name="show_thumbnail_video_duration">Zobrazit dobu trvání videí</string>
     <string name="screen_rotation_by">Otočit média podle</string>
     <string name="screen_rotation_system_setting">Systémového nastavení</string>
     <string name="screen_rotation_device_rotation">Otočení zařízení</string>
@@ -175,7 +175,7 @@
     <string name="thumbnails">Náhledy</string>
     <string name="fullscreen_media">Celoobrazovkový režim</string>
     <string name="extended_details">Rozšířené vlastnosti</string>
-    <string name="bottom_actions">Spodní skční tlačítka</string>
+    <string name="bottom_actions">Spodní akční tlačítka</string>
 
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Upravit viditelné spodní akční tlačítka</string>
@@ -227,7 +227,7 @@
         2. Prezentace
         3. Podpora pro výřez v displeji
         4. Připínání složek na vrch
-        5. Filtování médií podle typu
+        5. Filtrování médií podle typu
         6. Odpadkový koš pro snadnou obnovu souborů
         7. Uzamykání orientace celoobrazovkového režimu
         8. Označování oblíbených položek pro snadný přístup
