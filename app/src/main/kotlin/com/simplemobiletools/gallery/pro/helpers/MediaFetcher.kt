@@ -184,7 +184,7 @@ class MediaFetcher(val context: Context) {
 
         val doExtraCheck = context.config.doExtraCheck
         val showHidden = context.config.shouldShowHidden
-        val dateTakens = if (getProperDateTaken) getFolderDateTakens(folder) else HashMap()
+        val dateTakens = if (getProperDateTaken && folder != FAVORITES && folder != RECYCLE_BIN) getFolderDateTakens(folder) else HashMap()
 
         val files = when (folder) {
             FAVORITES -> favoritePaths.filter { showHidden || !it.contains("/.") }.map { File(it) }.toTypedArray()
