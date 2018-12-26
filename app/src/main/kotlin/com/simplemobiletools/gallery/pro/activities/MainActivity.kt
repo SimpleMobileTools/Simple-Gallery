@@ -790,7 +790,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFolders == VIEW_TYPE_GRID
             directories_vertical_fastscroller.beVisibleIf(directories_grid.isVisible() && !allowHorizontalScroll)
             directories_horizontal_fastscroller.beVisibleIf(directories_grid.isVisible() && allowHorizontalScroll)
-            setupAdapter(dirs)
+            setupAdapter(dirs.clone() as ArrayList<Directory>)
         }
 
         // cached folders have been loaded, recheck folders one by one starting with the first displayed
