@@ -349,7 +349,12 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                     didUpdateFile = true
                 }
 
-                activity.contentResolver.applyBatch(MediaStore.AUTHORITY, operations)
+                val resultSize = activity.contentResolver.applyBatch(MediaStore.AUTHORITY, operations).size
+                if (resultSize == 0) {
+                    didUpdateFile = false
+                    activity.rescanPaths(paths)
+                }
+
                 activity.toast(if (didUpdateFile) R.string.dates_fixed_successfully else R.string.unknown_error_occurred)
                 activity.runOnUiThread {
                     listener?.refreshItems()
