@@ -18,12 +18,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
+import com.bumptech.glide.request.target.Target
 import com.davemorrissey.labs.subscaleview.ImageSource
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import com.davemorrissey.labs.subscaleview.decoder.DecoderFactory
@@ -119,10 +119,7 @@ class PhotoFragment : ViewPagerFragment() {
             }
         }
 
-        if (ViewPagerActivity.screenWidth == 0 || ViewPagerActivity.screenHeight == 0) {
-            measureScreen()
-        }
-
+        checkScreenDimensions()
         storeStateVariables()
         if (!isFragmentVisible && activity is PhotoActivity) {
             isFragmentVisible = true
@@ -227,6 +224,12 @@ class PhotoFragment : ViewPagerFragment() {
         }
     }
 
+    private fun checkScreenDimensions() {
+        if (ViewPagerActivity.screenWidth == 0 || ViewPagerActivity.screenHeight == 0) {
+            measureScreen()
+        }
+    }
+
     private fun measureScreen() {
         val metrics = DisplayMetrics()
         activity!!.windowManager.defaultDisplay.getRealMetrics(metrics)
@@ -297,6 +300,7 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun loadBitmap(degrees: Int = 0) {
+        checkScreenDimensions()
         var pathToLoad = if (medium.path.startsWith("content://")) medium.path else "file://${medium.path}"
         pathToLoad = pathToLoad.replace("%", "%25").replace("#", "%23")
 
@@ -350,7 +354,7 @@ class PhotoFragment : ViewPagerFragment() {
                 .listener(object : RequestListener<Bitmap> {
                     override fun onLoadFailed(e: GlideException?, model: Any?, target: com.bumptech.glide.request.target.Target<Bitmap>?, isFirstResource: Boolean) = false
 
-                    override fun onResourceReady(resource: Bitmap?, model: Any?, target: com.bumptech.glide.request.target.Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+                    override fun onResourceReady(resource: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: com.bumptech.glide.load.DataSource?, isFirstResource: Boolean): Boolean {
                         if (isFragmentVisible) {
                             scheduleZoomableView()
                         }
