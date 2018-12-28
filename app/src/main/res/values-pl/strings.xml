@@ -133,8 +133,8 @@
     <string name="by_extension">Rozszerzenia</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Folder shown on the widget:</string>
-    <string name="show_folder_name">Show folder name</string>
+    <string name="folder_on_widget">Folder wyświetlany na widżecie:</string>
+    <string name="show_folder_name">Pokaż nazwę folderu</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Odtwarzaj filmy automatycznie</string>
