@@ -400,8 +400,10 @@ class Config(context: Context) : BaseConfig(context) {
 
     fun getEverShownFolders() = hashSetOf(
             internalStoragePath,
-            Environment.DIRECTORY_DCIM,
-            Environment.DIRECTORY_PICTURES
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).absolutePath,
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath,
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).absolutePath,
+            "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).absolutePath}/Screenshots"
     )
 
     var showRecycleBinAtFolders: Boolean
