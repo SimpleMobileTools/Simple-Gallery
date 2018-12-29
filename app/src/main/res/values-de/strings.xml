@@ -215,7 +215,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Eine schlichte Galerie zum Betrachten von Bildern und Videos, ganz ohne Werbung.</string>
+    <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
     <string name="app_long_description">
         Eine stark anpassbare Galerie fähig zur Anzeige von diversen Bild- und Videoarten u. a. SVG, RAW, Panoramafotos und -videos. 
 

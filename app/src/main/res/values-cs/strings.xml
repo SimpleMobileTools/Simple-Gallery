@@ -216,7 +216,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Galerie na prohlížení obrázků a videí bez reklam.</string>
+    <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
     <string name="app_long_description">
         Přizpůsobitelná galerie na zobrazování množství rozličných druhů obrázků a videí, včetně SVG, RAW souborů, panoramatických fotek a videí.
 

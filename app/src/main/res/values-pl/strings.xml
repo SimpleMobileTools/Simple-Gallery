@@ -214,7 +214,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Prosta galeria bez reklam do przeglądania obrazów i filmów.</string>
+    <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
     <string name="app_long_description">
         Wysoce konfigurowalna galeria obsługująca wiele formatów obrazów i filmów, w tym SVG, RAW oraz multimedia panoramiczne.
         

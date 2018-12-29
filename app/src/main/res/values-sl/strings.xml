@@ -215,7 +215,7 @@
     <string name="faq_14_text">Lahko uporabite funkcijo \"Začasno prikaži skrite elemente\", ki se nahaja v meniju na glavnem zaslonu ali preklopite \"Prikaži skrite elemente\" v Nastavitvah aplikacije. Če želite element označiti kot viden, z dolgim pritiskom nanj prikličite meni in izberite \"Prikaži\". Skrivanje map deluje tako, da se kreira prazno \".nomedia\" datoteko v izbrani mapi, ki jo lahko odstranite tudi s katerimkoli urejevalnikom datotek.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Galerija za ogled fotografij in videoposnetkov brez reklam.</string>
+    <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
     <string name="app_long_description">
         Visoko prilagodljiva galerija, zmožna prikazovanja različnih tipov fotografij in videoposnetkov, vključno s SVGji, RAWi, panoramskimi fotografijami in videoposnetki.
 

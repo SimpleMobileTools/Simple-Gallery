@@ -214,7 +214,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">一个没有广告，用来观看照片及视频的相册。</string>
+    <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
     <string name="app_long_description">
         一个高度可定制的图库，支持很多的图像和视频类型，包括SVG，RAW，全景照片和视频。
 
