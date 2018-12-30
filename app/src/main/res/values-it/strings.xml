@@ -172,7 +172,7 @@
     <string name="allow_down_gesture">Chiudi la visuale a schermo intero con un gesto verso il basso</string>
 
     <!-- Setting sections -->
-    <string name="thumbnails">Miniature</string>
+    <string name="thumbnails">Anteprime</string>
     <string name="fullscreen_media">Media a schermo intero</string>
     <string name="extended_details">Dettagli estesi</string>
     <string name="bottom_actions">Azioni inferiori</string>
@@ -199,52 +199,53 @@
     <string name="faq_7_title">Una cartella con immagini non viene mostrata, cosa posso fare?</string>
     <string name="faq_7_text">Può succedere per vari motivi, ma la soluzione è semplice. Vai in Impostazioni -> Gestisci le cartelle incluse, tocca il tasto Più e naviga verso la cartella desiderata.</string>
     <string name="faq_8_title">Che fare se voglio rendere visibili solo poche particolari cartelle?</string>
-    <string name="faq_8_text">Aggiungere una cartella nelle Cartelle Incluse non esclude automaticamente nulla. Quello che puoi fare è andare in Impostazioni -> Gestisci le cartelle escluse, escludi la cartella root \"/\", poi aggiungi le cartelle desiderate in Impostazioni -> Gestisci le cartelle incluse.
+    <string name="faq_8_text">Aggiungere una cartella nelle Cartelle Incluse non esclude automaticamente nulla. Quello che puoi fare è andare in Impostazioni → Gestisci le cartelle escluse, escludi la cartella root \"/\", poi aggiungi le cartelle desiderate in Impostazioni → Gestisci le cartelle incluse.
         Ciò renderà visibili solo le cartelle selezionate, dato che sia l\'esclusione che l\'inclusione sono ricorsive e se una cartella è sia esclusa che inclusa, verrà mostrata.</string>
     <string name="faq_9_title">Le immagini a schermo intero hanno strani artefatti, posso migliorarne la qualità in qualche modo?</string>
-    <string name="faq_9_text">Sì, c\'è un\'opzione nelle impostazioni che dice \"Sostituisci le immagini ingrandibili a fondo con altre di migliore qualità\", puoi usare quella. Ciò migliorerà la qualità delle immagini, ma saranno sfuocate quando proverai a ingrandirle troppo.</string>
+    <string name="faq_9_text">Sì, c\'è un\'opzione nelle impostazioni che dice \"Sostituisci le immagini ingrandibili a fondo con altre di migliore qualità\". Ciò migliorerà la qualità delle immagini, ma saranno sfuocate quando si proverà a ingrandirle troppo.</string>
     <string name="faq_10_title">Posso ritagliare le immagini con questa app?</string>
-    <string name="faq_10_text">Sì, puoi ritagliare le immagini nell\'editor, trascinando gli angoli dell\'immagine. Puoi usare l\'editor sia premendo a lungo la miniatura di un\'immagine e selezionando Modifica, o selezionando Modifica mentre la vedi a schermo intero.</string>
+    <string name="faq_10_text">Sì, si possono ritagliare le immagini nell\'editor, trascinando gli angoli dell\'immagine. Si può accedere all\'editor sia premendo a lungo la miniatura di un\'immagine e selezionando Modifica, oppure selezionando Modifica mentre si vede una foto a schermo intero.</string>
     <string name="faq_11_title">Posso raggruppare in qualche modo le miniature dei file?</string>
-    <string name="faq_11_text">Certo, usa il menu \"Raggruppa per\" mentre visualizzi le miniature. Puoi raggruppare i file con diversi criteri, incluso la data di creazione. Se utilizzi la funzione \"Mostra tutti i contenuti\" puoi anche raggrupparli per cartelle.</string>
+    <string name="faq_11_text">Certo, si può usare il menu \"Raggruppa per\" mentre si visualizzano le miniature. Il raggruppamento può avvenire per diversi criteri, incluso la data di creazione. Se si utilizza la funzione \"Mostra tutti i contenuti\" si può anche raggrupparli per cartelle.</string>
     <string name="faq_12_title">L\'ordinamento per data acquisizione sembra non funzionare bene, come posso risolvere?</string>
-    <string name="faq_12_text">Probabilmente è causato dai file copiati da altre parti. Puoi risolvere selezionando le miniature dei file e scegliendo \"Correggi valore Data acquisizione\".</string>
+    <string name="faq_12_text">Probabilmente è causato dai file copiati da altre parti. Si può risolvere selezionando le miniature dei file e scegliendo \"Correggi valore Data acquisizione\".</string>
     <string name="faq_13_title">Vedo curvature di colore nelle immagini. Come posso migliorarne la qualità?</string>
-    <string name="faq_13_text">L\'attuale soluzione per visualizzare immagini funziona bene nella maggior parte dei casi, ma se vuoi una qualità ancora maggiore, puoi attivare \"Mostra le immagini alla massima qualità possibile\" nelle impostazioni dell\'app, nella sezione \"Immagini ingrandibili a fondo\".</string>
+    <string name="faq_13_text">L\'attuale soluzione per visualizzare immagini funziona bene nella maggior parte dei casi, ma se si vuole una qualità ancora maggiore, si può attivare \"Mostra le immagini alla massima qualità possibile\" nelle impostazioni dell\'app, nella sezione \"Immagini ingrandibili a fondo\".</string>
     <string name="faq_14_title">Ho nascosto un file/una cartella. Come posso mostrarlo/a di nuovo?</string>
-    <string name="faq_14_text">Puoi premere \"Mostra temporaneamente nascosti\" nel menu della schermata principale, oppure attivare \"Mostra gli elementi nascosti\" nelle impostazioni dell\'app per vedere l\'elemento nascosto. Se vuoi che resti visibile, premilo a lungo e seleziona \"Non nascondere\". Le cartelle vengono nascoste aggiungendo un file nascosto \".nomedia\" all\'interno di esse, puoi anche eliminare il file con qualsiasi gestore di file.</string>
+    <string name="faq_14_text">Si può premere \"Mostra temporaneamente nascosti\" nel menu della schermata principale, oppure attivare \"Mostra gli elementi nascosti\" nelle impostazioni dell\'app per vedere l\'elemento nascosto. Per farla rimanere visibile, premere a lungo e selezionare \"Non nascondere\". Le cartelle vengono nascoste aggiungendo un file nascosto \".nomedia\" all\'interno di esse, si può eliminare il file con qualsiasi gestore di file.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
+    <string name="app_short_description">Una galleria per gestire i propri file senza pubblicità che rispetta la privacy.</string>
     <string name="app_long_description">
         Una galleria altamente personalizzabile e capace di visualizzare tipi di file immagini e video differenti, fra cui SVG, RAW, foto panoramiche e video.
 
-        È open source, non contiene pubblicità e autorizzazioni superflue.
+        L\'applicazione non contiene pubblicità o permessi non necessari; è completamente opensource e la si può personalizzare con i propri colori preferiti.
+
 
         Alcune funzionalità che vale la pena accennare:
         1. Ricerca
         2. Presentazione
         3. Supporto al notch
         4. Fissare le cartelle in alto
-        5. Filtro dei file per tipo
+        5. Filtro dei file per tipologia
         6. Cestino per un recupero facile dei file
         7. Blocco dell\'orientamento nella vista a schermo intero
-        8. Selezionare file preferiti per un accesso facile
-        9. Chisura rapida della vista schermo intero con un movimento verso il basso
-        10. Un editor per modificare le immagini ed applicare filtri
+        8. Selezione dei file preferiti per un accesso immediato
+        9. Chisura rapida della vista a schermo intero con un movimento verso il basso
+        10. Un editor per modificare le immagini e applicare filtri
         11. Protezione con password per proteggere elementi nascosti o l\'intera applicazione
         12. Cambio delle colonne delle anteprime con un movimento o tramite dei pulsanti nel menu
-        13. Pulsanti rapidi per azioni personalizzabili nella vista schermo intero
+        13. Pulsanti rapidi per azioni personalizzabili nella vista a schermo intero
         14. Visualizzazione di determinati dettagli aggiuntivi nella vista a schermo intero
         15. Molti modi per ordinare o raggruppare gli elementi, sia in ordine crescente che decrescente
-        16. Cartelle nascoste (anche per altre applicazioni), cartelle escluse (solo per Simple Gallery)
+        16. Cartelle nascoste (anche per altre applicazioni), cartelle escluse (solo per Semplice Galleria)
 
-        L\'autorizzazione per leggere le impronte digitali è necessaria per il blocco della visibilità degli elementi, dell\'intera applicazione o per proteggere alcuni file dalla loro eliminazione.
-        
-        Questa applicazione è solamente una di una serie più grande. Si possono trovare le altre su https://www.simplemobiletools.com
+        L\'autorizzazione per leggere le impronte digitali è necessaria per il blocco della visibilità, dell\'intera applicazione o per proteggere alcuni file dalla loro eliminazione.
+
+        Questa è solamente una delle tante applicazioni della serie Simple Mobile Tools. Si possono trovare le altre su https://www.simplemobiletools.com
     </string>
-
     <!--
         Haven't found some strings? There's more at
         https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
