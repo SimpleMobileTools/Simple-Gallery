@@ -8,7 +8,6 @@ import android.os.Handler
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
-import android.view.animation.AnimationUtils
 import android.widget.RelativeLayout
 import android.widget.SeekBar
 import com.google.vr.sdk.widgets.video.VrVideoEventListener
@@ -21,10 +20,8 @@ import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.isPiePlus
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.*
-import com.simplemobiletools.gallery.pro.helpers.HIDE_PLAY_PAUSE_DELAY
 import com.simplemobiletools.gallery.pro.helpers.MIN_SKIP_LENGTH
 import com.simplemobiletools.gallery.pro.helpers.PATH
-import com.simplemobiletools.gallery.pro.helpers.PLAY_PAUSE_VISIBLE_ALPHA
 import kotlinx.android.synthetic.main.activity_panorama_video.*
 import kotlinx.android.synthetic.main.bottom_video_time_holder.*
 import java.io.File
@@ -41,7 +38,6 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
     private var mDuration = 0
     private var mCurrTime = 0
 
-    private var mHidePlayPauseHandler = Handler()
     private var mTimerHandler = Handler()
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,18 +50,6 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
         if (isPiePlus()) {
             window.attributes.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        }
-
-        setupButtons()
-
-        cardboard.setOnClickListener {
-            vr_video_view.displayMode = CARDBOARD_DISPLAY_MODE
-        }
-
-        explore.setOnClickListener {
-            mIsExploreEnabled = !mIsExploreEnabled
-            vr_video_view.setPureTouchTracking(mIsExploreEnabled)
-            explore.setImageResource(if (mIsExploreEnabled) R.drawable.ic_explore else R.drawable.ic_explore_off)
         }
 
         handlePermission(PERMISSION_WRITE_STORAGE) {
@@ -102,7 +86,6 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
         }
 
         if (!isChangingConfigurations) {
-            mHidePlayPauseHandler.removeCallbacksAndMessages(null)
             mTimerHandler.removeCallbacksAndMessages(null)
         }
     }
@@ -115,6 +98,7 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
             return
         }
 
+        setupButtons()
         intent.removeExtra(PATH)
 
         video_curr_time.setOnClickListener { skip(false) }
@@ -164,7 +148,7 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
                 })
             }
 
-            video_play_outline.setOnClickListener {
+            video_toggle_play_pause.setOnClickListener {
                 togglePlayPause()
             }
         } catch (e: Exception) {
@@ -205,18 +189,15 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
 
     private fun togglePlayPause() {
         mIsPlaying = !mIsPlaying
-        video_play_outline.alpha = PLAY_PAUSE_VISIBLE_ALPHA
-        mHidePlayPauseHandler.removeCallbacksAndMessages(null)
         if (mIsPlaying) {
             playVideo()
         } else {
             pauseVideo()
         }
-        schedulePlayPauseFadeOut()
     }
 
     private fun playVideo() {
-        video_play_outline.setImageResource(R.drawable.ic_pause)
+        video_toggle_play_pause.setImageResource(R.drawable.ic_pause_outline)
         if (mCurrTime == mDuration) {
             setVideoProgress(0)
             mPlayOnReady = true
@@ -229,7 +210,7 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
 
     private fun pauseVideo() {
         vr_video_view.pauseVideo()
-        video_play_outline.setImageResource(R.drawable.ic_play)
+        video_toggle_play_pause.setImageResource(R.drawable.ic_play_outline)
         window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
@@ -246,55 +227,57 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
         video_seekbar.progress = video_seekbar.max
         video_curr_time.text = mDuration.getFormattedDuration()
         pauseVideo()
-        video_play_outline.alpha = PLAY_PAUSE_VISIBLE_ALPHA
-    }
-
-    private fun schedulePlayPauseFadeOut() {
-        mHidePlayPauseHandler.removeCallbacksAndMessages(null)
-        mHidePlayPauseHandler.postDelayed({
-            video_play_outline.animate().alpha(0f).start()
-        }, HIDE_PLAY_PAUSE_DELAY)
     }
 
     private fun setupButtons() {
-        val navBarHeight = navigationBarHeight
-        video_time_holder.apply {
-            (layoutParams as RelativeLayout.LayoutParams).bottomMargin = navBarHeight
-            setPadding(paddingLeft, paddingTop, navigationBarWidth, paddingBottom)
+        var right = 0
+        var bottom = 0
+
+        if (hasNavBar()) {
+            if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                bottom += navigationBarHeight
+            } else {
+                right += navigationBarWidth
+                bottom += navigationBarHeight
+            }
         }
 
+        video_time_holder.setPadding(0, 0, right, bottom)
         video_time_holder.onGlobalLayout {
-            (explore.layoutParams as RelativeLayout.LayoutParams).bottomMargin = navBarHeight + video_time_holder.height
+            val newBottomMargin = video_time_holder.height - resources.getDimension(R.dimen.video_player_play_pause_size).toInt() - resources.getDimension(R.dimen.activity_margin).toInt()
+            (explore.layoutParams as RelativeLayout.LayoutParams).bottomMargin = newBottomMargin
 
             (cardboard.layoutParams as RelativeLayout.LayoutParams).apply {
-                bottomMargin = navBarHeight + video_time_holder.height
+                bottomMargin = newBottomMargin
                 rightMargin = navigationBarWidth
             }
-            vr_view_gradient_background.layoutParams.height = navBarHeight + video_time_holder.height + explore.height
             explore.requestLayout()
+        }
+        video_toggle_play_pause.setImageResource(R.drawable.ic_play_outline)
+
+        cardboard.setOnClickListener {
+            vr_video_view.displayMode = CARDBOARD_DISPLAY_MODE
+        }
+
+        explore.setOnClickListener {
+            mIsExploreEnabled = !mIsExploreEnabled
+            vr_video_view.setPureTouchTracking(mIsExploreEnabled)
+            explore.setImageResource(if (mIsExploreEnabled) R.drawable.ic_explore else R.drawable.ic_explore_off)
         }
     }
 
     private fun toggleButtonVisibility() {
         val newAlpha = if (mIsFullscreen) 0f else 1f
-        arrayOf(cardboard, explore, vr_view_gradient_background).forEach {
+        arrayOf(cardboard, explore).forEach {
             it.animate().alpha(newAlpha)
+        }
+
+        arrayOf(cardboard, explore, video_toggle_play_pause, video_curr_time, video_duration).forEach {
             it.isClickable = !mIsFullscreen
         }
 
-        var anim = android.R.anim.fade_in
-        if (mIsFullscreen) {
-            anim = android.R.anim.fade_out
-            video_seekbar.setOnSeekBarChangeListener(null)
-        } else {
-            video_seekbar.setOnSeekBarChangeListener(this)
-        }
-
-        AnimationUtils.loadAnimation(this, anim).apply {
-            duration = 150
-            fillAfter = true
-            video_time_holder.startAnimation(this)
-        }
+        video_seekbar.setOnSeekBarChangeListener(if (mIsFullscreen) null else this)
+        video_time_holder.animate().alpha(newAlpha).start()
     }
 
     private fun handleClick() {
@@ -338,6 +321,5 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
         mIsPlaying = true
         playVideo()
         mIsDragged = false
-        schedulePlayPauseFadeOut()
     }
 }

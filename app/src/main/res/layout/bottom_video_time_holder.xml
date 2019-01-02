@@ -5,12 +5,13 @@
     android:id="@+id/video_time_holder"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true">
+    android:layout_alignParentBottom="true"
+    android:background="@drawable/gradient_background">
 
     <ImageView
         android:id="@+id/video_toggle_play_pause"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="@dimen/video_player_play_pause_size"
+        android:layout_height="@dimen/video_player_play_pause_size"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/activity_margin"
         android:background="?attr/selectableItemBackgroundBorderless"

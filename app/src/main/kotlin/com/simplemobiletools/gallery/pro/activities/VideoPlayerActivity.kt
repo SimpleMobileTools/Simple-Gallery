@@ -68,7 +68,6 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         window.statusBarColor = Color.TRANSPARENT
         window.navigationBarColor = Color.TRANSPARENT
-        video_time_holder.background = resources.getDrawable(R.drawable.gradient_background)
         if (config.blackBackground) {
             video_player_holder.background = ColorDrawable(Color.BLACK)
         }
@@ -247,6 +246,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     }
 
     private fun playVideo() {
+        video_toggle_play_pause.setImageResource(R.drawable.ic_pause_outline)
         if (mExoPlayer == null) {
             return
         }
@@ -259,11 +259,11 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         mWasVideoStarted = true
         mIsPlaying = true
         mExoPlayer?.playWhenReady = true
-        video_toggle_play_pause.setImageResource(R.drawable.ic_pause_outline)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
     private fun pauseVideo() {
+        video_toggle_play_pause.setImageResource(R.drawable.ic_play_outline)
         if (mExoPlayer == null) {
             return
         }
@@ -273,7 +273,6 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             mExoPlayer?.playWhenReady = false
         }
 
-        video_toggle_play_pause.setImageResource(R.drawable.ic_play_outline)
         window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
@@ -380,6 +379,10 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         val newAlpha = if (isFullScreen) 0f else 1f
         top_shadow.animate().alpha(newAlpha).start()
         video_time_holder.animate().alpha(newAlpha).start()
+        video_seekbar.setOnSeekBarChangeListener(if (mIsFullscreen) null else this)
+        arrayOf(video_toggle_play_pause, video_curr_time, video_duration).forEach {
+            it.isClickable = !mIsFullscreen
+        }
     }
 
     private fun initTimeHolder() {
@@ -415,18 +418,6 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
                 mTimerHandler.postDelayed(this, 1000)
             }
         })
-    }
-
-    private fun hasNavBar(): Boolean {
-        val display = windowManager.defaultDisplay
-
-        val realDisplayMetrics = DisplayMetrics()
-        display.getRealMetrics(realDisplayMetrics)
-
-        val displayMetrics = DisplayMetrics()
-        display.getMetrics(displayMetrics)
-
-        return (realDisplayMetrics.widthPixels - displayMetrics.widthPixels > 0) || (realDisplayMetrics.heightPixels - displayMetrics.heightPixels > 0)
     }
 
     private fun skip(forward: Boolean) {

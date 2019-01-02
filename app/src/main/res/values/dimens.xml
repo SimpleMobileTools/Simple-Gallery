@@ -8,6 +8,7 @@
     <dimen name="play_outline_size_big">96dp</dimen>
     <dimen name="tmb_shadow_height">60dp</dimen>
     <dimen name="media_side_slider_width">60dp</dimen>
+    <dimen name="video_player_play_pause_size">60dp</dimen>
     <dimen name="instant_change_bar_width">50dp</dimen>
     <dimen name="list_view_folder_thumbnail_size">72dp</dimen>
     <dimen name="bottom_actions_height">64dp</dimen>
