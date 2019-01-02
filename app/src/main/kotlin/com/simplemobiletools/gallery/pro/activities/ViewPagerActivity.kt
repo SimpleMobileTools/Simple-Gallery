@@ -20,7 +20,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
 import android.util.DisplayMetrics
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -42,7 +41,6 @@ import com.simplemobiletools.gallery.pro.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.pro.dialogs.SlideshowDialog
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.fragments.PhotoFragment
-import com.simplemobiletools.gallery.pro.fragments.VideoFragment
 import com.simplemobiletools.gallery.pro.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.Medium
@@ -497,8 +495,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                         swipeToNextMedium()
                     }
                 }, mSlideshowInterval * 1000L)
-            } else {
-                (getCurrentFragment() as? VideoFragment)!!.playVideo()
             }
         }
     }
@@ -511,10 +507,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         mSlideshowMedia = mMediaFiles.filter {
             (config.slideshowIncludePhotos && it.isImage()) || (config.slideshowIncludeGIFs && it.isGIF())
         }.toMutableList()
-
-        mSlideshowMedia.forEach {
-            Log.e("DEBUG", "got ${it.name}")
-        }
 
         if (config.slideshowRandomOrder) {
             mSlideshowMedia.shuffle()
