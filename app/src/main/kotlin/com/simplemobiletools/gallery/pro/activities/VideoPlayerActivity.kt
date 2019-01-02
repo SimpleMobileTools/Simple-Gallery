@@ -9,10 +9,7 @@ import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.*
 import android.widget.SeekBar
-import com.simplemobiletools.commons.extensions.beInvisibleIf
-import com.simplemobiletools.commons.extensions.getFilenameFromUri
-import com.simplemobiletools.commons.extensions.toast
-import com.simplemobiletools.commons.extensions.updateTextColors
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.isPiePlus
 import com.simplemobiletools.gallery.pro.R
@@ -22,6 +19,9 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
 
 open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListener {
     private var mIsFullscreen = false
+    private var mCurrTime = 0
+    private var mDuration = 0
+
     private var mUri: Uri? = null
 
     private var mTouchDownX = 0f
@@ -52,13 +52,13 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         if (config.blackBackground) {
             video_player_holder.background = ColorDrawable(Color.BLACK)
         }
-        initTimeHolder()
         updateTextColors(video_player_holder)
     }
 
     private fun initPlayer() {
         mUri = intent.data ?: return
         supportActionBar?.title = getFilenameFromUri(mUri!!)
+        initTimeHolder()
 
         if (isPiePlus()) {
             window.attributes.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
@@ -71,9 +71,10 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             fullscreenToggled(isFullscreen)
         }
 
+        // adding an empty click listener just to avoid ripple animation at toggling fullscreen
+        video_seekbar.setOnClickListener { }
         video_curr_time.setOnClickListener { skip(false) }
         video_duration.setOnClickListener { skip(true) }
-        video_seekbar.setOnClickListener { }
         video_player_holder.setOnClickListener {
             fullscreenToggled(!mIsFullscreen)
         }
@@ -125,8 +126,6 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     }
 
     private fun initTimeHolder() {
-        val left = 0
-        val top = 0
         var right = 0
         var bottom = 0
 
@@ -139,9 +138,12 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             }
         }
 
-        video_time_holder.setPadding(left, top, right, bottom)
+        video_time_holder.setPadding(0, 0, right, bottom)
         video_seekbar.setOnSeekBarChangeListener(this)
+        video_seekbar!!.max = mDuration
         video_time_holder.beInvisibleIf(mIsFullscreen)
+        video_duration.text = mDuration.getFormattedDuration()
+        video_curr_time.text = mCurrTime.getFormattedDuration()
     }
 
     private fun hasNavBar(): Boolean {
