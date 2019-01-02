@@ -99,6 +99,12 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         return true
     }
 
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        setVideoSize()
+        initTimeHolder()
+    }
+
     private fun initPlayer() {
         mUri = intent.data ?: return
         supportActionBar?.title = getFilenameFromUri(mUri!!)
@@ -125,6 +131,11 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
         if (config.allowDownGesture) {
             video_player_holder.setOnTouchListener { v, event ->
+                handleEvent(event)
+                false
+            }
+
+            video_surface.setOnTouchListener { v, event ->
                 handleEvent(event)
                 false
             }
