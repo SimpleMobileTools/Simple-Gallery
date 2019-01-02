@@ -11,7 +11,6 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.PanoramaVideoActivity
 import com.simplemobiletools.gallery.pro.extensions.*
-import com.simplemobiletools.gallery.pro.helpers.IsoTypeReader
 import com.simplemobiletools.gallery.pro.helpers.MEDIUM
 import com.simplemobiletools.gallery.pro.helpers.PATH
 import com.simplemobiletools.gallery.pro.models.Medium
@@ -19,12 +18,8 @@ import com.simplemobiletools.gallery.pro.views.MediaSideScroll
 import kotlinx.android.synthetic.main.pager_video_item.view.*
 import java.io.File
 import java.io.FileInputStream
-import java.nio.ByteBuffer
-import java.nio.channels.FileChannel
 
 class VideoFragment : ViewPagerFragment() {
-    private val FILE_CHANNEL_CONTAINERS = arrayListOf("moov", "trak", "mdia", "minf", "udta", "stbl")
-
     private var mIsFullscreen = false
     private var mWasFragmentInit = false
     private var mIsPanorama = false
@@ -168,64 +163,11 @@ class VideoFragment : ViewPagerFragment() {
     private fun checkIfPanorama() {
         try {
             val fis = FileInputStream(File(medium.path))
-            parseFileChannel(fis.channel, 0, 0, 0)
+            context!!.parseFileChannel(medium.path, fis.channel, 0, 0, 0) {
+                mIsPanorama = true
+            }
         } catch (ignored: Exception) {
         } catch (ignored: OutOfMemoryError) {
-        }
-    }
-
-    // based on https://github.com/sannies/mp4parser/blob/master/examples/src/main/java/com/google/code/mp4parser/example/PrintStructure.java
-    private fun parseFileChannel(fc: FileChannel, level: Int, start: Long, end: Long) {
-        try {
-            var iteration = 0
-            var currEnd = end
-            fc.position(start)
-            if (currEnd <= 0) {
-                currEnd = start + fc.size()
-            }
-
-            while (currEnd - fc.position() > 8) {
-                // just a check to avoid deadloop at some videos
-                if (iteration++ > 50) {
-                    return
-                }
-
-                val begin = fc.position()
-                val byteBuffer = ByteBuffer.allocate(8)
-                fc.read(byteBuffer)
-                byteBuffer.rewind()
-                val size = IsoTypeReader.readUInt32(byteBuffer)
-                val type = IsoTypeReader.read4cc(byteBuffer)
-                val newEnd = begin + size
-
-                if (type == "uuid") {
-                    val fis = FileInputStream(File(medium.path))
-                    fis.skip(begin)
-
-                    val sb = StringBuilder()
-                    val buffer = ByteArray(1024)
-                    while (true) {
-                        val n = fis.read(buffer)
-                        if (n != -1) {
-                            sb.append(String(buffer, 0, n))
-                        } else {
-                            break
-                        }
-                    }
-
-                    val xmlString = sb.toString().toLowerCase()
-                    mIsPanorama = xmlString.contains("gspherical:projectiontype>equirectangular") ||
-                            xmlString.contains("gspherical:projectiontype=\"equirectangular\"")
-                    return
-                }
-
-                if (FILE_CHANNEL_CONTAINERS.contains(type)) {
-                    parseFileChannel(fc, level + 1, begin + 8, newEnd)
-                }
-
-                fc.position(newEnd)
-            }
-        } catch (ignored: Exception) {
         }
     }
 

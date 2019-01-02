@@ -27,6 +27,7 @@ import com.simplemobiletools.gallery.pro.models.Medium
 import kotlinx.android.synthetic.main.bottom_actions.*
 import kotlinx.android.synthetic.main.fragment_holder.*
 import java.io.File
+import java.io.FileInputStream
 
 open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentListener {
 
@@ -147,10 +148,30 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             return
         }
 
-        val mimeType = getUriMimeType(mUri.toString(), newUri)
-        Intent(this, VideoPlayerActivity::class.java).apply {
-            setDataAndType(newUri, mimeType)
-            startActivity(this)
+        var isPanorama = false
+        val realPath = intent?.extras?.getString(REAL_FILE_PATH) ?: ""
+        try {
+            if (realPath.isNotEmpty()) {
+                val fis = FileInputStream(File(realPath))
+                parseFileChannel(realPath, fis.channel, 0, 0, 0) {
+                    isPanorama = true
+                }
+            }
+        } catch (ignored: Exception) {
+        } catch (ignored: OutOfMemoryError) {
+        }
+
+        if (isPanorama) {
+            Intent(applicationContext, PanoramaVideoActivity::class.java).apply {
+                putExtra(PATH, realPath)
+                startActivity(this)
+            }
+        } else {
+            val mimeType = getUriMimeType(mUri.toString(), newUri)
+            Intent(applicationContext, VideoPlayerActivity::class.java).apply {
+                setDataAndType(newUri, mimeType)
+                startActivity(this)
+            }
         }
         finish()
     }
