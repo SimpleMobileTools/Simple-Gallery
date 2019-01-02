@@ -68,6 +68,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         window.statusBarColor = Color.TRANSPARENT
         window.navigationBarColor = Color.TRANSPARENT
+        video_time_holder.background = resources.getDrawable(R.drawable.gradient_background)
         if (config.blackBackground) {
             video_player_holder.background = ColorDrawable(Color.BLACK)
         }
