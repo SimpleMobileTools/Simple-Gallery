@@ -394,7 +394,6 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         video_time_holder.setPadding(0, 0, right, bottom)
         video_seekbar.setOnSeekBarChangeListener(this)
         video_seekbar!!.max = mDuration
-        video_time_holder.beInvisibleIf(mIsFullscreen)
         video_duration.text = mDuration.getFormattedDuration()
         video_curr_time.text = mCurrTime.getFormattedDuration()
         setupTimer()
