@@ -163,6 +163,12 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             video_brightness_controller.beGone()
             video_volume_controller.beGone()
         }
+
+        if (config.hideSystemUI) {
+            Handler().postDelayed({
+                fullscreenToggled(true)
+            }, 500)
+        }
     }
 
     private fun initExoPlayer() {
@@ -176,10 +182,11 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
         val factory = DataSource.Factory { fileDataSource }
         val audioSource = ExtractorMediaSource(fileDataSource.uri, factory, DefaultExtractorsFactory(), null, null)
-        mExoPlayer = ExoPlayerFactory.newSimpleInstance(applicationContext)
-        mExoPlayer!!.seekParameters = SeekParameters.CLOSEST_SYNC
-        mExoPlayer!!.audioStreamType = C.STREAM_TYPE_MUSIC
-        mExoPlayer!!.prepare(audioSource)
+        mExoPlayer = ExoPlayerFactory.newSimpleInstance(applicationContext).apply {
+            seekParameters = SeekParameters.CLOSEST_SYNC
+            audioStreamType = C.STREAM_TYPE_MUSIC
+            prepare(audioSource)
+        }
         initExoPlayerListeners()
     }
 
