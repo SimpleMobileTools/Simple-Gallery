@@ -149,7 +149,7 @@
     <string name="screen_rotation_system_setting">Systémového nastavení</string>
     <string name="screen_rotation_device_rotation">Otočení zařízení</string>
     <string name="screen_rotation_aspect_ratio">Poměru stran</string>
-    <string name="black_background_at_fullscreen">Černé pozadí a stavová lišta při médiích na celou obrazovku</string>
+    <string name="black_background_at_fullscreen">Černé pozadí při médiích na celou obrazovku</string>
     <string name="scroll_thumbnails_horizontally">Prohlížet miniatury vodorovně</string>
     <string name="hide_system_ui_at_fullscreen">Automaticky skrývat systémové lišty při celoobrazovkových médiích</string>
     <string name="delete_empty_folders">Odstranit prázdné složky po smazání jejich obsahu</string>
