@@ -242,7 +242,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             return
         }
 
-        val wasEnded = videoEnded()
+        val wasEnded = didVideoEnd()
         if (wasEnded) {
             setPosition(0)
         }
@@ -259,7 +259,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         }
 
         mIsPlaying = false
-        if (!videoEnded()) {
+        if (!didVideoEnd()) {
             mExoPlayer?.playWhenReady = false
         }
 
@@ -288,21 +288,40 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     }
 
     private fun videoCompleted() {
+        if (mExoPlayer == null) {
+            return
+        }
 
+        clearLastVideoSavedProgress()
+        mCurrTime = (mExoPlayer!!.duration / 1000).toInt()
+        if (config.loopVideos) {
+            playVideo()
+        } else {
+            video_seekbar.progress = video_seekbar.max
+            video_curr_time.text = mDuration.getFormattedDuration()
+            pauseVideo()
+        }
     }
 
-    private fun videoEnded(): Boolean {
+    private fun didVideoEnd(): Boolean {
         val currentPos = mExoPlayer?.currentPosition ?: 0
         val duration = mExoPlayer?.duration ?: 0
         return currentPos != 0L && currentPos >= duration
     }
 
     private fun saveVideoProgress() {
-        if (!videoEnded()) {
+        if (!didVideoEnd()) {
             config.apply {
                 lastVideoPosition = mExoPlayer!!.currentPosition.toInt() / 1000
                 lastVideoPath = mUri.toString()
             }
+        }
+    }
+
+    private fun clearLastVideoSavedProgress() {
+        config.apply {
+            lastVideoPosition = 0
+            lastVideoPath = ""
         }
     }
 
