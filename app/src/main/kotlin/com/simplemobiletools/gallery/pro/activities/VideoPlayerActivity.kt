@@ -232,6 +232,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
     private fun videoPrepared() {
         if (!mWasVideoStarted) {
+            video_toggle_play_pause.beVisible()
             mDuration = (mExoPlayer!!.duration / 1000).toInt()
             video_seekbar.max = mDuration
             video_duration.text = mDuration.getFormattedDuration()
@@ -241,11 +242,15 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
                 setLastVideoSavedPosition()
             }
 
-            playVideo()
+            if (config.autoplayVideos) {
+                resumeVideo()
+            } else {
+                video_toggle_play_pause.setImageResource(R.drawable.ic_play_outline)
+            }
         }
     }
 
-    private fun playVideo() {
+    private fun resumeVideo() {
         video_toggle_play_pause.setImageResource(R.drawable.ic_pause_outline)
         if (mExoPlayer == null) {
             return
@@ -279,7 +284,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     private fun togglePlayPause() {
         mIsPlaying = !mIsPlaying
         if (mIsPlaying) {
-            playVideo()
+            resumeVideo()
         } else {
             pauseVideo()
         }
@@ -305,7 +310,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         clearLastVideoSavedProgress()
         mCurrTime = (mExoPlayer!!.duration / 1000).toInt()
         if (config.loopVideos) {
-            playVideo()
+            resumeVideo()
         } else {
             video_seekbar.progress = video_seekbar.max
             video_curr_time.text = mDuration.getFormattedDuration()

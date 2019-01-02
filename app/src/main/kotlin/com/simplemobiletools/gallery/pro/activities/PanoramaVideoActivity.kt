@@ -12,10 +12,7 @@ import android.widget.RelativeLayout
 import android.widget.SeekBar
 import com.google.vr.sdk.widgets.video.VrVideoEventListener
 import com.google.vr.sdk.widgets.video.VrVideoView
-import com.simplemobiletools.commons.extensions.getFormattedDuration
-import com.simplemobiletools.commons.extensions.onGlobalLayout
-import com.simplemobiletools.commons.extensions.showErrorToast
-import com.simplemobiletools.commons.extensions.toast
+import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.isPiePlus
 import com.simplemobiletools.gallery.pro.R
@@ -136,10 +133,14 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
                             setupTimer()
                         }
 
-                        if (mPlayOnReady) {
+                        if (mPlayOnReady || config.autoplayVideos) {
                             mPlayOnReady = false
-                            playVideo()
+                            mIsPlaying = true
+                            resumeVideo()
+                        } else {
+                            video_toggle_play_pause.setImageResource(R.drawable.ic_play_outline)
                         }
+                        video_toggle_play_pause.beVisible()
                     }
 
                     override fun onCompletion() {
@@ -190,13 +191,13 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
     private fun togglePlayPause() {
         mIsPlaying = !mIsPlaying
         if (mIsPlaying) {
-            playVideo()
+            resumeVideo()
         } else {
             pauseVideo()
         }
     }
 
-    private fun playVideo() {
+    private fun resumeVideo() {
         video_toggle_play_pause.setImageResource(R.drawable.ic_pause_outline)
         if (mCurrTime == mDuration) {
             setVideoProgress(0)
@@ -319,7 +320,7 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
 
     override fun onStopTrackingTouch(seekBar: SeekBar?) {
         mIsPlaying = true
-        playVideo()
+        resumeVideo()
         mIsDragged = false
     }
 }

@@ -16,7 +16,8 @@
         android:layout_marginTop="@dimen/activity_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/small_margin"
-        android:src="@drawable/ic_pause_outline"/>
+        android:src="@drawable/ic_pause_outline"
+        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/video_curr_time"
