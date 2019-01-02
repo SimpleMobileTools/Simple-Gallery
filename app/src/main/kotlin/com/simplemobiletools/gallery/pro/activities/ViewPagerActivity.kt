@@ -20,6 +20,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -507,17 +508,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun getMediaForSlideshow(): Boolean {
-        mSlideshowMedia = mMediaFiles.toMutableList()
-        if (!config.slideshowIncludePhotos) {
-            mSlideshowMedia = mSlideshowMedia.filter { !it.isImage() } as MutableList
-        }
+        mSlideshowMedia = mMediaFiles.filter {
+            (config.slideshowIncludePhotos && it.isImage()) || (config.slideshowIncludeGIFs && it.isGIF())
+        }.toMutableList()
 
-        if (!config.slideshowIncludeVideos) {
-            mSlideshowMedia = mSlideshowMedia.filter { it.isImage() || it.isGIF() } as MutableList
-        }
-
-        if (!config.slideshowIncludeGIFs) {
-            mSlideshowMedia = mSlideshowMedia.filter { !it.isGIF() } as MutableList
+        mSlideshowMedia.forEach {
+            Log.e("DEBUG", "got ${it.name}")
         }
 
         if (config.slideshowRandomOrder) {
