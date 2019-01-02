@@ -17,7 +17,6 @@ import com.google.android.exoplayer2.*
 import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory
 import com.google.android.exoplayer2.source.ExtractorMediaSource
 import com.google.android.exoplayer2.source.TrackGroupArray
-import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray
 import com.google.android.exoplayer2.upstream.ContentDataSource
 import com.google.android.exoplayer2.upstream.DataSource
@@ -56,7 +55,6 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private var mIsFullscreen = false
     private var mIsFragmentVisible = false
     private var mWasFragmentInit = false
-    private var mIsExoPlayerInitialized = false
     private var mIsPanorama = false
     private var mWasVideoStarted = false
     private var mCurrTime = 0
@@ -305,7 +303,6 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             override fun onTracksChanged(trackGroups: TrackGroupArray?, trackSelections: TrackSelectionArray?) {}
 
             override fun onPlayerError(error: ExoPlaybackException?) {
-                mIsExoPlayerInitialized = false
             }
 
             override fun onLoadingChanged(isLoading: Boolean) {}
@@ -319,7 +316,6 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             override fun onTimelineChanged(timeline: Timeline?, manifest: Any?, reason: Int) {}
 
             override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
-                mIsExoPlayerInitialized = playbackState == Player.STATE_READY || playbackState == Player.STATE_ENDED
                 when (playbackState) {
                     Player.STATE_READY -> videoPrepared()
                     Player.STATE_ENDED -> videoCompleted()
