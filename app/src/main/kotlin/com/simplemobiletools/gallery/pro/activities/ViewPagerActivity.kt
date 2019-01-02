@@ -129,10 +129,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         setupRotation()
         invalidateOptionsMenu()
 
-        if (config.blackBackground) {
-            updateStatusbarColor(Color.BLACK)
-        }
-
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         window.statusBarColor = Color.TRANSPARENT
     }
