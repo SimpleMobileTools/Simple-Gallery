@@ -7,10 +7,7 @@ import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.util.DisplayMetrics
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.view.WindowManager
+import android.view.*
 import android.widget.SeekBar
 import com.simplemobiletools.commons.extensions.beInvisibleIf
 import com.simplemobiletools.commons.extensions.getFilenameFromUri
@@ -26,6 +23,11 @@ import kotlinx.android.synthetic.main.bottom_video_time_holder.*
 open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListener {
     private var mIsFullscreen = false
     private var mUri: Uri? = null
+
+    private var mTouchDownX = 0f
+    private var mTouchDownY = 0f
+    private var mCloseDownThreshold = 100f
+    private var mIgnoreCloseDown = false
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,6 +76,13 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         video_seekbar.setOnClickListener { }
         video_player_holder.setOnClickListener {
             fullscreenToggled(!mIsFullscreen)
+        }
+
+        if (config.allowDownGesture) {
+            video_player_holder.setOnTouchListener { v, event ->
+                handleEvent(event)
+                false
+            }
         }
     }
 
@@ -149,6 +158,25 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
     private fun skip(forward: Boolean) {
 
+    }
+
+    private fun handleEvent(event: MotionEvent) {
+        when (event.actionMasked) {
+            MotionEvent.ACTION_DOWN -> {
+                mTouchDownX = event.x
+                mTouchDownY = event.y
+            }
+            MotionEvent.ACTION_POINTER_DOWN -> mIgnoreCloseDown = true
+            MotionEvent.ACTION_UP -> {
+                val diffX = mTouchDownX - event.x
+                val diffY = mTouchDownY - event.y
+
+                if (!mIgnoreCloseDown && Math.abs(diffY) > Math.abs(diffX) && diffY < -mCloseDownThreshold) {
+                    supportFinishAfterTransition()
+                }
+                mIgnoreCloseDown = false
+            }
+        }
     }
 
     override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
