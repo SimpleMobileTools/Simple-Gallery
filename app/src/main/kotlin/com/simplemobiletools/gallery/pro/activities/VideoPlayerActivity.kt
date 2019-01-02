@@ -130,6 +130,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         video_seekbar.setOnClickListener { }
         video_curr_time.setOnClickListener { skip(false) }
         video_duration.setOnClickListener { skip(true) }
+        video_toggle_play_pause.setOnClickListener { togglePlayPause() }
         video_player_holder.setOnClickListener {
             fullscreenToggled(!mIsFullscreen)
         }
@@ -258,6 +259,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         mWasVideoStarted = true
         mIsPlaying = true
         mExoPlayer?.playWhenReady = true
+        video_toggle_play_pause.setImageResource(R.drawable.ic_pause_outline)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
@@ -271,6 +273,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             mExoPlayer?.playWhenReady = false
         }
 
+        video_toggle_play_pause.setImageResource(R.drawable.ic_play_outline)
         window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
