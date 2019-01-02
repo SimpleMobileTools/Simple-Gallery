@@ -8,6 +8,7 @@ import android.graphics.SurfaceTexture
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
 import android.util.DisplayMetrics
 import android.view.*
 import android.widget.SeekBar
@@ -25,17 +26,22 @@ import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.isPiePlus
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.*
+import com.simplemobiletools.gallery.pro.helpers.MIN_SKIP_LENGTH
 import kotlinx.android.synthetic.main.activity_video_player.*
 import kotlinx.android.synthetic.main.bottom_video_time_holder.*
 
 open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListener, TextureView.SurfaceTextureListener {
     private var mIsFullscreen = false
+    private var mIsPlaying = false
+    private var mWasVideoStarted = false
+    private var mIsDragged = false
     private var mCurrTime = 0
     private var mDuration = 0
     private var mVideoSize = Point(0, 0)
 
     private var mUri: Uri? = null
     private var mExoPlayer: SimpleExoPlayer? = null
+    private var mTimerHandler = Handler()
 
     private var mTouchDownX = 0f
     private var mTouchDownY = 0f
@@ -66,6 +72,18 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             video_player_holder.background = ColorDrawable(Color.BLACK)
         }
         updateTextColors(video_player_holder)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        pauseVideo()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (!isChangingConfigurations) {
+            cleanup()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -177,9 +195,51 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     }
 
     private fun videoPrepared() {
-        mDuration = (mExoPlayer!!.duration / 1000).toInt()
-        video_duration.text = mDuration.getFormattedDuration()
-        setPosition(mCurrTime)
+        if (!mWasVideoStarted) {
+            mDuration = (mExoPlayer!!.duration / 1000).toInt()
+            video_seekbar.max = mDuration
+            video_duration.text = mDuration.getFormattedDuration()
+            setPosition(mCurrTime)
+            playVideo()
+        }
+    }
+
+    private fun playVideo() {
+        if (mExoPlayer == null) {
+            return
+        }
+
+        val wasEnded = videoEnded()
+        if (wasEnded) {
+            setPosition(0)
+        }
+
+        mWasVideoStarted = true
+        mIsPlaying = true
+        mExoPlayer?.playWhenReady = true
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+    }
+
+    private fun pauseVideo() {
+        if (mExoPlayer == null) {
+            return
+        }
+
+        mIsPlaying = false
+        if (!videoEnded()) {
+            mExoPlayer?.playWhenReady = false
+        }
+
+        window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+    }
+
+    private fun togglePlayPause() {
+        mIsPlaying = !mIsPlaying
+        if (mIsPlaying) {
+            playVideo()
+        } else {
+            pauseVideo()
+        }
     }
 
     private fun setPosition(seconds: Int) {
@@ -190,6 +250,12 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
     private fun videoCompleted() {
 
+    }
+
+    private fun videoEnded(): Boolean {
+        val currentPos = mExoPlayer?.currentPosition ?: 0
+        val duration = mExoPlayer?.duration ?: 0
+        return currentPos != 0L && currentPos >= duration
     }
 
     private fun setVideoSize() {
@@ -257,6 +323,21 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         video_time_holder.beInvisibleIf(mIsFullscreen)
         video_duration.text = mDuration.getFormattedDuration()
         video_curr_time.text = mCurrTime.getFormattedDuration()
+        setupTimer()
+    }
+
+    private fun setupTimer() {
+        runOnUiThread(object : Runnable {
+            override fun run() {
+                if (mExoPlayer != null && !mIsDragged && mIsPlaying) {
+                    mCurrTime = (mExoPlayer!!.currentPosition / 1000).toInt()
+                    video_seekbar.progress = mCurrTime
+                    video_curr_time.text = mCurrTime.getFormattedDuration()
+                }
+
+                mTimerHandler.postDelayed(this, 1000)
+            }
+        })
     }
 
     private fun hasNavBar(): Boolean {
@@ -272,7 +353,19 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     }
 
     private fun skip(forward: Boolean) {
+        if (mExoPlayer == null) {
+            return
+        }
 
+        val curr = mExoPlayer!!.currentPosition
+        val twoPercents = Math.max((mExoPlayer!!.duration / 50).toInt(), MIN_SKIP_LENGTH)
+        val newProgress = if (forward) curr + twoPercents else curr - twoPercents
+        val roundProgress = Math.round(newProgress / 1000f)
+        val limitedProgress = Math.max(Math.min(mExoPlayer!!.duration.toInt(), roundProgress), 0)
+        setPosition(limitedProgress)
+        if (!mIsPlaying) {
+            togglePlayPause()
+        }
     }
 
     private fun handleEvent(event: MotionEvent) {
@@ -294,13 +387,43 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         }
     }
 
+    private fun cleanup() {
+        pauseVideo()
+        video_curr_time.text = 0.getFormattedDuration()
+        releaseExoPlayer()
+        video_seekbar.progress = 0
+        mTimerHandler.removeCallbacksAndMessages(null)
+    }
+
+    private fun releaseExoPlayer() {
+        mExoPlayer?.stop()
+        Thread {
+            mExoPlayer?.release()
+            mExoPlayer = null
+        }.start()
+    }
+
     override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+        if (mExoPlayer != null && fromUser) {
+            setPosition(progress)
+        }
     }
 
     override fun onStartTrackingTouch(seekBar: SeekBar?) {
+        mIsDragged = true
     }
 
     override fun onStopTrackingTouch(seekBar: SeekBar?) {
+        if (mExoPlayer == null)
+            return
+
+        if (mIsPlaying) {
+            mExoPlayer!!.playWhenReady = true
+        } else {
+            togglePlayPause()
+        }
+
+        mIsDragged = false
     }
 
     override fun onSurfaceTextureUpdated(surface: SurfaceTexture?) {
