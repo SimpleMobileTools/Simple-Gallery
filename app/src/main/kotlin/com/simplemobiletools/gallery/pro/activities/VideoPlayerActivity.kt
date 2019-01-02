@@ -135,6 +135,19 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         video_surface.setOnClickListener {
             fullscreenToggled(!mIsFullscreen)
         }
+
+        if (config.allowVideoGestures) {
+            video_brightness_controller.initialize(this, slide_info, true, video_player_holder) { x, y ->
+                video_player_holder.performClick()
+            }
+
+            video_volume_controller.initialize(this, slide_info, false, video_player_holder) { x, y ->
+                video_player_holder.performClick()
+            }
+        } else {
+            video_brightness_controller.beGone()
+            video_volume_controller.beGone()
+        }
     }
 
     private fun initExoPlayer() {
