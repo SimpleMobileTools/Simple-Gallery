@@ -8,14 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.gallery.pro.BuildConfig
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.PanoramaVideoActivity
-import com.simplemobiletools.gallery.pro.activities.VideoPlayerActivity
-import com.simplemobiletools.gallery.pro.extensions.config
-import com.simplemobiletools.gallery.pro.extensions.navigationBarWidth
-import com.simplemobiletools.gallery.pro.extensions.portrait
-import com.simplemobiletools.gallery.pro.extensions.realScreenSize
+import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.IsoTypeReader
 import com.simplemobiletools.gallery.pro.helpers.MEDIUM
 import com.simplemobiletools.gallery.pro.helpers.PATH
@@ -142,17 +137,7 @@ class VideoFragment : ViewPagerFragment() {
     }
 
     private fun launchVideoPlayer() {
-        val newUri = activity!!.getFinalUriFromPath(medium.path, BuildConfig.APPLICATION_ID)
-        if (newUri == null) {
-            context!!.toast(R.string.unknown_error_occurred)
-            return
-        }
-
-        val mimeType = activity!!.getUriMimeType(medium.path, newUri)
-        Intent(activity, VideoPlayerActivity::class.java).apply {
-            setDataAndType(newUri, mimeType)
-            context!!.startActivity(this)
-        }
+        activity!!.openPath(medium.path, false)
     }
 
     private fun toggleFullscreen() {
