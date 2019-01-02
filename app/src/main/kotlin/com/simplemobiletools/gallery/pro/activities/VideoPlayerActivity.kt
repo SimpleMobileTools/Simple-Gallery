@@ -25,10 +25,8 @@ import kotlinx.android.synthetic.main.activity_video_player.*
 import java.io.File
 
 open class VideoPlayerActivity : SimpleActivity(), ViewPagerFragment.FragmentListener {
-
     private var mMedium: Medium? = null
     private var mIsFullScreen = false
-    private var mCurrentOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR
     private var mFragment: ViewPagerFragment? = null
     private var mUri: Uri? = null
 
@@ -100,15 +98,18 @@ open class VideoPlayerActivity : SimpleActivity(), ViewPagerFragment.FragmentLis
         }
 
         when (item.itemId) {
-            R.id.menu_force_portrait -> forceOrientation(true)
-            R.id.menu_force_landscape -> forceOrientation(false)
+            R.id.menu_change_orientation -> changeOrientation()
             else -> return super.onOptionsItemSelected(item)
         }
         return true
     }
 
-    private fun forceOrientation(portrait: Boolean) {
-
+    private fun changeOrientation() {
+        requestedOrientation = if (resources.configuration.orientation == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) {
+            ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+        } else {
+            ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        }
     }
 
     override fun fragmentClicked() {

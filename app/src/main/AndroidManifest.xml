@@ -124,7 +124,8 @@
 
         <activity
             android:name=".activities.VideoPlayerActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"/>
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:parentActivityName=".activities.MediaActivity"/>
 
         <activity
             android:name=".activities.PanoramaPhotoActivity"
