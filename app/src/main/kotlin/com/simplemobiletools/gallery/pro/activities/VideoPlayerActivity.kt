@@ -77,6 +77,10 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     override fun onPause() {
         super.onPause()
         pauseVideo()
+
+        if (config.rememberLastVideoPosition && mWasVideoStarted) {
+            saveVideoProgress()
+        }
     }
 
     override fun onDestroy() {
@@ -224,6 +228,11 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             video_seekbar.max = mDuration
             video_duration.text = mDuration.getFormattedDuration()
             setPosition(mCurrTime)
+
+            if (config.rememberLastVideoPosition) {
+                setLastVideoSavedPosition()
+            }
+
             playVideo()
         }
     }
@@ -272,6 +281,12 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         video_curr_time.text = seconds.getFormattedDuration()
     }
 
+    private fun setLastVideoSavedPosition() {
+        if (config.lastVideoPath == mUri.toString() && config.lastVideoPosition > 0) {
+            setPosition(config.lastVideoPosition)
+        }
+    }
+
     private fun videoCompleted() {
 
     }
@@ -280,6 +295,15 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         val currentPos = mExoPlayer?.currentPosition ?: 0
         val duration = mExoPlayer?.duration ?: 0
         return currentPos != 0L && currentPos >= duration
+    }
+
+    private fun saveVideoProgress() {
+        if (!videoEnded()) {
+            config.apply {
+                lastVideoPosition = mExoPlayer!!.currentPosition.toInt() / 1000
+                lastVideoPath = mUri.toString()
+            }
+        }
     }
 
     private fun setVideoSize() {
