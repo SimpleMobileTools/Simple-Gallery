@@ -216,7 +216,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Uma aplicação para ver fotografias e vídeos.</string>
+    <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
     <string name="app_long_description">
         Um aplicação capaz de mostrar diversos tipos de imagens e vídeos incluíndo SVG, RAW, fotos panorâmicas e vídeos.
 

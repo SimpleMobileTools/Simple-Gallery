@@ -10,8 +10,8 @@ import android.view.MotionEvent
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
+import com.simplemobiletools.commons.extensions.onGlobalLayout
 import com.simplemobiletools.gallery.pro.R
-import com.simplemobiletools.gallery.pro.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.pro.extensions.audioManager
 import com.simplemobiletools.gallery.pro.helpers.CLICK_MAX_DURATION
 import com.simplemobiletools.gallery.pro.helpers.DRAG_THRESHOLD
@@ -25,6 +25,7 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
     private var mTouchDownValue = -1
     private var mTempBrightness = 0
     private var mLastTouchY = 0f
+    private var mViewHeight = 0
     private var mIsBrightnessScroll = false
     private var mPassTouches = false
     private var dragThreshold = DRAG_THRESHOLD * context.resources.displayMetrics.density
@@ -44,6 +45,9 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
         mParentView = parentView
         mIsBrightnessScroll = isBrightness
         mSlideInfoText = activity.getString(if (isBrightness) R.string.brightness else R.string.volume)
+        onGlobalLayout {
+            mViewHeight = height
+        }
     }
 
     override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
@@ -80,7 +84,7 @@ class MediaSideScroll(context: Context, attrs: AttributeSet) : RelativeLayout(co
                 val diffY = mTouchDownY - event.y
 
                 if (Math.abs(diffY) > dragThreshold && Math.abs(diffY) > Math.abs(diffX)) {
-                    var percent = ((diffY / ViewPagerActivity.screenHeight) * 100).toInt() * 3
+                    var percent = ((diffY / mViewHeight) * 100).toInt() * 3
                     percent = Math.min(100, Math.max(-100, percent))
 
                     if ((percent == 100 && event.y > mLastTouchY) || (percent == -100 && event.y < mLastTouchY)) {

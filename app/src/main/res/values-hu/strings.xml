@@ -150,7 +150,7 @@
     <string name="screen_rotation_system_setting">Rendszer beállítások</string>
     <string name="screen_rotation_device_rotation">Eszköz elforgatás</string>
     <string name="screen_rotation_aspect_ratio">Képarány</string>
-    <string name="black_background_at_fullscreen">Fekete háttérszín és állapotsáv teljes képernyős médiánál</string>
+    <string name="black_background_at_fullscreen">Fekete háttérszín teljes képernyős médiánál</string>
     <string name="scroll_thumbnails_horizontally">Miniatűrök görgetése vízszintesen</string>
     <string name="hide_system_ui_at_fullscreen">Automatikusan elrejti a rendszer UI-t teljes képernyőn</string>
     <string name="delete_empty_folders">Az üres mappák törlése a tartalom törlése után</string>
@@ -217,7 +217,7 @@ Ezzel csak a kiválasztott mappák láthatók, mivel a kizárás és a befoglal�
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Galéria a fotók és videók hirdetések nélküli megtekintéséhez.</string>
+    <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
     <string name="app_long_description">
         Nagyon testreszabható galéria, amely alkalmas számos különböző kép- és videotípus megjelenítésére, beleértve az SVG-ket, RAW-t, panorámaképeket és videókat.
 

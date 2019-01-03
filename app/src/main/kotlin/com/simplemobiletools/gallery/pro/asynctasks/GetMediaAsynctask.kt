@@ -27,7 +27,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickImage
             val foldersToScan = mediaFetcher.getFoldersToScan().filter { it != RECYCLE_BIN && it != FAVORITES }
             val media = ArrayList<Medium>()
             foldersToScan.forEach {
-                val newMedia = mediaFetcher.getFilesFrom(it, isPickImage, isPickVideo, getProperDateTaken, favoritePaths, getVideoDurations)
+                val newMedia = mediaFetcher.getFilesFrom(it, isPickImage, isPickVideo, getProperDateTaken, favoritePaths, getVideoDurations, false)
                 media.addAll(newMedia)
             }
 

@@ -89,7 +89,7 @@
     <string name="flip_vertically">Przewróć w pionie</string>
     <string name="edit_with">Edytuj w:</string>
     <string name="free_aspect_ratio">Wolne</string>                 <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+    <string name="other_aspect_ratio">Inny</string>                 <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Tapeta</string>
@@ -133,8 +133,8 @@
     <string name="by_extension">Rozszerzenia</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Folder shown on the widget:</string>
-    <string name="show_folder_name">Show folder name</string>
+    <string name="folder_on_widget">Folder wyświetlany na widżecie:</string>
+    <string name="show_folder_name">Pokaż nazwę folderu</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Odtwarzaj filmy automatycznie</string>
@@ -214,7 +214,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Prosta galeria bez reklam do przeglądania obrazów i filmów.</string>
+    <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
     <string name="app_long_description">
         Wysoce konfigurowalna galeria obsługująca wiele formatów obrazów i filmów, w tym SVG, RAW oraz multimedia panoramiczne.
         

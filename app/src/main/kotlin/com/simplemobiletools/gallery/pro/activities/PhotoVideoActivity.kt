@@ -16,6 +16,7 @@ import com.simplemobiletools.commons.helpers.IS_FROM_GALLERY
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
 import com.simplemobiletools.commons.helpers.isPiePlus
+import com.simplemobiletools.gallery.pro.BuildConfig
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.fragments.PhotoFragment
@@ -26,6 +27,7 @@ import com.simplemobiletools.gallery.pro.models.Medium
 import kotlinx.android.synthetic.main.bottom_actions.*
 import kotlinx.android.synthetic.main.fragment_holder.*
 import java.io.File
+import java.io.FileInputStream
 
 open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentListener {
 
@@ -63,6 +65,12 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     private fun checkIntent(savedInstanceState: Bundle? = null) {
         mUri = intent.data ?: return
         var filename = getFilenameFromUri(mUri!!)
+        mIsFromGallery = intent.getBooleanExtra(IS_FROM_GALLERY, false)
+        if (mIsFromGallery && filename.isVideoFast()) {
+            launchVideoPlayer()
+            return
+        }
+
         if (intent.extras?.containsKey(REAL_FILE_PATH) == true) {
             val realPath = intent.extras.getString(REAL_FILE_PATH)
             if (realPath != null) {
@@ -76,7 +84,6 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             }
         }
 
-        mIsFromGallery = intent.getBooleanExtra(IS_FROM_GALLERY, false)
         if (mUri!!.scheme == "file") {
             if (filename.contains('.')) {
                 scanPathRecursively(mUri!!.path)
@@ -132,6 +139,41 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         }
 
         initBottomActions()
+    }
+
+    private fun launchVideoPlayer() {
+        val newUri = getFinalUriFromPath(mUri.toString(), BuildConfig.APPLICATION_ID)
+        if (newUri == null) {
+            toast(R.string.unknown_error_occurred)
+            return
+        }
+
+        var isPanorama = false
+        val realPath = intent?.extras?.getString(REAL_FILE_PATH) ?: ""
+        try {
+            if (realPath.isNotEmpty()) {
+                val fis = FileInputStream(File(realPath))
+                parseFileChannel(realPath, fis.channel, 0, 0, 0) {
+                    isPanorama = true
+                }
+            }
+        } catch (ignored: Exception) {
+        } catch (ignored: OutOfMemoryError) {
+        }
+
+        if (isPanorama) {
+            Intent(applicationContext, PanoramaVideoActivity::class.java).apply {
+                putExtra(PATH, realPath)
+                startActivity(this)
+            }
+        } else {
+            val mimeType = getUriMimeType(mUri.toString(), newUri)
+            Intent(applicationContext, VideoPlayerActivity::class.java).apply {
+                setDataAndType(newUri, mimeType)
+                startActivity(this)
+            }
+        }
+        finish()
     }
 
     override fun onConfigurationChanged(newConfig: Configuration?) {

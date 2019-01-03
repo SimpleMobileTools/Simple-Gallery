@@ -133,8 +133,8 @@
     <string name="by_extension">Přípony</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Folder shown on the widget:</string>
-    <string name="show_folder_name">Show folder name</string>
+    <string name="folder_on_widget">Složka zobrazená na widgetu:</string>
+    <string name="show_folder_name">Zobrazit název složky</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Automaticky přehrávat videa</string>
@@ -144,12 +144,12 @@
     <string name="animate_gifs">Animovat náhledy souborů GIF</string>
     <string name="max_brightness">Nastavit jas obrazovky na max při zobrazení médií</string>
     <string name="crop_thumbnails">Oříznout náhledy na čtverce</string>
-    <string name="show_thumbnail_video_duration">Show video durations</string>
+    <string name="show_thumbnail_video_duration">Zobrazit dobu trvání videí</string>
     <string name="screen_rotation_by">Otočit média podle</string>
     <string name="screen_rotation_system_setting">Systémového nastavení</string>
     <string name="screen_rotation_device_rotation">Otočení zařízení</string>
     <string name="screen_rotation_aspect_ratio">Poměru stran</string>
-    <string name="black_background_at_fullscreen">Černé pozadí a stavová lišta při médiích na celou obrazovku</string>
+    <string name="black_background_at_fullscreen">Černé pozadí při médiích na celou obrazovku</string>
     <string name="scroll_thumbnails_horizontally">Prohlížet miniatury vodorovně</string>
     <string name="hide_system_ui_at_fullscreen">Automaticky skrývat systémové lišty při celoobrazovkových médiích</string>
     <string name="delete_empty_folders">Odstranit prázdné složky po smazání jejich obsahu</string>
@@ -175,7 +175,7 @@
     <string name="thumbnails">Náhledy</string>
     <string name="fullscreen_media">Celoobrazovkový režim</string>
     <string name="extended_details">Rozšířené vlastnosti</string>
-    <string name="bottom_actions">Spodní skční tlačítka</string>
+    <string name="bottom_actions">Spodní akční tlačítka</string>
 
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Upravit viditelné spodní akční tlačítka</string>
@@ -216,7 +216,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Galerie na prohlížení obrázků a videí bez reklam.</string>
+    <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
     <string name="app_long_description">
         Přizpůsobitelná galerie na zobrazování množství rozličných druhů obrázků a videí, včetně SVG, RAW souborů, panoramatických fotek a videí.
 
@@ -227,7 +227,7 @@
         2. Prezentace
         3. Podpora pro výřez v displeji
         4. Připínání složek na vrch
-        5. Filtování médií podle typu
+        5. Filtrování médií podle typu
         6. Odpadkový koš pro snadnou obnovu souborů
         7. Uzamykání orientace celoobrazovkového režimu
         8. Označování oblíbených položek pro snadný přístup

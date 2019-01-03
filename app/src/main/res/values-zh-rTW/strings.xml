@@ -216,7 +216,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">一個用來瀏覽相片和影片，且沒有廣告的相簿。</string>
+    <string name="app_short_description">一個沒有廣告的離線相簿，用來管理你的檔案，並且尊重您的隱私。</string>
     <string name="app_long_description">
         一個高自訂性的相簿，能夠顯示許多不同的圖片和影片類型，包含SVGs、RAWs、全景相片和影片。
 

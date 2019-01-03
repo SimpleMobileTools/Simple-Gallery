@@ -22,23 +22,18 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
-import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REQUEST_EDIT_IMAGE
 import com.simplemobiletools.commons.models.FileDirItem
-import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.MediaAdapter
 import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
 import com.simplemobiletools.gallery.pro.databases.GalleryDatabase
-import com.simplemobiletools.gallery.pro.dialogs.ChangeGroupingDialog
-import com.simplemobiletools.gallery.pro.dialogs.ChangeSortingDialog
-import com.simplemobiletools.gallery.pro.dialogs.ExcludeFolderDialog
-import com.simplemobiletools.gallery.pro.dialogs.FilterMediaDialog
+import com.simplemobiletools.gallery.pro.dialogs.*
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.interfaces.DirectoryDao
@@ -224,10 +219,10 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden
             findItem(R.id.stop_showing_hidden).isVisible = config.temporarilyShowHidden
 
-            findItem(R.id.increase_column_count).isVisible = config.viewTypeFiles == VIEW_TYPE_GRID && config.mediaColumnCnt < MAX_COLUMN_COUNT
-            findItem(R.id.reduce_column_count).isVisible = config.viewTypeFiles == VIEW_TYPE_GRID && config.mediaColumnCnt > 1
-
-            findItem(R.id.toggle_filename).isVisible = config.viewTypeFiles == VIEW_TYPE_GRID
+            val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
+            findItem(R.id.increase_column_count).isVisible = viewType == VIEW_TYPE_GRID && config.mediaColumnCnt < MAX_COLUMN_COUNT
+            findItem(R.id.reduce_column_count).isVisible = viewType == VIEW_TYPE_GRID && config.mediaColumnCnt > 1
+            findItem(R.id.toggle_filename).isVisible = viewType == VIEW_TYPE_GRID
         }
 
         setupSearch(menu)
@@ -367,7 +362,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             initZoomListener()
             val fastscroller = if (config.scrollHorizontally) media_horizontal_fastscroller else media_vertical_fastscroller
             MediaAdapter(this, mMedia.clone() as ArrayList<ThumbnailItem>, this, mIsGetImageIntent || mIsGetVideoIntent || mIsGetAnyIntent,
-                    mAllowPickingMultiple, media_grid, fastscroller) {
+                    mAllowPickingMultiple, mPath, media_grid, fastscroller) {
                 if (it is Medium) {
                     itemClicked(it.path)
                 }
@@ -385,7 +380,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun setupScrollDirection() {
-        val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFiles == VIEW_TYPE_GRID
+        val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
+        val allowHorizontalScroll = config.scrollHorizontally && viewType == VIEW_TYPE_GRID
         media_vertical_fastscroller.isHorizontal = false
         media_vertical_fastscroller.beGoneIf(allowHorizontalScroll)
 
@@ -493,12 +489,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun changeViewType() {
-        val items = arrayListOf(
-                RadioItem(VIEW_TYPE_GRID, getString(R.string.grid)),
-                RadioItem(VIEW_TYPE_LIST, getString(R.string.list)))
-
-        RadioGroupDialog(this, items, config.viewTypeFiles) {
-            config.viewTypeFiles = it as Int
+        ChangeViewTypeDialog(this, false, mPath) {
             invalidateOptionsMenu()
             setupLayoutManager()
             media_grid.adapter = null
@@ -646,7 +637,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun setupLayoutManager() {
-        if (config.viewTypeFiles == VIEW_TYPE_GRID) {
+        val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
+        if (viewType == VIEW_TYPE_GRID) {
             setupGridLayoutManager()
         } else {
             setupListLayoutManager()
@@ -722,7 +714,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun initZoomListener() {
-        if (config.viewTypeFiles == VIEW_TYPE_GRID) {
+        val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
+        if (viewType == VIEW_TYPE_GRID) {
             val layoutManager = media_grid.layoutManager as MyGridLayoutManager
             mZoomListener = object : MyRecyclerView.MyZoomListener {
                 override fun zoomIn() {
@@ -840,7 +833,8 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             media_empty_text.beVisibleIf(media.isEmpty() && !isFromCache)
             media_grid.beVisibleIf(media_empty_text_label.isGone())
 
-            val allowHorizontalScroll = config.scrollHorizontally && config.viewTypeFiles == VIEW_TYPE_GRID
+            val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)
+            val allowHorizontalScroll = config.scrollHorizontally && viewType == VIEW_TYPE_GRID
             media_vertical_fastscroller.beVisibleIf(media_grid.isVisible() && !allowHorizontalScroll)
             media_horizontal_fastscroller.beVisibleIf(media_grid.isVisible() && allowHorizontalScroll)
             setupAdapter()

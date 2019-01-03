@@ -149,7 +149,7 @@
     <string name="screen_rotation_system_setting">Systémového nastavenia</string>
     <string name="screen_rotation_device_rotation">Otočenia zariadenia</string>
     <string name="screen_rotation_aspect_ratio">Pomeru strán</string>
-    <string name="black_background_at_fullscreen">Čierne pozadie a stavová lišta pri médiách na celú obrazovku</string>
+    <string name="black_background_at_fullscreen">Čierne pozadie pri médiách na celú obrazovku</string>
     <string name="scroll_thumbnails_horizontally">Prehliadať miniatúry vodorovne</string>
     <string name="hide_system_ui_at_fullscreen">Automaticky skrývať systémové lišty pri celoobrazovkových médiách</string>
     <string name="delete_empty_folders">Odstrániť prázdne priečinky po vymazaní ich obsahu</string>
@@ -216,7 +216,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Galéria na prezeranie obrázkov a videí bez reklám.</string>
+    <string name="app_short_description">Offline galéria na správu vašich súborov, rešpektujúca vaše súkromie.</string>
     <string name="app_long_description">
         Nastaviteľná galéria na zobrazovanie množstva rozličných druhov obrázkov a videí, vrátane SVG, RAW súborov, panoramatických fotiek a videí.
 

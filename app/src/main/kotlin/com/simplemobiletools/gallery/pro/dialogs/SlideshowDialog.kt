@@ -5,7 +5,6 @@ import androidx.appcompat.app.AlertDialog
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.hideKeyboard
 import com.simplemobiletools.commons.extensions.setupDialogStuff
-import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.helpers.SLIDESHOW_DEFAULT_INTERVAL
@@ -27,16 +26,6 @@ class SlideshowDialog(val activity: BaseSimpleActivity, val callback: () -> Unit
             interval_value.setOnFocusChangeListener { v, hasFocus ->
                 if (!hasFocus)
                     activity.hideKeyboard(v)
-            }
-
-            include_photos_holder.setOnClickListener {
-                interval_value.clearFocus()
-                include_photos.toggle()
-            }
-
-            include_videos_holder.setOnClickListener {
-                interval_value.clearFocus()
-                include_videos.toggle()
             }
 
             include_gifs_holder.setOnClickListener {
@@ -73,11 +62,6 @@ class SlideshowDialog(val activity: BaseSimpleActivity, val callback: () -> Unit
                     activity.setupDialogStuff(view, this) {
                         hideKeyboard()
                         getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
-                            if (!view.include_photos.isChecked && !view.include_videos.isChecked && !view.include_gifs.isChecked) {
-                                activity.toast(R.string.no_media_for_slideshow)
-                                return@setOnClickListener
-                            }
-
                             storeValues()
                             callback()
                             dismiss()
@@ -90,8 +74,6 @@ class SlideshowDialog(val activity: BaseSimpleActivity, val callback: () -> Unit
         val config = activity.config
         view.apply {
             interval_value.setText(config.slideshowInterval.toString())
-            include_photos.isChecked = config.slideshowIncludePhotos
-            include_videos.isChecked = config.slideshowIncludeVideos
             include_gifs.isChecked = config.slideshowIncludeGIFs
             random_order.isChecked = config.slideshowRandomOrder
             use_fade.isChecked = config.slideshowUseFade
@@ -107,8 +89,6 @@ class SlideshowDialog(val activity: BaseSimpleActivity, val callback: () -> Unit
 
         activity.config.apply {
             slideshowInterval = interval.toInt()
-            slideshowIncludePhotos = view.include_photos.isChecked
-            slideshowIncludeVideos = view.include_videos.isChecked
             slideshowIncludeGIFs = view.include_gifs.isChecked
             slideshowRandomOrder = view.random_order.isChecked
             slideshowUseFade = view.use_fade.isChecked

@@ -11,12 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <ImageView
-        android:id="@+id/vr_view_gradient_background"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/gradient_background"/>
+    <include layout="@layout/bottom_video_time_holder"/>
 
     <ImageView
         android:id="@+id/explore"
@@ -35,16 +30,5 @@
         android:layout_alignParentBottom="true"
         android:padding="@dimen/activity_margin"
         android:src="@drawable/ic_cardboard"/>
-
-    <ImageView
-        android:id="@+id/video_play_outline"
-        android:layout_width="@dimen/play_outline_size_big"
-        android:layout_height="@dimen/play_outline_size_big"
-        android:layout_centerInParent="true"
-        android:background="@drawable/circle_black_background_with_inset"
-        android:padding="26dp"
-        android:src="@drawable/ic_play"/>
-
-    <include layout="@layout/bottom_video_time_holder"/>
 
 </RelativeLayout>

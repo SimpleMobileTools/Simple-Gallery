@@ -11,12 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <TextureView
-        android:id="@+id/video_surface"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
-
     <com.simplemobiletools.gallery.pro.views.MediaSideScroll
         android:id="@+id/video_volume_controller"
         android:layout_width="@dimen/media_side_slider_width"
@@ -46,9 +40,8 @@
         android:layout_width="@dimen/play_outline_size_big"
         android:layout_height="@dimen/play_outline_size_big"
         android:layout_centerInParent="true"
-        android:background="@drawable/circle_black_background_with_inset"
-        android:padding="26dp"
-        android:src="@drawable/ic_play"/>
+        android:padding="20dp"
+        android:src="@drawable/ic_play_outline"/>
 
     <TextView
         android:id="@+id/slide_info"
@@ -72,9 +65,8 @@
         android:layout_width="@dimen/play_outline_size_big"
         android:layout_height="@dimen/play_outline_size_big"
         android:layout_centerInParent="true"
-        android:background="@drawable/circle_black_background_with_inset"
-        android:padding="28dp"
-        android:src="@drawable/ic_panorama"
+        android:padding="20dp"
+        android:src="@drawable/ic_panorama_outline"
         android:visibility="gone"/>
 
     <TextView
@@ -91,5 +83,4 @@
         android:visibility="gone"
         tools:text="My video\nAnother line"/>
 
-    <include layout="@layout/bottom_video_time_holder"/>
 </RelativeLayout>

@@ -59,6 +59,22 @@ class Config(context: Context) : BaseConfig(context) {
 
     fun hasCustomGrouping(path: String) = prefs.contains(GROUP_FOLDER_PREFIX + path.toLowerCase())
 
+    fun saveFolderViewType(path: String, value: Int) {
+        if (path.isEmpty()) {
+            viewTypeFiles = value
+        } else {
+            prefs.edit().putInt(VIEW_TYPE_PREFIX + path.toLowerCase(), value).apply()
+        }
+    }
+
+    fun getFolderViewType(path: String) = prefs.getInt(VIEW_TYPE_PREFIX + path.toLowerCase(), viewTypeFiles)
+
+    fun removeFolderViewType(path: String) {
+        prefs.edit().remove(VIEW_TYPE_PREFIX + path.toLowerCase()).apply()
+    }
+
+    fun hasCustomViewType(path: String) = prefs.contains(VIEW_TYPE_PREFIX + path.toLowerCase())
+
     var wasHideFolderTooltipShown: Boolean
         get() = prefs.getBoolean(HIDE_FOLDER_TOOLTIP_SHOWN, false)
         set(wasShown) = prefs.edit().putBoolean(HIDE_FOLDER_TOOLTIP_SHOWN, wasShown).apply()
@@ -137,7 +153,7 @@ class Config(context: Context) : BaseConfig(context) {
         set(includedFolders) = prefs.edit().remove(INCLUDED_FOLDERS).putStringSet(INCLUDED_FOLDERS, includedFolders).apply()
 
     var autoplayVideos: Boolean
-        get() = prefs.getBoolean(AUTOPLAY_VIDEOS, false)
+        get() = prefs.getBoolean(AUTOPLAY_VIDEOS, true)
         set(autoplay) = prefs.edit().putBoolean(AUTOPLAY_VIDEOS, autoplay).apply()
 
     var animateGifs: Boolean
@@ -265,14 +281,6 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getInt(SLIDESHOW_INTERVAL, SLIDESHOW_DEFAULT_INTERVAL)
         set(slideshowInterval) = prefs.edit().putInt(SLIDESHOW_INTERVAL, slideshowInterval).apply()
 
-    var slideshowIncludePhotos: Boolean
-        get() = prefs.getBoolean(SLIDESHOW_INCLUDE_PHOTOS, true)
-        set(slideshowIncludePhotos) = prefs.edit().putBoolean(SLIDESHOW_INCLUDE_PHOTOS, slideshowIncludePhotos).apply()
-
-    var slideshowIncludeVideos: Boolean
-        get() = prefs.getBoolean(SLIDESHOW_INCLUDE_VIDEOS, false)
-        set(slideshowIncludeVideos) = prefs.edit().putBoolean(SLIDESHOW_INCLUDE_VIDEOS, slideshowIncludeVideos).apply()
-
     var slideshowIncludeGIFs: Boolean
         get() = prefs.getBoolean(SLIDESHOW_INCLUDE_GIFS, false)
         set(slideshowIncludeGIFs) = prefs.edit().putBoolean(SLIDESHOW_INCLUDE_GIFS, slideshowIncludeGIFs).apply()
@@ -384,8 +392,10 @@ class Config(context: Context) : BaseConfig(context) {
 
     fun getEverShownFolders() = hashSetOf(
             internalStoragePath,
-            Environment.DIRECTORY_DCIM,
-            Environment.DIRECTORY_PICTURES
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).absolutePath,
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath,
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).absolutePath,
+            "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).absolutePath}/Screenshots"
     )
 
     var showRecycleBinAtFolders: Boolean

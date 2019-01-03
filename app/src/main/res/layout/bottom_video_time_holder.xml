@@ -5,12 +5,25 @@
     android:id="@+id/video_time_holder"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true">
+    android:layout_alignParentBottom="true"
+    android:background="@drawable/gradient_background">
+
+    <ImageView
+        android:id="@+id/video_toggle_play_pause"
+        android:layout_width="@dimen/video_player_play_pause_size"
+        android:layout_height="@dimen/video_player_play_pause_size"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/activity_margin"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="@dimen/small_margin"
+        android:src="@drawable/ic_pause_outline"
+        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/video_curr_time"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_below="@+id/video_toggle_play_pause"
         android:layout_alignTop="@+id/video_seekbar"
         android:layout_alignBottom="@+id/video_seekbar"
         android:layout_alignParentStart="true"
@@ -26,6 +39,7 @@
         android:id="@+id/video_seekbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/video_toggle_play_pause"
         android:layout_toStartOf="@+id/video_duration"
         android:layout_toLeftOf="@+id/video_duration"
         android:layout_toEndOf="@+id/video_curr_time"
@@ -37,6 +51,7 @@
         android:id="@+id/video_duration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/video_toggle_play_pause"
         android:layout_alignTop="@+id/video_seekbar"
         android:layout_alignBottom="@+id/video_seekbar"
         android:layout_alignParentEnd="true"

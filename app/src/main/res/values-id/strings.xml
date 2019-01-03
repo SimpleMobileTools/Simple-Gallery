@@ -216,7 +216,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Aplikasi galeri untuk melihat foto dan video tanpa iklan.</string>
+    <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
     <string name="app_long_description">
         Aplikasi galeri dengan banyak kustomisasi dan mampu menampilkan banyak jenis gambar dan video termasuk SVG, RAW, panorama foto dan video.
 

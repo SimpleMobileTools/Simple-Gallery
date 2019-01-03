@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.pro.extensions
 import android.app.Activity
 import android.content.Intent
 import android.provider.MediaStore
+import android.util.DisplayMetrics
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
@@ -79,7 +80,8 @@ fun SimpleActivity.launchAbout() {
             FAQItem(R.string.faq_12_title, R.string.faq_12_text),
             FAQItem(R.string.faq_13_title, R.string.faq_13_text),
             FAQItem(R.string.faq_14_title, R.string.faq_14_text),
-            FAQItem(R.string.faq_2_title_commons, R.string.faq_2_text_commons))
+            FAQItem(R.string.faq_2_title_commons, R.string.faq_2_text_commons),
+            FAQItem(R.string.faq_6_title_commons, R.string.faq_6_text_commons))
 
     startAboutActivity(R.string.app_name, licenses, BuildConfig.VERSION_NAME, faqItems, true)
 }
@@ -290,4 +292,16 @@ fun BaseSimpleActivity.updateFavoritePaths(fileDirItems: ArrayList<FileDirItem>,
             updateDBMediaPath(it.path, newPath)
         }
     }.start()
+}
+
+fun Activity.hasNavBar(): Boolean {
+    val display = windowManager.defaultDisplay
+
+    val realDisplayMetrics = DisplayMetrics()
+    display.getRealMetrics(realDisplayMetrics)
+
+    val displayMetrics = DisplayMetrics()
+    display.getMetrics(displayMetrics)
+
+    return (realDisplayMetrics.widthPixels - displayMetrics.widthPixels > 0) || (realDisplayMetrics.heightPixels - displayMetrics.heightPixels > 0)
 }

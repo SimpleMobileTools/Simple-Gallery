@@ -6,6 +6,7 @@ import com.simplemobiletools.commons.helpers.MONTH_SECONDS
 const val DIRECTORY_SORT_ORDER = "directory_sort_order"
 const val SORT_FOLDER_PREFIX = "sort_folder_"
 const val GROUP_FOLDER_PREFIX = "group_folder_"
+const val VIEW_TYPE_PREFIX = "view_type_folder_"
 const val SHOW_HIDDEN_MEDIA = "show_hidden_media"
 const val TEMPORARILY_SHOW_HIDDEN = "temporarily_show_hidden"
 const val IS_THIRD_PARTY_INTENT = "is_third_party_intent"
@@ -76,8 +77,6 @@ const val SHOW_WIDGET_FOLDER_NAME = "show_widget_folder_name"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"
-const val SLIDESHOW_INCLUDE_PHOTOS = "slideshow_include_photos"
-const val SLIDESHOW_INCLUDE_VIDEOS = "slideshow_include_videos"
 const val SLIDESHOW_INCLUDE_GIFS = "slideshow_include_gifs"
 const val SLIDESHOW_RANDOM_ORDER = "slideshow_random_order"
 const val SLIDESHOW_USE_FADE = "slideshow_use_fade"

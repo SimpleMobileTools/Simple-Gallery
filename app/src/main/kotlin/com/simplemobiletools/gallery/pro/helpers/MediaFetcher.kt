@@ -19,22 +19,27 @@ class MediaFetcher(val context: Context) {
     var shouldStop = false
 
     fun getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean, getProperDateTaken: Boolean, favoritePaths: ArrayList<String>,
-                     getVideoDurations: Boolean): ArrayList<Medium> {
+                     getVideoDurations: Boolean, sortMedia: Boolean = true): ArrayList<Medium> {
         val filterMedia = context.config.filterMedia
         if (filterMedia == 0) {
             return ArrayList()
         }
 
         val curMedia = ArrayList<Medium>()
-        if (curPath.startsWith(OTG_PATH)) {
-            val newMedia = getMediaOnOTG(curPath, isPickImage, isPickVideo, filterMedia, favoritePaths, getVideoDurations)
-            curMedia.addAll(newMedia)
+        if (curPath.startsWith(OTG_PATH, true)) {
+            if (context.hasOTGConnected()) {
+                val newMedia = getMediaOnOTG(curPath, isPickImage, isPickVideo, filterMedia, favoritePaths, getVideoDurations)
+                curMedia.addAll(newMedia)
+            }
         } else {
             val newMedia = getMediaInFolder(curPath, isPickImage, isPickVideo, filterMedia, getProperDateTaken, favoritePaths, getVideoDurations)
             curMedia.addAll(newMedia)
         }
 
-        sortMedia(curMedia, context.config.getFileSorting(curPath))
+        if (sortMedia) {
+            sortMedia(curMedia, context.config.getFileSorting(curPath))
+        }
+
         return curMedia
     }
 
@@ -177,27 +182,27 @@ class MediaFetcher(val context: Context) {
             ArrayList()
         }
 
+        val doExtraCheck = context.config.doExtraCheck
+        val showHidden = context.config.shouldShowHidden
+        val dateTakens = if (getProperDateTaken && folder != FAVORITES && folder != RECYCLE_BIN) getFolderDateTakens(folder) else HashMap()
+
         val files = when (folder) {
-            FAVORITES -> favoritePaths.map { File(it) }.toTypedArray()
+            FAVORITES -> favoritePaths.filter { showHidden || !it.contains("/.") }.map { File(it) }.toTypedArray()
             RECYCLE_BIN -> deletedMedia.map { File(it.path) }.toTypedArray()
             else -> File(folder).listFiles() ?: return media
         }
-
-        val doExtraCheck = context.config.doExtraCheck
-        val showHidden = context.config.shouldShowHidden
-        val dateTakens = if (getProperDateTaken) getFolderDateTakens(folder) else HashMap()
 
         for (file in files) {
             if (shouldStop) {
                 break
             }
 
-            val filename = file.name
-            val isImage = filename.isImageFast()
-            val isVideo = if (isImage) false else filename.isVideoFast()
-            val isGif = if (isImage || isVideo) false else filename.isGif()
-            val isRaw = if (isImage || isVideo || isGif) false else filename.isRawFast()
-            val isSvg = if (isImage || isVideo || isGif || isRaw) false else filename.isSvg()
+            val path = file.absolutePath
+            val isImage = path.isImageFast()
+            val isVideo = if (isImage) false else path.isVideoFast()
+            val isGif = if (isImage || isVideo) false else path.isGif()
+            val isRaw = if (isImage || isVideo || isGif) false else path.isRawFast()
+            val isSvg = if (isImage || isVideo || isGif || isRaw) false else path.isSvg()
 
             if (!isImage && !isVideo && !isGif && !isRaw && !isSvg)
                 continue
@@ -217,6 +222,7 @@ class MediaFetcher(val context: Context) {
             if (isSvg && filterMedia and TYPE_SVGS == 0)
                 continue
 
+            val filename = file.name
             if (!showHidden && filename.startsWith('.'))
                 continue
 
@@ -224,7 +230,6 @@ class MediaFetcher(val context: Context) {
             if (size <= 0L || (doExtraCheck && !file.exists()))
                 continue
 
-            val path = file.absolutePath
             if (folder == RECYCLE_BIN) {
                 deletedMedia.firstOrNull { it.path == path }?.apply {
                     media.add(this)
@@ -364,8 +369,9 @@ class MediaFetcher(val context: Context) {
                 else -> o1.taken.compareTo(o2.taken)
             }
 
-            if (result == 0) {
-                result = AlphanumericComparator().compare(o1.path.toLowerCase(), o2.path.toLowerCase())
+            // do just a quick extra sorting if the original sorting is equal, does not need to be accurate in all cases
+            if (result == 0 && sorting and SORT_BY_NAME == 0 && sorting and SORT_BY_PATH == 0) {
+                result = o1.name.compareTo(o2.name)
             }
 
             if (sorting and SORT_DESCENDING != 0) {

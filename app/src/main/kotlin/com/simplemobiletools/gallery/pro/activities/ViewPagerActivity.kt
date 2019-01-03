@@ -41,7 +41,6 @@ import com.simplemobiletools.gallery.pro.dialogs.SaveAsDialog
 import com.simplemobiletools.gallery.pro.dialogs.SlideshowDialog
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.fragments.PhotoFragment
-import com.simplemobiletools.gallery.pro.fragments.VideoFragment
 import com.simplemobiletools.gallery.pro.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.Medium
@@ -128,10 +127,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         setupRotation()
         invalidateOptionsMenu()
-
-        if (config.blackBackground) {
-            updateStatusbarColor(Color.BLACK)
-        }
 
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         window.statusBarColor = Color.TRANSPARENT
@@ -500,8 +495,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                         swipeToNextMedium()
                     }
                 }, mSlideshowInterval * 1000L)
-            } else {
-                (getCurrentFragment() as? VideoFragment)!!.playVideo()
             }
         }
     }
@@ -511,18 +504,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun getMediaForSlideshow(): Boolean {
-        mSlideshowMedia = mMediaFiles.toMutableList()
-        if (!config.slideshowIncludePhotos) {
-            mSlideshowMedia = mSlideshowMedia.filter { !it.isImage() } as MutableList
-        }
-
-        if (!config.slideshowIncludeVideos) {
-            mSlideshowMedia = mSlideshowMedia.filter { it.isImage() || it.isGIF() } as MutableList
-        }
-
-        if (!config.slideshowIncludeGIFs) {
-            mSlideshowMedia = mSlideshowMedia.filter { !it.isGIF() } as MutableList
-        }
+        mSlideshowMedia = mMediaFiles.filter {
+            it.isImage() || (config.slideshowIncludeGIFs && it.isGIF())
+        }.toMutableList()
 
         if (config.slideshowRandomOrder) {
             mSlideshowMedia.shuffle()

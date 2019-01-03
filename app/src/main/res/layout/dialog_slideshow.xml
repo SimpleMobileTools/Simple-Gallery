@@ -37,52 +37,10 @@
             android:textSize="@dimen/normal_text_size"/>
 
         <RelativeLayout
-            android:id="@+id/include_photos_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/interval_label"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/medium_margin"
-            android:paddingLeft="@dimen/medium_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingBottom="@dimen/activity_margin">
-
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/include_photos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:text="@string/include_photos"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/include_videos_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/include_photos_holder"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/medium_margin"
-            android:paddingLeft="@dimen/medium_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingBottom="@dimen/activity_margin">
-
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/include_videos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:text="@string/include_videos"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
             android:id="@+id/include_gifs_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/include_videos_holder"
+            android:layout_below="@+id/interval_label"
             android:background="?attr/selectableItemBackground"
             android:paddingStart="@dimen/medium_margin"
             android:paddingLeft="@dimen/medium_margin"

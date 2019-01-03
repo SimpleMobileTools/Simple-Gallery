@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<inset xmlns:android="http://schemas.android.com/apk/res/android"
-       android:drawable="@drawable/circle_black_background"
-       android:insetBottom="@dimen/activity_margin"
-       android:insetLeft="@dimen/activity_margin"
-       android:insetRight="@dimen/activity_margin"
-       android:insetTop="@dimen/activity_margin"/>
