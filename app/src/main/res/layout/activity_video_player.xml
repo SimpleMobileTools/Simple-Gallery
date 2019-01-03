@@ -56,7 +56,6 @@
         android:background="@drawable/gradient_background"
         tools:ignore="UnknownIdInLayout"/>
 
-    <include
-        layout="@layout/bottom_video_time_holder"/>
+    <include layout="@layout/bottom_video_time_holder"/>
 
 </RelativeLayout>
