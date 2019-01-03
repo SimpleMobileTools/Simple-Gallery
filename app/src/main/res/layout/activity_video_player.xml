@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="200dp"
         android:alpha="0"
         android:background="@drawable/black_rounded_background"
         android:gravity="center"

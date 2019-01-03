@@ -26,6 +26,7 @@ import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.isPiePlus
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.*
+import com.simplemobiletools.gallery.pro.helpers.DRAG_THRESHOLD
 import com.simplemobiletools.gallery.pro.helpers.MIN_SKIP_LENGTH
 import kotlinx.android.synthetic.main.activity_video_player.*
 import kotlinx.android.synthetic.main.bottom_video_time_holder.*
@@ -35,9 +36,11 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     private var mIsPlaying = false
     private var mWasVideoStarted = false
     private var mIsDragged = false
+    private var mScreenWidth = 0
     private var mCurrTime = 0
     private var mDuration = 0
     private var mVideoSize = Point(0, 0)
+    private var mDragThreshold = 0f
 
     private var mUri: Uri? = null
     private var mExoPlayer: SimpleExoPlayer? = null
@@ -45,6 +48,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
     private var mTouchDownX = 0f
     private var mTouchDownY = 0f
+    private var mProgressAtDown = 0L
     private var mCloseDownThreshold = 100f
     private var mIgnoreCloseDown = false
 
@@ -177,6 +181,8 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
                 fullscreenToggled(true)
             }, 500)
         }
+
+        mDragThreshold = DRAG_THRESHOLD * resources.displayMetrics.density
     }
 
     private fun initExoPlayer() {
@@ -370,6 +376,8 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             }
             video_surface.layoutParams = this
         }
+
+        mScreenWidth = (screenWidth * 0.8).toInt()
     }
 
     private fun changeOrientation() {
@@ -412,7 +420,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
         video_time_holder.setPadding(0, 0, right, bottom)
         video_seekbar.setOnSeekBarChangeListener(this)
-        video_seekbar!!.max = mDuration
+        video_seekbar.max = mDuration
         video_duration.text = mDuration.getFormattedDuration()
         video_curr_time.text = mCurrTime.getFormattedDuration()
         setupTimer()
@@ -453,8 +461,26 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             MotionEvent.ACTION_DOWN -> {
                 mTouchDownX = event.x
                 mTouchDownY = event.y
+                mProgressAtDown = mExoPlayer!!.currentPosition
             }
             MotionEvent.ACTION_POINTER_DOWN -> mIgnoreCloseDown = true
+            MotionEvent.ACTION_MOVE -> {
+                val diffX = event.x - mTouchDownX
+                val diffY = event.y - mTouchDownY
+
+                if (mIsDragged || (Math.abs(diffX) > mDragThreshold && Math.abs(diffX) > Math.abs(diffY))) {
+                    mIgnoreCloseDown = true
+                    mIsDragged = true
+                    var percent = ((diffX / mScreenWidth) * 100).toInt()
+                    percent = Math.min(100, Math.max(-100, percent))
+
+                    val skipLength = (mDuration * 1000f) * (percent / 100f)
+                    var newProgress = mProgressAtDown + skipLength
+                    newProgress = Math.max(Math.min(mExoPlayer!!.duration.toFloat(), newProgress), 0f)
+                    val newSeconds = (newProgress / 1000).toInt()
+                    setPosition(newSeconds)
+                }
+            }
             MotionEvent.ACTION_UP -> {
                 val diffX = mTouchDownX - event.x
                 val diffY = mTouchDownY - event.y
@@ -463,6 +489,10 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
                     supportFinishAfterTransition()
                 }
                 mIgnoreCloseDown = false
+                if (mIsDragged && !mIsPlaying) {
+                    togglePlayPause()
+                }
+                mIsDragged = false
             }
         }
     }
