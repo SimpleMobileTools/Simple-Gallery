@@ -470,6 +470,11 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
                 val diffY = event.y - mTouchDownY
 
                 if (mIsDragged || (Math.abs(diffX) > mDragThreshold && Math.abs(diffX) > Math.abs(diffY))) {
+                    if (!mIsDragged) {
+                        arrayOf(video_curr_time, video_seekbar, video_duration).forEach {
+                            it.animate().alpha(1f).start()
+                        }
+                    }
                     mIgnoreCloseDown = true
                     mIsDragged = true
                     var percent = ((diffX / mScreenWidth) * 100).toInt()
@@ -490,8 +495,16 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
                     supportFinishAfterTransition()
                 }
                 mIgnoreCloseDown = false
-                if (mIsDragged && !mIsPlaying) {
-                    togglePlayPause()
+                if (mIsDragged) {
+                    if (mIsFullscreen) {
+                        arrayOf(video_curr_time, video_seekbar, video_duration).forEach {
+                            it.animate().alpha(0f).start()
+                        }
+                    }
+
+                    if (!mIsPlaying) {
+                        togglePlayPause()
+                    }
                 }
                 mIsDragged = false
             }
