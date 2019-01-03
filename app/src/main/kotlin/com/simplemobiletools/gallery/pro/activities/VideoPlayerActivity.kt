@@ -71,6 +71,13 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         if (config.blackBackground) {
             video_player_holder.background = ColorDrawable(Color.BLACK)
         }
+
+        if (config.maxBrightness) {
+            val attributes = window.attributes
+            attributes.screenBrightness = 1f
+            window.attributes = attributes
+        }
+
         updateTextColors(video_player_holder)
     }
 
