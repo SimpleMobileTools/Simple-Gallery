@@ -399,6 +399,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         val newAlpha = if (isFullScreen) 0f else 1f
         top_shadow.animate().alpha(newAlpha).start()
         video_time_holder.animate().alpha(newAlpha).start()
+        video_bottom_gradient.animate().alpha(newAlpha).start()
         video_seekbar.setOnSeekBarChangeListener(if (mIsFullscreen) null else this)
         arrayOf(video_toggle_play_pause, video_curr_time, video_duration).forEach {
             it.isClickable = !mIsFullscreen

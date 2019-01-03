@@ -5,8 +5,7 @@
     android:id="@+id/video_time_holder"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    android:background="@drawable/gradient_background">
+    android:layout_alignParentBottom="true">
 
     <ImageView
         android:id="@+id/video_toggle_play_pause"
