@@ -170,6 +170,7 @@
     <string name="show_highest_quality">Zobrazovať obrázky v najlepšej možnej kvalite</string>
     <string name="show_recycle_bin_last">Zobraziť odpadkový kôš ako poslednú položku na hlavnej obrazovke</string>
     <string name="allow_down_gesture">Povoliť zatváranie celoobrazovkového režimu potiahnutím prsta dole</string>
+    <string name="allow_one_to_one">Povoliť 1:1 priblíženie dvojnásobným dvojklikom</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Náhľady</string>

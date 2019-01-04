@@ -170,6 +170,7 @@
     <string name="show_highest_quality">Tampilkan gambar dalam kualitas tertinggi</string>
     <string name="show_recycle_bin_last">Tampilkan Sampah sebagai item terakhir di layar utama</string>
     <string name="allow_down_gesture">Izinkan keluar dari layar penuh dengan menggeser kebawah</string>
+    <string name="allow_one_to_one">Allow 1:1 zooming in with two double taps</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnail</string>

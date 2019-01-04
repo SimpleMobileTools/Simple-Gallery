@@ -171,6 +171,7 @@
     <string name="show_highest_quality">Mutassa a képeket a lehető legjobb minőségben</string>
     <string name="show_recycle_bin_last">Mutassa a Lomtárat a fő képernyő utolsó elemeként</string>
     <string name="allow_down_gesture">Engedélyezi a teljes képernyős nézetet a lefelé mozdulattal</string>
+    <string name="allow_one_to_one">Allow 1:1 zooming in with two double taps</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatűrök</string>
