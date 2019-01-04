@@ -34,7 +34,6 @@ import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.PanoramaPhotoActivity
 import com.simplemobiletools.gallery.pro.activities.PhotoActivity
-import com.simplemobiletools.gallery.pro.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.MEDIUM
 import com.simplemobiletools.gallery.pro.helpers.PATH
@@ -69,14 +68,16 @@ class PhotoFragment : ViewPagerFragment() {
     private var isPanorama = false
     private var isSubsamplingVisible = false    // checking view.visibility is unreliable, use an extra variable for it
     private var imageOrientation = -1
+    private var mOriginalSubsamplingScale = 0f
     private var loadZoomableViewHandler = Handler()
+    private var mScreenWidth = 0
+    private var mScreenHeight = 0
 
     private var storedShowExtendedDetails = false
     private var storedHideExtendedDetails = false
     private var storedAllowDeepZoomableImages = false
     private var storedShowHighestQuality = false
     private var storedAllowOneFingerZoom = false
-    private var mOriginalSubsamplingScale = 0f
     private var storedExtendedDetails = 0
 
     lateinit var view: ViewGroup
@@ -225,7 +226,7 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun checkScreenDimensions() {
-        if (ViewPagerActivity.screenWidth == 0 || ViewPagerActivity.screenHeight == 0) {
+        if (mScreenWidth == 0 || mScreenHeight == 0) {
             measureScreen()
         }
     }
@@ -233,8 +234,8 @@ class PhotoFragment : ViewPagerFragment() {
     private fun measureScreen() {
         val metrics = DisplayMetrics()
         activity!!.windowManager.defaultDisplay.getRealMetrics(metrics)
-        ViewPagerActivity.screenWidth = metrics.widthPixels
-        ViewPagerActivity.screenHeight = metrics.heightPixels
+        mScreenWidth = metrics.widthPixels
+        mScreenHeight = metrics.heightPixels
     }
 
     private fun photoFragmentVisibilityChanged(isVisible: Boolean) {
@@ -308,7 +309,7 @@ class PhotoFragment : ViewPagerFragment() {
             val picasso = Picasso.get()
                     .load(pathToLoad)
                     .centerInside()
-                    .resize(ViewPagerActivity.screenWidth, ViewPagerActivity.screenHeight)
+                    .resize(mScreenWidth, mScreenHeight)
 
             if (degrees != 0) {
                 picasso.rotate(degrees.toFloat())
@@ -333,8 +334,8 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun tryLoadingWithGlide() {
-        var targetWidth = if (ViewPagerActivity.screenWidth == 0) com.bumptech.glide.request.target.Target.SIZE_ORIGINAL else ViewPagerActivity.screenWidth
-        var targetHeight = if (ViewPagerActivity.screenHeight == 0) com.bumptech.glide.request.target.Target.SIZE_ORIGINAL else ViewPagerActivity.screenHeight
+        var targetWidth = if (mScreenWidth == 0) com.bumptech.glide.request.target.Target.SIZE_ORIGINAL else mScreenWidth
+        var targetHeight = if (mScreenHeight == 0) com.bumptech.glide.request.target.Target.SIZE_ORIGINAL else mScreenHeight
 
         if (imageOrientation == ORIENTATION_ROTATE_90) {
             targetWidth = targetHeight
@@ -489,18 +490,18 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun getDoubleTapZoomScale(width: Int, height: Int): Float {
         val bitmapAspectRatio = height / width.toFloat()
-        val screenAspectRatio = ViewPagerActivity.screenHeight / ViewPagerActivity.screenWidth.toFloat()
+        val screenAspectRatio = mScreenHeight / mScreenWidth.toFloat()
 
         return if (context == null || bitmapAspectRatio == screenAspectRatio) {
             DEFAULT_DOUBLE_TAP_ZOOM
         } else if (context!!.portrait && bitmapAspectRatio <= screenAspectRatio) {
-            ViewPagerActivity.screenHeight / height.toFloat()
+            mScreenHeight / height.toFloat()
         } else if (context!!.portrait && bitmapAspectRatio > screenAspectRatio) {
-            ViewPagerActivity.screenWidth / width.toFloat()
+            mScreenWidth / width.toFloat()
         } else if (!context!!.portrait && bitmapAspectRatio >= screenAspectRatio) {
-            ViewPagerActivity.screenWidth / width.toFloat()
+            mScreenWidth / width.toFloat()
         } else if (!context!!.portrait && bitmapAspectRatio < screenAspectRatio) {
-            ViewPagerActivity.screenHeight / height.toFloat()
+            mScreenHeight / height.toFloat()
         } else {
             DEFAULT_DOUBLE_TAP_ZOOM
         }
