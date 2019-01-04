@@ -32,6 +32,8 @@ import kotlinx.android.synthetic.main.activity_video_player.*
 import kotlinx.android.synthetic.main.bottom_video_time_holder.*
 
 open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListener, TextureView.SurfaceTextureListener {
+    private val PLAY_WHEN_READY_DRAG_DELAY = 100L
+
     private var mIsFullscreen = false
     private var mIsPlaying = false
     private var mWasVideoStarted = false
@@ -45,6 +47,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     private var mUri: Uri? = null
     private var mExoPlayer: SimpleExoPlayer? = null
     private var mTimerHandler = Handler()
+    private var mPlayWhenReadyHandler = Handler()
 
     private var mTouchDownX = 0f
     private var mTouchDownY = 0f
@@ -97,7 +100,12 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     override fun onDestroy() {
         super.onDestroy()
         if (!isChangingConfigurations) {
-            cleanup()
+            pauseVideo()
+            video_curr_time.text = 0.getFormattedDuration()
+            releaseExoPlayer()
+            video_seekbar.progress = 0
+            mTimerHandler.removeCallbacksAndMessages(null)
+            mPlayWhenReadyHandler.removeCallbacksAndMessages(null)
         }
     }
 
@@ -485,6 +493,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
                     newProgress = Math.max(Math.min(mExoPlayer!!.duration.toFloat(), newProgress), 0f)
                     val newSeconds = (newProgress / 1000).toInt()
                     setPosition(newSeconds)
+                    resetPlayWhenReady()
                 }
             }
             MotionEvent.ACTION_UP -> {
@@ -511,12 +520,12 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         }
     }
 
-    private fun cleanup() {
-        pauseVideo()
-        video_curr_time.text = 0.getFormattedDuration()
-        releaseExoPlayer()
-        video_seekbar.progress = 0
-        mTimerHandler.removeCallbacksAndMessages(null)
+    private fun resetPlayWhenReady() {
+        mExoPlayer?.playWhenReady = false
+        mPlayWhenReadyHandler.removeCallbacksAndMessages(null)
+        mPlayWhenReadyHandler.postDelayed({
+            mExoPlayer?.playWhenReady = true
+        }, PLAY_WHEN_READY_DRAG_DELAY)
     }
 
     private fun releaseExoPlayer() {
@@ -530,6 +539,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
         if (mExoPlayer != null && fromUser) {
             setPosition(progress)
+            resetPlayWhenReady()
         }
     }
 
