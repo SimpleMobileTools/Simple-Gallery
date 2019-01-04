@@ -161,12 +161,12 @@
     <string name="manage_extended_details">Administrer udvidede oplysninger</string>
     <string name="one_finger_zoom">Tillad zoom med en finger når medier er i fuldskærm</string>
     <string name="allow_instant_change">Tillad skift af medie ved klik på skærmens sider</string>
-    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
+    <string name="allow_deep_zooming_images">Tillad dyb zooming af billeder</string>
     <string name="hide_extended_details">Skjul udvidede oplysninger når statuslinjen er skjult</string>
     <string name="do_extra_check">Tjek en ekstra gang for at undgå visning af ugyldige filer</string>
     <string name="show_at_bottom">Vis handlingsknapper i bunden af skærmen</string>
     <string name="show_recycle_bin">Vis papirkurven ved mappevisning</string>
-    <string name="deep_zoomable_images">Deep zoomable images</string>
+    <string name="deep_zoomable_images">Dybt zoombare billeder</string>
     <string name="show_highest_quality">Vis billeder i den højst mulige kvalitet</string>
     <string name="show_recycle_bin_last">Vis papirkurven som sidste element på hovedskærmen</string>
     <string name="allow_down_gesture">Luk fuldskærmsvisning ved at swipe ned</string>
