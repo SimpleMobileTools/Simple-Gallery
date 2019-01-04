@@ -110,5 +110,13 @@
             android:paddingBottom="@dimen/activity_margin"
             android:text="@string/set_as"/>
 
+        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+            android:id="@+id/manage_bottom_actions_copy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/activity_margin"
+            android:paddingBottom="@dimen/activity_margin"
+            android:text="@string/copy"/>
+
     </LinearLayout>
 </ScrollView>
