@@ -192,7 +192,7 @@
     <string name="faq_3_title">Cómo podo facer que un álbume apareza sempre arriba de todo?</string>
     <string name="faq_3_text">Pode manter premido o álbume e escoller a icona de Fixar no menú de accións, esto fixarao arriba. Pode fixar varios cartafoles tambén, os elementos fixados estarán ordenados polo criterio por omisión.</string>
     <string name="faq_4_title">Cómo podo aumentar a velocidade de reprodución de vídeo?</string>
-    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
+    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
     <string name="faq_4_text_old">Pode pulsar no texto de duración actual ou máxima preto da barra de busca, esto moverá ou vídeo hacia adiante ou atrás.</string>
     <string name="faq_5_title">Cal é a diferenza entre agochar e excluír un cartafol?</string>
     <string name="faq_5_text">A Exclusión prevén que se mostre o cartafol só en Simple Gallery, mentras Agochar funciona para todo o sistema e agocha o cartafol para outras galerías tamén. Esto funciona creando un ficheiro baldeiro de nome \".nomedia\" no cartafol, que tamén pode quitar con calquer xestor de ficheiros.</string>
