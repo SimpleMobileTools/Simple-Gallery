@@ -1,6 +1,16 @@
 Changelog
 ==========
 
+Version 6.2.0 *(2019-01-04)*
+----------------------------
+
+ * Rewrote video playback, use a separate screen + added fast-forwarding with horizontal swiping
+ * Added optional 1:1 pixel ratio zooming with two double taps at fullscreen view
+ * Allow adding Copy at the fullscreen bottom actions
+ * Always include images at slideshows, never videos
+ * Fixed scanning of some predefined folders for images
+ * Some other stability/performance/translation improvements
+
 Version 6.1.3 *(2018-12-26)*
 ----------------------------
 
