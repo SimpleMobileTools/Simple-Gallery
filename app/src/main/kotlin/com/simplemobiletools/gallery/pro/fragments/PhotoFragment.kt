@@ -393,15 +393,17 @@ class PhotoFragment : ViewPagerFragment() {
             override fun make() = PicassoRegionDecoder()
         }
 
+        val config = context!!.config
         view.subsampling_view.apply {
-            setMaxTileSize(if (context!!.config.showHighestQuality) Integer.MAX_VALUE else 4096)
-            setMinimumTileDpi(if (context!!.config.showHighestQuality) -1 else getMinTileDpi())
+            setMaxTileSize(if (config.showHighestQuality) Integer.MAX_VALUE else 4096)
+            setMinimumTileDpi(if (config.showHighestQuality) -1 else getMinTileDpi())
             background = ColorDrawable(Color.TRANSPARENT)
             setBitmapDecoderFactory(bitmapDecoder)
             setRegionDecoderFactory(regionDecoder)
             maxScale = 10f
             beVisible()
-            isQuickScaleEnabled = context.config.oneFingerZoom
+            isQuickScaleEnabled = config.oneFingerZoom
+            isOneToOneZoomEnabled = config.allowOneToOneZoom
             setResetScaleOnSizeChange(false)
             setImage(ImageSource.uri(path))
             setOrientation(rotation)
@@ -411,7 +413,7 @@ class PhotoFragment : ViewPagerFragment() {
                 }
 
                 override fun onReady() {
-                    background = ColorDrawable(if (context.config.blackBackground) Color.BLACK else context.config.backgroundColor)
+                    background = ColorDrawable(if (config.blackBackground) Color.BLACK else config.backgroundColor)
                     val useWidth = if (imageOrientation == ORIENTATION_ROTATE_90 || imageOrientation == ORIENTATION_ROTATE_270) sHeight else sWidth
                     val useHeight = if (imageOrientation == ORIENTATION_ROTATE_90 || imageOrientation == ORIENTATION_ROTATE_270) sWidth else sHeight
                     setDoubleTapZoomScale(getDoubleTapZoomScale(useWidth, useHeight))

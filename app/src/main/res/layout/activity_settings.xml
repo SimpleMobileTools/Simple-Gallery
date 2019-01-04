@@ -795,6 +795,30 @@
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/settings_allow_one_to_one_zoom_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:paddingLeft="@dimen/normal_margin"
+            android:paddingTop="@dimen/activity_margin"
+            android:paddingRight="@dimen/normal_margin"
+            android:paddingBottom="@dimen/activity_margin">
+
+            <com.simplemobiletools.commons.views.MySwitchCompat
+                android:id="@+id/settings_allow_one_to_one_zoom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:paddingStart="@dimen/medium_margin"
+                android:paddingLeft="@dimen/medium_margin"
+                android:text="@string/allow_one_to_one_zoom"
+                app:switchPadding="@dimen/medium_margin"/>
+
+        </RelativeLayout>
+
         <View
             android:id="@+id/extended_details_divider"
             android:layout_width="match_parent"
