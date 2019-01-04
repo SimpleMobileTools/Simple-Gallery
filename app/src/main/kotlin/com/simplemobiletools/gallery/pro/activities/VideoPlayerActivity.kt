@@ -377,7 +377,8 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             video_surface.layoutParams = this
         }
 
-        mScreenWidth = (screenWidth * 0.8).toInt()
+        val multiplier = if (screenWidth > screenHeight) 0.5 else 0.8
+        mScreenWidth = (screenWidth * multiplier).toInt()
     }
 
     private fun changeOrientation() {
