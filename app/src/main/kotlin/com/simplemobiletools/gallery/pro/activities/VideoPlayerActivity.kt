@@ -165,11 +165,11 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
         if (config.allowVideoGestures) {
             video_brightness_controller.initialize(this, slide_info, true, video_player_holder) { x, y ->
-                video_player_holder.performClick()
+                fullscreenToggled(!mIsFullscreen)
             }
 
             video_volume_controller.initialize(this, slide_info, false, video_player_holder) { x, y ->
-                video_player_holder.performClick()
+                fullscreenToggled(!mIsFullscreen)
             }
         } else {
             video_brightness_controller.beGone()
