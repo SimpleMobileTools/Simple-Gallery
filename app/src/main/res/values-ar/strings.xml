@@ -194,7 +194,8 @@
     <string name="faq_3_title">كيف يمكنني جعل الألبوم يظهر دائمًا في الجزء العلوي؟</string>
     <string name="faq_3_text">يمكنك الضغط لفترة طويلة على الألبوم المطلوب وتحديد أيقونة الدبوس في الإجراء ، والتي سوف تثبيته إلى الأعلى. يمكنك تثبيت عدة مجلدات أيضًا ، وسيتم ترتيب العناصر المثبتة حسب طريقة الفرز الافتراضية.</string>
     <string name="faq_4_title">كيف يمكنني تقديم مقاطع فيديو بسرعة؟</string>
-    <string name="faq_4_text">يمكنك النقر على النصوص الحالية أو أقصى مدة قريبة من شريط السحب ، والتي ستنقل الفيديو إما للخلف أو إلى الأمام.</string>
+    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
+    <string name="faq_4_text_old">يمكنك النقر على النصوص الحالية أو أقصى مدة قريبة من شريط السحب ، والتي ستنقل الفيديو إما للخلف أو إلى الأمام.</string>
     <string name="faq_5_title">ما الفرق بين إخفاء واستبعاد مجلد؟</string>
     <string name="faq_5_text">يمنع الاستبعاد من عرض المجلد في الاستوديو البسيط فقط ، بينما يقوم بإخفاء بالعمل على مستوى النظام ككل ويقوم بإخفاء المجلد من المعارض الأخرى أيضًا. وهو يعمل عن طريق إنشاء ملف \".nomedia\" فارغ في المجلد المحدد ، والذي يمكنك بعد ذلك إزالته مع أي مدير ملفات أيضًا.</string>
     <string name="faq_6_title">لماذا تظهر المجلدات التي تحتوي على ملصقات أو ملصقات موسيقى تغطيها؟</string>
