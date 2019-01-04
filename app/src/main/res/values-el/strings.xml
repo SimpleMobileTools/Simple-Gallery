@@ -170,7 +170,7 @@
     <string name="show_highest_quality">Εμφάνιση εικόνων με την υψηλότερη δυνατή ποιότητα</string>
     <string name="show_recycle_bin_last">Εμφάνιση του Κάδου ως τελευταίο στοιχείο στην κύρια οθόνη</string>
     <string name="allow_down_gesture">Επιτρέψτε το κλείσιμο προβολής πλήρους οθόνης με χειρονομία προς τα κάτω</string>
-    <string name="allow_one_to_one">Allow 1:1 zooming in with two double taps</string>
+    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Εικονίδια</string>

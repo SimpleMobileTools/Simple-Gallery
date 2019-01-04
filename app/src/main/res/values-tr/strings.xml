@@ -170,7 +170,7 @@
     <string name="show_highest_quality">Resimleri mümkün olan en yüksek kalitede göster</string>
     <string name="show_recycle_bin_last">Geri dönüşüm kutusu\'nu ana ekranda son öğe olarak göster</string>
     <string name="allow_down_gesture">Tam ekran görünümünü aşağı hareketi ile kapatmaya izin ver</string>
-    <string name="allow_one_to_one">Allow 1:1 zooming in with two double taps</string>
+    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Küçük resimler</string>

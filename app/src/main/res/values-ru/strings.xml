@@ -170,7 +170,7 @@
     <string name="show_highest_quality">Показывать изображения с максимально высоким качеством</string>
     <string name="show_recycle_bin_last">Показывать корзину как последний элемент на главном экране</string>
     <string name="allow_down_gesture">Выходить из полноэкранного режима жестом вниз</string>
-    <string name="allow_one_to_one">Allow 1:1 zooming in with two double taps</string>
+    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюры</string>

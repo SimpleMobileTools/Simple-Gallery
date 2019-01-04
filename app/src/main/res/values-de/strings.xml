@@ -170,7 +170,7 @@
     <string name="show_highest_quality">Zeige Bilder in der höchstmöglichen Qualität</string>
     <string name="show_recycle_bin_last">Zeige den Papierkorb als letztes Element auf dem Hauptbildschirm</string>
     <string name="allow_down_gesture">Erlaube das Schließen der Vollbildansicht mit einer Abwärtsgeste</string>
-    <string name="allow_one_to_one">Allow 1:1 zooming in with two double taps</string>
+    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>
