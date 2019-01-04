@@ -369,11 +369,6 @@ class MediaFetcher(val context: Context) {
                 else -> o1.taken.compareTo(o2.taken)
             }
 
-            // do just a quick extra sorting if the original sorting is equal, does not need to be accurate in all cases
-            if (result == 0 && sorting and SORT_BY_NAME == 0 && sorting and SORT_BY_PATH == 0) {
-                result = o1.name.compareTo(o2.name)
-            }
-
             if (sorting and SORT_DESCENDING != 0) {
                 result *= -1
             }
