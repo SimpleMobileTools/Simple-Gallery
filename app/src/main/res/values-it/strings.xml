@@ -116,7 +116,7 @@
     <string name="loop_slideshow">Ripeti presentazione</string>
     <string name="slideshow_ended">La presentazione è terminata</string>
     <string name="no_media_for_slideshow">Nessun file trovato per la presentazione</string>
-    <string name="use_crossfade_animation">Use crossfade animations</string>
+    <string name="use_crossfade_animation">Usa le animazioni in dissolvenza</string>
 
     <!-- View types -->
     <string name="change_view_type">Cambia modalità visualizzazione</string>
@@ -171,7 +171,7 @@
     <string name="show_highest_quality">Mostra le immagini alla massima qualità possibile</string>
     <string name="show_recycle_bin_last">Mostra il cestino come ultimo elemento nella schermata principale</string>
     <string name="allow_down_gesture">Chiudi la visuale a schermo intero con un gesto verso il basso</string>
-    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
+    <string name="allow_one_to_one_zoom">Permetti l'ingrandimento 1:1 con un doppio tasto</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Anteprime</string>
@@ -193,7 +193,7 @@
     <string name="faq_3_title">Come posso fare apparire un album sempre in cima?</string>
     <string name="faq_3_text">Si può toccare a lungo l\'album desiderato e selezionare l\'icona puntina nel menù azioni, ciò lo fisserà in cima. Si possono anche fissare varie cartelle, gli elementi fissati saranno ordinati dal metodo di ordinamento predefinito.</string>
     <string name="faq_4_title">Come avanzo velocemente nei video?</string>
-    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
+    <string name="faq_4_text">Si possono trascinare le proprie dita orrizontalmente sul video, oppure cliccando i testi accanto alla barra di avanzamento. In questo modo il video andrà avanti o indietro.</string>
     <string name="faq_4_text_old">Si può cliccare sui testi di durata attuale o massima vicino alla barra di avanzamento, ciò avanzerà o riavvolgerà il video.</string>
     <string name="faq_5_title">Che differenza c\'è tra nascondere ed escludere una cartella?</string>
     <string name="faq_5_text">Escludere impedisce la visualizzazione della cartella solo in Semplice Galleria, mentre nascondere ha effetto in tutto il sistema e nasconde la cartella anche alle altre gallerie. Funziona creando un file vuoto \".nomedia\" nella cartella in questione, si possono anche rimuovere successivamente con qualsiasi gestore dei file.</string>
