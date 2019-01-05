@@ -116,6 +116,7 @@
     <string name="loop_slideshow">Gjenta lysbildeshow</string>
     <string name="slideshow_ended">Lysbildeshowet er slutt</string>
     <string name="no_media_for_slideshow">Ingen media for lysbildeshowet er funnet</string>
+    <string name="use_crossfade_animation">Use crossfade animations</string>
 
     <!-- View types -->
     <string name="change_view_type">Endre visningstype</string>

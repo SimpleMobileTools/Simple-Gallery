@@ -116,6 +116,7 @@
     <string name="loop_slideshow">Slayt gösterisini tekrarla</string>
     <string name="slideshow_ended">Slayt gösterisi sona erdi</string>
     <string name="no_media_for_slideshow">Slayt gösterisi için medya bulunamadı</string>
+    <string name="use_crossfade_animation">Use crossfade animations</string>
 
     <!-- View types -->
     <string name="change_view_type">Görünüm türünü değiştir</string>

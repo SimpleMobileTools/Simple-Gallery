@@ -116,6 +116,7 @@
     <string name="loop_slideshow">Зациклить</string>
     <string name="slideshow_ended">Слайдшоу завершилось</string>
     <string name="no_media_for_slideshow">Медиафайлов для слайдшоу не найдено</string>
+    <string name="use_crossfade_animation">Use crossfade animations</string>
 
     <!-- View types -->
     <string name="change_view_type">Вид</string>

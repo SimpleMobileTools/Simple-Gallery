@@ -116,6 +116,7 @@
     <string name="loop_slideshow">Presentación de diapositivas</string>
     <string name="slideshow_ended">La diapositiva terminó</string>
     <string name="no_media_for_slideshow">No se han encontrado medios para la presentación de diapositivas</string>
+    <string name="use_crossfade_animation">Use crossfade animations</string>
 
     <!-- View types -->
     <string name="change_view_type">Cambiar tipo de vista</string>

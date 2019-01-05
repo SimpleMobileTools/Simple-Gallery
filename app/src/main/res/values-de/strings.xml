@@ -116,6 +116,7 @@
     <string name="loop_slideshow">Endlos abspielen</string>
     <string name="slideshow_ended">Diashow beendet.</string>
     <string name="no_media_for_slideshow">Keine Medien für Diashow gefunden.</string>
+    <string name="use_crossfade_animation">Use crossfade animations</string>
 
     <!-- View types -->
     <string name="change_view_type">Darstellung ändern</string>

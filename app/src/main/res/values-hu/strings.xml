@@ -117,6 +117,7 @@
     <string name="loop_slideshow">Diavetítés ismétlése</string>
     <string name="slideshow_ended">A diavetítés vége</string>
     <string name="no_media_for_slideshow">A diavetítéshez nem található média</string>
+    <string name="use_crossfade_animation">Use crossfade animations</string>
 
     <!-- View types -->
     <string name="change_view_type">Nézet típus változtatása</string>

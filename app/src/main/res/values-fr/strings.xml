@@ -116,6 +116,7 @@
     <string name="loop_slideshow">Diaporama en boucle</string>
     <string name="slideshow_ended">Diaporama terminé</string>
     <string name="no_media_for_slideshow">Aucun média trouvé pour le diaporama</string>
+    <string name="use_crossfade_animation">Use crossfade animations</string>
 
     <!-- View types -->
     <string name="change_view_type">Changer de mode d\'affichage</string>

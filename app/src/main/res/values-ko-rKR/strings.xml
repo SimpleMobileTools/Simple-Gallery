@@ -116,6 +116,7 @@
     <string name="loop_slideshow">슬라이드 쇼 반복</string>
     <string name="slideshow_ended">슬라이드 쇼 종료</string>
     <string name="no_media_for_slideshow">슬라이드 쇼를 위한 미디어를 찾을 수 없음</string>
+    <string name="use_crossfade_animation">Use crossfade animations</string>
 
     <!-- View types -->
     <string name="change_view_type">보기방식 변경</string>

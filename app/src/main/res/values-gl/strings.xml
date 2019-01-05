@@ -116,6 +116,7 @@
     <string name="loop_slideshow">Reproducir en bucle</string>
     <string name="slideshow_ended">Rematou a presentación</string>
     <string name="no_media_for_slideshow">Non se atoparon medios para a presentación</string>
+    <string name="use_crossfade_animation">Use crossfade animations</string>
 
     <!-- View types -->
     <string name="change_view_type">Cambiar o tipo de vista</string>
