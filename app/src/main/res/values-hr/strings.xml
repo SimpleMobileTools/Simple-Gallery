@@ -219,7 +219,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Izvanmrežna galerija za upravljanje datotekama, bez oglasa, poštujući Vašu privatnost.</string>
+    <string name="app_short_description">Izvanmrežna galerija za upravljanje datotekama,bez oglasa,poštujući privatnost.</string>
     <string name="app_long_description">
         Vrlo prilagodljiva galerija koja može prikazivati različite vrste slika i videozapisa, uključujući SVG-ove, RAW-ove, panoramske fotografije i videozapise.
 
