@@ -220,7 +220,7 @@ Ezzel csak a kiválasztott mappák láthatók, mivel a kizárás és a befoglal�
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
+    <string name="app_short_description">Egy offline galéria a fájlok hirdetés nélküli kezelésére.</string>
     <string name="app_long_description">
         Nagyon testreszabható galéria, amely alkalmas számos különböző kép- és videotípus megjelenítésére, beleértve az SVG-ket, RAW-t, panorámaképeket és videókat.
 
