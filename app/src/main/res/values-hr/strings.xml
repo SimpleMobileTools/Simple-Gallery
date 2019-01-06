@@ -30,7 +30,7 @@
     <string name="use_default_orientation">Koristi zadanu orijentaciju slike</string>
     <string name="fix_date_taken">Ispravi vrijednost datuma snimanja</string>
     <string name="fixing">Popravljam…</string>
-    <string name="dates_fixed_successfully">Dates fixed successfully</string>
+    <string name="dates_fixed_successfully">Datumi uspješno popravljeni</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtriranje medija</string>
@@ -89,7 +89,7 @@
     <string name="flip_vertically">Okreni vertikalno</string>
     <string name="edit_with">Uredi pomoću</string>
     <string name="free_aspect_ratio">Slobodan odabir</string>           <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Other</string>                    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+    <string name="other_aspect_ratio">Ostalo</string>                    <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Jednostavna pozadina</string>
@@ -116,7 +116,7 @@
     <string name="loop_slideshow">Prikaži dijaprojekciju kao petlju</string>
     <string name="slideshow_ended">Kraj dijaprojekcije</string>
     <string name="no_media_for_slideshow">Nema datoteka za dijaprojekciju</string>
-    <string name="use_crossfade_animation">Use crossfade animations</string>
+    <string name="use_crossfade_animation">Koristi prijelazne animacije</string>
 
     <!-- View types -->
     <string name="change_view_type">Promijeni vrstu prikaza</string>
@@ -134,18 +134,18 @@
     <string name="by_extension">Vrsta datoteke</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Folder shown on the widget:</string>
-    <string name="show_folder_name">Show folder name</string>
+    <string name="folder_on_widget">Mapa prikazana na widgetu:</string>
+    <string name="show_folder_name">Prikaži naziv mape</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Automatsko pokretanje videa</string>
-    <string name="remember_last_video_position">Remember last video playback position</string>
+    <string name="remember_last_video_position">Zapamti poziciju zadnjeg reproduciranog videozapisa</string>
     <string name="toggle_filename">Uključi prikaz naziva datoteka</string>
     <string name="loop_videos">Ponavljanje videa</string>
     <string name="animate_gifs">Prikaz animacije GIF-ova na sličicama</string>
     <string name="max_brightness">Maksimalna svjetlina pri pregledu datoteka</string>
     <string name="crop_thumbnails">Izreži sličice u kvadrate</string>
-    <string name="show_thumbnail_video_duration">Show video durations</string>
+    <string name="show_thumbnail_video_duration">Prikaži trajanje videozapisa</string>
     <string name="screen_rotation_by">Rotiraj datoteku u punom zaslonu za</string>
     <string name="screen_rotation_system_setting">Postavke sustava</string>
     <string name="screen_rotation_device_rotation">Rotacija uređaja</string>
@@ -162,16 +162,16 @@
     <string name="manage_extended_details">Upravljaj proširenim pojedinostima</string>
     <string name="one_finger_zoom">Omogući zumiranje jednim prstom na mediju cijelog zaslona</string>
     <string name="allow_instant_change">Dopusti trenutačno mijenjanje medija dodirom na stranice zaslona</string>
-    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
+    <string name="allow_deep_zooming_images">Omogućite duboko zumiranje slika</string>
     <string name="hide_extended_details">Sakrij proširene pojedinosti kada je traka statusa skrivena</string>
     <string name="do_extra_check">Napravite dodatnu provjeru da biste izbjegli prikazivanje nevažećih datoteka</string>
-    <string name="show_at_bottom">Pokažite neke gumbe za radnju pri dnu zaslona</string>
+    <string name="show_at_bottom">Prikaži neke gumbe za radnju pri dnu zaslona</string>
     <string name="show_recycle_bin">Prikažite koš za smeće na zaslonu mapa</string>
-    <string name="deep_zoomable_images">Deep zoomable images</string>
-    <string name="show_highest_quality">Show images in the highest possible quality</string>
-    <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
-    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
-    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
+    <string name="deep_zoomable_images">Duboko zumirane slike</string>
+    <string name="show_highest_quality">Prikaži slike u najvišoj mogućoj kvaliteti</string>
+    <string name="show_recycle_bin_last">Prikaži koš za smeće kao posljednju stavku na glavnom zaslonu</string>
+    <string name="allow_down_gesture">Omogućite zatvaranje prikaza preko cijelog zaslona pokretom prema dolje</string>
+    <string name="allow_one_to_one_zoom">Dopusti zumiranje 1: 1 s dva dvostruka dodira</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>
@@ -212,40 +212,40 @@
     <string name="faq_11_text">Naravno, koristeći stavku izbornika \"Grupiraj po\" u prikazu sličica. Možete grupirati datoteke prema više kriterija, uključujući datum snimanja. Ako koristite funkciju "Prikaži sve sadržaje mape", možete ih grupirati i mapama.</string>
     <string name="faq_12_title">Sortiranje po datumu nije točno, kako to mogu ispraviti?</string>
     <string name="faq_12_text">Vjerojatno uzrok tome da su Vaše slike kopirane s drugih mjesta. U tom slučaju trebali biste dugo dodirnuti sličice prikazanih slika, a zatim u izborniku u gornjem desnom kutu, odabrati funkciju \'Ispravi vrijednost datuma snimanja\'.</string>
-    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
-    <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
-    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
-    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too.</string>
+    <string name="faq_13_title">Vidim nekakvno preklapanje boja na slikama. Kako mogu poboljšati kvalitetu?</string>
+    <string name="faq_13_text">Trenutno rješenje za prikazivanje slika dobro funkcionira u velikoj većini slučajeva, ali ako želite još bolju kvalitetu slike, možete omogućiti prikazivanje slika u najvišoj mogućoj kvaliteti u postavkama aplikacije, u odjeljku "Duboko zumirane slike".</string>
+    <string name="faq_14_title">Sakrio sam datoteku/mapu. Kako je mogu otkriti?</string>
+    <string name="faq_14_text">Možete pritisnuti stavku izbornika "Privremeno prikazati skrivene stavke" na glavnom zaslonu ili uključiti "Prikaži skrivene stavke" u postavkama aplikacije da biste vidjeli skrivenu stavku. Ako je želite otkriti, samo ju dugo pritisnite i odaberite "Otkrij". Mape su skrivene dodavanjem skrivene datoteke ".Nomedia", možete i izbrisati navedenu datoteku.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
+    <string name="app_short_description">Izvanmrežna galerija za upravljanje datotekama, bez oglasa, poštujući Vašu privatnost.</string>
     <string name="app_long_description">
-        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
+        Vrlo prilagodljiva galerija koja može prikazivati različite vrste slika i videozapisa, uključujući SVG-ove, RAW-ove, panoramske fotografije i videozapise.
 
-        It is open source, contains no ads or unnecessary permissions.
+        Otvorenog je koda, ne sadrži oglase ili nepotrebna dopuštenja.
 
-        Let\'s list some of its features worth mentioning:
-        1. Search
-        2. Slideshow
-        3. Notch support
-        4. Pinning folders to the top
-        5. Filtering media files by type
-        6. Recycle bin for easy file recovery
-        7. Fullscreen view orientation locking
-        8. Marking favorite files for easy access
-        9. Quick fullscreen media closing with down gesture
-        10. An editor for modifying images and applying filters
-        11. Password protection for protecting hidden items or the whole app
-        12. Changing the thumbnail column count with gestures or menu buttons
-        13. Customizable bottom actions at the fullscreen view for quick access
-        14. Showing extended details over fullscreen media with desired file properties
-        15. Several different ways of sorting or grouping items, both ascending and descending
-        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
+        Navedimo neke od značajki koje vrijedi spomenuti:
+        1. Pretraživanje
+        2. Dijaprojekcija
+        3. Podrška za notch
+        4. Pričvršćivanje mapa na vrh
+        5. Filtriranje medijskih datoteka prema vrsti
+        6. Koš za smeće za jednostavan oporavak datoteke
+        7. Zaključavanje prikaza na cijelom zaslonu
+        8. Označavanje omiljenih datoteka radi lakog pristupa
+        9. Brzi mediji na cijelom zaslonu zatvaraju se pokretom prema dolje
+        10. Urednik za izmjenu slika i primjenu filtara
+        11. Zaštita lozinkom za zaštitu skrivenih stavki ili cijele aplikacije
+        12. Promjena broja stupaca minijatura pomoću pokreta ili gumba izbornika
+        13. Prilagodljive akcije na dnu cijelog zaslona za brzi pristup
+        14. Prikazivanje proširenih detalja preko medija, preko cijelog zaslona sa željenim svojstvima datoteke
+        15. Nekoliko različitih načina razvrstavanja ili grupiranja stavki, kako rastućih tako i silaznih
+        16. Skrivanje mapa (utječe i na druge aplikacije), izuzimanje mapa (utječe samo na jednostavnu galeriju)
 
-        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
+        Dopuštenje za otisak prsta potreban je za zaključavanje vidljivosti skrivenih stavki, cijele aplikacije ili za zaštitu datoteka od brisanja.
 
-        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
+        Ova je aplikacija samo dio većeg broja aplikacija. Možete pronaći ostatak na https://www.simplemobiletools.com
     </string>
 
     <!--
