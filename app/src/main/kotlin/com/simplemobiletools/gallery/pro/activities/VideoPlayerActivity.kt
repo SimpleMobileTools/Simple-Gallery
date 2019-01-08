@@ -26,9 +26,7 @@ import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.isPiePlus
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.*
-import com.simplemobiletools.gallery.pro.helpers.CLICK_MAX_DURATION
-import com.simplemobiletools.gallery.pro.helpers.DRAG_THRESHOLD
-import com.simplemobiletools.gallery.pro.helpers.MIN_SKIP_LENGTH
+import com.simplemobiletools.gallery.pro.helpers.*
 import kotlinx.android.synthetic.main.activity_video_player.*
 import kotlinx.android.synthetic.main.bottom_video_time_holder.*
 
@@ -39,6 +37,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     private var mIsPlaying = false
     private var mWasVideoStarted = false
     private var mIsDragged = false
+    private var mIsOrientationLocked = false
     private var mScreenWidth = 0
     private var mCurrTime = 0
     private var mDuration = 0
@@ -60,6 +59,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video_player)
+        setupOrientation()
 
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
@@ -130,6 +130,16 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         super.onConfigurationChanged(newConfig)
         setVideoSize()
         initTimeHolder()
+    }
+
+    private fun setupOrientation() {
+        if (!mIsOrientationLocked) {
+            if (config.screenRotation == ROTATE_BY_DEVICE_ROTATION) {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR
+            } else if (config.screenRotation == ROTATE_BY_SYSTEM_SETTING) {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+            }
+        }
     }
 
     private fun initPlayer() {
@@ -381,9 +391,18 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
         val multiplier = if (screenWidth > screenHeight) 0.5 else 0.8
         mScreenWidth = (screenWidth * multiplier).toInt()
+
+        if (config.screenRotation == ROTATE_BY_ASPECT_RATIO) {
+            if (mVideoSize.x > mVideoSize.y) {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+            } else if (mVideoSize.x < mVideoSize.y) {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+            }
+        }
     }
 
     private fun changeOrientation() {
+        mIsOrientationLocked = true
         requestedOrientation = if (resources.configuration.orientation == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) {
             ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
         } else {

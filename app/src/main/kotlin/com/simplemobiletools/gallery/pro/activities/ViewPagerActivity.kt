@@ -119,7 +119,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             window.attributes = attributes
         }
 
-        setupRotation()
+        setupOrientation()
         invalidateOptionsMenu()
 
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
@@ -358,7 +358,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }.start()
     }
 
-    private fun setupRotation() {
+    private fun setupOrientation() {
         if (!mIsOrientationLocked) {
             if (config.screenRotation == ROTATE_BY_DEVICE_ROTATION) {
                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR
