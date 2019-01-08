@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 6.2.1 *(2019-01-08)*
+----------------------------
+
+ * Fixed some menu buttons at the video player activity
+ * Added buttons to the videoplayer for going to the previous/next item
+ * Allow pressing play/pause at the video player at fullscreen mode
+ * Properly retain exif values after editing a file, when overwriting the source file
+
 Version 6.2.0 *(2019-01-04)*
 ----------------------------
 
