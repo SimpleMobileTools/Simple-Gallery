@@ -77,6 +77,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private var currAspectRatio = ASPECT_RATIO_FREE
     private var isCropIntent = false
     private var isEditingWithThirdParty = false
+    private var oldExif: ExifInterface? = null
 
     private var initialBitmap: Bitmap? = null
 
@@ -222,7 +223,19 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.N)
     private fun saveImage() {
+        var inputStream: InputStream? = null
+        try {
+            if (isNougatPlus()) {
+                inputStream = contentResolver.openInputStream(uri)
+                oldExif = ExifInterface(inputStream)
+            }
+        } catch (e: Exception) {
+        } finally {
+            inputStream?.close()
+        }
+
         if (crop_image_view.isVisible()) {
             crop_image_view.getCroppedImageAsync()
         } else {
@@ -593,17 +606,12 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             bitmap.compress(file.absolutePath.getCompressionFormat(), 90, out)
         }
 
-        var inputStream: InputStream? = null
         try {
             if (isNougatPlus()) {
-                inputStream = contentResolver.openInputStream(uri)
-                val oldExif = ExifInterface(inputStream)
                 val newExif = ExifInterface(file.absolutePath)
-                oldExif.copyTo(newExif, false)
+                oldExif?.copyTo(newExif, false)
             }
         } catch (e: Exception) {
-        } finally {
-            inputStream?.close()
         }
 
         setResult(Activity.RESULT_OK, intent)
