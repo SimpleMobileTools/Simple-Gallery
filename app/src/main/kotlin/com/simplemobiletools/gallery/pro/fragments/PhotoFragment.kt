@@ -324,7 +324,7 @@ class PhotoFragment : ViewPagerFragment() {
                 }
 
                 override fun onError(e: Exception) {
-                    if (context != null) {
+                    if (activity != null) {
                         tryLoadingWithGlide()
                     }
                 }
