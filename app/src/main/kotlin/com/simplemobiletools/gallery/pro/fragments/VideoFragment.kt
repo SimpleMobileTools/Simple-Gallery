@@ -32,8 +32,8 @@ class VideoFragment : ViewPagerFragment() {
     private lateinit var mBrightnessSideScroll: MediaSideScroll
     private lateinit var mVolumeSideScroll: MediaSideScroll
 
-    lateinit var mView: View
-    lateinit var medium: Medium
+    private lateinit var mView: View
+    private lateinit var mMedium: Medium
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mView = inflater.inflate(R.layout.pager_video_item, container, false).apply {
@@ -56,8 +56,8 @@ class VideoFragment : ViewPagerFragment() {
         }
 
         storeStateVariables()
-        medium = arguments!!.getSerializable(MEDIUM) as Medium
-        Glide.with(context!!).load(medium.path).into(mView.video_preview)
+        mMedium = arguments!!.getSerializable(MEDIUM) as Medium
+        Glide.with(context!!).load(mMedium.path).into(mView.video_preview)
 
         mIsFullscreen = activity!!.window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN == View.SYSTEM_UI_FLAG_FULLSCREEN
         checkIfPanorama()
@@ -68,7 +68,7 @@ class VideoFragment : ViewPagerFragment() {
                 video_play_outline.beGone()
                 mVolumeSideScroll.beGone()
                 mBrightnessSideScroll.beGone()
-                Glide.with(context!!).load(medium.path).into(video_preview)
+                Glide.with(context!!).load(mMedium.path).into(video_preview)
             }
         }
 
@@ -129,7 +129,7 @@ class VideoFragment : ViewPagerFragment() {
     }
 
     private fun launchVideoPlayer() {
-        activity!!.openPath(medium.path, false)
+        activity!!.openPath(mMedium.path, false)
     }
 
     private fun toggleFullscreen() {
@@ -140,7 +140,7 @@ class VideoFragment : ViewPagerFragment() {
         if (context!!.config.showExtendedDetails) {
             mView.video_details.apply {
                 beInvisible()   // make it invisible so we can measure it, but not show yet
-                text = getMediumExtendedDetails(medium)
+                text = getMediumExtendedDetails(mMedium)
                 onGlobalLayout {
                     if (isAdded) {
                         val realY = getExtendedDetailsY(height)
@@ -159,8 +159,8 @@ class VideoFragment : ViewPagerFragment() {
 
     private fun checkIfPanorama() {
         try {
-            val fis = FileInputStream(File(medium.path))
-            context!!.parseFileChannel(medium.path, fis.channel, 0, 0, 0) {
+            val fis = FileInputStream(File(mMedium.path))
+            context!!.parseFileChannel(mMedium.path, fis.channel, 0, 0, 0) {
                 mIsPanorama = true
             }
         } catch (ignored: Exception) {
@@ -170,7 +170,7 @@ class VideoFragment : ViewPagerFragment() {
 
     private fun openPanorama() {
         Intent(context, PanoramaVideoActivity::class.java).apply {
-            putExtra(PATH, medium.path)
+            putExtra(PATH, mMedium.path)
             startActivity(this)
         }
     }
