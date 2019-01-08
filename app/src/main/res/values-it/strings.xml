@@ -171,7 +171,7 @@
     <string name="show_highest_quality">Mostra le immagini alla massima qualità possibile</string>
     <string name="show_recycle_bin_last">Mostra il cestino come ultimo elemento nella schermata principale</string>
     <string name="allow_down_gesture">Chiudi la visuale a schermo intero con un gesto verso il basso</string>
-    <string name="allow_one_to_one_zoom">Permetti l'ingrandimento 1:1 con un doppio tasto</string>
+    <string name="allow_one_to_one_zoom">Permetti l\'ingrandimento 1:1 con un doppio tasto</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Anteprime</string>
@@ -224,7 +224,6 @@
         Una galleria altamente personalizzabile e capace di visualizzare tipi di file immagini e video differenti, fra cui SVG, RAW, foto panoramiche e video.
 
         L\'applicazione non contiene pubblicità o permessi non necessari; è completamente opensource e la si può personalizzare con i propri colori preferiti.
-
 
         Alcune funzionalità che vale la pena accennare:
         1. Ricerca
