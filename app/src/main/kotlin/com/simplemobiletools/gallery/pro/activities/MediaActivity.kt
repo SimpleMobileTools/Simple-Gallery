@@ -153,7 +153,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         media_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
         media_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
         media_refresh_layout.isEnabled = config.enablePullToRefresh
-        tryloadGallery()
+        tryLoadGallery()
         invalidateOptionsMenu()
         media_empty_text_label.setTextColor(config.textColor)
         media_empty_text.setTextColor(getAdjustedPrimaryColor())
@@ -333,7 +333,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         }.start()
     }
 
-    private fun tryloadGallery() {
+    private fun tryLoadGallery() {
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
                 val dirName = when {
