@@ -910,18 +910,18 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
-        if (requestCode == REQUEST_EDIT_IMAGE) {
-            if (resultCode == Activity.RESULT_OK && resultData != null) {
-                mPos = -1
-                mPrevHashcode = 0
-                refreshViewPager()
+        if (requestCode == REQUEST_EDIT_IMAGE && resultCode == Activity.RESULT_OK && resultData != null) {
+            mPos = -1
+            mPrevHashcode = 0
+            refreshViewPager()
+        } else if (requestCode == REQUEST_SET_AS && resultCode == Activity.RESULT_OK) {
+            toast(R.string.wallpaper_set_successfully)
+        } else if (requestCode == REQUEST_VIEW_VIDEO && resultCode == Activity.RESULT_OK && resultData != null) {
+            if (resultData.getBooleanExtra(GO_TO_NEXT_ITEM, false)) {
+                goToNextItem()
+            } else if (resultData.getBooleanExtra(GO_TO_PREV_ITEM, false)) {
+                goToPrevItem()
             }
-        } else if (requestCode == REQUEST_SET_AS) {
-            if (resultCode == Activity.RESULT_OK) {
-                toast(R.string.wallpaper_set_successfully)
-            }
-        } else if (requestCode == REQUEST_VIEW_VIDEO) {
-
         }
         super.onActivityResult(requestCode, resultCode, resultData)
     }

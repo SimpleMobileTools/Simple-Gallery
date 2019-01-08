@@ -94,13 +94,13 @@ const val SHOW_FAVORITES = "show_favorites"
 const val SHOW_RECYCLE_BIN = "show_recycle_bin"
 const val SHOW_NEXT_ITEM = "show_next_item"
 const val SHOW_PREV_ITEM = "show_prev_item"
+const val GO_TO_NEXT_ITEM = "go_to_next_item"
+const val GO_TO_PREV_ITEM = "go_to_prev_item"
 const val MAX_COLUMN_COUNT = 20
 const val SHOW_TEMP_HIDDEN_DURATION = 300000L
 const val CLICK_MAX_DURATION = 150
 const val DRAG_THRESHOLD = 8
 const val MONTH_MILLISECONDS = MONTH_SECONDS * 1000L
-const val HIDE_PLAY_PAUSE_DELAY = 500L
-const val PLAY_PAUSE_VISIBLE_ALPHA = 0.8f
 const val MIN_SKIP_LENGTH = 2000
 
 const val DIRECTORY = "directory"

@@ -1,5 +1,7 @@
 package com.simplemobiletools.gallery.pro.activities
 
+import android.app.Activity
+import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.graphics.Color
@@ -547,11 +549,19 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     }
 
     private fun handleNextFile() {
-
+        Intent().apply {
+            putExtra(GO_TO_NEXT_ITEM, true)
+            setResult(Activity.RESULT_OK, this)
+        }
+        finish()
     }
 
     private fun handlePrevFile() {
-
+        Intent().apply {
+            putExtra(GO_TO_PREV_ITEM, true)
+            setResult(Activity.RESULT_OK, this)
+        }
+        finish()
     }
 
     private fun resetPlayWhenReady() {
