@@ -384,7 +384,12 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         if (currPrimaryAction == PRIMARY_ACTION_FILTER && bottom_actions_filter_list.adapter == null) {
             Thread {
                 val thumbnailSize = resources.getDimension(R.dimen.bottom_filters_thumbnail_size).toInt()
-                val bitmap = Glide.with(this).asBitmap().load(uri).submit(thumbnailSize, thumbnailSize).get()
+                val bitmap = Glide.with(this)
+                        .asBitmap()
+                        .load(uri)
+                        .submit(thumbnailSize, thumbnailSize)
+                        .get()
+
                 runOnUiThread {
                     val filterThumbnailsManager = FilterThumbnailsManager()
                     filterThumbnailsManager.clearThumbs()
