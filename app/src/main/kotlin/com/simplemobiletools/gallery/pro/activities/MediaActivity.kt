@@ -320,12 +320,15 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     private fun searchQueryChanged(text: String) {
         Thread {
-            val filtered = mMedia.filter { it is Medium && it.name.contains(text, true) } as ArrayList
-            filtered.sortBy { it is Medium && !it.name.startsWith(text, true) }
-            val grouped = MediaFetcher(applicationContext).groupMedia(filtered as ArrayList<Medium>, mPath)
-            runOnUiThread {
-                getMediaAdapter()?.updateMedia(grouped)
-                measureRecyclerViewContent(grouped)
+            try {
+                val filtered = mMedia.filter { it is Medium && it.name.contains(text, true) } as ArrayList
+                filtered.sortBy { it is Medium && !it.name.startsWith(text, true) }
+                val grouped = MediaFetcher(applicationContext).groupMedia(filtered as ArrayList<Medium>, mPath)
+                runOnUiThread {
+                    getMediaAdapter()?.updateMedia(grouped)
+                    measureRecyclerViewContent(grouped)
+                }
+            } catch (ignored: Exception) {
             }
         }.start()
     }
