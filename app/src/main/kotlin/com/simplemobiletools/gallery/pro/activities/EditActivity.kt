@@ -137,6 +137,14 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         setupBottomActions()
 
         if (config.lastEditorCropAspectRatio == ASPECT_RATIO_OTHER) {
+            if (config.lastEditorCropOtherAspectRatioX == 0) {
+                config.lastEditorCropOtherAspectRatioX = 1
+            }
+
+            if (config.lastEditorCropOtherAspectRatioY == 0) {
+                config.lastEditorCropOtherAspectRatioY = 1
+            }
+
             lastOtherAspectRatio = Pair(config.lastEditorCropOtherAspectRatioX, config.lastEditorCropOtherAspectRatioY)
         }
         updateAspectRatio(config.lastEditorCropAspectRatio)
