@@ -161,6 +161,8 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         video_curr_time.setOnClickListener { skip(false) }
         video_duration.setOnClickListener { skip(true) }
         video_toggle_play_pause.setOnClickListener { togglePlayPause() }
+        video_next_file.setOnClickListener { }
+        video_prev_file.setOnClickListener { }
 
         video_player_holder.setOnTouchListener { view, event ->
             handleEvent(event)
@@ -419,7 +421,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         }
 
         val newAlpha = if (isFullScreen) 0f else 1f
-        arrayOf(video_toggle_play_pause, video_curr_time, video_seekbar, video_duration, top_shadow, video_bottom_gradient).forEach {
+        arrayOf(video_prev_file, video_toggle_play_pause, video_next_file, video_curr_time, video_seekbar, video_duration, top_shadow, video_bottom_gradient).forEach {
             it.animate().alpha(newAlpha).start()
         }
         video_seekbar.setOnSeekBarChangeListener(if (mIsFullscreen) null else this)
