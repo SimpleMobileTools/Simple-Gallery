@@ -32,6 +32,7 @@ import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FileDirItem
+import com.simplemobiletools.gallery.pro.BuildConfig
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.MyPagerAdapter
 import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
@@ -53,6 +54,8 @@ import java.io.OutputStream
 import java.util.*
 
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
+    private val REQUEST_VIEW_VIDEO = 1
+
     private var mPath = ""
     private var mDirectory = ""
     private var mIsFullScreen = false
@@ -917,6 +920,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             if (resultCode == Activity.RESULT_OK) {
                 toast(R.string.wallpaper_set_successfully)
             }
+        } else if (requestCode == REQUEST_VIEW_VIDEO) {
+
         }
         super.onActivityResult(requestCode, resultCode, resultData)
     }
@@ -1096,6 +1101,34 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun goToNextItem() {
         view_pager.setCurrentItem(view_pager.currentItem + 1, false)
         checkOrientation()
+    }
+
+    override fun launchViewVideoIntent(path: String) {
+        Thread {
+            val newUri = getFinalUriFromPath(path, BuildConfig.APPLICATION_ID) ?: return@Thread
+            val mimeType = getUriMimeType(path, newUri)
+            Intent().apply {
+                action = Intent.ACTION_VIEW
+                setDataAndType(newUri, mimeType)
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                putExtra(IS_FROM_GALLERY, true)
+                putExtra(REAL_FILE_PATH, path)
+                putExtra(SHOW_PREV_ITEM, view_pager.currentItem != 0)
+                putExtra(SHOW_NEXT_ITEM, view_pager.currentItem != mMediaFiles.size - 1)
+
+                if (resolveActivity(packageManager) != null) {
+                    try {
+                        startActivityForResult(this, REQUEST_VIEW_VIDEO)
+                    } catch (e: NullPointerException) {
+                        showErrorToast(e)
+                    }
+                } else {
+                    if (!tryGenericMimeType(this, mimeType, newUri)) {
+                        toast(R.string.no_app_found)
+                    }
+                }
+            }
+        }.start()
     }
 
     private fun checkSystemUI() {

@@ -30,7 +30,6 @@ import java.io.File
 import java.io.FileInputStream
 
 open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentListener {
-
     private var mMedium: Medium? = null
     private var mIsFullScreen = false
     private var mIsFromGallery = false
@@ -177,6 +176,10 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             val mimeType = getUriMimeType(mUri.toString(), newUri)
             Intent(applicationContext, VideoPlayerActivity::class.java).apply {
                 setDataAndType(newUri, mimeType)
+                if (intent.extras != null) {
+                    putExtras(intent.extras!!)
+                }
+
                 startActivity(this)
             }
         }
@@ -292,4 +295,6 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     override fun goToPrevItem() {}
 
     override fun goToNextItem() {}
+
+    override fun launchViewVideoIntent(path: String) {}
 }

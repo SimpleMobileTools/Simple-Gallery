@@ -28,6 +28,8 @@ abstract class ViewPagerFragment : Fragment() {
         fun goToPrevItem()
 
         fun goToNextItem()
+
+        fun launchViewVideoIntent(path: String)
     }
 
     fun getMediumExtendedDetails(medium: Medium): String {

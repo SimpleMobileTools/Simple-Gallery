@@ -129,7 +129,7 @@ class VideoFragment : ViewPagerFragment() {
     }
 
     private fun launchVideoPlayer() {
-        activity!!.openPath(mMedium.path, false)
+        listener?.launchViewVideoIntent(mMedium.path)
     }
 
     private fun toggleFullscreen() {

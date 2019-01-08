@@ -16,7 +16,8 @@
         android:layout_marginTop="@dimen/activity_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/normal_margin"
-        android:src="@drawable/ic_prev_outline"/>
+        android:src="@drawable/ic_prev_outline"
+        android:visibility="invisible"/>
 
     <ImageView
         android:id="@+id/video_toggle_play_pause"
@@ -38,7 +39,8 @@
         android:layout_marginEnd="@dimen/small_margin"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/normal_margin"
-        android:src="@drawable/ic_next_outline"/>
+        android:src="@drawable/ic_next_outline"
+        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/video_curr_time"

@@ -161,8 +161,12 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         video_curr_time.setOnClickListener { skip(false) }
         video_duration.setOnClickListener { skip(true) }
         video_toggle_play_pause.setOnClickListener { togglePlayPause() }
-        video_next_file.setOnClickListener { }
-        video_prev_file.setOnClickListener { }
+
+        video_next_file.beVisibleIf(intent.getBooleanExtra(SHOW_NEXT_ITEM, false))
+        video_next_file.setOnClickListener { handleNextFile() }
+
+        video_prev_file.beVisibleIf(intent.getBooleanExtra(SHOW_PREV_ITEM, false))
+        video_prev_file.setOnClickListener { handlePrevFile() }
 
         video_player_holder.setOnTouchListener { view, event ->
             handleEvent(event)
@@ -540,6 +544,14 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
                 mIsDragged = false
             }
         }
+    }
+
+    private fun handleNextFile() {
+
+    }
+
+    private fun handlePrevFile() {
+
     }
 
     private fun resetPlayWhenReady() {
