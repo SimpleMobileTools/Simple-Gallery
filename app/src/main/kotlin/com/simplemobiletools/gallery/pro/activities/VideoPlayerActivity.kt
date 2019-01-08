@@ -431,7 +431,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             it.animate().alpha(newAlpha).start()
         }
         video_seekbar.setOnSeekBarChangeListener(if (mIsFullscreen) null else this)
-        arrayOf(video_curr_time, video_duration).forEach {
+        arrayOf(video_prev_file, video_next_file, video_curr_time, video_duration).forEach {
             it.isClickable = !mIsFullscreen
         }
     }
