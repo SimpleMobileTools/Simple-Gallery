@@ -171,6 +171,7 @@ class VideoFragment : ViewPagerFragment() {
         }
 
         (mTimeHolder.layoutParams as RelativeLayout.LayoutParams).bottomMargin = bottomMargin
+        mTimeHolder.beInvisibleIf(mIsFullscreen)
     }
 
     private fun checkIfPanorama() {
@@ -200,6 +201,9 @@ class VideoFragment : ViewPagerFragment() {
     override fun fullscreenToggled(isFullscreen: Boolean) {
         mIsFullscreen = isFullscreen
         val newAlpha = if (isFullscreen) 0f else 1f
+        if (!mIsFullscreen) {
+            mTimeHolder.beVisible()
+        }
         mTimeHolder.animate().alpha(newAlpha).start()
         mView.video_details.apply {
             if (mStoredShowExtendedDetails && isVisible()) {
@@ -215,7 +219,13 @@ class VideoFragment : ViewPagerFragment() {
     private fun getExtendedDetailsY(height: Int): Float {
         val smallMargin = resources.getDimension(R.dimen.small_margin)
         val fullscreenOffset = smallMargin + if (mIsFullscreen) 0 else context!!.navigationBarHeight
-        val actionsHeight = if (context!!.config.bottomActions && !mIsFullscreen) resources.getDimension(R.dimen.bottom_actions_height) else 0f
+        var actionsHeight = 0f
+        if (!mIsFullscreen) {
+            actionsHeight += resources.getDimension(R.dimen.video_player_play_pause_size)
+            if (context!!.config.bottomActions) {
+                actionsHeight += resources.getDimension(R.dimen.bottom_actions_height)
+            }
+        }
         return context!!.realScreenSize.y - height - actionsHeight - fullscreenOffset
     }
 }
