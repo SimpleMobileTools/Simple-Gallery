@@ -42,6 +42,7 @@ class SettingsActivity : SimpleActivity() {
         setupAutoplayVideos()
         setupRememberLastVideo()
         setupLoopVideos()
+        setupOpenVideosOnNewScreen()
         setupAnimateGifs()
         setupMaxBrightness()
         setupCropThumbnails()
@@ -171,6 +172,14 @@ class SettingsActivity : SimpleActivity() {
         settings_loop_videos_holder.setOnClickListener {
             settings_loop_videos.toggle()
             config.loopVideos = settings_loop_videos.isChecked
+        }
+    }
+
+    private fun setupOpenVideosOnNewScreen() {
+        settings_open_videos_on_new_screen.isChecked = config.openVideosOnNewScreen
+        settings_open_videos_on_new_screen_holder.setOnClickListener {
+            settings_open_videos_on_new_screen.toggle()
+            config.openVideosOnNewScreen = settings_open_videos_on_new_screen.isChecked
         }
     }
 
