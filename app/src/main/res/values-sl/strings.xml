@@ -116,6 +116,7 @@
     <string name="loop_slideshow">Ponavljaj diaprojekcijo</string>
     <string name="slideshow_ended">Diaprojekcija se je zaključila</string>
     <string name="no_media_for_slideshow">Ne najdem datotek za diaprojekcijo</string>
+    <string name="use_crossfade_animation">Use crossfade animations</string>
 
     <!-- View types -->
     <string name="change_view_type">Spremeni tip pogleda</string>
@@ -170,6 +171,7 @@
     <string name="show_highest_quality">Prikaži slike v največji možni kvaliteti</string>
     <string name="show_recycle_bin_last">Prikaži Koš kot zadnji element na glavnem zaslonu</string>
     <string name="allow_down_gesture">Dovoli zapiranje celozaslonskega načina z gesto navzdol</string>
+    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>
@@ -191,7 +193,8 @@
     <string name="faq_3_title">Kako nastaviti, da se določen album vedno prikaže na vrhu?</string>
     <string name="faq_3_text">Z dolgim pritiskom na album se vam prikaže meni, v katerem je na voljo bucika, s katero pripnete album na željeno mesto. Na ta način lahko pripnete več albumov, ki bodo razvrščeni v skladu s privzetim načinom razvrščanja.</string>
     <string name="faq_4_title">Ali lahko hitro predvajam videoposnetke?</string>
-    <string name="faq_4_text">Lahko kliknete na napis trenutnega ali maksimalnega trajanja poleg vrstice položaja, kar premakne/preskoči video naprej ali nazaj.</string>
+    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
+    <string name="faq_4_text_old">Lahko kliknete na napis trenutnega ali maksimalnega trajanja poleg vrstice položaja, kar premakne/preskoči video naprej ali nazaj.</string>
     <string name="faq_5_title">Kakšna je razlika med skrivanjem in izključevanjem mape?</string>
     <string name="faq_5_text">Izključevanje mape jo skrije le v Simple galeriji, medtem ko jo skrivanje skrije tudi v ostalih aplikacijah oz. galerijah. Deluje tako, da kreira prazno \".nomedia\" datoteko v izbrani mapi, katero lahko odstranite tudi s katerimkoli urejevalnikom datotek.</string>
     <string name="faq_6_title">Zakaj se v galeriji prikažejo datoteke z naslovnicami glasbenih map ali nalepk?</string>

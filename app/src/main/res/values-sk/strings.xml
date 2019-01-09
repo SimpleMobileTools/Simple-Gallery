@@ -116,6 +116,7 @@
     <string name="loop_slideshow">Automaticky reštartovať prezentáciu</string>
     <string name="slideshow_ended">Prezentácia skončila</string>
     <string name="no_media_for_slideshow">Pre prezentáciu sa nenašli žiadne vhodné súbory</string>
+    <string name="use_crossfade_animation">Použiť prelínacie animácie</string>
 
     <!-- View types -->
     <string name="change_view_type">Zmeniť typ zobrazenia</string>
@@ -170,6 +171,7 @@
     <string name="show_highest_quality">Zobrazovať obrázky v najlepšej možnej kvalite</string>
     <string name="show_recycle_bin_last">Zobraziť odpadkový kôš ako poslednú položku na hlavnej obrazovke</string>
     <string name="allow_down_gesture">Povoliť zatváranie celoobrazovkového režimu potiahnutím prsta dole</string>
+    <string name="allow_one_to_one_zoom">Povoliť 1:1 priblíženie dvojnásobným dvojklikom</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Náhľady</string>
@@ -191,7 +193,8 @@
     <string name="faq_3_title">Ako môžem dosiahnuť, aby bol daný album stále zobrazený prvý?</string>
     <string name="faq_3_text">Môžete označiť daný priečinok dlhým podržaním a zvoliť tlačidlo s obrázkom pripinačky, to ho pripne na vrch. Môžete pripnúť aj viacero priečinkov, budú zoradené podľa zvoleného radenia.</string>
     <string name="faq_4_title">Ako viem posunúť video vpred?</string>
-    <string name="faq_4_text">Môžete kliknúť na texty súčasnej, alebo maximálnej dĺžky videa, ktoré sú vedľa indikátora súčasného progresu. To posunie video buď vpred, alebo vzad.</string>
+    <string name="faq_4_text">Môžete to dosiahnuť vodorovným potiahnutím prsta cez video prehrávač, alebo kliknúť na texty súčasnej, alebo maximálnej dĺžky videa, ktoré sú vedľa indikátora súčasného progresu. To posunie video buď vpred, alebo vzad.</string>
+    <string name="faq_4_text_old">Môžete kliknúť na texty súčasnej, alebo maximálnej dĺžky videa, ktoré sú vedľa indikátora súčasného progresu. To posunie video buď vpred, alebo vzad.</string>
     <string name="faq_5_title">Aký je rozdiel medzi Skrytím a Vylúčením priečinka?</string>
     <string name="faq_5_text">Kým vylúčenie predíde zobrazeniu priečinka iba vrámci Jednoduchej Galérie, skrytie ho ukryje vrámci celého systému, teda to ovplyvní aj ostatné galérie. Skrytie funguje pomocou vytvorenia prázdneho \".nomedia\" súboru v danom priečinku, ktorý viete vymazať aj nejakým správcom súborov.</string>
     <string name="faq_6_title">Prečo sa mi zobrazujú priečinky s obalmi hudobných albumov, alebo nálepkami?</string>

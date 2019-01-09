@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/video_player_holder"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -35,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="200dp"
         android:alpha="0"
         android:background="@drawable/black_rounded_background"
         android:gravity="center"
@@ -45,6 +46,15 @@
         android:paddingBottom="@dimen/medium_margin"
         android:textColor="@android:color/white"
         android:textSize="@dimen/extra_big_text_size"/>
+
+    <TextView
+        android:id="@+id/video_bottom_gradient"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@+id/video_time_holder"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/gradient_background"
+        tools:ignore="UnknownIdInLayout"/>
 
     <include layout="@layout/bottom_video_time_holder"/>
 

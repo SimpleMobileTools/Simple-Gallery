@@ -441,4 +441,8 @@ class Config(context: Context) : BaseConfig(context) {
     var showWidgetFolderName: Boolean
         get() = prefs.getBoolean(SHOW_WIDGET_FOLDER_NAME, true)
         set(showWidgetFolderName) = prefs.edit().putBoolean(SHOW_WIDGET_FOLDER_NAME, showWidgetFolderName).apply()
+
+    var allowOneToOneZoom: Boolean
+        get() = prefs.getBoolean(ALLOW_ONE_TO_ONE_ZOOM, false)
+        set(allowOneToOneZoom) = prefs.edit().putBoolean(ALLOW_ONE_TO_ONE_ZOOM, allowOneToOneZoom).apply()
 }

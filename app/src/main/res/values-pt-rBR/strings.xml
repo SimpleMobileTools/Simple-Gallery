@@ -116,6 +116,7 @@
     <string name="loop_slideshow">Apresentação em ciclo</string>
     <string name="slideshow_ended">Fim da apresentação</string>
     <string name="no_media_for_slideshow">Nenhuma mídia encontrada para a apresentação</string>
+    <string name="use_crossfade_animation">Use crossfade animations</string>
 
     <!-- View types -->
     <string name="change_view_type">Alterar modo de visualização</string>
@@ -170,6 +171,7 @@
     <string name="show_highest_quality">Show images in the highest possible quality</string>
     <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
     <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
+    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
@@ -191,7 +193,8 @@
     <string name="faq_3_title">How can I make an album always appear at the top?</string>
     <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actionmenu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
     <string name="faq_4_title">How can I fast-forward videos?</string>
-    <string name="faq_4_text">You can click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
+    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
+    <string name="faq_4_text_old">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
     <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
     <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
     <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>

@@ -2,6 +2,12 @@
 <resources>
 
     <!-- Release notes -->
+    <string name="release_217">
+        Rewrote video playback, use a separate screen + added fast-forwarding with horizontal swiping\n
+        Added optional 1:1 pixel ratio zooming with two double taps at fullscreen view\n
+        Allow adding Copy at the fullscreen bottom actions\n
+        Always include images at slideshows, never videos
+    </string>
     <string name="release_213">
         Added an initial widget implementation for creating homescreen folder shortcuts\n
         Added optional grouping of direct subfolders, as a check at the \"Change view type\" dialog

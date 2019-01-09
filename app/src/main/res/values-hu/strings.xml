@@ -117,6 +117,7 @@
     <string name="loop_slideshow">Diavetítés ismétlése</string>
     <string name="slideshow_ended">A diavetítés vége</string>
     <string name="no_media_for_slideshow">A diavetítéshez nem található média</string>
+    <string name="use_crossfade_animation">Animáció átmenet használat</string>
 
     <!-- View types -->
     <string name="change_view_type">Nézet típus változtatása</string>
@@ -171,6 +172,7 @@
     <string name="show_highest_quality">Mutassa a képeket a lehető legjobb minőségben</string>
     <string name="show_recycle_bin_last">Mutassa a Lomtárat a fő képernyő utolsó elemeként</string>
     <string name="allow_down_gesture">Engedélyezi a teljes képernyős nézetet a lefelé mozdulattal</string>
+    <string name="allow_one_to_one_zoom">Engedélyezi az 1:1 nagyítást két dupla érintéssel</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatűrök</string>
@@ -192,7 +194,8 @@ A következő alkalommal, amikor megpróbál megnyitni egy képet vagy videót, 
     <string name="faq_3_title">Hogyan állíthatok be egy albumot úgy, hogy mindig felül legyen?</string>
     <string name="faq_3_text">Hosszan nyomja meg a kívánt albumot, és válassza ki a Kitűzés ikont a művelet menüben, ami rögzíti felülre. Többféle mappát is kitűzhet, ezeket az elemeket az alapértelmezett rendezési mód szerint rendezi.</string>
     <string name="faq_4_title">Hogyan tudom előre tekerni a videókat?</string>
-    <string name="faq_4_text">A keresősáv közelében lévő aktuális vagy maximális időtartamú szövegekre kattintva előre vagy hátra mozgathatja a videót.</string>
+    <string name="faq_4_text">Húzhatja az ujját vízszintesen a videolejátszón, vagy kattintson az aktuális vagy a max. időtartam szövegekre a keresősáv közelében. Ez visszafelé vagy előre mozgatja a videót.</string>
+    <string name="faq_4_text_old">Húzhatja az ujját vízszintesen a videolejátszón, vagy kattintson az aktuális vagy a max. időtartam szövegekre a keresősáv közelében. Ez visszafelé vagy előre mozgatja a videót.</string>
     <string name="faq_5_title">Mi a különbség a mappa elrejtése és kizárása között?</string>
     <string name="faq_5_text">A Kizárás megakadályozza, hogy a mappát a Simple Gallery megjelenítse, az Elrejtés pedig rendszer szinten működik, és elrejti a mappát más galériákból is. Úgy működik, hogy létrehoz egy üres \". nomedia\" nevű fájlt az adott mappában, amelyet bármikor eltávolíthat bármilyen fájlkezelővel is.</string>
     <string name="faq_6_title">Miért jelennek meg a zenei borítóval vagy matricával rendelkező mappák?</string>
@@ -217,7 +220,7 @@ Ezzel csak a kiválasztott mappák láthatók, mivel a kizárás és a befoglal�
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
+    <string name="app_short_description">Egy offline galéria a fájlok hirdetés nélküli kezelésére.</string>
     <string name="app_long_description">
         Nagyon testreszabható galéria, amely alkalmas számos különböző kép- és videotípus megjelenítésére, beleértve az SVG-ket, RAW-t, panorámaképeket és videókat.
 

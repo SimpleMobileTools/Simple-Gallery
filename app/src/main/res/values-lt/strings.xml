@@ -116,6 +116,7 @@
     <string name="loop_slideshow">Klipuoti skaidrių demonstraciją</string>
     <string name="slideshow_ended">Skaidrių demonstracija pasibaigė</string>
     <string name="no_media_for_slideshow">Nerasta medijos skaidrių demonstracijai</string>
+    <string name="use_crossfade_animation">Use crossfade animations</string>
 
     <!-- View types -->
     <string name="change_view_type">Keisti peržiūros tipą</string>
@@ -170,6 +171,7 @@
     <string name="show_highest_quality">Show images in the highest possible quality</string>
     <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
     <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
+    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatiūros</string>
@@ -191,7 +193,8 @@
     <string name="faq_3_title">Kaip aš galiu padaryti albumą visada rodomą viršuje?</string>
     <string name="faq_3_text">Galite ilgai paspausti norimą albumą ir pasirinkti "Prisegti" piktogramą, esančią meniu "Veiksmo meniu", viršuje. Galite prisegti kelis aplankus, prisegti elementai bus rūšiuojami pagal numatytąjį rūšiavimo metodą.</string>
     <string name="faq_4_title">Kaip galėčiau greitai prasukti vaizdo įrašus?</string>
-    <string name="faq_4_text">Galite spustelėti  tekstus šalia slinkties juostos, kad būtų perkeltas vaizdo įrašas atgal arba į priekį.</string>
+    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
+    <string name="faq_4_text_old">Galite spustelėti  tekstus šalia slinkties juostos, kad būtų perkeltas vaizdo įrašas atgal arba į priekį.</string>
     <string name="faq_5_title">Koks skirtumas tarp slėpimo ir išskyrimo iš aplanko?</string>
     <string name="faq_5_text">Išskyrimas neleidžia rodyti aplanko tik paprastoje galerijoje, tuo tarpu slėpimas slepia aplanką iš kitų galerijų. Tai veikia, sukuriant tuščią \ ". Nomedia \" bylą tam tikrame aplanke, kurį vėliau galite pašalinti bet kuria bylų tvarkykle.</string>
     <string name="faq_6_title">Kodėl pasirodo aplankai su muzikos viršeliu ar lipdukais?</string>

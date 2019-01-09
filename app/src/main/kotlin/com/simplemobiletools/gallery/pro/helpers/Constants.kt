@@ -74,6 +74,7 @@ const val LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_X = "last_editor_crop_other_aspect
 const val LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y = "last_editor_crop_other_aspect_ratio_y"
 const val GROUP_DIRECT_SUBFOLDERS = "group_direct_subfolders"
 const val SHOW_WIDGET_FOLDER_NAME = "show_widget_folder_name"
+const val ALLOW_ONE_TO_ONE_ZOOM = "allow_one_to_one_zoom"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"
@@ -91,13 +92,15 @@ const val FAVORITES = "favorites"
 const val RECYCLE_BIN = "recycle_bin"
 const val SHOW_FAVORITES = "show_favorites"
 const val SHOW_RECYCLE_BIN = "show_recycle_bin"
+const val SHOW_NEXT_ITEM = "show_next_item"
+const val SHOW_PREV_ITEM = "show_prev_item"
+const val GO_TO_NEXT_ITEM = "go_to_next_item"
+const val GO_TO_PREV_ITEM = "go_to_prev_item"
 const val MAX_COLUMN_COUNT = 20
 const val SHOW_TEMP_HIDDEN_DURATION = 300000L
 const val CLICK_MAX_DURATION = 150
 const val DRAG_THRESHOLD = 8
 const val MONTH_MILLISECONDS = MONTH_SECONDS * 1000L
-const val HIDE_PLAY_PAUSE_DELAY = 500L
-const val PLAY_PAUSE_VISIBLE_ALPHA = 0.8f
 const val MIN_SKIP_LENGTH = 2000
 
 const val DIRECTORY = "directory"
@@ -164,6 +167,7 @@ const val BOTTOM_ACTION_SHOW_ON_MAP = 256
 const val BOTTOM_ACTION_TOGGLE_VISIBILITY = 512
 const val BOTTOM_ACTION_RENAME = 1024
 const val BOTTOM_ACTION_SET_AS = 2048
+const val BOTTOM_ACTION_COPY = 4096
 
 const val DEFAULT_BOTTOM_ACTIONS = BOTTOM_ACTION_TOGGLE_FAVORITE or BOTTOM_ACTION_EDIT or BOTTOM_ACTION_SHARE or BOTTOM_ACTION_DELETE
 

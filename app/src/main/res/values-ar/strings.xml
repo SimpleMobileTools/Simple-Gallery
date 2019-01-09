@@ -120,6 +120,7 @@
     <string name="loop_slideshow">حلقة عرض الشرائح</string>
     <string name="slideshow_ended">انتهى عرض الشرائح</string>
     <string name="no_media_for_slideshow">لم يتم العثور على وسائط لعرض الشرائح</string>
+    <string name="use_crossfade_animation">Use crossfade animations</string>
 
     <!-- View types -->
     <string name="change_view_type">تغيير طريقة العرض</string>
@@ -174,6 +175,7 @@
     <string name="show_highest_quality">Show images in the highest possible quality</string>
     <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
     <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
+    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">المصغرات</string>
@@ -194,7 +196,8 @@
     <string name="faq_3_title">كيف يمكنني جعل الألبوم يظهر دائمًا في الجزء العلوي؟</string>
     <string name="faq_3_text">يمكنك الضغط لفترة طويلة على الألبوم المطلوب وتحديد أيقونة الدبوس في الإجراء ، والتي سوف تثبيته إلى الأعلى. يمكنك تثبيت عدة مجلدات أيضًا ، وسيتم ترتيب العناصر المثبتة حسب طريقة الفرز الافتراضية.</string>
     <string name="faq_4_title">كيف يمكنني تقديم مقاطع فيديو بسرعة؟</string>
-    <string name="faq_4_text">يمكنك النقر على النصوص الحالية أو أقصى مدة قريبة من شريط السحب ، والتي ستنقل الفيديو إما للخلف أو إلى الأمام.</string>
+    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
+    <string name="faq_4_text_old">يمكنك النقر على النصوص الحالية أو أقصى مدة قريبة من شريط السحب ، والتي ستنقل الفيديو إما للخلف أو إلى الأمام.</string>
     <string name="faq_5_title">ما الفرق بين إخفاء واستبعاد مجلد؟</string>
     <string name="faq_5_text">يمنع الاستبعاد من عرض المجلد في الاستوديو البسيط فقط ، بينما يقوم بإخفاء بالعمل على مستوى النظام ككل ويقوم بإخفاء المجلد من المعارض الأخرى أيضًا. وهو يعمل عن طريق إنشاء ملف \".nomedia\" فارغ في المجلد المحدد ، والذي يمكنك بعد ذلك إزالته مع أي مدير ملفات أيضًا.</string>
     <string name="faq_6_title">لماذا تظهر المجلدات التي تحتوي على ملصقات أو ملصقات موسيقى تغطيها؟</string>

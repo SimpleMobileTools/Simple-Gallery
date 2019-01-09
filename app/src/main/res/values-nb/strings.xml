@@ -89,7 +89,7 @@
     <string name="flip_vertically">Speilvend vertikalt</string>
     <string name="edit_with">Rediger med</string>
     <string name="free_aspect_ratio">Fri</string>               <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Other</string>            <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+    <string name="other_aspect_ratio">Annen</string>            <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Bakgrunnsbilde</string>
@@ -116,6 +116,7 @@
     <string name="loop_slideshow">Gjenta lysbildeshow</string>
     <string name="slideshow_ended">Lysbildeshowet er slutt</string>
     <string name="no_media_for_slideshow">Ingen media for lysbildeshowet er funnet</string>
+    <string name="use_crossfade_animation">Bruk krysstoningsanimasjon</string>
 
     <!-- View types -->
     <string name="change_view_type">Endre visningstype</string>
@@ -133,8 +134,8 @@
     <string name="by_extension">Endelse</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Folder shown on the widget:</string>
-    <string name="show_folder_name">Show folder name</string>
+    <string name="folder_on_widget">Mappe vist på modulen:</string>
+    <string name="show_folder_name">Vis mappenavn</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Avspill videoer automatisk</string>
@@ -170,6 +171,7 @@
     <string name="show_highest_quality">Vis bilder i høyest mulig kvalitet</string>
     <string name="show_recycle_bin_last">Vis papirkurven som siste element på hovedskjermen</string>
     <string name="allow_down_gesture">Tillat lukking av mediavisningen med en nedoverbevegelse</string>
+    <string name="allow_one_to_one_zoom">Tillat å zoome 1:1 med to dobbeltrykk</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Minibilder</string>
@@ -191,7 +193,8 @@
     <string name="faq_3_title">How can I make an album always appear at the top?</string>
     <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actionmenu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
     <string name="faq_4_title">How can I fast-forward videos?</string>
-    <string name="faq_4_text">You can click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
+    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
+    <string name="faq_4_text_old">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
     <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
     <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
     <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>

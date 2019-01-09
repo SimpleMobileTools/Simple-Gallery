@@ -19,7 +19,6 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
-import android.util.DisplayMetrics
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -33,6 +32,7 @@ import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FileDirItem
+import com.simplemobiletools.gallery.pro.BuildConfig
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.MyPagerAdapter
 import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
@@ -54,6 +54,8 @@ import java.io.OutputStream
 import java.util.*
 
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
+    private val REQUEST_VIEW_VIDEO = 1
+
     private var mPath = ""
     private var mDirectory = ""
     private var mIsFullScreen = false
@@ -73,11 +75,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private var mMediaFiles = ArrayList<Medium>()
     private var mFavoritePaths = ArrayList<String>()
-
-    companion object {
-        var screenWidth = 0
-        var screenHeight = 0
-    }
 
     @TargetApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -125,7 +122,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             window.attributes = attributes
         }
 
-        setupRotation()
+        setupOrientation()
         invalidateOptionsMenu()
 
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
@@ -168,6 +165,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_rename).isVisible = visibleBottomActions and BOTTOM_ACTION_RENAME == 0 && !currentMedium.getIsInRecycleBin()
             findItem(R.id.menu_rotate).isVisible = currentMedium.isImage() && visibleBottomActions and BOTTOM_ACTION_ROTATE == 0
             findItem(R.id.menu_set_as).isVisible = visibleBottomActions and BOTTOM_ACTION_SET_AS == 0
+            findItem(R.id.menu_copy_to).isVisible = visibleBottomActions and BOTTOM_ACTION_COPY == 0
             findItem(R.id.menu_save_as).isVisible = mRotationDegrees != 0
             findItem(R.id.menu_hide).isVisible = !currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0 && !currentMedium.getIsInRecycleBin()
             findItem(R.id.menu_unhide).isVisible = currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0 && !currentMedium.getIsInRecycleBin()
@@ -225,7 +223,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun initViewPager() {
-        measureScreen()
         val uri = intent.data
         if (uri != null) {
             var cursor: Cursor? = null
@@ -364,7 +361,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }.start()
     }
 
-    private fun setupRotation() {
+    private fun setupOrientation() {
         if (!mIsOrientationLocked) {
             if (config.screenRotation == ROTATE_BY_DEVICE_ROTATION) {
                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR
@@ -870,6 +867,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         bottom_set_as.setOnClickListener {
             setAs(getCurrentPath())
         }
+
+        bottom_copy.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_COPY != 0)
+        bottom_copy.setOnClickListener {
+            copyMoveTo(true)
+        }
     }
 
     private fun updateBottomActionIcons(medium: Medium?) {
@@ -908,15 +910,17 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
-        if (requestCode == REQUEST_EDIT_IMAGE) {
-            if (resultCode == Activity.RESULT_OK && resultData != null) {
-                mPos = -1
-                mPrevHashcode = 0
-                refreshViewPager()
-            }
-        } else if (requestCode == REQUEST_SET_AS) {
-            if (resultCode == Activity.RESULT_OK) {
-                toast(R.string.wallpaper_set_successfully)
+        if (requestCode == REQUEST_EDIT_IMAGE && resultCode == Activity.RESULT_OK && resultData != null) {
+            mPos = -1
+            mPrevHashcode = 0
+            refreshViewPager()
+        } else if (requestCode == REQUEST_SET_AS && resultCode == Activity.RESULT_OK) {
+            toast(R.string.wallpaper_set_successfully)
+        } else if (requestCode == REQUEST_VIEW_VIDEO && resultCode == Activity.RESULT_OK && resultData != null) {
+            if (resultData.getBooleanExtra(GO_TO_NEXT_ITEM, false)) {
+                goToNextItem()
+            } else if (resultData.getBooleanExtra(GO_TO_PREV_ITEM, false)) {
+                goToPrevItem()
             }
         }
         super.onActivityResult(requestCode, resultCode, resultData)
@@ -1005,15 +1009,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     override fun onConfigurationChanged(newConfig: Configuration?) {
         super.onConfigurationChanged(newConfig)
-        measureScreen()
         initBottomActionsLayout()
-    }
-
-    private fun measureScreen() {
-        val metrics = DisplayMetrics()
-        windowManager.defaultDisplay.getRealMetrics(metrics)
-        screenWidth = metrics.widthPixels
-        screenHeight = metrics.heightPixels
     }
 
     private fun refreshViewPager() {
@@ -1105,6 +1101,34 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     override fun goToNextItem() {
         view_pager.setCurrentItem(view_pager.currentItem + 1, false)
         checkOrientation()
+    }
+
+    override fun launchViewVideoIntent(path: String) {
+        Thread {
+            val newUri = getFinalUriFromPath(path, BuildConfig.APPLICATION_ID) ?: return@Thread
+            val mimeType = getUriMimeType(path, newUri)
+            Intent().apply {
+                action = Intent.ACTION_VIEW
+                setDataAndType(newUri, mimeType)
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                putExtra(IS_FROM_GALLERY, true)
+                putExtra(REAL_FILE_PATH, path)
+                putExtra(SHOW_PREV_ITEM, view_pager.currentItem != 0)
+                putExtra(SHOW_NEXT_ITEM, view_pager.currentItem != mMediaFiles.size - 1)
+
+                if (resolveActivity(packageManager) != null) {
+                    try {
+                        startActivityForResult(this, REQUEST_VIEW_VIDEO)
+                    } catch (e: NullPointerException) {
+                        showErrorToast(e)
+                    }
+                } else {
+                    if (!tryGenericMimeType(this, mimeType, newUri)) {
+                        toast(R.string.no_app_found)
+                    }
+                }
+            }
+        }.start()
     }
 
     private fun checkSystemUI() {

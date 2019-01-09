@@ -30,7 +30,6 @@ import java.io.File
 import java.io.FileInputStream
 
 open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentListener {
-
     private var mMedium: Medium? = null
     private var mIsFullScreen = false
     private var mIsFromGallery = false
@@ -42,7 +41,6 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_holder)
-        setTranslucentNavigation()
 
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
@@ -56,7 +54,15 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
     override fun onResume() {
         super.onResume()
-        supportActionBar?.setBackgroundDrawable(resources.getDrawable(R.drawable.gradient_background_flipped))
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        window.statusBarColor = Color.TRANSPARENT
+
+        if (config.bottomActions) {
+            window.navigationBarColor = Color.TRANSPARENT
+        } else {
+            setTranslucentNavigation()
+        }
+
         if (config.blackBackground) {
             updateStatusbarColor(Color.BLACK)
         }
@@ -170,6 +176,11 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             val mimeType = getUriMimeType(mUri.toString(), newUri)
             Intent(applicationContext, VideoPlayerActivity::class.java).apply {
                 setDataAndType(newUri, mimeType)
+                addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT)
+                if (intent.extras != null) {
+                    putExtras(intent.extras!!)
+                }
+
                 startActivity(this)
             }
         }
@@ -240,7 +251,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
     private fun initBottomActionButtons() {
         arrayListOf(bottom_favorite, bottom_delete, bottom_rotate, bottom_properties, bottom_change_orientation, bottom_slideshow, bottom_show_on_map,
-                bottom_toggle_file_visibility, bottom_rename).forEach {
+                bottom_toggle_file_visibility, bottom_rename, bottom_copy).forEach {
             it.beGone()
         }
 
@@ -273,8 +284,10 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             showSystemUI(true)
         }
 
+        val newAlpha = if (mIsFullScreen) 0f else 1f
+        top_shadow.animate().alpha(newAlpha).start()
         if (!bottom_actions.isGone()) {
-            bottom_actions.animate().alpha(if (mIsFullScreen) 0f else 1f).start()
+            bottom_actions.animate().alpha(newAlpha).start()
         }
     }
 
@@ -283,4 +296,6 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     override fun goToPrevItem() {}
 
     override fun goToNextItem() {}
+
+    override fun launchViewVideoIntent(path: String) {}
 }

@@ -116,6 +116,7 @@
     <string name="loop_slideshow">Επανάληψη εμφάνισης διαφανιών</string>
     <string name="slideshow_ended">Η εμφάνιση διαφανειών τελείωσε</string>
     <string name="no_media_for_slideshow">Δεν βρέθηκαν πολυμέσα για την εμφάνιση διαφανειών</string>
+    <string name="use_crossfade_animation">Use crossfade animations</string>
 
     <!-- View types -->
     <string name="change_view_type">Αλλαγή τύπου εμφάνισης</string>
@@ -170,6 +171,7 @@
     <string name="show_highest_quality">Εμφάνιση εικόνων με την υψηλότερη δυνατή ποιότητα</string>
     <string name="show_recycle_bin_last">Εμφάνιση του Κάδου ως τελευταίο στοιχείο στην κύρια οθόνη</string>
     <string name="allow_down_gesture">Επιτρέψτε το κλείσιμο προβολής πλήρους οθόνης με χειρονομία προς τα κάτω</string>
+    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Εικονίδια</string>
@@ -191,7 +193,8 @@
     <string name="faq_3_title">Πώς μπορώ να κάνω ένα άλμπουμ να φαίνεται στην κορυφή;</string>
     <string name="faq_3_text">Μπορείτε να πατήσετε παρατεταμένα στο άλμπουμ και να επιλέξετε το εικονίδιο καρφιτσώματος στο μενού, αυτό θα το καρφιτσώσει στην κορυφή. Επίσης μπορείτε να καρφιτσώσετε πολλαπλούς φακέλους, τα καρφιτσωμένα αντικείμενα θα είναι ταξινομημένα με την προεπιλεγμένη μέθοδο.</string>
     <string name="faq_4_title">Πώς μπορώ να τρέξω μπροστά (fast-forward) τα βίντεο;</string>
-    <string name="faq_4_text">Μπορείτε να αγγίξετε στο τρέχον ή στο κείμενο μέγιστης διάρκειας κοντά στην μπάρα αναζήτησης. Αυτό θα μετακινήσει το βίντεο μπροστά ή πίσω.</string>
+    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
+    <string name="faq_4_text_old">Μπορείτε να αγγίξετε στο τρέχον ή στο κείμενο μέγιστης διάρκειας κοντά στην μπάρα αναζήτησης. Αυτό θα μετακινήσει το βίντεο μπροστά ή πίσω.</string>
     <string name="faq_5_title">Ποια είναι διαφορά μεταξύ απόκρυψης και εξαίρεσης ενός φακέλου;</string>
     <string name="faq_5_text">Η εξαίρεση δεν επιτρέπει την εμφάνιση του φακέλου μόνο στο Simple Gallery, ενώ η απόκρυψη λειτουργεί σε επίπεδο συστήματος και θα αποκρύψει τον φάκελο και από άλλες εφαρμογές γκάλερι. Λειτουργεί δημιουργώντας ένα άδειο \".nomedia\" αρχείο στον επιλεγμένο φάκελο, το οποίο μπορείτε να το διαγράψετε και με οποιονδήποτε διαχειριστή αρχείων.</string>
     <string name="faq_6_title">Γιατί εμφανίζονται φάκελοι με εξώφυλλο μουσικής ή αυτόκολλητα;</string>

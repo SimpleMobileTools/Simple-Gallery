@@ -116,6 +116,7 @@
     <string name="loop_slideshow">循环幻灯片</string>
     <string name="slideshow_ended">幻灯片结束</string>
     <string name="no_media_for_slideshow">未发现可用媒体</string>
+    <string name="use_crossfade_animation">使用交叉渐变动画</string>
 
     <!-- View types -->
     <string name="change_view_type">更改视图类型</string>
@@ -170,6 +171,7 @@
     <string name="show_highest_quality">以最高质量显示图像</string>
     <string name="show_recycle_bin_last">在主屏幕界面的最后一项显示回收站</string>
     <string name="allow_down_gesture">使用下滑手势关闭全屏视图</string>
+    <string name="allow_one_to_one_zoom">双击两次后 1:1 放大图像</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">缩略图</string>
@@ -190,7 +192,8 @@
     <string name="faq_3_title">如何让某个相册始终显示在最上面？</string>
     <string name="faq_3_text">你可以长按该相册并在操作栏中点击图钉图标，这样 就可以将其固定在顶部了。你也可以固定多个文件夹，固定项目将按照默认排序方法排序。</string>
     <string name="faq_4_title">如何快进/快退视频？</string>
-    <string name="faq_4_text">可以点击底栏进度条两侧的时间文本，或拖动进度条。</string>
+    <string name="faq_4_text">只需在视频播放器上左右滑动，或点击底栏进度条两侧的时间文本，即可前进或后退视频。</string>
+    <string name="faq_4_text_old">可以点击底栏进度条两侧的时间文本，或拖动进度条。</string>
     <string name="faq_5_title">文件夹的隐藏和排除有什么区别？</string>
     <string name="faq_5_text">排除功能只是防止其在简约图库中显示，而隐藏功能则使用的是系统的方法，这样做也会在其他图库中隐藏。它的工作原理是在给定的文件夹中创建一个空的.nomedia文件，你可以使用任何文件管理器删除它。</string>
     <string name="faq_6_title">为什么会出现音乐艺术家封面或贴纸文件夹？</string>
@@ -214,7 +217,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
+    <string name="app_short_description">一个没有广告，尊重隐私，便于管理文件的离线图库。</string>
     <string name="app_long_description">
         一个高度可定制的图库，支持很多的图像和视频类型，包括SVG，RAW，全景照片和视频。
 

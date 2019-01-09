@@ -1,5 +1,7 @@
 package com.simplemobiletools.gallery.pro.activities
 
+import android.app.Activity
+import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.graphics.Color
@@ -26,31 +28,40 @@ import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.isPiePlus
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.*
-import com.simplemobiletools.gallery.pro.helpers.MIN_SKIP_LENGTH
+import com.simplemobiletools.gallery.pro.helpers.*
 import kotlinx.android.synthetic.main.activity_video_player.*
 import kotlinx.android.synthetic.main.bottom_video_time_holder.*
 
 open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListener, TextureView.SurfaceTextureListener {
+    private val PLAY_WHEN_READY_DRAG_DELAY = 100L
+
     private var mIsFullscreen = false
     private var mIsPlaying = false
     private var mWasVideoStarted = false
     private var mIsDragged = false
+    private var mIsOrientationLocked = false
+    private var mScreenWidth = 0
     private var mCurrTime = 0
     private var mDuration = 0
     private var mVideoSize = Point(0, 0)
+    private var mDragThreshold = 0f
 
     private var mUri: Uri? = null
     private var mExoPlayer: SimpleExoPlayer? = null
     private var mTimerHandler = Handler()
+    private var mPlayWhenReadyHandler = Handler()
 
     private var mTouchDownX = 0f
     private var mTouchDownY = 0f
+    private var mTouchDownTime = 0L
+    private var mProgressAtDown = 0L
     private var mCloseDownThreshold = 100f
     private var mIgnoreCloseDown = false
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video_player)
+        setupOrientation()
 
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
@@ -93,7 +104,12 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     override fun onDestroy() {
         super.onDestroy()
         if (!isChangingConfigurations) {
-            cleanup()
+            pauseVideo()
+            video_curr_time.text = 0.getFormattedDuration()
+            releaseExoPlayer()
+            video_seekbar.progress = 0
+            mTimerHandler.removeCallbacksAndMessages(null)
+            mPlayWhenReadyHandler.removeCallbacksAndMessages(null)
         }
     }
 
@@ -105,6 +121,8 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_change_orientation -> changeOrientation()
+            R.id.menu_open_with -> openPath(mUri!!.toString(), true)
+            R.id.menu_share -> shareMediumPath(mUri!!.toString())
             else -> return super.onOptionsItemSelected(item)
         }
         return true
@@ -114,6 +132,16 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         super.onConfigurationChanged(newConfig)
         setVideoSize()
         initTimeHolder()
+    }
+
+    private fun setupOrientation() {
+        if (!mIsOrientationLocked) {
+            if (config.screenRotation == ROTATE_BY_DEVICE_ROTATION) {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR
+            } else if (config.screenRotation == ROTATE_BY_SYSTEM_SETTING) {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+            }
+        }
     }
 
     private fun initPlayer() {
@@ -132,40 +160,36 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             fullscreenToggled(isFullscreen)
         }
 
-        // adding an empty click listener just to avoid ripple animation at toggling fullscreen
-        video_seekbar.setOnClickListener { }
         video_curr_time.setOnClickListener { skip(false) }
         video_duration.setOnClickListener { skip(true) }
         video_toggle_play_pause.setOnClickListener { togglePlayPause() }
-        video_player_holder.setOnClickListener {
-            fullscreenToggled(!mIsFullscreen)
+
+        video_next_file.beVisibleIf(intent.getBooleanExtra(SHOW_NEXT_ITEM, false))
+        video_next_file.setOnClickListener { handleNextFile() }
+
+        video_prev_file.beVisibleIf(intent.getBooleanExtra(SHOW_PREV_ITEM, false))
+        video_prev_file.setOnClickListener { handlePrevFile() }
+
+        video_player_holder.setOnTouchListener { view, event ->
+            handleEvent(event)
+            true
         }
 
-        if (config.allowDownGesture) {
-            video_player_holder.setOnTouchListener { v, event ->
-                handleEvent(event)
-                false
-            }
-
-            video_surface.setOnTouchListener { v, event ->
-                handleEvent(event)
-                false
-            }
+        video_surface.setOnTouchListener { view, event ->
+            handleEvent(event)
+            true
         }
 
         initExoPlayer()
         video_surface.surfaceTextureListener = this
-        video_surface.setOnClickListener {
-            fullscreenToggled(!mIsFullscreen)
-        }
 
         if (config.allowVideoGestures) {
             video_brightness_controller.initialize(this, slide_info, true, video_player_holder) { x, y ->
-                video_player_holder.performClick()
+                fullscreenToggled(!mIsFullscreen)
             }
 
             video_volume_controller.initialize(this, slide_info, false, video_player_holder) { x, y ->
-                video_player_holder.performClick()
+                fullscreenToggled(!mIsFullscreen)
             }
         } else {
             video_brightness_controller.beGone()
@@ -177,6 +201,8 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
                 fullscreenToggled(true)
             }, 500)
         }
+
+        mDragThreshold = DRAG_THRESHOLD * resources.displayMetrics.density
     }
 
     private fun initExoPlayer() {
@@ -370,9 +396,21 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             }
             video_surface.layoutParams = this
         }
+
+        val multiplier = if (screenWidth > screenHeight) 0.5 else 0.8
+        mScreenWidth = (screenWidth * multiplier).toInt()
+
+        if (config.screenRotation == ROTATE_BY_ASPECT_RATIO) {
+            if (mVideoSize.x > mVideoSize.y) {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+            } else if (mVideoSize.x < mVideoSize.y) {
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+            }
+        }
     }
 
     private fun changeOrientation() {
+        mIsOrientationLocked = true
         requestedOrientation = if (resources.configuration.orientation == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) {
             ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
         } else {
@@ -389,10 +427,11 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         }
 
         val newAlpha = if (isFullScreen) 0f else 1f
-        top_shadow.animate().alpha(newAlpha).start()
-        video_time_holder.animate().alpha(newAlpha).start()
+        arrayOf(video_prev_file, video_toggle_play_pause, video_next_file, video_curr_time, video_seekbar, video_duration, top_shadow, video_bottom_gradient).forEach {
+            it.animate().alpha(newAlpha).start()
+        }
         video_seekbar.setOnSeekBarChangeListener(if (mIsFullscreen) null else this)
-        arrayOf(video_toggle_play_pause, video_curr_time, video_duration).forEach {
+        arrayOf(video_prev_file, video_next_file, video_curr_time, video_duration).forEach {
             it.isClickable = !mIsFullscreen
         }
     }
@@ -412,7 +451,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
         video_time_holder.setPadding(0, 0, right, bottom)
         video_seekbar.setOnSeekBarChangeListener(this)
-        video_seekbar!!.max = mDuration
+        video_seekbar.max = mDuration
         video_duration.text = mDuration.getFormattedDuration()
         video_curr_time.text = mCurrTime.getFormattedDuration()
         setupTimer()
@@ -453,26 +492,84 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
             MotionEvent.ACTION_DOWN -> {
                 mTouchDownX = event.x
                 mTouchDownY = event.y
+                mTouchDownTime = System.currentTimeMillis()
+                mProgressAtDown = mExoPlayer!!.currentPosition
             }
             MotionEvent.ACTION_POINTER_DOWN -> mIgnoreCloseDown = true
+            MotionEvent.ACTION_MOVE -> {
+                val diffX = event.x - mTouchDownX
+                val diffY = event.y - mTouchDownY
+
+                if (mIsDragged || (Math.abs(diffX) > mDragThreshold && Math.abs(diffX) > Math.abs(diffY))) {
+                    if (!mIsDragged) {
+                        arrayOf(video_curr_time, video_seekbar, video_duration).forEach {
+                            it.animate().alpha(1f).start()
+                        }
+                    }
+                    mIgnoreCloseDown = true
+                    mIsDragged = true
+                    var percent = ((diffX / mScreenWidth) * 100).toInt()
+                    percent = Math.min(100, Math.max(-100, percent))
+
+                    val skipLength = (mDuration * 1000f) * (percent / 100f)
+                    var newProgress = mProgressAtDown + skipLength
+                    newProgress = Math.max(Math.min(mExoPlayer!!.duration.toFloat(), newProgress), 0f)
+                    val newSeconds = (newProgress / 1000).toInt()
+                    setPosition(newSeconds)
+                    resetPlayWhenReady()
+                }
+            }
             MotionEvent.ACTION_UP -> {
                 val diffX = mTouchDownX - event.x
                 val diffY = mTouchDownY - event.y
 
-                if (!mIgnoreCloseDown && Math.abs(diffY) > Math.abs(diffX) && diffY < -mCloseDownThreshold) {
+                if (config.allowDownGesture && !mIgnoreCloseDown && Math.abs(diffY) > Math.abs(diffX) && diffY < -mCloseDownThreshold) {
                     supportFinishAfterTransition()
                 }
+
                 mIgnoreCloseDown = false
+                if (mIsDragged) {
+                    if (mIsFullscreen) {
+                        arrayOf(video_curr_time, video_seekbar, video_duration).forEach {
+                            it.animate().alpha(0f).start()
+                        }
+                    }
+
+                    if (!mIsPlaying) {
+                        togglePlayPause()
+                    }
+                } else {
+                    if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
+                        fullscreenToggled(!mIsFullscreen)
+                    }
+                }
+                mIsDragged = false
             }
         }
     }
 
-    private fun cleanup() {
-        pauseVideo()
-        video_curr_time.text = 0.getFormattedDuration()
-        releaseExoPlayer()
-        video_seekbar.progress = 0
-        mTimerHandler.removeCallbacksAndMessages(null)
+    private fun handleNextFile() {
+        Intent().apply {
+            putExtra(GO_TO_NEXT_ITEM, true)
+            setResult(Activity.RESULT_OK, this)
+        }
+        finish()
+    }
+
+    private fun handlePrevFile() {
+        Intent().apply {
+            putExtra(GO_TO_PREV_ITEM, true)
+            setResult(Activity.RESULT_OK, this)
+        }
+        finish()
+    }
+
+    private fun resetPlayWhenReady() {
+        mExoPlayer?.playWhenReady = false
+        mPlayWhenReadyHandler.removeCallbacksAndMessages(null)
+        mPlayWhenReadyHandler.postDelayed({
+            mExoPlayer?.playWhenReady = true
+        }, PLAY_WHEN_READY_DRAG_DELAY)
     }
 
     private fun releaseExoPlayer() {
@@ -486,6 +583,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
         if (mExoPlayer != null && fromUser) {
             setPosition(progress)
+            resetPlayWhenReady()
         }
     }
 

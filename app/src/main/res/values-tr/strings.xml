@@ -116,6 +116,7 @@
     <string name="loop_slideshow">Slayt gösterisini tekrarla</string>
     <string name="slideshow_ended">Slayt gösterisi sona erdi</string>
     <string name="no_media_for_slideshow">Slayt gösterisi için medya bulunamadı</string>
+    <string name="use_crossfade_animation">Use crossfade animations</string>
 
     <!-- View types -->
     <string name="change_view_type">Görünüm türünü değiştir</string>
@@ -170,6 +171,7 @@
     <string name="show_highest_quality">Resimleri mümkün olan en yüksek kalitede göster</string>
     <string name="show_recycle_bin_last">Geri dönüşüm kutusu\'nu ana ekranda son öğe olarak göster</string>
     <string name="allow_down_gesture">Tam ekran görünümünü aşağı hareketi ile kapatmaya izin ver</string>
+    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Küçük resimler</string>
@@ -191,7 +193,8 @@
     <string name="faq_3_title">Bir albümün her zaman en üstte görünmesini nasıl sağlayabilirim?</string>
     <string name="faq_3_text">İstediğiniz albüme uzunca basabilir ve eylem menüsündeki Sabitle simgesini seçebilirsiniz. Birden çok klasörü de sabitleyebilirsiniz, sabitlenmiş öğeler varsayılan sıralama yöntemine göre sıralanır.</string>
     <string name="faq_4_title">Videoları nasıl hızlıca ileri sarabilirim?</string>
-    <string name="faq_4_text">Videoyu geriye ya da ileriye taşıyacak olan arama çubuğunun yakınındaki geçerli veya maksimum süre metinlerini tıklayabilirsiniz.</string>
+    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
+    <string name="faq_4_text_old">Videoyu geriye ya da ileriye taşıyacak olan arama çubuğunun yakınındaki geçerli veya maksimum süre metinlerini tıklayabilirsiniz.</string>
     <string name="faq_5_title">Klasörün gizlenmesi ve hariç tutulması arasındaki fark nedir?</string>
     <string name="faq_5_text">Hariç tut, klasörü yalnızca Basit Galeri\'de görüntülemeyi engellerken, Gizle sistem genelinde çalışır ve klasörü diğer galerilerden de gizler. Verilen klasörde boş bir \".nomedia\" dosyası oluşturarak çalışır, daha sonra herhangi bir dosya yöneticisi ile kaldırabilirsiniz.</string>
     <string name="faq_6_title">Neden albüm resimlerini içeren klasörler görünüyor?</string>

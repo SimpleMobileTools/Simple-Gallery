@@ -5,8 +5,19 @@
     android:id="@+id/video_time_holder"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    android:background="@drawable/gradient_background">
+    android:layout_alignParentBottom="true">
+
+    <ImageView
+        android:id="@+id/video_prev_file"
+        android:layout_width="@dimen/video_player_play_pause_size"
+        android:layout_height="@dimen/video_player_play_pause_size"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginTop="@dimen/activity_margin"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="@dimen/normal_margin"
+        android:src="@drawable/ic_prev_outline"
+        android:visibility="invisible"/>
 
     <ImageView
         android:id="@+id/video_toggle_play_pause"
@@ -17,6 +28,18 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/small_margin"
         android:src="@drawable/ic_pause_outline"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/video_next_file"
+        android:layout_width="@dimen/video_player_play_pause_size"
+        android:layout_height="@dimen/video_player_play_pause_size"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/activity_margin"
+        android:layout_marginEnd="@dimen/small_margin"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="@dimen/normal_margin"
+        android:src="@drawable/ic_next_outline"
         android:visibility="invisible"/>
 
     <TextView

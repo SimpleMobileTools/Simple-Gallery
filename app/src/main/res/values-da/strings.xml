@@ -116,6 +116,7 @@
     <string name="loop_slideshow">Endeløs kørsel</string>
     <string name="slideshow_ended">Slideshowet endte</string>
     <string name="no_media_for_slideshow">Der blev ikke funket nogen mediefiler til slideshowet</string>
+    <string name="use_crossfade_animation">Use crossfade animations</string>
 
     <!-- View types -->
     <string name="change_view_type">Skift visning</string>
@@ -161,15 +162,16 @@
     <string name="manage_extended_details">Administrer udvidede oplysninger</string>
     <string name="one_finger_zoom">Tillad zoom med en finger når medier er i fuldskærm</string>
     <string name="allow_instant_change">Tillad skift af medie ved klik på skærmens sider</string>
-    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
+    <string name="allow_deep_zooming_images">Tillad dyb zooming af billeder</string>
     <string name="hide_extended_details">Skjul udvidede oplysninger når statuslinjen er skjult</string>
     <string name="do_extra_check">Tjek en ekstra gang for at undgå visning af ugyldige filer</string>
     <string name="show_at_bottom">Vis handlingsknapper i bunden af skærmen</string>
     <string name="show_recycle_bin">Vis papirkurven ved mappevisning</string>
-    <string name="deep_zoomable_images">Deep zoomable images</string>
+    <string name="deep_zoomable_images">Dybt zoombare billeder</string>
     <string name="show_highest_quality">Vis billeder i den højst mulige kvalitet</string>
     <string name="show_recycle_bin_last">Vis papirkurven som sidste element på hovedskærmen</string>
-    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
+    <string name="allow_down_gesture">Luk fuldskærmsvisning ved at swipe ned</string>
+    <string name="allow_one_to_one_zoom">Tillad 1:1 zooming med to dobbelttryk</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturer</string>
@@ -191,7 +193,8 @@
     <string name="faq_3_title">How can I make an album always appear at the top?</string>
     <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actionmenu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
     <string name="faq_4_title">How can I fast-forward videos?</string>
-    <string name="faq_4_text">You can click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
+    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
+    <string name="faq_4_text_old">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
     <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
     <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
     <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
