@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.DisplayMetrics
 import android.view.*
+import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.SeekBar
 import android.widget.TextView
@@ -52,6 +53,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
     private var mTextureView: TextureView? = null
     private var mCurrTimeView: TextView? = null
+    private var mPlayPauseButton: ImageView? = null
     private var mSeekBar: SeekBar? = null
     private var mExoPlayer: SimpleExoPlayer? = null
     private var mVideoSize = Point(0, 0)
@@ -87,6 +89,11 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
                 } else {
                     togglePlayPause()
                 }
+            }
+
+            mPlayPauseButton = video_toggle_play_pause
+            mPlayPauseButton!!.setOnClickListener {
+                togglePlayPause()
             }
 
             mSeekBar = video_seekbar
@@ -433,6 +440,10 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
 
         mSeekBar!!.setOnSeekBarChangeListener(if (mIsFullscreen) null else this)
+        arrayOf(mView.video_curr_time, mView.video_duration).forEach {
+            it.isClickable = !mIsFullscreen
+        }
+
         mTimeHolder.animate().alpha(newAlpha).start()
         mView.video_details.apply {
             if (mStoredShowExtendedDetails && isVisible()) {
@@ -539,7 +550,12 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
 
         if (!wasEnded || context?.config?.loopVideos == false) {
-            mView.video_play_outline.setImageResource(R.drawable.ic_pause)
+            mPlayPauseButton?.setImageResource(R.drawable.ic_pause_outline)
+        }
+
+        if (!mWasVideoStarted) {
+            mView.video_play_outline.beGone()
+            mPlayPauseButton?.beVisible()
         }
 
         mWasVideoStarted = true
@@ -563,7 +579,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             mExoPlayer?.playWhenReady = false
         }
 
-        mView.video_play_outline?.setImageResource(R.drawable.ic_play)
+        mPlayPauseButton?.setImageResource(R.drawable.ic_play_outline)
         activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
