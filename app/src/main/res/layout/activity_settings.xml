@@ -281,7 +281,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/settings_open_videos_on_new_screen_holder"
+            android:id="@+id/settings_open_videos_on_separate_screen_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/medium_margin"
@@ -292,14 +292,14 @@
             android:paddingBottom="@dimen/activity_margin">
 
             <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/settings_open_videos_on_new_screen"
+                android:id="@+id/settings_open_videos_on_separate_screen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:clickable="false"
                 android:paddingStart="@dimen/medium_margin"
                 android:paddingLeft="@dimen/medium_margin"
-                android:text="@string/open_videos_on_new_screen"
+                android:text="@string/open_videos_on_separate_screen"
                 app:switchPadding="@dimen/medium_margin"/>
 
         </RelativeLayout>

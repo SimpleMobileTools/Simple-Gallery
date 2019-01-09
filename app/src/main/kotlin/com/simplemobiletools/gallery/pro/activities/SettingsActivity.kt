@@ -42,7 +42,7 @@ class SettingsActivity : SimpleActivity() {
         setupAutoplayVideos()
         setupRememberLastVideo()
         setupLoopVideos()
-        setupOpenVideosOnNewScreen()
+        setupOpenVideosOnSeparateScreen()
         setupAnimateGifs()
         setupMaxBrightness()
         setupCropThumbnails()
@@ -175,11 +175,11 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupOpenVideosOnNewScreen() {
-        settings_open_videos_on_new_screen.isChecked = config.openVideosOnNewScreen
-        settings_open_videos_on_new_screen_holder.setOnClickListener {
-            settings_open_videos_on_new_screen.toggle()
-            config.openVideosOnNewScreen = settings_open_videos_on_new_screen.isChecked
+    private fun setupOpenVideosOnSeparateScreen() {
+        settings_open_videos_on_separate_screen.isChecked = config.openVideosOnSeparateScreen
+        settings_open_videos_on_separate_screen_holder.setOnClickListener {
+            settings_open_videos_on_separate_screen.toggle()
+            config.openVideosOnSeparateScreen = settings_open_videos_on_separate_screen.isChecked
         }
     }
 

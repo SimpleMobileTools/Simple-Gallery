@@ -172,7 +172,7 @@
     <string name="show_recycle_bin_last">Zobrazit odpadkový koš jako poslední položku na hlavní obrazovce</string>
     <string name="allow_down_gesture">Povolit zavírání celoobrazovkového režimu tažením prstu dolů</string>
     <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
-    <string name="open_videos_on_new_screen">Always open videos on a new screen</string>
+    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Náhledy</string>

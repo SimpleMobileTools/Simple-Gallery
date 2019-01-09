@@ -172,7 +172,7 @@
     <string name="show_recycle_bin_last">回收桶顯示在主畫面最後一項</string>
     <string name="allow_down_gesture">允許用下滑手勢來關閉全螢幕檢視</string>
     <string name="allow_one_to_one_zoom">允許用兩次雙擊來1:1縮放</string>
-    <string name="open_videos_on_new_screen">Always open videos on a new screen</string>
+    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">縮圖</string>
