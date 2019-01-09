@@ -83,4 +83,6 @@
         android:visibility="gone"
         tools:text="My video\nAnother line"/>
 
+    <include layout="@layout/bottom_video_time_holder"/>
+
 </RelativeLayout>

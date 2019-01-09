@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
 import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.gallery.pro.R
@@ -15,6 +16,7 @@ import com.simplemobiletools.gallery.pro.helpers.MEDIUM
 import com.simplemobiletools.gallery.pro.helpers.PATH
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.views.MediaSideScroll
+import kotlinx.android.synthetic.main.bottom_video_time_holder.view.*
 import kotlinx.android.synthetic.main.pager_video_item.view.*
 import java.io.File
 import java.io.FileInputStream
@@ -29,6 +31,7 @@ class VideoFragment : ViewPagerFragment() {
     private var mStoredBottomActions = true
     private var mStoredExtendedDetails = 0
 
+    private lateinit var mTimeHolder: View
     private lateinit var mBrightnessSideScroll: MediaSideScroll
     private lateinit var mVolumeSideScroll: MediaSideScroll
 
@@ -44,6 +47,7 @@ class VideoFragment : ViewPagerFragment() {
             panorama_outline.setOnClickListener { openPanorama() }
             video_play_outline.setOnClickListener { launchVideoPlayer() }
 
+            mTimeHolder = video_time_holder
             mBrightnessSideScroll = video_brightness_controller
             mVolumeSideScroll = video_volume_controller
 
@@ -60,6 +64,7 @@ class VideoFragment : ViewPagerFragment() {
         Glide.with(context!!).load(mMedium.path).into(mView.video_preview)
 
         mIsFullscreen = activity!!.window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_FULLSCREEN == View.SYSTEM_UI_FLAG_FULLSCREEN
+        initTimeHolder()
         checkIfPanorama()
 
         if (mIsPanorama) {
@@ -105,6 +110,7 @@ class VideoFragment : ViewPagerFragment() {
         }
 
         checkExtendedDetails()
+        initTimeHolder()
         storeStateVariables()
     }
 
@@ -116,6 +122,7 @@ class VideoFragment : ViewPagerFragment() {
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         checkExtendedDetails()
+        initTimeHolder()
         updateInstantSwitchWidths()
     }
 
@@ -157,6 +164,15 @@ class VideoFragment : ViewPagerFragment() {
         }
     }
 
+    private fun initTimeHolder() {
+        var bottomMargin = context!!.navigationBarHeight
+        if (context!!.config.bottomActions) {
+            bottomMargin += resources.getDimension(R.dimen.bottom_actions_height).toInt()
+        }
+
+        (mTimeHolder.layoutParams as RelativeLayout.LayoutParams).bottomMargin = bottomMargin
+    }
+
     private fun checkIfPanorama() {
         try {
             val fis = FileInputStream(File(mMedium.path))
@@ -183,12 +199,14 @@ class VideoFragment : ViewPagerFragment() {
 
     override fun fullscreenToggled(isFullscreen: Boolean) {
         mIsFullscreen = isFullscreen
+        val newAlpha = if (isFullscreen) 0f else 1f
+        mTimeHolder.animate().alpha(newAlpha).start()
         mView.video_details.apply {
             if (mStoredShowExtendedDetails && isVisible()) {
                 animate().y(getExtendedDetailsY(height))
 
                 if (mStoredHideExtendedDetails) {
-                    animate().alpha(if (isFullscreen) 0f else 1f).start()
+                    animate().alpha(newAlpha).start()
                 }
             }
         }
