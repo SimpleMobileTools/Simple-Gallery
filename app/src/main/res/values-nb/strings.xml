@@ -172,6 +172,7 @@
     <string name="show_recycle_bin_last">Vis papirkurven som siste element på hovedskjermen</string>
     <string name="allow_down_gesture">Tillat lukking av mediavisningen med en nedoverbevegelse</string>
     <string name="allow_one_to_one_zoom">Tillat å zoome 1:1 med to dobbeltrykk</string>
+    <string name="open_videos_on_new_screen">Always open videos on a new screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Minibilder</string>

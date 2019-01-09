@@ -172,6 +172,7 @@
     <string name="show_recycle_bin_last">Tampilkan Sampah sebagai item terakhir di layar utama</string>
     <string name="allow_down_gesture">Izinkan keluar dari layar penuh dengan menggeser kebawah</string>
     <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
+    <string name="open_videos_on_new_screen">Always open videos on a new screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnail</string>

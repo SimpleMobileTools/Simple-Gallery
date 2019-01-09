@@ -172,6 +172,7 @@
     <string name="show_recycle_bin_last">Vis papirkurven som sidste element på hovedskærmen</string>
     <string name="allow_down_gesture">Luk fuldskærmsvisning ved at swipe ned</string>
     <string name="allow_one_to_one_zoom">Tillad 1:1 zooming med to dobbelttryk</string>
+    <string name="open_videos_on_new_screen">Always open videos on a new screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturer</string>

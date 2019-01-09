@@ -172,6 +172,7 @@
     <string name="show_recycle_bin_last">Pokazuj kosz jako ostatni element na głównym ekranie</string>
     <string name="allow_down_gesture">Zezwalaj na zamykanie pełnoekranowego widoku gestem pociągnięcia w dół</string>
     <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
+    <string name="open_videos_on_new_screen">Always open videos on a new screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatury</string>

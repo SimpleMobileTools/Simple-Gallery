@@ -172,6 +172,7 @@
     <string name="show_recycle_bin_last">Zobraziť odpadkový kôš ako poslednú položku na hlavnej obrazovke</string>
     <string name="allow_down_gesture">Povoliť zatváranie celoobrazovkového režimu potiahnutím prsta dole</string>
     <string name="allow_one_to_one_zoom">Povoliť 1:1 priblíženie dvojnásobným dvojklikom</string>
+    <string name="open_videos_on_new_screen">Vždy otvárať videá na novej obrazovke</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Náhľady</string>

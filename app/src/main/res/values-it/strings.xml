@@ -172,6 +172,7 @@
     <string name="show_recycle_bin_last">Mostra il cestino come ultimo elemento nella schermata principale</string>
     <string name="allow_down_gesture">Chiudi la visuale a schermo intero con un gesto verso il basso</string>
     <string name="allow_one_to_one_zoom">Permetti l\'ingrandimento 1:1 con un doppio tasto</string>
+    <string name="open_videos_on_new_screen">Always open videos on a new screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Anteprime</string>

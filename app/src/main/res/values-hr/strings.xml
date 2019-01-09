@@ -172,6 +172,7 @@
     <string name="show_recycle_bin_last">Prikaži koš za smeće kao posljednju stavku na glavnom zaslonu</string>
     <string name="allow_down_gesture">Omogućite zatvaranje prikaza preko cijelog zaslona pokretom prema dolje</string>
     <string name="allow_one_to_one_zoom">Dopusti zumiranje 1: 1 s dva dvostruka dodira</string>
+    <string name="open_videos_on_new_screen">Always open videos on a new screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>

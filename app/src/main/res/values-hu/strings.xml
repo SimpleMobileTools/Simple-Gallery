@@ -173,6 +173,7 @@
     <string name="show_recycle_bin_last">Mutassa a Lomtárat a fő képernyő utolsó elemeként</string>
     <string name="allow_down_gesture">Engedélyezi a teljes képernyős nézetet a lefelé mozdulattal</string>
     <string name="allow_one_to_one_zoom">Engedélyezi az 1:1 nagyítást két dupla érintéssel</string>
+    <string name="open_videos_on_new_screen">Always open videos on a new screen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatűrök</string>
