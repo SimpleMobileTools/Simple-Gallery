@@ -195,7 +195,6 @@
     <string name="faq_3_text">Anda bisa menekan lama album tersebut dan pilih ikon Pin di menu tindakan, itu akan menaruhnya di atas daftar. Anda juga bisa menyematkan beberapa folder, item yang di-pin akan diurutkan berdasarkan metode urutan default.</string>
     <string name="faq_4_title">Bagaimana cara mempercepat laju video?</string>
     <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
-    <string name="faq_4_text_old">Anda bisa mengklik teks durasi saat ini/maksimal di dekat penggeser durasi, itu akan memajukan atau memundurkan video.</string>
     <string name="faq_5_title">Apa perbedaan antara menyembunyikan dan mengecualikan folder?</string>
     <string name="faq_5_text">Mengecualikan tidak akan menampilkan folder di Simple Gallery, sedangkan Sembunyikan bekerja sesuai aturan sistem dan akan menyembunyikan folder juga dari aplikasi galeri yang lain. Cara kerjanya dengan membuat file \".nomedia\" kosong pada folder yang diinginkan, yang bisa Anda hapus juga dengan aplikasi file manager.</string>
     <string name="faq_6_title">Mengapa folder dengan gambar album musik atau stiker muncul?</string>

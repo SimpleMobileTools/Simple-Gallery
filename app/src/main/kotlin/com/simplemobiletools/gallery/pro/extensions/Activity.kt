@@ -70,7 +70,7 @@ fun SimpleActivity.launchAbout() {
             FAQItem(R.string.faq_1_title, R.string.faq_1_text),
             FAQItem(R.string.faq_2_title, R.string.faq_2_text),
             FAQItem(R.string.faq_3_title, R.string.faq_3_text),
-            FAQItem(R.string.faq_4_title, R.string.faq_4_text_old),
+            FAQItem(R.string.faq_4_title, R.string.faq_4_text),
             FAQItem(R.string.faq_5_title, R.string.faq_5_text),
             FAQItem(R.string.faq_6_title, R.string.faq_6_text),
             FAQItem(R.string.faq_7_title, R.string.faq_7_text),

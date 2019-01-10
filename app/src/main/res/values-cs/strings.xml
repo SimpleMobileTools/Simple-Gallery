@@ -195,7 +195,6 @@
     <string name="faq_3_text">Můžete označit danou složku dlouhým podržením a zvolit tlačítko s obrázkem připínáčku, to jej připne na vrch. Můžete připnout i více složek, budou seřazeny podle zvoleného řazení.</string>
     <string name="faq_4_title">Jak můžu rychle posunout videa?</string>
     <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
-    <string name="faq_4_text_old">Můžete kliknout na texty současné nebo maximální délky videa, které jsou vedle indikátoru současného progresu. To posune video buď vpřed, nebo vzad.</string>
     <string name="faq_5_title">Jaký je rozdíl mezi Skrytím a Vyloučením složky?</string>
     <string name="faq_5_text">Zatímco vyloučení předejde zobrazení složky pouze vrámci Jednoduché Galerie, skrytí ho ukryje vrámci celého systému, tedy to ovlivní i ostatní galerie. Skrytí funguje pomocí vytvoření prázdného \".nomedia\" souboru v daném adresáři, který můžete vymazat i nějakým správcem souborů.</string>
     <string name="faq_6_title">Proč se mi zobrazují složky s obaly hudebních alb, nebo nálepkami?</string>
