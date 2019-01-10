@@ -220,7 +220,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Uma aplicação para gerir os seus ficheiros, sem anúncios e que respeita a sua privacidade.</string>
+    <string name="app_short_description">Aplicação para gerir os seus ficheiros, sem anúncios e com total privacidade.</string>
     <string name="app_long_description">
         Um aplicação capaz de mostrar diversos tipos de imagens e vídeos incluíndo SVG, RAW, fotos panorâmicas e vídeos.
 
