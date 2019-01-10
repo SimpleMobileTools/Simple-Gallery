@@ -116,7 +116,7 @@
     <string name="loop_slideshow">Apresentação em ciclo</string>
     <string name="slideshow_ended">Apresentação terminada</string>
     <string name="no_media_for_slideshow">Não foram encontrados ficheiros para a apresentação</string>
-    <string name="use_crossfade_animation">Use crossfade animations</string>
+    <string name="use_crossfade_animation">Utilizar animação de transição</string>
 
     <!-- View types -->
     <string name="change_view_type">Tipo de exibição</string>
@@ -134,8 +134,8 @@
     <string name="by_extension">Extensão</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Folder shown on the widget:</string>
-    <string name="show_folder_name">Show folder name</string>
+    <string name="folder_on_widget">Pasta mostrada no widget:</string>
+    <string name="show_folder_name">Mostrar nome da pasta</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Reproduzir vídeos automaticamente</string>
@@ -171,8 +171,8 @@
     <string name="show_highest_quality">Mostrar fotos com a melhor qualidade possível</string>
     <string name="show_recycle_bin_last">Mostrar a reciclagem como o último item do ecrã principal</string>
     <string name="allow_down_gesture">Sair de ecrã completo com um gesto para baixo</string>
-    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
-    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
+    <string name="allow_one_to_one_zoom">Permitir ampliação 1:1 com dois toques</string>
+    <string name="open_videos_on_separate_screen">Abrir vídeos em ecrã distinto com os novos toques horizontais</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
@@ -219,7 +219,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
+    <string name="app_short_description">Aplicação para gerir os seus ficheiros, sem anúncios e com total privacidade.</string>
     <string name="app_long_description">
         Um aplicação capaz de mostrar diversos tipos de imagens e vídeos incluíndo SVG, RAW, fotos panorâmicas e vídeos.
 
