@@ -89,7 +89,7 @@
     <string name="flip_vertically">Zrcali vertikalno</string>
     <string name="edit_with">Uredi z</string>
     <string name="free_aspect_ratio">Prosto</string>                <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+    <string name="other_aspect_ratio">Drugo</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple ozadje</string>
@@ -116,7 +116,7 @@
     <string name="loop_slideshow">Ponavljaj diaprojekcijo</string>
     <string name="slideshow_ended">Diaprojekcija se je zaključila</string>
     <string name="no_media_for_slideshow">Ne najdem datotek za diaprojekcijo</string>
-    <string name="use_crossfade_animation">Use crossfade animations</string>
+    <string name="use_crossfade_animation">Uporabi križanje animacij</string>
 
     <!-- View types -->
     <string name="change_view_type">Spremeni tip pogleda</string>
@@ -134,8 +134,8 @@
     <string name="by_extension">Končnica</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Folder shown on the widget:</string>
-    <string name="show_folder_name">Show folder name</string>
+    <string name="folder_on_widget">Mapa uporabljena na pripomočku:</string>
+    <string name="show_folder_name">Prikaži ime mape</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Avtomatično predvajaj videoposnetke</string>
@@ -171,8 +171,8 @@
     <string name="show_highest_quality">Prikaži slike v največji možni kvaliteti</string>
     <string name="show_recycle_bin_last">Prikaži Koš kot zadnji element na glavnem zaslonu</string>
     <string name="allow_down_gesture">Dovoli zapiranje celozaslonskega načina z gesto navzdol</string>
-    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
-    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
+    <string name="allow_one_to_one_zoom">Dovoli 1:1 povečavo z dvojnim pritiskom</string>
+    <string name="open_videos_on_separate_screen">Vedno odpri videoposnetke na ločenem zaslonu z novimi horizontalnimi gestami</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>
@@ -218,7 +218,7 @@
     <string name="faq_14_text">Lahko uporabite funkcijo \"Začasno prikaži skrite elemente\", ki se nahaja v meniju na glavnem zaslonu ali preklopite \"Prikaži skrite elemente\" v Nastavitvah aplikacije. Če želite element označiti kot viden, z dolgim pritiskom nanj prikličite meni in izberite \"Prikaži\". Skrivanje map deluje tako, da se kreira prazno \".nomedia\" datoteko v izbrani mapi, ki jo lahko odstranite tudi s katerimkoli urejevalnikom datotek.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
+    <string name="app_short_description">Galerija brez obvezne internetne povezave za urejanje vaših datotek brez prikazovanja oglasov in z upoštevanjem vaše zasebnosti.</string>
     <string name="app_long_description">
         Visoko prilagodljiva galerija, zmožna prikazovanja različnih tipov fotografij in videoposnetkov, vključno s SVGji, RAWi, panoramskimi fotografijami in videoposnetki.
 
