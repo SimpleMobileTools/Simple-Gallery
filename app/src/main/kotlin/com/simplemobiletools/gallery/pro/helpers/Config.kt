@@ -285,6 +285,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getInt(SLIDESHOW_INTERVAL, SLIDESHOW_DEFAULT_INTERVAL)
         set(slideshowInterval) = prefs.edit().putInt(SLIDESHOW_INTERVAL, slideshowInterval).apply()
 
+    var slideshowIncludeVideos: Boolean
+        get() = prefs.getBoolean(SLIDESHOW_INCLUDE_VIDEOS, false)
+        set(slideshowIncludeVideos) = prefs.edit().putBoolean(SLIDESHOW_INCLUDE_VIDEOS, slideshowIncludeVideos).apply()
+
     var slideshowIncludeGIFs: Boolean
         get() = prefs.getBoolean(SLIDESHOW_INCLUDE_GIFS, false)
         set(slideshowIncludeGIFs) = prefs.edit().putBoolean(SLIDESHOW_INCLUDE_GIFS, slideshowIncludeGIFs).apply()

@@ -505,7 +505,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun getMediaForSlideshow(): Boolean {
         mSlideshowMedia = mMediaFiles.filter {
-            it.isImage() || (config.slideshowIncludeGIFs && it.isGIF())
+            it.isImage() || (config.slideshowIncludeVideos && it.isVideo() || (config.slideshowIncludeGIFs && it.isGIF()))
         }.toMutableList()
 
         if (config.slideshowRandomOrder) {

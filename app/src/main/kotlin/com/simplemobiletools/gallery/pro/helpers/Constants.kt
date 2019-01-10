@@ -79,6 +79,7 @@ const val ALLOW_ONE_TO_ONE_ZOOM = "allow_one_to_one_zoom"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"
+const val SLIDESHOW_INCLUDE_VIDEOS = "slideshow_include_videos"
 const val SLIDESHOW_INCLUDE_GIFS = "slideshow_include_gifs"
 const val SLIDESHOW_RANDOM_ORDER = "slideshow_random_order"
 const val SLIDESHOW_USE_FADE = "slideshow_use_fade"

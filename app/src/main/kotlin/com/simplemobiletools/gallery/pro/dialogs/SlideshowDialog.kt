@@ -28,6 +28,11 @@ class SlideshowDialog(val activity: BaseSimpleActivity, val callback: () -> Unit
                     activity.hideKeyboard(v)
             }
 
+            include_videos_holder.setOnClickListener {
+                interval_value.clearFocus()
+                include_videos.toggle()
+            }
+
             include_gifs_holder.setOnClickListener {
                 interval_value.clearFocus()
                 include_gifs.toggle()
@@ -74,6 +79,7 @@ class SlideshowDialog(val activity: BaseSimpleActivity, val callback: () -> Unit
         val config = activity.config
         view.apply {
             interval_value.setText(config.slideshowInterval.toString())
+            include_videos.isChecked = config.slideshowIncludeVideos
             include_gifs.isChecked = config.slideshowIncludeGIFs
             random_order.isChecked = config.slideshowRandomOrder
             use_fade.isChecked = config.slideshowUseFade
@@ -89,6 +95,7 @@ class SlideshowDialog(val activity: BaseSimpleActivity, val callback: () -> Unit
 
         activity.config.apply {
             slideshowInterval = interval.toInt()
+            slideshowIncludeVideos = view.include_videos.isChecked
             slideshowIncludeGIFs = view.include_gifs.isChecked
             slideshowRandomOrder = view.random_order.isChecked
             slideshowUseFade = view.use_fade.isChecked
