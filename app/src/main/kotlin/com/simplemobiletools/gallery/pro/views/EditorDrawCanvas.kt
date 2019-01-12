@@ -11,12 +11,15 @@ class EditorDrawCanvas(context: Context, attrs: AttributeSet) : View(context, at
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+        canvas.save()
 
         if (backgroundBitmap != null) {
             val left = (width - backgroundBitmap!!.width) / 2
             val top = (height - backgroundBitmap!!.height) / 2
             canvas.drawBitmap(backgroundBitmap, left.toFloat(), top.toFloat(), null)
         }
+
+        canvas.restore()
     }
 
     fun updateBackgroundBitmap(bitmap: Bitmap) {
