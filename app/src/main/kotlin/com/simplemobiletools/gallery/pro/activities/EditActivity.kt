@@ -63,6 +63,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private val PRIMARY_ACTION_NONE = 0
     private val PRIMARY_ACTION_FILTER = 1
     private val PRIMARY_ACTION_CROP_ROTATE = 2
+    private val PRIMARY_ACTION_DRAW = 3
 
     private val CROP_ROTATE_NONE = 0
     private val CROP_ROTATE_ASPECT_RATIO = 1
@@ -208,6 +209,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
                         if (isCropIntent) {
                             bottom_primary_filter.beGone()
+                            bottom_primary_draw.beGone()
                         }
 
                         return false
@@ -287,6 +289,10 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         bottom_primary_crop_rotate.setOnClickListener {
             bottomCropRotateClicked()
         }
+
+        bottom_primary_draw.setOnClickListener {
+            bottomDrawClicked()
+        }
     }
 
     private fun bottomFilterClicked() {
@@ -303,6 +309,15 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             PRIMARY_ACTION_NONE
         } else {
             PRIMARY_ACTION_CROP_ROTATE
+        }
+        updatePrimaryActionButtons()
+    }
+
+    private fun bottomDrawClicked() {
+        currPrimaryAction = if (currPrimaryAction == PRIMARY_ACTION_DRAW) {
+            PRIMARY_ACTION_NONE
+        } else {
+            PRIMARY_ACTION_DRAW
         }
         updatePrimaryActionButtons()
     }
@@ -375,13 +390,14 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             loadDefaultImageView()
         }
 
-        arrayOf(bottom_primary_filter, bottom_primary_crop_rotate).forEach {
+        arrayOf(bottom_primary_filter, bottom_primary_crop_rotate, bottom_primary_draw).forEach {
             it.applyColorFilter(Color.WHITE)
         }
 
         val currentPrimaryActionButton = when (currPrimaryAction) {
             PRIMARY_ACTION_FILTER -> bottom_primary_filter
             PRIMARY_ACTION_CROP_ROTATE -> bottom_primary_crop_rotate
+            PRIMARY_ACTION_DRAW -> bottom_primary_draw
             else -> null
         }
 
