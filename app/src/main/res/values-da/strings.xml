@@ -87,7 +87,6 @@
     <string name="flip">Spejlvend</string>
     <string name="flip_horizontally">Spejlvend vandret</string>
     <string name="flip_vertically">Spejlvend lodret</string>
-    <string name="edit_with">Rediger med</string>
     <string name="free_aspect_ratio">Fri</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Andet</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 

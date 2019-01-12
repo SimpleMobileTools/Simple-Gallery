@@ -87,7 +87,6 @@
     <string name="flip">Spiegeln</string>
     <string name="flip_horizontally">Horizontal spiegeln</string>
     <string name="flip_vertically">Vertikal spiegeln</string>
-    <string name="edit_with">Bearbeiten mit:</string>
     <string name="free_aspect_ratio">Beliebiges</string>                        <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Anderes</string>                            <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 

@@ -633,7 +633,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun editWith() {
-        openEditor(uri.toString())
+        openEditor(uri.toString(), true)
         isEditingWithThirdParty = true
     }
 

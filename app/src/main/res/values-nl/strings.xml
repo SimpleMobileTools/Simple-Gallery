@@ -87,7 +87,6 @@
     <string name="flip">Kantelen</string>
     <string name="flip_horizontally">Horizontaal kantelen</string>
     <string name="flip_vertically">Verticaal kantelen</string>
-    <string name="edit_with">Bewerken met</string>
     <string name="free_aspect_ratio">Vrij</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Anders</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 

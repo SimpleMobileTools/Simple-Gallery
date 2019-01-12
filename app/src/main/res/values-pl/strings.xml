@@ -87,7 +87,6 @@
     <string name="flip">Przewróć</string>
     <string name="flip_horizontally">Przewróć w poziomie</string>
     <string name="flip_vertically">Przewróć w pionie</string>
-    <string name="edit_with">Edytuj w:</string>
     <string name="free_aspect_ratio">Wolne</string>                 <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Inny</string>                 <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 

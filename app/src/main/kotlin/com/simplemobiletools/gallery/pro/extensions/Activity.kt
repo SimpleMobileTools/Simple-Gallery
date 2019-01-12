@@ -51,8 +51,8 @@ fun Activity.openPath(path: String, forceChooser: Boolean) {
     openPathIntent(path, forceChooser, BuildConfig.APPLICATION_ID)
 }
 
-fun Activity.openEditor(path: String) {
-    openEditorIntent(path, BuildConfig.APPLICATION_ID)
+fun Activity.openEditor(path: String, forceChooser: Boolean = false) {
+    openEditorIntent(path, forceChooser, BuildConfig.APPLICATION_ID)
 }
 
 fun Activity.launchCamera() {

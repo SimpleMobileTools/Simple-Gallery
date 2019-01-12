@@ -87,7 +87,6 @@
     <string name="flip">Віддзеркалити</string>
     <string name="flip_horizontally">Віддзеркалити горизонтально</string>
     <string name="flip_vertically">Віддзеркалити вертикально</string>
-    <string name="edit_with">Редагувати за допомогою</string>
     <string name="free_aspect_ratio">Вільне</string>                        <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Інше</string>                        <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
