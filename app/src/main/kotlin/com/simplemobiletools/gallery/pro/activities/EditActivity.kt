@@ -18,6 +18,7 @@ import android.widget.RelativeLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
@@ -79,8 +80,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private var isCropIntent = false
     private var isEditingWithThirdParty = false
     private var oldExif: ExifInterface? = null
-
-    private var initialBitmap: Bitmap? = null
+    private var filterInitialBitmap: Bitmap? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -195,17 +195,17 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
                     override fun onResourceReady(bitmap: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
                         val currentFilter = getFiltersAdapter()?.getCurrentFilter()
-                        if (initialBitmap == null) {
+                        if (filterInitialBitmap == null) {
                             loadCropImageView()
                             bottomCropRotateClicked()
                         }
 
-                        if (initialBitmap != null && currentFilter != null && currentFilter.filter.name != getString(R.string.none)) {
+                        if (filterInitialBitmap != null && currentFilter != null && currentFilter.filter.name != getString(R.string.none)) {
                             default_image_view.onGlobalLayout {
                                 applyFilter(currentFilter)
                             }
                         } else {
-                            initialBitmap = bitmap
+                            filterInitialBitmap = bitmap
                         }
 
                         if (isCropIntent) {
@@ -239,6 +239,31 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         default_image_view.beGone()
         crop_image_view.beGone()
         editor_draw_canvas.beVisible()
+
+        Thread {
+            val size = Point()
+            windowManager.defaultDisplay.getSize(size)
+            val options = RequestOptions()
+                    .format(DecodeFormat.PREFER_ARGB_8888)
+                    .skipMemoryCache(true)
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .fitCenter()
+
+            try {
+                val builder = Glide.with(applicationContext)
+                        .asBitmap()
+                        .load(uri)
+                        .apply(options)
+                        .into(size.x, size.y)
+
+                val bitmap = builder.get()
+                runOnUiThread {
+                    editor_draw_canvas.updateBackgroundBitmap(bitmap)
+                }
+            } catch (e: Exception) {
+                showErrorToast(e)
+            }
+        }.start()
     }
 
     @TargetApi(Build.VERSION_CODES.N)
@@ -462,7 +487,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun applyFilter(filterItem: FilterItem) {
-        val newBitmap = Bitmap.createBitmap(initialBitmap)
+        val newBitmap = Bitmap.createBitmap(filterInitialBitmap)
         default_image_view.setImageBitmap(filterItem.filter.processFilter(newBitmap))
     }
 
