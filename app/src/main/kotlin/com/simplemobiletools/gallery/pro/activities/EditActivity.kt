@@ -180,6 +180,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private fun loadDefaultImageView() {
         default_image_view.beVisible()
         crop_image_view.beGone()
+        editor_draw_canvas.beGone()
 
         val options = RequestOptions()
                 .skipMemoryCache(true)
@@ -219,6 +220,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     private fun loadCropImageView() {
         default_image_view.beGone()
+        editor_draw_canvas.beGone()
         crop_image_view.apply {
             beVisible()
             setOnCropImageCompleteListener(this@EditActivity)
@@ -231,6 +233,12 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 bottom_aspect_ratio.beGone()
             }
         }
+    }
+
+    private fun loadDrawCanvas() {
+        default_image_view.beGone()
+        crop_image_view.beGone()
+        editor_draw_canvas.beVisible()
     }
 
     @TargetApi(Build.VERSION_CODES.N)
@@ -388,6 +396,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             loadCropImageView()
         } else if (default_image_view.isGone() && currPrimaryAction == PRIMARY_ACTION_FILTER) {
             loadDefaultImageView()
+        } else if (editor_draw_canvas.isGone() && currPrimaryAction == PRIMARY_ACTION_DRAW) {
+            loadDrawCanvas()
         }
 
         arrayOf(bottom_primary_filter, bottom_primary_crop_rotate, bottom_primary_draw).forEach {

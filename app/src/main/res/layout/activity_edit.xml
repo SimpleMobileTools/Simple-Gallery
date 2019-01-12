@@ -23,6 +23,15 @@
         app:cropBackgroundColor="@color/crop_image_view_background"
         app:cropInitialCropWindowPaddingRatio="0"/>
 
+    <com.simplemobiletools.gallery.pro.views.EditorDrawCanvas
+        android:id="@+id/editor_draw_canvas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_editor_crop_rotate_actions"
+        android:layout_marginBottom="@dimen/activity_margin"
+        android:background="@android:color/transparent"
+        android:visibility="gone"/>
+
     <RelativeLayout
         android:id="@+id/bottom_editor_actions_background"
         android:layout_width="match_parent"
