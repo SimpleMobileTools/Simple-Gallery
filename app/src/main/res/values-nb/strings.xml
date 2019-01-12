@@ -122,7 +122,7 @@
     <string name="change_view_type">Endre visningstype</string>
     <string name="grid">Rutenett</string>
     <string name="list">Liste</string>
-    <string name="group_direct_subfolders">Group direct subfolders</string>
+    <string name="group_direct_subfolders">Grupper direkte undermapper</string>
 
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Grupper etter</string>
@@ -172,7 +172,7 @@
     <string name="show_recycle_bin_last">Vis papirkurven som siste element på hovedskjermen</string>
     <string name="allow_down_gesture">Tillat lukking av mediavisningen med en nedoverbevegelse</string>
     <string name="allow_one_to_one_zoom">Tillat å zoome 1:1 med to dobbeltrykk</string>
-    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
+    <string name="open_videos_on_separate_screen">Åpne alltid videoer på en separat skjerm med nye horisontale bevegelser</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Minibilder</string>
