@@ -635,10 +635,13 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
     private fun cleanup() {
         pauseVideo()
-        mCurrTimeView.text = 0.getFormattedDuration()
         releaseExoPlayer()
-        mSeekBar.progress = 0
-        mTimerHandler.removeCallbacksAndMessages(null)
+
+        if (mWasFragmentInit) {
+            mCurrTimeView.text = 0.getFormattedDuration()
+            mSeekBar.progress = 0
+            mTimerHandler.removeCallbacksAndMessages(null)
+        }
     }
 
     private fun releaseExoPlayer() {
