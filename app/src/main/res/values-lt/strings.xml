@@ -203,8 +203,6 @@
     <string name="faq_8_title">Ką daryti, jei noriu matyti tik keletą konkrečių aplankų?</string>
     <string name="faq_8_text">Pridėjus aplanką į "Įtraukti aplankai", automatiškai neįtraukiama nieko. Ką jūs galite padaryti, eikite į Nustatymai -> Tvarkyti išskirtus aplankus, išskirkite šakninį aplanką \ "/ \", tada pridėkite norimus aplankus, esančius Nustatymai -> Tvarkyti įtrauktas aplankas.
          Tai leis matyti tik tuos pasirinktus aplankus, nes abu atmetami ir įtraukti yra rekursyvūs, ir jei aplankas yra išskirtas ir įtrauktas, jis bus rodomas.</string>
-    <string name="faq_9_title">Viso ekrano atvaizdai turi keistus artefaktus, galiu kokiu nors būdu pagerinti kokybę?</string>
-    <string name="faq_9_text">Taip, "Nustatymuose" perjunkite \ "Pakeisti giliuosius, patobulintus vaizdus geresnės kokybės vaizdais \", galite tai naudoti. Tai pagerins vaizdų kokybę, tačiau kai jūs pabandysite per daug padidinti vaizdą, jie bus neryškūs.</string>
     <string name="faq_10_title">Ar galiu apkarpyti vaizdus naudojant šią programėlę?</string>
     <string name="faq_10_text">Taip, redaguodami vaizdus, galite juos apkarpyti, vilkdami vaizdo kampus. Galite patekti į redaktorių ilgai paspaudę vaizdo miniatiūrą ir pasirinkę "Redaguoti" arba iš viso ekrano rodinio pasirinkę "Redaguoti".</string>
     <string name="faq_11_title">Can I somehow group media file thumbnails?</string>

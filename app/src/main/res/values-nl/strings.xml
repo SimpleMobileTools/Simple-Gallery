@@ -203,8 +203,6 @@
     <string name="faq_8_title">Wat als ik slechts een beperkt aantal mappen wil laten zien?</string>
     <string name="faq_8_text">Het toevoegen van mappen aan de lijst bij \"Toegevoegde mappen beheren\" sluit niet automatisch alle andere mappen uit. Sluit daarom de hoofdmap \"/\" uit via \"Instellingen\" -> \"Uitgesloten mappen beheren\" en voeg vervolgens de te tonen mappen toe bij \"Instellingen\" -> \"Toegevoegde mappen beheren\".
         Dit zal ervoor zorgen dat alleen de toegevoegde mappen worden getoond (mappen toevoegen of uitsluiten gebeurt recursief, maar een toegevoegde map zal altijd worden getoond).</string>
-    <string name="faq_9_title">Afbeeldingen in volledig scherm hebben rare artefacten. Kan ik de kwaliteit verbeteren?</string>
-    <string name="faq_9_text">Probeer de instelling \"Verder inzoomen mogelijk maken\" te wijzigen.</string>
     <string name="faq_10_title">Kan ik afbeeldingen bijsnijden met deze app?</string>
     <string name="faq_10_text">Ja, dat kan bij \"Bewerken\" door de hoeken te verslepen. Druk lang op een afbeelding in het overzicht of ga naar het volledig scherm en klik vervolgens op \"Bewerken\".</string>
     <string name="faq_11_title">Hoe kan ik mediabestanden groeperen?</string>

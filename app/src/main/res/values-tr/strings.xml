@@ -203,8 +203,6 @@
     <string name="faq_8_title">Sadece birkaç belirli klasörün görünmesini istersem ne olur?</string>
     <string name="faq_8_text">Dahil Edilen Klasörler\'e bir klasör eklemek otomatik olarak hiçbir şeyi hariç tutmaz. Yapabilecekleriniz Ayarlar -> Hariç Tutulan Klasörleri Yönet, kök klasörü \"/\" hariç tut, ardından Ayarlar -> Dahil Edilen Klasörleri Yönet.
         Bu, hem hariç tutulan hem de dahil edilen olmak üzere, yalnızca seçilen klasörleri görünür hale getirir ve bir klasör her ikisi de hariç tutulur ve dahil edilirse, görünür.</string>
-    <string name="faq_9_title">Tam ekran görüntülerde garip eserler var, bir şekilde kaliteyi artırabilir miyim?</string>
-    <string name="faq_9_text">Evet, Ayarlar\'da \"Daha iyi kalitede olanlar ile derin yakınlaştırılabilir resimleri değiştir\" diyen bir geçiş var. Bunu kullanabilirsiniz. Görüntülerin kalitesini artırır, ancak çok fazla zum yapmaya çalıştığınızda bulanıklaşır.</string>
     <string name="faq_10_title">Bu uygulamayla görüntüleri kırpabilir miyim?</string>
     <string name="faq_10_text">Evet, görüntü köşelerini sürükleyerek resimleri düzenleyicide kırpabilirsiniz. Düzenleyiciye, bir resim küçük resmine uzun basıp Düzenle\'yi seçerek veya tam ekran görünümünden Düzenle\'yi seçerek ulaşabilirsiniz.</string>
     <string name="faq_11_title">Medya dosyası küçük resimlerini bir şekilde gruplayabilir miyim?</string>

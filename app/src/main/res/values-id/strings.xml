@@ -203,8 +203,6 @@
     <string name="faq_8_title">Bagaimana jika saya hanya ingin beberapa folder saja yang terlihat?</string>
     <string name="faq_8_text">Menambahkan folder di Folder yang Disertakan tidak otomatis mengecualikan folder yang lain. Yang bisa Anda lakukan adalah pergi ke Setelan -> Atur Folder yang Dikecualikan, lalu kecualikan folder root \"/\", lalu tambahkan folder yang diinginkan di Setelan -> Atur Folder yang Disertakan.
         Itu akan membuat folder yang dipilih saja yang muncul, dan jika sebuah folder disertakan dan dikecualikan secara bersamaan, folder tersebut akan muncul.</string>
-    <string name="faq_9_title">Gambar layar penuh terlihat pecah, bisakah ditingkatkan kualitasnya?</string>
-    <string name="faq_9_text">Ya, ada opsi di Setelan \"Ganti zoom mendalam dengan kualitas gambar yang lebih bagus\", Anda bisa menggunakannya. Ini akan meningkatkan kualitas gambar, namun gambar akan terlihat kabur jika Anda zoom terlalu banyak.</string>
     <string name="faq_10_title">Bisakah saya meng-crop gambar dengan aplikasi ini?</string>
     <string name="faq_10_text">Ya, Anda bisa melakukannya di Editor, dengan menyeret sudut gambar. Anda bisa masuk ke editor dengan menekan lama thumbnail gambar dan memilih Edit, atau pilih Edit dari tampilan layar penuh.</string>
     <string name="faq_11_title">Bisakah saya mengelompokkan thumbnail file media?</string>

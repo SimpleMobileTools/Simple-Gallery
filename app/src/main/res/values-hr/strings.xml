@@ -203,8 +203,6 @@
     <string name="faq_8_title">Što ako želim vidjeti samo nekoliko određenih mapa?</string>
     <string name="faq_8_text">Dodavanje direktorija u uključene mape ne izuzima ništa automatski. Da biste to učinili, idite na "Postavke", a zatim "Upravljanje izuzetim mapama", izuzmite korijenski direktorij \"/\", a zatim dodajte željene direktorije u "Postavke" i "Upravljanje uključenim mapama".
         Samo će odabrane mape biti vidljive, jer su izuzimanja i uključivanja rekurzivni, a ako je mapa isključena i uključena, bit će prikazana.</string>
-    <string name="faq_9_title">Slike na cijelom zaslonu imaju čudne artefakte, mogu li nekako poboljšati kvalitetu?</string>
-    <string name="faq_9_text">Da, u "Postavkama" postoji opcija "Zamjena duboko zumiranih slika s kvalitetnijim slikama", ali slike će biti zamućene ako zumirate previše.</string>
     <string name="faq_10_title">Mogu li izrezati slike pomoću ove aplikacije?</string>
     <string name="faq_10_text">Da, možete obrezati slike u uređivaču povlačenjem uglova. Možete doći do uređivača dugim pritiskom na minijaturu slike i odabirom Uređivanje ili odabirom Uredi iz prikaza preko cijelog zaslona.</string>
     <string name="faq_11_title">Mogu li nekako grupirati sličice medijskih datoteka?</string>

@@ -201,8 +201,6 @@
     <string name="faq_7_text">Wejdź do ustawień aplikacji i w sekcji z dołączonymi folderami dodaj tenże folder do listy.</string>
     <string name="faq_8_title">Co jeśli chcę widzieć tylko wybrane foldery?</string>
     <string name="faq_8_text">Przejdź do sekcji z wykluczonymi folderami w ustawieniach aplikacji, dodaj tam folder główny (\"/\"), a następnie dodaj pożądane foldery w sekcji z dołączonymi folderami.</string>
-    <string name="faq_9_title">Zdjęcia w widoku pełnoekranowym mają dziwne artefakty. Jak mogę to naprawić?</string>
-    <string name="faq_9_text">W ustawieniach aplikacji włącz opcję \'Zamieniaj powiększalne obrazy na te o lepszej jakości\'. Poprawi ona jakość zdjęć, jednak przy bardzo dużych powiększeniach mogą się stać one zbyt rozmazane.</string>
     <string name="faq_10_title">Czy mogę w tej aplikacji przycinać obrazy?</string>
     <string name="faq_10_text">Tak, możesz to zrobić w edytorze, przeciągając krawędzie obrazu. Edytor otworzysz przytrzymując miniaturę obrazu i wybierając opcję \'Edytuj\', bądź wybierając tą samą opcję w menu pełnoekranowym.</string>
     <string name="faq_11_title">Czy mogę jakoś grupować miniatury plików?</string>

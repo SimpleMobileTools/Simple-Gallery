@@ -201,8 +201,6 @@
     <string name="faq_7_text">Cela peut arriver pour de multiples raisons, mais c\'est facile à résoudre. Allez dans \"Paramètres\", puis \"Gérer les dossiers inclus\", appuyez sur \"+\" et sélectionnez le dossier voulu.</string>
     <string name="faq_8_title">Comment faire apparaître uniquement certains dossiers ?</string>
     <string name="faq_8_text">Ajouter un dossier dans les \"Dossiers inclus\" rend visible l\'ensemble du contenu du dossier. Pour exclure certains dossiers, il faut aller dans \"Paramètres\", puis \"Gérer les dossiers exclus\", exclure le dossier racine \"/\", puis ajouter les dossiers souhaités dans \"Paramètres\", puis \"Gérer les dossiers inclus\". Seuls les dossiers sélectionnés seront visibles, du fait que les exclusions et inclusions sont récursives, et si un dossier est à la fois exclus et inclus, il sera affiché.</string>
-    <string name="faq_9_title">Les images en plein écran contiennent des artefacts, est-ce possible d\'améliorer la qualité ?</string>
-    <string name="faq_9_text">Oui, il existe dans \"Paramètres\" une option \"Afficher les images avec la plus haute qualité possible\", mais les images seront alors floues si vous zoomez trop.</string>
     <string name="faq_10_title">Puis-je recadrer des images avec cette application ?</string>
     <string name="faq_10_text">Oui, vous pouvez recadrer les images dans l\'éditeur en faisant glisser les coins de l\'image. Vous pouvez accéder à l\'éditeur en appuyant longuement sur une vignette d\'image et en sélectionnant \"Modifier\", ou en sélectionnant \"Modifier\" en mode plein écran.</string>
     <string name="faq_11_title">Puis-je regrouper les miniatures des fichiers multimédias ?</string>

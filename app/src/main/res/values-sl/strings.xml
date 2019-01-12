@@ -203,8 +203,6 @@
     <string name="faq_8_title">Kaj, če želim prikazati le nekaj izbranih map?</string>
     <string name="faq_8_text">Dodajanje mape med vključene mape avtomatično ne izključi ničesar. Lahko pa naredite sledeče: v Nastavitvah -> Urejaj izključene mape izključite korensko mapo \"/\", željene mape pa dodajte v Nastavitvah -> Urejaj vključene mape.
         To bo naredilo vidne le vključene mape, saj sta tako vključevanje kot tudi izključevanje rekurzivna, kar pomeni, da je mapa, ki je istočasno izključena in vključena, vidna.</string>
-    <string name="faq_9_title">Celozaslonske slike imajo čuden izgled, lahko kako popravim kvaliteto?</string>
-    <string name="faq_9_text">Da, v Nastavitvah je opcija \"Nadomesti globoko povečljive slike z bolj kvalitetnimi\", ki jo lahko uporabite. To bo slike izboljšalo, vendar bodo te bolj zamegljene, ko jih boste želeli preveč povečati.</string>
     <string name="faq_10_title">Ali lahko obrezujem slike s to aplikacijo?</string>
     <string name="faq_10_text">Da, slike lahko obrezujete z vlečenjem kotov slike. Do urejevalnika lahko pridete z dolgim pritiskom na sličico fotografije in izborom opcije Uredi ali izborom funkcije Uredi iz celozaslonskega načina prikaza.</string>
     <string name="faq_11_title">Ali lahko združujem sličice medijskih datotek?</string>

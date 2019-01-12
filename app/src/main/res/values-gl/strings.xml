@@ -203,8 +203,6 @@
     <string name="faq_8_title">E qué pasa si só quero que sexan visibles certos cartafoles</string>
     <string name="faq_8_text">Engadir un cartafol a Cartafoles incluídos non exclúe nada de xeito automático. O que pode facer é ir a Axustes -> Xestionar cartafoles incluídos, excluír o cartafol root \"/\", e despóis engadir os cartafoles desexados con Axustes -> Xestionar Cartafoles Incluídos.
         Esto fará visibles só aos cartafoles escollidos, como tanto excluír e incluír son recursivos e si está excluído e logo incluído, será mostrado.</string>
-    <string name="faq_9_title">As imaxes a pantalla completa teñen píxeles extranos, podo mellorar a calidade da imaxe?</string>
-    <string name="faq_9_text">Si, hai unha opción en Axustes que di \"Substituír imaxes con un gran zoom con imaxes de mellor calidade\", pode usar eso. mellorará a calidade das imaxes, mais farase máis borrosaxa si intenta facer moito zoom.</string>
     <string name="faq_10_title">Can I crop images with this app?</string>
     <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
     <string name="faq_11_title">Can I somehow group media file thumbnails?</string>

@@ -203,8 +203,6 @@
     <string name="faq_8_title">Co v případě, že chci mít zobrazeno pouze několik složek?</string>
     <string name="faq_8_text">Přidání složky mezi Přidané složky automaticky nevyloučí ostatní. Můžete ale jít do Nastavení -> Spravovat vyloučené složky a zvolit Kořenovou složku \"/\", následně přidat požadované složky v Nastavení -> Spravovat přidané složky.
         To způsobí, že budou zobrazeny pouze vyžádané složky, protože vyloučení i přidání fungují rekurzivně a pokud je složka vyloučena i přidaná, bude viditelná.</string>
-    <string name="faq_9_title">Fotky přes celou obrazovku mají zhoršenou kvalitu, můžu to nějak zlepšit?</string>
-    <string name="faq_9_text">Ano, v nastavení je přepínač s textem \"Nahradit hluboko priblížiteľné obrázky s obrázky s lepší kvalitou\", můžete to zkusit. Způsobí to vyšší kvalitu obrázků, po přiblížení se ale budou rozmazávat mnohem dříve.</string>
     <string name="faq_10_title">Můžu s touto aplikací oříznout obrázky?</string>
     <string name="faq_10_text">Ano, oříznutí je možné v editoru potažením rohů obrázků. Do editoru se můžete dostat buď dlouhým podržením náhledu obrázku a zvolením menu položky Upravit nebo zvolením Upravit při celoobrazovkovém režimu.</string>
     <string name="faq_11_title">Můžu nějakým způsobem seskupit náhledy souborů?</string>

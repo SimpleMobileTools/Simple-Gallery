@@ -203,8 +203,6 @@
     <string name="faq_8_title">Che fare se voglio rendere visibili solo poche particolari cartelle?</string>
     <string name="faq_8_text">Aggiungere una cartella nelle Cartelle Incluse non esclude automaticamente nulla. Quello che puoi fare è andare in Impostazioni → Gestisci le cartelle escluse, escludi la cartella root \"/\", poi aggiungi le cartelle desiderate in Impostazioni → Gestisci le cartelle incluse.
         Ciò renderà visibili solo le cartelle selezionate, dato che sia l\'esclusione che l\'inclusione sono ricorsive e se una cartella è sia esclusa che inclusa, verrà mostrata.</string>
-    <string name="faq_9_title">Le immagini a schermo intero hanno strani artefatti, posso migliorarne la qualità in qualche modo?</string>
-    <string name="faq_9_text">Sì, c\'è un\'opzione nelle impostazioni che dice \"Sostituisci le immagini ingrandibili a fondo con altre di migliore qualità\". Ciò migliorerà la qualità delle immagini, ma saranno sfuocate quando si proverà a ingrandirle troppo.</string>
     <string name="faq_10_title">Posso ritagliare le immagini con questa app?</string>
     <string name="faq_10_text">Sì, si possono ritagliare le immagini nell\'editor, trascinando gli angoli dell\'immagine. Si può accedere all\'editor sia premendo a lungo la miniatura di un\'immagine e selezionando Modifica, oppure selezionando Modifica mentre si vede una foto a schermo intero.</string>
     <string name="faq_11_title">Posso raggruppare in qualche modo le miniature dei file?</string>

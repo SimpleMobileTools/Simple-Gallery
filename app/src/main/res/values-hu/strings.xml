@@ -204,8 +204,6 @@ A következő alkalommal, amikor megpróbál megnyitni egy képet vagy videót, 
     <string name="faq_8_title">Mi van, ha csak néhány különleges mappát szeretnék látni?</string>
     <string name="faq_8_text">A Befoglalt mappákhoz tartozó mappák hozzáadása nem zár ki automatikusan semmit. Amit tehetünk, menjünk a Beállítások -&gt; Kizárt mappák kezelése, kizárjuk a gyökérmappát \"/ \", utána hozzáadjuk a kívánt mappákat a Beállítások -&gt; Befoglalt mappák kezelése menüpontban.
 Ezzel csak a kiválasztott mappák láthatók, mivel a kizárás és a befoglalás rekurzív. Ha egy mappát hozzáadunk mindkettőhöz, akkor megjelenik.</string>
-    <string name="faq_9_title">A teljes képernyős képek furcsán néznek ki, tudnám valahogy javítani a minőséget?</string>
-    <string name="faq_9_text">Igen, van egy kapcsoló a Beállításokban: \"Cserélje le a mély nagyítású képeket jobb minőségűekre\", akkor használhatja. Javítja a képek minőségét, de elmosódik, ha túl nagy zoomolást használ.</string>
     <string name="faq_10_title">Tudom vágni a képeket ezzel az alkalmazással?</string>
     <string name="faq_10_text">Igen, megvághatja a képeket a szerkesztőben a kép sarkainak húzásával. A szerkesztőhöz eljuthat egy miniatűr kép hosszú megnyomásával és a Szerkesztés választásával, vagy a Szerkesztés választásával a teljes képernyős nézetben.</string>
     <string name="faq_11_title">Valamilyen módon össze tudom csoportosítani a médiafájl bélyegképeit?</string>
