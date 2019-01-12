@@ -307,10 +307,12 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     }
 
     private fun fixDateTaken() {
-        activity.fixDateTaken(getSelectedPaths()) {
-            listener?.refreshItems()
-            finishActMode()
-        }
+        Thread {
+            activity.fixDateTaken(getSelectedPaths()) {
+                listener?.refreshItems()
+                finishActMode()
+            }
+        }.start()
     }
 
     private fun checkDeleteConfirmation() {

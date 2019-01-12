@@ -6,7 +6,6 @@ import android.content.Intent
 import android.media.ExifInterface
 import android.provider.MediaStore
 import android.util.DisplayMetrics
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
@@ -237,6 +236,7 @@ fun BaseSimpleActivity.restoreRecycleBinPath(path: String, callback: () -> Unit)
 
 fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, mediumDao: MediumDao = galleryDB.MediumDao(), callback: () -> Unit) {
     Thread {
+        val newPaths = ArrayList<String>()
         paths.forEach {
             val source = it
             val destination = it.removePrefix(recycleBinPath)
@@ -250,6 +250,7 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, mediumDa
                 if (File(source).length() == File(destination).length()) {
                     mediumDao.updateDeleted(destination.removePrefix(recycleBinPath), 0, "$RECYCLE_BIN$destination")
                 }
+                newPaths.add(destination)
             } catch (e: Exception) {
                 showErrorToast(e)
             } finally {
@@ -262,7 +263,7 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, mediumDa
             callback()
         }
 
-        fixDateTaken(paths)
+        fixDateTaken(newPaths)
     }.start()
 }
 
@@ -315,54 +316,51 @@ fun Activity.hasNavBar(): Boolean {
 fun Activity.fixDateTaken(paths: ArrayList<String>, callback: (() -> Unit)? = null) {
     val BATCH_SIZE = 50
     toast(R.string.fixing)
-    Thread {
-        try {
-            var didUpdateFile = false
-            val operations = ArrayList<ContentProviderOperation>()
-            val mediumDao = galleryDB.MediumDao()
-            for (path in paths) {
-                val dateTime = ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME_ORIGINAL)
-                        ?: ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME) ?: continue
+    try {
+        var didUpdateFile = false
+        val operations = ArrayList<ContentProviderOperation>()
+        val mediumDao = galleryDB.MediumDao()
+        for (path in paths) {
+            val dateTime = ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME_ORIGINAL)
+                    ?: ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME) ?: continue
 
-                // some formats contain a "T" in the middle, some don't
-                // sample dates: 2015-07-26T14:55:23, 2018:09:05 15:09:05
-                val t = if (dateTime.substring(10, 11) == "T") "\'T\'" else " "
-                val separator = dateTime.substring(4, 5)
-                val format = "yyyy${separator}MM${separator}dd${t}kk:mm:ss"
-                val formatter = SimpleDateFormat(format, Locale.getDefault())
-                val timestamp = formatter.parse(dateTime).time
+            // some formats contain a "T" in the middle, some don't
+            // sample dates: 2015-07-26T14:55:23, 2018:09:05 15:09:05
+            val t = if (dateTime.substring(10, 11) == "T") "\'T\'" else " "
+            val separator = dateTime.substring(4, 5)
+            val format = "yyyy${separator}MM${separator}dd${t}kk:mm:ss"
+            val formatter = SimpleDateFormat(format, Locale.getDefault())
+            val timestamp = formatter.parse(dateTime).time
 
-                val uri = getFileUri(path)
-                ContentProviderOperation.newUpdate(uri).apply {
-                    val selection = "${MediaStore.Images.Media.DATA} = ?"
-                    val selectionArgs = arrayOf(path)
-                    withSelection(selection, selectionArgs)
-                    withValue(MediaStore.Images.Media.DATE_TAKEN, timestamp)
-                    operations.add(build())
-                }
-
-                if (operations.size % BATCH_SIZE == 0) {
-                    contentResolver.applyBatch(MediaStore.AUTHORITY, operations)
-                    operations.clear()
-                }
-
-                Log.e("DEBUG", "restoring $path")
-                mediumDao.updateFavoriteDateTaken(path, timestamp)
-                didUpdateFile = true
+            val uri = getFileUri(path)
+            ContentProviderOperation.newUpdate(uri).apply {
+                val selection = "${MediaStore.Images.Media.DATA} = ?"
+                val selectionArgs = arrayOf(path)
+                withSelection(selection, selectionArgs)
+                withValue(MediaStore.Images.Media.DATE_TAKEN, timestamp)
+                operations.add(build())
             }
 
-            val resultSize = contentResolver.applyBatch(MediaStore.AUTHORITY, operations).size
-            if (resultSize == 0) {
-                didUpdateFile = false
-                rescanPaths(paths)
+            if (operations.size % BATCH_SIZE == 0) {
+                contentResolver.applyBatch(MediaStore.AUTHORITY, operations)
+                operations.clear()
             }
 
-            toast(if (didUpdateFile) R.string.dates_fixed_successfully else R.string.unknown_error_occurred)
-            runOnUiThread {
-                callback?.invoke()
-            }
-        } catch (e: Exception) {
-            showErrorToast(e)
+            mediumDao.updateFavoriteDateTaken(path, timestamp)
+            didUpdateFile = true
         }
-    }.start()
+
+        val resultSize = contentResolver.applyBatch(MediaStore.AUTHORITY, operations).size
+        if (resultSize == 0) {
+            didUpdateFile = false
+            rescanPaths(paths)
+        }
+
+        toast(if (didUpdateFile) R.string.dates_fixed_successfully else R.string.unknown_error_occurred)
+        runOnUiThread {
+            callback?.invoke()
+        }
+    } catch (e: Exception) {
+        showErrorToast(e)
+    }
 }
