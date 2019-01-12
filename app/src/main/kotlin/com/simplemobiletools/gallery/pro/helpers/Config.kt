@@ -453,4 +453,8 @@ class Config(context: Context) : BaseConfig(context) {
     var allowOneToOneZoom: Boolean
         get() = prefs.getBoolean(ALLOW_ONE_TO_ONE_ZOOM, false)
         set(allowOneToOneZoom) = prefs.edit().putBoolean(ALLOW_ONE_TO_ONE_ZOOM, allowOneToOneZoom).apply()
+
+    var lastEditorDrawColor: Int
+        get() = prefs.getInt(LAST_EDITOR_DRAW_COLOR, primaryColor)
+        set(lastEditorDrawColor) = prefs.edit().putInt(LAST_EDITOR_DRAW_COLOR, lastEditorDrawColor).apply()
 }

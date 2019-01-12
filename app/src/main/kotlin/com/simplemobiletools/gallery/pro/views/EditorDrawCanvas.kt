@@ -119,6 +119,10 @@ class EditorDrawCanvas(context: Context, attrs: AttributeSet) : View(context, at
         mPaint.strokeWidth = paintOptions.strokeWidth
     }
 
+    fun updateColor(newColor: Int) {
+        mPaintOptions.color = newColor
+    }
+
     fun updateBackgroundBitmap(bitmap: Bitmap) {
         backgroundBitmap = bitmap
         invalidate()

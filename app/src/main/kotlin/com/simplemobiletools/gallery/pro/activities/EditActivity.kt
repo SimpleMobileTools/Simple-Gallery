@@ -24,6 +24,7 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
+import com.simplemobiletools.commons.dialogs.ColorPickerDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
@@ -46,6 +47,7 @@ import kotlinx.android.synthetic.main.activity_edit.*
 import kotlinx.android.synthetic.main.bottom_actions_aspect_ratio.*
 import kotlinx.android.synthetic.main.bottom_editor_actions_filter.*
 import kotlinx.android.synthetic.main.bottom_editor_crop_rotate_actions.*
+import kotlinx.android.synthetic.main.bottom_editor_draw_actions.*
 import kotlinx.android.synthetic.main.bottom_editor_primary_actions.*
 import java.io.*
 
@@ -73,6 +75,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private lateinit var saveUri: Uri
     private var resizeWidth = 0
     private var resizeHeight = 0
+    private var drawColor = 0
     private var lastOtherAspectRatio: Pair<Int, Int>? = null
     private var currPrimaryAction = PRIMARY_ACTION_NONE
     private var currCropRotateAction = CROP_ROTATE_NONE
@@ -312,6 +315,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         setupPrimaryActionButtons()
         setupCropRotateActionButtons()
         setupAspectRatioButtons()
+        setupDrawButtons()
     }
 
     private fun setupPrimaryActionButtons() {
@@ -416,6 +420,17 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         updateAspectRatioButtons()
     }
 
+    private fun setupDrawButtons() {
+        updateDrawColor(config.lastEditorDrawColor)
+        bottom_draw_color.setOnClickListener {
+            ColorPickerDialog(this, drawColor) { wasPositivePressed, color ->
+                if (wasPositivePressed) {
+                    updateDrawColor(color)
+                }
+            }
+        }
+    }
+
     private fun updatePrimaryActionButtons() {
         if (crop_image_view.isGone() && currPrimaryAction == PRIMARY_ACTION_CROP_ROTATE) {
             loadCropImageView()
@@ -439,6 +454,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         currentPrimaryActionButton?.applyColorFilter(config.primaryColor)
         bottom_editor_filter_actions.beVisibleIf(currPrimaryAction == PRIMARY_ACTION_FILTER)
         bottom_editor_crop_rotate_actions.beVisibleIf(currPrimaryAction == PRIMARY_ACTION_CROP_ROTATE)
+        bottom_editor_draw_actions.beVisibleIf(currPrimaryAction == PRIMARY_ACTION_DRAW)
 
         if (currPrimaryAction == PRIMARY_ACTION_FILTER && bottom_actions_filter_list.adapter == null) {
             Thread {
@@ -539,6 +555,13 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
 
         primaryActionView?.applyColorFilter(config.primaryColor)
+    }
+
+    private fun updateDrawColor(color: Int) {
+        drawColor = color
+        bottom_draw_color.applyColorFilter(color)
+        config.lastEditorDrawColor = color
+        editor_draw_canvas.updateColor(color)
     }
 
     private fun resizeImage() {

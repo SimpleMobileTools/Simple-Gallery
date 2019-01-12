@@ -12,6 +12,7 @@
     <dimen name="instant_change_bar_width">50dp</dimen>
     <dimen name="list_view_folder_thumbnail_size">72dp</dimen>
     <dimen name="bottom_actions_height">64dp</dimen>
+    <dimen name="bottom_editor_color_picker_size">48dp</dimen>
     <dimen name="bottom_filters_thumbnail_size">76dp</dimen>
     <dimen name="bottom_filters_height">90dp</dimen>
     <dimen name="bottom_editor_actions_shadow_height">180dp</dimen>

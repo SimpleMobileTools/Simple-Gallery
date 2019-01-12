@@ -76,6 +76,7 @@ const val LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y = "last_editor_crop_other_aspect
 const val GROUP_DIRECT_SUBFOLDERS = "group_direct_subfolders"
 const val SHOW_WIDGET_FOLDER_NAME = "show_widget_folder_name"
 const val ALLOW_ONE_TO_ONE_ZOOM = "allow_one_to_one_zoom"
+const val LAST_EDITOR_DRAW_COLOR = "last_editor_draw_color"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"

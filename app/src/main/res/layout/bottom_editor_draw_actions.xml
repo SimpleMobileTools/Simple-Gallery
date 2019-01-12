@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_editor_draw_actions_wrapper"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/bottom_actions_height"
+    android:layout_alignParentBottom="true">
+
+    <ImageView
+        android:id="@+id/bottom_draw_color"
+        android:layout_width="@dimen/bottom_editor_color_picker_size"
+        android:layout_height="@dimen/bottom_editor_color_picker_size"
+        android:layout_marginEnd="@dimen/activity_margin"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="@dimen/small_margin"
+        android:src="@drawable/circle_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
