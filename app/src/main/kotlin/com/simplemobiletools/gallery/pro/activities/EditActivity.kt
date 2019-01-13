@@ -460,6 +460,10 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             config.lastEditorBrushSize = it
             updateBrushSize(it)
         }
+
+        bottom_draw_undo.setOnClickListener {
+            editor_draw_canvas.undo()
+        }
     }
 
     private fun updateBrushSize(percent: Int) {

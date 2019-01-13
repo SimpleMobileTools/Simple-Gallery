@@ -139,4 +139,14 @@ class EditorDrawCanvas(context: Context, attrs: AttributeSet) : View(context, at
         draw(canvas)
         return bitmap
     }
+
+    fun undo() {
+        if (mPaths.isEmpty()) {
+            return
+        }
+
+        val lastKey = mPaths.keys.lastOrNull()
+        mPaths.remove(lastKey)
+        invalidate()
+    }
 }
