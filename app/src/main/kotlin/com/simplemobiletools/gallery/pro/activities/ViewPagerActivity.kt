@@ -665,7 +665,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     @TargetApi(Build.VERSION_CODES.N)
     private fun tryRotateByExif(path: String): Boolean {
         return try {
+            val file = File(path)
+            val oldLastModified = file.lastModified()
             if (saveImageRotation(path, mRotationDegrees)) {
+                if (config.keepLastModified) {
+                    file.setLastModified(oldLastModified)
+                    updateLastModified(path, oldLastModified)
+                }
                 mRotationDegrees = 0
                 invalidateOptionsMenu()
                 toast(R.string.file_saved)
