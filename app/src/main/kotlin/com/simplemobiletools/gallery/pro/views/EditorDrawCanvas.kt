@@ -8,6 +8,7 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.models.MyPath
 import com.simplemobiletools.gallery.pro.models.PaintOptions
@@ -120,6 +121,10 @@ class EditorDrawCanvas(context: Context, attrs: AttributeSet) : View(context, at
 
     fun updateColor(newColor: Int) {
         mPaintOptions.color = newColor
+    }
+
+    fun updateBrushSize(newBrushSize: Int) {
+        mPaintOptions.strokeWidth = resources.getDimension(R.dimen.full_brush_size) * (newBrushSize / 100f)
     }
 
     fun updateBackgroundBitmap(bitmap: Bitmap) {

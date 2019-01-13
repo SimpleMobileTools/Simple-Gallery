@@ -457,4 +457,8 @@ class Config(context: Context) : BaseConfig(context) {
     var lastEditorDrawColor: Int
         get() = prefs.getInt(LAST_EDITOR_DRAW_COLOR, primaryColor)
         set(lastEditorDrawColor) = prefs.edit().putInt(LAST_EDITOR_DRAW_COLOR, lastEditorDrawColor).apply()
+
+    var lastEditorBrushSize: Int
+        get() = prefs.getInt(LAST_EDITOR_BRUSH_SIZE, 50)
+        set(lastEditorBrushSize) = prefs.edit().putInt(LAST_EDITOR_BRUSH_SIZE, lastEditorBrushSize).apply()
 }

@@ -445,13 +445,28 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     private fun setupDrawButtons() {
         updateDrawColor(config.lastEditorDrawColor)
-        bottom_draw_color.setOnClickListener {
+        bottom_draw_width.progress = config.lastEditorBrushSize
+        updateBrushSize(config.lastEditorBrushSize)
+
+        bottom_draw_color_clickable.setOnClickListener {
             ColorPickerDialog(this, drawColor) { wasPositivePressed, color ->
                 if (wasPositivePressed) {
                     updateDrawColor(color)
                 }
             }
         }
+
+        bottom_draw_width.onSeekBarChangeListener {
+            config.lastEditorBrushSize = it
+            updateBrushSize(it)
+        }
+    }
+
+    private fun updateBrushSize(percent: Int) {
+        editor_draw_canvas.updateBrushSize(percent)
+        val scale = Math.max(0.03f, percent / 100f)
+        bottom_draw_color.scaleX = scale
+        bottom_draw_color.scaleY = scale
     }
 
     private fun updatePrimaryActionButtons() {
