@@ -204,6 +204,33 @@ class PhotoFragment : ViewPagerFragment() {
         storeStateVariables()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        if (activity?.isDestroyed == false) {
+            mView.subsampling_view.recycle()
+        }
+        mIoadZoomableViewHandler.removeCallbacksAndMessages(null)
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+
+        // avoid GIFs being skewed, played in wrong aspect ratio
+        if (mMedium.isGIF()) {
+            mView.onGlobalLayout {
+                Handler().postDelayed({
+                    loadGif()
+                }, 50)
+            }
+        } else {
+            hideZoomableView()
+            loadImage()
+        }
+
+        initExtendedDetails()
+        updateInstantSwitchWidths()
+    }
+
     override fun setMenuVisibility(menuVisible: Boolean) {
         super.setMenuVisibility(menuVisible)
         mIsFragmentVisible = menuVisible
@@ -535,33 +562,6 @@ class PhotoFragment : ViewPagerFragment() {
         } else {
             mView.photo_details.beGone()
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        if (activity?.isDestroyed == false) {
-            mView.subsampling_view.recycle()
-        }
-        mIoadZoomableViewHandler.removeCallbacksAndMessages(null)
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-
-        // avoid GIFs being skewed, played in wrong aspect ratio
-        if (mMedium.isGIF()) {
-            mView.onGlobalLayout {
-                Handler().postDelayed({
-                    loadGif()
-                }, 50)
-            }
-        } else {
-            hideZoomableView()
-            loadImage()
-        }
-
-        initExtendedDetails()
-        updateInstantSwitchWidths()
     }
 
     private fun hideZoomableView() {
