@@ -1,13 +1,19 @@
 package com.simplemobiletools.gallery.pro.extensions
 
+import android.annotation.TargetApi
 import android.app.Activity
 import android.content.ContentProviderOperation
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Matrix
 import android.media.ExifInterface
+import android.os.Build
 import android.provider.MediaStore
 import android.util.DisplayMetrics
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
@@ -22,6 +28,7 @@ import com.simplemobiletools.gallery.pro.helpers.NOMEDIA
 import com.simplemobiletools.gallery.pro.helpers.RECYCLE_BIN
 import com.simplemobiletools.gallery.pro.interfaces.MediumDao
 import java.io.File
+import java.io.FileOutputStream
 import java.io.InputStream
 import java.io.OutputStream
 import java.text.SimpleDateFormat
@@ -363,4 +370,106 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, callback: (() -> Unit)? = nu
     } catch (e: Exception) {
         showErrorToast(e)
     }
+}
+
+fun BaseSimpleActivity.saveImageToFile(oldPath: String, newPath: String, degrees: Int, callback: () -> Unit) {
+    toast(R.string.saving)
+    if (oldPath == newPath && oldPath.isJpg()) {
+        if (tryRotateByExif(oldPath, degrees, callback)) {
+            return
+        }
+    }
+
+    val tmpPath = "$recycleBinPath/.tmp_${newPath.getFilenameFromPath()}"
+    val tmpFileDirItem = FileDirItem(tmpPath, tmpPath.getFilenameFromPath())
+    try {
+        getFileOutputStream(tmpFileDirItem) {
+            if (it == null) {
+                toast(R.string.unknown_error_occurred)
+                return@getFileOutputStream
+            }
+
+            val oldLastModified = File(oldPath).lastModified()
+            if (oldPath.isJpg()) {
+                copyFile(oldPath, tmpPath)
+                saveExifRotation(ExifInterface(tmpPath), degrees)
+            } else {
+                val inputstream = getFileInputStreamSync(oldPath)
+                val bitmap = BitmapFactory.decodeStream(inputstream)
+                saveFile(tmpPath, bitmap, it as FileOutputStream, degrees)
+            }
+
+            if (getDoesFilePathExist(newPath)) {
+                tryDeleteFileDirItem(FileDirItem(newPath, newPath.getFilenameFromPath()), false, true)
+            }
+
+            copyFile(tmpPath, newPath)
+            scanPathRecursively(newPath)
+            toast(R.string.file_saved)
+
+            if (config.keepLastModified) {
+                File(newPath).setLastModified(oldLastModified)
+                updateLastModified(newPath, oldLastModified)
+            }
+
+            it.flush()
+            it.close()
+            callback.invoke()
+
+            // we cannot refresh a specific image in Glide Cache, so just clear it all
+            val glide = Glide.get(applicationContext)
+            glide.clearDiskCache()
+            runOnUiThread {
+                glide.clearMemory()
+            }
+        }
+    } catch (e: OutOfMemoryError) {
+        toast(R.string.out_of_memory_error)
+    } catch (e: Exception) {
+        showErrorToast(e)
+    } finally {
+        tryDeleteFileDirItem(tmpFileDirItem, false, true)
+    }
+}
+
+@TargetApi(Build.VERSION_CODES.N)
+fun Activity.tryRotateByExif(path: String, degrees: Int, callback: () -> Unit): Boolean {
+    return try {
+        val file = File(path)
+        val oldLastModified = file.lastModified()
+        if (saveImageRotation(path, degrees)) {
+            if (config.keepLastModified) {
+                file.setLastModified(oldLastModified)
+                updateLastModified(path, oldLastModified)
+            }
+            callback.invoke()
+            toast(R.string.file_saved)
+            true
+        } else {
+            false
+        }
+    } catch (e: Exception) {
+        showErrorToast(e)
+        false
+    }
+}
+
+fun BaseSimpleActivity.copyFile(source: String, destination: String) {
+    var inputStream: InputStream? = null
+    var out: OutputStream? = null
+    try {
+        out = getFileOutputStreamSync(destination, source.getMimeType())
+        inputStream = getFileInputStreamSync(source)
+        inputStream?.copyTo(out!!)
+    } finally {
+        inputStream?.close()
+        out?.close()
+    }
+}
+
+fun saveFile(path: String, bitmap: Bitmap, out: FileOutputStream, degrees: Int) {
+    val matrix = Matrix()
+    matrix.postRotate(degrees.toFloat())
+    val bmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
+    bmp.compress(path.getCompressionFormat(), 90, out)
 }

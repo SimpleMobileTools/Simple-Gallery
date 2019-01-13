@@ -8,10 +8,7 @@ import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.database.Cursor
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.Color
-import android.graphics.Matrix
 import android.graphics.drawable.ColorDrawable
 import android.media.ExifInterface
 import android.net.Uri
@@ -26,7 +23,6 @@ import android.view.WindowManager
 import android.view.animation.DecelerateInterpolator
 import android.widget.Toast
 import androidx.viewpager.widget.ViewPager
-import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.extensions.*
@@ -49,9 +45,6 @@ import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import kotlinx.android.synthetic.main.activity_medium.*
 import kotlinx.android.synthetic.main.bottom_actions.*
 import java.io.File
-import java.io.FileOutputStream
-import java.io.InputStream
-import java.io.OutputStream
 import java.util.*
 
 class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, ViewPagerFragment.FragmentListener {
@@ -595,114 +588,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         SaveAsDialog(this, currPath, false) {
             handleSAFDialog(it) {
                 Thread {
-                    saveImageToFile(currPath, it)
+                    saveImageToFile(currPath, it, mRotationDegrees) {
+                        mRotationDegrees = 0
+                        invalidateOptionsMenu()
+                    }
                 }.start()
             }
         }
-    }
-
-    private fun saveImageToFile(oldPath: String, newPath: String) {
-        toast(R.string.saving)
-        if (oldPath == newPath && oldPath.isJpg()) {
-            if (tryRotateByExif(oldPath)) {
-                return
-            }
-        }
-
-        val tmpPath = "$recycleBinPath/.tmp_${newPath.getFilenameFromPath()}"
-        val tmpFileDirItem = FileDirItem(tmpPath, tmpPath.getFilenameFromPath())
-        try {
-            getFileOutputStream(tmpFileDirItem) {
-                if (it == null) {
-                    toast(R.string.unknown_error_occurred)
-                    return@getFileOutputStream
-                }
-
-                val oldLastModified = File(oldPath).lastModified()
-                if (oldPath.isJpg()) {
-                    copyFile(oldPath, tmpPath)
-                    saveExifRotation(ExifInterface(tmpPath), mRotationDegrees)
-                } else {
-                    val inputstream = getFileInputStreamSync(oldPath)
-                    val bitmap = BitmapFactory.decodeStream(inputstream)
-                    saveFile(tmpPath, bitmap, it as FileOutputStream)
-                }
-
-                if (getDoesFilePathExist(newPath)) {
-                    tryDeleteFileDirItem(FileDirItem(newPath, newPath.getFilenameFromPath()), false, true)
-                }
-
-                copyFile(tmpPath, newPath)
-                scanPathRecursively(newPath)
-                toast(R.string.file_saved)
-
-                if (config.keepLastModified) {
-                    File(newPath).setLastModified(oldLastModified)
-                    updateLastModified(newPath, oldLastModified)
-                }
-
-                it.flush()
-                it.close()
-                mRotationDegrees = 0
-                invalidateOptionsMenu()
-
-                // we cannot refresh a specific image in Glide Cache, so just clear it all
-                val glide = Glide.get(applicationContext)
-                glide.clearDiskCache()
-                runOnUiThread {
-                    glide.clearMemory()
-                }
-            }
-        } catch (e: OutOfMemoryError) {
-            toast(R.string.out_of_memory_error)
-        } catch (e: Exception) {
-            showErrorToast(e)
-        } finally {
-            tryDeleteFileDirItem(tmpFileDirItem, false, true)
-        }
-    }
-
-    @TargetApi(Build.VERSION_CODES.N)
-    private fun tryRotateByExif(path: String): Boolean {
-        return try {
-            val file = File(path)
-            val oldLastModified = file.lastModified()
-            if (saveImageRotation(path, mRotationDegrees)) {
-                if (config.keepLastModified) {
-                    file.setLastModified(oldLastModified)
-                    updateLastModified(path, oldLastModified)
-                }
-                mRotationDegrees = 0
-                invalidateOptionsMenu()
-                toast(R.string.file_saved)
-                true
-            } else {
-                false
-            }
-        } catch (e: Exception) {
-            showErrorToast(e)
-            false
-        }
-    }
-
-    private fun copyFile(source: String, destination: String) {
-        var inputStream: InputStream? = null
-        var out: OutputStream? = null
-        try {
-            out = getFileOutputStreamSync(destination, source.getMimeType())
-            inputStream = getFileInputStreamSync(source)
-            inputStream?.copyTo(out!!)
-        } finally {
-            inputStream?.close()
-            out?.close()
-        }
-    }
-
-    private fun saveFile(path: String, bitmap: Bitmap, out: FileOutputStream) {
-        val matrix = Matrix()
-        matrix.postRotate(mRotationDegrees.toFloat())
-        val bmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
-        bmp.compress(path.getCompressionFormat(), 90, out)
     }
 
     private fun isShowHiddenFlagNeeded(): Boolean {
@@ -1168,8 +1060,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun getCurrentMedia() = if (mAreSlideShowMediaVisible) mSlideshowMedia else mMediaFiles
 
     private fun getCurrentPath() = getCurrentMedium()?.path ?: ""
-
-    private fun getCurrentFile() = File(getCurrentPath())
 
     override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
