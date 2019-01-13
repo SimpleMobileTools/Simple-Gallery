@@ -5,10 +5,10 @@
     <string name="edit">编辑</string>
     <string name="open_camera">打开相机</string>
     <string name="hidden">（隐藏）</string>
-    <string name="excluded">(排除)</string>
+    <string name="excluded">（排除）</string>
     <string name="pin_folder">锁定目录</string>
     <string name="unpin_folder">解除锁定目录</string>
-    <string name="pin_to_the_top">锁定到顶部</string>
+    <string name="pin_to_the_top">固定到顶部</string>
     <string name="show_all">文件视图</string>
     <string name="all_folders">所有目录</string>
     <string name="folder_view">目录视图</string>
@@ -31,7 +31,7 @@
     <string name="fix_date_taken">修复拍摄日期</string>
     <string name="fixing">正在修复…</string>
     <string name="dates_fixed_successfully">日期修复成功</string>
-    <string name="share_resized">Share a resized version</string>
+    <string name="share_resized">调整图像尺寸并分享</string>
 
     <!-- Filter -->
     <string name="filter_media">要显示的媒体文件</string>
@@ -76,12 +76,12 @@
     <string name="save">保存</string>
     <string name="rotate">旋转</string>
     <string name="path">路径</string>
-    <string name="invalid_image_path">无效图片路径</string>
+    <string name="invalid_image_path">无效的图片路径</string>
     <string name="image_editing_failed">图片编辑失败</string>
     <string name="edit_image_with">编辑方式：</string>
     <string name="no_editor_found">未找到可用图片编辑器</string>
     <string name="unknown_file_location">未知的文件路径</string>
-    <string name="error_saving_file">不能覆盖源文件</string>
+    <string name="error_saving_file">无法覆盖源文件</string>
     <string name="rotate_left">向左旋转</string>
     <string name="rotate_right">向右旋转</string>
     <string name="rotate_one_eighty">旋转 180º</string>
@@ -116,7 +116,7 @@
     <string name="loop_slideshow">循环幻灯片</string>
     <string name="slideshow_ended">幻灯片结束</string>
     <string name="no_media_for_slideshow">未发现可用媒体</string>
-    <string name="use_crossfade_animation">使用交叉渐变动画</string>
+    <string name="use_crossfade_animation">使用淡入淡出动画</string>
 
     <!-- View types -->
     <string name="change_view_type">更改视图类型</string>
@@ -171,7 +171,7 @@
     <string name="show_recycle_bin_last">在主屏幕界面的最后一项显示回收站</string>
     <string name="allow_down_gesture">使用下滑手势关闭全屏视图</string>
     <string name="allow_one_to_one_zoom">双击两次后 1:1 放大图像</string>
-    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
+    <string name="open_videos_on_separate_screen">使用新的水平手势在独立页面播放视频</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">缩略图</string>
