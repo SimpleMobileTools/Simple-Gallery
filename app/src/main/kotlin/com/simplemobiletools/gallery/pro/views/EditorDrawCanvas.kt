@@ -44,9 +44,7 @@ class EditorDrawCanvas(context: Context, attrs: AttributeSet) : View(context, at
         canvas.save()
 
         if (backgroundBitmap != null) {
-            val left = (width - backgroundBitmap!!.width) / 2
-            val top = (height - backgroundBitmap!!.height) / 2
-            canvas.drawBitmap(backgroundBitmap!!, left.toFloat(), top.toFloat(), null)
+            canvas.drawBitmap(backgroundBitmap!!, 0f, 0f, null)
         }
 
         for ((key, value) in mPaths) {

@@ -242,31 +242,42 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         default_image_view.beGone()
         crop_image_view.beGone()
         editor_draw_canvas.beVisible()
+        editor_draw_canvas.onGlobalLayout {
+            Thread {
+                fillCanvasBackground()
+            }.start()
+        }
+    }
 
-        Thread {
-            val size = Point()
-            windowManager.defaultDisplay.getSize(size)
-            val options = RequestOptions()
-                    .format(DecodeFormat.PREFER_ARGB_8888)
-                    .skipMemoryCache(true)
-                    .diskCacheStrategy(DiskCacheStrategy.NONE)
-                    .fitCenter()
+    private fun fillCanvasBackground() {
+        val size = Point()
+        windowManager.defaultDisplay.getSize(size)
+        val options = RequestOptions()
+                .format(DecodeFormat.PREFER_ARGB_8888)
+                .skipMemoryCache(true)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .fitCenter()
 
-            try {
-                val builder = Glide.with(applicationContext)
-                        .asBitmap()
-                        .load(uri)
-                        .apply(options)
-                        .into(size.x, size.y)
+        try {
+            val builder = Glide.with(applicationContext)
+                    .asBitmap()
+                    .load(uri)
+                    .apply(options)
+                    .into(editor_draw_canvas.width, editor_draw_canvas.height)
 
-                val bitmap = builder.get()
-                runOnUiThread {
-                    editor_draw_canvas.updateBackgroundBitmap(bitmap)
+            val bitmap = builder.get()
+            runOnUiThread {
+                editor_draw_canvas.apply {
+                    updateBackgroundBitmap(bitmap)
+                    layoutParams.width = bitmap.width
+                    layoutParams.height = bitmap.height
+                    (layoutParams as RelativeLayout.LayoutParams).removeRule(RelativeLayout.ABOVE)
+                    requestLayout()
                 }
-            } catch (e: Exception) {
-                showErrorToast(e)
             }
-        }.start()
+        } catch (e: Exception) {
+            showErrorToast(e)
+        }
     }
 
     @TargetApi(Build.VERSION_CODES.N)
