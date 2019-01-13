@@ -618,9 +618,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     return@getFileOutputStream
                 }
 
-                val oldLastModified = getCurrentFile().lastModified()
+                val oldLastModified = File(oldPath).lastModified()
                 if (oldPath.isJpg()) {
-                    copyFile(getCurrentPath(), tmpPath)
+                    copyFile(oldPath, tmpPath)
                     saveExifRotation(ExifInterface(tmpPath), mRotationDegrees)
                 } else {
                     val inputstream = getFileInputStreamSync(oldPath)
