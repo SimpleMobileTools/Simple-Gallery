@@ -295,6 +295,18 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
         if (crop_image_view.isVisible()) {
             crop_image_view.getCroppedImageAsync()
+        } else if (editor_draw_canvas.isVisible()) {
+            val bitmap = editor_draw_canvas.getBitmap()
+            if (saveUri.scheme == "file") {
+                SaveAsDialog(this, saveUri.path, true) {
+                    saveBitmapToFile(bitmap, it, true)
+                }
+            } else if (saveUri.scheme == "content") {
+                val filePathGetter = getNewFilePath()
+                SaveAsDialog(this, filePathGetter.first, filePathGetter.second) {
+                    saveBitmapToFile(bitmap, it, true)
+                }
+            }
         } else {
             val currentFilter = getFiltersAdapter()?.getCurrentFilter() ?: return
             val filePathGetter = getNewFilePath()
@@ -610,15 +622,16 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     override fun onCropImageComplete(view: CropImageView, result: CropImageView.CropResult) {
         if (result.error == null) {
+            val bitmap = result.bitmap
             if (isCropIntent) {
                 if (saveUri.scheme == "file") {
-                    saveBitmapToFile(result.bitmap, saveUri.path, true)
+                    saveBitmapToFile(bitmap, saveUri.path, true)
                 } else {
                     var inputStream: InputStream? = null
                     var outputStream: OutputStream? = null
                     try {
                         val stream = ByteArrayOutputStream()
-                        result.bitmap.compress(CompressFormat.JPEG, 100, stream)
+                        bitmap.compress(CompressFormat.JPEG, 100, stream)
                         inputStream = ByteArrayInputStream(stream.toByteArray())
                         outputStream = contentResolver.openOutputStream(saveUri)
                         inputStream.copyTo(outputStream)
@@ -636,12 +649,12 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 }
             } else if (saveUri.scheme == "file") {
                 SaveAsDialog(this, saveUri.path, true) {
-                    saveBitmapToFile(result.bitmap, it, true)
+                    saveBitmapToFile(bitmap, it, true)
                 }
             } else if (saveUri.scheme == "content") {
                 val filePathGetter = getNewFilePath()
                 SaveAsDialog(this, filePathGetter.first, filePathGetter.second) {
-                    saveBitmapToFile(result.bitmap, it, true)
+                    saveBitmapToFile(bitmap, it, true)
                 }
             } else {
                 toast(R.string.unknown_file_location)

@@ -3,6 +3,7 @@ package com.simplemobiletools.gallery.pro.views
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.MotionEvent
@@ -124,5 +125,13 @@ class EditorDrawCanvas(context: Context, attrs: AttributeSet) : View(context, at
     fun updateBackgroundBitmap(bitmap: Bitmap) {
         backgroundBitmap = bitmap
         invalidate()
+    }
+
+    fun getBitmap(): Bitmap {
+        val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(bitmap)
+        canvas.drawColor(Color.WHITE)
+        draw(canvas)
+        return bitmap
     }
 }
