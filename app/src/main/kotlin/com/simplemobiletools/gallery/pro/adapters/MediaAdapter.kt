@@ -1,6 +1,5 @@
 package com.simplemobiletools.gallery.pro.adapters
 
-import android.media.MediaMetadataRetriever
 import android.os.Handler
 import android.os.Looper
 import android.view.Menu
@@ -485,14 +484,5 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             thumbnail_section.text = section.title
             thumbnail_section.setTextColor(textColor)
         }
-    }
-
-    private fun getFormattedVideoLength(medium: Medium): String {
-        if (medium.isVideo()) {
-            val retriever = MediaMetadataRetriever()
-            retriever.setDataSource(medium.path)
-            return Math.round(retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION).toInt() / 1000f).getFormattedDuration()
-        }
-        return ""
     }
 }
