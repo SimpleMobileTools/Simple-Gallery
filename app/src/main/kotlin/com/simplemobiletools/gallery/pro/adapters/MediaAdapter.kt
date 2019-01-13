@@ -277,11 +277,19 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     }
 
     private fun rotateSelection(degrees: Int) {
+        activity.toast(R.string.saving)
         Thread {
             val paths = getSelectedPaths()
+            var fileCnt = paths.size
             paths.forEach {
                 activity.saveRotatedImageToFile(it, it, degrees) {
-
+                    fileCnt--
+                    if (fileCnt == 0) {
+                        activity.runOnUiThread {
+                            listener?.refreshItems()
+                            finishActMode()
+                        }
+                    }
                 }
             }
         }.start()
