@@ -1,16 +1,12 @@
 package com.simplemobiletools.gallery.pro.views
 
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
+import android.graphics.*
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.config
-import com.simplemobiletools.gallery.pro.models.MyPath
 import com.simplemobiletools.gallery.pro.models.PaintOptions
 import java.util.*
 
@@ -22,9 +18,9 @@ class EditorDrawCanvas(context: Context, attrs: AttributeSet) : View(context, at
     private var mColor = 0
     private var mWasMultitouch = false
 
-    private var mPaths = LinkedHashMap<MyPath, PaintOptions>()
+    private var mPaths = LinkedHashMap<Path, PaintOptions>()
     private var mPaint = Paint()
-    private var mPath = MyPath()
+    private var mPath = Path()
     private var mPaintOptions = PaintOptions()
 
     private var backgroundBitmap: Bitmap? = null
@@ -56,7 +52,6 @@ class EditorDrawCanvas(context: Context, attrs: AttributeSet) : View(context, at
 
         changePaint(mPaintOptions)
         canvas.drawPath(mPath, mPaint)
-
         canvas.restore()
     }
 
@@ -110,8 +105,8 @@ class EditorDrawCanvas(context: Context, attrs: AttributeSet) : View(context, at
         }
 
         mPaths[mPath] = mPaintOptions
-        mPath = MyPath()
-        mPaintOptions = PaintOptions(mPaintOptions.color, mPaintOptions.strokeWidth, mPaintOptions.isEraser)
+        mPath = Path()
+        mPaintOptions = PaintOptions(mPaintOptions.color, mPaintOptions.strokeWidth)
     }
 
     private fun changePaint(paintOptions: PaintOptions) {
