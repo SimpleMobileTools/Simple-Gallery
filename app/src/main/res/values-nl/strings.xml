@@ -156,7 +156,6 @@
     <string name="allow_photo_gestures">Helderheid voor afbeeldingen aanpassen met verticale veeggebaren</string>
     <string name="allow_video_gestures">Volume en helderheid voor video\'s aanpassen met verticale veeggebaren</string>
     <string name="show_media_count">Aantallen in mappen tonen</string>
-    <string name="replace_share_with_rotate">Menu-item Draaien vastzetten in volledig scherm (in plaats van Delen)</string>
     <string name="show_extended_details">Uitgebreide informatie tonen in volledig scherm</string>
     <string name="manage_extended_details">Uitgebreide informatie</string>
     <string name="one_finger_zoom">Met één vinger zoomen in volledig scherm</string>

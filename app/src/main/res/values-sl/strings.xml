@@ -156,7 +156,6 @@
     <string name="allow_photo_gestures">Dovoli nadzor svetlosti fotografije z vertikalnimi gestami</string>
     <string name="allow_video_gestures">Dovoli nadzor glasnosti in svetlosti videoposnetka z vertikalnimi gestami</string>
     <string name="show_media_count">Pokaži število elementov v glavnem pogledu</string>
-    <string name="replace_share_with_rotate">Zamenjaj Deli z Obrni v celozaslonskem meniju</string>
     <string name="show_extended_details">Prikaži razširjene podrobnosti nad celozaslonskim prikazom</string>
     <string name="manage_extended_details">Urejaj razširjene podrobnosti</string>
     <string name="one_finger_zoom">Dovoli enoprstno povečavo v celozaslonskem načinu</string>

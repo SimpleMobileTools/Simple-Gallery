@@ -156,7 +156,6 @@
     <string name="allow_photo_gestures">Permitir controle do brilho com gestos na vertical</string>
     <string name="allow_video_gestures">Permitir controle do volume e brilho com gestos na vertical</string>
     <string name="show_media_count">Mostrar quantidade de arquivos das pastas</string>
-    <string name="replace_share_with_rotate">Substituir botão "Compartilhar" por "Rotação de tela" quando em tela cheia</string>
     <string name="show_extended_details">Exibir detalhes extendidos quando em tela cheia</string>
     <string name="manage_extended_details">Gerenciar detalhes extendidos</string>
     <string name="one_finger_zoom">Permitir zoom com um dedo quando em exibição de tela cheia</string>

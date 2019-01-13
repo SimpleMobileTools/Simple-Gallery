@@ -156,7 +156,6 @@
     <string name="allow_photo_gestures">Tillat å styre fotolysstyrke med vertikale bevegelser</string>
     <string name="allow_video_gestures">Tillat å styre videovolum og lysstyrke med vertikale bevegelser</string>
     <string name="show_media_count">Vis mediaantallet i mapper på hovedvisningen</string>
-    <string name="replace_share_with_rotate">Erstatt Del med Roter i meny ved mediavisning</string>
     <string name="show_extended_details">Vis flere detaljer i mediavisningen</string>
     <string name="manage_extended_details">Velg detaljer</string>
     <string name="one_finger_zoom">Tillat en-finger-zoom i mediavisningen</string>

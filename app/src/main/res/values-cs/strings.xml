@@ -156,7 +156,6 @@
     <string name="allow_photo_gestures">Povolit ovládání jasu vertikálními tahy</string>
     <string name="allow_video_gestures">Povolit ovládání hlasitosti a jasu videí vertikálními tahy</string>
     <string name="show_media_count">Zobrazit počet médií ve složce na hlavní obrazovce</string>
-    <string name="replace_share_with_rotate">Nahradit Sdílení s Otočením v celoobrazovkovém menu</string>
     <string name="show_extended_details">Zobrazit rozšířené vlastnosti přes celoobrazovkové média</string>
     <string name="manage_extended_details">Spravovat rozšířené vlastnosti</string>
     <string name="one_finger_zoom">Povolit přibližování jedním prstem v celoobrazovkovém režimu</string>

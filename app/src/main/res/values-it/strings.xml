@@ -156,7 +156,6 @@
     <string name="allow_photo_gestures">Controlla la luminosità delle foto con gesti verticali</string>
     <string name="allow_video_gestures">Gestisci il volume e la luminosità dei video con gesti verticali</string>
     <string name="show_media_count">Mostra numero elementi nella cartella</string>
-    <string name="replace_share_with_rotate">Sostituisci Condividi con Ruota a schermo intero</string>
     <string name="show_extended_details">Mostra informazioni estese su media a schermo intero</string>
     <string name="manage_extended_details">Gestisci le informazioni estese</string>
     <string name="one_finger_zoom">Abilita zoom con un dito su media a schermo intero</string>

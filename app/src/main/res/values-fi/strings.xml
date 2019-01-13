@@ -156,7 +156,6 @@
     <string name="allow_photo_gestures">Salli kirkkauden säätäminen pystysuorilla eleillä</string>
     <string name="allow_video_gestures">Salli videon äänenvoimakkuuden ja kirkkauden säätö pystysuorilla eleillä</string>
     <string name="show_media_count">Näytä kansioiden sisällön määrä päänäkymässä</string>
-    <string name="replace_share_with_rotate">Korvaa jakaminen kääntämisellä koko näytön tilassa</string>
     <string name="show_extended_details">Näytä yksityiskohtaiset tiedot täyden näytön tilassa</string>
     <string name="manage_extended_details">Hallitse yksityiskohtaisia tietoja</string>
     <string name="one_finger_zoom">Salli lähentäminen yhdellä sormella täyden ruudun tilassa</string>

@@ -156,7 +156,6 @@
     <string name="allow_photo_gestures">允許用上下手勢來控制相片的亮度</string>
     <string name="allow_video_gestures">允許用上下手勢來控制影片的音量和亮度</string>
     <string name="show_media_count">主畫面顯示資料夾內的媒體檔案數量</string>
-    <string name="replace_share_with_rotate">將全螢幕選單的分享取代為旋轉</string>
     <string name="show_extended_details">全螢幕時顯示詳細資訊</string>
     <string name="manage_extended_details">管理詳細資訊</string>
     <string name="one_finger_zoom">全螢幕時允許單指縮放</string>

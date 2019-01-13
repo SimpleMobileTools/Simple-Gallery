@@ -156,7 +156,6 @@
     <string name="allow_photo_gestures">Leisti valdyti nuotraukų ryškumą vertikaliais gestais</string>
     <string name="allow_video_gestures">Leisti kontroliuoti vaizdo įrašo garsumą ir ryškumą vertikaliais gestais</string>
     <string name="show_media_count">Rodyti aplanko bylų skaičių pagrindiniame rodinyje</string>
-    <string name="replace_share_with_rotate">Pakeisti bendrinti su rotacija  viso ekrano meniu</string>
     <string name="show_extended_details">Rodyti išsamią informaciją per visą ekraną</string>
     <string name="manage_extended_details">Tvarkykite išsamią informaciją</string>
     <string name="one_finger_zoom">Leisti vienu pirštu pritraukti viso ekrano rėžime</string>

@@ -156,7 +156,6 @@
     <string name="allow_photo_gestures">Contrôler la luminosité de la photo avec des gestes verticaux</string>
     <string name="allow_video_gestures">Contrôler le volume et la luminosité de la vidéo avec des gestes verticaux</string>
     <string name="show_media_count">Afficher le nombre de fichiers dans les dossiers</string>
-    <string name="replace_share_with_rotate">Remplacer \"Partager\" par \"Pivoter\" en plein écran</string>
     <string name="show_extended_details">Afficher en surimpression les informations supplémentaires du média en plein écran</string>
     <string name="manage_extended_details">Gérer les informations supplémentaires</string>
     <string name="one_finger_zoom">Effectuer le zoom avec un doigt sur une image en plein écran</string>

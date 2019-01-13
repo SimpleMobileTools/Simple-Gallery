@@ -157,7 +157,6 @@
     <string name="allow_photo_gestures">Engedélyezi a kép fényerő módosítást függőleges gesztusokkal</string>
     <string name="allow_video_gestures">Engedélyezi a videó hangerő és fényerő módosítást függőleges gesztusokkal</string>
     <string name="show_media_count">Mutassa a fájlok számát a mappákban</string>
-    <string name="replace_share_with_rotate">Cserélje meg a Megosztást a Forgatással a teljes képernyős menüben</string>
     <string name="show_extended_details">Mutassa a kiterjesztett adatokat a teljes képernyős médián keresztül</string>
     <string name="manage_extended_details">Bővített részletek kezelése</string>
     <string name="one_finger_zoom">Engedélyezi az egy ujjas nagyítást a teljes képernyős médiában</string>

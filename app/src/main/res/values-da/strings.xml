@@ -156,7 +156,6 @@
     <string name="allow_photo_gestures">Tillad kontrol af lysstyrke på billeder med lodrette bevægelser</string>
     <string name="allow_video_gestures">Tillad kontrol af lyd- og lysstyrke på videoer med lodrette bevægelser</string>
     <string name="show_media_count">Vis antal filer i hver mappe i oversigten</string>
-    <string name="replace_share_with_rotate">Erstat Del med Rotér i fuldskærmsmenuen</string>
     <string name="show_extended_details">Vis udvidede oplysninger over medier i fuldskærm</string>
     <string name="manage_extended_details">Administrer udvidede oplysninger</string>
     <string name="one_finger_zoom">Tillad zoom med en finger når medier er i fuldskærm</string>

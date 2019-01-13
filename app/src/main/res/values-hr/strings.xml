@@ -156,7 +156,6 @@
     <string name="allow_photo_gestures">Omogućite kontrolu svjetline fotografije vertikalnim pokretima</string>
     <string name="allow_video_gestures">Omogući kontrolu glasnoće videa i svjetline pomoću vertikalnih pokreta</string>
     <string name="show_media_count">Prikaz broja medija mapa u glavnom prikazu</string>
-    <string name="replace_share_with_rotate">Zamjeni Dijeli s Rotiraj pri pregledu datoteka</string>
     <string name="show_extended_details">Prikaži proširene pojedinosti preko medija na cijelom zaslonu</string>
     <string name="manage_extended_details">Upravljaj proširenim pojedinostima</string>
     <string name="one_finger_zoom">Omogući zumiranje jednim prstom na mediju cijelog zaslona</string>

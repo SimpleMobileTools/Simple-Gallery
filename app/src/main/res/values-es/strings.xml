@@ -156,7 +156,6 @@
     <string name="allow_photo_gestures">Permite controlar el brillo con gestos verticales</string>
     <string name="allow_video_gestures">Permite controlar el volumen y el brillo del video con gestos verticales</string>
     <string name="show_media_count">Mostrar el conteo de medios de las carpetas en la vista principal</string>
-    <string name="replace_share_with_rotate">Reemplazar Compartir con Girar en el menú de pantalla completa</string>
     <string name="show_extended_details">Mostrar detalles extendidos sobre medios en pantalla completa</string>
     <string name="manage_extended_details">Administrar detalles ampliados</string>
     <string name="one_finger_zoom">Permitir zoom con un dedo en pantalla completa</string>

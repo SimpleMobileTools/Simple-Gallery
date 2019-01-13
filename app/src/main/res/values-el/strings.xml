@@ -156,7 +156,6 @@
     <string name="allow_photo_gestures">Να επιτρέπεται ο έλεγχος φωτεινότητας με κατακόρυφες κινήσεις</string>
     <string name="allow_video_gestures">Να επιτρέπεται ο έλεγχος έντασης του βίντεο και φωτεινότητας με κατακόρυφες κινήσεις (gestures)</string>
     <string name="show_media_count">Εμφάνιση του αριθμού πολυμέσων στον φάκελο, στην κύρια οθόνη</string>
-    <string name="replace_share_with_rotate">Αντικατάσταση της "Κοινής χρήσης" με "Περιστροφή" στο μενού πλήρους οθόνης</string>
     <string name="show_extended_details">Εμφάνιση λεπτομερειών στα πολυμέσα σε κατάσταση πλήρους οθόνης</string>
     <string name="manage_extended_details">Διαχείριση εκτεταμένων λεπτομερειών</string>
     <string name="one_finger_zoom">Να επιτρέπεται μεγένθυση με ένα δάχτυλο σε πλήρη οθόνη</string>

@@ -156,7 +156,6 @@
     <string name="allow_photo_gestures">상하 제스처로 사진 밝기 제어</string>
     <string name="allow_video_gestures">수직 제스처로 비디오 볼륨 및 밝기 제어</string>
     <string name="show_media_count">폴더에 포함된 미디어파일 수 표시</string>
-    <string name="replace_share_with_rotate">전체화면 메뉴의 공유 아이콘을 회전 아이콘으로 변경</string>
     <string name="show_extended_details">전체화면 모드에서 세부정보 표시</string>
     <string name="manage_extended_details">확장된 세부정보 관리</string>
     <string name="one_finger_zoom">전체화면 모드에서 한 손가락으로 확대 및 축소</string>

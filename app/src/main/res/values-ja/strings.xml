@@ -156,7 +156,6 @@
     <string name="allow_photo_gestures">垂直の動作で写真の明るさを制御</string>
     <string name="allow_video_gestures">音量と明るさを縦の動作で変更</string>
     <string name="show_media_count">フォルダ内のメディア数を表示する</string>
-    <string name="replace_share_with_rotate">フルスクリーン時の「共有」を「回転」に置き換える</string>
     <string name="show_extended_details">フルスクリーンに詳細を重ねて表示する</string>
     <string name="manage_extended_details">詳細表示を管理する</string>
     <string name="one_finger_zoom">メディアを指だけでズームする</string>
