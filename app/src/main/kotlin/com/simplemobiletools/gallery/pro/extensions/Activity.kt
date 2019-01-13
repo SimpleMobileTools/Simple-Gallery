@@ -372,7 +372,7 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, callback: (() -> Unit)? = nu
     }
 }
 
-fun BaseSimpleActivity.saveImageToFile(oldPath: String, newPath: String, degrees: Int, callback: () -> Unit) {
+fun BaseSimpleActivity.saveRotatedImageToFile(oldPath: String, newPath: String, degrees: Int, callback: () -> Unit) {
     toast(R.string.saving)
     if (oldPath == newPath && oldPath.isJpg()) {
         if (tryRotateByExif(oldPath, degrees, callback)) {
