@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Fijar fecha de toma</string>
     <string name="fixing">Fijando…</string>
     <string name="dates_fixed_successfully">Fecha fijada correctamente</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtro de medios</string>

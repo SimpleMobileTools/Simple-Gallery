@@ -31,6 +31,7 @@
     <string name="fix_date_taken">修复拍摄日期</string>
     <string name="fixing">正在修复…</string>
     <string name="dates_fixed_successfully">日期修复成功</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">要显示的媒体文件</string>

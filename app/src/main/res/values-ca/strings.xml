@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Fixar la data de presa</string>
     <string name="fixing">Fixant…</string>
     <string name="dates_fixed_successfully">Data fixada correctament</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtre d\'arxius</string>

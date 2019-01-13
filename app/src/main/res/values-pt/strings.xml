@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Corrigir data de obtenção</string>
     <string name="fixing">A corrigir…</string>
     <string name="dates_fixed_successfully">Dados corrigidos com sucesso</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrar multimédia</string>

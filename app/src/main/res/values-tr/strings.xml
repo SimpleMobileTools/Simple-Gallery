@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Çekilen tarih değerini düzelt</string>
     <string name="fixing">Düzeltiliyor…</string>
     <string name="dates_fixed_successfully">Tarihler başarıyla düzeltildi</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">Medyayı filtrele</string>

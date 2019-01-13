@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Napraw datę utworzenia</string>
     <string name="fixing">Naprawiam…</string>
     <string name="dates_fixed_successfully">Daty zostały naprawione</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtruj multimedia</string>

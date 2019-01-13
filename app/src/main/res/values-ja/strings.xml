@@ -31,6 +31,7 @@
     <string name="fix_date_taken">撮影日の値を修正</string>
     <string name="fixing">修正中…</string>
     <string name="dates_fixed_successfully">撮影日が正常に修正されました</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">表示する形式</string>

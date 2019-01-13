@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Perbaiki Tanggal Diambil</string>
     <string name="fixing">Memperbaiki…</string>
     <string name="dates_fixed_successfully">Tanggal berhasil diperbaiki</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter media</string>

@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Fiks Dato Taget værdi</string>
     <string name="fixing">Fikser…</string>
     <string name="dates_fixed_successfully">Datoer fikset med succes</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrér medier</string>

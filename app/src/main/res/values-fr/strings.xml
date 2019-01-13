@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Corriger la valeur des dates de prise des photos</string>
     <string name="fixing">Correction en cours....</string>
     <string name="dates_fixed_successfully">Dates corrigées</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrer les médias</string>
