@@ -27,6 +27,7 @@ import com.simplemobiletools.gallery.pro.dialogs.PickDirectoryDialog
 import com.simplemobiletools.gallery.pro.helpers.NOMEDIA
 import com.simplemobiletools.gallery.pro.helpers.RECYCLE_BIN
 import com.simplemobiletools.gallery.pro.interfaces.MediumDao
+import com.squareup.picasso.Picasso
 import java.io.File
 import java.io.FileOutputStream
 import java.io.InputStream
@@ -406,22 +407,11 @@ fun BaseSimpleActivity.saveRotatedImageToFile(oldPath: String, newPath: String, 
             copyFile(tmpPath, newPath)
             scanPathRecursively(newPath)
             toast(R.string.file_saved)
-
-            if (config.keepLastModified) {
-                File(newPath).setLastModified(oldLastModified)
-                updateLastModified(newPath, oldLastModified)
-            }
+            fileRotatedSuccessfully(newPath, oldLastModified)
 
             it.flush()
             it.close()
             callback.invoke()
-
-            // we cannot refresh a specific image in Glide Cache, so just clear it all
-            val glide = Glide.get(applicationContext)
-            glide.clearDiskCache()
-            runOnUiThread {
-                glide.clearMemory()
-            }
         }
     } catch (e: OutOfMemoryError) {
         toast(R.string.out_of_memory_error)
@@ -438,10 +428,7 @@ fun Activity.tryRotateByExif(path: String, degrees: Int, callback: () -> Unit): 
         val file = File(path)
         val oldLastModified = file.lastModified()
         if (saveImageRotation(path, degrees)) {
-            if (config.keepLastModified) {
-                file.setLastModified(oldLastModified)
-                updateLastModified(path, oldLastModified)
-            }
+            fileRotatedSuccessfully(path, oldLastModified)
             callback.invoke()
             toast(R.string.file_saved)
             true
@@ -451,6 +438,21 @@ fun Activity.tryRotateByExif(path: String, degrees: Int, callback: () -> Unit): 
     } catch (e: Exception) {
         showErrorToast(e)
         false
+    }
+}
+
+fun Activity.fileRotatedSuccessfully(path: String, lastModified: Long) {
+    if (config.keepLastModified) {
+        File(path).setLastModified(lastModified)
+        updateLastModified(path, lastModified)
+    }
+
+    Picasso.get().invalidate(path.getFileKey())
+    // we cannot refresh a specific image in Glide Cache, so just clear it all
+    val glide = Glide.get(applicationContext)
+    glide.clearDiskCache()
+    runOnUiThread {
+        glide.clearMemory()
     }
 }
 

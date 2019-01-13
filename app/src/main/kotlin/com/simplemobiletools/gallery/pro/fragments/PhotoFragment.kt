@@ -336,6 +336,7 @@ class PhotoFragment : ViewPagerFragment() {
             val picasso = Picasso.get()
                     .load(pathToLoad)
                     .centerInside()
+                    .stableKey(mMedium.path.getFileKey())
                     .resize(mScreenWidth, mScreenHeight)
 
             if (degrees != 0) {
