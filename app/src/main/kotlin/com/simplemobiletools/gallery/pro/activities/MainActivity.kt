@@ -927,7 +927,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
         mDirs = dirs.clone() as ArrayList<Directory>
 
-        if (mDirs.size > 100) {
+        if (mDirs.size > 55) {
             excludeSpamFolders()
         }
     }
