@@ -2,10 +2,7 @@ package com.simplemobiletools.gallery.pro.fragments
 
 import android.content.Intent
 import android.content.res.Configuration
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Color
-import android.graphics.Matrix
+import android.graphics.*
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.PictureDrawable
 import android.media.ExifInterface.*
@@ -292,6 +289,7 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun loadImage() {
+        checkScreenDimensions()
         mImageOrientation = getImageOrientation()
         when {
             mMedium.isGIF() -> loadGif()
@@ -310,8 +308,11 @@ class PhotoFragment : ViewPagerFragment() {
             }
 
             mView.photo_view.beGone()
-            mView.gif_view.beVisible()
-            mView.gif_view.setInputSource(source)
+            val resolution = mMedium.path.getImageResolution() ?: Point(0, 0)
+            mView.gif_view.apply {
+                setInputSource(source)
+                setupSizes(resolution.x, resolution.y, mScreenWidth, mScreenHeight)
+            }
         } catch (e: Exception) {
             loadBitmap()
         } catch (e: OutOfMemoryError) {
@@ -328,7 +329,6 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun loadBitmap(degrees: Int = 0) {
-        checkScreenDimensions()
         var pathToLoad = if (mMedium.path.startsWith("content://")) mMedium.path else "file://${mMedium.path}"
         pathToLoad = pathToLoad.replace("%", "%25").replace("#", "%23")
 
