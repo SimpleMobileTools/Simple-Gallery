@@ -85,6 +85,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private var isCropIntent = false
     private var isEditingWithThirdParty = false
     private var isSharingBitmap = false
+    private var wasDrawCanvasPositioned = false
     private var oldExif: ExifInterface? = null
     private var filterInitialBitmap: Bitmap? = null
 
@@ -246,10 +247,14 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         default_image_view.beGone()
         crop_image_view.beGone()
         editor_draw_canvas.beVisible()
-        editor_draw_canvas.onGlobalLayout {
-            Thread {
-                fillCanvasBackground()
-            }.start()
+
+        if (!wasDrawCanvasPositioned) {
+            wasDrawCanvasPositioned = true
+            editor_draw_canvas.onGlobalLayout {
+                Thread {
+                    fillCanvasBackground()
+                }.start()
+            }
         }
     }
 
@@ -275,7 +280,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     updateBackgroundBitmap(bitmap)
                     layoutParams.width = bitmap.width
                     layoutParams.height = bitmap.height
-                    (layoutParams as RelativeLayout.LayoutParams).removeRule(RelativeLayout.ABOVE)
+                    y = (height - bitmap.height) / 2f
                     requestLayout()
                 }
             }
