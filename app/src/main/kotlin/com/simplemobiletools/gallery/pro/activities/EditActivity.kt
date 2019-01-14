@@ -99,6 +99,32 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        isEditingWithThirdParty = false
+    }
+
+    override fun onStop() {
+        super.onStop()
+        if (isEditingWithThirdParty) {
+            finish()
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_editor, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.save_as -> saveImage()
+            R.id.edit -> editWith()
+            else -> return super.onOptionsItemSelected(item)
+        }
+        return true
+    }
+
     private fun initEditActivity() {
         if (intent.data == null) {
             toast(R.string.invalid_image_path)
@@ -152,32 +178,6 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             lastOtherAspectRatio = Pair(config.lastEditorCropOtherAspectRatioX, config.lastEditorCropOtherAspectRatioY)
         }
         updateAspectRatio(config.lastEditorCropAspectRatio)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        isEditingWithThirdParty = false
-    }
-
-    override fun onStop() {
-        super.onStop()
-        if (isEditingWithThirdParty) {
-            finish()
-        }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_editor, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.save_as -> saveImage()
-            R.id.edit -> editWith()
-            else -> return super.onOptionsItemSelected(item)
-        }
-        return true
     }
 
     private fun loadDefaultImageView() {
