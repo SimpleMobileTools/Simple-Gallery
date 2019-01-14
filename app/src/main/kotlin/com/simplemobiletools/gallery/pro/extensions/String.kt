@@ -23,6 +23,8 @@ fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPath
         false
     } else if (!showHidden && file.containsNoMedia()) {
         false
+    } else if (excludedPaths.contains(this) && !includedPaths.contains(this)) {
+        false
     } else if (isThisOrParentIncluded(includedPaths)) {
         true
     } else if (isThisOrParentExcluded(excludedPaths)) {
