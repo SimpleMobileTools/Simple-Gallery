@@ -792,7 +792,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             }
 
             mRight = width * mSaveScale - width
-            mBottom = mTextureView.height * mSaveScale - height
+            mBottom = height * mSaveScale - height
             if (0 <= width || 0 <= height) {
                 mMatrix.postScale(scaleFactor, scaleFactor, detector.focusX, detector.focusY)
                 if (scaleFactor < 1) {
