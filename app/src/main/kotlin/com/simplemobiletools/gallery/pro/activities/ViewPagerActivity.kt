@@ -299,7 +299,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             view_pager.onGlobalLayout {
                 Handler().postDelayed({
                     fragmentClicked()
-                }, 500)
+                }, HIDE_SYSTEM_UI_DELAY)
             }
         }
 

@@ -54,13 +54,13 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private var mBottom = 0f
     private var mLastTouchX = 0f
     private var mLastTouchY = 0f
-    private var mTouchDownTime = 0L
+    private var mCurrZoomMode = ZOOM_MODE_NONE
 
     private var mExoPlayer: SimpleExoPlayer? = null
     private var mVideoSize = Point(0, 0)
     private var mTimerHandler = Handler()
     private var mScaleDetector: ScaleGestureDetector? = null
-    private var mMatrices = floatArrayOf()
+    private var mMatrices = FloatArray(9)
     private val mMatrix = Matrix()
 
     private var mStoredShowExtendedDetails = false
@@ -82,14 +82,9 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private lateinit var mPlayPauseButton: ImageView
     private lateinit var mSeekBar: SeekBar
 
-    private var mCurrZoomMode = ZOOM_MODE_NONE
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mConfig = context!!.config
-
-        mMatrices = FloatArray(9)
         mScaleDetector = ScaleGestureDetector(context, ScaleListener())
-
         mView = inflater.inflate(R.layout.pager_video_item, container, false).apply {
             instant_prev_item.setOnClickListener { listener?.goToPrevItem() }
             instant_next_item.setOnClickListener { listener?.goToNextItem() }
@@ -746,21 +741,21 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             }
             MotionEvent.ACTION_MOVE -> {
                 if (mCurrZoomMode == ZOOM_MODE_ZOOM || mCurrZoomMode == ZOOM_MODE_DRAG && mSaveScale > MIN_VIDEO_ZOOM_SCALE) {
-                    var deltaX = event.x - mLastTouchX
-                    var deltaY = event.y - mLastTouchY
-                    if (y + deltaY > 0) {
-                        deltaY = -y
-                    } else if (y + deltaY < -mBottom) {
-                        deltaY = -(y + mBottom)
+                    var diffX = event.x - mLastTouchX
+                    var diffY = event.y - mLastTouchY
+                    if (y + diffY > 0) {
+                        diffY = -y
+                    } else if (y + diffY < -mBottom) {
+                        diffY = -(y + mBottom)
                     }
 
-                    if (x + deltaX > 0) {
-                        deltaX = -x
-                    } else if (x + deltaX < -mRight) {
-                        deltaX = -(x + mRight)
+                    if (x + diffX > 0) {
+                        diffX = -x
+                    } else if (x + diffX < -mRight) {
+                        diffX = -(x + mRight)
                     }
 
-                    mMatrix.postTranslate(deltaX, deltaY)
+                    mMatrix.postTranslate(diffX, diffY)
                     mLastTouchX = event.x
                     mLastTouchY = event.y
                 }
