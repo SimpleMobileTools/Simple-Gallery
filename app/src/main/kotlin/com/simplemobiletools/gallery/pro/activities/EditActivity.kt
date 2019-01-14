@@ -120,6 +120,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         when (item.itemId) {
             R.id.save_as -> saveImage()
             R.id.edit -> editWith()
+            R.id.share -> shareImage()
             else -> return super.onOptionsItemSelected(item)
         }
         return true
@@ -330,6 +331,10 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 }.start()
             }
         }
+    }
+
+    private fun shareImage() {
+
     }
 
     private fun getFiltersAdapter() = bottom_actions_filter_list.adapter as? FiltersAdapter
