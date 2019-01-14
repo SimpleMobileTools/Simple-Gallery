@@ -31,6 +31,7 @@ import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
 import com.simplemobiletools.commons.helpers.isNougatPlus
 import com.simplemobiletools.commons.models.FileDirItem
+import com.simplemobiletools.gallery.pro.BuildConfig
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.FiltersAdapter
 import com.simplemobiletools.gallery.pro.dialogs.OtherAspectRatioDialog
@@ -58,6 +59,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         }
     }
 
+    private val TEMP_FOLDER_NAME = "images"
     private val ASPECT_X = "aspectX"
     private val ASPECT_Y = "aspectY"
     private val CROP = "crop"
@@ -82,6 +84,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private var currAspectRatio = ASPECT_RATIO_FREE
     private var isCropIntent = false
     private var isEditingWithThirdParty = false
+    private var isSharingBitmap = false
     private var oldExif: ExifInterface? = null
     private var filterInitialBitmap: Bitmap? = null
 
@@ -334,7 +337,67 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun shareImage() {
+        Thread {
+            when {
+                default_image_view.isVisible() -> {
+                    val currentFilter = getFiltersAdapter()?.getCurrentFilter()
+                    if (currentFilter == null) {
+                        toast(R.string.unknown_error_occurred)
+                    }
 
+                    val originalBitmap = Glide.with(applicationContext).asBitmap().load(uri).submit(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL).get()
+                    currentFilter!!.filter.processFilter(originalBitmap)
+                    shareBitmap(originalBitmap)
+                }
+                crop_image_view.isVisible() -> {
+                    isSharingBitmap = true
+                    runOnUiThread {
+                        crop_image_view.getCroppedImageAsync()
+                    }
+                }
+                editor_draw_canvas.isVisible() -> shareBitmap(editor_draw_canvas.getBitmap())
+            }
+        }.start()
+    }
+
+    private fun getTempImagePath(bitmap: Bitmap, callback: (path: String?) -> Unit) {
+        val bytes = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.PNG, 0, bytes)
+
+        val folder = File(cacheDir, TEMP_FOLDER_NAME)
+        if (!folder.exists()) {
+            if (!folder.mkdir()) {
+                callback(null)
+                return
+            }
+        }
+
+        val filename = applicationContext.getFilenameFromContentUri(saveUri) ?: "tmp.jpg"
+        val newPath = "$folder/$filename"
+        val fileDirItem = FileDirItem(newPath, filename)
+        getFileOutputStream(fileDirItem, true) {
+            if (it != null) {
+                try {
+                    it.write(bytes.toByteArray())
+                    callback(newPath)
+                } catch (e: Exception) {
+                } finally {
+                    it.close()
+                }
+            } else {
+                callback("")
+            }
+        }
+    }
+
+    private fun shareBitmap(bitmap: Bitmap) {
+        getTempImagePath(bitmap) {
+            if (it != null) {
+                sharePathIntent(it, BuildConfig.APPLICATION_ID)
+            } else {
+                toast(R.string.unknown_error_occurred)
+            }
+        }
     }
 
     private fun getFiltersAdapter() = bottom_actions_filter_list.adapter as? FiltersAdapter
@@ -647,6 +710,12 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     override fun onCropImageComplete(view: CropImageView, result: CropImageView.CropResult) {
         if (result.error == null) {
             val bitmap = result.bitmap
+            if (isSharingBitmap) {
+                isSharingBitmap = false
+                shareBitmap(bitmap)
+                return
+            }
+
             if (isCropIntent) {
                 if (saveUri.scheme == "file") {
                     saveBitmapToFile(bitmap, saveUri.path, true)
