@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.pro.fragments
 
 import android.content.Intent
 import android.content.res.Configuration
+import android.graphics.Matrix
 import android.graphics.Point
 import android.graphics.SurfaceTexture
 import android.net.Uri
@@ -28,10 +29,7 @@ import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.PanoramaVideoActivity
 import com.simplemobiletools.gallery.pro.activities.VideoActivity
 import com.simplemobiletools.gallery.pro.extensions.*
-import com.simplemobiletools.gallery.pro.helpers.Config
-import com.simplemobiletools.gallery.pro.helpers.MEDIUM
-import com.simplemobiletools.gallery.pro.helpers.MIN_SKIP_LENGTH
-import com.simplemobiletools.gallery.pro.helpers.PATH
+import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.views.MediaSideScroll
 import kotlinx.android.synthetic.main.bottom_video_time_holder.view.*
@@ -51,10 +49,19 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private var mWasVideoStarted = false
     private var mCurrTime = 0
     private var mDuration = 0
+    private var mSaveScale = 1f
+    private var mRight = 0f
+    private var mBottom = 0f
+    private var mLastTouchX = 0f
+    private var mLastTouchY = 0f
+    private var mTouchDownTime = 0L
 
     private var mExoPlayer: SimpleExoPlayer? = null
     private var mVideoSize = Point(0, 0)
     private var mTimerHandler = Handler()
+    private var mScaleDetector: ScaleGestureDetector? = null
+    private var mMatrices = floatArrayOf()
+    private val mMatrix = Matrix()
 
     private var mStoredShowExtendedDetails = false
     private var mStoredHideExtendedDetails = false
@@ -75,8 +82,14 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private lateinit var mPlayPauseButton: ImageView
     private lateinit var mSeekBar: SeekBar
 
+    private var mCurrZoomMode = ZOOM_MODE_NONE
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mConfig = context!!.config
+
+        mMatrices = FloatArray(9)
+        mScaleDetector = ScaleGestureDetector(context, ScaleListener())
+
         mView = inflater.inflate(R.layout.pager_video_item, container, false).apply {
             instant_prev_item.setOnClickListener { listener?.goToPrevItem() }
             instant_next_item.setOnClickListener { listener?.goToNextItem() }
@@ -116,8 +129,8 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
                 }
 
                 video_surface.setOnTouchListener { view, event ->
-                    handleEvent(event)
-                    false
+                    handleEventWithZooming(event)
+                    true
                 }
             }
         }
@@ -690,6 +703,143 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
                 height = screenHeight
             }
             mTextureView.layoutParams = this
+        }
+    }
+
+    private fun handleEventWithZooming(event: MotionEvent) {
+        mScaleDetector?.onTouchEvent(event)
+
+        mMatrix.getValues(mMatrices)
+        val x = mMatrices[Matrix.MTRANS_X]
+        val y = mMatrices[Matrix.MTRANS_Y]
+
+        when (event.actionMasked) {
+            MotionEvent.ACTION_DOWN -> {
+                mTouchDownTime = System.currentTimeMillis()
+                mCurrZoomMode = ZOOM_MODE_DRAG
+                mLastTouchX = event.x
+                mLastTouchY = event.y
+
+                mTouchDownX = event.x
+                mTouchDownY = event.y
+            }
+            MotionEvent.ACTION_UP -> {
+                mCurrZoomMode = ZOOM_MODE_NONE
+                val diffX = mTouchDownX - event.x
+                val diffY = mTouchDownY - event.y
+
+                val downGestureDuration = System.currentTimeMillis() - mTouchDownTime
+                if (!mIgnoreCloseDown && Math.abs(diffY) > Math.abs(diffX) && diffY < -mCloseDownThreshold && downGestureDuration < MAX_CLOSE_DOWN_GESTURE_DURATION && mSaveScale == 1f) {
+                    activity?.supportFinishAfterTransition()
+                }
+                mIgnoreCloseDown = false
+
+                if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
+                    mTextureView.performClick()
+                }
+            }
+            MotionEvent.ACTION_POINTER_DOWN -> {
+                mLastTouchX = event.x
+                mLastTouchY = event.y
+                mCurrZoomMode = ZOOM_MODE_ZOOM
+                mIgnoreCloseDown = true
+            }
+            MotionEvent.ACTION_MOVE -> {
+                if (mCurrZoomMode == ZOOM_MODE_ZOOM || mCurrZoomMode == ZOOM_MODE_DRAG && mSaveScale > MIN_VIDEO_ZOOM_SCALE) {
+                    var deltaX = event.x - mLastTouchX
+                    var deltaY = event.y - mLastTouchY
+                    if (y + deltaY > 0) {
+                        deltaY = -y
+                    } else if (y + deltaY < -mBottom) {
+                        deltaY = -(y + mBottom)
+                    }
+
+                    if (x + deltaX > 0) {
+                        deltaX = -x
+                    } else if (x + deltaX < -mRight) {
+                        deltaX = -(x + mRight)
+                    }
+
+                    mMatrix.postTranslate(deltaX, deltaY)
+                    mLastTouchX = event.x
+                    mLastTouchY = event.y
+                }
+            }
+            MotionEvent.ACTION_POINTER_UP -> {
+                mCurrZoomMode = ZOOM_MODE_NONE
+            }
+        }
+
+        mTextureView.setTransform(mMatrix)
+        mTextureView.invalidate()
+    }
+
+    // taken from https://github.com/Manuiq/ZoomableTextureView
+    private inner class ScaleListener : ScaleGestureDetector.SimpleOnScaleGestureListener() {
+        override fun onScaleBegin(detector: ScaleGestureDetector): Boolean {
+            mCurrZoomMode = ZOOM_MODE_ZOOM
+            return true
+        }
+
+        override fun onScale(detector: ScaleGestureDetector): Boolean {
+            var scaleFactor = detector.scaleFactor
+            val width = mTextureView.width
+            val height = mTextureView.height
+            val origScale = mSaveScale
+            mSaveScale *= scaleFactor
+
+            if (mSaveScale > MAX_VIDEO_ZOOM_SCALE) {
+                mSaveScale = MAX_VIDEO_ZOOM_SCALE
+                scaleFactor = MAX_VIDEO_ZOOM_SCALE / origScale
+            } else if (mSaveScale < MIN_VIDEO_ZOOM_SCALE) {
+                mSaveScale = MIN_VIDEO_ZOOM_SCALE
+                scaleFactor = MIN_VIDEO_ZOOM_SCALE / origScale
+            }
+
+            mRight = width * mSaveScale - width
+            mBottom = mTextureView.height * mSaveScale - height
+            if (0 <= width || 0 <= height) {
+                mMatrix.postScale(scaleFactor, scaleFactor, detector.focusX, detector.focusY)
+                if (scaleFactor < 1) {
+                    mMatrix.getValues(mMatrices)
+                    val x = mMatrices[Matrix.MTRANS_X]
+                    val y = mMatrices[Matrix.MTRANS_Y]
+                    if (scaleFactor < 1) {
+                        if (0 < width) {
+                            if (y < -mBottom) {
+                                mMatrix.postTranslate(0f, -(y + mBottom))
+                            } else if (y > 0) {
+                                mMatrix.postTranslate(0f, -y)
+                            }
+                        } else {
+                            if (x < -mRight) {
+                                mMatrix.postTranslate(-(x + mRight), 0f)
+                            } else if (x > 0) {
+                                mMatrix.postTranslate(-x, 0f)
+                            }
+                        }
+                    }
+                }
+            } else {
+                mMatrix.postScale(scaleFactor, scaleFactor, detector.focusX, detector.focusY)
+                mMatrix.getValues(mMatrices)
+                val x = mMatrices[Matrix.MTRANS_X]
+                val y = mMatrices[Matrix.MTRANS_Y]
+                if (scaleFactor < 1) {
+                    if (x < -mRight) {
+                        mMatrix.postTranslate(-(x + mRight), 0f)
+                    } else if (x > 0) {
+                        mMatrix.postTranslate(-x, 0f)
+                    }
+
+                    if (y < -mBottom) {
+                        mMatrix.postTranslate(0f, -(y + mBottom))
+                    } else if (y > 0) {
+                        mMatrix.postTranslate(0f, -y)
+                    }
+                }
+            }
+            return true
         }
     }
 }

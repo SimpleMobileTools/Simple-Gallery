@@ -103,6 +103,7 @@ const val GO_TO_PREV_ITEM = "go_to_prev_item"
 const val MAX_COLUMN_COUNT = 20
 const val SHOW_TEMP_HIDDEN_DURATION = 300000L
 const val CLICK_MAX_DURATION = 150
+const val MAX_CLOSE_DOWN_GESTURE_DURATION = 500
 const val DRAG_THRESHOLD = 8
 const val MONTH_MILLISECONDS = MONTH_SECONDS * 1000L
 const val MIN_SKIP_LENGTH = 2000
@@ -181,3 +182,10 @@ const val ASPECT_RATIO_ONE_ONE = 1
 const val ASPECT_RATIO_FOUR_THREE = 2
 const val ASPECT_RATIO_SIXTEEN_NINE = 3
 const val ASPECT_RATIO_OTHER = 4
+
+// some constants related to zooming videos
+const val MIN_VIDEO_ZOOM_SCALE = 1f
+const val MAX_VIDEO_ZOOM_SCALE = 5f
+const val ZOOM_MODE_NONE = 0
+const val ZOOM_MODE_DRAG = 1
+const val ZOOM_MODE_ZOOM = 2
