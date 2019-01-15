@@ -410,12 +410,20 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     }
 
     private fun initTimeHolder() {
-        var bottomMargin = context!!.navigationBarHeight
+        var right = 0
+        var bottom = context!!.navigationBarHeight
         if (mConfig.bottomActions) {
-            bottomMargin += resources.getDimension(R.dimen.bottom_actions_height).toInt()
+            bottom += resources.getDimension(R.dimen.bottom_actions_height).toInt()
         }
 
-        (mTimeHolder.layoutParams as RelativeLayout.LayoutParams).bottomMargin = bottomMargin
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE && activity?.hasNavBar() == true) {
+            right += activity!!.navigationBarWidth
+        }
+
+        (mTimeHolder.layoutParams as RelativeLayout.LayoutParams).apply {
+            bottomMargin = bottom
+            rightMargin = right
+        }
         mTimeHolder.beInvisibleIf(mIsFullscreen)
     }
 
