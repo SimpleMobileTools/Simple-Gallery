@@ -793,9 +793,13 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         }
 
         override fun onScale(detector: ScaleGestureDetector): Boolean {
-            var scaleFactor = detector.scaleFactor
             val width = video_surface.width
             val height = video_surface.height
+            if (width <= 0 || height <= 0) {
+                return true
+            }
+
+            var scaleFactor = detector.scaleFactor
             val origScale = mSaveScale
             mSaveScale *= scaleFactor
 
@@ -809,44 +813,24 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
             mRight = width * mSaveScale - width
             mBottom = height * mSaveScale - height
-            if (0 <= width || 0 <= height) {
-                mMatrix.postScale(scaleFactor, scaleFactor, detector.focusX, detector.focusY)
-                if (scaleFactor < 1) {
-                    mMatrix.getValues(mMatrices)
-                    val x = mMatrices[Matrix.MTRANS_X]
-                    val y = mMatrices[Matrix.MTRANS_Y]
-                    if (scaleFactor < 1) {
-                        if (0 < width) {
-                            if (y < -mBottom) {
-                                mMatrix.postTranslate(0f, -(y + mBottom))
-                            } else if (y > 0) {
-                                mMatrix.postTranslate(0f, -y)
-                            }
-                        } else {
-                            if (x < -mRight) {
-                                mMatrix.postTranslate(-(x + mRight), 0f)
-                            } else if (x > 0) {
-                                mMatrix.postTranslate(-x, 0f)
-                            }
-                        }
-                    }
-                }
-            } else {
-                mMatrix.postScale(scaleFactor, scaleFactor, detector.focusX, detector.focusY)
+            mMatrix.postScale(scaleFactor, scaleFactor, detector.focusX, detector.focusY)
+            if (scaleFactor < 1) {
                 mMatrix.getValues(mMatrices)
                 val x = mMatrices[Matrix.MTRANS_X]
                 val y = mMatrices[Matrix.MTRANS_Y]
                 if (scaleFactor < 1) {
-                    if (x < -mRight) {
-                        mMatrix.postTranslate(-(x + mRight), 0f)
-                    } else if (x > 0) {
-                        mMatrix.postTranslate(-x, 0f)
-                    }
-
-                    if (y < -mBottom) {
-                        mMatrix.postTranslate(0f, -(y + mBottom))
-                    } else if (y > 0) {
-                        mMatrix.postTranslate(0f, -y)
+                    if (width > 0) {
+                        if (y < -mBottom) {
+                            mMatrix.postTranslate(0f, -(y + mBottom))
+                        } else if (y > 0) {
+                            mMatrix.postTranslate(0f, -y)
+                        }
+                    } else {
+                        if (x < -mRight) {
+                            mMatrix.postTranslate(-(x + mRight), 0f)
+                        } else if (x > 0) {
+                            mMatrix.postTranslate(-x, 0f)
+                        }
                     }
                 }
             }
