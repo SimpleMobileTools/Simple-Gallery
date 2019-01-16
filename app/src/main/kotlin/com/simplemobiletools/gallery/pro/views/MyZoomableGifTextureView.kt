@@ -34,6 +34,7 @@ class MyZoomableGifTextureView(context: Context, attrs: AttributeSet) : GifTextu
     private val mMatrix = Matrix()
     private var mOrigRect = RectF()
     private var mWantedRect = RectF()
+    private var mCurrentViewport = RectF()
 
     init {
         mScaleDetector = ScaleGestureDetector(context, ScaleListener())
@@ -57,20 +58,21 @@ class MyZoomableGifTextureView(context: Context, attrs: AttributeSet) : GifTextu
         mOrigRect = RectF(0f, 0f, mGifWidth, mGifHeight)
         mWantedRect = RectF(0f, 0f, mScreenWidth, mScreenHeight)
         mMatrix.setRectToRect(mOrigRect, mWantedRect, Matrix.ScaleToFit.CENTER)
+        mMatrix.getValues(mMatrices)
+
+        val left = mMatrices[Matrix.MTRANS_X]
+        val top = mMatrices[Matrix.MTRANS_Y]
+        val right = mScreenWidth - left
+        val bottom = mScreenHeight - top
+        mCurrentViewport.set(left, top, right, bottom)
+
         setTransform(mMatrix)
         invalidate()
         beVisible()
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
-        mScaleDetector?.onTouchEvent(event)
-
-        mMatrix.getValues(mMatrices)
-        mMatrix.setRectToRect(mOrigRect, mWantedRect, Matrix.ScaleToFit.CENTER)
-        mMatrix.postScale(mSaveScale, mSaveScale, mLastFocusX, mLastFocusY)
-
-        val x = mMatrices[Matrix.MTRANS_X]
-        val y = mMatrices[Matrix.MTRANS_Y]
+//        mScaleDetector?.onTouchEvent(event)
 
         when (event.actionMasked) {
             MotionEvent.ACTION_DOWN -> {
@@ -97,19 +99,33 @@ class MyZoomableGifTextureView(context: Context, attrs: AttributeSet) : GifTextu
                 if (mCurrZoomMode == ZOOM_MODE_ZOOM || mCurrZoomMode == ZOOM_MODE_DRAG && mSaveScale > MIN_VIDEO_ZOOM_SCALE) {
                     var diffX = event.x - mLastTouchX
                     var diffY = event.y - mLastTouchY
-                    if (y + diffY > 0) {
-                        diffY = -y
-                    } else if (y + diffY < -mBottom) {
-                        diffY = -(y + mBottom)
+
+                    // horizontal bounds
+                    if (mCurrentViewport.left + diffX < 0) {
+                        diffX = -mCurrentViewport.left
+                    } else if (mCurrentViewport.right + diffX > mScreenWidth) {
+                        diffX = mScreenWidth - mCurrentViewport.right
                     }
 
-                    if (x + diffX > 0) {
-                        diffX = -x
-                    } else if (x + diffX < -mRight) {
-                        diffX = -(x + mRight)
+                    // vertical bounds
+                    if (mCurrentViewport.top + diffY < 0) {
+                        diffY = -mCurrentViewport.top
+                    } else if (mCurrentViewport.bottom + diffY > mScreenHeight) {
+                        diffY = mScreenHeight - mCurrentViewport.bottom
                     }
+
+                    mCurrentViewport.left += diffX
+                    mCurrentViewport.right += diffX
+                    mCurrentViewport.top += diffY
+                    mCurrentViewport.bottom += diffY
 
                     mMatrix.postTranslate(diffX, diffY)
+
+                    mCurrentViewport.left = Math.max(mCurrentViewport.left, 0f)
+                    mCurrentViewport.right = Math.min(mCurrentViewport.right, mScreenWidth)
+                    mCurrentViewport.top = Math.max(mCurrentViewport.top, 0f)
+                    mCurrentViewport.bottom = Math.min(mCurrentViewport.bottom, mScreenHeight)
+
                     mLastTouchX = event.x
                     mLastTouchY = event.y
                 }
