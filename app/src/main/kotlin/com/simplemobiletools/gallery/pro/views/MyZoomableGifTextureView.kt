@@ -14,8 +14,6 @@ import pl.droidsonroids.gif.GifTextureView
 // allow horizontal swipes through the layout, else it can cause glitches at zoomed in images
 class MyZoomableGifTextureView(context: Context, attrs: AttributeSet) : GifTextureView(context, attrs) {
     private var mSaveScale = 1f
-    private var mRight = 0f
-    private var mBottom = 0f
     private var mLastTouchX = 0f
     private var mLastTouchY = 0f
     private var mTouchDownTime = 0L
@@ -32,8 +30,6 @@ class MyZoomableGifTextureView(context: Context, attrs: AttributeSet) : GifTextu
     private var mScaleDetector: ScaleGestureDetector? = null
     private var mMatrices = FloatArray(9)
     private val mMatrix = Matrix()
-    private var mOrigRect = RectF()
-    private var mWantedRect = RectF()
     private var mCurrentViewport = RectF()
 
     init {
@@ -55,9 +51,9 @@ class MyZoomableGifTextureView(context: Context, attrs: AttributeSet) : GifTextu
         mScreenHeight = screenHeight.toFloat()
 
         // we basically want scaleType fitCenter, but we have to use matrices to reach that
-        mOrigRect = RectF(0f, 0f, mGifWidth, mGifHeight)
-        mWantedRect = RectF(0f, 0f, mScreenWidth, mScreenHeight)
-        mMatrix.setRectToRect(mOrigRect, mWantedRect, Matrix.ScaleToFit.CENTER)
+        val origRect = RectF(0f, 0f, mGifWidth, mGifHeight)
+        val wantedRect = RectF(0f, 0f, mScreenWidth, mScreenHeight)
+        mMatrix.setRectToRect(origRect, wantedRect, Matrix.ScaleToFit.CENTER)
         mMatrix.getValues(mMatrices)
 
         val left = mMatrices[Matrix.MTRANS_X]
@@ -72,7 +68,7 @@ class MyZoomableGifTextureView(context: Context, attrs: AttributeSet) : GifTextu
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
-//        mScaleDetector?.onTouchEvent(event)
+        mScaleDetector?.onTouchEvent(event)
 
         when (event.actionMasked) {
             MotionEvent.ACTION_DOWN -> {
@@ -98,33 +94,21 @@ class MyZoomableGifTextureView(context: Context, attrs: AttributeSet) : GifTextu
             MotionEvent.ACTION_MOVE -> {
                 if (mCurrZoomMode == ZOOM_MODE_ZOOM || mCurrZoomMode == ZOOM_MODE_DRAG && mSaveScale > MIN_VIDEO_ZOOM_SCALE) {
                     var diffX = event.x - mLastTouchX
-                    var diffY = event.y - mLastTouchY
 
                     // horizontal bounds
-                    if (mCurrentViewport.left + diffX < 0) {
+                    if (mCurrentViewport.left >= 0) {
                         diffX = -mCurrentViewport.left
-                    } else if (mCurrentViewport.right + diffX > mScreenWidth) {
-                        diffX = mScreenWidth - mCurrentViewport.right
-                    }
-
-                    // vertical bounds
-                    if (mCurrentViewport.top + diffY < 0) {
-                        diffY = -mCurrentViewport.top
-                    } else if (mCurrentViewport.bottom + diffY > mScreenHeight) {
-                        diffY = mScreenHeight - mCurrentViewport.bottom
+                    } else if (mCurrentViewport.right + diffX >= mScreenWidth * mSaveScale) {
+                        diffX = -((mScreenWidth * mSaveScale) - mCurrentViewport.right)
                     }
 
                     mCurrentViewport.left += diffX
                     mCurrentViewport.right += diffX
-                    mCurrentViewport.top += diffY
-                    mCurrentViewport.bottom += diffY
 
-                    mMatrix.postTranslate(diffX, diffY)
+                    mMatrix.postTranslate(diffX, 0f)
 
                     mCurrentViewport.left = Math.max(mCurrentViewport.left, 0f)
                     mCurrentViewport.right = Math.min(mCurrentViewport.right, mScreenWidth)
-                    mCurrentViewport.top = Math.max(mCurrentViewport.top, 0f)
-                    mCurrentViewport.bottom = Math.min(mCurrentViewport.bottom, mScreenHeight)
 
                     mLastTouchX = event.x
                     mLastTouchY = event.y
@@ -166,20 +150,13 @@ class MyZoomableGifTextureView(context: Context, attrs: AttributeSet) : GifTextu
                 scaleFactor = MIN_VIDEO_ZOOM_SCALE / origScale
             }
 
-            mRight = width * mSaveScale - width
-            mBottom = height * mSaveScale - height
             mMatrix.postScale(scaleFactor, scaleFactor, detector.focusX, detector.focusY)
-            if (scaleFactor < 1) {
-                mMatrix.getValues(mMatrices)
-                val y = mMatrices[Matrix.MTRANS_Y]
-                if (scaleFactor < 1) {
-                    if (y < -mBottom) {
-                        mMatrix.postTranslate(0f, -(y + mBottom))
-                    } else if (y > 0) {
-                        mMatrix.postTranslate(0f, -y)
-                    }
-                }
-            }
+            mMatrix.getValues(mMatrices)
+            val left = mMatrices[Matrix.MTRANS_X]
+            val top = mMatrices[Matrix.MTRANS_Y]
+            val right = mScreenWidth - left
+            val bottom = mScreenHeight - top
+            mCurrentViewport.set(left, top, right, bottom)
             return true
         }
     }
