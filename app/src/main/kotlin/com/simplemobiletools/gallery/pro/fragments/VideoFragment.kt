@@ -731,15 +731,15 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
                 val diffX = mTouchDownX - event.x
                 val diffY = mTouchDownY - event.y
 
-                val downGestureDuration = System.currentTimeMillis() - mTouchDownTime
-                if (!mIgnoreCloseDown && Math.abs(diffY) > Math.abs(diffX) && diffY < -mCloseDownThreshold && downGestureDuration < MAX_CLOSE_DOWN_GESTURE_DURATION && mSaveScale == 1f) {
-                    activity?.supportFinishAfterTransition()
+                if (Math.abs(diffX) < CLICK_MAX_DISTANCE && Math.abs(diffY) < CLICK_MAX_DISTANCE && System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
+                    mTextureView.performClick()
+                } else {
+                    val downGestureDuration = System.currentTimeMillis() - mTouchDownTime
+                    if (!mIgnoreCloseDown && Math.abs(diffY) > Math.abs(diffX) && diffY < -mCloseDownThreshold && downGestureDuration < MAX_CLOSE_DOWN_GESTURE_DURATION && mSaveScale == 1f) {
+                        activity?.supportFinishAfterTransition()
+                    }
                 }
                 mIgnoreCloseDown = false
-
-                if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
-                    mTextureView.performClick()
-                }
             }
             MotionEvent.ACTION_POINTER_DOWN -> {
                 mLastTouchX = event.x

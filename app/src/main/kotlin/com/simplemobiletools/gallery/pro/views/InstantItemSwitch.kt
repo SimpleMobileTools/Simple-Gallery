@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.ViewGroup
 import android.widget.RelativeLayout
+import com.simplemobiletools.gallery.pro.helpers.CLICK_MAX_DISTANCE
 import com.simplemobiletools.gallery.pro.helpers.CLICK_MAX_DURATION
 import com.simplemobiletools.gallery.pro.helpers.DRAG_THRESHOLD
 
@@ -40,7 +41,9 @@ class InstantItemSwitch(context: Context, attrs: AttributeSet) : RelativeLayout(
                 mTouchDownTime = System.currentTimeMillis()
             }
             MotionEvent.ACTION_UP -> {
-                if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
+                val diffX = mTouchDownX - event.x
+                val diffY = mTouchDownY - event.y
+                if (Math.abs(diffX) < CLICK_MAX_DISTANCE && Math.abs(diffY) < CLICK_MAX_DISTANCE && System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
                     performClick()
                 }
             }

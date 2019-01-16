@@ -89,14 +89,14 @@ class MyZoomableGifTextureView(context: Context, attrs: AttributeSet) : GifTextu
                 val diffX = mTouchDownX - event.x
                 val diffY = mTouchDownY - event.y
                 mCurrZoomMode = ZOOM_MODE_NONE
-                if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
+                if (Math.abs(diffX) < CLICK_MAX_DISTANCE && Math.abs(diffY) < CLICK_MAX_DISTANCE && System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
                     performClick()
-                }
-
-                val downGestureDuration = System.currentTimeMillis() - mTouchDownTime
-                val areDiffsOK = Math.abs(diffY) > Math.abs(diffX) && diffY < -mCloseDownThreshold
-                if (mSaveScale == 1f && !mIgnoreCloseDown && areDiffsOK && context.config.allowDownGesture && downGestureDuration < MAX_CLOSE_DOWN_GESTURE_DURATION) {
-                    mCloseDownCallback?.invoke()
+                } else {
+                    val downGestureDuration = System.currentTimeMillis() - mTouchDownTime
+                    val areDiffsOK = Math.abs(diffY) > Math.abs(diffX) && diffY < -mCloseDownThreshold
+                    if (mSaveScale == 1f && !mIgnoreCloseDown && areDiffsOK && context.config.allowDownGesture && downGestureDuration < MAX_CLOSE_DOWN_GESTURE_DURATION) {
+                        mCloseDownCallback?.invoke()
+                    }
                 }
                 mIgnoreCloseDown = false
             }

@@ -555,7 +555,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
                         togglePlayPause()
                     }
                 } else {
-                    if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
+                    if (Math.abs(diffX) < CLICK_MAX_DISTANCE && Math.abs(diffY) < CLICK_MAX_DISTANCE && System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
                         toggleFullscreen()
                     }
                 }
@@ -673,7 +673,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
                         togglePlayPause()
                     }
                 } else {
-                    if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
+                    if (Math.abs(diffX) < CLICK_MAX_DISTANCE && Math.abs(diffY) < CLICK_MAX_DISTANCE && System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
                         toggleFullscreen()
                     }
                 }
@@ -733,53 +733,6 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
         video_surface.setTransform(mMatrix)
         video_surface.invalidate()
-    }
-
-    private fun handleEventt(event: MotionEvent) {
-        when (event.actionMasked) {
-            MotionEvent.ACTION_MOVE -> {
-                val diffX = event.x - mTouchDownX
-                val diffY = event.y - mTouchDownY
-
-                if (mIsDragged || (Math.abs(diffX) > mDragThreshold && Math.abs(diffX) > Math.abs(diffY))) {
-                    if (!mIsDragged) {
-                        arrayOf(video_curr_time, video_seekbar, video_duration).forEach {
-                            it.animate().alpha(1f).start()
-                        }
-                    }
-                    mIgnoreCloseDown = true
-                    mIsDragged = true
-                    var percent = ((diffX / mScreenWidth) * 100).toInt()
-                    percent = Math.min(100, Math.max(-100, percent))
-
-                    val skipLength = (mDuration * 1000f) * (percent / 100f)
-                    var newProgress = mProgressAtDown + skipLength
-                    newProgress = Math.max(Math.min(mExoPlayer!!.duration.toFloat(), newProgress), 0f)
-                    val newSeconds = (newProgress / 1000).toInt()
-                    setPosition(newSeconds)
-                    resetPlayWhenReady()
-                }
-            }
-            MotionEvent.ACTION_UP -> {
-                mIgnoreCloseDown = false
-                if (mIsDragged) {
-                    if (mIsFullscreen) {
-                        arrayOf(video_curr_time, video_seekbar, video_duration).forEach {
-                            it.animate().alpha(0f).start()
-                        }
-                    }
-
-                    if (!mIsPlaying) {
-                        togglePlayPause()
-                    }
-                } else {
-                    if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
-                        toggleFullscreen()
-                    }
-                }
-                mIsDragged = false
-            }
-        }
     }
 
     // taken from https://github.com/Manuiq/ZoomableTextureView
