@@ -31,7 +31,7 @@
     <string name="fix_date_taken">Виправити дату зйомки</string>
     <string name="fixing">Виправлення…</string>
     <string name="dates_fixed_successfully">Дати успішно виправлені</string>
-    <string name="share_resized">Share a resized version</string>
+    <string name="share_resized">Поділитися зображенням іншого розміру</string>
 
     <!-- Filter -->
     <string name="filter_media">Фільтр мультимедійних файлів</string>
