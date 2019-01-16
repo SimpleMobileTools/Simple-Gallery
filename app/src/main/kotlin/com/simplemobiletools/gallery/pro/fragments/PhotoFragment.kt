@@ -103,11 +103,6 @@ class PhotoFragment : ViewPagerFragment() {
             }
 
             if (context.config.allowDownGesture) {
-                gif_view.setOnTouchListener { v, event ->
-                    handleEvent(event)
-                    false
-                }
-
                 subsampling_view.setOnTouchListener { v, event ->
                     if (mView.subsampling_view.scale == mOriginalSubsamplingScale) {
                         handleEvent(event)
@@ -311,7 +306,9 @@ class PhotoFragment : ViewPagerFragment() {
             val resolution = mMedium.path.getImageResolution() ?: Point(0, 0)
             mView.gif_view.apply {
                 setInputSource(source)
-                setupSizes(resolution.x, resolution.y, mScreenWidth, mScreenHeight)
+                setupGIFView(resolution.x, resolution.y, mScreenWidth, mScreenHeight) {
+                    activity?.supportFinishAfterTransition()
+                }
             }
         } catch (e: Exception) {
             loadBitmap()

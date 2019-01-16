@@ -8,6 +8,7 @@ import android.view.MotionEvent
 import android.view.ScaleGestureDetector
 import android.widget.ImageView
 import com.simplemobiletools.commons.extensions.beVisible
+import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.helpers.*
 import pl.droidsonroids.gif.GifTextureView
 
@@ -25,18 +26,22 @@ class MyZoomableGifTextureView(context: Context, attrs: AttributeSet) : GifTextu
     private var mScreenHeight = 0f
     private var mLastFocusX = 0f
     private var mLastFocusY = 0f
+    private var mCloseDownThreshold = 100f
+    private var mIgnoreCloseDown = false
     private var mCurrZoomMode = ZOOM_MODE_NONE
 
     private var mScaleDetector: ScaleGestureDetector? = null
     private var mMatrices = FloatArray(9)
     private val mMatrix = Matrix()
     private var mCurrentViewport = RectF()
+    private var mCloseDownCallback: (() -> Unit)? = null
 
     init {
         mScaleDetector = ScaleGestureDetector(context, ScaleListener())
     }
 
-    fun setupSizes(gifWidth: Int, gifHeight: Int, screenWidth: Int, screenHeight: Int) {
+    fun setupGIFView(gifWidth: Int, gifHeight: Int, screenWidth: Int, screenHeight: Int, callback: () -> Unit) {
+        mCloseDownCallback = callback
         // if we don't know the gifs' resolution, just display it and disable zooming
         if (gifWidth == 0 || gifHeight == 0) {
             scaleType = ImageView.ScaleType.FIT_CENTER
@@ -81,10 +86,19 @@ class MyZoomableGifTextureView(context: Context, attrs: AttributeSet) : GifTextu
                 mTouchDownY = event.y
             }
             MotionEvent.ACTION_UP -> {
+                val diffX = mTouchDownX - event.x
+                val diffY = mTouchDownY - event.y
                 mCurrZoomMode = ZOOM_MODE_NONE
                 if (System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
                     performClick()
                 }
+
+                val downGestureDuration = System.currentTimeMillis() - mTouchDownTime
+                val areDiffsOK = Math.abs(diffY) > Math.abs(diffX) && diffY < -mCloseDownThreshold
+                if (mSaveScale == 1f && !mIgnoreCloseDown && areDiffsOK && context.config.allowDownGesture && downGestureDuration < MAX_CLOSE_DOWN_GESTURE_DURATION) {
+                    mCloseDownCallback?.invoke()
+                }
+                mIgnoreCloseDown = false
             }
             MotionEvent.ACTION_POINTER_DOWN -> {
                 mLastTouchX = event.x
