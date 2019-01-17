@@ -2,6 +2,12 @@
 <resources>
 
     <!-- Release notes -->
+    <string name="release_221">
+        Allow drawing in the editor\n
+        Allow batch rotating images from the thumbnails view (proper thumbnail refreshing might need an app restart)\n
+        Allow sharing images directly from the editor\n
+        Allow zooming GIFs and videos
+    </string>
     <string name="release_220">Reverted to the old way of opening videos, opening on separate screen can be enabled in the app settings</string>
     <string name="release_217">
         Rewrote video playback, use a separate screen + added fast-forwarding with horizontal swiping\n
