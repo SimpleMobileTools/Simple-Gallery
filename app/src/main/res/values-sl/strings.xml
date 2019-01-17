@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Popravi datum posnetka</string>
     <string name="fixing">Popravljam…</string>
     <string name="dates_fixed_successfully">Datumi uspešno popravljeni</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtriranje datotek</string>
@@ -87,9 +88,8 @@
     <string name="flip">Zrcaljenje</string>
     <string name="flip_horizontally">Zrcali horizontalno</string>
     <string name="flip_vertically">Zrcali vertikalno</string>
-    <string name="edit_with">Uredi z</string>
     <string name="free_aspect_ratio">Prosto</string>                <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+    <string name="other_aspect_ratio">Drugo</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple ozadje</string>
@@ -116,7 +116,7 @@
     <string name="loop_slideshow">Ponavljaj diaprojekcijo</string>
     <string name="slideshow_ended">Diaprojekcija se je zaključila</string>
     <string name="no_media_for_slideshow">Ne najdem datotek za diaprojekcijo</string>
-    <string name="use_crossfade_animation">Use crossfade animations</string>
+    <string name="use_crossfade_animation">Uporabi križanje animacij</string>
 
     <!-- View types -->
     <string name="change_view_type">Spremeni tip pogleda</string>
@@ -134,8 +134,8 @@
     <string name="by_extension">Končnica</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Folder shown on the widget:</string>
-    <string name="show_folder_name">Show folder name</string>
+    <string name="folder_on_widget">Mapa uporabljena na pripomočku:</string>
+    <string name="show_folder_name">Prikaži ime mape</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Avtomatično predvajaj videoposnetke</string>
@@ -157,7 +157,6 @@
     <string name="allow_photo_gestures">Dovoli nadzor svetlosti fotografije z vertikalnimi gestami</string>
     <string name="allow_video_gestures">Dovoli nadzor glasnosti in svetlosti videoposnetka z vertikalnimi gestami</string>
     <string name="show_media_count">Pokaži število elementov v glavnem pogledu</string>
-    <string name="replace_share_with_rotate">Zamenjaj Deli z Obrni v celozaslonskem meniju</string>
     <string name="show_extended_details">Prikaži razširjene podrobnosti nad celozaslonskim prikazom</string>
     <string name="manage_extended_details">Urejaj razširjene podrobnosti</string>
     <string name="one_finger_zoom">Dovoli enoprstno povečavo v celozaslonskem načinu</string>
@@ -171,7 +170,8 @@
     <string name="show_highest_quality">Prikaži slike v največji možni kvaliteti</string>
     <string name="show_recycle_bin_last">Prikaži Koš kot zadnji element na glavnem zaslonu</string>
     <string name="allow_down_gesture">Dovoli zapiranje celozaslonskega načina z gesto navzdol</string>
-    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
+    <string name="allow_one_to_one_zoom">Dovoli 1:1 povečavo z dvojnim pritiskom</string>
+    <string name="open_videos_on_separate_screen">Vedno odpri videoposnetke na ločenem zaslonu z novimi horizontalnimi gestami</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>
@@ -194,7 +194,6 @@
     <string name="faq_3_text">Z dolgim pritiskom na album se vam prikaže meni, v katerem je na voljo bucika, s katero pripnete album na željeno mesto. Na ta način lahko pripnete več albumov, ki bodo razvrščeni v skladu s privzetim načinom razvrščanja.</string>
     <string name="faq_4_title">Ali lahko hitro predvajam videoposnetke?</string>
     <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
-    <string name="faq_4_text_old">Lahko kliknete na napis trenutnega ali maksimalnega trajanja poleg vrstice položaja, kar premakne/preskoči video naprej ali nazaj.</string>
     <string name="faq_5_title">Kakšna je razlika med skrivanjem in izključevanjem mape?</string>
     <string name="faq_5_text">Izključevanje mape jo skrije le v Simple galeriji, medtem ko jo skrivanje skrije tudi v ostalih aplikacijah oz. galerijah. Deluje tako, da kreira prazno \".nomedia\" datoteko v izbrani mapi, katero lahko odstranite tudi s katerimkoli urejevalnikom datotek.</string>
     <string name="faq_6_title">Zakaj se v galeriji prikažejo datoteke z naslovnicami glasbenih map ali nalepk?</string>
@@ -204,8 +203,6 @@
     <string name="faq_8_title">Kaj, če želim prikazati le nekaj izbranih map?</string>
     <string name="faq_8_text">Dodajanje mape med vključene mape avtomatično ne izključi ničesar. Lahko pa naredite sledeče: v Nastavitvah -> Urejaj izključene mape izključite korensko mapo \"/\", željene mape pa dodajte v Nastavitvah -> Urejaj vključene mape.
         To bo naredilo vidne le vključene mape, saj sta tako vključevanje kot tudi izključevanje rekurzivna, kar pomeni, da je mapa, ki je istočasno izključena in vključena, vidna.</string>
-    <string name="faq_9_title">Celozaslonske slike imajo čuden izgled, lahko kako popravim kvaliteto?</string>
-    <string name="faq_9_text">Da, v Nastavitvah je opcija \"Nadomesti globoko povečljive slike z bolj kvalitetnimi\", ki jo lahko uporabite. To bo slike izboljšalo, vendar bodo te bolj zamegljene, ko jih boste želeli preveč povečati.</string>
     <string name="faq_10_title">Ali lahko obrezujem slike s to aplikacijo?</string>
     <string name="faq_10_text">Da, slike lahko obrezujete z vlečenjem kotov slike. Do urejevalnika lahko pridete z dolgim pritiskom na sličico fotografije in izborom opcije Uredi ali izborom funkcije Uredi iz celozaslonskega načina prikaza.</string>
     <string name="faq_11_title">Ali lahko združujem sličice medijskih datotek?</string>
@@ -218,7 +215,7 @@
     <string name="faq_14_text">Lahko uporabite funkcijo \"Začasno prikaži skrite elemente\", ki se nahaja v meniju na glavnem zaslonu ali preklopite \"Prikaži skrite elemente\" v Nastavitvah aplikacije. Če želite element označiti kot viden, z dolgim pritiskom nanj prikličite meni in izberite \"Prikaži\". Skrivanje map deluje tako, da se kreira prazno \".nomedia\" datoteko v izbrani mapi, ki jo lahko odstranite tudi s katerimkoli urejevalnikom datotek.</string>
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
+    <string name="app_short_description">Galerija brez obvezne internetne povezave za urejanje vaših datotek brez prikazovanja oglasov in z upoštevanjem vaše zasebnosti.</string>
     <string name="app_long_description">
         Visoko prilagodljiva galerija, zmožna prikazovanja različnih tipov fotografij in videoposnetkov, vključno s SVGji, RAWi, panoramskimi fotografijami in videoposnetki.
 

@@ -558,7 +558,9 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         }
 
         mIsGettingMedia = true
-        if (!mLoadedInitialPhotos) {
+        if (mLoadedInitialPhotos) {
+            startAsyncTask()
+        } else {
             getCachedMedia(mPath, mIsGetVideoIntent, mIsGetImageIntent, mMediumDao) {
                 if (it.isEmpty()) {
                     runOnUiThread {
@@ -569,9 +571,6 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 }
                 startAsyncTask()
             }
-        } else {
-            media_refresh_layout.isRefreshing = true
-            startAsyncTask()
         }
 
         mLoadedInitialPhotos = true

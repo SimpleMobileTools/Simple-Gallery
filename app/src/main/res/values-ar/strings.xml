@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Fix Date Taken value</string>
     <string name="fixing">Fixing…</string>
     <string name="dates_fixed_successfully">Dates fixed successfully</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">فلتر الميديا</string>
@@ -91,7 +92,6 @@
     <string name="flip">قلب</string>
     <string name="flip_horizontally">قلب أفقيا</string>
     <string name="flip_vertically">قلب عموديا</string>
-    <string name="edit_with">تعديل باستخدام</string>
     <string name="free_aspect_ratio">Free</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
@@ -161,7 +161,6 @@
     <string name="allow_photo_gestures">السماح بالتحكم في سطوع الصورة باستخدام الإيماءات الرأسية</string>
     <string name="allow_video_gestures">السماح بالتحكم في صوت الفيديو والسطوع  بالإيماءات العمودية</string>
     <string name="show_media_count">إظهار عدد لوسائط المجلد على طريقة العرض الرئيسية</string>
-    <string name="replace_share_with_rotate">استبدال خيار المشاركة مع خيار  تدوير في القائمة ملء الشاشة</string>
     <string name="show_extended_details">عرض تفاصيل موسعة على وسائط ملء الشاشة</string>
     <string name="manage_extended_details">إدارة المجلدات المستبعدة</string>
     <string name="one_finger_zoom">السماح بتكبير الوسائط بأصبع واحد في وضع ملء الشاشة</string>
@@ -176,6 +175,7 @@
     <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
     <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
     <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
+    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">المصغرات</string>
@@ -197,7 +197,6 @@
     <string name="faq_3_text">يمكنك الضغط لفترة طويلة على الألبوم المطلوب وتحديد أيقونة الدبوس في الإجراء ، والتي سوف تثبيته إلى الأعلى. يمكنك تثبيت عدة مجلدات أيضًا ، وسيتم ترتيب العناصر المثبتة حسب طريقة الفرز الافتراضية.</string>
     <string name="faq_4_title">كيف يمكنني تقديم مقاطع فيديو بسرعة؟</string>
     <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
-    <string name="faq_4_text_old">يمكنك النقر على النصوص الحالية أو أقصى مدة قريبة من شريط السحب ، والتي ستنقل الفيديو إما للخلف أو إلى الأمام.</string>
     <string name="faq_5_title">ما الفرق بين إخفاء واستبعاد مجلد؟</string>
     <string name="faq_5_text">يمنع الاستبعاد من عرض المجلد في الاستوديو البسيط فقط ، بينما يقوم بإخفاء بالعمل على مستوى النظام ككل ويقوم بإخفاء المجلد من المعارض الأخرى أيضًا. وهو يعمل عن طريق إنشاء ملف \".nomedia\" فارغ في المجلد المحدد ، والذي يمكنك بعد ذلك إزالته مع أي مدير ملفات أيضًا.</string>
     <string name="faq_6_title">لماذا تظهر المجلدات التي تحتوي على ملصقات أو ملصقات موسيقى تغطيها؟</string>
@@ -206,8 +205,6 @@
     <string name="faq_7_text">يمكن أن يكون ذلك لأسباب متعددة ، ولكن حلها أمر سهل. أذهب إلى الإعدادات -> إدارة المجلدات المضمنة ، اضغط علامة الزائد وانتقل إلى المجلد المطلوب.</string>
     <string name="faq_8_title">ماذا لو كنت أرغب في رؤية بعض المجلدات الخاصة؟</string>
     <string name="faq_8_text">لا يؤدي إضافة مجلد في \"المجلدات المضمنة\" إلى استبعاد أي شيء تلقائيًا. ما يمكنك فعله هو الذهاب إلى الإعدادات -> إدارة المجلدات المستبعدة ، واستبعاد المجلد الجذر \"/\" ، ثم إضافة المجلدات المطلوبة في الإعدادات -> إدارة المجلدات المضمنة. سيؤدي ذلك إلى إظهار المجلدات المحددة فقط ، حيث أن الاستبعاد والتضمين يكونان متكررين ، وإذا تم استبعاد أحد المجلدات وإدراجه ، فسيظهر.</string>
-    <string name="faq_9_title">الصور بملء الشاشة لها آثار غريبة ، هل يمكنني تحسين الجودة؟</string>
-    <string name="faq_9_text">نعم ، هناك تبديل في الإعدادات يقول \"استبدل صورًا ذات زووم عميق بجودة أفضل منها\" ، يمكنك استخدام ذلك. سيؤدي ذلك إلى تحسين جودة الصور ، ولكن ستظهر بشكل واضح عند محاولة التكبير كثيرًا.</string>
     <string name="faq_10_title">هل يمكنني قص الصور باستخدام هذا التطبيق؟</string>
     <string name="faq_10_text">نعم ، يمكنك اقتصاص الصور في المحرر ، عن طريق سحب زوايا الصورة. يمكنك الوصول إلى المحرر إما عن طريق الضغط لفترة طويلة على صورة مصغرة وتحديد تحرير ، أو تحديد تحرير من العرض بملء الشاشة.</string>
     <string name="faq_11_title">Can I somehow group media file thumbnails?</string>

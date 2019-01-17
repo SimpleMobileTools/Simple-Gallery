@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Corrigir data de obtenção</string>
     <string name="fixing">A corrigir…</string>
     <string name="dates_fixed_successfully">Dados corrigidos com sucesso</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrar multimédia</string>
@@ -87,7 +88,6 @@
     <string name="flip">Inverter</string>
     <string name="flip_horizontally">Horizontalmente</string>
     <string name="flip_vertically">Verticalmente</string>
-    <string name="edit_with">Editar com</string>
     <string name="free_aspect_ratio">Livre</string>                 <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Outro</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
@@ -116,7 +116,7 @@
     <string name="loop_slideshow">Apresentação em ciclo</string>
     <string name="slideshow_ended">Apresentação terminada</string>
     <string name="no_media_for_slideshow">Não foram encontrados ficheiros para a apresentação</string>
-    <string name="use_crossfade_animation">Use crossfade animations</string>
+    <string name="use_crossfade_animation">Utilizar animação de transição</string>
 
     <!-- View types -->
     <string name="change_view_type">Tipo de exibição</string>
@@ -134,8 +134,8 @@
     <string name="by_extension">Extensão</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Folder shown on the widget:</string>
-    <string name="show_folder_name">Show folder name</string>
+    <string name="folder_on_widget">Pasta mostrada no widget:</string>
+    <string name="show_folder_name">Mostrar nome da pasta</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Reproduzir vídeos automaticamente</string>
@@ -157,7 +157,6 @@
     <string name="allow_photo_gestures">Permitir controlo do brilho das fotos com gestos verticais</string>
     <string name="allow_video_gestures">Permitir controlo do volume e do brilho dos vídeos através de gestos verticais</string>
     <string name="show_media_count">Mostrar número de ficheiros na vista principal</string>
-    <string name="replace_share_with_rotate">Substituir a opção Partilhar pela opção Rodar se em ecrã completo</string>
     <string name="show_extended_details">Mostrar detalhes se em ecrã completo</string>
     <string name="manage_extended_details">Gerir detalhes exibidos</string>
     <string name="one_finger_zoom">Permitir ampliação com um dedo se em ecrã completo</string>
@@ -171,7 +170,8 @@
     <string name="show_highest_quality">Mostrar fotos com a melhor qualidade possível</string>
     <string name="show_recycle_bin_last">Mostrar a reciclagem como o último item do ecrã principal</string>
     <string name="allow_down_gesture">Sair de ecrã completo com um gesto para baixo</string>
-    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
+    <string name="allow_one_to_one_zoom">Permitir ampliação 1:1 com dois toques</string>
+    <string name="open_videos_on_separate_screen">Abrir vídeos em ecrã distinto com os novos toques horizontais</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
@@ -194,7 +194,6 @@
     <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actionmenu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
     <string name="faq_4_title">How can I fast-forward videos?</string>
     <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
-    <string name="faq_4_text_old">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
     <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
     <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
     <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
@@ -204,8 +203,6 @@
     <string name="faq_8_title">What if I want just a few particular folders visible?</string>
     <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
         That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
-    <string name="faq_9_title">Fullscreen images have weird artifacts, can I somehow improve the quality?</string>
-    <string name="faq_9_text">Yea, there is a toggle in Settings saying \"Replace deep zoomable images with better quality ones\", you can use that. It will improve the quality of the images, but they will get blurred once you try zooming in too much.</string>
     <string name="faq_10_title">Can I crop images with this app?</string>
     <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
     <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
@@ -219,7 +216,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
+    <string name="app_short_description">Aplicação para gerir os seus ficheiros, sem anúncios e com total privacidade.</string>
     <string name="app_long_description">
         Um aplicação capaz de mostrar diversos tipos de imagens e vídeos incluíndo SVG, RAW, fotos panorâmicas e vídeos.
 

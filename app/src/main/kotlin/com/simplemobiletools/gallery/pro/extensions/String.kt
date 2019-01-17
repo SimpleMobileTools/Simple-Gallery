@@ -6,9 +6,11 @@ import com.simplemobiletools.commons.helpers.OTG_PATH
 import java.io.File
 import java.io.IOException
 
-fun String.getFileSignature(): ObjectKey {
+fun String.getFileSignature() = ObjectKey(getFileKey())
+
+fun String.getFileKey(): String {
     val file = File(this)
-    return ObjectKey("${file.absolutePath}${file.lastModified()}")
+    return "${file.absolutePath}${file.lastModified()}"
 }
 
 fun String.isThisOrParentIncluded(includedPaths: MutableSet<String>) = includedPaths.any { startsWith(it, true) }
@@ -20,6 +22,8 @@ fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPath
     return if (isEmpty()) {
         false
     } else if (!showHidden && file.containsNoMedia()) {
+        false
+    } else if (excludedPaths.contains(this) && !includedPaths.contains(this)) {
         false
     } else if (isThisOrParentIncluded(includedPaths)) {
         true

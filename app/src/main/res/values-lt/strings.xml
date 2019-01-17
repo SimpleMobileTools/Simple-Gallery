@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Fix Date Taken value</string>
     <string name="fixing">Fixing…</string>
     <string name="dates_fixed_successfully">Dates fixed successfully</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtruoti mediją</string>
@@ -87,7 +88,6 @@
     <string name="flip">Apversti</string>
     <string name="flip_horizontally">Apversti horizontaliai</string>
     <string name="flip_vertically">Apversti vertikaliai</string>
-    <string name="edit_with">Redaguoti su</string>
     <string name="free_aspect_ratio">Free</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
@@ -157,7 +157,6 @@
     <string name="allow_photo_gestures">Leisti valdyti nuotraukų ryškumą vertikaliais gestais</string>
     <string name="allow_video_gestures">Leisti kontroliuoti vaizdo įrašo garsumą ir ryškumą vertikaliais gestais</string>
     <string name="show_media_count">Rodyti aplanko bylų skaičių pagrindiniame rodinyje</string>
-    <string name="replace_share_with_rotate">Pakeisti bendrinti su rotacija  viso ekrano meniu</string>
     <string name="show_extended_details">Rodyti išsamią informaciją per visą ekraną</string>
     <string name="manage_extended_details">Tvarkykite išsamią informaciją</string>
     <string name="one_finger_zoom">Leisti vienu pirštu pritraukti viso ekrano rėžime</string>
@@ -172,6 +171,7 @@
     <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
     <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
     <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
+    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatiūros</string>
@@ -194,7 +194,6 @@
     <string name="faq_3_text">Galite ilgai paspausti norimą albumą ir pasirinkti "Prisegti" piktogramą, esančią meniu "Veiksmo meniu", viršuje. Galite prisegti kelis aplankus, prisegti elementai bus rūšiuojami pagal numatytąjį rūšiavimo metodą.</string>
     <string name="faq_4_title">Kaip galėčiau greitai prasukti vaizdo įrašus?</string>
     <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
-    <string name="faq_4_text_old">Galite spustelėti  tekstus šalia slinkties juostos, kad būtų perkeltas vaizdo įrašas atgal arba į priekį.</string>
     <string name="faq_5_title">Koks skirtumas tarp slėpimo ir išskyrimo iš aplanko?</string>
     <string name="faq_5_text">Išskyrimas neleidžia rodyti aplanko tik paprastoje galerijoje, tuo tarpu slėpimas slepia aplanką iš kitų galerijų. Tai veikia, sukuriant tuščią \ ". Nomedia \" bylą tam tikrame aplanke, kurį vėliau galite pašalinti bet kuria bylų tvarkykle.</string>
     <string name="faq_6_title">Kodėl pasirodo aplankai su muzikos viršeliu ar lipdukais?</string>
@@ -204,8 +203,6 @@
     <string name="faq_8_title">Ką daryti, jei noriu matyti tik keletą konkrečių aplankų?</string>
     <string name="faq_8_text">Pridėjus aplanką į "Įtraukti aplankai", automatiškai neįtraukiama nieko. Ką jūs galite padaryti, eikite į Nustatymai -> Tvarkyti išskirtus aplankus, išskirkite šakninį aplanką \ "/ \", tada pridėkite norimus aplankus, esančius Nustatymai -> Tvarkyti įtrauktas aplankas.
          Tai leis matyti tik tuos pasirinktus aplankus, nes abu atmetami ir įtraukti yra rekursyvūs, ir jei aplankas yra išskirtas ir įtrauktas, jis bus rodomas.</string>
-    <string name="faq_9_title">Viso ekrano atvaizdai turi keistus artefaktus, galiu kokiu nors būdu pagerinti kokybę?</string>
-    <string name="faq_9_text">Taip, "Nustatymuose" perjunkite \ "Pakeisti giliuosius, patobulintus vaizdus geresnės kokybės vaizdais \", galite tai naudoti. Tai pagerins vaizdų kokybę, tačiau kai jūs pabandysite per daug padidinti vaizdą, jie bus neryškūs.</string>
     <string name="faq_10_title">Ar galiu apkarpyti vaizdus naudojant šią programėlę?</string>
     <string name="faq_10_text">Taip, redaguodami vaizdus, galite juos apkarpyti, vilkdami vaizdo kampus. Galite patekti į redaktorių ilgai paspaudę vaizdo miniatiūrą ir pasirinkę "Redaguoti" arba iš viso ekrano rodinio pasirinkę "Redaguoti".</string>
     <string name="faq_11_title">Can I somehow group media file thumbnails?</string>

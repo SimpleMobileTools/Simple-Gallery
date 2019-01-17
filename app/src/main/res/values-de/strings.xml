@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Aufnahmedatum korrigieren</string>
     <string name="fixing">Korrigiere…</string>
     <string name="dates_fixed_successfully">Datum erfolgreich korrigiert.</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter</string>
@@ -87,7 +88,6 @@
     <string name="flip">Spiegeln</string>
     <string name="flip_horizontally">Horizontal spiegeln</string>
     <string name="flip_vertically">Vertikal spiegeln</string>
-    <string name="edit_with">Bearbeiten mit:</string>
     <string name="free_aspect_ratio">Beliebiges</string>                        <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Anderes</string>                            <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
@@ -157,7 +157,6 @@
     <string name="allow_photo_gestures">Fotohelligkeit mit vertikalen Gesten ändern</string>
     <string name="allow_video_gestures">Gesten für Videolautstärke/Helligkeit zulassen</string>
     <string name="show_media_count">Medienanzahl bei Ordnern anzeigen</string>
-    <string name="replace_share_with_rotate">Teilen/Drehen im Vollbild-Menü vertauschen</string>
     <string name="show_extended_details">Dateieigenschaften in Vollbild-Anzeige einblenden</string>
     <string name="manage_extended_details">Eigenschaften auswählen</string>
     <string name="one_finger_zoom">Ein-Finger-Zoom im Vollbild zulassen</string>
@@ -172,6 +171,7 @@
     <string name="show_recycle_bin_last">Zeige den Papierkorb als letztes Element auf dem Hauptbildschirm</string>
     <string name="allow_down_gesture">Erlaube das Schließen der Vollbildansicht mit einer Abwärtsgeste</string>
     <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
+    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>
@@ -194,7 +194,6 @@
     <string name="faq_3_text">Du kannst lange auf das gewünschte Album drücken und im Aktionsmenü das Stecknadelsymbol auswählen; es wird nun zuoberst angepinnt. Ebenso kannst du mehrere Ordner anpinnen. Angepinnte Objekte werden nach der Standardmethode sortiert.</string>
     <string name="faq_4_title">Wie kann ich in Videos vor- oder zurückspringen?</string>
     <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
-    <string name="faq_4_text_old">Du kannst auf den Text der aktuellen oder der maximalen Dauer nahe der Suchleiste drücken, um im Video vor- oder zurück zu springen.</string>
     <string name="faq_5_title">Was ist der Unterschied zwischen \'Verstecken\' und \'Ausschließen\' eines Ordners?</string>
     <string name="faq_5_text">\'Ausschließen\' verhindert lediglich, dass der Ordner in Schlichte Galerie angezeigt wird. \'Verstecken\' hingegen versteckt den Ordner auch vor anderen Apps. Dies funktioniert durch das Erstellen einer leeren \".nomedia\"-Datei im betroffenen Ordner, welche du mit jedem Dateimanager wieder löschen kannst.</string>
     <string name="faq_6_title">Wieso erscheinen Ordner mit Musik-Cover oder Stickers?</string>
@@ -203,8 +202,6 @@
     <string name="faq_7_text">Öffne die Galerie-Einstellungen, wähle dort \'Einbezogene Ordner verwalten\', dann das Plus-Zeichen oben rechts und navigiere zum gewünschten Ordner.</string>
     <string name="faq_8_title">Wie kann ich erreichen, dass nur ein paar definierte Ordner sichtbar sind?</string>
     <string name="faq_8_text">Einen Ordner zu den \'einbezogenen Ordnern\' hinzuzufügen, schließt nicht automatisch alle anderen aus. Eine Möglichkeit ist, in den Galerie-Einstellungen \'Ausgeschlossene Ordner verwalten\' zu wählen, den Stammordner \"/\" auszuschliessen und dann alle gewünschten Ordner in \'Einbezogene Ordner verwalten\' hinzuzufügen.</string>
-    <string name="faq_9_title">Als Vollbild angezeigte Bilder haben seltsame Artefakte. Kann ich die Qualität verbessern?</string>
-    <string name="faq_9_text">Ja, es gibt einen Schalter in den Einstellungen, gekennzeichnet mit \"Stark zoombare Bilder durch Bilder mit hoher Qualität ersetzen\". Dieser wird die Bildqualität verbessern, aber sie werden bei sehr hoher Zoomstufe unscharf.</string>
     <string name="faq_10_title">Kann ich mit dieser App Bilder zuschneiden?</string>
     <string name="faq_10_text">Ja, du kannst Bilder über das Ziehen der Bildecken im Editor zuschneiden. Du gelangst zum Editor indem du lange auf ein Vorschaubild drückst und Bearbeiten auswählst oder durch Auswählen von Bearbeiten in der Vollbildansicht.</string>
     <string name="faq_11_title">Kann ich Mediendatei-Thumbnails irgendwie gruppieren?</string>

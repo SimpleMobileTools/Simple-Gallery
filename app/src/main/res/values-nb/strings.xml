@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Korriger Dato tatt-verdi</string>
     <string name="fixing">Korrigerer…</string>
     <string name="dates_fixed_successfully">Datoer er korrigerte</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrer media</string>
@@ -87,7 +88,6 @@
     <string name="flip">Speilvend</string>
     <string name="flip_horizontally">Speilvend horisontalt</string>
     <string name="flip_vertically">Speilvend vertikalt</string>
-    <string name="edit_with">Rediger med</string>
     <string name="free_aspect_ratio">Fri</string>               <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Annen</string>            <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
@@ -122,7 +122,7 @@
     <string name="change_view_type">Endre visningstype</string>
     <string name="grid">Rutenett</string>
     <string name="list">Liste</string>
-    <string name="group_direct_subfolders">Group direct subfolders</string>
+    <string name="group_direct_subfolders">Grupper direkte undermapper</string>
 
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Grupper etter</string>
@@ -157,7 +157,6 @@
     <string name="allow_photo_gestures">Tillat å styre fotolysstyrke med vertikale bevegelser</string>
     <string name="allow_video_gestures">Tillat å styre videovolum og lysstyrke med vertikale bevegelser</string>
     <string name="show_media_count">Vis mediaantallet i mapper på hovedvisningen</string>
-    <string name="replace_share_with_rotate">Erstatt Del med Roter i meny ved mediavisning</string>
     <string name="show_extended_details">Vis flere detaljer i mediavisningen</string>
     <string name="manage_extended_details">Velg detaljer</string>
     <string name="one_finger_zoom">Tillat en-finger-zoom i mediavisningen</string>
@@ -172,6 +171,7 @@
     <string name="show_recycle_bin_last">Vis papirkurven som siste element på hovedskjermen</string>
     <string name="allow_down_gesture">Tillat lukking av mediavisningen med en nedoverbevegelse</string>
     <string name="allow_one_to_one_zoom">Tillat å zoome 1:1 med to dobbeltrykk</string>
+    <string name="open_videos_on_separate_screen">Åpne alltid videoer på en separat skjerm med nye horisontale bevegelser</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Minibilder</string>
@@ -194,7 +194,6 @@
     <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actionmenu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
     <string name="faq_4_title">How can I fast-forward videos?</string>
     <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
-    <string name="faq_4_text_old">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
     <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
     <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
     <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
@@ -204,8 +203,6 @@
     <string name="faq_8_title">What if I want just a few particular folders visible?</string>
     <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
         That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
-    <string name="faq_9_title">Fullscreen images have weird artifacts, can I somehow improve the quality?</string>
-    <string name="faq_9_text">Yea, there is a toggle in Settings saying \"Replace deep zoomable images with better quality ones\", you can use that. It will improve the quality of the images, but they will get blurred once you try zooming in too much.</string>
     <string name="faq_10_title">Can I crop images with this app?</string>
     <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
     <string name="faq_11_title">Can I somehow group media file thumbnails?</string>

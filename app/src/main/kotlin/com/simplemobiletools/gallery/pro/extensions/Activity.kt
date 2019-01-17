@@ -1,11 +1,19 @@
 package com.simplemobiletools.gallery.pro.extensions
 
+import android.annotation.TargetApi
 import android.app.Activity
+import android.content.ContentProviderOperation
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Matrix
+import android.media.ExifInterface
+import android.os.Build
 import android.provider.MediaStore
 import android.util.DisplayMetrics
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
@@ -19,9 +27,12 @@ import com.simplemobiletools.gallery.pro.dialogs.PickDirectoryDialog
 import com.simplemobiletools.gallery.pro.helpers.NOMEDIA
 import com.simplemobiletools.gallery.pro.helpers.RECYCLE_BIN
 import com.simplemobiletools.gallery.pro.interfaces.MediumDao
+import com.squareup.picasso.Picasso
 import java.io.File
+import java.io.FileOutputStream
 import java.io.InputStream
 import java.io.OutputStream
+import java.text.SimpleDateFormat
 import java.util.*
 
 fun Activity.sharePath(path: String) {
@@ -48,8 +59,8 @@ fun Activity.openPath(path: String, forceChooser: Boolean) {
     openPathIntent(path, forceChooser, BuildConfig.APPLICATION_ID)
 }
 
-fun Activity.openEditor(path: String) {
-    openEditorIntent(path, BuildConfig.APPLICATION_ID)
+fun Activity.openEditor(path: String, forceChooser: Boolean = false) {
+    openEditorIntent(path, forceChooser, BuildConfig.APPLICATION_ID)
 }
 
 fun Activity.launchCamera() {
@@ -70,7 +81,7 @@ fun SimpleActivity.launchAbout() {
             FAQItem(R.string.faq_1_title, R.string.faq_1_text),
             FAQItem(R.string.faq_2_title, R.string.faq_2_text),
             FAQItem(R.string.faq_3_title, R.string.faq_3_text),
-            FAQItem(R.string.faq_4_title, R.string.faq_4_text_old),
+            FAQItem(R.string.faq_4_title, R.string.faq_4_text),
             FAQItem(R.string.faq_5_title, R.string.faq_5_text),
             FAQItem(R.string.faq_6_title, R.string.faq_6_text),
             FAQItem(R.string.faq_7_title, R.string.faq_7_text),
@@ -233,6 +244,7 @@ fun BaseSimpleActivity.restoreRecycleBinPath(path: String, callback: () -> Unit)
 
 fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, mediumDao: MediumDao = galleryDB.MediumDao(), callback: () -> Unit) {
     Thread {
+        val newPaths = ArrayList<String>()
         paths.forEach {
             val source = it
             val destination = it.removePrefix(recycleBinPath)
@@ -246,6 +258,7 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, mediumDa
                 if (File(source).length() == File(destination).length()) {
                     mediumDao.updateDeleted(destination.removePrefix(recycleBinPath), 0, "$RECYCLE_BIN$destination")
                 }
+                newPaths.add(destination)
             } catch (e: Exception) {
                 showErrorToast(e)
             } finally {
@@ -257,6 +270,8 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, mediumDa
         runOnUiThread {
             callback()
         }
+
+        fixDateTaken(newPaths)
     }.start()
 }
 
@@ -304,4 +319,157 @@ fun Activity.hasNavBar(): Boolean {
     display.getMetrics(displayMetrics)
 
     return (realDisplayMetrics.widthPixels - displayMetrics.widthPixels > 0) || (realDisplayMetrics.heightPixels - displayMetrics.heightPixels > 0)
+}
+
+fun Activity.fixDateTaken(paths: ArrayList<String>, callback: (() -> Unit)? = null) {
+    val BATCH_SIZE = 50
+    toast(R.string.fixing)
+    try {
+        var didUpdateFile = false
+        val operations = ArrayList<ContentProviderOperation>()
+        val mediumDao = galleryDB.MediumDao()
+        for (path in paths) {
+            val dateTime = ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME_ORIGINAL)
+                    ?: ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME) ?: continue
+
+            // some formats contain a "T" in the middle, some don't
+            // sample dates: 2015-07-26T14:55:23, 2018:09:05 15:09:05
+            val t = if (dateTime.substring(10, 11) == "T") "\'T\'" else " "
+            val separator = dateTime.substring(4, 5)
+            val format = "yyyy${separator}MM${separator}dd${t}kk:mm:ss"
+            val formatter = SimpleDateFormat(format, Locale.getDefault())
+            val timestamp = formatter.parse(dateTime).time
+
+            val uri = getFileUri(path)
+            ContentProviderOperation.newUpdate(uri).apply {
+                val selection = "${MediaStore.Images.Media.DATA} = ?"
+                val selectionArgs = arrayOf(path)
+                withSelection(selection, selectionArgs)
+                withValue(MediaStore.Images.Media.DATE_TAKEN, timestamp)
+                operations.add(build())
+            }
+
+            if (operations.size % BATCH_SIZE == 0) {
+                contentResolver.applyBatch(MediaStore.AUTHORITY, operations)
+                operations.clear()
+            }
+
+            mediumDao.updateFavoriteDateTaken(path, timestamp)
+            didUpdateFile = true
+        }
+
+        val resultSize = contentResolver.applyBatch(MediaStore.AUTHORITY, operations).size
+        if (resultSize == 0) {
+            didUpdateFile = false
+            rescanPaths(paths)
+        }
+
+        toast(if (didUpdateFile) R.string.dates_fixed_successfully else R.string.unknown_error_occurred)
+        runOnUiThread {
+            callback?.invoke()
+        }
+    } catch (e: Exception) {
+        showErrorToast(e)
+    }
+}
+
+fun BaseSimpleActivity.saveRotatedImageToFile(oldPath: String, newPath: String, degrees: Int, callback: () -> Unit) {
+    if (oldPath == newPath && oldPath.isJpg()) {
+        if (tryRotateByExif(oldPath, degrees, callback)) {
+            return
+        }
+    }
+
+    val tmpPath = "$recycleBinPath/.tmp_${newPath.getFilenameFromPath()}"
+    val tmpFileDirItem = FileDirItem(tmpPath, tmpPath.getFilenameFromPath())
+    try {
+        getFileOutputStream(tmpFileDirItem) {
+            if (it == null) {
+                toast(R.string.unknown_error_occurred)
+                return@getFileOutputStream
+            }
+
+            val oldLastModified = File(oldPath).lastModified()
+            if (oldPath.isJpg()) {
+                copyFile(oldPath, tmpPath)
+                saveExifRotation(ExifInterface(tmpPath), degrees)
+            } else {
+                val inputstream = getFileInputStreamSync(oldPath)
+                val bitmap = BitmapFactory.decodeStream(inputstream)
+                saveFile(tmpPath, bitmap, it as FileOutputStream, degrees)
+            }
+
+            if (getDoesFilePathExist(newPath)) {
+                tryDeleteFileDirItem(FileDirItem(newPath, newPath.getFilenameFromPath()), false, true)
+            }
+
+            copyFile(tmpPath, newPath)
+            scanPathRecursively(newPath)
+            fileRotatedSuccessfully(newPath, oldLastModified)
+
+            it.flush()
+            it.close()
+            callback.invoke()
+        }
+    } catch (e: OutOfMemoryError) {
+        toast(R.string.out_of_memory_error)
+    } catch (e: Exception) {
+        showErrorToast(e)
+    } finally {
+        tryDeleteFileDirItem(tmpFileDirItem, false, true)
+    }
+}
+
+@TargetApi(Build.VERSION_CODES.N)
+fun Activity.tryRotateByExif(path: String, degrees: Int, callback: () -> Unit): Boolean {
+    return try {
+        val file = File(path)
+        val oldLastModified = file.lastModified()
+        if (saveImageRotation(path, degrees)) {
+            fileRotatedSuccessfully(path, oldLastModified)
+            callback.invoke()
+            toast(R.string.file_saved)
+            true
+        } else {
+            false
+        }
+    } catch (e: Exception) {
+        showErrorToast(e)
+        false
+    }
+}
+
+fun Activity.fileRotatedSuccessfully(path: String, lastModified: Long) {
+    if (config.keepLastModified) {
+        File(path).setLastModified(lastModified)
+        updateLastModified(path, lastModified)
+    }
+
+    Picasso.get().invalidate(path.getFileKey())
+    // we cannot refresh a specific image in Glide Cache, so just clear it all
+    val glide = Glide.get(applicationContext)
+    glide.clearDiskCache()
+    runOnUiThread {
+        glide.clearMemory()
+    }
+}
+
+fun BaseSimpleActivity.copyFile(source: String, destination: String) {
+    var inputStream: InputStream? = null
+    var out: OutputStream? = null
+    try {
+        out = getFileOutputStreamSync(destination, source.getMimeType())
+        inputStream = getFileInputStreamSync(source)
+        inputStream?.copyTo(out!!)
+    } finally {
+        inputStream?.close()
+        out?.close()
+    }
+}
+
+fun saveFile(path: String, bitmap: Bitmap, out: FileOutputStream, degrees: Int) {
+    val matrix = Matrix()
+    matrix.postRotate(degrees.toFloat())
+    val bmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
+    bmp.compress(path.getCompressionFormat(), 90, out)
 }

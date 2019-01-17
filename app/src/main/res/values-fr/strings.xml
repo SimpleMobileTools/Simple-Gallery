@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Corriger la valeur des dates de prise des photos</string>
     <string name="fixing">Correction en cours....</string>
     <string name="dates_fixed_successfully">Dates corrigées</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrer les médias</string>
@@ -87,7 +88,6 @@
     <string name="flip">Retourner</string>
     <string name="flip_horizontally">Retourner horizontalement</string>
     <string name="flip_vertically">Retourner verticalement</string>
-    <string name="edit_with">Modifier avec</string>
     <string name="free_aspect_ratio">Libre</string>                 <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
@@ -157,7 +157,6 @@
     <string name="allow_photo_gestures">Contrôler la luminosité de la photo avec des gestes verticaux</string>
     <string name="allow_video_gestures">Contrôler le volume et la luminosité de la vidéo avec des gestes verticaux</string>
     <string name="show_media_count">Afficher le nombre de fichiers dans les dossiers</string>
-    <string name="replace_share_with_rotate">Remplacer \"Partager\" par \"Pivoter\" en plein écran</string>
     <string name="show_extended_details">Afficher en surimpression les informations supplémentaires du média en plein écran</string>
     <string name="manage_extended_details">Gérer les informations supplémentaires</string>
     <string name="one_finger_zoom">Effectuer le zoom avec un doigt sur une image en plein écran</string>
@@ -172,6 +171,7 @@
     <string name="show_recycle_bin_last">Afficher la corbeille en dernière place sur l\'écran principal</string>
     <string name="allow_down_gesture">Fermeture de la vue plein écran par un geste vers le bas</string>
     <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
+    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
@@ -193,7 +193,6 @@
     <string name="faq_3_text">Vous devez simplement à effectuer un appui prolongé sur l\'album en question et choisir l\'icône \"Épingler\" dans le menu d\'actions. Vous pouvez en épingler plusieurs. Les éléments épinglés seront alors triés selon l\'ordre par défaut.</string>
     <string name="faq_4_title">Comment avancer rapidement dans les vidéos ?</string>
     <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
-    <string name="faq_4_text_old">Vous pouvez appuyer sur la durée actuelle ou totale de la vidéo sur la barre de progression, la vidéo reculera ou avancera selon votre choix.</string>
     <string name="faq_5_title">Quelle est la différence entre masquer et exclure un dossier ?</string>
     <string name="faq_5_text">\"Exclure un dossier\" permet de ne pas l\'afficher uniquement dans Simple Gallery, alors que \"Masquer un dossier\" rend le dossier invisible sur l\'ensemble de l\'appareil, y compris les autres applications de galerie. Dans le dernier cas, un fichier \".nomedia\" est créé dans le dossier masqué, et peut être supprimé avec n\'importe quel explorateur de fichiers.</string>
     <string name="faq_6_title">Pourquoi des dossiers avec des pochettes d\'albums musicaux ou des miniatures d\'images sont affichés ?</string>
@@ -202,8 +201,6 @@
     <string name="faq_7_text">Cela peut arriver pour de multiples raisons, mais c\'est facile à résoudre. Allez dans \"Paramètres\", puis \"Gérer les dossiers inclus\", appuyez sur \"+\" et sélectionnez le dossier voulu.</string>
     <string name="faq_8_title">Comment faire apparaître uniquement certains dossiers ?</string>
     <string name="faq_8_text">Ajouter un dossier dans les \"Dossiers inclus\" rend visible l\'ensemble du contenu du dossier. Pour exclure certains dossiers, il faut aller dans \"Paramètres\", puis \"Gérer les dossiers exclus\", exclure le dossier racine \"/\", puis ajouter les dossiers souhaités dans \"Paramètres\", puis \"Gérer les dossiers inclus\". Seuls les dossiers sélectionnés seront visibles, du fait que les exclusions et inclusions sont récursives, et si un dossier est à la fois exclus et inclus, il sera affiché.</string>
-    <string name="faq_9_title">Les images en plein écran contiennent des artefacts, est-ce possible d\'améliorer la qualité ?</string>
-    <string name="faq_9_text">Oui, il existe dans \"Paramètres\" une option \"Afficher les images avec la plus haute qualité possible\", mais les images seront alors floues si vous zoomez trop.</string>
     <string name="faq_10_title">Puis-je recadrer des images avec cette application ?</string>
     <string name="faq_10_text">Oui, vous pouvez recadrer les images dans l\'éditeur en faisant glisser les coins de l\'image. Vous pouvez accéder à l\'éditeur en appuyant longuement sur une vignette d\'image et en sélectionnant \"Modifier\", ou en sélectionnant \"Modifier\" en mode plein écran.</string>
     <string name="faq_11_title">Puis-je regrouper les miniatures des fichiers multimédias ?</string>

@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Perbaiki Tanggal Diambil</string>
     <string name="fixing">Memperbaiki…</string>
     <string name="dates_fixed_successfully">Tanggal berhasil diperbaiki</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter media</string>
@@ -87,7 +88,6 @@
     <string name="flip">Balik</string>
     <string name="flip_horizontally">Balik horizontal</string>
     <string name="flip_vertically">Balik vertikal</string>
-    <string name="edit_with">Edit dengan</string>
     <string name="free_aspect_ratio">Bebas</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Lainnya</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
@@ -157,7 +157,6 @@
     <string name="allow_photo_gestures">Izinkan mengontrol kecerahan foto dengan gerakan vertikal</string>
     <string name="allow_video_gestures">Izinkan mengontrol kecerahan dan volume video dengan gerakan vertikal</string>
     <string name="show_media_count">Tampilkan jumlah folder media di tampilan utama</string>
-    <string name="replace_share_with_rotate">Ganti tombol Bagikan dengan Rotasi di menu layar penuh</string>
     <string name="show_extended_details">Tampilkan detail tambahan saat layar penuh</string>
     <string name="manage_extended_details">Atur detail tambahan</string>
     <string name="one_finger_zoom">Izinkan zoom satu jari di layar penuh</string>
@@ -172,6 +171,7 @@
     <string name="show_recycle_bin_last">Tampilkan Sampah sebagai item terakhir di layar utama</string>
     <string name="allow_down_gesture">Izinkan keluar dari layar penuh dengan menggeser kebawah</string>
     <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
+    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnail</string>
@@ -194,7 +194,6 @@
     <string name="faq_3_text">Anda bisa menekan lama album tersebut dan pilih ikon Pin di menu tindakan, itu akan menaruhnya di atas daftar. Anda juga bisa menyematkan beberapa folder, item yang di-pin akan diurutkan berdasarkan metode urutan default.</string>
     <string name="faq_4_title">Bagaimana cara mempercepat laju video?</string>
     <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
-    <string name="faq_4_text_old">Anda bisa mengklik teks durasi saat ini/maksimal di dekat penggeser durasi, itu akan memajukan atau memundurkan video.</string>
     <string name="faq_5_title">Apa perbedaan antara menyembunyikan dan mengecualikan folder?</string>
     <string name="faq_5_text">Mengecualikan tidak akan menampilkan folder di Simple Gallery, sedangkan Sembunyikan bekerja sesuai aturan sistem dan akan menyembunyikan folder juga dari aplikasi galeri yang lain. Cara kerjanya dengan membuat file \".nomedia\" kosong pada folder yang diinginkan, yang bisa Anda hapus juga dengan aplikasi file manager.</string>
     <string name="faq_6_title">Mengapa folder dengan gambar album musik atau stiker muncul?</string>
@@ -204,8 +203,6 @@
     <string name="faq_8_title">Bagaimana jika saya hanya ingin beberapa folder saja yang terlihat?</string>
     <string name="faq_8_text">Menambahkan folder di Folder yang Disertakan tidak otomatis mengecualikan folder yang lain. Yang bisa Anda lakukan adalah pergi ke Setelan -> Atur Folder yang Dikecualikan, lalu kecualikan folder root \"/\", lalu tambahkan folder yang diinginkan di Setelan -> Atur Folder yang Disertakan.
         Itu akan membuat folder yang dipilih saja yang muncul, dan jika sebuah folder disertakan dan dikecualikan secara bersamaan, folder tersebut akan muncul.</string>
-    <string name="faq_9_title">Gambar layar penuh terlihat pecah, bisakah ditingkatkan kualitasnya?</string>
-    <string name="faq_9_text">Ya, ada opsi di Setelan \"Ganti zoom mendalam dengan kualitas gambar yang lebih bagus\", Anda bisa menggunakannya. Ini akan meningkatkan kualitas gambar, namun gambar akan terlihat kabur jika Anda zoom terlalu banyak.</string>
     <string name="faq_10_title">Bisakah saya meng-crop gambar dengan aplikasi ini?</string>
     <string name="faq_10_text">Ya, Anda bisa melakukannya di Editor, dengan menyeret sudut gambar. Anda bisa masuk ke editor dengan menekan lama thumbnail gambar dan memilih Edit, atau pilih Edit dari tampilan layar penuh.</string>
     <string name="faq_11_title">Bisakah saya mengelompokkan thumbnail file media?</string>

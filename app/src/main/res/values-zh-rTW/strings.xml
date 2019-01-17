@@ -31,6 +31,7 @@
     <string name="fix_date_taken">修復拍照日期數值</string>
     <string name="fixing">修復中…</string>
     <string name="dates_fixed_successfully">日期修復成功</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">篩選媒體檔案</string>
@@ -87,7 +88,6 @@
     <string name="flip">翻轉</string>
     <string name="flip_horizontally">水平翻轉</string>
     <string name="flip_vertically">垂直翻轉</string>
-    <string name="edit_with">用其他程式編輯</string>
     <string name="free_aspect_ratio">自由</string>                <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">其它</string>             <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
@@ -116,7 +116,7 @@
     <string name="loop_slideshow">投影片循環</string>
     <string name="slideshow_ended">投影片結束</string>
     <string name="no_media_for_slideshow">找不到投影片的媒體檔案</string>
-    <string name="use_crossfade_animation">Use crossfade animations</string>
+    <string name="use_crossfade_animation">使用淡入淡出動畫</string>
 
     <!-- View types -->
     <string name="change_view_type">改變瀏覽類型</string>
@@ -139,7 +139,7 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">自動播放影片</string>
-    <string name="remember_last_video_position">記住影片上次撥放位置</string>
+    <string name="remember_last_video_position">記住影片上次播放位置</string>
     <string name="toggle_filename">顯示檔案名稱</string>
     <string name="loop_videos">影片循環播放</string>
     <string name="animate_gifs">縮圖顯示GIF動畫</string>
@@ -157,7 +157,6 @@
     <string name="allow_photo_gestures">允許用上下手勢來控制相片的亮度</string>
     <string name="allow_video_gestures">允許用上下手勢來控制影片的音量和亮度</string>
     <string name="show_media_count">主畫面顯示資料夾內的媒體檔案數量</string>
-    <string name="replace_share_with_rotate">將全螢幕選單的分享取代為旋轉</string>
     <string name="show_extended_details">全螢幕時顯示詳細資訊</string>
     <string name="manage_extended_details">管理詳細資訊</string>
     <string name="one_finger_zoom">全螢幕時允許單指縮放</string>
@@ -172,6 +171,7 @@
     <string name="show_recycle_bin_last">回收桶顯示在主畫面最後一項</string>
     <string name="allow_down_gesture">允許用下滑手勢來關閉全螢幕檢視</string>
     <string name="allow_one_to_one_zoom">允許用兩次雙擊來1:1縮放</string>
+    <string name="open_videos_on_separate_screen">總是用新的水平手勢在獨立畫面開啟影片</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">縮圖</string>
@@ -193,8 +193,7 @@
     <string name="faq_3_title">我如何讓某個相冊總是出現在頂端?</string>
     <string name="faq_3_text">你可以長按想要的相冊，然後在操作選單中選擇[圖釘]圖示，就會釘選於頂端。你也能釘選多個資料夾，釘選的項目會依預設的排序方法來排序。</string>
     <string name="faq_4_title">我如何快轉影片?</string>
-    <string name="faq_4_text">你可以在影片撥放器上水平滑動你的手指，或者點擊進度條附近的當前或總時長文字。這會使影片快轉或倒轉。</string>
-    <string name="faq_4_text_old">你可以點擊進度條附近的當前或總時長文字，影片就會快轉或倒轉。</string>
+    <string name="faq_4_text">你可以在影片播放器上水平滑動你的手指，或者點擊進度條附近的當前或總時長文字。這會使影片快轉或倒轉。</string>
     <string name="faq_5_title">隱藏和排除資料夾，兩者有什麼不同?</string>
     <string name="faq_5_text">[排除]只在簡易相簿中避免顯示出來；而[隱藏]則作用於整個系統，資料夾也會被其他相簿隱藏。這是藉由在指定資料夾內建立一個\".nomedia\"空白檔案來進行隱藏，你之後也能用任何檔案管理器移除。</string>
     <string name="faq_6_title">為什麼有些音樂專輯封面或貼圖的資料夾會出現?</string>
@@ -204,8 +203,6 @@
     <string name="faq_8_title">如果我只想看到幾個特定的資料夾，怎麼做?</string>
     <string name="faq_8_text">在[包含資料夾]內添加資料夾並不會自動排除任何東西。你能做的是到[設定] -> [管理排除資料夾]，排除根目錄 \"/\"，然後在[設定] -> [管理包含資料夾]添加想要的資料夾。
         那樣的話就只有選擇的資料夾可見。因為排除和包含都是遞迴的，如果一個資料夾被排除又被包含，則會顯示出來。</string>
-    <string name="faq_9_title">全螢幕圖片有雜訊，我有辦法提高品質嗎?</string>
-    <string name="faq_9_text">可啊，[設定]內有個開關叫做「可深度縮放的圖片用品質更佳的來取代」，你能用用看。這會提高圖片的品質，不過一旦你放大太多就會模糊掉。</string>
     <string name="faq_10_title">我可以用這程式裁減圖片嗎?</string>
     <string name="faq_10_text">是的，你能夠在編輯器內拉動圖片角落來裁剪圖片。要進入編輯器，你可以長按圖片縮圖然後選擇[編輯]，或是在全螢幕檢視下選擇[編輯]。</string>
     <string name="faq_11_title">我可以歸類媒體檔案的縮圖嗎?</string>

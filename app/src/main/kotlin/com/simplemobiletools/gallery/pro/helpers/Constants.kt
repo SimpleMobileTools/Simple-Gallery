@@ -13,6 +13,7 @@ const val IS_THIRD_PARTY_INTENT = "is_third_party_intent"
 const val AUTOPLAY_VIDEOS = "autoplay_videos"
 const val REMEMBER_LAST_VIDEO_POSITION = "remember_last_video_position"
 const val LOOP_VIDEOS = "loop_videos"
+const val OPEN_VIDEOS_ON_SEPARATE_SCREEN = "open_videos_on_separate_screen"
 const val ANIMATE_GIFS = "animate_gifs"
 const val MAX_BRIGHTNESS = "max_brightness"
 const val CROP_THUMBNAILS = "crop_thumbnails"
@@ -75,9 +76,12 @@ const val LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y = "last_editor_crop_other_aspect
 const val GROUP_DIRECT_SUBFOLDERS = "group_direct_subfolders"
 const val SHOW_WIDGET_FOLDER_NAME = "show_widget_folder_name"
 const val ALLOW_ONE_TO_ONE_ZOOM = "allow_one_to_one_zoom"
+const val LAST_EDITOR_DRAW_COLOR = "last_editor_draw_color"
+const val LAST_EDITOR_BRUSH_SIZE = "last_editor_brush_size"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"
+const val SLIDESHOW_INCLUDE_VIDEOS = "slideshow_include_videos"
 const val SLIDESHOW_INCLUDE_GIFS = "slideshow_include_gifs"
 const val SLIDESHOW_RANDOM_ORDER = "slideshow_random_order"
 const val SLIDESHOW_USE_FADE = "slideshow_use_fade"
@@ -99,9 +103,12 @@ const val GO_TO_PREV_ITEM = "go_to_prev_item"
 const val MAX_COLUMN_COUNT = 20
 const val SHOW_TEMP_HIDDEN_DURATION = 300000L
 const val CLICK_MAX_DURATION = 150
+const val CLICK_MAX_DISTANCE = 100
+const val MAX_CLOSE_DOWN_GESTURE_DURATION = 400
 const val DRAG_THRESHOLD = 8
 const val MONTH_MILLISECONDS = MONTH_SECONDS * 1000L
 const val MIN_SKIP_LENGTH = 2000
+const val HIDE_SYSTEM_UI_DELAY = 500L
 
 const val DIRECTORY = "directory"
 const val MEDIUM = "medium"
@@ -177,3 +184,10 @@ const val ASPECT_RATIO_ONE_ONE = 1
 const val ASPECT_RATIO_FOUR_THREE = 2
 const val ASPECT_RATIO_SIXTEEN_NINE = 3
 const val ASPECT_RATIO_OTHER = 4
+
+// some constants related to zooming videos
+const val MIN_VIDEO_ZOOM_SCALE = 1f
+const val MAX_VIDEO_ZOOM_SCALE = 5f
+const val ZOOM_MODE_NONE = 0
+const val ZOOM_MODE_DRAG = 1
+const val ZOOM_MODE_ZOOM = 2

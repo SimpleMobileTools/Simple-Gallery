@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Napraw datę utworzenia</string>
     <string name="fixing">Naprawiam…</string>
     <string name="dates_fixed_successfully">Daty zostały naprawione</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtruj multimedia</string>
@@ -87,7 +88,6 @@
     <string name="flip">Przewróć</string>
     <string name="flip_horizontally">Przewróć w poziomie</string>
     <string name="flip_vertically">Przewróć w pionie</string>
-    <string name="edit_with">Edytuj w:</string>
     <string name="free_aspect_ratio">Wolne</string>                 <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Inny</string>                 <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
@@ -157,7 +157,6 @@
     <string name="allow_photo_gestures">Zezwalaj na kontrolowanie jasności zdjęcia pionowymi gestami</string>
     <string name="allow_video_gestures">Zezwalaj na kontrolowanie jasności i głośności filmów pionowymi gestami</string>
     <string name="show_media_count">Pokazuj liczbę elementów w folderach w głównym widoku</string>
-    <string name="replace_share_with_rotate">Zamień funkcję udostępniania na obracanie w menu pełnoekranowym</string>
     <string name="show_extended_details">Dodatkowe szczegóły przy podglądzie pełnoekranowym</string>
     <string name="manage_extended_details">Zarządzaj dodatkowymi szczegółami</string>
     <string name="one_finger_zoom">Zezwalaj na powiększanie jednym palcem w widoku pełnoekranowym</string>
@@ -172,6 +171,7 @@
     <string name="show_recycle_bin_last">Pokazuj kosz jako ostatni element na głównym ekranie</string>
     <string name="allow_down_gesture">Zezwalaj na zamykanie pełnoekranowego widoku gestem pociągnięcia w dół</string>
     <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
+    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatury</string>
@@ -193,7 +193,6 @@
     <string name="faq_3_text">Przytrzymaj album(y) i wybierz ikonę przypięcia w pasku akcji.</string>
     <string name="faq_4_title">Jak mogę przwijać filmy?</string>
     <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
-    <string name="faq_4_text_old">Kliknij na napisie z czasem trwania filmu, bądź tym z obecnym momentem filmu.</string>
     <string name="faq_5_title">Jaka jest różnica między ukryciem, a wykluczeniem folderu?</string>
     <string name="faq_5_text">Wykluczenie działa tylko w obrębie niniejszej aplikacji (wszędzie indziej pliki są normalnie widoczne), ukrywanie - w obrębie całego systemu (nie widać ich nigdzie), dodawany jest wtedy do folderu pusty plik \'.nomedia\', który możesz usunąć w dowolnym menedżerze plików.</string>
     <string name="faq_6_title">Dlaczego pokazują mi się foldery z okładkami do piosenek i tym podobne rzeczy?</string>
@@ -202,8 +201,6 @@
     <string name="faq_7_text">Wejdź do ustawień aplikacji i w sekcji z dołączonymi folderami dodaj tenże folder do listy.</string>
     <string name="faq_8_title">Co jeśli chcę widzieć tylko wybrane foldery?</string>
     <string name="faq_8_text">Przejdź do sekcji z wykluczonymi folderami w ustawieniach aplikacji, dodaj tam folder główny (\"/\"), a następnie dodaj pożądane foldery w sekcji z dołączonymi folderami.</string>
-    <string name="faq_9_title">Zdjęcia w widoku pełnoekranowym mają dziwne artefakty. Jak mogę to naprawić?</string>
-    <string name="faq_9_text">W ustawieniach aplikacji włącz opcję \'Zamieniaj powiększalne obrazy na te o lepszej jakości\'. Poprawi ona jakość zdjęć, jednak przy bardzo dużych powiększeniach mogą się stać one zbyt rozmazane.</string>
     <string name="faq_10_title">Czy mogę w tej aplikacji przycinać obrazy?</string>
     <string name="faq_10_text">Tak, możesz to zrobić w edytorze, przeciągając krawędzie obrazu. Edytor otworzysz przytrzymując miniaturę obrazu i wybierając opcję \'Edytuj\', bądź wybierając tą samą opcję w menu pełnoekranowym.</string>
     <string name="faq_11_title">Czy mogę jakoś grupować miniatury plików?</string>

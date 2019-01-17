@@ -153,7 +153,7 @@ class Config(context: Context) : BaseConfig(context) {
         set(includedFolders) = prefs.edit().remove(INCLUDED_FOLDERS).putStringSet(INCLUDED_FOLDERS, includedFolders).apply()
 
     var autoplayVideos: Boolean
-        get() = prefs.getBoolean(AUTOPLAY_VIDEOS, true)
+        get() = prefs.getBoolean(AUTOPLAY_VIDEOS, false)
         set(autoplay) = prefs.edit().putBoolean(AUTOPLAY_VIDEOS, autoplay).apply()
 
     var animateGifs: Boolean
@@ -179,6 +179,10 @@ class Config(context: Context) : BaseConfig(context) {
     var loopVideos: Boolean
         get() = prefs.getBoolean(LOOP_VIDEOS, false)
         set(loop) = prefs.edit().putBoolean(LOOP_VIDEOS, loop).apply()
+
+    var openVideosOnSeparateScreen: Boolean
+        get() = prefs.getBoolean(OPEN_VIDEOS_ON_SEPARATE_SCREEN, false)
+        set(openVideosOnSeparateScreen) = prefs.edit().putBoolean(OPEN_VIDEOS_ON_SEPARATE_SCREEN, openVideosOnSeparateScreen).apply()
 
     var displayFileNames: Boolean
         get() = prefs.getBoolean(DISPLAY_FILE_NAMES, false)
@@ -280,6 +284,10 @@ class Config(context: Context) : BaseConfig(context) {
     var slideshowInterval: Int
         get() = prefs.getInt(SLIDESHOW_INTERVAL, SLIDESHOW_DEFAULT_INTERVAL)
         set(slideshowInterval) = prefs.edit().putInt(SLIDESHOW_INTERVAL, slideshowInterval).apply()
+
+    var slideshowIncludeVideos: Boolean
+        get() = prefs.getBoolean(SLIDESHOW_INCLUDE_VIDEOS, false)
+        set(slideshowIncludeVideos) = prefs.edit().putBoolean(SLIDESHOW_INCLUDE_VIDEOS, slideshowIncludeVideos).apply()
 
     var slideshowIncludeGIFs: Boolean
         get() = prefs.getBoolean(SLIDESHOW_INCLUDE_GIFS, false)
@@ -445,4 +453,12 @@ class Config(context: Context) : BaseConfig(context) {
     var allowOneToOneZoom: Boolean
         get() = prefs.getBoolean(ALLOW_ONE_TO_ONE_ZOOM, false)
         set(allowOneToOneZoom) = prefs.edit().putBoolean(ALLOW_ONE_TO_ONE_ZOOM, allowOneToOneZoom).apply()
+
+    var lastEditorDrawColor: Int
+        get() = prefs.getInt(LAST_EDITOR_DRAW_COLOR, primaryColor)
+        set(lastEditorDrawColor) = prefs.edit().putInt(LAST_EDITOR_DRAW_COLOR, lastEditorDrawColor).apply()
+
+    var lastEditorBrushSize: Int
+        get() = prefs.getInt(LAST_EDITOR_BRUSH_SIZE, 50)
+        set(lastEditorBrushSize) = prefs.edit().putInt(LAST_EDITOR_BRUSH_SIZE, lastEditorBrushSize).apply()
 }

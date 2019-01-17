@@ -2,10 +2,7 @@ package com.simplemobiletools.gallery.pro.fragments
 
 import android.content.Intent
 import android.content.res.Configuration
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Color
-import android.graphics.Matrix
+import android.graphics.*
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.PictureDrawable
 import android.media.ExifInterface.*
@@ -106,11 +103,6 @@ class PhotoFragment : ViewPagerFragment() {
             }
 
             if (context.config.allowDownGesture) {
-                gif_view.setOnTouchListener { v, event ->
-                    handleEvent(event)
-                    false
-                }
-
                 subsampling_view.setOnTouchListener { v, event ->
                     if (mView.subsampling_view.scale == mOriginalSubsamplingScale) {
                         handleEvent(event)
@@ -204,6 +196,33 @@ class PhotoFragment : ViewPagerFragment() {
         storeStateVariables()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        if (activity?.isDestroyed == false) {
+            mView.subsampling_view.recycle()
+        }
+        mIoadZoomableViewHandler.removeCallbacksAndMessages(null)
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+
+        // avoid GIFs being skewed, played in wrong aspect ratio
+        if (mMedium.isGIF()) {
+            mView.onGlobalLayout {
+                Handler().postDelayed({
+                    loadGif()
+                }, 50)
+            }
+        } else {
+            hideZoomableView()
+            loadImage()
+        }
+
+        initExtendedDetails()
+        updateInstantSwitchWidths()
+    }
+
     override fun setMenuVisibility(menuVisible: Boolean) {
         super.setMenuVisibility(menuVisible)
         mIsFragmentVisible = menuVisible
@@ -265,6 +284,7 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun loadImage() {
+        checkScreenDimensions()
         mImageOrientation = getImageOrientation()
         when {
             mMedium.isGIF() -> loadGif()
@@ -283,8 +303,13 @@ class PhotoFragment : ViewPagerFragment() {
             }
 
             mView.photo_view.beGone()
-            mView.gif_view.beVisible()
-            mView.gif_view.setInputSource(source)
+            val resolution = mMedium.path.getImageResolution() ?: Point(0, 0)
+            mView.gif_view.apply {
+                setInputSource(source)
+                setupGIFView(resolution.x, resolution.y, mScreenWidth, mScreenHeight) {
+                    activity?.supportFinishAfterTransition()
+                }
+            }
         } catch (e: Exception) {
             loadBitmap()
         } catch (e: OutOfMemoryError) {
@@ -301,7 +326,6 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun loadBitmap(degrees: Int = 0) {
-        checkScreenDimensions()
         var pathToLoad = if (mMedium.path.startsWith("content://")) mMedium.path else "file://${mMedium.path}"
         pathToLoad = pathToLoad.replace("%", "%25").replace("#", "%23")
 
@@ -309,6 +333,7 @@ class PhotoFragment : ViewPagerFragment() {
             val picasso = Picasso.get()
                     .load(pathToLoad)
                     .centerInside()
+                    .stableKey(mMedium.path.getFileKey())
                     .resize(mScreenWidth, mScreenHeight)
 
             if (degrees != 0) {
@@ -535,33 +560,6 @@ class PhotoFragment : ViewPagerFragment() {
         } else {
             mView.photo_details.beGone()
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        if (activity?.isDestroyed == false) {
-            mView.subsampling_view.recycle()
-        }
-        mIoadZoomableViewHandler.removeCallbacksAndMessages(null)
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-
-        // avoid GIFs being skewed, played in wrong aspect ratio
-        if (mMedium.isGIF()) {
-            mView.onGlobalLayout {
-                Handler().postDelayed({
-                    loadGif()
-                }, 50)
-            }
-        } else {
-            hideZoomableView()
-            loadImage()
-        }
-
-        initExtendedDetails()
-        updateInstantSwitchWidths()
     }
 
     private fun hideZoomableView() {

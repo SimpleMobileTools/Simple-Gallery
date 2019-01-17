@@ -1,11 +1,7 @@
 package com.simplemobiletools.gallery.pro.adapters
 
-import android.content.ContentProviderOperation
-import android.media.ExifInterface
-import android.media.MediaMetadataRetriever
 import android.os.Handler
 import android.os.Looper
-import android.provider.MediaStore
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
@@ -32,7 +28,6 @@ import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import com.simplemobiletools.gallery.pro.models.ThumbnailSection
 import kotlinx.android.synthetic.main.photo_video_item_grid.view.*
 import kotlinx.android.synthetic.main.thumbnail_section.view.*
-import java.text.SimpleDateFormat
 import java.util.*
 
 class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<ThumbnailItem>, val listener: MediaOperationsListener?, val isAGetIntent: Boolean,
@@ -41,7 +36,6 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
     private val INSTANT_LOAD_DURATION = 2000L
     private val IMAGE_LOAD_DELAY = 100L
-    private val BATCH_SIZE = 100
     private val ITEM_SECTION = 0
     private val ITEM_MEDIUM = 1
 
@@ -142,6 +136,9 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             R.id.cab_remove_from_favorites -> toggleFavorites(false)
             R.id.cab_restore_recycle_bin_files -> restoreFiles()
             R.id.cab_share -> shareMedia()
+            R.id.cab_rotate_right -> rotateSelection(90)
+            R.id.cab_rotate_left -> rotateSelection(270)
+            R.id.cab_rotate_one_eighty -> rotateSelection(180)
             R.id.cab_copy_to -> copyMoveTo(true)
             R.id.cab_move_to -> moveFilesTo()
             R.id.cab_select_all -> selectAll()
@@ -278,6 +275,25 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         }
     }
 
+    private fun rotateSelection(degrees: Int) {
+        activity.toast(R.string.saving)
+        Thread {
+            val paths = getSelectedPaths()
+            var fileCnt = paths.size
+            paths.forEach {
+                activity.saveRotatedImageToFile(it, it, degrees) {
+                    fileCnt--
+                    if (fileCnt == 0) {
+                        activity.runOnUiThread {
+                            listener?.refreshItems()
+                            finishActMode()
+                        }
+                    }
+                }
+            }
+        }.start()
+    }
+
     private fun moveFilesTo() {
         activity.handleDeletePasswordProtection {
             copyMoveTo(false)
@@ -312,56 +328,10 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     }
 
     private fun fixDateTaken() {
-        activity.toast(R.string.fixing)
         Thread {
-            try {
-                var didUpdateFile = false
-                val operations = ArrayList<ContentProviderOperation>()
-                val mediumDao = activity.galleryDB.MediumDao()
-                val paths = getSelectedPaths()
-                for (path in paths) {
-                    val dateTime = ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME_ORIGINAL)
-                            ?: ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME) ?: continue
-
-                    // some formats contain a "T" in the middle, some don't
-                    // sample dates: 2015-07-26T14:55:23, 2018:09:05 15:09:05
-                    val t = if (dateTime.substring(10, 11) == "T") "\'T\'" else " "
-                    val separator = dateTime.substring(4, 5)
-                    val format = "yyyy${separator}MM${separator}dd${t}kk:mm:ss"
-                    val formatter = SimpleDateFormat(format, Locale.getDefault())
-                    val timestamp = formatter.parse(dateTime).time
-
-                    val uri = activity.getFileUri(path)
-                    ContentProviderOperation.newUpdate(uri).apply {
-                        val selection = "${MediaStore.Images.Media.DATA} = ?"
-                        val selectionArgs = arrayOf(path)
-                        withSelection(selection, selectionArgs)
-                        withValue(MediaStore.Images.Media.DATE_TAKEN, timestamp)
-                        operations.add(build())
-                    }
-
-                    if (operations.size % BATCH_SIZE == 0) {
-                        activity.contentResolver.applyBatch(MediaStore.AUTHORITY, operations)
-                        operations.clear()
-                    }
-
-                    mediumDao.updateFavoriteDateTaken(path, timestamp)
-                    didUpdateFile = true
-                }
-
-                val resultSize = activity.contentResolver.applyBatch(MediaStore.AUTHORITY, operations).size
-                if (resultSize == 0) {
-                    didUpdateFile = false
-                    activity.rescanPaths(paths)
-                }
-
-                activity.toast(if (didUpdateFile) R.string.dates_fixed_successfully else R.string.unknown_error_occurred)
-                activity.runOnUiThread {
-                    listener?.refreshItems()
-                    finishActMode()
-                }
-            } catch (e: Exception) {
-                activity.showErrorToast(e)
+            activity.fixDateTaken(getSelectedPaths()) {
+                listener?.refreshItems()
+                finishActMode()
             }
         }.start()
     }
@@ -514,14 +484,5 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             thumbnail_section.text = section.title
             thumbnail_section.setTextColor(textColor)
         }
-    }
-
-    private fun getFormattedVideoLength(medium: Medium): String {
-        if (medium.isVideo()) {
-            val retriever = MediaMetadataRetriever()
-            retriever.setDataSource(medium.path)
-            return Math.round(retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION).toInt() / 1000f).getFormattedDuration()
-        }
-        return ""
     }
 }

@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Opraviť dátum vytvorenia</string>
     <string name="fixing">Opravuje sa…</string>
     <string name="dates_fixed_successfully">Dátumy boli úspešne opravené</string>
+    <string name="share_resized">Zdieľať verziu so zmenenou veľkosťou</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter médií</string>
@@ -87,7 +88,6 @@
     <string name="flip">Preklopiť</string>
     <string name="flip_horizontally">Preklopiť vodorovne</string>
     <string name="flip_vertically">Preklopiť zvisle</string>
-    <string name="edit_with">Upraviť s</string>
     <string name="free_aspect_ratio">Voľný</string>                 <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Iný</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
@@ -157,7 +157,6 @@
     <string name="allow_photo_gestures">Povoliť ovládanie jasu vertikálnymi ťahmi</string>
     <string name="allow_video_gestures">Povoliť ovládanie hlasitosti a jasu videí vertikálnymi ťahmi</string>
     <string name="show_media_count">Zobraziť počet médií v priečinku na hlavnej obrazovke</string>
-    <string name="replace_share_with_rotate">Nahradiť Zdieľanie s Otočením v celoobrazovkovom menu</string>
     <string name="show_extended_details">Zobraziť rozšírené vlastnosti ponad celoobrazovkové médiá</string>
     <string name="manage_extended_details">Spravovať rozšírené vlastnosti</string>
     <string name="one_finger_zoom">Povoliť približovanie jedným prstom v celoobrazovkovom režime</string>
@@ -172,6 +171,7 @@
     <string name="show_recycle_bin_last">Zobraziť odpadkový kôš ako poslednú položku na hlavnej obrazovke</string>
     <string name="allow_down_gesture">Povoliť zatváranie celoobrazovkového režimu potiahnutím prsta dole</string>
     <string name="allow_one_to_one_zoom">Povoliť 1:1 priblíženie dvojnásobným dvojklikom</string>
+    <string name="open_videos_on_separate_screen">Vždy otvárať videá na vlastnej obrazovke s novými vodorovnými gestami</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Náhľady</string>
@@ -194,7 +194,6 @@
     <string name="faq_3_text">Môžete označiť daný priečinok dlhým podržaním a zvoliť tlačidlo s obrázkom pripinačky, to ho pripne na vrch. Môžete pripnúť aj viacero priečinkov, budú zoradené podľa zvoleného radenia.</string>
     <string name="faq_4_title">Ako viem posunúť video vpred?</string>
     <string name="faq_4_text">Môžete to dosiahnuť vodorovným potiahnutím prsta cez video prehrávač, alebo kliknúť na texty súčasnej, alebo maximálnej dĺžky videa, ktoré sú vedľa indikátora súčasného progresu. To posunie video buď vpred, alebo vzad.</string>
-    <string name="faq_4_text_old">Môžete kliknúť na texty súčasnej, alebo maximálnej dĺžky videa, ktoré sú vedľa indikátora súčasného progresu. To posunie video buď vpred, alebo vzad.</string>
     <string name="faq_5_title">Aký je rozdiel medzi Skrytím a Vylúčením priečinka?</string>
     <string name="faq_5_text">Kým vylúčenie predíde zobrazeniu priečinka iba vrámci Jednoduchej Galérie, skrytie ho ukryje vrámci celého systému, teda to ovplyvní aj ostatné galérie. Skrytie funguje pomocou vytvorenia prázdneho \".nomedia\" súboru v danom priečinku, ktorý viete vymazať aj nejakým správcom súborov.</string>
     <string name="faq_6_title">Prečo sa mi zobrazujú priečinky s obalmi hudobných albumov, alebo nálepkami?</string>
@@ -204,8 +203,6 @@
     <string name="faq_8_title">Čo v prípade, ak chcem mať zobrazených iba pár priečinkov?</string>
     <string name="faq_8_text">Pridanie priečinka medzi Pridané Priečinky automaticky nevylúči ostatné. Môžete ale ísť do Nastavenia -> Spravovať vylúčené priečinky a zvoliť Koreňový priečinok \"/\", následne pridať žiadané priečinky v Nastavenia -> Spravovať pridané priečinky.
         To spôsobí, že budú zobrazené iba vyžiadané priečinky, keďže aj vylúčenie, aj pridanie fungujú rekurzívne a ak je priečinok vylúčený, aj pridaný, bude viditeľný.</string>
-    <string name="faq_9_title">Fotky na celú obrazovku majú zhoršenú kvalitu, viem ju nejak zlepšiť?</string>
-    <string name="faq_9_text">Áno, v nastaveniach je prepínač s textom \"Nahradiť hlboko priblížiteľné obrázky s obrázkami s lepšou kvalitou\", môžete ho skúsiť. Spôsobí to vyššiu kvalitu obrázkov, po priblížení sa ale budú rozmazávať oveľa skôr.</string>
     <string name="faq_10_title">Dá sa s touto aplikáciou orezať obrázky?</string>
     <string name="faq_10_text">Áno, orezanie je možné v editore, potiahnutím rohov obrázkov. Do editoru sa môžete dostať buď dlhým podržaním náhľadu obrázku a zvolením menu položky Upraviť, alebo zvolením Upraviť pri celoobrazovkovom režime.</string>
     <string name="faq_11_title">Viem nejakým spôsobom zoskupiť náhľady súborov?</string>

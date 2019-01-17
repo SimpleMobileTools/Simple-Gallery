@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Opravit datum vytvoření</string>
     <string name="fixing">Opravuji…</string>
     <string name="dates_fixed_successfully">Datumy byly úspěšně opraveny</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtr médií</string>
@@ -87,7 +88,6 @@
     <string name="flip">Překlopit</string>
     <string name="flip_horizontally">Překlopit vodorovně</string>
     <string name="flip_vertically">Překlopit svisle</string>
-    <string name="edit_with">Upravit s</string>
     <string name="free_aspect_ratio">Volný</string>                 <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
@@ -157,7 +157,6 @@
     <string name="allow_photo_gestures">Povolit ovládání jasu vertikálními tahy</string>
     <string name="allow_video_gestures">Povolit ovládání hlasitosti a jasu videí vertikálními tahy</string>
     <string name="show_media_count">Zobrazit počet médií ve složce na hlavní obrazovce</string>
-    <string name="replace_share_with_rotate">Nahradit Sdílení s Otočením v celoobrazovkovém menu</string>
     <string name="show_extended_details">Zobrazit rozšířené vlastnosti přes celoobrazovkové média</string>
     <string name="manage_extended_details">Spravovat rozšířené vlastnosti</string>
     <string name="one_finger_zoom">Povolit přibližování jedním prstem v celoobrazovkovém režimu</string>
@@ -172,6 +171,7 @@
     <string name="show_recycle_bin_last">Zobrazit odpadkový koš jako poslední položku na hlavní obrazovce</string>
     <string name="allow_down_gesture">Povolit zavírání celoobrazovkového režimu tažením prstu dolů</string>
     <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
+    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Náhledy</string>
@@ -194,7 +194,6 @@
     <string name="faq_3_text">Můžete označit danou složku dlouhým podržením a zvolit tlačítko s obrázkem připínáčku, to jej připne na vrch. Můžete připnout i více složek, budou seřazeny podle zvoleného řazení.</string>
     <string name="faq_4_title">Jak můžu rychle posunout videa?</string>
     <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
-    <string name="faq_4_text_old">Můžete kliknout na texty současné nebo maximální délky videa, které jsou vedle indikátoru současného progresu. To posune video buď vpřed, nebo vzad.</string>
     <string name="faq_5_title">Jaký je rozdíl mezi Skrytím a Vyloučením složky?</string>
     <string name="faq_5_text">Zatímco vyloučení předejde zobrazení složky pouze vrámci Jednoduché Galerie, skrytí ho ukryje vrámci celého systému, tedy to ovlivní i ostatní galerie. Skrytí funguje pomocí vytvoření prázdného \".nomedia\" souboru v daném adresáři, který můžete vymazat i nějakým správcem souborů.</string>
     <string name="faq_6_title">Proč se mi zobrazují složky s obaly hudebních alb, nebo nálepkami?</string>
@@ -204,8 +203,6 @@
     <string name="faq_8_title">Co v případě, že chci mít zobrazeno pouze několik složek?</string>
     <string name="faq_8_text">Přidání složky mezi Přidané složky automaticky nevyloučí ostatní. Můžete ale jít do Nastavení -> Spravovat vyloučené složky a zvolit Kořenovou složku \"/\", následně přidat požadované složky v Nastavení -> Spravovat přidané složky.
         To způsobí, že budou zobrazeny pouze vyžádané složky, protože vyloučení i přidání fungují rekurzivně a pokud je složka vyloučena i přidaná, bude viditelná.</string>
-    <string name="faq_9_title">Fotky přes celou obrazovku mají zhoršenou kvalitu, můžu to nějak zlepšit?</string>
-    <string name="faq_9_text">Ano, v nastavení je přepínač s textem \"Nahradit hluboko priblížiteľné obrázky s obrázky s lepší kvalitou\", můžete to zkusit. Způsobí to vyšší kvalitu obrázků, po přiblížení se ale budou rozmazávat mnohem dříve.</string>
     <string name="faq_10_title">Můžu s touto aplikací oříznout obrázky?</string>
     <string name="faq_10_text">Ano, oříznutí je možné v editoru potažením rohů obrázků. Do editoru se můžete dostat buď dlouhým podržením náhledu obrázku a zvolením menu položky Upravit nebo zvolením Upravit při celoobrazovkovém režimu.</string>
     <string name="faq_11_title">Můžu nějakým způsobem seskupit náhledy souborů?</string>

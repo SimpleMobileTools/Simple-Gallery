@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Dátum javítása</string>
     <string name="fixing">Javítás…</string>
     <string name="dates_fixed_successfully">Sikeres dátum javítás</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">Média szűrő</string>
@@ -87,7 +88,6 @@
     <string name="flip">Tükrözés</string>
     <string name="flip_horizontally">Tükrözés vízszintesen</string>
     <string name="flip_vertically">Tükrözés függőlegesen</string>
-    <string name="edit_with">Szerkesztés ezzel</string>
     <string name="free_aspect_ratio">Kötetlen</string>                <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Egyéb</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
@@ -158,7 +158,6 @@
     <string name="allow_photo_gestures">Engedélyezi a kép fényerő módosítást függőleges gesztusokkal</string>
     <string name="allow_video_gestures">Engedélyezi a videó hangerő és fényerő módosítást függőleges gesztusokkal</string>
     <string name="show_media_count">Mutassa a fájlok számát a mappákban</string>
-    <string name="replace_share_with_rotate">Cserélje meg a Megosztást a Forgatással a teljes képernyős menüben</string>
     <string name="show_extended_details">Mutassa a kiterjesztett adatokat a teljes képernyős médián keresztül</string>
     <string name="manage_extended_details">Bővített részletek kezelése</string>
     <string name="one_finger_zoom">Engedélyezi az egy ujjas nagyítást a teljes képernyős médiában</string>
@@ -173,6 +172,7 @@
     <string name="show_recycle_bin_last">Mutassa a Lomtárat a fő képernyő utolsó elemeként</string>
     <string name="allow_down_gesture">Engedélyezi a teljes képernyős nézetet a lefelé mozdulattal</string>
     <string name="allow_one_to_one_zoom">Engedélyezi az 1:1 nagyítást két dupla érintéssel</string>
+    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatűrök</string>
@@ -195,7 +195,6 @@ A következő alkalommal, amikor megpróbál megnyitni egy képet vagy videót, 
     <string name="faq_3_text">Hosszan nyomja meg a kívánt albumot, és válassza ki a Kitűzés ikont a művelet menüben, ami rögzíti felülre. Többféle mappát is kitűzhet, ezeket az elemeket az alapértelmezett rendezési mód szerint rendezi.</string>
     <string name="faq_4_title">Hogyan tudom előre tekerni a videókat?</string>
     <string name="faq_4_text">Húzhatja az ujját vízszintesen a videolejátszón, vagy kattintson az aktuális vagy a max. időtartam szövegekre a keresősáv közelében. Ez visszafelé vagy előre mozgatja a videót.</string>
-    <string name="faq_4_text_old">Húzhatja az ujját vízszintesen a videolejátszón, vagy kattintson az aktuális vagy a max. időtartam szövegekre a keresősáv közelében. Ez visszafelé vagy előre mozgatja a videót.</string>
     <string name="faq_5_title">Mi a különbség a mappa elrejtése és kizárása között?</string>
     <string name="faq_5_text">A Kizárás megakadályozza, hogy a mappát a Simple Gallery megjelenítse, az Elrejtés pedig rendszer szinten működik, és elrejti a mappát más galériákból is. Úgy működik, hogy létrehoz egy üres \". nomedia\" nevű fájlt az adott mappában, amelyet bármikor eltávolíthat bármilyen fájlkezelővel is.</string>
     <string name="faq_6_title">Miért jelennek meg a zenei borítóval vagy matricával rendelkező mappák?</string>
@@ -205,8 +204,6 @@ A következő alkalommal, amikor megpróbál megnyitni egy képet vagy videót, 
     <string name="faq_8_title">Mi van, ha csak néhány különleges mappát szeretnék látni?</string>
     <string name="faq_8_text">A Befoglalt mappákhoz tartozó mappák hozzáadása nem zár ki automatikusan semmit. Amit tehetünk, menjünk a Beállítások -&gt; Kizárt mappák kezelése, kizárjuk a gyökérmappát \"/ \", utána hozzáadjuk a kívánt mappákat a Beállítások -&gt; Befoglalt mappák kezelése menüpontban.
 Ezzel csak a kiválasztott mappák láthatók, mivel a kizárás és a befoglalás rekurzív. Ha egy mappát hozzáadunk mindkettőhöz, akkor megjelenik.</string>
-    <string name="faq_9_title">A teljes képernyős képek furcsán néznek ki, tudnám valahogy javítani a minőséget?</string>
-    <string name="faq_9_text">Igen, van egy kapcsoló a Beállításokban: \"Cserélje le a mély nagyítású képeket jobb minőségűekre\", akkor használhatja. Javítja a képek minőségét, de elmosódik, ha túl nagy zoomolást használ.</string>
     <string name="faq_10_title">Tudom vágni a képeket ezzel az alkalmazással?</string>
     <string name="faq_10_text">Igen, megvághatja a képeket a szerkesztőben a kép sarkainak húzásával. A szerkesztőhöz eljuthat egy miniatűr kép hosszú megnyomásával és a Szerkesztés választásával, vagy a Szerkesztés választásával a teljes képernyős nézetben.</string>
     <string name="faq_11_title">Valamilyen módon össze tudom csoportosítani a médiafájl bélyegképeit?</string>

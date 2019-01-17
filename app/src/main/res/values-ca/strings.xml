@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Fixar la data de presa</string>
     <string name="fixing">Fixant…</string>
     <string name="dates_fixed_successfully">Data fixada correctament</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtre d\'arxius</string>
@@ -87,7 +88,6 @@
     <string name="flip">Girar</string>
     <string name="flip_horizontally">Horizontalment</string>
     <string name="flip_vertically">Verticalment</string>
-    <string name="edit_with">Editar amb</string>
     <string name="free_aspect_ratio">Lliure</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Altres</string>              <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
@@ -157,7 +157,6 @@
     <string name="allow_photo_gestures">Permet controlar la brillantor amb gestos verticals</string>
     <string name="allow_video_gestures">Permet controlar el volum i la brillantor del vídeo amb gestos verticals</string>
     <string name="show_media_count">Mostrar el número de mitjans de les carpetes a la vista principal</string>
-    <string name="replace_share_with_rotate">Reemplaçar Compartir per Girar al menú de pantalla complerta</string>
     <string name="show_extended_details">Mostrar detalls estesos sobre mitjans a pantalla complerta</string>
     <string name="manage_extended_details">Gestioneu els detalls ampliats</string>
     <string name="one_finger_zoom">Permet fer zoom amb un sol dit a pantalla complerta</string>
@@ -172,6 +171,7 @@
     <string name="show_recycle_bin_last">Mostra la paperera de reciclatge com a últim element a la pantalla principal</string>
     <string name="allow_down_gesture">Permet tancar la vista de pantalla completa amb un gest avall</string>
     <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
+    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
@@ -194,7 +194,6 @@
     <string name="faq_3_text">Podeu prémer l\'àlbum desitjat i seleccionar la icona de la xinxeta al menú d\'acció i el fixarà a la part superior. També podeu enganxar diverses carpetes, els elements fixats s\'ordenaran pel mètode de classificació predeterminat.</string>
     <string name="faq_4_title">Com puc fer avançar els vídeos?</string>
     <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
-    <string name="faq_4_text_old">Podeu fer clic als textos actuals o de duració màxima que hi ha a prop de la barra de cerca, això mourà el vídeo cap a enrere o cap endavant.</string>
     <string name="faq_5_title">Quina és la diferència entre ocultar i excloure una carpeta?</string>
     <string name="faq_5_text">Excloure impedeix mostrar la carpeta només a Simple Galery, mentre que Ocultar també amaga la carpeta a altres galeries. Funciona creant un fitxer \". Nomedia \" buit a la carpeta donada, que podeu eliminar amb qualsevol gestor de fitxers.</string>
     <string name="faq_6_title">Per què apareixen les carpetes amb les portades de la música o adhesius?</string>
@@ -204,8 +203,6 @@
     <string name="faq_8_title">Què passa si vull veure només algunes carpetes concretes?</string>
     <string name="faq_8_text">L\'addició d\'una carpeta a les carpetes incloses no exclou automàticament res. El que podeu fer és anar a Configuració -> Gestionar carpetes excloses, excloure la carpeta arrel \"/\" i, a continuació, afegir les carpetes desitjades a Configuració -> Gestionar carpetes incloses.
         Això farà que només les carpetes seleccionades siguin visibles, ja que tant excloure com incloure són recursius i si una carpeta està exclosa i inclosa, es mostrarà.</string>
-    <string name="faq_9_title">Les imatges a pantalla completa tenen artefactes estranys, puc millorar d\'alguna manera la qualitat?</string>
-    <string name="faq_9_text">Sí, hi ha un commutador a la configuració que diu \"Substituïu imatges ampliades i de gran qualitat\", podeu fer-ho. Millora la qualitat de les imatges, però es borraran una vegada que intenteu fer zoom massa.</string>
     <string name="faq_10_title">Puc retallar imatges amb aquesta aplicació?</string>
     <string name="faq_10_text">Sí, pots retallar imatges a l\'editor, arrossegant les cantonades de la imatge. Pots accedir a l\'editor prement una miniatura d\'imatge i seleccionant Edita o seleccionant Edita des de la visualització de pantalla completa.</string>
     <string name="faq_11_title">Puc agrupar d\'alguna manera les miniatures del fitxer multimèdia?</string>

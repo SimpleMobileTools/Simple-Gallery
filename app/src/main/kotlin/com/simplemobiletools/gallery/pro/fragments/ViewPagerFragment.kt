@@ -13,6 +13,7 @@ import java.io.File
 abstract class ViewPagerFragment : Fragment() {
     var listener: FragmentListener? = null
 
+    protected var mTouchDownTime = 0L
     protected var mTouchDownX = 0f
     protected var mTouchDownY = 0f
     protected var mCloseDownThreshold = 100f
@@ -98,6 +99,7 @@ abstract class ViewPagerFragment : Fragment() {
     protected fun handleEvent(event: MotionEvent) {
         when (event.actionMasked) {
             MotionEvent.ACTION_DOWN -> {
+                mTouchDownTime = System.currentTimeMillis()
                 mTouchDownX = event.x
                 mTouchDownY = event.y
             }
@@ -106,7 +108,8 @@ abstract class ViewPagerFragment : Fragment() {
                 val diffX = mTouchDownX - event.x
                 val diffY = mTouchDownY - event.y
 
-                if (!mIgnoreCloseDown && Math.abs(diffY) > Math.abs(diffX) && diffY < -mCloseDownThreshold) {
+                val downGestureDuration = System.currentTimeMillis() - mTouchDownTime
+                if (!mIgnoreCloseDown && Math.abs(diffY) > Math.abs(diffX) && diffY < -mCloseDownThreshold && downGestureDuration < MAX_CLOSE_DOWN_GESTURE_DURATION) {
                     activity?.supportFinishAfterTransition()
                 }
                 mIgnoreCloseDown = false

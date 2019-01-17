@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Çekilen tarih değerini düzelt</string>
     <string name="fixing">Düzeltiliyor…</string>
     <string name="dates_fixed_successfully">Tarihler başarıyla düzeltildi</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">Medyayı filtrele</string>
@@ -87,7 +88,6 @@
     <string name="flip">Çevir</string>
     <string name="flip_horizontally">Yatay olarak çevir</string>
     <string name="flip_vertically">Dikey olarak çevir</string>
-    <string name="edit_with">Şununla düzenle</string>
     <string name="free_aspect_ratio">Serbest</string>               <!-- available as an option: 1:1, 4:3, 16:9, free -->
     <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
@@ -157,7 +157,6 @@
     <string name="allow_photo_gestures">Dikey hareketlerle fotoğraf parlaklığının kontrolüne izin ver</string>
     <string name="allow_video_gestures">Video sesini ve parlaklığını dikey hareketlerle kontrol etmeye izin ver</string>
     <string name="show_media_count">Ana görünümde klasör medya sayısını göster</string>
-    <string name="replace_share_with_rotate">Tam ekran menüsünde Döndür ile Paylaş\'ın yerini değiştir</string>
     <string name="show_extended_details">Tam ekran medya üzerinde genişletilmiş ayrıntıları göster</string>
     <string name="manage_extended_details">Genişletilmiş ayrıntıları yönet</string>
     <string name="one_finger_zoom">Tam ekran medyalarda tek parmakla yakınlaştırmaya izin ver</string>
@@ -172,6 +171,7 @@
     <string name="show_recycle_bin_last">Geri dönüşüm kutusu\'nu ana ekranda son öğe olarak göster</string>
     <string name="allow_down_gesture">Tam ekran görünümünü aşağı hareketi ile kapatmaya izin ver</string>
     <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
+    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Küçük resimler</string>
@@ -194,7 +194,6 @@
     <string name="faq_3_text">İstediğiniz albüme uzunca basabilir ve eylem menüsündeki Sabitle simgesini seçebilirsiniz. Birden çok klasörü de sabitleyebilirsiniz, sabitlenmiş öğeler varsayılan sıralama yöntemine göre sıralanır.</string>
     <string name="faq_4_title">Videoları nasıl hızlıca ileri sarabilirim?</string>
     <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
-    <string name="faq_4_text_old">Videoyu geriye ya da ileriye taşıyacak olan arama çubuğunun yakınındaki geçerli veya maksimum süre metinlerini tıklayabilirsiniz.</string>
     <string name="faq_5_title">Klasörün gizlenmesi ve hariç tutulması arasındaki fark nedir?</string>
     <string name="faq_5_text">Hariç tut, klasörü yalnızca Basit Galeri\'de görüntülemeyi engellerken, Gizle sistem genelinde çalışır ve klasörü diğer galerilerden de gizler. Verilen klasörde boş bir \".nomedia\" dosyası oluşturarak çalışır, daha sonra herhangi bir dosya yöneticisi ile kaldırabilirsiniz.</string>
     <string name="faq_6_title">Neden albüm resimlerini içeren klasörler görünüyor?</string>
@@ -204,8 +203,6 @@
     <string name="faq_8_title">Sadece birkaç belirli klasörün görünmesini istersem ne olur?</string>
     <string name="faq_8_text">Dahil Edilen Klasörler\'e bir klasör eklemek otomatik olarak hiçbir şeyi hariç tutmaz. Yapabilecekleriniz Ayarlar -> Hariç Tutulan Klasörleri Yönet, kök klasörü \"/\" hariç tut, ardından Ayarlar -> Dahil Edilen Klasörleri Yönet.
         Bu, hem hariç tutulan hem de dahil edilen olmak üzere, yalnızca seçilen klasörleri görünür hale getirir ve bir klasör her ikisi de hariç tutulur ve dahil edilirse, görünür.</string>
-    <string name="faq_9_title">Tam ekran görüntülerde garip eserler var, bir şekilde kaliteyi artırabilir miyim?</string>
-    <string name="faq_9_text">Evet, Ayarlar\'da \"Daha iyi kalitede olanlar ile derin yakınlaştırılabilir resimleri değiştir\" diyen bir geçiş var. Bunu kullanabilirsiniz. Görüntülerin kalitesini artırır, ancak çok fazla zum yapmaya çalıştığınızda bulanıklaşır.</string>
     <string name="faq_10_title">Bu uygulamayla görüntüleri kırpabilir miyim?</string>
     <string name="faq_10_text">Evet, görüntü köşelerini sürükleyerek resimleri düzenleyicide kırpabilirsiniz. Düzenleyiciye, bir resim küçük resmine uzun basıp Düzenle\'yi seçerek veya tam ekran görünümünden Düzenle\'yi seçerek ulaşabilirsiniz.</string>
     <string name="faq_11_title">Medya dosyası küçük resimlerini bir şekilde gruplayabilir miyim?</string>

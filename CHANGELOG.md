@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.2.2 *(2019-01-10)*
+----------------------------
+
+ * Reverted to the old way of playing videos, opening them on a separate screen can be enabled in the app settings
+ * Added some memory related improvements at displaying fullscreen images
+ * Allow showing videos in slideshows
+
 Version 6.2.1 *(2019-01-08)*
 ----------------------------
 
