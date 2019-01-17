@@ -366,7 +366,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun updatePagerItems(media: MutableList<Medium>) {
-        val pagerAdapter = MyPagerAdapter(this, supportFragmentManager, media)
+        val pagerAdapter = MyPagerAdapter(this, supportFragmentManager, media, view_pager)
         if (!isDestroyed) {
             view_pager.apply {
                 adapter = pagerAdapter
