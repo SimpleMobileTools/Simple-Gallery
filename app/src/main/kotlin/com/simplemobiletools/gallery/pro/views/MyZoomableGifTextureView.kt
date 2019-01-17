@@ -104,6 +104,7 @@ class MyZoomableGifTextureView(context: Context, attrs: AttributeSet) : GifTextu
                 mLastTouchX = event.x
                 mLastTouchY = event.y
                 mCurrZoomMode = ZOOM_MODE_ZOOM
+                mIgnoreCloseDown = true
             }
             MotionEvent.ACTION_MOVE -> {
                 if (mCurrZoomMode == ZOOM_MODE_ZOOM || mCurrZoomMode == ZOOM_MODE_DRAG && mSaveScale > MIN_VIDEO_ZOOM_SCALE) {
