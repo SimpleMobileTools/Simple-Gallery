@@ -31,7 +31,7 @@
     <string name="fix_date_taken">Исправить дату</string>
     <string name="fixing">Исправление…</string>
     <string name="dates_fixed_successfully">Даты исправлены</string>
-    <string name="share_resized">Share a resized version</string>
+    <string name="share_resized">Поделиться изменённой версией</string>
 
     <!-- Filter -->
     <string name="filter_media">Фильтр медиа</string>
@@ -147,7 +147,7 @@
     <string name="crop_thumbnails">Нарезать миниатюры на квадраты</string>
     <string name="show_thumbnail_video_duration">Показывать длительность видео</string>
     <string name="screen_rotation_by">Поворот экрана при просмотре изображения</string>
-    <string name="screen_rotation_system_setting">Использовать системные настройки</string>
+    <string name="screen_rotation_system_setting">Системные настройки</string>
     <string name="screen_rotation_device_rotation">При повороте устройства</string>
     <string name="screen_rotation_aspect_ratio">По размеру изображения</string>
     <string name="black_background_at_fullscreen">Чёрные фон и строка состояния при просмотре изображения</string>
@@ -171,7 +171,7 @@
     <string name="show_recycle_bin_last">Показывать корзину как последний элемент на главном экране</string>
     <string name="allow_down_gesture">Выходить из полноэкранного режима жестом вниз</string>
     <string name="allow_one_to_one_zoom">Масштаб 1:1 двумя двойными нажатиями</string>
-    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
+    <string name="open_videos_on_separate_screen">Всегда открывать видео на отдельном экране с новыми горизонтальными жестами</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюры</string>
