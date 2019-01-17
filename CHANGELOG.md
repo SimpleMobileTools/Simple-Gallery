@@ -1,6 +1,16 @@
 Changelog
 ==========
 
+Version 6.3.0 *(2019-01-17)*
+----------------------------
+
+ * Allow zooming GIFs and videos
+ * Allow sharing images directly from the editor
+ * Allow drawing in the editor
+ * If a folder is directly excluded, make it a higher priority than some included parent folder
+ * Added batch rotating from the thumbnails view
+ * Many other smaller improvements
+
 Version 6.2.2 *(2019-01-10)*
 ----------------------------
 
