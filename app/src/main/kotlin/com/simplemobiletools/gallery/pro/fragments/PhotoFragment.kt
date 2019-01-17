@@ -14,6 +14,8 @@ import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.alexvasilkov.gestures.GestureController
+import com.alexvasilkov.gestures.State
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -70,6 +72,7 @@ class PhotoFragment : ViewPagerFragment() {
     private var mIoadZoomableViewHandler = Handler()
     private var mScreenWidth = 0
     private var mScreenHeight = 0
+    private var mCurrentGestureViewZoom = 1f
 
     private var mStoredShowExtendedDetails = false
     private var mStoredHideExtendedDetails = false
@@ -105,13 +108,23 @@ class PhotoFragment : ViewPagerFragment() {
             }
 
             if (context.config.allowDownGesture) {
+                gestures_view.controller.addOnStateChangeListener(object : GestureController.OnStateChangeListener {
+                    override fun onStateReset(oldState: State, newState: State) {}
+
+                    override fun onStateChanged(state: State) {
+                        mCurrentGestureViewZoom = state.zoom
+                    }
+                })
+
                 gestures_view.setOnTouchListener { v, event ->
-                    handleEvent(event)
+                    if (mCurrentGestureViewZoom == 1f) {
+                        handleEvent(event)
+                    }
                     false
                 }
 
                 subsampling_view.setOnTouchListener { v, event ->
-                    if (mView.subsampling_view.scale == mOriginalSubsamplingScale) {
+                    if (subsampling_view.scale == mOriginalSubsamplingScale) {
                         handleEvent(event)
                     }
                     false
