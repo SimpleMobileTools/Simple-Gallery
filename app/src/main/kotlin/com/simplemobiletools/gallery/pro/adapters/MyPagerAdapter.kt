@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.PagerAdapter
-import com.simplemobiletools.commons.views.MyViewPager
 import com.simplemobiletools.gallery.pro.activities.ViewPagerActivity
 import com.simplemobiletools.gallery.pro.fragments.PhotoFragment
 import com.simplemobiletools.gallery.pro.fragments.VideoFragment
@@ -15,7 +14,7 @@ import com.simplemobiletools.gallery.pro.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.pro.helpers.MEDIUM
 import com.simplemobiletools.gallery.pro.models.Medium
 
-class MyPagerAdapter(val activity: ViewPagerActivity, fm: FragmentManager, val media: MutableList<Medium>, val viewPager: MyViewPager) : FragmentStatePagerAdapter(fm) {
+class MyPagerAdapter(val activity: ViewPagerActivity, fm: FragmentManager, val media: MutableList<Medium>) : FragmentStatePagerAdapter(fm) {
     private val fragments = HashMap<Int, ViewPagerFragment>()
     override fun getCount() = media.size
 
@@ -27,10 +26,6 @@ class MyPagerAdapter(val activity: ViewPagerActivity, fm: FragmentManager, val m
             VideoFragment()
         } else {
             PhotoFragment()
-        }
-
-        if (!medium.isVideo()) {
-            (fragment as? PhotoFragment)?.mViewPager = viewPager
         }
 
         fragment.arguments = bundle

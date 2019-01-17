@@ -30,7 +30,6 @@ import com.davemorrissey.labs.subscaleview.decoder.ImageDecoder
 import com.davemorrissey.labs.subscaleview.decoder.ImageRegionDecoder
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
-import com.simplemobiletools.commons.views.MyViewPager
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.PanoramaPhotoActivity
 import com.simplemobiletools.gallery.pro.activities.PhotoActivity
@@ -80,7 +79,6 @@ class PhotoFragment : ViewPagerFragment() {
     private var mStoredShowHighestQuality = false
     private var mStoredAllowOneFingerZoom = false
     private var mStoredExtendedDetails = 0
-    var mViewPager: MyViewPager? = null
 
     private lateinit var mView: ViewGroup
     private lateinit var mMedium: Medium
@@ -383,9 +381,6 @@ class PhotoFragment : ViewPagerFragment() {
         mView.gestures_view.controller.apply {
             settings.maxZoom = 3f
             settings.overzoomFactor = 1.2f
-            if (mViewPager != null) {
-                enableScrollInViewPager(mViewPager)
-            }
         }
     }
 
