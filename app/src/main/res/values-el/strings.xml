@@ -30,8 +30,8 @@
     <string name="use_default_orientation">Χρήση προεπιλογής</string>
     <string name="fix_date_taken">Διόρθωση ημερ. λήψης</string>
     <string name="fixing">Διορθώνεται…</string>
-    <string name="dates_fixed_successfully">Ημερ. διορθώθηκε με επιτυχία</string>
-    <string name="share_resized">Share a resized version</string>
+    <string name="dates_fixed_successfully">Η Ημερ. διορθώθηκε με επιτυχία</string>
+    <string name="share_resized">Διαμοιρασμός έκδοσης με αλλαγμένο μέγεθος</string>
 
     <!-- Filter -->
     <string name="filter_media">Φιλτράρισμα πολυμέσων</string>
@@ -89,7 +89,7 @@
     <string name="flip_horizontally">Οριζόντιο αναποδογύρισμα</string>
     <string name="flip_vertically">Κατακόρυφο αναποδογύρισμα</string>
     <string name="free_aspect_ratio">Ελεύθερο</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+    <string name="other_aspect_ratio">Άλλο</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
@@ -116,7 +116,7 @@
     <string name="loop_slideshow">Επανάληψη εμφάνισης διαφανιών</string>
     <string name="slideshow_ended">Η εμφάνιση διαφανειών τελείωσε</string>
     <string name="no_media_for_slideshow">Δεν βρέθηκαν πολυμέσα για την εμφάνιση διαφανειών</string>
-    <string name="use_crossfade_animation">Use crossfade animations</string>
+    <string name="use_crossfade_animation">Χρήση κίνησης εικόνων με διαγώνιο ξεθώριασμα</string>
 
     <!-- View types -->
     <string name="change_view_type">Αλλαγή τύπου εμφάνισης</string>
@@ -128,8 +128,8 @@
     <string name="group_by">Ομαδοποίηση κατά</string>
     <string name="do_not_group_files">Χωρίς</string>
     <string name="by_folder">Φάκελο</string>
-    <string name="by_last_modified">Τελευταία τροποποίηση</string>
-    <string name="by_date_taken">Ημερομηνία λήψης</string>
+    <string name="by_last_modified">Τελευταία τροπ/ηση</string>
+    <string name="by_date_taken">Ημερομ. λήψης</string>
     <string name="by_file_type">Τύπο αρχείου</string>
     <string name="by_extension">Επέκταση</string>
 
@@ -170,8 +170,8 @@
     <string name="show_highest_quality">Εμφάνιση εικόνων με την υψηλότερη δυνατή ποιότητα</string>
     <string name="show_recycle_bin_last">Εμφάνιση του Κάδου ως τελευταίο στοιχείο στην κύρια οθόνη</string>
     <string name="allow_down_gesture">Επιτρέψτε το κλείσιμο προβολής πλήρους οθόνης με χειρονομία προς τα κάτω</string>
-    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
-    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
+    <string name="allow_one_to_one_zoom">Allow 1:1 μεγένθυση με δύο διπλά χτυπήματα</string>
+    <string name="open_videos_on_separate_screen">Να ανοίγονται πάντα τα βίντεο σε ξεχωριστή οθόνη με νέες οριζόντιες χειρονομίες</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Εικονίδια</string>
@@ -193,7 +193,7 @@
     <string name="faq_3_title">Πώς μπορώ να κάνω ένα άλμπουμ να φαίνεται στην κορυφή;</string>
     <string name="faq_3_text">Μπορείτε να πατήσετε παρατεταμένα στο άλμπουμ και να επιλέξετε το εικονίδιο καρφιτσώματος στο μενού, αυτό θα το καρφιτσώσει στην κορυφή. Επίσης μπορείτε να καρφιτσώσετε πολλαπλούς φακέλους, τα καρφιτσωμένα αντικείμενα θα είναι ταξινομημένα με την προεπιλεγμένη μέθοδο.</string>
     <string name="faq_4_title">Πώς μπορώ να τρέξω μπροστά (fast-forward) τα βίντεο;</string>
-    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
+    <string name="faq_4_text">Μπορείτε είτε να σύρετε το δάχτυλό σας οριζόντια πάνω από το πρόγραμμα αναπαραγωγής Βίντεο ή να κάνετε κλικ στα γράμματα της τρέχουσας ή της μέγιστης διάρκειας κοντά στο Γραμμή Αναζήτησης. Αυτό θα μετακινήσει το βίντεο προς τα πίσω ή προς τα εμπρός.</string>
     <string name="faq_5_title">Ποια είναι διαφορά μεταξύ απόκρυψης και εξαίρεσης ενός φακέλου;</string>
     <string name="faq_5_text">Η εξαίρεση δεν επιτρέπει την εμφάνιση του φακέλου μόνο στο Simple Gallery, ενώ η απόκρυψη λειτουργεί σε επίπεδο συστήματος και θα αποκρύψει τον φάκελο και από άλλες εφαρμογές γκάλερι. Λειτουργεί δημιουργώντας ένα άδειο \".nomedia\" αρχείο στον επιλεγμένο φάκελο, το οποίο μπορείτε να το διαγράψετε και με οποιονδήποτε διαχειριστή αρχείων.</string>
     <string name="faq_6_title">Γιατί εμφανίζονται φάκελοι με εξώφυλλο μουσικής ή αυτόκολλητα;</string>
@@ -216,7 +216,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
+    <string name="app_short_description">Μια offline Gallery διαχείρισης των αρχείων σας χωρίς διαφημίσεις, σεβόμενοι τα προσωπικά σας δεδομένα.</string>
     <string name="app_long_description">
         Μια εξαιρετικά προσαρμόσιμη Gallery ικανή να εμφανίζει πολλούς διαφορετικούς τύπους εικόνας και βίντεο, όπως SVGs, RAWs, πανοραμικές φωτογραφίες και βίντεο.
 
