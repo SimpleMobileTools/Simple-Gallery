@@ -31,7 +31,7 @@
     <string name="fix_date_taken">修復拍照日期數值</string>
     <string name="fixing">修復中…</string>
     <string name="dates_fixed_successfully">日期修復成功</string>
-    <string name="share_resized">Share a resized version</string>
+    <string name="share_resized">分享調整大小的版本</string>
 
     <!-- Filter -->
     <string name="filter_media">篩選媒體檔案</string>
