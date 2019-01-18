@@ -31,7 +31,7 @@
     <string name="fix_date_taken">Correggi valore Data acquisizione</string>
     <string name="fixing">Correzione in corso…</string>
     <string name="dates_fixed_successfully">Date aggiornate correttamente</string>
-    <string name="share_resized">Share a resized version</string>
+    <string name="share_resized">Condividi una versione ridimensionata</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtra i file</string>
