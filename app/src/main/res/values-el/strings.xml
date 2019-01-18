@@ -216,7 +216,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Μια offline Gallery διαχείρισης των αρχείων σας χωρίς διαφημίσεις, σεβόμενοι τα προσωπικά σας δεδομένα.</string>
+    <string name="app_short_description">Μια offline Gallery χωρίς διαφημίσεις, σεβόμενοι τα προσωπικά σας δεδομένα.</string>
     <string name="app_long_description">
         Μια εξαιρετικά προσαρμόσιμη Gallery ικανή να εμφανίζει πολλούς διαφορετικούς τύπους εικόνας και βίντεο, όπως SVGs, RAWs, πανοραμικές φωτογραφίες και βίντεο.
 
