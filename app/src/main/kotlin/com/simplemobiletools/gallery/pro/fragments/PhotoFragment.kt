@@ -335,7 +335,6 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun loadSVG() {
-        setupGestureView()
         Glide.with(context!!)
                 .`as`(PictureDrawable::class.java)
                 .listener(SvgSoftwareLayerSetter())
@@ -356,9 +355,10 @@ class PhotoFragment : ViewPagerFragment() {
 
             if (degrees != 0) {
                 picasso.rotate(degrees.toFloat())
+            } else {
+                degreesForRotation(mImageOrientation).toFloat()
             }
 
-            setupGestureView()
             picasso.into(mView.gestures_view, object : Callback {
                 override fun onSuccess() {
                     mView.gestures_view.controller.settings.isZoomEnabled = degrees != 0 || context?.config?.allowZoomingImages == false
@@ -374,13 +374,6 @@ class PhotoFragment : ViewPagerFragment() {
                 }
             })
         } catch (ignored: Exception) {
-        }
-    }
-
-    private fun setupGestureView() {
-        mView.gestures_view.controller.apply {
-            settings.maxZoom = 3f
-            settings.overzoomFactor = 1.2f
         }
     }
 
@@ -456,9 +449,9 @@ class PhotoFragment : ViewPagerFragment() {
             isQuickScaleEnabled = config.oneFingerZoom
             isOneToOneZoomEnabled = config.allowOneToOneZoom
             setResetScaleOnSizeChange(false)
-            setImage(ImageSource.uri(path))
             setOrientation(rotation)
             setEagerLoadingEnabled(false)
+            setImage(ImageSource.uri(path))
             setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {
                 override fun onImageLoaded() {
                 }
