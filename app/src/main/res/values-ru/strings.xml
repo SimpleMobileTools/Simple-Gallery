@@ -65,7 +65,7 @@
 
     <!-- Resizing -->
     <string name="resize">Изменить размер</string>
-    <string name="resize_and_save">Изменить выбранное и сохранить</string>
+    <string name="resize_and_save">Изменить и сохранить</string>
     <string name="width">Ширина</string>
     <string name="height">Высота</string>
     <string name="keep_aspect_ratio">Сохранять соотношение сторон</string>
@@ -107,14 +107,14 @@
     <!-- Slideshow -->
     <string name="slideshow">Слайдшоу</string>
     <string name="interval">Интервал (в секундах):</string>
-    <string name="include_photos">Использовать изображения</string>
-    <string name="include_videos">Использовать видео</string>
-    <string name="include_gifs">Использовать GIF</string>
+    <string name="include_photos">Изображения</string>
+    <string name="include_videos">Видео</string>
+    <string name="include_gifs">GIF</string>
     <string name="random_order">В случайном порядке</string>
     <string name="use_fade">Эффект затухания</string>
     <string name="move_backwards">В обратном порядке</string>
     <string name="loop_slideshow">Зациклить</string>
-    <string name="slideshow_ended">Слайдшоу завершилось</string>
+    <string name="slideshow_ended">Слайдшоу завершено</string>
     <string name="no_media_for_slideshow">Медиафайлов для слайдшоу не найдено</string>
     <string name="use_crossfade_animation">Эффект плавного перехода</string>
 
@@ -129,7 +129,7 @@
     <string name="do_not_group_files">Не группировать файлы</string>
     <string name="by_folder">Папка</string>
     <string name="by_last_modified">Последнее изменение</string>
-    <string name="by_date_taken">Дата</string>
+    <string name="by_date_taken">Дата съёмки</string>
     <string name="by_file_type">Тип файла</string>
     <string name="by_extension">Расширение</string>
 
@@ -160,18 +160,18 @@
     <string name="show_extended_details">Показывать сведения о файле</string>
     <string name="manage_extended_details">Выбор сведений о файле</string>
     <string name="one_finger_zoom">Масштабирование одним пальцем при просмотре изображения</string>
-    <string name="allow_instant_change">Мгновенное переключение медиафайлов нажатием по краю экрана</string>
+    <string name="allow_instant_change">Переключение медиафайлов нажатием по краю экрана</string>
     <string name="allow_deep_zooming_images">Включить полное масштабирование</string>
     <string name="hide_extended_details">Скрывать сведения о файле при скрытой строке состояния</string>
     <string name="do_extra_check">Дополнительная проверка, чтобы избежать показа неподдерживаемых файлов</string>
     <string name="show_at_bottom">Показывать кнопки действий в нижней части экрана</string>
     <string name="show_recycle_bin">Показывать корзину вместе с папками</string>
-    <string name="deep_zoomable_images">Масштабируемые изображения</string>
+    <string name="deep_zoomable_images">Масштабирование изображения</string>
     <string name="show_highest_quality">Показывать изображения с максимально высоким качеством</string>
     <string name="show_recycle_bin_last">Показывать корзину как последний элемент на главном экране</string>
-    <string name="allow_down_gesture">Выходить из полноэкранного режима жестом вниз</string>
+    <string name="allow_down_gesture">Отключать полноэкранный режим жестом вниз</string>
     <string name="allow_one_to_one_zoom">Масштаб 1:1 двумя двойными нажатиями</string>
-    <string name="open_videos_on_separate_screen">Всегда открывать видео на отдельном экране с новыми горизонтальными жестами</string>
+    <string name="open_videos_on_separate_screen">Воспроизводить видео на отдельном экране с управлением позицией горизонтальными жестами</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюры</string>
