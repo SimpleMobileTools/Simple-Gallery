@@ -464,17 +464,8 @@ class PhotoFragment : ViewPagerFragment() {
                 override fun onTileLoadError(e: Exception) {
                 }
 
-                override fun onPreviewReleased() {
-                }
-
                 override fun onImageLoadError(e: Exception) {
                     mView.gestures_view.controller.settings.isZoomEnabled = true
-                    background = ColorDrawable(Color.TRANSPARENT)
-                    mIsSubsamplingVisible = false
-                    beGone()
-                }
-
-                override fun onPreviewLoadError(e: Exception) {
                     background = ColorDrawable(Color.TRANSPARENT)
                     mIsSubsamplingVisible = false
                     beGone()
