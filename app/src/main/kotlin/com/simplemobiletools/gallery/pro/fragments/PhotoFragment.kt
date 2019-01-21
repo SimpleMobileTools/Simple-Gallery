@@ -23,7 +23,6 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
-import com.davemorrissey.labs.subscaleview.ImageSource
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import com.davemorrissey.labs.subscaleview.decoder.DecoderFactory
 import com.davemorrissey.labs.subscaleview.decoder.ImageDecoder
@@ -448,8 +447,8 @@ class PhotoFragment : ViewPagerFragment() {
             beVisible()
             isQuickScaleEnabled = config.oneFingerZoom
             isOneToOneZoomEnabled = config.allowOneToOneZoom
-            setOrientation(rotation)
-            setImage(ImageSource.uri(path))
+            orientation = rotation
+            setImage(path)
             onImageEventListener = object : SubsamplingScaleImageView.OnImageEventListener {
                 override fun onImageLoaded() {
                 }
