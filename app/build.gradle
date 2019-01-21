@@ -79,5 +79,5 @@ dependencies {
 
     //implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.10.0'
     //implementation 'com.github.tibbi:subsampling-scale-image-view:v3.10.1-fork'
-    implementation 'com.github.tibbi:subsampling-scale-image-view:9e9a393cc3'
+    implementation 'com.github.tibbi:subsampling-scale-image-view:bf097548ba'
 }

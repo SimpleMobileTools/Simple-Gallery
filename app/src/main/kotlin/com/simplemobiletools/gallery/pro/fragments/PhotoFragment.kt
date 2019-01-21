@@ -442,17 +442,15 @@ class PhotoFragment : ViewPagerFragment() {
             setMaxTileSize(if (config.showHighestQuality) Integer.MAX_VALUE else 4096)
             setMinimumTileDpi(if (config.showHighestQuality) -1 else getMinTileDpi())
             background = ColorDrawable(Color.TRANSPARENT)
-            setBitmapDecoderFactory(bitmapDecoder)
-            setRegionDecoderFactory(regionDecoder)
+            bitmapDecoderFactory = bitmapDecoder
+            regionDecoderFactory = regionDecoder
             maxScale = 10f
             beVisible()
             isQuickScaleEnabled = config.oneFingerZoom
             isOneToOneZoomEnabled = config.allowOneToOneZoom
-            setResetScaleOnSizeChange(false)
             setOrientation(rotation)
-            setEagerLoadingEnabled(false)
             setImage(ImageSource.uri(path))
-            setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {
+            onImageEventListener = object : SubsamplingScaleImageView.OnImageEventListener {
                 override fun onImageLoaded() {
                 }
 
@@ -460,7 +458,7 @@ class PhotoFragment : ViewPagerFragment() {
                     background = ColorDrawable(if (config.blackBackground) Color.BLACK else config.backgroundColor)
                     val useWidth = if (mImageOrientation == ORIENTATION_ROTATE_90 || mImageOrientation == ORIENTATION_ROTATE_270) sHeight else sWidth
                     val useHeight = if (mImageOrientation == ORIENTATION_ROTATE_90 || mImageOrientation == ORIENTATION_ROTATE_270) sWidth else sHeight
-                    setDoubleTapZoomScale(getDoubleTapZoomScale(useWidth, useHeight))
+                    doubleTapZoomScale = getDoubleTapZoomScale(useWidth, useHeight)
                     mOriginalSubsamplingScale = scale
                 }
 
@@ -482,7 +480,7 @@ class PhotoFragment : ViewPagerFragment() {
                     mIsSubsamplingVisible = false
                     beGone()
                 }
-            })
+            }
         }
     }
 
