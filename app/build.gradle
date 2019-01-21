@@ -70,14 +70,11 @@ dependencies {
     implementation 'info.androidhive:imagefilters:1.0.7'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.caverock:androidsvg-aar:1.3'
-    implementation 'com.alexvasilkov:gesture-views:2.5.2'
+    implementation 'com.github.tibbi:gestureviews:57844bb1d5'
+    implementation 'com.github.tibbi:subsampling-scale-image-view:bf097548ba'
     kapt 'com.github.bumptech.glide:compiler:4.8.0' // keep it here too, not just in Commons, else loading SVGs wont work
 
     kapt 'androidx.room:room-compiler:2.0.0'
     implementation 'androidx.room:room-runtime:2.0.0'
     annotationProcessor 'androidx.room:room-compiler:2.0.0'
-
-    //implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.10.0'
-    //implementation 'com.github.tibbi:subsampling-scale-image-view:v3.10.1-fork'
-    implementation 'com.github.tibbi:subsampling-scale-image-view:bf097548ba'
 }
