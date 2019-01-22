@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.3.1 *(2019-01-22)*
+----------------------------
+
+ * Fixed fullscreen images crashing when the app was installed on an SD card
+ * A couple other fullscreen image viewer improvements
+ * Allow batch rotating only images, ignore other file types
+
 Version 6.3.0 *(2019-01-17)*
 ----------------------------
 
