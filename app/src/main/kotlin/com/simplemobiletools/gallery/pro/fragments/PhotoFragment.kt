@@ -106,8 +106,6 @@ class PhotoFragment : ViewPagerFragment() {
 
             if (context.config.allowDownGesture) {
                 gestures_view.controller.addOnStateChangeListener(object : GestureController.OnStateChangeListener {
-                    override fun onStateReset(oldState: State, newState: State) {}
-
                     override fun onStateChanged(state: State) {
                         mCurrentGestureViewZoom = state.zoom
                     }
