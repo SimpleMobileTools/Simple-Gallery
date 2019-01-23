@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.3.2 *(2019-01-23)*
+----------------------------
+
+ * Fixed some fullscreen image and gif issues related to zooming
+ * Show directly included folders even if they contain a .nomedia file
+
 Version 6.3.1 *(2019-01-22)*
 ----------------------------
 
