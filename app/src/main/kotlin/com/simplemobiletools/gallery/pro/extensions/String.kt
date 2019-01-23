@@ -21,9 +21,13 @@ fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPath
     val file = File(this)
     return if (isEmpty()) {
         false
+    } else if (!showHidden && file.isHidden) {
+        false
+    } else if (includedPaths.contains(this)) {
+        true
     } else if (!showHidden && file.containsNoMedia()) {
         false
-    } else if (excludedPaths.contains(this) && !includedPaths.contains(this)) {
+    } else if (excludedPaths.contains(this)) {
         false
     } else if (isThisOrParentIncluded(includedPaths)) {
         true
