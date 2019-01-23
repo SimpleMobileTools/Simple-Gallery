@@ -224,6 +224,7 @@ class PhotoFragment : ViewPagerFragment() {
         // avoid GIFs being skewed, played in wrong aspect ratio
         if (mMedium.isGIF()) {
             mView.onGlobalLayout {
+                measureScreen()
                 Handler().postDelayed({
                     loadGif()
                 }, 50)

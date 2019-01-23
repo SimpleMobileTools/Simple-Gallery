@@ -50,6 +50,7 @@ class MyZoomableGifTextureView(context: Context, attrs: AttributeSet) : GifTextu
             return
         }
 
+        mSaveScale = 1f
         mGifWidth = gifWidth.toFloat()
         mGifHeight = gifHeight.toFloat()
         mScreenWidth = screenWidth.toFloat()
