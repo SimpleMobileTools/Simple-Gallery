@@ -31,7 +31,7 @@
     <string name="fix_date_taken">Corrigir data de obtenção</string>
     <string name="fixing">A corrigir…</string>
     <string name="dates_fixed_successfully">Dados corrigidos com sucesso</string>
-    <string name="share_resized">Share a resized version</string>
+    <string name="share_resized">Partilhar foto redimensionada</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrar multimédia</string>
@@ -111,7 +111,7 @@
     <string name="include_videos">Incluir vídeos</string>
     <string name="include_gifs">Incluir GIF</string>
     <string name="random_order">Ordem aleatória</string>
-    <string name="use_fade">Usar animações</string>
+    <string name="use_fade">Utilizar animações</string>
     <string name="move_backwards">Mover para trás</string>
     <string name="loop_slideshow">Apresentação em ciclo</string>
     <string name="slideshow_ended">Apresentação terminada</string>
