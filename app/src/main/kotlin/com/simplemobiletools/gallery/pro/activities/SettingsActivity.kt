@@ -81,12 +81,15 @@ class SettingsActivity : SimpleActivity() {
         setupEmptyRecycleBin()
         updateTextColors(settings_holder)
         setupSectionColors()
+        setupExportSettings()
+        setupImportSettings()
     }
 
     private fun setupSectionColors() {
         val adjustedPrimaryColor = getAdjustedPrimaryColor()
         arrayListOf(visibility_label, videos_label, thumbnails_label, scrolling_label, fullscreen_media_label, security_label,
-                file_operations_label, deep_zoomable_images_label, extended_details_label, bottom_actions_label, recycle_bin_label).forEach {
+                file_operations_label, deep_zoomable_images_label, extended_details_label, bottom_actions_label, recycle_bin_label,
+                migrating_label).forEach {
             it.setTextColor(adjustedPrimaryColor)
         }
     }
@@ -566,6 +569,18 @@ class SettingsActivity : SimpleActivity() {
                     settings_empty_recycle_bin_size.text = 0L.formatSize()
                 }
             }
+        }
+    }
+
+    private fun setupExportSettings() {
+        settings_export_holder.setOnClickListener {
+
+        }
+    }
+
+    private fun setupImportSettings() {
+        settings_import_holder.setOnClickListener {
+
         }
     }
 }
