@@ -375,7 +375,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         activity.handleSAFDialog(SAFPath) {
             val fileDirItems = ArrayList<FileDirItem>(selectedKeys.size)
             val removeMedia = ArrayList<Medium>(selectedKeys.size)
-            val position = getSelectedItemPositions()
+            val positions = getSelectedItemPositions()
 
             getSelectedItems().forEach {
                 fileDirItems.add(FileDirItem(it.path, it.name))
@@ -384,7 +384,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
             media.removeAll(removeMedia)
             listener?.tryDeleteFiles(fileDirItems)
-            removeSelectedItems(position)
+            removeSelectedItems(positions)
         }
     }
 
