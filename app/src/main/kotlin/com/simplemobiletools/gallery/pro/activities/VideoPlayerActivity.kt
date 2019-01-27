@@ -26,7 +26,6 @@ import com.google.android.exoplayer2.upstream.DataSpec
 import com.google.android.exoplayer2.video.VideoListener
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
-import com.simplemobiletools.commons.helpers.isPiePlus
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.*
@@ -72,6 +71,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video_player)
         setupOrientation()
+        checkNotchSupport()
 
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
@@ -158,11 +158,6 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         mUri = intent.data ?: return
         supportActionBar?.title = getFilenameFromUri(mUri!!)
         initTimeHolder()
-
-        if (isPiePlus()) {
-            window.attributes.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        }
 
         showSystemUI(true)
         window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->

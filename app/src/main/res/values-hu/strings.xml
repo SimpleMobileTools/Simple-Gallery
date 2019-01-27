@@ -173,6 +173,7 @@
     <string name="allow_down_gesture">Engedélyezi a teljes képernyős nézetet a lefelé mozdulattal</string>
     <string name="allow_one_to_one_zoom">Engedélyezi az 1:1 nagyítást két dupla érintéssel</string>
     <string name="open_videos_on_separate_screen">Mindig külön képernyőn nyissa meg a videókat új vízszintes mozdulattal</string>
+    <string name="show_notch">Show a notch if available</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatűrök</string>

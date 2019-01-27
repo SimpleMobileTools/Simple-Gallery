@@ -14,7 +14,6 @@ import com.google.vr.sdk.widgets.video.VrVideoEventListener
 import com.google.vr.sdk.widgets.video.VrVideoView
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
-import com.simplemobiletools.commons.helpers.isPiePlus
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.MIN_SKIP_LENGTH
@@ -44,11 +43,7 @@ open class PanoramaVideoActivity : SimpleActivity(), SeekBar.OnSeekBarChangeList
         setContentView(R.layout.activity_panorama_video)
         supportActionBar?.hide()
 
-        if (isPiePlus()) {
-            window.attributes.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        }
-
+        checkNotchSupport()
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
                 checkIntent()

@@ -1,7 +1,11 @@
 package com.simplemobiletools.gallery.pro.activities
 
+import android.annotation.SuppressLint
+import android.view.WindowManager
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
+import com.simplemobiletools.commons.helpers.isPiePlus
 import com.simplemobiletools.gallery.pro.R
+import com.simplemobiletools.gallery.pro.extensions.config
 
 open class SimpleActivity : BaseSimpleActivity() {
     override fun getAppIconIDs() = arrayListOf(
@@ -27,4 +31,19 @@ open class SimpleActivity : BaseSimpleActivity() {
     )
 
     override fun getAppLauncherName() = getString(R.string.app_launcher_name)
+
+    @SuppressLint("InlinedApi")
+    protected fun checkNotchSupport() {
+        if (isPiePlus()) {
+            val cutoutMode = when {
+                config.showNotch -> WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
+                else -> WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_NEVER
+            }
+
+            window.attributes.layoutInDisplayCutoutMode = cutoutMode
+            if (config.showNotch) {
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            }
+        }
+    }
 }

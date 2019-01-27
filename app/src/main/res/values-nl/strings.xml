@@ -172,6 +172,7 @@
     <string name="allow_down_gesture">Naar beneden vegen om volledig scherm af te sluiten</string>
     <string name="allow_one_to_one_zoom">1:1 zoomen na 2x dubbelklikken</string>
     <string name="open_videos_on_separate_screen">Video\'s altijd in apart scherm met horizontale veeggebaren openen</string>
+    <string name="show_notch">Show a notch if available</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatuurvoorbeelden</string>

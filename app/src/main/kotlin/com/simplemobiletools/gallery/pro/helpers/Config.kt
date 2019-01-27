@@ -461,4 +461,8 @@ class Config(context: Context) : BaseConfig(context) {
     var lastEditorBrushSize: Int
         get() = prefs.getInt(LAST_EDITOR_BRUSH_SIZE, 50)
         set(lastEditorBrushSize) = prefs.edit().putInt(LAST_EDITOR_BRUSH_SIZE, lastEditorBrushSize).apply()
+
+    var showNotch: Boolean
+        get() = prefs.getBoolean(SHOW_NOTCH, true)
+        set(showNotch) = prefs.edit().putBoolean(SHOW_NOTCH, showNotch).apply()
 }

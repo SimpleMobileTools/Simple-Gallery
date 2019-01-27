@@ -2,7 +2,6 @@ package com.simplemobiletools.gallery.pro.activities
 
 import android.animation.Animator
 import android.animation.ValueAnimator
-import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.ActivityInfo
@@ -12,7 +11,6 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.media.ExifInterface
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
@@ -70,17 +68,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mMediaFiles = ArrayList<Medium>()
     private var mFavoritePaths = ArrayList<String>()
 
-    @TargetApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medium)
 
         top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
-        if (isPiePlus()) {
-            window.attributes.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        }
-
+        checkNotchSupport()
         (MediaActivity.mMedia.clone() as ArrayList<ThumbnailItem>).filter { it is Medium }.mapTo(mMediaFiles) { it as Medium }
 
         handlePermission(PERMISSION_WRITE_STORAGE) {

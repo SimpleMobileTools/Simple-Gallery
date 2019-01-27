@@ -8,6 +8,7 @@ import com.simplemobiletools.commons.dialogs.SecurityDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PROTECTION_FINGERPRINT
 import com.simplemobiletools.commons.helpers.SHOW_ALL_TABS
+import com.simplemobiletools.commons.helpers.isPiePlus
 import com.simplemobiletools.commons.helpers.sumByLong
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.pro.R
@@ -57,6 +58,7 @@ class SettingsActivity : SimpleActivity() {
         setupAllowPhotoGestures()
         setupAllowVideoGestures()
         setupAllowDownGesture()
+        setupShowNotch()
         setupBottomActions()
         setupThumbnailVideoDuration()
         setupShowMediaCount()
@@ -339,6 +341,15 @@ class SettingsActivity : SimpleActivity() {
         settings_allow_down_gesture_holder.setOnClickListener {
             settings_allow_down_gesture.toggle()
             config.allowDownGesture = settings_allow_down_gesture.isChecked
+        }
+    }
+
+    private fun setupShowNotch() {
+        settings_show_notch_holder.beVisibleIf(isPiePlus())
+        settings_show_notch.isChecked = config.showNotch
+        settings_show_notch_holder.setOnClickListener {
+            settings_show_notch.toggle()
+            config.showNotch = settings_show_notch.isChecked
         }
     }
 

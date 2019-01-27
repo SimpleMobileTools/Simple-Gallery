@@ -172,6 +172,7 @@
     <string name="allow_down_gesture">Tillat lukking av mediavisningen med en nedoverbevegelse</string>
     <string name="allow_one_to_one_zoom">Tillat å zoome 1:1 med to dobbeltrykk</string>
     <string name="open_videos_on_separate_screen">Åpne alltid videoer på en separat skjerm med nye horisontale bevegelser</string>
+    <string name="show_notch">Show a notch if available</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Minibilder</string>

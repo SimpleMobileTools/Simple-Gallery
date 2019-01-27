@@ -172,6 +172,7 @@
     <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
     <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
     <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
+    <string name="show_notch">Show a notch if available</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>

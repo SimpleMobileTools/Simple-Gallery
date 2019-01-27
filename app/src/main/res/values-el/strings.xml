@@ -172,6 +172,7 @@
     <string name="allow_down_gesture">Επιτρέψτε το κλείσιμο προβολής πλήρους οθόνης με χειρονομία προς τα κάτω</string>
     <string name="allow_one_to_one_zoom">Allow 1:1 μεγένθυση με δύο διπλά χτυπήματα</string>
     <string name="open_videos_on_separate_screen">Να ανοίγονται πάντα τα βίντεο σε ξεχωριστή οθόνη με νέες οριζόντιες χειρονομίες</string>
+    <string name="show_notch">Show a notch if available</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Εικονίδια</string>
