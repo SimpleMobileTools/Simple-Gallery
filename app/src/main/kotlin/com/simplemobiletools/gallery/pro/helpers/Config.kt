@@ -154,7 +154,7 @@ class Config(context: Context) : BaseConfig(context) {
 
     var autoplayVideos: Boolean
         get() = prefs.getBoolean(AUTOPLAY_VIDEOS, false)
-        set(autoplay) = prefs.edit().putBoolean(AUTOPLAY_VIDEOS, autoplay).apply()
+        set(autoplayVideos) = prefs.edit().putBoolean(AUTOPLAY_VIDEOS, autoplayVideos).apply()
 
     var animateGifs: Boolean
         get() = prefs.getBoolean(ANIMATE_GIFS, false)
@@ -189,8 +189,8 @@ class Config(context: Context) : BaseConfig(context) {
         set(display) = prefs.edit().putBoolean(DISPLAY_FILE_NAMES, display).apply()
 
     var blackBackground: Boolean
-        get() = prefs.getBoolean(DARK_BACKGROUND, false)
-        set(darkBackground) = prefs.edit().putBoolean(DARK_BACKGROUND, darkBackground).apply()
+        get() = prefs.getBoolean(BLACK_BACKGROUND, false)
+        set(blackBackground) = prefs.edit().putBoolean(BLACK_BACKGROUND, blackBackground).apply()
 
     var filterMedia: Int
         get() = prefs.getInt(FILTER_MEDIA, TYPE_IMAGES or TYPE_VIDEOS or TYPE_GIFS or TYPE_RAWS or TYPE_SVGS)
@@ -398,7 +398,7 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getStringSet(EVER_SHOWN_FOLDERS, getEverShownFolders())
         set(everShownFolders) = prefs.edit().putStringSet(EVER_SHOWN_FOLDERS, everShownFolders).apply()
 
-    fun getEverShownFolders() = hashSetOf(
+    private fun getEverShownFolders() = hashSetOf(
             internalStoragePath,
             Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).absolutePath,
             Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath,

@@ -2,14 +2,12 @@ package com.simplemobiletools.gallery.pro.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.dialogs.SecurityDialog
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.PROTECTION_FINGERPRINT
-import com.simplemobiletools.commons.helpers.SHOW_ALL_TABS
-import com.simplemobiletools.commons.helpers.isPiePlus
-import com.simplemobiletools.commons.helpers.sumByLong
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.dialogs.ManageBottomActionsDialog
@@ -574,7 +572,84 @@ class SettingsActivity : SimpleActivity() {
 
     private fun setupExportSettings() {
         settings_export_holder.setOnClickListener {
-
+            val configItems = HashMap<String, Any>().apply {
+                put(IS_USING_SHARED_THEME, config.isUsingSharedTheme)
+                put(TEXT_COLOR, config.textColor)
+                put(BACKGROUND_COLOR, config.backgroundColor)
+                put(PRIMARY_COLOR, config.primaryColor)
+                put(APP_ICON_COLOR, config.appIconColor)
+                put(USE_ENGLISH, config.useEnglish)
+                put(WAS_USE_ENGLISH_TOGGLED, config.wasUseEnglishToggled)
+                put(INCLUDED_FOLDERS, TextUtils.join(",", config.includedFolders))
+                put(EXCLUDED_FOLDERS, TextUtils.join(",", config.excludedFolders))
+                put(SHOW_HIDDEN_MEDIA, config.showHiddenMedia)
+                put(DO_EXTRA_CHECK, config.doExtraCheck)
+                put(AUTOPLAY_VIDEOS, config.autoplayVideos)
+                put(REMEMBER_LAST_VIDEO_POSITION, config.rememberLastVideoPosition)
+                put(LAST_VIDEO_PATH, config.lastVideoPath)
+                put(LOOP_VIDEOS, config.loopVideos)
+                put(OPEN_VIDEOS_ON_SEPARATE_SCREEN, config.openVideosOnSeparateScreen)
+                put(ALLOW_VIDEO_GESTURES, config.allowVideoGestures)
+                put(ANIMATE_GIFS, config.animateGifs)
+                put(CROP_THUMBNAILS, config.cropThumbnails)
+                put(SHOW_THUMBNAIL_VIDEO_DURATION, config.showThumbnailVideoDuration)
+                put(SHOW_MEDIA_COUNT, config.showMediaCount)
+                put(SHOW_INFO_BUBBLE, config.showInfoBubble)
+                put(SCROLL_HORIZONTALLY, config.scrollHorizontally)
+                put(ENABLE_PULL_TO_REFRESH, config.enablePullToRefresh)
+                put(MAX_BRIGHTNESS, config.maxBrightness)
+                put(BLACK_BACKGROUND, config.blackBackground)
+                put(HIDE_SYSTEM_UI, config.hideSystemUI)
+                put(ALLOW_INSTANT_CHANGE, config.allowInstantChange)
+                put(ALLOW_PHOTO_GESTURES, config.allowPhotoGestures)
+                put(ALLOW_DOWN_GESTURE, config.allowDownGesture)
+                put(SHOW_NOTCH, config.showNotch)
+                put(SCREEN_ROTATION, config.screenRotation)
+                put(ALLOW_ZOOMING_IMAGES, config.allowZoomingImages)
+                put(SHOW_HIGHEST_QUALITY, config.showHighestQuality)
+                put(ONE_FINGER_ZOOM, config.oneFingerZoom)
+                put(ALLOW_ONE_TO_ONE_ZOOM, config.allowOneToOneZoom)
+                put(SHOW_EXTENDED_DETAILS, config.showExtendedDetails)
+                put(HIDE_EXTENDED_DETAILS, config.hideExtendedDetails)
+                put(EXTENDED_DETAILS, config.extendedDetails)
+                put(DELETE_EMPTY_FOLDERS, config.deleteEmptyFolders)
+                put(KEEP_LAST_MODIFIED, config.keepLastModified)
+                put(SKIP_DELETE_CONFIRMATION, config.skipDeleteConfirmation)
+                put(BOTTOM_ACTIONS, config.bottomActions)
+                put(VISIBLE_BOTTOM_ACTIONS, config.visibleBottomActions)
+                put(USE_RECYCLE_BIN, config.useRecycleBin)
+                put(SHOW_RECYCLE_BIN_AT_FOLDERS, config.showRecycleBinAtFolders)
+                put(SHOW_RECYCLE_BIN_LAST, config.showRecycleBinLast)
+                put(SORT_ORDER, config.sorting)
+                put(DIRECTORY_SORT_ORDER, config.directorySorting)
+                put(GROUP_BY, config.groupBy)
+                put(GROUP_DIRECT_SUBFOLDERS, config.groupDirectSubfolders)
+                put(PINNED_FOLDERS, TextUtils.join(",", config.pinnedFolders))
+                put(DISPLAY_FILE_NAMES, config.displayFileNames)
+                put(FILTER_MEDIA, config.filterMedia)
+                put(DIR_COLUMN_CNT, config.dirColumnCnt)
+                put(MEDIA_COLUMN_CNT, config.mediaColumnCnt)
+                put(ALBUM_COVERS, config.albumCovers)
+                put(SHOW_ALL, config.showAll)
+                put(SHOW_WIDGET_FOLDER_NAME, config.showWidgetFolderName)
+                put(WIDGET_BG_COLOR, config.widgetBgColor)
+                put(WIDGET_TEXT_COLOR, config.widgetTextColor)
+                put(VIEW_TYPE_FILES, config.viewTypeFiles)
+                put(VIEW_TYPE_FOLDERS, config.viewTypeFolders)
+                put(SLIDESHOW_INTERVAL, config.slideshowInterval)
+                put(SLIDESHOW_INCLUDE_VIDEOS, config.slideshowIncludeVideos)
+                put(SLIDESHOW_INCLUDE_GIFS, config.slideshowIncludeGIFs)
+                put(SLIDESHOW_RANDOM_ORDER, config.slideshowRandomOrder)
+                put(SLIDESHOW_MOVE_BACKWARDS, config.slideshowMoveBackwards)
+                put(SLIDESHOW_LOOP, config.loopSlideshow)
+                put(LAST_EDITOR_CROP_ASPECT_RATIO, config.lastEditorCropAspectRatio)
+                put(LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_X, config.lastEditorCropOtherAspectRatioX)
+                put(LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y, config.lastEditorCropOtherAspectRatioY)
+                put(LAST_EDITOR_DRAW_COLOR, config.lastEditorDrawColor)
+                put(LAST_EDITOR_BRUSH_SIZE, config.lastEditorBrushSize)
+                put(LAST_CONFLICT_RESOLUTION, config.lastConflictResolution)
+                put(LAST_CONFLICT_APPLY_TO_ALL, config.lastConflictApplyToAll)
+            }
         }
     }
 
