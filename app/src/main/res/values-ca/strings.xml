@@ -31,7 +31,7 @@
     <string name="fix_date_taken">Fixar la data de presa</string>
     <string name="fixing">Fixant…</string>
     <string name="dates_fixed_successfully">Data fixada correctament</string>
-    <string name="share_resized">Share a resized version</string>
+    <string name="share_resized">Comparteix una versió redimensionada</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtre d\'arxius</string>
@@ -116,7 +116,7 @@
     <string name="loop_slideshow">Presentació de diapositives</string>
     <string name="slideshow_ended">S\'ha acabat la presentació de diapositives</string>
     <string name="no_media_for_slideshow">No s\'han trobat mitjans per a la presentació de diapositives</string>
-    <string name="use_crossfade_animation">Use crossfade animations</string>
+    <string name="use_crossfade_animation">Utilitzeu animacions creuades</string>
 
     <!-- View types -->
     <string name="change_view_type">Canviar el tipus de vista</string>
@@ -170,9 +170,9 @@
     <string name="show_highest_quality">Mostra imatges amb la màxima qualitat possible</string>
     <string name="show_recycle_bin_last">Mostra la paperera de reciclatge com a últim element a la pantalla principal</string>
     <string name="allow_down_gesture">Permet tancar la vista de pantalla completa amb un gest avall</string>
-    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
-    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
-    <string name="show_notch">Show a notch if available</string>
+    <string name="allow_one_to_one_zoom">Permet 1:1 zoom amb dos tocs dobles</string>
+    <string name="open_videos_on_separate_screen">Obriu sempre vídeos en una pantalla independent amb nous gestos horitzontals</string>
+    <string name="show_notch">Mostra una osca si està disponible</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
@@ -194,7 +194,7 @@
     <string name="faq_3_title">Com puc fer que un àlbum sempre aparegui a la part superior?</string>
     <string name="faq_3_text">Podeu prémer l\'àlbum desitjat i seleccionar la icona de la xinxeta al menú d\'acció i el fixarà a la part superior. També podeu enganxar diverses carpetes, els elements fixats s\'ordenaran pel mètode de classificació predeterminat.</string>
     <string name="faq_4_title">Com puc fer avançar els vídeos?</string>
-    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
+    <string name="faq_4_text">Podeu arrossegar el dit horitzontalment al reproductor de vídeo o fer clic als textos actuals o de màxima duració a prop de la barra de cerca. Això mourà el vídeo ja sigui cap enrere o cap endavant.</string>
     <string name="faq_5_title">Quina és la diferència entre ocultar i excloure una carpeta?</string>
     <string name="faq_5_text">Excloure impedeix mostrar la carpeta només a Simple Galery, mentre que Ocultar també amaga la carpeta a altres galeries. Funciona creant un fitxer \". Nomedia \" buit a la carpeta donada, que podeu eliminar amb qualsevol gestor de fitxers.</string>
     <string name="faq_6_title">Per què apareixen les carpetes amb les portades de la música o adhesius?</string>
@@ -217,7 +217,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
+    <string name="app_short_description">Una galeria sense connexió per gestionar els vostres fitxers sense anuncis, respectant la vostra privadesa.</string>
     <string name="app_long_description">
         Una galeria molt personalitzable capaç de mostrar molts tipus d\'imatge i de vídeo diferents, inclosos SVGs, RAWs, fotos panoràmiques i vídeos.
 
