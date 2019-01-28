@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
+import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.dialogs.SecurityDialog
 import com.simplemobiletools.commons.extensions.*
@@ -18,6 +19,7 @@ import com.simplemobiletools.gallery.pro.extensions.galleryDB
 import com.simplemobiletools.gallery.pro.extensions.showRecycleBinEmptyingDialog
 import com.simplemobiletools.gallery.pro.helpers.*
 import kotlinx.android.synthetic.main.activity_settings.*
+import java.io.File
 import java.util.*
 
 class SettingsActivity : SimpleActivity() {
@@ -657,7 +659,28 @@ class SettingsActivity : SimpleActivity() {
 
     private fun setupImportSettings() {
         settings_import_holder.setOnClickListener {
+            FilePickerDialog(this) {
+                Thread {
+                    parseFile(it)
+                }.start()
+            }
+        }
+    }
 
+    private fun parseFile(path: String) {
+        val inputStream = File(path).inputStream()
+        inputStream.bufferedReader().use {
+            var importedItems = 0
+            while (true) {
+                try {
+                    var line = it.readLine() ?: break
+                    importedItems++
+                } catch (e: Exception) {
+                    showErrorToast(e)
+                }
+            }
+
+            toast(if (importedItems > 0) R.string.settings_imported_successfully else R.string.no_entries_for_importing)
         }
     }
 }
