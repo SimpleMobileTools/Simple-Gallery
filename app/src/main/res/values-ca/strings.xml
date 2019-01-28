@@ -217,7 +217,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Una galeria sense connexió per gestionar els vostres fitxers sense anuncis, respectant la vostra privadesa.</string>
+    <string name="app_short_description">Una galeria senzilla, sense anuncis i respectant la vostra privadesa.</string>
     <string name="app_long_description">
         Una galeria molt personalitzable capaç de mostrar molts tipus d\'imatge i de vídeo diferents, inclosos SVGs, RAWs, fotos panoràmiques i vídeos.
 
