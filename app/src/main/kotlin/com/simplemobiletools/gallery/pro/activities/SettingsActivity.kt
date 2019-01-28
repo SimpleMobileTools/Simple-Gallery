@@ -572,7 +572,7 @@ class SettingsActivity : SimpleActivity() {
 
     private fun setupExportSettings() {
         settings_export_holder.setOnClickListener {
-            val configItems = HashMap<String, Any>().apply {
+            val configItems = LinkedHashMap<String, Any>().apply {
                 put(IS_USING_SHARED_THEME, config.isUsingSharedTheme)
                 put(TEXT_COLOR, config.textColor)
                 put(BACKGROUND_COLOR, config.backgroundColor)
@@ -650,6 +650,8 @@ class SettingsActivity : SimpleActivity() {
                 put(LAST_CONFLICT_RESOLUTION, config.lastConflictResolution)
                 put(LAST_CONFLICT_APPLY_TO_ALL, config.lastConflictApplyToAll)
             }
+
+            exportSettings(configItems, "gallery-settings.txt")
         }
     }
 
