@@ -104,7 +104,7 @@ class Config(context: Context) : BaseConfig(context) {
     fun addPinnedFolders(paths: Set<String>) {
         val currPinnedFolders = HashSet<String>(pinnedFolders)
         currPinnedFolders.addAll(paths)
-        pinnedFolders = currPinnedFolders
+        pinnedFolders = currPinnedFolders.filter { it.isNotEmpty() }.toHashSet()
         if (paths.contains(RECYCLE_BIN)) {
             showRecycleBinLast = false
         }
@@ -123,7 +123,7 @@ class Config(context: Context) : BaseConfig(context) {
     fun addExcludedFolders(paths: Set<String>) {
         val currExcludedFolders = HashSet<String>(excludedFolders)
         currExcludedFolders.addAll(paths)
-        excludedFolders = currExcludedFolders
+        excludedFolders = currExcludedFolders.filter { it.isNotEmpty() }.toHashSet()
     }
 
     fun removeExcludedFolder(path: String) {
@@ -140,6 +140,12 @@ class Config(context: Context) : BaseConfig(context) {
         val currIncludedFolders = HashSet<String>(includedFolders)
         currIncludedFolders.add(path)
         includedFolders = currIncludedFolders
+    }
+
+    fun addIncludedFolders(paths: Set<String>) {
+        val currIncludedFolders = HashSet<String>(includedFolders)
+        currIncludedFolders.addAll(paths)
+        includedFolders = currIncludedFolders.filter { it.isNotEmpty() }.toHashSet()
     }
 
     fun removeIncludedFolder(path: String) {

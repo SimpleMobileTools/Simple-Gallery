@@ -32,7 +32,10 @@ class SettingsActivity : SimpleActivity() {
 
     override fun onResume() {
         super.onResume()
+        setupSettingItems()
+    }
 
+    private fun setupSettingItems() {
         setupCustomizeColors()
         setupUseEnglish()
         setupManageIncludedFolders()
@@ -631,7 +634,6 @@ class SettingsActivity : SimpleActivity() {
                 put(FILTER_MEDIA, config.filterMedia)
                 put(DIR_COLUMN_CNT, config.dirColumnCnt)
                 put(MEDIA_COLUMN_CNT, config.mediaColumnCnt)
-                put(ALBUM_COVERS, config.albumCovers)
                 put(SHOW_ALL, config.showAll)
                 put(SHOW_WIDGET_FOLDER_NAME, config.showWidgetFolderName)
                 put(WIDGET_BG_COLOR, config.widgetBgColor)
@@ -661,7 +663,11 @@ class SettingsActivity : SimpleActivity() {
         settings_import_holder.setOnClickListener {
             FilePickerDialog(this) {
                 Thread {
-                    parseFile(it)
+                    try {
+                        parseFile(it)
+                    } catch (e: Exception) {
+                        showErrorToast(e)
+                    }
                 }.start()
             }
         }
@@ -669,18 +675,111 @@ class SettingsActivity : SimpleActivity() {
 
     private fun parseFile(path: String) {
         val inputStream = File(path).inputStream()
+        var importedItems = 0
+        val configValues = LinkedHashMap<String, Any>()
         inputStream.bufferedReader().use {
-            var importedItems = 0
             while (true) {
                 try {
-                    var line = it.readLine() ?: break
+                    val line = it.readLine() ?: break
+                    val split = line.split("=".toRegex(), 2)
+                    if (split.size == 2) {
+                        configValues[split[0]] = split[1]
+                    }
                     importedItems++
                 } catch (e: Exception) {
                     showErrorToast(e)
                 }
             }
+        }
 
-            toast(if (importedItems > 0) R.string.settings_imported_successfully else R.string.no_entries_for_importing)
+        for ((key, value) in configValues) {
+            when (key) {
+                IS_USING_SHARED_THEME -> config.isUsingSharedTheme = value.toBoolean()
+                TEXT_COLOR -> config.textColor = value.toInt()
+                BACKGROUND_COLOR -> config.backgroundColor = value.toInt()
+                PRIMARY_COLOR -> config.primaryColor = value.toInt()
+                APP_ICON_COLOR -> {
+                    if (getAppIconColors().contains(value.toInt())) {
+                        config.appIconColor = value.toInt()
+                        checkAppIconColor()
+                    }
+                }
+                USE_ENGLISH -> config.useEnglish = value.toBoolean()
+                WAS_USE_ENGLISH_TOGGLED -> config.wasUseEnglishToggled = value.toBoolean()
+                INCLUDED_FOLDERS -> config.addIncludedFolders(value.toStringSet())
+                EXCLUDED_FOLDERS -> config.addExcludedFolders(value.toStringSet())
+                SHOW_HIDDEN_MEDIA -> config.showHiddenMedia = value.toBoolean()
+                DO_EXTRA_CHECK -> config.doExtraCheck = value.toBoolean()
+                AUTOPLAY_VIDEOS -> config.autoplayVideos = value.toBoolean()
+                REMEMBER_LAST_VIDEO_POSITION -> config.rememberLastVideoPosition = value.toBoolean()
+                LAST_VIDEO_PATH -> config.lastVideoPath = value.toString()
+                LOOP_VIDEOS -> config.loopVideos = value.toBoolean()
+                OPEN_VIDEOS_ON_SEPARATE_SCREEN -> config.openVideosOnSeparateScreen = value.toBoolean()
+                ALLOW_VIDEO_GESTURES -> config.allowVideoGestures = value.toBoolean()
+                ANIMATE_GIFS -> config.animateGifs = value.toBoolean()
+                CROP_THUMBNAILS -> config.cropThumbnails = value.toBoolean()
+                SHOW_THUMBNAIL_VIDEO_DURATION -> config.showThumbnailVideoDuration = value.toBoolean()
+                SHOW_MEDIA_COUNT -> config.showMediaCount = value.toBoolean()
+                SHOW_INFO_BUBBLE -> config.showInfoBubble = value.toBoolean()
+                SCROLL_HORIZONTALLY -> config.scrollHorizontally = value.toBoolean()
+                ENABLE_PULL_TO_REFRESH -> config.enablePullToRefresh = value.toBoolean()
+                MAX_BRIGHTNESS -> config.maxBrightness = value.toBoolean()
+                BLACK_BACKGROUND -> config.blackBackground = value.toBoolean()
+                HIDE_SYSTEM_UI -> config.hideSystemUI = value.toBoolean()
+                ALLOW_INSTANT_CHANGE -> config.allowInstantChange = value.toBoolean()
+                ALLOW_PHOTO_GESTURES -> config.allowPhotoGestures = value.toBoolean()
+                ALLOW_DOWN_GESTURE -> config.allowDownGesture = value.toBoolean()
+                SHOW_NOTCH -> config.showNotch = value.toBoolean()
+                SCREEN_ROTATION -> config.screenRotation = value.toInt()
+                ALLOW_ZOOMING_IMAGES -> config.allowZoomingImages = value.toBoolean()
+                SHOW_HIGHEST_QUALITY -> config.showHighestQuality = value.toBoolean()
+                ONE_FINGER_ZOOM -> config.oneFingerZoom = value.toBoolean()
+                ALLOW_ONE_TO_ONE_ZOOM -> config.allowOneToOneZoom = value.toBoolean()
+                SHOW_EXTENDED_DETAILS -> config.showExtendedDetails = value.toBoolean()
+                HIDE_EXTENDED_DETAILS -> config.hideExtendedDetails = value.toBoolean()
+                EXTENDED_DETAILS -> config.extendedDetails = value.toInt()
+                DELETE_EMPTY_FOLDERS -> config.deleteEmptyFolders = value.toBoolean()
+                KEEP_LAST_MODIFIED -> config.keepLastModified = value.toBoolean()
+                SKIP_DELETE_CONFIRMATION -> config.skipDeleteConfirmation = value.toBoolean()
+                BOTTOM_ACTIONS -> config.bottomActions = value.toBoolean()
+                VISIBLE_BOTTOM_ACTIONS -> config.visibleBottomActions = value.toInt()
+                USE_RECYCLE_BIN -> config.useRecycleBin = value.toBoolean()
+                SHOW_RECYCLE_BIN_AT_FOLDERS -> config.showRecycleBinAtFolders = value.toBoolean()
+                SHOW_RECYCLE_BIN_LAST -> config.showRecycleBinLast = value.toBoolean()
+                SORT_ORDER -> config.sorting = value.toInt()
+                DIRECTORY_SORT_ORDER -> config.directorySorting = value.toInt()
+                GROUP_BY -> config.groupBy = value.toInt()
+                GROUP_DIRECT_SUBFOLDERS -> config.groupDirectSubfolders = value.toBoolean()
+                PINNED_FOLDERS -> config.addPinnedFolders(value.toStringSet())
+                DISPLAY_FILE_NAMES -> config.displayFileNames = value.toBoolean()
+                FILTER_MEDIA -> config.filterMedia = value.toInt()
+                DIR_COLUMN_CNT -> config.dirColumnCnt = value.toInt()
+                MEDIA_COLUMN_CNT -> config.mediaColumnCnt = value.toInt()
+                SHOW_ALL -> config.showAll = value.toBoolean()
+                SHOW_WIDGET_FOLDER_NAME -> config.showWidgetFolderName = value.toBoolean()
+                WIDGET_BG_COLOR -> config.widgetBgColor = value.toInt()
+                WIDGET_TEXT_COLOR -> config.widgetTextColor = value.toInt()
+                VIEW_TYPE_FILES -> config.viewTypeFiles = value.toInt()
+                VIEW_TYPE_FOLDERS -> config.viewTypeFolders = value.toInt()
+                SLIDESHOW_INTERVAL -> config.slideshowInterval = value.toInt()
+                SLIDESHOW_INCLUDE_VIDEOS -> config.slideshowIncludeVideos = value.toBoolean()
+                SLIDESHOW_INCLUDE_GIFS -> config.slideshowIncludeGIFs = value.toBoolean()
+                SLIDESHOW_RANDOM_ORDER -> config.slideshowRandomOrder = value.toBoolean()
+                SLIDESHOW_MOVE_BACKWARDS -> config.slideshowMoveBackwards = value.toBoolean()
+                SLIDESHOW_LOOP -> config.loopSlideshow = value.toBoolean()
+                LAST_EDITOR_CROP_ASPECT_RATIO -> config.lastEditorCropAspectRatio = value.toInt()
+                LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_X -> config.lastEditorCropOtherAspectRatioX = value.toInt()
+                LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y -> config.lastEditorCropOtherAspectRatioY = value.toInt()
+                LAST_EDITOR_DRAW_COLOR -> config.lastEditorDrawColor = value.toInt()
+                LAST_EDITOR_BRUSH_SIZE -> config.lastEditorBrushSize = value.toInt()
+                LAST_CONFLICT_RESOLUTION -> config.lastConflictResolution = value.toInt()
+                LAST_CONFLICT_APPLY_TO_ALL -> config.lastConflictApplyToAll = value.toBoolean()
+            }
+        }
+
+        toast(if (configValues.size > 0) R.string.settings_imported_successfully else R.string.no_entries_for_importing)
+        runOnUiThread {
+            setupSettingItems()
         }
     }
 }
