@@ -32,6 +32,7 @@ import com.davemorrissey.labs.subscaleview.DecoderFactory
 import com.davemorrissey.labs.subscaleview.ImageDecoder
 import com.davemorrissey.labs.subscaleview.ImageRegionDecoder
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
+import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.gallery.pro.R
@@ -223,7 +224,14 @@ class PhotoFragment : ViewPagerFragment() {
         if (activity?.isDestroyed == false) {
             mView.subsampling_view.recycle()
         }
+
         mLoadZoomableViewHandler.removeCallbacksAndMessages(null)
+        if (mCurrentRotationDegrees != 0) {
+            Thread {
+                val path = mMedium.path
+                (activity as? BaseSimpleActivity)?.saveRotatedImageToFile(path, path, mCurrentRotationDegrees, false) {}
+            }.start()
+        }
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {

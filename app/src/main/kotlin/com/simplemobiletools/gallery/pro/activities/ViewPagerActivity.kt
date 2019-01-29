@@ -142,12 +142,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         currentMedium.isFavorite = mFavoritePaths.contains(currentMedium.path)
         val visibleBottomActions = if (config.bottomActions) config.visibleBottomActions else 0
 
-        getCurrentFragment()?.let {
-            (it as? PhotoFragment)?.apply {
-                mRotationDegrees = mCurrentRotationDegrees
-            }
-        }
-
+        getCurrentPhotoFragment()?.mCurrentRotationDegrees = mRotationDegrees
         menu.apply {
             findItem(R.id.menu_show_on_map).isVisible = visibleBottomActions and BOTTOM_ACTION_SHOW_ON_MAP == 0
             findItem(R.id.menu_slideshow).isVisible = visibleBottomActions and BOTTOM_ACTION_SLIDESHOW == 0
@@ -569,9 +564,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun rotateBy(degrees: Int) {
         mRotationDegrees = (mRotationDegrees + degrees) % 360
-        getCurrentFragment()?.let {
-            (it as? PhotoFragment)?.rotateImageViewBy(mRotationDegrees)
-        }
+        getCurrentPhotoFragment()?.rotateImageViewBy(mRotationDegrees)
         supportInvalidateOptionsMenu()
     }
 
@@ -602,12 +595,15 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     saveRotatedImageToFile(currPath, it, mRotationDegrees, true) {
                         toast(R.string.file_saved)
                         mRotationDegrees = 0
+                        getCurrentPhotoFragment()?.mCurrentRotationDegrees = 0
                         invalidateOptionsMenu()
                     }
                 }.start()
             }
         }
     }
+
+    private fun getCurrentPhotoFragment() = getCurrentFragment() as? PhotoFragment
 
     private fun isShowHiddenFlagNeeded(): Boolean {
         val file = File(mPath)
