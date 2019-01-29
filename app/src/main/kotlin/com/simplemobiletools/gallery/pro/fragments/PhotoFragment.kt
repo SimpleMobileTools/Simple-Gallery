@@ -62,6 +62,7 @@ class PhotoFragment : ViewPagerFragment() {
             "google nexus 5x"
     )
 
+    var mCurrentRotationDegrees = 0
     private var mIsFragmentVisible = false
     private var mIsFullscreen = false
     private var mWasInit = false
@@ -69,7 +70,7 @@ class PhotoFragment : ViewPagerFragment() {
     private var mIsSubsamplingVisible = false    // checking view.visibility is unreliable, use an extra variable for it
     private var mImageOrientation = -1
     private var mOriginalSubsamplingScale = 0f
-    private var mIoadZoomableViewHandler = Handler()
+    private var mLoadZoomableViewHandler = Handler()
     private var mScreenWidth = 0
     private var mScreenHeight = 0
     private var mCurrentGestureViewZoom = 1f
@@ -222,7 +223,7 @@ class PhotoFragment : ViewPagerFragment() {
         if (activity?.isDestroyed == false) {
             mView.subsampling_view.recycle()
         }
-        mIoadZoomableViewHandler.removeCallbacksAndMessages(null)
+        mLoadZoomableViewHandler.removeCallbacksAndMessages(null)
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -344,7 +345,7 @@ class PhotoFragment : ViewPagerFragment() {
                 .into(mView.gestures_view)
     }
 
-    private fun loadBitmap(degrees: Int = 0) {
+    private fun loadBitmap(degrees: Int = mCurrentRotationDegrees) {
         val options = RequestOptions()
                 .signature(mMedium.path.getFileSignature())
                 .format(DecodeFormat.PREFER_ARGB_8888)
@@ -368,7 +369,7 @@ class PhotoFragment : ViewPagerFragment() {
                     }
 
                     override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                        if (mIsFragmentVisible) {
+                        if (mIsFragmentVisible && degrees == 0) {
                             scheduleZoomableView()
                         }
                         return false
@@ -415,9 +416,9 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun scheduleZoomableView() {
-        mIoadZoomableViewHandler.removeCallbacksAndMessages(null)
-        mIoadZoomableViewHandler.postDelayed({
-            if (mIsFragmentVisible && context?.config?.allowZoomingImages == true && mMedium.isImage() && !mIsSubsamplingVisible) {
+        mLoadZoomableViewHandler.removeCallbacksAndMessages(null)
+        mLoadZoomableViewHandler.postDelayed({
+            if (mIsFragmentVisible && context?.config?.allowZoomingImages == true && mMedium.isImage() && !mIsSubsamplingVisible && mCurrentRotationDegrees == 0) {
                 addZoomableView()
             }
         }, ZOOMABLE_VIEW_LOAD_DELAY)
@@ -542,7 +543,8 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     fun rotateImageViewBy(degrees: Int) {
-        mIoadZoomableViewHandler.removeCallbacksAndMessages(null)
+        mCurrentRotationDegrees = degrees
+        mLoadZoomableViewHandler.removeCallbacksAndMessages(null)
         mView.subsampling_view.beGone()
         mIsSubsamplingVisible = false
         loadBitmap(degrees)
@@ -574,7 +576,7 @@ class PhotoFragment : ViewPagerFragment() {
             mIsSubsamplingVisible = false
             mView.subsampling_view.recycle()
             mView.subsampling_view.beGone()
-            mIoadZoomableViewHandler.removeCallbacksAndMessages(null)
+            mLoadZoomableViewHandler.removeCallbacksAndMessages(null)
         }
     }
 
