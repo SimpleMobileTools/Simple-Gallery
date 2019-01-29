@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 6.4.0 *(2019-01-29)*
+----------------------------
+
+ * Implemented export/importing for app settings and other preferences, like sorting
+ * Allow hiding Notch on fullscreen view on Android 9+
+ * Some gif/video zoom related improvements
+ * Autosave images zoomed at the fullscreen view
+ * Many other UX and stability improvements
+
 Version 6.3.2 *(2019-01-23)*
 ----------------------------
 
