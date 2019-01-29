@@ -11,11 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <TextureView
-        android:id="@+id/video_surface"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
+    <com.alexvasilkov.gestures.GestureFrameLayout
+        android:id="@+id/video_surface_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextureView
+            android:id="@+id/video_surface"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+
+    </com.alexvasilkov.gestures.GestureFrameLayout>
 
     <com.simplemobiletools.gallery.pro.views.MediaSideScroll
         android:id="@+id/video_volume_controller"

@@ -2,7 +2,6 @@ package com.simplemobiletools.gallery.pro.fragments
 
 import android.content.Intent
 import android.content.res.Configuration
-import android.graphics.Matrix
 import android.graphics.Point
 import android.graphics.SurfaceTexture
 import android.net.Uri
@@ -29,7 +28,10 @@ import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.PanoramaVideoActivity
 import com.simplemobiletools.gallery.pro.activities.VideoActivity
 import com.simplemobiletools.gallery.pro.extensions.*
-import com.simplemobiletools.gallery.pro.helpers.*
+import com.simplemobiletools.gallery.pro.helpers.Config
+import com.simplemobiletools.gallery.pro.helpers.MEDIUM
+import com.simplemobiletools.gallery.pro.helpers.MIN_SKIP_LENGTH
+import com.simplemobiletools.gallery.pro.helpers.PATH
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.views.MediaSideScroll
 import kotlinx.android.synthetic.main.bottom_video_time_holder.view.*
@@ -49,19 +51,10 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private var mWasVideoStarted = false
     private var mCurrTime = 0
     private var mDuration = 0
-    private var mSaveScale = 1f
-    private var mRight = 0f
-    private var mBottom = 0f
-    private var mLastTouchX = 0f
-    private var mLastTouchY = 0f
-    private var mCurrZoomMode = ZOOM_MODE_NONE
 
     private var mExoPlayer: SimpleExoPlayer? = null
     private var mVideoSize = Point(0, 0)
     private var mTimerHandler = Handler()
-    private var mScaleDetector: ScaleGestureDetector? = null
-    private var mMatrices = FloatArray(9)
-    private val mMatrix = Matrix()
 
     private var mStoredShowExtendedDetails = false
     private var mStoredHideExtendedDetails = false
@@ -84,7 +77,6 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mConfig = context!!.config
-        mScaleDetector = ScaleGestureDetector(context, ScaleListener())
         mView = inflater.inflate(R.layout.pager_video_item, container, false).apply {
             instant_prev_item.setOnClickListener { listener?.goToPrevItem() }
             instant_next_item.setOnClickListener { listener?.goToNextItem() }
@@ -124,8 +116,13 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
                 }
 
                 video_surface.setOnTouchListener { view, event ->
-                    handleEventWithZooming(event)
-                    true
+                    handleEvent(event)
+                    false
+                }
+
+                video_surface_frame.setOnTouchListener { view, event ->
+                    handleEvent(event)
+                    false
                 }
             }
         }
@@ -204,6 +201,8 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         val allowInstantChange = mConfig.allowInstantChange
         mTextureView.beGoneIf(mConfig.openVideosOnSeparateScreen || mIsPanorama)
         mView.apply {
+            video_surface_frame.beGoneIf(mTextureView.isGone())
+
             video_volume_controller.beVisibleIf(allowVideoGestures && !mIsPanorama)
             video_brightness_controller.beVisibleIf(allowVideoGestures && !mIsPanorama)
 
@@ -275,7 +274,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             return
         }
 
-        mTextureView.setOnClickListener { toggleFullscreen() }
+        mView.video_surface_frame.setOnClickListener { toggleFullscreen() }
         mTextureView.surfaceTextureListener = this
 
         checkExtendedDetails()
@@ -348,8 +347,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
             override fun onTracksChanged(trackGroups: TrackGroupArray?, trackSelections: TrackSelectionArray?) {}
 
-            override fun onPlayerError(error: ExoPlaybackException?) {
-            }
+            override fun onPlayerError(error: ExoPlaybackException?) {}
 
             override fun onLoadingChanged(isLoading: Boolean) {}
 
@@ -706,118 +704,6 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
                 height = screenHeight
             }
             mTextureView.layoutParams = this
-        }
-    }
-
-    private fun handleEventWithZooming(event: MotionEvent) {
-        mScaleDetector?.onTouchEvent(event)
-
-        mMatrix.getValues(mMatrices)
-        val x = mMatrices[Matrix.MTRANS_X]
-        val y = mMatrices[Matrix.MTRANS_Y]
-
-        when (event.actionMasked) {
-            MotionEvent.ACTION_DOWN -> {
-                mTouchDownTime = System.currentTimeMillis()
-                mCurrZoomMode = ZOOM_MODE_DRAG
-                mLastTouchX = event.x
-                mLastTouchY = event.y
-
-                mTouchDownX = event.x
-                mTouchDownY = event.y
-            }
-            MotionEvent.ACTION_UP -> {
-                mCurrZoomMode = ZOOM_MODE_NONE
-                val diffX = mTouchDownX - event.x
-                val diffY = mTouchDownY - event.y
-
-                if (Math.abs(diffX) < CLICK_MAX_DISTANCE && Math.abs(diffY) < CLICK_MAX_DISTANCE && System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
-                    mTextureView.performClick()
-                } else {
-                    val downGestureDuration = System.currentTimeMillis() - mTouchDownTime
-                    if (!mIgnoreCloseDown && Math.abs(diffY) > Math.abs(diffX) && diffY < -mCloseDownThreshold && downGestureDuration < MAX_CLOSE_DOWN_GESTURE_DURATION && mSaveScale == 1f) {
-                        activity?.supportFinishAfterTransition()
-                    }
-                }
-                mIgnoreCloseDown = false
-            }
-            MotionEvent.ACTION_POINTER_DOWN -> {
-                mLastTouchX = event.x
-                mLastTouchY = event.y
-                mCurrZoomMode = ZOOM_MODE_ZOOM
-                mIgnoreCloseDown = true
-            }
-            MotionEvent.ACTION_MOVE -> {
-                if (mCurrZoomMode == ZOOM_MODE_ZOOM || mCurrZoomMode == ZOOM_MODE_DRAG && mSaveScale > MIN_VIDEO_ZOOM_SCALE) {
-                    var diffX = event.x - mLastTouchX
-                    var diffY = event.y - mLastTouchY
-                    if (y + diffY > 0) {
-                        diffY = -y
-                    } else if (y + diffY < -mBottom) {
-                        diffY = -(y + mBottom)
-                    }
-
-                    if (x + diffX > 0) {
-                        diffX = -x
-                    } else if (x + diffX < -mRight) {
-                        diffX = -(x + mRight)
-                    }
-
-                    mMatrix.postTranslate(diffX, diffY)
-                    mLastTouchX = event.x
-                    mLastTouchY = event.y
-                }
-            }
-            MotionEvent.ACTION_POINTER_UP -> {
-                mCurrZoomMode = ZOOM_MODE_NONE
-            }
-        }
-
-        mTextureView.setTransform(mMatrix)
-        mTextureView.invalidate()
-    }
-
-    // taken from https://github.com/Manuiq/ZoomableTextureView
-    private inner class ScaleListener : ScaleGestureDetector.SimpleOnScaleGestureListener() {
-        override fun onScaleBegin(detector: ScaleGestureDetector): Boolean {
-            mCurrZoomMode = ZOOM_MODE_ZOOM
-            return true
-        }
-
-        override fun onScale(detector: ScaleGestureDetector): Boolean {
-            val width = mTextureView.width
-            val height = mTextureView.height
-            if (width <= 0 || height <= 0) {
-                return true
-            }
-
-            var scaleFactor = detector.scaleFactor
-            val origScale = mSaveScale
-            mSaveScale *= scaleFactor
-
-            if (mSaveScale > MAX_VIDEO_ZOOM_SCALE) {
-                mSaveScale = MAX_VIDEO_ZOOM_SCALE
-                scaleFactor = MAX_VIDEO_ZOOM_SCALE / origScale
-            } else if (mSaveScale < MIN_VIDEO_ZOOM_SCALE) {
-                mSaveScale = MIN_VIDEO_ZOOM_SCALE
-                scaleFactor = MIN_VIDEO_ZOOM_SCALE / origScale
-            }
-
-            mRight = width * mSaveScale - width
-            mBottom = height * mSaveScale - height
-            mMatrix.postScale(scaleFactor, scaleFactor, detector.focusX, detector.focusY)
-            if (scaleFactor < 1) {
-                mMatrix.getValues(mMatrices)
-                val y = mMatrices[Matrix.MTRANS_Y]
-                if (scaleFactor < 1) {
-                    if (y < -mBottom) {
-                        mMatrix.postTranslate(0f, -(y + mBottom))
-                    } else if (y > 0) {
-                        mMatrix.postTranslate(0f, -y)
-                    }
-                }
-            }
-            return true
         }
     }
 }
