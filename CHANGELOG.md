@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.4.1 *(2019-01-29)*
+----------------------------
+
+ * Fixed some crashes related to zoomable videos
+ * Disable the Close Down gesture at GIFs and videos, if they are zoomed in
+
 Version 6.4.0 *(2019-01-29)*
 ----------------------------
 
