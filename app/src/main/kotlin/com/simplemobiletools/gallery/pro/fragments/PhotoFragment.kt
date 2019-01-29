@@ -110,7 +110,9 @@ class PhotoFragment : ViewPagerFragment() {
 
             if (context.config.allowDownGesture) {
                 gif_view.setOnTouchListener { v, event ->
-                    handleEvent(event)
+                    if (gif_view_frame.controller.state.zoom == 1f) {
+                        handleEvent(event)
+                    }
                     false
                 }
 

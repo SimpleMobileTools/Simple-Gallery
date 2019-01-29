@@ -519,7 +519,9 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
                 val diffY = mTouchDownY - event.y
 
                 val downGestureDuration = System.currentTimeMillis() - mTouchDownTime
-                if (config.allowDownGesture && !mIgnoreCloseDown && Math.abs(diffY) > Math.abs(diffX) && diffY < -mCloseDownThreshold && downGestureDuration < MAX_CLOSE_DOWN_GESTURE_DURATION) {
+                if (config.allowDownGesture && !mIgnoreCloseDown && Math.abs(diffY) > Math.abs(diffX) && diffY < -mCloseDownThreshold &&
+                        downGestureDuration < MAX_CLOSE_DOWN_GESTURE_DURATION &&
+                        video_surface_frame.controller.state.zoom == 1f) {
                     supportFinishAfterTransition()
                 }
 

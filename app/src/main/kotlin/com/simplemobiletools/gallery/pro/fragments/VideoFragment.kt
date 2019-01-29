@@ -116,7 +116,9 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
                 }
 
                 video_surface_frame.setOnTouchListener { view, event ->
-                    handleEvent(event)
+                    if (video_surface_frame.controller.state.zoom == 1f) {
+                        handleEvent(event)
+                    }
                     false
                 }
             }
