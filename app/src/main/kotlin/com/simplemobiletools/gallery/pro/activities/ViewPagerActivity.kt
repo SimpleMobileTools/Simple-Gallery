@@ -588,7 +588,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             handleSAFDialog(it) {
                 toast(R.string.saving)
                 Thread {
-                    saveRotatedImageToFile(currPath, it, mRotationDegrees) {
+                    saveRotatedImageToFile(currPath, it, mRotationDegrees, true) {
                         toast(R.string.file_saved)
                         mRotationDegrees = 0
                         invalidateOptionsMenu()
