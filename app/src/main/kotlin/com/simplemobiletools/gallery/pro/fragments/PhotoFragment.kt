@@ -2,7 +2,10 @@ package com.simplemobiletools.gallery.pro.fragments
 
 import android.content.Intent
 import android.content.res.Configuration
-import android.graphics.*
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Color
+import android.graphics.Matrix
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.PictureDrawable
 import android.media.ExifInterface.*
@@ -105,6 +108,11 @@ class PhotoFragment : ViewPagerFragment() {
             }
 
             if (context.config.allowDownGesture) {
+                gif_view.setOnTouchListener { v, event ->
+                    handleEvent(event)
+                    false
+                }
+
                 gestures_view.controller.addOnStateChangeListener(object : GestureController.OnStateChangeListener {
                     override fun onStateChanged(state: State) {
                         mCurrentGestureViewZoom = state.zoom
@@ -317,13 +325,10 @@ class PhotoFragment : ViewPagerFragment() {
                 InputSource.FileSource(pathToLoad)
             }
 
-            mView.gestures_view.beGone()
-            val resolution = mMedium.path.getImageResolution() ?: Point(0, 0)
-            mView.gif_view.apply {
-                setInputSource(source)
-                setupGIFView(resolution.x, resolution.y, mScreenWidth, mScreenHeight) {
-                    activity?.supportFinishAfterTransition()
-                }
+            mView.apply {
+                gestures_view.beGone()
+                gif_view.setInputSource(source)
+                gif_view_frame.beVisible()
             }
         } catch (e: Exception) {
             loadBitmap()

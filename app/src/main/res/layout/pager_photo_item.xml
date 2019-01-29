@@ -11,12 +11,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <com.simplemobiletools.gallery.pro.views.MyZoomableGifTextureView
-        android:id="@+id/gif_view"
+    <com.alexvasilkov.gestures.GestureFrameLayout
+        android:id="@+id/gif_view_frame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scaleType="matrix"
-        android:visibility="gone"/>
+        android:layout_centerInParent="true"
+        android:visibility="gone">
+
+        <pl.droidsonroids.gif.GifTextureView
+            android:id="@+id/gif_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"/>
+
+    </com.alexvasilkov.gestures.GestureFrameLayout>
 
     <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
         android:id="@+id/subsampling_view"
