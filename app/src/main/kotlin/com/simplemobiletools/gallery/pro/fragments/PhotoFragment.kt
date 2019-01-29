@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.Matrix
 import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
 import android.graphics.drawable.PictureDrawable
 import android.media.ExifInterface.*
 import android.net.Uri
@@ -20,6 +21,7 @@ import android.view.ViewGroup
 import com.alexvasilkov.gestures.GestureController
 import com.alexvasilkov.gestures.State
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
@@ -36,10 +38,7 @@ import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.PanoramaPhotoActivity
 import com.simplemobiletools.gallery.pro.activities.PhotoActivity
 import com.simplemobiletools.gallery.pro.extensions.*
-import com.simplemobiletools.gallery.pro.helpers.MEDIUM
-import com.simplemobiletools.gallery.pro.helpers.PATH
-import com.simplemobiletools.gallery.pro.helpers.PicassoDecoder
-import com.simplemobiletools.gallery.pro.helpers.PicassoRegionDecoder
+import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.svg.SvgSoftwareLayerSetter
 import com.squareup.picasso.Callback
@@ -346,6 +345,38 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun loadBitmap(degrees: Int = 0) {
+        val options = RequestOptions()
+                .signature(mMedium.path.getFileSignature())
+                .format(DecodeFormat.PREFER_ARGB_8888)
+                .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                .fitCenter()
+
+        if (degrees != 0) {
+            options.transform(GlideRotateTransformation(degrees))
+            options.diskCacheStrategy(DiskCacheStrategy.NONE)
+        }
+
+        Glide.with(context!!)
+                .load(getPathToLoad(mMedium))
+                .apply(options)
+                .listener(object : RequestListener<Drawable> {
+                    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
+                        if (activity != null) {
+                            tryLoadingWithPicasso(degrees)
+                        }
+                        return false
+                    }
+
+                    override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+                        if (mIsFragmentVisible) {
+                            scheduleZoomableView()
+                        }
+                        return false
+                    }
+                }).into(mView.gestures_view)
+    }
+
+    private fun tryLoadingWithPicasso(degrees: Int = 0) {
         var pathToLoad = if (mMedium.path.startsWith("content://")) mMedium.path else "file://${mMedium.path}"
         pathToLoad = pathToLoad.replace("%", "%25").replace("#", "%23")
 
@@ -370,45 +401,10 @@ class PhotoFragment : ViewPagerFragment() {
                     }
                 }
 
-                override fun onError(e: Exception) {
-                    if (activity != null) {
-                        tryLoadingWithGlide()
-                    }
-                }
+                override fun onError(e: Exception) {}
             })
         } catch (ignored: Exception) {
         }
-    }
-
-    private fun tryLoadingWithGlide() {
-        var targetWidth = if (mScreenWidth == 0) com.bumptech.glide.request.target.Target.SIZE_ORIGINAL else mScreenWidth
-        var targetHeight = if (mScreenHeight == 0) com.bumptech.glide.request.target.Target.SIZE_ORIGINAL else mScreenHeight
-
-        if (mImageOrientation == ORIENTATION_ROTATE_90) {
-            targetWidth = targetHeight
-            targetHeight = com.bumptech.glide.request.target.Target.SIZE_ORIGINAL
-        }
-
-        val options = RequestOptions()
-                .signature(mMedium.path.getFileSignature())
-                .format(DecodeFormat.PREFER_ARGB_8888)
-                .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-                .override(targetWidth, targetHeight)
-
-        Glide.with(context!!)
-                .asBitmap()
-                .load(getPathToLoad(mMedium))
-                .apply(options)
-                .listener(object : RequestListener<Bitmap> {
-                    override fun onLoadFailed(e: GlideException?, model: Any?, target: com.bumptech.glide.request.target.Target<Bitmap>?, isFirstResource: Boolean) = false
-
-                    override fun onResourceReady(resource: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: com.bumptech.glide.load.DataSource?, isFirstResource: Boolean): Boolean {
-                        if (mIsFragmentVisible) {
-                            scheduleZoomableView()
-                        }
-                        return false
-                    }
-                }).into(mView.gestures_view)
     }
 
     private fun openPanorama() {

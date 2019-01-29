@@ -8,8 +8,9 @@ import java.security.MessageDigest
 
 class GlideRotateTransformation(val rotateRotationAngle: Int) : BitmapTransformation() {
     override fun transform(pool: BitmapPool, bitmap: Bitmap, outWidth: Int, outHeight: Int): Bitmap {
-        if (rotateRotationAngle % 360 == 0)
+        if (rotateRotationAngle % 360 == 0) {
             return bitmap
+        }
 
         val matrix = Matrix()
         matrix.postRotate(rotateRotationAngle.toFloat())
