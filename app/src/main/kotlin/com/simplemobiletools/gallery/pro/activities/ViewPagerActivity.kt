@@ -557,6 +557,17 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun rotateImage(degrees: Int) {
+        val currentPath = getCurrentPath()
+        if (needsStupidWritePermissions(currentPath)) {
+            handleSAFDialog(currentPath) {
+                rotateBy(degrees)
+            }
+        } else {
+            rotateBy(degrees)
+        }
+    }
+
+    private fun rotateBy(degrees: Int) {
         mRotationDegrees = (mRotationDegrees + degrees) % 360
         getCurrentFragment()?.let {
             (it as? PhotoFragment)?.rotateImageViewBy(mRotationDegrees)
