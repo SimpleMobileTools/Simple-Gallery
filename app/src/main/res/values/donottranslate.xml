@@ -2,6 +2,11 @@
 <resources>
 
     <!-- Release notes -->
+    <string name="release_225">
+        Implemented export/importing for app settings and other preferences, like sorting\n
+        Allow hiding Notch on fullscreen view on Android 9+\n
+        Autosave images zoomed at the fullscreen view
+    </string>
     <string name="release_221">
         Allow drawing in the editor\n
         Allow batch rotating images from the thumbnails view (proper thumbnail refreshing might need an app restart)\n
