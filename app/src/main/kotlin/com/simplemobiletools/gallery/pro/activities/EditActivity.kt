@@ -349,6 +349,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     val currentFilter = getFiltersAdapter()?.getCurrentFilter()
                     if (currentFilter == null) {
                         toast(R.string.unknown_error_occurred)
+                        return@Thread
                     }
 
                     val originalBitmap = Glide.with(applicationContext).asBitmap().load(uri).submit(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL).get()
