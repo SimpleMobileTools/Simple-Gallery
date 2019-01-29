@@ -115,11 +115,6 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
                     false
                 }
 
-                video_surface.setOnTouchListener { view, event ->
-                    handleEvent(event)
-                    false
-                }
-
                 video_surface_frame.setOnTouchListener { view, event ->
                     handleEvent(event)
                     false
