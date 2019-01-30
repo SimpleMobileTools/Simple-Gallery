@@ -199,7 +199,7 @@
     <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
     <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
     <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
-    <string name="faq_7_title">A folder with images isn\'t showing up, what can I do?</string>
+    <string name="faq_7_title">A folder with images isn\'t showing up, or it doesn\'t show all items. What can I do?</string>
     <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
     <string name="faq_8_title">What if I want just a few particular folders visible?</string>
     <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.

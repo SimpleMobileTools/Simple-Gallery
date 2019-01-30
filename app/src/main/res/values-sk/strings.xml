@@ -199,7 +199,7 @@
     <string name="faq_5_text">Kým vylúčenie predíde zobrazeniu priečinka iba vrámci Jednoduchej Galérie, skrytie ho ukryje vrámci celého systému, teda to ovplyvní aj ostatné galérie. Skrytie funguje pomocou vytvorenia prázdneho \".nomedia\" súboru v danom priečinku, ktorý viete vymazať aj nejakým správcom súborov.</string>
     <string name="faq_6_title">Prečo sa mi zobrazujú priečinky s obalmi hudobných albumov, alebo nálepkami?</string>
     <string name="faq_6_text">Môže sa stať, že sa vám zobrazia aj nezvyčajné priečinky. Viete ich ale jednoducho ukryť pomocou ich zvolenia dlhým podržaním a zvolením Vylúčiť. Ak na nasledovnom dialógu zvolíte vylúčenie rodičovského priečinka, pravdepodobne budú vylúčené aj ostatné, podobné priečinky.</string>
-    <string name="faq_7_title">Priečinok s fotkami sa mi nezobrazuje, čo môžem urobiť?</string>
+    <string name="faq_7_title">Priečinok s fotkami sa mi nezobrazuje, alebo priečinok nezobrazuje všetky položky. Čo s tým môžem urobiť?</string>
     <string name="faq_7_text">Môže to mať viacero dôvodov, riešenie je ale jednoduché. Choďte do Nastavenia -> Spravovať pridané priečinky, zvoľte Plus a zvoľte vytúžený priečinok.</string>
     <string name="faq_8_title">Čo v prípade, ak chcem mať zobrazených iba pár priečinkov?</string>
     <string name="faq_8_text">Pridanie priečinka medzi Pridané Priečinky automaticky nevylúči ostatné. Môžete ale ísť do Nastavenia -> Spravovať vylúčené priečinky a zvoliť Koreňový priečinok \"/\", následne pridať žiadané priečinky v Nastavenia -> Spravovať pridané priečinky.
