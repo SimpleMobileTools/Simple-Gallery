@@ -9,7 +9,7 @@
     <string name="pin_folder">Закрепить папку</string>
     <string name="unpin_folder">Открепить папку</string>
     <string name="pin_to_the_top">Закрепить сверху</string>
-    <string name="show_all">Отобразить все медиафайлы</string>
+    <string name="show_all">Показать все медиафайлы</string>
     <string name="all_folders">Все медиафайлы</string>
     <string name="folder_view">Папки</string>
     <string name="other_folder">Выбор папки</string>
@@ -38,8 +38,8 @@
     <string name="images">Изображения</string>
     <string name="videos">Видео</string>
     <string name="gifs">GIF</string>
-    <string name="raw_images">Изображения RAW</string>
-    <string name="svgs">Изображения SVG</string>
+    <string name="raw_images">RAW</string>
+    <string name="svgs">SVG</string>
     <string name="no_media_with_filters">При заданных фильтрах медиафайлы не найдены</string>
     <string name="change_filters_underlined"><u>Изменить фильтры</u></string>
 
@@ -122,11 +122,11 @@
     <string name="change_view_type">Вид</string>
     <string name="grid">Сетка</string>
     <string name="list">Список</string>
-    <string name="group_direct_subfolders">Группировать вложенные папки</string>
+    <string name="group_direct_subfolders">Объединять вложенные папки</string>
 
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Группировать по…</string>
-    <string name="do_not_group_files">Не группировать файлы</string>
+    <string name="do_not_group_files">Не группировать</string>
     <string name="by_folder">Папка</string>
     <string name="by_last_modified">Последнее изменение</string>
     <string name="by_date_taken">Дата съёмки</string>
@@ -134,8 +134,8 @@
     <string name="by_extension">Расширение</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Папка на виджете:</string>
-    <string name="show_folder_name">Имя папки</string>
+    <string name="folder_on_widget">Папка, отображаемая в виджете:</string>
+    <string name="show_folder_name">Показывать имя папки</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Воспроизводить видео автоматически</string>
@@ -172,7 +172,7 @@
     <string name="allow_down_gesture">Отключать полноэкранный режим жестом вниз</string>
     <string name="allow_one_to_one_zoom">Масштаб 1:1 двумя двойными нажатиями</string>
     <string name="open_videos_on_separate_screen">Воспроизводить видео на отдельном экране с управлением позицией горизонтальными жестами</string>
-    <string name="show_notch">Show a notch if available</string>
+    <string name="show_notch">Показывать метку при наличии</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюры</string>
