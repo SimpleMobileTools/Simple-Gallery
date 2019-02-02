@@ -20,7 +20,7 @@ const val CROP_THUMBNAILS = "crop_thumbnails"
 const val SHOW_THUMBNAIL_VIDEO_DURATION = "show_thumbnail_video_duration"
 const val SCREEN_ROTATION = "screen_rotation"
 const val DISPLAY_FILE_NAMES = "display_file_names"
-const val DARK_BACKGROUND = "dark_background"
+const val BLACK_BACKGROUND = "dark_background"
 const val PINNED_FOLDERS = "pinned_folders"
 const val FILTER_MEDIA = "filter_media"
 const val DIR_COLUMN_CNT = "dir_column_cnt"
@@ -78,6 +78,7 @@ const val SHOW_WIDGET_FOLDER_NAME = "show_widget_folder_name"
 const val ALLOW_ONE_TO_ONE_ZOOM = "allow_one_to_one_zoom"
 const val LAST_EDITOR_DRAW_COLOR = "last_editor_draw_color"
 const val LAST_EDITOR_BRUSH_SIZE = "last_editor_brush_size"
+const val SHOW_NOTCH = "show_notch"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"
@@ -104,7 +105,7 @@ const val MAX_COLUMN_COUNT = 20
 const val SHOW_TEMP_HIDDEN_DURATION = 300000L
 const val CLICK_MAX_DURATION = 150
 const val CLICK_MAX_DISTANCE = 100
-const val MAX_CLOSE_DOWN_GESTURE_DURATION = 400
+const val MAX_CLOSE_DOWN_GESTURE_DURATION = 300
 const val DRAG_THRESHOLD = 8
 const val MONTH_MILLISECONDS = MONTH_SECONDS * 1000L
 const val MIN_SKIP_LENGTH = 2000

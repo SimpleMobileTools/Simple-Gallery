@@ -104,7 +104,7 @@ class Config(context: Context) : BaseConfig(context) {
     fun addPinnedFolders(paths: Set<String>) {
         val currPinnedFolders = HashSet<String>(pinnedFolders)
         currPinnedFolders.addAll(paths)
-        pinnedFolders = currPinnedFolders
+        pinnedFolders = currPinnedFolders.filter { it.isNotEmpty() }.toHashSet()
         if (paths.contains(RECYCLE_BIN)) {
             showRecycleBinLast = false
         }
@@ -123,7 +123,7 @@ class Config(context: Context) : BaseConfig(context) {
     fun addExcludedFolders(paths: Set<String>) {
         val currExcludedFolders = HashSet<String>(excludedFolders)
         currExcludedFolders.addAll(paths)
-        excludedFolders = currExcludedFolders
+        excludedFolders = currExcludedFolders.filter { it.isNotEmpty() }.toHashSet()
     }
 
     fun removeExcludedFolder(path: String) {
@@ -142,6 +142,12 @@ class Config(context: Context) : BaseConfig(context) {
         includedFolders = currIncludedFolders
     }
 
+    fun addIncludedFolders(paths: Set<String>) {
+        val currIncludedFolders = HashSet<String>(includedFolders)
+        currIncludedFolders.addAll(paths)
+        includedFolders = currIncludedFolders.filter { it.isNotEmpty() }.toHashSet()
+    }
+
     fun removeIncludedFolder(path: String) {
         val currIncludedFolders = HashSet<String>(includedFolders)
         currIncludedFolders.remove(path)
@@ -154,7 +160,7 @@ class Config(context: Context) : BaseConfig(context) {
 
     var autoplayVideos: Boolean
         get() = prefs.getBoolean(AUTOPLAY_VIDEOS, false)
-        set(autoplay) = prefs.edit().putBoolean(AUTOPLAY_VIDEOS, autoplay).apply()
+        set(autoplayVideos) = prefs.edit().putBoolean(AUTOPLAY_VIDEOS, autoplayVideos).apply()
 
     var animateGifs: Boolean
         get() = prefs.getBoolean(ANIMATE_GIFS, false)
@@ -189,8 +195,8 @@ class Config(context: Context) : BaseConfig(context) {
         set(display) = prefs.edit().putBoolean(DISPLAY_FILE_NAMES, display).apply()
 
     var blackBackground: Boolean
-        get() = prefs.getBoolean(DARK_BACKGROUND, false)
-        set(darkBackground) = prefs.edit().putBoolean(DARK_BACKGROUND, darkBackground).apply()
+        get() = prefs.getBoolean(BLACK_BACKGROUND, false)
+        set(blackBackground) = prefs.edit().putBoolean(BLACK_BACKGROUND, blackBackground).apply()
 
     var filterMedia: Int
         get() = prefs.getInt(FILTER_MEDIA, TYPE_IMAGES or TYPE_VIDEOS or TYPE_GIFS or TYPE_RAWS or TYPE_SVGS)
@@ -398,7 +404,7 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getStringSet(EVER_SHOWN_FOLDERS, getEverShownFolders())
         set(everShownFolders) = prefs.edit().putStringSet(EVER_SHOWN_FOLDERS, everShownFolders).apply()
 
-    fun getEverShownFolders() = hashSetOf(
+    private fun getEverShownFolders() = hashSetOf(
             internalStoragePath,
             Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).absolutePath,
             Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath,
@@ -461,4 +467,8 @@ class Config(context: Context) : BaseConfig(context) {
     var lastEditorBrushSize: Int
         get() = prefs.getInt(LAST_EDITOR_BRUSH_SIZE, 50)
         set(lastEditorBrushSize) = prefs.edit().putInt(LAST_EDITOR_BRUSH_SIZE, lastEditorBrushSize).apply()
+
+    var showNotch: Boolean
+        get() = prefs.getBoolean(SHOW_NOTCH, true)
+        set(showNotch) = prefs.edit().putBoolean(SHOW_NOTCH, showNotch).apply()
 }

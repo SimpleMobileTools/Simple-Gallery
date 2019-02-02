@@ -106,6 +106,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     override fun onResume() {
         super.onResume()
         isEditingWithThirdParty = false
+        bottom_draw_width.setColors(config.textColor, getAdjustedPrimaryColor(), config.backgroundColor)
     }
 
     override fun onStop() {
@@ -348,6 +349,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     val currentFilter = getFiltersAdapter()?.getCurrentFilter()
                     if (currentFilter == null) {
                         toast(R.string.unknown_error_occurred)
+                        return@Thread
                     }
 
                     val originalBitmap = Glide.with(applicationContext).asBitmap().load(uri).submit(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL).get()
@@ -566,7 +568,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             else -> null
         }
 
-        currentPrimaryActionButton?.applyColorFilter(config.primaryColor)
+        currentPrimaryActionButton?.applyColorFilter(getAdjustedPrimaryColor())
         bottom_editor_filter_actions.beVisibleIf(currPrimaryAction == PRIMARY_ACTION_FILTER)
         bottom_editor_crop_rotate_actions.beVisibleIf(currPrimaryAction == PRIMARY_ACTION_CROP_ROTATE)
         bottom_editor_draw_actions.beVisibleIf(currPrimaryAction == PRIMARY_ACTION_DRAW)
@@ -656,7 +658,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             else -> bottom_aspect_ratio_other
         }
 
-        currentAspectRatioButton.setTextColor(config.primaryColor)
+        currentAspectRatioButton.setTextColor(getAdjustedPrimaryColor())
     }
 
     private fun updateCropRotateActionButtons() {
@@ -669,7 +671,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             else -> null
         }
 
-        primaryActionView?.applyColorFilter(config.primaryColor)
+        primaryActionView?.applyColorFilter(getAdjustedPrimaryColor())
     }
 
     private fun updateDrawColor(color: Int) {

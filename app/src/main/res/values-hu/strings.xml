@@ -31,7 +31,7 @@
     <string name="fix_date_taken">Dátum javítása</string>
     <string name="fixing">Javítás…</string>
     <string name="dates_fixed_successfully">Sikeres dátum javítás</string>
-    <string name="share_resized">Share a resized version</string>
+    <string name="share_resized">Átméretezett verzió megosztása</string>
 
     <!-- Filter -->
     <string name="filter_media">Média szűrő</string>
@@ -172,7 +172,8 @@
     <string name="show_recycle_bin_last">Mutassa a Lomtárat a fő képernyő utolsó elemeként</string>
     <string name="allow_down_gesture">Engedélyezi a teljes képernyős nézetet a lefelé mozdulattal</string>
     <string name="allow_one_to_one_zoom">Engedélyezi az 1:1 nagyítást két dupla érintéssel</string>
-    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
+    <string name="open_videos_on_separate_screen">Mindig külön képernyőn nyissa meg a videókat új vízszintes mozdulattal</string>
+    <string name="show_notch">Show a notch if available</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatűrök</string>

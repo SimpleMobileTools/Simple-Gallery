@@ -2,8 +2,12 @@ package com.simplemobiletools.gallery.pro.fragments
 
 import android.content.Intent
 import android.content.res.Configuration
-import android.graphics.*
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Color
+import android.graphics.Matrix
 import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
 import android.graphics.drawable.PictureDrawable
 import android.media.ExifInterface.*
 import android.net.Uri
@@ -14,28 +18,28 @@ import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.alexvasilkov.gestures.GestureController
+import com.alexvasilkov.gestures.State
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
-import com.davemorrissey.labs.subscaleview.ImageSource
+import com.davemorrissey.labs.subscaleview.DecoderFactory
+import com.davemorrissey.labs.subscaleview.ImageDecoder
+import com.davemorrissey.labs.subscaleview.ImageRegionDecoder
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
-import com.davemorrissey.labs.subscaleview.decoder.DecoderFactory
-import com.davemorrissey.labs.subscaleview.decoder.ImageDecoder
-import com.davemorrissey.labs.subscaleview.decoder.ImageRegionDecoder
+import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.PanoramaPhotoActivity
 import com.simplemobiletools.gallery.pro.activities.PhotoActivity
 import com.simplemobiletools.gallery.pro.extensions.*
-import com.simplemobiletools.gallery.pro.helpers.MEDIUM
-import com.simplemobiletools.gallery.pro.helpers.PATH
-import com.simplemobiletools.gallery.pro.helpers.PicassoDecoder
-import com.simplemobiletools.gallery.pro.helpers.PicassoRegionDecoder
+import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.svg.SvgSoftwareLayerSetter
 import com.squareup.picasso.Callback
@@ -59,6 +63,7 @@ class PhotoFragment : ViewPagerFragment() {
             "google nexus 5x"
     )
 
+    var mCurrentRotationDegrees = 0
     private var mIsFragmentVisible = false
     private var mIsFullscreen = false
     private var mWasInit = false
@@ -66,9 +71,10 @@ class PhotoFragment : ViewPagerFragment() {
     private var mIsSubsamplingVisible = false    // checking view.visibility is unreliable, use an extra variable for it
     private var mImageOrientation = -1
     private var mOriginalSubsamplingScale = 0f
-    private var mIoadZoomableViewHandler = Handler()
+    private var mLoadZoomableViewHandler = Handler()
     private var mScreenWidth = 0
     private var mScreenHeight = 0
+    private var mCurrentGestureViewZoom = 1f
 
     private var mStoredShowExtendedDetails = false
     private var mStoredHideExtendedDetails = false
@@ -83,7 +89,7 @@ class PhotoFragment : ViewPagerFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         mView = (inflater.inflate(R.layout.pager_photo_item, container, false) as ViewGroup).apply {
             subsampling_view.setOnClickListener { photoClicked() }
-            photo_view.setOnClickListener { photoClicked() }
+            gestures_view.setOnClickListener { photoClicked() }
             gif_view.setOnClickListener { photoClicked() }
             instant_prev_item.setOnClickListener { listener?.goToPrevItem() }
             instant_next_item.setOnClickListener { listener?.goToNextItem() }
@@ -97,14 +103,34 @@ class PhotoFragment : ViewPagerFragment() {
                     if (subsampling_view.isVisible()) {
                         subsampling_view.sendFakeClick(x, y)
                     } else {
-                        photo_view.sendFakeClick(x, y)
+                        gestures_view.sendFakeClick(x, y)
                     }
                 }
             }
 
             if (context.config.allowDownGesture) {
+                gif_view.setOnTouchListener { v, event ->
+                    if (gif_view_frame.controller.state.zoom == 1f) {
+                        handleEvent(event)
+                    }
+                    false
+                }
+
+                gestures_view.controller.addOnStateChangeListener(object : GestureController.OnStateChangeListener {
+                    override fun onStateChanged(state: State) {
+                        mCurrentGestureViewZoom = state.zoom
+                    }
+                })
+
+                gestures_view.setOnTouchListener { v, event ->
+                    if (mCurrentGestureViewZoom == 1f) {
+                        handleEvent(event)
+                    }
+                    false
+                }
+
                 subsampling_view.setOnTouchListener { v, event ->
-                    if (mView.subsampling_view.scale == mOriginalSubsamplingScale) {
+                    if (subsampling_view.scale == mOriginalSubsamplingScale) {
                         handleEvent(event)
                     }
                     false
@@ -190,7 +216,6 @@ class PhotoFragment : ViewPagerFragment() {
             photo_brightness_controller.beVisibleIf(allowPhotoGestures)
             instant_prev_item.beVisibleIf(allowInstantChange)
             instant_next_item.beVisibleIf(allowInstantChange)
-            photo_view.setAllowFingerDragZoom(config.oneFingerZoom)
         }
 
         storeStateVariables()
@@ -201,7 +226,14 @@ class PhotoFragment : ViewPagerFragment() {
         if (activity?.isDestroyed == false) {
             mView.subsampling_view.recycle()
         }
-        mIoadZoomableViewHandler.removeCallbacksAndMessages(null)
+
+        mLoadZoomableViewHandler.removeCallbacksAndMessages(null)
+        if (mCurrentRotationDegrees != 0) {
+            Thread {
+                val path = mMedium.path
+                (activity as? BaseSimpleActivity)?.saveRotatedImageToFile(path, path, mCurrentRotationDegrees, false) {}
+            }.start()
+        }
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -210,6 +242,7 @@ class PhotoFragment : ViewPagerFragment() {
         // avoid GIFs being skewed, played in wrong aspect ratio
         if (mMedium.isGIF()) {
             mView.onGlobalLayout {
+                measureScreen()
                 Handler().postDelayed({
                     loadGif()
                 }, 50)
@@ -302,13 +335,10 @@ class PhotoFragment : ViewPagerFragment() {
                 InputSource.FileSource(pathToLoad)
             }
 
-            mView.photo_view.beGone()
-            val resolution = mMedium.path.getImageResolution() ?: Point(0, 0)
-            mView.gif_view.apply {
-                setInputSource(source)
-                setupGIFView(resolution.x, resolution.y, mScreenWidth, mScreenHeight) {
-                    activity?.supportFinishAfterTransition()
-                }
+            mView.apply {
+                gestures_view.beGone()
+                gif_view.setInputSource(source)
+                gif_view_frame.beVisible()
             }
         } catch (e: Exception) {
             loadBitmap()
@@ -322,10 +352,42 @@ class PhotoFragment : ViewPagerFragment() {
                 .`as`(PictureDrawable::class.java)
                 .listener(SvgSoftwareLayerSetter())
                 .load(mMedium.path)
-                .into(mView.photo_view)
+                .into(mView.gestures_view)
     }
 
-    private fun loadBitmap(degrees: Int = 0) {
+    private fun loadBitmap(degrees: Int = mCurrentRotationDegrees) {
+        val options = RequestOptions()
+                .signature(mMedium.path.getFileSignature())
+                .format(DecodeFormat.PREFER_ARGB_8888)
+                .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                .fitCenter()
+
+        if (degrees != 0) {
+            options.transform(GlideRotateTransformation(degrees))
+            options.diskCacheStrategy(DiskCacheStrategy.NONE)
+        }
+
+        Glide.with(context!!)
+                .load(getPathToLoad(mMedium))
+                .apply(options)
+                .listener(object : RequestListener<Drawable> {
+                    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
+                        if (activity != null) {
+                            tryLoadingWithPicasso(degrees)
+                        }
+                        return false
+                    }
+
+                    override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+                        if (mIsFragmentVisible && degrees == 0) {
+                            scheduleZoomableView()
+                        }
+                        return false
+                    }
+                }).into(mView.gestures_view)
+    }
+
+    private fun tryLoadingWithPicasso(degrees: Int = 0) {
         var pathToLoad = if (mMedium.path.startsWith("content://")) mMedium.path else "file://${mMedium.path}"
         pathToLoad = pathToLoad.replace("%", "%25").replace("#", "%23")
 
@@ -338,55 +400,22 @@ class PhotoFragment : ViewPagerFragment() {
 
             if (degrees != 0) {
                 picasso.rotate(degrees.toFloat())
+            } else {
+                degreesForRotation(mImageOrientation).toFloat()
             }
 
-            picasso.into(mView.photo_view, object : Callback {
+            picasso.into(mView.gestures_view, object : Callback {
                 override fun onSuccess() {
-                    mView.photo_view.isZoomable = degrees != 0 || context?.config?.allowZoomingImages == false
+                    mView.gestures_view.controller.settings.isZoomEnabled = degrees != 0 || context?.config?.allowZoomingImages == false
                     if (mIsFragmentVisible && degrees == 0) {
                         scheduleZoomableView()
                     }
                 }
 
-                override fun onError(e: Exception) {
-                    if (activity != null) {
-                        tryLoadingWithGlide()
-                    }
-                }
+                override fun onError(e: Exception) {}
             })
         } catch (ignored: Exception) {
         }
-    }
-
-    private fun tryLoadingWithGlide() {
-        var targetWidth = if (mScreenWidth == 0) com.bumptech.glide.request.target.Target.SIZE_ORIGINAL else mScreenWidth
-        var targetHeight = if (mScreenHeight == 0) com.bumptech.glide.request.target.Target.SIZE_ORIGINAL else mScreenHeight
-
-        if (mImageOrientation == ORIENTATION_ROTATE_90) {
-            targetWidth = targetHeight
-            targetHeight = com.bumptech.glide.request.target.Target.SIZE_ORIGINAL
-        }
-
-        val options = RequestOptions()
-                .signature(mMedium.path.getFileSignature())
-                .format(DecodeFormat.PREFER_ARGB_8888)
-                .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-                .override(targetWidth, targetHeight)
-
-        Glide.with(context!!)
-                .asBitmap()
-                .load(getPathToLoad(mMedium))
-                .apply(options)
-                .listener(object : RequestListener<Bitmap> {
-                    override fun onLoadFailed(e: GlideException?, model: Any?, target: com.bumptech.glide.request.target.Target<Bitmap>?, isFirstResource: Boolean) = false
-
-                    override fun onResourceReady(resource: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: com.bumptech.glide.load.DataSource?, isFirstResource: Boolean): Boolean {
-                        if (mIsFragmentVisible) {
-                            scheduleZoomableView()
-                        }
-                        return false
-                    }
-                }).into(mView.photo_view)
     }
 
     private fun openPanorama() {
@@ -397,9 +426,9 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun scheduleZoomableView() {
-        mIoadZoomableViewHandler.removeCallbacksAndMessages(null)
-        mIoadZoomableViewHandler.postDelayed({
-            if (mIsFragmentVisible && context?.config?.allowZoomingImages == true && mMedium.isImage() && !mIsSubsamplingVisible) {
+        mLoadZoomableViewHandler.removeCallbacksAndMessages(null)
+        mLoadZoomableViewHandler.postDelayed({
+            if (mIsFragmentVisible && context?.config?.allowZoomingImages == true && mMedium.isImage() && !mIsSubsamplingVisible && mCurrentRotationDegrees == 0) {
                 addZoomableView()
             }
         }, ZOOMABLE_VIEW_LOAD_DELAY)
@@ -423,17 +452,15 @@ class PhotoFragment : ViewPagerFragment() {
             setMaxTileSize(if (config.showHighestQuality) Integer.MAX_VALUE else 4096)
             setMinimumTileDpi(if (config.showHighestQuality) -1 else getMinTileDpi())
             background = ColorDrawable(Color.TRANSPARENT)
-            setBitmapDecoderFactory(bitmapDecoder)
-            setRegionDecoderFactory(regionDecoder)
+            bitmapDecoderFactory = bitmapDecoder
+            regionDecoderFactory = regionDecoder
             maxScale = 10f
             beVisible()
             isQuickScaleEnabled = config.oneFingerZoom
             isOneToOneZoomEnabled = config.allowOneToOneZoom
-            setResetScaleOnSizeChange(false)
-            setImage(ImageSource.uri(path))
-            setOrientation(rotation)
-            setEagerLoadingEnabled(false)
-            setOnImageEventListener(object : SubsamplingScaleImageView.OnImageEventListener {
+            orientation = rotation
+            setImage(path)
+            onImageEventListener = object : SubsamplingScaleImageView.OnImageEventListener {
                 override fun onImageLoaded() {
                 }
 
@@ -441,29 +468,20 @@ class PhotoFragment : ViewPagerFragment() {
                     background = ColorDrawable(if (config.blackBackground) Color.BLACK else config.backgroundColor)
                     val useWidth = if (mImageOrientation == ORIENTATION_ROTATE_90 || mImageOrientation == ORIENTATION_ROTATE_270) sHeight else sWidth
                     val useHeight = if (mImageOrientation == ORIENTATION_ROTATE_90 || mImageOrientation == ORIENTATION_ROTATE_270) sWidth else sHeight
-                    setDoubleTapZoomScale(getDoubleTapZoomScale(useWidth, useHeight))
+                    doubleTapZoomScale = getDoubleTapZoomScale(useWidth, useHeight)
                     mOriginalSubsamplingScale = scale
                 }
 
                 override fun onTileLoadError(e: Exception) {
                 }
 
-                override fun onPreviewReleased() {
-                }
-
                 override fun onImageLoadError(e: Exception) {
-                    mView.photo_view.isZoomable = true
+                    mView.gestures_view.controller.settings.isZoomEnabled = true
                     background = ColorDrawable(Color.TRANSPARENT)
                     mIsSubsamplingVisible = false
                     beGone()
                 }
-
-                override fun onPreviewLoadError(e: Exception) {
-                    background = ColorDrawable(Color.TRANSPARENT)
-                    mIsSubsamplingVisible = false
-                    beGone()
-                }
-            })
+            }
         }
     }
 
@@ -535,7 +553,8 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     fun rotateImageViewBy(degrees: Int) {
-        mIoadZoomableViewHandler.removeCallbacksAndMessages(null)
+        mCurrentRotationDegrees = degrees
+        mLoadZoomableViewHandler.removeCallbacksAndMessages(null)
         mView.subsampling_view.beGone()
         mIsSubsamplingVisible = false
         loadBitmap(degrees)
@@ -567,7 +586,7 @@ class PhotoFragment : ViewPagerFragment() {
             mIsSubsamplingVisible = false
             mView.subsampling_view.recycle()
             mView.subsampling_view.beGone()
-            mIoadZoomableViewHandler.removeCallbacksAndMessages(null)
+            mLoadZoomableViewHandler.removeCallbacksAndMessages(null)
         }
     }
 

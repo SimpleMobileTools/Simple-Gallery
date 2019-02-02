@@ -43,6 +43,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     private val viewType = config.getFolderViewType(if (config.showAll) SHOW_ALL else path)
     private val isListViewType = viewType == VIEW_TYPE_LIST
     private var visibleItemPaths = ArrayList<String>()
+    private var rotatedImagePaths = ArrayList<String>()
     private var loadImageInstantly = false
     private var delayHandler = Handler(Looper.getMainLooper())
     private var currentMediaHash = media.hashCode()
@@ -278,10 +279,12 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     private fun rotateSelection(degrees: Int) {
         activity.toast(R.string.saving)
         Thread {
-            val paths = getSelectedPaths()
+            val paths = getSelectedPaths().filter { it.isImageFast() }
             var fileCnt = paths.size
+            rotatedImagePaths.clear()
             paths.forEach {
-                activity.saveRotatedImageToFile(it, it, degrees) {
+                rotatedImagePaths.add(it)
+                activity.saveRotatedImageToFile(it, it, degrees, true) {
                     fileCnt--
                     if (fileCnt == 0) {
                         activity.runOnUiThread {
@@ -375,7 +378,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         activity.handleSAFDialog(SAFPath) {
             val fileDirItems = ArrayList<FileDirItem>(selectedKeys.size)
             val removeMedia = ArrayList<Medium>(selectedKeys.size)
-            val position = getSelectedItemPositions()
+            val positions = getSelectedItemPositions()
 
             getSelectedItems().forEach {
                 fileDirItems.add(FileDirItem(it.path, it.name))
@@ -384,7 +387,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
             media.removeAll(removeMedia)
             listener?.tryDeleteFiles(fileDirItems)
-            removeSelectedItems(position)
+            removeSelectedItems(positions)
         }
     }
 
@@ -460,14 +463,14 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
             }
 
             if (loadImageInstantly) {
-                activity.loadImage(medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
+                activity.loadImage(medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, rotatedImagePaths)
             } else {
                 medium_thumbnail.setImageDrawable(null)
                 medium_thumbnail.isHorizontalScrolling = scrollHorizontally
                 delayHandler.postDelayed({
                     val isVisible = visibleItemPaths.contains(medium.path)
                     if (isVisible) {
-                        activity.loadImage(medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
+                        activity.loadImage(medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, rotatedImagePaths)
                     }
                 }, IMAGE_LOAD_DELAY)
             }

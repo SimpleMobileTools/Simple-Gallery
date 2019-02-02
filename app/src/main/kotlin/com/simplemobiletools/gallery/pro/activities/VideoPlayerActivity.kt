@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.graphics.Color
-import android.graphics.Matrix
 import android.graphics.Point
 import android.graphics.SurfaceTexture
 import android.graphics.drawable.ColorDrawable
@@ -26,7 +25,6 @@ import com.google.android.exoplayer2.upstream.DataSpec
 import com.google.android.exoplayer2.video.VideoListener
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
-import com.simplemobiletools.commons.helpers.isPiePlus
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.*
@@ -44,27 +42,18 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     private var mScreenWidth = 0
     private var mCurrTime = 0
     private var mDuration = 0
-    private var mSaveScale = 1f
-    private var mRight = 0f
-    private var mBottom = 0f
-    private var mLastTouchX = 0f
-    private var mLastTouchY = 0f
     private var mDragThreshold = 0f
     private var mTouchDownX = 0f
     private var mTouchDownY = 0f
     private var mTouchDownTime = 0L
     private var mProgressAtDown = 0L
     private var mCloseDownThreshold = 100f
-    private var mCurrZoomMode = ZOOM_MODE_NONE
 
     private var mUri: Uri? = null
     private var mExoPlayer: SimpleExoPlayer? = null
     private var mVideoSize = Point(0, 0)
     private var mTimerHandler = Handler()
     private var mPlayWhenReadyHandler = Handler()
-    private var mScaleDetector: ScaleGestureDetector? = null
-    private var mMatrices = FloatArray(9)
-    private val mMatrix = Matrix()
 
     private var mIgnoreCloseDown = false
 
@@ -72,6 +61,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video_player)
         setupOrientation()
+        checkNotchSupport()
 
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
@@ -159,11 +149,6 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         supportActionBar?.title = getFilenameFromUri(mUri!!)
         initTimeHolder()
 
-        if (isPiePlus()) {
-            window.attributes.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        }
-
         showSystemUI(true)
         window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
             val isFullscreen = visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
@@ -173,6 +158,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         video_curr_time.setOnClickListener { skip(false) }
         video_duration.setOnClickListener { skip(true) }
         video_toggle_play_pause.setOnClickListener { togglePlayPause() }
+        video_surface_frame.setOnClickListener { toggleFullscreen() }
 
         video_next_file.beVisibleIf(intent.getBooleanExtra(SHOW_NEXT_ITEM, false))
         video_next_file.setOnClickListener { handleNextFile() }
@@ -180,14 +166,9 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         video_prev_file.beVisibleIf(intent.getBooleanExtra(SHOW_PREV_ITEM, false))
         video_prev_file.setOnClickListener { handlePrevFile() }
 
-        video_player_holder.setOnTouchListener { view, event ->
+        video_surface_frame.setOnTouchListener { view, event ->
             handleEvent(event)
-            true
-        }
-
-        video_surface.setOnTouchListener { view, event ->
-            handleEventWithZooming(event)
-            true
+            false
         }
 
         initExoPlayer()
@@ -213,7 +194,6 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         }
 
         mDragThreshold = DRAG_THRESHOLD * resources.displayMetrics.density
-        mScaleDetector = ScaleGestureDetector(applicationContext, ScaleListener())
     }
 
     private fun initExoPlayer() {
@@ -515,7 +495,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
                 val diffX = event.x - mTouchDownX
                 val diffY = event.y - mTouchDownY
 
-                if (mIsDragged || (Math.abs(diffX) > mDragThreshold && Math.abs(diffX) > Math.abs(diffY))) {
+                if (mIsDragged || (Math.abs(diffX) > mDragThreshold && Math.abs(diffX) > Math.abs(diffY)) && video_surface_frame.controller.state.zoom == 1f) {
                     if (!mIsDragged) {
                         arrayOf(video_curr_time, video_seekbar, video_duration).forEach {
                             it.animate().alpha(1f).start()
@@ -539,7 +519,9 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
                 val diffY = mTouchDownY - event.y
 
                 val downGestureDuration = System.currentTimeMillis() - mTouchDownTime
-                if (config.allowDownGesture && !mIgnoreCloseDown && Math.abs(diffY) > Math.abs(diffX) && diffY < -mCloseDownThreshold && downGestureDuration < MAX_CLOSE_DOWN_GESTURE_DURATION) {
+                if (config.allowDownGesture && !mIgnoreCloseDown && Math.abs(diffY) > Math.abs(diffX) && diffY < -mCloseDownThreshold &&
+                        downGestureDuration < MAX_CLOSE_DOWN_GESTURE_DURATION &&
+                        video_surface_frame.controller.state.zoom == 1f) {
                     supportFinishAfterTransition()
                 }
 
@@ -553,10 +535,6 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
                     if (!mIsPlaying) {
                         togglePlayPause()
-                    }
-                } else {
-                    if (Math.abs(diffX) < CLICK_MAX_DISTANCE && Math.abs(diffY) < CLICK_MAX_DISTANCE && System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
-                        toggleFullscreen()
                     }
                 }
                 mIsDragged = false
@@ -632,150 +610,4 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     }
 
     override fun onSurfaceTextureSizeChanged(surface: SurfaceTexture?, width: Int, height: Int) {}
-
-    private fun handleEventWithZooming(event: MotionEvent) {
-        mScaleDetector?.onTouchEvent(event)
-
-        mMatrix.getValues(mMatrices)
-        val x = mMatrices[Matrix.MTRANS_X]
-        val y = mMatrices[Matrix.MTRANS_Y]
-
-        when (event.actionMasked) {
-            MotionEvent.ACTION_DOWN -> {
-                mTouchDownTime = System.currentTimeMillis()
-                mCurrZoomMode = ZOOM_MODE_DRAG
-                mLastTouchX = event.x
-                mLastTouchY = event.y
-
-                mTouchDownX = event.x
-                mTouchDownY = event.y
-                mProgressAtDown = mExoPlayer!!.currentPosition
-            }
-            MotionEvent.ACTION_UP -> {
-                mCurrZoomMode = ZOOM_MODE_NONE
-                val diffX = mTouchDownX - event.x
-                val diffY = mTouchDownY - event.y
-
-                val downGestureDuration = System.currentTimeMillis() - mTouchDownTime
-                if (!mIgnoreCloseDown && Math.abs(diffY) > Math.abs(diffX) && diffY < -mCloseDownThreshold && downGestureDuration < MAX_CLOSE_DOWN_GESTURE_DURATION && mSaveScale == 1f) {
-                    supportFinishAfterTransition()
-                }
-                mIgnoreCloseDown = false
-
-                if (mIsDragged) {
-                    if (mIsFullscreen) {
-                        arrayOf(video_curr_time, video_seekbar, video_duration).forEach {
-                            it.animate().alpha(0f).start()
-                        }
-                    }
-
-                    if (!mIsPlaying) {
-                        togglePlayPause()
-                    }
-                } else {
-                    if (Math.abs(diffX) < CLICK_MAX_DISTANCE && Math.abs(diffY) < CLICK_MAX_DISTANCE && System.currentTimeMillis() - mTouchDownTime < CLICK_MAX_DURATION) {
-                        toggleFullscreen()
-                    }
-                }
-
-                mIsDragged = false
-            }
-            MotionEvent.ACTION_POINTER_DOWN -> {
-                mLastTouchX = event.x
-                mLastTouchY = event.y
-                mCurrZoomMode = ZOOM_MODE_ZOOM
-                mIgnoreCloseDown = true
-            }
-            MotionEvent.ACTION_MOVE -> {
-                val diffX = event.x - mTouchDownX
-                val diffY = event.y - mTouchDownY
-                if (mSaveScale == 1f && (mIsDragged || (Math.abs(diffX) > mDragThreshold && Math.abs(diffX) > Math.abs(diffY)))) {
-                    if (!mIsDragged) {
-                        arrayOf(video_curr_time, video_seekbar, video_duration).forEach {
-                            it.animate().alpha(1f).start()
-                        }
-                    }
-                    mIgnoreCloseDown = true
-                    mIsDragged = true
-                    var percent = ((diffX / mScreenWidth) * 100).toInt()
-                    percent = Math.min(100, Math.max(-100, percent))
-
-                    val skipLength = (mDuration * 1000f) * (percent / 100f)
-                    var newProgress = mProgressAtDown + skipLength
-                    newProgress = Math.max(Math.min(mExoPlayer!!.duration.toFloat(), newProgress), 0f)
-                    val newSeconds = (newProgress / 1000).toInt()
-                    setPosition(newSeconds)
-                    resetPlayWhenReady()
-                } else if (mCurrZoomMode == ZOOM_MODE_ZOOM || mCurrZoomMode == ZOOM_MODE_DRAG && mSaveScale > MIN_VIDEO_ZOOM_SCALE) {
-                    var deltaX = event.x - mLastTouchX
-                    var deltaY = event.y - mLastTouchY
-                    if (y + deltaY > 0) {
-                        deltaY = -y
-                    } else if (y + deltaY < -mBottom) {
-                        deltaY = -(y + mBottom)
-                    }
-
-                    if (x + deltaX > 0) {
-                        deltaX = -x
-                    } else if (x + deltaX < -mRight) {
-                        deltaX = -(x + mRight)
-                    }
-
-                    mMatrix.postTranslate(deltaX, deltaY)
-                    mLastTouchX = event.x
-                    mLastTouchY = event.y
-                }
-            }
-            MotionEvent.ACTION_POINTER_UP -> {
-                mCurrZoomMode = ZOOM_MODE_NONE
-            }
-        }
-
-        video_surface.setTransform(mMatrix)
-        video_surface.invalidate()
-    }
-
-    // taken from https://github.com/Manuiq/ZoomableTextureView
-    private inner class ScaleListener : ScaleGestureDetector.SimpleOnScaleGestureListener() {
-        override fun onScaleBegin(detector: ScaleGestureDetector): Boolean {
-            mCurrZoomMode = ZOOM_MODE_ZOOM
-            return true
-        }
-
-        override fun onScale(detector: ScaleGestureDetector): Boolean {
-            val width = video_surface.width
-            val height = video_surface.height
-            if (width <= 0 || height <= 0) {
-                return true
-            }
-
-            var scaleFactor = detector.scaleFactor
-            val origScale = mSaveScale
-            mSaveScale *= scaleFactor
-
-            if (mSaveScale > MAX_VIDEO_ZOOM_SCALE) {
-                mSaveScale = MAX_VIDEO_ZOOM_SCALE
-                scaleFactor = MAX_VIDEO_ZOOM_SCALE / origScale
-            } else if (mSaveScale < MIN_VIDEO_ZOOM_SCALE) {
-                mSaveScale = MIN_VIDEO_ZOOM_SCALE
-                scaleFactor = MIN_VIDEO_ZOOM_SCALE / origScale
-            }
-
-            mRight = width * mSaveScale - width
-            mBottom = height * mSaveScale - height
-            mMatrix.postScale(scaleFactor, scaleFactor, detector.focusX, detector.focusY)
-            if (scaleFactor < 1) {
-                mMatrix.getValues(mMatrices)
-                val y = mMatrices[Matrix.MTRANS_Y]
-                if (scaleFactor < 1) {
-                    if (y < -mBottom) {
-                        mMatrix.postTranslate(0f, -(y + mBottom))
-                    } else if (y > 0) {
-                        mMatrix.postTranslate(0f, -y)
-                    }
-                }
-            }
-            return true
-        }
-    }
 }

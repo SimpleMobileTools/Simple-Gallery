@@ -104,7 +104,7 @@ abstract class ViewPagerFragment : Fragment() {
                 mTouchDownY = event.y
             }
             MotionEvent.ACTION_POINTER_DOWN -> mIgnoreCloseDown = true
-            MotionEvent.ACTION_UP -> {
+            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
                 val diffX = mTouchDownX - event.x
                 val diffY = mTouchDownY - event.y
 

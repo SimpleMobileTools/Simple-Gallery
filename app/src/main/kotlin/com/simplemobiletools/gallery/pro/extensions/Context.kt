@@ -387,13 +387,14 @@ fun Context.getFolderNameFromPath(path: String): String {
     }
 }
 
-fun Context.loadImage(type: Int, path: String, target: MySquareImageView, horizontalScroll: Boolean, animateGifs: Boolean, cropThumbnails: Boolean) {
+fun Context.loadImage(type: Int, path: String, target: MySquareImageView, horizontalScroll: Boolean, animateGifs: Boolean, cropThumbnails: Boolean,
+                      skipMemoryCacheAtPaths: ArrayList<String>? = null) {
     target.isHorizontalScrolling = horizontalScroll
     if (type == TYPE_IMAGES || type == TYPE_VIDEOS || type == TYPE_RAWS) {
         if (type == TYPE_IMAGES && path.isPng()) {
-            loadPng(path, target, cropThumbnails)
+            loadPng(path, target, cropThumbnails, skipMemoryCacheAtPaths)
         } else {
-            loadJpg(path, target, cropThumbnails)
+            loadJpg(path, target, cropThumbnails, skipMemoryCacheAtPaths)
         }
     } else if (type == TYPE_GIFS) {
         try {
@@ -407,9 +408,9 @@ fun Context.loadImage(type: Int, path: String, target: MySquareImageView, horizo
 
             target.scaleType = if (cropThumbnails) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
         } catch (e: Exception) {
-            loadJpg(path, target, cropThumbnails)
+            loadJpg(path, target, cropThumbnails, skipMemoryCacheAtPaths)
         } catch (e: OutOfMemoryError) {
-            loadJpg(path, target, cropThumbnails)
+            loadJpg(path, target, cropThumbnails, skipMemoryCacheAtPaths)
         }
     } else if (type == TYPE_SVGS) {
         loadSVG(path, target, cropThumbnails)
@@ -435,9 +436,10 @@ fun Context.getPathLocation(path: String): Int {
     }
 }
 
-fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boolean) {
+fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boolean, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
     val options = RequestOptions()
             .signature(path.getFileSignature())
+            .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
             .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
             .format(DecodeFormat.PREFER_ARGB_8888)
 
@@ -449,9 +451,10 @@ fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boo
     builder.apply(options).into(target)
 }
 
-fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boolean) {
+fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boolean, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
     val options = RequestOptions()
             .signature(path.getFileSignature())
+            .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
             .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
 
     val builder = Glide.with(applicationContext)

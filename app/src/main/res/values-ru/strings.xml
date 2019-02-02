@@ -172,6 +172,7 @@
     <string name="allow_down_gesture">Отключать полноэкранный режим жестом вниз</string>
     <string name="allow_one_to_one_zoom">Масштаб 1:1 двумя двойными нажатиями</string>
     <string name="open_videos_on_separate_screen">Воспроизводить видео на отдельном экране с управлением позицией горизонтальными жестами</string>
+    <string name="show_notch">Show a notch if available</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюры</string>

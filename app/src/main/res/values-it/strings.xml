@@ -31,7 +31,7 @@
     <string name="fix_date_taken">Correggi valore Data acquisizione</string>
     <string name="fixing">Correzione in corso…</string>
     <string name="dates_fixed_successfully">Date aggiornate correttamente</string>
-    <string name="share_resized">Share a resized version</string>
+    <string name="share_resized">Condividi una versione ridimensionata</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtra i file</string>
@@ -172,6 +172,7 @@
     <string name="allow_down_gesture">Chiudi la visuale a schermo intero con un gesto verso il basso</string>
     <string name="allow_one_to_one_zoom">Permetti l\'ingrandimento 1:1 con un doppio tasto</string>
     <string name="open_videos_on_separate_screen">Apri sempre i video su uno schermo separato con i nuovi movimenti orizzontali</string>
+    <string name="show_notch">Mostra un notch se disponibile</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Anteprime</string>

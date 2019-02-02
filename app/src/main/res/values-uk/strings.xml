@@ -172,6 +172,7 @@
     <string name="allow_down_gesture">Дозволити закриття повноекранного перегляду свайпом згори вниз</string>
     <string name="allow_one_to_one_zoom">Дозволити масштабування до 1:1 подвійним тапом</string>
     <string name="open_videos_on_separate_screen">Завжди відкривати відео на окремому екрані з новими горизонтальними жестами</string>
+    <string name="show_notch">Show a notch if available</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Ескізи</string>

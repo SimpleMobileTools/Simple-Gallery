@@ -1,6 +1,44 @@
 Changelog
 ==========
 
+Version 6.4.1 *(2019-01-29)*
+----------------------------
+
+ * Fixed some crashes related to zoomable videos
+ * Disable the Close Down gesture at GIFs and videos, if they are zoomed in
+
+Version 6.4.0 *(2019-01-29)*
+----------------------------
+
+ * Implemented export/importing for app settings and other preferences, like sorting
+ * Allow hiding Notch on fullscreen view on Android 9+
+ * Some gif/video zoom related improvements
+ * Autosave images zoomed at the fullscreen view
+ * Many other UX and stability improvements
+
+Version 6.3.2 *(2019-01-23)*
+----------------------------
+
+ * Fixed some fullscreen image and gif issues related to zooming
+ * Show directly included folders even if they contain a .nomedia file
+
+Version 6.3.1 *(2019-01-22)*
+----------------------------
+
+ * Fixed fullscreen images crashing when the app was installed on an SD card
+ * A couple other fullscreen image viewer improvements
+ * Allow batch rotating only images, ignore other file types
+
+Version 6.3.0 *(2019-01-17)*
+----------------------------
+
+ * Allow zooming GIFs and videos
+ * Allow sharing images directly from the editor
+ * Allow drawing in the editor
+ * If a folder is directly excluded, make it a higher priority than some included parent folder
+ * Added batch rotating from the thumbnails view
+ * Many other smaller improvements
+
 Version 6.2.2 *(2019-01-10)*
 ----------------------------
 

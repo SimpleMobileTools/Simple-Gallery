@@ -3,7 +3,7 @@ package com.simplemobiletools.gallery.pro.helpers
 import android.content.Context
 import android.graphics.*
 import android.net.Uri
-import com.davemorrissey.labs.subscaleview.decoder.ImageRegionDecoder
+import com.davemorrissey.labs.subscaleview.ImageRegionDecoder
 
 class PicassoRegionDecoder : ImageRegionDecoder {
     private var decoder: BitmapRegionDecoder? = null

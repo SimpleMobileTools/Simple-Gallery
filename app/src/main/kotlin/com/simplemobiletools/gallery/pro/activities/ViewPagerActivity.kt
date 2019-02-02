@@ -2,7 +2,6 @@ package com.simplemobiletools.gallery.pro.activities
 
 import android.animation.Animator
 import android.animation.ValueAnimator
-import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.ActivityInfo
@@ -12,7 +11,6 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.media.ExifInterface
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
@@ -70,17 +68,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mMediaFiles = ArrayList<Medium>()
     private var mFavoritePaths = ArrayList<String>()
 
-    @TargetApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_medium)
 
         top_shadow.layoutParams.height = statusBarHeight + actionBarHeight
-        if (isPiePlus()) {
-            window.attributes.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        }
-
+        checkNotchSupport()
         (MediaActivity.mMedia.clone() as ArrayList<ThumbnailItem>).filter { it is Medium }.mapTo(mMediaFiles) { it as Medium }
 
         handlePermission(PERMISSION_WRITE_STORAGE) {
@@ -149,6 +142,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         currentMedium.isFavorite = mFavoritePaths.contains(currentMedium.path)
         val visibleBottomActions = if (config.bottomActions) config.visibleBottomActions else 0
 
+        getCurrentPhotoFragment()?.mCurrentRotationDegrees = mRotationDegrees
         menu.apply {
             findItem(R.id.menu_show_on_map).isVisible = visibleBottomActions and BOTTOM_ACTION_SHOW_ON_MAP == 0
             findItem(R.id.menu_slideshow).isVisible = visibleBottomActions and BOTTOM_ACTION_SLIDESHOW == 0
@@ -558,10 +552,19 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun rotateImage(degrees: Int) {
-        mRotationDegrees = (mRotationDegrees + degrees) % 360
-        getCurrentFragment()?.let {
-            (it as? PhotoFragment)?.rotateImageViewBy(mRotationDegrees)
+        val currentPath = getCurrentPath()
+        if (needsStupidWritePermissions(currentPath)) {
+            handleSAFDialog(currentPath) {
+                rotateBy(degrees)
+            }
+        } else {
+            rotateBy(degrees)
         }
+    }
+
+    private fun rotateBy(degrees: Int) {
+        mRotationDegrees = (mRotationDegrees + degrees) % 360
+        getCurrentPhotoFragment()?.rotateImageViewBy(mRotationDegrees)
         supportInvalidateOptionsMenu()
     }
 
@@ -589,15 +592,18 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             handleSAFDialog(it) {
                 toast(R.string.saving)
                 Thread {
-                    saveRotatedImageToFile(currPath, it, mRotationDegrees) {
+                    saveRotatedImageToFile(currPath, it, mRotationDegrees, true) {
                         toast(R.string.file_saved)
                         mRotationDegrees = 0
+                        getCurrentPhotoFragment()?.mCurrentRotationDegrees = 0
                         invalidateOptionsMenu()
                     }
                 }.start()
             }
         }
     }
+
+    private fun getCurrentPhotoFragment() = getCurrentFragment() as? PhotoFragment
 
     private fun isShowHiddenFlagNeeded(): Boolean {
         val file = File(mPath)

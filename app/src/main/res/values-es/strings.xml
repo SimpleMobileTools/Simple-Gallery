@@ -31,7 +31,7 @@
     <string name="fix_date_taken">Fijar fecha de toma</string>
     <string name="fixing">Fijando…</string>
     <string name="dates_fixed_successfully">Fecha fijada correctamente</string>
-    <string name="share_resized">Share a resized version</string>
+    <string name="share_resized">Comparte una versión redimensionada</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtro de medios</string>
@@ -116,7 +116,7 @@
     <string name="loop_slideshow">Presentación de diapositivas</string>
     <string name="slideshow_ended">La diapositiva terminó</string>
     <string name="no_media_for_slideshow">No se han encontrado medios para la presentación de diapositivas</string>
-    <string name="use_crossfade_animation">Use crossfade animations</string>
+    <string name="use_crossfade_animation">Usa animaciones de crossfade.</string>
 
     <!-- View types -->
     <string name="change_view_type">Cambiar tipo de vista</string>
@@ -170,8 +170,9 @@
     <string name="show_highest_quality">Muestra imágenes con la mayor calidad posible</string>
     <string name="show_recycle_bin_last">Mostrar la Papelera de reciclaje como el último elemento en la pantalla principal</string>
     <string name="allow_down_gesture">Permite cerrar la vista de pantalla completa con un gesto hacia abajo.</string>
-    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
-    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
+    <string name="allow_one_to_one_zoom">Permitir zoom 1:1 con dos toques dobles</string>
+    <string name="open_videos_on_separate_screen">Siempre abre videos en una pantalla separada con nuevos gestos horizontales</string>
+    <string name="show_notch">Mostrar una muesca si está disponible</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
@@ -193,7 +194,7 @@
     <string name="faq_3_title">¿Cómo puedo hacer que un álbum siempre aparezca en la parte superior?</string>
     <string name="faq_3_text">Puede aguantar pulsado el álbum deseado y seleccionar el ícono Pin en el menú de acción, que lo fijará en la parte superior. También puede anclar varias carpetas, los artículos fijados se ordenarán por el método de clasificación predeterminado.</string>
     <string name="faq_4_title">¿Cómo puedo avanzar videos?</string>
-    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
+    <string name="faq_4_text">Puede arrastrar el dedo horizontalmente sobre el reproductor de video, o hacer clic en los textos de duración actual o máxima cerca de la barra de búsqueda, que moverán el video hacia atrás o hacia adelante.</string>
     <string name="faq_5_title">¿Cuál es la diferencia entre ocultar y excluir una carpeta?</string>
     <string name="faq_5_text">Excluir evita mostrar la carpeta solo en Simple Gallery, mientras que Ocultar funciona en el sistema y oculta la carpeta de otras galerías también. Funciona al crear un archivo \".nomedia \" vacío en la carpeta determinada, que luego puede eliminar también con cualquier administrador de archivos.</string>
     <string name="faq_6_title">¿Por qué aparecen las carpetas con la portada de la música o las pegatinas?</string>
@@ -216,7 +217,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
+    <string name="app_short_description">Una galería senzilla, sin anuncios y respetando su privacidad.</string>
     <string name="app_long_description">
         Una galería altamente personalizable capaz de mostrar diferentes tipos de imágenes y videos, incluyendo SVG, RAW, fotos panorámicas y videos.
 

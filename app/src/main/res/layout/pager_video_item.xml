@@ -11,11 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <TextureView
-        android:id="@+id/video_surface"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
+    <com.alexvasilkov.gestures.GestureFrameLayout
+        android:id="@+id/video_surface_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextureView
+            android:id="@+id/video_surface"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+
+    </com.alexvasilkov.gestures.GestureFrameLayout>
 
     <com.simplemobiletools.gallery.pro.views.MediaSideScroll
         android:id="@+id/video_volume_controller"
@@ -49,23 +56,6 @@
         android:padding="20dp"
         android:src="@drawable/ic_play_outline"/>
 
-    <TextView
-        android:id="@+id/slide_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="120dp"
-        android:alpha="0"
-        android:background="@drawable/black_rounded_background"
-        android:gravity="center"
-        android:paddingLeft="@dimen/activity_margin"
-        android:paddingTop="@dimen/medium_margin"
-        android:paddingRight="@dimen/activity_margin"
-        android:paddingBottom="@dimen/medium_margin"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/extra_big_text_size"/>
-
     <ImageView
         android:id="@+id/panorama_outline"
         android:layout_width="@dimen/play_outline_size_big"
@@ -90,5 +80,22 @@
         tools:text="My video\nAnother line"/>
 
     <include layout="@layout/bottom_video_time_holder"/>
+
+    <TextView
+        android:id="@+id/slide_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="120dp"
+        android:alpha="0"
+        android:background="@drawable/black_rounded_background"
+        android:gravity="center"
+        android:paddingLeft="@dimen/activity_margin"
+        android:paddingTop="@dimen/medium_margin"
+        android:paddingRight="@dimen/activity_margin"
+        android:paddingBottom="@dimen/medium_margin"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/extra_big_text_size"/>
 
 </RelativeLayout>

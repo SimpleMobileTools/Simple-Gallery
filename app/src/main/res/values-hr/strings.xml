@@ -172,6 +172,7 @@
     <string name="allow_down_gesture">Omogućite zatvaranje prikaza preko cijelog zaslona pokretom prema dolje</string>
     <string name="allow_one_to_one_zoom">Dopusti zumiranje 1: 1 s dva dvostruka dodira</string>
     <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
+    <string name="show_notch">Show a notch if available</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>

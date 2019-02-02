@@ -3,7 +3,7 @@ package com.simplemobiletools.gallery.pro.helpers
 import android.content.Context
 import android.graphics.Bitmap
 import android.net.Uri
-import com.davemorrissey.labs.subscaleview.decoder.ImageDecoder
+import com.davemorrissey.labs.subscaleview.ImageDecoder
 import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.Picasso
 

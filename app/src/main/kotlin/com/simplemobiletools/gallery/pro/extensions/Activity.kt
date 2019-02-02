@@ -74,7 +74,7 @@ fun Activity.launchCamera() {
 
 fun SimpleActivity.launchAbout() {
     val licenses = LICENSE_GLIDE or LICENSE_CROPPER or LICENSE_RTL or LICENSE_SUBSAMPLING or LICENSE_PATTERN or LICENSE_REPRINT or LICENSE_GIF_DRAWABLE or
-            LICENSE_PHOTOVIEW or LICENSE_PICASSO or LICENSE_EXOPLAYER or LICENSE_PANORAMA_VIEW or LICENSE_SANSELAN or LICENSE_FILTERS
+            LICENSE_PICASSO or LICENSE_EXOPLAYER or LICENSE_PANORAMA_VIEW or LICENSE_SANSELAN or LICENSE_FILTERS or LICENSE_GESTURE_VIEWS
 
     val faqItems = arrayListOf(
             FAQItem(R.string.faq_5_title_commons, R.string.faq_5_text_commons),
@@ -373,9 +373,9 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, callback: (() -> Unit)? = nu
     }
 }
 
-fun BaseSimpleActivity.saveRotatedImageToFile(oldPath: String, newPath: String, degrees: Int, callback: () -> Unit) {
+fun BaseSimpleActivity.saveRotatedImageToFile(oldPath: String, newPath: String, degrees: Int, showToasts: Boolean, callback: () -> Unit) {
     if (oldPath == newPath && oldPath.isJpg()) {
-        if (tryRotateByExif(oldPath, degrees, callback)) {
+        if (tryRotateByExif(oldPath, degrees, showToasts, callback)) {
             return
         }
     }
@@ -385,7 +385,9 @@ fun BaseSimpleActivity.saveRotatedImageToFile(oldPath: String, newPath: String, 
     try {
         getFileOutputStream(tmpFileDirItem) {
             if (it == null) {
-                toast(R.string.unknown_error_occurred)
+                if (showToasts) {
+                    toast(R.string.unknown_error_occurred)
+                }
                 return@getFileOutputStream
             }
 
@@ -412,29 +414,37 @@ fun BaseSimpleActivity.saveRotatedImageToFile(oldPath: String, newPath: String, 
             callback.invoke()
         }
     } catch (e: OutOfMemoryError) {
-        toast(R.string.out_of_memory_error)
+        if (showToasts) {
+            toast(R.string.out_of_memory_error)
+        }
     } catch (e: Exception) {
-        showErrorToast(e)
+        if (showToasts) {
+            showErrorToast(e)
+        }
     } finally {
         tryDeleteFileDirItem(tmpFileDirItem, false, true)
     }
 }
 
 @TargetApi(Build.VERSION_CODES.N)
-fun Activity.tryRotateByExif(path: String, degrees: Int, callback: () -> Unit): Boolean {
+fun Activity.tryRotateByExif(path: String, degrees: Int, showToasts: Boolean, callback: () -> Unit): Boolean {
     return try {
         val file = File(path)
         val oldLastModified = file.lastModified()
         if (saveImageRotation(path, degrees)) {
             fileRotatedSuccessfully(path, oldLastModified)
             callback.invoke()
-            toast(R.string.file_saved)
+            if (showToasts) {
+                toast(R.string.file_saved)
+            }
             true
         } else {
             false
         }
     } catch (e: Exception) {
-        showErrorToast(e)
+        if (showToasts) {
+            showErrorToast(e)
+        }
         false
     }
 }
