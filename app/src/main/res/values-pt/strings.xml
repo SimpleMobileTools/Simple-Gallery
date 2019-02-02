@@ -172,7 +172,7 @@
     <string name="allow_down_gesture">Sair de ecrã completo com um gesto para baixo</string>
     <string name="allow_one_to_one_zoom">Permitir ampliação 1:1 com dois toques</string>
     <string name="open_videos_on_separate_screen">Abrir vídeos em ecrã distinto com os novos toques horizontais</string>
-    <string name="show_notch">Show a notch if available</string>
+    <string name="show_notch">Mostrar \"notch\", se disponível</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
