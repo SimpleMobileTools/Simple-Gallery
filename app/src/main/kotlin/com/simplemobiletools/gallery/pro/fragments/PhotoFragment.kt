@@ -56,6 +56,7 @@ import java.util.*
 class PhotoFragment : ViewPagerFragment() {
     private val DEFAULT_DOUBLE_TAP_ZOOM = 2f
     private val ZOOMABLE_VIEW_LOAD_DELAY = 150L
+    private val SAME_ASPECT_RATIO_THRESHOLD = 0.01
 
     // devices with good displays, but the rest of the hardware not good enough for them
     private val WEIRD_DEVICES = arrayListOf(
@@ -537,7 +538,7 @@ class PhotoFragment : ViewPagerFragment() {
         val bitmapAspectRatio = height / width.toFloat()
         val screenAspectRatio = mScreenHeight / mScreenWidth.toFloat()
 
-        return if (context == null || bitmapAspectRatio == screenAspectRatio) {
+        return if (context == null || Math.abs(bitmapAspectRatio - screenAspectRatio) < SAME_ASPECT_RATIO_THRESHOLD) {
             DEFAULT_DOUBLE_TAP_ZOOM
         } else if (context!!.portrait && bitmapAspectRatio <= screenAspectRatio) {
             mScreenHeight / height.toFloat()
