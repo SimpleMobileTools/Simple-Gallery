@@ -206,10 +206,6 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getInt(getDirectoryColumnsField(), getDefaultDirectoryColumnCount())
         set(dirColumnCnt) = prefs.edit().putInt(getDirectoryColumnsField(), dirColumnCnt).apply()
 
-    var oneFingerZoom: Boolean
-        get() = prefs.getBoolean(ONE_FINGER_ZOOM, false)
-        set(oneFingerZoom) = prefs.edit().putBoolean(ONE_FINGER_ZOOM, oneFingerZoom).apply()
-
     var allowInstantChange: Boolean
         get() = prefs.getBoolean(ALLOW_INSTANT_CHANGE, false)
         set(allowInstantChange) = prefs.edit().putBoolean(ALLOW_INSTANT_CHANGE, allowInstantChange).apply()

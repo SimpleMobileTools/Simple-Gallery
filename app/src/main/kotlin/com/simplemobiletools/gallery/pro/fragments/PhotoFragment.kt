@@ -80,7 +80,6 @@ class PhotoFragment : ViewPagerFragment() {
     private var mStoredHideExtendedDetails = false
     private var mStoredAllowDeepZoomableImages = false
     private var mStoredShowHighestQuality = false
-    private var mStoredAllowOneFingerZoom = false
     private var mStoredExtendedDetails = 0
 
     private lateinit var mView: ViewGroup
@@ -199,8 +198,7 @@ class PhotoFragment : ViewPagerFragment() {
         }
 
         if (mWasInit) {
-            if (config.allowZoomingImages != mStoredAllowDeepZoomableImages || config.showHighestQuality != mStoredShowHighestQuality ||
-                    config.oneFingerZoom != mStoredAllowOneFingerZoom) {
+            if (config.allowZoomingImages != mStoredAllowDeepZoomableImages || config.showHighestQuality != mStoredShowHighestQuality) {
                 mIsSubsamplingVisible = false
                 mView.subsampling_view.beGone()
                 loadImage()
@@ -272,7 +270,6 @@ class PhotoFragment : ViewPagerFragment() {
             mStoredHideExtendedDetails = hideExtendedDetails
             mStoredAllowDeepZoomableImages = allowZoomingImages
             mStoredShowHighestQuality = showHighestQuality
-            mStoredAllowOneFingerZoom = oneFingerZoom
             mStoredExtendedDetails = extendedDetails
         }
     }
@@ -456,7 +453,6 @@ class PhotoFragment : ViewPagerFragment() {
             regionDecoderFactory = regionDecoder
             maxScale = 10f
             beVisible()
-            isQuickScaleEnabled = config.oneFingerZoom
             isOneToOneZoomEnabled = config.allowOneToOneZoom
             orientation = rotation + mCurrentRotationDegrees
             setImage(path)
