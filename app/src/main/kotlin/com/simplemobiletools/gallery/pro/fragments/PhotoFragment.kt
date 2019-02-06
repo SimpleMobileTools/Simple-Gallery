@@ -65,14 +65,12 @@ class PhotoFragment : ViewPagerFragment() {
     )
 
     var mCurrentRotationDegrees = 0
-    private var mOriginalRotationDegrees = 0
     private var mIsFragmentVisible = false
     private var mIsFullscreen = false
     private var mWasInit = false
     private var mIsPanorama = false
     private var mIsSubsamplingVisible = false    // checking view.visibility is unreliable, use an extra variable for it
     private var mImageOrientation = -1
-    private var mOriginalSubsamplingScale = 0f
     private var mLoadZoomableViewHandler = Handler()
     private var mScreenWidth = 0
     private var mScreenHeight = 0
@@ -132,7 +130,7 @@ class PhotoFragment : ViewPagerFragment() {
                 }
 
                 subsampling_view.setOnTouchListener { v, event ->
-                    if (subsampling_view.scale == mOriginalSubsamplingScale) {
+                    if (subsampling_view.isZoomedOut()) {
                         handleEvent(event)
                     }
                     false
@@ -468,7 +466,6 @@ class PhotoFragment : ViewPagerFragment() {
                     val useWidth = if (mImageOrientation == ORIENTATION_ROTATE_90 || mImageOrientation == ORIENTATION_ROTATE_270) sHeight else sWidth
                     val useHeight = if (mImageOrientation == ORIENTATION_ROTATE_90 || mImageOrientation == ORIENTATION_ROTATE_270) sWidth else sHeight
                     doubleTapZoomScale = getDoubleTapZoomScale(useWidth, useHeight)
-                    mOriginalSubsamplingScale = scale
                 }
 
                 override fun onImageLoadError(e: Exception) {
@@ -480,6 +477,10 @@ class PhotoFragment : ViewPagerFragment() {
 
                 override fun onImageRotation(degrees: Int) {
                     if (mCurrentRotationDegrees != degrees) {
+                        val fullRotation = rotation + degrees
+                        val useWidth = if (fullRotation == 90 || fullRotation == 270) sHeight else sWidth
+                        val useHeight = if (fullRotation == 90 || fullRotation == 270) sWidth else sHeight
+                        doubleTapZoomScale = getDoubleTapZoomScale(useWidth, useHeight)
                         loadBitmap(degrees, false)
                         activity?.invalidateOptionsMenu()
                     }
