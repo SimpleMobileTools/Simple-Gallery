@@ -462,18 +462,12 @@ class PhotoFragment : ViewPagerFragment() {
             orientation = rotation
             setImage(path)
             onImageEventListener = object : SubsamplingScaleImageView.OnImageEventListener {
-                override fun onImageLoaded() {
-                }
-
                 override fun onReady() {
                     background = ColorDrawable(if (config.blackBackground) Color.BLACK else config.backgroundColor)
                     val useWidth = if (mImageOrientation == ORIENTATION_ROTATE_90 || mImageOrientation == ORIENTATION_ROTATE_270) sHeight else sWidth
                     val useHeight = if (mImageOrientation == ORIENTATION_ROTATE_90 || mImageOrientation == ORIENTATION_ROTATE_270) sWidth else sHeight
                     doubleTapZoomScale = getDoubleTapZoomScale(useWidth, useHeight)
                     mOriginalSubsamplingScale = scale
-                }
-
-                override fun onTileLoadError(e: Exception) {
                 }
 
                 override fun onImageLoadError(e: Exception) {
