@@ -380,7 +380,7 @@ class PhotoFragment : ViewPagerFragment() {
                     }
 
                     override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                        if (mIsFragmentVisible && degrees == 0) {
+                        if (mIsFragmentVisible) {
                             scheduleZoomableView()
                         }
                         return false
@@ -408,7 +408,7 @@ class PhotoFragment : ViewPagerFragment() {
             picasso.into(mView.gestures_view, object : Callback {
                 override fun onSuccess() {
                     mView.gestures_view.controller.settings.isZoomEnabled = degrees != 0 || context?.config?.allowZoomingImages == false
-                    if (mIsFragmentVisible && degrees == 0) {
+                    if (mIsFragmentVisible) {
                         scheduleZoomableView()
                     }
                 }
@@ -429,7 +429,7 @@ class PhotoFragment : ViewPagerFragment() {
     private fun scheduleZoomableView() {
         mLoadZoomableViewHandler.removeCallbacksAndMessages(null)
         mLoadZoomableViewHandler.postDelayed({
-            if (mIsFragmentVisible && context?.config?.allowZoomingImages == true && mMedium.isImage() && !mIsSubsamplingVisible && mCurrentRotationDegrees == 0) {
+            if (mIsFragmentVisible && context?.config?.allowZoomingImages == true && mMedium.isImage() && !mIsSubsamplingVisible) {
                 addZoomableView()
             }
         }, ZOOMABLE_VIEW_LOAD_DELAY)
@@ -459,7 +459,7 @@ class PhotoFragment : ViewPagerFragment() {
             beVisible()
             isQuickScaleEnabled = config.oneFingerZoom
             isOneToOneZoomEnabled = config.allowOneToOneZoom
-            orientation = rotation
+            orientation = rotation + mCurrentRotationDegrees
             setImage(path)
             onImageEventListener = object : SubsamplingScaleImageView.OnImageEventListener {
                 override fun onReady() {
@@ -550,7 +550,6 @@ class PhotoFragment : ViewPagerFragment() {
     fun rotateImageViewBy(degrees: Int) {
         mCurrentRotationDegrees = degrees
         mLoadZoomableViewHandler.removeCallbacksAndMessages(null)
-        mView.subsampling_view.beGone()
         mIsSubsamplingVisible = false
         loadBitmap(degrees)
     }
