@@ -65,6 +65,7 @@ class PhotoFragment : ViewPagerFragment() {
     )
 
     var mCurrentRotationDegrees = 0
+    private var mOriginalRotationDegrees = 0
     private var mIsFragmentVisible = false
     private var mIsFullscreen = false
     private var mWasInit = false
@@ -356,7 +357,7 @@ class PhotoFragment : ViewPagerFragment() {
                 .into(mView.gestures_view)
     }
 
-    private fun loadBitmap(degrees: Int = mCurrentRotationDegrees) {
+    private fun loadBitmap(degrees: Int = mCurrentRotationDegrees, addZoomableView: Boolean = true) {
         val options = RequestOptions()
                 .signature(mMedium.path.getFileSignature())
                 .format(DecodeFormat.PREFER_ARGB_8888)
@@ -374,13 +375,13 @@ class PhotoFragment : ViewPagerFragment() {
                 .listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
                         if (activity != null) {
-                            tryLoadingWithPicasso(degrees)
+                            tryLoadingWithPicasso(degrees, addZoomableView)
                         }
                         return false
                     }
 
                     override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                        if (mIsFragmentVisible) {
+                        if (mIsFragmentVisible && addZoomableView) {
                             scheduleZoomableView()
                         }
                         return false
@@ -388,7 +389,7 @@ class PhotoFragment : ViewPagerFragment() {
                 }).into(mView.gestures_view)
     }
 
-    private fun tryLoadingWithPicasso(degrees: Int = 0) {
+    private fun tryLoadingWithPicasso(degrees: Int = 0, addZoomableView: Boolean) {
         var pathToLoad = if (mMedium.path.startsWith("content://")) mMedium.path else "file://${mMedium.path}"
         pathToLoad = pathToLoad.replace("%", "%25").replace("#", "%23")
 
@@ -408,7 +409,7 @@ class PhotoFragment : ViewPagerFragment() {
             picasso.into(mView.gestures_view, object : Callback {
                 override fun onSuccess() {
                     mView.gestures_view.controller.settings.isZoomEnabled = degrees != 0 || context?.config?.allowZoomingImages == false
-                    if (mIsFragmentVisible) {
+                    if (mIsFragmentVisible && addZoomableView) {
                         scheduleZoomableView()
                     }
                 }
@@ -475,6 +476,13 @@ class PhotoFragment : ViewPagerFragment() {
                     background = ColorDrawable(Color.TRANSPARENT)
                     mIsSubsamplingVisible = false
                     beGone()
+                }
+
+                override fun onImageRotation(degrees: Int) {
+                    if (mCurrentRotationDegrees != degrees) {
+                        loadBitmap(degrees, false)
+                    }
+                    mCurrentRotationDegrees = degrees
                 }
             }
         }
@@ -548,7 +556,7 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     fun rotateImageViewBy(degrees: Int) {
-        mCurrentRotationDegrees = degrees
+        mCurrentRotationDegrees = (mCurrentRotationDegrees + degrees) % 360
         mLoadZoomableViewHandler.removeCallbacksAndMessages(null)
         mIsSubsamplingVisible = false
         loadBitmap(degrees)

@@ -54,7 +54,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private var mPos = -1
     private var mShowAll = false
     private var mIsSlideshowActive = false
-    private var mRotationDegrees = 0
     private var mPrevHashcode = 0
 
     private var mSlideshowHandler = Handler()
@@ -142,7 +141,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         currentMedium.isFavorite = mFavoritePaths.contains(currentMedium.path)
         val visibleBottomActions = if (config.bottomActions) config.visibleBottomActions else 0
 
-        getCurrentPhotoFragment()?.mCurrentRotationDegrees = mRotationDegrees
+        val rotationDegrees = getCurrentPhotoFragment()?.mCurrentRotationDegrees
         menu.apply {
             findItem(R.id.menu_show_on_map).isVisible = visibleBottomActions and BOTTOM_ACTION_SHOW_ON_MAP == 0
             findItem(R.id.menu_slideshow).isVisible = visibleBottomActions and BOTTOM_ACTION_SLIDESHOW == 0
@@ -154,16 +153,16 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_rotate).isVisible = currentMedium.isImage() && visibleBottomActions and BOTTOM_ACTION_ROTATE == 0
             findItem(R.id.menu_set_as).isVisible = visibleBottomActions and BOTTOM_ACTION_SET_AS == 0
             findItem(R.id.menu_copy_to).isVisible = visibleBottomActions and BOTTOM_ACTION_COPY == 0
-            findItem(R.id.menu_save_as).isVisible = mRotationDegrees != 0
+            findItem(R.id.menu_save_as).isVisible = rotationDegrees != 0
             findItem(R.id.menu_hide).isVisible = !currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0 && !currentMedium.getIsInRecycleBin()
             findItem(R.id.menu_unhide).isVisible = currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0 && !currentMedium.getIsInRecycleBin()
             findItem(R.id.menu_add_to_favorites).isVisible = !currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0
             findItem(R.id.menu_remove_from_favorites).isVisible = currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0
             findItem(R.id.menu_restore_file).isVisible = currentMedium.path.startsWith(recycleBinPath)
-            findItem(R.id.menu_change_orientation).isVisible = mRotationDegrees == 0 && visibleBottomActions and BOTTOM_ACTION_CHANGE_ORIENTATION == 0
+            findItem(R.id.menu_change_orientation).isVisible = rotationDegrees == 0 && visibleBottomActions and BOTTOM_ACTION_CHANGE_ORIENTATION == 0
             findItem(R.id.menu_change_orientation).icon = resources.getDrawable(getChangeOrientationIcon())
             findItem(R.id.menu_rotate).setShowAsAction(
-                    if (mRotationDegrees != 0) {
+                    if (rotationDegrees != 0) {
                         MenuItem.SHOW_AS_ACTION_ALWAYS
                     } else {
                         MenuItem.SHOW_AS_ACTION_IF_ROOM
@@ -563,8 +562,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun rotateBy(degrees: Int) {
-        mRotationDegrees = (mRotationDegrees + degrees) % 360
-        getCurrentPhotoFragment()?.rotateImageViewBy(mRotationDegrees)
+        getCurrentPhotoFragment()?.rotateImageViewBy(degrees)
         supportInvalidateOptionsMenu()
     }
 
@@ -592,10 +590,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             handleSAFDialog(it) {
                 toast(R.string.saving)
                 Thread {
-                    saveRotatedImageToFile(currPath, it, mRotationDegrees, true) {
+                    val photoFragment = getCurrentPhotoFragment() ?: return@Thread
+                    saveRotatedImageToFile(currPath, it, photoFragment.mCurrentRotationDegrees, true) {
                         toast(R.string.file_saved)
-                        mRotationDegrees = 0
-                        getCurrentPhotoFragment()?.mCurrentRotationDegrees = 0
                         invalidateOptionsMenu()
                     }
                 }.start()
@@ -1075,7 +1072,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (mPos != position) {
             mPos = position
             updateActionbarTitle()
-            mRotationDegrees = 0
             invalidateOptionsMenu()
             scheduleSwipe()
         }
