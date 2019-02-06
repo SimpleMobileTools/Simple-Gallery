@@ -141,7 +141,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         currentMedium.isFavorite = mFavoritePaths.contains(currentMedium.path)
         val visibleBottomActions = if (config.bottomActions) config.visibleBottomActions else 0
 
-        val rotationDegrees = getCurrentPhotoFragment()?.mCurrentRotationDegrees
+        val rotationDegrees = getCurrentPhotoFragment()?.mCurrentRotationDegrees ?: 1
         menu.apply {
             findItem(R.id.menu_show_on_map).isVisible = visibleBottomActions and BOTTOM_ACTION_SHOW_ON_MAP == 0
             findItem(R.id.menu_slideshow).isVisible = visibleBottomActions and BOTTOM_ACTION_SLIDESHOW == 0
@@ -593,6 +593,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     val photoFragment = getCurrentPhotoFragment() ?: return@Thread
                     saveRotatedImageToFile(currPath, it, photoFragment.mCurrentRotationDegrees, true) {
                         toast(R.string.file_saved)
+                        getCurrentPhotoFragment()?.mCurrentRotationDegrees = 0
                         invalidateOptionsMenu()
                     }
                 }.start()

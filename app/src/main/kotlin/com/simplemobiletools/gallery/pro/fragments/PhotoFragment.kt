@@ -481,6 +481,7 @@ class PhotoFragment : ViewPagerFragment() {
                 override fun onImageRotation(degrees: Int) {
                     if (mCurrentRotationDegrees != degrees) {
                         loadBitmap(degrees, false)
+                        activity?.invalidateOptionsMenu()
                     }
                     mCurrentRotationDegrees = degrees
                 }
