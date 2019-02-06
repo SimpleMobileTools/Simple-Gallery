@@ -454,7 +454,7 @@ class PhotoFragment : ViewPagerFragment() {
             maxScale = 10f
             beVisible()
             isOneToOneZoomEnabled = config.allowOneToOneZoom
-            orientation = rotation + mCurrentRotationDegrees
+            orientation = (rotation + mCurrentRotationDegrees) % 360
             setImage(path)
             onImageEventListener = object : SubsamplingScaleImageView.OnImageEventListener {
                 override fun onReady() {
@@ -473,7 +473,7 @@ class PhotoFragment : ViewPagerFragment() {
 
                 override fun onImageRotation(degrees: Int) {
                     if (mCurrentRotationDegrees != degrees) {
-                        val fullRotation = rotation + degrees
+                        val fullRotation = (rotation + degrees) % 360
                         val useWidth = if (fullRotation == 90 || fullRotation == 270) sHeight else sWidth
                         val useHeight = if (fullRotation == 90 || fullRotation == 270) sWidth else sHeight
                         doubleTapZoomScale = getDoubleTapZoomScale(useWidth, useHeight)
