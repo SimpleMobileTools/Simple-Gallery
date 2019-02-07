@@ -194,7 +194,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_properties -> showProperties()
             R.id.menu_show_on_map -> showOnMap()
             R.id.menu_rotate_right -> rotateImage(90)
-            R.id.menu_rotate_left -> rotateImage(270)
+            R.id.menu_rotate_left -> rotateImage(-90)
             R.id.menu_rotate_one_eighty -> rotateImage(180)
             R.id.menu_add_to_favorites -> toggleFavorite()
             R.id.menu_remove_from_favorites -> toggleFavorite()
