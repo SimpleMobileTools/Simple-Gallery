@@ -242,6 +242,7 @@ class PhotoFragment : ViewPagerFragment() {
             mView.onGlobalLayout {
                 measureScreen()
                 Handler().postDelayed({
+                    mView.gif_view_frame.controller.resetState()
                     loadGif()
                 }, 50)
             }

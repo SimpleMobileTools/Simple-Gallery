@@ -74,7 +74,7 @@ dependencies {
     implementation 'info.androidhive:imagefilters:1.0.7'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.caverock:androidsvg-aar:1.3'
-    implementation 'com.github.tibbi:gestureviews:985ba285fb'
+    implementation 'com.github.tibbi:gestureviews:bd0a8e67a1'
     implementation 'com.github.tibbi:subsampling-scale-image-view:2fe77ff361'
     kapt 'com.github.bumptech.glide:compiler:4.8.0' // keep it here too, not just in Commons, else loading SVGs wont work
 
