@@ -352,15 +352,15 @@ class PhotoFragment : ViewPagerFragment() {
                 .into(mView.gestures_view)
     }
 
-    private fun loadBitmap(degrees: Int = mCurrentRotationDegrees, addZoomableView: Boolean = true) {
+    private fun loadBitmap(addZoomableView: Boolean = true) {
         val options = RequestOptions()
                 .signature(mMedium.path.getFileSignature())
                 .format(DecodeFormat.PREFER_ARGB_8888)
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                 .fitCenter()
 
-        if (degrees != 0) {
-            options.transform(GlideRotateTransformation(degrees))
+        if (mCurrentRotationDegrees != 0) {
+            options.transform(GlideRotateTransformation(mCurrentRotationDegrees))
             options.diskCacheStrategy(DiskCacheStrategy.NONE)
         }
 
@@ -370,7 +370,7 @@ class PhotoFragment : ViewPagerFragment() {
                 .listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
                         if (activity != null) {
-                            tryLoadingWithPicasso(degrees, addZoomableView)
+                            tryLoadingWithPicasso(addZoomableView)
                         }
                         return false
                     }
@@ -384,7 +384,7 @@ class PhotoFragment : ViewPagerFragment() {
                 }).into(mView.gestures_view)
     }
 
-    private fun tryLoadingWithPicasso(degrees: Int = 0, addZoomableView: Boolean) {
+    private fun tryLoadingWithPicasso(addZoomableView: Boolean) {
         var pathToLoad = if (mMedium.path.startsWith("content://")) mMedium.path else "file://${mMedium.path}"
         pathToLoad = pathToLoad.replace("%", "%25").replace("#", "%23")
 
@@ -395,15 +395,15 @@ class PhotoFragment : ViewPagerFragment() {
                     .stableKey(mMedium.path.getFileKey())
                     .resize(mScreenWidth, mScreenHeight)
 
-            if (degrees != 0) {
-                picasso.rotate(degrees.toFloat())
+            if (mCurrentRotationDegrees != 0) {
+                picasso.rotate(mCurrentRotationDegrees.toFloat())
             } else {
                 degreesForRotation(mImageOrientation).toFloat()
             }
 
             picasso.into(mView.gestures_view, object : Callback {
                 override fun onSuccess() {
-                    mView.gestures_view.controller.settings.isZoomEnabled = degrees != 0 || context?.config?.allowZoomingImages == false
+                    mView.gestures_view.controller.settings.isZoomEnabled = mCurrentRotationDegrees != 0 || context?.config?.allowZoomingImages == false
                     if (mIsFragmentVisible && addZoomableView) {
                         scheduleZoomableView()
                     }
@@ -482,7 +482,7 @@ class PhotoFragment : ViewPagerFragment() {
                     val useHeight = if (fullRotation == 90 || fullRotation == 270) sWidth else sHeight
                     doubleTapZoomScale = getDoubleTapZoomScale(useWidth, useHeight)
                     mCurrentRotationDegrees = (mCurrentRotationDegrees + degrees) % 360
-                    loadBitmap(mCurrentRotationDegrees, false)
+                    loadBitmap(false)
                     activity?.invalidateOptionsMenu()
                 }
             }
@@ -563,7 +563,7 @@ class PhotoFragment : ViewPagerFragment() {
             mCurrentRotationDegrees = (mCurrentRotationDegrees + degrees) % 360
             mLoadZoomableViewHandler.removeCallbacksAndMessages(null)
             mIsSubsamplingVisible = false
-            loadBitmap(degrees)
+            loadBitmap()
         }
     }
 
