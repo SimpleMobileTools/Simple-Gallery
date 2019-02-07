@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.5.0 *(2019-02-07)*
+----------------------------
+
+ * Allow rotating fullscreen images with gestures, if "Allow deep zooming images" option is enabled
+ * Zoom out videos and gifs after device rotation
+
 Version 6.4.1 *(2019-01-29)*
 ----------------------------
 
