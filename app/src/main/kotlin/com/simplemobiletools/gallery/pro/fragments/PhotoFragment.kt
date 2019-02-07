@@ -444,6 +444,11 @@ class PhotoFragment : ViewPagerFragment() {
             override fun make() = PicassoRegionDecoder()
         }
 
+        var newOrientation = (rotation + mCurrentRotationDegrees) % 360
+        if (newOrientation < 0) {
+            newOrientation += 360
+        }
+
         val config = context!!.config
         mView.subsampling_view.apply {
             setMaxTileSize(if (config.showHighestQuality) Integer.MAX_VALUE else 4096)
@@ -454,7 +459,7 @@ class PhotoFragment : ViewPagerFragment() {
             maxScale = 10f
             beVisible()
             isOneToOneZoomEnabled = config.allowOneToOneZoom
-            orientation = (rotation + mCurrentRotationDegrees) % 360
+            orientation = newOrientation
             setImage(path)
             onImageEventListener = object : SubsamplingScaleImageView.OnImageEventListener {
                 override fun onReady() {
@@ -472,15 +477,13 @@ class PhotoFragment : ViewPagerFragment() {
                 }
 
                 override fun onImageRotation(degrees: Int) {
-                    if (mCurrentRotationDegrees != degrees) {
-                        val fullRotation = (rotation + degrees) % 360
-                        val useWidth = if (fullRotation == 90 || fullRotation == 270) sHeight else sWidth
-                        val useHeight = if (fullRotation == 90 || fullRotation == 270) sWidth else sHeight
-                        doubleTapZoomScale = getDoubleTapZoomScale(useWidth, useHeight)
-                        loadBitmap(degrees, false)
-                        activity?.invalidateOptionsMenu()
-                    }
-                    mCurrentRotationDegrees = degrees
+                    val fullRotation = (rotation + degrees) % 360
+                    val useWidth = if (fullRotation == 90 || fullRotation == 270) sHeight else sWidth
+                    val useHeight = if (fullRotation == 90 || fullRotation == 270) sWidth else sHeight
+                    doubleTapZoomScale = getDoubleTapZoomScale(useWidth, useHeight)
+                    mCurrentRotationDegrees = (mCurrentRotationDegrees + degrees) % 360
+                    loadBitmap(mCurrentRotationDegrees, false)
+                    activity?.invalidateOptionsMenu()
                 }
             }
         }
