@@ -557,10 +557,14 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     fun rotateImageViewBy(degrees: Int) {
-        mCurrentRotationDegrees = (mCurrentRotationDegrees + degrees) % 360
-        mLoadZoomableViewHandler.removeCallbacksAndMessages(null)
-        mIsSubsamplingVisible = false
-        loadBitmap(degrees)
+        if (mIsSubsamplingVisible) {
+            mView.subsampling_view.rotateBy(degrees)
+        } else {
+            mCurrentRotationDegrees = (mCurrentRotationDegrees + degrees) % 360
+            mLoadZoomableViewHandler.removeCallbacksAndMessages(null)
+            mIsSubsamplingVisible = false
+            loadBitmap(degrees)
+        }
     }
 
     private fun initExtendedDetails() {
