@@ -6,12 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/top_shadow"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/default_status_action_height"
-        android:background="@drawable/gradient_background_flipped"/>
-
     <com.alexvasilkov.gestures.GestureFrameLayout
         android:id="@+id/video_surface_frame"
         android:layout_width="match_parent"
@@ -36,6 +30,12 @@
         android:id="@+id/video_brightness_controller"
         android:layout_width="@dimen/media_side_slider_width"
         android:layout_height="match_parent"/>
+
+    <ImageView
+        android:id="@+id/top_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_status_action_height"
+        android:background="@drawable/gradient_background_flipped"/>
 
     <TextView
         android:id="@+id/video_bottom_gradient"
