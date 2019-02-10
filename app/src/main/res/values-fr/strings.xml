@@ -50,9 +50,7 @@
     <string name="manage_excluded_folders">Gérer les dossiers exclus</string>
     <string name="exclude_folder_description">Cela va exclure la sélection ainsi que ses sous-dossiers depuis Simple Gallery uniquement. Vous pouvez gérer les dossiers exclus depuis les paramètres.</string>
     <string name="exclude_folder_parent">Exclure un dossier parent ?</string>
-    <string name="excluded_activity_placeholder">Exclure des dossiers les masquera ainsi que leurs sous-dossiers uniquement dans Simple Gallery, ils seront toujours visibles depuis d\'autres applications.\n
-  \n
-  Si vous voulez aussi les masquer ailleurs, utilisez la fonction \"Masquer\".</string>
+    <string name="excluded_activity_placeholder">Exclure des dossiers les masquera ainsi que leurs sous-dossiers uniquement dans Simple Gallery, ils seront toujours visibles depuis d\'autres applications.\\n\\nSi vous voulez aussi les masquer ailleurs, utilisez la fonction \"Masquer\".</string>
     <string name="remove_all">Tout supprimer</string>
     <string name="remove_all_description">Supprimer tous les dossiers de la liste des exclusions ? Cela n\'effacera pas les dossiers.</string>
     <string name="hidden_folders">Dossiers masqués</string>
@@ -63,9 +61,7 @@
     <string name="include_folders">Dossiers ajoutés</string>
     <string name="manage_included_folders">Gérer les dossiers ajoutés</string>
     <string name="add_folder">Ajouter un dossier</string>
-    <string name="included_activity_placeholder">Si vous avez des dossiers contenant des médias qui ne sont pas affichés dans l\'application, vous pouvez les ajouter manuellement ici.\n
-  \n
-  Cet ajout n\'exclura aucun autre dossier.</string>
+    <string name="included_activity_placeholder">Si vous avez des dossiers contenant des médias qui ne sont pas affichés dans l\'application, vous pouvez les ajouter manuellement ici.\\n\\nCet ajout n\'exclura aucun autre dossier.</string>
 
     <!-- Resizing -->
     <string name="resize">Redimensionner</string>
@@ -219,8 +215,18 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Une galerie hors ligne pour gérer vos fichiers sans publicité, dans le respect de votre vie privée.</string>
-    <string name="app_long_description">Une galerie hautement personnalisable capable d\'afficher de nombreux types d\'images et de vidéos, y compris des SVG, des RAWs, des photos panoramiques et des vidéos.                    Il est open source, ne contient pas d\'annonces ou de permissions inutiles.                    Énumérons quelques-unes de ses caractéristiques dignes de mention : 1. recherche 2.  Diaporama 3. support de l\'encoche 4.  Épingler des dossiers vers le top 5.  Filtrage des fichiers multimédia par type 6.  Corbeille de recyclage pour une récupération facile des fichiers 7.  Verrouillage de l\'orientation de la vue plein écran 8.  Marquage des fichiers favoris pour un accès facile 9.  Fermeture rapide du support en plein écran avec un geste vers le bas 10.  Un éditeur pour modifier des images et appliquer des filtres 11.  Protection par mot de passe pour protéger les éléments cachés ou l\'application entière 12.  Modifier le nombre de colonnes de vignettes à l\'aide de gestes ou de boutons de menu 13.  Actions inférieures personnalisables en mode plein écran pour un accès rapide 14.  Affichage de détails étendus sur un support plein écran avec les propriétés de fichier souhaitées 15.  Plusieurs façons différentes de trier ou de regrouper les éléments, par ordre croissant ou décroissant 16.  Masquer les dossiers (affecte d\'autres applications également), à l\'exclusion des dossiers (n\'affecte que Simple Gallery) L\'autorisation d\'empreinte digitale est nécessaire pour verrouiller soit la visibilité des éléments cachés, soit l\'application entière, soit la protection des fichiers contre la suppression.                    Cette application n\'est qu\'une partie d\'une plus grande série d\'applications.  Vous pouvez trouver les autres sur https://www.simplemobiletools.com</string>
+    <string name="app_short_description">Un album pour visionner photos et vidéos sans publicité.</string>
+    <string name="app_long_description">
+        Un simple outil pour visionner les photos et les vidéos. Elles peuvent être triées par dates, tailles, noms dans les deux sens (alphabétique comme désalphabétique), il est possible de zoomer sur les photos. Les fichiers sont affichés sur de multiples colonnes en fonction de la taille de l\'écran, vous pouvez changer le nombre de colonnes par pincement. Elles peuvent être renommées, partagées, supprimées, copiées et déplacées. Les images peuvent en plus être tournées, rognées ou être définies comme fond d\'écran directement depuis l\'application.
+
+        La galerie est également proposée pour une utilisation comme tierce partie pour la prévisualisation des images/vidéos, ajouter des pièces jointes aux clients email, etc… C\'est parfait pour un usage au quotidien.
+
+        L\'autorisation d\'empreinte digitale est nécessaire pour verrouiller les dossiers cachés et/ou l\'application.
+
+        L\'application ne contient ni publicité ni autorisation inutile. Elle est totalement opensource et est également fournie avec des couleurs personnalisables.
+
+        Cette application fait partie d\'une plus grande suite. Vous pouvez trouver les autres applications sur https://www.simplemobiletools.com
+    </string>
 
     <!--
         Haven't found some strings? There's more at
