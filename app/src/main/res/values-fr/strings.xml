@@ -31,7 +31,7 @@
     <string name="fix_date_taken">Corriger la valeur des dates de prise des photos</string>
     <string name="fixing">Correction en cours....</string>
     <string name="dates_fixed_successfully">Dates corrigées</string>
-    <string name="share_resized">Share a resized version</string>
+    <string name="share_resized">Partager une version redimensionnée</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrer les médias</string>
@@ -88,8 +88,8 @@
     <string name="flip">Retourner</string>
     <string name="flip_horizontally">Retourner horizontalement</string>
     <string name="flip_vertically">Retourner verticalement</string>
-    <string name="free_aspect_ratio">Libre</string>                 <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+    <string name="free_aspect_ratio">Libre</string>                   <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Autre</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Fond d\'écran simple</string>
@@ -116,7 +116,7 @@
     <string name="loop_slideshow">Diaporama en boucle</string>
     <string name="slideshow_ended">Diaporama terminé</string>
     <string name="no_media_for_slideshow">Aucun média trouvé pour le diaporama</string>
-    <string name="use_crossfade_animation">Use crossfade animations</string>
+    <string name="use_crossfade_animation">Utiliser des animations en fondu enchaîné</string>
 
     <!-- View types -->
     <string name="change_view_type">Changer de mode d\'affichage</string>
@@ -134,12 +134,12 @@
     <string name="by_extension">Extension</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Folder shown on the widget:</string>
-    <string name="show_folder_name">Show folder name</string>
+    <string name="folder_on_widget">Dossier affiché sur le widget :</string>
+    <string name="show_folder_name">Afficher le nom du dossier</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Lecture automatique des vidéos</string>
-    <string name="remember_last_video_position">Remember last video playback position</string>
+    <string name="remember_last_video_position">Mémoriser la dernière position de lecture vidéo</string>
     <string name="toggle_filename">Permuter la visibilité des noms de fichier</string>
     <string name="loop_videos">Lecture en boucle des vidéos</string>
     <string name="animate_gifs">GIFs animés sur les miniatures</string>
@@ -170,9 +170,9 @@
     <string name="show_highest_quality">Afficher les images avec la meilleur qualité possible</string>
     <string name="show_recycle_bin_last">Afficher la corbeille en dernière place sur l\'écran principal</string>
     <string name="allow_down_gesture">Fermeture de la vue plein écran par un geste vers le bas</string>
-    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
-    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
-    <string name="show_notch">Show a notch if available</string>
+    <string name="allow_one_to_one_zoom">Permet d\'effectuer un zoom avant 1:1 avec un double appui</string>
+    <string name="open_videos_on_separate_screen">Ouvrez toujours les vidéos sur un écran séparé avec de nouveaux gestes horizontaux.</string>
+    <string name="show_notch">Afficher un cran si disponible</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
@@ -193,7 +193,7 @@
     <string name="faq_3_title">Comment faire pour qu\'un album soit toujours affiché tout en haut ?</string>
     <string name="faq_3_text">Vous devez simplement à effectuer un appui prolongé sur l\'album en question et choisir l\'icône \"Épingler\" dans le menu d\'actions. Vous pouvez en épingler plusieurs. Les éléments épinglés seront alors triés selon l\'ordre par défaut.</string>
     <string name="faq_4_title">Comment avancer rapidement dans les vidéos ?</string>
-    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
+    <string name="faq_4_text">Vous pouvez soit faire glisser votre doigt horizontalement sur le lecteur vidéo, soit cliquer sur le texte en cours ou la durée maximale près de la barre de recherche.  Cela déplacera la vidéo vers l\'arrière ou vers l\'avant.</string>
     <string name="faq_5_title">Quelle est la différence entre masquer et exclure un dossier ?</string>
     <string name="faq_5_text">\"Exclure un dossier\" permet de ne pas l\'afficher uniquement dans Simple Gallery, alors que \"Masquer un dossier\" rend le dossier invisible sur l\'ensemble de l\'appareil, y compris les autres applications de galerie. Dans le dernier cas, un fichier \".nomedia\" est créé dans le dossier masqué, et peut être supprimé avec n\'importe quel explorateur de fichiers.</string>
     <string name="faq_6_title">Pourquoi des dossiers avec des pochettes d\'albums musicaux ou des miniatures d\'images sont affichés ?</string>
