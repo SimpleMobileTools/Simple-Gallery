@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Datum opname corrigeren</string>
     <string name="fixing">Corrigeren…</string>
     <string name="dates_fixed_successfully">Datums zijn gecorrigeerd</string>
+    <string name="share_resized">Verkleinde versie delen</string>
 
     <!-- Filter -->
     <string name="filter_media">Media filteren</string>
@@ -87,8 +88,8 @@
     <string name="flip">Kantelen</string>
     <string name="flip_horizontally">Horizontaal kantelen</string>
     <string name="flip_vertically">Verticaal kantelen</string>
-    <string name="edit_with">Bewerken met</string>
-    <string name="free_aspect_ratio">Vrij</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="free_aspect_ratio">Vrij</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Anders</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Achtergrond</string>
@@ -115,6 +116,7 @@
     <string name="loop_slideshow">Voorstelling herhalen</string>
     <string name="slideshow_ended">De diavoorstelling is beëindigd</string>
     <string name="no_media_for_slideshow">Geen media gevonden voor diavoorstelling</string>
+    <string name="use_crossfade_animation">Crossfade-animaties gebruiken</string>
 
     <!-- View types -->
     <string name="change_view_type">Weergave</string>
@@ -131,13 +133,19 @@
     <string name="by_file_type">Bestandstype</string>
     <string name="by_extension">Extensie</string>
 
+    <!-- Widgets -->
+    <string name="folder_on_widget">Map tonen in de widget:</string>
+    <string name="show_folder_name">Mapnaam tonen</string>
+
     <!-- Settings -->
     <string name="autoplay_videos">Video\'s automatisch afspelen</string>
+    <string name="remember_last_video_position">Laatste positie in video\'s onthouden</string>
     <string name="toggle_filename">Bestandsnamen tonen</string>
     <string name="loop_videos">Video\'s herhalen</string>
     <string name="animate_gifs">GIF-bestanden afspelen in overzicht</string>
     <string name="max_brightness">Maximale helderheid in volledig scherm</string>
     <string name="crop_thumbnails">Miniatuurvoorbeelden bijsnijden</string>
+    <string name="show_thumbnail_video_duration">Lengte van video\'s tonen</string>
     <string name="screen_rotation_by">Media in volledig scherm roteren volgens</string>
     <string name="screen_rotation_system_setting">Systeeminstelling</string>
     <string name="screen_rotation_device_rotation">Oriëntatie van apparaat</string>
@@ -146,10 +154,9 @@
     <string name="scroll_thumbnails_horizontally">Horizontaal scrollen</string>
     <string name="hide_system_ui_at_fullscreen">Statusbalk automatisch verbergen in volledig scherm</string>
     <string name="delete_empty_folders">Lege mappen verwijderen na leegmaken</string>
-    <string name="allow_photo_gestures">Helderheid voor afbeeldingen aanpassen met verticale gebaren</string>
-    <string name="allow_video_gestures">Volume en helderheid voor video\'s aanpassen met verticale gebaren</string>
+    <string name="allow_photo_gestures">Helderheid voor afbeeldingen aanpassen met verticale veeggebaren</string>
+    <string name="allow_video_gestures">Volume en helderheid voor video\'s aanpassen met verticale veeggebaren</string>
     <string name="show_media_count">Aantallen in mappen tonen</string>
-    <string name="replace_share_with_rotate">Menu-item Draaien vastzetten in volledig scherm (in plaats van Delen)</string>
     <string name="show_extended_details">Uitgebreide informatie tonen in volledig scherm</string>
     <string name="manage_extended_details">Uitgebreide informatie</string>
     <string name="one_finger_zoom">Met één vinger zoomen in volledig scherm</string>
@@ -157,14 +164,21 @@
     <string name="allow_deep_zooming_images">Verder inzoomen mogelijk maken</string>
     <string name="hide_extended_details">Uitgebreide informatie niet tonen als de statusbalk is verborgen</string>
     <string name="do_extra_check">Ongeldige bestanden verbergen</string>
-    <string name="show_at_bottom">Enkele actieknoppen onderaan het scherm tonen</string>
+    <string name="show_at_bottom">Enkele actieknoppen onder aan het scherm tonen</string>
     <string name="show_recycle_bin">Prullenbak weergeven in de mapweergave</string>
+    <string name="deep_zoomable_images">Afbeeldingen ver inzoomen</string>
+    <string name="show_highest_quality">Afbeeldingen in de hoogst mogelijke kwaliteit weergeven</string>
+    <string name="show_recycle_bin_last">Prullenbak als laatste item tonen</string>
+    <string name="allow_down_gesture">Naar beneden vegen om volledig scherm af te sluiten</string>
+    <string name="allow_one_to_one_zoom">1:1 zoomen na 2x dubbelklikken</string>
+    <string name="open_videos_on_separate_screen">Video\'s altijd in apart scherm met horizontale veeggebaren openen</string>
+    <string name="show_notch">Inkeping scherm tonen indien aanwezig</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatuurvoorbeelden</string>
     <string name="fullscreen_media">Volledig scherm</string>
     <string name="extended_details">Uitgebreide informatie</string>
-    <string name="bottom_actions">Acties onderaan het scherm</string>
+    <string name="bottom_actions">Acties onder aan het scherm</string>
 
     <!-- Bottom actions -->
     <string name="manage_bottom_actions">Actieknoppen onderaan beheren</string>
@@ -172,46 +186,64 @@
     <string name="toggle_file_visibility">Bestand tonen/verbergen</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
-    <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
-        The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
-    <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do?</string>
-    <string name="faq_2_text">You can solve it in 2 ways. You can either reinstall the app, or find the app in your device settings and select \"Clear data\". It will reset all your settings, it will not remove any media files.</string>
-    <string name="faq_3_title">How can I make an album always appear at the top?</string>
-    <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actionmenu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
-    <string name="faq_4_title">How can I fast-forward videos?</string>
-    <string name="faq_4_text">You can click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
-    <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
-    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
-    <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
-    <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
-    <string name="faq_7_title">A folder with images isn\'t showing up, what can I do?</string>
-    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
-    <string name="faq_8_title">What if I want just a few particular folders visible?</string>
-    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
-        That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
-    <string name="faq_9_title">Fullscreen images have weird artifacts, can I somehow improve the quality?</string>
-    <string name="faq_9_text">Yea, there is a toggle in Settings saying \"Replace deep zoomable images with better quality ones\", you can use that. It will improve the quality of the images, but they will get blurred once you try zooming in too much.</string>
-    <string name="faq_10_title">Can I crop images with this app?</string>
-    <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
-    <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
-    <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
-    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
-    <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
+    <string name="faq_1_title">Hoe kan ik Eenvoudige Galerij instellen als standaard-app voor foto\'s en video\'s?</string>
+    <string name="faq_1_text">Zoek eerst de huidige standaard-app voor foto\'s en video\'s in de Android-instellingen (via \"Apps\" of "\Apps en meldingen\"). Klik bij de App-info op \"Standaardwaarden wissen\" (soms onder \"Standaard openen\").
+        Bij het openen van een foto of video zal de volgende keer een keuzescherm verschijnen, waarin Eenvoudige Galerij als standaard-app kan worden ingesteld.</string>
+    <string name="faq_2_title">Ik heb de app beveiligd met een wachtwoord, maar ben het wachtwoord nu vergeten. Wat kan ik doen?</string>
+    <string name="faq_2_text">Deïnstalleer en herinstalleer de app, of ga naar de app in de Android-instellingen (via \"Apps (en meldingen)\" -> \"App-info\") en kies via \"Opslagruimte\" voor \"Gegevens wissen\". Hiermee worden alleen de instellingen van deze app gewist.</string>
+    <string name="faq_3_title">Hoe kan ik een map bovenaan vastzetten?</string>
+    <string name="faq_3_text">Druk lang op het map en kies vervolgens de punaise in het actiemenu. Als er meerdere mappen zijn vastgezet, zullen deze worden weergeven op basis van de standaardsortering.</string>
+    <string name="faq_4_title">Hoe kan ik terug- of vooruitspoelen in video\'s?</string>
+    <string name="faq_4_text">Sleep horizontaal over de videospeler, of klik bij de zoekbalk op de cijfers die de huidige voortgang of de lengte weergeven. Hierbij zal de video respectievelijk terug- of vooruitspringen.</string>
+    <string name="faq_5_title">Wat is het verschil tussen het verbergen en het uitsluiten van mappen?</string>
+    <string name="faq_5_text">Met \"Uitsluiten\" wordt het tonen van de map alleen binnen deze app voorkomen, terwijl \"Verbergen\" de map ook zal verbergen voor andere galerij-apps. Met \"Verbergen\" wordt een bestand genaamd \".nomedia\" in de te verbergen map aangemaakt (het verwijderen van dit bestand uit de map maakt het verbergen ongedaan).</string>
+    <string name="faq_6_title">Waarom zie ik mappen met stickers of covers van muziekalbums?</string>
+    <string name="faq_6_text">Soms worden er wat ongebruikelijke afbeeldingen van andere apps getoond. Deze zijn gemakkelijk uit het overzicht te halen door lang te drukken op de map en vervolgens te kiezen voor \"Uitsluiten\". In het daaropvolgende venster is ook de bovenliggende map te kiezen; dit zou het tonen van soortgelijke ongewenste items kunnen voorkomen.</string>
+    <string name="faq_7_title">Een bepaalde map met afbeeldingen wordt niet getoond. Wat kan ik doen?</string>
+    <string name="faq_7_text">Dit kan verschillende redenen hebben, maar is eenvoudig op te lossen. Ga naar \"Instellingen\" -> \"Toegevoegde mappen beheren\", klik vervolgens op het plus-symbool en navigeer naar de gewenste map.</string>
+    <string name="faq_8_title">Wat als ik slechts een beperkt aantal mappen wil laten zien?</string>
+    <string name="faq_8_text">Het toevoegen van mappen aan de lijst bij \"Toegevoegde mappen beheren\" sluit niet automatisch alle andere mappen uit. Sluit daarom de hoofdmap \"/\" uit via \"Instellingen\" -> \"Uitgesloten mappen beheren\" en voeg vervolgens de te tonen mappen toe bij \"Instellingen\" -> \"Toegevoegde mappen beheren\".
+        Dit zal ervoor zorgen dat alleen de toegevoegde mappen worden getoond (mappen toevoegen of uitsluiten gebeurt recursief, maar een toegevoegde map zal altijd worden getoond).</string>
+    <string name="faq_10_title">Kan ik afbeeldingen bijsnijden met deze app?</string>
+    <string name="faq_10_text">Ja, dat kan bij \"Bewerken\" door de hoeken te verslepen. Druk lang op een afbeelding in het overzicht of ga naar het volledig scherm en klik vervolgens op \"Bewerken\".</string>
+    <string name="faq_11_title">Hoe kan ik mediabestanden groeperen?</string>
+    <string name="faq_11_text">Kies het menu-item \"Groeperen op\" om op basis van verschillende criteria te groeperen. Dit kan ook ongeacht de mappenstructuur als voor de functie \"Alles weergeven\" is gekozen.</string>
+    <string name="faq_12_title">Sorteren op Datum opname lijkt niet te werken. Hoe kan ik dit oplossen?</string>
+    <string name="faq_12_text">Waarschijnlijk zijn de bestanden gekopieerd vanaf een andere locatie. Selecteer de bestanden en kies \"Datum opname corrigeren\".</string>
+    <string name="faq_13_title">Ik zie \"color banding\" op de afbeeldingen. Hoe kan ik de kwaliteit verbeteren?</string>
+    <string name="faq_13_text">In de meeste gevallen werkt de huidige methode voor het weergeven van afbeeldingen prima, maar met de instelling \"Afbeeldingen in de hoogst mogelijke kwaliteit weergeven\" onder \"Afbeeldingen ver inzoomen\" kan een nog betere kwaliteit worden bewerkstelligd.</string>
+    <string name="faq_14_title">Ik heb een bestand of map verborgen. Hoe kan ik dit ongedaan maken?</string>
+    <string name="faq_14_text">Kies het menu-item \"Verborgen items tijdelijk tonen\", of schakel de instelling \"Verborgen items tonen\" in om het verborgen item te kunnen zien. Druk vervolgens lang op het item en kies \"Tonen\" om het verbergen ongedaan te maken. Mappen worden verborgen door het bestand \".nomedia\" in de map te plaatsen; dit bestand kan ook handmatig in een andere app worden verwijderd.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Een galerij voor afbeeldingen en video\'s, zonder advertenties.</string>
+    <string name="app_short_description">Een privacyvriendelijke advertentievrije galerij voor afbeeldingen en video\'s.</string>
     <string name="app_long_description">
-        Een eenvoudige galerij voor afbeeldingen en video\'s. Bestanden kunnen worden gesorteerd op datum, grootte en naam. Afbeeldingen kunnen in- en uitgezoomd worden. Bestanden worden afhankelijk van de schermgrootte weergegeven in kolommen, waarbij het aantal kolommen kan worden aangepast via knijpgebaren. Bestanden kunnen worden gedeeld, hernoemd, gekopieerd, verplaatst en verwijderd. Afbeeldingen kunnen ook worden bijgesneden, gedraaid, gekanteld of direct vanuit de app als achtergrond worden ingesteld.
+        Een zeer goed aan te passen galerij voor afbeeldingen en video\'s in vele bestandsformaten, waaronder SVG, RAW, panoramafoto\'s en -video\'s.
 
-        De galerij kan ook worden gebruikt voor het bekijken van afbeeldingen of video\'s vanuit andere apps, om bijlagen toe te voegen in e-mail, etc. Perfect voor dagelijks gebruik.
+        Deze app is open-source, bevat geen advertenties en vraagt niet om onnodige machtigingen.
 
-        De machtiging voor het uitlezen van vingerafdrukken is benodigd voor het vergendelen van verborgen items of de gehele app.
+        Een lijst met de belangrijkste mogelijkheden:
+        1. Zoeken
+        2. Diavoorstelling
+        3. Ondersteuning voor schermen met een inkeping
+        4. Mappen bovenaan vastzetten
+        5. Media filteren op bestandstype
+        6. Een prullenbak
+        7. Oriëntatie vastzetten voor volledig scherm
+        8. Favorieten
+        9. Veeggebaren in volledig scherm
+        10. Afbeeldingen bewerken en filters toepassen
+        11. Verborgen items of de gehele app beveiligen met een wachtwoord
+        12. Het aantal kolommen aanpassen via veeggebaren of menuknoppen
+        13. De acties op de werkbalk in volledig scherm aanpassen
+        14. Uitgebreide informatie tonen over de bestanden in volledig scherm
+        15. Items sorteren en groeperen op verschillende manieren
+        16. Mappen verbergen (ook voor andere apps), of mappen uitsluiten (alleen voor deze app)
 
-        Bevat geen advertenties of onnodige machtigingen. Volledig open-source. Kleuren van de app kunnen worden aangepast.
+        De machtiging voor vingerafdrukken is benodigd voor het beveiligen van verborgen items, of de hele app, of om te voorkomen dat bestanden kunnen worden verwijderd.
 
-        Deze app is onderdeel van een grotere verzameling. Vind de andere apps op https://www.simplemobiletools.com
+        Deze app is onderdeel van een grotere collectie. De andere apps zijn te vinden op https://www.simplemobiletools.com
     </string>
 
     <!--

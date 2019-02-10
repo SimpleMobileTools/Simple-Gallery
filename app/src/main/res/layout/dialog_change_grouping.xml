@@ -11,8 +11,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingLeft="@dimen/activity_margin"
-        android:paddingRight="@dimen/activity_margin"
-        android:paddingTop="@dimen/activity_margin">
+        android:paddingTop="@dimen/activity_margin"
+        android:paddingRight="@dimen/activity_margin">
 
         <RadioGroup
             android:id="@+id/grouping_dialog_radio_grouping"
@@ -24,48 +24,48 @@
                 android:id="@+id/grouping_dialog_radio_none"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/medium_margin"
                 android:paddingTop="@dimen/medium_margin"
+                android:paddingBottom="@dimen/medium_margin"
                 android:text="@string/do_not_group_files"/>
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
                 android:id="@+id/grouping_dialog_radio_last_modified"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/medium_margin"
                 android:paddingTop="@dimen/medium_margin"
+                android:paddingBottom="@dimen/medium_margin"
                 android:text="@string/by_last_modified"/>
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
                 android:id="@+id/grouping_dialog_radio_date_taken"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/medium_margin"
                 android:paddingTop="@dimen/medium_margin"
+                android:paddingBottom="@dimen/medium_margin"
                 android:text="@string/by_date_taken"/>
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
                 android:id="@+id/grouping_dialog_radio_file_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/medium_margin"
                 android:paddingTop="@dimen/medium_margin"
+                android:paddingBottom="@dimen/medium_margin"
                 android:text="@string/by_file_type"/>
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
                 android:id="@+id/grouping_dialog_radio_extension"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/medium_margin"
                 android:paddingTop="@dimen/medium_margin"
+                android:paddingBottom="@dimen/medium_margin"
                 android:text="@string/by_extension"/>
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
                 android:id="@+id/grouping_dialog_radio_folder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/medium_margin"
                 android:paddingTop="@dimen/medium_margin"
+                android:paddingBottom="@dimen/medium_margin"
                 android:text="@string/by_folder"/>
 
         </RadioGroup>
@@ -84,16 +84,16 @@
                 android:id="@+id/grouping_dialog_radio_ascending"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/medium_margin"
                 android:paddingTop="@dimen/medium_margin"
+                android:paddingBottom="@dimen/medium_margin"
                 android:text="@string/ascending"/>
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
                 android:id="@+id/grouping_dialog_radio_descending"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/medium_margin"
                 android:paddingTop="@dimen/medium_margin"
+                android:paddingBottom="@dimen/medium_margin"
                 android:text="@string/descending"/>
         </RadioGroup>
 
@@ -105,8 +105,8 @@
             android:id="@+id/grouping_dialog_use_for_this_folder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="@dimen/activity_margin"
             android:paddingTop="@dimen/activity_margin"
+            android:paddingBottom="@dimen/activity_margin"
             android:text="@string/use_for_this_folder"/>
 
     </LinearLayout>

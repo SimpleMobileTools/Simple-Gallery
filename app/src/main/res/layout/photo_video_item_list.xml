@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/media_item_holder"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -9,7 +10,7 @@
     android:paddingLeft="@dimen/small_margin"
     android:paddingTop="@dimen/small_margin">
 
-    <com.simplemobiletools.gallery.views.MySquareImageView
+    <com.simplemobiletools.gallery.pro.views.MySquareImageView
         android:id="@+id/medium_thumbnail"
         android:layout_width="@dimen/list_view_folder_thumbnail_size"
         android:layout_height="@dimen/list_view_folder_thumbnail_size"/>
@@ -18,9 +19,9 @@
         android:id="@+id/medium_check"
         android:layout_width="@dimen/selection_check_size"
         android:layout_height="@dimen/selection_check_size"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
         android:layout_margin="@dimen/small_margin"
         android:background="@drawable/circle_background"
         android:padding="@dimen/tiny_margin"
@@ -28,11 +29,11 @@
         android:visibility="gone"/>
 
     <TextView
-        android:id="@+id/photo_name"
+        android:id="@+id/medium_name"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignBottom="@+id/medium_thumbnail"
         android:layout_alignTop="@+id/medium_thumbnail"
+        android:layout_alignBottom="@+id/medium_thumbnail"
         android:layout_toRightOf="@+id/medium_thumbnail"
         android:ellipsize="end"
         android:gravity="center_vertical"
@@ -46,12 +47,26 @@
         android:id="@+id/play_outline"
         android:layout_width="@dimen/play_outline_icon_size"
         android:layout_height="@dimen/play_outline_icon_size"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginRight="@dimen/small_margin"
         android:paddingBottom="6dp"
         android:src="@drawable/img_play_outline_empty"
         android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/video_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="6dp"
+        android:layout_toLeftOf="@+id/play_outline"
+        android:paddingLeft="@dimen/small_margin"
+        android:paddingRight="@dimen/small_margin"
+        android:paddingBottom="@dimen/small_margin"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/normal_text_size"
+        tools:text="00:05"/>
 
     <TextView
         android:id="@+id/dir_list_divider"

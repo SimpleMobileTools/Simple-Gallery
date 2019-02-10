@@ -1,4 +1,5 @@
 *.iml
+*.aab
 .gradle
 /local.properties
 /gradle.properties
@@ -6,5 +7,5 @@
 .DS_Store
 /build
 /captures
-release.keystore
-signing.properties
+keystore.jks
+keystore.properties

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/bottom_aspect_ratios_wrapper"
@@ -9,9 +9,9 @@
 
     <TextView
         android:id="@+id/bottom_aspect_ratio_free"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/activity_margin"
         android:text="@string/free_aspect_ratio"
         android:textAllCaps="true"
@@ -23,9 +23,9 @@
 
     <TextView
         android:id="@+id/bottom_aspect_ratio_one_one"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/activity_margin"
         android:text="1:1"
         android:textColor="@android:color/white"
@@ -36,9 +36,9 @@
 
     <TextView
         android:id="@+id/bottom_aspect_ratio_four_three"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/activity_margin"
         android:text="4:3"
         android:textColor="@android:color/white"
@@ -49,15 +49,29 @@
 
     <TextView
         android:id="@+id/bottom_aspect_ratio_sixteen_nine"
-        style="@style/MyBorderlessBackgroundStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/activity_margin"
         android:text="16:9"
         android:textColor="@android:color/white"
         android:textSize="@dimen/big_text_size"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bottom_aspect_ratio_other"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bottom_aspect_ratio_four_three"/>
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/bottom_aspect_ratio_other"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="@dimen/activity_margin"
+        android:text="@string/other_aspect_ratio"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/big_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bottom_aspect_ratio_sixteen_nine"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

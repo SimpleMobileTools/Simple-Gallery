@@ -5,10 +5,10 @@
     <string name="edit">编辑</string>
     <string name="open_camera">打开相机</string>
     <string name="hidden">（隐藏）</string>
-    <string name="excluded">(排除)</string>
+    <string name="excluded">（排除）</string>
     <string name="pin_folder">锁定目录</string>
     <string name="unpin_folder">解除锁定目录</string>
-    <string name="pin_to_the_top">锁定到顶部</string>
+    <string name="pin_to_the_top">固定到顶部</string>
     <string name="show_all">文件视图</string>
     <string name="all_folders">所有目录</string>
     <string name="folder_view">目录视图</string>
@@ -24,13 +24,14 @@
     <string name="brightness">亮度</string>
     <string name="lock_orientation">锁定方向</string>
     <string name="unlock_orientation">解锁方向</string>
-    <string name="change_orientation">Change orientation</string>
-    <string name="force_portrait">Force portrait</string>
-    <string name="force_landscape">Force landscape</string>
-    <string name="use_default_orientation">Use default orientation</string>
-    <string name="fix_date_taken">Fix Date Taken value</string>
-    <string name="fixing">Fixing…</string>
-    <string name="dates_fixed_successfully">Dates fixed successfully</string>
+    <string name="change_orientation">改变方向</string>
+    <string name="force_portrait">强制竖屏</string>
+    <string name="force_landscape">强制横屏</string>
+    <string name="use_default_orientation">默认</string>
+    <string name="fix_date_taken">修复拍摄日期</string>
+    <string name="fixing">正在修复…</string>
+    <string name="dates_fixed_successfully">日期修复成功</string>
+    <string name="share_resized">调整图像尺寸并分享</string>
 
     <!-- Filter -->
     <string name="filter_media">要显示的媒体文件</string>
@@ -75,20 +76,20 @@
     <string name="save">保存</string>
     <string name="rotate">旋转</string>
     <string name="path">路径</string>
-    <string name="invalid_image_path">无效图片路径</string>
+    <string name="invalid_image_path">无效的图片路径</string>
     <string name="image_editing_failed">图片编辑失败</string>
     <string name="edit_image_with">编辑方式：</string>
     <string name="no_editor_found">未找到可用图片编辑器</string>
     <string name="unknown_file_location">未知的文件路径</string>
-    <string name="error_saving_file">不能覆盖源文件</string>
+    <string name="error_saving_file">无法覆盖源文件</string>
     <string name="rotate_left">向左旋转</string>
     <string name="rotate_right">向右旋转</string>
     <string name="rotate_one_eighty">旋转 180º</string>
     <string name="flip">翻转</string>
     <string name="flip_horizontally">水平翻转</string>
     <string name="flip_vertically">垂直翻转</string>
-    <string name="edit_with">编辑方式</string>
-    <string name="free_aspect_ratio">Free</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="free_aspect_ratio">自由</string>                <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">其他</string>             <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">简约壁纸</string>
@@ -115,6 +116,7 @@
     <string name="loop_slideshow">循环幻灯片</string>
     <string name="slideshow_ended">幻灯片结束</string>
     <string name="no_media_for_slideshow">未发现可用媒体</string>
+    <string name="use_crossfade_animation">使用淡入淡出动画</string>
 
     <!-- View types -->
     <string name="change_view_type">更改视图类型</string>
@@ -131,45 +133,57 @@
     <string name="by_file_type">文件类型</string>
     <string name="by_extension">扩展</string>
 
+    <!-- Widgets -->
+    <string name="folder_on_widget">要在小部件上显示的文件夹:</string>
+    <string name="show_folder_name">显示文件夹名称</string>
+
     <!-- Settings -->
     <string name="autoplay_videos">自动播放</string>
+    <string name="remember_last_video_position">记住上次视频播放位置</string>
     <string name="toggle_filename">显示文件名</string>
     <string name="loop_videos">循环播放视频</string>
     <string name="animate_gifs">GIF 缩略图</string>
     <string name="max_brightness">浏览时最大亮度</string>
     <string name="crop_thumbnails">裁剪缩略图</string>
+    <string name="show_thumbnail_video_duration">显示视频时长</string>
     <string name="screen_rotation_by">全屏方向</string>
     <string name="screen_rotation_system_setting">系统设置</string>
     <string name="screen_rotation_device_rotation">设备方向</string>
     <string name="screen_rotation_aspect_ratio">根据长宽比</string>
-    <string name="black_background_at_fullscreen">全屏时使用黑色背景和状态栏​</string>
+    <string name="black_background_at_fullscreen">全屏时使用黑色背景和状态栏</string>
     <string name="scroll_thumbnails_horizontally">水平滚动缩略图</string>
     <string name="hide_system_ui_at_fullscreen">全屏时自动隐藏状态栏</string>
     <string name="delete_empty_folders">删除没有内容的空文件夹</string>
     <string name="allow_photo_gestures">使用纵向滑动手势控制照片亮度</string>
     <string name="allow_video_gestures">使用纵向滑动手势控制视频音量和亮度</string>
     <string name="show_media_count">在主界面显示文件夹媒体计数</string>
-    <string name="replace_share_with_rotate">替换全屏时菜单栏的“分享”为“旋转”</string>
     <string name="show_extended_details">全屏浏览媒体时显示详细信息</string>
     <string name="manage_extended_details">要显示的详细信息项目</string>
     <string name="one_finger_zoom">单指缩放</string>
     <string name="allow_instant_change">通过单击屏幕边缘来切换媒体</string>
-    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
+    <string name="allow_deep_zooming_images">允许深度放大图像</string>
     <string name="hide_extended_details">当状态栏隐藏时隐藏扩展详情</string>
     <string name="do_extra_check">额外检查以避免显示无效的文件</string>
-    <string name="show_at_bottom">在屏幕底部显示一些操作按钮</string>
-    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
+    <string name="show_at_bottom">显示底栏</string>
+    <string name="show_recycle_bin">在文件夹界面显示回收站</string>
+    <string name="deep_zoomable_images">深度放大图像</string>
+    <string name="show_highest_quality">以最高质量显示图像</string>
+    <string name="show_recycle_bin_last">在主屏幕界面的最后一项显示回收站</string>
+    <string name="allow_down_gesture">使用下滑手势关闭全屏视图</string>
+    <string name="allow_one_to_one_zoom">双击两次后 1:1 放大图像</string>
+    <string name="open_videos_on_separate_screen">使用新的水平手势在独立页面播放视频</string>
+    <string name="show_notch">Show a notch if available</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">缩略图</string>
     <string name="fullscreen_media">全屏显示媒体</string>
     <string name="extended_details">扩展详情</string>
-    <string name="bottom_actions">Bottom actions</string>
+    <string name="bottom_actions">底栏选项</string>
 
     <!-- Bottom actions -->
-    <string name="manage_bottom_actions">Manage visible bottom actions</string>
-    <string name="toggle_favorite">Toggle favorite</string>
-    <string name="toggle_file_visibility">Toggle file visibility</string>
+    <string name="manage_bottom_actions">管理底栏选项</string>
+    <string name="toggle_favorite">收藏</string>
+    <string name="toggle_file_visibility">隐藏文件</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">如何把简约图库设置为设备的默认图库？</string>
@@ -179,7 +193,7 @@
     <string name="faq_3_title">如何让某个相册始终显示在最上面？</string>
     <string name="faq_3_text">你可以长按该相册并在操作栏中点击图钉图标，这样 就可以将其固定在顶部了。你也可以固定多个文件夹，固定项目将按照默认排序方法排序。</string>
     <string name="faq_4_title">如何快进/快退视频？</string>
-    <string name="faq_4_text">可以点击底栏进度条两侧的时间文本，或拖动进度条。</string>
+    <string name="faq_4_text">只需在视频播放器上左右滑动，或点击底栏进度条两侧的时间文本，即可前进或后退视频。</string>
     <string name="faq_5_title">文件夹的隐藏和排除有什么区别？</string>
     <string name="faq_5_text">排除功能只是防止其在简约图库中显示，而隐藏功能则使用的是系统的方法，这样做也会在其他图库中隐藏。它的工作原理是在给定的文件夹中创建一个空的.nomedia文件，你可以使用任何文件管理器删除它。</string>
     <string name="faq_6_title">为什么会出现音乐艺术家封面或贴纸文件夹？</string>
@@ -188,28 +202,46 @@
     <string name="faq_7_text">原因可能有很多，但解决方法很简单。只需进入设置 -> 管理包含目录，点击+号并选择到所需的文件夹。</string>
     <string name="faq_8_title">如果我只想显示几个特定的文件夹，该如何操作？</string>
     <string name="faq_8_text">在包含目录中添加文件夹不会自动排除其他的内容。你可以做的：进入设置 -> 管理排除目录，排除根目录\"/\"，然后在设置 -> 管理包含目录中添加所需的文件夹。这样就只显示选定的文件夹了，由于排除和包含都是递归的，所以排除并包含的文件夹是会显示的。</string>
-    <string name="faq_9_title">全屏图像有些奇怪的东西，该如何提高画面质量？</string>
-    <string name="faq_9_text">在设置中有一个“用质量更好的图像替换可深度缩放的图像”开关，打开它后就可以提高图像的显示质量，但是一旦尝试放大太多次，它们就又会变得模糊不清。</string>
     <string name="faq_10_title">可以裁剪图片吗？</string>
     <string name="faq_10_text">当然，通过长按图片缩略图并选择编辑，或在全屏视图中选择编辑来打开编辑器。你可以通过拖动图片边角来剪裁图像。</string>
     <string name="faq_11_title">我能将媒体文件缩略图分组吗？</string>
     <string name="faq_11_text">当然，只需在缩略图视图中使用\"分组依据\"菜单项即可。您可以依据多个条件对文件进行分组，包括拍摄日期。如果您使用了\"显示所有文件夹内容\"功能，则可以按文件夹对它们进行分组。</string>
-    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
-    <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
+    <string name="faq_12_title">按拍摄日期排序似乎有异常，我该如何解决？</string>
+    <string name="faq_12_text">很可能是因为图片是从某处复制过来的。您可以长按文件缩略图并选择\"修复拍摄日期\"来修复它。</string>
+    <string name="faq_13_title">我看到图像上有一些色带。如何提高提高质量？</string>
+    <string name="faq_13_text">目前显示图像的方案在绝大多数情况下都能正常工作，如果您想要更好的图像质量，您可以在设置中启用\"以最高质量显示图像\"。</string>
+    <string name="faq_14_title">我隐藏了某个文件/文件夹。如何取消隐藏？</string>
+    <string name="faq_14_text">您可以点击主界面上的\"暂时显示隐藏的项目\"选项，或在设置中开启\"显示隐藏的项目\"。 如果你想取消隐藏它，长按它并选择\"取消隐藏\"即可。 我们是通过向文件夹中添加\".nomedia\"文件来隐藏文件夹的，使用文件管理器删除该文件也可以取消隐藏。</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">一个没有广告，用来观看照片及视频的相册。</string>
+    <string name="app_short_description">一个没有广告，尊重隐私，便于管理文件的离线图库。</string>
     <string name="app_long_description">
-        一个观看照片和视频的简单实用工具。项目可以根据日期、大小、名称来递增或递减排序，照片可以缩放。媒体文件根据屏幕的大小排列在多个方格中，您可以使用缩放手势来调整每一列的方格数量。媒体文件可以被重命名、分享、删除、复制以及移动。照片亦可被剪切、旋转或是直接在应用中设为壁纸。
+        一个高度可定制的图库，支持很多的图像和视频类型，包括SVG，RAW，全景照片和视频。
 
-        相册亦提供能让第三方应用预览图片／视频、向电子邮件客户端添加附件等的功能。非常适合日常使用。
+        本应用是开源的，没有广告以及不必要的权限。
 
-        这个应用需要指纹权限来锁定隐藏的项目或是整个应用。
+        列举一些值得一提的功能：
+        1.搜索
+        2.幻灯片
+        3.支持留海屏
+        4.固定文件夹到顶部
+        5.按类型过滤媒体文件
+        6.回收站（便于恢复文件）
+        7.全屏视图方向锁定
+        8.标记收藏文件以便于访问
+        9.使用下滑手势关闭全屏视图
+        10.图片编辑器，可用于修改图像和应用滤镜
+        11.密码保护，可用于保护应用和隐藏项目
+        12.可使用手势或菜单按钮来更改缩略图列数
+        13.可自定义全屏视图中的底栏操作按钮，方便快速
+        14.在全屏视图下显示文件属性具有的扩展详细信息
+        15.按照不同的方式对项目进行排序或分组，包括升序和降序
+        16.隐藏文件夹（会影响其他应用），排除文件夹（仅影响本应用）
 
-        应用不包含广告与不必要的权限。它是完全开放源代码的，并内置自定义颜色主题。
+        如需锁定隐藏项目的可见性，或是锁定本应用，或是保护文件不被删除，则需要指纹权限。
 
-        这个应用只是一系列应用中的一小部份。您可以在 https://www.simplemobiletools.com 找到其余的应用。
+        这个应用只是一个更大的应用系列的一小部分。您可以在https://www.simplemobiletools.com找到其余的应用。
     </string>
 
     <!--

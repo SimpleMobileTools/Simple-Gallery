@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/change_view_type_dialog_scrollview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/change_view_type_dialog_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_margin"
+        android:paddingTop="@dimen/activity_margin"
+        android:paddingRight="@dimen/activity_margin">
+
+        <RadioGroup
+            android:id="@+id/change_view_type_dialog_radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/medium_margin">
+
+            <com.simplemobiletools.commons.views.MyCompatRadioButton
+                android:id="@+id/change_view_type_dialog_radio_grid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/medium_margin"
+                android:paddingBottom="@dimen/medium_margin"
+                android:text="@string/grid"/>
+
+            <com.simplemobiletools.commons.views.MyCompatRadioButton
+                android:id="@+id/change_view_type_dialog_radio_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/medium_margin"
+                android:paddingBottom="@dimen/medium_margin"
+                android:text="@string/list"/>
+
+        </RadioGroup>
+
+        <include
+            android:id="@+id/group_direct_subfolders_divider"
+            layout="@layout/divider"/>
+
+        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+            android:id="@+id/change_view_type_dialog_group_direct_subfolders"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/activity_margin"
+            android:paddingBottom="@dimen/activity_margin"
+            android:text="@string/group_direct_subfolders"/>
+
+        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+            android:id="@+id/change_view_type_dialog_use_for_this_folder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/activity_margin"
+            android:paddingBottom="@dimen/activity_margin"
+            android:text="@string/use_for_this_folder"/>
+
+    </LinearLayout>
+</ScrollView>

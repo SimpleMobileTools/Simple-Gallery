@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Fix Date Taken value</string>
     <string name="fixing">Fixing…</string>
     <string name="dates_fixed_successfully">Dates fixed successfully</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">미디어 필터 설정</string>
@@ -87,8 +88,8 @@
     <string name="flip">반전</string>
     <string name="flip_horizontally">가로 반전</string>
     <string name="flip_vertically">세로 반전</string>
-    <string name="edit_with">이미지편집 프로그램 연결</string>
-    <string name="free_aspect_ratio">Free</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="free_aspect_ratio">Free</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
@@ -115,6 +116,7 @@
     <string name="loop_slideshow">슬라이드 쇼 반복</string>
     <string name="slideshow_ended">슬라이드 쇼 종료</string>
     <string name="no_media_for_slideshow">슬라이드 쇼를 위한 미디어를 찾을 수 없음</string>
+    <string name="use_crossfade_animation">Use crossfade animations</string>
 
     <!-- View types -->
     <string name="change_view_type">보기방식 변경</string>
@@ -131,13 +133,19 @@
     <string name="by_file_type">File type</string>
     <string name="by_extension">Extension</string>
 
+    <!-- Widgets -->
+    <string name="folder_on_widget">Folder shown on the widget:</string>
+    <string name="show_folder_name">Show folder name</string>
+
     <!-- Settings -->
     <string name="autoplay_videos">비디오 자동재생</string>
+    <string name="remember_last_video_position">Remember last video playback position</string>
     <string name="toggle_filename">파일이름 보기</string>
     <string name="loop_videos">비디오 반복</string>
     <string name="animate_gifs">섬네일에서 GIFs 애니메이션 활성화</string>
     <string name="max_brightness">미디어 최대 밝기</string>
     <string name="crop_thumbnails">미리보기 사각형으로 자름</string>
+    <string name="show_thumbnail_video_duration">Show video durations</string>
     <string name="screen_rotation_by">전체화면으로 회전기준</string>
     <string name="screen_rotation_system_setting">시스템 설정</string>
     <string name="screen_rotation_device_rotation">디바이스 회전</string>
@@ -149,7 +157,6 @@
     <string name="allow_photo_gestures">상하 제스처로 사진 밝기 제어</string>
     <string name="allow_video_gestures">수직 제스처로 비디오 볼륨 및 밝기 제어</string>
     <string name="show_media_count">폴더에 포함된 미디어파일 수 표시</string>
-    <string name="replace_share_with_rotate">전체화면 메뉴의 공유 아이콘을 회전 아이콘으로 변경</string>
     <string name="show_extended_details">전체화면 모드에서 세부정보 표시</string>
     <string name="manage_extended_details">확장된 세부정보 관리</string>
     <string name="one_finger_zoom">전체화면 모드에서 한 손가락으로 확대 및 축소</string>
@@ -159,6 +166,13 @@
     <string name="do_extra_check">잘못된 파일 표시를 방지하기 위해 추가 검사 수행</string>
     <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
     <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
+    <string name="deep_zoomable_images">Deep zoomable images</string>
+    <string name="show_highest_quality">Show images in the highest possible quality</string>
+    <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
+    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
+    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
+    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
+    <string name="show_notch">Show a notch if available</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">섬네일</string>
@@ -180,42 +194,56 @@
     <string name="faq_3_title">How can I make an album always appear at the top?</string>
     <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actionmenu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
     <string name="faq_4_title">How can I fast-forward videos?</string>
-    <string name="faq_4_text">You can click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
+    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
     <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
     <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
     <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
     <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
-    <string name="faq_7_title">A folder with images isn\'t showing up, what can I do?</string>
+    <string name="faq_7_title">A folder with images isn\'t showing up, or it doesn\'t show all items. What can I do?</string>
     <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
     <string name="faq_8_title">What if I want just a few particular folders visible?</string>
     <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
         That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
-    <string name="faq_9_title">Fullscreen images have weird artifacts, can I somehow improve the quality?</string>
-    <string name="faq_9_text">Yea, there is a toggle in Settings saying \"Replace deep zoomable images with better quality ones\", you can use that. It will improve the quality of the images, but they will get blurred once you try zooming in too much.</string>
     <string name="faq_10_title">Can I crop images with this app?</string>
     <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
     <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
     <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
     <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
     <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
+    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
+    <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
+    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
+    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">광고없이 사진과 동영상을 볼 수 있는 갤러리.</string>
+    <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
     <string name="app_long_description">
-        사진과 동영상을 간편하게 관리 할 수 있는 툴입니다.
-        
-        날짜, 크기, 이름을 기준으로 정렬 할 수 있으며 사진을 확대 할 수 있습니다. 미디어 파일은 디스플레이의 크기에 맞춰 여러 열로 표시되며 핀치 제스처를 이용하여 변경 할 수도 있습니다.
-        
-        이름변경, 공유, 삭제, 복사, 이동, 이미지편집, 배경화면 설정 등의 기능을 제공합니다.
+        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
 
-        갤러리는 \'이미지/비디오 미리보기\', \'이메일 클라이언트에서 첨부파일 추가하기\' 등의 기능을 서드파티 애플리케이션에 제공합니다. 언제나 완벽하게 사용할 수 있습니다.
+        It is open source, contains no ads or unnecessary permissions.
 
-        앱을 잠그거나 숨김파일을 보기위하여 지문인식 기능을 사용하는 경우 지문사용 권한이 필요합니다.
+        Let\'s list some of its features worth mentioning:
+        1. Search
+        2. Slideshow
+        3. Notch support
+        4. Pinning folders to the top
+        5. Filtering media files by type
+        6. Recycle bin for easy file recovery
+        7. Fullscreen view orientation locking
+        8. Marking favorite files for easy access
+        9. Quick fullscreen media closing with down gesture
+        10. An editor for modifying images and applying filters
+        11. Password protection for protecting hidden items or the whole app
+        12. Changing the thumbnail column count with gestures or menu buttons
+        13. Customizable bottom actions at the fullscreen view for quick access
+        14. Showing extended details over fullscreen media with desired file properties
+        15. Several different ways of sorting or grouping items, both ascending and descending
+        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
 
-        광고가 포함되어 있거나, 불필요한 권한을 요청하지 않습니다. 이 앱의 모든 소스는 오픈소스이며, 사용자가 직접 애플리케이션의 컬러를 설정 할 수 있습니다.
+        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
 
-        이 앱은 다양한 시리즈의 모바일앱 중 하나입니다. 나머지는 https://www.simplemobiletools.com 에서 찾아보실 수 있습니다.
+        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
     </string>
 
     <!--

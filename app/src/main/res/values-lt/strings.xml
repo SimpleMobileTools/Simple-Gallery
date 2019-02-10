@@ -5,6 +5,7 @@
     <string name="edit">Redaguoti</string>
     <string name="open_camera">Atidaryti fotoaparatą</string>
     <string name="hidden">(paslėpta)</string>
+    <string name="excluded">(excluded)</string>
     <string name="pin_folder">Prisegti aplanką</string>
     <string name="unpin_folder">Atsegti aplanką</string>
     <string name="pin_to_the_top">Prisegti į viršų</string>
@@ -21,7 +22,6 @@
     <string name="use_default">Naudoti numatytąjį</string>
     <string name="volume">Garsas</string>
     <string name="brightness">Ryškumas</string>
-    <string name="do_not_ask_again">Šiame seanse daugiau neklausti</string>
     <string name="lock_orientation">Užrakinti orientaciją</string>
     <string name="unlock_orientation">Atrakinti orientaciją</string>
     <string name="change_orientation">Change orientation</string>
@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Fix Date Taken value</string>
     <string name="fixing">Fixing…</string>
     <string name="dates_fixed_successfully">Dates fixed successfully</string>
+    <string name="share_resized">Share a resized version</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtruoti mediją</string>
@@ -87,8 +88,8 @@
     <string name="flip">Apversti</string>
     <string name="flip_horizontally">Apversti horizontaliai</string>
     <string name="flip_vertically">Apversti vertikaliai</string>
-    <string name="edit_with">Redaguoti su</string>
-    <string name="free_aspect_ratio">Free</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="free_aspect_ratio">Free</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Paprastas darbalaukio fonas</string>
@@ -115,6 +116,7 @@
     <string name="loop_slideshow">Klipuoti skaidrių demonstraciją</string>
     <string name="slideshow_ended">Skaidrių demonstracija pasibaigė</string>
     <string name="no_media_for_slideshow">Nerasta medijos skaidrių demonstracijai</string>
+    <string name="use_crossfade_animation">Use crossfade animations</string>
 
     <!-- View types -->
     <string name="change_view_type">Keisti peržiūros tipą</string>
@@ -131,13 +133,19 @@
     <string name="by_file_type">File type</string>
     <string name="by_extension">Extension</string>
 
+    <!-- Widgets -->
+    <string name="folder_on_widget">Folder shown on the widget:</string>
+    <string name="show_folder_name">Show folder name</string>
+
     <!-- Settings -->
     <string name="autoplay_videos">Groti vaizdo įrašus automatiškai</string>
+    <string name="remember_last_video_position">Remember last video playback position</string>
     <string name="toggle_filename">Perjungti bylos pavadinimo matomumą</string>
     <string name="loop_videos">Klipuoti vaizdo įrašus</string>
     <string name="animate_gifs">Animuoti GIF\'us miniatiūrose</string>
     <string name="max_brightness">Maksimalus ryškumas, kai medija peržiūrima viso ekrano rėžimu</string>
     <string name="crop_thumbnails">Apkirpti miniatiūras kvadratu</string>
+    <string name="show_thumbnail_video_duration">Show video durations</string>
     <string name="screen_rotation_by">Sukti viso ekrano mediją pagal</string>
     <string name="screen_rotation_system_setting">Sistemos nustatymai</string>
     <string name="screen_rotation_device_rotation">Įrenginio sukimas</string>
@@ -149,7 +157,6 @@
     <string name="allow_photo_gestures">Leisti valdyti nuotraukų ryškumą vertikaliais gestais</string>
     <string name="allow_video_gestures">Leisti kontroliuoti vaizdo įrašo garsumą ir ryškumą vertikaliais gestais</string>
     <string name="show_media_count">Rodyti aplanko bylų skaičių pagrindiniame rodinyje</string>
-    <string name="replace_share_with_rotate">Pakeisti bendrinti su rotacija  viso ekrano meniu</string>
     <string name="show_extended_details">Rodyti išsamią informaciją per visą ekraną</string>
     <string name="manage_extended_details">Tvarkykite išsamią informaciją</string>
     <string name="one_finger_zoom">Leisti vienu pirštu pritraukti viso ekrano rėžime</string>
@@ -159,6 +166,13 @@
     <string name="do_extra_check">Atlikti papildomą patikrinimą, kad nebūtų rodomos sugadintos bylos</string>
     <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
     <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
+    <string name="deep_zoomable_images">Deep zoomable images</string>
+    <string name="show_highest_quality">Show images in the highest possible quality</string>
+    <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
+    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
+    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
+    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
+    <string name="show_notch">Show a notch if available</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatiūros</string>
@@ -180,7 +194,7 @@
     <string name="faq_3_title">Kaip aš galiu padaryti albumą visada rodomą viršuje?</string>
     <string name="faq_3_text">Galite ilgai paspausti norimą albumą ir pasirinkti "Prisegti" piktogramą, esančią meniu "Veiksmo meniu", viršuje. Galite prisegti kelis aplankus, prisegti elementai bus rūšiuojami pagal numatytąjį rūšiavimo metodą.</string>
     <string name="faq_4_title">Kaip galėčiau greitai prasukti vaizdo įrašus?</string>
-    <string name="faq_4_text">Galite spustelėti  tekstus šalia slinkties juostos, kad būtų perkeltas vaizdo įrašas atgal arba į priekį.</string>
+    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
     <string name="faq_5_title">Koks skirtumas tarp slėpimo ir išskyrimo iš aplanko?</string>
     <string name="faq_5_text">Išskyrimas neleidžia rodyti aplanko tik paprastoje galerijoje, tuo tarpu slėpimas slepia aplanką iš kitų galerijų. Tai veikia, sukuriant tuščią \ ". Nomedia \" bylą tam tikrame aplanke, kurį vėliau galite pašalinti bet kuria bylų tvarkykle.</string>
     <string name="faq_6_title">Kodėl pasirodo aplankai su muzikos viršeliu ar lipdukais?</string>
@@ -190,28 +204,46 @@
     <string name="faq_8_title">Ką daryti, jei noriu matyti tik keletą konkrečių aplankų?</string>
     <string name="faq_8_text">Pridėjus aplanką į "Įtraukti aplankai", automatiškai neįtraukiama nieko. Ką jūs galite padaryti, eikite į Nustatymai -> Tvarkyti išskirtus aplankus, išskirkite šakninį aplanką \ "/ \", tada pridėkite norimus aplankus, esančius Nustatymai -> Tvarkyti įtrauktas aplankas.
          Tai leis matyti tik tuos pasirinktus aplankus, nes abu atmetami ir įtraukti yra rekursyvūs, ir jei aplankas yra išskirtas ir įtrauktas, jis bus rodomas.</string>
-    <string name="faq_9_title">Viso ekrano atvaizdai turi keistus artefaktus, galiu kokiu nors būdu pagerinti kokybę?</string>
-    <string name="faq_9_text">Taip, "Nustatymuose" perjunkite \ "Pakeisti giliuosius, patobulintus vaizdus geresnės kokybės vaizdais \", galite tai naudoti. Tai pagerins vaizdų kokybę, tačiau kai jūs pabandysite per daug padidinti vaizdą, jie bus neryškūs.</string>
     <string name="faq_10_title">Ar galiu apkarpyti vaizdus naudojant šią programėlę?</string>
     <string name="faq_10_text">Taip, redaguodami vaizdus, galite juos apkarpyti, vilkdami vaizdo kampus. Galite patekti į redaktorių ilgai paspaudę vaizdo miniatiūrą ir pasirinkę "Redaguoti" arba iš viso ekrano rodinio pasirinkę "Redaguoti".</string>
     <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
     <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
     <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
     <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
+    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
+    <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
+    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
+    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Galerija, skirta peržiūrėti nuotraukas ir vaizdo įrašus be reklamų.</string>
+    <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
     <string name="app_long_description">
-        Paprastas įrankis, naudojamas peržiūrėti nuotraukas ir vaizdo įrašus. Elementus galima suskirstyti pagal datą, dydį, pavadinimą tiek didėjančia, tiek mažėjančia tvarka, nuotraukos gali būti priartintos. Vaizdo bylos rodomos keliuose stulpeliuose, priklausomai nuo ekrano dydžio, kolonėlių skaičių galite keisti naudodami gesinimo gestus. Jas galima pervardyti, bendrinti, ištrinti, kopijuoti, perkelti. Vaizdus taip pat galima apkarpyti, pasukti, apversti arba nustatyti kaip "Darbalaukio paveikslėliu" tiesiai iš programėlės.
+        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
 
-        Galerija taip pat siūloma trečiosioms šalims peržiūrėti atvaizdus / vaizdo įrašus, pridėti priedus el. Pašto klientams ir pan. Tai idealu kasdieniam naudojimui.
+        It is open source, contains no ads or unnecessary permissions.
 
-        Pirštų atspaudų leidimas reikalingas norint užblokuoti paslėptą elemento matomumą arba visą programą.
-	
-	Neturi reklamų ar nereikalingų leidimų. Programėlė visiškai atviro kodo, yra galimybė keisti spalvas.
-        
-        Ši programėle yra vienina iš keletos mūsų programėlių. Likusias Jūs galite rasti čia http://www.simplemobiletools.com
+        Let\'s list some of its features worth mentioning:
+        1. Search
+        2. Slideshow
+        3. Notch support
+        4. Pinning folders to the top
+        5. Filtering media files by type
+        6. Recycle bin for easy file recovery
+        7. Fullscreen view orientation locking
+        8. Marking favorite files for easy access
+        9. Quick fullscreen media closing with down gesture
+        10. An editor for modifying images and applying filters
+        11. Password protection for protecting hidden items or the whole app
+        12. Changing the thumbnail column count with gestures or menu buttons
+        13. Customizable bottom actions at the fullscreen view for quick access
+        14. Showing extended details over fullscreen media with desired file properties
+        15. Several different ways of sorting or grouping items, both ascending and descending
+        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
+
+        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
+
+        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
     </string>
 
     <!--

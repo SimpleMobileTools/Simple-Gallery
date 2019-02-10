@@ -31,6 +31,7 @@
     <string name="fix_date_taken">Fixar la data de presa</string>
     <string name="fixing">Fixant…</string>
     <string name="dates_fixed_successfully">Data fixada correctament</string>
+    <string name="share_resized">Comparteix una versió redimensionada</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtre d\'arxius</string>
@@ -87,8 +88,8 @@
     <string name="flip">Girar</string>
     <string name="flip_horizontally">Horizontalment</string>
     <string name="flip_vertically">Verticalment</string>
-    <string name="edit_with">Editar amb</string>
     <string name="free_aspect_ratio">Lliure</string>              <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Altres</string>              <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Fons de pantalla de Simple Gallery</string>
@@ -115,6 +116,7 @@
     <string name="loop_slideshow">Presentació de diapositives</string>
     <string name="slideshow_ended">S\'ha acabat la presentació de diapositives</string>
     <string name="no_media_for_slideshow">No s\'han trobat mitjans per a la presentació de diapositives</string>
+    <string name="use_crossfade_animation">Utilitzeu animacions creuades</string>
 
     <!-- View types -->
     <string name="change_view_type">Canviar el tipus de vista</string>
@@ -131,13 +133,19 @@
     <string name="by_file_type">Tipus de fitxer</string>
     <string name="by_extension">Extensió</string>
 
+    <!-- Widgets -->
+    <string name="folder_on_widget">Carpeta que es mostra a l\'estri:</string>
+    <string name="show_folder_name">Mostra el nom de la carpeta</string>
+
     <!-- Settings -->
     <string name="autoplay_videos">Reproduir vídeos automàticament</string>
+    <string name="remember_last_video_position">Recordeu la posició de la darrera reproducció de vídeo</string>
     <string name="toggle_filename">Canviar la visibilitat del nom d\'arxiu</string>
     <string name="loop_videos">Reproducció continua de vídeos</string>
     <string name="animate_gifs">Animar les miniatures dels GIFs</string>
     <string name="max_brightness">Brillantor màxima quan es mostra multimèdia</string>
     <string name="crop_thumbnails">Retallar miniatures en quadrats</string>
+    <string name="show_thumbnail_video_duration">Mostra les durades del vídeo</string>
     <string name="screen_rotation_by">Gira els mitjans a pantalla completa segons</string>
     <string name="screen_rotation_system_setting">Configuració del sistema</string>
     <string name="screen_rotation_device_rotation">Rotació del dispositiu</string>
@@ -149,7 +157,6 @@
     <string name="allow_photo_gestures">Permet controlar la brillantor amb gestos verticals</string>
     <string name="allow_video_gestures">Permet controlar el volum i la brillantor del vídeo amb gestos verticals</string>
     <string name="show_media_count">Mostrar el número de mitjans de les carpetes a la vista principal</string>
-    <string name="replace_share_with_rotate">Reemplaçar Compartir per Girar al menú de pantalla complerta</string>
     <string name="show_extended_details">Mostrar detalls estesos sobre mitjans a pantalla complerta</string>
     <string name="manage_extended_details">Gestioneu els detalls ampliats</string>
     <string name="one_finger_zoom">Permet fer zoom amb un sol dit a pantalla complerta</string>
@@ -159,6 +166,13 @@
     <string name="do_extra_check">Fer una verificació addicional per evitar que es mostrin fitxers no vàlids</string>
     <string name="show_at_bottom">Mostra alguns botons d\'acció a la part inferior de la pantalla</string>
     <string name="show_recycle_bin">Mostra la paperera de reciclatge a la pantalla de carpetes</string>
+    <string name="deep_zoomable_images">Imatges ampliades a mida</string>
+    <string name="show_highest_quality">Mostra imatges amb la màxima qualitat possible</string>
+    <string name="show_recycle_bin_last">Mostra la paperera de reciclatge com a últim element a la pantalla principal</string>
+    <string name="allow_down_gesture">Permet tancar la vista de pantalla completa amb un gest avall</string>
+    <string name="allow_one_to_one_zoom">Permet 1:1 zoom amb dos tocs dobles</string>
+    <string name="open_videos_on_separate_screen">Obriu sempre vídeos en una pantalla independent amb nous gestos horitzontals</string>
+    <string name="show_notch">Mostra una osca si està disponible</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
@@ -180,7 +194,7 @@
     <string name="faq_3_title">Com puc fer que un àlbum sempre aparegui a la part superior?</string>
     <string name="faq_3_text">Podeu prémer l\'àlbum desitjat i seleccionar la icona de la xinxeta al menú d\'acció i el fixarà a la part superior. També podeu enganxar diverses carpetes, els elements fixats s\'ordenaran pel mètode de classificació predeterminat.</string>
     <string name="faq_4_title">Com puc fer avançar els vídeos?</string>
-    <string name="faq_4_text">Podeu fer clic als textos actuals o de duració màxima que hi ha a prop de la barra de cerca, això mourà el vídeo cap a enrere o cap endavant.</string>
+    <string name="faq_4_text">Podeu arrossegar el dit horitzontalment al reproductor de vídeo o fer clic als textos actuals o de màxima duració a prop de la barra de cerca. Això mourà el vídeo ja sigui cap enrere o cap endavant.</string>
     <string name="faq_5_title">Quina és la diferència entre ocultar i excloure una carpeta?</string>
     <string name="faq_5_text">Excloure impedeix mostrar la carpeta només a Simple Galery, mentre que Ocultar també amaga la carpeta a altres galeries. Funciona creant un fitxer \". Nomedia \" buit a la carpeta donada, que podeu eliminar amb qualsevol gestor de fitxers.</string>
     <string name="faq_6_title">Per què apareixen les carpetes amb les portades de la música o adhesius?</string>
@@ -190,28 +204,46 @@
     <string name="faq_8_title">Què passa si vull veure només algunes carpetes concretes?</string>
     <string name="faq_8_text">L\'addició d\'una carpeta a les carpetes incloses no exclou automàticament res. El que podeu fer és anar a Configuració -> Gestionar carpetes excloses, excloure la carpeta arrel \"/\" i, a continuació, afegir les carpetes desitjades a Configuració -> Gestionar carpetes incloses.
         Això farà que només les carpetes seleccionades siguin visibles, ja que tant excloure com incloure són recursius i si una carpeta està exclosa i inclosa, es mostrarà.</string>
-    <string name="faq_9_title">Les imatges a pantalla completa tenen artefactes estranys, puc millorar d\'alguna manera la qualitat?</string>
-    <string name="faq_9_text">Sí, hi ha un commutador a la configuració que diu \"Substituïu imatges ampliades i de gran qualitat\", podeu fer-ho. Millora la qualitat de les imatges, però es borraran una vegada que intenteu fer zoom massa.</string>
     <string name="faq_10_title">Puc retallar imatges amb aquesta aplicació?</string>
     <string name="faq_10_text">Sí, pots retallar imatges a l\'editor, arrossegant les cantonades de la imatge. Pots accedir a l\'editor prement una miniatura d\'imatge i seleccionant Edita o seleccionant Edita des de la visualització de pantalla completa.</string>
     <string name="faq_11_title">Puc agrupar d\'alguna manera les miniatures del fitxer multimèdia?</string>
     <string name="faq_11_text">Si, només heu d\'utilitzar l\'ítem del menú \"Agrupar per\" mentre es troba a la vista en miniatura. Podeu agrupar fitxers amb diversos criteris, inclòs data de presa. Si utilitzeu la funció \"Mostra el contingut de totes les carpetes\", també podeu agrupar-les per carpetes.</string>
     <string name="faq_12_title">L\'ordenació per data que de presa no sembla funcionar correctament, com puc solucionar-ho?</string>
     <string name="faq_12_text">Probablement, els fitxers es copiïn en un lloc incorrecte. Podeu arreglar-ho si seleccioneu les miniatures del fitxer i seleccioneu \"Fixar data de presa\".</string>
+    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
+    <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
+    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
+    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Una galeria per veure imatges i vídeos sense publicitat.</string>
+    <string name="app_short_description">Una galeria senzilla, sense anuncis i respectant la vostra privadesa.</string>
     <string name="app_long_description">
-        Una eina senzilla que es pot fer servir per veure imatges i vídeos. Els elements es poden ordenar per data, mida o nom, tant ascendent com descendent. Es pot fer zoom a les imatges. Els arxius de mitjans es mostren en múltiples columnes depenent de la mida de la pantalla i es pot canviar el número de columnes mitjançant gestos. Permet canviar el nom, compartir, esborrar, i moure. Les imatges també es poden retalla, rotar o utilitzar com a fons de pantalla directament des de l\'aplicació.
+        Una galeria molt personalitzable capaç de mostrar molts tipus d\'imatge i de vídeo diferents, inclosos SVGs, RAWs, fotos panoràmiques i vídeos.
 
-        Gallery també s\'ofereix per us de tercers, per visualitzar imatges/vídeos, agregar adjunts a clients de correu, etc. Es perfecta per l\'ús diari.
+        És de codi obert, no conté anuncis ni permisos innecessaris.
 
-        El permís d\'empremtes dactilars és necessari per bloquejar la visibilitat d\'elements ocults o tota l\'aplicació.
+        Anem a enumerar algunes de les seves característiques que val la pena esmentar:
+        1. Cerca
+        2. Presentació de diapositives
+        3. Suport per notch
+        4. Enganxar carpetes a la part superior
+        5. Filtrar fitxers multimèdia per tipus
+        6. Paperera de reciclatge per a una fàcil recuperació d\'arxius
+        7. Bloqueig d\'orientació de la vista en pantalla completa
+        8. Marcatge dels fitxers preferits per facilitar l\'accés
+        9. Tancament ràpid de mitjans de pantalla amb gest d\'avall
+        10. Un editor per modificar imatges i aplicar filtres
+        11. Protecció per contrasenya per protegir elements ocults o tota l\'aplicació
+        12. Canviar el número de columnes en miniatura amb gestos o botons de menú
+        13. Botons inferiors personalitzables a la vista de pantalla completa per a un accés ràpid
+        14. Mostrar detalls ampliats sobre els suports de pantalla completa amb les propietats del fitxer desitjades
+        15. Diverses maneres diferents de classificar o agrupar elements, tant ascendents com descendents
+        16. Ocultació de carpetes (també afecta altres aplicacions), eExclusió de carpetes (afecta només a la Galeria simple)
 
-        No conté ni publicitat ni permisos innecessaris. Es totalment Lliure i proporciona colors personalitzables.
+        El permís d\'empremtes dactilars és necessari per bloquejar la visibilitat d\'elements ocults, l\'aplicació sencera o la protecció dels fitxers.
 
-        Aquesta aplicació es només una peça d\'una sèrie més gran d\'aplicacions. Pots trobar la resta a https://www.simplemobiletools.com
+        Aquesta aplicació és només una part d\'una sèrie més gran d\'aplicacions. Podeu trobar la resta a https://www.simplemobiletools.com
     </string>
 
     <!--

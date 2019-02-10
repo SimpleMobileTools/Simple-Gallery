@@ -2,7 +2,7 @@
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.simplemobiletools.gallery"
+    package="com.simplemobiletools.gallery.pro"
     android:installLocation="auto">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -31,6 +31,14 @@
         <activity
             android:name=".activities.MainActivity"
             android:resizeableActivity="true">
+
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:resource="@xml/searchable"/>
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
 
             <intent-filter>
                 <action android:name="android.intent.action.PICK"/>
@@ -115,7 +123,17 @@
             android:configChanges="orientation|keyboardHidden|screenSize"/>
 
         <activity
-            android:name=".activities.PanoramaActivity"
+            android:name=".activities.VideoPlayerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:parentActivityName=".activities.MediaActivity"/>
+
+        <activity
+            android:name=".activities.PanoramaPhotoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/FullScreenTheme"/>
+
+        <activity
+            android:name=".activities.PanoramaVideoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/FullScreenTheme"/>
 
@@ -202,8 +220,17 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".activities.WidgetConfigureActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyWidgetConfigTheme">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
             android:exported="false"
             android:grantUriPermissions="true">
@@ -218,6 +245,18 @@
             <intent-filter>
                 <action android:name="com.simplemobiletools.REFRESH_MEDIA"/>
             </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".helpers.MyWidgetProvider"
+            android:icon="@drawable/img_widget_preview">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_info"/>
         </receiver>
 
         <activity-alias
