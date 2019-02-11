@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.5.1 *(2019-02-11)*
+----------------------------
+
+ * Fixed a glitch with image panning
+ * Added a couple stability improvements
+
 Version 6.5.0 *(2019-02-07)*
 ----------------------------
 
