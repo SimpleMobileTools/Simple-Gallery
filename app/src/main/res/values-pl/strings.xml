@@ -173,6 +173,7 @@
     <string name="allow_one_to_one_zoom">Zezwalaj na powiększanie 1:1 dwoma podwójnymi dotknięciami</string>
     <string name="open_videos_on_separate_screen">Zawsze otwieraj filmy na osobnym ekranie z nowymi poziomymi gestami</string>
     <string name="show_notch">Pokazuj wcięcie (jeśli dostępne)</string>
+    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatury</string>

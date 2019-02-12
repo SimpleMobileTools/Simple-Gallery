@@ -173,6 +173,7 @@
     <string name="allow_one_to_one_zoom">1:1 zoomen na 2x dubbelklikken</string>
     <string name="open_videos_on_separate_screen">Video\'s altijd in apart scherm met horizontale veeggebaren openen</string>
     <string name="show_notch">Inkeping scherm tonen indien aanwezig</string>
+    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatuurvoorbeelden</string>

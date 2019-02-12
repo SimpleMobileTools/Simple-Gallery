@@ -173,6 +173,7 @@
     <string name="allow_one_to_one_zoom">双击两次后 1:1 放大图像</string>
     <string name="open_videos_on_separate_screen">使用新的水平手势在独立页面播放视频</string>
     <string name="show_notch">Show a notch if available</string>
+    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">缩略图</string>

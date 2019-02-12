@@ -173,6 +173,7 @@
     <string name="allow_one_to_one_zoom">允許用兩次雙擊來1:1縮放</string>
     <string name="open_videos_on_separate_screen">總是用新的水平手勢在獨立畫面開啟影片</string>
     <string name="show_notch">如果可以，顯示瀏海螢幕</string>
+    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">縮圖</string>
