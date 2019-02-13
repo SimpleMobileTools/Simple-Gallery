@@ -172,8 +172,8 @@
     <string name="allow_down_gesture">使用下滑手势关闭全屏视图</string>
     <string name="allow_one_to_one_zoom">双击两次后 1:1 放大图像</string>
     <string name="open_videos_on_separate_screen">使用新的水平手势在独立页面播放视频</string>
-    <string name="show_notch">Show a notch if available</string>
-    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
+    <string name="show_notch">显示留海（如果可用）</string>
+    <string name="allow_rotating_gestures">允许使用手势旋转图像</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">缩略图</string>
