@@ -459,6 +459,7 @@ class PhotoFragment : ViewPagerFragment() {
             regionDecoderFactory = regionDecoder
             maxScale = 10f
             beVisible()
+            rotationEnabled = config.allowRotatingWithGestures
             isOneToOneZoomEnabled = config.allowOneToOneZoom
             orientation = newOrientation
             setImage(path)

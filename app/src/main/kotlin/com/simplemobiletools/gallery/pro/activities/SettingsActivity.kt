@@ -61,6 +61,7 @@ class SettingsActivity : SimpleActivity() {
         setupAllowPhotoGestures()
         setupAllowVideoGestures()
         setupAllowDownGesture()
+        setupAllowRotatingWithGestures()
         setupShowNotch()
         setupBottomActions()
         setupThumbnailVideoDuration()
@@ -349,6 +350,14 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
+    private fun setupAllowRotatingWithGestures() {
+        settings_allow_rotating_with_gestures.isChecked = config.allowRotatingWithGestures
+        settings_allow_rotating_with_gestures_holder.setOnClickListener {
+            settings_allow_rotating_with_gestures.toggle()
+            config.allowRotatingWithGestures = settings_allow_rotating_with_gestures.isChecked
+        }
+    }
+
     private fun setupShowNotch() {
         settings_show_notch_holder.beVisibleIf(isPiePlus())
         settings_show_notch.isChecked = config.showNotch
@@ -600,6 +609,7 @@ class SettingsActivity : SimpleActivity() {
                 put(ALLOW_INSTANT_CHANGE, config.allowInstantChange)
                 put(ALLOW_PHOTO_GESTURES, config.allowPhotoGestures)
                 put(ALLOW_DOWN_GESTURE, config.allowDownGesture)
+                put(ALLOW_ROTATING_WITH_GESTURES, config.allowRotatingWithGestures)
                 put(SHOW_NOTCH, config.showNotch)
                 put(SCREEN_ROTATION, config.screenRotation)
                 put(ALLOW_ZOOMING_IMAGES, config.allowZoomingImages)
@@ -720,6 +730,7 @@ class SettingsActivity : SimpleActivity() {
                 ALLOW_INSTANT_CHANGE -> config.allowInstantChange = value.toBoolean()
                 ALLOW_PHOTO_GESTURES -> config.allowPhotoGestures = value.toBoolean()
                 ALLOW_DOWN_GESTURE -> config.allowDownGesture = value.toBoolean()
+                ALLOW_ROTATING_WITH_GESTURES -> config.allowRotatingWithGestures = value.toBoolean()
                 SHOW_NOTCH -> config.showNotch = value.toBoolean()
                 SCREEN_ROTATION -> config.screenRotation = value.toInt()
                 ALLOW_ZOOMING_IMAGES -> config.allowZoomingImages = value.toBoolean()
