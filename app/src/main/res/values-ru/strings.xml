@@ -173,7 +173,7 @@
     <string name="allow_one_to_one_zoom">Масштаб 1:1 двумя двойными нажатиями</string>
     <string name="open_videos_on_separate_screen">Воспроизводить видео на отдельном экране с управлением позицией горизонтальными жестами</string>
     <string name="show_notch">Показывать метку при наличии</string>
-    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
+    <string name="allow_rotating_gestures">Поворачивать изображения жестами</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюры</string>
