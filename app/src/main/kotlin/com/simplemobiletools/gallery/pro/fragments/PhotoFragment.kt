@@ -515,6 +515,9 @@ class PhotoFragment : ViewPagerFragment() {
         }
 
         mView.panorama_outline.beVisibleIf(mIsPanorama)
+        if (mIsFullscreen) {
+            mView.panorama_outline.alpha = 0f
+        }
     }
 
     private fun getImageOrientation(): Int {
@@ -611,13 +614,19 @@ class PhotoFragment : ViewPagerFragment() {
 
     override fun fullscreenToggled(isFullscreen: Boolean) {
         this.mIsFullscreen = isFullscreen
-        mView.photo_details.apply {
-            if (mStoredShowExtendedDetails && isVisible()) {
-                animate().y(getExtendedDetailsY(height))
+        mView.apply {
+            photo_details.apply {
+                if (mStoredShowExtendedDetails && isVisible()) {
+                    animate().y(getExtendedDetailsY(height))
 
-                if (mStoredHideExtendedDetails) {
-                    animate().alpha(if (isFullscreen) 0f else 1f).start()
+                    if (mStoredHideExtendedDetails) {
+                        animate().alpha(if (isFullscreen) 0f else 1f).start()
+                    }
                 }
+            }
+
+            if (mIsPanorama) {
+                panorama_outline.animate().alpha(if (isFullscreen) 0f else 1f).start()
             }
         }
     }
