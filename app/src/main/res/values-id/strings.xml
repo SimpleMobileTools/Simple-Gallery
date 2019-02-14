@@ -173,6 +173,7 @@
     <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
     <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
     <string name="show_notch">Show a notch if available</string>
+    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnail</string>

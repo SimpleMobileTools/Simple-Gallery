@@ -70,7 +70,6 @@ class SettingsActivity : SimpleActivity() {
         setupEnablePullToRefresh()
         setupAllowZoomingImages()
         setupShowHighestQuality()
-        setupOneFingerZoom()
         setupAllowOneToOneZoom()
         setupAllowInstantChange()
         setupShowExtendedDetails()
@@ -402,7 +401,6 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun updateDeepZoomToggleButtons() {
-        settings_one_finger_zoom_holder.beVisibleIf(config.allowZoomingImages)
         settings_show_highest_quality_holder.beVisibleIf(config.allowZoomingImages)
         settings_allow_one_to_one_zoom_holder.beVisibleIf(config.allowZoomingImages)
     }
@@ -412,14 +410,6 @@ class SettingsActivity : SimpleActivity() {
         settings_show_highest_quality_holder.setOnClickListener {
             settings_show_highest_quality.toggle()
             config.showHighestQuality = settings_show_highest_quality.isChecked
-        }
-    }
-
-    private fun setupOneFingerZoom() {
-        settings_one_finger_zoom.isChecked = config.oneFingerZoom
-        settings_one_finger_zoom_holder.setOnClickListener {
-            settings_one_finger_zoom.toggle()
-            config.oneFingerZoom = settings_one_finger_zoom.isChecked
         }
     }
 
@@ -612,7 +602,6 @@ class SettingsActivity : SimpleActivity() {
                 put(SCREEN_ROTATION, config.screenRotation)
                 put(ALLOW_ZOOMING_IMAGES, config.allowZoomingImages)
                 put(SHOW_HIGHEST_QUALITY, config.showHighestQuality)
-                put(ONE_FINGER_ZOOM, config.oneFingerZoom)
                 put(ALLOW_ONE_TO_ONE_ZOOM, config.allowOneToOneZoom)
                 put(SHOW_EXTENDED_DETAILS, config.showExtendedDetails)
                 put(HIDE_EXTENDED_DETAILS, config.hideExtendedDetails)
@@ -733,7 +722,6 @@ class SettingsActivity : SimpleActivity() {
                 SCREEN_ROTATION -> config.screenRotation = value.toInt()
                 ALLOW_ZOOMING_IMAGES -> config.allowZoomingImages = value.toBoolean()
                 SHOW_HIGHEST_QUALITY -> config.showHighestQuality = value.toBoolean()
-                ONE_FINGER_ZOOM -> config.oneFingerZoom = value.toBoolean()
                 ALLOW_ONE_TO_ONE_ZOOM -> config.allowOneToOneZoom = value.toBoolean()
                 SHOW_EXTENDED_DETAILS -> config.showExtendedDetails = value.toBoolean()
                 HIDE_EXTENDED_DETAILS -> config.hideExtendedDetails = value.toBoolean()

@@ -246,13 +246,15 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         initTimeHolder()
         checkExtendedDetails()
         updateInstantSwitchWidths()
+        mView.video_surface_frame.onGlobalLayout {
+            mView.video_surface_frame.controller.resetState()
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putInt(PROGRESS, mCurrTime)
     }
-
 
     private fun storeStateVariables() {
         mConfig.apply {

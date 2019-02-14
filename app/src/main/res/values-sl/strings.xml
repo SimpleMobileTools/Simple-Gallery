@@ -173,6 +173,7 @@
     <string name="allow_one_to_one_zoom">Dovoli 1:1 povečavo z dvojnim pritiskom</string>
     <string name="open_videos_on_separate_screen">Vedno odpri videoposnetke na ločenem zaslonu z novimi horizontalnimi gestami</string>
     <string name="show_notch">Show a notch if available</string>
+    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>

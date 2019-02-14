@@ -173,6 +173,7 @@
     <string name="allow_one_to_one_zoom">Permet 1:1 zoom amb dos tocs dobles</string>
     <string name="open_videos_on_separate_screen">Obriu sempre vídeos en una pantalla independent amb nous gestos horitzontals</string>
     <string name="show_notch">Mostra una osca si està disponible</string>
+    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>

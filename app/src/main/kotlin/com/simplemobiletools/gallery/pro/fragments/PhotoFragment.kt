@@ -56,6 +56,7 @@ import java.util.*
 class PhotoFragment : ViewPagerFragment() {
     private val DEFAULT_DOUBLE_TAP_ZOOM = 2f
     private val ZOOMABLE_VIEW_LOAD_DELAY = 150L
+    private val SAME_ASPECT_RATIO_THRESHOLD = 0.01
 
     // devices with good displays, but the rest of the hardware not good enough for them
     private val WEIRD_DEVICES = arrayListOf(
@@ -70,7 +71,6 @@ class PhotoFragment : ViewPagerFragment() {
     private var mIsPanorama = false
     private var mIsSubsamplingVisible = false    // checking view.visibility is unreliable, use an extra variable for it
     private var mImageOrientation = -1
-    private var mOriginalSubsamplingScale = 0f
     private var mLoadZoomableViewHandler = Handler()
     private var mScreenWidth = 0
     private var mScreenHeight = 0
@@ -80,7 +80,6 @@ class PhotoFragment : ViewPagerFragment() {
     private var mStoredHideExtendedDetails = false
     private var mStoredAllowDeepZoomableImages = false
     private var mStoredShowHighestQuality = false
-    private var mStoredAllowOneFingerZoom = false
     private var mStoredExtendedDetails = 0
 
     private lateinit var mView: ViewGroup
@@ -130,7 +129,7 @@ class PhotoFragment : ViewPagerFragment() {
                 }
 
                 subsampling_view.setOnTouchListener { v, event ->
-                    if (subsampling_view.scale == mOriginalSubsamplingScale) {
+                    if (subsampling_view.isZoomedOut()) {
                         handleEvent(event)
                     }
                     false
@@ -199,8 +198,7 @@ class PhotoFragment : ViewPagerFragment() {
         }
 
         if (mWasInit) {
-            if (config.allowZoomingImages != mStoredAllowDeepZoomableImages || config.showHighestQuality != mStoredShowHighestQuality ||
-                    config.oneFingerZoom != mStoredAllowOneFingerZoom) {
+            if (config.allowZoomingImages != mStoredAllowDeepZoomableImages || config.showHighestQuality != mStoredShowHighestQuality) {
                 mIsSubsamplingVisible = false
                 mView.subsampling_view.beGone()
                 loadImage()
@@ -244,6 +242,7 @@ class PhotoFragment : ViewPagerFragment() {
             mView.onGlobalLayout {
                 measureScreen()
                 Handler().postDelayed({
+                    mView.gif_view_frame.controller.resetState()
                     loadGif()
                 }, 50)
             }
@@ -272,7 +271,6 @@ class PhotoFragment : ViewPagerFragment() {
             mStoredHideExtendedDetails = hideExtendedDetails
             mStoredAllowDeepZoomableImages = allowZoomingImages
             mStoredShowHighestQuality = showHighestQuality
-            mStoredAllowOneFingerZoom = oneFingerZoom
             mStoredExtendedDetails = extendedDetails
         }
     }
@@ -355,15 +353,15 @@ class PhotoFragment : ViewPagerFragment() {
                 .into(mView.gestures_view)
     }
 
-    private fun loadBitmap(degrees: Int = mCurrentRotationDegrees) {
+    private fun loadBitmap(addZoomableView: Boolean = true) {
         val options = RequestOptions()
                 .signature(mMedium.path.getFileSignature())
                 .format(DecodeFormat.PREFER_ARGB_8888)
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                 .fitCenter()
 
-        if (degrees != 0) {
-            options.transform(GlideRotateTransformation(degrees))
+        if (mCurrentRotationDegrees != 0) {
+            options.transform(GlideRotateTransformation(mCurrentRotationDegrees))
             options.diskCacheStrategy(DiskCacheStrategy.NONE)
         }
 
@@ -373,13 +371,13 @@ class PhotoFragment : ViewPagerFragment() {
                 .listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
                         if (activity != null) {
-                            tryLoadingWithPicasso(degrees)
+                            tryLoadingWithPicasso(addZoomableView)
                         }
                         return false
                     }
 
                     override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                        if (mIsFragmentVisible && degrees == 0) {
+                        if (mIsFragmentVisible && addZoomableView) {
                             scheduleZoomableView()
                         }
                         return false
@@ -387,7 +385,7 @@ class PhotoFragment : ViewPagerFragment() {
                 }).into(mView.gestures_view)
     }
 
-    private fun tryLoadingWithPicasso(degrees: Int = 0) {
+    private fun tryLoadingWithPicasso(addZoomableView: Boolean) {
         var pathToLoad = if (mMedium.path.startsWith("content://")) mMedium.path else "file://${mMedium.path}"
         pathToLoad = pathToLoad.replace("%", "%25").replace("#", "%23")
 
@@ -398,16 +396,16 @@ class PhotoFragment : ViewPagerFragment() {
                     .stableKey(mMedium.path.getFileKey())
                     .resize(mScreenWidth, mScreenHeight)
 
-            if (degrees != 0) {
-                picasso.rotate(degrees.toFloat())
+            if (mCurrentRotationDegrees != 0) {
+                picasso.rotate(mCurrentRotationDegrees.toFloat())
             } else {
                 degreesForRotation(mImageOrientation).toFloat()
             }
 
             picasso.into(mView.gestures_view, object : Callback {
                 override fun onSuccess() {
-                    mView.gestures_view.controller.settings.isZoomEnabled = degrees != 0 || context?.config?.allowZoomingImages == false
-                    if (mIsFragmentVisible && degrees == 0) {
+                    mView.gestures_view.controller.settings.isZoomEnabled = mCurrentRotationDegrees != 0 || context?.config?.allowZoomingImages == false
+                    if (mIsFragmentVisible && addZoomableView) {
                         scheduleZoomableView()
                     }
                 }
@@ -428,7 +426,7 @@ class PhotoFragment : ViewPagerFragment() {
     private fun scheduleZoomableView() {
         mLoadZoomableViewHandler.removeCallbacksAndMessages(null)
         mLoadZoomableViewHandler.postDelayed({
-            if (mIsFragmentVisible && context?.config?.allowZoomingImages == true && mMedium.isImage() && !mIsSubsamplingVisible && mCurrentRotationDegrees == 0) {
+            if (mIsFragmentVisible && context?.config?.allowZoomingImages == true && mMedium.isImage() && !mIsSubsamplingVisible) {
                 addZoomableView()
             }
         }, ZOOMABLE_VIEW_LOAD_DELAY)
@@ -447,6 +445,11 @@ class PhotoFragment : ViewPagerFragment() {
             override fun make() = PicassoRegionDecoder()
         }
 
+        var newOrientation = (rotation + mCurrentRotationDegrees) % 360
+        if (newOrientation < 0) {
+            newOrientation += 360
+        }
+
         val config = context!!.config
         mView.subsampling_view.apply {
             setMaxTileSize(if (config.showHighestQuality) Integer.MAX_VALUE else 4096)
@@ -456,23 +459,15 @@ class PhotoFragment : ViewPagerFragment() {
             regionDecoderFactory = regionDecoder
             maxScale = 10f
             beVisible()
-            isQuickScaleEnabled = config.oneFingerZoom
             isOneToOneZoomEnabled = config.allowOneToOneZoom
-            orientation = rotation
+            orientation = newOrientation
             setImage(path)
             onImageEventListener = object : SubsamplingScaleImageView.OnImageEventListener {
-                override fun onImageLoaded() {
-                }
-
                 override fun onReady() {
                     background = ColorDrawable(if (config.blackBackground) Color.BLACK else config.backgroundColor)
                     val useWidth = if (mImageOrientation == ORIENTATION_ROTATE_90 || mImageOrientation == ORIENTATION_ROTATE_270) sHeight else sWidth
                     val useHeight = if (mImageOrientation == ORIENTATION_ROTATE_90 || mImageOrientation == ORIENTATION_ROTATE_270) sWidth else sHeight
                     doubleTapZoomScale = getDoubleTapZoomScale(useWidth, useHeight)
-                    mOriginalSubsamplingScale = scale
-                }
-
-                override fun onTileLoadError(e: Exception) {
                 }
 
                 override fun onImageLoadError(e: Exception) {
@@ -480,6 +475,16 @@ class PhotoFragment : ViewPagerFragment() {
                     background = ColorDrawable(Color.TRANSPARENT)
                     mIsSubsamplingVisible = false
                     beGone()
+                }
+
+                override fun onImageRotation(degrees: Int) {
+                    val fullRotation = (rotation + degrees) % 360
+                    val useWidth = if (fullRotation == 90 || fullRotation == 270) sHeight else sWidth
+                    val useHeight = if (fullRotation == 90 || fullRotation == 270) sWidth else sHeight
+                    doubleTapZoomScale = getDoubleTapZoomScale(useWidth, useHeight)
+                    mCurrentRotationDegrees = (mCurrentRotationDegrees + degrees) % 360
+                    loadBitmap(false)
+                    activity?.invalidateOptionsMenu()
                 }
             }
         }
@@ -537,7 +542,7 @@ class PhotoFragment : ViewPagerFragment() {
         val bitmapAspectRatio = height / width.toFloat()
         val screenAspectRatio = mScreenHeight / mScreenWidth.toFloat()
 
-        return if (context == null || bitmapAspectRatio == screenAspectRatio) {
+        return if (context == null || Math.abs(bitmapAspectRatio - screenAspectRatio) < SAME_ASPECT_RATIO_THRESHOLD) {
             DEFAULT_DOUBLE_TAP_ZOOM
         } else if (context!!.portrait && bitmapAspectRatio <= screenAspectRatio) {
             mScreenHeight / height.toFloat()
@@ -553,11 +558,14 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     fun rotateImageViewBy(degrees: Int) {
-        mCurrentRotationDegrees = degrees
-        mLoadZoomableViewHandler.removeCallbacksAndMessages(null)
-        mView.subsampling_view.beGone()
-        mIsSubsamplingVisible = false
-        loadBitmap(degrees)
+        if (mIsSubsamplingVisible) {
+            mView.subsampling_view.rotateBy(degrees)
+        } else {
+            mCurrentRotationDegrees = (mCurrentRotationDegrees + degrees) % 360
+            mLoadZoomableViewHandler.removeCallbacksAndMessages(null)
+            mIsSubsamplingVisible = false
+            loadBitmap()
+        }
     }
 
     private fun initExtendedDetails() {

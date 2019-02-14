@@ -173,6 +173,7 @@
     <string name="allow_one_to_one_zoom">Povoliť 1:1 priblíženie dvojnásobným dvojklikom</string>
     <string name="open_videos_on_separate_screen">Vždy otvárať videá na vlastnej obrazovke s novými vodorovnými gestami</string>
     <string name="show_notch">Zobraziť výrez obrazovky, ak je dostupný</string>
+    <string name="allow_rotating_gestures">Povoliť otáčanie obrázkov gestami</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Náhľady</string>

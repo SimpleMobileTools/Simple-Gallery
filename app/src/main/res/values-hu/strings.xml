@@ -173,7 +173,8 @@
     <string name="allow_down_gesture">Engedélyezi a teljes képernyős nézetet a lefelé mozdulattal</string>
     <string name="allow_one_to_one_zoom">Engedélyezi az 1:1 nagyítást két dupla érintéssel</string>
     <string name="open_videos_on_separate_screen">Mindig külön képernyőn nyissa meg a videókat új vízszintes mozdulattal</string>
-    <string name="show_notch">Show a notch if available</string>
+    <string name="show_notch">Notch mutatása, ha elérhető</string>
+    <string name="allow_rotating_gestures">Engedélyezi a kép forgatását gesztusokkal</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatűrök</string>
@@ -200,7 +201,7 @@ A következő alkalommal, amikor megpróbál megnyitni egy képet vagy videót, 
     <string name="faq_5_text">A Kizárás megakadályozza, hogy a mappát a Simple Gallery megjelenítse, az Elrejtés pedig rendszer szinten működik, és elrejti a mappát más galériákból is. Úgy működik, hogy létrehoz egy üres \". nomedia\" nevű fájlt az adott mappában, amelyet bármikor eltávolíthat bármilyen fájlkezelővel is.</string>
     <string name="faq_6_title">Miért jelennek meg a zenei borítóval vagy matricával rendelkező mappák?</string>
     <string name="faq_6_text">Lehet, hogy látni fog néhány szokatlan album megjelenést. Könnyen kizárhatja a hosszú megnyomással és a Kizárás kiválasztásával. A következő párbeszédablakban kiválaszthatja a szülő mappát, és valószínűleg megakadályozza, hogy a többi kapcsolódó album is megjelenjen.</string>
-    <string name="faq_7_title">A képek mappája nem jelenik meg, mit tehetek?</string>
+    <string name="faq_7_title">A képekkel nem rendelkező mappa nem jelenik meg, vagy nem jeleníti meg az összes elemet. Mit tehetek?</string>
     <string name="faq_7_text">Ennek több oka lehet, de megoldása egyszerű. Menjen a Beállítások -&gt; Befoglalt mappák kezelése lehetőségre, válassza a plusz jelet, és keresse meg a kívánt mappát.</string>
     <string name="faq_8_title">Mi van, ha csak néhány különleges mappát szeretnék látni?</string>
     <string name="faq_8_text">A Befoglalt mappákhoz tartozó mappák hozzáadása nem zár ki automatikusan semmit. Amit tehetünk, menjünk a Beállítások -&gt; Kizárt mappák kezelése, kizárjuk a gyökérmappát \"/ \", utána hozzáadjuk a kívánt mappákat a Beállítások -&gt; Befoglalt mappák kezelése menüpontban.

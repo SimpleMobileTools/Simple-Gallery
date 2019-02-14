@@ -132,6 +132,9 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
         super.onConfigurationChanged(newConfig)
         setVideoSize()
         initTimeHolder()
+        video_surface_frame.onGlobalLayout {
+            video_surface_frame.controller.resetState()
+        }
     }
 
     private fun setupOrientation() {
