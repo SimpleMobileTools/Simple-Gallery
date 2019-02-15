@@ -765,6 +765,10 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     private fun getNewFilePath(): Pair<String, Boolean> {
         var newPath = applicationContext.getRealPathFromURI(saveUri) ?: ""
+        if (newPath.startsWith("/mnt/")) {
+            newPath = ""
+        }
+
         var shouldAppendFilename = true
         if (newPath.isEmpty()) {
             val filename = applicationContext.getFilenameFromContentUri(saveUri) ?: ""
