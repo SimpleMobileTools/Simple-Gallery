@@ -26,7 +26,6 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.simplemobiletools.commons.dialogs.ColorPickerDialog
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
 import com.simplemobiletools.commons.helpers.isNougatPlus
@@ -148,7 +147,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         if (intent.extras?.containsKey(REAL_FILE_PATH) == true) {
             val realPath = intent.extras.getString(REAL_FILE_PATH)
             uri = when {
-                realPath.startsWith(OTG_PATH) -> uri
+                isPathOnOTG(realPath) -> uri
                 realPath.startsWith("file:/") -> Uri.parse(realPath)
                 else -> Uri.fromFile(File(realPath))
             }

@@ -374,16 +374,10 @@ fun Context.getFolderNameFromPath(path: String): String {
     return when (path) {
         internalStoragePath -> getString(R.string.internal)
         sdCardPath -> getString(R.string.sd_card)
-        OTG_PATH -> getString(R.string.usb)
+        otgPath -> getString(R.string.usb)
         FAVORITES -> getString(R.string.favorites)
         RECYCLE_BIN -> getString(R.string.recycle_bin)
-        else -> {
-            if (path.startsWith(OTG_PATH)) {
-                path.trimEnd('/').substringAfterLast('/')
-            } else {
-                path.getFilenameFromPath()
-            }
-        }
+        else -> path.getFilenameFromPath()
     }
 }
 
@@ -431,7 +425,7 @@ fun Context.addTempFolderIfNeeded(dirs: ArrayList<Directory>): ArrayList<Directo
 fun Context.getPathLocation(path: String): Int {
     return when {
         isPathOnSD(path) -> LOCATION_SD
-        path.startsWith(OTG_PATH) -> LOCATION_OTG
+        isPathOnOTG(path) -> LOCATION_OTG
         else -> LOCAITON_INTERNAL
     }
 }
@@ -571,7 +565,7 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
         callback(grouped.clone() as ArrayList<ThumbnailItem>)
 
         val mediaToDelete = ArrayList<Medium>()
-        media.filter { !getDoesFilePathExist(it.path) }.forEach {
+        media.filter { !File(it.path).exists() }.forEach {
             if (it.path.startsWith(recycleBinPath)) {
                 deleteDBPath(mediumDao, it.path)
             } else {
@@ -585,7 +579,7 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
 
 fun Context.removeInvalidDBDirectories(dirs: ArrayList<Directory>? = null, directoryDao: DirectoryDao = galleryDB.DirectoryDao()) {
     val dirsToCheck = dirs ?: directoryDao.getAll()
-    dirsToCheck.filter { !it.areFavorites() && !it.isRecycleBin() && !getDoesFilePathExist(it.path) && it.path != config.tempFolderPath }.forEach {
+    dirsToCheck.filter { !it.areFavorites() && !it.isRecycleBin() && !File(it.path).exists() && it.path != config.tempFolderPath }.forEach {
         directoryDao.deleteDirPath(it.path)
     }
 }

@@ -34,7 +34,6 @@ import com.davemorrissey.labs.subscaleview.ImageRegionDecoder
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.PanoramaPhotoActivity
 import com.simplemobiletools.gallery.pro.activities.PhotoActivity
@@ -529,7 +528,7 @@ class PhotoFragment : ViewPagerFragment() {
             val exif = android.media.ExifInterface(pathToLoad)
             orient = exif.getAttributeInt(android.media.ExifInterface.TAG_ORIENTATION, defaultOrientation)
 
-            if (orient == defaultOrientation || mMedium.path.startsWith(OTG_PATH)) {
+            if (orient == defaultOrientation || context!!.isPathOnOTG(mMedium.path)) {
                 val uri = if (pathToLoad.startsWith("content:/")) Uri.parse(pathToLoad) else Uri.fromFile(File(pathToLoad))
                 val inputStream = context!!.contentResolver.openInputStream(uri)
                 val exif2 = ExifInterface()

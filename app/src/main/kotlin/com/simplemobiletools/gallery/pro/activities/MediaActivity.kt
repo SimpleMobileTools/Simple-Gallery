@@ -23,7 +23,6 @@ import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REQUEST_EDIT_IMAGE
 import com.simplemobiletools.commons.models.FileDirItem
@@ -339,8 +338,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 val dirName = when {
                     mPath == FAVORITES -> getString(R.string.favorites)
                     mPath == RECYCLE_BIN -> getString(R.string.recycle_bin)
-                    mPath == OTG_PATH -> getString(R.string.usb)
-                    mPath.startsWith(OTG_PATH) -> mPath.trimEnd('/').substringAfterLast('/')
+                    mPath == config.OTGPath -> getString(R.string.usb)
                     else -> getHumanizedFilename(mPath)
                 }
                 updateActionBarTitle(if (mShowAll) resources.getString(R.string.all_folders) else dirName)

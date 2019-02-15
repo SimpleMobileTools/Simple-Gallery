@@ -26,7 +26,7 @@ class MediaFetcher(val context: Context) {
         }
 
         val curMedia = ArrayList<Medium>()
-        if (curPath.startsWith(OTG_PATH, true)) {
+        if (context.isPathOnOTG(curPath)) {
             if (context.hasOTGConnected()) {
                 val newMedia = getMediaOnOTG(curPath, isPickImage, isPickVideo, filterMedia, favoritePaths, getVideoDurations)
                 curMedia.addAll(newMedia)
@@ -128,7 +128,7 @@ class MediaFetcher(val context: Context) {
         val foldersToIgnore = arrayListOf("/storage/emulated/legacy")
         val config = context.config
         val includedFolders = config.includedFolders
-        var foldersToScan = config.everShownFolders.filter { it == FAVORITES || it == RECYCLE_BIN || context.getDoesFilePathExist(it) }.toMutableList() as ArrayList
+        var foldersToScan = config.everShownFolders.filter { it == FAVORITES || it == RECYCLE_BIN || File(it).exists() }.toMutableList() as ArrayList
 
         cursor.use {
             if (cursor.moveToFirst()) {
@@ -154,12 +154,12 @@ class MediaFetcher(val context: Context) {
 
     private fun addFolder(curFolders: ArrayList<String>, folder: String) {
         curFolders.add(folder)
-        if (folder.startsWith(OTG_PATH)) {
+        if (context.isPathOnOTG(folder)) {
             val files = context.getOTGFolderChildren(folder) ?: return
             for (file in files) {
                 if (file.isDirectory) {
                     val relativePath = file.uri.path.substringAfterLast("${context.config.OTGPartition}:")
-                    addFolder(curFolders, "$OTG_PATH$relativePath")
+                    addFolder(curFolders, "${context.config.OTGPath}/$relativePath")
                 }
             }
         } else {
@@ -314,7 +314,7 @@ class MediaFetcher(val context: Context) {
                 else -> TYPE_IMAGES
             }
 
-            val path = Uri.decode(file.uri.toString().replaceFirst("${context.config.OTGTreeUri}/document/${context.config.OTGPartition}%3A", OTG_PATH))
+            val path = Uri.decode(file.uri.toString().replaceFirst("${context.config.OTGTreeUri}/document/${context.config.OTGPartition}%3A", context.config.OTGPath))
             val videoDuration = if (getVideoDurations) path.getVideoDuration() else 0
             val isFavorite = favoritePaths.contains(path)
             val medium = Medium(null, filename, path, folder, dateModified, dateTaken, size, type, videoDuration, isFavorite, 0L)

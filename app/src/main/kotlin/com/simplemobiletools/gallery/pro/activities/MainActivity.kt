@@ -377,7 +377,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 runOnUiThread {
                     ConfirmationDialog(this, getString(R.string.usb_detected), positive = R.string.ok, negative = 0) {
                         handleOTGPermission {
-                            config.addIncludedFolder(OTG_PATH)
+                            if (config.OTGPartition.isNotEmpty()) {
+                                config.addIncludedFolder(config.OTGPath)
+                            }
                         }
                     }
                 }
@@ -943,13 +945,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, albumCovers: ArrayList<AlbumCover>, hiddenString: String,
                                          includedFolders: MutableSet<String>, isSortingAscending: Boolean): Directory {
-        var thumbnail = curMedia.firstOrNull { getDoesFilePathExist(it.path) }?.path ?: ""
-        if (thumbnail.startsWith(OTG_PATH)) {
-            thumbnail = thumbnail.getOTGPublicPath(applicationContext)
-        }
-
+        var thumbnail = curMedia.firstOrNull { File(it.path).exists() }?.path ?: ""
         albumCovers.forEach {
-            if (it.path == path && getDoesFilePathExist(it.tmb)) {
+            if (it.path == path && File(it.tmb).exists()) {
                 thumbnail = it.tmb
             }
         }
@@ -1033,10 +1031,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun checkInvalidDirectories(dirs: ArrayList<Directory>) {
         val invalidDirs = ArrayList<Directory>()
         dirs.filter { !it.areFavorites() && !it.isRecycleBin() }.forEach {
-            if (!getDoesFilePathExist(it.path)) {
+            if (!File(it.path).exists()) {
                 invalidDirs.add(it)
             } else if (it.path != config.tempFolderPath) {
-                val children = if (it.path.startsWith(OTG_PATH)) getOTGFolderChildrenNames(it.path) else File(it.path).list()?.asList()
+                val children = if (isPathOnOTG(it.path)) getOTGFolderChildrenNames(it.path) else File(it.path).list()?.asList()
                 val hasMediaFile = children?.any { it?.isMediaFile() == true } ?: false
                 if (!hasMediaFile) {
                     invalidDirs.add(it)

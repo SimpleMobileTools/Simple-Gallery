@@ -12,7 +12,6 @@ import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.dialogs.RenameItemsDialog
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.FastScroller
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -321,12 +320,12 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         val paths = ArrayList<String>()
         val showHidden = activity.config.shouldShowHidden
         getSelectedPaths().forEach {
-            if (it.startsWith(OTG_PATH)) {
+            if (activity.isPathOnOTG(it)) {
                 paths.addAll(getOTGFilePaths(it, showHidden))
             } else if (it != FAVORITES) {
                 val filter = config.filterMedia
                 File(it).listFiles()?.filter {
-                    !activity.getIsPathDirectory(it.absolutePath) &&
+                    !File(it.absolutePath).isDirectory &&
                             it.absolutePath.isMediaFile() && (showHidden || !it.name.startsWith('.')) &&
                             ((it.isImageFast() && filter and TYPE_IMAGES != 0) ||
                                     (it.isVideoFast() && filter and TYPE_VIDEOS != 0) ||
@@ -358,7 +357,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                             (it.name!!.isSvg() && filter and TYPE_SVGS != 0))
             ) {
                 val relativePath = it.uri.path.substringAfterLast("${activity.config.OTGPartition}:")
-                paths.add("$OTG_PATH$relativePath")
+                paths.add("${config.OTGPath}/$relativePath")
             }
         }
         return paths

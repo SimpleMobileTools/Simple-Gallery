@@ -243,7 +243,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
-        if (!getDoesFilePathExist(mPath)) {
+        if (!File(mPath).exists()) {
             finish()
             return
         }
@@ -266,9 +266,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             isShowingFavorites -> FAVORITES
             isShowingRecycleBin -> RECYCLE_BIN
             else -> mPath.getParentPath()
-        }
-        if (mDirectory.startsWith(OTG_PATH.trimEnd('/'))) {
-            mDirectory += "/"
         }
         supportActionBar?.title = mPath.getFilenameFromPath()
 
@@ -867,7 +864,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun deleteConfirmed() {
         val path = getCurrentMedia().getOrNull(mPos)?.path ?: return
-        if (getIsPathDirectory(path) || !path.isMediaFile()) {
+        if (File(path).isDirectory || !path.isMediaFile()) {
             return
         }
 
@@ -959,7 +956,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun deleteDirectoryIfEmpty() {
-        val fileDirItem = FileDirItem(mDirectory, mDirectory.getFilenameFromPath(), getIsPathDirectory(mDirectory))
+        val fileDirItem = FileDirItem(mDirectory, mDirectory.getFilenameFromPath(), File(mDirectory).isDirectory)
         if (config.deleteEmptyFolders && !fileDirItem.isDownloadsFolder() && fileDirItem.isDirectory && fileDirItem.getProperFileCount(applicationContext, true) == 0) {
             tryDeleteFileDirItem(fileDirItem, true, true)
         }

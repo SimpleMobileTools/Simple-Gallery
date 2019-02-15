@@ -4,7 +4,6 @@ import android.provider.MediaStore
 import android.view.MotionEvent
 import androidx.fragment.app.Fragment
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.Medium
@@ -77,7 +76,7 @@ abstract class ViewPagerFragment : Fragment() {
         return details.toString().trim()
     }
 
-    fun getPathToLoad(medium: Medium) = if (medium.path.startsWith(OTG_PATH)) medium.path.getOTGPublicPath(context!!) else medium.path
+    fun getPathToLoad(medium: Medium) = medium.path //if (context!!.isPathOnOTG(medium.path)) medium.path.getOTGPublicPath(context!!) else medium.path
 
     private fun getFileLastModified(file: File): String {
         val projection = arrayOf(MediaStore.Images.Media.DATE_MODIFIED)
