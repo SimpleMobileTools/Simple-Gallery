@@ -146,20 +146,10 @@ class MediaFetcher(val context: Context) {
 
     private fun addFolder(curFolders: ArrayList<String>, folder: String) {
         curFolders.add(folder)
-        if (context.isPathOnOTG(folder)) {
-            val files = context.getOTGFolderChildren(folder) ?: return
-            for (file in files) {
-                if (file.isDirectory) {
-                    val relativePath = file.uri.path.substringAfterLast("${context.config.OTGPartition}:")
-                    addFolder(curFolders, "${context.config.OTGPath}/$relativePath")
-                }
-            }
-        } else {
-            val files = File(folder).listFiles() ?: return
-            for (file in files) {
-                if (file.isDirectory) {
-                    addFolder(curFolders, file.absolutePath)
-                }
+        val files = File(folder).listFiles() ?: return
+        for (file in files) {
+            if (file.isDirectory) {
+                addFolder(curFolders, file.absolutePath)
             }
         }
     }

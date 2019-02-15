@@ -1034,7 +1034,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             if (!File(it.path).exists()) {
                 invalidDirs.add(it)
             } else if (it.path != config.tempFolderPath) {
-                val children = if (isPathOnOTG(it.path)) getOTGFolderChildrenNames(it.path) else File(it.path).list()?.asList()
+                val children = File(it.path).list()?.asList()
                 val hasMediaFile = children?.any { it?.isMediaFile() == true } ?: false
                 if (!hasMediaFile) {
                     invalidDirs.add(it)

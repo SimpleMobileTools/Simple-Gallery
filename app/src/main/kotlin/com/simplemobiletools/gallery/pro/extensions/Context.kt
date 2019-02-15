@@ -594,10 +594,6 @@ fun Context.updateDBDirectory(directory: Directory, directoryDao: DirectoryDao) 
     directoryDao.updateDirectory(directory.path, directory.tmb, directory.mediaCnt, directory.modified, directory.taken, directory.size, directory.types)
 }
 
-fun Context.getOTGFolderChildren(path: String) = getDocumentFile(path)?.listFiles()
-
-fun Context.getOTGFolderChildrenNames(path: String) = getOTGFolderChildren(path)?.map { it.name }?.toMutableList()
-
 fun Context.getFavoritePaths() = galleryDB.MediumDao().getFavoritePaths() as ArrayList<String>
 
 // remove the "recycle_bin" from the file path prefix, replace it with real bin path /data/user...
