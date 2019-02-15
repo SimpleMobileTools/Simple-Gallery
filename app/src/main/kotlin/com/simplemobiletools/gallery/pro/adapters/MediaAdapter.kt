@@ -455,11 +455,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                 medium_check?.background?.applyColorFilter(primaryColor)
             }
 
-            var path = medium.path
-            if (hasOTGConnected && context.isPathOnOTG(path)) {
-                path = path.getOTGPublicPath(context)
-            }
-
+            val path = medium.path
             if (loadImageInstantly) {
                 activity.loadImage(medium.type, path, medium_thumbnail, scrollHorizontally, animateGifs, cropThumbnails, rotatedImagePaths)
             } else {

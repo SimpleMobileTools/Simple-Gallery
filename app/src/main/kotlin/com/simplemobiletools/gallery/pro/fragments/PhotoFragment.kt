@@ -325,11 +325,11 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun loadGif() {
         try {
-            val pathToLoad = getPathToLoad(mMedium)
-            val source = if (pathToLoad.startsWith("content://") || pathToLoad.startsWith("file://")) {
-                InputSource.UriSource(context!!.contentResolver, Uri.parse(pathToLoad))
+            val path = mMedium.path
+            val source = if (path.startsWith("content://") || path.startsWith("file://")) {
+                InputSource.UriSource(context!!.contentResolver, Uri.parse(path))
             } else {
-                InputSource.FileSource(pathToLoad)
+                InputSource.FileSource(path)
             }
 
             mView.apply {
@@ -365,7 +365,7 @@ class PhotoFragment : ViewPagerFragment() {
         }
 
         Glide.with(context!!)
-                .load(getPathToLoad(mMedium))
+                .load(mMedium.path)
                 .apply(options)
                 .listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
@@ -433,11 +433,10 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun addZoomableView() {
         val rotation = degreesForRotation(mImageOrientation)
-        val path = getPathToLoad(mMedium)
         mIsSubsamplingVisible = true
 
         val bitmapDecoder = object : DecoderFactory<ImageDecoder> {
-            override fun make() = PicassoDecoder(path, Picasso.get(), rotation)
+            override fun make() = PicassoDecoder(mMedium.path, Picasso.get(), rotation)
         }
 
         val regionDecoder = object : DecoderFactory<ImageRegionDecoder> {
@@ -461,7 +460,7 @@ class PhotoFragment : ViewPagerFragment() {
             rotationEnabled = config.allowRotatingWithGestures
             isOneToOneZoomEnabled = config.allowOneToOneZoom
             orientation = newOrientation
-            setImage(path)
+            setImage(mMedium.path)
             onImageEventListener = object : SubsamplingScaleImageView.OnImageEventListener {
                 override fun onReady() {
                     background = ColorDrawable(if (config.blackBackground) Color.BLACK else config.backgroundColor)
@@ -524,12 +523,12 @@ class PhotoFragment : ViewPagerFragment() {
         var orient = defaultOrientation
 
         try {
-            val pathToLoad = getPathToLoad(mMedium)
-            val exif = android.media.ExifInterface(pathToLoad)
+            val path = mMedium.path
+            val exif = android.media.ExifInterface(path)
             orient = exif.getAttributeInt(android.media.ExifInterface.TAG_ORIENTATION, defaultOrientation)
 
             if (orient == defaultOrientation || context!!.isPathOnOTG(mMedium.path)) {
-                val uri = if (pathToLoad.startsWith("content:/")) Uri.parse(pathToLoad) else Uri.fromFile(File(pathToLoad))
+                val uri = if (path.startsWith("content:/")) Uri.parse(path) else Uri.fromFile(File(path))
                 val inputStream = context!!.contentResolver.openInputStream(uri)
                 val exif2 = ExifInterface()
                 exif2.readExif(inputStream, ExifInterface.Options.OPTION_ALL)

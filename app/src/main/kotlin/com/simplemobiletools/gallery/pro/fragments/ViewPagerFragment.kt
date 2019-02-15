@@ -76,8 +76,6 @@ abstract class ViewPagerFragment : Fragment() {
         return details.toString().trim()
     }
 
-    fun getPathToLoad(medium: Medium) = medium.path //if (context!!.isPathOnOTG(medium.path)) medium.path.getOTGPublicPath(context!!) else medium.path
-
     private fun getFileLastModified(file: File): String {
         val projection = arrayOf(MediaStore.Images.Media.DATE_MODIFIED)
         val uri = MediaStore.Files.getContentUri("external")
