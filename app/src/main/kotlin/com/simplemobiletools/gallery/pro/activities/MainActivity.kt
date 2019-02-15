@@ -382,6 +382,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     }
                 }
                 config.wasOTGHandled = true
+                getStorageDirectories().firstOrNull { it.trimEnd('/') != internalStoragePath && it.trimEnd('/') != sdCardPath }?.apply {
+                    config.OTGPath = trimEnd('/')
+                }
             }
         }.start()
     }
