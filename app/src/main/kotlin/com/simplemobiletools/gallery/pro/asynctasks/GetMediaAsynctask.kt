@@ -5,10 +5,7 @@ import android.os.AsyncTask
 import com.simplemobiletools.commons.helpers.SORT_BY_DATE_TAKEN
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.extensions.getFavoritePaths
-import com.simplemobiletools.gallery.pro.helpers.FAVORITES
-import com.simplemobiletools.gallery.pro.helpers.MediaFetcher
-import com.simplemobiletools.gallery.pro.helpers.RECYCLE_BIN
-import com.simplemobiletools.gallery.pro.helpers.SHOW_ALL
+import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import java.util.*
@@ -20,7 +17,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickImage
 
     override fun doInBackground(vararg params: Void): ArrayList<ThumbnailItem> {
         val pathToUse = if (showAll) SHOW_ALL else mPath
-        val getProperDateTaken = context.config.getFileSorting(pathToUse) and SORT_BY_DATE_TAKEN != 0
+        val getProperDateTaken = context.config.getFileSorting(pathToUse) and SORT_BY_DATE_TAKEN != 0 || context.config.getFolderGrouping(pathToUse) and GROUP_BY_DATE_TAKEN != 0
         val favoritePaths = context.getFavoritePaths()
         val getVideoDurations = context.config.showThumbnailVideoDuration
         val media = if (showAll) {
