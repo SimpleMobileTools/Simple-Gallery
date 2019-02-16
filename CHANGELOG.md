@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 6.5.2 *(2019-02-16)*
+----------------------------
+
+ * Added an option to disable rotating fullscreen images with gestures
+ * Improved OTG usb device handling
+ * Fixed Grouping by date taken
+ * Improved the performance at deleting files from the fullscreen view
+ * Some stability improvements
+
 Version 6.5.1 *(2019-02-11)*
 ----------------------------
 
