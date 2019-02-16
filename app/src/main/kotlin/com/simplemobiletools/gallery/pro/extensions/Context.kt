@@ -596,7 +596,13 @@ fun Context.updateDBDirectory(directory: Directory, directoryDao: DirectoryDao) 
     directoryDao.updateDirectory(directory.path, directory.tmb, directory.mediaCnt, directory.modified, directory.taken, directory.size, directory.types)
 }
 
-fun Context.getFavoritePaths() = galleryDB.MediumDao().getFavoritePaths() as ArrayList<String>
+fun Context.getFavoritePaths(): ArrayList<String> {
+    return try {
+        galleryDB.MediumDao().getFavoritePaths() as ArrayList<String>
+    } catch (e: Exception) {
+        ArrayList()
+    }
+}
 
 // remove the "recycle_bin" from the file path prefix, replace it with real bin path /data/user...
 fun Context.getUpdatedDeletedMedia(mediumDao: MediumDao): ArrayList<Medium> {
