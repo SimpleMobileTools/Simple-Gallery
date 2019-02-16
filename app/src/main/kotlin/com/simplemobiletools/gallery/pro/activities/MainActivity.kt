@@ -376,7 +376,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             if (hasOTGConnected()) {
                 runOnUiThread {
                     ConfirmationDialog(this, getString(R.string.usb_detected), positive = R.string.ok, negative = 0) {
-                        handleOTGPermission {
+                        handleSAFDialog(config.OTGPath) {
                             if (config.OTGPartition.isNotEmpty()) {
                                 config.addIncludedFolder(config.OTGPath)
                             }

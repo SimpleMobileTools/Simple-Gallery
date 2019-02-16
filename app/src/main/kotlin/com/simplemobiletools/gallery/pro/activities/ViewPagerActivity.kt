@@ -584,11 +584,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun saveImageAs() {
         val currPath = getCurrentPath()
         SaveAsDialog(this, currPath, false) {
+            val newPath = it
             handleSAFDialog(it) {
                 toast(R.string.saving)
                 Thread {
                     val photoFragment = getCurrentPhotoFragment() ?: return@Thread
-                    saveRotatedImageToFile(currPath, it, photoFragment.mCurrentRotationDegrees, true) {
+                    saveRotatedImageToFile(currPath, newPath, photoFragment.mCurrentRotationDegrees, true) {
                         toast(R.string.file_saved)
                         getCurrentPhotoFragment()?.mCurrentRotationDegrees = 0
                         invalidateOptionsMenu()
