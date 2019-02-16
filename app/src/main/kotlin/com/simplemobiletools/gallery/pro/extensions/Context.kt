@@ -573,7 +573,9 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
             }
         }
 
-        mediumDao.deleteMedia(*mediaToDelete.toTypedArray())
+        if (mediaToDelete.isNotEmpty()) {
+            mediumDao.deleteMedia(*mediaToDelete.toTypedArray())
+        }
     }.start()
 }
 
