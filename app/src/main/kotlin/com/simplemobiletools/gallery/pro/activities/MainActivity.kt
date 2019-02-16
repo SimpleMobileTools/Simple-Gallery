@@ -17,7 +17,6 @@ import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.*
@@ -371,18 +370,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
     }
 
-    private fun checkOTGInclusion() {
+    private fun checkOTGPath() {
         Thread {
-            if (hasOTGConnected()) {
-                runOnUiThread {
-                    ConfirmationDialog(this, getString(R.string.usb_detected), positive = R.string.ok, negative = 0) {
-                        handleSAFDialog(config.OTGPath) {
-                            if (config.OTGPartition.isNotEmpty()) {
-                                config.addIncludedFolder(config.OTGPath)
-                            }
-                        }
-                    }
-                }
+            if (!config.wasOTGHandled && hasPermission(PERMISSION_WRITE_STORAGE) && hasOTGConnected() && config.OTGPath.isEmpty()) {
                 config.wasOTGHandled = true
                 getStorageDirectories().firstOrNull { it.trimEnd('/') != internalStoragePath && it.trimEnd('/') != sdCardPath }?.apply {
                     config.OTGPath = trimEnd('/')
@@ -394,9 +384,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun tryLoadGallery() {
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
-                if (!config.wasOTGHandled && hasPermission(PERMISSION_WRITE_STORAGE)) {
-                    checkOTGInclusion()
-                }
+                checkOTGPath()
 
                 if (config.showAll) {
                     showAllMedia()
