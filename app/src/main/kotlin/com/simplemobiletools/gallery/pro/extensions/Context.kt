@@ -42,6 +42,7 @@ import java.util.HashSet
 import java.util.LinkedHashSet
 import kotlin.Comparator
 import kotlin.collections.ArrayList
+import kotlin.random.Random
 
 val Context.portrait get() = resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
 val Context.audioManager get() = getSystemService(Context.AUDIO_SERVICE) as AudioManager
@@ -564,20 +565,23 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
         val grouped = mediaFetcher.groupMedia(media, pathToUse)
         callback(grouped.clone() as ArrayList<ThumbnailItem>)
 
-        val mediaToDelete = ArrayList<Medium>()
-        media.filter { !File(it.path).exists() }.forEach {
-            if (it.path.startsWith(recycleBinPath)) {
-                deleteDBPath(mediumDao, it.path)
-            } else {
-                mediaToDelete.add(it)
+        val value = Random.nextInt(5)
+        if (value == 1) {
+            val mediaToDelete = ArrayList<Medium>()
+            media.filter { !File(it.path).exists() }.forEach {
+                if (it.path.startsWith(recycleBinPath)) {
+                    deleteDBPath(mediumDao, it.path)
+                } else {
+                    mediaToDelete.add(it)
+                }
             }
-        }
 
-        try {
-            if (mediaToDelete.isNotEmpty()) {
-                mediumDao.deleteMedia(*mediaToDelete.toTypedArray())
+            try {
+                if (mediaToDelete.isNotEmpty()) {
+                    mediumDao.deleteMedia(*mediaToDelete.toTypedArray())
+                }
+            } catch (ignored: Exception) {
             }
-        } catch (ignored: Exception) {
         }
     }.start()
 }
