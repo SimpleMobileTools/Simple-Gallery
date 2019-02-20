@@ -375,7 +375,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             if (!config.wasOTGHandled && hasPermission(PERMISSION_WRITE_STORAGE) && hasOTGConnected() && config.OTGPath.isEmpty()) {
                 config.wasOTGHandled = true
                 getStorageDirectories().firstOrNull { it.trimEnd('/') != internalStoragePath && it.trimEnd('/') != sdCardPath }?.apply {
-                    config.OTGPath = trimEnd('/')
+                    val otgPath = trimEnd('/')
+                    config.OTGPath = otgPath
+                    config.addIncludedFolder(otgPath)
                 }
             }
         }.start()
