@@ -1075,7 +1075,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun getCurrentlyDisplayedDirs() = getRecyclerAdapter()?.dirs ?: ArrayList()
 
-    private fun getBubbleTextItem(index: Int) = getRecyclerAdapter()?.dirs?.getOrNull(index)?.getBubbleText(config.directorySorting) ?: ""
+    private fun getBubbleTextItem(index: Int) = getRecyclerAdapter()?.dirs?.getOrNull(index)?.getBubbleText(config.directorySorting, this) ?: ""
 
     private fun setupLatestMediaId() {
         Thread {
