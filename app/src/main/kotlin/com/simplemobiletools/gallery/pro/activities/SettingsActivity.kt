@@ -410,6 +410,7 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun updateDeepZoomToggleButtons() {
+        settings_allow_rotating_with_gestures_holder.beVisibleIf(config.allowZoomingImages)
         settings_show_highest_quality_holder.beVisibleIf(config.allowZoomingImages)
         settings_allow_one_to_one_zoom_holder.beVisibleIf(config.allowZoomingImages)
     }
