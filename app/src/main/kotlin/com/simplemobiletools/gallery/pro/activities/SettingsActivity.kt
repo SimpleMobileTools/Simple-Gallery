@@ -3,10 +3,7 @@ package com.simplemobiletools.gallery.pro.activities
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import com.simplemobiletools.commons.dialogs.ConfirmationDialog
-import com.simplemobiletools.commons.dialogs.FilePickerDialog
-import com.simplemobiletools.commons.dialogs.RadioGroupDialog
-import com.simplemobiletools.commons.dialogs.SecurityDialog
+import com.simplemobiletools.commons.dialogs.*
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.RadioItem
@@ -38,6 +35,7 @@ class SettingsActivity : SimpleActivity() {
     private fun setupSettingItems() {
         setupCustomizeColors()
         setupUseEnglish()
+        setupChangeDateTimeFormat()
         setupManageIncludedFolders()
         setupManageExcludedFolders()
         setupManageHiddenFolders()
@@ -110,6 +108,12 @@ class SettingsActivity : SimpleActivity() {
             settings_use_english.toggle()
             config.useEnglish = settings_use_english.isChecked
             System.exit(0)
+        }
+    }
+
+    private fun setupChangeDateTimeFormat() {
+        settings_change_date_time_format_holder.setOnClickListener {
+            ChangeDateTimeFormatDialog(this) {}
         }
     }
 
@@ -587,6 +591,8 @@ class SettingsActivity : SimpleActivity() {
                 put(WAS_USE_ENGLISH_TOGGLED, config.wasUseEnglishToggled)
                 put(WIDGET_BG_COLOR, config.widgetBgColor)
                 put(WIDGET_TEXT_COLOR, config.widgetTextColor)
+                put(DATE_FORMAT, config.dateFormat)
+                put(USE_24_HOUR_FORMAT, config.use24HourFormat)
                 put(INCLUDED_FOLDERS, TextUtils.join(",", config.includedFolders))
                 put(EXCLUDED_FOLDERS, TextUtils.join(",", config.excludedFolders))
                 put(SHOW_HIDDEN_MEDIA, config.showHiddenMedia)
@@ -708,6 +714,8 @@ class SettingsActivity : SimpleActivity() {
                 WAS_USE_ENGLISH_TOGGLED -> config.wasUseEnglishToggled = value.toBoolean()
                 WIDGET_BG_COLOR -> config.widgetBgColor = value.toInt()
                 WIDGET_TEXT_COLOR -> config.widgetTextColor = value.toInt()
+                DATE_FORMAT -> config.dateFormat = value.toString()
+                USE_24_HOUR_FORMAT -> config.use24HourFormat = value.toBoolean()
                 INCLUDED_FOLDERS -> config.addIncludedFolders(value.toStringSet())
                 EXCLUDED_FOLDERS -> config.addExcludedFolders(value.toStringSet())
                 SHOW_HIDDEN_MEDIA -> config.showHiddenMedia = value.toBoolean()
