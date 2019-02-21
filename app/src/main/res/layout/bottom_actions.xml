@@ -148,8 +148,19 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_copy"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/bottom_move"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/bottom_set_as"/>
+
+    <ImageView
+        android:id="@+id/bottom_move"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:padding="@dimen/medium_margin"
+        android:src="@drawable/ic_move"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bottom_copy"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

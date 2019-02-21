@@ -27,6 +27,7 @@ class ManageBottomActionsDialog(val activity: BaseSimpleActivity, val callback: 
             manage_bottom_actions_rename.isChecked = actions and BOTTOM_ACTION_RENAME != 0
             manage_bottom_actions_set_as.isChecked = actions and BOTTOM_ACTION_SET_AS != 0
             manage_bottom_actions_copy.isChecked = actions and BOTTOM_ACTION_COPY != 0
+            manage_bottom_actions_move.isChecked = actions and BOTTOM_ACTION_MOVE != 0
         }
 
         AlertDialog.Builder(activity)
@@ -66,6 +67,8 @@ class ManageBottomActionsDialog(val activity: BaseSimpleActivity, val callback: 
                 result += BOTTOM_ACTION_SET_AS
             if (manage_bottom_actions_copy.isChecked)
                 result += BOTTOM_ACTION_COPY
+            if (manage_bottom_actions_move.isChecked)
+                result += BOTTOM_ACTION_MOVE
         }
 
         activity.config.visibleBottomActions = result
