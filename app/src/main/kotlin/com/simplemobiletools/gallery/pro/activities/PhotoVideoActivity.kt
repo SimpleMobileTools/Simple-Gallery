@@ -133,6 +133,12 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             fragment_holder.background = ColorDrawable(Color.BLACK)
         }
 
+        if (config.maxBrightness) {
+            val attributes = window.attributes
+            attributes.screenBrightness = 1f
+            window.attributes = attributes
+        }
+
         window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
             val isFullscreen = visibility and View.SYSTEM_UI_FLAG_FULLSCREEN != 0
             mFragment?.fullscreenToggled(isFullscreen)
