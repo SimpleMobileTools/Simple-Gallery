@@ -68,6 +68,16 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
     private fun checkIntent(savedInstanceState: Bundle? = null) {
         mUri = intent.data ?: return
+        val uri = mUri.toString()
+        if (uri.startsWith("content:/") && uri.contains("/storage/")) {
+            val guessedPath = uri.substring(uri.indexOf("/storage/"))
+            val extras = intent.extras ?: Bundle()
+            extras.apply {
+                putString(REAL_FILE_PATH, guessedPath)
+                intent.putExtras(this)
+            }
+        }
+
         var filename = getFilenameFromUri(mUri!!)
         mIsFromGallery = intent.getBooleanExtra(IS_FROM_GALLERY, false)
         if (mIsFromGallery && filename.isVideoFast() && config.openVideosOnSeparateScreen) {
@@ -76,7 +86,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         }
 
         if (intent.extras?.containsKey(REAL_FILE_PATH) == true) {
-            val realPath = intent.extras.getString(REAL_FILE_PATH)
+            val realPath = intent.extras!!.getString(REAL_FILE_PATH)
             if (realPath != null) {
                 if (realPath.getFilenameFromPath().contains('.') || filename.contains('.')) {
                     sendViewPagerIntent(realPath)
