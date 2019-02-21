@@ -380,6 +380,7 @@ class PhotoFragment : ViewPagerFragment() {
                     }
 
                     override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+                        mView.gestures_view.controller.settings.isZoomEnabled = mCurrentRotationDegrees != 0 || context?.config?.allowZoomingImages == false
                         if (mIsFragmentVisible && addZoomableView) {
                             scheduleZoomableView()
                         }
