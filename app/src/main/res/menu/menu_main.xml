@@ -39,6 +39,14 @@
         android:title="@string/stop_showing_hidden"
         app:showAsAction="never"/>
     <item
+        android:id="@+id/show_the_recycle_bin"
+        android:title="@string/show_the_recycle_bin"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/hide_the_recycle_bin"
+        android:title="@string/hide_the_recycle_bin"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/create_new_folder"
         android:title="@string/create_new_folder"
         app:showAsAction="never"/>

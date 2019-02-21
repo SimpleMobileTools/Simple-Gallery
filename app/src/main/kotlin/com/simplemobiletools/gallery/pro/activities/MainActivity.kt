@@ -43,6 +43,7 @@ import com.simplemobiletools.gallery.pro.models.Medium
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.*
 import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private val PICK_MEDIA = 2
@@ -264,9 +265,12 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             menuInflater.inflate(R.menu.menu_main_intent, menu)
         } else {
             menuInflater.inflate(R.menu.menu_main, menu)
+            val useBin = config.useRecycleBin
             menu.apply {
                 findItem(R.id.increase_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt < MAX_COLUMN_COUNT
                 findItem(R.id.reduce_column_count).isVisible = config.viewTypeFolders == VIEW_TYPE_GRID && config.dirColumnCnt > 1
+                findItem(R.id.hide_the_recycle_bin).isVisible = useBin && config.showRecycleBinAtFolders
+                findItem(R.id.show_the_recycle_bin).isVisible = useBin && !config.showRecycleBinAtFolders
                 setupSearch(this)
             }
         }
@@ -287,6 +291,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden()
             R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
             R.id.create_new_folder -> createNewFolder()
+            R.id.show_the_recycle_bin -> toggleRecycleBin(true)
+            R.id.hide_the_recycle_bin -> toggleRecycleBin(false)
             R.id.increase_column_count -> increaseColumnCount()
             R.id.reduce_column_count -> reduceColumnCount()
             R.id.settings -> launchSettings()
@@ -610,6 +616,18 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         layoutManager.orientation = RecyclerView.VERTICAL
         directories_refresh_layout.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         mZoomListener = null
+    }
+
+    private fun toggleRecycleBin(show: Boolean) {
+        config.showRecycleBinAtFolders = show
+        invalidateOptionsMenu()
+        Thread {
+            var dirs = getCurrentlyDisplayedDirs()
+            if (!show) {
+                dirs = dirs.filter { it.path != RECYCLE_BIN } as ArrayList<Directory>
+            }
+            gotDirectories(dirs)
+        }.start()
     }
 
     private fun createNewFolder() {
