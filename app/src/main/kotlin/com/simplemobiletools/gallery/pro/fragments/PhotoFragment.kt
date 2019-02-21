@@ -438,13 +438,15 @@ class PhotoFragment : ViewPagerFragment() {
     private fun addZoomableView() {
         val rotation = degreesForRotation(mImageOrientation)
         mIsSubsamplingVisible = true
+        val config = context!!.config
+        val showHighestQuality = config.showHighestQuality
 
         val bitmapDecoder = object : DecoderFactory<ImageDecoder> {
             override fun make() = PicassoDecoder(mMedium.path, Picasso.get(), rotation)
         }
 
         val regionDecoder = object : DecoderFactory<ImageRegionDecoder> {
-            override fun make() = PicassoRegionDecoder()
+            override fun make() = PicassoRegionDecoder(showHighestQuality)
         }
 
         var newOrientation = (rotation + mCurrentRotationDegrees) % 360
@@ -452,10 +454,9 @@ class PhotoFragment : ViewPagerFragment() {
             newOrientation += 360
         }
 
-        val config = context!!.config
         mView.subsampling_view.apply {
-            setMaxTileSize(if (config.showHighestQuality) Integer.MAX_VALUE else 4096)
-            setMinimumTileDpi(if (config.showHighestQuality) -1 else getMinTileDpi())
+            setMaxTileSize(if (showHighestQuality) Integer.MAX_VALUE else 4096)
+            setMinimumTileDpi(if (showHighestQuality) -1 else getMinTileDpi())
             background = ColorDrawable(Color.TRANSPARENT)
             bitmapDecoderFactory = bitmapDecoder
             regionDecoderFactory = regionDecoder
