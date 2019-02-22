@@ -6,7 +6,7 @@
     <dimen name="play_outline_icon_size">22dp</dimen>
     <dimen name="selection_check_size">26dp</dimen>
     <dimen name="play_outline_size_big">96dp</dimen>
-    <dimen name="tmb_shadow_height">60dp</dimen>
+    <dimen name="tmb_shadow_height">70dp</dimen>
     <dimen name="media_side_slider_width">60dp</dimen>
     <dimen name="video_player_play_pause_size">60dp</dimen>
     <dimen name="instant_change_bar_width">50dp</dimen>
