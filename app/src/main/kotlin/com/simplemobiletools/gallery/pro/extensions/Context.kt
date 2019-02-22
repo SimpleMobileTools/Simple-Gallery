@@ -617,7 +617,10 @@ fun Context.getUpdatedDeletedMedia(mediumDao: MediumDao): ArrayList<Medium> {
 }
 
 fun Context.deleteDBPath(mediumDao: MediumDao, path: String) {
-    mediumDao.deleteMediumPath(path.replaceFirst(recycleBinPath, RECYCLE_BIN))
+    try {
+        mediumDao.deleteMediumPath(path.replaceFirst(recycleBinPath, RECYCLE_BIN))
+    } catch (ignored: Exception) {
+    }
 }
 
 fun Context.updateWidgets() {
