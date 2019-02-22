@@ -915,7 +915,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             val newDir = createDirectoryFromMedia(folder, newMedia, albumCovers, hiddenString, includedFolders, isSortingAscending)
             dirs.add(newDir)
             setupAdapter(dirs)
-            mDirectoryDao.insert(newDir)
+            try {
+                mDirectoryDao.insert(newDir)
+            } catch (ignored: Exception) {
+            }
             if (folder != RECYCLE_BIN) {
                 mMediumDao.insertAll(newMedia)
             }
@@ -1075,7 +1078,8 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
     private fun getCurrentlyDisplayedDirs() = getRecyclerAdapter()?.dirs ?: ArrayList()
 
-    private fun getBubbleTextItem(index: Int) = getRecyclerAdapter()?.dirs?.getOrNull(index)?.getBubbleText(config.directorySorting, this) ?: ""
+    private fun getBubbleTextItem(index: Int) = getRecyclerAdapter()?.dirs?.getOrNull(index)?.getBubbleText(config.directorySorting, this)
+            ?: ""
 
     private fun setupLatestMediaId() {
         Thread {
