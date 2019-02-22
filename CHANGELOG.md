@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 6.5.3 *(2019-02-22)*
+----------------------------
+
+ * Added main screen menu buttons for fast Recycle Bin showing/hiding
+ * Added a new setting item for changing date and time format
+ * Do not shuffle images with Random sorting that often
+ * Fixed some glitches related to file rename, delete, move
+ * Added many smaller bugfixes and UX improvements
+
 Version 6.5.2 *(2019-02-16)*
 ----------------------------
 
