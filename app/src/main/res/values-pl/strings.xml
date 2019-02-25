@@ -53,7 +53,7 @@
     <string name="excluded_activity_placeholder">Wykluczenie folderów ukryje je tylko w niniejszej aplikacji, w innych aplikacjach będą one wciąż widoczne.\n\nJeśli chcesz je ukryć także w innych aplikacjach, użyj funkcji ukrywania.</string>
     <string name="remove_all">Usuń wszystko</string>
     <string name="remove_all_description">Usunąć wszystkie foldery z listy wykluczonych? Foldery nie zostaną fizycznie usunięte.</string>
-   <string name="hidden_folders">Ukryte foldery</string>
+    <string name="hidden_folders">Ukryte foldery</string>
     <string name="manage_hidden_folders">Zarządzaj ukrytymi folderami</string>
     <string name="hidden_folders_placeholder">Zdaje się, że nie masz żadnych folderów z plikiem \'.nomedia\'.</string>
 
@@ -173,7 +173,7 @@
     <string name="allow_one_to_one_zoom">Zezwalaj na powiększanie 1:1 dwoma podwójnymi dotknięciami</string>
     <string name="open_videos_on_separate_screen">Zawsze otwieraj filmy na osobnym ekranie z nowymi poziomymi gestami</string>
     <string name="show_notch">Pokazuj wcięcie (jeśli dostępne)</string>
-    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
+    <string name="allow_rotating_gestures">Zezwalaj na obracanie obrazów gestami</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatury</string>
@@ -194,7 +194,7 @@
     <string name="faq_3_title">Jak sprawić, aby album(y) zawsze pojawiał(y) się na górze?</string>
     <string name="faq_3_text">Przytrzymaj album(y) i wybierz ikonę przypięcia w pasku akcji.</string>
     <string name="faq_4_title">Jak mogę przwijać filmy?</string>
-    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
+    <string name="faq_4_text">Na dwa sposoby: albo przeciągając poziomo palcem po filmie, albo klikając obecny (przewinięcie do tyłu) lub całkowity czas trwania (do przodu).</string>
     <string name="faq_5_title">Jaka jest różnica między ukryciem, a wykluczeniem folderu?</string>
     <string name="faq_5_text">Wykluczenie działa tylko w obrębie niniejszej aplikacji (wszędzie indziej pliki są normalnie widoczne), ukrywanie - w obrębie całego systemu (nie widać ich nigdzie), dodawany jest wtedy do folderu pusty plik \'.nomedia\', który możesz usunąć w dowolnym menedżerze plików.</string>
     <string name="faq_6_title">Dlaczego pokazują mi się foldery z okładkami do piosenek i tym podobne rzeczy?</string>
