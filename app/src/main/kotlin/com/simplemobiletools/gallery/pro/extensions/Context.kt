@@ -592,7 +592,10 @@ fun Context.removeInvalidDBDirectories(dirs: ArrayList<Directory>? = null, direc
 fun Context.updateDBMediaPath(oldPath: String, newPath: String) {
     val newFilename = newPath.getFilenameFromPath()
     val newParentPath = newPath.getParentPath()
-    galleryDB.MediumDao().updateMedium(oldPath, newParentPath, newFilename, newPath)
+    try {
+        galleryDB.MediumDao().updateMedium(oldPath, newParentPath, newFilename, newPath)
+    } catch (ignored: Exception) {
+    }
 }
 
 fun Context.updateDBDirectory(directory: Directory, directoryDao: DirectoryDao) {
@@ -609,7 +612,12 @@ fun Context.getFavoritePaths(): ArrayList<String> {
 
 // remove the "recycle_bin" from the file path prefix, replace it with real bin path /data/user...
 fun Context.getUpdatedDeletedMedia(mediumDao: MediumDao): ArrayList<Medium> {
-    val media = mediumDao.getDeletedMedia() as ArrayList<Medium>
+    val media = try {
+        mediumDao.getDeletedMedia() as ArrayList<Medium>
+    } catch (ignored: Exception) {
+        ArrayList<Medium>()
+    }
+
     media.forEach {
         it.path = File(recycleBinPath, it.path.removePrefix(RECYCLE_BIN)).toString()
     }

@@ -917,10 +917,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             setupAdapter(dirs)
             try {
                 mDirectoryDao.insert(newDir)
+                if (folder != RECYCLE_BIN) {
+                    mMediumDao.insertAll(newMedia)
+                }
             } catch (ignored: Exception) {
-            }
-            if (folder != RECYCLE_BIN) {
-                mMediumDao.insertAll(newMedia)
             }
         }
 
