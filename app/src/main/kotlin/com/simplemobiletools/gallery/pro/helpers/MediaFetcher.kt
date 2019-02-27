@@ -17,15 +17,15 @@ import java.util.*
 class MediaFetcher(val context: Context) {
     var shouldStop = false
 
-    fun getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean, getProperDateTaken: Boolean, favoritePaths: ArrayList<String>,
-                     getVideoDurations: Boolean, sortMedia: Boolean = true): ArrayList<Medium> {
+    fun getFilesFrom(curPath: String, isPickImage: Boolean, isPickVideo: Boolean, getProperDateTaken: Boolean, getProperFileSize: Boolean,
+                     favoritePaths: ArrayList<String>, getVideoDurations: Boolean, sortMedia: Boolean = true): ArrayList<Medium> {
         val filterMedia = context.config.filterMedia
         if (filterMedia == 0) {
             return ArrayList()
         }
 
         val curMedia = ArrayList<Medium>()
-        val newMedia = getMediaInFolder(curPath, isPickImage, isPickVideo, filterMedia, getProperDateTaken, favoritePaths, getVideoDurations)
+        val newMedia = getMediaInFolder(curPath, isPickImage, isPickVideo, filterMedia, getProperDateTaken, getProperFileSize, favoritePaths, getVideoDurations)
         curMedia.addAll(newMedia)
 
         if (sortMedia) {
@@ -155,7 +155,7 @@ class MediaFetcher(val context: Context) {
     }
 
     private fun getMediaInFolder(folder: String, isPickImage: Boolean, isPickVideo: Boolean, filterMedia: Int, getProperDateTaken: Boolean,
-                                 favoritePaths: ArrayList<String>, getVideoDurations: Boolean): ArrayList<Medium> {
+                                 getProperFileSize: Boolean, favoritePaths: ArrayList<String>, getVideoDurations: Boolean): ArrayList<Medium> {
         val media = ArrayList<Medium>()
 
         val isRecycleBin = folder == RECYCLE_BIN
@@ -209,9 +209,14 @@ class MediaFetcher(val context: Context) {
             if (!showHidden && filename.startsWith('.'))
                 continue
 
-            val size = file.length()
-            if (size <= 0L || (checkFileExistence && !file.exists()))
+            val size = if (getProperFileSize || checkFileExistence) file.length() else 1L
+            if ((getProperFileSize || checkFileExistence) && size <= 0L) {
                 continue
+            }
+
+            if (checkFileExistence && !file.exists()) {
+                continue
+            }
 
             if (isRecycleBin) {
                 deletedMedia.firstOrNull { it.path == path }?.apply {
@@ -356,7 +361,7 @@ class MediaFetcher(val context: Context) {
         return if (timestamp.areDigitsOnly()) {
             val cal = Calendar.getInstance(Locale.ENGLISH)
             cal.timeInMillis = timestamp.toLong()
-            return DateFormat.format("dd MMM yyyy", cal).toString()
+            DateFormat.format("dd MMM yyyy", cal).toString()
         } else {
             ""
         }
