@@ -165,8 +165,10 @@ class MediaFetcher(val context: Context) {
             ArrayList()
         }
 
-        val checkFileExistence = context.config.fileLoadingPriority == PRIORITY_VALIDITY
-        val showHidden = context.config.shouldShowHidden
+        val config = context.config
+        val checkProperFileSize = getProperFileSize || config.fileLoadingPriority == PRIORITY_COMPROMISE
+        val checkFileExistence = config.fileLoadingPriority == PRIORITY_VALIDITY
+        val showHidden = config.shouldShowHidden
         val dateTakens = if (getProperDateTaken && folder != FAVORITES && !isRecycleBin) getFolderDateTakens(folder) else HashMap()
 
         val files = when (folder) {
@@ -209,8 +211,8 @@ class MediaFetcher(val context: Context) {
             if (!showHidden && filename.startsWith('.'))
                 continue
 
-            val size = if (getProperFileSize || checkFileExistence) file.length() else 1L
-            if ((getProperFileSize || checkFileExistence) && size <= 0L) {
+            val size = if (checkProperFileSize || checkFileExistence) file.length() else 1L
+            if ((checkProperFileSize || checkFileExistence) && size <= 0L) {
                 continue
             }
 

@@ -816,7 +816,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val tempFolderPath = config.tempFolderPath
         val isSortingAscending = config.directorySorting and SORT_DESCENDING == 0
         val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0
-        val getProperFileSize = config.directorySorting and SORT_BY_SIZE != 0 || config.fileLoadingPriority == PRIORITY_COMPROMISE
+        val getProperFileSize = config.directorySorting and SORT_BY_SIZE != 0
         val favoritePaths = getFavoritePaths()
         val dirPathsToRemove = ArrayList<String>()
 
@@ -833,7 +833,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     }
                     directory
                 } else {
-                    createDirectoryFromMedia(directory.path, curMedia, albumCovers, hiddenString, includedFolders, isSortingAscending)
+                    createDirectoryFromMedia(directory.path, curMedia, albumCovers, hiddenString, includedFolders, isSortingAscending, getProperFileSize)
                 }
 
                 // we are looping through the already displayed folders looking for changes, do not do anything if nothing changed
@@ -913,7 +913,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 }
             }
 
-            val newDir = createDirectoryFromMedia(folder, newMedia, albumCovers, hiddenString, includedFolders, isSortingAscending)
+            val newDir = createDirectoryFromMedia(folder, newMedia, albumCovers, hiddenString, includedFolders, isSortingAscending, getProperFileSize)
             dirs.add(newDir)
             setupAdapter(dirs)
             try {
@@ -956,7 +956,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, albumCovers: ArrayList<AlbumCover>, hiddenString: String,
-                                         includedFolders: MutableSet<String>, isSortingAscending: Boolean): Directory {
+                                         includedFolders: MutableSet<String>, isSortingAscending: Boolean, getProperFileSize: Boolean): Directory {
         var thumbnail = curMedia.firstOrNull { File(it.path).exists() }?.path ?: ""
         albumCovers.forEach {
             if (it.path == path && File(it.tmb).exists()) {
@@ -969,7 +969,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         val dirName = checkAppendingHidden(path, hiddenString, includedFolders)
         val lastModified = if (isSortingAscending) Math.min(firstItem.modified, lastItem.modified) else Math.max(firstItem.modified, lastItem.modified)
         val dateTaken = if (isSortingAscending) Math.min(firstItem.taken, lastItem.taken) else Math.max(firstItem.taken, lastItem.taken)
-        val size = curMedia.sumByLong { it.size }
+        val size = if (getProperFileSize) curMedia.sumByLong { it.size } else 0L
         val mediaTypes = curMedia.getDirMediaTypes()
         return Directory(null, path, thumbnail, dirName, curMedia.size, lastModified, dateTaken, size, getPathLocation(path), mediaTypes)
     }
