@@ -14,6 +14,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.IS_FROM_GALLERY
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
+import com.simplemobiletools.commons.helpers.SIDELOADING_TRUE
 import com.simplemobiletools.gallery.pro.BuildConfig
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.*
@@ -39,6 +40,11 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_holder)
+
+        if (config.appSideloadingStatus == SIDELOADING_TRUE) {
+            showSideloadingDialog()
+            return
+        }
 
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
