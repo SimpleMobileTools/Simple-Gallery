@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.pro.extensions
 
 import android.media.MediaMetadataRetriever
 import com.bumptech.glide.signature.ObjectKey
+import com.simplemobiletools.gallery.pro.helpers.NOMEDIA
 import java.io.File
 import java.io.IOException
 
@@ -17,14 +18,19 @@ fun String.isThisOrParentIncluded(includedPaths: MutableSet<String>) = includedP
 fun String.isThisOrParentExcluded(excludedPaths: MutableSet<String>) = excludedPaths.any { startsWith(it, true) }
 
 fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPaths: MutableSet<String>, showHidden: Boolean): Boolean {
+    if (isEmpty()) {
+        return false
+    }
+
     val file = File(this)
-    return if (isEmpty()) {
-        false
-    } else if (!showHidden && file.isHidden) {
-        false
+    if (!showHidden && file.isHidden) {
+        return false
     } else if (includedPaths.contains(this)) {
-        true
-    } else if (!showHidden && file.containsNoMedia()) {
+        return true
+    }
+
+    val containsNoMedia = if (showHidden) false else File(this, NOMEDIA).exists()
+    return if (!showHidden && containsNoMedia) {
         false
     } else if (excludedPaths.contains(this)) {
         false
@@ -33,7 +39,7 @@ fun String.shouldFolderBeVisible(excludedPaths: MutableSet<String>, includedPath
     } else if (isThisOrParentExcluded(excludedPaths)) {
         false
     } else if (!showHidden && file.isDirectory && file.canonicalFile == file.absoluteFile) {
-        var containsNoMediaOrDot = file.containsNoMedia() || contains("/.")
+        var containsNoMediaOrDot = containsNoMedia || contains("/.")
         if (!containsNoMediaOrDot) {
             containsNoMediaOrDot = file.doesThisOrParentHaveNoMedia()
         }
