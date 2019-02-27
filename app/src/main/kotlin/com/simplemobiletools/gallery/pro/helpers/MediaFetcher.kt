@@ -158,7 +158,8 @@ class MediaFetcher(val context: Context) {
                                  favoritePaths: ArrayList<String>, getVideoDurations: Boolean): ArrayList<Medium> {
         val media = ArrayList<Medium>()
 
-        val deletedMedia = if (folder == RECYCLE_BIN) {
+        val isRecycleBin = folder == RECYCLE_BIN
+        val deletedMedia = if (isRecycleBin) {
             context.getUpdatedDeletedMedia(context.galleryDB.MediumDao())
         } else {
             ArrayList()
@@ -166,7 +167,7 @@ class MediaFetcher(val context: Context) {
 
         val doExtraCheck = context.config.doExtraCheck
         val showHidden = context.config.shouldShowHidden
-        val dateTakens = if (getProperDateTaken && folder != FAVORITES && folder != RECYCLE_BIN) getFolderDateTakens(folder) else HashMap()
+        val dateTakens = if (getProperDateTaken && folder != FAVORITES && !isRecycleBin) getFolderDateTakens(folder) else HashMap()
 
         val files = when (folder) {
             FAVORITES -> favoritePaths.filter { showHidden || !it.contains("/.") }.map { File(it) }.toTypedArray()
@@ -212,7 +213,7 @@ class MediaFetcher(val context: Context) {
             if (size <= 0L || (doExtraCheck && !file.exists()))
                 continue
 
-            if (folder == RECYCLE_BIN) {
+            if (isRecycleBin) {
                 deletedMedia.firstOrNull { it.path == path }?.apply {
                     media.add(this)
                 }
