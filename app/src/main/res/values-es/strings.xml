@@ -172,11 +172,11 @@
     <string name="allow_one_to_one_zoom">Permitir zoom 1:1 con dos toques dobles</string>
     <string name="open_videos_on_separate_screen">Siempre abre videos en una pantalla separada con nuevos gestos horizontales</string>
     <string name="show_notch">Mostrar una muesca si está disponible</string>
-    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
-    <string name="file_loading_priority">File loading priority</string>
-    <string name="speed">Speed</string>
-    <string name="compromise">Compromise</string>
-    <string name="avoid_showing_invalid_files">Avoid showing invalid files</string>
+    <string name="allow_rotating_gestures">Permite girar con gestos</string>
+    <string name="file_loading_priority">Prioridad de carga de archivos</string>
+    <string name="speed">Velocidad</string>
+    <string name="compromise">Compromiso</string>
+    <string name="avoid_showing_invalid_files">Evita mostrar archivos inválidos</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
