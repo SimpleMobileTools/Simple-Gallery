@@ -174,6 +174,10 @@
     <string name="open_videos_on_separate_screen">Vždy otvárať videá na vlastnej obrazovke s novými vodorovnými gestami</string>
     <string name="show_notch">Zobraziť výrez obrazovky, ak je dostupný</string>
     <string name="allow_rotating_gestures">Povoliť otáčanie obrázkov gestami</string>
+    <string name="file_loading_priority">Priorita pri načítavaní súborov</string>
+    <string name="speed">Rýchlosť</string>
+    <string name="compromise">Kompromis</string>
+    <string name="avoid_showing_invalid_files">Nezobrazovať neplatné súbory</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Náhľady</string>
