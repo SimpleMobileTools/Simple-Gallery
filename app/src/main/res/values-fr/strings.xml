@@ -163,7 +163,6 @@
     <string name="allow_instant_change">Changement instantané de média en appuyant sur les côtés de l\'écran</string>
     <string name="allow_deep_zooming_images">Utiliser le zoom maximal des images</string>
     <string name="hide_extended_details">Ne pas afficher les informations supplémentaires si la barre d\'état est masquée</string>
-    <string name="do_extra_check">Éviter l\'affichage de fichiers non conformes</string>
     <string name="show_at_bottom">Afficher les boutons d\'action</string>
     <string name="show_recycle_bin">Afficher la corbeille en vue \"Dossier\"</string>
     <string name="deep_zoomable_images">Niveau de zoom maximal des images</string>

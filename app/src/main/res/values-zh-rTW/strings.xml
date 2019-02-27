@@ -163,7 +163,6 @@
     <string name="allow_instant_change">允許點擊螢幕邊緣來快速切換媒體檔案</string>
     <string name="allow_deep_zooming_images">允許深度縮放圖片</string>
     <string name="hide_extended_details">狀態欄隱藏時，同時隱藏詳細資訊</string>
-    <string name="do_extra_check">進行額外檢查，避免顯示無效的檔案</string>
     <string name="show_at_bottom">在螢幕底部顯示一些操作按鈕</string>
     <string name="show_recycle_bin">在資料夾畫面顯示回收桶</string>
     <string name="deep_zoomable_images">可深度縮放的圖片</string>

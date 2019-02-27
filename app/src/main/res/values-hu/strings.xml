@@ -164,7 +164,6 @@
     <string name="allow_instant_change">Engedélyezi a azonnali média váltást a képernyő oldalára kattintva</string>
     <string name="allow_deep_zooming_images">Engedélyezi a képek mély nagyítását</string>
     <string name="hide_extended_details">Bővített részletek elrejtése az állapotsor rejtett állapotában</string>
-    <string name="do_extra_check">Végezzen extra ellenőrzést, hogy elkerülje az érvénytelen fájlok mutatását</string>
     <string name="show_at_bottom">Mutassa a művelet gombokat a képernyő alján</string>
     <string name="show_recycle_bin">Mutassa a Lomtárat a mappák képernyőjén</string>
     <string name="deep_zoomable_images">Mély nagyítású képek</string>

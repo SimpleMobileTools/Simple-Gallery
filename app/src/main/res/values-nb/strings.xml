@@ -163,7 +163,6 @@
     <string name="allow_instant_change">Tillat å skifte media øyeblikkelig ved å trykke på kanten av skjermen</string>
     <string name="allow_deep_zooming_images">Tillat dyp bildezooming</string>
     <string name="hide_extended_details">Skjul utvidede detaljer når statuslinjen er skjult</string>
-    <string name="do_extra_check">Gjør en ekstra sjekk for å unngå visning av ugyldige filer</string>
     <string name="show_at_bottom">Vis noen handlingsknapper nederst på skjermen</string>
     <string name="show_recycle_bin">Vis papirkurven på mappeskjermen</string>
     <string name="deep_zoomable_images">Dyp zoombare bilder</string>

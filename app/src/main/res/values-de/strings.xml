@@ -163,7 +163,6 @@
     <string name="allow_instant_change">Beim Tippen auf eine Bildschirmseite sofort zwischen Medien wechseln</string>
     <string name="allow_deep_zooming_images">Starkes Zoomen zulassen</string>
     <string name="hide_extended_details">Dateieigenschaften im Vollbild nicht anzeigen, wenn die Systemleiste versteckt ist</string>
-    <string name="do_extra_check">Zusätzliche Überprüfung, um ungültige Dateien nicht anzuzeigen</string>
     <string name="show_at_bottom">Ausgewählte Funktionen am unteren Bildschirmrand anzeigen</string>
     <string name="show_recycle_bin">Papierkorb auf dem Ordnerbildschirm anzeigen</string>
     <string name="deep_zoomable_images">Stark vergrösserbare Bilder</string>

@@ -163,7 +163,6 @@
     <string name="allow_instant_change">Dopusti trenutačno mijenjanje medija dodirom na stranice zaslona</string>
     <string name="allow_deep_zooming_images">Omogućite duboko zumiranje slika</string>
     <string name="hide_extended_details">Sakrij proširene pojedinosti kada je traka statusa skrivena</string>
-    <string name="do_extra_check">Napravite dodatnu provjeru da biste izbjegli prikazivanje nevažećih datoteka</string>
     <string name="show_at_bottom">Prikaži neke gumbe za radnju pri dnu zaslona</string>
     <string name="show_recycle_bin">Prikažite koš za smeće na zaslonu mapa</string>
     <string name="deep_zoomable_images">Duboko zumirane slike</string>

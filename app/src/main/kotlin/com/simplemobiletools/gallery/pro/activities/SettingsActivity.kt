@@ -36,11 +36,11 @@ class SettingsActivity : SimpleActivity() {
         setupCustomizeColors()
         setupUseEnglish()
         setupChangeDateTimeFormat()
+        setupFileLoadingPriority()
         setupManageIncludedFolders()
         setupManageExcludedFolders()
         setupManageHiddenFolders()
         setupShowHiddenItems()
-        setupDoExtraCheck()
         setupAutoplayVideos()
         setupRememberLastVideo()
         setupLoopVideos()
@@ -117,6 +117,27 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
+    private fun setupFileLoadingPriority() {
+        settings_file_loading_priority.text = getFileLoadingPriorityText()
+        settings_file_loading_priority_holder.setOnClickListener {
+            val items = arrayListOf(
+                    RadioItem(PRIORITY_SPEED, getString(R.string.speed)),
+                    RadioItem(PRIORITY_COMPROMISE, getString(R.string.compromise)),
+                    RadioItem(PRIORITY_VALIDITY, getString(R.string.avoid_showing_invalid_files)))
+
+            RadioGroupDialog(this@SettingsActivity, items, config.fileLoadingPriority) {
+                config.fileLoadingPriority = it as Int
+                settings_file_loading_priority.text = getFileLoadingPriorityText()
+            }
+        }
+    }
+
+    private fun getFileLoadingPriorityText() = getString(when (config.fileLoadingPriority) {
+        PRIORITY_SPEED -> R.string.speed
+        PRIORITY_COMPROMISE -> R.string.compromise
+        else -> R.string.avoid_showing_invalid_files
+    })
+
     private fun setupManageIncludedFolders() {
         settings_manage_included_folders_holder.setOnClickListener {
             startActivity(Intent(this, IncludedFoldersActivity::class.java))
@@ -153,14 +174,6 @@ class SettingsActivity : SimpleActivity() {
     private fun toggleHiddenItems() {
         settings_show_hidden_items.toggle()
         config.showHiddenMedia = settings_show_hidden_items.isChecked
-    }
-
-    private fun setupDoExtraCheck() {
-        settings_do_extra_check.isChecked = config.doExtraCheck
-        settings_do_extra_check_holder.setOnClickListener {
-            settings_do_extra_check.toggle()
-            config.doExtraCheck = settings_do_extra_check.isChecked
-        }
     }
 
     private fun setupAutoplayVideos() {
@@ -596,7 +609,7 @@ class SettingsActivity : SimpleActivity() {
                 put(INCLUDED_FOLDERS, TextUtils.join(",", config.includedFolders))
                 put(EXCLUDED_FOLDERS, TextUtils.join(",", config.excludedFolders))
                 put(SHOW_HIDDEN_MEDIA, config.showHiddenMedia)
-                put(DO_EXTRA_CHECK, config.doExtraCheck)
+                put(FILE_LOADING_PRIORITY, config.fileLoadingPriority)
                 put(AUTOPLAY_VIDEOS, config.autoplayVideos)
                 put(REMEMBER_LAST_VIDEO_POSITION, config.rememberLastVideoPosition)
                 put(LAST_VIDEO_PATH, config.lastVideoPath)
@@ -719,7 +732,7 @@ class SettingsActivity : SimpleActivity() {
                 INCLUDED_FOLDERS -> config.addIncludedFolders(value.toStringSet())
                 EXCLUDED_FOLDERS -> config.addExcludedFolders(value.toStringSet())
                 SHOW_HIDDEN_MEDIA -> config.showHiddenMedia = value.toBoolean()
-                DO_EXTRA_CHECK -> config.doExtraCheck = value.toBoolean()
+                FILE_LOADING_PRIORITY -> config.fileLoadingPriority = value.toInt()
                 AUTOPLAY_VIDEOS -> config.autoplayVideos = value.toBoolean()
                 REMEMBER_LAST_VIDEO_POSITION -> config.rememberLastVideoPosition = value.toBoolean()
                 LAST_VIDEO_PATH -> config.lastVideoPath = value.toString()

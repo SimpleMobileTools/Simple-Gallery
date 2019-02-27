@@ -163,7 +163,6 @@
     <string name="allow_instant_change">Дозволити миттєво змінювати медіафайл натисканням на сторони екрану</string>
     <string name="allow_deep_zooming_images">Дозволити глибоке масштабування зображень</string>
     <string name="hide_extended_details">Приховати розширені подробиці, коли рядок стану прихований</string>
-    <string name="do_extra_check">Робити додаткову перевірку для запобігання відображенню недійсних файлів</string>
     <string name="show_at_bottom">Показати деякі кнопки дій внизу екрану</string>
     <string name="show_recycle_bin">Показувати \"Кошик\" на головному екрані</string>
     <string name="deep_zoomable_images">Глибокомасштабовані зображення</string>

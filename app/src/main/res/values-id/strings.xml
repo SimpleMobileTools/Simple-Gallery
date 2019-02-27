@@ -163,7 +163,6 @@
     <string name="allow_instant_change">Izinkan mengganti media dengan mengklik sisi layar</string>
     <string name="allow_deep_zooming_images">Izinkan zoom gambar lebih dalam</string>
     <string name="hide_extended_details">Sembunyikan detail tambahan ketika status bar disembunyikan</string>
-    <string name="do_extra_check">Lakukan pemeriksaan ulang untuk menghindari file yang tidak valid</string>
     <string name="show_at_bottom">Tampilkan beberapa tombol tindakan dibawah layar</string>
     <string name="show_recycle_bin">Tampilkan Sampah di layar folder</string>
     <string name="deep_zoomable_images">Zoom gambar mendalam</string>

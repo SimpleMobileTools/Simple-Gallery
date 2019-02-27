@@ -163,7 +163,6 @@
     <string name="allow_instant_change">Permitir troca imediata de ficheiro ao tocar nas margens do ecrã</string>
     <string name="allow_deep_zooming_images">Permitir ampliação profunda de imagens</string>
     <string name="hide_extended_details">Ocultar detalhes extra se a barra de estado estiver oculta</string>
-    <string name="do_extra_check">Dupla verificação para evitar mostrar os ficheiros inválidos</string>
     <string name="show_at_bottom">Mostrar alguns botões de ação na base do ecrã</string>
     <string name="show_recycle_bin">Mostrar reciclagem no ecrã de pastas</string>
     <string name="deep_zoomable_images">Ampliação de imagens</string>

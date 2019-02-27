@@ -163,7 +163,6 @@
     <string name="allow_instant_change">Να επιτρέπεται η άμεση αλλαγή των μέσων με το άγγιγμα στις άκρες της οθόνης</string>
     <string name="allow_deep_zooming_images">Επιτρέπει βαθύ ζουμ στις εικόνες</string>
     <string name="hide_extended_details">Απόκρυψη λεπτομερειών όταν η μπάρα κατάστασης είναι κρυμμένη</string>
-    <string name="do_extra_check">Επιπλέον έλεγχος για την αποφυγή εμφάνισης λανθασμένων αρχείων</string>
     <string name="show_at_bottom">Εμφάνιση μερικών κουμπιών λειτουργιών στο κάτω μέρος της οθόνης</string>
     <string name="show_recycle_bin">Εμφάνιση του κάδου ανακύκλωσης στην οθόνη φακέλων</string>
     <string name="deep_zoomable_images">Βαθιά μεγέθυνση εικόνων</string>

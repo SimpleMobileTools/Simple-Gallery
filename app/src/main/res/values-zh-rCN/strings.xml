@@ -163,7 +163,6 @@
     <string name="allow_instant_change">通过单击屏幕边缘来切换媒体</string>
     <string name="allow_deep_zooming_images">允许深度放大图像</string>
     <string name="hide_extended_details">当状态栏隐藏时隐藏扩展详情</string>
-    <string name="do_extra_check">额外检查以避免显示无效的文件</string>
     <string name="show_at_bottom">显示底栏</string>
     <string name="show_recycle_bin">在文件夹界面显示回收站</string>
     <string name="deep_zoomable_images">深度放大图像</string>

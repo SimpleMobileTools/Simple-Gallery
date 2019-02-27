@@ -163,7 +163,6 @@
     <string name="allow_instant_change">Permet canviar els mitjans de manera instantània fent clic als costats de la pantalla</string>
     <string name="allow_deep_zooming_images">Permet imatges de zoom profund</string>
     <string name="hide_extended_details">Amaga els detalls estesos quan la barra d\'estat està amagada</string>
-    <string name="do_extra_check">Fer una verificació addicional per evitar que es mostrin fitxers no vàlids</string>
     <string name="show_at_bottom">Mostra alguns botons d\'acció a la part inferior de la pantalla</string>
     <string name="show_recycle_bin">Mostra la paperera de reciclatge a la pantalla de carpetes</string>
     <string name="deep_zoomable_images">Imatges ampliades a mida</string>

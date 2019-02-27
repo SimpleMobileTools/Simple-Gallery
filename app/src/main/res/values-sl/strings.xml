@@ -163,7 +163,6 @@
     <string name="allow_instant_change">Dovoli takojšnje spremembe medija s klikanjem na robove zaslona</string>
     <string name="allow_deep_zooming_images">Dovoli globoko povečavo slik</string>
     <string name="hide_extended_details">Skrij razširjene podrobnosti, ko je statusna vrstica skrita</string>
-    <string name="do_extra_check">Dvojna kontrola za izogibanje prikazovanja napačnih datotek</string>
     <string name="show_at_bottom">Prikaži določene akcijske gumbe na dnu zaslona</string>
     <string name="show_recycle_bin">Prikaži Koš na zaslonih map</string>
     <string name="deep_zoomable_images">Globoko povečljive slike</string>

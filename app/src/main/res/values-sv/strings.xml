@@ -163,7 +163,6 @@
     <string name="allow_instant_change">Tillåt snabbyte av media genom tryckning på skärmens kanter</string>
     <string name="allow_deep_zooming_images">Tillåt djupzoomning av bilder</string>
     <string name="hide_extended_details">Dölj utökad information när statusfältet är dolt</string>
-    <string name="do_extra_check">Gör en extra kontroll för att hindra ogiltiga filer från att visas</string>
     <string name="show_at_bottom">Visa några åtgärdsknappar längst ned på skärmen</string>
     <string name="show_recycle_bin">Visa Papperskorgen i mappvyn</string>
     <string name="deep_zoomable_images">Djupt zoombara bilder</string>

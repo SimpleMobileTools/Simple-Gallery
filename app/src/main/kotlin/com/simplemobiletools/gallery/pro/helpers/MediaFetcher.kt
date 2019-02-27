@@ -165,7 +165,7 @@ class MediaFetcher(val context: Context) {
             ArrayList()
         }
 
-        val doExtraCheck = context.config.doExtraCheck
+        val checkFileExistence = context.config.fileLoadingPriority == PRIORITY_VALIDITY
         val showHidden = context.config.shouldShowHidden
         val dateTakens = if (getProperDateTaken && folder != FAVORITES && !isRecycleBin) getFolderDateTakens(folder) else HashMap()
 
@@ -210,7 +210,7 @@ class MediaFetcher(val context: Context) {
                 continue
 
             val size = file.length()
-            if (size <= 0L || (doExtraCheck && !file.exists()))
+            if (size <= 0L || (checkFileExistence && !file.exists()))
                 continue
 
             if (isRecycleBin) {

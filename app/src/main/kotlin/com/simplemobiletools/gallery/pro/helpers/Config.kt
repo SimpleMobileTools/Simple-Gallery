@@ -182,6 +182,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getInt(SCREEN_ROTATION, ROTATE_BY_SYSTEM_SETTING)
         set(screenRotation) = prefs.edit().putInt(SCREEN_ROTATION, screenRotation).apply()
 
+    var fileLoadingPriority: Int
+        get() = prefs.getInt(FILE_LOADING_PRIORITY, PRIORITY_COMPROMISE)
+        set(fileLoadingPriority) = prefs.edit().putInt(FILE_LOADING_PRIORITY, fileLoadingPriority).apply()
+
     var loopVideos: Boolean
         get() = prefs.getBoolean(LOOP_VIDEOS, false)
         set(loop) = prefs.edit().putBoolean(LOOP_VIDEOS, loop).apply()
@@ -334,10 +338,6 @@ class Config(context: Context) : BaseConfig(context) {
     var extendedDetails: Int
         get() = prefs.getInt(EXTENDED_DETAILS, EXT_RESOLUTION or EXT_LAST_MODIFIED or EXT_EXIF_PROPERTIES)
         set(extendedDetails) = prefs.edit().putInt(EXTENDED_DETAILS, extendedDetails).apply()
-
-    var doExtraCheck: Boolean
-        get() = prefs.getBoolean(DO_EXTRA_CHECK, false)
-        set(doExtraCheck) = prefs.edit().putBoolean(DO_EXTRA_CHECK, doExtraCheck).apply()
 
     var wasNewAppShown: Boolean
         get() = prefs.getBoolean(WAS_NEW_APP_SHOWN, false)

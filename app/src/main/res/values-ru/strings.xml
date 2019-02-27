@@ -163,7 +163,6 @@
     <string name="allow_instant_change">Переключение медиафайлов нажатием по краю экрана</string>
     <string name="allow_deep_zooming_images">Включить полное масштабирование</string>
     <string name="hide_extended_details">Скрывать сведения о файле при скрытой строке состояния</string>
-    <string name="do_extra_check">Дополнительная проверка, чтобы избежать показа неподдерживаемых файлов</string>
     <string name="show_at_bottom">Показывать кнопки действий в нижней части экрана</string>
     <string name="show_recycle_bin">Показывать корзину вместе с папками</string>
     <string name="deep_zoomable_images">Масштабирование изображения</string>

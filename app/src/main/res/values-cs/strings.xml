@@ -163,7 +163,6 @@
     <string name="allow_instant_change">Povolit okamžité přepínání médií kliknutím na okraj obrazovky</string>
     <string name="allow_deep_zooming_images">Povolit hluboké přibližování obrázků</string>
     <string name="hide_extended_details">Skrýt rozšířené vlastnosti pokud je skrytá stavová lišta</string>
-    <string name="do_extra_check">Předejít zobrazování neplatných souborů dodatečnou kontrolou</string>
     <string name="show_at_bottom">Zobrazit některé akční tlačítka na spodní straně obrazovky</string>
     <string name="show_recycle_bin">Zobrazit odpadkový koš na obrazovce se složkami</string>
     <string name="deep_zoomable_images">Hluboce priblížitelné obrázky</string>

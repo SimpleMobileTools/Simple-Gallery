@@ -163,7 +163,6 @@
     <string name="allow_instant_change">端を押してメディアをスライド</string>
     <string name="allow_deep_zooming_images">深いズームを許可</string>
     <string name="hide_extended_details">ステータスバーが非表示の時は詳細を隠す</string>
-    <string name="do_extra_check">無効なファイルは見せない</string>
     <string name="show_at_bottom">画面の下にはアクションを表示</string>
     <string name="show_recycle_bin">フォルダ画面にごみ箱を表示</string>
     <string name="deep_zoomable_images">画像のズームを深くする</string>

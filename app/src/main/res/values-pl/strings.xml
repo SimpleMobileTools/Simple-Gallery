@@ -162,8 +162,9 @@
     <string name="one_finger_zoom">Zezwalaj na powiększanie jednym palcem w widoku pełnoekranowym</string>
     <string name="allow_instant_change">Zezwalaj na natychmiastową zmianę multimediów po kliknięciu boków ekranu</string>
     <string name="allow_deep_zooming_images">Zezwalaj na duże powiększanie obrazów</string>
-    <string name="hide_extended_details">Ukrywaj dodatkowe szczegóły, gdy pasek stanu jest ukryty</string>
-    <string name="do_extra_check">Dodatkowe sprawdzenie w celu uniknięcia pokazywania niewłaściwych plików</string>
+    <string name="hide_extended_details">Ukrywaj dodatkowe szczegóły, gdy pasek stanu jest ukryty</string><![CDATA[
+    
+    ]]>
     <string name="show_at_bottom">Pokazuj niektóre przyciski akcji na dole ekranu</string>
     <string name="show_recycle_bin">Pokazuj kosz w widoku folderów</string>
     <string name="deep_zoomable_images">Duże powiększanie obrazów</string>
