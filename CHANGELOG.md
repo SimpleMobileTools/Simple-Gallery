@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 6.5.4 *(2019-02-28)*
+----------------------------
+
+ * Allow customizing file loading priority
+ * Fixed the handling of some image picker intents
+ * Speeded up renaming files on SD cards
+ * Added some file loading performance improvements
+ * Some stability improvements
+
 Version 6.5.3 *(2019-02-22)*
 ----------------------------
 
