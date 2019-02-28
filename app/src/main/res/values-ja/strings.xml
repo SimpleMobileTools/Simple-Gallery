@@ -221,33 +221,33 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">An offline gallery for managing your files without ads, respecting your privacy.</string>
+    <string name="app_short_description">広告なしでプライバシーを尊重する、ファイル管理用オフラインギャラリー。</string>
     <string name="app_long_description">
-        A highly customizable gallery capable of displaying many different image and video types including SVGs, RAWs, panoramic photos and videos.
+        SVG、RAW、パノラマ写真、ビデオなど、さまざまな種類の画像やビデオを表示できる高度にカスタマイズ可能なギャラリー。
 
-        It is open source, contains no ads or unnecessary permissions.
+        オープンソースで、広告も、不要な許可も含まれていません。
 
-        Let\'s list some of its features worth mentioning:
-        1. Search
-        2. Slideshow
-        3. Notch support
-        4. Pinning folders to the top
-        5. Filtering media files by type
-        6. Recycle bin for easy file recovery
-        7. Fullscreen view orientation locking
-        8. Marking favorite files for easy access
-        9. Quick fullscreen media closing with down gesture
-        10. An editor for modifying images and applying filters
-        11. Password protection for protecting hidden items or the whole app
-        12. Changing the thumbnail column count with gestures or menu buttons
-        13. Customizable bottom actions at the fullscreen view for quick access
-        14. Showing extended details over fullscreen media with desired file properties
-        15. Several different ways of sorting or grouping items, both ascending and descending
-        16. Hiding folders (affects other apps too), excluding folders (affects only Simple Gallery)
+        価値ある機能のいくつかをリストにしましょう：
+        1.検索
+        2スライドショー
+        3.ノッチをサポート
+        4.フォルダを一番上に固定
+        5.メディアの種類によるフィルタリング
+        6.簡単にファイルを復元できるゴミ箱
+        7.全面表示ロック適応
+        8.お気に入りファイルのマークで簡単アクセス
+        9.ダウン・ジェスチャーですばやくフルスクリーンメディアを閉じる
+        10.フィルタを適用できる画像修正エディタ
+        11.隠しアイテムやアプリ全体を保護するためのパスワード
+        12.ジェスチャーまたはメニューボタンでサムネイルの並び方を変更
+        13.すばやいアクセスが可能な全面表示でカスタマイズ可能な操作ボタン
+        14.メディアファイルプロパティの詳細をフルスクリーンに表示
+        15.昇順と降順の両方で、アイテムをソートまたはグループ化するための異なる方法
+        16.フォルダの非表示（他のアプリにも影響）、フォルダの除外（Simple Galleryのみに影響）
 
-        The fingerprint permission is needed for locking either hidden item visibility, the whole app, or protecting files from being deleted.
+        隠れアイテムの表示、アプリ全体のロック、またはファイルの削除保護には指紋認証許可が必要です。
 
-        This app is just one piece of a bigger series of apps. You can find the rest of them at https://www.simplemobiletools.com
+        このアプリは、大きな一連のアプリの一つです。 他のアプリは https://www.simplemobiletools.com で見つけることができます
     </string>
 
     <!--
