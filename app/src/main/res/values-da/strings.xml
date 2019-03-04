@@ -172,11 +172,11 @@
     <string name="allow_one_to_one_zoom">Tillad 1:1 zooming med to dobbelttryk</string>
     <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
     <string name="show_notch">Vis en notch hvis tilgængelig</string>
-    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
-    <string name="file_loading_priority">File loading priority</string>
-    <string name="speed">Speed</string>
-    <string name="compromise">Compromise</string>
-    <string name="avoid_showing_invalid_files">Avoid showing invalid files</string>
+    <string name="allow_rotating_gestures">Tillad roterende billeder med bevægelser</string>
+    <string name="file_loading_priority">Filindlæsnings prioritet</string>
+    <string name="speed">Hastighed</string>
+    <string name="compromise">Kompromis</string>
+    <string name="avoid_showing_invalid_files">Undgå at vise ugyldige filer</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturer</string>
