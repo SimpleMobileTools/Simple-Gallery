@@ -60,7 +60,8 @@ fun Activity.openPath(path: String, forceChooser: Boolean) {
 }
 
 fun Activity.openEditor(path: String, forceChooser: Boolean = false) {
-    openEditorIntent(path, forceChooser, BuildConfig.APPLICATION_ID)
+    val newPath = path.removePrefix("file://")
+    openEditorIntent(newPath, forceChooser, BuildConfig.APPLICATION_ID)
 }
 
 fun Activity.launchCamera() {
