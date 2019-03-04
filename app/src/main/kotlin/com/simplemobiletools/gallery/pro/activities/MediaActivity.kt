@@ -108,6 +108,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
         if (mShowAll) {
             supportActionBar?.setDisplayHomeAsUpEnabled(false)
+            registerFileUpdateListener()
         }
 
         media_empty_text.setOnClickListener {
@@ -193,6 +194,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         if (config.showAll && !isChangingConfigurations) {
             config.temporarilyShowHidden = false
             config.tempSkipDeleteConfirmation = false
+            unregisterFileUpdateListener()
             GalleryDatabase.destroyInstance()
         }
 

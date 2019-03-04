@@ -147,6 +147,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
 
         updateWidgets()
+        registerFileUpdateListener()
     }
 
     override fun onStart() {
@@ -239,6 +240,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             config.tempSkipDeleteConfirmation = false
             mTempShowHiddenHandler.removeCallbacksAndMessages(null)
             removeTempFolder()
+            unregisterFileUpdateListener()
 
             if (!config.showAll) {
                 GalleryDatabase.destroyInstance()

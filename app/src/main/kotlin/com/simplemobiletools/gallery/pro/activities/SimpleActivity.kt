@@ -1,13 +1,28 @@
 package com.simplemobiletools.gallery.pro.activities
 
 import android.annotation.SuppressLint
+import android.database.ContentObserver
+import android.net.Uri
+import android.provider.MediaStore
 import android.view.WindowManager
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
+import com.simplemobiletools.commons.extensions.getRealPathFromURI
 import com.simplemobiletools.commons.helpers.isPiePlus
 import com.simplemobiletools.gallery.pro.R
+import com.simplemobiletools.gallery.pro.extensions.addPathToDB
 import com.simplemobiletools.gallery.pro.extensions.config
 
 open class SimpleActivity : BaseSimpleActivity() {
+    val observer = object : ContentObserver(null) {
+        override fun onChange(selfChange: Boolean, uri: Uri) {
+            super.onChange(selfChange, uri)
+            val path = getRealPathFromURI(uri)
+            if (path != null) {
+                addPathToDB(path)
+            }
+        }
+    }
+
     override fun getAppIconIDs() = arrayListOf(
             R.mipmap.ic_launcher_red,
             R.mipmap.ic_launcher_pink,
@@ -44,6 +59,21 @@ open class SimpleActivity : BaseSimpleActivity() {
             if (config.showNotch) {
                 window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             }
+        }
+    }
+
+    protected fun registerFileUpdateListener() {
+        try {
+            contentResolver.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, observer)
+            contentResolver.registerContentObserver(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, true, observer)
+        } catch (ignored: Exception) {
+        }
+    }
+
+    protected fun unregisterFileUpdateListener() {
+        try {
+            contentResolver.unregisterContentObserver(observer)
+        } catch (ignored: Exception) {
         }
     }
 }
