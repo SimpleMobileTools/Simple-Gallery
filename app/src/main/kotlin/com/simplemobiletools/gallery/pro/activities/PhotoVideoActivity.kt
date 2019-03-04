@@ -77,10 +77,12 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         val uri = mUri.toString()
         if (uri.startsWith("content:/") && uri.contains("/storage/")) {
             val guessedPath = uri.substring(uri.indexOf("/storage/"))
-            val extras = intent.extras ?: Bundle()
-            extras.apply {
-                putString(REAL_FILE_PATH, guessedPath)
-                intent.putExtras(this)
+            if (File(guessedPath).exists()) {
+                val extras = intent.extras ?: Bundle()
+                extras.apply {
+                    putString(REAL_FILE_PATH, guessedPath)
+                    intent.putExtras(this)
+                }
             }
         }
 
