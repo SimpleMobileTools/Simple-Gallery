@@ -500,36 +500,39 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             }
         }
 
+        val itemsToDelete = ArrayList<FileDirItem>()
+        val filter = config.filterMedia
+        val showHidden = config.shouldShowHidden
+        fileDirItems.filter { it.isDirectory }.forEach {
+            val files = File(it.path).listFiles()
+            files?.filter {
+                it.absolutePath.isMediaFile() && (showHidden || !it.name.startsWith('.')) &&
+                        ((it.isImageFast() && filter and TYPE_IMAGES != 0) ||
+                                (it.isVideoFast() && filter and TYPE_VIDEOS != 0) ||
+                                (it.isGif() && filter and TYPE_GIFS != 0) ||
+                                (it.isRawFast() && filter and TYPE_RAWS != 0) ||
+                                (it.isSvg() && filter and TYPE_SVGS != 0))
+            }?.mapTo(itemsToDelete) { it.toFileDirItem(this) }
+        }
+
         if (config.useRecycleBin) {
             val pathsToDelete = ArrayList<String>()
-            val filter = config.filterMedia
-            val showHidden = config.shouldShowHidden
-            fileDirItems.filter { it.isDirectory }.forEach {
-                val files = File(it.path).listFiles()
-                files?.filter {
-                    it.absolutePath.isMediaFile() && (showHidden || !it.name.startsWith('.')) &&
-                            ((it.isImageFast() && filter and TYPE_IMAGES != 0) ||
-                                    (it.isVideoFast() && filter and TYPE_VIDEOS != 0) ||
-                                    (it.isGif() && filter and TYPE_GIFS != 0) ||
-                                    (it.isRawFast() && filter and TYPE_RAWS != 0) ||
-                                    (it.isSvg() && filter and TYPE_SVGS != 0))
-                }?.mapTo(pathsToDelete) { it.absolutePath }
-            }
+            itemsToDelete.mapTo(pathsToDelete) { it.path }
 
             movePathsInRecycleBin(pathsToDelete, mMediumDao) {
                 if (it) {
-                    deleteFilteredFolders(fileDirItems, folders)
+                    deleteFilteredFileDirItems(itemsToDelete, folders)
                 } else {
                     toast(R.string.unknown_error_occurred)
                 }
             }
         } else {
-            deleteFilteredFolders(fileDirItems, folders)
+            deleteFilteredFileDirItems(itemsToDelete, folders)
         }
     }
 
-    private fun deleteFilteredFolders(fileDirItems: ArrayList<FileDirItem>, folders: ArrayList<File>) {
-        deleteFolders(fileDirItems) {
+    private fun deleteFilteredFileDirItems(fileDirItems: ArrayList<FileDirItem>, folders: ArrayList<File>) {
+        deleteFiles(fileDirItems) {
             runOnUiThread {
                 refreshItems()
             }
