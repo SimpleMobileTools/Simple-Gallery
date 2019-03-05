@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 6.5.5 *(2019-03-05)*
+----------------------------
+
+ * Improve new file discovery
+ * Fixed some third party intent related glitches
+ * Fixed some issues related to grouping thumbnails
+ * Added a note at Sorting and Grouping dialog to avoid some confusion
+ * Avoid deleting filtered out file types at deleting folders
+
 Version 6.5.4 *(2019-02-28)*
 ----------------------------
 
