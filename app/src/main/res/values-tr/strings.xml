@@ -132,6 +132,7 @@
     <string name="by_date_taken">Çekildiği tarih</string>
     <string name="by_file_type">Dosya türü</string>
     <string name="by_extension">Uzantı</string>
+    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Widget\'ta gösterilen klasör:</string>

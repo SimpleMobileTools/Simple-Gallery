@@ -132,6 +132,7 @@
     <string name="by_date_taken">Datum snimanja</string>
     <string name="by_file_type">Tip datoteke</string>
     <string name="by_extension">Vrsta datoteke</string>
+    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Mapa prikazana na widgetu:</string>

@@ -132,6 +132,7 @@
     <string name="by_date_taken">Data de toma</string>
     <string name="by_file_type">Tipo de fichero</string>
     <string name="by_extension">Extensión</string>
+    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Carpeta mostrada en el widget:</string>

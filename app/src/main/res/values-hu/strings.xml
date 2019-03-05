@@ -133,6 +133,7 @@
     <string name="by_date_taken">Dátum</string>
     <string name="by_file_type">Fájl típus</string>
     <string name="by_extension">Kiterjesztés</string>
+    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Mappa mutatása a widgeten:</string>

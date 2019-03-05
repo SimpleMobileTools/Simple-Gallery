@@ -132,6 +132,7 @@
     <string name="by_date_taken">拍照日期</string>
     <string name="by_file_type">檔案類型</string>
     <string name="by_extension">副檔名</string>
+    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">在小工具顯示資料夾:</string>

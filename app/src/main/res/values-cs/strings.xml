@@ -132,6 +132,7 @@
     <string name="by_date_taken">Data pořízení</string>
     <string name="by_file_type">Typu souboru</string>
     <string name="by_extension">Přípony</string>
+    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Složka zobrazená na widgetu:</string>

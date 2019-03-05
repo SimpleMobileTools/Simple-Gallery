@@ -132,6 +132,7 @@
     <string name="by_date_taken">撮影日時</string>
     <string name="by_file_type">ファイル形式</string>
     <string name="by_extension">拡張子</string>
+    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">ウィジェットに表示するフォルダ:</string>
