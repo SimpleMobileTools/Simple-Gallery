@@ -173,10 +173,10 @@
     <string name="open_videos_on_separate_screen">總是用新的水平手勢在獨立畫面開啟影片</string>
     <string name="show_notch">如果可以，顯示瀏海螢幕</string>
     <string name="allow_rotating_gestures">允許用手勢來旋轉圖片</string>
-    <string name="file_loading_priority">File loading priority</string>
-    <string name="speed">Speed</string>
-    <string name="compromise">Compromise</string>
-    <string name="avoid_showing_invalid_files">Avoid showing invalid files</string>
+    <string name="file_loading_priority">檔案讀取優先權</string>
+    <string name="speed">速度</string>
+    <string name="compromise">折衷</string>
+    <string name="avoid_showing_invalid_files">避免顯示無效的檔案</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">縮圖</string>
