@@ -324,7 +324,16 @@ class MediaFetcher(val context: Context) {
         }
 
         val sortDescending = currentGrouping and GROUP_DESCENDING != 0
-        val sorted = mediumGroups.toSortedMap(if (sortDescending) compareByDescending { it } else compareBy { it })
+        val sorted = if (currentGrouping and GROUP_BY_DATE_TAKEN != 0 || currentGrouping and GROUP_BY_LAST_MODIFIED != 0) {
+            mediumGroups.toSortedMap(if (sortDescending) compareByDescending {
+                it.toLongOrNull() ?: 0L
+            } else {
+                compareBy { it.toLongOrNull() ?: 0L }
+            })
+        } else {
+            mediumGroups.toSortedMap(if (sortDescending) compareByDescending { it } else compareBy { it })
+        }
+
         mediumGroups.clear()
         for ((key, value) in sorted) {
             mediumGroups[key] = value
