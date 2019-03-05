@@ -24,6 +24,7 @@ class ChangeSortingDialog(val activity: BaseSimpleActivity, val isDirectorySorti
         view = activity.layoutInflater.inflate(R.layout.dialog_change_sorting, null).apply {
             use_for_this_folder_divider.beVisibleIf(showFolderCheckbox)
             sorting_dialog_use_for_this_folder.beVisibleIf(showFolderCheckbox)
+            sorting_dialog_bottom_note.beVisibleIf(!isDirectorySorting)
             sorting_dialog_use_for_this_folder.isChecked = config.hasCustomSorting(pathToUse)
         }
 
