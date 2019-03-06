@@ -48,10 +48,9 @@ const val SHOW_EXTENDED_DETAILS = "show_extended_details"
 const val EXTENDED_DETAILS = "extended_details"
 const val HIDE_EXTENDED_DETAILS = "hide_extended_details"
 const val ALLOW_INSTANT_CHANGE = "allow_instant_change"
-const val DO_EXTRA_CHECK = "do_extra_check"
 const val WAS_NEW_APP_SHOWN = "was_new_app_shown_clock"
 const val LAST_FILEPICKER_PATH = "last_filepicker_path"
-const val WAS_OTG_HANDLED = "was_otg_handled"
+const val WAS_OTG_HANDLED = "was_otg_handled_2"
 const val TEMP_SKIP_DELETE_CONFIRMATION = "temp_skip_delete_confirmation"
 const val BOTTOM_ACTIONS = "bottom_actions"
 const val LAST_VIDEO_PATH = "last_video_path"
@@ -75,9 +74,11 @@ const val LAST_EDITOR_CROP_OTHER_ASPECT_RATIO_Y = "last_editor_crop_other_aspect
 const val GROUP_DIRECT_SUBFOLDERS = "group_direct_subfolders"
 const val SHOW_WIDGET_FOLDER_NAME = "show_widget_folder_name"
 const val ALLOW_ONE_TO_ONE_ZOOM = "allow_one_to_one_zoom"
+const val ALLOW_ROTATING_WITH_GESTURES = "allow_rotating_with_gestures"
 const val LAST_EDITOR_DRAW_COLOR = "last_editor_draw_color"
 const val LAST_EDITOR_BRUSH_SIZE = "last_editor_brush_size"
 const val SHOW_NOTCH = "show_notch"
+const val FILE_LOADING_PRIORITY = "file_loading_priority"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"
@@ -124,6 +125,11 @@ const val PICKED_PATHS = "picked_paths"
 const val ROTATE_BY_SYSTEM_SETTING = 0
 const val ROTATE_BY_DEVICE_ROTATION = 1
 const val ROTATE_BY_ASPECT_RATIO = 2
+
+// file loading priority
+const val PRIORITY_SPEED = 0
+const val PRIORITY_COMPROMISE = 1
+const val PRIORITY_VALIDITY = 2
 
 // view types
 const val VIEW_TYPE_GRID = 1
@@ -175,6 +181,7 @@ const val BOTTOM_ACTION_TOGGLE_VISIBILITY = 512
 const val BOTTOM_ACTION_RENAME = 1024
 const val BOTTOM_ACTION_SET_AS = 2048
 const val BOTTOM_ACTION_COPY = 4096
+const val BOTTOM_ACTION_MOVE = 8192
 
 const val DEFAULT_BOTTOM_ACTIONS = BOTTOM_ACTION_TOGGLE_FAVORITE or BOTTOM_ACTION_EDIT or BOTTOM_ACTION_SHARE or BOTTOM_ACTION_DELETE
 

@@ -25,6 +25,7 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.load.resource.bitmap.Rotate
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
@@ -34,12 +35,14 @@ import com.davemorrissey.labs.subscaleview.ImageRegionDecoder
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.PanoramaPhotoActivity
 import com.simplemobiletools.gallery.pro.activities.PhotoActivity
 import com.simplemobiletools.gallery.pro.extensions.*
-import com.simplemobiletools.gallery.pro.helpers.*
+import com.simplemobiletools.gallery.pro.helpers.MEDIUM
+import com.simplemobiletools.gallery.pro.helpers.PATH
+import com.simplemobiletools.gallery.pro.helpers.PicassoDecoder
+import com.simplemobiletools.gallery.pro.helpers.PicassoRegionDecoder
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.svg.SvgSoftwareLayerSetter
 import com.squareup.picasso.Callback
@@ -326,11 +329,11 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun loadGif() {
         try {
-            val pathToLoad = getPathToLoad(mMedium)
-            val source = if (pathToLoad.startsWith("content://") || pathToLoad.startsWith("file://")) {
-                InputSource.UriSource(context!!.contentResolver, Uri.parse(pathToLoad))
+            val path = mMedium.path
+            val source = if (path.startsWith("content://") || path.startsWith("file://")) {
+                InputSource.UriSource(context!!.contentResolver, Uri.parse(path))
             } else {
-                InputSource.FileSource(pathToLoad)
+                InputSource.FileSource(path)
             }
 
             mView.apply {
@@ -361,12 +364,12 @@ class PhotoFragment : ViewPagerFragment() {
                 .fitCenter()
 
         if (mCurrentRotationDegrees != 0) {
-            options.transform(GlideRotateTransformation(mCurrentRotationDegrees))
+            options.transform(Rotate(mCurrentRotationDegrees))
             options.diskCacheStrategy(DiskCacheStrategy.NONE)
         }
 
         Glide.with(context!!)
-                .load(getPathToLoad(mMedium))
+                .load(mMedium.path)
                 .apply(options)
                 .listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
@@ -377,6 +380,7 @@ class PhotoFragment : ViewPagerFragment() {
                     }
 
                     override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+                        mView.gestures_view.controller.settings.isZoomEnabled = mCurrentRotationDegrees != 0 || context?.config?.allowZoomingImages == false
                         if (mIsFragmentVisible && addZoomableView) {
                             scheduleZoomableView()
                         }
@@ -434,15 +438,16 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun addZoomableView() {
         val rotation = degreesForRotation(mImageOrientation)
-        val path = getPathToLoad(mMedium)
         mIsSubsamplingVisible = true
+        val config = context!!.config
+        val showHighestQuality = config.showHighestQuality
 
         val bitmapDecoder = object : DecoderFactory<ImageDecoder> {
-            override fun make() = PicassoDecoder(path, Picasso.get(), rotation)
+            override fun make() = PicassoDecoder(mMedium.path, Picasso.get(), rotation)
         }
 
         val regionDecoder = object : DecoderFactory<ImageRegionDecoder> {
-            override fun make() = PicassoRegionDecoder()
+            override fun make() = PicassoRegionDecoder(showHighestQuality)
         }
 
         var newOrientation = (rotation + mCurrentRotationDegrees) % 360
@@ -450,18 +455,18 @@ class PhotoFragment : ViewPagerFragment() {
             newOrientation += 360
         }
 
-        val config = context!!.config
         mView.subsampling_view.apply {
-            setMaxTileSize(if (config.showHighestQuality) Integer.MAX_VALUE else 4096)
-            setMinimumTileDpi(if (config.showHighestQuality) -1 else getMinTileDpi())
+            setMaxTileSize(if (showHighestQuality) Integer.MAX_VALUE else 4096)
+            setMinimumTileDpi(if (showHighestQuality) -1 else getMinTileDpi())
             background = ColorDrawable(Color.TRANSPARENT)
             bitmapDecoderFactory = bitmapDecoder
             regionDecoderFactory = regionDecoder
             maxScale = 10f
             beVisible()
+            rotationEnabled = config.allowRotatingWithGestures
             isOneToOneZoomEnabled = config.allowOneToOneZoom
             orientation = newOrientation
-            setImage(path)
+            setImage(mMedium.path)
             onImageEventListener = object : SubsamplingScaleImageView.OnImageEventListener {
                 override fun onReady() {
                     background = ColorDrawable(if (config.blackBackground) Color.BLACK else config.backgroundColor)
@@ -514,6 +519,9 @@ class PhotoFragment : ViewPagerFragment() {
         }
 
         mView.panorama_outline.beVisibleIf(mIsPanorama)
+        if (mIsFullscreen) {
+            mView.panorama_outline.alpha = 0f
+        }
     }
 
     private fun getImageOrientation(): Int {
@@ -521,12 +529,20 @@ class PhotoFragment : ViewPagerFragment() {
         var orient = defaultOrientation
 
         try {
-            val pathToLoad = getPathToLoad(mMedium)
-            val exif = android.media.ExifInterface(pathToLoad)
-            orient = exif.getAttributeInt(android.media.ExifInterface.TAG_ORIENTATION, defaultOrientation)
+            val path = mMedium.path
+            orient = if (path.startsWith("content:/")) {
+                val inputStream = context!!.contentResolver.openInputStream(Uri.parse(path))
+                val exif = ExifInterface()
+                exif.readExif(inputStream, ExifInterface.Options.OPTION_ALL)
+                val tag = exif.getTag(ExifInterface.TAG_ORIENTATION)
+                tag?.getValueAsInt(defaultOrientation) ?: defaultOrientation
+            } else {
+                val exif = android.media.ExifInterface(path)
+                exif.getAttributeInt(android.media.ExifInterface.TAG_ORIENTATION, defaultOrientation)
+            }
 
-            if (orient == defaultOrientation || mMedium.path.startsWith(OTG_PATH)) {
-                val uri = if (pathToLoad.startsWith("content:/")) Uri.parse(pathToLoad) else Uri.fromFile(File(pathToLoad))
+            if (orient == defaultOrientation || context!!.isPathOnOTG(mMedium.path)) {
+                val uri = if (path.startsWith("content:/")) Uri.parse(path) else Uri.fromFile(File(path))
                 val inputStream = context!!.contentResolver.openInputStream(uri)
                 val exif2 = ExifInterface()
                 exif2.readExif(inputStream, ExifInterface.Options.OPTION_ALL)
@@ -610,13 +626,19 @@ class PhotoFragment : ViewPagerFragment() {
 
     override fun fullscreenToggled(isFullscreen: Boolean) {
         this.mIsFullscreen = isFullscreen
-        mView.photo_details.apply {
-            if (mStoredShowExtendedDetails && isVisible()) {
-                animate().y(getExtendedDetailsY(height))
+        mView.apply {
+            photo_details.apply {
+                if (mStoredShowExtendedDetails && isVisible()) {
+                    animate().y(getExtendedDetailsY(height))
 
-                if (mStoredHideExtendedDetails) {
-                    animate().alpha(if (isFullscreen) 0f else 1f).start()
+                    if (mStoredHideExtendedDetails) {
+                        animate().alpha(if (isFullscreen) 0f else 1f).start()
+                    }
                 }
+            }
+
+            if (mIsPanorama) {
+                panorama_outline.animate().alpha(if (isFullscreen) 0f else 1f).start()
             }
         }
     }

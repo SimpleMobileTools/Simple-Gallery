@@ -132,6 +132,7 @@
     <string name="by_date_taken">Datum opname</string>
     <string name="by_file_type">Bestandstype</string>
     <string name="by_extension">Extensie</string>
+    <string name="grouping_and_sorting">Groeperen en sorteren zijn twee aparte opties</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Map tonen in de widget:</string>
@@ -163,7 +164,6 @@
     <string name="allow_instant_change">Direct naar vorige/volgende door op de zijkanten van het scherm te tikken</string>
     <string name="allow_deep_zooming_images">Verder inzoomen mogelijk maken</string>
     <string name="hide_extended_details">Uitgebreide informatie niet tonen als de statusbalk is verborgen</string>
-    <string name="do_extra_check">Ongeldige bestanden verbergen</string>
     <string name="show_at_bottom">Enkele actieknoppen onder aan het scherm tonen</string>
     <string name="show_recycle_bin">Prullenbak weergeven in de mapweergave</string>
     <string name="deep_zoomable_images">Afbeeldingen ver inzoomen</string>
@@ -174,6 +174,10 @@
     <string name="open_videos_on_separate_screen">Video\'s altijd in apart scherm met horizontale veeggebaren openen</string>
     <string name="show_notch">Inkeping scherm tonen indien aanwezig</string>
     <string name="allow_rotating_gestures">Afbeeldingen met veeggebaren draaien</string>
+    <string name="file_loading_priority">Prioriteit bij inladen bestanden</string>
+    <string name="speed">Snelheid</string>
+    <string name="compromise">Compromis</string>
+    <string name="avoid_showing_invalid_files">Ongeldige bestanden verbergen</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatuurvoorbeelden</string>

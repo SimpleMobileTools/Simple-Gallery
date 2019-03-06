@@ -132,6 +132,7 @@
     <string name="by_date_taken">Dátumu vytvorenia</string>
     <string name="by_file_type">Typu súboru</string>
     <string name="by_extension">Prípony</string>
+    <string name="grouping_and_sorting">Prosím vedzte, že radenie a zoskupovanie súborov sú 2 nezávislé hodnoty</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Priečinok zobrazený vo widgete:</string>
@@ -163,7 +164,6 @@
     <string name="allow_instant_change">Povoliť instantné prepínanie médií kliknutím na okraj obrazovky</string>
     <string name="allow_deep_zooming_images">Povoliť hlboké približovanie obrázkov</string>
     <string name="hide_extended_details">Skryť rozšírené vlastnosti ak je skrytá stavová lišta</string>
-    <string name="do_extra_check">Predísť zobrazovaniu neplatných súborov dodatočnou kontrolou</string>
     <string name="show_at_bottom">Zobraziť niektoré akčné tlačidlá na spodku obrazovky</string>
     <string name="show_recycle_bin">Zobraziť odpadkový kôš na obrazovke s priečinkami</string>
     <string name="deep_zoomable_images">Hlboko priblížiteľné obrázky</string>
@@ -174,6 +174,10 @@
     <string name="open_videos_on_separate_screen">Vždy otvárať videá na vlastnej obrazovke s novými vodorovnými gestami</string>
     <string name="show_notch">Zobraziť výrez obrazovky, ak je dostupný</string>
     <string name="allow_rotating_gestures">Povoliť otáčanie obrázkov gestami</string>
+    <string name="file_loading_priority">Priorita pri načítavaní súborov</string>
+    <string name="speed">Rýchlosť</string>
+    <string name="compromise">Kompromis</string>
+    <string name="avoid_showing_invalid_files">Nezobrazovať neplatné súbory</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Náhľady</string>

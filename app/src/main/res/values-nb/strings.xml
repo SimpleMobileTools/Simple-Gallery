@@ -132,6 +132,7 @@
     <string name="by_date_taken">Dato tatt</string>
     <string name="by_file_type">Filtype</string>
     <string name="by_extension">Endelse</string>
+    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Mappe vist på modulen:</string>
@@ -163,7 +164,6 @@
     <string name="allow_instant_change">Tillat å skifte media øyeblikkelig ved å trykke på kanten av skjermen</string>
     <string name="allow_deep_zooming_images">Tillat dyp bildezooming</string>
     <string name="hide_extended_details">Skjul utvidede detaljer når statuslinjen er skjult</string>
-    <string name="do_extra_check">Gjør en ekstra sjekk for å unngå visning av ugyldige filer</string>
     <string name="show_at_bottom">Vis noen handlingsknapper nederst på skjermen</string>
     <string name="show_recycle_bin">Vis papirkurven på mappeskjermen</string>
     <string name="deep_zoomable_images">Dyp zoombare bilder</string>
@@ -173,7 +173,11 @@
     <string name="allow_one_to_one_zoom">Tillat å zoome 1:1 med to dobbeltrykk</string>
     <string name="open_videos_on_separate_screen">Åpne alltid videoer på en separat skjerm med nye horisontale bevegelser</string>
     <string name="show_notch">Vis flik hvis tilgjengelig</string>
-    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
+    <string name="allow_rotating_gestures">Tillat rotering av bilder med fingerbevegelser</string>
+    <string name="file_loading_priority">Fillastingsprioritet</string>
+    <string name="speed">Hastighet</string>
+    <string name="compromise">Kompromiss</string>
+    <string name="avoid_showing_invalid_files">Unngå visning av ugyldige filer</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Minibilder</string>

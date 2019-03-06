@@ -26,9 +26,9 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.simplemobiletools.commons.dialogs.ColorPickerDialog
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
+import com.simplemobiletools.commons.helpers.SIDELOADING_TRUE
 import com.simplemobiletools.commons.helpers.isNougatPlus
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.pro.BuildConfig
@@ -93,6 +93,11 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit)
 
+        if (config.appSideloadingStatus == SIDELOADING_TRUE) {
+            showSideloadingDialog()
+            return
+        }
+
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
                 initEditActivity()
@@ -148,7 +153,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         if (intent.extras?.containsKey(REAL_FILE_PATH) == true) {
             val realPath = intent.extras.getString(REAL_FILE_PATH)
             uri = when {
-                realPath.startsWith(OTG_PATH) -> uri
+                isPathOnOTG(realPath) -> uri
                 realPath.startsWith("file:/") -> Uri.parse(realPath)
                 else -> Uri.fromFile(File(realPath))
             }
@@ -766,6 +771,10 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     private fun getNewFilePath(): Pair<String, Boolean> {
         var newPath = applicationContext.getRealPathFromURI(saveUri) ?: ""
+        if (newPath.startsWith("/mnt/")) {
+            newPath = ""
+        }
+
         var shouldAppendFilename = true
         if (newPath.isEmpty()) {
             val filename = applicationContext.getFilenameFromContentUri(saveUri) ?: ""

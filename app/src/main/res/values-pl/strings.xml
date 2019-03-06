@@ -53,7 +53,7 @@
     <string name="excluded_activity_placeholder">Wykluczenie folderów ukryje je tylko w niniejszej aplikacji, w innych aplikacjach będą one wciąż widoczne.\n\nJeśli chcesz je ukryć także w innych aplikacjach, użyj funkcji ukrywania.</string>
     <string name="remove_all">Usuń wszystko</string>
     <string name="remove_all_description">Usunąć wszystkie foldery z listy wykluczonych? Foldery nie zostaną fizycznie usunięte.</string>
-   <string name="hidden_folders">Ukryte foldery</string>
+    <string name="hidden_folders">Ukryte foldery</string>
     <string name="manage_hidden_folders">Zarządzaj ukrytymi folderami</string>
     <string name="hidden_folders_placeholder">Zdaje się, że nie masz żadnych folderów z plikiem \'.nomedia\'.</string>
 
@@ -132,6 +132,7 @@
     <string name="by_date_taken">Daty utworzenia</string>
     <string name="by_file_type">Typu</string>
     <string name="by_extension">Rozszerzenia</string>
+    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Folder wyświetlany na widżecie:</string>
@@ -162,8 +163,9 @@
     <string name="one_finger_zoom">Zezwalaj na powiększanie jednym palcem w widoku pełnoekranowym</string>
     <string name="allow_instant_change">Zezwalaj na natychmiastową zmianę multimediów po kliknięciu boków ekranu</string>
     <string name="allow_deep_zooming_images">Zezwalaj na duże powiększanie obrazów</string>
-    <string name="hide_extended_details">Ukrywaj dodatkowe szczegóły, gdy pasek stanu jest ukryty</string>
-    <string name="do_extra_check">Dodatkowe sprawdzenie w celu uniknięcia pokazywania niewłaściwych plików</string>
+    <string name="hide_extended_details">Ukrywaj dodatkowe szczegóły, gdy pasek stanu jest ukryty</string><![CDATA[
+    
+    ]]>
     <string name="show_at_bottom">Pokazuj niektóre przyciski akcji na dole ekranu</string>
     <string name="show_recycle_bin">Pokazuj kosz w widoku folderów</string>
     <string name="deep_zoomable_images">Duże powiększanie obrazów</string>
@@ -173,7 +175,11 @@
     <string name="allow_one_to_one_zoom">Zezwalaj na powiększanie 1:1 dwoma podwójnymi dotknięciami</string>
     <string name="open_videos_on_separate_screen">Zawsze otwieraj filmy na osobnym ekranie z nowymi poziomymi gestami</string>
     <string name="show_notch">Pokazuj wcięcie (jeśli dostępne)</string>
-    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
+    <string name="allow_rotating_gestures">Zezwalaj na obracanie obrazów gestami</string>
+    <string name="file_loading_priority">File loading priority</string>
+    <string name="speed">Speed</string>
+    <string name="compromise">Compromise</string>
+    <string name="avoid_showing_invalid_files">Avoid showing invalid files</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatury</string>
@@ -194,7 +200,7 @@
     <string name="faq_3_title">Jak sprawić, aby album(y) zawsze pojawiał(y) się na górze?</string>
     <string name="faq_3_text">Przytrzymaj album(y) i wybierz ikonę przypięcia w pasku akcji.</string>
     <string name="faq_4_title">Jak mogę przwijać filmy?</string>
-    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
+    <string name="faq_4_text">Na dwa sposoby: albo przeciągając poziomo palcem po filmie, albo klikając obecny (przewinięcie do tyłu) lub całkowity czas trwania (do przodu).</string>
     <string name="faq_5_title">Jaka jest różnica między ukryciem, a wykluczeniem folderu?</string>
     <string name="faq_5_text">Wykluczenie działa tylko w obrębie niniejszej aplikacji (wszędzie indziej pliki są normalnie widoczne), ukrywanie - w obrębie całego systemu (nie widać ich nigdzie), dodawany jest wtedy do folderu pusty plik \'.nomedia\', który możesz usunąć w dowolnym menedżerze plików.</string>
     <string name="faq_6_title">Dlaczego pokazują mi się foldery z okładkami do piosenek i tym podobne rzeczy?</string>

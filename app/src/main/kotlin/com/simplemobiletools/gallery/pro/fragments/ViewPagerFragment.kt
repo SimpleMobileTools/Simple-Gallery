@@ -4,7 +4,6 @@ import android.provider.MediaStore
 import android.view.MotionEvent
 import androidx.fragment.app.Fragment
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.Medium
@@ -13,11 +12,11 @@ import java.io.File
 abstract class ViewPagerFragment : Fragment() {
     var listener: FragmentListener? = null
 
-    protected var mTouchDownTime = 0L
-    protected var mTouchDownX = 0f
-    protected var mTouchDownY = 0f
-    protected var mCloseDownThreshold = 100f
-    protected var mIgnoreCloseDown = false
+    private var mTouchDownTime = 0L
+    private var mTouchDownX = 0f
+    private var mTouchDownY = 0f
+    private var mCloseDownThreshold = 100f
+    private var mIgnoreCloseDown = false
 
     abstract fun fullscreenToggled(isFullscreen: Boolean)
 
@@ -64,7 +63,7 @@ abstract class ViewPagerFragment : Fragment() {
         }
 
         if (detailsFlag and EXT_DATE_TAKEN != 0) {
-            path.getExifDateTaken(exif).let { if (it.isNotEmpty()) details.appendln(it) }
+            path.getExifDateTaken(exif, context!!).let { if (it.isNotEmpty()) details.appendln(it) }
         }
 
         if (detailsFlag and EXT_CAMERA_MODEL != 0) {
@@ -77,8 +76,6 @@ abstract class ViewPagerFragment : Fragment() {
         return details.toString().trim()
     }
 
-    fun getPathToLoad(medium: Medium) = if (medium.path.startsWith(OTG_PATH)) medium.path.getOTGPublicPath(context!!) else medium.path
-
     private fun getFileLastModified(file: File): String {
         val projection = arrayOf(MediaStore.Images.Media.DATE_MODIFIED)
         val uri = MediaStore.Files.getContentUri("external")
@@ -88,9 +85,9 @@ abstract class ViewPagerFragment : Fragment() {
         cursor?.use {
             return if (cursor.moveToFirst()) {
                 val dateModified = cursor.getLongValue(MediaStore.Images.Media.DATE_MODIFIED) * 1000L
-                dateModified.formatDate()
+                dateModified.formatDate(context!!)
             } else {
-                file.lastModified().formatDate()
+                file.lastModified().formatDate(context!!)
             }
         }
         return ""

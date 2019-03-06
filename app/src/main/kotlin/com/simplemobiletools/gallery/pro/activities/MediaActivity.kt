@@ -23,9 +23,9 @@ import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REQUEST_EDIT_IMAGE
+import com.simplemobiletools.commons.helpers.SORT_BY_RANDOM
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -108,6 +108,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
         if (mShowAll) {
             supportActionBar?.setDisplayHomeAsUpEnabled(false)
+            registerFileUpdateListener()
         }
 
         media_empty_text.setOnClickListener {
@@ -153,10 +154,13 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         media_horizontal_fastscroller.allowBubbleDisplay = config.showInfoBubble
         media_vertical_fastscroller.allowBubbleDisplay = config.showInfoBubble
         media_refresh_layout.isEnabled = config.enablePullToRefresh
-        tryLoadGallery()
         invalidateOptionsMenu()
         media_empty_text_label.setTextColor(config.textColor)
         media_empty_text.setTextColor(getAdjustedPrimaryColor())
+
+        if (mMedia.isEmpty() || config.getFileSorting(mPath) and SORT_BY_RANDOM == 0) {
+            tryLoadGallery()
+        }
     }
 
     override fun onPause() {
@@ -190,6 +194,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         if (config.showAll && !isChangingConfigurations) {
             config.temporarilyShowHidden = false
             config.tempSkipDeleteConfirmation = false
+            unregisterFileUpdateListener()
             GalleryDatabase.destroyInstance()
         }
 
@@ -339,8 +344,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 val dirName = when {
                     mPath == FAVORITES -> getString(R.string.favorites)
                     mPath == RECYCLE_BIN -> getString(R.string.recycle_bin)
-                    mPath == OTG_PATH -> getString(R.string.usb)
-                    mPath.startsWith(OTG_PATH) -> mPath.trimEnd('/').substringAfterLast('/')
+                    mPath == config.OTGPath -> getString(R.string.usb)
                     else -> getHumanizedFilename(mPath)
                 }
                 updateActionBarTitle(if (mShowAll) resources.getString(R.string.all_folders) else dirName)
@@ -415,7 +419,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun checkLastMediaChanged() {
-        if (isDestroyed) {
+        if (isDestroyed || config.getFileSorting(mPath) and SORT_BY_RANDOM != 0) {
             return
         }
 
@@ -547,7 +551,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
     private fun deleteDirectoryIfEmpty() {
         val fileDirItem = FileDirItem(mPath, mPath.getFilenameFromPath(), true)
-        if (config.deleteEmptyFolders && !fileDirItem.isDownloadsFolder() && fileDirItem.isDirectory && fileDirItem.getProperFileCount(applicationContext, true) == 0) {
+        if (config.deleteEmptyFolders && !fileDirItem.isDownloadsFolder() && fileDirItem.isDirectory && fileDirItem.getProperFileCount(true) == 0) {
             tryDeleteFileDirItem(fileDirItem, true, true)
         }
     }

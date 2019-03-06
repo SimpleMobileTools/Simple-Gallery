@@ -132,6 +132,7 @@
     <string name="by_date_taken">Aufnahmedatum</string>
     <string name="by_file_type">Dateityp (Bilder/Videos)</string>
     <string name="by_extension">Dateierweiterung</string>
+    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Ordner, der auf dem Widget angezeigt wird:</string>
@@ -163,7 +164,6 @@
     <string name="allow_instant_change">Beim Tippen auf eine Bildschirmseite sofort zwischen Medien wechseln</string>
     <string name="allow_deep_zooming_images">Starkes Zoomen zulassen</string>
     <string name="hide_extended_details">Dateieigenschaften im Vollbild nicht anzeigen, wenn die Systemleiste versteckt ist</string>
-    <string name="do_extra_check">Zusätzliche Überprüfung, um ungültige Dateien nicht anzuzeigen</string>
     <string name="show_at_bottom">Ausgewählte Funktionen am unteren Bildschirmrand anzeigen</string>
     <string name="show_recycle_bin">Papierkorb auf dem Ordnerbildschirm anzeigen</string>
     <string name="deep_zoomable_images">Stark vergrösserbare Bilder</string>
@@ -174,6 +174,10 @@
     <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
     <string name="show_notch">Show a notch if available</string>
     <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
+    <string name="file_loading_priority">File loading priority</string>
+    <string name="speed">Speed</string>
+    <string name="compromise">Compromise</string>
+    <string name="avoid_showing_invalid_files">Avoid showing invalid files</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Thumbnails</string>

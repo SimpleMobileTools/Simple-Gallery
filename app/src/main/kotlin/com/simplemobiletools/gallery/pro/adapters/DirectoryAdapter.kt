@@ -12,7 +12,6 @@ import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.dialogs.RenameItemsDialog
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.OTG_PATH
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.FastScroller
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -321,20 +320,16 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         val paths = ArrayList<String>()
         val showHidden = activity.config.shouldShowHidden
         getSelectedPaths().forEach {
-            if (it.startsWith(OTG_PATH)) {
-                paths.addAll(getOTGFilePaths(it, showHidden))
-            } else if (it != FAVORITES) {
-                val filter = config.filterMedia
-                File(it).listFiles()?.filter {
-                    !activity.getIsPathDirectory(it.absolutePath) &&
-                            it.absolutePath.isMediaFile() && (showHidden || !it.name.startsWith('.')) &&
-                            ((it.isImageFast() && filter and TYPE_IMAGES != 0) ||
-                                    (it.isVideoFast() && filter and TYPE_VIDEOS != 0) ||
-                                    (it.isGif() && filter and TYPE_GIFS != 0) ||
-                                    (it.isRawFast() && filter and TYPE_RAWS != 0) ||
-                                    (it.isSvg() && filter and TYPE_SVGS != 0))
-                }?.mapTo(paths) { it.absolutePath }
-            }
+            val filter = config.filterMedia
+            File(it).listFiles()?.filter {
+                !File(it.absolutePath).isDirectory &&
+                        it.absolutePath.isMediaFile() && (showHidden || !it.name.startsWith('.')) &&
+                        ((it.isImageFast() && filter and TYPE_IMAGES != 0) ||
+                                (it.isVideoFast() && filter and TYPE_VIDEOS != 0) ||
+                                (it.isGif() && filter and TYPE_GIFS != 0) ||
+                                (it.isRawFast() && filter and TYPE_RAWS != 0) ||
+                                (it.isSvg() && filter and TYPE_SVGS != 0))
+            }?.mapTo(paths) { it.absolutePath }
         }
 
         val fileDirItems = paths.map { FileDirItem(it, it.getFilenameFromPath()) } as ArrayList<FileDirItem>
@@ -343,25 +338,6 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             listener?.refreshItems()
             finishActMode()
         }
-    }
-
-    private fun getOTGFilePaths(path: String, showHidden: Boolean): ArrayList<String> {
-        val paths = ArrayList<String>()
-        val filter = config.filterMedia
-        activity.getOTGFolderChildren(path)?.filter { it.name != null }?.forEach {
-            if (!it.isDirectory &&
-                    it.name!!.isMediaFile() && (showHidden || !it.name!!.startsWith('.')) &&
-                    ((it.name!!.isImageFast() && filter and TYPE_IMAGES != 0) ||
-                            (it.name!!.isVideoFast() && filter and TYPE_VIDEOS != 0) ||
-                            (it.name!!.isGif() && filter and TYPE_GIFS != 0) ||
-                            (it.name!!.isRawFast() && filter and TYPE_RAWS != 0) ||
-                            (it.name!!.isSvg() && filter and TYPE_SVGS != 0))
-            ) {
-                val relativePath = it.uri.path.substringAfterLast("${activity.config.OTGPartition}:")
-                paths.add("$OTG_PATH$relativePath")
-            }
-        }
-        return paths
     }
 
     private fun askConfirmDelete() {

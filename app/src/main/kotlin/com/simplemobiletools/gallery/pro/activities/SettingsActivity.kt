@@ -3,10 +3,7 @@ package com.simplemobiletools.gallery.pro.activities
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import com.simplemobiletools.commons.dialogs.ConfirmationDialog
-import com.simplemobiletools.commons.dialogs.FilePickerDialog
-import com.simplemobiletools.commons.dialogs.RadioGroupDialog
-import com.simplemobiletools.commons.dialogs.SecurityDialog
+import com.simplemobiletools.commons.dialogs.*
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.RadioItem
@@ -38,11 +35,12 @@ class SettingsActivity : SimpleActivity() {
     private fun setupSettingItems() {
         setupCustomizeColors()
         setupUseEnglish()
+        setupChangeDateTimeFormat()
+        setupFileLoadingPriority()
         setupManageIncludedFolders()
         setupManageExcludedFolders()
         setupManageHiddenFolders()
         setupShowHiddenItems()
-        setupDoExtraCheck()
         setupAutoplayVideos()
         setupRememberLastVideo()
         setupLoopVideos()
@@ -61,6 +59,7 @@ class SettingsActivity : SimpleActivity() {
         setupAllowPhotoGestures()
         setupAllowVideoGestures()
         setupAllowDownGesture()
+        setupAllowRotatingWithGestures()
         setupShowNotch()
         setupBottomActions()
         setupThumbnailVideoDuration()
@@ -112,6 +111,33 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
+    private fun setupChangeDateTimeFormat() {
+        settings_change_date_time_format_holder.setOnClickListener {
+            ChangeDateTimeFormatDialog(this) {}
+        }
+    }
+
+    private fun setupFileLoadingPriority() {
+        settings_file_loading_priority.text = getFileLoadingPriorityText()
+        settings_file_loading_priority_holder.setOnClickListener {
+            val items = arrayListOf(
+                    RadioItem(PRIORITY_SPEED, getString(R.string.speed)),
+                    RadioItem(PRIORITY_COMPROMISE, getString(R.string.compromise)),
+                    RadioItem(PRIORITY_VALIDITY, getString(R.string.avoid_showing_invalid_files)))
+
+            RadioGroupDialog(this@SettingsActivity, items, config.fileLoadingPriority) {
+                config.fileLoadingPriority = it as Int
+                settings_file_loading_priority.text = getFileLoadingPriorityText()
+            }
+        }
+    }
+
+    private fun getFileLoadingPriorityText() = getString(when (config.fileLoadingPriority) {
+        PRIORITY_SPEED -> R.string.speed
+        PRIORITY_COMPROMISE -> R.string.compromise
+        else -> R.string.avoid_showing_invalid_files
+    })
+
     private fun setupManageIncludedFolders() {
         settings_manage_included_folders_holder.setOnClickListener {
             startActivity(Intent(this, IncludedFoldersActivity::class.java))
@@ -148,14 +174,6 @@ class SettingsActivity : SimpleActivity() {
     private fun toggleHiddenItems() {
         settings_show_hidden_items.toggle()
         config.showHiddenMedia = settings_show_hidden_items.isChecked
-    }
-
-    private fun setupDoExtraCheck() {
-        settings_do_extra_check.isChecked = config.doExtraCheck
-        settings_do_extra_check_holder.setOnClickListener {
-            settings_do_extra_check.toggle()
-            config.doExtraCheck = settings_do_extra_check.isChecked
-        }
     }
 
     private fun setupAutoplayVideos() {
@@ -349,6 +367,14 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
+    private fun setupAllowRotatingWithGestures() {
+        settings_allow_rotating_with_gestures.isChecked = config.allowRotatingWithGestures
+        settings_allow_rotating_with_gestures_holder.setOnClickListener {
+            settings_allow_rotating_with_gestures.toggle()
+            config.allowRotatingWithGestures = settings_allow_rotating_with_gestures.isChecked
+        }
+    }
+
     private fun setupShowNotch() {
         settings_show_notch_holder.beVisibleIf(isPiePlus())
         settings_show_notch.isChecked = config.showNotch
@@ -401,6 +427,7 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun updateDeepZoomToggleButtons() {
+        settings_allow_rotating_with_gestures_holder.beVisibleIf(config.allowZoomingImages)
         settings_show_highest_quality_holder.beVisibleIf(config.allowZoomingImages)
         settings_allow_one_to_one_zoom_holder.beVisibleIf(config.allowZoomingImages)
     }
@@ -575,10 +602,14 @@ class SettingsActivity : SimpleActivity() {
                 put(APP_ICON_COLOR, config.appIconColor)
                 put(USE_ENGLISH, config.useEnglish)
                 put(WAS_USE_ENGLISH_TOGGLED, config.wasUseEnglishToggled)
+                put(WIDGET_BG_COLOR, config.widgetBgColor)
+                put(WIDGET_TEXT_COLOR, config.widgetTextColor)
+                put(DATE_FORMAT, config.dateFormat)
+                put(USE_24_HOUR_FORMAT, config.use24HourFormat)
                 put(INCLUDED_FOLDERS, TextUtils.join(",", config.includedFolders))
                 put(EXCLUDED_FOLDERS, TextUtils.join(",", config.excludedFolders))
                 put(SHOW_HIDDEN_MEDIA, config.showHiddenMedia)
-                put(DO_EXTRA_CHECK, config.doExtraCheck)
+                put(FILE_LOADING_PRIORITY, config.fileLoadingPriority)
                 put(AUTOPLAY_VIDEOS, config.autoplayVideos)
                 put(REMEMBER_LAST_VIDEO_POSITION, config.rememberLastVideoPosition)
                 put(LAST_VIDEO_PATH, config.lastVideoPath)
@@ -598,6 +629,7 @@ class SettingsActivity : SimpleActivity() {
                 put(ALLOW_INSTANT_CHANGE, config.allowInstantChange)
                 put(ALLOW_PHOTO_GESTURES, config.allowPhotoGestures)
                 put(ALLOW_DOWN_GESTURE, config.allowDownGesture)
+                put(ALLOW_ROTATING_WITH_GESTURES, config.allowRotatingWithGestures)
                 put(SHOW_NOTCH, config.showNotch)
                 put(SCREEN_ROTATION, config.screenRotation)
                 put(ALLOW_ZOOMING_IMAGES, config.allowZoomingImages)
@@ -625,8 +657,6 @@ class SettingsActivity : SimpleActivity() {
                 put(MEDIA_COLUMN_CNT, config.mediaColumnCnt)
                 put(SHOW_ALL, config.showAll)
                 put(SHOW_WIDGET_FOLDER_NAME, config.showWidgetFolderName)
-                put(WIDGET_BG_COLOR, config.widgetBgColor)
-                put(WIDGET_TEXT_COLOR, config.widgetTextColor)
                 put(VIEW_TYPE_FILES, config.viewTypeFiles)
                 put(VIEW_TYPE_FOLDERS, config.viewTypeFolders)
                 put(SLIDESHOW_INTERVAL, config.slideshowInterval)
@@ -695,10 +725,14 @@ class SettingsActivity : SimpleActivity() {
                 }
                 USE_ENGLISH -> config.useEnglish = value.toBoolean()
                 WAS_USE_ENGLISH_TOGGLED -> config.wasUseEnglishToggled = value.toBoolean()
+                WIDGET_BG_COLOR -> config.widgetBgColor = value.toInt()
+                WIDGET_TEXT_COLOR -> config.widgetTextColor = value.toInt()
+                DATE_FORMAT -> config.dateFormat = value.toString()
+                USE_24_HOUR_FORMAT -> config.use24HourFormat = value.toBoolean()
                 INCLUDED_FOLDERS -> config.addIncludedFolders(value.toStringSet())
                 EXCLUDED_FOLDERS -> config.addExcludedFolders(value.toStringSet())
                 SHOW_HIDDEN_MEDIA -> config.showHiddenMedia = value.toBoolean()
-                DO_EXTRA_CHECK -> config.doExtraCheck = value.toBoolean()
+                FILE_LOADING_PRIORITY -> config.fileLoadingPriority = value.toInt()
                 AUTOPLAY_VIDEOS -> config.autoplayVideos = value.toBoolean()
                 REMEMBER_LAST_VIDEO_POSITION -> config.rememberLastVideoPosition = value.toBoolean()
                 LAST_VIDEO_PATH -> config.lastVideoPath = value.toString()
@@ -718,6 +752,7 @@ class SettingsActivity : SimpleActivity() {
                 ALLOW_INSTANT_CHANGE -> config.allowInstantChange = value.toBoolean()
                 ALLOW_PHOTO_GESTURES -> config.allowPhotoGestures = value.toBoolean()
                 ALLOW_DOWN_GESTURE -> config.allowDownGesture = value.toBoolean()
+                ALLOW_ROTATING_WITH_GESTURES -> config.allowRotatingWithGestures = value.toBoolean()
                 SHOW_NOTCH -> config.showNotch = value.toBoolean()
                 SCREEN_ROTATION -> config.screenRotation = value.toInt()
                 ALLOW_ZOOMING_IMAGES -> config.allowZoomingImages = value.toBoolean()
@@ -745,8 +780,6 @@ class SettingsActivity : SimpleActivity() {
                 MEDIA_COLUMN_CNT -> config.mediaColumnCnt = value.toInt()
                 SHOW_ALL -> config.showAll = value.toBoolean()
                 SHOW_WIDGET_FOLDER_NAME -> config.showWidgetFolderName = value.toBoolean()
-                WIDGET_BG_COLOR -> config.widgetBgColor = value.toInt()
-                WIDGET_TEXT_COLOR -> config.widgetTextColor = value.toInt()
                 VIEW_TYPE_FILES -> config.viewTypeFiles = value.toInt()
                 VIEW_TYPE_FOLDERS -> config.viewTypeFolders = value.toInt()
                 SLIDESHOW_INTERVAL -> config.slideshowInterval = value.toInt()

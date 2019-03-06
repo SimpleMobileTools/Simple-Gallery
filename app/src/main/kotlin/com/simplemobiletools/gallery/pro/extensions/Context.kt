@@ -374,16 +374,10 @@ fun Context.getFolderNameFromPath(path: String): String {
     return when (path) {
         internalStoragePath -> getString(R.string.internal)
         sdCardPath -> getString(R.string.sd_card)
-        OTG_PATH -> getString(R.string.usb)
+        otgPath -> getString(R.string.usb)
         FAVORITES -> getString(R.string.favorites)
         RECYCLE_BIN -> getString(R.string.recycle_bin)
-        else -> {
-            if (path.startsWith(OTG_PATH)) {
-                path.trimEnd('/').substringAfterLast('/')
-            } else {
-                path.getFilenameFromPath()
-            }
-        }
+        else -> path.getFilenameFromPath()
     }
 }
 
@@ -431,7 +425,7 @@ fun Context.addTempFolderIfNeeded(dirs: ArrayList<Directory>): ArrayList<Directo
 fun Context.getPathLocation(path: String): Int {
     return when {
         isPathOnSD(path) -> LOCATION_SD
-        path.startsWith(OTG_PATH) -> LOCATION_OTG
+        isPathOnOTG(path) -> LOCATION_OTG
         else -> LOCAITON_INTERNAL
     }
 }
@@ -571,7 +565,7 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
         callback(grouped.clone() as ArrayList<ThumbnailItem>)
 
         val mediaToDelete = ArrayList<Medium>()
-        media.filter { !getDoesFilePathExist(it.path) }.forEach {
+        media.filter { !File(it.path).exists() }.forEach {
             if (it.path.startsWith(recycleBinPath)) {
                 deleteDBPath(mediumDao, it.path)
             } else {
@@ -579,13 +573,18 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
             }
         }
 
-        mediumDao.deleteMedia(*mediaToDelete.toTypedArray())
+        try {
+            if (mediaToDelete.isNotEmpty()) {
+                mediumDao.deleteMedia(*mediaToDelete.toTypedArray())
+            }
+        } catch (ignored: Exception) {
+        }
     }.start()
 }
 
 fun Context.removeInvalidDBDirectories(dirs: ArrayList<Directory>? = null, directoryDao: DirectoryDao = galleryDB.DirectoryDao()) {
     val dirsToCheck = dirs ?: directoryDao.getAll()
-    dirsToCheck.filter { !it.areFavorites() && !it.isRecycleBin() && !getDoesFilePathExist(it.path) && it.path != config.tempFolderPath }.forEach {
+    dirsToCheck.filter { !it.areFavorites() && !it.isRecycleBin() && !File(it.path).exists() && it.path != config.tempFolderPath }.forEach {
         directoryDao.deleteDirPath(it.path)
     }
 }
@@ -593,22 +592,32 @@ fun Context.removeInvalidDBDirectories(dirs: ArrayList<Directory>? = null, direc
 fun Context.updateDBMediaPath(oldPath: String, newPath: String) {
     val newFilename = newPath.getFilenameFromPath()
     val newParentPath = newPath.getParentPath()
-    galleryDB.MediumDao().updateMedium(oldPath, newParentPath, newFilename, newPath)
+    try {
+        galleryDB.MediumDao().updateMedium(oldPath, newParentPath, newFilename, newPath)
+    } catch (ignored: Exception) {
+    }
 }
 
 fun Context.updateDBDirectory(directory: Directory, directoryDao: DirectoryDao) {
     directoryDao.updateDirectory(directory.path, directory.tmb, directory.mediaCnt, directory.modified, directory.taken, directory.size, directory.types)
 }
 
-fun Context.getOTGFolderChildren(path: String) = getDocumentFile(path)?.listFiles()
-
-fun Context.getOTGFolderChildrenNames(path: String) = getOTGFolderChildren(path)?.map { it.name }?.toMutableList()
-
-fun Context.getFavoritePaths() = galleryDB.MediumDao().getFavoritePaths() as ArrayList<String>
+fun Context.getFavoritePaths(): ArrayList<String> {
+    return try {
+        galleryDB.MediumDao().getFavoritePaths() as ArrayList<String>
+    } catch (e: Exception) {
+        ArrayList()
+    }
+}
 
 // remove the "recycle_bin" from the file path prefix, replace it with real bin path /data/user...
 fun Context.getUpdatedDeletedMedia(mediumDao: MediumDao): ArrayList<Medium> {
-    val media = mediumDao.getDeletedMedia() as ArrayList<Medium>
+    val media = try {
+        mediumDao.getDeletedMedia() as ArrayList<Medium>
+    } catch (ignored: Exception) {
+        ArrayList<Medium>()
+    }
+
     media.forEach {
         it.path = File(recycleBinPath, it.path.removePrefix(RECYCLE_BIN)).toString()
     }
@@ -616,7 +625,10 @@ fun Context.getUpdatedDeletedMedia(mediumDao: MediumDao): ArrayList<Medium> {
 }
 
 fun Context.deleteDBPath(mediumDao: MediumDao, path: String) {
-    mediumDao.deleteMediumPath(path.replaceFirst(recycleBinPath, RECYCLE_BIN))
+    try {
+        mediumDao.deleteMediumPath(path.replaceFirst(recycleBinPath, RECYCLE_BIN))
+    } catch (ignored: Exception) {
+    }
 }
 
 fun Context.updateWidgets() {
@@ -685,4 +697,20 @@ fun Context.parseFileChannel(path: String, fc: FileChannel, level: Int, start: L
         }
     } catch (ignored: Exception) {
     }
+}
+
+fun Context.addPathToDB(path: String) {
+    Thread {
+        val type = when {
+            path.isVideoFast() -> TYPE_VIDEOS
+            path.isGif() -> TYPE_GIFS
+            path.isRawFast() -> TYPE_RAWS
+            path.isSvg() -> TYPE_SVGS
+            else -> TYPE_IMAGES
+        }
+
+        val medium = Medium(null, path.getFilenameFromPath(), path, path.getParentPath(), System.currentTimeMillis(), System.currentTimeMillis(),
+                File(path).length(), type, 0, false, 0L)
+        galleryDB.MediumDao().insert(medium)
+    }.start()
 }

@@ -132,6 +132,7 @@
     <string name="by_date_taken">拍摄时间</string>
     <string name="by_file_type">文件类型</string>
     <string name="by_extension">扩展</string>
+    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">要在小部件上显示的文件夹:</string>
@@ -163,7 +164,6 @@
     <string name="allow_instant_change">通过单击屏幕边缘来切换媒体</string>
     <string name="allow_deep_zooming_images">允许深度放大图像</string>
     <string name="hide_extended_details">当状态栏隐藏时隐藏扩展详情</string>
-    <string name="do_extra_check">额外检查以避免显示无效的文件</string>
     <string name="show_at_bottom">显示底栏</string>
     <string name="show_recycle_bin">在文件夹界面显示回收站</string>
     <string name="deep_zoomable_images">深度放大图像</string>
@@ -174,6 +174,10 @@
     <string name="open_videos_on_separate_screen">使用新的水平手势在独立页面播放视频</string>
     <string name="show_notch">显示留海（如果可用）</string>
     <string name="allow_rotating_gestures">允许使用手势旋转图像</string>
+    <string name="file_loading_priority">File loading priority</string>
+    <string name="speed">Speed</string>
+    <string name="compromise">Compromise</string>
+    <string name="avoid_showing_invalid_files">Avoid showing invalid files</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">缩略图</string>

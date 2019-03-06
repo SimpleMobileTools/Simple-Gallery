@@ -109,5 +109,14 @@
             android:paddingBottom="@dimen/activity_margin"
             android:text="@string/use_for_this_folder"/>
 
+        <com.simplemobiletools.commons.views.MyTextView
+            android:id="@+id/grouping_dialog_bottom_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/small_margin"
+            android:paddingEnd="@dimen/medium_margin"
+            android:text="@string/grouping_and_sorting"
+            android:textSize="@dimen/smaller_text_size"/>
+
     </LinearLayout>
 </ScrollView>

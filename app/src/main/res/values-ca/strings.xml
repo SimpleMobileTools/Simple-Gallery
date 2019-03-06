@@ -132,6 +132,7 @@
     <string name="by_date_taken">Data de presa</string>
     <string name="by_file_type">Tipus de fitxer</string>
     <string name="by_extension">Extensió</string>
+    <string name="grouping_and_sorting">Tingueu en compte que l\'agrupació i la classificació són 2 camps independents</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Carpeta que es mostra a l\'estri:</string>
@@ -163,7 +164,6 @@
     <string name="allow_instant_change">Permet canviar els mitjans de manera instantània fent clic als costats de la pantalla</string>
     <string name="allow_deep_zooming_images">Permet imatges de zoom profund</string>
     <string name="hide_extended_details">Amaga els detalls estesos quan la barra d\'estat està amagada</string>
-    <string name="do_extra_check">Fer una verificació addicional per evitar que es mostrin fitxers no vàlids</string>
     <string name="show_at_bottom">Mostra alguns botons d\'acció a la part inferior de la pantalla</string>
     <string name="show_recycle_bin">Mostra la paperera de reciclatge a la pantalla de carpetes</string>
     <string name="deep_zoomable_images">Imatges ampliades a mida</string>
@@ -173,7 +173,11 @@
     <string name="allow_one_to_one_zoom">Permet 1:1 zoom amb dos tocs dobles</string>
     <string name="open_videos_on_separate_screen">Obriu sempre vídeos en una pantalla independent amb nous gestos horitzontals</string>
     <string name="show_notch">Mostra una osca si està disponible</string>
-    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
+    <string name="allow_rotating_gestures">Permet girar imatges amb gestos</string>
+    <string name="file_loading_priority">Prioritat de càrrega d\'arxius</string>
+    <string name="speed">Velocitat</string>
+    <string name="compromise">Compromès</string>
+    <string name="avoid_showing_invalid_files">Eviteu mostrar fitxers no vàlids</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>

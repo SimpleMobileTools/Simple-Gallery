@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.pro.models
 
+import android.content.Context
 import androidx.room.*
 import com.simplemobiletools.commons.extensions.formatDate
 import com.simplemobiletools.commons.extensions.formatSize
@@ -29,12 +30,12 @@ data class Directory(
 
     constructor() : this(null, "", "", "", 0, 0L, 0L, 0L, 0, 0, 0, 0)
 
-    fun getBubbleText(sorting: Int) = when {
+    fun getBubbleText(sorting: Int, context: Context) = when {
         sorting and SORT_BY_NAME != 0 -> name
         sorting and SORT_BY_PATH != 0 -> path
         sorting and SORT_BY_SIZE != 0 -> size.formatSize()
-        sorting and SORT_BY_DATE_MODIFIED != 0 -> modified.formatDate()
-        else -> taken.formatDate()
+        sorting and SORT_BY_DATE_MODIFIED != 0 -> modified.formatDate(context)
+        else -> taken.formatDate(context)
     }
 
     fun areFavorites() = path == FAVORITES

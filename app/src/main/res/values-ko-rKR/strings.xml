@@ -132,6 +132,7 @@
     <string name="by_date_taken">Date taken</string>
     <string name="by_file_type">File type</string>
     <string name="by_extension">Extension</string>
+    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Folder shown on the widget:</string>
@@ -163,7 +164,6 @@
     <string name="allow_instant_change">측면 클릭으로 미디어 즉시변경</string>
     <string name="allow_deep_zooming_images">Allow deep zooming images</string>
     <string name="hide_extended_details">상태 표시 줄이 숨겨져있을 때 확장 된 세부 정보 숨김</string>
-    <string name="do_extra_check">잘못된 파일 표시를 방지하기 위해 추가 검사 수행</string>
     <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
     <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
     <string name="deep_zoomable_images">Deep zoomable images</string>
@@ -174,6 +174,10 @@
     <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
     <string name="show_notch">Show a notch if available</string>
     <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
+    <string name="file_loading_priority">File loading priority</string>
+    <string name="speed">Speed</string>
+    <string name="compromise">Compromise</string>
+    <string name="avoid_showing_invalid_files">Avoid showing invalid files</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">섬네일</string>

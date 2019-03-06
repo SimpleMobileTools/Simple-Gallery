@@ -132,6 +132,7 @@
     <string name="by_date_taken">датою зйомки</string>
     <string name="by_file_type">типом файлу</string>
     <string name="by_extension">розширенням</string>
+    <string name="grouping_and_sorting">Зверніть увагу, що групування і сортування - це два окремих поля</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Тека, що відображається на віджеті:</string>
@@ -163,7 +164,6 @@
     <string name="allow_instant_change">Дозволити миттєво змінювати медіафайл натисканням на сторони екрану</string>
     <string name="allow_deep_zooming_images">Дозволити глибоке масштабування зображень</string>
     <string name="hide_extended_details">Приховати розширені подробиці, коли рядок стану прихований</string>
-    <string name="do_extra_check">Робити додаткову перевірку для запобігання відображенню недійсних файлів</string>
     <string name="show_at_bottom">Показати деякі кнопки дій внизу екрану</string>
     <string name="show_recycle_bin">Показувати \"Кошик\" на головному екрані</string>
     <string name="deep_zoomable_images">Глибокомасштабовані зображення</string>
@@ -172,8 +172,12 @@
     <string name="allow_down_gesture">Дозволити закриття повноекранного перегляду свайпом згори вниз</string>
     <string name="allow_one_to_one_zoom">Дозволити масштабування до 1:1 подвійним тапом</string>
     <string name="open_videos_on_separate_screen">Завжди відкривати відео на окремому екрані з новими горизонтальними жестами</string>
-    <string name="show_notch">Show a notch if available</string>
-    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
+    <string name="show_notch">Показувати мітку, якщо доступна</string>
+    <string name="allow_rotating_gestures">Дозволити обертання зображень жестами</string>
+    <string name="file_loading_priority">Пріоритет завантаження файлів</string>
+    <string name="speed">Швидкість</string>
+    <string name="compromise">Компроміс</string>
+    <string name="avoid_showing_invalid_files">Запобігати показу пошкоджених файлів</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Ескізи</string>

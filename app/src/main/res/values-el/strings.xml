@@ -132,6 +132,7 @@
     <string name="by_date_taken">Ημερομ. λήψης</string>
     <string name="by_file_type">Τύπο αρχείου</string>
     <string name="by_extension">Επέκταση</string>
+    <string name="grouping_and_sorting">Σημειώστε ότι ομαδοποίηση και ταξινόμηση είναι 2 ανεξάρτητα πεδία</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Εμφάνιση φακέλου στο widget:</string>
@@ -163,17 +164,20 @@
     <string name="allow_instant_change">Να επιτρέπεται η άμεση αλλαγή των μέσων με το άγγιγμα στις άκρες της οθόνης</string>
     <string name="allow_deep_zooming_images">Επιτρέπει βαθύ ζουμ στις εικόνες</string>
     <string name="hide_extended_details">Απόκρυψη λεπτομερειών όταν η μπάρα κατάστασης είναι κρυμμένη</string>
-    <string name="do_extra_check">Επιπλέον έλεγχος για την αποφυγή εμφάνισης λανθασμένων αρχείων</string>
     <string name="show_at_bottom">Εμφάνιση μερικών κουμπιών λειτουργιών στο κάτω μέρος της οθόνης</string>
     <string name="show_recycle_bin">Εμφάνιση του κάδου ανακύκλωσης στην οθόνη φακέλων</string>
     <string name="deep_zoomable_images">Βαθιά μεγέθυνση εικόνων</string>
     <string name="show_highest_quality">Εμφάνιση εικόνων με την υψηλότερη δυνατή ποιότητα</string>
     <string name="show_recycle_bin_last">Εμφάνιση του Κάδου ως τελευταίο στοιχείο στην κύρια οθόνη</string>
     <string name="allow_down_gesture">Επιτρέψτε το κλείσιμο προβολής πλήρους οθόνης με χειρονομία προς τα κάτω</string>
-    <string name="allow_one_to_one_zoom">Allow 1:1 μεγένθυση με δύο διπλά χτυπήματα</string>
+    <string name="allow_one_to_one_zoom">Επιτρέπει μεγέθυνση 1:1 με δύο διπλά χτυπήματα</string>
     <string name="open_videos_on_separate_screen">Να ανοίγονται πάντα τα βίντεο σε ξεχωριστή οθόνη με νέες οριζόντιες χειρονομίες</string>
     <string name="show_notch">Εμφάνιση μιας εγκοπής αν διατίθεται</string>
     <string name="allow_rotating_gestures">Επιτρέπει την περιστροφή εικόνων με χειρονομίες</string>
+    <string name="file_loading_priority">Προτεραιότητα φόρτωσης αρχείου</string>
+    <string name="speed">Ταχύτητα</string>
+    <string name="compromise">Συμβιβασμός</string>
+    <string name="avoid_showing_invalid_files">Αποφυγή εμφάνισης μη έγκυρων αρχείων</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Εικονίδια</string>

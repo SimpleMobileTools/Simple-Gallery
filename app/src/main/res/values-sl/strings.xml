@@ -132,6 +132,7 @@
     <string name="by_date_taken">Posneto</string>
     <string name="by_file_type">Tip datoteke</string>
     <string name="by_extension">Končnica</string>
+    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Mapa uporabljena na pripomočku:</string>
@@ -163,7 +164,6 @@
     <string name="allow_instant_change">Dovoli takojšnje spremembe medija s klikanjem na robove zaslona</string>
     <string name="allow_deep_zooming_images">Dovoli globoko povečavo slik</string>
     <string name="hide_extended_details">Skrij razširjene podrobnosti, ko je statusna vrstica skrita</string>
-    <string name="do_extra_check">Dvojna kontrola za izogibanje prikazovanja napačnih datotek</string>
     <string name="show_at_bottom">Prikaži določene akcijske gumbe na dnu zaslona</string>
     <string name="show_recycle_bin">Prikaži Koš na zaslonih map</string>
     <string name="deep_zoomable_images">Globoko povečljive slike</string>
@@ -174,6 +174,10 @@
     <string name="open_videos_on_separate_screen">Vedno odpri videoposnetke na ločenem zaslonu z novimi horizontalnimi gestami</string>
     <string name="show_notch">Show a notch if available</string>
     <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
+    <string name="file_loading_priority">File loading priority</string>
+    <string name="speed">Speed</string>
+    <string name="compromise">Compromise</string>
+    <string name="avoid_showing_invalid_files">Avoid showing invalid files</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>

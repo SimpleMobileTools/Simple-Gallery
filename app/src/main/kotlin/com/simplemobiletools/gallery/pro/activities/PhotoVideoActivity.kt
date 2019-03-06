@@ -14,6 +14,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.IS_FROM_GALLERY
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
+import com.simplemobiletools.commons.helpers.SIDELOADING_TRUE
 import com.simplemobiletools.gallery.pro.BuildConfig
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.*
@@ -39,6 +40,11 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_holder)
+
+        if (config.appSideloadingStatus == SIDELOADING_TRUE) {
+            showSideloadingDialog()
+            return
+        }
 
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
@@ -68,6 +74,18 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
     private fun checkIntent(savedInstanceState: Bundle? = null) {
         mUri = intent.data ?: return
+        val uri = mUri.toString()
+        if (uri.startsWith("content:/") && uri.contains("/storage/")) {
+            val guessedPath = uri.substring(uri.indexOf("/storage/"))
+            if (File(guessedPath).exists()) {
+                val extras = intent.extras ?: Bundle()
+                extras.apply {
+                    putString(REAL_FILE_PATH, guessedPath)
+                    intent.putExtras(this)
+                }
+            }
+        }
+
         var filename = getFilenameFromUri(mUri!!)
         mIsFromGallery = intent.getBooleanExtra(IS_FROM_GALLERY, false)
         if (mIsFromGallery && filename.isVideoFast() && config.openVideosOnSeparateScreen) {
@@ -76,7 +94,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         }
 
         if (intent.extras?.containsKey(REAL_FILE_PATH) == true) {
-            val realPath = intent.extras.getString(REAL_FILE_PATH)
+            val realPath = intent.extras!!.getString(REAL_FILE_PATH)
             if (realPath != null) {
                 if (realPath.getFilenameFromPath().contains('.') || filename.contains('.')) {
                     sendViewPagerIntent(realPath)
@@ -131,6 +149,12 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
         if (config.blackBackground) {
             fragment_holder.background = ColorDrawable(Color.BLACK)
+        }
+
+        if (config.maxBrightness) {
+            val attributes = window.attributes
+            attributes.screenBrightness = 1f
+            window.attributes = attributes
         }
 
         window.decorView.setOnSystemUiVisibilityChangeListener { visibility ->
@@ -245,7 +269,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
     private fun initBottomActionButtons() {
         arrayListOf(bottom_favorite, bottom_delete, bottom_rotate, bottom_properties, bottom_change_orientation, bottom_slideshow, bottom_show_on_map,
-                bottom_toggle_file_visibility, bottom_rename, bottom_copy).forEach {
+                bottom_toggle_file_visibility, bottom_rename, bottom_copy, bottom_move).forEach {
             it.beGone()
         }
 

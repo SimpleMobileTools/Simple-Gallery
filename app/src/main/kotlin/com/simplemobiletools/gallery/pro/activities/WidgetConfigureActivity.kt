@@ -66,12 +66,7 @@ class WidgetConfigureActivity : SimpleActivity() {
 
     private fun initVariables() {
         mBgColor = config.widgetBgColor
-        if (mBgColor == 1) {
-            mBgColor = Color.BLACK
-            mBgAlpha = .2f
-        } else {
-            mBgAlpha = Color.alpha(mBgColor) / 255f
-        }
+        mBgAlpha = Color.alpha(mBgColor) / 255f
 
         mBgColorWithoutTransparency = Color.rgb(Color.red(mBgColor), Color.green(mBgColor), Color.blue(mBgColor))
         config_bg_seekbar.apply {

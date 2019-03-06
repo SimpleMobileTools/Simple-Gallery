@@ -132,6 +132,7 @@
     <string name="by_date_taken">Data de toma</string>
     <string name="by_file_type">Tipo de fichero</string>
     <string name="by_extension">Extensión</string>
+    <string name="grouping_and_sorting">Tenga en cuenta que la agrupación y la clasificación son 2 campos independientes</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Carpeta mostrada en el widget:</string>
@@ -163,7 +164,6 @@
     <string name="allow_instant_change">Permitir el cambio instantáneo de medios haciendo clic en los lados de la pantalla</string>
     <string name="allow_deep_zooming_images">Permitir zoom profundo</string>
     <string name="hide_extended_details">Ocultar detalles ampliados cuando la barra de estado está oculta</string>
-    <string name="do_extra_check">Hacer una comprobación adicional para evitar mostrar archivos inválidos</string>
     <string name="show_at_bottom">Mostrar algunos botones de acción en la parte inferior de la pantalla</string>
     <string name="show_recycle_bin">Mostrar la papelera de reciclaje en la pantalla de carpetas</string>
     <string name="deep_zoomable_images">Imágenes ampliables con zoom</string>
@@ -173,7 +173,11 @@
     <string name="allow_one_to_one_zoom">Permitir zoom 1:1 con dos toques dobles</string>
     <string name="open_videos_on_separate_screen">Siempre abre videos en una pantalla separada con nuevos gestos horizontales</string>
     <string name="show_notch">Mostrar una muesca si está disponible</string>
-    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
+    <string name="allow_rotating_gestures">Permite girar con gestos</string>
+    <string name="file_loading_priority">Prioridad de carga de archivos</string>
+    <string name="speed">Velocidad</string>
+    <string name="compromise">Compromiso</string>
+    <string name="avoid_showing_invalid_files">Evita mostrar archivos inválidos</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>

@@ -132,6 +132,7 @@
     <string name="by_date_taken">Date de prise de vue</string>
     <string name="by_file_type">Type de fichier</string>
     <string name="by_extension">Extension</string>
+    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Dossier affiché sur le widget :</string>
@@ -163,7 +164,6 @@
     <string name="allow_instant_change">Changement instantané de média en appuyant sur les côtés de l\'écran</string>
     <string name="allow_deep_zooming_images">Utiliser le zoom maximal des images</string>
     <string name="hide_extended_details">Ne pas afficher les informations supplémentaires si la barre d\'état est masquée</string>
-    <string name="do_extra_check">Éviter l\'affichage de fichiers non conformes</string>
     <string name="show_at_bottom">Afficher les boutons d\'action</string>
     <string name="show_recycle_bin">Afficher la corbeille en vue \"Dossier\"</string>
     <string name="deep_zoomable_images">Niveau de zoom maximal des images</string>
@@ -174,6 +174,10 @@
     <string name="open_videos_on_separate_screen">Ouvrez toujours les vidéos sur un écran séparé avec de nouveaux gestes horizontaux.</string>
     <string name="show_notch">Afficher un cran si disponible</string>
     <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
+    <string name="file_loading_priority">File loading priority</string>
+    <string name="speed">Speed</string>
+    <string name="compromise">Compromise</string>
+    <string name="avoid_showing_invalid_files">Avoid showing invalid files</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>

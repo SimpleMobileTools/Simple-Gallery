@@ -132,6 +132,7 @@
     <string name="by_date_taken">Dato taget</string>
     <string name="by_file_type">Filtype</string>
     <string name="by_extension">Filudvidelse</string>
+    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Mappe vist på widget:</string>
@@ -163,7 +164,6 @@
     <string name="allow_instant_change">Tillad skift af medie ved klik på skærmens sider</string>
     <string name="allow_deep_zooming_images">Tillad dyb zooming af billeder</string>
     <string name="hide_extended_details">Skjul udvidede oplysninger når statuslinjen er skjult</string>
-    <string name="do_extra_check">Tjek en ekstra gang for at undgå visning af ugyldige filer</string>
     <string name="show_at_bottom">Vis handlingsknapper i bunden af skærmen</string>
     <string name="show_recycle_bin">Vis papirkurven ved mappevisning</string>
     <string name="deep_zoomable_images">Dybt zoombare billeder</string>
@@ -173,7 +173,11 @@
     <string name="allow_one_to_one_zoom">Tillad 1:1 zooming med to dobbelttryk</string>
     <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
     <string name="show_notch">Vis en notch hvis tilgængelig</string>
-    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
+    <string name="allow_rotating_gestures">Tillad roterende billeder med bevægelser</string>
+    <string name="file_loading_priority">Filindlæsnings prioritet</string>
+    <string name="speed">Hastighed</string>
+    <string name="compromise">Kompromis</string>
+    <string name="avoid_showing_invalid_files">Undgå at vise ugyldige filer</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturer</string>

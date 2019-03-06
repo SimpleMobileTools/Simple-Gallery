@@ -1,5 +1,6 @@
 package com.simplemobiletools.gallery.pro.models
 
+import android.content.Context
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
@@ -45,12 +46,12 @@ data class Medium(
 
     fun isHidden() = name.startsWith('.')
 
-    fun getBubbleText(sorting: Int) = when {
+    fun getBubbleText(sorting: Int, context: Context) = when {
         sorting and SORT_BY_NAME != 0 -> name
         sorting and SORT_BY_PATH != 0 -> path
         sorting and SORT_BY_SIZE != 0 -> size.formatSize()
-        sorting and SORT_BY_DATE_MODIFIED != 0 -> modified.formatDate()
-        else -> taken.formatDate()
+        sorting and SORT_BY_DATE_MODIFIED != 0 -> modified.formatDate(context)
+        else -> taken.formatDate(context)
     }
 
     fun getGroupingKey(groupBy: Int): String {

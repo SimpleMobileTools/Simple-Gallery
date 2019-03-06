@@ -14,6 +14,10 @@
     <uses-sdk
         tools:overrideLibrary="com.google.vr.widgets.common, com.google.vr.sdk.widgets.pano"/>
 
+    <uses-feature
+        android:name="android.hardware.faketouch"
+        android:required="false"/>
+
     <application
         android:name=".App"
         android:allowBackup="true"

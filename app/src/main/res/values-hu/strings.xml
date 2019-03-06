@@ -133,6 +133,7 @@
     <string name="by_date_taken">Dátum</string>
     <string name="by_file_type">Fájl típus</string>
     <string name="by_extension">Kiterjesztés</string>
+    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Mappa mutatása a widgeten:</string>
@@ -164,7 +165,6 @@
     <string name="allow_instant_change">Engedélyezi a azonnali média váltást a képernyő oldalára kattintva</string>
     <string name="allow_deep_zooming_images">Engedélyezi a képek mély nagyítását</string>
     <string name="hide_extended_details">Bővített részletek elrejtése az állapotsor rejtett állapotában</string>
-    <string name="do_extra_check">Végezzen extra ellenőrzést, hogy elkerülje az érvénytelen fájlok mutatását</string>
     <string name="show_at_bottom">Mutassa a művelet gombokat a képernyő alján</string>
     <string name="show_recycle_bin">Mutassa a Lomtárat a mappák képernyőjén</string>
     <string name="deep_zoomable_images">Mély nagyítású képek</string>
@@ -175,6 +175,10 @@
     <string name="open_videos_on_separate_screen">Mindig külön képernyőn nyissa meg a videókat új vízszintes mozdulattal</string>
     <string name="show_notch">Notch mutatása, ha elérhető</string>
     <string name="allow_rotating_gestures">Engedélyezi a kép forgatását gesztusokkal</string>
+    <string name="file_loading_priority">Fájl betöltés prioritása</string>
+    <string name="speed">Gyors</string>
+    <string name="compromise">Kiegyensúlyozott</string>
+    <string name="avoid_showing_invalid_files">Kerülje az érvénytelen fájlok mutatását</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatűrök</string>

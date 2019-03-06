@@ -1,6 +1,42 @@
 Changelog
 ==========
 
+Version 6.5.5 *(2019-03-05)*
+----------------------------
+
+ * Improve new file discovery
+ * Fixed some third party intent related glitches
+ * Fixed some issues related to grouping thumbnails
+ * Added a note at Sorting and Grouping dialog to avoid some confusion
+ * Avoid deleting filtered out file types at deleting folders
+
+Version 6.5.4 *(2019-02-28)*
+----------------------------
+
+ * Allow customizing file loading priority
+ * Fixed the handling of some image picker intents
+ * Speeded up renaming files on SD cards
+ * Added some file loading performance improvements
+ * Some stability improvements
+
+Version 6.5.3 *(2019-02-22)*
+----------------------------
+
+ * Added main screen menu buttons for fast Recycle Bin showing/hiding
+ * Added a new setting item for changing date and time format
+ * Do not shuffle images with Random sorting that often
+ * Fixed some glitches related to file rename, delete, move
+ * Added many smaller bugfixes and UX improvements
+
+Version 6.5.2 *(2019-02-16)*
+----------------------------
+
+ * Added an option to disable rotating fullscreen images with gestures
+ * Improved OTG usb device handling
+ * Fixed Grouping by date taken
+ * Improved the performance at deleting files from the fullscreen view
+ * Some stability improvements
+
 Version 6.5.1 *(2019-02-11)*
 ----------------------------
 

@@ -4,5 +4,5 @@
     <dimen name="medium_tmb_size">120dp</dimen>
     <dimen name="sd_card_icon_size">30dp</dimen>
     <dimen name="selection_check_size">38dp</dimen>
-    <dimen name="tmb_shadow_height">60dp</dimen>
+    <dimen name="tmb_shadow_height">70dp</dimen>
 </resources>

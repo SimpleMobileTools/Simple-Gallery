@@ -153,6 +153,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_rotate).isVisible = currentMedium.isImage() && visibleBottomActions and BOTTOM_ACTION_ROTATE == 0
             findItem(R.id.menu_set_as).isVisible = visibleBottomActions and BOTTOM_ACTION_SET_AS == 0
             findItem(R.id.menu_copy_to).isVisible = visibleBottomActions and BOTTOM_ACTION_COPY == 0
+            findItem(R.id.menu_move_to).isVisible = visibleBottomActions and BOTTOM_ACTION_MOVE == 0
             findItem(R.id.menu_save_as).isVisible = rotationDegrees != 0
             findItem(R.id.menu_hide).isVisible = !currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0 && !currentMedium.getIsInRecycleBin()
             findItem(R.id.menu_unhide).isVisible = currentMedium.isHidden() && visibleBottomActions and BOTTOM_ACTION_TOGGLE_VISIBILITY == 0 && !currentMedium.getIsInRecycleBin()
@@ -243,7 +244,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             return
         }
 
-        if (!getDoesFilePathExist(mPath)) {
+        if (!File(mPath).exists()) {
             finish()
             return
         }
@@ -266,9 +267,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             isShowingFavorites -> FAVORITES
             isShowingRecycleBin -> RECYCLE_BIN
             else -> mPath.getParentPath()
-        }
-        if (mDirectory.startsWith(OTG_PATH.trimEnd('/'))) {
-            mDirectory += "/"
         }
         supportActionBar?.title = mPath.getFilenameFromPath()
 
@@ -587,11 +585,12 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun saveImageAs() {
         val currPath = getCurrentPath()
         SaveAsDialog(this, currPath, false) {
+            val newPath = it
             handleSAFDialog(it) {
                 toast(R.string.saving)
                 Thread {
                     val photoFragment = getCurrentPhotoFragment() ?: return@Thread
-                    saveRotatedImageToFile(currPath, it, photoFragment.mCurrentRotationDegrees, true) {
+                    saveRotatedImageToFile(currPath, newPath, photoFragment.mCurrentRotationDegrees, true) {
                         toast(R.string.file_saved)
                         getCurrentPhotoFragment()?.mCurrentRotationDegrees = 0
                         invalidateOptionsMenu()
@@ -779,6 +778,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         bottom_copy.setOnClickListener {
             copyMoveTo(true)
         }
+
+        bottom_move.beVisibleIf(visibleBottomActions and BOTTOM_ACTION_MOVE != 0)
+        bottom_move.setOnClickListener {
+            moveFileTo()
+        }
     }
 
     private fun updateBottomActionIcons(medium: Medium?) {
@@ -867,7 +871,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun deleteConfirmed() {
         val path = getCurrentMedia().getOrNull(mPos)?.path ?: return
-        if (getIsPathDirectory(path) || !path.isMediaFile()) {
+        if (File(path).isDirectory || !path.isMediaFile()) {
             return
         }
 
@@ -959,8 +963,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun deleteDirectoryIfEmpty() {
-        val fileDirItem = FileDirItem(mDirectory, mDirectory.getFilenameFromPath(), getIsPathDirectory(mDirectory))
-        if (config.deleteEmptyFolders && !fileDirItem.isDownloadsFolder() && fileDirItem.isDirectory && fileDirItem.getProperFileCount(applicationContext, true) == 0) {
+        val fileDirItem = FileDirItem(mDirectory, mDirectory.getFilenameFromPath(), File(mDirectory).isDirectory)
+        if (config.deleteEmptyFolders && !fileDirItem.isDownloadsFolder() && fileDirItem.isDirectory && fileDirItem.getProperFileCount(true) == 0) {
             tryDeleteFileDirItem(fileDirItem, true, true)
         }
 
