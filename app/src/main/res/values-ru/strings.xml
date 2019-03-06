@@ -132,7 +132,7 @@
     <string name="by_date_taken">Дата съёмки</string>
     <string name="by_file_type">Тип файла</string>
     <string name="by_extension">Расширение</string>
-    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
+    <string name="grouping_and_sorting">Обратите внимание, что группировка и сортировка — это два независимых поля</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Папка, отображаемая в виджете:</string>
@@ -174,10 +174,10 @@
     <string name="open_videos_on_separate_screen">Воспроизводить видео на отдельном экране с управлением позицией горизонтальными жестами</string>
     <string name="show_notch">Показывать метку при наличии</string>
     <string name="allow_rotating_gestures">Поворачивать изображения жестами</string>
-    <string name="file_loading_priority">File loading priority</string>
-    <string name="speed">Speed</string>
-    <string name="compromise">Compromise</string>
-    <string name="avoid_showing_invalid_files">Avoid showing invalid files</string>
+    <string name="file_loading_priority">Приоритет загрузки файла</string>
+    <string name="speed">Скорость</string>
+    <string name="compromise">Компромисс</string>
+    <string name="avoid_showing_invalid_files">Пропускать некорректные файлы</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюры</string>
