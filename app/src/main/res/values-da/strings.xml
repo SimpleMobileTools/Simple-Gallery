@@ -132,7 +132,7 @@
     <string name="by_date_taken">Dato taget</string>
     <string name="by_file_type">Filtype</string>
     <string name="by_extension">Filudvidelse</string>
-    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
+    <string name="grouping_and_sorting">Vær opmærksom på at gruppering og sortering er to individuelle felter</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Mappe vist på widget:</string>
