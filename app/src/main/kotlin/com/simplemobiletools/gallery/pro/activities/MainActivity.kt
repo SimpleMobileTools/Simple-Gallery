@@ -400,10 +400,26 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }.start()
     }
 
+    private fun checkDefaultSpamFolders() {
+        if (!config.spamFoldersChecked) {
+            val spamFolders = arrayListOf(
+                    "/storage/emulated/0/Android/data/com.facebook.orca/files/stickers"
+            )
+
+            spamFolders.forEach {
+                if (File(it).exists()) {
+                    config.addExcludedFolder(it)
+                }
+            }
+            config.spamFoldersChecked = true
+        }
+    }
+
     private fun tryLoadGallery() {
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
                 checkOTGPath()
+                checkDefaultSpamFolders()
 
                 if (config.showAll) {
                     showAllMedia()

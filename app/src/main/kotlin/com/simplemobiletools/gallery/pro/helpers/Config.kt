@@ -471,4 +471,8 @@ class Config(context: Context) : BaseConfig(context) {
     var showNotch: Boolean
         get() = prefs.getBoolean(SHOW_NOTCH, true)
         set(showNotch) = prefs.edit().putBoolean(SHOW_NOTCH, showNotch).apply()
+
+    var spamFoldersChecked: Boolean
+        get() = prefs.getBoolean(SPAM_FOLDERS_CHECKED, false)
+        set(spamFoldersChecked) = prefs.edit().putBoolean(SPAM_FOLDERS_CHECKED, spamFoldersChecked).apply()
 }
