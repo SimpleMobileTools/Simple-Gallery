@@ -263,6 +263,11 @@
                 android:resource="@xml/widget_info"/>
         </receiver>
 
+        <service
+            android:name=".jobs.NewPhotoFetcher"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+
         <activity-alias
             android:name=".activities.SplashActivity.Red"
             android:enabled="false"

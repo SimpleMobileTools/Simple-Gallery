@@ -37,6 +37,7 @@ import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.interfaces.DirectoryDao
 import com.simplemobiletools.gallery.pro.interfaces.DirectoryOperationsListener
 import com.simplemobiletools.gallery.pro.interfaces.MediumDao
+import com.simplemobiletools.gallery.pro.jobs.NewPhotoFetcher
 import com.simplemobiletools.gallery.pro.models.AlbumCover
 import com.simplemobiletools.gallery.pro.models.Directory
 import com.simplemobiletools.gallery.pro.models.Medium
@@ -99,6 +100,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             config.tempSkipDeleteConfirmation = false
             removeTempFolder()
             checkRecycleBinItems()
+            startNewPhotoFetcher()
         }
 
         mIsPickImageIntent = isPickImageIntent(intent)
@@ -363,6 +365,13 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 return true
             }
         })
+    }
+
+    private fun startNewPhotoFetcher() {
+        val photoFetcher = NewPhotoFetcher()
+        if (isNougatPlus() && !photoFetcher.isScheduled(applicationContext)) {
+            photoFetcher.scheduleJob(applicationContext)
+        }
     }
 
     private fun removeTempFolder() {
