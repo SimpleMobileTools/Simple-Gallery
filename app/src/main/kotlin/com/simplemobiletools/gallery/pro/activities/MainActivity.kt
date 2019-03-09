@@ -899,16 +899,16 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     }
                 }
             }
-        } catch (ignored: Exception) {
-        }
 
-        if (dirPathsToRemove.isNotEmpty()) {
-            val dirsToRemove = dirs.filter { dirPathsToRemove.contains(it.path) }
-            dirsToRemove.forEach {
-                mDirectoryDao.deleteDirPath(it.path)
+            if (dirPathsToRemove.isNotEmpty()) {
+                val dirsToRemove = dirs.filter { dirPathsToRemove.contains(it.path) }
+                dirsToRemove.forEach {
+                    mDirectoryDao.deleteDirPath(it.path)
+                }
+                dirs.removeAll(dirsToRemove)
+                setupAdapter(dirs)
             }
-            dirs.removeAll(dirsToRemove)
-            setupAdapter(dirs)
+        } catch (ignored: Exception) {
         }
 
         val foldersToScan = mediaFetcher.getFoldersToScan()
