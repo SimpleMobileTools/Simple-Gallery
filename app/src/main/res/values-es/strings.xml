@@ -222,33 +222,59 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Una galería senzilla, sin anuncios y respetando su privacidad.</string>
+    <string name="app_short_description">Offline gallery without ads. Organize, edit, recover and protect photos &amp; videos</string>
     <string name="app_long_description">
-        Una galería altamente personalizable capaz de mostrar diferentes tipos de imágenes y videos, incluyendo SVG, RAW, fotos panorámicas y videos.
+        Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
 
-        Es de código abierto, no contiene anuncios o permisos innecesarios.
+        The app contains no ads and unnecessary permissions. As the app doesn’t require internet access either, your privacy is protected.
 
-        Vamos a enumerar algunas de sus características que vale la pena mencionar:
-        1. Buscar
-        2. Presentación de diapositivas
-        3. Soporte de muesca
-        4. Fijado de carpetas en la parte superior.
-        5. Filtrado de archivos multimedia por tipo
-        6. Papelera de reciclaje para una fácil recuperación de archivos
-        7. Bloqueo de orientación de vista de pantalla completa
-        8. Marcar los archivos favoritos para facilitar el acceso
-        9. Cierre rápido de medios a pantalla completa con gesto hacia abajo.
-        10. Un editor para modificar imágenes y aplicar filtros.
-        11. Protección de contraseña para proteger elementos ocultos o la aplicación completa
-        12. Cambiar el número de la columna de miniaturas con gestos o botones de menú
-        13. Acciones inferiores personalizables en la vista de pantalla completa para un acceso rápido
-        14. Mostrar detalles extendidos en medios de pantalla completa con las propiedades de archivo deseadas
-        15. Varias formas diferentes de clasificar o agrupar elementos, tanto ascendentes como descendentes
-        16. Ocultar carpetas (afecta también a otras aplicaciones), excluyendo carpetas (afecta solo a Simple Gallery)
+        -------------------------------------------------
+        <b>SIMPLE GALLERY PRO – FEATURES</b>
+        -------------------------------------------------
 
-        El permiso de huella digital es necesario para bloquear la visibilidad de los elementos ocultos, la aplicación completa o proteger los archivos para evitar que se eliminen.
+        • Offline gallery with no ads or popups
+        • Simple gallery photo editor – crop, rotate, resize, draw, filters &amp; more
+        • No internet access needed, giving you more privacy and security
+        • No unnecessary permissions required
+        • Quickly search images, videos &amp; files
+        • Open &amp; view many different photo and video types (RAW, SVG, panoramic etc)
+        • A variety of intuitive gestures to easily edit &amp; organize files
+        • Lots of ways to filter, group &amp; sort files
+        • Customize the appearance of Simple Gallery Pro
+        • Available in 32 languages
+        • Mark files as favorites for quick access
+        • Protect your photos &amp; videos with a pattern, pin or fingerprint
+        • Use pin, pattern &amp; fingerprint to protect the app launch or specific functions too
+        • Recover deleted photos &amp; videos from the recycle bin
+        • Toggle visibility of files to hide photos &amp; videos
+        • Create a customizable slideshow of your files
+        • View detailed information of your files (resolution, EXIF values etc)
+        • Simple Gallery Pro is open source
+        … and much much more!
 
-        Esta aplicación es solo una parte de una serie más grande de aplicaciones. Puede encontrar el resto de ellos en https://www.simplemobiletools.com
+        <b>PHOTO GALLERY EDITOR</b>
+        Simple Gallery Pro makes it easy to edit your pictures on the fly. Crop, flip, rotate and resize your pictures. If you’re feeling a little more creative you can add filters and draw on your pictures!
+
+        <b>SUPPORT FOR MANY FILE TYPES</b>
+        Unlike some other gallery viewers &amp; photo organizers, Simple Gallery Pro supports a huge range of different file types including JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic photos, Panoramic videos and many more.
+
+        <b>HIGHLY CUSTOMIZABLE GALLERY MANAGER</b>
+        From the UI to the function buttons on the bottom toolbar, Simple Gallery Pro is highly customizable and works the way you want it to. No other gallery manager has this kind of flexibility! Thanks to being open source, we’re also available in 32 languages!
+
+        <b>RECOVER DELETED PHOTOS &amp; VIDEOS</b>
+        Accidentally deleted a precious photo or video? Don’t worry! Simple Gallery Pro features a handy recycle bin where you can recover deleted photos &amp; videos easily.
+
+        <b>PROTECT &amp; HIDE PHOTOS, VIDEOS &amp; FILES</b>
+        Using pin, pattern or your device’s fingerprint scanner you can protect and hide photos, videos &amp; entire albums. You can protect the app itself or place locks on specific functions of the app. For example, you can’t delete a file without a fingerprint scan, helping to protect your files from accidental deletion.
+
+        <b>Check out the full suite of Simple Tools here:</b>
+        https://www.simplemobiletools.com
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
     </string>
 
     <!--
