@@ -222,7 +222,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Μια Offline gallery χωρίς διαφημίσεις. Οργανώστε, επεξεργαστείτε, ανακτήστε και προστατέψτε τις φωτογραφίες και Βίντεο</string>
+    <string name="app_short_description">Μια Offline gallery χωρίς διαφ/σεις. Επεξεργασία ανάκτηση προστασία Φωτό-Βίντεο</string>
     <string name="app_long_description">
         Η Simple Gallery Pro είναι εκτός σύνδεσης και εξαιρετικά προσαρμόσιμη. Οργανώστε και επεξεργαστείτε τις φωτογραφίες σας, ανακτήσετε διαγραμμένα αρχεία απο τον κάδο ανακύκλωσης, προστατεύσετε και αποκρύψτε αρχεία, προβάλετε πλήθος διαφορετικών φωτογραφιών και μορφών βίντεο, συμπεριλαμβανομένων των RAW, SVG και πολλών άλλων.
 
