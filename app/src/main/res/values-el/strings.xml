@@ -191,7 +191,7 @@
     <string name="toggle_file_visibility">Εναλλαγή προβολής αρχείου</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">Πώς μπορώ να κάνω το Simple Gallery προκαθορισμένη εφαρμογή συλλογής πολυμέσων;</string>
+    <string name="faq_1_title">Πώς μπορώ να κάνω το Simple Gallery προεπιλεγμένη εφαρμογή συλλογής πολυμέσων;</string>
     <string name="faq_1_text">Αρχικά πρέπει να βρείτε την τρέχουσα προεπιλεγμένη εφαρμογή γκάλερι στις Ρυθμίσεις (τμήμα Εφαρμογών) της συσκευής. Αναζητήστε για ένα κουμπί που αναφέρει κάτι σαν \"Άνοιγμα με προεπιλογή\", πατήστε το, μετά επιλέξτε \"Καθαρισμός προεπιλεγμένων\".
         Την επόμενη φορά που θα προσπαθήσετε να ανοίξετε μία εικόνα ή ένα βίντεο θα πρέπει να δείτε έναν διάλογο επιλογής εφαρμογών, όπου μπορείτε να επιλέξετε Simple Gallery να το κάνετε προεπιλεγμένη εφαρμογή.</string>
     <string name="faq_2_title">Κλείδωσα την εφαρμογή με κωδικό, αλλά τον ξέχασα. Τι μπορώ να κάνω;</string>
@@ -222,52 +222,52 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Offline gallery without ads. Organize, edit, recover and protect photos &amp; videos</string>
+    <string name="app_short_description">Μια Offline gallery χωρίς διαφημίσεις. Οργανώστε, επεξεργαστείτε, ανακτήστε και προστατέψτε τις φωτογραφίες και Βίντεο</string>
     <string name="app_long_description">
-        Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
+        Η Simple Gallery Pro είναι εκτός σύνδεσης και εξαιρετικά προσαρμόσιμη. Οργανώστε και επεξεργαστείτε τις φωτογραφίες σας, ανακτήσετε διαγραμμένα αρχεία απο τον κάδο ανακύκλωσης, προστατεύσετε και αποκρύψτε αρχεία, προβάλετε πλήθος διαφορετικών φωτογραφιών και μορφών βίντεο, συμπεριλαμβανομένων των RAW, SVG και πολλών άλλων.
 
-        The app contains no ads and unnecessary permissions. As the app doesn’t require internet access either, your privacy is protected.
+        Η εφαρμογή δεν περιέχει διαφημίσεις και περιττά δικαιώματα. Εφόσον δεν απαιτεί πρόσβαση στο διαδίκτυο, έτσι προστατεύεται το απόρρητό σας.
 
         -------------------------------------------------
-        <b>SIMPLE GALLERY PRO – FEATURES</b>
+        <b>ΧΑΡΑΚΤΗΡΙΣΤΙΚΑ-SIMPLE GALLERY PRO</b>
         -------------------------------------------------
 
-        • Offline gallery with no ads or popups
-        • Simple gallery photo editor – crop, rotate, resize, draw, filters &amp; more
-        • No internet access needed, giving you more privacy and security
-        • No unnecessary permissions required
-        • Quickly search images, videos &amp; files
-        • Open &amp; view many different photo and video types (RAW, SVG, panoramic etc)
-        • A variety of intuitive gestures to easily edit &amp; organize files
-        • Lots of ways to filter, group &amp; sort files
-        • Customize the appearance of Simple Gallery Pro
-        • Available in 32 languages
-        • Mark files as favorites for quick access
-        • Protect your photos &amp; videos with a pattern, pin or fingerprint
-        • Use pin, pattern &amp; fingerprint to protect the app launch or specific functions too
-        • Recover deleted photos &amp; videos from the recycle bin
-        • Toggle visibility of files to hide photos &amp; videos
-        • Create a customizable slideshow of your files
-        • View detailed information of your files (resolution, EXIF values etc)
-        • Simple Gallery Pro is open source
-        … and much much more!
+        • Εκτός σύνδεσης χωρίς διαφημίσεις ή αναδυόμενα παράθυρα
+        • Simple gallery photo editor – κόψιμο, περιστροφή, αλλαγή μεγέθους, σχεδίαση, φίλτρα και άλλα
+        • Δεν απαιτείται πρόσβαση στο διαδίκτυο, παρέχοντας μεγαλύτερη προστασία της ιδιωτικής ζωής και ασφάλειας
+        • Δεν απαιτούνται περιττά δικαιώματα
+        • Γρήγορη αναζήτηση εικόνων, βίντεο και αρχείων
+        • Άνοιγμα και προβολή πολλών διαφορετικών τύπων φωτογραφιών και βίντεο (RAW, SVG, πανοραμική κλπ)
+        • Μια ποικιλία διαισθητικών χειρονομιών για εύκολη επεξεργασία και οργάνωση αρχείων
+        • Πολλοί τρόποι για φιλτράρισμα, ομαδοποίησης και ταξινόμησης αρχείων
+        • Προσαρμογή εμφάνισης του Simple Gallery Pro
+        • Διατίθεται σε 32 γλώσσες
+        • Σημειώστε τα αρχεία ως αγαπημένα για γρήγορη πρόσβαση
+        • Προστατέψτε τις φωτογραφίες σας και βίντεο με μοτίβο, κωδικό ή δακτυλικό αποτύπωμα
+        • Χρησιμοποιήστε κωδικό, μοτίβο ή δακτυλικό αποτύπωμα για προστασία έναρξης της εφαρμογής ή συγκεκριμένων λειτουργιών
+        • Επαναφορά διαγραμμένων φωτογραφιών και βίντεο από τον κάδο ανακύκλωσης
+        • Εναλλαγή προβολής αρχείων για απόκρυψη φωτογραφιών και Βίντεο
+        • Δημιουργήστε μια προσαρμόσιμη παρουσίαση των αρχείων σας
+        • Δείτε λεπτομερείς πληροφορίες των αρχείων σας (ανάλυση, τιμές EXIF κλπ.)
+        • Η Simple Gallery Pro είναι ανοικτού κώδικα
+        … και πάρα πολλά ακόμα!
 
-        <b>PHOTO GALLERY EDITOR</b>
-        Simple Gallery Pro makes it easy to edit your pictures on the fly. Crop, flip, rotate and resize your pictures. If you’re feeling a little more creative you can add filters and draw on your pictures!
+        <b>ΕΞΕΡΓΑΣΤΗΣ PHOTO GALLERY</b>
+        Η Simple Gallery Pro σας διευκολύνει να επεξεργαστείτε τις φωτογραφίες σας άμεσα. Περικοπή, αναστροφή, περιστροφή και αλλαγή μεγέθους των εικόνων σας. Εάν αισθάνεστε λίγο πιο δημιουργικοί, μπορείτε να προσθέσετε φίλτρα και σχεδίαση στις φωτογραφίες σας!
 
-        <b>SUPPORT FOR MANY FILE TYPES</b>
-        Unlike some other gallery viewers &amp; photo organizers, Simple Gallery Pro supports a huge range of different file types including JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic photos, Panoramic videos and many more.
+        <b>ΥΠΟΣΤΗΡΙΞΗ ΠΟΛΛΩΝ ΤΥΠΩΝ ΑΡΧΕΙΩΝ</b>
+        Σε αντίθεση με κάποιες άλλες εφαρμογές η Simple Gallery Pro υποστηρίζει ένα τεράστιο φάσμα διαφορετικών τύπων αρχείων, όπως JPEG, PNG, MP4, MKV, RAW, SVG, Πανοραμικές φωτογραφίες, βίντεο πανοραμικών και πολλά άλλα.
 
-        <b>HIGHLY CUSTOMIZABLE GALLERY MANAGER</b>
-        From the UI to the function buttons on the bottom toolbar, Simple Gallery Pro is highly customizable and works the way you want it to. No other gallery manager has this kind of flexibility! Thanks to being open source, we’re also available in 32 languages!
+        <b>ΠΟΛΥ ΠΡΟΣΑΡΜΟΣΙΜΟΣ ΔΙΑΧΕΙΡΙΣΤΗΣ GALLERY</b>
+        Από το UI στα κουμπιά λειτουργιών στην κάτω γραμμή εργαλείων, η Simple Gallery Pro είναι ιδιαίτερα προσαρμόσιμη και λειτουργεί όπως εσείς θέλετε. Καμιά άλλη εφαρμογή δεν έχει τέτοια ευελιξία! Χάρη στον ανοιχτό κώδικα, είναι επίσης διαθέσιμη σε 32 γλώσσες!
 
-        <b>RECOVER DELETED PHOTOS &amp; VIDEOS</b>
-        Accidentally deleted a precious photo or video? Don’t worry! Simple Gallery Pro features a handy recycle bin where you can recover deleted photos &amp; videos easily.
+        <b>ΕΠΑΝΑΦΟΡΑ ΔΙΑΓΡΑΜΕΝΩΝ ΦΩΤΟ ΚΑΙ ΒΙΝΤΕΟ</b>
+        Διαγράψατε τυχαία μια πολύτιμη φωτογραφία ή βίντεο; Μην ανησυχείτε! Η Simple Gallery Pro διαθέτει έναν εύχρηστο κάδο ανακύκλωσης όπου μπορείτε να ανακτήσετε τις διαγραμμένες φωτογραφίες και βίντεο πανεύκολα.
 
-        <b>PROTECT &amp; HIDE PHOTOS, VIDEOS &amp; FILES</b>
-        Using pin, pattern or your device’s fingerprint scanner you can protect and hide photos, videos &amp; entire albums. You can protect the app itself or place locks on specific functions of the app. For example, you can’t delete a file without a fingerprint scan, helping to protect your files from accidental deletion.
+        <b>ΠΡΟΣΤΑΣΙΑ ΚΑΙ ΑΠΟΚΡΥΨΗ ΑΡΧΕΙΩΝ ΦΩΤΟ ΚΑΙ ΒΙΝΤΕΟ</b>
+        Χρησιμοποιώντας κωδικό, μοτίβο ή τον σαρωτή δακτυλικών αποτυπωμάτων της συσκευής σας, μπορείτε να προστατεύσετε και να αποκρύψετε φωτογραφίες, βίντεο ή ολόκληρα άλμπουμ. Μπορείτε να προστατεύσετε την ίδια την εφαρμογή ή να κλειδώσετε συγκεκριμένες λειτουργίες της. Για παράδειγμα, δεν μπορείτε να διαγράψετε ένα αρχείο χωρίς χρήση των δακτυλικών αποτυπωμάτων, συμβάλλοντας στην προστασία των αρχείων σας από τυχαία διαγραφή.
 
-        <b>Check out the full suite of Simple Tools here:</b>
+        <b>Δείτε την πλήρη σειρά των Simple Tools εδώ:</b>
         https://www.simplemobiletools.com
 
         <b>Facebook:</b>
