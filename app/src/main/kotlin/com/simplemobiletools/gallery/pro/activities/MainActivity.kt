@@ -368,9 +368,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun startNewPhotoFetcher() {
-        val photoFetcher = NewPhotoFetcher()
-        if (isNougatPlus() && !photoFetcher.isScheduled(applicationContext)) {
-            photoFetcher.scheduleJob(applicationContext)
+        if (isNougatPlus()) {
+            val photoFetcher = NewPhotoFetcher()
+            if (!photoFetcher.isScheduled(applicationContext)) {
+                photoFetcher.scheduleJob(applicationContext)
+            }
         }
     }
 
