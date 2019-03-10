@@ -222,52 +222,52 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Offline gallery without ads. Organize, edit, recover and protect photos &amp; videos</string>
+    <string name="app_short_description">Offline galéria bez reklám. Organizujte, upravujte, a chráňte vaše súbory.</string>
     <string name="app_long_description">
-        Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
+        Jednoduchá Galéria Pro je vysoko prispôsobiteľná offline galéria. Organizujte a upravujte vaše fotky, obnovujte vymazané súbory pomocou odpadkového koša, ochraňujte a skrývajte ich, alebo prehliadajte množstvo rôznych foto a video formátov vrátane RAW, SVG a mnoho ďalších.
 
-        The app contains no ads and unnecessary permissions. As the app doesn’t require internet access either, your privacy is protected.
+        Apka neobsahuje žiadne reklamy, ani nepotrebné oprávnenia. Keďže apka nemá prístup na internet, vaše súkromie je chránené.
 
         -------------------------------------------------
-        <b>SIMPLE GALLERY PRO – FEATURES</b>
+        <b>JEDNODUCHÁ GALÉRIA PRO - FUNKCIE</b>
         -------------------------------------------------
 
-        • Offline gallery with no ads or popups
-        • Simple gallery photo editor – crop, rotate, resize, draw, filters &amp; more
-        • No internet access needed, giving you more privacy and security
-        • No unnecessary permissions required
-        • Quickly search images, videos &amp; files
-        • Open &amp; view many different photo and video types (RAW, SVG, panoramic etc)
-        • A variety of intuitive gestures to easily edit &amp; organize files
-        • Lots of ways to filter, group &amp; sort files
-        • Customize the appearance of Simple Gallery Pro
-        • Available in 32 languages
-        • Mark files as favorites for quick access
-        • Protect your photos &amp; videos with a pattern, pin or fingerprint
-        • Use pin, pattern &amp; fingerprint to protect the app launch or specific functions too
-        • Recover deleted photos &amp; videos from the recycle bin
-        • Toggle visibility of files to hide photos &amp; videos
-        • Create a customizable slideshow of your files
-        • View detailed information of your files (resolution, EXIF values etc)
-        • Simple Gallery Pro is open source
-        … and much much more!
+        • Offline galéria bez reklám a vyskakujúcich okien
+        • Editor Jednoduchej Galérie - orezávajte, otáčajte, meňte veľkosť, kreslite, používajte filtre a viac
+        • Nie je potrebný prístup na internet, vďaka čomu máte viac súkromia a bezpečia
+        • Nie sú potrebné žiadne podozrivé oprávnenia
+        • Rýchlo prehliadajte obrázky a videá
+        • Otvárajte mnoho rôznych typov fotiek a videí (RAW, SVG, panoramatické atď)
+        • Množstvo intuitívnych gest pre jednoduchú úpravu a organizovanie súborov
+        • Veľa rôznych spôsobov filtrovania, zoskupovania a radenia súborov
+        • Zmeňte si vzhľad Jednoduchej Galérie
+        • Dostupná v 32 jazykoch
+        • Označte obľúbené súbory pre rýchly prístup
+        • Chráňte vaše obrázky a videá vzorom, PIN kódom alebo odtlačkom prstov
+        • Použite PIN kód, vzor, alebo odtlačky prstov na zabezpečenie spúšťania apky, alebo niektorých funkcií
+        • Obnovte vymazané fotky a videá pomocou odpadkového koša
+        • Prepnite viditeľnosť súborov pre ich ochranu
+        • Vytvorte zo súborov prezentáciu
+        • Prezrite si detailné informácie o súboroch (rozlíšenie, EXIF hodnoty atď)
+        • Jednoduchá Galéria Pro má otvorený zdrojový kód
+        … a mnoho mnoho ďalšieho!
 
-        <b>PHOTO GALLERY EDITOR</b>
-        Simple Gallery Pro makes it easy to edit your pictures on the fly. Crop, flip, rotate and resize your pictures. If you’re feeling a little more creative you can add filters and draw on your pictures!
+        <b>EDITOR OBRÁZKOV</b>
+        Jednoduchá Galéria Pro umožňuje ľahkú úpravu obrázkov. Orezávajte, preklápajte, alebo meňte ich veľkosť. Ak sa cítite kreatívne, môžete aj aplikovať filtre, alebo na nich kresliť!
 
-        <b>SUPPORT FOR MANY FILE TYPES</b>
-        Unlike some other gallery viewers &amp; photo organizers, Simple Gallery Pro supports a huge range of different file types including JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic photos, Panoramic videos and many more.
+        <b>PODPORA PRE MNOŽSTVO TYPOV SÚBOROV</b>
+        Na rozdiel od niektorých galérií podporuje Jednoduchá Galéria množstvo rôznych druhov súborov vrátane JPEG, PNG, MP4, MKV, RAW, SVG, panoramatických fotografií a videí.
 
-        <b>HIGHLY CUSTOMIZABLE GALLERY MANAGER</b>
-        From the UI to the function buttons on the bottom toolbar, Simple Gallery Pro is highly customizable and works the way you want it to. No other gallery manager has this kind of flexibility! Thanks to being open source, we’re also available in 32 languages!
+        <b>VYSOKO UPRAVITEĽNÝ SPRÁVCA SÚBOROV</b>
+        Od vzhľadu po funkcie na spodej lište, Jednoduchá Galéria je upraviteľná a bude fungovať presne tak, ako chcete. Žiadna iná galéria nie je taká flexibilná! Vďaka otvorenému zdrojovému kódu je apka dostupná v 32 jazykoch!
 
-        <b>RECOVER DELETED PHOTOS &amp; VIDEOS</b>
-        Accidentally deleted a precious photo or video? Don’t worry! Simple Gallery Pro features a handy recycle bin where you can recover deleted photos &amp; videos easily.
+        <b>OBNOVTE VYMAZANÉ FOTKY A VIDEÁ</b>
+        Vymazali ste náhodou dôležitú fotku, alebo video? Jednoduchá Galéria Pro obsahuje užitočný odpadkový kôš, vďaka ktorému viete jednoducho obnoviť vymazané súbory.
 
-        <b>PROTECT &amp; HIDE PHOTOS, VIDEOS &amp; FILES</b>
-        Using pin, pattern or your device’s fingerprint scanner you can protect and hide photos, videos &amp; entire albums. You can protect the app itself or place locks on specific functions of the app. For example, you can’t delete a file without a fingerprint scan, helping to protect your files from accidental deletion.
+        <b>OCHRÁŇTE A SKRÝVAJTE FOTOGRAFIE A VIDEÁ</b>
+        Použitím PIN kódu, vzoru, alebo odtlačkov prstov viete vaše súbory ochrániť, alebo ukryť. Taktiež viete ochrániť aj buď spúšťanie apky ako takej, alebo niektoré jej funkcie. Napríklad tým viete zabrániť náhodnému vymazaniu súborov bez vašich odtlačkov prstov.
 
-        <b>Check out the full suite of Simple Tools here:</b>
+        <b>Pozrite si celú sadu aplikácií na:</b>
         https://www.simplemobiletools.com
 
         <b>Facebook:</b>
