@@ -31,7 +31,7 @@
     <string name="fix_date_taken">Popravi datum posnetka</string>
     <string name="fixing">Popravljam…</string>
     <string name="dates_fixed_successfully">Datumi uspešno popravljeni</string>
-    <string name="share_resized">Share a resized version</string>
+    <string name="share_resized">Deli spremenjeno verzijo</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtriranje datotek</string>
@@ -132,7 +132,7 @@
     <string name="by_date_taken">Posneto</string>
     <string name="by_file_type">Tip datoteke</string>
     <string name="by_extension">Končnica</string>
-    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
+    <string name="grouping_and_sorting">Združevanje in sortiranje sta dve neodvisni polji.</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Mapa uporabljena na pripomočku:</string>
@@ -172,12 +172,12 @@
     <string name="allow_down_gesture">Dovoli zapiranje celozaslonskega načina z gesto navzdol</string>
     <string name="allow_one_to_one_zoom">Dovoli 1:1 povečavo z dvojnim pritiskom</string>
     <string name="open_videos_on_separate_screen">Vedno odpri videoposnetke na ločenem zaslonu z novimi horizontalnimi gestami</string>
-    <string name="show_notch">Show a notch if available</string>
-    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
-    <string name="file_loading_priority">File loading priority</string>
-    <string name="speed">Speed</string>
-    <string name="compromise">Compromise</string>
-    <string name="avoid_showing_invalid_files">Avoid showing invalid files</string>
+    <string name="show_notch">Prikaži notch, če je na voljo</string>
+    <string name="allow_rotating_gestures">Dovoli obračanje slik z gestami</string>
+    <string name="file_loading_priority">Prioriteta pri nalaganju datotek</string>
+    <string name="speed">Hitrost</string>
+    <string name="compromise">Kompromis</string>
+    <string name="avoid_showing_invalid_files">Izogni se prikazovanju napačnih datotek</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>
@@ -199,7 +199,7 @@
     <string name="faq_3_title">Kako nastaviti, da se določen album vedno prikaže na vrhu?</string>
     <string name="faq_3_text">Z dolgim pritiskom na album se vam prikaže meni, v katerem je na voljo bucika, s katero pripnete album na željeno mesto. Na ta način lahko pripnete več albumov, ki bodo razvrščeni v skladu s privzetim načinom razvrščanja.</string>
     <string name="faq_4_title">Ali lahko hitro predvajam videoposnetke?</string>
-    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
+    <string name="faq_4_text">To lahko storite tako, da s prstom vodoravno potegnete čez predvajalnik ali kliknete na izpis trenutnega oz. skupnega trajanja, kar bo videoposnetek premaknilo naprej ali nazaj.</string>
     <string name="faq_5_title">Kakšna je razlika med skrivanjem in izključevanjem mape?</string>
     <string name="faq_5_text">Izključevanje mape jo skrije le v Simple galeriji, medtem ko jo skrivanje skrije tudi v ostalih aplikacijah oz. galerijah. Deluje tako, da kreira prazno \".nomedia\" datoteko v izbrani mapi, katero lahko odstranite tudi s katerimkoli urejevalnikom datotek.</string>
     <string name="faq_6_title">Zakaj se v galeriji prikažejo datoteke z naslovnicami glasbenih map ali nalepk?</string>
