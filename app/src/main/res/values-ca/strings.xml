@@ -222,7 +222,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Galeria sense connexió sense anuncis. Organitza, edita, recupera i protegeix les teves fotos i vídeos</string>
+    <string name="app_short_description">Galeria d\'imatges senzilla i sense anuncis</string>
     <string name="app_long_description">
         Simple Gallery Pro és una galeria fora de línia altament personalitzable. Organitza i edita les teves fotos, recupera fitxers suprimits amb la paperera de reciclatge, protegeix i amaga fitxers, mostra una gran varietat de formats de foto i vídeo incloent RAW, SVG i molt més.
 
