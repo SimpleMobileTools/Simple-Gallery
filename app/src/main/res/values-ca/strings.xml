@@ -222,52 +222,52 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Offline gallery without ads. Organize, edit, recover and protect photos &amp; videos</string>
+    <string name="app_short_description">Galeria sense connexió sense anuncis. Organitza, edita, recupera i protegeix les teves fotos i vídeos</string>
     <string name="app_long_description">
-        Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
+        Simple Gallery Pro és una galeria fora de línia altament personalitzable. Organitza i edita les teves fotos, recupera fitxers suprimits amb la paperera de reciclatge, protegeix i amaga fitxers, mostra una gran varietat de formats de foto i vídeo incloent RAW, SVG i molt més.
 
-        The app contains no ads and unnecessary permissions. As the app doesn’t require internet access either, your privacy is protected.
+        L\'aplicació no conté anuncis ni permisos innecessaris. Com que l\'aplicació tampoc no requereix accés a Internet, la vostra privadesa està protegida.
 
         -------------------------------------------------
-        <b>SIMPLE GALLERY PRO – FEATURES</b>
+        <b> SIMPLE GALLERY PRO - CARACTERÍSTIQUES </ b>
         -------------------------------------------------
 
-        • Offline gallery with no ads or popups
-        • Simple gallery photo editor – crop, rotate, resize, draw, filters &amp; more
-        • No internet access needed, giving you more privacy and security
-        • No unnecessary permissions required
-        • Quickly search images, videos &amp; files
-        • Open &amp; view many different photo and video types (RAW, SVG, panoramic etc)
-        • A variety of intuitive gestures to easily edit &amp; organize files
-        • Lots of ways to filter, group &amp; sort files
-        • Customize the appearance of Simple Gallery Pro
-        • Available in 32 languages
-        • Mark files as favorites for quick access
-        • Protect your photos &amp; videos with a pattern, pin or fingerprint
-        • Use pin, pattern &amp; fingerprint to protect the app launch or specific functions too
-        • Recover deleted photos &amp; videos from the recycle bin
-        • Toggle visibility of files to hide photos &amp; videos
-        • Create a customizable slideshow of your files
-        • View detailed information of your files (resolution, EXIF values etc)
-        • Simple Gallery Pro is open source
-        … and much much more!
+        • Galeria sense connexió sense anuncis ni finestres emergents
+        • Editor de fotos senzilles de la galeria: retalla, gira, canvia de mida, dibuixa, filtra i més
+        • No es necessita accés a Internet, donant-li més privacitat i seguretat
+        • No es necessiten permisos innecessaris
+        • Cerca ràpidament imatges, vídeos i fitxers
+        • Obre i visualitza molts tipus de fotos i de vídeo diferents (RAW, SVG, panoràmiques, etc.)
+        • Una varietat de gestos intuïtius per editar fàcilment i organitzar els fitxers
+        • Moltes maneres de filtrar, agrupar, amplificar i ordenar fitxers
+        • Personalitza l\'aparença de Simple Gallery Pro
+        • Disponible en 32 idiomes
+        • Marca els fitxers com a preferits per accedir ràpidament
+        • Protegeix les teves fotos i vídeos amb un patró, pin o empremta digital
+        • Utilitza un pin, patró i empremta digital per protegir també el llançament de l\'aplicació o funcions específiques
+        • Recupera fotos i vídeos esborrats de la paperera de reciclatge
+        • Canvia la visibilitat dels fitxers per ocultar fotografies i vídeos
+        • Crea una presentació de diapositives personalitzable dels teus fitxers
+        • Mostra informació detallada dels teus fitxers (resolució, valors EXIF, etc.)
+        • Simple Gallery Pro és de codi obert
+        ... i molt més!
 
-        <b>PHOTO GALLERY EDITOR</b>
-        Simple Gallery Pro makes it easy to edit your pictures on the fly. Crop, flip, rotate and resize your pictures. If you’re feeling a little more creative you can add filters and draw on your pictures!
+        <b> EDITOR DE GALERIA DE FOTOS </ b>
+        Simple Gallery Pro et permet editar fàcilment les vostres imatges. Retalla, gira, gira i canvia la mida de les teves fotos. Si et sents una mica més creatiu, pots afegir filtres i dibuixar-ne les imatges.
 
-        <b>SUPPORT FOR MANY FILE TYPES</b>
-        Unlike some other gallery viewers &amp; photo organizers, Simple Gallery Pro supports a huge range of different file types including JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic photos, Panoramic videos and many more.
+        <b> SUPORT PER ALTRES TIPUS DE ARXIU </ b>
+        A diferència d\'altres aplicacions de galeria, Simple Gallery Pro suporta una gran varietat de tipus de fitxers diferents, inclosos JPEG, PNG, MP4, MKV, RAW, SVG, fotos panoràmiques, vídeos panoràmics i molts més.
 
-        <b>HIGHLY CUSTOMIZABLE GALLERY MANAGER</b>
-        From the UI to the function buttons on the bottom toolbar, Simple Gallery Pro is highly customizable and works the way you want it to. No other gallery manager has this kind of flexibility! Thanks to being open source, we’re also available in 32 languages!
+        <b> GESTOR DE GALERIA ALTAMENT PERSONALITZABLE </ b>
+        Des de la interfície d\'usuari fins als botons de funció de la barra d\'eines inferior, Simple Gallery Pro és altament personalitzable i funciona de la manera que desitgis. Cap altre aplicació de galeria té aquest tipus de flexibilitat. Gràcies a ser de codi obert, també estem disponibles en 32 idiomes.
 
-        <b>RECOVER DELETED PHOTOS &amp; VIDEOS</b>
-        Accidentally deleted a precious photo or video? Don’t worry! Simple Gallery Pro features a handy recycle bin where you can recover deleted photos &amp; videos easily.
+        <b> RECUPERES FOTOS I VÍDEOS </ b>
+        Has suprimit accidentalment una foto o vídeo precios? No et preocupis! Simple Gallery Pro disposa d\'una paperera de reciclatge on podeu recuperar fotos i vídeos eliminats fàcilment.
 
-        <b>PROTECT &amp; HIDE PHOTOS, VIDEOS &amp; FILES</b>
-        Using pin, pattern or your device’s fingerprint scanner you can protect and hide photos, videos &amp; entire albums. You can protect the app itself or place locks on specific functions of the app. For example, you can’t delete a file without a fingerprint scan, helping to protect your files from accidental deletion.
+        <b> PROTEGEIX, OCULTA FOTOS, VÍDEOS I ARXIUS </ b>
+        Amb el pin, el patró o l\'escàner d\'emprenta digital del teu dispositiu, pots protegir i amagar fotografies, vídeos i àlbums sencers. Pots protegir la pròpia aplicació o col·locar panys sobre funcions específiques de l\'aplicació. Per exemple, no poder esborrar un fitxer sense una anàlisi d\'empremtes digitals, ajudant-vos a protegir els teus fitxers de l\'eliminació accidental.
 
-        <b>Check out the full suite of Simple Tools here:</b>
+        <b> Consulteu el conjunt complet d\'eines senzilles aquí: </ b>
         https://www.simplemobiletools.com
 
         <b>Facebook:</b>
