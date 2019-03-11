@@ -222,7 +222,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Offline galerij zonder advertenties. Organiseer, bewerk, herstel en beveilig foto’s &amp; video’s</string>
+    <string name="app_short_description">Galerij zonder advertenties. Organiseer, bewerk en beveilig foto’s &amp; video’s</string>
     <string name="app_long_description">
         Simple Gallery Pro is een volledig aan te passen offline galerij. Organiseer &amp; bewerk foto’s, herstel verwijderde bestanden met de prullenbakfunctie, beveilig &amp; verberg items en bekijk een enorme hoeveelheid aan foto- &amp; videoformaten, waaronder RAW, SVG en nog veel meer.
 
