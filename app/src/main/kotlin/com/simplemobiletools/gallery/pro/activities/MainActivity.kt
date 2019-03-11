@@ -37,6 +37,7 @@ import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.interfaces.DirectoryDao
 import com.simplemobiletools.gallery.pro.interfaces.DirectoryOperationsListener
 import com.simplemobiletools.gallery.pro.interfaces.MediumDao
+import com.simplemobiletools.gallery.pro.jobs.NewPhotoFetcher
 import com.simplemobiletools.gallery.pro.models.AlbumCover
 import com.simplemobiletools.gallery.pro.models.Directory
 import com.simplemobiletools.gallery.pro.models.Medium
@@ -99,6 +100,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             config.tempSkipDeleteConfirmation = false
             removeTempFolder()
             checkRecycleBinItems()
+            startNewPhotoFetcher()
         }
 
         mIsPickImageIntent = isPickImageIntent(intent)
@@ -365,6 +367,15 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         })
     }
 
+    private fun startNewPhotoFetcher() {
+        if (isNougatPlus()) {
+            val photoFetcher = NewPhotoFetcher()
+            if (!photoFetcher.isScheduled(applicationContext)) {
+                photoFetcher.scheduleJob(applicationContext)
+            }
+        }
+    }
+
     private fun removeTempFolder() {
         if (config.tempFolderPath.isNotEmpty()) {
             val newFolder = File(config.tempFolderPath)
@@ -391,10 +402,26 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }.start()
     }
 
+    private fun checkDefaultSpamFolders() {
+        if (!config.spamFoldersChecked) {
+            val spamFolders = arrayListOf(
+                    "/storage/emulated/0/Android/data/com.facebook.orca/files/stickers"
+            )
+
+            spamFolders.forEach {
+                if (File(it).exists()) {
+                    config.addExcludedFolder(it)
+                }
+            }
+            config.spamFoldersChecked = true
+        }
+    }
+
     private fun tryLoadGallery() {
         handlePermission(PERMISSION_WRITE_STORAGE) {
             if (it) {
                 checkOTGPath()
+                checkDefaultSpamFolders()
 
                 if (config.showAll) {
                     showAllMedia()
@@ -874,16 +901,16 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     }
                 }
             }
-        } catch (ignored: Exception) {
-        }
 
-        if (dirPathsToRemove.isNotEmpty()) {
-            val dirsToRemove = dirs.filter { dirPathsToRemove.contains(it.path) }
-            dirsToRemove.forEach {
-                mDirectoryDao.deleteDirPath(it.path)
+            if (dirPathsToRemove.isNotEmpty()) {
+                val dirsToRemove = dirs.filter { dirPathsToRemove.contains(it.path) }
+                dirsToRemove.forEach {
+                    mDirectoryDao.deleteDirPath(it.path)
+                }
+                dirs.removeAll(dirsToRemove)
+                setupAdapter(dirs)
             }
-            dirs.removeAll(dirsToRemove)
-            setupAdapter(dirs)
+        } catch (ignored: Exception) {
         }
 
         val foldersToScan = mediaFetcher.getFoldersToScan()

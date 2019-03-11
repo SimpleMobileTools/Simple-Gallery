@@ -31,7 +31,7 @@
     <string name="fix_date_taken">Popravi datum posnetka</string>
     <string name="fixing">Popravljam…</string>
     <string name="dates_fixed_successfully">Datumi uspešno popravljeni</string>
-    <string name="share_resized">Share a resized version</string>
+    <string name="share_resized">Deli spremenjeno verzijo</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtriranje datotek</string>
@@ -132,7 +132,7 @@
     <string name="by_date_taken">Posneto</string>
     <string name="by_file_type">Tip datoteke</string>
     <string name="by_extension">Končnica</string>
-    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
+    <string name="grouping_and_sorting">Združevanje in sortiranje sta dve neodvisni polji.</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Mapa uporabljena na pripomočku:</string>
@@ -172,12 +172,12 @@
     <string name="allow_down_gesture">Dovoli zapiranje celozaslonskega načina z gesto navzdol</string>
     <string name="allow_one_to_one_zoom">Dovoli 1:1 povečavo z dvojnim pritiskom</string>
     <string name="open_videos_on_separate_screen">Vedno odpri videoposnetke na ločenem zaslonu z novimi horizontalnimi gestami</string>
-    <string name="show_notch">Show a notch if available</string>
-    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
-    <string name="file_loading_priority">File loading priority</string>
-    <string name="speed">Speed</string>
-    <string name="compromise">Compromise</string>
-    <string name="avoid_showing_invalid_files">Avoid showing invalid files</string>
+    <string name="show_notch">Prikaži notch, če je na voljo</string>
+    <string name="allow_rotating_gestures">Dovoli obračanje slik z gestami</string>
+    <string name="file_loading_priority">Prioriteta pri nalaganju datotek</string>
+    <string name="speed">Hitrost</string>
+    <string name="compromise">Kompromis</string>
+    <string name="avoid_showing_invalid_files">Izogni se prikazovanju napačnih datotek</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Sličice</string>
@@ -199,7 +199,7 @@
     <string name="faq_3_title">Kako nastaviti, da se določen album vedno prikaže na vrhu?</string>
     <string name="faq_3_text">Z dolgim pritiskom na album se vam prikaže meni, v katerem je na voljo bucika, s katero pripnete album na željeno mesto. Na ta način lahko pripnete več albumov, ki bodo razvrščeni v skladu s privzetim načinom razvrščanja.</string>
     <string name="faq_4_title">Ali lahko hitro predvajam videoposnetke?</string>
-    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar, that will move the video either backward, or forward.</string>
+    <string name="faq_4_text">To lahko storite tako, da s prstom vodoravno potegnete čez predvajalnik ali kliknete na izpis trenutnega oz. skupnega trajanja, kar bo videoposnetek premaknilo naprej ali nazaj.</string>
     <string name="faq_5_title">Kakšna je razlika med skrivanjem in izključevanjem mape?</string>
     <string name="faq_5_text">Izključevanje mape jo skrije le v Simple galeriji, medtem ko jo skrivanje skrije tudi v ostalih aplikacijah oz. galerijah. Deluje tako, da kreira prazno \".nomedia\" datoteko v izbrani mapi, katero lahko odstranite tudi s katerimkoli urejevalnikom datotek.</string>
     <string name="faq_6_title">Zakaj se v galeriji prikažejo datoteke z naslovnicami glasbenih map ali nalepk?</string>
@@ -219,36 +219,63 @@
     <string name="faq_13_text">Trenutna rešitev prikazovanja slik deluje dobro v veliki večini primerov, če pa vseeno želite višjo kvaliteto, lahko uporabite funkcijo \"Prikaži slike v najvišji možni kvaliteti\" v Nastavitvah v razdelku \"Globoko povečljive slike\".</string>
     <string name="faq_14_title">Skril sem mapo/datoteko. Kako jo lahko zopet prikažem?</string>
     <string name="faq_14_text">Lahko uporabite funkcijo \"Začasno prikaži skrite elemente\", ki se nahaja v meniju na glavnem zaslonu ali preklopite \"Prikaži skrite elemente\" v Nastavitvah aplikacije. Če želite element označiti kot viden, z dolgim pritiskom nanj prikličite meni in izberite \"Prikaži\". Skrivanje map deluje tako, da se kreira prazno \".nomedia\" datoteko v izbrani mapi, ki jo lahko odstranite tudi s katerimkoli urejevalnikom datotek.</string>
+
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Galerija brez obvezne internetne povezave za urejanje vaših datotek brez prikazovanja oglasov in z upoštevanjem vaše zasebnosti.</string>
+    <string name="app_short_description">Offline gallery without ads. Organize, edit, recover and protect photos &amp; videos</string>
     <string name="app_long_description">
-        Visoko prilagodljiva galerija, zmožna prikazovanja različnih tipov fotografij in videoposnetkov, vključno s SVGji, RAWi, panoramskimi fotografijami in videoposnetki.
+        Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
 
-        Temelji na odprtokodnem principu, ne vsebuje reklam in ne zahteva nepotrebnih dovoljenj.
+        The app contains no ads and unnecessary permissions. As the app doesn’t require internet access either, your privacy is protected.
 
-        Poglejmo nekaj glavnih funkcij vrednih omembe:
-        1. Iskanje
-        2. Diaprojekcija
-        3. Podpora za notch
-        4. Pripenjanje map na vrh
-        5. Filtriranje medijskih datotek po tipu
-        6. Koš za preprosto vračanje izbrisanih datotek
-        7. Zaklepanje orientacije zaslona v celozaslonskem načinu
-        8. Označevanje priljubljenih datotek za lažji dostop
-        9. Hitro zapiranje celozaslonskega načina z gestami
-        10. Urejevalnih slik za urejanje in apliciranje različnih filtrov
-        11. Zaščita skritih datotek ali celotne aplikacije z geslom
-        12. Spreminjanje števila stolpcev z gestami ali gumbi v meniju
-        13. Nastavljive akcije na dnu zaslona v celozaslonskem načinu
-        14. Prikaz razširjenih podrobnosti nad prikazom v celozaslonskem načinu
-        15. Različni načini razvrščanja in združevanja datotek, tako naraščajoče kot tudi padajoče
-        16. Skrivanje map (vpliva tudi na druge aplikacije), izključevanje map (vpliva zgolj na Simple galerijo)
+        -------------------------------------------------
+        <b>SIMPLE GALLERY PRO – FEATURES</b>
+        -------------------------------------------------
 
-        Dovoljenje za prstni odtis je potrebno za zaklepanje vidljivosti skritih elementov, celotne aplikacije ali zaščito datotek pred brisanjem.
+        • Offline gallery with no ads or popups
+        • Simple gallery photo editor – crop, rotate, resize, draw, filters &amp; more
+        • No internet access needed, giving you more privacy and security
+        • No unnecessary permissions required
+        • Quickly search images, videos &amp; files
+        • Open &amp; view many different photo and video types (RAW, SVG, panoramic etc)
+        • A variety of intuitive gestures to easily edit &amp; organize files
+        • Lots of ways to filter, group &amp; sort files
+        • Customize the appearance of Simple Gallery Pro
+        • Available in 32 languages
+        • Mark files as favorites for quick access
+        • Protect your photos &amp; videos with a pattern, pin or fingerprint
+        • Use pin, pattern &amp; fingerprint to protect the app launch or specific functions too
+        • Recover deleted photos &amp; videos from the recycle bin
+        • Toggle visibility of files to hide photos &amp; videos
+        • Create a customizable slideshow of your files
+        • View detailed information of your files (resolution, EXIF values etc)
+        • Simple Gallery Pro is open source
+        … and much much more!
 
-        Ta aplikacija je le del večje zbirke aplikacij. Ostale lahko najdete na https://www.simplemobiletools.com
-</string>
+        <b>PHOTO GALLERY EDITOR</b>
+        Simple Gallery Pro makes it easy to edit your pictures on the fly. Crop, flip, rotate and resize your pictures. If you’re feeling a little more creative you can add filters and draw on your pictures!
+
+        <b>SUPPORT FOR MANY FILE TYPES</b>
+        Unlike some other gallery viewers &amp; photo organizers, Simple Gallery Pro supports a huge range of different file types including JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic photos, Panoramic videos and many more.
+
+        <b>HIGHLY CUSTOMIZABLE GALLERY MANAGER</b>
+        From the UI to the function buttons on the bottom toolbar, Simple Gallery Pro is highly customizable and works the way you want it to. No other gallery manager has this kind of flexibility! Thanks to being open source, we’re also available in 32 languages!
+
+        <b>RECOVER DELETED PHOTOS &amp; VIDEOS</b>
+        Accidentally deleted a precious photo or video? Don’t worry! Simple Gallery Pro features a handy recycle bin where you can recover deleted photos &amp; videos easily.
+
+        <b>PROTECT &amp; HIDE PHOTOS, VIDEOS &amp; FILES</b>
+        Using pin, pattern or your device’s fingerprint scanner you can protect and hide photos, videos &amp; entire albums. You can protect the app itself or place locks on specific functions of the app. For example, you can’t delete a file without a fingerprint scan, helping to protect your files from accidental deletion.
+
+        <b>Check out the full suite of Simple Tools here:</b>
+        https://www.simplemobiletools.com
+
+        <b>Facebook:</b>
+        https://www.facebook.com/simplemobiletools
+
+        <b>Reddit:</b>
+        https://www.reddit.com/r/SimpleMobileTools
+    </string>
 
     <!--
         Haven't found some strings? There's more at

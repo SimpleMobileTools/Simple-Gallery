@@ -79,6 +79,7 @@ const val LAST_EDITOR_DRAW_COLOR = "last_editor_draw_color"
 const val LAST_EDITOR_BRUSH_SIZE = "last_editor_brush_size"
 const val SHOW_NOTCH = "show_notch"
 const val FILE_LOADING_PRIORITY = "file_loading_priority"
+const val SPAM_FOLDERS_CHECKED = "spam_folders_checked"
 
 // slideshow
 const val SLIDESHOW_INTERVAL = "slideshow_interval"

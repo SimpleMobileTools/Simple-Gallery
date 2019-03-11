@@ -573,7 +573,10 @@ class SettingsActivity : SimpleActivity() {
 
     private fun setupEmptyRecycleBin() {
         Thread {
-            mRecycleBinContentSize = galleryDB.MediumDao().getDeletedMedia().sumByLong { it.size }
+            try {
+                mRecycleBinContentSize = galleryDB.MediumDao().getDeletedMedia().sumByLong { it.size }
+            } catch (ignored: Exception) {
+            }
             runOnUiThread {
                 settings_empty_recycle_bin_size.text = mRecycleBinContentSize.formatSize()
             }

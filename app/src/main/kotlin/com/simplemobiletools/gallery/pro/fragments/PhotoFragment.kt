@@ -373,7 +373,7 @@ class PhotoFragment : ViewPagerFragment() {
                 .apply(options)
                 .listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
-                        if (activity != null) {
+                        if (activity != null && !activity!!.isDestroyed && !activity!!.isFinishing) {
                             tryLoadingWithPicasso(addZoomableView)
                         }
                         return false

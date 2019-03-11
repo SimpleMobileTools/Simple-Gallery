@@ -701,6 +701,10 @@ fun Context.parseFileChannel(path: String, fc: FileChannel, level: Int, start: L
 
 fun Context.addPathToDB(path: String) {
     Thread {
+        if (!File(path).exists()) {
+            return@Thread
+        }
+
         val type = when {
             path.isVideoFast() -> TYPE_VIDEOS
             path.isGif() -> TYPE_GIFS
@@ -709,8 +713,9 @@ fun Context.addPathToDB(path: String) {
             else -> TYPE_IMAGES
         }
 
+        val videoDuration = if (type == TYPE_VIDEOS) path.getVideoDuration() else 0
         val medium = Medium(null, path.getFilenameFromPath(), path, path.getParentPath(), System.currentTimeMillis(), System.currentTimeMillis(),
-                File(path).length(), type, 0, false, 0L)
+                File(path).length(), type, videoDuration, false, 0L)
         galleryDB.MediumDao().insert(medium)
     }.start()
 }

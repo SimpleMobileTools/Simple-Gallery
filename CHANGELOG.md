@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.6.0 *(2019-03-10)*
+----------------------------
+
+ * Further improved new file discovery
+ * Exclude some folders by default, like fb stickers
+ * Added other stability and ux improvements
+
 Version 6.5.5 *(2019-03-05)*
 ----------------------------
 
