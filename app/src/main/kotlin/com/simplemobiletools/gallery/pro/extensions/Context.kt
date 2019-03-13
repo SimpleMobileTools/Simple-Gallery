@@ -716,6 +716,9 @@ fun Context.addPathToDB(path: String) {
         val videoDuration = if (type == TYPE_VIDEOS) path.getVideoDuration() else 0
         val medium = Medium(null, path.getFilenameFromPath(), path, path.getParentPath(), System.currentTimeMillis(), System.currentTimeMillis(),
                 File(path).length(), type, videoDuration, false, 0L)
-        galleryDB.MediumDao().insert(medium)
+        try {
+            galleryDB.MediumDao().insert(medium)
+        } catch (ignored: Exception) {
+        }
     }.start()
 }
