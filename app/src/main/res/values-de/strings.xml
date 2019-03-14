@@ -221,7 +221,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Offline Galerie ohne Werbung. Ordnen, Bearbeiten, Wiederherstellen und Schützen von Fotos &amp; Videos</string>
+    <string name="app_short_description">Galerie ohne Werbung. Ordnen, Bearbeiten und Wiederherstellen von Fotos &amp; Videos</string>
     <string name="app_long_description">
         Schlichte Galerie Pro ist eine stark individualisierbare Offline Galerie. Ordne &amp; bearbeite deine Fotos, stelle gelöschte Fotos mit Hilfe des Papierkorbs wieder her, schütze &amp; verstecke Dateien und zeige eine Vielzahl von Bilder- &amp; Videoformaten an, unter anderem RAW, SVG und viele mehr.
 
