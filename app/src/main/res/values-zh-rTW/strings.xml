@@ -132,7 +132,7 @@
     <string name="by_date_taken">拍照日期</string>
     <string name="by_file_type">檔案類型</string>
     <string name="by_extension">副檔名</string>
-    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
+    <string name="grouping_and_sorting">請注意，分組和排序是兩個獨立的欄位</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">在小工具顯示資料夾:</string>
@@ -222,58 +222,58 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Offline gallery without ads. Organize, edit, recover and protect photos &amp; videos</string>
+    <string name="app_short_description">離線相簿無廣告。整理、編輯、恢復和保護照片及影片</string>
     <string name="app_long_description">
-        Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
+        簡易圖片庫是一個高度可定製的離線相簿。整理和編輯您的照片，恢復已刪除的檔案與回收站，保護和隱藏檔案和檢視大量不同的照片和影片格式包括 RAW、SVG……等。
 
-        The app contains no ads and unnecessary permissions. As the app doesn’t require internet access either, your privacy is protected.
+        該應用程式不包含廣告和不必要的許可權。由於該應用程式也不需要網際網路接入，你的隱私是受保護的。
 
         -------------------------------------------------
-        <b>SIMPLE GALLERY PRO – FEATURES</b>
+        <b>簡易圖片庫－功能</b>
         -------------------------------------------------
 
-        • Offline gallery with no ads or popups
-        • Simple gallery photo editor – crop, rotate, resize, draw, filters &amp; more
-        • No internet access needed, giving you more privacy and security
-        • No unnecessary permissions required
-        • Quickly search images, videos &amp; files
-        • Open &amp; view many different photo and video types (RAW, SVG, panoramic etc)
-        • A variety of intuitive gestures to easily edit &amp; organize files
-        • Lots of ways to filter, group &amp; sort files
-        • Customize the appearance of Simple Gallery Pro
-        • Available in 32 languages
-        • Mark files as favorites for quick access
-        • Protect your photos &amp; videos with a pattern, pin or fingerprint
-        • Use pin, pattern &amp; fingerprint to protect the app launch or specific functions too
-        • Recover deleted photos &amp; videos from the recycle bin
-        • Toggle visibility of files to hide photos &amp; videos
-        • Create a customizable slideshow of your files
-        • View detailed information of your files (resolution, EXIF values etc)
-        • Simple Gallery Pro is open source
-        … and much much more!
+        •離線相簿，沒有廣告或彈出視窗
+        •簡單的相簿照片編輯器-裁剪，旋轉，調整大小，繪製，過濾器……等
+        •不需要網路，給你更多的隱私和安全
+        •沒有不必要的許可權
+        •快速搜尋圖片，影片和檔案
+        •開啟、檢視許多不同的照片和影片型別（RAW, SVG，全景……等）
+        •多種直觀的手勢，方便編輯和整理檔案
+        •有很多方法可以過濾、分組和整理檔案
+        •定製簡易圖片庫的外觀
+        •有32種語言版本
+        •將檔案標記為收藏夾，以便快速訪問
+        •使用圖案、Pin 碼或指紋保護你的照片和影片
+        •使用 Pin 碼，圖案和指紋還可以保護應用程式的啟動或特定功能
+        •從回收站內恢復已刪除的照片和影片
+        •切換檔案的可見性，以隱藏照片和影片
+        •建立可定製的檔案幻燈片
+        •檢視檔案的詳細資訊(解析度、EXIF 值等)
+        •簡易圖片庫是開源的
+        還有更多!
 
-        <b>PHOTO GALLERY EDITOR</b>
-        Simple Gallery Pro makes it easy to edit your pictures on the fly. Crop, flip, rotate and resize your pictures. If you’re feeling a little more creative you can add filters and draw on your pictures!
+        <b>相簿編輯</b>
+        簡易圖片庫可以輕鬆地動態編輯圖片。裁剪、翻轉、旋轉和調整圖片的大小。如果你有更多的創意，你可以新增濾鏡，在你的照片上畫畫!
 
-        <b>SUPPORT FOR MANY FILE TYPES</b>
-        Unlike some other gallery viewers &amp; photo organizers, Simple Gallery Pro supports a huge range of different file types including JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic photos, Panoramic videos and many more.
+        <b>支援多種檔案型別</b>
+        不像其他相簿， 簡易圖片庫支援大量不同的檔案型別，包括 JPEG、PNG、MP4、MKV、RAW、SVG、全景照片和全景影片……等。
 
-        <b>HIGHLY CUSTOMIZABLE GALLERY MANAGER</b>
-        From the UI to the function buttons on the bottom toolbar, Simple Gallery Pro is highly customizable and works the way you want it to. No other gallery manager has this kind of flexibility! Thanks to being open source, we’re also available in 32 languages!
+        <b>高度可定製的相簿管理器</b>
+        從 UI 到工具欄底部的按鈕，簡易圖片庫是高度可定製的，可以按照您希望的方式工作。沒有其他相簿管理器有這種靈活性!由於是開源的，我們還可以使用32種語言!
 
-        <b>RECOVER DELETED PHOTOS &amp; VIDEOS</b>
-        Accidentally deleted a precious photo or video? Don’t worry! Simple Gallery Pro features a handy recycle bin where you can recover deleted photos &amp; videos easily.
+        <b>恢復已刪除照片和影片</b>
+        不小心刪除了珍貴的照片或影片?別擔心! 簡易圖片庫功能，方便的回收站，您可以很容易地恢復刪除的照片或影片。
 
-        <b>PROTECT &amp; HIDE PHOTOS, VIDEOS &amp; FILES</b>
-        Using pin, pattern or your device’s fingerprint scanner you can protect and hide photos, videos &amp; entire albums. You can protect the app itself or place locks on specific functions of the app. For example, you can’t delete a file without a fingerprint scan, helping to protect your files from accidental deletion.
+        <b>保護,隱藏照片，影片和檔案</b>
+        使用 Pin 碼，圖案和指紋，你可以保護和隱藏照片，影片和整個專輯。你可以保護應用程式本身，也可以對應用程式的特定功能進行鎖定。例如：你不能在沒有指紋掃瞄的情況下刪除檔案，這有助於保護你的檔案不被意外刪除。
 
-        <b>Check out the full suite of Simple Tools here:</b>
+        <b>在這裡檢視完整的簡單工具套件：</b>
         https://www.simplemobiletools.com
 
-        <b>Facebook:</b>
+        <b>Facebook：</b>
         https://www.facebook.com/simplemobiletools
 
-        <b>Reddit:</b>
+        <b>Reddit：</b>
         https://www.reddit.com/r/SimpleMobileTools
     </string>
 
