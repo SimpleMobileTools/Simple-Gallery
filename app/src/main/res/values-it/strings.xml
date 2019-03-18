@@ -222,7 +222,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Galleria offline senza pubblicità. Organizza, modifica, recupera e proteggi foto e video</string>
+    <string name="app_short_description">Galleria offline senza pubblicità. Organizza, modifica e proteggi foto e video</string>
     <string name="app_long_description">
         Semplice Galleria Pro è una galleria offline altamente personalizzabile. Organizza, modifica le tue foto, recupera file con il cestino, progetti e nascondi file e visualizza una grande varietà di formati foto e video, inclusi RAW, SVG e molti altri.
 
