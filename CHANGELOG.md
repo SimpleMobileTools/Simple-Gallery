@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.6.1 *(2019-03-21)*
+----------------------------
+
+ * Fixed recognizing of some SD cards
+ * Added some stability and translation improvements
+
 Version 6.6.0 *(2019-03-10)*
 ----------------------------
 
