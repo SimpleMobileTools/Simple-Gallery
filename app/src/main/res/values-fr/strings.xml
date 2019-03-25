@@ -2,8 +2,8 @@
 <resources>
     <string name="app_name">Simple Gallery</string>
     <string name="app_launcher_name">Galerie</string>
-    <string name="edit">Édition</string>
-    <string name="open_camera">Démarrer l\'appareil photo</string>
+    <string name="edit">Modifier</string>
+    <string name="open_camera">Ouvrir l\'appareil photo</string>
     <string name="hidden">(caché)</string>
     <string name="excluded">(exclu)</string>
     <string name="pin_folder">Épingler le dossier</string>
@@ -17,8 +17,8 @@
     <string name="unknown_location">Position inconnue</string>
     <string name="increase_column_count">Ajouter une colonne</string>
     <string name="reduce_column_count">Supprimer une colonne</string>
-    <string name="change_cover_image">Changer l\'image de couverture</string>
-    <string name="select_photo">Sélectionner une photo</string>
+    <string name="change_cover_image">Changer l\'image de vignette</string>
+    <string name="select_photo">Sélectionner une image</string>
     <string name="use_default">Utiliser par défaut</string>
     <string name="volume">Volume</string>
     <string name="brightness">Luminosité</string>
@@ -28,8 +28,8 @@
     <string name="force_portrait">Forcer la vue portrait</string>
     <string name="force_landscape">Forcer la vue paysage</string>
     <string name="use_default_orientation">Utiliser l\'orientation par défaut</string>
-    <string name="fix_date_taken">Corriger la valeur des dates de prise des photos</string>
-    <string name="fixing">Correction en cours....</string>
+    <string name="fix_date_taken">Corriger les dates de prise de vue</string>
+    <string name="fixing">Correction en cours...</string>
     <string name="dates_fixed_successfully">Dates corrigées</string>
     <string name="share_resized">Partager une version redimensionnée</string>
 
@@ -96,7 +96,7 @@
     <string name="set_as_wallpaper">Définir comme fond d\'écran</string>
     <string name="set_as_wallpaper_failed">Échec de la définition en tant que fond d\'écran</string>
     <string name="set_as_wallpaper_with">Définir comme fond d\'écran avec :</string>
-    <string name="setting_wallpaper">Définition du fond d\'écran en cours…</string>
+    <string name="setting_wallpaper">Définition du fond d\'écran en cours...</string>
     <string name="wallpaper_set_successfully">Fond d\'écran défini</string>
     <string name="portrait_aspect_ratio">Rapport d\'affichage portrait</string>
     <string name="landscape_aspect_ratio">Rapport d\'affichage paysage</string>
@@ -107,7 +107,7 @@
     <!-- Slideshow -->
     <string name="slideshow">Diaporama</string>
     <string name="interval">Intervalle (secondes) :</string>
-    <string name="include_photos">Inclure les photos</string>
+    <string name="include_photos">Inclure les images</string>
     <string name="include_videos">Inclure les vidéos</string>
     <string name="include_gifs">Inclure les GIFs</string>
     <string name="random_order">Ordre aléatoire</string>
@@ -122,7 +122,7 @@
     <string name="change_view_type">Changer de mode d\'affichage</string>
     <string name="grid">Grille</string>
     <string name="list">Liste</string>
-    <string name="group_direct_subfolders">Sous-dossiers de groupe direct</string>
+    <string name="group_direct_subfolders">Mode sous-dossiers</string>
 
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Grouper par</string>
@@ -132,7 +132,7 @@
     <string name="by_date_taken">Date de prise de vue</string>
     <string name="by_file_type">Type de fichier</string>
     <string name="by_extension">Extension</string>
-    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
+    <string name="grouping_and_sorting">Notez que grouper et trier sont 2 modes de tri indépendants</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Dossier affiché sur le widget :</string>
@@ -155,7 +155,7 @@
     <string name="scroll_thumbnails_horizontally">Défiler les miniatures horizontalement</string>
     <string name="hide_system_ui_at_fullscreen">Masquer automatiquement l\'interface utilisateur</string>
     <string name="delete_empty_folders">Supprimer les dossiers vides après avoir supprimé leur contenu</string>
-    <string name="allow_photo_gestures">Contrôler la luminosité des photos avec des gestes verticaux</string>
+    <string name="allow_photo_gestures">Contrôler la luminosité des images avec des gestes verticaux</string>
     <string name="allow_video_gestures">Contrôler le volume et la luminosité des vidéos avec des gestes verticaux</string>
     <string name="show_media_count">Afficher le nombre de fichiers dans les dossiers</string>
     <string name="show_extended_details">Afficher en surimpression les informations supplémentaires du média en plein écran</string>
@@ -183,10 +183,10 @@
     <string name="thumbnails">Miniatures</string>
     <string name="fullscreen_media">Plein écran</string>
     <string name="extended_details">Détails supplémentaires</string>
-    <string name="bottom_actions">Menu d\'actions en bas de l\'écran</string>
+    <string name="bottom_actions">Barre d\'actions</string>
 
     <!-- Bottom actions -->
-    <string name="manage_bottom_actions">Gérer le menu d\'actions</string>
+    <string name="manage_bottom_actions">Gérer la barre d\'actions</string>
     <string name="toggle_favorite">Ajouter aux favoris</string>
     <string name="toggle_file_visibility">Changer la visibilité des fichiers</string>
 
