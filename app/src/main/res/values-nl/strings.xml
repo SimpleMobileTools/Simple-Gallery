@@ -32,7 +32,7 @@
     <string name="fixing">Corrigeren…</string>
     <string name="dates_fixed_successfully">Datums zijn gecorrigeerd</string>
     <string name="share_resized">Verkleinde versie delen</string>
-    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
+    <string name="upgraded_from_free">Het lijkt erop dat dit een upgrade is vanaf de oude gratis versie. Deze oude versie, met de knop \'Upgraden naar Pro\' bovenaan de instellingen, kan nu gedeïnstalleerd worden.\n\nDe items in de prullenbak zullen dan wel worden verwijderd, favorieten en instellingen zullen ook opnieuw moeten worden geconfigureerd.</string>
 
     <!-- Filter -->
     <string name="filter_media">Media filteren</string>
