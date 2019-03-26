@@ -32,6 +32,7 @@
     <string name="fixing">Fixing…</string>
     <string name="dates_fixed_successfully">Dates fixed successfully</string>
     <string name="share_resized">Share a resized version</string>
+    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
 
     <!-- Filter -->
     <string name="filter_media">미디어 필터 설정</string>
