@@ -17,6 +17,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.*
@@ -392,11 +393,20 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun checkOTGPath() {
         Thread {
             if (!config.wasOTGHandled && hasPermission(PERMISSION_WRITE_STORAGE) && hasOTGConnected() && config.OTGPath.isEmpty()) {
-                config.wasOTGHandled = true
                 getStorageDirectories().firstOrNull { it.trimEnd('/') != internalStoragePath && it.trimEnd('/') != sdCardPath }?.apply {
+                    config.wasOTGHandled = true
                     val otgPath = trimEnd('/')
                     config.OTGPath = otgPath
                     config.addIncludedFolder(otgPath)
+                }
+
+                if (config.OTGPath.isEmpty()) {
+                    runOnUiThread {
+                        ConfirmationDialog(this, getString(R.string.usb_detected), positive = R.string.ok, negative = 0) {
+                            config.wasOTGHandled = true
+                            showOTGPermissionDialog()
+                        }
+                    }
                 }
             }
         }.start()
