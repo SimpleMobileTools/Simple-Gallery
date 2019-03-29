@@ -32,7 +32,7 @@
     <string name="fixing">Fikser…</string>
     <string name="dates_fixed_successfully">Datoer fikset med succes</string>
     <string name="share_resized">Del en skaleret version</string>
-    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
+    <string name="upgraded_from_free">Hey,\n\ndet ser ud til at du har opgraderet fra den gamle, gratis app. Du kan afinstallere den gamle version, som har en \'Opgrader til Pro\' knap i toppen af appen's indstillinger.\n\nDu vil blot få papirkurvens elementer slettet, favoritter vil blive umarkeret og du vil også skulle genopsætte dine app indstillinger.\n\nTak!</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrér medier</string>
@@ -172,7 +172,7 @@
     <string name="show_recycle_bin_last">Vis papirkurven som sidste element på hovedskærmen</string>
     <string name="allow_down_gesture">Luk fuldskærmsvisning ved at swipe ned</string>
     <string name="allow_one_to_one_zoom">Tillad 1:1 zooming med to dobbelttryk</string>
-    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
+    <string name="open_videos_on_separate_screen">Åbn altid videoer på en separat skærm med nye vandrette bevægelser</string>
     <string name="show_notch">Vis en notch hvis tilgængelig</string>
     <string name="allow_rotating_gestures">Tillad roterende billeder med bevægelser</string>
     <string name="file_loading_priority">Filindlæsnings prioritet</string>
@@ -223,7 +223,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Offline gallery without ads. Organize, edit, recover and protect photos &amp; videos</string>
+    <string name="app_short_description">Offline galleri uden reklamer. Organiser, rediger, gendan og beskyt fotos og videoer</string>
     <string name="app_long_description">
         Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
 
