@@ -32,6 +32,7 @@
     <string name="fixing">A corrigir…</string>
     <string name="dates_fixed_successfully">Dados corrigidos com sucesso</string>
     <string name="share_resized">Partilhar foto redimensionada</string>
+    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrar multimédia</string>
@@ -132,7 +133,7 @@
     <string name="by_date_taken">Data de obtenção</string>
     <string name="by_file_type">Tipo de ficheiro</string>
     <string name="by_extension">Extensão</string>
-    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
+    <string name="grouping_and_sorting">Tenha em atenção de que o agrupamento e a ordenação são campos independentes</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Pasta mostrada no widget:</string>
@@ -173,11 +174,11 @@
     <string name="allow_one_to_one_zoom">Permitir ampliação 1:1 com dois toques</string>
     <string name="open_videos_on_separate_screen">Abrir vídeos em ecrã distinto com os novos toques horizontais</string>
     <string name="show_notch">Mostrar \"notch\", se disponível</string>
-    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
-    <string name="file_loading_priority">File loading priority</string>
-    <string name="speed">Speed</string>
-    <string name="compromise">Compromise</string>
-    <string name="avoid_showing_invalid_files">Avoid showing invalid files</string>
+    <string name="allow_rotating_gestures">Permitir rotação de imagens com gestos</string>
+    <string name="file_loading_priority">Prioridade de carregamento dos ficheiros</string>
+    <string name="speed">velocidade</string>
+    <string name="compromise">Compromisso</string>
+    <string name="avoid_showing_invalid_files">Não mostrar ficheiros inválidos</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>

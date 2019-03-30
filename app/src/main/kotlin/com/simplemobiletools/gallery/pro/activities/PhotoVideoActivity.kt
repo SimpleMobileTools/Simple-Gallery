@@ -95,7 +95,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
         if (intent.extras?.containsKey(REAL_FILE_PATH) == true) {
             val realPath = intent.extras!!.getString(REAL_FILE_PATH)
-            if (realPath != null) {
+            if (realPath != null && File(realPath).exists()) {
                 if (realPath.getFilenameFromPath().contains('.') || filename.contains('.')) {
                     sendViewPagerIntent(realPath)
                     finish()

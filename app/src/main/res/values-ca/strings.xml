@@ -8,7 +8,7 @@
     <string name="excluded">(exclòs)</string>
     <string name="pin_folder">Fixar carpeta</string>
     <string name="unpin_folder">No fixar carpeta</string>
-    <string name="pin_to_the_top">Ancorar a l\'inici</string>
+    <string name="pin_to_the_top">Ancorar a l’inici</string>
     <string name="show_all">Mostrar el contingut de totes les carpetes</string>
     <string name="all_folders">Tots els mitjans</string>
     <string name="folder_view">Canviar a vista de carpeta</string>
@@ -32,30 +32,31 @@
     <string name="fixing">Fixant…</string>
     <string name="dates_fixed_successfully">Data fixada correctament</string>
     <string name="share_resized">Comparteix una versió redimensionada</string>
+    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
 
     <!-- Filter -->
-    <string name="filter_media">Filtre d\'arxius</string>
+    <string name="filter_media">Filtre d’arxius</string>
     <string name="images">Imatges</string>
     <string name="videos">Vídeos</string>
     <string name="gifs">GIFs</string>
     <string name="raw_images">Imatges RAW</string>
     <string name="svgs">SVGs</string>
-    <string name="no_media_with_filters">No s\'han tronat arxius amb els filtres seleccionats.</string>
+    <string name="no_media_with_filters">No s’han tronat arxius amb els filtres seleccionats.</string>
     <string name="change_filters_underlined"><u>Canviar filtres</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Aquesta funció oculta les carpetes agregant un arxiu \'.nomedia\' dins d\'ella. També ocultarà les subcarpetes. Pots mostrar-les canviant la opció \'Mostrar carpetes ocultes\' als ajustaments. Continuar?</string>
+    <string name="hide_folder_description">Aquesta funció oculta les carpetes agregant un arxiu ’.nomedia’ dins d’ella. També ocultarà les subcarpetes. Pots mostrar-les canviant la opció ’Mostrar carpetes ocultes’ als ajustaments. Continuar?</string>
     <string name="exclude">Excloure</string>
     <string name="excluded_folders">Carpetes excloses</string>
     <string name="manage_excluded_folders">Gestionar carpetes excloses</string>
     <string name="exclude_folder_description">Això exclou la selecció juntament amb les carpetes, només de Simple Gallery. Pots gestionar les carpetes excloses en els Ajustaments.</string>
     <string name="exclude_folder_parent">Excloure millor la carpeta superior?</string>
-    <string name="excluded_activity_placeholder">Excloure les carpetes les ocultarà junt amb les seves subcarpetes, però només a Simple Gallery. Seguirant sent visibles a altres aplicacions.\\n\\nSi vols ocultar-les d\'altres aplicacions fes servir la opció Ocultar.</string>
+    <string name="excluded_activity_placeholder">Excloure les carpetes les ocultarà junt amb les seves subcarpetes, però només a Simple Gallery. Seguirant sent visibles a altres aplicacions.\\n\\nSi vols ocultar-les d’altres aplicacions fes servir la opció Ocultar.</string>
     <string name="remove_all">Eliminar tot</string>
-    <string name="remove_all_description">Eliminar totes les carpetes de la llista d\'excloses? Això no eliminarà les carpetes.</string>
+    <string name="remove_all_description">Eliminar totes les carpetes de la llista d’excloses? Això no eliminarà les carpetes.</string>
     <string name="hidden_folders">Carpetes ocultes</string>
     <string name="manage_hidden_folders">Gestionar carpetes ocultes</string>
-    <string name="hidden_folders_placeholder">Sembla que no tens cap carpeta amb l\'arxiu \".nomedia\".</string>
+    <string name="hidden_folders_placeholder">Sembla que no tens cap carpeta amb l’arxiu \".nomedia\".</string>
 
     <!-- Include folders -->
     <string name="include_folders">Carpetes incloses</string>
@@ -79,10 +80,10 @@
     <string name="invalid_image_path">Ruta de imatge no vàlida</string>
     <string name="image_editing_failed">Ha fallat la edició de la imatge</string>
     <string name="edit_image_with">Editar imatge utilitzant:</string>
-    <string name="no_editor_found">No s\'ha trobat cap editor d\'imatges</string>
-    <string name="unknown_file_location">Ubicació de l\'arxiu desconeguda</string>
-    <string name="error_saving_file">No s\'ha pogut sobreescriure l\'arxiu d\'origen</string>
-    <string name="rotate_left">Rotar a l\'esquerra</string>
+    <string name="no_editor_found">No s’ha trobat cap editor d’imatges</string>
+    <string name="unknown_file_location">Ubicació de l’arxiu desconeguda</string>
+    <string name="error_saving_file">No s’ha pogut sobreescriure l’arxiu d’origen</string>
+    <string name="rotate_left">Rotar a l’esquerra</string>
     <string name="rotate_right">Rotar a la dreta</string>
     <string name="rotate_one_eighty">Rotar 180º</string>
     <string name="flip">Girar</string>
@@ -94,12 +95,12 @@
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Fons de pantalla de Simple Gallery</string>
     <string name="set_as_wallpaper">Establir com a fons de pantalla</string>
-    <string name="set_as_wallpaper_failed">Error a l\'establir com fons de pantalla</string>
+    <string name="set_as_wallpaper_failed">Error a l’establir com fons de pantalla</string>
     <string name="set_as_wallpaper_with">Establir com fons de pantalla amb:</string>
     <string name="setting_wallpaper">Establint fons de pantalla&#8230;</string>
     <string name="wallpaper_set_successfully">Fons de pantalla establert correctament</string>
-    <string name="portrait_aspect_ratio">Relació d\'aspecte tipus retrat</string>
-    <string name="landscape_aspect_ratio">Relació d\'aspecte tipus paisatge</string>
+    <string name="portrait_aspect_ratio">Relació d’aspecte tipus retrat</string>
+    <string name="landscape_aspect_ratio">Relació d’aspecte tipus paisatge</string>
     <string name="home_screen">Pantalla principal</string>
     <string name="lock_screen">Pantalla de bloqueig</string>
     <string name="home_and_lock_screen">Pantalla principal i de bloqueig</string>
@@ -114,8 +115,8 @@
     <string name="use_fade">Utilitza animacions de desaparició</string>
     <string name="move_backwards">Moure cap enrere</string>
     <string name="loop_slideshow">Presentació de diapositives</string>
-    <string name="slideshow_ended">S\'ha acabat la presentació de diapositives</string>
-    <string name="no_media_for_slideshow">No s\'han trobat mitjans per a la presentació de diapositives</string>
+    <string name="slideshow_ended">S’ha acabat la presentació de diapositives</string>
+    <string name="no_media_for_slideshow">No s’han trobat mitjans per a la presentació de diapositives</string>
     <string name="use_crossfade_animation">Utilitzeu animacions creuades</string>
 
     <!-- View types -->
@@ -132,16 +133,16 @@
     <string name="by_date_taken">Data de presa</string>
     <string name="by_file_type">Tipus de fitxer</string>
     <string name="by_extension">Extensió</string>
-    <string name="grouping_and_sorting">Tingueu en compte que l\'agrupació i la classificació són 2 camps independents</string>
+    <string name="grouping_and_sorting">Tingueu en compte que l’agrupació i la classificació són 2 camps independents</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Carpeta que es mostra a l\'estri:</string>
+    <string name="folder_on_widget">Carpeta que es mostra a l’estri:</string>
     <string name="show_folder_name">Mostra el nom de la carpeta</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Reproduir vídeos automàticament</string>
     <string name="remember_last_video_position">Recordeu la posició de la darrera reproducció de vídeo</string>
-    <string name="toggle_filename">Canviar la visibilitat del nom d\'arxiu</string>
+    <string name="toggle_filename">Canviar la visibilitat del nom d’arxiu</string>
     <string name="loop_videos">Reproducció continua de vídeos</string>
     <string name="animate_gifs">Animar les miniatures dels GIFs</string>
     <string name="max_brightness">Brillantor màxima quan es mostra multimèdia</string>
@@ -150,11 +151,11 @@
     <string name="screen_rotation_by">Gira els mitjans a pantalla completa segons</string>
     <string name="screen_rotation_system_setting">Configuració del sistema</string>
     <string name="screen_rotation_device_rotation">Rotació del dispositiu</string>
-    <string name="screen_rotation_aspect_ratio">Relació d\'aspecte</string>
-    <string name="black_background_at_fullscreen">Fons i barra d\'estat negre als mitjans de pantalla completa</string>
+    <string name="screen_rotation_aspect_ratio">Relació d’aspecte</string>
+    <string name="black_background_at_fullscreen">Fons i barra d’estat negre als mitjans de pantalla completa</string>
     <string name="scroll_thumbnails_horizontally">Desplaçar miniatures horizontalment</string>
     <string name="hide_system_ui_at_fullscreen">Ocultar automàticament la interficie de usuari del sistema a pantalla complerta</string>
-    <string name="delete_empty_folders">Eliminar carpetes buides després d\'esborrar el seu contingut</string>
+    <string name="delete_empty_folders">Eliminar carpetes buides després d’esborrar el seu contingut</string>
     <string name="allow_photo_gestures">Permet controlar la brillantor amb gestos verticals</string>
     <string name="allow_video_gestures">Permet controlar el volum i la brillantor del vídeo amb gestos verticals</string>
     <string name="show_media_count">Mostrar el número de mitjans de les carpetes a la vista principal</string>
@@ -163,8 +164,8 @@
     <string name="one_finger_zoom">Permet fer zoom amb un sol dit a pantalla complerta</string>
     <string name="allow_instant_change">Permet canviar els mitjans de manera instantània fent clic als costats de la pantalla</string>
     <string name="allow_deep_zooming_images">Permet imatges de zoom profund</string>
-    <string name="hide_extended_details">Amaga els detalls estesos quan la barra d\'estat està amagada</string>
-    <string name="show_at_bottom">Mostra alguns botons d\'acció a la part inferior de la pantalla</string>
+    <string name="hide_extended_details">Amaga els detalls estesos quan la barra d’estat està amagada</string>
+    <string name="show_at_bottom">Mostra alguns botons d’acció a la part inferior de la pantalla</string>
     <string name="show_recycle_bin">Mostra la paperera de reciclatge a la pantalla de carpetes</string>
     <string name="deep_zoomable_images">Imatges ampliades a mida</string>
     <string name="show_highest_quality">Mostra imatges amb la màxima qualitat possible</string>
@@ -174,7 +175,7 @@
     <string name="open_videos_on_separate_screen">Obriu sempre vídeos en una pantalla independent amb nous gestos horitzontals</string>
     <string name="show_notch">Mostra una osca si està disponible</string>
     <string name="allow_rotating_gestures">Permet girar imatges amb gestos</string>
-    <string name="file_loading_priority">Prioritat de càrrega d\'arxius</string>
+    <string name="file_loading_priority">Prioritat de càrrega d’arxius</string>
     <string name="speed">Velocitat</string>
     <string name="compromise">Compromès</string>
     <string name="avoid_showing_invalid_files">Eviteu mostrar fitxers no vàlids</string>
@@ -193,27 +194,27 @@
     <!-- FAQ -->
     <string name="faq_1_title">Com puc fer que Simple Gallery sigui la galeria de dispositius predeterminada?</string>
     <string name="faq_1_text">Primer heu de trobar la galeria actualment predeterminada a la secció Aplicacions de la configuració del vostre dispositiu, cerqueu un botó que digui alguna cosa semblant a \"Obrir per defecte \", feu-hi clic i seleccioneu \"Esborra valors predeterminats \".
-        La propera vegada que proveu d\'obrir una imatge o un vídeo, haureu de veure un selector d\'aplicació, on podeu seleccionar Simple Galeria i convertir-la en la aplicació predeterminada.</string>
-    <string name="faq_2_title">Vaig bloquejar l\'aplicació amb una contrasenya, però l\'he oblidat. Què puc fer?</string>
-    <string name="faq_2_text">Es pot resoldre de dues maneres. Podeu tornar a instal·lar l\'aplicació o trobar l\'aplicació a la configuració del dispositiu i seleccionar \"Esborrar dades \". Això reiniciarà totes les configuracions, no eliminarà cap fitxer multimèdia.</string>
+        La propera vegada que proveu d’obrir una imatge o un vídeo, haureu de veure un selector d’aplicació, on podeu seleccionar Simple Galeria i convertir-la en la aplicació predeterminada.</string>
+    <string name="faq_2_title">Vaig bloquejar l’aplicació amb una contrasenya, però l’he oblidat. Què puc fer?</string>
+    <string name="faq_2_text">Es pot resoldre de dues maneres. Podeu tornar a instal·lar l’aplicació o trobar l’aplicació a la configuració del dispositiu i seleccionar \"Esborrar dades \". Això reiniciarà totes les configuracions, no eliminarà cap fitxer multimèdia.</string>
     <string name="faq_3_title">Com puc fer que un àlbum sempre aparegui a la part superior?</string>
-    <string name="faq_3_text">Podeu prémer l\'àlbum desitjat i seleccionar la icona de la xinxeta al menú d\'acció i el fixarà a la part superior. També podeu enganxar diverses carpetes, els elements fixats s\'ordenaran pel mètode de classificació predeterminat.</string>
+    <string name="faq_3_text">Podeu prémer l’àlbum desitjat i seleccionar la icona de la xinxeta al menú d’acció i el fixarà a la part superior. També podeu enganxar diverses carpetes, els elements fixats s’ordenaran pel mètode de classificació predeterminat.</string>
     <string name="faq_4_title">Com puc fer avançar els vídeos?</string>
     <string name="faq_4_text">Podeu arrossegar el dit horitzontalment al reproductor de vídeo o fer clic als textos actuals o de màxima duració a prop de la barra de cerca. Això mourà el vídeo ja sigui cap enrere o cap endavant.</string>
     <string name="faq_5_title">Quina és la diferència entre ocultar i excloure una carpeta?</string>
     <string name="faq_5_text">Excloure impedeix mostrar la carpeta només a Simple Galery, mentre que Ocultar també amaga la carpeta a altres galeries. Funciona creant un fitxer \". Nomedia \" buit a la carpeta donada, que podeu eliminar amb qualsevol gestor de fitxers.</string>
     <string name="faq_6_title">Per què apareixen les carpetes amb les portades de la música o adhesius?</string>
-    <string name="faq_6_text">Pot passar que veuràs que apareixen alguns àlbums inusuals. Podeu excloure\'ls fàcilment prement-los i seleccionant Excloure. Al següent diàleg, podeu seleccionar la carpeta principal, és probable que impedeixi que apareguin altres àlbums relacionats.</string>
+    <string name="faq_6_text">Pot passar que veuràs que apareixen alguns àlbums inusuals. Podeu excloure’ls fàcilment prement-los i seleccionant Excloure. Al següent diàleg, podeu seleccionar la carpeta principal, és probable que impedeixi que apareguin altres àlbums relacionats.</string>
     <string name="faq_7_title">Una carpeta amb imatges no apareix, què puc fer?</string>
     <string name="faq_7_text">Això pot tenir diversos motius, però resoldre-ho és fàcil. Accediu a Configuració -> Gestiona les carpetes incloses, seleccioneu Més i navegueu fins a la carpeta necessària.</string>
     <string name="faq_8_title">Què passa si vull veure només algunes carpetes concretes?</string>
-    <string name="faq_8_text">L\'addició d\'una carpeta a les carpetes incloses no exclou automàticament res. El que podeu fer és anar a Configuració -> Gestionar carpetes excloses, excloure la carpeta arrel \"/\" i, a continuació, afegir les carpetes desitjades a Configuració -> Gestionar carpetes incloses.
+    <string name="faq_8_text">L’addició d’una carpeta a les carpetes incloses no exclou automàticament res. El que podeu fer és anar a Configuració -> Gestionar carpetes excloses, excloure la carpeta arrel \"/\" i, a continuació, afegir les carpetes desitjades a Configuració -> Gestionar carpetes incloses.
         Això farà que només les carpetes seleccionades siguin visibles, ja que tant excloure com incloure són recursius i si una carpeta està exclosa i inclosa, es mostrarà.</string>
     <string name="faq_10_title">Puc retallar imatges amb aquesta aplicació?</string>
-    <string name="faq_10_text">Sí, pots retallar imatges a l\'editor, arrossegant les cantonades de la imatge. Pots accedir a l\'editor prement una miniatura d\'imatge i seleccionant Edita o seleccionant Edita des de la visualització de pantalla completa.</string>
-    <string name="faq_11_title">Puc agrupar d\'alguna manera les miniatures del fitxer multimèdia?</string>
-    <string name="faq_11_text">Si, només heu d\'utilitzar l\'ítem del menú \"Agrupar per\" mentre es troba a la vista en miniatura. Podeu agrupar fitxers amb diversos criteris, inclòs data de presa. Si utilitzeu la funció \"Mostra el contingut de totes les carpetes\", també podeu agrupar-les per carpetes.</string>
-    <string name="faq_12_title">L\'ordenació per data que de presa no sembla funcionar correctament, com puc solucionar-ho?</string>
+    <string name="faq_10_text">Sí, pots retallar imatges a l’editor, arrossegant les cantonades de la imatge. Pots accedir a l’editor prement una miniatura d’imatge i seleccionant Edita o seleccionant Edita des de la visualització de pantalla completa.</string>
+    <string name="faq_11_title">Puc agrupar d’alguna manera les miniatures del fitxer multimèdia?</string>
+    <string name="faq_11_text">Si, només heu d’utilitzar l’ítem del menú \"Agrupar per\" mentre es troba a la vista en miniatura. Podeu agrupar fitxers amb diversos criteris, inclòs data de presa. Si utilitzeu la funció \"Mostra el contingut de totes les carpetes\", també podeu agrupar-les per carpetes.</string>
+    <string name="faq_12_title">L’ordenació per data que de presa no sembla funcionar correctament, com puc solucionar-ho?</string>
     <string name="faq_12_text">Probablement, els fitxers es copiïn en un lloc incorrecte. Podeu arreglar-ho si seleccioneu les miniatures del fitxer i seleccioneu \"Fixar data de presa\".</string>
     <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
     <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
@@ -222,52 +223,52 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Offline gallery without ads. Organize, edit, recover and protect photos &amp; videos</string>
+    <string name="app_short_description">Galeria d\'imatges senzilla i sense anuncis</string>
     <string name="app_long_description">
-        Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
+        Simple Gallery Pro és una galeria fora de línia altament personalitzable. Organitza i edita les teves fotos, recupera fitxers suprimits amb la paperera de reciclatge, protegeix i amaga fitxers, mostra una gran varietat de formats de foto i vídeo incloent RAW, SVG i molt més.
 
-        The app contains no ads and unnecessary permissions. As the app doesn’t require internet access either, your privacy is protected.
+        L’aplicació no conté anuncis ni permisos innecessaris. Com que l’aplicació tampoc no requereix accés a Internet, la vostra privadesa està protegida.
 
         -------------------------------------------------
-        <b>SIMPLE GALLERY PRO – FEATURES</b>
+        <b>SIMPLE GALLERY PRO - CARACTERÍSTIQUES</b>
         -------------------------------------------------
 
-        • Offline gallery with no ads or popups
-        • Simple gallery photo editor – crop, rotate, resize, draw, filters &amp; more
-        • No internet access needed, giving you more privacy and security
-        • No unnecessary permissions required
-        • Quickly search images, videos &amp; files
-        • Open &amp; view many different photo and video types (RAW, SVG, panoramic etc)
-        • A variety of intuitive gestures to easily edit &amp; organize files
-        • Lots of ways to filter, group &amp; sort files
-        • Customize the appearance of Simple Gallery Pro
-        • Available in 32 languages
-        • Mark files as favorites for quick access
-        • Protect your photos &amp; videos with a pattern, pin or fingerprint
-        • Use pin, pattern &amp; fingerprint to protect the app launch or specific functions too
-        • Recover deleted photos &amp; videos from the recycle bin
-        • Toggle visibility of files to hide photos &amp; videos
-        • Create a customizable slideshow of your files
-        • View detailed information of your files (resolution, EXIF values etc)
-        • Simple Gallery Pro is open source
-        … and much much more!
+        • Galeria sense connexió sense anuncis ni finestres emergents
+        • Editor de fotos senzilles de la galeria: retalla, gira, canvia de mida, dibuixa, filtra i més
+        • No es necessita accés a Internet, donant-li més privacitat i seguretat
+        • No es necessiten permisos innecessaris
+        • Cerca ràpidament imatges, vídeos i fitxers
+        • Obre i visualitza molts tipus de fotos i de vídeo diferents (RAW, SVG, panoràmiques, etc.)
+        • Una varietat de gestos intuïtius per editar fàcilment i organitzar els fitxers
+        • Moltes maneres de filtrar, agrupar, amplificar i ordenar fitxers
+        • Personalitza l’aparença de Simple Gallery Pro
+        • Disponible en 32 idiomes
+        • Marca els fitxers com a preferits per accedir ràpidament
+        • Protegeix les teves fotos i vídeos amb un patró, pin o empremta digital
+        • Utilitza un pin, patró i empremta digital per protegir també el llançament de l’aplicació o funcions específiques
+        • Recupera fotos i vídeos esborrats de la paperera de reciclatge
+        • Canvia la visibilitat dels fitxers per ocultar fotografies i vídeos
+        • Crea una presentació de diapositives personalitzable dels teus fitxers
+        • Mostra informació detallada dels teus fitxers (resolució, valors EXIF, etc.)
+        • Simple Gallery Pro és de codi obert
+        ... i molt més!
 
-        <b>PHOTO GALLERY EDITOR</b>
-        Simple Gallery Pro makes it easy to edit your pictures on the fly. Crop, flip, rotate and resize your pictures. If you’re feeling a little more creative you can add filters and draw on your pictures!
+        <b>EDITOR DE GALERIA DE FOTOS </b>
+        Simple Gallery Pro et permet editar fàcilment les vostres imatges. Retalla, gira, gira i canvia la mida de les teves fotos. Si et sents una mica més creatiu, pots afegir filtres i dibuixar-ne les imatges.
 
-        <b>SUPPORT FOR MANY FILE TYPES</b>
-        Unlike some other gallery viewers &amp; photo organizers, Simple Gallery Pro supports a huge range of different file types including JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic photos, Panoramic videos and many more.
+        <b>SUPORT PER ALTRES TIPUS DE ARXIU </b>
+        A diferència d’altres aplicacions de galeria, Simple Gallery Pro suporta una gran varietat de tipus de fitxers diferents, inclosos JPEG, PNG, MP4, MKV, RAW, SVG, fotos panoràmiques, vídeos panoràmics i molts més.
 
-        <b>HIGHLY CUSTOMIZABLE GALLERY MANAGER</b>
-        From the UI to the function buttons on the bottom toolbar, Simple Gallery Pro is highly customizable and works the way you want it to. No other gallery manager has this kind of flexibility! Thanks to being open source, we’re also available in 32 languages!
+        <b>GESTOR DE GALERIA ALTAMENT PERSONALITZABLE </b>
+        Des de la interfície d’usuari fins als botons de funció de la barra d’eines inferior, Simple Gallery Pro és altament personalitzable i funciona de la manera que desitgis. Cap altre aplicació de galeria té aquest tipus de flexibilitat. Gràcies a ser de codi obert, també estem disponibles en 32 idiomes.
 
-        <b>RECOVER DELETED PHOTOS &amp; VIDEOS</b>
-        Accidentally deleted a precious photo or video? Don’t worry! Simple Gallery Pro features a handy recycle bin where you can recover deleted photos &amp; videos easily.
+        <b>RECUPERES FOTOS I VÍDEOS </b>
+        Has suprimit accidentalment una foto o vídeo precios? No et preocupis! Simple Gallery Pro disposa d’una paperera de reciclatge on podeu recuperar fotos i vídeos eliminats fàcilment.
 
-        <b>PROTECT &amp; HIDE PHOTOS, VIDEOS &amp; FILES</b>
-        Using pin, pattern or your device’s fingerprint scanner you can protect and hide photos, videos &amp; entire albums. You can protect the app itself or place locks on specific functions of the app. For example, you can’t delete a file without a fingerprint scan, helping to protect your files from accidental deletion.
+        <b>PROTEGEIX, OCULTA FOTOS, VÍDEOS I ARXIUS </b>
+        Amb el pin, el patró o l’escàner d’emprenta digital del teu dispositiu, pots protegir i amagar fotografies, vídeos i àlbums sencers. Pots protegir la pròpia aplicació o col·locar panys sobre funcions específiques de l’aplicació. Per exemple, no poder esborrar un fitxer sense una anàlisi d’empremtes digitals, ajudant-vos a protegir els teus fitxers de l’eliminació accidental.
 
-        <b>Check out the full suite of Simple Tools here:</b>
+        <b>Consulteu el conjunt complet d’eines senzilles aquí: </b>
         https://www.simplemobiletools.com
 
         <b>Facebook:</b>

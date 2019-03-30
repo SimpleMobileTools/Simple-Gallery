@@ -32,11 +32,12 @@
     <string name="fixing">Corrigeren…</string>
     <string name="dates_fixed_successfully">Datums zijn gecorrigeerd</string>
     <string name="share_resized">Verkleinde versie delen</string>
+    <string name="upgraded_from_free">Het lijkt erop dat dit een upgrade is vanaf de oude gratis versie. Deze oude versie, met de knop \'Upgraden naar Pro\' bovenaan de instellingen, kan nu gedeïnstalleerd worden.\n\nDe items in de prullenbak zullen dan wel worden verwijderd, favorieten en instellingen zullen ook opnieuw moeten worden geconfigureerd.</string>
 
     <!-- Filter -->
     <string name="filter_media">Media filteren</string>
     <string name="images">Afbeeldingen</string>
-    <string name="videos">Video\'s</string>
+    <string name="videos">Video’s</string>
     <string name="gifs">GIF-bestanden</string>
     <string name="raw_images">RAW-afbeeldingen</string>
     <string name="svgs">SVG-vectorafbeeldingen</string>
@@ -44,7 +45,7 @@
     <string name="change_filters_underlined"><u>Filters aanpassen</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Deze functie verbergt de map door het bestand \'.nomedia\' toe te voegen. Alle submappen zullen ook worden verborgen. Kies \'Verborgen mappen tonen\' in de instellingen om toch verborgen mappen te kunnen inzien. Doorgaan?</string>
+    <string name="hide_folder_description">Deze functie verbergt de map door het bestand ’.nomedia’ toe te voegen. Alle submappen zullen ook worden verborgen. Kies ’Verborgen mappen tonen’ in de instellingen om toch verborgen mappen te kunnen inzien. Doorgaan?</string>
     <string name="exclude">Uitsluiten</string>
     <string name="excluded_folders">Uitgesloten mappen</string>
     <string name="manage_excluded_folders">Uitgesloten mappen beheren</string>
@@ -108,7 +109,7 @@
     <string name="slideshow">Diavoorstelling</string>
     <string name="interval">Interval (seconden):</string>
     <string name="include_photos">Afbeeldingen weergeven</string>
-    <string name="include_videos">Video\'s weergeven</string>
+    <string name="include_videos">Video’s weergeven</string>
     <string name="include_gifs">GIF-bestanden weergeven</string>
     <string name="random_order">Willekeurige volgorde</string>
     <string name="use_fade">Animaties gebruiken (vervagen)</string>
@@ -139,14 +140,14 @@
     <string name="show_folder_name">Mapnaam tonen</string>
 
     <!-- Settings -->
-    <string name="autoplay_videos">Video\'s automatisch afspelen</string>
-    <string name="remember_last_video_position">Laatste positie in video\'s onthouden</string>
+    <string name="autoplay_videos">Video’s automatisch afspelen</string>
+    <string name="remember_last_video_position">Laatste positie in video’s onthouden</string>
     <string name="toggle_filename">Bestandsnamen tonen</string>
-    <string name="loop_videos">Video\'s herhalen</string>
+    <string name="loop_videos">Video’s herhalen</string>
     <string name="animate_gifs">GIF-bestanden afspelen in overzicht</string>
     <string name="max_brightness">Maximale helderheid in volledig scherm</string>
     <string name="crop_thumbnails">Miniatuurvoorbeelden bijsnijden</string>
-    <string name="show_thumbnail_video_duration">Lengte van video\'s tonen</string>
+    <string name="show_thumbnail_video_duration">Lengte van video’s tonen</string>
     <string name="screen_rotation_by">Media in volledig scherm roteren volgens</string>
     <string name="screen_rotation_system_setting">Systeeminstelling</string>
     <string name="screen_rotation_device_rotation">Oriëntatie van apparaat</string>
@@ -156,7 +157,7 @@
     <string name="hide_system_ui_at_fullscreen">Statusbalk automatisch verbergen in volledig scherm</string>
     <string name="delete_empty_folders">Lege mappen verwijderen na leegmaken</string>
     <string name="allow_photo_gestures">Helderheid voor afbeeldingen aanpassen met verticale veeggebaren</string>
-    <string name="allow_video_gestures">Volume en helderheid voor video\'s aanpassen met verticale veeggebaren</string>
+    <string name="allow_video_gestures">Volume en helderheid voor video’s aanpassen met verticale veeggebaren</string>
     <string name="show_media_count">Aantallen in mappen tonen</string>
     <string name="show_extended_details">Uitgebreide informatie tonen in volledig scherm</string>
     <string name="manage_extended_details">Uitgebreide informatie</string>
@@ -171,7 +172,7 @@
     <string name="show_recycle_bin_last">Prullenbak als laatste item tonen</string>
     <string name="allow_down_gesture">Naar beneden vegen om volledig scherm af te sluiten</string>
     <string name="allow_one_to_one_zoom">1:1 zoomen na 2x dubbelklikken</string>
-    <string name="open_videos_on_separate_screen">Video\'s altijd in apart scherm met horizontale veeggebaren openen</string>
+    <string name="open_videos_on_separate_screen">Video’s altijd in apart scherm met horizontale veeggebaren openen</string>
     <string name="show_notch">Inkeping scherm tonen indien aanwezig</string>
     <string name="allow_rotating_gestures">Afbeeldingen met veeggebaren draaien</string>
     <string name="file_loading_priority">Prioriteit bij inladen bestanden</string>
@@ -191,14 +192,14 @@
     <string name="toggle_file_visibility">Bestand tonen/verbergen</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">Hoe kan ik Eenvoudige Galerij instellen als standaard-app voor foto\'s en video\'s?</string>
-    <string name="faq_1_text">Zoek eerst de huidige standaard-app voor foto\'s en video\'s in de Android-instellingen (via \"Apps\" of "\Apps en meldingen\"). Klik bij de App-info op \"Standaardwaarden wissen\" (soms onder \"Standaard openen\").
+    <string name="faq_1_title">Hoe kan ik Eenvoudige Galerij instellen als standaard-app voor foto’s en video’s?</string>
+    <string name="faq_1_text">Zoek eerst de huidige standaard-app voor foto’s en video’s in de Android-instellingen (via \"Apps\" of "\Apps en meldingen\"). Klik bij de App-info op \"Standaardwaarden wissen\" (soms onder \"Standaard openen\").
         Bij het openen van een foto of video zal de volgende keer een keuzescherm verschijnen, waarin Eenvoudige Galerij als standaard-app kan worden ingesteld.</string>
     <string name="faq_2_title">Ik heb de app beveiligd met een wachtwoord, maar ben het wachtwoord nu vergeten. Wat kan ik doen?</string>
     <string name="faq_2_text">Deïnstalleer en herinstalleer de app, of ga naar de app in de Android-instellingen (via \"Apps (en meldingen)\" -> \"App-info\") en kies via \"Opslagruimte\" voor \"Gegevens wissen\". Hiermee worden alleen de instellingen van deze app gewist.</string>
     <string name="faq_3_title">Hoe kan ik een map bovenaan vastzetten?</string>
     <string name="faq_3_text">Druk lang op het map en kies vervolgens de punaise in het actiemenu. Als er meerdere mappen zijn vastgezet, zullen deze worden weergeven op basis van de standaardsortering.</string>
-    <string name="faq_4_title">Hoe kan ik terug- of vooruitspoelen in video\'s?</string>
+    <string name="faq_4_title">Hoe kan ik terug- of vooruitspoelen in video’s?</string>
     <string name="faq_4_text">Sleep horizontaal over de videospeler, of klik bij de zoekbalk op de cijfers die de huidige voortgang of de lengte weergeven. Hierbij zal de video respectievelijk terug- of vooruitspringen.</string>
     <string name="faq_5_title">Wat is het verschil tussen het verbergen en het uitsluiten van mappen?</string>
     <string name="faq_5_text">Met \"Uitsluiten\" wordt het tonen van de map alleen binnen deze app voorkomen, terwijl \"Verbergen\" de map ook zal verbergen voor andere galerij-apps. Met \"Verbergen\" wordt een bestand genaamd \".nomedia\" in de te verbergen map aangemaakt (het verwijderen van dit bestand uit de map maakt het verbergen ongedaan).</string>
@@ -222,52 +223,52 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Offline gallery without ads. Organize, edit, recover and protect photos &amp; videos</string>
+    <string name="app_short_description">Galerij zonder advertenties. Organiseer, bewerk en beveilig foto’s &amp; video’s</string>
     <string name="app_long_description">
-        Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
+        Simple Gallery Pro is een volledig aan te passen offline galerij. Organiseer &amp; bewerk foto’s, herstel verwijderde bestanden met de prullenbakfunctie, beveilig &amp; verberg items en bekijk een enorme hoeveelheid aan foto- &amp; videoformaten, waaronder RAW, SVG en nog veel meer.
 
-        The app contains no ads and unnecessary permissions. As the app doesn’t require internet access either, your privacy is protected.
+        Deze privacyvriendelijke app bevat geen advertenties of onnodige machtigingen (zoals verbinden met het internet).
 
         -------------------------------------------------
-        <b>SIMPLE GALLERY PRO – FEATURES</b>
+        <b>SIMPLE GALLERY PRO – FUNCTIES</b>
         -------------------------------------------------
 
-        • Offline gallery with no ads or popups
-        • Simple gallery photo editor – crop, rotate, resize, draw, filters &amp; more
-        • No internet access needed, giving you more privacy and security
-        • No unnecessary permissions required
-        • Quickly search images, videos &amp; files
-        • Open &amp; view many different photo and video types (RAW, SVG, panoramic etc)
-        • A variety of intuitive gestures to easily edit &amp; organize files
-        • Lots of ways to filter, group &amp; sort files
-        • Customize the appearance of Simple Gallery Pro
-        • Available in 32 languages
-        • Mark files as favorites for quick access
-        • Protect your photos &amp; videos with a pattern, pin or fingerprint
-        • Use pin, pattern &amp; fingerprint to protect the app launch or specific functions too
-        • Recover deleted photos &amp; videos from the recycle bin
-        • Toggle visibility of files to hide photos &amp; videos
-        • Create a customizable slideshow of your files
-        • View detailed information of your files (resolution, EXIF values etc)
-        • Simple Gallery Pro is open source
-        … and much much more!
+        • Offline galerij zonder advertenties en pop-ups
+        • Simple Gallery fotobewerking: bijsnijden, spiegelen, roteren, grootte aanpassen, tekenen, filters &amp; meer
+        • Geen internetverbinding benodigd voor meer privacy and veiligheid
+        • Geen onnodige machtigingen vereist
+        • Beschikbaar in 32 talen
+        • Simple Gallery Pro is open-source
+        • Zoek snel naar afbeeldingen, video’s &amp; bestanden
+        • Open &amp; bekijk vele foto- &amp; videoformaten (RAW, SVG, panorama etc.)
+        • Gebruik veeggebaren om bestanden snel te bewerken en te organiseren
+        • Kies uit een verscheidenheid aan manieren om bestanden te filteren, groeperen en sorteren
+        • Pas het uiterlijk van Simple Gallery Pro aan
+        • Markeer bestanden als favoriet om ze snel terug te vinden
+        • Beveilig items met een patroon, pincode or vingerafdruk
+        • Gebruik pincode, patroon &amp; vingerafdruk om specifieke functies of het starten van de app te beveiligen
+        • Herstel verwijderde bestanden uit de prullenbak
+        • Toon of verberg foto’s &amp; video’s
+        • Creëer diavoorstellingen
+        • Bekijk gedetailleerde informatie over de bestanden (resolutie, EXIF-waarden etc.)
+        … en nog veel meer!
 
-        <b>PHOTO GALLERY EDITOR</b>
-        Simple Gallery Pro makes it easy to edit your pictures on the fly. Crop, flip, rotate and resize your pictures. If you’re feeling a little more creative you can add filters and draw on your pictures!
+        <b>FOTO’S BEWERKEN</b>
+        Simple Gallery Pro maakt het gemakkelijk om direct afbeeldingen te bewerken. Ga aan de slag met bijsnijden, spiegelen, roteren en de grootte aanpassen, of voeg filters toe en teken over de afbeelding heen!
 
-        <b>SUPPORT FOR MANY FILE TYPES</b>
-        Unlike some other gallery viewers &amp; photo organizers, Simple Gallery Pro supports a huge range of different file types including JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic photos, Panoramic videos and many more.
+        <b>ONDERSTEUNING VOOR VEEL VERSCHILLENDE BESTANDSFORMATEN</b>
+        Simple Gallery Pro ondersteunt, in tegenstelling tot sommige andere galerij-apps, een enorme hoeveelheid aan bestandsformaten, waaronder JPEG, PNG, MP4, MKV, RAW, SVG, Panorama-foto’s &amp; -videos en nog veel meer.
 
-        <b>HIGHLY CUSTOMIZABLE GALLERY MANAGER</b>
-        From the UI to the function buttons on the bottom toolbar, Simple Gallery Pro is highly customizable and works the way you want it to. No other gallery manager has this kind of flexibility! Thanks to being open source, we’re also available in 32 languages!
+        <b>ALLES IS AAN TE PASSEN</b>
+        Van de interface tot de knoppen op de werkbalk, Simple Gallery Pro is geheel aan te passen en kan dan ook werken naar ieders voorkeur. Geen enkele andere galerij-app bevat zulke flexibiliteit! Dankzij het open karakter en de community is de app maar liefst in 32 talen beschikbaar!
 
-        <b>RECOVER DELETED PHOTOS &amp; VIDEOS</b>
-        Accidentally deleted a precious photo or video? Don’t worry! Simple Gallery Pro features a handy recycle bin where you can recover deleted photos &amp; videos easily.
+        <b>HERSTEL VERWIJDERDE FOTO’S &amp; VIDEO’S</b>
+        Per ongeluk een foto of video verwijderd? Geen paniek! Simple Gallery Pro heeft een handige prullenbak waarmee verwijderde bestanden gemakkelijk zijn terug te halen.
 
-        <b>PROTECT &amp; HIDE PHOTOS, VIDEOS &amp; FILES</b>
-        Using pin, pattern or your device’s fingerprint scanner you can protect and hide photos, videos &amp; entire albums. You can protect the app itself or place locks on specific functions of the app. For example, you can’t delete a file without a fingerprint scan, helping to protect your files from accidental deletion.
+        <b>BEVEILIG &amp; VERBERG FOTO’S, VIDEO’S &amp; BESTANDEN</b>
+        Door middel van een pincode, patroon of een vingerafdruk zijn foto’s, video’s &amp; gehele albums te beveiligen of te verbergen. Ook de gehele app of specifieke functies binnen de galerij zijn zo te beveiligen. Voorbeeld: stel in dat bestanden alleen kunnen worden verwijderd na een vingerafdrukscan.
 
-        <b>Check out the full suite of Simple Tools here:</b>
+        <b>Kijk ook eens naar de hele collectie apps van Simple Tools:</b>
         https://www.simplemobiletools.com
 
         <b>Facebook:</b>

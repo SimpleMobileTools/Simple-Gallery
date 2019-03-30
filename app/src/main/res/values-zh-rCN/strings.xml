@@ -32,6 +32,7 @@
     <string name="fixing">正在修复…</string>
     <string name="dates_fixed_successfully">日期修复成功</string>
     <string name="share_resized">调整图像尺寸并分享</string>
+    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
 
     <!-- Filter -->
     <string name="filter_media">要显示的媒体文件</string>
@@ -131,8 +132,8 @@
     <string name="by_last_modified">最近修改</string>
     <string name="by_date_taken">拍摄时间</string>
     <string name="by_file_type">文件类型</string>
-    <string name="by_extension">扩展</string>
-    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
+    <string name="by_extension">扩展名</string>
+    <string name="grouping_and_sorting">请注意，分组和排序是相互独立的</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">要在小部件上显示的文件夹:</string>
@@ -174,10 +175,10 @@
     <string name="open_videos_on_separate_screen">使用新的水平手势在独立页面播放视频</string>
     <string name="show_notch">显示留海（如果可用）</string>
     <string name="allow_rotating_gestures">允许使用手势旋转图像</string>
-    <string name="file_loading_priority">File loading priority</string>
-    <string name="speed">Speed</string>
-    <string name="compromise">Compromise</string>
-    <string name="avoid_showing_invalid_files">Avoid showing invalid files</string>
+    <string name="file_loading_priority">文件加载优先级</string>
+    <string name="speed">速度</string>
+    <string name="compromise">折中</string>
+    <string name="avoid_showing_invalid_files">避免显示无效的文件</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">缩略图</string>
@@ -220,52 +221,52 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Offline gallery without ads. Organize, edit, recover and protect photos &amp; videos</string>
+    <string name="app_short_description">一个没有广告的离线图库。便于整理，编辑，恢复和保护照片 &amp; 视频。</string>
     <string name="app_long_description">
-        Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
+        简约图库 Pro 是一个高度可定制的图库。管理并编辑你的照片，从回收站中恢复已删除的照片，保护并隐藏文件，查看RAW，SVG等等多种照片和视频格式。
 
-        The app contains no ads and unnecessary permissions. As the app doesn’t require internet access either, your privacy is protected.
+        该应用不包含广告和不必要的权限。我们保护您的隐私，因为该应用不需要联网权限。
 
         -------------------------------------------------
-        <b>SIMPLE GALLERY PRO – FEATURES</b>
+                  <b>简约图库 Pro – 特性</b>
         -------------------------------------------------
 
-        • Offline gallery with no ads or popups
-        • Simple gallery photo editor – crop, rotate, resize, draw, filters &amp; more
-        • No internet access needed, giving you more privacy and security
-        • No unnecessary permissions required
-        • Quickly search images, videos &amp; files
-        • Open &amp; view many different photo and video types (RAW, SVG, panoramic etc)
-        • A variety of intuitive gestures to easily edit &amp; organize files
-        • Lots of ways to filter, group &amp; sort files
-        • Customize the appearance of Simple Gallery Pro
-        • Available in 32 languages
-        • Mark files as favorites for quick access
-        • Protect your photos &amp; videos with a pattern, pin or fingerprint
-        • Use pin, pattern &amp; fingerprint to protect the app launch or specific functions too
-        • Recover deleted photos &amp; videos from the recycle bin
-        • Toggle visibility of files to hide photos &amp; videos
-        • Create a customizable slideshow of your files
-        • View detailed information of your files (resolution, EXIF values etc)
-        • Simple Gallery Pro is open source
-        … and much much more!
+        • 完全离线，没有广告或弹出窗口
+        • 简约图库图片编辑器 – 裁剪，旋转，调整大小，绘制，滤镜等等
+        • 无需联网权限，为您提供更多的隐私和安全
+        • 没有不必要的权限
+        • 快速搜索图像，视频和文件
+        • 支持打开并查看多种照片和视频类型（RAW，SVG，全景等）
+        • 各种直观的手势，便于编辑和管理文件
+        • 多种过滤、分组和排序文件的方法
+        • 自定义应用界面外观
+        • 支持多达 32 种语言
+        • 支持将文件添加到收藏夹以便快速访问
+        • 支持使用图案、密码或指纹保护您的照片和视频
+        • 同样支持使用图案、密码或指纹保护应用或特定功能
+        • 从回收站中恢复已删除的照片和视频
+        • 支持隐藏照片和视频
+        • 为您的文件创建一个可自定义的幻灯片
+        • 查看文件的详细信息（分辨率，EXIF值等等）
+        • 该应用是开源的
+        … 还有很多很多！
 
-        <b>PHOTO GALLERY EDITOR</b>
-        Simple Gallery Pro makes it easy to edit your pictures on the fly. Crop, flip, rotate and resize your pictures. If you’re feeling a little more creative you can add filters and draw on your pictures!
+        <b>图库照片编辑</b>
+        简约图库 Pro 可以轻松地动态编辑图片。支持裁剪、翻转、旋转、或是调整图片大小。如果您希望更有创意的话，可以添加滤镜，或是直接在图片上绘制！
 
-        <b>SUPPORT FOR MANY FILE TYPES</b>
-        Unlike some other gallery viewers &amp; photo organizers, Simple Gallery Pro supports a huge range of different file types including JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic photos, Panoramic videos and many more.
+        <b>支持多种文件类型</b>
+        与其他一些图库应用不同，简约图库 Pro 支持多种文件类型，包括JPEG，PNG，MP4，MKV，RAW，SVG，全景照片，全景视频等等。
 
-        <b>HIGHLY CUSTOMIZABLE GALLERY MANAGER</b>
-        From the UI to the function buttons on the bottom toolbar, Simple Gallery Pro is highly customizable and works the way you want it to. No other gallery manager has this kind of flexibility! Thanks to being open source, we’re also available in 32 languages!
+        <b>高度可定制的图库</b>
+        从UI到底部工具栏上的功能按钮，简约图库 Pro 可高度自定义并按您的要求工作。其他图库应用可没有这种灵活性！由于该应用是开源的，所以我们还提供 32 种语言！
 
-        <b>RECOVER DELETED PHOTOS &amp; VIDEOS</b>
-        Accidentally deleted a precious photo or video? Don’t worry! Simple Gallery Pro features a handy recycle bin where you can recover deleted photos &amp; videos easily.
+        <b>恢复已删除的照片和视频</b>
+        意外删除了珍贵的照片或视频？别担心！简约图库 Pro 具有方便的回收站，您可以方便地恢复已删除的照片和视频。
 
-        <b>PROTECT &amp; HIDE PHOTOS, VIDEOS &amp; FILES</b>
-        Using pin, pattern or your device’s fingerprint scanner you can protect and hide photos, videos &amp; entire albums. You can protect the app itself or place locks on specific functions of the app. For example, you can’t delete a file without a fingerprint scan, helping to protect your files from accidental deletion.
+        <b>保护并隐藏照片、视频和文件</b>
+        使用密码、图案或指纹保护和隐藏照片、视频、或是整个相册。您也可以保护应用自身或禁用一些特定功能。 例如，只有指纹验证通过才可以删除文件，从而有效地防止您的文件被意外删除。
 
-        <b>Check out the full suite of Simple Tools here:</b>
+        <b>查看简约系列的所有应用:</b>
         https://www.simplemobiletools.com
 
         <b>Facebook:</b>

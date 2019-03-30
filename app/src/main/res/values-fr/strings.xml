@@ -2,23 +2,23 @@
 <resources>
     <string name="app_name">Simple Gallery</string>
     <string name="app_launcher_name">Galerie</string>
-    <string name="edit">Édition</string>
-    <string name="open_camera">Démarrer l\'appareil photo</string>
-    <string name="hidden">(masqué)</string>
+    <string name="edit">Modifier</string>
+    <string name="open_camera">Ouvrir l\'appareil photo</string>
+    <string name="hidden">(caché)</string>
     <string name="excluded">(exclu)</string>
     <string name="pin_folder">Épingler le dossier</string>
     <string name="unpin_folder">Désépingler le dossier</string>
     <string name="pin_to_the_top">Épingler en haut</string>
-    <string name="show_all">Afficher le contenu de tous les dossiers</string>
+    <string name="show_all">Affichage \"Tous les dossiers\"</string>
     <string name="all_folders">Tous les dossiers</string>
-    <string name="folder_view">Affichage en vue \"Dossier\"</string>
+    <string name="folder_view">Affichage \"Galerie\"</string>
     <string name="other_folder">Autre dossier</string>
     <string name="show_on_map">Afficher sur la carte</string>
     <string name="unknown_location">Position inconnue</string>
     <string name="increase_column_count">Ajouter une colonne</string>
     <string name="reduce_column_count">Supprimer une colonne</string>
-    <string name="change_cover_image">Changer l\'image de couverture</string>
-    <string name="select_photo">Sélectionner une photo</string>
+    <string name="change_cover_image">Changer l\'image de vignette</string>
+    <string name="select_photo">Sélectionner une image</string>
     <string name="use_default">Utiliser par défaut</string>
     <string name="volume">Volume</string>
     <string name="brightness">Luminosité</string>
@@ -28,10 +28,11 @@
     <string name="force_portrait">Forcer la vue portrait</string>
     <string name="force_landscape">Forcer la vue paysage</string>
     <string name="use_default_orientation">Utiliser l\'orientation par défaut</string>
-    <string name="fix_date_taken">Corriger la valeur des dates de prise des photos</string>
-    <string name="fixing">Correction en cours....</string>
+    <string name="fix_date_taken">Corriger les dates de prise de vue</string>
+    <string name="fixing">Correction en cours...</string>
     <string name="dates_fixed_successfully">Dates corrigées</string>
     <string name="share_resized">Partager une version redimensionnée</string>
+    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrer les médias</string>
@@ -44,18 +45,18 @@
     <string name="change_filters_underlined"><u>Modifier les filtres</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Cette option masque le dossier en ajoutant un fichier \".nomedia\" à l\'intérieur, cela masquera aussi tous les sous-dossiers. Vous pouvez les voir en appuyant sur le symbole \"Œil\" (permettant l\'affichage) depuis les paramètres. Continuer ?</string>
+    <string name="hide_folder_description">Cette option cache le dossier en y ajoutant un fichier \".nomedia\", cela cachera aussi tous les sous-dossiers. Vous pouvez les voir en appuyant sur le symbole \"Œil\" (permettant l\'affichage) depuis les paramètres. Continuer ?</string>
     <string name="exclude">Exclure</string>
     <string name="excluded_folders">Dossiers exclus</string>
     <string name="manage_excluded_folders">Gérer les dossiers exclus</string>
     <string name="exclude_folder_description">Cela va exclure la sélection ainsi que ses sous-dossiers depuis Simple Gallery uniquement. Vous pouvez gérer les dossiers exclus depuis les paramètres.</string>
     <string name="exclude_folder_parent">Exclure un dossier parent ?</string>
-    <string name="excluded_activity_placeholder">Exclure des dossiers les masquera ainsi que leurs sous-dossiers uniquement dans Simple Gallery, ils seront toujours visibles depuis d\'autres applications.\n\nSi vous voulez aussi les masquer ailleurs, utilisez la fonction \"Masquer\".</string>
+    <string name="excluded_activity_placeholder">Exclure des dossiers les cachera ainsi que leurs sous-dossiers uniquement dans Simple Gallery, ils seront toujours visibles depuis d\'autres applications.\n\nSi vous voulez aussi les cacher ailleurs, utilisez la fonction \"Cacher\".</string>
     <string name="remove_all">Tout supprimer</string>
     <string name="remove_all_description">Supprimer tous les dossiers de la liste des exclusions ? Cela n\'effacera pas les dossiers.</string>
-    <string name="hidden_folders">Dossiers masqués</string>
-    <string name="manage_hidden_folders">Gérer les dossiers masqués</string>
-    <string name="hidden_folders_placeholder">Il semblerait que vous n\'ayez pas de dossier masqués avec un fichier \".nomedia\".</string>
+    <string name="hidden_folders">Dossiers cachés</string>
+    <string name="manage_hidden_folders">Gérer les dossiers cachés</string>
+    <string name="hidden_folders_placeholder">Il semblerait que vous n\'ayez pas de dossier cachés avec un fichier \".nomedia\".</string>
 
     <!-- Include folders -->
     <string name="include_folders">Dossiers ajoutés</string>
@@ -96,7 +97,7 @@
     <string name="set_as_wallpaper">Définir comme fond d\'écran</string>
     <string name="set_as_wallpaper_failed">Échec de la définition en tant que fond d\'écran</string>
     <string name="set_as_wallpaper_with">Définir comme fond d\'écran avec :</string>
-    <string name="setting_wallpaper">Définition du fond d\'écran en cours…</string>
+    <string name="setting_wallpaper">Définition du fond d\'écran en cours...</string>
     <string name="wallpaper_set_successfully">Fond d\'écran défini</string>
     <string name="portrait_aspect_ratio">Rapport d\'affichage portrait</string>
     <string name="landscape_aspect_ratio">Rapport d\'affichage paysage</string>
@@ -107,9 +108,9 @@
     <!-- Slideshow -->
     <string name="slideshow">Diaporama</string>
     <string name="interval">Intervalle (secondes) :</string>
-    <string name="include_photos">Inclure photos</string>
-    <string name="include_videos">Inclure vidéos</string>
-    <string name="include_gifs">Inclure GIFs</string>
+    <string name="include_photos">Inclure les images</string>
+    <string name="include_videos">Inclure les vidéos</string>
+    <string name="include_gifs">Inclure les GIFs</string>
     <string name="random_order">Ordre aléatoire</string>
     <string name="use_fade">Utiliser un fondu</string>
     <string name="move_backwards">Défilement inverse</string>
@@ -122,7 +123,7 @@
     <string name="change_view_type">Changer de mode d\'affichage</string>
     <string name="grid">Grille</string>
     <string name="list">Liste</string>
-    <string name="group_direct_subfolders">Sous-dossiers de groupe direct</string>
+    <string name="group_direct_subfolders">Mode sous-dossiers</string>
 
     <!-- Grouping at media thumbnails -->
     <string name="group_by">Grouper par</string>
@@ -132,7 +133,7 @@
     <string name="by_date_taken">Date de prise de vue</string>
     <string name="by_file_type">Type de fichier</string>
     <string name="by_extension">Extension</string>
-    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
+    <string name="grouping_and_sorting">Notez que grouper et trier sont 2 modes de tri indépendants</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Dossier affiché sur le widget :</string>
@@ -140,83 +141,83 @@
 
     <!-- Settings -->
     <string name="autoplay_videos">Lecture automatique des vidéos</string>
-    <string name="remember_last_video_position">Mémoriser la dernière position de lecture vidéo</string>
+    <string name="remember_last_video_position">Mémoriser la position de lecture des vidéos</string>
     <string name="toggle_filename">Permuter la visibilité des noms de fichier</string>
     <string name="loop_videos">Lecture en boucle des vidéos</string>
-    <string name="animate_gifs">GIFs animés sur les miniatures</string>
+    <string name="animate_gifs">Animer le GIFs dans les miniatures</string>
     <string name="max_brightness">Luminosité maximale</string>
     <string name="crop_thumbnails">Recadrer les miniatures en carrés</string>
-    <string name="show_thumbnail_video_duration">Montrer la durée de la vidéo</string>
-    <string name="screen_rotation_by">Pivoter l\'affichage selon</string>
+    <string name="show_thumbnail_video_duration">Afficher la durée des vidéos</string>
+    <string name="screen_rotation_by">Orientation de l\'affichage</string>
     <string name="screen_rotation_system_setting">Paramètres système</string>
     <string name="screen_rotation_device_rotation">Rotation de l\'appareil</string>
     <string name="screen_rotation_aspect_ratio">Rapport d\'affichage</string>
     <string name="black_background_at_fullscreen">Arrière-plan et barre d\'état noirs</string>
-    <string name="scroll_thumbnails_horizontally">Défilement des miniatures horizontalement</string>
+    <string name="scroll_thumbnails_horizontally">Défiler les miniatures horizontalement</string>
     <string name="hide_system_ui_at_fullscreen">Masquer automatiquement l\'interface utilisateur</string>
     <string name="delete_empty_folders">Supprimer les dossiers vides après avoir supprimé leur contenu</string>
-    <string name="allow_photo_gestures">Contrôler la luminosité de la photo avec des gestes verticaux</string>
-    <string name="allow_video_gestures">Contrôler le volume et la luminosité de la vidéo avec des gestes verticaux</string>
+    <string name="allow_photo_gestures">Contrôler la luminosité des images avec des gestes verticaux</string>
+    <string name="allow_video_gestures">Contrôler le volume et la luminosité des vidéos avec des gestes verticaux</string>
     <string name="show_media_count">Afficher le nombre de fichiers dans les dossiers</string>
     <string name="show_extended_details">Afficher en surimpression les informations supplémentaires du média en plein écran</string>
     <string name="manage_extended_details">Gérer les informations supplémentaires</string>
-    <string name="one_finger_zoom">Effectuer le zoom avec un doigt sur une image en plein écran</string>
-    <string name="allow_instant_change">Changement instantané de média en appuyant sur les côtés de l\'écran</string>
+    <string name="one_finger_zoom">Activer les zoom à un doigt sur les images en plein écran</string>
+    <string name="allow_instant_change">Appuyer sur les cotés de l\'écran pour changer instantanément de média</string>
     <string name="allow_deep_zooming_images">Utiliser le zoom maximal des images</string>
-    <string name="hide_extended_details">Ne pas afficher les informations supplémentaires si la barre d\'état est masquée</string>
+    <string name="hide_extended_details">Cacher les informations supplémentaires si la barre d\'état est masquée</string>
     <string name="show_at_bottom">Afficher les boutons d\'action</string>
     <string name="show_recycle_bin">Afficher la corbeille en vue \"Dossier\"</string>
     <string name="deep_zoomable_images">Niveau de zoom maximal des images</string>
     <string name="show_highest_quality">Afficher les images avec la meilleur qualité possible</string>
-    <string name="show_recycle_bin_last">Afficher la corbeille en dernière place sur l\'écran principal</string>
-    <string name="allow_down_gesture">Fermeture de la vue plein écran par un geste vers le bas</string>
-    <string name="allow_one_to_one_zoom">Permet d\'effectuer un zoom avant 1:1 avec un double appui</string>
-    <string name="open_videos_on_separate_screen">Ouvrez toujours les vidéos sur un écran séparé avec de nouveaux gestes horizontaux.</string>
-    <string name="show_notch">Afficher un cran si disponible</string>
-    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
-    <string name="file_loading_priority">File loading priority</string>
-    <string name="speed">Speed</string>
-    <string name="compromise">Compromise</string>
-    <string name="avoid_showing_invalid_files">Avoid showing invalid files</string>
+    <string name="show_recycle_bin_last">Afficher la corbeille en fin de liste sur l\'écran principal</string>
+    <string name="allow_down_gesture">Fermer la vue plein écran par un geste vers le bas</string>
+    <string name="allow_one_to_one_zoom">Permettre un zoom avant 1:1 par double appui</string>
+    <string name="open_videos_on_separate_screen">Ouvrir les vidéos sur un écran séparé avec de nouveaux gestes horizontaux</string>
+    <string name="show_notch">Afficher une encoche si disponible</string>
+    <string name="allow_rotating_gestures">Pivoter les images par gestes</string>
+    <string name="file_loading_priority">Priorité de chargement des fichiers</string>
+    <string name="speed">Rapide</string>
+    <string name="compromise">Compromis</string>
+    <string name="avoid_showing_invalid_files">Eviter l\'affichage de fichiers invalides</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniatures</string>
-    <string name="fullscreen_media">Affichage en plein écran</string>
+    <string name="fullscreen_media">Plein écran</string>
     <string name="extended_details">Détails supplémentaires</string>
-    <string name="bottom_actions">Menu d\'actions sur la bas de l\'écran</string>
+    <string name="bottom_actions">Barre d\'actions</string>
 
     <!-- Bottom actions -->
-    <string name="manage_bottom_actions">Gérer le menu d\'actions</string>
+    <string name="manage_bottom_actions">Gérer la barre d\'actions</string>
     <string name="toggle_favorite">Ajouter aux favoris</string>
     <string name="toggle_file_visibility">Changer la visibilité des fichiers</string>
 
     <!-- FAQ -->
     <string name="faq_1_title">Comment faire de Simple Gallery ma galerie par défaut ?</string>
-    <string name="faq_1_text">Il faut dans un premier temps, trouver l\'application \"galerie\" par défaut dans la section \"Applications\" des paramètres de l\'appareil, puis appuyer sur \"Ouvrir par défaut\", et enfin sélectionner \"Réinitialiser les paramètres par défaut\". 		La prochaine fois que vous ouvrirez une image ou une vidéo, il vous sera proposé de choisir une application, choisissez \"Simple Gallery\" puis \"Toujours\".</string>
+    <string name="faq_1_text">Il faut dans un premier temps, trouver l\'application \"Galerie\" par défaut dans la section \"Applications\" des paramètres de l\'appareil, puis appuyer sur \"Ouvrir par défaut\", et enfin sélectionner \"Réinitialiser les paramètres par défaut\". 		La prochaine fois que vous ouvrirez une image ou une vidéo, il vous sera proposé de choisir une application, choisissez \"Simple Gallery\" puis \"Toujours\".</string>
     <string name="faq_2_title">J\'ai verrouillé l\'application avec un mot de passe et je ne m\'en rappelle plus. Que faire ?</string>
     <string name="faq_2_text">Il y a deux façons de procéder. Soit vous réinstallez l\'application, soit vous recherchez l\'application dans les paramètres de l\'appareil et appuyez sur \"Effacer les données\". Cela va seulement réinitialiser les paramètres de l\'application et ne supprimera pas vos fichiers.</string>
     <string name="faq_3_title">Comment faire pour qu\'un album soit toujours affiché tout en haut ?</string>
     <string name="faq_3_text">Vous devez simplement à effectuer un appui prolongé sur l\'album en question et choisir l\'icône \"Épingler\" dans le menu d\'actions. Vous pouvez en épingler plusieurs. Les éléments épinglés seront alors triés selon l\'ordre par défaut.</string>
     <string name="faq_4_title">Comment avancer rapidement dans les vidéos ?</string>
     <string name="faq_4_text">Vous pouvez soit faire glisser votre doigt horizontalement sur le lecteur vidéo, soit cliquer sur le texte en cours ou la durée maximale près de la barre de recherche.  Cela déplacera la vidéo vers l\'arrière ou vers l\'avant.</string>
-    <string name="faq_5_title">Quelle est la différence entre masquer et exclure un dossier ?</string>
-    <string name="faq_5_text">\"Exclure un dossier\" permet de ne pas l\'afficher uniquement dans Simple Gallery, alors que \"Masquer un dossier\" rend le dossier invisible sur l\'ensemble de l\'appareil, y compris les autres applications de galerie. Dans le dernier cas, un fichier \".nomedia\" est créé dans le dossier masqué, et peut être supprimé avec n\'importe quel explorateur de fichiers.</string>
+    <string name="faq_5_title">Quelle est la différence entre cacher et exclure un dossier ?</string>
+    <string name="faq_5_text">\"Exclure un dossier\" permet de ne pas l\'afficher uniquement dans Simple Gallery, alors que \"Cacher un dossier\" rend le dossier invisible sur l\'ensemble de l\'appareil, y compris les autres applications de galerie. Dans le dernier cas, un fichier \".nomedia\" est créé dans le dossier caché, et peut être supprimé avec n\'importe quel explorateur de fichiers.</string>
     <string name="faq_6_title">Pourquoi des dossiers avec des pochettes d\'albums musicaux ou des miniatures d\'images sont affichés ?</string>
     <string name="faq_6_text">Il est possible que des albums qui ne devraient pas être affichés le soient. Vous pouvez les exclure facilement en les sélectionnant par un appui prolongé, puis en choisissant l\'option \"Exclure\", après quoi vous pouvez aussi sélectionner le dossier parent, ce qui devrait éviter l\'apparition d\'albums similaires.</string>
     <string name="faq_7_title">Un dossier avec des images n\'apparaît pas. Que faire ?</string>
-    <string name="faq_7_text">Cela peut arriver pour de multiples raisons, mais c\'est facile à résoudre. Allez dans \"Paramètres\", puis \"Gérer les dossiers inclus\", appuyez sur \"+\" et sélectionnez le dossier voulu.</string>
+    <string name="faq_7_text">Cela peut arriver pour de multiples raisons, mais c\'est facile à résoudre. Allez dans \"Paramètres\", puis \"Gérer les dossiers ajoutés\", appuyez sur \"+\" et sélectionnez le dossier voulu.</string>
     <string name="faq_8_title">Comment faire apparaître uniquement certains dossiers ?</string>
-    <string name="faq_8_text">Ajouter un dossier dans les \"Dossiers inclus\" rend visible l\'ensemble du contenu du dossier. Pour exclure certains dossiers, il faut aller dans \"Paramètres\", puis \"Gérer les dossiers exclus\", exclure le dossier racine \"/\", puis ajouter les dossiers souhaités dans \"Paramètres\", puis \"Gérer les dossiers inclus\". Seuls les dossiers sélectionnés seront visibles, du fait que les exclusions et inclusions sont récursives, et si un dossier est à la fois exclus et inclus, il sera affiché.</string>
+    <string name="faq_8_text">Ajouter un dossier dans les \"Dossiers ajoutés\" rend visible l\'ensemble du contenu du dossier. Pour exclure certains dossiers, il faut aller dans \"Paramètres\", puis \"Gérer les dossiers exclus\", exclure le dossier racine \"/\", puis ajouter les dossiers souhaités dans \"Paramètres\", puis \"Gérer les dossiers ajoutés\". Seuls les dossiers sélectionnés seront visibles, du fait que les exclusions et inclusions sont récursives, et si un dossier est à la fois exclus et inclus, il sera affiché.</string>
     <string name="faq_10_title">Puis-je recadrer des images avec cette application ?</string>
     <string name="faq_10_text">Oui, vous pouvez recadrer les images dans l\'éditeur en faisant glisser les coins de l\'image. Vous pouvez accéder à l\'éditeur en appuyant longuement sur une vignette d\'image et en sélectionnant \"Modifier\", ou en sélectionnant \"Modifier\" en mode plein écran.</string>
     <string name="faq_11_title">Puis-je regrouper les miniatures des fichiers multimédias ?</string>
-    <string name="faq_11_text">Bien sûr, il vous suffit d\'utiliser l\'option de menu \"Grouper par\" lorsque vous êtes dans l\'affichage des miniatures. Vous pouvez regrouper les fichiers selon plusieurs critères, y compris la date de prise de vue. Si vous utilisez la fonction \"Afficher le contenu de tous les dossiers\", vous pouvez également les regrouper par dossier.</string>
+    <string name="faq_11_text">Bien sûr, il vous suffit d\'utiliser l\'option de menu \"Grouper par\" lorsque vous êtes dans l\'affichage des miniatures. Vous pouvez regrouper les fichiers selon plusieurs critères, y compris la date de prise de vue. Si vous utilisez la fonction \"Affichage Tous les dossiers\", vous pouvez également les regrouper par dossier.</string>
     <string name="faq_12_title">Le tri par date de prise de vue ne semble pas fonctionner correctement, comment puis-je le corriger ?</string>
     <string name="faq_12_text">Il est très probablement causé par les fichiers copiés quelque part. Vous pouvez le corriger en sélectionnant les miniatures du fichier et en sélectionnant \"Corriger la valeur des dates de prise des photos\".</string>
     <string name="faq_13_title">Je vois des bandes de couleurs sur les images. Comment puis-je améliorer la qualité ?</string>
     <string name="faq_13_text">La solution actuelle d\'affichage des images fonctionne bien dans la grande majorité des cas, mais si vous voulez une qualité d\'image encore meilleure, vous pouvez activer l\'option \"Afficher les images avec la plus haute qualité possible\" dans la section \"Niveau de zoom maximal des images\" des paramètres de l\'application.</string>
-    <string name="faq_14_title">J\'ai masqué un fichier ou un dossier. Comment puis-je en rétablir l\'affichage ?</string>
-    <string name="faq_14_text">Vous pouvez soit appuyer sur l\'option \"Afficher les fichiers masqués\" du menu de l\'écran principal, ou appuyer sur le bouton \"Afficher les éléments masqués\" dans les paramètres de l\'application. Si vous voulez rétablir leur affichage, effectuez un appui prolongé dessus et appuyez sur le symbole \"Œil\" permettant l\'affichage. Les dossiers sont masqués en ajoutant un fichier \".nomedia\" à leur racine, vous pouvez également supprimer ce fichier avec n\’importe quel explorateur de fichiers.</string>
+    <string name="faq_14_title">J\'ai caché un fichier ou un dossier. Comment puis-je en rétablir l\'affichage ?</string>
+    <string name="faq_14_text">Vous pouvez soit appuyer sur l\'option \"Afficher les fichiers cachés\" du menu de l\'écran principal, ou appuyer sur le bouton \"Afficher les éléments cachés\" dans les paramètres de l\'application. Si vous voulez rétablir leur affichage, effectuez un appui prolongé dessus et appuyez sur le symbole \"Œil\" permettant l\'affichage. Les dossiers sont cachés en ajoutant un fichier \".nomedia\" à leur racine, vous pouvez également supprimer ce fichier avec n\’importe quel explorateur de fichiers.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
