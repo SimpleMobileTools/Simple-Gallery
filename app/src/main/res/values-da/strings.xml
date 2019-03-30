@@ -34,7 +34,6 @@
     <string name="share_resized">Del en skaleret version</string>
     <string name="upgraded_from_free">Hey,\n\ndet ser ud til at du har opgraderet fra den gamle, gratis app. Du kan afinstallere den gamle version, som har en \'Opgrader til Pro\' knap i toppen af appen's indstillinger.\n\nDu vil blot få papirkurvens elementer slettet, favoritter vil blive umarkeret og du vil også skulle genopsætte dine app indstillinger.\n\nTak!</string>
 
-
     <!-- Filter -->
     <string name="filter_media">Filtrér medier</string>
     <string name="images">Billeder</string>
