@@ -32,7 +32,7 @@
     <string name="fixing">Исправление…</string>
     <string name="dates_fixed_successfully">Даты исправлены</string>
     <string name="share_resized">Поделиться изменённой версией</string>
-    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
+    <string name="upgraded_from_free">Привет,\n\nпохоже, что вы обновились со старого бесплатного приложения. Теперь вы можете удалить старую версию, которая содержит кнопку \"Обновить до Pro\" в верхней части настроек приложения.\n\nБудет очищена корзина, сняты отметки избранного, а также вам придётся сбросить настройки приложения.\n\nСпасибо!</string>
 
     <!-- Filter -->
     <string name="filter_media">Фильтр медиа</string>
@@ -178,7 +178,7 @@
     <string name="file_loading_priority">Приоритет загрузки файла</string>
     <string name="speed">Скорость</string>
     <string name="compromise">Компромисс</string>
-    <string name="avoid_showing_invalid_files">Пропускать некорректные файлы</string>
+    <string name="avoid_showing_invalid_files">Пропускать файлы с ошибками</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Миниатюры</string>
