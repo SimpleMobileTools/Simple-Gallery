@@ -221,7 +221,7 @@
     <string name="faq_14_title">Имам скривену датотеку/фасциклу. Како да је приказујем поново?</string>
     <string name="faq_14_text">Можете да притиснете \"Привремено прикажи скривене ставке\" мени ставку на главном екрану, или да измените \"Прикажи скривене ставке\" у подешавањима апликације, да видите скривене ставке. Ако желите да је учините видљивом, једноставно је дуго притисните и изабеерите \"Откриј\". Фасцикле су скривене додавањем скривене \".nomedia\" датотеке у њих, које можете да обришете у било ком менаџеру датотека.</string>
     <string name="faq_15_title">Why does the app take up so much space?</string>
-    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings.</string>
+    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

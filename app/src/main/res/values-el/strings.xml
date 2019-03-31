@@ -221,7 +221,7 @@
     <string name="faq_14_title">Έχω αποκρύψει ένα αρχείο/φάκελο. Πώς μπορώ να το επανεμφανίσω?</string>
     <string name="faq_14_text">Μπορείτε είτε να επιλέξετε στο μενού \"Εμφάνιση προσωρινά κρυφών στοιχείων\" στην κύρια οθόνη, είτε να αλλάξετε σε \"Εμφάνιση κρυφών στοιχείων\" στις ρυθμίσεις της εφαρμογής για να δείτε το κρυφό στοιχείο. Αν θέλετε να το αποκρύψετε, πατήστε παρατεταμένα και επιλέξτε \"Απόκρυψη\". Οι φάκελοι αποκρύπτονται προσθέτοντας ένα κρυφό αρχείο \".nomedia\" , μπορείτε επίσης να διαγράψετε το αρχείο με οποιονδήποτε διαχειριστή αρχείων.</string>
     <string name="faq_15_title">Why does the app take up so much space?</string>
-    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings.</string>
+    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

@@ -220,7 +220,7 @@
     <string name="faq_14_title">Ich habe eine versteckte Datei bzw. einen versteckten Ordner. Wie kann ich diese/n sichtbar stellen?</string>
     <string name="faq_14_text">Du kannst entweder auf \"Verstecktes temporär anzeigen\" im Hauptmenü drücken oder die Einstellung \"Versteckte Elemente anzeigen\" setzen. Wenn du es sichtbar einstellen willst, drücke lange darauf und wähle \"Nicht verstecken\" aus. Ordner werden durch eine versteckte, in ihnen gespeicherte \".nomedia\"-Datei versteckt und das Löschen der Datei ist mit jedem Dateimanger möglich.</string>
     <string name="faq_15_title">Why does the app take up so much space?</string>
-    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings.</string>
+    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

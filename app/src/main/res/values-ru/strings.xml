@@ -221,7 +221,7 @@
     <string name="faq_14_title">Я скрыл файл/папку. Как я могу его увидеть его снова?</string>
     <string name="faq_14_text">Вы можете либо нажать кнопку \"Временно показать скрытые элементы\" на главном экране, либо переключить \"Показывать скрытые папки\" в настройках приложения, чтобы его увидеть. Если вы хотите, чтобы скрытый элемент отображался, используйте длительное нажатие и выберите \"Показать\". Папки скрываются добавлением в них файла \".nomedia\", который можно удалить любым файловым менеджером.</string>
     <string name="faq_15_title">Why does the app take up so much space?</string>
-    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings.</string>
+    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

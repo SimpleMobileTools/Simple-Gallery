@@ -221,8 +221,8 @@
     <string name="faq_14_title">Jeg har en skjult fil/mappe. Hvordan kan jeg få den vist igen?</string>
 	<string name="faq_14_text">Du kan enten trykke på menupunktet \"Vis midlertidigt skjulte\" på hovedskærmen, eller aktivere \"Vis skjulte elementer\" i app'ens indstillinger for at se det skjulte element. Hvis du vil fjerne skjulningen, skal du blot holde fingeren nede og vælge \"Fjern skjulning\". Mapper er skjult ved at tilføje en skjult \".nomedia\" fil i dem, du kan også slette med enhver filhåndterings-app.</string>
     <string name="faq_15_title">Why does the app take up so much space?</string>
-    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings.</string>
-    
+    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
+
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Offline gallery without ads. Organize, edit, recover and protect photos &amp; videos</string>
