@@ -220,6 +220,8 @@
     <string name="faq_13_text">Trenutna rešitev prikazovanja slik deluje dobro v veliki večini primerov, če pa vseeno želite višjo kvaliteto, lahko uporabite funkcijo \"Prikaži slike v najvišji možni kvaliteti\" v Nastavitvah v razdelku \"Globoko povečljive slike\".</string>
     <string name="faq_14_title">Skril sem mapo/datoteko. Kako jo lahko zopet prikažem?</string>
     <string name="faq_14_text">Lahko uporabite funkcijo \"Začasno prikaži skrite elemente\", ki se nahaja v meniju na glavnem zaslonu ali preklopite \"Prikaži skrite elemente\" v Nastavitvah aplikacije. Če želite element označiti kot viden, z dolgim pritiskom nanj prikličite meni in izberite \"Prikaži\". Skrivanje map deluje tako, da se kreira prazno \".nomedia\" datoteko v izbrani mapi, ki jo lahko odstranite tudi s katerimkoli urejevalnikom datotek.</string>
+    <string name="faq_15_title">Why does the app take up so much space?</string>
+    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

@@ -220,6 +220,8 @@
     <string name="faq_13_text">Поточне рішення для показу зображень відмінно працює в переважній більшості випадків, але якщо вам потрібна ще краща якість зображень, ви можете увімкнути опцію \"Показувати зображення в найвищій можливій якості\" в розділі \"Глибокомасштабовані зображення\" налаштувань додатку.</string>
     <string name="faq_14_title">Я приховав файл / теку. Як я можу відмінити цю дію?</string>
     <string name="faq_14_text">Щоб побачити приховані елементи, ви можете або натиснути пункт меню \"Тимчасово показати приховані елементи\" на головному екрані, або перемкнути опцію \"Показати приховані елементи\" в налаштуваннях додатку. Якщо ви більше не хочете приховувати елемент, довго натисніть на нього і оберіть \"Не приховувати\". Теки приховуються шляхом створення прихованого файлу \".nomedia\" в них, тож ви також можете видалити цей файл будь-яким файловим менеджером.</string>
+    <string name="faq_15_title">Why does the app take up so much space?</string>
+    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
