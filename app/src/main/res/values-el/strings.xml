@@ -32,7 +32,7 @@
     <string name="fixing">Διορθώνεται…</string>
     <string name="dates_fixed_successfully">Η Ημερ. διορθώθηκε με επιτυχία</string>
     <string name="share_resized">Διαμοιρασμός έκδοσης με αλλαγμένο μέγεθος</string>
-    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
+    <string name="upgraded_from_free">Γειά σας,\n\nΦαίνεται πως αναβαθμίσατε από την παλιά δωρεάν εφαρμογή. Τώρα θα πρέπει να απεγκαταστήσετε την παλιά έκδοση, απο το πλήκτρο \"Αναβάθμιση σε Pro\" στο επάνω των ρυθμίσεων της εφαρμογής.\n\nΘα πρέπει να διαγράψετε μόνο τα αντικείμενα του Κάδου, πρέπει να επαναφέρετε τα αγαπημένα στοιχεία που δεν έχουν επισημανθεί καθώς και τις ρυθμίσεις της εφαρμογής σας.\n\nΣας ευχαριστώ!</string>
 
     <!-- Filter -->
     <string name="filter_media">Φιλτράρισμα πολυμέσων</string>
