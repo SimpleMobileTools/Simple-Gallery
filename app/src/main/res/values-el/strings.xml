@@ -220,8 +220,8 @@
     <string name="faq_13_text">Η τρέχουσα λύση για την εμφάνιση εικόνων λειτουργεί πολύ καλά στην πλειονότητα των περιπτώσεων, αλλά εάν θέλετε ακόμα καλύτερη ποιότητα εικόνας, μπορείτε να ενεργοποιήσετε την \"Εμφάνιση εικόνων με την υψηλότερη δυνατή ποιότητα\" στις ρυθμίσεις της εφαρμογής, στο πεδίο \"Βαθιά μεγέθυνση εικόνων\".</string>
     <string name="faq_14_title">Έχω αποκρύψει ένα αρχείο/φάκελο. Πώς μπορώ να το επανεμφανίσω?</string>
     <string name="faq_14_text">Μπορείτε είτε να επιλέξετε στο μενού \"Εμφάνιση προσωρινά κρυφών στοιχείων\" στην κύρια οθόνη, είτε να αλλάξετε σε \"Εμφάνιση κρυφών στοιχείων\" στις ρυθμίσεις της εφαρμογής για να δείτε το κρυφό στοιχείο. Αν θέλετε να το αποκρύψετε, πατήστε παρατεταμένα και επιλέξτε \"Απόκρυψη\". Οι φάκελοι αποκρύπτονται προσθέτοντας ένα κρυφό αρχείο \".nomedia\" , μπορείτε επίσης να διαγράψετε το αρχείο με οποιονδήποτε διαχειριστή αρχείων.</string>
-    <string name="faq_15_title">Why does the app take up so much space?</string>
-    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
+    <string name="faq_15_title">Γιατί η εφαρμογή καταλαμβάνει τόσο μεγάλο χώρο;</string>
+    <string name="faq_15_text">Η προσωρινή μνήμη της εφαρμογής μπορεί να δεσμεύσει έως και 250MB, διασφαλίζοντας την ταχύτερη προφόρτωση των εικόνων. Αν η εφαρμογή χρησιμοποιεί ακόμα περισσότερο χώρο, πιθανότατα οφείλεται στην κατοχή αντικειμένων στον Κάδο. Αυτά τα αρχεία υπολογίζονται στο μέγεθος της εφαρμογής. Μπορείτε να αδειάσετε τον Κάδο Ανακύκλωσης ανοίγοντάς τον και διαγράφοντας όλα τα αρχεία ή από τις ρυθμίσεις της εφαρμογής. Κάθε αρχείο στον Κάδο διαγράφεται αυτόματα μετά από 30 ημέρες.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
