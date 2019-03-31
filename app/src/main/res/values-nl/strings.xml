@@ -220,6 +220,8 @@
     <string name="faq_13_text">In de meeste gevallen werkt de huidige methode voor het weergeven van afbeeldingen prima, maar met de instelling \"Afbeeldingen in de hoogst mogelijke kwaliteit weergeven\" onder \"Afbeeldingen ver inzoomen\" kan een nog betere kwaliteit worden bewerkstelligd.</string>
     <string name="faq_14_title">Ik heb een bestand of map verborgen. Hoe kan ik dit ongedaan maken?</string>
     <string name="faq_14_text">Kies het menu-item \"Verborgen items tijdelijk tonen\", of schakel de instelling \"Verborgen items tonen\" in om het verborgen item te kunnen zien. Druk vervolgens lang op het item en kies \"Tonen\" om het verbergen ongedaan te maken. Mappen worden verborgen door het bestand \".nomedia\" in de map te plaatsen; dit bestand kan ook handmatig in een andere app worden verwijderd.</string>
+    <string name="faq_15_title">Why does the app take up so much space?</string>
+    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
