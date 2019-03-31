@@ -376,20 +376,17 @@ class Config(context: Context) : BaseConfig(context) {
         set(bottomActions) = prefs.edit().putBoolean(BOTTOM_ACTIONS, bottomActions).apply()
 
     fun removeLastVideoPosition(path: String) {
-        System.out.println("Remove position: $path")
         prefs.edit().remove(LAST_VIDEO_POSITION_PREFIX + path.toLowerCase()).apply()
     }
 
     fun saveLastVideoPosition(path: String, value: Int) {
         if (!path.isEmpty()) {
-            System.out.println("Saving position: $path at $value")
             prefs.edit().putInt(LAST_VIDEO_POSITION_PREFIX + path.toLowerCase(), value).apply()
         }
     }
 
     fun getLastVideoPosition(path: String): Int {
         val value = prefs.getInt(LAST_VIDEO_POSITION_PREFIX + path.toLowerCase(), 0)
-        System.out.println("Get position: $path at $value")
         return value
     }
 
