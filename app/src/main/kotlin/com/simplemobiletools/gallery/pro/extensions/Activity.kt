@@ -92,6 +92,7 @@ fun SimpleActivity.launchAbout() {
             FAQItem(R.string.faq_12_title, R.string.faq_12_text),
             FAQItem(R.string.faq_13_title, R.string.faq_13_text),
             FAQItem(R.string.faq_14_title, R.string.faq_14_text),
+            FAQItem(R.string.faq_15_title, R.string.faq_15_text),
             FAQItem(R.string.faq_2_title_commons, R.string.faq_2_text_commons),
             FAQItem(R.string.faq_6_title_commons, R.string.faq_6_text_commons))
 
@@ -329,45 +330,46 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, callback: (() -> Unit)? = nu
         var didUpdateFile = false
         val operations = ArrayList<ContentProviderOperation>()
         val mediumDao = galleryDB.MediumDao()
-        for (path in paths) {
-            val dateTime = ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME_ORIGINAL)
-                    ?: ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME) ?: continue
+        rescanPaths(paths) {
+            for (path in paths) {
+                val dateTime = ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME_ORIGINAL)
+                        ?: ExifInterface(path).getAttribute(ExifInterface.TAG_DATETIME) ?: continue
 
-            // some formats contain a "T" in the middle, some don't
-            // sample dates: 2015-07-26T14:55:23, 2018:09:05 15:09:05
-            val t = if (dateTime.substring(10, 11) == "T") "\'T\'" else " "
-            val separator = dateTime.substring(4, 5)
-            val format = "yyyy${separator}MM${separator}dd${t}kk:mm:ss"
-            val formatter = SimpleDateFormat(format, Locale.getDefault())
-            val timestamp = formatter.parse(dateTime).time
+                // some formats contain a "T" in the middle, some don't
+                // sample dates: 2015-07-26T14:55:23, 2018:09:05 15:09:05
+                val t = if (dateTime.substring(10, 11) == "T") "\'T\'" else " "
+                val separator = dateTime.substring(4, 5)
+                val format = "yyyy${separator}MM${separator}dd${t}kk:mm:ss"
+                val formatter = SimpleDateFormat(format, Locale.getDefault())
+                val timestamp = formatter.parse(dateTime).time
 
-            val uri = getFileUri(path)
-            ContentProviderOperation.newUpdate(uri).apply {
-                val selection = "${MediaStore.Images.Media.DATA} = ?"
-                val selectionArgs = arrayOf(path)
-                withSelection(selection, selectionArgs)
-                withValue(MediaStore.Images.Media.DATE_TAKEN, timestamp)
-                operations.add(build())
+                val uri = getFileUri(path)
+                ContentProviderOperation.newUpdate(uri).apply {
+                    val selection = "${MediaStore.Images.Media.DATA} = ?"
+                    val selectionArgs = arrayOf(path)
+                    withSelection(selection, selectionArgs)
+                    withValue(MediaStore.Images.Media.DATE_TAKEN, timestamp)
+                    operations.add(build())
+                }
+
+                if (operations.size % BATCH_SIZE == 0) {
+                    contentResolver.applyBatch(MediaStore.AUTHORITY, operations)
+                    operations.clear()
+                }
+
+                mediumDao.updateFavoriteDateTaken(path, timestamp)
+                didUpdateFile = true
             }
 
-            if (operations.size % BATCH_SIZE == 0) {
-                contentResolver.applyBatch(MediaStore.AUTHORITY, operations)
-                operations.clear()
+            val resultSize = contentResolver.applyBatch(MediaStore.AUTHORITY, operations).size
+            if (resultSize == 0) {
+                didUpdateFile = false
             }
 
-            mediumDao.updateFavoriteDateTaken(path, timestamp)
-            didUpdateFile = true
-        }
-
-        val resultSize = contentResolver.applyBatch(MediaStore.AUTHORITY, operations).size
-        if (resultSize == 0) {
-            didUpdateFile = false
-            rescanPaths(paths)
-        }
-
-        toast(if (didUpdateFile) R.string.dates_fixed_successfully else R.string.unknown_error_occurred)
-        runOnUiThread {
-            callback?.invoke()
+            toast(if (didUpdateFile) R.string.dates_fixed_successfully else R.string.unknown_error_occurred)
+            runOnUiThread {
+                callback?.invoke()
+            }
         }
     } catch (e: Exception) {
         showErrorToast(e)

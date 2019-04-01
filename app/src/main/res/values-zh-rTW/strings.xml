@@ -220,6 +220,8 @@
     <string name="faq_13_text">目前顯示圖片的處理方法，在大部分情況下都能正常運行。但如果你想要更好的圖片品質，你可以在程式設定中[可深度縮放的圖片]部分，啟用[以最高品質顯示圖片]。</string>
     <string name="faq_14_title">我隱藏了一個檔案/資料夾。我如何取消隱藏?</string>
     <string name="faq_14_text">你可以在主畫面的選單項按[暫時顯示隱藏的項目]，或者在程式設定中切換[顯示隱藏的項目]來看隱藏項目。如果你想要取消隱藏，只要長按然後選擇[取消隱藏]。以添加\".nomedia\"檔案進行隱藏的資料夾，你也可以用任何檔案管理器來刪除這檔案。</string>
+    <string name="faq_15_title">Why does the app take up so much space?</string>
+    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

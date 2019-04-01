@@ -49,8 +49,11 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private var mIsPlaying = false
     private var mIsDragged = false
     private var mWasVideoStarted = false
+    private var mWasPlayerInited = false
+    private var mWasLastPositionRestored = false
     private var mCurrTime = 0
     private var mDuration = 0
+    private var mPositionWhenInit = 0
 
     private var mExoPlayer: SimpleExoPlayer? = null
     private var mVideoSize = Point(0, 0)
@@ -61,8 +64,6 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private var mStoredBottomActions = true
     private var mStoredExtendedDetails = 0
     private var mStoredRememberLastVideoPosition = false
-    private var mStoredLastVideoPath = ""
-    private var mStoredLastVideoPosition = 0
 
     private lateinit var mTimeHolder: View
     private lateinit var mBrightnessSideScroll: MediaSideScroll
@@ -183,7 +184,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
         setupVideoDuration()
         if (mStoredRememberLastVideoPosition) {
-            setLastVideoSavedPosition()
+            restoreLastVideoSavedPosition()
         }
 
         updateInstantSwitchWidths()
@@ -263,8 +264,6 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             mStoredExtendedDetails = extendedDetails
             mStoredBottomActions = bottomActions
             mStoredRememberLastVideoPosition = rememberLastVideoPosition
-            mStoredLastVideoPath = lastVideoPath
-            mStoredLastVideoPosition = lastVideoPosition
         }
     }
 
@@ -285,19 +284,14 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
     private fun saveVideoProgress() {
         if (!videoEnded()) {
-            mStoredLastVideoPosition = mExoPlayer!!.currentPosition.toInt() / 1000
-            mStoredLastVideoPath = mMedium.path
-        }
-
-        mConfig.apply {
-            lastVideoPosition = mStoredLastVideoPosition
-            lastVideoPath = mStoredLastVideoPath
+            mConfig.saveLastVideoPosition(mMedium.path, mExoPlayer!!.currentPosition.toInt() / 1000)
         }
     }
 
-    private fun setLastVideoSavedPosition() {
-        if (mStoredLastVideoPath == mMedium.path && mStoredLastVideoPosition > 0) {
-            setPosition(mStoredLastVideoPosition)
+    private fun restoreLastVideoSavedPosition() {
+        val pos = mConfig.getLastVideoPosition(mMedium.path)
+        if (pos > 0) {
+            setPosition(pos)
         }
     }
 
@@ -505,6 +499,9 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
     override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
         if (mExoPlayer != null && fromUser) {
+            if (!mWasPlayerInited) {
+                mPositionWhenInit = progress
+            }
             setPosition(progress)
         }
     }
@@ -562,9 +559,9 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             setPosition(0)
         }
 
-        if (mStoredRememberLastVideoPosition) {
-            setLastVideoSavedPosition()
-            clearLastVideoSavedProgress()
+        if (mStoredRememberLastVideoPosition && !mWasLastPositionRestored) {
+            mWasLastPositionRestored = true
+            restoreLastVideoSavedPosition()
         }
 
         if (!wasEnded || !mConfig.loopVideos) {
@@ -580,11 +577,6 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         mIsPlaying = true
         mExoPlayer?.playWhenReady = true
         activity!!.window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-    }
-
-    private fun clearLastVideoSavedProgress() {
-        mStoredLastVideoPosition = 0
-        mStoredLastVideoPath = ""
     }
 
     private fun pauseVideo() {
@@ -629,6 +621,12 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
                 playVideo()
             }
         }
+
+        if (mPositionWhenInit != 0 && !mWasPlayerInited) {
+            setPosition(mPositionWhenInit)
+            mPositionWhenInit = 0
+        }
+        mWasPlayerInited = true
     }
 
     private fun videoCompleted() {

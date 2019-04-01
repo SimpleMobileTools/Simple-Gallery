@@ -220,6 +220,8 @@
     <string name="faq_13_text">Solusi saat ini untuk menampilkan gambar berfungsi dengan baik dalam sebagian besar kasus, namun jika Anda ingin kualitas gambar yang lebih baik, Anda bisa mengaktifkan \"Tampilkan gambar dalam kualitas tertinggi\" di setelan aplikasi, pada bagian \"Zoom gambar mendalam\".</string>
     <string name="faq_14_title">Saya punya file/folder tersembunyi. Bagaimana cara memunculkannya?</string>
     <string name="faq_14_text">Anda bisa memilih menu \"Tampilkan sementara file tersembunyi\" di layar utama, atau \"Tampilkan file tersembunyi\" di setelan aplikasi untuk menampilkannya. Jika Anda tidak ingin menyembunyikannya, tekan lama dan pilih \"Jangan sembunyikan\". Folder disembunyikan dengan menambahkan file \".nomedia\" di dalamnya, Anda bisa menghapus file tersebut dengan aplikasi file manager.</string>
+    <string name="faq_15_title">Why does the app take up so much space?</string>
+    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->

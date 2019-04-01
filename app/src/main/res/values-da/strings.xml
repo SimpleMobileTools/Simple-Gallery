@@ -32,7 +32,7 @@
     <string name="fixing">Fikser…</string>
     <string name="dates_fixed_successfully">Datoer fikset med succes</string>
     <string name="share_resized">Del en skaleret version</string>
-    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
+    <string name="upgraded_from_free">Hey,\n\ndet ser ud til at du har opgraderet fra den gamle, gratis app. Du kan afinstallere den gamle version, som har en \'Opgrader til Pro\' knap i toppen af appen\'s indstillinger.\n\nDu vil blot få papirkurvens elementer slettet, favoritter vil blive umarkeret og du vil også skulle genopsætte dine app indstillinger.\n\nTak!</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrér medier</string>
@@ -172,7 +172,7 @@
     <string name="show_recycle_bin_last">Vis papirkurven som sidste element på hovedskærmen</string>
     <string name="allow_down_gesture">Luk fuldskærmsvisning ved at swipe ned</string>
     <string name="allow_one_to_one_zoom">Tillad 1:1 zooming med to dobbelttryk</string>
-    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
+    <string name="open_videos_on_separate_screen">Åbn altid videoer på en separat skærm med nye vandrette bevægelser</string>
     <string name="show_notch">Vis en notch hvis tilgængelig</string>
     <string name="allow_rotating_gestures">Tillad roterende billeder med bevægelser</string>
     <string name="file_loading_priority">Filindlæsnings prioritet</string>
@@ -192,34 +192,36 @@
     <string name="toggle_file_visibility">Synlighed</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
-    <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
-        The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
-    <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do?</string>
-    <string name="faq_2_text">You can solve it in 2 ways. You can either reinstall the app, or find the app in your device settings and select \"Clear data\". It will reset all your settings, it will not remove any media files.</string>
-    <string name="faq_3_title">How can I make an album always appear at the top?</string>
-    <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actionmenu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
-    <string name="faq_4_title">How can I fast-forward videos?</string>
-    <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
-    <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>
-    <string name="faq_5_text">Exclude prevents displaying the folder only in Simple Gallery, while Hide works system-wise and it hides the folder from other galleries too. It works by creating an empty \".nomedia\" file in the given folder, which you can then remove with any file manager too.</string>
-    <string name="faq_6_title">Why do folders with music cover art or stickers show up?</string>
-    <string name="faq_6_text">It can happen that you will see some unusual albums show up. You can easily exclude them by long pressing them and selecting Exclude. In the next dialog you can then select the parent folder, chances are it will prevent the other related albums showing up too.</string>
-    <string name="faq_7_title">A folder with images isn\'t showing up, or it doesn\'t show all items. What can I do?</string>
-    <string name="faq_7_text">That can have multiple reasons, but solving it is easy. Just go in Settings -> Manage Included Folders, select Plus and navigate to the required folder.</string>
-    <string name="faq_8_title">What if I want just a few particular folders visible?</string>
-    <string name="faq_8_text">Adding a folder at the Included Folders doesn\'t automatically exclude anything. What you can do is go in Settings -> Manage Excluded Folders, exclude the root folder \"/\", then add the desired folders at Settings -> Manage Included Folders.
-        That will make only the selected folders visible, as both excluding and including are recursive and if a folder is both excluded and included, it will show up.</string>
-    <string name="faq_10_title">Can I crop images with this app?</string>
-    <string name="faq_10_text">Yes, you can crop images in the editor, by dragging the image corners. You can get to the editor either by long pressing an image thumbnail and selecting Edit, or selecting Edit from the fullscreen view.</string>
-    <string name="faq_11_title">Can I somehow group media file thumbnails?</string>
-    <string name="faq_11_text">Sure, just use the \"Group by\" menu item while at the thumbnails view. You can group files by multiple criteria, including Date Taken. If you use the \"Show all folders content\" function you can group them by folders too.</string>
-    <string name="faq_12_title">Sorting by Date Taken doesn\'t seem to work properly, how can I fix it?</string>
-    <string name="faq_12_text">It is most likely caused by the files being copied from somewhere. You can fix it by selecting the file thumbnails and selecting \"Fix Date Taken value\".</string>
-    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
-    <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
-    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
-    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too.</string>
+    <string name="faq_1_title">Hvordan kan jeg lave Simple Gallery til standard-galleriet på min enhed?</string>
+    <string name="faq_1_text">Først skal du finde det nuværende standard galleri, i Apps sektionen af din enheds indstillinger. Kig efter en knap som hedder noget i stil med \"Åbn som standard\", klik på denne og vælg \"Ryd standarder\".
+        Næste gang du forsøger at åbne et billede eller en video, bør du se en app-vælger, hvor du kan vælge Simple Gallery og gøre den til standard app\'en.</string>
+    <string name="faq_2_title">Jeg har låst app\'en med en adgangskode, men jeg har glemt den. Hvad kan jeg gøre?</string>
+    <string name="faq_2_text">Du kan løse dette på to måder. Du kan enten geninstallere app\'en, eller finde app\'en i indstillingerne på din enhed og vælge \"Ryd data\". Dette vil nulstille alle dine indstillinger, det vil ikke slette nogle mediefiler.</string>
+    <string name="faq_3_title">Hvordan kan jeg altid få et bestemt album vist i toppen?</string>
+    <string name="faq_3_text">Du kan holde fingeren nede på det ønskede album, og vælge tegnstift-ikonet i menuen, dette vil fastgøre den til toppen. Du kan fastgøre flere mapper også. Fastgjorte elementer vil blive sorteret efter standard sorterings-metoden.</string>
+    <string name="faq_4_title">Hvordan kan jeg spole fremad i videoer?</string>
+    <string name="faq_4_text">Du kan enten trække din finger horisontalt over videoafspilleren, eller klikke på den nuværende eller maksimum varighed teksterne, nær søgefeltet. Det vil enten spole videoen tilbage eller fremad.</string>
+    <string name="faq_5_title">Hvad er forskellen på at skjule og ekskludere en mappe?</string>
+    <string name="faq_5_text">Eksludering forhindrer visning af mappen i blot Simple Gallery, mens Skjul viser systemvist og skjuler mappen fra andre gallerier også. Det fungerer ved at oprette entom \".nomedia\" fil i den givne mappe, hvilket du også kan slette med enhver filhåndterings-app.</string>
+    <string name="faq_6_title">Hvorfor dukker mapper med musik omslag eller klistermærker op?</string>
+    <string name="faq_6_text">Det kan ske at du vil se nogle udsædvanlige albummmer. Du kan nemt ekskludere disse, ved at holde fingeren nede på disse og vælge Ekskluder. I den næste dialogboks kan du vælge den ovenliggende mappe, da andre relaterede albummer så sandsynligvis også vil blive forhindret i at blive vist.</string>
+    <string name="faq_7_title">En mappe med billeder dukker ikke op, eller den viser ikke alle elementer. Hvad kan jeg gøre?</string>
+    <string name="faq_7_text">Der kan være flere grunde, men en løsning er nem. Bare gå til Indstillinger -> Administrer inkluderede mapper, vælg plusset og naviger til mappen.</string>
+    <string name="faq_8_title">Hvad hvis jeg kun ønsker få et par bestemte mapper vist?</string>
+    <string name="faq_8_text">At tilføje en mappe ved de Inkluderede mapper, ekskluderer ikke automatisk alt. Det du kan gøre, er at gå til Indstillinger -> Adminsterer ekskluderede mapper, eksludere rodmappen \"/\", og så tilføje de ønskede mapper under Indstillinger -> Administrer inkluderede mapper.
+        Det vil gøre kun de valgte mapper synlige, da både ekskludering og inkludering er reskursivt, og hvis en mappe både er ekskluderet og inkluderet, vil den blive vist.</string>
+    <string name="faq_10_title">Kan jeg beskære billeder med denne app?</string>
+    <string name="faq_10_text">Ja, du kan beskære billeder i editoren, ved at trække i billedets kanter. Du kan gå til editoren, ved enten at holde fingeren nede på et miniaturebillede og vælge Rediger, eller vælge Rediger fra fuldskærmsvisningen.</string>
+    <string name="faq_11_title">Kan jeg på en eller anden måde gruppere miniaturebilleder til mediefiler?</string>
+    <string name="faq_11_text">Sagtens, bare brug menupunktet \"Gruppér efter\", mens du ser miniaturebillederne. Du kan gruppere flere efter flere kriterier, inklusiv Dato Taget. Hvis du bruger funktionen \"Vis indholdet af alle mapper\", kan du også gruppere dem efter mapper.</string>
+    <string name="faq_12_title">Sortering efter Dato Taget ser ikke ud til at fungere. Hvordan kan jeg fikse dette?</string>
+    <string name="faq_12_text">Det skyldes højst sandsynligt at filerne er kopieret fra et andet sted. Du kan fikse det, ved at vælge filens miniature, og vælge \"Fiks Dato Taget værdi\".</string>
+    <string name="faq_13_title">Jeg ser noget color banding på billederne. Hvordan kan jeg forbedre kvaliteten?</string>
+    <string name="faq_13_text">Den nuværende løsning til visning af billeder virker fint i langt de fleste tilfælde, men hvis du vil have en endnu bedre billedkvalitet, kan du aktivere \"Vis billeder i den højst mulige kvalitet\" i app\'ens indstillinger, i sektionen \"Dybt zoombare billeder\".</string>
+    <string name="faq_14_title">Jeg har en skjult fil/mappe. Hvordan kan jeg få den vist igen?</string>
+    <string name="faq_14_text">Du kan enten trykke på menupunktet \"Vis midlertidigt skjulte\" på hovedskærmen, eller aktivere \"Vis skjulte elementer\" i app\'ens indstillinger for at se det skjulte element. Hvis du vil fjerne skjulningen, skal du blot holde fingeren nede og vælge \"Fjern skjulning\". Mapper er skjult ved at tilføje en skjult \".nomedia\" fil i dem, du kan også slette med enhver filhåndterings-app.</string>
+    <string name="faq_15_title">Why does the app take up so much space?</string>
+    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
