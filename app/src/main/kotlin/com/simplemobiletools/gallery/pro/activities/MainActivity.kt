@@ -151,6 +151,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
 
         updateWidgets()
         registerFileUpdateListener()
+
+        if (!config.wasUpgradedFromFreeShown && isPackageInstalled("com.simplemobiletools.gallery")) {
+            ConfirmationDialog(this, "", R.string.upgraded_from_free, R.string.ok, 0) {}
+            config.wasUpgradedFromFreeShown = true
+        }
     }
 
     override fun onStart() {
