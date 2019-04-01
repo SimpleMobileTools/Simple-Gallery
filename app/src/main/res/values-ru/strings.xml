@@ -220,8 +220,8 @@
     <string name="faq_13_text">Используемый в настоящее время метод вывода изображений работает отлично в подавляющем большинстве случаев, но если вы хотите получить ещё более высокое качество изображения, можете включить \"Показывать изображения с максимально высоким качеством\" в настройках приложения в разделе \"Масштабируемые изображения\".</string>
     <string name="faq_14_title">Я скрыл файл/папку. Как я могу его увидеть его снова?</string>
     <string name="faq_14_text">Вы можете либо нажать кнопку \"Временно показать скрытые элементы\" на главном экране, либо переключить \"Показывать скрытые папки\" в настройках приложения, чтобы его увидеть. Если вы хотите, чтобы скрытый элемент отображался, используйте длительное нажатие и выберите \"Показать\". Папки скрываются добавлением в них файла \".nomedia\", который можно удалить любым файловым менеджером.</string>
-    <string name="faq_15_title">Why does the app take up so much space?</string>
-    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
+    <string name="faq_15_title">Почему приложение занимает так много места?</string>
+    <string name="faq_15_text">Кэш приложения может занимать до 250 МБ, это обеспечивает более быструю загрузку изображений. Если приложение занимает ещё больше места, это, скорее всего, связано с тем, что в корзине находятся удалённые объекты. Эти файлы прибавляются к размеру приложения. Вы можете очистить корзину или открыв её, или из настроек приложения. Любой файл в корзине автоматически удаляется через 30 дней.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- Short description has to have less than 80 chars -->
