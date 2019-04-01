@@ -196,7 +196,7 @@
     <string name="faq_1_text">Først skal du finde det nuværende standard galleri, i Apps sektionen af din enheds indstillinger. Kig efter en knap som hedder noget i stil med \"Åbn som standard\", klik på denne og vælg \"Ryd standarder\".
         Næste gang du forsøger at åbne et billede eller en video, bør du se en app-vælger, hvor du kan vælge Simple Gallery og gøre den til standard app\'en.</string>
     <string name="faq_2_title">Jeg har låst app\'en med en adgangskode, men jeg har glemt den. Hvad kan jeg gøre?</string>
-	<string name="faq_2_text">Du kan løse dette på to måder. Du kan enten geninstallere app\'en, eller finde app\'en i indstillingerne på din enhed og vælge \"Ryd data\". Dette vil nulstille alle dine indstillinger, det vil ikke slette nogle mediefiler.</string>
+    <string name="faq_2_text">Du kan løse dette på to måder. Du kan enten geninstallere app\'en, eller finde app\'en i indstillingerne på din enhed og vælge \"Ryd data\". Dette vil nulstille alle dine indstillinger, det vil ikke slette nogle mediefiler.</string>
     <string name="faq_3_title">Hvordan kan jeg altid få et bestemt album vist i toppen?</string>
     <string name="faq_3_text">Du kan holde fingeren nede på det ønskede album, og vælge tegnstift-ikonet i menuen, dette vil fastgøre den til toppen. Du kan fastgøre flere mapper også. Fastgjorte elementer vil blive sorteret efter standard sorterings-metoden.</string>
     <string name="faq_4_title">Hvordan kan jeg spole fremad i videoer?</string>
