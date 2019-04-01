@@ -385,11 +385,11 @@ class Config(context: Context) : BaseConfig(context) {
         }
     }
 
-    fun getLastVideoPosition(path: String): Int {
-        return prefs.getInt("$LAST_VIDEO_POSITION_PREFIX${path.toLowerCase()}", 0)
-    }
+    fun getLastVideoPosition(path: String) = prefs.getInt("$LAST_VIDEO_POSITION_PREFIX${path.toLowerCase()}", 0)
 
-    fun getAllLastVideoPositions() = prefs.all.filterKeys { it.startsWith(LAST_VIDEO_POSITION_PREFIX) }
+    fun getAllLastVideoPositions() = prefs.all.filterKeys { 
+        it.startsWith(LAST_VIDEO_POSITION_PREFIX) 
+    }
 
     var rememberLastVideoPosition: Boolean
         get() = prefs.getBoolean(REMEMBER_LAST_VIDEO_POSITION, false)
