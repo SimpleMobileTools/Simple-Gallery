@@ -61,8 +61,6 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private var mStoredBottomActions = true
     private var mStoredExtendedDetails = 0
     private var mStoredRememberLastVideoPosition = false
-    private var mStoredLastVideoPath = ""
-    private var mStoredLastVideoPosition = 0
 
     private lateinit var mTimeHolder: View
     private lateinit var mBrightnessSideScroll: MediaSideScroll
@@ -183,7 +181,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
         setupVideoDuration()
         if (mStoredRememberLastVideoPosition) {
-            setLastVideoSavedPosition()
+            restoreLastVideoSavedPosition()
         }
 
         updateInstantSwitchWidths()
@@ -263,8 +261,6 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             mStoredExtendedDetails = extendedDetails
             mStoredBottomActions = bottomActions
             mStoredRememberLastVideoPosition = rememberLastVideoPosition
-            mStoredLastVideoPath = lastVideoPath
-            mStoredLastVideoPosition = lastVideoPosition
         }
     }
 
@@ -285,19 +281,14 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
     private fun saveVideoProgress() {
         if (!videoEnded()) {
-            mStoredLastVideoPosition = mExoPlayer!!.currentPosition.toInt() / 1000
-            mStoredLastVideoPath = mMedium.path
-        }
-
-        mConfig.apply {
-            lastVideoPosition = mStoredLastVideoPosition
-            lastVideoPath = mStoredLastVideoPath
+            mConfig.saveLastVideoPosition(mMedium.path, mExoPlayer!!.currentPosition.toInt() / 1000)
         }
     }
 
-    private fun setLastVideoSavedPosition() {
-        if (mStoredLastVideoPath == mMedium.path && mStoredLastVideoPosition > 0) {
-            setPosition(mStoredLastVideoPosition)
+    private fun restoreLastVideoSavedPosition() {
+        val pos = mConfig.getLastVideoPosition(mMedium.path)
+        if (pos > 0) {
+            setPosition(pos)
         }
     }
 
@@ -563,8 +554,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
 
         if (mStoredRememberLastVideoPosition) {
-            setLastVideoSavedPosition()
-            clearLastVideoSavedProgress()
+            restoreLastVideoSavedPosition()
         }
 
         if (!wasEnded || !mConfig.loopVideos) {
@@ -580,11 +570,6 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         mIsPlaying = true
         mExoPlayer?.playWhenReady = true
         activity!!.window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-    }
-
-    private fun clearLastVideoSavedProgress() {
-        mStoredLastVideoPosition = 0
-        mStoredLastVideoPath = ""
     }
 
     private fun pauseVideo() {

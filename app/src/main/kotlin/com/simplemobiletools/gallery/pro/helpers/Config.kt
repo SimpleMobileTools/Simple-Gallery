@@ -375,17 +375,25 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(BOTTOM_ACTIONS, true)
         set(bottomActions) = prefs.edit().putBoolean(BOTTOM_ACTIONS, bottomActions).apply()
 
+    fun removeLastVideoPosition(path: String) {
+        prefs.edit().remove("$LAST_VIDEO_POSITION_PREFIX${path.toLowerCase()}").apply()
+    }
+
+    fun saveLastVideoPosition(path: String, value: Int) {
+        if (!path.isEmpty()) {
+            prefs.edit().putInt("$LAST_VIDEO_POSITION_PREFIX${path.toLowerCase()}", value).apply()
+        }
+    }
+
+    fun getLastVideoPosition(path: String) = prefs.getInt("$LAST_VIDEO_POSITION_PREFIX${path.toLowerCase()}", 0)
+
+    fun getAllLastVideoPositions() = prefs.all.filterKeys { 
+        it.startsWith(LAST_VIDEO_POSITION_PREFIX) 
+    }
+
     var rememberLastVideoPosition: Boolean
         get() = prefs.getBoolean(REMEMBER_LAST_VIDEO_POSITION, false)
         set(rememberLastVideoPosition) = prefs.edit().putBoolean(REMEMBER_LAST_VIDEO_POSITION, rememberLastVideoPosition).apply()
-
-    var lastVideoPath: String
-        get() = prefs.getString(LAST_VIDEO_PATH, "")
-        set(lastVideoPath) = prefs.edit().putString(LAST_VIDEO_PATH, lastVideoPath).apply()
-
-    var lastVideoPosition: Int
-        get() = prefs.getInt(LAST_VIDEO_POSITION, 0)
-        set(lastVideoPosition) = prefs.edit().putInt(LAST_VIDEO_POSITION, lastVideoPosition).apply()
 
     var visibleBottomActions: Int
         get() = prefs.getInt(VISIBLE_BOTTOM_ACTIONS, DEFAULT_BOTTOM_ACTIONS)

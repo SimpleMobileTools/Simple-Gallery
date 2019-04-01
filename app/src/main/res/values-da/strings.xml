@@ -196,14 +196,14 @@
     <string name="faq_1_text">Først skal du finde det nuværende standard galleri, i Apps sektionen af din enheds indstillinger. Kig efter en knap som hedder noget i stil med \"Åbn som standard\", klik på denne og vælg \"Ryd standarder\".
         Næste gang du forsøger at åbne et billede eller en video, bør du se en app-vælger, hvor du kan vælge Simple Gallery og gøre den til standard app\'en.</string>
     <string name="faq_2_title">Jeg har låst app\'en med en adgangskode, men jeg har glemt den. Hvad kan jeg gøre?</string>
-	<string name="faq_2_text">Du kan løse dette på to måder. Du kan enten geninstallere app\'en, eller finde app\'en i indstillingerne på din enhed og vælge \"Ryd data\". Dette vil nulstille alle dine indstillinger, det vil ikke slette nogle mediefiler.</string>
+    <string name="faq_2_text">Du kan løse dette på to måder. Du kan enten geninstallere app\'en, eller finde app\'en i indstillingerne på din enhed og vælge \"Ryd data\". Dette vil nulstille alle dine indstillinger, det vil ikke slette nogle mediefiler.</string>
     <string name="faq_3_title">Hvordan kan jeg altid få et bestemt album vist i toppen?</string>
     <string name="faq_3_text">Du kan holde fingeren nede på det ønskede album, og vælge tegnstift-ikonet i menuen, dette vil fastgøre den til toppen. Du kan fastgøre flere mapper også. Fastgjorte elementer vil blive sorteret efter standard sorterings-metoden.</string>
     <string name="faq_4_title">Hvordan kan jeg spole fremad i videoer?</string>
     <string name="faq_4_text">Du kan enten trække din finger horisontalt over videoafspilleren, eller klikke på den nuværende eller maksimum varighed teksterne, nær søgefeltet. Det vil enten spole videoen tilbage eller fremad.</string>
     <string name="faq_5_title">Hvad er forskellen på at skjule og ekskludere en mappe?</string>
     <string name="faq_5_text">Eksludering forhindrer visning af mappen i blot Simple Gallery, mens Skjul viser systemvist og skjuler mappen fra andre gallerier også. Det fungerer ved at oprette entom \".nomedia\" fil i den givne mappe, hvilket du også kan slette med enhver filhåndterings-app.</string>
-	<string name="faq_6_title">Hvorfor dukker mapper med musik omslag eller klistermærker op?</string>
+    <string name="faq_6_title">Hvorfor dukker mapper med musik omslag eller klistermærker op?</string>
     <string name="faq_6_text">Det kan ske at du vil se nogle udsædvanlige albummmer. Du kan nemt ekskludere disse, ved at holde fingeren nede på disse og vælge Ekskluder. I den næste dialogboks kan du vælge den ovenliggende mappe, da andre relaterede albummer så sandsynligvis også vil blive forhindret i at blive vist.</string>
     <string name="faq_7_title">En mappe med billeder dukker ikke op, eller den viser ikke alle elementer. Hvad kan jeg gøre?</string>
     <string name="faq_7_text">Der kan være flere grunde, men en løsning er nem. Bare gå til Indstillinger -> Administrer inkluderede mapper, vælg plusset og naviger til mappen.</string>

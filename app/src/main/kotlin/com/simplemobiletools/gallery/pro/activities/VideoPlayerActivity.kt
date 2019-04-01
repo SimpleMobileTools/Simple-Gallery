@@ -324,8 +324,9 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
     }
 
     private fun setLastVideoSavedPosition() {
-        if (config.lastVideoPath == mUri.toString() && config.lastVideoPosition > 0) {
-            setPosition(config.lastVideoPosition)
+        val pos = config.getLastVideoPosition(mUri.toString())
+        if (pos > 0) {
+            setPosition(pos)
         }
     }
 
@@ -353,18 +354,12 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
     private fun saveVideoProgress() {
         if (!didVideoEnd()) {
-            config.apply {
-                lastVideoPosition = mExoPlayer!!.currentPosition.toInt() / 1000
-                lastVideoPath = mUri.toString()
-            }
+            config.saveLastVideoPosition(mUri.toString(), mExoPlayer!!.currentPosition.toInt() / 1000)
         }
     }
 
     private fun clearLastVideoSavedProgress() {
-        config.apply {
-            lastVideoPosition = 0
-            lastVideoPath = ""
-        }
+        config.removeLastVideoPosition(mUri.toString())
     }
 
     private fun setVideoSize() {
