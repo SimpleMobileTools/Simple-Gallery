@@ -32,7 +32,7 @@
     <string name="fixing">Fikser…</string>
     <string name="dates_fixed_successfully">Datoer fikset med succes</string>
     <string name="share_resized">Del en skaleret version</string>
-    <string name="upgraded_from_free">Hey,\n\ndet ser ud til at du har opgraderet fra den gamle, gratis app. Du kan afinstallere den gamle version, som har en \'Opgrader til Pro\' knap i toppen af appen's indstillinger.\n\nDu vil blot få papirkurvens elementer slettet, favoritter vil blive umarkeret og du vil også skulle genopsætte dine app indstillinger.\n\nTak!</string>
+    <string name="upgraded_from_free">Hey,\n\ndet ser ud til at du har opgraderet fra den gamle, gratis app. Du kan afinstallere den gamle version, som har en \'Opgrader til Pro\' knap i toppen af appen\'s indstillinger.\n\nDu vil blot få papirkurvens elementer slettet, favoritter vil blive umarkeret og du vil også skulle genopsætte dine app indstillinger.\n\nTak!</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrér medier</string>
@@ -194,9 +194,9 @@
     <!-- FAQ -->
     <string name="faq_1_title">Hvordan kan jeg lave Simple Gallery til standard-galleriet på min enhed?</string>
     <string name="faq_1_text">Først skal du finde det nuværende standard galleri, i Apps sektionen af din enheds indstillinger. Kig efter en knap som hedder noget i stil med \"Åbn som standard\", klik på denne og vælg \"Ryd standarder\".
-        Næste gang du forsøger at åbne et billede eller en video, bør du se en app-vælger, hvor du kan vælge Simple Gallery og gøre den til standard app'en.
-    <string name="faq_2_title">Jeg har låst app'en med en adgangskode, men jeg har glemt den. Hvad kan jeg gøre?</string>
-	<string name="faq_2_text">Du kan løse dette på to måder. Du kan enten geninstallere app'en, eller finde app'en i indstillingerne på din enhed og vælge \"Ryd data\". Dette vil nulstille alle dine indstillinger, det vil ikke slette nogle mediefiler.</string>
+        Næste gang du forsøger at åbne et billede eller en video, bør du se en app-vælger, hvor du kan vælge Simple Gallery og gøre den til standard app\'en.</string>
+    <string name="faq_2_title">Jeg har låst app\'en med en adgangskode, men jeg har glemt den. Hvad kan jeg gøre?</string>
+	<string name="faq_2_text">Du kan løse dette på to måder. Du kan enten geninstallere app\'en, eller finde app\'en i indstillingerne på din enhed og vælge \"Ryd data\". Dette vil nulstille alle dine indstillinger, det vil ikke slette nogle mediefiler.</string>
     <string name="faq_3_title">Hvordan kan jeg altid få et bestemt album vist i toppen?</string>
     <string name="faq_3_text">Du kan holde fingeren nede på det ønskede album, og vælge tegnstift-ikonet i menuen, dette vil fastgøre den til toppen. Du kan fastgøre flere mapper også. Fastgjorte elementer vil blive sorteret efter standard sorterings-metoden.</string>
     <string name="faq_4_title">Hvordan kan jeg spole fremad i videoer?</string>
@@ -217,9 +217,9 @@
     <string name="faq_12_title">Sortering efter Dato Taget ser ikke ud til at fungere. Hvordan kan jeg fikse dette?</string>
     <string name="faq_12_text">Det skyldes højst sandsynligt at filerne er kopieret fra et andet sted. Du kan fikse det, ved at vælge filens miniature, og vælge \"Fiks Dato Taget værdi\".</string>
     <string name="faq_13_title">Jeg ser noget color banding på billederne. Hvordan kan jeg forbedre kvaliteten?</string>
-    <string name="faq_13_text">Den nuværende løsning til visning af billeder virker fint i langt de fleste tilfælde, men hvis du vil have en endnu bedre billedkvalitet, kan du aktivere \"Vis billeder i den højst mulige kvalitet\" i app'ens indstillinger, i sektionen \"Dybt zoombare billeder\".</string>
+    <string name="faq_13_text">Den nuværende løsning til visning af billeder virker fint i langt de fleste tilfælde, men hvis du vil have en endnu bedre billedkvalitet, kan du aktivere \"Vis billeder i den højst mulige kvalitet\" i app\'ens indstillinger, i sektionen \"Dybt zoombare billeder\".</string>
     <string name="faq_14_title">Jeg har en skjult fil/mappe. Hvordan kan jeg få den vist igen?</string>
-	<string name="faq_14_text">Du kan enten trykke på menupunktet \"Vis midlertidigt skjulte\" på hovedskærmen, eller aktivere \"Vis skjulte elementer\" i app'ens indstillinger for at se det skjulte element. Hvis du vil fjerne skjulningen, skal du blot holde fingeren nede og vælge \"Fjern skjulning\". Mapper er skjult ved at tilføje en skjult \".nomedia\" fil i dem, du kan også slette med enhver filhåndterings-app.</string>
+    <string name="faq_14_text">Du kan enten trykke på menupunktet \"Vis midlertidigt skjulte\" på hovedskærmen, eller aktivere \"Vis skjulte elementer\" i app\'ens indstillinger for at se det skjulte element. Hvis du vil fjerne skjulningen, skal du blot holde fingeren nede og vælge \"Fjern skjulning\". Mapper er skjult ved at tilføje en skjult \".nomedia\" fil i dem, du kan også slette med enhver filhåndterings-app.</string>
     <string name="faq_15_title">Why does the app take up so much space?</string>
     <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
 
