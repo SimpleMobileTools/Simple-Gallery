@@ -325,7 +325,7 @@ open class VideoPlayerActivity : SimpleActivity(), SeekBar.OnSeekBarChangeListen
 
     private fun setLastVideoSavedPosition() {
         val pos = config.getLastVideoPosition(mUri.toString())
-        if(pos > 0) {
+        if (pos > 0) {
             setPosition(pos)
         }
     }

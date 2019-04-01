@@ -801,7 +801,7 @@ class SettingsActivity : SimpleActivity() {
                 LAST_CONFLICT_APPLY_TO_ALL -> config.lastConflictApplyToAll = value.toBoolean()
             }
 
-            if(key.startsWith(LAST_VIDEO_POSITION_PREFIX)) {
+            if (key.startsWith(LAST_VIDEO_POSITION_PREFIX)) {
                 config.saveLastVideoPosition(key, value as Int)
             }
         }

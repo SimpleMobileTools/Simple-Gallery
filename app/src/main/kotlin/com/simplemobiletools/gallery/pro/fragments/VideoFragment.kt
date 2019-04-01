@@ -287,7 +287,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
     private fun restoreLastVideoSavedPosition() {
         val pos = mConfig.getLastVideoPosition(mMedium.path)
-        if(pos > 0) {
+        if (pos > 0) {
             setPosition(pos)
         }
     }
