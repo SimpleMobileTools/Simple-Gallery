@@ -981,9 +981,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 flipSides = orientation == ExifInterface.ORIENTATION_ROTATE_90 || orientation == ExifInterface.ORIENTATION_ROTATE_270
             } catch (e: Exception) {
             }
-            val res = getCurrentPath().getResolution() ?: return
-            val width = if (flipSides) res.y else res.x
-            val height = if (flipSides) res.x else res.y
+            val resolution = applicationContext.getResolution(getCurrentPath()) ?: return
+            val width = if (flipSides) resolution.y else resolution.x
+            val height = if (flipSides) resolution.x else resolution.y
             if (width > height) {
                 requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
             } else if (width < height) {
