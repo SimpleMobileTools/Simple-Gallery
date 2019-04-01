@@ -393,7 +393,14 @@ class Config(context: Context) : BaseConfig(context) {
 
     var rememberLastVideoPosition: Boolean
         get() = prefs.getBoolean(REMEMBER_LAST_VIDEO_POSITION, false)
-        set(rememberLastVideoPosition) = prefs.edit().putBoolean(REMEMBER_LAST_VIDEO_POSITION, rememberLastVideoPosition).apply()
+        set(rememberLastVideoPosition) {
+            if (!rememberLastVideoPosition) {
+                getAllLastVideoPositions().forEach {
+                    prefs.edit().remove(it.key).apply()
+                }
+            }
+            prefs.edit().putBoolean(REMEMBER_LAST_VIDEO_POSITION, rememberLastVideoPosition).apply()
+        }
 
     var visibleBottomActions: Int
         get() = prefs.getInt(VISIBLE_BOTTOM_ACTIONS, DEFAULT_BOTTOM_ACTIONS)
