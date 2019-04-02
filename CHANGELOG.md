@@ -1,6 +1,18 @@
 Changelog
 ==========
 
+Version 6.6.3 *(2019-04-02)*
+----------------------------
+
+ * Fixed some OTG devices and SD card related glitches
+ * Drastically increased the sorting performance by file path and name by simplifying it
+ * Fixed some third party related issues at opening images/videos
+ * Allow zooming raw images
+ * Try making "Fix Date Taken values" more reliable in some cases
+ * Added an explanation dialog if someone upgrades to Pro app from the free one
+ * Remember all video positions if enabled, not just the last one (by centic9)
+ * Added a new FAQ item about the app size
+
 Version 6.6.1 *(2019-03-21)*
 ----------------------------
 
