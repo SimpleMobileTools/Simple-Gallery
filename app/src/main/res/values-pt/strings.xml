@@ -32,7 +32,7 @@
     <string name="fixing">A corrigir…</string>
     <string name="dates_fixed_successfully">Dados corrigidos com sucesso</string>
     <string name="share_resized">Partilhar foto redimensionada</string>
-    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
+    <string name="upgraded_from_free">Olá,\n\nparece que você utilizou a opção de atualização existente na versão antiga. Agora já pode desinstalar essa versão antiga.\n\nApenas perderá os itens existentes na reciclagem e os favoritos não assinalados mas também terá que repor as predefinições da aplicação.\n\nObrigado!</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrar multimédia</string>
