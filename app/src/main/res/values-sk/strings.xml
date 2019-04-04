@@ -225,7 +225,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Jednoduchá galéria Pro: Photo organizér a editor</string>
+    <string name="app_title">Jednoduchá galéria Pro: Foto organizér a editor</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Offline galéria bez reklám. Organizujte, upravujte, a chráňte vaše súbory.</string>
     <string name="app_long_description">
