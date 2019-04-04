@@ -224,6 +224,8 @@
     <string name="faq_15_text">應用程式快取最多占用250MB，以確保更快的圖片讀取。如果這應用程式占用了多更多的空間，最有可能是因為你在垃圾桶內有東西。那些檔案也計入應用程式大小內。你可以開啟垃圾桶並刪除全部檔案，或者從應用程式設定來清除垃圾桶。垃圾桶內的每個檔案都會在30天後自動刪除。</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Simple Gallery Pro: Photo Manager &amp; Editor</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">沒有廣告的離線相簿。整理、編輯、恢復和保護照片&amp;影片</string>
     <string name="app_long_description">
