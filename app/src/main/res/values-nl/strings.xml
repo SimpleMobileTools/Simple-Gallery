@@ -225,7 +225,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Eenvoudige Galerij Pro: Foto’s Organiseren &amp; Bewerken</string>
+    <string name="app_title">Eenvoudige Galerij Pro - Foto’s Beheren &amp; Bewerken</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Galerij zonder advertenties. Organiseer, bewerk en beveilig foto’s &amp; video’s</string>
     <string name="app_long_description">
