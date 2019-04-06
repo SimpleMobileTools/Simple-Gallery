@@ -56,7 +56,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private var mPositionWhenInit = 0
 
     private var mExoPlayer: SimpleExoPlayer? = null
-    private var mVideoSize = Point(0, 0)
+    private var mVideoSize = Point(1, 1)
     private var mTimerHandler = Handler()
 
     private var mStoredShowExtendedDetails = false
@@ -138,7 +138,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         initTimeHolder()
         checkIfPanorama()
 
-        mMedium.path.getVideoResolution()?.apply {
+        activity?.getVideoResolution(mMedium.path)?.apply {
             mVideoSize.x = x
             mVideoSize.y = y
         }
@@ -160,10 +160,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             }
 
             mWasFragmentInit = true
-
-            if (mVideoSize.x != 0 && mVideoSize.y != 0) {
-                setVideoSize()
-            }
+            setVideoSize()
 
             mView.apply {
                 mBrightnessSideScroll.initialize(activity!!, slide_info, true, container) { x, y ->

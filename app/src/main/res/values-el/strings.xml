@@ -224,6 +224,8 @@
     <string name="faq_15_text">Η προσωρινή μνήμη της εφαρμογής μπορεί να δεσμεύσει έως και 250MB, διασφαλίζοντας την ταχύτερη προφόρτωση των εικόνων. Αν η εφαρμογή χρησιμοποιεί ακόμα περισσότερο χώρο, πιθανότατα οφείλεται στην κατοχή αντικειμένων στον Κάδο. Αυτά τα αρχεία υπολογίζονται στο μέγεθος της εφαρμογής. Μπορείτε να αδειάσετε τον Κάδο Ανακύκλωσης ανοίγοντάς τον και διαγράφοντας όλα τα αρχεία ή από τις ρυθμίσεις της εφαρμογής. Κάθε αρχείο στον Κάδο διαγράφεται αυτόματα μετά από 30 ημέρες.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Απλή Συλλογή Pro: Διαχείριση &amp; Επεξεργασία</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Μια Offline gallery χωρίς διαφ/σεις. Επεξεργασία ανάκτηση προστασία Φωτό-Βίντεο</string>
     <string name="app_long_description">

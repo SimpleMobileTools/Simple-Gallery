@@ -224,6 +224,8 @@
     <string name="faq_15_text">Cache apky môže mať maximálne 250MB, zabezpečuje to rýchlejšie načítanie obrázkov. Ak je apka ešte väčšia, bude to pravdepodobne spôsobené množstvom súborov v Odpadkovom koši. Dané súbory sa počítajú do veľkosti apky. Ak ich chcete vymazať, môžete kôš buď otvoriť a položky vymazať manuálne, alebo ho môžete vysypať v nastaveniach apky. Položky v koši sú automaticky mazané po 30 dňoch.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Jednoduchá galéria Pro: Foto organizér a editor</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Offline galéria bez reklám. Organizujte, upravujte, a chráňte vaše súbory.</string>
     <string name="app_long_description">

@@ -224,6 +224,8 @@
     <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Simple Gallery Pro: Photo Manager &amp; Editor</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Offline gallery without ads. Organize, edit, recover and protect photos &amp; videos</string>
     <string name="app_long_description">

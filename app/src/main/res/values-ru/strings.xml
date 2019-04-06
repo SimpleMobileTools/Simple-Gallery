@@ -224,6 +224,8 @@
     <string name="faq_15_text">Кэш приложения может занимать до 250 МБ, это обеспечивает более быструю загрузку изображений. Если приложение занимает ещё больше места, это, скорее всего, связано с тем, что в корзине находятся удалённые объекты. Эти файлы прибавляются к размеру приложения. Вы можете очистить корзину или открыв её, или из настроек приложения. Любой файл в корзине автоматически удаляется через 30 дней.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
+    <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
+    <string name="app_title">Simple Gallery Pro: Photo Manager &amp; Editor</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Галерея без рекламы. Управление, изменение, восстановление и защита фото и видео</string>
     <string name="app_long_description">
