@@ -17,7 +17,7 @@
     <string name="unknown_location">Ukendt placering</string>
     <string name="increase_column_count">Flere kolonner</string>
     <string name="reduce_column_count">Færre kolonner</string>
-    <string name="change_cover_image">Skift cover billede</string>
+    <string name="change_cover_image">Skift cover-billede</string>
     <string name="select_photo">Vælg billede</string>
     <string name="use_default">Brug standard</string>
     <string name="volume">Lydstyrke</string>
@@ -28,24 +28,24 @@
     <string name="force_portrait">Tving portræt</string>
     <string name="force_landscape">Tving landskab</string>
     <string name="use_default_orientation">Brug standard orientering</string>
-    <string name="fix_date_taken">Fiks Dato Taget værdi</string>
+    <string name="fix_date_taken">Fiks eksponeringsdato</string>
     <string name="fixing">Fikser…</string>
     <string name="dates_fixed_successfully">Datoer fikset med succes</string>
     <string name="share_resized">Del en skaleret version</string>
-    <string name="upgraded_from_free">Hey,\n\ndet ser ud til at du har opgraderet fra den gamle, gratis app. Du kan afinstallere den gamle version, som har en \'Opgrader til Pro\' knap i toppen af appen\'s indstillinger.\n\nDu vil blot få papirkurvens elementer slettet, favoritter vil blive umarkeret og du vil også skulle genopsætte dine app indstillinger.\n\nTak!</string>
+    <string name="upgraded_from_free">Hej\n\nDet ser ud til at du har opgraderet fra den gamle, gratis app. Du kan afinstallere den gamle version, som har en \"Opgrader til Pro\"-knap i toppen af appens indstillinger.\n\nDu vil blot få papirkurvens elementer slettet, favoritter vil blive umarkeret og du vil også skulle genopsætte din apps indstillinger.\n\nTak!</string>
 
     <!-- Filter -->
-    <string name="filter_media">Filtrér medier</string>
+    <string name="filter_media">Filtrer medier</string>
     <string name="images">Billeder</string>
     <string name="videos">Videoer</string>
     <string name="gifs">GIF\'er</string>
-    <string name="raw_images">RAW billeder</string>
+    <string name="raw_images">RAW-billeder</string>
     <string name="svgs">SVG\'er</string>
     <string name="no_media_with_filters">Der blev ikke fundet nogen filer med det valgte filter.</string>
     <string name="change_filters_underlined"><u>Skift filter</u></string>
 
     <!-- Hide / Exclude -->
-    <string name="hide_folder_description">Denne funktion skjuler mappen og dens eventueller undermapper ved at oprette en \'.nomedia\'-fil i den. Du kan se dem ved at klikke på \'Vis skjulte\' i indstillingerne. Fortsæt?</string>
+    <string name="hide_folder_description">Denne funktion skjuler mappen og dens eventuelle undermapper ved at oprette en \".nomedia\"-fil i den. Du kan se dem ved at klikke på \"Vis skjulte\" i indstillingerne. Fortsæt?</string>
     <string name="exclude">Ekskluder</string>
     <string name="excluded_folders">Ekskluderede mapper</string>
     <string name="manage_excluded_folders">Administrer ekskluderede mapper</string>
@@ -65,8 +65,8 @@
     <string name="included_activity_placeholder">Hvis du har mapper med mediefiler som appen ikke har fundet, kan du manuelt tilføje dem her.\n\nDet vil ikke ekskludere andre mapper.</string>
 
     <!-- Resizing -->
-    <string name="resize">Skalér</string>
-    <string name="resize_and_save">Skalér valgte elementer og gem</string>
+    <string name="resize">Skaler</string>
+    <string name="resize_and_save">Skaler valgte elementer og gem</string>
     <string name="width">Bredde</string>
     <string name="height">Højde</string>
     <string name="keep_aspect_ratio">Bevar billedforhold</string>
@@ -75,7 +75,7 @@
     <!-- Editor -->
     <string name="editor">Editor</string>
     <string name="save">Gem</string>
-    <string name="rotate">Rotér</string>
+    <string name="rotate">Roter</string>
     <string name="path">Sti</string>
     <string name="invalid_image_path">Ugyldig sti til billede</string>
     <string name="image_editing_failed">Redigering af billede mislykkedes</string>
@@ -83,9 +83,9 @@
     <string name="no_editor_found">Der blev ikke fundet en editor til billedbehandling</string>
     <string name="unknown_file_location">Ukendt filplacering</string>
     <string name="error_saving_file">Kunne ikke overskrive kildefilen</string>
-    <string name="rotate_left">Rotér mod venstre</string>
-    <string name="rotate_right">Rotér mod højre</string>
-    <string name="rotate_one_eighty">Rotér 180º</string>
+    <string name="rotate_left">Roter mod venstre</string>
+    <string name="rotate_right">Roter mod højre</string>
+    <string name="rotate_one_eighty">Roter 180º</string>
     <string name="flip">Spejlvend</string>
     <string name="flip_horizontally">Spejlvend vandret</string>
     <string name="flip_vertically">Spejlvend lodret</string>
@@ -117,7 +117,7 @@
     <string name="loop_slideshow">Endeløs kørsel</string>
     <string name="slideshow_ended">Slideshowet endte</string>
     <string name="no_media_for_slideshow">Der blev ikke funket nogen mediefiler til slideshowet</string>
-    <string name="use_crossfade_animation">Use crossfade animations</string>
+    <string name="use_crossfade_animation">Anvend crossfade-animationer</string>
 
     <!-- View types -->
     <string name="change_view_type">Skift visning</string>
@@ -130,9 +130,9 @@
     <string name="do_not_group_files">Gruppér ikke filer</string>
     <string name="by_folder">Mappe</string>
     <string name="by_last_modified">Sidst ændret</string>
-    <string name="by_date_taken">Dato taget</string>
+    <string name="by_date_taken">Eksponeringsdato</string>
     <string name="by_file_type">Filtype</string>
-    <string name="by_extension">Filudvidelse</string>
+    <string name="by_extension">Filendelse</string>
     <string name="grouping_and_sorting">Vær opmærksom på at gruppering og sortering er to individuelle felter</string>
 
     <!-- Widgets -->
@@ -144,11 +144,11 @@
     <string name="remember_last_video_position">Husk sidste position ved videoafspilning</string>
     <string name="toggle_filename">Skift filnavnets synlighed</string>
     <string name="loop_videos">Kør videoer i sløjfe</string>
-    <string name="animate_gifs">Animér GIF\'er i miniaturer</string>
+    <string name="animate_gifs">Animer GIF\'er i miniaturer</string>
     <string name="max_brightness">Maksimal lysstyrke ved fuldskærmsvisning af medier</string>
     <string name="crop_thumbnails">Beskær miniaturer til kvadrater</string>
     <string name="show_thumbnail_video_duration">Vis varighed på video</string>
-    <string name="screen_rotation_by">Rotér fuldskærmsmedier efter</string>
+    <string name="screen_rotation_by">Roter fuldskærmsmedier efter</string>
     <string name="screen_rotation_system_setting">Systemindstilling</string>
     <string name="screen_rotation_device_rotation">Enhedens orientering</string>
     <string name="screen_rotation_aspect_ratio">Billedformat</string>
@@ -173,9 +173,9 @@
     <string name="allow_down_gesture">Luk fuldskærmsvisning ved at swipe ned</string>
     <string name="allow_one_to_one_zoom">Tillad 1:1 zooming med to dobbelttryk</string>
     <string name="open_videos_on_separate_screen">Åbn altid videoer på en separat skærm med nye vandrette bevægelser</string>
-    <string name="show_notch">Vis en notch hvis tilgængelig</string>
-    <string name="allow_rotating_gestures">Tillad roterende billeder med bevægelser</string>
-    <string name="file_loading_priority">Filindlæsnings prioritet</string>
+    <string name="show_notch">Vis \"notch\" hvis tilgængelig</string>
+    <string name="allow_rotating_gestures">Tillad rotering af billeder med bevægelser</string>
+    <string name="file_loading_priority">Prioritering af filindlæsning</string>
     <string name="speed">Hastighed</string>
     <string name="compromise">Kompromis</string>
     <string name="avoid_showing_invalid_files">Undgå at vise ugyldige filer</string>
@@ -192,87 +192,87 @@
     <string name="toggle_file_visibility">Synlighed</string>
 
     <!-- FAQ -->
-    <string name="faq_1_title">Hvordan kan jeg lave Simple Gallery til standard-galleriet på min enhed?</string>
-    <string name="faq_1_text">Først skal du finde det nuværende standard galleri, i Apps sektionen af din enheds indstillinger. Kig efter en knap som hedder noget i stil med \"Åbn som standard\", klik på denne og vælg \"Ryd standarder\".
-        Næste gang du forsøger at åbne et billede eller en video, bør du se en app-vælger, hvor du kan vælge Simple Gallery og gøre den til standard app\'en.</string>
-    <string name="faq_2_title">Jeg har låst app\'en med en adgangskode, men jeg har glemt den. Hvad kan jeg gøre?</string>
-    <string name="faq_2_text">Du kan løse dette på to måder. Du kan enten geninstallere app\'en, eller finde app\'en i indstillingerne på din enhed og vælge \"Ryd data\". Dette vil nulstille alle dine indstillinger, det vil ikke slette nogle mediefiler.</string>
+    <string name="faq_1_title">Hvordan kan jeg gøre Simple Gallery til min enheds standardgalleri?</string>
+    <string name="faq_1_text">Først skal du finde det nuværende standardgalleri, i Apps-sektionen af din enheds indstillinger. Kig efter en knap som hedder noget i stil med \"Åbn som standard\", klik på denne og vælg \"Ryd standarder\".
+        Næste gang du forsøger at åbne et billede eller en video, bør du se en app-vælger, hvor du kan vælge Simple Gallery og gøre den til standardapp.</string>
+    <string name="faq_2_title">Jeg har låst appen med en adgangskode, men jeg har glemt den. Hvad kan jeg gøre?</string>
+    <string name="faq_2_text">Du har to muligheder. Du kan enten geninstallere appen, eller finde den i indstillingerne på din enhed og vælge \"Ryd data\". Dette vil nulstille alle dine indstillinger, det vil ikke slette nogen mediefiler.</string>
     <string name="faq_3_title">Hvordan kan jeg altid få et bestemt album vist i toppen?</string>
-    <string name="faq_3_text">Du kan holde fingeren nede på det ønskede album, og vælge tegnstift-ikonet i menuen, dette vil fastgøre den til toppen. Du kan fastgøre flere mapper også. Fastgjorte elementer vil blive sorteret efter standard sorterings-metoden.</string>
+    <string name="faq_3_text">Du kan holde fingeren nede på det ønskede album, og vælge tegnestift-ikonet i menuen, dette vil fastgøre den til toppen. Du kan fastgøre flere mapper også. Fastgjorte elementer vil blive sorteret efter standard sorterings-metoden.</string>
     <string name="faq_4_title">Hvordan kan jeg spole fremad i videoer?</string>
-    <string name="faq_4_text">Du kan enten trække din finger horisontalt over videoafspilleren, eller klikke på den nuværende eller maksimum varighed teksterne, nær søgefeltet. Det vil enten spole videoen tilbage eller fremad.</string>
+    <string name="faq_4_text">Du kan enten trække din finger vandret over videoafspilleren, eller klikke på den nuværende eller maksimum varighedsteksterne, nær søgefeltet. Det vil enten spole videoen tilbage eller fremad.</string>
     <string name="faq_5_title">Hvad er forskellen på at skjule og ekskludere en mappe?</string>
-    <string name="faq_5_text">Eksludering forhindrer visning af mappen i blot Simple Gallery, mens Skjul viser systemvist og skjuler mappen fra andre gallerier også. Det fungerer ved at oprette entom \".nomedia\" fil i den givne mappe, hvilket du også kan slette med enhver filhåndterings-app.</string>
-    <string name="faq_6_title">Hvorfor dukker mapper med musik omslag eller klistermærker op?</string>
+    <string name="faq_5_text">Eksludering forhindrer kun visning af mappen i Simple Gallery, mens Skjul virker på systemniveau og skjuler mappen fra andre gallerier også. Det fungerer ved at oprette en tom \".nomedia\"-fil i den givne mappe, som du kan slette med enhver filhåndterings-app.</string>
+    <string name="faq_6_title">Hvorfor dukker mapper med musikomslag eller klistermærker op?</string>
     <string name="faq_6_text">Det kan ske at du vil se nogle udsædvanlige albummmer. Du kan nemt ekskludere disse, ved at holde fingeren nede på disse og vælge Ekskluder. I den næste dialogboks kan du vælge den ovenliggende mappe, da andre relaterede albummer så sandsynligvis også vil blive forhindret i at blive vist.</string>
     <string name="faq_7_title">En mappe med billeder dukker ikke op, eller den viser ikke alle elementer. Hvad kan jeg gøre?</string>
-    <string name="faq_7_text">Der kan være flere grunde, men en løsning er nem. Bare gå til Indstillinger -> Administrer inkluderede mapper, vælg plusset og naviger til mappen.</string>
+    <string name="faq_7_text">Der kan være flere grunde, men en løsning er nem. Gå til Indstillinger -> Administrer inkluderede mapper, vælg plusset og naviger til mappen.</string>
     <string name="faq_8_title">Hvad hvis jeg kun ønsker få et par bestemte mapper vist?</string>
     <string name="faq_8_text">At tilføje en mappe ved de Inkluderede mapper, ekskluderer ikke automatisk alt. Det du kan gøre, er at gå til Indstillinger -> Adminsterer ekskluderede mapper, eksludere rodmappen \"/\", og så tilføje de ønskede mapper under Indstillinger -> Administrer inkluderede mapper.
-        Det vil gøre kun de valgte mapper synlige, da både ekskludering og inkludering er reskursivt, og hvis en mappe både er ekskluderet og inkluderet, vil den blive vist.</string>
+        Det vil kun gøre de valgte mapper synlige, da både ekskludering og inkludering virker reskursivt, og hvis en mappe både er ekskluderet og inkluderet, vil den blive vist.</string>
     <string name="faq_10_title">Kan jeg beskære billeder med denne app?</string>
     <string name="faq_10_text">Ja, du kan beskære billeder i editoren, ved at trække i billedets kanter. Du kan gå til editoren, ved enten at holde fingeren nede på et miniaturebillede og vælge Rediger, eller vælge Rediger fra fuldskærmsvisningen.</string>
     <string name="faq_11_title">Kan jeg på en eller anden måde gruppere miniaturebilleder til mediefiler?</string>
-    <string name="faq_11_text">Sagtens, bare brug menupunktet \"Gruppér efter\", mens du ser miniaturebillederne. Du kan gruppere flere efter flere kriterier, inklusiv Dato Taget. Hvis du bruger funktionen \"Vis indholdet af alle mapper\", kan du også gruppere dem efter mapper.</string>
-    <string name="faq_12_title">Sortering efter Dato Taget ser ikke ud til at fungere. Hvordan kan jeg fikse dette?</string>
-    <string name="faq_12_text">Det skyldes højst sandsynligt at filerne er kopieret fra et andet sted. Du kan fikse det, ved at vælge filens miniature, og vælge \"Fiks Dato Taget værdi\".</string>
-    <string name="faq_13_title">Jeg ser noget color banding på billederne. Hvordan kan jeg forbedre kvaliteten?</string>
-    <string name="faq_13_text">Den nuværende løsning til visning af billeder virker fint i langt de fleste tilfælde, men hvis du vil have en endnu bedre billedkvalitet, kan du aktivere \"Vis billeder i den højst mulige kvalitet\" i app\'ens indstillinger, i sektionen \"Dybt zoombare billeder\".</string>
+    <string name="faq_11_text">Sagtens, brug menupunktet \"Gruppér efter\", mens du ser miniaturebillederne. Du kan gruppere flere efter flere kriterier, inklusiv eksponeringsdato. Hvis du bruger funktionen \"Vis indholdet af alle mapper\", kan du også gruppere dem efter mapper.</string>
+    <string name="faq_12_title">Sortering efter eksponeringsdato ser ikke ud til at fungere. Hvordan kan jeg fikse det?</string>
+    <string name="faq_12_text">Det skyldes højst sandsynligt at filerne er kopieret fra et andet sted. Du kan fikse det ved at vælge filens miniature, og vælge \"Fiks eksponeringsdato\".</string>
+    <string name="faq_13_title">Jeg ser noget \"color banding\" på billederne. Hvordan kan jeg forbedre kvaliteten?</string>
+    <string name="faq_13_text">Den nuværende løsning til visning af billeder virker fint i langt de fleste tilfælde, men hvis du vil have en endnu bedre billedkvalitet, kan du aktivere \"Vis billeder i den højst mulige kvalitet\" i appens indstillinger, i sektionen \"Dybt zoombare billeder\".</string>
     <string name="faq_14_title">Jeg har en skjult fil/mappe. Hvordan kan jeg få den vist igen?</string>
-    <string name="faq_14_text">Du kan enten trykke på menupunktet \"Vis midlertidigt skjulte\" på hovedskærmen, eller aktivere \"Vis skjulte elementer\" i app\'ens indstillinger for at se det skjulte element. Hvis du vil fjerne skjulningen, skal du blot holde fingeren nede og vælge \"Fjern skjulning\". Mapper er skjult ved at tilføje en skjult \".nomedia\" fil i dem, du kan også slette med enhver filhåndterings-app.</string>
-    <string name="faq_15_title">Why does the app take up so much space?</string>
-    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
+    <string name="faq_14_text">Du kan enten trykke på menupunktet \"Vis midlertidigt skjulte\" på hovedskærmen, eller aktivere \"Vis skjulte elementer\" i appens indstillinger for at se det skjulte element. Hvis du vil fjerne skjulningen, skal du blot holde fingeren nede og vælge \"Fjern skjulning\". Mapper er skjult ved at tilføje en skjult \".nomedia\"-fil i dem, som du også kan slette med enhver filhåndterings-app.</string>
+    <string name="faq_15_title">Hvorfor fylder appen så meget?</string>
+    <string name="faq_15_text">App-mellemlageret kan bruge op til 250MB, det sikrer hurtigere indlæsning. Fylder appen endnu mere kan det skyldes at der ligger meget papirkurven. Filer heri tæller med til appens størrelse. Du kan tømme papirkurven ved at åbne den og slette indholdet, eller fra appens indstillinger. Alle filer i papirkurven slettes automatisk efter 30 dage.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Gallery Pro: Photo Manager &amp; Editor</string>
+    <string name="app_title">Simple Gallery Pro: Billedhåndtering &amp; billedbehandler</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Offline gallery without ads. Organize, edit, recover and protect photos &amp; videos</string>
+    <string name="app_short_description">Offline galleri uden reklamer. Organiser, rediger og gendan mm. fotos og videoer</string>
     <string name="app_long_description">
-        Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
+        Simple Gallery Pro er et offline-galleri med mange tilpasningsmuligheder. Organiser og rediger dine billeder, gendan slettede filer via papirkurven, beskyt og skjul filer og se adskillige forskellige billed- og videoformater inklusiv RAW, SVG og mange flere.
 
-        The app contains no ads and unnecessary permissions. As the app doesn’t require internet access either, your privacy is protected.
+        Appen indeholder ingen reklamer og kræver ingen unødvendige tilladelser. Da den heller ikke kræver adgang til internettet, er dit privatliv også beskyttet.
 
         -------------------------------------------------
-        <b>SIMPLE GALLERY PRO – FEATURES</b>
+        <b>SIMPLE GALLERY PRO – FUNKTIONER</b>
         -------------------------------------------------
 
-        • Offline gallery with no ads or popups
-        • Simple gallery photo editor – crop, rotate, resize, draw, filters &amp; more
-        • No internet access needed, giving you more privacy and security
-        • No unnecessary permissions required
-        • Quickly search images, videos &amp; files
-        • Open &amp; view many different photo and video types (RAW, SVG, panoramic etc)
-        • A variety of intuitive gestures to easily edit &amp; organize files
-        • Lots of ways to filter, group &amp; sort files
-        • Customize the appearance of Simple Gallery Pro
-        • Available in 32 languages
-        • Mark files as favorites for quick access
-        • Protect your photos &amp; videos with a pattern, pin or fingerprint
-        • Use pin, pattern &amp; fingerprint to protect the app launch or specific functions too
-        • Recover deleted photos &amp; videos from the recycle bin
-        • Toggle visibility of files to hide photos &amp; videos
-        • Create a customizable slideshow of your files
-        • View detailed information of your files (resolution, EXIF values etc)
-        • Simple Gallery Pro is open source
-        … and much much more!
+        • Offline galleri uden reklamer eller pop op'er
+        • Simple gallerys billedbehandler – beskær, roter, tilpas størrelse, tegn, filtrer mm.
+        • Inget krav om internetadgang - en stor fordel for dit privatliv og din sikkerhed
+        • Ingen krav om unødvendige tilladelser
+        • Hurtig søgning efter billeder, videoer &amp; filer
+        • Åbn &amp; se mange forskellige foto- og videoformater (RAW, SVG, panoramic osv.)
+        • En række intuitive bevægelser til nem redigering og organisering af filer
+        • Mange muligheder for filtrering, gruppering og sortering af filer
+        • Tilpas udseendet af Simple Gallery Pro
+        • Tilgængelig på 32 sprog
+        • Marker filer som favoriter for hurtig adgang
+        • Beskyt dine billeder &amp; videoer med et mønster, pinkode eller fingeraftryk
+        • Brug mønster, pinkode eller fingeraftryk til beskyttelse af åbning af appen eller specifikke funktioner
+        • Gendan slettede billeder &amp; videoer via papirkurven
+        • Skift mellem vis/skjul filer for at skjule billeder &amp; videoer
+        • Opret et redigerbart slideshow med dine filer
+        • Se detaljeret information om dine filer (opløsning, EXIF-værdier osv.)
+        • Simple Gallery Pro er open source
+        … og meget mere!
 
-        <b>PHOTO GALLERY EDITOR</b>
-        Simple Gallery Pro makes it easy to edit your pictures on the fly. Crop, flip, rotate and resize your pictures. If you’re feeling a little more creative you can add filters and draw on your pictures!
+        <b>FOTOGALLERI - EDITOR</b>
+        Simple Gallery Pro gør det nemt at redigere dine billeder i en fart. Beskær, flip, roter og tilpas størrelsen på dine billeder. Føler du dig lidt mere kreativ, kan du tilføje filtre og tegne oveni dine billeder!
 
-        <b>SUPPORT FOR MANY FILE TYPES</b>
-        Unlike some other gallery viewers &amp; photo organizers, Simple Gallery Pro supports a huge range of different file types including JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic photos, Panoramic videos and many more.
+        <b>UNDERSTØTTELSE AF MANGE FILTYPER</b>
+        I modsætning til mange andre gallerier supporterer Simple Gallery Pro en masse forskellige filtyper inklusiv JPEG, PNG, MP4, MKV, RAW, SVG, Panoramic-foto, Panoramic-videoer og mange flere.
 
-        <b>HIGHLY CUSTOMIZABLE GALLERY MANAGER</b>
-        From the UI to the function buttons on the bottom toolbar, Simple Gallery Pro is highly customizable and works the way you want it to. No other gallery manager has this kind of flexibility! Thanks to being open source, we’re also available in 32 languages!
+        <b>GALLERI MED MASSER AF TILPASNINGSMULIGHEDER</b>
+        Simple Gallery Pro kan tilpasses lige fra brugerfladen til funktionsknapper på nederste værktøjslinje og fungere lige efter dit ønske. Inget andet galleri er så fleksibelt! Takket være at det er open sourse, er det også tilgængeligt på 32 sprog!
 
-        <b>RECOVER DELETED PHOTOS &amp; VIDEOS</b>
-        Accidentally deleted a precious photo or video? Don’t worry! Simple Gallery Pro features a handy recycle bin where you can recover deleted photos &amp; videos easily.
+        <b>GENDAN SLETTEDE BILLEDER &amp; VIDEOER</b>
+        Er du ved en fejl kommet til at slette et billede eller en video? Intet problem! Simple Gallery Pro har en handy papirkurv hvorfra du nemt kan gendanne slettede billeder &amp; videoer.
 
-        <b>PROTECT &amp; HIDE PHOTOS, VIDEOS &amp; FILES</b>
-        Using pin, pattern or your device’s fingerprint scanner you can protect and hide photos, videos &amp; entire albums. You can protect the app itself or place locks on specific functions of the app. For example, you can’t delete a file without a fingerprint scan, helping to protect your files from accidental deletion.
+        <b>BESKYT &amp; SKJUL FOTOS, VIDEOER &amp; FILER</b>
+        Du kan beskytte og skjule billeder, videoer og hele album med en pinkode, et mønster eller din enheds fingeraftryksscanner. Du kan også beskytte selve appen eller låse specifikke funktioner i appen. Du kan for eksempel låse sletning af en fil uden scanning af fingeraftryk og dermed beskytte filer mod at blive slettet ved en fejl.
 
-        <b>Check out the full suite of Simple Tools here:</b>
+        <b>Se hele suiten af Simple Tools her:</b>
         https://www.simplemobiletools.com
 
         <b>Facebook:</b>
