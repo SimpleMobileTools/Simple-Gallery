@@ -166,8 +166,8 @@ fun Context.getSortedDirectories(source: ArrayList<Directory>): ArrayList<Direct
         o1 as Directory
         o2 as Directory
         var result = when {
-            sorting and SORT_BY_NAME != 0 -> o1.name.toLowerCase().compareTo(o2.name.toLowerCase())
-            sorting and SORT_BY_PATH != 0 -> o1.path.toLowerCase().compareTo(o2.path.toLowerCase())
+            sorting and SORT_BY_NAME != 0 -> AlphanumericComparator().compare(o1.name.toLowerCase(), o2.name.toLowerCase())
+            sorting and SORT_BY_PATH != 0 -> AlphanumericComparator().compare(o1.path.toLowerCase(), o2.path.toLowerCase())
             sorting and SORT_BY_SIZE != 0 -> o1.size.compareTo(o2.size)
             sorting and SORT_BY_DATE_MODIFIED != 0 -> o1.modified.compareTo(o2.modified)
             else -> o1.taken.compareTo(o2.taken)
