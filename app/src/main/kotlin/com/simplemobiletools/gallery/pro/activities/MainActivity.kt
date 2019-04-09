@@ -1109,9 +1109,12 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
 
         if (config.useRecycleBin) {
-            val binFolder = dirs.firstOrNull { it.path == RECYCLE_BIN }
-            if (binFolder != null && mMediumDao.getDeletedMedia().isEmpty()) {
-                invalidDirs.add(binFolder)
+            try {
+                val binFolder = dirs.firstOrNull { it.path == RECYCLE_BIN }
+                if (binFolder != null && mMediumDao.getDeletedMedia().isEmpty()) {
+                    invalidDirs.add(binFolder)
+                }
+            } catch (ignored: Exception) {
             }
         }
 
