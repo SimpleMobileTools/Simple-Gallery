@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.6.4 *(2019-04-09)*
+----------------------------
+
+ * Reverting to the previous way of sorting items by name/path
+ * Some stability and translation improvements
+
 Version 6.6.3 *(2019-04-02)*
 ----------------------------
 
