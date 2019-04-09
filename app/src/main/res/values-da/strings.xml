@@ -225,7 +225,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Gallery Pro: Billedhåndtering &amp; billedbehandler</string>
+    <string name="app_title">Simple Gallery Pro: Billedhåndtering</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Offline galleri uden reklamer. Organiser, rediger og gendan mm. fotos og videoer</string>
     <string name="app_long_description">
@@ -237,7 +237,7 @@
         <b>SIMPLE GALLERY PRO – FUNKTIONER</b>
         -------------------------------------------------
 
-        • Offline galleri uden reklamer eller pop op'er
+        • Offline galleri uden reklamer eller pop op\'er
         • Simple gallerys billedbehandler – beskær, roter, tilpas størrelse, tegn, filtrer mm.
         • Inget krav om internetadgang - en stor fordel for dit privatliv og din sikkerhed
         • Ingen krav om unødvendige tilladelser
