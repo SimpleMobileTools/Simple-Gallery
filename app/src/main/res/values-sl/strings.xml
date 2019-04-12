@@ -32,7 +32,7 @@
     <string name="fixing">Popravljam…</string>
     <string name="dates_fixed_successfully">Datumi uspešno popravljeni</string>
     <string name="share_resized">Deli spremenjeno verzijo</string>
-    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
+    <string name="upgraded_from_free">Živjo,\n\nkot kaže, ste nadgradili staro brezplačno aplikacijo. Sedaj lahko odstranite staro verzijo, ki ima gumb \'Nadgradi na Pro verzijo\' na vrhu nastavitev.\n\nIzbrisani bodo le elementi v košu, priljubljeni elementi bodo odznačeni, poleg tega pa bo potrebno še ponastaviti nastavitve aplikacije.\n\nHvala!</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtriranje datotek</string>
@@ -220,18 +220,18 @@
     <string name="faq_13_text">Trenutna rešitev prikazovanja slik deluje dobro v veliki večini primerov, če pa vseeno želite višjo kvaliteto, lahko uporabite funkcijo \"Prikaži slike v najvišji možni kvaliteti\" v Nastavitvah v razdelku \"Globoko povečljive slike\".</string>
     <string name="faq_14_title">Skril sem mapo/datoteko. Kako jo lahko zopet prikažem?</string>
     <string name="faq_14_text">Lahko uporabite funkcijo \"Začasno prikaži skrite elemente\", ki se nahaja v meniju na glavnem zaslonu ali preklopite \"Prikaži skrite elemente\" v Nastavitvah aplikacije. Če želite element označiti kot viden, z dolgim pritiskom nanj prikličite meni in izberite \"Prikaži\". Skrivanje map deluje tako, da se kreira prazno \".nomedia\" datoteko v izbrani mapi, ki jo lahko odstranite tudi s katerimkoli urejevalnikom datotek.</string>
-    <string name="faq_15_title">Why does the app take up so much space?</string>
-    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
+    <string name="faq_15_title">Zakaj aplikacija zaseda toliko prostora?</string>
+    <string name="faq_15_text">Predpomnilnik aplikacije lahko zasede do 250MB, zagotavlja pa hitrejše nalaganje fotografij. Če aplikacija zaseda še več prostora, je to najverjetneje zaradi velikega števila elementov v košu. Tudi te datoteke se vštevajo v velikost aplikacije. Ročno odstranite datoteke iz koša. Vsaka datoteka v košu je sicer avtomatično izbrisana po 30 dneh.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Gallery Pro: Photo Manager &amp; Editor</string>
+    <string name="app_title">Simple Gallery Pro: Pregledovalnik fotografij</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Offline gallery without ads. Organize, edit, recover and protect photos &amp; videos</string>
+    <string name="app_short_description">Fotogalerija brez reklam. Organizira, ureja in zaščiti slike &amp; videoposnetke.</string>
     <string name="app_long_description">
-        Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
+        Simple Gallery Pro je visoko prilagodljiva lokalna galerija. Organizirajte &amp; urejajte vaše fotografije, vrnite izbrisane datoteke iz koša, zaščitite &amp; skrijte datoteke in pregledujte ogromno različnih vrst foto &amp; video formatov, vključujoč RAW, SVG in mnoge druge.
 
-        The app contains no ads and unnecessary permissions. As the app doesn’t require internet access either, your privacy is protected.
+        Aplikacije ne vsebuje reklam in nepotrebnih dovoljenj. Prav tako aplikacija ne potrebuje internetnega dostopa, zato je vaša zasebnost zagotovljena.
 
         -------------------------------------------------
         <b>SIMPLE GALLERY PRO – FEATURES</b>
