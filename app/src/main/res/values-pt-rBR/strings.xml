@@ -5,7 +5,7 @@
     <string name="edit">Editar</string>
     <string name="open_camera">Abrir câmera</string>
     <string name="hidden">(oculto)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(excluído)</string>
     <string name="pin_folder">Fixar pasta</string>
     <string name="unpin_folder">Desfixar pasta</string>
     <string name="pin_to_the_top">Fixar no topo</string>
@@ -24,15 +24,15 @@
     <string name="brightness">Brilho</string>
     <string name="lock_orientation">Travar orientação</string>
     <string name="unlock_orientation">Destravar orientação</string>
-    <string name="change_orientation">Change orientation</string>
-    <string name="force_portrait">Force portrait</string>
-    <string name="force_landscape">Force landscape</string>
-    <string name="use_default_orientation">Use default orientation</string>
+    <string name="change_orientation">Mudar orientação</string>
+    <string name="force_portrait">Forçar modo retrato</string>
+    <string name="force_landscape">Forçar modo paisagem</string>
+    <string name="use_default_orientation">Usar orientação padrão</string>
     <string name="fix_date_taken">Fix Date Taken value</string>
     <string name="fixing">Fixing…</string>
     <string name="dates_fixed_successfully">Dates fixed successfully</string>
     <string name="share_resized">Share a resized version</string>
-    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
+    <string name="upgraded_from_free">Hey,\n\nparece que você atualizou o antigo aplicativo gratuito. Agora você poderá desinstalar a velha versão que tem o botão \'Atualize para a versão Pro\' no topo das Configurações.\n\nVocê terá os itens da Lixeira excluídos, itens favoritos desmarcados e também terá que redefinir as configurações do seu aplicativo.\n\nObrigado!</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrar mídia</string>
@@ -89,8 +89,8 @@
     <string name="flip">Inverter</string>
     <string name="flip_horizontally">Horizontalmente</string>
     <string name="flip_vertically">Verticalmente</string>
-    <string name="free_aspect_ratio">Free</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+    <string name="free_aspect_ratio">Gratuito</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Outro</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
