@@ -6,7 +6,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.database.Cursor
-import android.database.sqlite.SQLiteException
 import android.graphics.Point
 import android.graphics.drawable.PictureDrawable
 import android.media.AudioManager
@@ -477,7 +476,7 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
     Thread {
         val directories = try {
             directoryDao.getAll() as ArrayList<Directory>
-        } catch (e: SQLiteException) {
+        } catch (e: Exception) {
             ArrayList<Directory>()
         }
 

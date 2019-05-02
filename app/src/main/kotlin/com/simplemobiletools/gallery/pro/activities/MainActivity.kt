@@ -1122,7 +1122,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             dirs.removeAll(invalidDirs)
             setupAdapter(dirs)
             invalidDirs.forEach {
-                mDirectoryDao.deleteDirPath(it.path)
+                try {
+                    mDirectoryDao.deleteDirPath(it.path)
+                } catch (ignored: Exception) {
+                }
             }
         }
     }
