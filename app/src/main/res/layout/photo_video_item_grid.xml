@@ -35,6 +35,8 @@
         android:maxLines="1"
         android:paddingLeft="@dimen/small_margin"
         android:paddingRight="@dimen/small_margin"
+        android:shadowColor="@color/default_background_color"
+        android:shadowRadius="4"
         android:textColor="@android:color/white"
         android:textSize="@dimen/normal_text_size"
         android:visibility="gone"
