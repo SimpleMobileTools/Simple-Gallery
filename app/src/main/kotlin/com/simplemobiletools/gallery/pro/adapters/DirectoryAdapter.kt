@@ -483,7 +483,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     private fun setupView(view: View, directory: Directory) {
         val isSelected = selectedKeys.contains(directory.path.hashCode())
         view.apply {
-            dir_name.text = if (groupDirectSubfolders) "${directory.name} (${directory.subfoldersCount})" else directory.name
+            dir_name.text = if (groupDirectSubfolders && directory.subfoldersCount > 1) "${directory.name} (${directory.subfoldersCount})" else directory.name
             dir_path?.text = "${directory.path.substringBeforeLast("/")}/"
             photo_cnt.text = directory.subfoldersMediaCount.toString()
             val thumbnailType = when {
