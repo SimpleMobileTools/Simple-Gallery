@@ -349,7 +349,11 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             else -> {
                 val itemsCnt = selectedKeys.size
                 val items = if (itemsCnt == 1) {
-                    "\"${getSelectedPaths().first().getFilenameFromPath()}\""
+                    var folder = getSelectedPaths().first().getFilenameFromPath()
+                    if (folder == RECYCLE_BIN) {
+                        folder = activity.getString(R.string.recycle_bin)
+                    }
+                    "\"$folder\""
                 } else {
                     resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)
                 }
