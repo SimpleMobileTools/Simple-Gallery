@@ -209,31 +209,74 @@ fun Context.getDirsToShow(dirs: ArrayList<Directory>, allDirs: ArrayList<Directo
 
 fun Context.getDirectParentSubfolders(dirs: ArrayList<Directory>, currentPathPrefix: String): ArrayList<Directory> {
     val folders = dirs.map { it.path }.sorted().toMutableSet() as HashSet<String>
-    val internalPath = internalStoragePath
-    val sdPath = sdCardPath
     val currentPaths = LinkedHashSet<String>()
+    val foldersWithoutMediaFiles = ArrayList<String>()
+    var newDirId = 1000L
 
-    folders.forEach {
-        val path = it
-        if (path != RECYCLE_BIN && path != FAVORITES && !path.equals(internalPath, true) && !path.equals(sdPath, true)) {
-            if (currentPathPrefix.isNotEmpty()) {
-                if (path == currentPathPrefix || File(path).parent.equals(currentPathPrefix, true)) {
-                    currentPaths.add(path)
-                }
-            } else if (folders.any { !it.equals(path, true) && (File(path).parent.equals(it, true) || File(it).parent.equals(File(path).parent, true)) }) {
-                // if we have folders like
-                // /storage/emulated/0/Pictures/Images and
-                // /storage/emulated/0/Pictures/Screenshots,
-                // but /storage/emulated/0/Pictures is empty, show Images and Screenshots as separate folders, do not group them at /Pictures
-                val parent = File(path).parent
-                if (folders.contains(parent)) {
-                    currentPaths.add(parent)
-                } else {
-                    currentPaths.add(path)
-                }
-            } else {
-                currentPaths.add(path)
+    for (path in folders) {
+        if (path == RECYCLE_BIN || path == FAVORITES) {
+            continue
+        }
+
+        if (currentPathPrefix.isNotEmpty()) {
+            if (!path.startsWith(currentPathPrefix, true)) {
+                continue
             }
+
+            if (!File(path).parent.equals(currentPathPrefix, true)) {
+                continue
+            }
+        }
+
+        if (currentPathPrefix.isNotEmpty() && path == currentPathPrefix || File(path).parent.equals(currentPathPrefix, true)) {
+            currentPaths.add(path)
+        } else if (folders.any { !it.equals(path, true) && (File(path).parent.equals(it, true) || File(it).parent.equals(File(path).parent, true)) }) {
+            // if we have folders like
+            // /storage/emulated/0/Pictures/Images and
+            // /storage/emulated/0/Pictures/Screenshots,
+            // but /storage/emulated/0/Pictures is empty, still Pictures with the first folders thumbnails and proper other info
+            val parent = File(path).parent
+            if (!folders.contains(parent) && dirs.none { it.path == parent }) {
+                currentPaths.add(parent)
+                val isSortingAscending = config.sorting and SORT_DESCENDING == 0
+                val subDirs = dirs.filter { File(it.path).parent.equals(File(path).parent, true) } as ArrayList<Directory>
+                if (subDirs.isNotEmpty()) {
+                    val lastModified = if (isSortingAscending) {
+                        subDirs.minBy { it.modified }?.modified
+                    } else {
+                        subDirs.maxBy { it.modified }?.modified
+                    } ?: 0
+
+                    val dateTaken = if (isSortingAscending) {
+                        subDirs.minBy { it.taken }?.taken
+                    } else {
+                        subDirs.maxBy { it.taken }?.taken
+                    } ?: 0
+
+                    var mediaTypes = 0
+                    subDirs.forEach {
+                        mediaTypes = mediaTypes or it.types
+                    }
+
+                    val directory = Directory(newDirId++,
+                            parent,
+                            subDirs.first().tmb,
+                            parent.getFilenameFromPath(),
+                            subDirs.sumBy { it.mediaCnt },
+                            lastModified,
+                            dateTaken,
+                            subDirs.sumByLong { it.size },
+                            getPathLocation(parent),
+                            mediaTypes)
+
+                    directory.containsMediaFilesDirectly = false
+                    dirs.add(directory)
+                    currentPaths.add(parent)
+                    foldersWithoutMediaFiles.add(parent)
+                }
+            }
+        } else {
+            currentPaths.add(path)
         }
     }
 
@@ -241,7 +284,7 @@ fun Context.getDirectParentSubfolders(dirs: ArrayList<Directory>, currentPathPre
     currentPaths.forEach {
         val path = it
         currentPaths.forEach {
-            if (!it.equals(path) && File(it).parent?.equals(path) == true) {
+            if (!foldersWithoutMediaFiles.contains(it) && !it.equals(path, true) && File(it).parent?.equals(path, true) == true) {
                 areDirectSubfoldersAvailable = true
             }
         }
@@ -287,7 +330,10 @@ fun Context.updateSubfolderCounts(children: ArrayList<Directory>, parentDirs: Ar
         // make sure we count only the proper direct subfolders, grouped the same way as on the main screen
         parentDirs.firstOrNull { it.path == longestSharedPath }?.apply {
             if (path.equals(child.path, true) || path.equals(File(child.path).parent, true) || children.any { it.path.equals(File(child.path).parent, true) }) {
-                subfoldersCount++
+                if (child.containsMediaFilesDirectly) {
+                    subfoldersCount++
+                }
+
                 if (path != child.path) {
                     subfoldersMediaCount += child.mediaCnt
                 }
