@@ -188,9 +188,7 @@ fun Context.getDirsToShow(dirs: ArrayList<Directory>, allDirs: ArrayList<Directo
             it.subfoldersMediaCount = it.mediaCnt
         }
 
-        val dirFolders = dirs.map { it.path }.sorted().toMutableSet() as HashSet<String>
-        val foldersToShow = getDirectParentSubfolders(dirFolders, currentPathPrefix)
-        val parentDirs = dirs.filter { foldersToShow.contains(it.path) } as ArrayList<Directory>
+        val parentDirs = getDirectParentSubfolders(dirs, currentPathPrefix)
         updateSubfolderCounts(dirs, parentDirs)
 
         // show the current folder as an available option too, not just subfolders
@@ -209,7 +207,8 @@ fun Context.getDirsToShow(dirs: ArrayList<Directory>, allDirs: ArrayList<Directo
     }
 }
 
-fun Context.getDirectParentSubfolders(folders: HashSet<String>, currentPathPrefix: String): HashSet<String> {
+fun Context.getDirectParentSubfolders(dirs: ArrayList<Directory>, currentPathPrefix: String): ArrayList<Directory> {
+    val folders = dirs.map { it.path }.sorted().toMutableSet() as HashSet<String>
     val internalPath = internalStoragePath
     val sdPath = sdCardPath
     val currentPaths = LinkedHashSet<String>()
@@ -257,15 +256,17 @@ fun Context.getDirectParentSubfolders(folders: HashSet<String>, currentPathPrefi
     }
 
     if (folders.size == currentPaths.size) {
-        return currentPaths
+        return dirs.filter { currentPaths.contains(it.path) } as ArrayList<Directory>
     }
 
     folders.clear()
     folders.addAll(currentPaths)
+
+    val dirsToShow = dirs.filter { folders.contains(it.path) } as ArrayList<Directory>
     return if (areDirectSubfoldersAvailable) {
-        getDirectParentSubfolders(folders, currentPathPrefix)
+        getDirectParentSubfolders(dirsToShow, currentPathPrefix)
     } else {
-        folders
+        dirsToShow
     }
 }
 
