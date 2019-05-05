@@ -2,13 +2,17 @@ package com.simplemobiletools.gallery.pro.activities
 
 import android.animation.Animator
 import android.animation.ValueAnimator
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.ActivityInfo
+import android.content.pm.ShortcutInfo
+import android.content.pm.ShortcutManager
 import android.content.res.Configuration
 import android.database.Cursor
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Icon
 import android.media.ExifInterface
 import android.net.Uri
 import android.os.Bundle
@@ -160,6 +164,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             findItem(R.id.menu_add_to_favorites).isVisible = !currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0
             findItem(R.id.menu_remove_from_favorites).isVisible = currentMedium.isFavorite && visibleBottomActions and BOTTOM_ACTION_TOGGLE_FAVORITE == 0
             findItem(R.id.menu_restore_file).isVisible = currentMedium.path.startsWith(recycleBinPath)
+            findItem(R.id.menu_create_shortcut).isVisible = isNougatMR1Plus()
             findItem(R.id.menu_change_orientation).isVisible = rotationDegrees == 0 && visibleBottomActions and BOTTOM_ACTION_CHANGE_ORIENTATION == 0
             findItem(R.id.menu_change_orientation).icon = resources.getDrawable(getChangeOrientationIcon())
             findItem(R.id.menu_rotate).setShowAsAction(
@@ -204,6 +209,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             R.id.menu_force_landscape -> toggleOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE)
             R.id.menu_default_orientation -> toggleOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
             R.id.menu_save_as -> saveImageAs()
+            R.id.menu_create_shortcut -> createShortcut()
             R.id.menu_settings -> launchSettings()
             else -> return super.onOptionsItemSelected(item)
         }
@@ -600,6 +606,29 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
+    @SuppressLint("NewApi")
+    private fun createShortcut() {
+        val manager = getSystemService(ShortcutManager::class.java)
+        if (manager.isRequestPinShortcutSupported) {
+            val medium = getCurrentMedium() ?: return
+            val path = medium.path
+            val drawable = resources.getDrawable(R.drawable.shortcut_image).mutate()
+            getShortcutImage(path, drawable) {
+                val intent = Intent(this, PhotoVideoActivity::class.java)
+                intent.action = Intent.ACTION_VIEW
+                intent.data = Uri.fromFile(File(path))
+
+                val shortcut = ShortcutInfo.Builder(this, path)
+                        .setShortLabel(medium.name)
+                        .setIcon(Icon.createWithBitmap(drawable.convertToBitmap()))
+                        .setIntent(intent)
+                        .build()
+
+                manager.requestPinShortcut(shortcut, null)
+            }
+        }
+    }
+
     private fun getCurrentPhotoFragment() = getCurrentFragment() as? PhotoFragment
 
     private fun isShowHiddenFlagNeeded(): Boolean {
@@ -976,8 +1005,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             var flipSides = false
             try {
                 val pathToLoad = getCurrentPath()
-                val exif = android.media.ExifInterface(pathToLoad)
-                val orientation = exif.getAttributeInt(android.media.ExifInterface.TAG_ORIENTATION, -1)
+                val exif = ExifInterface(pathToLoad)
+                val orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, -1)
                 flipSides = orientation == ExifInterface.ORIENTATION_ROTATE_90 || orientation == ExifInterface.ORIENTATION_ROTATE_270
             } catch (e: Exception) {
             }
