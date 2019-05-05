@@ -149,6 +149,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             }
         }
 
+        if (!config.wasSortingByNumericValueAdded) {
+            config.wasSortingByNumericValueAdded = true
+            config.sorting = config.sorting or SORT_USE_NUMERIC_VALUE
+        }
+
         updateWidgets()
         registerFileUpdateListener()
     }

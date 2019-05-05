@@ -540,7 +540,7 @@ class PhotoFragment : ViewPagerFragment() {
                 tag?.getValueAsInt(defaultOrientation) ?: defaultOrientation
             } else {
                 val exif = android.media.ExifInterface(path)
-                exif.getAttributeInt(android.media.ExifInterface.TAG_ORIENTATION, defaultOrientation)
+                exif.getAttributeInt(TAG_ORIENTATION, defaultOrientation)
             }
 
             if (orient == defaultOrientation || context!!.isPathOnOTG(mMedium.path)) {
