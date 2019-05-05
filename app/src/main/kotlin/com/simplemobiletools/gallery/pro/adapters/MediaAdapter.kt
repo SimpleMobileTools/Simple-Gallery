@@ -331,7 +331,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
     private fun fixDateTaken() {
         Thread {
-            activity.fixDateTaken(getSelectedPaths()) {
+            activity.fixDateTaken(getSelectedPaths(), true) {
                 listener?.refreshItems()
                 finishActMode()
             }

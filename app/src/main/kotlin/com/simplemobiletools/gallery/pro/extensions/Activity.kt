@@ -278,7 +278,7 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, mediumDa
             callback()
         }
 
-        fixDateTaken(newPaths)
+        fixDateTaken(newPaths, false)
     }.start()
 }
 
@@ -328,9 +328,12 @@ fun Activity.hasNavBar(): Boolean {
     return (realDisplayMetrics.widthPixels - displayMetrics.widthPixels > 0) || (realDisplayMetrics.heightPixels - displayMetrics.heightPixels > 0)
 }
 
-fun Activity.fixDateTaken(paths: ArrayList<String>, callback: (() -> Unit)? = null) {
+fun Activity.fixDateTaken(paths: ArrayList<String>, showToasts: Boolean, callback: (() -> Unit)? = null) {
     val BATCH_SIZE = 50
-    toast(R.string.fixing)
+    if (showToasts) {
+        toast(R.string.fixing)
+    }
+
     try {
         var didUpdateFile = false
         val operations = ArrayList<ContentProviderOperation>()
@@ -371,13 +374,18 @@ fun Activity.fixDateTaken(paths: ArrayList<String>, callback: (() -> Unit)? = nu
                 didUpdateFile = false
             }
 
-            toast(if (didUpdateFile) R.string.dates_fixed_successfully else R.string.unknown_error_occurred)
             runOnUiThread {
+                if (showToasts) {
+                    toast(if (didUpdateFile) R.string.dates_fixed_successfully else R.string.unknown_error_occurred)
+                }
+
                 callback?.invoke()
             }
         }
     } catch (e: Exception) {
-        showErrorToast(e)
+        if (showToasts) {
+            showErrorToast(e)
+        }
     }
 }
 
