@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.7.0 *(2019-05-02)*
+----------------------------
+
+ * Moved the video duration field at the top right corner of thumbnails, if enabled
+ * Fixed some fullscreen image related glitches
+ * Misc translation and stability improvements
+
 Version 6.6.4 *(2019-04-09)*
 ----------------------------
 

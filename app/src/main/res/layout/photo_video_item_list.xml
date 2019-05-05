@@ -41,7 +41,8 @@
         android:paddingLeft="6dp"
         android:paddingRight="@dimen/normal_margin"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/bigger_text_size"/>
+        android:textSize="@dimen/bigger_text_size"
+        tools:text="My photo"/>
 
     <ImageView
         android:id="@+id/play_outline"

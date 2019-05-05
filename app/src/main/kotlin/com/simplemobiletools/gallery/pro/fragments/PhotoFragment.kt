@@ -243,11 +243,13 @@ class PhotoFragment : ViewPagerFragment() {
         // avoid GIFs being skewed, played in wrong aspect ratio
         if (mMedium.isGIF()) {
             mView.onGlobalLayout {
-                measureScreen()
-                Handler().postDelayed({
-                    mView.gif_view_frame.controller.resetState()
-                    loadGif()
-                }, 50)
+                if (activity != null) {
+                    measureScreen()
+                    Handler().postDelayed({
+                        mView.gif_view_frame.controller.resetState()
+                        loadGif()
+                    }, 50)
+                }
             }
         } else {
             hideZoomableView()
@@ -286,7 +288,7 @@ class PhotoFragment : ViewPagerFragment() {
 
     private fun measureScreen() {
         val metrics = DisplayMetrics()
-        activity!!.windowManager.defaultDisplay.getRealMetrics(metrics)
+        activity?.windowManager?.defaultDisplay?.getRealMetrics(metrics)
         mScreenWidth = metrics.widthPixels
         mScreenHeight = metrics.heightPixels
     }

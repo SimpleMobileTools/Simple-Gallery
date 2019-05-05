@@ -6,7 +6,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.database.Cursor
-import android.database.sqlite.SQLiteException
 import android.graphics.Point
 import android.graphics.drawable.PictureDrawable
 import android.media.AudioManager
@@ -189,9 +188,7 @@ fun Context.getDirsToShow(dirs: ArrayList<Directory>, allDirs: ArrayList<Directo
             it.subfoldersMediaCount = it.mediaCnt
         }
 
-        val dirFolders = dirs.map { it.path }.sorted().toMutableSet() as HashSet<String>
-        val foldersToShow = getDirectParentSubfolders(dirFolders, currentPathPrefix)
-        val parentDirs = dirs.filter { foldersToShow.contains(it.path) } as ArrayList<Directory>
+        val parentDirs = getDirectParentSubfolders(dirs, currentPathPrefix)
         updateSubfolderCounts(dirs, parentDirs)
 
         // show the current folder as an available option too, not just subfolders
@@ -210,7 +207,8 @@ fun Context.getDirsToShow(dirs: ArrayList<Directory>, allDirs: ArrayList<Directo
     }
 }
 
-fun Context.getDirectParentSubfolders(folders: HashSet<String>, currentPathPrefix: String): HashSet<String> {
+fun Context.getDirectParentSubfolders(dirs: ArrayList<Directory>, currentPathPrefix: String): ArrayList<Directory> {
+    val folders = dirs.map { it.path }.sorted().toMutableSet() as HashSet<String>
     val internalPath = internalStoragePath
     val sdPath = sdCardPath
     val currentPaths = LinkedHashSet<String>()
@@ -258,15 +256,17 @@ fun Context.getDirectParentSubfolders(folders: HashSet<String>, currentPathPrefi
     }
 
     if (folders.size == currentPaths.size) {
-        return currentPaths
+        return dirs.filter { currentPaths.contains(it.path) } as ArrayList<Directory>
     }
 
     folders.clear()
     folders.addAll(currentPaths)
+
+    val dirsToShow = dirs.filter { folders.contains(it.path) } as ArrayList<Directory>
     return if (areDirectSubfoldersAvailable) {
-        getDirectParentSubfolders(folders, currentPathPrefix)
+        getDirectParentSubfolders(dirsToShow, currentPathPrefix)
     } else {
-        folders
+        dirsToShow
     }
 }
 
@@ -426,7 +426,7 @@ fun Context.getPathLocation(path: String): Int {
     return when {
         isPathOnSD(path) -> LOCATION_SD
         isPathOnOTG(path) -> LOCATION_OTG
-        else -> LOCAITON_INTERNAL
+        else -> LOCATION_INTERNAL
     }
 }
 
@@ -477,7 +477,7 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
     Thread {
         val directories = try {
             directoryDao.getAll() as ArrayList<Directory>
-        } catch (e: SQLiteException) {
+        } catch (e: Exception) {
             ArrayList<Directory>()
         }
 
