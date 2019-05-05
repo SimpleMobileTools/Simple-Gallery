@@ -69,6 +69,8 @@
         android:paddingLeft="@dimen/small_margin"
         android:paddingRight="@dimen/small_margin"
         android:paddingBottom="@dimen/small_margin"
+        android:shadowColor="@color/default_background_color"
+        android:shadowRadius="4"
         android:textColor="@android:color/white"
         android:textSize="@dimen/smaller_text_size"
         tools:text="My photo"/>

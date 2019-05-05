@@ -69,6 +69,8 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="2"
+            android:shadowColor="@color/default_background_color"
+            android:shadowRadius="4"
             android:paddingBottom="@dimen/small_margin"
             android:textColor="@android:color/white"
             android:textSize="@dimen/normal_text_size"/>
