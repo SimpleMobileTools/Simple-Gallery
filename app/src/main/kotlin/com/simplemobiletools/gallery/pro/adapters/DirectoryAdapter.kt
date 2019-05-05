@@ -4,16 +4,11 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.ShortcutInfo
 import android.content.pm.ShortcutManager
-import android.graphics.drawable.Drawable
 import android.graphics.drawable.Icon
-import android.graphics.drawable.LayerDrawable
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DecodeFormat
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.request.RequestOptions
 import com.google.gson.Gson
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
@@ -362,7 +357,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             val dir = getFirstSelectedItem() ?: return
             val path = dir.path
             val drawable = resources.getDrawable(R.drawable.shortcut_image).mutate()
-            getShortcutImage(dir.tmb, drawable) {
+            activity.getShortcutImage(dir.tmb, drawable) {
                 val intent = Intent(activity, MediaActivity::class.java)
                 intent.action = Intent.ACTION_VIEW
                 intent.putExtra(DIRECTORY, path)
@@ -376,33 +371,6 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 manager.requestPinShortcut(shortcut, null)
             }
         }
-    }
-
-    private fun getShortcutImage(tmb: String, drawable: Drawable, callback: () -> Unit) {
-        Thread {
-            val options = RequestOptions()
-                    .format(DecodeFormat.PREFER_ARGB_8888)
-                    .skipMemoryCache(true)
-                    .diskCacheStrategy(DiskCacheStrategy.NONE)
-                    .fitCenter()
-
-            val size = activity.resources.getDimension(R.dimen.shortcut_size).toInt()
-            val builder = Glide.with(activity)
-                    .asDrawable()
-                    .load(tmb)
-                    .apply(options)
-                    .centerCrop()
-                    .into(size, size)
-
-            try {
-                (drawable as LayerDrawable).setDrawableByLayerId(R.id.shortcut_image, builder.get())
-            } catch (e: Exception) {
-            }
-
-            activity.runOnUiThread {
-                callback()
-            }
-        }.start()
     }
 
     private fun askConfirmDelete() {

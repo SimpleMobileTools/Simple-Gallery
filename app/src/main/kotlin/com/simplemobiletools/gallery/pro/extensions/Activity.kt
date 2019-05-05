@@ -7,6 +7,8 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.LayerDrawable
 import android.media.ExifInterface
 import android.os.Build
 import android.provider.MediaStore
@@ -14,6 +16,9 @@ import android.util.DisplayMetrics
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DecodeFormat
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
 import com.simplemobiletools.commons.extensions.*
@@ -255,7 +260,7 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, mediumDa
             var out: OutputStream? = null
             try {
                 out = getFileOutputStreamSync(destination, source.getMimeType())
-                inputStream = getFileInputStreamSync(source)!!
+                inputStream = getFileInputStreamSync(source)
                 inputStream.copyTo(out!!)
                 if (File(source).length() == File(destination).length()) {
                     mediumDao.updateDeleted(destination.removePrefix(recycleBinPath), 0, "$RECYCLE_BIN$destination")
@@ -478,7 +483,7 @@ fun BaseSimpleActivity.copyFile(source: String, destination: String) {
     try {
         out = getFileOutputStreamSync(destination, source.getMimeType())
         inputStream = getFileInputStreamSync(source)
-        inputStream?.copyTo(out!!)
+        inputStream.copyTo(out!!)
     } finally {
         inputStream?.close()
         out?.close()
@@ -490,4 +495,31 @@ fun saveFile(path: String, bitmap: Bitmap, out: FileOutputStream, degrees: Int) 
     matrix.postRotate(degrees.toFloat())
     val bmp = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
     bmp.compress(path.getCompressionFormat(), 90, out)
+}
+
+fun Activity.getShortcutImage(tmb: String, drawable: Drawable, callback: () -> Unit) {
+    Thread {
+        val options = RequestOptions()
+                .format(DecodeFormat.PREFER_ARGB_8888)
+                .skipMemoryCache(true)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .fitCenter()
+
+        val size = resources.getDimension(R.dimen.shortcut_size).toInt()
+        val builder = Glide.with(this)
+                .asDrawable()
+                .load(tmb)
+                .apply(options)
+                .centerCrop()
+                .into(size, size)
+
+        try {
+            (drawable as LayerDrawable).setDrawableByLayerId(R.id.shortcut_image, builder.get())
+        } catch (e: Exception) {
+        }
+
+        runOnUiThread {
+            callback()
+        }
+    }.start()
 }
