@@ -426,7 +426,7 @@ fun Context.getPathLocation(path: String): Int {
     return when {
         isPathOnSD(path) -> LOCATION_SD
         isPathOnOTG(path) -> LOCATION_OTG
-        else -> LOCAITON_INTERNAL
+        else -> LOCATION_INTERNAL
     }
 }
 
