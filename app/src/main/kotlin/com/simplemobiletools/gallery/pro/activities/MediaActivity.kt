@@ -22,6 +22,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.transition.Transition
 import com.simplemobiletools.commons.dialogs.ConfirmationDialog
+import com.simplemobiletools.commons.dialogs.CreateNewFolderDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REQUEST_EDIT_IMAGE
@@ -220,6 +221,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             findItem(R.id.folder_view).isVisible = mShowAll
             findItem(R.id.open_camera).isVisible = mShowAll
             findItem(R.id.about).isVisible = mShowAll
+            findItem(R.id.create_new_folder).isVisible = !mShowAll && mPath != RECYCLE_BIN && mPath != FAVORITES
 
             findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden
             findItem(R.id.stop_showing_hidden).isVisible = config.temporarilyShowHidden
@@ -249,6 +251,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             R.id.hide_folder -> tryHideFolder()
             R.id.unhide_folder -> unhideFolder()
             R.id.exclude_folder -> tryExcludeFolder()
+            R.id.create_new_folder -> createNewFolder()
             R.id.temporarily_show_hidden -> tryToggleTemporarilyShowHidden()
             R.id.stop_showing_hidden -> tryToggleTemporarilyShowHidden()
             R.id.increase_column_count -> increaseColumnCount()
@@ -623,6 +626,12 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
         Thread {
             mDirectoryDao.deleteDirPath(mPath)
         }.start()
+    }
+
+    private fun createNewFolder() {
+        CreateNewFolderDialog(this, mPath) {
+            config.tempFolderPath = it
+        }
     }
 
     private fun tryToggleTemporarilyShowHidden() {
