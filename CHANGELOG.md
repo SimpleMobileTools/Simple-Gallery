@@ -1,6 +1,16 @@
 Changelog
 ==========
 
+Version 6.7.1 *(2019-05-08)*
+----------------------------
+
+ * Allow creating file or folder shortcuts on home screen on Android 7+
+ * Allow creating new folders on the file thumbnails screen too
+ * Added a checkbox at sorting by name/path to sort numbers by their actual numeric value
+ * Improve grouping direct subfolders, do not ignore parent folders without media files
+ * Show the Open Camera button at the menu on the main screen, instead of the Sort by button
+ * Other translation and stability improvements
+
 Version 6.7.0 *(2019-05-02)*
 ----------------------------
 
