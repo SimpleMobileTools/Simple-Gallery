@@ -5,6 +5,7 @@ import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.beVisibleIf
+import com.simplemobiletools.commons.extensions.isVisible
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.gallery.pro.R
@@ -12,7 +13,7 @@ import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.helpers.SHOW_ALL
 import kotlinx.android.synthetic.main.dialog_change_sorting.view.*
 
-class ChangeSortingDialog(val activity: BaseSimpleActivity, val isDirectorySorting: Boolean, showFolderCheckbox: Boolean,
+class ChangeSortingDialog(val activity: BaseSimpleActivity, val isDirectorySorting: Boolean, val showFolderCheckbox: Boolean,
                           val path: String = "", val callback: () -> Unit) :
         DialogInterface.OnClickListener {
     private var currSorting = 0
@@ -23,7 +24,7 @@ class ChangeSortingDialog(val activity: BaseSimpleActivity, val isDirectorySorti
     init {
         currSorting = if (isDirectorySorting) config.directorySorting else config.getFileSorting(pathToUse)
         view = activity.layoutInflater.inflate(R.layout.dialog_change_sorting, null).apply {
-            use_for_this_folder_divider.beVisibleIf(showFolderCheckbox)
+            use_for_this_folder_divider.beVisibleIf(showFolderCheckbox || (currSorting and SORT_BY_NAME != 0 || currSorting and SORT_BY_PATH != 0))
 
             sorting_dialog_numeric_sorting.beVisibleIf(showFolderCheckbox && (currSorting and SORT_BY_NAME != 0 || currSorting and SORT_BY_PATH != 0))
             sorting_dialog_numeric_sorting.isChecked = currSorting and SORT_USE_NUMERIC_VALUE != 0
@@ -47,7 +48,9 @@ class ChangeSortingDialog(val activity: BaseSimpleActivity, val isDirectorySorti
     private fun setupSortRadio() {
         val sortingRadio = view.sorting_dialog_radio_sorting
         sortingRadio.setOnCheckedChangeListener { group, checkedId ->
-            view.sorting_dialog_numeric_sorting.beVisibleIf(checkedId == sortingRadio.sorting_dialog_radio_name.id || checkedId == sortingRadio.sorting_dialog_radio_path.id)
+            val isSortingByNameOrPath = checkedId == sortingRadio.sorting_dialog_radio_name.id || checkedId == sortingRadio.sorting_dialog_radio_path.id
+            view.sorting_dialog_numeric_sorting.beVisibleIf(isSortingByNameOrPath)
+            view.use_for_this_folder_divider.beVisibleIf(view.sorting_dialog_numeric_sorting.isVisible() || view.sorting_dialog_use_for_this_folder.isVisible())
         }
 
         val sortBtn = when {
