@@ -126,7 +126,7 @@ class MediaFetcher(val context: Context) {
             if (cursor.moveToFirst()) {
                 do {
                     val path = cursor.getStringValue(MediaStore.Images.Media.DATA)
-                    val parentPath = File(path).parent?.trimEnd('/') ?: continue
+                    val parentPath = File(path).parent ?: continue
                     if (!includedFolders.contains(parentPath) && !foldersToIgnore.contains(parentPath)) {
                         foldersToScan.add(parentPath)
                     }
