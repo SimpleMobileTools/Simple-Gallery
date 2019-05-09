@@ -471,14 +471,16 @@ fun Context.loadImage(type: Int, path: String, target: MySquareImageView, horizo
 }
 
 fun Context.addTempFolderIfNeeded(dirs: ArrayList<Directory>): ArrayList<Directory> {
-    val directories = ArrayList<Directory>()
     val tempFolderPath = config.tempFolderPath
-    if (tempFolderPath.isNotEmpty()) {
+    return if (tempFolderPath.isNotEmpty()) {
+        val directories = ArrayList<Directory>()
         val newFolder = Directory(null, tempFolderPath, "", tempFolderPath.getFilenameFromPath(), 0, 0, 0, 0L, getPathLocation(tempFolderPath), 0)
         directories.add(newFolder)
+        directories.addAll(dirs)
+        directories
+    } else {
+        dirs
     }
-    directories.addAll(dirs)
-    return directories
 }
 
 fun Context.getPathLocation(path: String): Int {
