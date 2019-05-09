@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 6.7.2 *(2019-05-09)*
+----------------------------
+
+ * Allow creating file or folder shortcuts only from Android 8+
+
 Version 6.7.1 *(2019-05-08)*
 ----------------------------
 
