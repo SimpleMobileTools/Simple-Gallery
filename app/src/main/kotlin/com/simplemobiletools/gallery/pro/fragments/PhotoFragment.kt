@@ -21,6 +21,7 @@ import android.view.ViewGroup
 import com.alexvasilkov.gestures.GestureController
 import com.alexvasilkov.gestures.State
 import com.bumptech.glide.Glide
+import com.bumptech.glide.Priority
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -226,6 +227,13 @@ class PhotoFragment : ViewPagerFragment() {
         super.onDestroyView()
         if (activity?.isDestroyed == false) {
             mView.subsampling_view.recycle()
+        }
+
+        try {
+            if (context != null) {
+                Glide.with(context!!).clear(mView.gestures_view)
+            }
+        } catch (ignored: Exception) {
         }
 
         mLoadZoomableViewHandler.removeCallbacksAndMessages(null)
