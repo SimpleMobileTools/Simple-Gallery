@@ -70,6 +70,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private var mMediaFiles = ArrayList<Medium>()
     private var mFavoritePaths = ArrayList<String>()
+    private var mIgnoredPaths = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -908,17 +909,22 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (config.useRecycleBin && !getCurrentMedium()!!.getIsInRecycleBin()) {
             movePathsInRecycleBin(arrayListOf(path)) {
                 if (it) {
-                    tryDeleteFileDirItem(fileDirItem, false, false) {
-                        refreshViewPager()
-                    }
+                    handleDeletion(fileDirItem, false)
                 } else {
                     toast(R.string.unknown_error_occurred)
                 }
             }
         } else {
-            tryDeleteFileDirItem(fileDirItem, false, true) {
-                refreshViewPager()
-            }
+            handleDeletion(fileDirItem, true)
+        }
+    }
+
+    private fun handleDeletion(fileDirItem: FileDirItem, deleteFromDatabase: Boolean) {
+        mIgnoredPaths.add(fileDirItem.path)
+        val media = mMediaFiles.filter { !mIgnoredPaths.contains(it.path) } as ArrayList<ThumbnailItem>
+        gotMedia(media)
+        tryDeleteFileDirItem(fileDirItem, false, deleteFromDatabase) {
+            mIgnoredPaths.remove(fileDirItem.path)
         }
     }
 
@@ -961,7 +967,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun gotMedia(thumbnailItems: ArrayList<ThumbnailItem>) {
-        val media = thumbnailItems.asSequence().filter { it is Medium }.map { it as Medium }.toMutableList() as ArrayList<Medium>
+        val media = thumbnailItems.asSequence().filter { it is Medium && !mIgnoredPaths.contains(it.path) }.map { it as Medium }.toMutableList() as ArrayList<Medium>
         if (isDirEmpty(media) || media.hashCode() == mPrevHashcode) {
             return
         }
