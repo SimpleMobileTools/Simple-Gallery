@@ -359,9 +359,11 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun loadBitmap(addZoomableView: Boolean = true) {
+        val priority = if (mIsFragmentVisible) Priority.IMMEDIATE else Priority.NORMAL
         val options = RequestOptions()
                 .signature(mMedium.path.getFileSignature())
                 .format(DecodeFormat.PREFER_ARGB_8888)
+                .priority(priority)
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                 .fitCenter()
 
