@@ -227,13 +227,13 @@ class PhotoFragment : ViewPagerFragment() {
         super.onDestroyView()
         if (activity?.isDestroyed == false) {
             mView.subsampling_view.recycle()
-        }
 
-        try {
-            if (context != null) {
-                Glide.with(context!!).clear(mView.gestures_view)
+            try {
+                if (context != null) {
+                    Glide.with(context!!).clear(mView.gestures_view)
+                }
+            } catch (ignored: Exception) {
             }
-        } catch (ignored: Exception) {
         }
 
         mLoadZoomableViewHandler.removeCallbacksAndMessages(null)
