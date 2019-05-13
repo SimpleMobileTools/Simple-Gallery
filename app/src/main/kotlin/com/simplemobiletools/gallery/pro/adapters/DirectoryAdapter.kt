@@ -357,7 +357,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             val dir = getFirstSelectedItem() ?: return
             val path = dir.path
             val drawable = resources.getDrawable(R.drawable.shortcut_image).mutate()
-            activity.getShortcutImage(dir.tmb, drawable) {
+            val coverThumbnail = config.parseAlbumCovers().firstOrNull { it.tmb == dir.path }?.tmb ?: dir.tmb
+            activity.getShortcutImage(coverThumbnail, drawable) {
                 val intent = Intent(activity, MediaActivity::class.java)
                 intent.action = Intent.ACTION_VIEW
                 intent.putExtra(DIRECTORY, path)
