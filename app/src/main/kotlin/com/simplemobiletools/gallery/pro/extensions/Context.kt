@@ -213,7 +213,7 @@ fun Context.getDirsToShow(dirs: ArrayList<Directory>, allDirs: ArrayList<Directo
             }
         }
 
-        parentDirs
+        getSortedDirectories(parentDirs)
     } else {
         dirs.forEach { it.subfoldersMediaCount = it.mediaCnt }
         dirs
