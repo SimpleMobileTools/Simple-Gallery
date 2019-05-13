@@ -13,6 +13,7 @@ import android.provider.MediaStore
 import android.view.WindowManager
 import android.widget.ImageView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.Priority
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
@@ -510,6 +511,7 @@ fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boo
     val options = RequestOptions()
             .signature(path.getFileSignature())
             .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
+            .priority(Priority.LOW)
             .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
 
     val builder = Glide.with(applicationContext)
