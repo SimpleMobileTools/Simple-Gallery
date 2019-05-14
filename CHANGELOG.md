@@ -1,6 +1,13 @@
 Changelog
 ==========
 
+Version 6.7.3 *(2019-05-14)*
+----------------------------
+
+ * Fixed folder sorting if used together with subfolder grouping
+ * Fixed some copy/move related progressbar issues
+ * Added many performance and stability improvements
+
 Version 6.7.2 *(2019-05-09)*
 ----------------------------
 
