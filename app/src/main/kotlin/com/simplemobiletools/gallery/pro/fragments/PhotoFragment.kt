@@ -40,10 +40,7 @@ import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.PanoramaPhotoActivity
 import com.simplemobiletools.gallery.pro.activities.PhotoActivity
 import com.simplemobiletools.gallery.pro.extensions.*
-import com.simplemobiletools.gallery.pro.helpers.MEDIUM
-import com.simplemobiletools.gallery.pro.helpers.PATH
-import com.simplemobiletools.gallery.pro.helpers.PicassoDecoder
-import com.simplemobiletools.gallery.pro.helpers.PicassoRegionDecoder
+import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.svg.SvgSoftwareLayerSetter
 import com.squareup.picasso.Callback
@@ -90,7 +87,12 @@ class PhotoFragment : ViewPagerFragment() {
     private lateinit var mMedium: Medium
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        mView = (inflater.inflate(R.layout.pager_photo_item, container, false) as ViewGroup).apply {
+        mView = (inflater.inflate(R.layout.pager_photo_item, container, false) as ViewGroup)
+        if (!arguments!!.getBoolean(SHOULD_INIT_FRAGMENT)) {
+            return mView
+        }
+
+        mView.apply {
             subsampling_view.setOnClickListener { photoClicked() }
             gestures_view.setOnClickListener { photoClicked() }
             gif_view.setOnClickListener { photoClicked() }

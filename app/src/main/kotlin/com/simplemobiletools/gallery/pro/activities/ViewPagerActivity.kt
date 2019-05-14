@@ -366,8 +366,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun updatePagerItems(media: MutableList<Medium>) {
         val pagerAdapter = MyPagerAdapter(this, supportFragmentManager, media)
         if (!isDestroyed) {
+            pagerAdapter.shouldInitFragment = mPos < 5
             view_pager.apply {
                 adapter = pagerAdapter
+                pagerAdapter.shouldInitFragment = true
                 currentItem = mPos
                 removeOnPageChangeListener(this@ViewPagerActivity)
                 addOnPageChangeListener(this@ViewPagerActivity)
