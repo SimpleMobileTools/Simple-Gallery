@@ -122,12 +122,12 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             }
         }
 
+        mMedium = arguments!!.getSerializable(MEDIUM) as Medium
         if (!arguments!!.getBoolean(SHOULD_INIT_FRAGMENT)) {
             return mView
         }
 
         storeStateVariables()
-        mMedium = arguments!!.getSerializable(MEDIUM) as Medium
         Glide.with(context!!).load(mMedium.path).into(mView.video_preview)
 
         // setMenuVisibility is not called at VideoActivity (third party intent)
