@@ -924,7 +924,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun handleDeletion(fileDirItem: FileDirItem, deleteFromDatabase: Boolean) {
         mIgnoredPaths.add(fileDirItem.path)
         val media = mMediaFiles.filter { !mIgnoredPaths.contains(it.path) } as ArrayList<ThumbnailItem>
-        gotMedia(media)
+        runOnUiThread {
+            gotMedia(media)
+        }
         tryDeleteFileDirItem(fileDirItem, false, deleteFromDatabase) {
             mIgnoredPaths.remove(fileDirItem.path)
         }
