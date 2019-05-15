@@ -909,25 +909,34 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
         if (config.useRecycleBin && !getCurrentMedium()!!.getIsInRecycleBin()) {
+            mIgnoredPaths.add(fileDirItem.path)
+            val media = mMediaFiles.filter { !mIgnoredPaths.contains(it.path) } as ArrayList<ThumbnailItem>
+            runOnUiThread {
+                gotMedia(media)
+            }
+
             movePathsInRecycleBin(arrayListOf(path)) {
                 if (it) {
-                    handleDeletion(fileDirItem, false)
+                    tryDeleteFileDirItem(fileDirItem, false, false) {
+                        mIgnoredPaths.remove(fileDirItem.path)
+                    }
                 } else {
                     toast(R.string.unknown_error_occurred)
                 }
             }
         } else {
-            handleDeletion(fileDirItem, true)
+            handleDeletion(fileDirItem)
         }
     }
 
-    private fun handleDeletion(fileDirItem: FileDirItem, deleteFromDatabase: Boolean) {
+    private fun handleDeletion(fileDirItem: FileDirItem) {
         mIgnoredPaths.add(fileDirItem.path)
         val media = mMediaFiles.filter { !mIgnoredPaths.contains(it.path) } as ArrayList<ThumbnailItem>
         runOnUiThread {
             gotMedia(media)
         }
-        tryDeleteFileDirItem(fileDirItem, false, deleteFromDatabase) {
+
+        tryDeleteFileDirItem(fileDirItem, false, true) {
             mIgnoredPaths.remove(fileDirItem.path)
         }
     }
