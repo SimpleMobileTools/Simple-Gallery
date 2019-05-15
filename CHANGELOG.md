@@ -1,6 +1,11 @@
 Changelog
 ==========
 
+Version 6.7.5 *(2019-05-15)*
+----------------------------
+
+ * Hotfixing a glitch with opening third party intents
+
 Version 6.7.4 *(2019-05-15)*
 ----------------------------
 
