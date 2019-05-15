@@ -88,7 +88,7 @@ class PhotoFragment : ViewPagerFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         mView = (inflater.inflate(R.layout.pager_photo_item, container, false) as ViewGroup)
-        if (!arguments!!.getBoolean(SHOULD_INIT_FRAGMENT)) {
+        if (!arguments!!.getBoolean(SHOULD_INIT_FRAGMENT, true)) {
             return mView
         }
 

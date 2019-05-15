@@ -123,7 +123,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         }
 
         mMedium = arguments!!.getSerializable(MEDIUM) as Medium
-        if (!arguments!!.getBoolean(SHOULD_INIT_FRAGMENT)) {
+        if (!arguments!!.getBoolean(SHOULD_INIT_FRAGMENT, true)) {
             return mView
         }
 
