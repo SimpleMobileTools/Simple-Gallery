@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.7.4 *(2019-05-15)*
+----------------------------
+
+ * Speeded up video deleting from fullscreen view
+ * Hotfixed some crashes
+
 Version 6.7.3 *(2019-05-14)*
 ----------------------------
 
