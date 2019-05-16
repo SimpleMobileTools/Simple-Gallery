@@ -17,7 +17,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/medium_margin"
-            android:paddingLeft="@dimen/medium_margin"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin"
             android:text="@string/interval"/>
@@ -27,9 +26,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:ems="5"
-            android:gravity="right"
+            android:gravity="end"
             android:imeOptions="actionDone"
             android:inputType="number"
             android:maxLength="5"
@@ -43,7 +41,6 @@
             android:layout_below="@+id/interval_label"
             android:background="?attr/selectableItemBackground"
             android:paddingStart="@dimen/medium_margin"
-            android:paddingLeft="@dimen/medium_margin"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin">
 
@@ -64,7 +61,6 @@
             android:layout_below="@+id/include_videos_holder"
             android:background="?attr/selectableItemBackground"
             android:paddingStart="@dimen/medium_margin"
-            android:paddingLeft="@dimen/medium_margin"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin">
 
@@ -85,7 +81,6 @@
             android:layout_below="@+id/include_gifs_holder"
             android:background="?attr/selectableItemBackground"
             android:paddingStart="@dimen/medium_margin"
-            android:paddingLeft="@dimen/medium_margin"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin">
 
@@ -106,7 +101,6 @@
             android:layout_below="@+id/random_order_holder"
             android:background="?attr/selectableItemBackground"
             android:paddingStart="@dimen/medium_margin"
-            android:paddingLeft="@dimen/medium_margin"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin"
             android:visibility="gone">
@@ -128,7 +122,6 @@
             android:layout_below="@+id/use_fade_holder"
             android:background="?attr/selectableItemBackground"
             android:paddingStart="@dimen/medium_margin"
-            android:paddingLeft="@dimen/medium_margin"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin">
 
@@ -149,7 +142,6 @@
             android:layout_below="@+id/move_backwards_holder"
             android:background="?attr/selectableItemBackground"
             android:paddingStart="@dimen/medium_margin"
-            android:paddingLeft="@dimen/medium_margin"
             android:paddingTop="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin">
 

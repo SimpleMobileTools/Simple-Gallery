@@ -20,9 +20,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground"
-            android:paddingLeft="@dimen/activity_margin"
+            android:paddingStart="@dimen/activity_margin"
             android:paddingTop="@dimen/activity_margin"
-            android:paddingRight="@dimen/medium_margin"
+            android:paddingEnd="@dimen/medium_margin"
             android:paddingBottom="@dimen/activity_margin">
 
             <com.simplemobiletools.commons.views.MySwitchCompat
@@ -43,7 +43,7 @@
             android:layout_below="@+id/folder_picker_show_folder_name_holder"
             android:layout_marginTop="@dimen/small_margin"
             android:layout_marginBottom="@dimen/normal_margin"
-            android:paddingLeft="@dimen/activity_margin"
+            android:paddingStart="@dimen/activity_margin"
             android:text="@string/folder_on_widget"/>
 
         <com.simplemobiletools.commons.views.MyTextView
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/folder_picker_label"
-            android:layout_marginLeft="@dimen/activity_margin"
+            android:layout_marginStart="@dimen/activity_margin"
             android:background="@drawable/button_background"
             android:padding="@dimen/normal_margin"
             tools:text="@string/internal"/>
@@ -100,7 +100,6 @@
         android:layout_alignTop="@+id/config_bg_color"
         android:layout_alignBottom="@+id/config_bg_color"
         android:layout_toEndOf="@+id/config_bg_color"
-        android:layout_toRightOf="@+id/config_bg_color"
         android:background="@android:color/white">
 
         <SeekBar
@@ -123,7 +122,6 @@
         android:layout_width="wrap_content"
         android:layout_height="@dimen/widget_colorpicker_size"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:fontFamily="sans-serif-light"
         android:paddingLeft="@dimen/activity_margin"

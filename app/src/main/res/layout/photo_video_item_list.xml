@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:clickable="true"
     android:focusable="true"
-    android:paddingLeft="@dimen/small_margin"
+    android:paddingStart="@dimen/small_margin"
     android:paddingTop="@dimen/small_margin">
 
     <com.simplemobiletools.gallery.pro.views.MySquareImageView
@@ -21,7 +21,6 @@
         android:layout_height="@dimen/selection_check_size"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:layout_margin="@dimen/small_margin"
         android:background="@drawable/circle_background"
         android:padding="@dimen/tiny_margin"
@@ -34,12 +33,12 @@
         android:layout_height="match_parent"
         android:layout_alignTop="@+id/medium_thumbnail"
         android:layout_alignBottom="@+id/medium_thumbnail"
-        android:layout_toRightOf="@+id/medium_thumbnail"
+        android:layout_toEndOf="@+id/medium_thumbnail"
         android:ellipsize="end"
         android:gravity="center_vertical"
         android:maxLines="3"
-        android:paddingLeft="6dp"
-        android:paddingRight="@dimen/normal_margin"
+        android:paddingStart="6dp"
+        android:paddingEnd="@dimen/normal_margin"
         android:textColor="@android:color/white"
         android:textSize="@dimen/bigger_text_size"
         tools:text="My photo"/>
@@ -48,9 +47,9 @@
         android:id="@+id/play_outline"
         android:layout_width="@dimen/play_outline_icon_size"
         android:layout_height="@dimen/play_outline_icon_size"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="@dimen/small_margin"
+        android:layout_marginEnd="@dimen/small_margin"
         android:paddingBottom="6dp"
         android:src="@drawable/img_play_outline_empty"
         android:visibility="gone"/>
@@ -61,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="6dp"
-        android:layout_toLeftOf="@+id/play_outline"
+        android:layout_toStartOf="@+id/play_outline"
         android:paddingLeft="@dimen/small_margin"
         android:paddingRight="@dimen/small_margin"
         android:paddingBottom="@dimen/small_margin"
@@ -75,7 +74,7 @@
         android:layout_height="1dp"
         android:layout_alignBottom="@+id/medium_thumbnail"
         android:layout_marginTop="2dp"
-        android:layout_toRightOf="@+id/medium_thumbnail"
+        android:layout_toEndOf="@+id/medium_thumbnail"
         android:background="@drawable/divider"/>
 
 </RelativeLayout>
