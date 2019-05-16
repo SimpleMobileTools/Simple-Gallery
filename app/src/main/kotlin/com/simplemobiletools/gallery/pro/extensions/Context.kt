@@ -497,6 +497,7 @@ fun Context.loadPng(path: String, target: MySquareImageView, cropThumbnails: Boo
             .signature(path.getFileSignature())
             .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
             .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+            .priority(Priority.LOW)
             .format(DecodeFormat.PREFER_ARGB_8888)
 
     val builder = Glide.with(applicationContext)
