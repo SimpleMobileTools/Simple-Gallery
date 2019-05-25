@@ -11,7 +11,7 @@ import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
-import com.simplemobiletools.commons.dialogs.RenameItemsDialog
+import com.simplemobiletools.commons.dialogs.RenameItemsPatternDialog
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.FastScroller
@@ -215,7 +215,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                 }.start()
             }
         } else {
-            RenameItemsDialog(activity, getSelectedPaths()) {
+            RenameItemsPatternDialog(activity, getSelectedPaths()) {
                 enableInstantLoad()
                 listener?.refreshItems()
                 finishActMode()
