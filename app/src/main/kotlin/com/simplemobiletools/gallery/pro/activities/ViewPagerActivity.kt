@@ -920,6 +920,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 if (it) {
                     tryDeleteFileDirItem(fileDirItem, false, false) {
                         mIgnoredPaths.remove(fileDirItem.path)
+                        deleteDirectoryIfEmpty()
                     }
                 } else {
                     toast(R.string.unknown_error_occurred)
@@ -939,6 +940,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         tryDeleteFileDirItem(fileDirItem, false, true) {
             mIgnoredPaths.remove(fileDirItem.path)
+            deleteDirectoryIfEmpty()
         }
     }
 
