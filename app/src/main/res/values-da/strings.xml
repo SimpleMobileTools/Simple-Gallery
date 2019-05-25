@@ -63,7 +63,7 @@
     <string name="manage_included_folders">Administrer inkluderede mapper</string>
     <string name="add_folder">Tilføj mappe</string>
     <string name="included_activity_placeholder">Hvis du har mapper med mediefiler som appen ikke har fundet, kan du manuelt tilføje dem her.\n\nDet vil ikke ekskludere andre mapper.</string>
-    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
+    <string name="no_media_add_included">Ingen mediefiler er fundet. Dette kan løses ved manuelt at tilføje mapper som indeholder mediefiler.</string>
 
     <!-- Resizing -->
     <string name="resize">Skaler</string>
