@@ -39,7 +39,6 @@ import com.simplemobiletools.gallery.pro.interfaces.DirectoryDao
 import com.simplemobiletools.gallery.pro.interfaces.DirectoryOperationsListener
 import com.simplemobiletools.gallery.pro.interfaces.MediumDao
 import com.simplemobiletools.gallery.pro.jobs.NewPhotoFetcher
-import com.simplemobiletools.gallery.pro.models.AlbumCover
 import com.simplemobiletools.gallery.pro.models.Directory
 import com.simplemobiletools.gallery.pro.models.Medium
 import kotlinx.android.synthetic.main.activity_main.*
@@ -1005,25 +1004,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         directories_empty_text_label.beVisibleIf(dirs.isEmpty() && mLoadedInitialPhotos)
         directories_empty_text.beVisibleIf(dirs.isEmpty() && mLoadedInitialPhotos)
         directories_grid.beVisibleIf(directories_empty_text_label.isGone())
-    }
-
-    private fun createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, albumCovers: ArrayList<AlbumCover>, hiddenString: String,
-                                         includedFolders: MutableSet<String>, isSortingAscending: Boolean, getProperFileSize: Boolean): Directory {
-        var thumbnail = curMedia.firstOrNull { File(it.path).exists() }?.path ?: ""
-        albumCovers.forEach {
-            if (it.path == path && File(it.tmb).exists()) {
-                thumbnail = it.tmb
-            }
-        }
-
-        val firstItem = curMedia.first()
-        val lastItem = curMedia.last()
-        val dirName = checkAppendingHidden(path, hiddenString, includedFolders)
-        val lastModified = if (isSortingAscending) Math.min(firstItem.modified, lastItem.modified) else Math.max(firstItem.modified, lastItem.modified)
-        val dateTaken = if (isSortingAscending) Math.min(firstItem.taken, lastItem.taken) else Math.max(firstItem.taken, lastItem.taken)
-        val size = if (getProperFileSize) curMedia.sumByLong { it.size } else 0L
-        val mediaTypes = curMedia.getDirMediaTypes()
-        return Directory(null, path, thumbnail, dirName, curMedia.size, lastModified, dateTaken, size, getPathLocation(path), mediaTypes)
     }
 
     private fun setupAdapter(dirs: ArrayList<Directory>, textToSearch: String = "") {

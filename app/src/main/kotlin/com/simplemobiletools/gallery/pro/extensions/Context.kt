@@ -28,6 +28,7 @@ import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.interfaces.DirectoryDao
 import com.simplemobiletools.gallery.pro.interfaces.MediumDao
 import com.simplemobiletools.gallery.pro.interfaces.WidgetsDao
+import com.simplemobiletools.gallery.pro.models.AlbumCover
 import com.simplemobiletools.gallery.pro.models.Directory
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
@@ -785,4 +786,23 @@ fun Context.addPathToDB(path: String) {
         } catch (ignored: Exception) {
         }
     }.start()
+}
+
+fun Context.createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, albumCovers: ArrayList<AlbumCover>, hiddenString: String,
+                                     includedFolders: MutableSet<String>, isSortingAscending: Boolean, getProperFileSize: Boolean): Directory {
+    var thumbnail = curMedia.firstOrNull { File(it.path).exists() }?.path ?: ""
+    albumCovers.forEach {
+        if (it.path == path && File(it.tmb).exists()) {
+            thumbnail = it.tmb
+        }
+    }
+
+    val firstItem = curMedia.first()
+    val lastItem = curMedia.last()
+    val dirName = checkAppendingHidden(path, hiddenString, includedFolders)
+    val lastModified = if (isSortingAscending) Math.min(firstItem.modified, lastItem.modified) else Math.max(firstItem.modified, lastItem.modified)
+    val dateTaken = if (isSortingAscending) Math.min(firstItem.taken, lastItem.taken) else Math.max(firstItem.taken, lastItem.taken)
+    val size = if (getProperFileSize) curMedia.sumByLong { it.size } else 0L
+    val mediaTypes = curMedia.getDirMediaTypes()
+    return Directory(null, path, thumbnail, dirName, curMedia.size, lastModified, dateTaken, size, getPathLocation(path), mediaTypes)
 }
