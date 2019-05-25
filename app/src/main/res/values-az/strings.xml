@@ -63,6 +63,7 @@
     <string name="manage_included_folders">Manage included folders</string>
     <string name="add_folder">Add folder</string>
     <string name="included_activity_placeholder">If you have some folders which contain media, but were not recognized by the app, you can add them manually here.\n\nAdding some items here will not exclude any other folder.</string>
+    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
 
     <!-- Resizing -->
     <string name="resize">Resize</string>

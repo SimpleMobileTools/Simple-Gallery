@@ -63,6 +63,7 @@
     <string name="manage_included_folders">Gerir pastas incluídas</string>
     <string name="add_folder">Adicionar pasta</string>
     <string name="included_activity_placeholder">Se possuir pastas com dados multimédia não reconhecidos pela aplicação, aqui pode adicioná-las manualmente.</string>
+    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
 
     <!-- Resizing -->
     <string name="resize">Redimensionar</string>

@@ -63,6 +63,7 @@
     <string name="manage_included_folders">Gestisci le cartelle incluse</string>
     <string name="add_folder">Aggiungi cartella</string>
     <string name="included_activity_placeholder">Se si hanno alcune cartelle che contengono media, ma non sono state riconosciute dall\'app, si possono aggiungerle manualmente qui.</string>
+    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
 
     <!-- Resizing -->
     <string name="resize">Ridimensiona</string>

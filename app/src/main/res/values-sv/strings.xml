@@ -63,6 +63,7 @@
     <string name="manage_included_folders">Hantera inkluderade mappar</string>
     <string name="add_folder">Lägg till mapp</string>
     <string name="included_activity_placeholder">Om du har vissa mappar som innehåller media men som inte känns igen av appen, kan du lägga till dem manuellt här.</string>
+    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
 
     <!-- Resizing -->
     <string name="resize">Ändra storlek</string>

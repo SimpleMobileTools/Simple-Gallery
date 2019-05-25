@@ -63,6 +63,7 @@
     <string name="manage_included_folders">Керування включеними теками</string>
     <string name="add_folder">Додати теку</string>
     <string name="included_activity_placeholder">Якщо у вас є теки з медіафайлами, але вони не були розпізнані додатком, ви можете додати їх тут вручну.\n\nДодавання елементів сюди не виключить будь-яку іншу теку.</string>
+    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
 
     <!-- Resizing -->
     <string name="resize">Змінити розмір</string>

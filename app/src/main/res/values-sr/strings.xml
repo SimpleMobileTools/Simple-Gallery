@@ -63,6 +63,7 @@
     <string name="manage_included_folders">Управљај укљученим фасциклама</string>
     <string name="add_folder">Додај фасциклу</string>
     <string name="included_activity_placeholder">Ако имате неке фасцикле које садрже медију, али нису препознате од стране апликације, можете их додати ручно овде. \n\nДодавањем неких ставки овде нећете изузети неку другу фасциклу.</string>
+    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
 
     <!-- Resizing -->
     <string name="resize">Промена величине</string>

@@ -63,6 +63,7 @@
     <string name="manage_included_folders">追加フォルダの管理</string>
     <string name="add_folder">フォルダを追加</string>
     <string name="included_activity_placeholder">メディア入りのフォルダがアプリで認識されない場合は手動で追加します。</string>
+    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
 
     <!-- Resizing -->
     <string name="resize">リサイズ</string>

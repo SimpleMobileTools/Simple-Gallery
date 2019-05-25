@@ -63,6 +63,7 @@
     <string name="manage_included_folders">Befoglalt mappák kezelése</string>
     <string name="add_folder">Mappa hozzáadása</string>
     <string name="included_activity_placeholder">Ha vannak olyan mappák, amelyek média fájlokat tartalmaznak, de az alkalmazás nem ismerte fel, akkor kézzel is  hozzáadhatja ezeket.\n\nAz elemek hozzáadása nem zár ki más mappákat.</string>
+    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
 
     <!-- Resizing -->
     <string name="resize">Átméretezés</string>

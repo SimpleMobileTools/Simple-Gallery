@@ -63,6 +63,7 @@
     <string name="manage_included_folders">Urejaj vključene mape</string>
     <string name="add_folder">Dodaj mapo</string>
     <string name="included_activity_placeholder">Če imate mape, ki vsebujejo medijske datoteke, ki jih aplikacija ni prepoznala, jih lahko ročno dodate tukaj.\n\nDodajanje novih elementov ne bo izključilo drugih.</string>
+    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
 
     <!-- Resizing -->
     <string name="resize">Spremeni velikost</string>

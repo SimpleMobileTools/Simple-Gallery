@@ -63,6 +63,7 @@
     <string name="manage_included_folders">管理包含目录</string>
     <string name="add_folder">添加目录</string>
     <string name="included_activity_placeholder">如果您还有应用未扫描到的媒体文件，请添加所在目录路径。</string>
+    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
 
     <!-- Resizing -->
     <string name="resize">缩放</string>
