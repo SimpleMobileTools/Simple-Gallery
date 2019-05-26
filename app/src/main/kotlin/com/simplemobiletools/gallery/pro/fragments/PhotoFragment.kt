@@ -92,6 +92,8 @@ class PhotoFragment : ViewPagerFragment() {
             return mView
         }
 
+        mMedium = arguments!!.getSerializable(MEDIUM) as Medium
+
         mView.apply {
             subsampling_view.setOnClickListener { photoClicked() }
             gestures_view.setOnClickListener { photoClicked() }
@@ -149,7 +151,6 @@ class PhotoFragment : ViewPagerFragment() {
             mIsFragmentVisible = true
         }
 
-        mMedium = arguments!!.getSerializable(MEDIUM) as Medium
         if (mMedium.path.startsWith("content://") && !mMedium.path.startsWith("content://mms/")) {
             val originalPath = mMedium.path
             mMedium.path = context!!.getRealPathFromURI(Uri.parse(originalPath)) ?: mMedium.path

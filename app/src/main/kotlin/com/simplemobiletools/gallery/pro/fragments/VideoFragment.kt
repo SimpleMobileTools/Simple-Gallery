@@ -74,6 +74,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private lateinit var mSeekBar: SeekBar
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        mMedium = arguments!!.getSerializable(MEDIUM) as Medium
         mConfig = context!!.config
         mView = inflater.inflate(R.layout.pager_video_item, container, false).apply {
             instant_prev_item.setOnClickListener { listener?.goToPrevItem() }
@@ -122,7 +123,6 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             }
         }
 
-        mMedium = arguments!!.getSerializable(MEDIUM) as Medium
         if (!arguments!!.getBoolean(SHOULD_INIT_FRAGMENT, true)) {
             return mView
         }
