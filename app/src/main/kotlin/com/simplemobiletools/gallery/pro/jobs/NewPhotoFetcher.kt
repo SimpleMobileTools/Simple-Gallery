@@ -14,12 +14,8 @@ import android.os.Handler
 import android.provider.MediaStore
 import com.simplemobiletools.commons.extensions.getParentPath
 import com.simplemobiletools.commons.extensions.getStringValue
-import com.simplemobiletools.commons.helpers.SORT_BY_DATE_TAKEN
-import com.simplemobiletools.commons.helpers.SORT_BY_SIZE
-import com.simplemobiletools.commons.helpers.SORT_DESCENDING
-import com.simplemobiletools.gallery.pro.R
-import com.simplemobiletools.gallery.pro.extensions.*
-import com.simplemobiletools.gallery.pro.helpers.MediaFetcher
+import com.simplemobiletools.gallery.pro.extensions.addPathToDB
+import com.simplemobiletools.gallery.pro.extensions.updateDirectoryPath
 
 // based on https://developer.android.com/reference/android/app/job/JobInfo.Builder.html#addTriggerContentUri(android.app.job.JobInfo.TriggerContentUri)
 @TargetApi(Build.VERSION_CODES.N)
@@ -100,19 +96,7 @@ class NewPhotoFetcher : JobService() {
 
         Thread {
             affectedFolderPaths.forEach {
-                val mediaFetcher = MediaFetcher(applicationContext)
-                val getImagesOnly = false
-                val getVideosOnly = false
-                val hiddenString = getString(R.string.hidden)
-                val albumCovers = config.parseAlbumCovers()
-                val includedFolders = config.includedFolders
-                val isSortingAscending = config.directorySorting and SORT_DESCENDING == 0
-                val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0
-                val getProperFileSize = config.directorySorting and SORT_BY_SIZE != 0
-                val favoritePaths = getFavoritePaths()
-                val curMedia = mediaFetcher.getFilesFrom(it, getImagesOnly, getVideosOnly, getProperDateTaken, getProperFileSize, favoritePaths, false)
-                val directory = createDirectoryFromMedia(it, curMedia, albumCovers, hiddenString, includedFolders, isSortingAscending, getProperFileSize)
-                updateDBDirectory(directory, galleryDB.DirectoryDao())
+                updateDirectoryPath(it)
             }
         }.start()
 

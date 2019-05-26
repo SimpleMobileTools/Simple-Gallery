@@ -806,3 +806,19 @@ fun Context.createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, 
     val mediaTypes = curMedia.getDirMediaTypes()
     return Directory(null, path, thumbnail, dirName, curMedia.size, lastModified, dateTaken, size, getPathLocation(path), mediaTypes)
 }
+
+fun Context.updateDirectoryPath(path: String) {
+    val mediaFetcher = MediaFetcher(applicationContext)
+    val getImagesOnly = false
+    val getVideosOnly = false
+    val hiddenString = getString(R.string.hidden)
+    val albumCovers = config.parseAlbumCovers()
+    val includedFolders = config.includedFolders
+    val isSortingAscending = config.directorySorting and SORT_DESCENDING == 0
+    val getProperDateTaken = config.directorySorting and SORT_BY_DATE_TAKEN != 0
+    val getProperFileSize = config.directorySorting and SORT_BY_SIZE != 0
+    val favoritePaths = getFavoritePaths()
+    val curMedia = mediaFetcher.getFilesFrom(path, getImagesOnly, getVideosOnly, getProperDateTaken, getProperFileSize, favoritePaths, false)
+    val directory = createDirectoryFromMedia(path, curMedia, albumCovers, hiddenString, includedFolders, isSortingAscending, getProperFileSize)
+    updateDBDirectory(directory, galleryDB.DirectoryDao())
+}
