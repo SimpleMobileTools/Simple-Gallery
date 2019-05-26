@@ -1,6 +1,18 @@
 Changelog
 ==========
 
+Version 6.7.6 *(2019-05-26)*
+----------------------------
+
+ * Improved batch renaming, allow using date time patterns in it
+ * Fixed empty folder deleting after deleting its content
+ * Improved new file cache updating in the background
+ * Improved the placeholder text in case no files are found
+ * Keep last_modified field at deleting and restoring files from the bin
+ * Increase the max image duration at slideshows
+ * Highlight the warning at deleting a folder
+ * Other stability, translation and performance improvements
+
 Version 6.7.5 *(2019-05-15)*
 ----------------------------
 
