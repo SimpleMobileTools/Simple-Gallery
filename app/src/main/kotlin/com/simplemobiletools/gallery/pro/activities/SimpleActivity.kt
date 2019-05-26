@@ -6,8 +6,10 @@ import android.net.Uri
 import android.provider.MediaStore
 import android.view.WindowManager
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
+import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.getParentPath
 import com.simplemobiletools.commons.extensions.getRealPathFromURI
+import com.simplemobiletools.commons.extensions.scanPathRecursively
 import com.simplemobiletools.commons.helpers.isPiePlus
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.addPathToDB
@@ -77,6 +79,17 @@ open class SimpleActivity : BaseSimpleActivity() {
         try {
             contentResolver.unregisterContentObserver(observer)
         } catch (ignored: Exception) {
+        }
+    }
+
+    protected fun showAddIncludedFolderDialog(callback: () -> Unit) {
+        FilePickerDialog(this, config.lastFilepickerPath, false, config.shouldShowHidden, false, true) {
+            config.lastFilepickerPath = it
+            config.addIncludedFolder(it)
+            callback()
+            Thread {
+                scanPathRecursively(it)
+            }.start()
         }
     }
 }

@@ -117,10 +117,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         storeStateVariables()
         checkWhatsNewDialog()
 
-        directories_empty_text.setOnClickListener {
-            showFilterMediaDialog()
-        }
-
         mIsPasswordProtectionPending = config.isAppPasswordProtectionOn
         setupLatestMediaId()
 
@@ -1003,6 +999,25 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun checkPlaceholderVisibility(dirs: ArrayList<Directory>) {
         directories_empty_text_label.beVisibleIf(dirs.isEmpty() && mLoadedInitialPhotos)
         directories_empty_text.beVisibleIf(dirs.isEmpty() && mLoadedInitialPhotos)
+
+        if (dirs.isEmpty() && config.filterMedia == TYPE_DEFAULT_FILTER) {
+            directories_empty_text_label.text = getString(R.string.no_media_add_included)
+            directories_empty_text.text = getString(R.string.add_folder)
+            directories_empty_text.underlineText()
+
+            directories_empty_text.setOnClickListener {
+                showAddIncludedFolderDialog {
+                    refreshItems()
+                }
+            }
+        } else {
+            directories_empty_text_label.text = getString(R.string.no_media_with_filters)
+            directories_empty_text.text = getString(R.string.change_filters_underlined)
+            directories_empty_text.setOnClickListener {
+                showFilterMediaDialog()
+            }
+        }
+
         directories_grid.beVisibleIf(directories_empty_text_label.isGone())
     }
 
