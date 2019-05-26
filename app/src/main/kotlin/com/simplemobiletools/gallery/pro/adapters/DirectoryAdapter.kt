@@ -23,6 +23,7 @@ import com.simplemobiletools.commons.views.FastScroller
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.MediaActivity
+import com.simplemobiletools.gallery.pro.dialogs.ConfirmDeleteFolderDialog
 import com.simplemobiletools.gallery.pro.dialogs.ExcludeFolderDialog
 import com.simplemobiletools.gallery.pro.dialogs.PickMediumDialog
 import com.simplemobiletools.gallery.pro.extensions.*
@@ -399,10 +400,9 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                     R.string.move_to_recycle_bin_confirmation
                 }
 
-                var question = String.format(resources.getString(baseString), items)
+                val question = String.format(resources.getString(baseString), items)
                 val warning = resources.getQuantityString(R.plurals.delete_warning, itemsCnt, itemsCnt)
-                question += "\n\n$warning"
-                ConfirmationDialog(activity, question) {
+                ConfirmDeleteFolderDialog(activity, question, warning) {
                     deleteFolders()
                 }
             }
