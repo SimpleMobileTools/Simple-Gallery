@@ -231,10 +231,15 @@ fun BaseSimpleActivity.movePathsInRecycleBin(paths: ArrayList<String>, mediumDao
         paths.forEach {
             val file = File(it)
             val internalFile = File(recycleBinPath, it)
+            val lastModified = file.lastModified()
             try {
                 if (file.copyRecursively(internalFile, true)) {
                     mediumDao.updateDeleted("$RECYCLE_BIN$it", System.currentTimeMillis(), it)
                     pathsCnt--
+
+                    if (config.keepLastModified) {
+                        internalFile.setLastModified(lastModified)
+                    }
                 }
             } catch (e: Exception) {
                 showErrorToast(e)
@@ -255,6 +260,7 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, mediumDa
         paths.forEach {
             val source = it
             val destination = it.removePrefix(recycleBinPath)
+            val lastModified = File(source).lastModified()
 
             var inputStream: InputStream? = null
             var out: OutputStream? = null
@@ -266,6 +272,10 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, mediumDa
                     mediumDao.updateDeleted(destination.removePrefix(recycleBinPath), 0, "$RECYCLE_BIN$destination")
                 }
                 newPaths.add(destination)
+
+                if (config.keepLastModified) {
+                    File(destination).setLastModified(lastModified)
+                }
             } catch (e: Exception) {
                 showErrorToast(e)
             } finally {
