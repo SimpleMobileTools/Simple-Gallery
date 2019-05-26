@@ -63,7 +63,7 @@
     <string name="manage_included_folders">Διαχείριση φακέλων που συμπεριλαμβάνονται</string>
     <string name="add_folder">Προσθήκη φακέλου</string>
     <string name="included_activity_placeholder">Αν υπάρχουν κάποιοι φάκελοι που περιέχουν πολυμέσα, αλλά δεν αναγνωρίζονται από την εφαρμογή,  μπορείτε να τους προσθέσετε χειροκίνητα εδώ.\n\nΗ προσθήκη στοιχείων εδώ, δεν θα εξαιρέσει κάποιον άλλο φάκελο.</string>
-    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
+    <string name="no_media_add_included">Δεν βρέθηκαν αρχεία πολυμέσων. Μπορεί να λυθεί αυτό, προσθέτοντας τους φακέλους που περιέχουν αρχεία πολυμέσων με μη αυτόματο τρόπο.</string>
 
     <!-- Resizing -->
     <string name="resize">Αλλαγή μεγέθους</string>
