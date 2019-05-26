@@ -797,8 +797,9 @@ fun Context.createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, 
         }
     }
 
-    val firstItem = curMedia.first()
-    val lastItem = curMedia.last()
+    val defaultMedium = Medium(0, "", "", "", 0L, 0L, 0L, 0, 0, false, 0L)
+    val firstItem = curMedia.firstOrNull() ?: defaultMedium
+    val lastItem = curMedia.lastOrNull() ?: defaultMedium
     val dirName = checkAppendingHidden(path, hiddenString, includedFolders)
     val lastModified = if (isSortingAscending) Math.min(firstItem.modified, lastItem.modified) else Math.max(firstItem.modified, lastItem.modified)
     val dateTaken = if (isSortingAscending) Math.min(firstItem.taken, lastItem.taken) else Math.max(firstItem.taken, lastItem.taken)
