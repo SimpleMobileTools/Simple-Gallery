@@ -63,7 +63,7 @@
     <string name="manage_included_folders">Управление включёнными папками</string>
     <string name="add_folder">Добавить папку</string>
     <string name="included_activity_placeholder">Если у вас есть папки, содержащие медиафайлы, но не распознанные приложением, вы можете добавить их вручную.\n\nДобавление папки не приводит к исключению каких-либо других.</string>
-    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
+    <string name="no_media_add_included">Медиафайлы не найдены. Вы можете исправить данную проблему, добавив папки с медиафайлами вручную.</string>
 
     <!-- Resizing -->
     <string name="resize">Изменить размер</string>
@@ -226,7 +226,7 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Gallery Pro: Photo Manager &amp; Editor</string>
+    <string name="app_title">Галерея: управление и редактирование изображений</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Галерея без рекламы. Управление, изменение, восстановление и защита фото и видео</string>
     <string name="app_long_description">
