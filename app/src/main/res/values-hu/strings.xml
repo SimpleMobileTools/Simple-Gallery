@@ -63,7 +63,7 @@
     <string name="manage_included_folders">Befoglalt mappák kezelése</string>
     <string name="add_folder">Mappa hozzáadása</string>
     <string name="included_activity_placeholder">Ha vannak olyan mappák, amelyek média fájlokat tartalmaznak, de az alkalmazás nem ismerte fel, akkor kézzel is  hozzáadhatja ezeket.\n\nAz elemek hozzáadása nem zár ki más mappákat.</string>
-    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
+    <string name="no_media_add_included">Nem talált médiafájlokat. Ezt megoldhatja a médiafájlokat tartalmazó mappák manuális hozzáadásával.</string>
 
     <!-- Resizing -->
     <string name="resize">Átméretezés</string>
@@ -135,7 +135,7 @@
     <string name="by_date_taken">Dátum</string>
     <string name="by_file_type">Fájl típus</string>
     <string name="by_extension">Kiterjesztés</string>
-    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
+    <string name="grouping_and_sorting">Kérjük, vegye figyelembe, hogy a csoportosítás és a rendezés 2 egymástól független mező</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Mappa mutatása a widgeten:</string>
