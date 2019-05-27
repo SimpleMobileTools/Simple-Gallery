@@ -63,6 +63,7 @@
     <string name="manage_included_folders">Atur folder yang disertakan</string>
     <string name="add_folder">Tambah folder</string>
     <string name="included_activity_placeholder">Jika ada folder yang berisi file media, namun tidak dikenali oleh aplikasi ini, Anda bisa menambahkannya disini secara manual.\n\nMenambah beberapa item disini tidak akan mengecualikan folder yang lain.</string>
+    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
 
     <!-- Resizing -->
     <string name="resize">Ubah ukuran</string>

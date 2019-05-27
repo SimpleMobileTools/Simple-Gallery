@@ -63,6 +63,7 @@
     <string name="manage_included_folders">Tvarkyti įtrauktus aplankus</string>
     <string name="add_folder">Įtraukti aplanką</string>
     <string name="included_activity_placeholder">Jei turite tam tikrų aplankų, kuriuose yra medijos , bet kurių neneatpažįsta programėlė, galite juos pridėti rankiniu būdu. \ N \ nPridedant kai kuriuos elementus, neišskirsite jokio kito aplanko.</string>
+    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
 
     <!-- Resizing -->
     <string name="resize">Keisti dydį</string>

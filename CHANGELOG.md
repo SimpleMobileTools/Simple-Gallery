@@ -1,6 +1,64 @@
 Changelog
 ==========
 
+Version 6.7.6 *(2019-05-26)*
+----------------------------
+
+ * Improved batch renaming, allow using date time patterns in it
+ * Fixed empty folder deleting after deleting its content
+ * Improved new file cache updating in the background
+ * Improved the placeholder text in case no files are found
+ * Keep last_modified field at deleting and restoring files from the bin
+ * Increase the max image duration at slideshows
+ * Highlight the warning at deleting a folder
+ * Other stability, translation and performance improvements
+
+Version 6.7.5 *(2019-05-15)*
+----------------------------
+
+ * Hotfixing a glitch with opening third party intents
+
+Version 6.7.4 *(2019-05-15)*
+----------------------------
+
+ * Speeded up video deleting from fullscreen view
+ * Hotfixed some crashes
+
+Version 6.7.3 *(2019-05-14)*
+----------------------------
+
+ * Fixed folder sorting if used together with subfolder grouping
+ * Fixed some copy/move related progressbar issues
+ * Added many performance and stability improvements
+
+Version 6.7.2 *(2019-05-09)*
+----------------------------
+
+ * Allow creating file or folder shortcuts only from Android 8+
+
+Version 6.7.1 *(2019-05-08)*
+----------------------------
+
+ * Allow creating file or folder shortcuts on home screen on Android 7+
+ * Allow creating new folders on the file thumbnails screen too
+ * Added a checkbox at sorting by name/path to sort numbers by their actual numeric value
+ * Improve grouping direct subfolders, do not ignore parent folders without media files
+ * Show the Open Camera button at the menu on the main screen, instead of the Sort by button
+ * Other translation and stability improvements
+
+Version 6.7.0 *(2019-05-02)*
+----------------------------
+
+ * Moved the video duration field at the top right corner of thumbnails, if enabled
+ * Fixed some fullscreen image related glitches
+ * Misc translation and stability improvements
+
+Version 6.6.4 *(2019-04-09)*
+----------------------------
+
+ * Reverting to the previous way of sorting items by name/path
+ * Some stability and translation improvements
+
 Version 6.6.3 *(2019-04-02)*
 ----------------------------
 

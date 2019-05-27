@@ -12,16 +12,20 @@ import com.simplemobiletools.gallery.pro.fragments.PhotoFragment
 import com.simplemobiletools.gallery.pro.fragments.VideoFragment
 import com.simplemobiletools.gallery.pro.fragments.ViewPagerFragment
 import com.simplemobiletools.gallery.pro.helpers.MEDIUM
+import com.simplemobiletools.gallery.pro.helpers.SHOULD_INIT_FRAGMENT
 import com.simplemobiletools.gallery.pro.models.Medium
 
 class MyPagerAdapter(val activity: ViewPagerActivity, fm: FragmentManager, val media: MutableList<Medium>) : FragmentStatePagerAdapter(fm) {
     private val fragments = HashMap<Int, ViewPagerFragment>()
+    var shouldInitFragment = true
+
     override fun getCount() = media.size
 
     override fun getItem(position: Int): Fragment {
         val medium = media[position]
         val bundle = Bundle()
         bundle.putSerializable(MEDIUM, medium)
+        bundle.putBoolean(SHOULD_INIT_FRAGMENT, shouldInitFragment)
         val fragment = if (medium.isVideo()) {
             VideoFragment()
         } else {

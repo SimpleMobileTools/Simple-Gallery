@@ -1,5 +1,10 @@
 package com.simplemobiletools.gallery.pro.adapters
 
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.content.pm.ShortcutInfo
+import android.content.pm.ShortcutManager
+import android.graphics.drawable.Icon
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
@@ -12,10 +17,13 @@ import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.dialogs.RenameItemsDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.isOreoPlus
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.FastScroller
 import com.simplemobiletools.commons.views.MyRecyclerView
 import com.simplemobiletools.gallery.pro.R
+import com.simplemobiletools.gallery.pro.activities.MediaActivity
+import com.simplemobiletools.gallery.pro.dialogs.ConfirmDeleteFolderDialog
 import com.simplemobiletools.gallery.pro.dialogs.ExcludeFolderDialog
 import com.simplemobiletools.gallery.pro.dialogs.PickMediumDialog
 import com.simplemobiletools.gallery.pro.extensions.*
@@ -75,6 +83,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             findItem(R.id.cab_empty_recycle_bin).isVisible = isOneItemSelected && selectedPaths.first() == RECYCLE_BIN
             findItem(R.id.cab_empty_disable_recycle_bin).isVisible = isOneItemSelected && selectedPaths.first() == RECYCLE_BIN
 
+            findItem(R.id.cab_create_shortcut).isVisible = isOreoPlus() && isOneItemSelected
+
             checkHideBtnVisibility(this, selectedPaths)
             checkPinBtnVisibility(this, selectedPaths)
         }
@@ -98,6 +108,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             R.id.cab_copy_to -> copyMoveTo(true)
             R.id.cab_move_to -> moveFilesTo()
             R.id.cab_select_all -> selectAll()
+            R.id.cab_create_shortcut -> createShortcut()
             R.id.cab_delete -> askConfirmDelete()
             R.id.cab_select_photo -> changeAlbumCover(false)
             R.id.cab_use_default -> changeAlbumCover(true)
@@ -340,6 +351,30 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         }
     }
 
+    @SuppressLint("NewApi")
+    private fun createShortcut() {
+        val manager = activity.getSystemService(ShortcutManager::class.java)
+        if (manager.isRequestPinShortcutSupported) {
+            val dir = getFirstSelectedItem() ?: return
+            val path = dir.path
+            val drawable = resources.getDrawable(R.drawable.shortcut_image).mutate()
+            val coverThumbnail = config.parseAlbumCovers().firstOrNull { it.tmb == dir.path }?.tmb ?: dir.tmb
+            activity.getShortcutImage(coverThumbnail, drawable) {
+                val intent = Intent(activity, MediaActivity::class.java)
+                intent.action = Intent.ACTION_VIEW
+                intent.putExtra(DIRECTORY, path)
+
+                val shortcut = ShortcutInfo.Builder(activity, path)
+                        .setShortLabel(dir.name)
+                        .setIcon(Icon.createWithBitmap(drawable.convertToBitmap()))
+                        .setIntent(intent)
+                        .build()
+
+                manager.requestPinShortcut(shortcut, null)
+            }
+        }
+    }
+
     private fun askConfirmDelete() {
         when {
             config.isDeletePasswordProtectionOn -> activity.handleDeletePasswordProtection {
@@ -349,7 +384,11 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             else -> {
                 val itemsCnt = selectedKeys.size
                 val items = if (itemsCnt == 1) {
-                    "\"${getSelectedPaths().first().getFilenameFromPath()}\""
+                    var folder = getSelectedPaths().first().getFilenameFromPath()
+                    if (folder == RECYCLE_BIN) {
+                        folder = activity.getString(R.string.recycle_bin)
+                    }
+                    "\"$folder\""
                 } else {
                     resources.getQuantityString(R.plurals.delete_items, itemsCnt, itemsCnt)
                 }
@@ -361,10 +400,9 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                     R.string.move_to_recycle_bin_confirmation
                 }
 
-                var question = String.format(resources.getString(baseString), items)
+                val question = String.format(resources.getString(baseString), items)
                 val warning = resources.getQuantityString(R.plurals.delete_warning, itemsCnt, itemsCnt)
-                question += "\n\n$warning"
-                ConfirmationDialog(activity, question) {
+                ConfirmDeleteFolderDialog(activity, question, warning) {
                     deleteFolders()
                 }
             }
@@ -483,7 +521,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     private fun setupView(view: View, directory: Directory) {
         val isSelected = selectedKeys.contains(directory.path.hashCode())
         view.apply {
-            dir_name.text = if (groupDirectSubfolders) "${directory.name} (${directory.subfoldersCount})" else directory.name
+            dir_name.text = if (groupDirectSubfolders && directory.subfoldersCount > 1) "${directory.name} (${directory.subfoldersCount})" else directory.name
             dir_path?.text = "${directory.path.substringBeforeLast("/")}/"
             photo_cnt.text = directory.subfoldersMediaCount.toString()
             val thumbnailType = when {
@@ -501,7 +539,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
             activity.loadImage(thumbnailType, directory.tmb, dir_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
             dir_pin.beVisibleIf(pinnedFolders.contains(directory.path))
-            dir_location.beVisibleIf(directory.location != LOCAITON_INTERNAL)
+            dir_location.beVisibleIf(directory.location != LOCATION_INTERNAL)
             if (dir_location.isVisible()) {
                 dir_location.setImageResource(if (directory.location == LOCATION_SD) R.drawable.ic_sd_card else R.drawable.ic_usb)
             }

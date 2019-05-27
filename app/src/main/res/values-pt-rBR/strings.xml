@@ -5,7 +5,7 @@
     <string name="edit">Editar</string>
     <string name="open_camera">Abrir câmera</string>
     <string name="hidden">(oculto)</string>
-    <string name="excluded">(excluded)</string>
+    <string name="excluded">(excluído)</string>
     <string name="pin_folder">Fixar pasta</string>
     <string name="unpin_folder">Desfixar pasta</string>
     <string name="pin_to_the_top">Fixar no topo</string>
@@ -24,15 +24,15 @@
     <string name="brightness">Brilho</string>
     <string name="lock_orientation">Travar orientação</string>
     <string name="unlock_orientation">Destravar orientação</string>
-    <string name="change_orientation">Change orientation</string>
-    <string name="force_portrait">Force portrait</string>
-    <string name="force_landscape">Force landscape</string>
-    <string name="use_default_orientation">Use default orientation</string>
+    <string name="change_orientation">Mudar orientação</string>
+    <string name="force_portrait">Forçar modo retrato</string>
+    <string name="force_landscape">Forçar modo paisagem</string>
+    <string name="use_default_orientation">Usar orientação padrão</string>
     <string name="fix_date_taken">Fix Date Taken value</string>
     <string name="fixing">Fixing…</string>
     <string name="dates_fixed_successfully">Dates fixed successfully</string>
     <string name="share_resized">Share a resized version</string>
-    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
+    <string name="upgraded_from_free">Hey,\n\nparece que você atualizou o antigo aplicativo gratuito. Agora você poderá desinstalar a velha versão que tem o botão \'Atualize para a versão Pro\' no topo das Configurações.\n\nVocê terá os itens da Lixeira excluídos, itens favoritos desmarcados e também terá que redefinir as configurações do seu aplicativo.\n\nObrigado!</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtrar mídia</string>
@@ -63,6 +63,7 @@
     <string name="manage_included_folders">Gerenciar pastas incluídas</string>
     <string name="add_folder">Adicionar pasta</string>
     <string name="included_activity_placeholder">Se possuir pastas com dados multimídia não reconhecidos pelo aplicativo, aqui você pode adicioná-las manualmente.</string>
+    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
 
     <!-- Resizing -->
     <string name="resize">Redimensionar</string>
@@ -89,8 +90,8 @@
     <string name="flip">Inverter</string>
     <string name="flip_horizontally">Horizontalmente</string>
     <string name="flip_vertically">Verticalmente</string>
-    <string name="free_aspect_ratio">Free</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
-    <string name="other_aspect_ratio">Other</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
+    <string name="free_aspect_ratio">Gratuito</string>                  <!-- available as an option: 1:1, 4:3, 16:9, free -->
+    <string name="other_aspect_ratio">Outro</string>                <!-- available as an option: 1:1, 4:3, 16:9, free, other -->
 
     <!-- Set wallpaper -->
     <string name="simple_wallpaper">Simple Wallpaper</string>
@@ -117,37 +118,37 @@
     <string name="loop_slideshow">Apresentação em ciclo</string>
     <string name="slideshow_ended">Fim da apresentação</string>
     <string name="no_media_for_slideshow">Nenhuma mídia encontrada para a apresentação</string>
-    <string name="use_crossfade_animation">Use crossfade animations</string>
+    <string name="use_crossfade_animation">Usar animações crossfade</string>
 
     <!-- View types -->
     <string name="change_view_type">Alterar modo de visualização</string>
     <string name="grid">Grade</string>
     <string name="list">Lista</string>
-    <string name="group_direct_subfolders">Group direct subfolders</string>
+    <string name="group_direct_subfolders">Agrupar subpastas do diretório</string>
 
     <!-- Grouping at media thumbnails -->
-    <string name="group_by">Group by</string>
-    <string name="do_not_group_files">Do not group files</string>
-    <string name="by_folder">Folder</string>
-    <string name="by_last_modified">Last modified</string>
-    <string name="by_date_taken">Date taken</string>
-    <string name="by_file_type">File type</string>
-    <string name="by_extension">Extension</string>
-    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
+    <string name="group_by">Agrupar por</string>
+    <string name="do_not_group_files">Não agrupar arquivos</string>
+    <string name="by_folder">Pasta</string>
+    <string name="by_last_modified">Última modificação</string>
+    <string name="by_date_taken">Data de criação</string>
+    <string name="by_file_type">Tipo de arquivo</string>
+    <string name="by_extension">Extensão</string>
+    <string name="grouping_and_sorting">Por favor, note que o agrupamento e classificação são 2 campos independentes</string>
 
     <!-- Widgets -->
-    <string name="folder_on_widget">Folder shown on the widget:</string>
-    <string name="show_folder_name">Show folder name</string>
+    <string name="folder_on_widget">Exibição da Pasta no widget:</string>
+    <string name="show_folder_name">Exibir nome da pasta</string>
 
     <!-- Settings -->
     <string name="autoplay_videos">Reproduzir vídeos automaticamente</string>
-    <string name="remember_last_video_position">Remember last video playback position</string>
+    <string name="remember_last_video_position">Lembrar da última posição de reprodução de vídeo</string>
     <string name="toggle_filename">Mostrar/ocultar nome do arquivo</string>
     <string name="loop_videos">Reproduzir vídeos em ciclo</string>
     <string name="animate_gifs">Animação de GIFs nas miniaturas</string>
     <string name="max_brightness">Brilho máximo ao visualizar mídia</string>
     <string name="crop_thumbnails">Recortar miniaturas em quadrados</string>
-    <string name="show_thumbnail_video_duration">Show video durations</string>
+    <string name="show_thumbnail_video_duration">Exibir durações de vídeo</string>
     <string name="screen_rotation_by">Critério para rotação de tela</string>
     <string name="screen_rotation_system_setting">Padrão do sistema</string>
     <string name="screen_rotation_device_rotation">Sensor do aparelho</string>
@@ -163,22 +164,22 @@
     <string name="manage_extended_details">Gerenciar detalhes extendidos</string>
     <string name="one_finger_zoom">Permitir zoom com um dedo quando em exibição de tela cheia</string>
     <string name="allow_instant_change">Permitir alternância instantânia de mídia clicando nas laterais da tela</string>
-    <string name="allow_deep_zooming_images">Allow deep zooming images</string>
+    <string name="allow_deep_zooming_images">Permitir zoom aprofundado em imagens</string>
     <string name="hide_extended_details">Ocultar detalhes extendidos quando a barra de status estiver oculta</string>
-    <string name="show_at_bottom">Show some action buttons at the bottom of the screen</string>
-    <string name="show_recycle_bin">Show the Recycle Bin at the folders screen</string>
-    <string name="deep_zoomable_images">Deep zoomable images</string>
-    <string name="show_highest_quality">Show images in the highest possible quality</string>
-    <string name="show_recycle_bin_last">Show the Recycle Bin as the last item on the main screen</string>
-    <string name="allow_down_gesture">Allow closing the fullscreen view with a down gesture</string>
-    <string name="allow_one_to_one_zoom">Allow 1:1 zooming in with two double taps</string>
-    <string name="open_videos_on_separate_screen">Always open videos on a separate screen with new horizontal gestures</string>
-    <string name="show_notch">Show a notch if available</string>
-    <string name="allow_rotating_gestures">Allow rotating images with gestures</string>
-    <string name="file_loading_priority">File loading priority</string>
-    <string name="speed">Speed</string>
+    <string name="show_at_bottom">Mostrar alguns botões de ação na parte inferior da tela</string>
+    <string name="show_recycle_bin">Mostar a Lixeira na tela de pastas</string>
+    <string name="deep_zoomable_images">Imagens com zoom aprofundado</string>
+    <string name="show_highest_quality">Mostrar imagens com a maior qualidade possível</string>
+    <string name="show_recycle_bin_last">Mostrar a Lixeira como o último item na tela principal</string>
+    <string name="allow_down_gesture">Permitir fechar a exibição em tela cheia com um gesto para baixo</string>
+    <string name="allow_one_to_one_zoom">Permitir zoom 1:1 com dois toques duplos</string>
+    <string name="open_videos_on_separate_screen">Sempre abrir vídeos em uma tela separada com novos gestos horizontais</string>
+    <string name="show_notch">Mostrar um encaixe, se disponível</string>
+    <string name="allow_rotating_gestures">Permitir rotação de imagens com gestos</string>
+    <string name="file_loading_priority">Prioridade de carregamento de arquivos</string>
+    <string name="speed">Velocidade</string>
     <string name="compromise">Compromise</string>
-    <string name="avoid_showing_invalid_files">Avoid showing invalid files</string>
+    <string name="avoid_showing_invalid_files">Evite exibit arquivos inválidos</string>
 
     <!-- Setting sections -->
     <string name="thumbnails">Miniaturas</string>
@@ -192,13 +193,13 @@
     <string name="toggle_file_visibility">Toggle file visibility</string>v
 
     <!-- FAQ -->
-    <string name="faq_1_title">How can I make Simple Gallery the default device gallery?</string>
+    <string name="faq_1_title">Como eu posso tornar o Simple Gallery como galeria padrão do meu aparelho?</string>
     <string name="faq_1_text">First you have to find the currently default gallery in the Apps section of your device settings, look for a button that says something like \"Open by default\", click on it, then select \"Clear defaults\".
         The next time you will try opening an image or video you should see an app picker, where you can select Simple Gallery and make it the default app.</string>
     <string name="faq_2_title">I locked the app with a password, but I forgot it. What can I do?</string>
     <string name="faq_2_text">You can solve it in 2 ways. You can either reinstall the app, or find the app in your device settings and select \"Clear data\". It will reset all your settings, it will not remove any media files.</string>
     <string name="faq_3_title">How can I make an album always appear at the top?</string>
-    <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actionmenu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
+    <string name="faq_3_text">You can long press the desired album and select the Pin icon at the actions menu, that will pin it to the top. You can pin multiple folders too, pinned items will be sorted by the default sorting method.</string>
     <string name="faq_4_title">How can I fast-forward videos?</string>
     <string name="faq_4_text">You can either drag your finger horizontally over the video player, or click on the current or max duration texts near the seekbar. That will move the video either backward, or forward.</string>
     <string name="faq_5_title">What is the difference between hiding and excluding a folder?</string>

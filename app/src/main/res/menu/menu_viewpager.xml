@@ -111,6 +111,10 @@
         android:title="@string/rename"
         app:showAsAction="ifRoom"/>
     <item
+        android:id="@+id/menu_create_shortcut"
+        android:title="@string/create_shortcut"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/menu_show_on_map"
         android:title="@string/show_on_map"
         app:showAsAction="never"/>

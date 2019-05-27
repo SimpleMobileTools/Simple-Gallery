@@ -119,6 +119,7 @@ const val GET_ANY_INTENT = "get_any_intent"
 const val SET_WALLPAPER_INTENT = "set_wallpaper_intent"
 const val IS_VIEW_INTENT = "is_view_intent"
 const val PICKED_PATHS = "picked_paths"
+const val SHOULD_INIT_FRAGMENT = "should_init_fragment"
 
 // rotations
 const val ROTATE_BY_SYSTEM_SETTING = 0
@@ -153,8 +154,9 @@ const val TYPE_VIDEOS = 2
 const val TYPE_GIFS = 4
 const val TYPE_RAWS = 8
 const val TYPE_SVGS = 16
+const val TYPE_DEFAULT_FILTER = TYPE_IMAGES or TYPE_VIDEOS or TYPE_GIFS or TYPE_RAWS or TYPE_SVGS
 
-const val LOCAITON_INTERNAL = 1
+const val LOCATION_INTERNAL = 1
 const val LOCATION_SD = 2
 const val LOCATION_OTG = 3
 

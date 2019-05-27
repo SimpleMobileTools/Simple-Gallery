@@ -3,9 +3,7 @@ package com.simplemobiletools.gallery.pro.activities
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import com.simplemobiletools.commons.dialogs.FilePickerDialog
 import com.simplemobiletools.commons.extensions.beVisibleIf
-import com.simplemobiletools.commons.extensions.scanPathRecursively
 import com.simplemobiletools.commons.interfaces.RefreshRecyclerViewListener
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.ManageFoldersAdapter
@@ -50,13 +48,8 @@ class IncludedFoldersActivity : SimpleActivity(), RefreshRecyclerViewListener {
     }
 
     private fun addFolder() {
-        FilePickerDialog(this, config.lastFilepickerPath, false, config.shouldShowHidden, false, true) {
-            config.lastFilepickerPath = it
-            config.addIncludedFolder(it)
+        showAddIncludedFolderDialog {
             updateFolders()
-            Thread {
-                scanPathRecursively(it)
-            }.start()
         }
     }
 }

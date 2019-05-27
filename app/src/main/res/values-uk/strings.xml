@@ -63,6 +63,7 @@
     <string name="manage_included_folders">Керування включеними теками</string>
     <string name="add_folder">Додати теку</string>
     <string name="included_activity_placeholder">Якщо у вас є теки з медіафайлами, але вони не були розпізнані додатком, ви можете додати їх тут вручну.\n\nДодавання елементів сюди не виключить будь-яку іншу теку.</string>
+    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
 
     <!-- Resizing -->
     <string name="resize">Змінити розмір</string>
@@ -220,12 +221,12 @@
     <string name="faq_13_text">Поточне рішення для показу зображень відмінно працює в переважній більшості випадків, але якщо вам потрібна ще краща якість зображень, ви можете увімкнути опцію \"Показувати зображення в найвищій можливій якості\" в розділі \"Глибокомасштабовані зображення\" налаштувань додатку.</string>
     <string name="faq_14_title">Я приховав файл / теку. Як я можу відмінити цю дію?</string>
     <string name="faq_14_text">Щоб побачити приховані елементи, ви можете або натиснути пункт меню \"Тимчасово показати приховані елементи\" на головному екрані, або перемкнути опцію \"Показати приховані елементи\" в налаштуваннях додатку. Якщо ви більше не хочете приховувати елемент, довго натисніть на нього і оберіть \"Не приховувати\". Теки приховуються шляхом створення прихованого файлу \".nomedia\" в них, тож ви також можете видалити цей файл будь-яким файловим менеджером.</string>
-    <string name="faq_15_title">Why does the app take up so much space?</string>
-    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
+    <string name="faq_15_title">Чому додаток займає так багато місця?</string>
+    <string name="faq_15_text">Кеш додатку може займати до 500 МБ, він забезпечує швидше завантаження зображень. Якщо додаток займає ще більше місця, найбільш вірогідно, це спричинено видаленими елементами у Кошику. Вони враховуються у загальному розмірі додатку. Ви можете очистити Кошик, відкривши його та видаливши всі файли, або через налаштування додатку. Кожен файл у Кошику автоматично видаляється через 30 днів.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Gallery Pro: Photo Manager &amp; Editor</string>
+    <string name="app_title">Simple Gallery Pro: фотоменеджер і редактор</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Офлайн-галерея без реклами. Впорядкуй, редагуй, віднови та захисти фото і відео.</string>
     <string name="app_long_description">

@@ -32,8 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_toRightOf="@+id/image_width_label"
+        android:layout_toEndOf="@+id/image_width_label"
         android:text="@string/height"/>
 
     <com.simplemobiletools.commons.views.MyEditText
@@ -42,7 +41,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/image_width_label"
         android:layout_alignStart="@+id/image_height_label"
-        android:layout_alignLeft="@+id/image_height_label"
         android:inputType="number"
         android:maxLength="6"
         android:maxLines="1"

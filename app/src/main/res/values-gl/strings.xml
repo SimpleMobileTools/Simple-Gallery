@@ -63,6 +63,7 @@
     <string name="manage_included_folders">Xestionar cartafoles incluídos</string>
     <string name="add_folder">Engadir cartafol</string>
     <string name="included_activity_placeholder">Si ten algún cartafol con medios, mais non foi recoñecido polo aplicativo, pódeo engadir manualmente.\n\nEngadindo aquí elementos non eliminará outros.</string>
+    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
 
     <!-- Resizing -->
     <string name="resize">Redimensionar</string>

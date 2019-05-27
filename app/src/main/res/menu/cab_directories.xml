@@ -49,18 +49,14 @@
         android:title="@string/exclude"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/cab_copy_to"
-        android:title="@string/copy_to"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/cab_move_to"
-        android:title="@string/move_to"
-        app:showAsAction="never"/>
-    <item
         android:id="@+id/cab_select_all"
         android:icon="@drawable/ic_select_all"
         android:title="@string/select_all"
         app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/cab_create_shortcut"
+        android:title="@string/create_shortcut"
+        app:showAsAction="never"/>
     <item
         android:id="@+id/cab_change_cover_image"
         android:title="@string/change_cover_image"
@@ -74,4 +70,12 @@
                 android:title="@string/use_default"/>
         </menu>
     </item>
+    <item
+        android:id="@+id/cab_copy_to"
+        android:title="@string/copy_to"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/cab_move_to"
+        android:title="@string/move_to"
+        app:showAsAction="never"/>
 </menu>

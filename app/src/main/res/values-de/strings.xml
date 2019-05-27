@@ -32,7 +32,7 @@
     <string name="fixing">Korrigiere…</string>
     <string name="dates_fixed_successfully">Datum erfolgreich korrigiert.</string>
     <string name="share_resized">Teile eine verkleinerte Version</string>
-    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
+    <string name="upgraded_from_free">Hey,\n\nes sieht so aus, als hättest du von der alten kostenlosen App geupgraded. Du kannst nun die alte Version deinstallieren, die oben in den App-Einstellungen einen \'Upgrade auf Pro\' Button hat.\n\nEs wird nur der Papierkorb gelöscht, die Markierungen von Favoriten entfernt und die App-Einstellungen zurückgesetzt.\n\nDanke!</string>
 
     <!-- Filter -->
     <string name="filter_media">Filter</string>
@@ -63,6 +63,7 @@
     <string name="manage_included_folders">Einbezogene Ordner verwalten</string>
     <string name="add_folder">Ordner hinzufügen</string>
     <string name="included_activity_placeholder">Solltest du weitere Mediendateien haben, die von der App nicht gefunden wurden, kannst du deren Ordner hier manuell hinzufügen.</string>
+    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
 
     <!-- Resizing -->
     <string name="resize">Größe ändern</string>
@@ -219,12 +220,12 @@
     <string name="faq_13_text">Die jetzige Methode für die Anzeige von Bildern funktioniert gut, aber für eine noch bessere Bildqualität kann die Einstellung \"Zeige Bilder in der höchstmöglichen Qualität\" im Menü unter \"Stark vergrösserbare Bilder\" gesetzt werden.</string>
     <string name="faq_14_title">Ich habe eine versteckte Datei bzw. einen versteckten Ordner. Wie kann ich diese/n sichtbar stellen?</string>
     <string name="faq_14_text">Du kannst entweder auf \"Verstecktes temporär anzeigen\" im Hauptmenü drücken oder die Einstellung \"Versteckte Elemente anzeigen\" setzen. Wenn du es sichtbar einstellen willst, drücke lange darauf und wähle \"Nicht verstecken\" aus. Ordner werden durch eine versteckte, in ihnen gespeicherte \".nomedia\"-Datei versteckt und das Löschen der Datei ist mit jedem Dateimanger möglich.</string>
-    <string name="faq_15_title">Why does the app take up so much space?</string>
-    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
+    <string name="faq_15_title">Warum beansprucht die App so viel Speicherplatz?</string>
+    <string name="faq_15_text">Der Cache der App kann bis zu 250 MB groß werden und sorgt dafür, dass die Bilder schneller geladen werden. Wenn die App noch mehr Speicherplatz beansprucht, liegt das wahrscheinlich daran, dass der Papierkorb zu voll ist. Diese Dateien zählen zum Speicherplatz der App dazu. Du kannst den Papierkorb leeren, indem du ihn öffnest und alle Dateien darin löschst, oder den entsprechenden Button in den Einstellungen betätigst. All 30 Tage wird der Papierkorb automatisch geleert.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Gallery Pro: Photo Manager &amp; Editor</string>
+    <string name="app_title">Schlichte Galerie Pro: Foto Manager &amp; Editor</string>
     <!-- Short description has to have less than 80 chars -->
     <string name="app_short_description">Galerie ohne Werbung. Ordnen, Bearbeiten und Wiederherstellen von Fotos &amp; Videos</string>
     <string name="app_long_description">
@@ -256,10 +257,10 @@
         • Schlichte Galerie Pro ist Open Source
         … und viele, viele mehr!
 
-        <b>FOTO EDITOR</b>
+        <b>FOTOEDITOR</b>
         Schlichte Galerie Pro macht es schnell und einfach deine Bilder zu bearbeiten. Schneide Bilder zu, drehe sie und ändere die Größe. Wenn du dich etwas kreativer fühlst, kannst du Filter hinzufügen und auf deinen Bildern malen!
 
-        <b>UNTERSTÜTZUNG FÜR VIELE DATEITYPEEN</b>
+        <b>UNTERSTÜTZUNG FÜR VIELE DATEITYPEN</b>
         Im Gegensatz zu einigen anderen Galerien unterstütz Schlichte Galerie Pro eine Vielzahl verschiedener Dateitypen. Unter anderem JPEG, PNG, MP4, MKV, RAW, SVG, Panoramabilder, Panoramavideos und viele mehr.
 
         <b>STARK INDIVIDUALISIERBARE GALERIE</b>
@@ -268,7 +269,7 @@
         <b>WIEDERHERSTELLUNG GELÖSCHTER FOTOS &amp; VIDEOS</b>
         Versehentlich ein wertvolles Foto oder Video gelöscht? Keine Sorge! Schlichte Galerie Pro verfügt über einen praktischen Papierkorb, aus dem du gelöschte Bilder &amp; Videos leicht wiederherstellen kannst.
 
-        <b>SCHÜTZE &amp; VERSTECKE FOTOS, VIDEOS &amp; DATEIEN</b>
+        <b>SCHÜTZE UND VERSTECKE FOTOS, VIDEOS &amp; DATEIEN</b>
         Mit einem PIN, Muster oder dem Fingerabdrucksensor deines Gerätes kannst du Fotos, Videos und komplette Alben verstecken und schützen. Du kannst auch die App selber schützen oder bestimmte Funktionen der App sperren. Beispielsweise kannst du eine Datei nicht ohne Scan des Fingerabdrucks löschen, um deine Dateien vor versehentlichem Löschen zu schützen.
 
         <b>Schau dir die vollständige Serie der Schlichten Apps hier an:</b>

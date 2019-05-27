@@ -65,6 +65,7 @@
     <string name="manage_included_folders">إدارة المجلدات المضمنة</string>
     <string name="add_folder">اضافة مجلد</string>
     <string name="included_activity_placeholder">إذا كان لديك بعض المجلدات التي تحتوي على الملتيميديا ، ولكن لم يتم التعرف عليها من قبل التطبيق، يمكنك إضافتها يدويا هنا.\n
+    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
   \n
   لن تؤدي إضافة بعض العناصر هنا إلى استبعاد أي مجلد آخر.</string>
 

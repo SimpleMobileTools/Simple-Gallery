@@ -39,7 +39,6 @@ import com.simplemobiletools.gallery.pro.interfaces.DirectoryDao
 import com.simplemobiletools.gallery.pro.interfaces.DirectoryOperationsListener
 import com.simplemobiletools.gallery.pro.interfaces.MediumDao
 import com.simplemobiletools.gallery.pro.jobs.NewPhotoFetcher
-import com.simplemobiletools.gallery.pro.models.AlbumCover
 import com.simplemobiletools.gallery.pro.models.Directory
 import com.simplemobiletools.gallery.pro.models.Medium
 import kotlinx.android.synthetic.main.activity_main.*
@@ -118,10 +117,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         storeStateVariables()
         checkWhatsNewDialog()
 
-        directories_empty_text.setOnClickListener {
-            showFilterMediaDialog()
-        }
-
         mIsPasswordProtectionPending = config.isAppPasswordProtectionOn
         setupLatestMediaId()
 
@@ -147,6 +142,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             if (config.filterMedia and TYPE_SVGS == 0) {
                 config.filterMedia += TYPE_SVGS
             }
+        }
+
+        if (!config.wasSortingByNumericValueAdded) {
+            config.wasSortingByNumericValueAdded = true
+            config.sorting = config.sorting or SORT_USE_NUMERIC_VALUE
         }
 
         updateWidgets()
@@ -999,26 +999,26 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun checkPlaceholderVisibility(dirs: ArrayList<Directory>) {
         directories_empty_text_label.beVisibleIf(dirs.isEmpty() && mLoadedInitialPhotos)
         directories_empty_text.beVisibleIf(dirs.isEmpty() && mLoadedInitialPhotos)
-        directories_grid.beVisibleIf(directories_empty_text_label.isGone())
-    }
 
-    private fun createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, albumCovers: ArrayList<AlbumCover>, hiddenString: String,
-                                         includedFolders: MutableSet<String>, isSortingAscending: Boolean, getProperFileSize: Boolean): Directory {
-        var thumbnail = curMedia.firstOrNull { File(it.path).exists() }?.path ?: ""
-        albumCovers.forEach {
-            if (it.path == path && File(it.tmb).exists()) {
-                thumbnail = it.tmb
+        if (dirs.isEmpty() && config.filterMedia == TYPE_DEFAULT_FILTER) {
+            directories_empty_text_label.text = getString(R.string.no_media_add_included)
+            directories_empty_text.text = getString(R.string.add_folder)
+            directories_empty_text.underlineText()
+
+            directories_empty_text.setOnClickListener {
+                showAddIncludedFolderDialog {
+                    refreshItems()
+                }
+            }
+        } else {
+            directories_empty_text_label.text = getString(R.string.no_media_with_filters)
+            directories_empty_text.text = getString(R.string.change_filters_underlined)
+            directories_empty_text.setOnClickListener {
+                showFilterMediaDialog()
             }
         }
 
-        val firstItem = curMedia.first()
-        val lastItem = curMedia.last()
-        val dirName = checkAppendingHidden(path, hiddenString, includedFolders)
-        val lastModified = if (isSortingAscending) Math.min(firstItem.modified, lastItem.modified) else Math.max(firstItem.modified, lastItem.modified)
-        val dateTaken = if (isSortingAscending) Math.min(firstItem.taken, lastItem.taken) else Math.max(firstItem.taken, lastItem.taken)
-        val size = if (getProperFileSize) curMedia.sumByLong { it.size } else 0L
-        val mediaTypes = curMedia.getDirMediaTypes()
-        return Directory(null, path, thumbnail, dirName, curMedia.size, lastModified, dateTaken, size, getPathLocation(path), mediaTypes)
+        directories_grid.beVisibleIf(directories_empty_text_label.isGone())
     }
 
     private fun setupAdapter(dirs: ArrayList<Directory>, textToSearch: String = "") {
@@ -1109,9 +1109,12 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
 
         if (config.useRecycleBin) {
-            val binFolder = dirs.firstOrNull { it.path == RECYCLE_BIN }
-            if (binFolder != null && mMediumDao.getDeletedMedia().isEmpty()) {
-                invalidDirs.add(binFolder)
+            try {
+                val binFolder = dirs.firstOrNull { it.path == RECYCLE_BIN }
+                if (binFolder != null && mMediumDao.getDeletedMedia().isEmpty()) {
+                    invalidDirs.add(binFolder)
+                }
+            } catch (ignored: Exception) {
             }
         }
 
@@ -1119,7 +1122,10 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             dirs.removeAll(invalidDirs)
             setupAdapter(dirs)
             invalidDirs.forEach {
-                mDirectoryDao.deleteDirPath(it.path)
+                try {
+                    mDirectoryDao.deleteDirPath(it.path)
+                } catch (ignored: Exception) {
+                }
             }
         }
     }

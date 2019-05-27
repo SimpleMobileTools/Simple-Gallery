@@ -12,8 +12,10 @@ import android.net.Uri
 import android.os.Build
 import android.os.Handler
 import android.provider.MediaStore
+import com.simplemobiletools.commons.extensions.getParentPath
 import com.simplemobiletools.commons.extensions.getStringValue
 import com.simplemobiletools.gallery.pro.extensions.addPathToDB
+import com.simplemobiletools.gallery.pro.extensions.updateDirectoryPath
 
 // based on https://developer.android.com/reference/android/app/job/JobInfo.Builder.html#addTriggerContentUri(android.app.job.JobInfo.TriggerContentUri)
 @TargetApi(Build.VERSION_CODES.N)
@@ -54,6 +56,7 @@ class NewPhotoFetcher : JobService() {
     override fun onStartJob(params: JobParameters): Boolean {
         mRunningParams = params
 
+        val affectedFolderPaths = HashSet<String>()
         if (params.triggeredContentAuthorities != null && params.triggeredContentUris != null) {
             val ids = arrayListOf<String>()
             for (uri in params.triggeredContentUris!!) {
@@ -80,6 +83,7 @@ class NewPhotoFetcher : JobService() {
                         cursor = contentResolver.query(it, projection, selection.toString(), null, null)
                         while (cursor!!.moveToNext()) {
                             val path = cursor!!.getStringValue(MediaStore.Images.ImageColumns.DATA)
+                            affectedFolderPaths.add(path.getParentPath())
                             addPathToDB(path)
                         }
                     }
@@ -89,6 +93,12 @@ class NewPhotoFetcher : JobService() {
                 }
             }
         }
+
+        Thread {
+            affectedFolderPaths.forEach {
+                updateDirectoryPath(it)
+            }
+        }.start()
 
         mHandler.post(mWorker)
         return true
