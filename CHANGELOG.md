@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 6.7.7 *(2019-05-28)*
+----------------------------
+
+ * Fixed some file deleting related glitches
+ * Improved batch renaming, use the old file extension in case a new one is missing
+
 Version 6.7.6 *(2019-05-26)*
 ----------------------------
 
