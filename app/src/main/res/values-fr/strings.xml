@@ -63,7 +63,7 @@
     <string name="manage_included_folders">Gérer les dossiers ajoutés</string>
     <string name="add_folder">Ajouter un dossier</string>
     <string name="included_activity_placeholder">Si vous avez des dossiers contenant des médias qui ne sont pas affichés dans l\'application, vous pouvez les ajouter manuellement ici.\n\nCet ajout n\'exclura aucun autre dossier.</string>
-    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
+    <string name="no_media_add_included">Aucun fichier multimédia n'a été trouvé. Vous pouvez ajouter manuellement des dossiers contenant des fichiers multimédia.</string>
 
     <!-- Resizing -->
     <string name="resize">Redimensionner</string>
@@ -168,7 +168,7 @@
     <string name="hide_extended_details">Cacher les informations supplémentaires si la barre d\'état est masquée</string>
     <string name="show_at_bottom">Afficher les boutons d\'action</string>
     <string name="show_recycle_bin">Afficher la corbeille en vue \"Dossier\"</string>
-    <string name="deep_zoomable_images">Niveau de zoom maximal des images</string>
+    <string name="deep_zoomable_images">Niveau de zoom</string>
     <string name="show_highest_quality">Afficher les images avec la meilleur qualité possible</string>
     <string name="show_recycle_bin_last">Afficher la corbeille en fin de liste sur l\'écran principal</string>
     <string name="allow_down_gesture">Fermer la vue plein écran par un geste vers le bas</string>
@@ -219,8 +219,8 @@
     <string name="faq_13_text">La solution actuelle d\'affichage des images fonctionne bien dans la grande majorité des cas, mais si vous voulez une qualité d\'image encore meilleure, vous pouvez activer l\'option \"Afficher les images avec la plus haute qualité possible\" dans la section \"Niveau de zoom maximal des images\" des paramètres de l\'application.</string>
     <string name="faq_14_title">J\'ai caché un fichier ou un dossier. Comment puis-je en rétablir l\'affichage ?</string>
     <string name="faq_14_text">Vous pouvez soit appuyer sur l\'option \"Afficher les fichiers cachés\" du menu de l\'écran principal, ou appuyer sur le bouton \"Afficher les éléments cachés\" dans les paramètres de l\'application. Si vous voulez rétablir leur affichage, effectuez un appui prolongé dessus et appuyez sur le symbole \"Œil\" permettant l\'affichage. Les dossiers sont cachés en ajoutant un fichier \".nomedia\" à leur racine, vous pouvez également supprimer ce fichier avec n\’importe quel explorateur de fichiers.</string>
-    <string name="faq_15_title">Why does the app take up so much space?</string>
-    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
+    <string name="faq_15_title">Pourquoi l\'application prend-elle tant de place ?</string>
+    <string name="faq_15_text">Le cache d\'application peut prendre jusqu'à 250 Mo pour accélérer le chargement des images. Si l\'application occupe encore plus d'espace, c\'est probablement parce que vous avez des éléments dans la corbeille. Ces fichiers comptent pour la taille de l\'application. Vous pouvez vider la corbeille en l\'ouvrant et en supprimant tous les fichiers ou à partir des paramètres de l\'application. Chaque fichier de la corbeille est automatiquement supprimé après 30 jours.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
