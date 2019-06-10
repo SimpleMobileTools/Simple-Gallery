@@ -251,6 +251,10 @@ class PhotoFragment : ViewPagerFragment() {
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
 
+        if (!mWasInit) {
+            return
+        }
+
         // avoid GIFs being skewed, played in wrong aspect ratio
         if (mMedium.isGIF()) {
             mView.onGlobalLayout {
