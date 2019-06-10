@@ -654,6 +654,7 @@ class PhotoFragment : ViewPagerFragment() {
 
             if (mIsPanorama) {
                 panorama_outline.animate().alpha(if (isFullscreen) 0f else 1f).start()
+                panorama_outline.isClickable = !isFullscreen
             }
         }
     }
