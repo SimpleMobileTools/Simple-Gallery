@@ -664,7 +664,10 @@ fun Context.updateDBMediaPath(oldPath: String, newPath: String) {
 }
 
 fun Context.updateDBDirectory(directory: Directory, directoryDao: DirectoryDao) {
-    directoryDao.updateDirectory(directory.path, directory.tmb, directory.mediaCnt, directory.modified, directory.taken, directory.size, directory.types)
+    try {
+        directoryDao.updateDirectory(directory.path, directory.tmb, directory.mediaCnt, directory.modified, directory.taken, directory.size, directory.types)
+    } catch (ignored: Exception) {
+    }
 }
 
 fun Context.getFavoritePaths(): ArrayList<String> {
