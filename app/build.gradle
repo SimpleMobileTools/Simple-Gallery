@@ -65,7 +65,7 @@ dependencies {
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
-    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.17-SNAPSHOT'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.17'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta1'
     implementation 'com.google.android.exoplayer:exoplayer-core:2.9.6'
     implementation 'com.google.vr:sdk-panowidget:1.180.0'
