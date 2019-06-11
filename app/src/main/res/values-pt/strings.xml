@@ -134,7 +134,7 @@
     <string name="by_date_taken">Data de obtenção</string>
     <string name="by_file_type">Tipo de ficheiro</string>
     <string name="by_extension">Extensão</string>
-    <string name="grouping_and_sorting">Tenha em atenção de que o agrupamento e a ordenação são campos independentes</string>
+    <string name="grouping_and_sorting">Tenha em atenção de que agrupamento e ordenação são campos independentes</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Pasta mostrada no widget:</string>
@@ -156,7 +156,7 @@
     <string name="black_background_at_fullscreen">Fundo escuro e barra de estado no modo de ecrã completo</string>
     <string name="scroll_thumbnails_horizontally">Deslocação horizontal de miniaturas</string>
     <string name="hide_system_ui_at_fullscreen">Ocultar interface do sistema se em ecrã completo</string>
-    <string name="delete_empty_folders">Apagar as pastas vazias depois de remover o seu conteúdo</string>
+    <string name="delete_empty_folders">Apagar pastas vazias depois de remover o seu conteúdo</string>
     <string name="allow_photo_gestures">Permitir controlo do brilho das fotos com gestos verticais</string>
     <string name="allow_video_gestures">Permitir controlo do volume e do brilho dos vídeos através de gestos verticais</string>
     <string name="show_media_count">Mostrar número de ficheiros na vista principal</string>
@@ -170,14 +170,14 @@
     <string name="show_recycle_bin">Mostrar reciclagem no ecrã de pastas</string>
     <string name="deep_zoomable_images">Ampliação de imagens</string>
     <string name="show_highest_quality">Mostrar fotos com a melhor qualidade possível</string>
-    <string name="show_recycle_bin_last">Mostrar a reciclagem como o último item do ecrã principal</string>
+    <string name="show_recycle_bin_last">Mostrar reciclagem como o último item do ecrã principal</string>
     <string name="allow_down_gesture">Sair de ecrã completo com um gesto para baixo</string>
     <string name="allow_one_to_one_zoom">Permitir ampliação 1:1 com dois toques</string>
     <string name="open_videos_on_separate_screen">Abrir vídeos em ecrã distinto com os novos toques horizontais</string>
     <string name="show_notch">Mostrar \"notch\", se disponível</string>
     <string name="allow_rotating_gestures">Permitir rotação de imagens com gestos</string>
     <string name="file_loading_priority">Prioridade de carregamento dos ficheiros</string>
-    <string name="speed">velocidade</string>
+    <string name="speed">Velocidade</string>
     <string name="compromise">Compromisso</string>
     <string name="avoid_showing_invalid_files">Não mostrar ficheiros inválidos</string>
 
