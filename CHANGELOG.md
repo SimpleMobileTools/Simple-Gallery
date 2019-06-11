@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 6.7.8 *(2019-06-11)*
+----------------------------
+
+ * Improved the UX at zooming and panning at the fullscreen view
+ * Fixed unchecking Favorite items in some cases
+ * Show the available aspect ratios at the editor by default
+ * Couple stability, performance and translation improvements
+
 Version 6.7.7 *(2019-05-28)*
 ----------------------------
 
