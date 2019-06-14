@@ -383,7 +383,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             if (newFolder.exists() && newFolder.isDirectory) {
                 if (newFolder.list()?.isEmpty() == true) {
                     toast(String.format(getString(R.string.deleting_folder), config.tempFolderPath), Toast.LENGTH_LONG)
-                    tryDeleteFileDirItem(newFolder.toFileDirItem(applicationContext), true, true)
+                    tryDeleteFileDirItem(newFolder.toFileDirItem(), true, true)
                 }
             }
             config.tempFolderPath = ""
@@ -554,7 +554,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                                 (it.isGif() && filter and TYPE_GIFS != 0) ||
                                 (it.isRawFast() && filter and TYPE_RAWS != 0) ||
                                 (it.isSvg() && filter and TYPE_SVGS != 0))
-            }?.mapTo(itemsToDelete) { it.toFileDirItem(this) }
+            }?.mapTo(itemsToDelete) { it.toFileDirItem() }
         }
 
         if (config.useRecycleBin) {

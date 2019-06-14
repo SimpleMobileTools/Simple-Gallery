@@ -1,17 +1,9 @@
 package com.simplemobiletools.gallery.pro.extensions
 
 import android.media.MediaMetadataRetriever
-import com.bumptech.glide.signature.ObjectKey
 import com.simplemobiletools.gallery.pro.helpers.NOMEDIA
 import java.io.File
 import java.io.IOException
-
-fun String.getFileSignature() = ObjectKey(getFileKey())
-
-fun String.getFileKey(): String {
-    val file = File(this)
-    return "${file.absolutePath}${file.lastModified()}"
-}
 
 fun String.isThisOrParentIncluded(includedPaths: MutableSet<String>) = includedPaths.any { startsWith(it, true) }
 
