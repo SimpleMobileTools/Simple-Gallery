@@ -781,12 +781,13 @@ fun Context.addPathToDB(path: String) {
             else -> TYPE_IMAGES
         }
 
-        val mediumDao = galleryDB.MediumDao()
-        val isFavorite = mediumDao.isFavorite(path)
-        val videoDuration = if (type == TYPE_VIDEOS) path.getVideoDuration() else 0
-        val medium = Medium(null, path.getFilenameFromPath(), path, path.getParentPath(), System.currentTimeMillis(), System.currentTimeMillis(),
-                File(path).length(), type, videoDuration, isFavorite, 0L)
         try {
+            val mediumDao = galleryDB.MediumDao()
+            val isFavorite = mediumDao.isFavorite(path)
+            val videoDuration = if (type == TYPE_VIDEOS) path.getVideoDuration() else 0
+            val medium = Medium(null, path.getFilenameFromPath(), path, path.getParentPath(), System.currentTimeMillis(), System.currentTimeMillis(),
+                    File(path).length(), type, videoDuration, isFavorite, 0L)
+
             mediumDao.insert(medium)
         } catch (ignored: Exception) {
         }
