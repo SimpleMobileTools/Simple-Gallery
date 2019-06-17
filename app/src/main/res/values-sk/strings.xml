@@ -131,7 +131,11 @@
     <string name="do_not_group_files">Nezoskupovať súbory</string>
     <string name="by_folder">Priečinka</string>
     <string name="by_last_modified">Dátumu poslednej úpravy</string>
+    <string name="by_last_modified_daily">Dátumu poslednej úpravy (denne)</string>
+    <string name="by_last_modified_monthly">Dátumu poslednej úpravy (mesačne)</string>
     <string name="by_date_taken">Dátumu vytvorenia</string>
+    <string name="by_date_taken_daily">Dátumu vytvorenia (denne)</string>
+    <string name="by_date_taken_monthly">Dátumu vytvorenia (mesačne)</string>
     <string name="by_file_type">Typu súboru</string>
     <string name="by_extension">Prípony</string>
     <string name="grouping_and_sorting">Prosím vedzte, že radenie a zoskupovanie súborov sú 2 nezávislé hodnoty</string>

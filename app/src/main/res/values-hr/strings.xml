@@ -131,7 +131,11 @@
     <string name="do_not_group_files">Nemoj grupirati ove datoteke</string>
     <string name="by_folder">Mapa</string>
     <string name="by_last_modified">Zadnje uređivano</string>
+    <string name="by_last_modified_daily">Last modified (daily)</string>
+    <string name="by_last_modified_monthly">Last modified (monthly)</string>
     <string name="by_date_taken">Datum snimanja</string>
+    <string name="by_date_taken_daily">Date taken (daily)</string>
+    <string name="by_date_taken_monthly">Date taken (monthly)</string>
     <string name="by_file_type">Tip datoteke</string>
     <string name="by_extension">Vrsta datoteke</string>
     <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>

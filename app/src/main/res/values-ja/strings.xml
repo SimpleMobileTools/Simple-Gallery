@@ -131,7 +131,11 @@
     <string name="do_not_group_files">何もしない</string>
     <string name="by_folder">フォルダ</string>
     <string name="by_last_modified">更新日時</string>
+    <string name="by_last_modified_daily">Last modified (daily)</string>
+    <string name="by_last_modified_monthly">Last modified (monthly)</string>
     <string name="by_date_taken">撮影日時</string>
+    <string name="by_date_taken_daily">Date taken (daily)</string>
+    <string name="by_date_taken_monthly">Date taken (monthly)</string>
     <string name="by_file_type">ファイル形式</string>
     <string name="by_extension">拡張子</string>
     <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>

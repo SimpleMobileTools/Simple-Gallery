@@ -131,7 +131,11 @@
     <string name="do_not_group_files">Non raggruppare i file</string>
     <string name="by_folder">Cartella</string>
     <string name="by_last_modified">Ultima modifica</string>
+    <string name="by_last_modified_daily">Last modified (daily)</string>
+    <string name="by_last_modified_monthly">Last modified (monthly)</string>
     <string name="by_date_taken">Data creazione</string>
+    <string name="by_date_taken_daily">Date taken (daily)</string>
+    <string name="by_date_taken_monthly">Date taken (monthly)</string>
     <string name="by_file_type">Tipo di file</string>
     <string name="by_extension">Estensione</string>
     <string name="grouping_and_sorting">Notare che il raggruppamento e l\'ordinamento sono due campi indipendenti</string>

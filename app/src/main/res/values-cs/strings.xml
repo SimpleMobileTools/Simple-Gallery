@@ -131,7 +131,11 @@
     <string name="do_not_group_files">Neseskupovat soubory</string>
     <string name="by_folder">Složky</string>
     <string name="by_last_modified">Data poslední úpravy</string>
+    <string name="by_last_modified_daily">Last modified (daily)</string>
+    <string name="by_last_modified_monthly">Last modified (monthly)</string>
     <string name="by_date_taken">Data pořízení</string>
+    <string name="by_date_taken_daily">Date taken (daily)</string>
+    <string name="by_date_taken_monthly">Date taken (monthly)</string>
     <string name="by_file_type">Typu souboru</string>
     <string name="by_extension">Přípony</string>
     <string name="grouping_and_sorting">Mějte prosím na paměti, že seskupování a řazení jsou 2 nezávislé hodnoty</string>

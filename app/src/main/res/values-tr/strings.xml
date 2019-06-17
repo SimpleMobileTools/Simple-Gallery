@@ -131,7 +131,11 @@
     <string name="do_not_group_files">Dosyaları gruplandırma</string>
     <string name="by_folder">Klasör</string>
     <string name="by_last_modified">Son değiştirilme</string>
+    <string name="by_last_modified_daily">Last modified (daily)</string>
+    <string name="by_last_modified_monthly">Last modified (monthly)</string>
     <string name="by_date_taken">Çekildiği tarih</string>
+    <string name="by_date_taken_daily">Date taken (daily)</string>
+    <string name="by_date_taken_monthly">Date taken (monthly)</string>
     <string name="by_file_type">Dosya türü</string>
     <string name="by_extension">Uzantı</string>
     <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
