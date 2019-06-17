@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Simple Gallery</string>
-    <string name="app_launcher_name">Gallery</string>
+    <string name="app_name">Απλή Συλλογή</string>
+    <string name="app_launcher_name">Συλλογή</string>
     <string name="edit">Επεξεργασία</string>
     <string name="open_camera">Άνοιγμα κάμερας</string>
     <string name="hidden">(κρυφά)</string>
@@ -131,11 +131,11 @@
     <string name="do_not_group_files">Χωρίς</string>
     <string name="by_folder">Φάκελο</string>
     <string name="by_last_modified">Τελευταία τροπ/ηση</string>
-    <string name="by_last_modified_daily">Last modified (daily)</string>
-    <string name="by_last_modified_monthly">Last modified (monthly)</string>
+    <string name="by_last_modified_daily">Τελευταία τροπ/ηση (ημερήσια)</string>
+    <string name="by_last_modified_monthly">Τελευταία τροπ/ηση (μηνιαία)</string>
     <string name="by_date_taken">Ημερομ. λήψης</string>
-    <string name="by_date_taken_daily">Date taken (daily)</string>
-    <string name="by_date_taken_monthly">Date taken (monthly)</string>
+    <string name="by_date_taken_daily">Ημερομ. λήψης (ημερήσια)</string>
+    <string name="by_date_taken_monthly">Ημερομ. λήψης (μηνιαία)</string>
     <string name="by_file_type">Τύπο αρχείου</string>
     <string name="by_extension">Επέκταση</string>
     <string name="grouping_and_sorting">Σημειώστε ότι ομαδοποίηση και ταξινόμηση είναι 2 ανεξάρτητα πεδία</string>
