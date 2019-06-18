@@ -741,7 +741,7 @@ fun Context.parseFileChannel(path: String, fc: FileChannel, level: Int, start: L
 
                 val sb = StringBuilder()
                 val buffer = ByteArray(1024)
-                while (true) {
+                while (sb.length < size) {
                     val n = fis.read(buffer)
                     if (n != -1) {
                         sb.append(String(buffer, 0, n))
