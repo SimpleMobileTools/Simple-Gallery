@@ -131,11 +131,11 @@
     <string name="do_not_group_files">Bestanden niet groeperen</string>
     <string name="by_folder">Map</string>
     <string name="by_last_modified">Laatst gewijzigd</string>
-    <string name="by_last_modified_daily">Last modified (daily)</string>
-    <string name="by_last_modified_monthly">Last modified (monthly)</string>
+    <string name="by_last_modified_daily">Laatst gewijzigd (per dag)</string>
+    <string name="by_last_modified_monthly">Laatst gewijzigd (per maand)</string>
     <string name="by_date_taken">Datum opname</string>
-    <string name="by_date_taken_daily">Date taken (daily)</string>
-    <string name="by_date_taken_monthly">Date taken (monthly)</string>
+    <string name="by_date_taken_daily">Datum opname (per dag)</string>
+    <string name="by_date_taken_monthly">Datum opname (per maand)</string>
     <string name="by_file_type">Bestandstype</string>
     <string name="by_extension">Extensie</string>
     <string name="grouping_and_sorting">Groeperen en sorteren zijn twee aparte opties</string>
