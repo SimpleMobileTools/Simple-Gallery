@@ -336,7 +336,7 @@ class MediaFetcher(val context: Context) {
         }
 
         val sortDescending = currentGrouping and GROUP_DESCENDING != 0
-        val sorted = if (currentGrouping and GROUP_BY_DATE_TAKEN != 0 || currentGrouping and GROUP_BY_LAST_MODIFIED != 0) {
+        val sorted = if (currentGrouping and GROUP_BY_DATE_TAKEN_DAILY != 0 || currentGrouping and GROUP_BY_LAST_MODIFIED_DAILY != 0) {
             mediumGroups.toSortedMap(if (sortDescending) compareByDescending {
                 it.toLongOrNull() ?: 0L
             } else {
@@ -364,7 +364,7 @@ class MediaFetcher(val context: Context) {
 
     private fun getFormattedKey(key: String, grouping: Int, today: String, yesterday: String): String {
         return when {
-            grouping and GROUP_BY_LAST_MODIFIED != 0 || grouping and GROUP_BY_DATE_TAKEN != 0 -> getFinalDate(formatDate(key), today, yesterday)
+            grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 || grouping and GROUP_BY_DATE_TAKEN_DAILY != 0 -> getFinalDate(formatDate(key), today, yesterday)
             grouping and GROUP_BY_FILE_TYPE != 0 -> getFileTypeString(key)
             grouping and GROUP_BY_EXTENSION != 0 -> key.toUpperCase()
             grouping and GROUP_BY_FOLDER != 0 -> context.humanizePath(key)

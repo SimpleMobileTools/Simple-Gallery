@@ -56,8 +56,8 @@ data class Medium(
 
     fun getGroupingKey(groupBy: Int): String {
         return when {
-            groupBy and GROUP_BY_LAST_MODIFIED != 0 -> getDayStartTS(modified)
-            groupBy and GROUP_BY_DATE_TAKEN != 0 -> getDayStartTS(taken)
+            groupBy and GROUP_BY_LAST_MODIFIED_DAILY != 0 -> getDayStartTS(modified)
+            groupBy and GROUP_BY_DATE_TAKEN_DAILY != 0 -> getDayStartTS(taken)
             groupBy and GROUP_BY_FILE_TYPE != 0 -> type.toString()
             groupBy and GROUP_BY_EXTENSION != 0 -> name.getFilenameExtension().toLowerCase()
             groupBy and GROUP_BY_FOLDER != 0 -> parentPath

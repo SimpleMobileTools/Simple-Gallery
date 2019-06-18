@@ -161,11 +161,13 @@ const val LOCATION_SD = 2
 const val LOCATION_OTG = 3
 
 const val GROUP_BY_NONE = 1
-const val GROUP_BY_LAST_MODIFIED = 2
-const val GROUP_BY_DATE_TAKEN = 4
+const val GROUP_BY_LAST_MODIFIED_DAILY = 2
+const val GROUP_BY_DATE_TAKEN_DAILY = 4
 const val GROUP_BY_FILE_TYPE = 8
 const val GROUP_BY_EXTENSION = 16
 const val GROUP_BY_FOLDER = 32
+const val GROUP_BY_LAST_MODIFIED_MONTHLY = 64
+const val GROUP_BY_DATE_TAKEN_MONTHLY = 128
 const val GROUP_DESCENDING = 1024
 
 // bottom actions
