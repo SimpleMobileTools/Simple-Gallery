@@ -56,8 +56,10 @@ data class Medium(
 
     fun getGroupingKey(groupBy: Int): String {
         return when {
-            groupBy and GROUP_BY_LAST_MODIFIED_DAILY != 0 -> getDayStartTS(modified)
-            groupBy and GROUP_BY_DATE_TAKEN_DAILY != 0 -> getDayStartTS(taken)
+            groupBy and GROUP_BY_LAST_MODIFIED_DAILY != 0 -> getDayStartTS(modified, false)
+            groupBy and GROUP_BY_LAST_MODIFIED_MONTHLY != 0 -> getDayStartTS(modified, true)
+            groupBy and GROUP_BY_DATE_TAKEN_DAILY != 0 -> getDayStartTS(taken, false)
+            groupBy and GROUP_BY_DATE_TAKEN_MONTHLY != 0 -> getDayStartTS(taken, true)
             groupBy and GROUP_BY_FILE_TYPE != 0 -> type.toString()
             groupBy and GROUP_BY_EXTENSION != 0 -> name.getFilenameExtension().toLowerCase()
             groupBy and GROUP_BY_FOLDER != 0 -> parentPath
@@ -67,13 +69,17 @@ data class Medium(
 
     fun getIsInRecycleBin() = deletedTS != 0L
 
-    private fun getDayStartTS(ts: Long): String {
+    private fun getDayStartTS(ts: Long, resetDays: Boolean): String {
         val calendar = Calendar.getInstance(Locale.ENGLISH).apply {
             timeInMillis = ts
             set(Calendar.HOUR_OF_DAY, 0)
             set(Calendar.MINUTE, 0)
             set(Calendar.SECOND, 0)
             set(Calendar.MILLISECOND, 0)
+
+            if (resetDays) {
+                set(Calendar.DAY_OF_MONTH, 1)
+            }
         }
 
         return calendar.timeInMillis.toString()

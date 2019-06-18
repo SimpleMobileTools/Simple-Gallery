@@ -336,7 +336,8 @@ class MediaFetcher(val context: Context) {
         }
 
         val sortDescending = currentGrouping and GROUP_DESCENDING != 0
-        val sorted = if (currentGrouping and GROUP_BY_DATE_TAKEN_DAILY != 0 || currentGrouping and GROUP_BY_LAST_MODIFIED_DAILY != 0) {
+        val sorted = if (currentGrouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 || currentGrouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0 ||
+                currentGrouping and GROUP_BY_DATE_TAKEN_DAILY != 0 || currentGrouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0) {
             mediumGroups.toSortedMap(if (sortDescending) compareByDescending {
                 it.toLongOrNull() ?: 0L
             } else {
@@ -351,8 +352,8 @@ class MediaFetcher(val context: Context) {
             mediumGroups[key] = value
         }
 
-        val today = formatDate(System.currentTimeMillis().toString())
-        val yesterday = formatDate((System.currentTimeMillis() - DAY_SECONDS * 1000).toString())
+        val today = formatDate(System.currentTimeMillis().toString(), true)
+        val yesterday = formatDate((System.currentTimeMillis() - DAY_SECONDS * 1000).toString(), true)
         for ((key, value) in mediumGroups) {
             val sectionKey = getFormattedKey(key, currentGrouping, today, yesterday)
             thumbnailItems.add(ThumbnailSection(sectionKey))
@@ -363,13 +364,20 @@ class MediaFetcher(val context: Context) {
     }
 
     private fun getFormattedKey(key: String, grouping: Int, today: String, yesterday: String): String {
-        return when {
-            grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 || grouping and GROUP_BY_DATE_TAKEN_DAILY != 0 -> getFinalDate(formatDate(key), today, yesterday)
+        var result = when {
+            grouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 || grouping and GROUP_BY_DATE_TAKEN_DAILY != 0 -> getFinalDate(formatDate(key, true), today, yesterday)
+            grouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0 || grouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0 -> formatDate(key, false)
             grouping and GROUP_BY_FILE_TYPE != 0 -> getFileTypeString(key)
             grouping and GROUP_BY_EXTENSION != 0 -> key.toUpperCase()
             grouping and GROUP_BY_FOLDER != 0 -> context.humanizePath(key)
             else -> key
         }
+
+        if (result.isEmpty()) {
+            result = context.getString(R.string.unknown)
+        }
+
+        return result
     }
 
     private fun getFinalDate(date: String, today: String, yesterday: String): String {
@@ -380,11 +388,12 @@ class MediaFetcher(val context: Context) {
         }
     }
 
-    private fun formatDate(timestamp: String): String {
+    private fun formatDate(timestamp: String, showDay: Boolean): String {
         return if (timestamp.areDigitsOnly()) {
             val cal = Calendar.getInstance(Locale.ENGLISH)
             cal.timeInMillis = timestamp.toLong()
-            DateFormat.format("dd MMM yyyy", cal).toString()
+            val format = if (showDay) "dd MMM yyyy" else "MMM yyyy"
+            DateFormat.format(format, cal).toString()
         } else {
             ""
         }
