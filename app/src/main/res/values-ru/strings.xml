@@ -9,9 +9,9 @@
     <string name="pin_folder">Закрепить папку</string>
     <string name="unpin_folder">Открепить папку</string>
     <string name="pin_to_the_top">Закрепить сверху</string>
-    <string name="show_all">Показать все медиафайлы</string>
+    <string name="show_all">Группировать по критериям</string>
     <string name="all_folders">Все медиафайлы</string>
-    <string name="folder_view">Папки</string>
+    <string name="folder_view">Группировать по папкам</string>
     <string name="other_folder">Выбор папки</string>
     <string name="show_on_map">Показать место съёмки</string>
     <string name="unknown_location">Место съёмки не указано</string>
