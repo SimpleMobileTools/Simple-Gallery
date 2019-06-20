@@ -88,7 +88,8 @@ const val SLIDESHOW_MOVE_BACKWARDS = "slideshow_move_backwards"
 const val SLIDESHOW_ANIMATION = "slideshow_animation"
 const val SLIDESHOW_LOOP = "loop_slideshow"
 const val SLIDESHOW_DEFAULT_INTERVAL = 5
-const val SLIDESHOW_SCROLL_DURATION = 500L
+const val SLIDESHOW_SLIDE_DURATION = 500L
+const val SLIDESHOW_FADE_DURATION = 1500L
 const val SLIDESHOW_START_ON_ENTER = "slideshow_start_on_enter"
 
 // slideshow animations

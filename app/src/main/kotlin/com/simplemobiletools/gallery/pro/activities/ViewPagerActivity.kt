@@ -396,6 +396,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (getMediaForSlideshow()) {
             view_pager.onGlobalLayout {
                 if (!isDestroyed) {
+                    if (config.slideshowAnimation == SLIDESHOW_ANIMATION_FADE) {
+                        view_pager.setPageTransformer(false, FadePageTransformer())
+                    }
+
                     hideSystemUI(true)
                     mSlideshowInterval = config.slideshowInterval
                     mSlideshowMoveBackwards = config.slideshowMoveBackwards
@@ -436,7 +440,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         })
 
-        animator.interpolator = DecelerateInterpolator()
+        if (config.slideshowAnimation == SLIDESHOW_ANIMATION_SLIDE) {
+            animator.interpolator = DecelerateInterpolator()
+            animator.duration = SLIDESHOW_SLIDE_DURATION
+        } else {
+            animator.duration = SLIDESHOW_FADE_DURATION
+        }
+
         animator.addUpdateListener(object : ValueAnimator.AnimatorUpdateListener {
             var oldDragPosition = 0
             override fun onAnimationUpdate(animation: ValueAnimator) {
@@ -453,7 +463,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         })
 
-        animator.duration = SLIDESHOW_SCROLL_DURATION
         view_pager.beginFakeDrag()
         animator.start()
     }
@@ -473,6 +482,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun stopSlideshow() {
         if (mIsSlideshowActive) {
+            view_pager.setPageTransformer(false, DefaultPageTransformer())
             mIsSlideshowActive = false
             showSystemUI(true)
             mSlideshowHandler.removeCallbacksAndMessages(null)
