@@ -85,10 +85,16 @@ const val SLIDESHOW_INCLUDE_VIDEOS = "slideshow_include_videos"
 const val SLIDESHOW_INCLUDE_GIFS = "slideshow_include_gifs"
 const val SLIDESHOW_RANDOM_ORDER = "slideshow_random_order"
 const val SLIDESHOW_MOVE_BACKWARDS = "slideshow_move_backwards"
+const val SLIDESHOW_ANIMATION = "slideshow_animation"
 const val SLIDESHOW_LOOP = "loop_slideshow"
 const val SLIDESHOW_DEFAULT_INTERVAL = 5
 const val SLIDESHOW_SCROLL_DURATION = 500L
 const val SLIDESHOW_START_ON_ENTER = "slideshow_start_on_enter"
+
+// slideshow animations
+const val SLIDESHOW_ANIMATION_NONE = 0
+const val SLIDESHOW_ANIMATION_SLIDE = 1
+const val SLIDESHOW_ANIMATION_FADE = 2
 
 const val NOMEDIA = ".nomedia"
 const val FAVORITES = "favorites"

@@ -307,6 +307,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(SLIDESHOW_MOVE_BACKWARDS, false)
         set(slideshowMoveBackwards) = prefs.edit().putBoolean(SLIDESHOW_MOVE_BACKWARDS, slideshowMoveBackwards).apply()
 
+    var slideshowAnimation: Int
+        get() = prefs.getInt(SLIDESHOW_ANIMATION, SLIDESHOW_ANIMATION_SLIDE)
+        set(slideshowAnimation) = prefs.edit().putInt(SLIDESHOW_ANIMATION, slideshowAnimation).apply()
+
     var loopSlideshow: Boolean
         get() = prefs.getBoolean(SLIDESHOW_LOOP, false)
         set(loopSlideshow) = prefs.edit().putBoolean(SLIDESHOW_LOOP, loopSlideshow).apply()
