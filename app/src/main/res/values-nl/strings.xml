@@ -115,10 +115,10 @@
     <string name="random_order">Willekeurige volgorde</string>
     <string name="move_backwards">Omgekeerde volgorde</string>
     <string name="loop_slideshow">Voorstelling herhalen</string>
-    <string name="animation">Animation</string>
-    <string name="no_animation">None</string>
-    <string name="fade">Fade</string>
-    <string name="slide">Slide</string>
+    <string name="animation">Overgangseffect</string>
+    <string name="no_animation">Geen</string>
+    <string name="fade">Overvloeien</string>
+    <string name="slide">Verschuiven</string>
     <string name="slideshow_ended">De diavoorstelling is beëindigd</string>
     <string name="no_media_for_slideshow">Geen media gevonden voor diavoorstelling</string>
 
