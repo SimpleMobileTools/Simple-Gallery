@@ -7,6 +7,8 @@ import com.simplemobiletools.commons.extensions.hideKeyboard
 import com.simplemobiletools.commons.extensions.setupDialogStuff
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.config
+import com.simplemobiletools.gallery.pro.helpers.SLIDESHOW_ANIMATION_FADE
+import com.simplemobiletools.gallery.pro.helpers.SLIDESHOW_ANIMATION_SLIDE
 import com.simplemobiletools.gallery.pro.helpers.SLIDESHOW_DEFAULT_INTERVAL
 import kotlinx.android.synthetic.main.dialog_slideshow.view.*
 
@@ -26,6 +28,10 @@ class SlideshowDialog(val activity: BaseSimpleActivity, val callback: () -> Unit
             interval_value.setOnFocusChangeListener { v, hasFocus ->
                 if (!hasFocus)
                     activity.hideKeyboard(v)
+            }
+
+            animation_holder.setOnClickListener {
+
             }
 
             include_videos_holder.setOnClickListener {
@@ -74,6 +80,7 @@ class SlideshowDialog(val activity: BaseSimpleActivity, val callback: () -> Unit
         val config = activity.config
         view.apply {
             interval_value.setText(config.slideshowInterval.toString())
+            animation_value.text = getAnimationText()
             include_videos.isChecked = config.slideshowIncludeVideos
             include_gifs.isChecked = config.slideshowIncludeGIFs
             random_order.isChecked = config.slideshowRandomOrder
@@ -94,6 +101,14 @@ class SlideshowDialog(val activity: BaseSimpleActivity, val callback: () -> Unit
             slideshowRandomOrder = view.random_order.isChecked
             slideshowMoveBackwards = view.move_backwards.isChecked
             loopSlideshow = view.loop_slideshow.isChecked
+        }
+    }
+
+    private fun getAnimationText(): String {
+        return when (activity.config.slideshowAnimation) {
+            SLIDESHOW_ANIMATION_SLIDE -> activity.getString(R.string.slide)
+            SLIDESHOW_ANIMATION_FADE -> activity.getString(R.string.fade)
+            else -> activity.getString(R.string.no_animation)
         }
     }
 }
