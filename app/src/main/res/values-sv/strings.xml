@@ -115,6 +115,10 @@
     <string name="random_order">Spela upp i slumpmässig ordning</string>
     <string name="move_backwards">Spela upp i omvänd ordning</string>
     <string name="loop_slideshow">Spela upp i en slinga</string>
+    <string name="animation">Animation:</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">Bildspelet har avslutats</string>
     <string name="no_media_for_slideshow">Ingen media hittades för bildspelet</string>
 

@@ -115,6 +115,10 @@
     <string name="random_order">Ordre aleatori</string>
     <string name="move_backwards">Moure cap enrere</string>
     <string name="loop_slideshow">Presentació de diapositives</string>
+    <string name="animation">Animation:</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">S’ha acabat la presentació de diapositives</string>
     <string name="no_media_for_slideshow">No s’han trobat mitjans per a la presentació de diapositives</string>
 

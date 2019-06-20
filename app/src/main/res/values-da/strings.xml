@@ -115,6 +115,10 @@
     <string name="random_order">Tilfældig rækkefølge</string>
     <string name="move_backwards">Kør baglæns</string>
     <string name="loop_slideshow">Endeløs kørsel</string>
+    <string name="animation">Animation:</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">Slideshowet endte</string>
     <string name="no_media_for_slideshow">Der blev ikke funket nogen mediefiler til slideshowet</string>
 

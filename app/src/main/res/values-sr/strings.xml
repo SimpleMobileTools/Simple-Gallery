@@ -115,6 +115,10 @@
     <string name="random_order">Насумични редослед</string>
     <string name="move_backwards">Помери уназад</string>
     <string name="loop_slideshow">Понављај слајдшоу</string>
+    <string name="animation">Animation:</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">Слајдшоу се завршио</string>
     <string name="no_media_for_slideshow">Нису пронађени медији за слајдшоу</string>
 

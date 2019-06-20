@@ -119,6 +119,10 @@
     <string name="random_order">ترتيب عشوائي</string>
     <string name="move_backwards">ارجع للخلف</string>
     <string name="loop_slideshow">حلقة عرض الشرائح</string>
+    <string name="animation">Animation:</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">انتهى عرض الشرائح</string>
     <string name="no_media_for_slideshow">لم يتم العثور على وسائط لعرض الشرائح</string>
 

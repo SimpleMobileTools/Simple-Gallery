@@ -115,6 +115,10 @@
     <string name="random_order">Urutan acak</string>
     <string name="move_backwards">Mundur</string>
     <string name="loop_slideshow">Slideshow tanpa henti</string>
+    <string name="animation">Animation:</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">Slideshow berakhir</string>
     <string name="no_media_for_slideshow">Tidak ditemukan media untuk slideshow</string>
 

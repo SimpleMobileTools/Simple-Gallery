@@ -115,6 +115,10 @@
     <string name="random_order">Nasumični redoslijed</string>
     <string name="move_backwards">Pomakni unatrag</string>
     <string name="loop_slideshow">Prikaži dijaprojekciju kao petlju</string>
+    <string name="animation">Animation:</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">Kraj dijaprojekcije</string>
     <string name="no_media_for_slideshow">Nema datoteka za dijaprojekciju</string>
 

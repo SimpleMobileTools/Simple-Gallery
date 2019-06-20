@@ -115,6 +115,10 @@
     <string name="random_order">Atsitiktinė tvarka</string>
     <string name="move_backwards">Sukti atgal</string>
     <string name="loop_slideshow">Klipuoti skaidrių demonstraciją</string>
+    <string name="animation">Animation:</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">Skaidrių demonstracija pasibaigė</string>
     <string name="no_media_for_slideshow">Nerasta medijos skaidrių demonstracijai</string>
 

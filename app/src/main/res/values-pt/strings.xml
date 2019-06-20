@@ -115,6 +115,10 @@
     <string name="random_order">Ordem aleatória</string>
     <string name="move_backwards">Mover para trás</string>
     <string name="loop_slideshow">Apresentação em ciclo</string>
+    <string name="animation">Animation:</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">Apresentação terminada</string>
     <string name="no_media_for_slideshow">Não foram encontrados ficheiros para a apresentação</string>
 

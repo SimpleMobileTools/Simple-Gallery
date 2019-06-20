@@ -115,6 +115,10 @@
     <string name="random_order">В случайном порядке</string>
     <string name="move_backwards">В обратном порядке</string>
     <string name="loop_slideshow">Зациклить</string>
+    <string name="animation">Animation:</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">Слайдшоу завершено</string>
     <string name="no_media_for_slideshow">Медиафайлов для слайдшоу не найдено</string>
 

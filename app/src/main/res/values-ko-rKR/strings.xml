@@ -115,6 +115,10 @@
     <string name="random_order">랜덤 순서</string>
     <string name="move_backwards">뒤로 이동</string>
     <string name="loop_slideshow">슬라이드 쇼 반복</string>
+    <string name="animation">Animation:</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">슬라이드 쇼 종료</string>
     <string name="no_media_for_slideshow">슬라이드 쇼를 위한 미디어를 찾을 수 없음</string>
 
