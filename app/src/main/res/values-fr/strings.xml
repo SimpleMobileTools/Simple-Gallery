@@ -113,12 +113,10 @@
     <string name="include_videos">Inclure les vidéos</string>
     <string name="include_gifs">Inclure les GIFs</string>
     <string name="random_order">Ordre aléatoire</string>
-    <string name="use_fade">Utiliser un fondu</string>
     <string name="move_backwards">Défilement inverse</string>
     <string name="loop_slideshow">Diaporama en boucle</string>
     <string name="slideshow_ended">Diaporama terminé</string>
     <string name="no_media_for_slideshow">Aucun média trouvé pour le diaporama</string>
-    <string name="use_crossfade_animation">Utiliser des animations en fondu enchaîné</string>
 
     <!-- View types -->
     <string name="change_view_type">Changer de mode d\'affichage</string>

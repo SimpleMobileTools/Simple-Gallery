@@ -113,12 +113,10 @@
     <string name="include_videos">Видео</string>
     <string name="include_gifs">GIF</string>
     <string name="random_order">В случайном порядке</string>
-    <string name="use_fade">Эффект затухания</string>
     <string name="move_backwards">В обратном порядке</string>
     <string name="loop_slideshow">Зациклить</string>
     <string name="slideshow_ended">Слайдшоу завершено</string>
     <string name="no_media_for_slideshow">Медиафайлов для слайдшоу не найдено</string>
-    <string name="use_crossfade_animation">Эффект плавного перехода</string>
 
     <!-- View types -->
     <string name="change_view_type">Вид</string>

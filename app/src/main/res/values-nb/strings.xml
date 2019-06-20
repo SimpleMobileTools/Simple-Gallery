@@ -113,12 +113,10 @@
     <string name="include_videos">Inkluder videoer</string>
     <string name="include_gifs">Inkluder GIF-bilder</string>
     <string name="random_order">Tilfeldig rekkefølge</string>
-    <string name="use_fade">Bruk toningseffekt</string>
     <string name="move_backwards">Avspill bakover</string>
     <string name="loop_slideshow">Gjenta lysbildeshow</string>
     <string name="slideshow_ended">Lysbildeshowet er slutt</string>
     <string name="no_media_for_slideshow">Ingen media for lysbildeshowet er funnet</string>
-    <string name="use_crossfade_animation">Bruk krysstoningsanimasjon</string>
 
     <!-- View types -->
     <string name="change_view_type">Endre visningstype</string>

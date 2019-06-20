@@ -113,12 +113,10 @@
     <string name="include_videos">ビデオを含める</string>
     <string name="include_gifs">GIFを含める</string>
     <string name="random_order">ランダムな順序</string>
-    <string name="use_fade">フェードアニメーションを使用する</string>
     <string name="move_backwards">逆方向に進む</string>
     <string name="loop_slideshow">スライドショーをリピート再生する</string>
     <string name="slideshow_ended">スライドショーが終了しました</string>
     <string name="no_media_for_slideshow">スライドショーに表示するメディアがありません</string>
-    <string name="use_crossfade_animation">クロスフェードアニメーションを使用する</string>
 
     <!-- View types -->
     <string name="change_view_type">表示形式の変更</string>

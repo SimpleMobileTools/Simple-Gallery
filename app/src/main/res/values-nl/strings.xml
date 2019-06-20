@@ -113,12 +113,10 @@
     <string name="include_videos">Video’s weergeven</string>
     <string name="include_gifs">GIF-bestanden weergeven</string>
     <string name="random_order">Willekeurige volgorde</string>
-    <string name="use_fade">Animaties gebruiken (vervagen)</string>
     <string name="move_backwards">Omgekeerde volgorde</string>
     <string name="loop_slideshow">Voorstelling herhalen</string>
     <string name="slideshow_ended">De diavoorstelling is beëindigd</string>
     <string name="no_media_for_slideshow">Geen media gevonden voor diavoorstelling</string>
-    <string name="use_crossfade_animation">Crossfade-animaties gebruiken</string>
 
     <!-- View types -->
     <string name="change_view_type">Weergave</string>

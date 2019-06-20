@@ -113,12 +113,10 @@
     <string name="include_videos">Vključi videoposnetke</string>
     <string name="include_gifs">Vključi GIFe</string>
     <string name="random_order">Naključni vrstni red</string>
-    <string name="use_fade">Uporabi zameglitev animacij</string>
     <string name="move_backwards">Premik nazaj</string>
     <string name="loop_slideshow">Ponavljaj diaprojekcijo</string>
     <string name="slideshow_ended">Diaprojekcija se je zaključila</string>
     <string name="no_media_for_slideshow">Ne najdem datotek za diaprojekcijo</string>
-    <string name="use_crossfade_animation">Uporabi križanje animacij</string>
 
     <!-- View types -->
     <string name="change_view_type">Spremeni tip pogleda</string>

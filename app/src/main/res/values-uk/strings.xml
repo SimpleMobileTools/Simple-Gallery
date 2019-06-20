@@ -113,12 +113,10 @@
     <string name="include_videos">Включити відео</string>
     <string name="include_gifs">Включити GIF-зображення</string>
     <string name="random_order">Випадковий порядок</string>
-    <string name="use_fade">Використовувати анімацію затухання</string>
     <string name="move_backwards">Рухатися назад</string>
     <string name="loop_slideshow">Зациклити показ слайдів</string>
     <string name="slideshow_ended">Слайдшоу закінчено</string>
     <string name="no_media_for_slideshow">Не знайдено медіафайлів для показу у слайдшоу</string>
-    <string name="use_crossfade_animation">Анімувати перехід між елементами</string>
 
     <!-- View types -->
     <string name="change_view_type">Змінити тип перегляду</string>

@@ -113,12 +113,10 @@
     <string name="include_videos">Include videos</string>
     <string name="include_gifs">Include GIFs</string>
     <string name="random_order">Random order</string>
-    <string name="use_fade">Use fade animations</string>
     <string name="move_backwards">Move backwards</string>
     <string name="loop_slideshow">Loop slideshow</string>
     <string name="slideshow_ended">The slideshow ended</string>
     <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
-    <string name="use_crossfade_animation">Use crossfade animations</string>
 
     <!-- View types -->
     <string name="change_view_type">Change view type</string>

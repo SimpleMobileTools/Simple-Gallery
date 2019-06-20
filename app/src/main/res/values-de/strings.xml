@@ -113,12 +113,10 @@
     <string name="include_videos">Videos verwenden</string>
     <string name="include_gifs">GIFs verwenden</string>
     <string name="random_order">Zufällige Reihenfolge</string>
-    <string name="use_fade">Übergänge animieren</string>
     <string name="move_backwards">Rückwärts abspielen</string>
     <string name="loop_slideshow">Endlos abspielen</string>
     <string name="slideshow_ended">Diashow beendet.</string>
     <string name="no_media_for_slideshow">Keine Medien für Diashow gefunden.</string>
-    <string name="use_crossfade_animation">Verwende Überblendanimationen</string>
 
     <!-- View types -->
     <string name="change_view_type">Darstellung ändern</string>

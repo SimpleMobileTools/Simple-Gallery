@@ -113,12 +113,10 @@
     <string name="include_videos">Inclou vídeos</string>
     <string name="include_gifs">Inclou GIFs</string>
     <string name="random_order">Ordre aleatori</string>
-    <string name="use_fade">Utilitza animacions de desaparició</string>
     <string name="move_backwards">Moure cap enrere</string>
     <string name="loop_slideshow">Presentació de diapositives</string>
     <string name="slideshow_ended">S’ha acabat la presentació de diapositives</string>
     <string name="no_media_for_slideshow">No s’han trobat mitjans per a la presentació de diapositives</string>
-    <string name="use_crossfade_animation">Utilitzeu animacions creuades</string>
 
     <!-- View types -->
     <string name="change_view_type">Canviar el tipus de vista</string>

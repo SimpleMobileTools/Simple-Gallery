@@ -113,12 +113,10 @@
     <string name="include_videos">Includi video</string>
     <string name="include_gifs">Includi GIF</string>
     <string name="random_order">Ordine sparso</string>
-    <string name="use_fade">Usa animazioni a dissolvenza</string>
     <string name="move_backwards">Scorri al contrario</string>
     <string name="loop_slideshow">Ripeti presentazione</string>
     <string name="slideshow_ended">La presentazione è terminata</string>
     <string name="no_media_for_slideshow">Nessun file trovato per la presentazione</string>
-    <string name="use_crossfade_animation">Usa le animazioni in dissolvenza</string>
 
     <!-- View types -->
     <string name="change_view_type">Cambia modalità visualizzazione</string>

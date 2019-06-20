@@ -113,12 +113,10 @@
     <string name="include_videos">Συμπερίληψη βίντεο</string>
     <string name="include_gifs">Συμπερίληψη GIFs</string>6
     <string name="random_order">Τυχαία σειρά</string>
-    <string name="use_fade">Εφέ σταδιακής αλλαγής</string>
     <string name="move_backwards">Κίνηση προς τα πίσω</string>
     <string name="loop_slideshow">Επανάληψη εμφάνισης διαφανιών</string>
     <string name="slideshow_ended">Η εμφάνιση διαφανειών τελείωσε</string>
     <string name="no_media_for_slideshow">Δεν βρέθηκαν πολυμέσα για την εμφάνιση διαφανειών</string>
-    <string name="use_crossfade_animation">Χρήση κίνησης εικόνων με διαγώνιο ξεθώριασμα</string>
 
     <!-- View types -->
     <string name="change_view_type">Αλλαγή τύπου εμφάνισης</string>

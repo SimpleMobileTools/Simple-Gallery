@@ -113,12 +113,10 @@
     <string name="include_videos">Inkluder videoer</string>
     <string name="include_gifs">Inkluder GIF\'er</string>
     <string name="random_order">Tilfældig rækkefølge</string>
-    <string name="use_fade">Brug udtonende animationer</string>
     <string name="move_backwards">Kør baglæns</string>
     <string name="loop_slideshow">Endeløs kørsel</string>
     <string name="slideshow_ended">Slideshowet endte</string>
     <string name="no_media_for_slideshow">Der blev ikke funket nogen mediefiler til slideshowet</string>
-    <string name="use_crossfade_animation">Anvend crossfade-animationer</string>
 
     <!-- View types -->
     <string name="change_view_type">Skift visning</string>

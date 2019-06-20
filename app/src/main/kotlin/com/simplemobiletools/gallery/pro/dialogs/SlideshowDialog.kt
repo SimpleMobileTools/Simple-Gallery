@@ -43,11 +43,6 @@ class SlideshowDialog(val activity: BaseSimpleActivity, val callback: () -> Unit
                 random_order.toggle()
             }
 
-            use_fade_holder.setOnClickListener {
-                interval_value.clearFocus()
-                use_fade.toggle()
-            }
-
             move_backwards_holder.setOnClickListener {
                 interval_value.clearFocus()
                 move_backwards.toggle()
@@ -82,7 +77,6 @@ class SlideshowDialog(val activity: BaseSimpleActivity, val callback: () -> Unit
             include_videos.isChecked = config.slideshowIncludeVideos
             include_gifs.isChecked = config.slideshowIncludeGIFs
             random_order.isChecked = config.slideshowRandomOrder
-            use_fade.isChecked = config.slideshowUseFade
             move_backwards.isChecked = config.slideshowMoveBackwards
             loop_slideshow.isChecked = config.loopSlideshow
         }
@@ -98,7 +92,6 @@ class SlideshowDialog(val activity: BaseSimpleActivity, val callback: () -> Unit
             slideshowIncludeVideos = view.include_videos.isChecked
             slideshowIncludeGIFs = view.include_gifs.isChecked
             slideshowRandomOrder = view.random_order.isChecked
-            slideshowUseFade = view.use_fade.isChecked
             slideshowMoveBackwards = view.move_backwards.isChecked
             loopSlideshow = view.loop_slideshow.isChecked
         }

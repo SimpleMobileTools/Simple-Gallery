@@ -113,12 +113,10 @@
     <string name="include_videos">Садржи видео снимке</string>
     <string name="include_gifs">Садржи ГИФове</string>
     <string name="random_order">Насумични редослед</string>
-    <string name="use_fade">Користи изблеђујуће анимације</string>
     <string name="move_backwards">Помери уназад</string>
     <string name="loop_slideshow">Понављај слајдшоу</string>
     <string name="slideshow_ended">Слајдшоу се завршио</string>
     <string name="no_media_for_slideshow">Нису пронађени медији за слајдшоу</string>
-    <string name="use_crossfade_animation">Користи анимације са унакрсним изблеђивањем</string>
 
     <!-- View types -->
     <string name="change_view_type">Промени тип прегледа</string>

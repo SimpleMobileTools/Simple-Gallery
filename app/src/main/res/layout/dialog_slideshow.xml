@@ -95,31 +95,10 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/use_fade_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/random_order_holder"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/medium_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingBottom="@dimen/activity_margin"
-            android:visibility="gone">
-
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/use_fade"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:text="@string/use_fade"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
             android:id="@+id/move_backwards_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/use_fade_holder"
+            android:layout_below="@+id/random_order_holder"
             android:background="?attr/selectableItemBackground"
             android:paddingStart="@dimen/medium_margin"
             android:paddingTop="@dimen/activity_margin"

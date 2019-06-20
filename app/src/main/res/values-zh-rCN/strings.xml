@@ -113,12 +113,10 @@
     <string name="include_videos">包括视频</string>
     <string name="include_gifs">包括 GIFs</string>
     <string name="random_order">随机顺序</string>
-    <string name="use_fade">使用渐变动画</string>
     <string name="move_backwards">倒播</string>
     <string name="loop_slideshow">循环幻灯片</string>
     <string name="slideshow_ended">幻灯片结束</string>
     <string name="no_media_for_slideshow">未发现可用媒体</string>
-    <string name="use_crossfade_animation">使用淡入淡出动画</string>
 
     <!-- View types -->
     <string name="change_view_type">更改视图类型</string>

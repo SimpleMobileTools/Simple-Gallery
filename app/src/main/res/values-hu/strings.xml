@@ -114,12 +114,10 @@
     <string name="include_videos">Videók befoglalása</string>
     <string name="include_gifs">GIF befoglalása</string>
     <string name="random_order">Véletlen sorrend</string>
-    <string name="use_fade">Halványuló animáció használat</string>
     <string name="move_backwards">Áthelyezés hátra</string>
     <string name="loop_slideshow">Diavetítés ismétlése</string>
     <string name="slideshow_ended">A diavetítés vége</string>
     <string name="no_media_for_slideshow">A diavetítéshez nem található média</string>
-    <string name="use_crossfade_animation">Animáció átmenet használat</string>
 
     <!-- View types -->
     <string name="change_view_type">Nézet típus változtatása</string>

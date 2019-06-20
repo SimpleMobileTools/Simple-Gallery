@@ -113,12 +113,10 @@
     <string name="include_videos">Sisällytä Videot</string>
     <string name="include_gifs">Sisällytä GIFit</string>
     <string name="random_order">Satunnainen järjestys</string>
-    <string name="use_fade">Käytä häivitys-animaatiota</string>
     <string name="move_backwards">Liiku takaisinpäin</string>
     <string name="loop_slideshow">Jatkuva diaesitys</string>
     <string name="slideshow_ended">Diaesitys päättyi</string>
     <string name="no_media_for_slideshow">Mediaa diaesitykseen ei löytynyt</string>
-    <string name="use_crossfade_animation">Use crossfade animations</string>
 
     <!-- View types -->
     <string name="change_view_type">Vaihda näkymää</string>

@@ -84,7 +84,6 @@ const val SLIDESHOW_INTERVAL = "slideshow_interval"
 const val SLIDESHOW_INCLUDE_VIDEOS = "slideshow_include_videos"
 const val SLIDESHOW_INCLUDE_GIFS = "slideshow_include_gifs"
 const val SLIDESHOW_RANDOM_ORDER = "slideshow_random_order"
-const val SLIDESHOW_USE_FADE = "slideshow_use_fade"
 const val SLIDESHOW_MOVE_BACKWARDS = "slideshow_move_backwards"
 const val SLIDESHOW_LOOP = "loop_slideshow"
 const val SLIDESHOW_DEFAULT_INTERVAL = 5

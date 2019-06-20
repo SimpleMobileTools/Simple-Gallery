@@ -113,12 +113,10 @@
     <string name="include_videos">Incluir vídeos</string>
     <string name="include_gifs">Incluir GIF</string>
     <string name="random_order">Ordem aleatória</string>
-    <string name="use_fade">Utilizar animações</string>
     <string name="move_backwards">Mover para trás</string>
     <string name="loop_slideshow">Apresentação em ciclo</string>
     <string name="slideshow_ended">Apresentação terminada</string>
     <string name="no_media_for_slideshow">Não foram encontrados ficheiros para a apresentação</string>
-    <string name="use_crossfade_animation">Utilizar animação de transição</string>
 
     <!-- View types -->
     <string name="change_view_type">Tipo de exibição</string>
