@@ -115,7 +115,7 @@
     <string name="random_order">Tilfeldig rekkefølge</string>
     <string name="move_backwards">Avspill bakover</string>
     <string name="loop_slideshow">Gjenta lysbildeshow</string>
-    <string name="animation">Animation:</string>
+    <string name="animation">Animation</string>
     <string name="no_animation">None</string>
     <string name="fade">Fade</string>
     <string name="slide">Slide</string>

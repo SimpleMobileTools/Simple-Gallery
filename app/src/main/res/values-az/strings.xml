@@ -115,7 +115,7 @@
     <string name="random_order">Random order</string>
     <string name="move_backwards">Move backwards</string>
     <string name="loop_slideshow">Loop slideshow</string>
-    <string name="animation">Animation:</string>
+    <string name="animation">Animation</string>
     <string name="no_animation">None</string>
     <string name="fade">Fade</string>
     <string name="slide">Slide</string>

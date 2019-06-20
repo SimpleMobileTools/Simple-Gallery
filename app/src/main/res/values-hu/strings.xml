@@ -116,7 +116,7 @@
     <string name="random_order">Véletlen sorrend</string>
     <string name="move_backwards">Áthelyezés hátra</string>
     <string name="loop_slideshow">Diavetítés ismétlése</string>
-    <string name="animation">Animation:</string>
+    <string name="animation">Animation</string>
     <string name="no_animation">None</string>
     <string name="fade">Fade</string>
     <string name="slide">Slide</string>

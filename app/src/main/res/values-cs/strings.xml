@@ -115,7 +115,7 @@
     <string name="random_order">Náhodné pořadí</string>
     <string name="move_backwards">Jít opačným směrem</string>
     <string name="loop_slideshow">Opakovat prezentaci ve smyčce</string>
-    <string name="animation">Animation:</string>
+    <string name="animation">Animation</string>
     <string name="no_animation">None</string>
     <string name="fade">Fade</string>
     <string name="slide">Slide</string>
