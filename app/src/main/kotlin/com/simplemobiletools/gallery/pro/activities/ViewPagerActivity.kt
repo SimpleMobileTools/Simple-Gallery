@@ -411,6 +411,16 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
     }
 
+    private fun goToNextMedium(forward: Boolean) {
+        val oldPosition = view_pager.currentItem
+        val newPosition = if (forward) oldPosition + 1 else oldPosition - 1
+        if (newPosition == -1 || newPosition > view_pager.adapter!!.count - 1) {
+            slideshowEnded(forward)
+        } else {
+            view_pager.setCurrentItem(newPosition, false)
+        }
+    }
+
     private fun animatePagerTransition(forward: Boolean) {
         val oldPosition = view_pager.currentItem
         val animator = ValueAnimator.ofInt(0, view_pager.width)
@@ -506,7 +516,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun swipeToNextMedium() {
-        animatePagerTransition(!mSlideshowMoveBackwards)
+        if (config.slideshowAnimation == SLIDESHOW_ANIMATION_NONE) {
+            goToNextMedium(!mSlideshowMoveBackwards)
+        } else {
+            animatePagerTransition(!mSlideshowMoveBackwards)
+        }
     }
 
     private fun getMediaForSlideshow(): Boolean {
