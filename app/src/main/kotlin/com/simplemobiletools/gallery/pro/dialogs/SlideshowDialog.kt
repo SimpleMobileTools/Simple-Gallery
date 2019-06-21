@@ -3,11 +3,15 @@ package com.simplemobiletools.gallery.pro.dialogs
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
+import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.hideKeyboard
 import com.simplemobiletools.commons.extensions.setupDialogStuff
+import com.simplemobiletools.commons.extensions.value
+import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.config
 import com.simplemobiletools.gallery.pro.helpers.SLIDESHOW_ANIMATION_FADE
+import com.simplemobiletools.gallery.pro.helpers.SLIDESHOW_ANIMATION_NONE
 import com.simplemobiletools.gallery.pro.helpers.SLIDESHOW_ANIMATION_SLIDE
 import com.simplemobiletools.gallery.pro.helpers.SLIDESHOW_DEFAULT_INTERVAL
 import kotlinx.android.synthetic.main.dialog_slideshow.view.*
@@ -31,7 +35,15 @@ class SlideshowDialog(val activity: BaseSimpleActivity, val callback: () -> Unit
             }
 
             animation_holder.setOnClickListener {
+                val items = arrayListOf(
+                        RadioItem(SLIDESHOW_ANIMATION_NONE, activity.getString(R.string.no_animation)),
+                        RadioItem(SLIDESHOW_ANIMATION_SLIDE, activity.getString(R.string.slide)),
+                        RadioItem(SLIDESHOW_ANIMATION_FADE, activity.getString(R.string.fade)))
 
+                RadioGroupDialog(activity, items, activity.config.slideshowAnimation) {
+                    activity.config.slideshowAnimation = it as Int
+                    animation_value.text = getAnimationText()
+                }
             }
 
             include_videos_holder.setOnClickListener {
@@ -95,6 +107,7 @@ class SlideshowDialog(val activity: BaseSimpleActivity, val callback: () -> Unit
             interval = SLIDESHOW_DEFAULT_INTERVAL.toString()
 
         activity.config.apply {
+            slideshowAnimation = getAnimationValue(view.animation_value.value)
             slideshowInterval = interval.toInt()
             slideshowIncludeVideos = view.include_videos.isChecked
             slideshowIncludeGIFs = view.include_gifs.isChecked
@@ -109,6 +122,14 @@ class SlideshowDialog(val activity: BaseSimpleActivity, val callback: () -> Unit
             SLIDESHOW_ANIMATION_SLIDE -> activity.getString(R.string.slide)
             SLIDESHOW_ANIMATION_FADE -> activity.getString(R.string.fade)
             else -> activity.getString(R.string.no_animation)
+        }
+    }
+
+    private fun getAnimationValue(text: String): Int {
+        return when (text) {
+            activity.getString(R.string.slide) -> SLIDESHOW_ANIMATION_SLIDE
+            activity.getString(R.string.fade) -> SLIDESHOW_ANIMATION_FADE
+            else -> SLIDESHOW_ANIMATION_NONE
         }
     }
 }
