@@ -115,10 +115,10 @@
     <string name="random_order">В случайном порядке</string>
     <string name="move_backwards">В обратном порядке</string>
     <string name="loop_slideshow">Зациклить</string>
-    <string name="animation">Animation</string>
-    <string name="no_animation">None</string>
-    <string name="fade">Fade</string>
-    <string name="slide">Slide</string>
+    <string name="animation">Анимация</string>
+    <string name="no_animation">Нет</string>
+    <string name="fade">Затухание</string>
+    <string name="slide">Сдвиг</string>
     <string name="slideshow_ended">Слайдшоу завершено</string>
     <string name="no_media_for_slideshow">Медиафайлов для слайдшоу не найдено</string>
 
@@ -133,11 +133,11 @@
     <string name="do_not_group_files">Не группировать</string>
     <string name="by_folder">Папка</string>
     <string name="by_last_modified">Последнее изменение</string>
-    <string name="by_last_modified_daily">Last modified (daily)</string>
-    <string name="by_last_modified_monthly">Last modified (monthly)</string>
+    <string name="by_last_modified_daily">Последнее изменение (по дням)</string>
+    <string name="by_last_modified_monthly">Последнее изменение (по месяцам)</string>
     <string name="by_date_taken">Дата съёмки</string>
-    <string name="by_date_taken_daily">Date taken (daily)</string>
-    <string name="by_date_taken_monthly">Date taken (monthly)</string>
+    <string name="by_date_taken_daily">Дата съёмки (по дням)</string>
+    <string name="by_date_taken_monthly">Дата съёмки (по месяцам)</string>
     <string name="by_file_type">Тип файла</string>
     <string name="by_extension">Расширение</string>
     <string name="grouping_and_sorting">Обратите внимание, что группировка и сортировка — это два независимых поля</string>
