@@ -251,6 +251,10 @@ class PhotoFragment : ViewPagerFragment() {
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
 
+        if (!mWasInit) {
+            return
+        }
+
         // avoid GIFs being skewed, played in wrong aspect ratio
         if (mMedium.isGIF()) {
             mView.onGlobalLayout {
@@ -654,6 +658,7 @@ class PhotoFragment : ViewPagerFragment() {
 
             if (mIsPanorama) {
                 panorama_outline.animate().alpha(if (isFullscreen) 0f else 1f).start()
+                panorama_outline.isClickable = !isFullscreen
             }
         }
     }

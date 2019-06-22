@@ -664,7 +664,10 @@ fun Context.updateDBMediaPath(oldPath: String, newPath: String) {
 }
 
 fun Context.updateDBDirectory(directory: Directory, directoryDao: DirectoryDao) {
-    directoryDao.updateDirectory(directory.path, directory.tmb, directory.mediaCnt, directory.modified, directory.taken, directory.size, directory.types)
+    try {
+        directoryDao.updateDirectory(directory.path, directory.tmb, directory.mediaCnt, directory.modified, directory.taken, directory.size, directory.types)
+    } catch (ignored: Exception) {
+    }
 }
 
 fun Context.getFavoritePaths(): ArrayList<String> {
@@ -738,7 +741,7 @@ fun Context.parseFileChannel(path: String, fc: FileChannel, level: Int, start: L
 
                 val sb = StringBuilder()
                 val buffer = ByteArray(1024)
-                while (true) {
+                while (sb.length < size) {
                     val n = fis.read(buffer)
                     if (n != -1) {
                         sb.append(String(buffer, 0, n))
@@ -778,11 +781,14 @@ fun Context.addPathToDB(path: String) {
             else -> TYPE_IMAGES
         }
 
-        val videoDuration = if (type == TYPE_VIDEOS) path.getVideoDuration() else 0
-        val medium = Medium(null, path.getFilenameFromPath(), path, path.getParentPath(), System.currentTimeMillis(), System.currentTimeMillis(),
-                File(path).length(), type, videoDuration, false, 0L)
         try {
-            galleryDB.MediumDao().insert(medium)
+            val mediumDao = galleryDB.MediumDao()
+            val isFavorite = mediumDao.isFavorite(path)
+            val videoDuration = if (type == TYPE_VIDEOS) path.getVideoDuration() else 0
+            val medium = Medium(null, path.getFilenameFromPath(), path, path.getParentPath(), System.currentTimeMillis(), System.currentTimeMillis(),
+                    File(path).length(), type, videoDuration, isFavorite, 0L)
+
+            mediumDao.insert(medium)
         } catch (ignored: Exception) {
         }
     }.start()

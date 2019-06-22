@@ -1,6 +1,34 @@
 Changelog
 ==========
 
+Version 6.8.0 *(2019-06-21)*
+----------------------------
+
+ * Allow grouping files by date_taken or last_modified either daily, or monthly
+ * Allow selecting fade animation or no animation at all at slideshow transitions
+ * Improved the performance at loading fullscreen videos
+ * Use last_modified value at batch file renaming, if date_taken isn't available
+ * Some other stability and translation improvements
+
+Version 6.7.9 *(2019-06-12)*
+----------------------------
+
+ * Fixed a crash at zooming
+
+Version 6.7.8 *(2019-06-11)*
+----------------------------
+
+ * Improved the UX at zooming and panning at the fullscreen view
+ * Fixed unchecking Favorite items in some cases
+ * Show the available aspect ratios at the editor by default
+ * Couple stability, performance and translation improvements
+
+Version 6.7.7 *(2019-05-28)*
+----------------------------
+
+ * Fixed some file deleting related glitches
+ * Improved batch renaming, use the old file extension in case a new one is missing
+
 Version 6.7.6 *(2019-05-26)*
 ----------------------------
 

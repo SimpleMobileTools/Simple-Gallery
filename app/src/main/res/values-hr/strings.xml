@@ -113,12 +113,14 @@
     <string name="include_videos">Dodaj videe</string>
     <string name="include_gifs">Dodaj GIF-ove</string>
     <string name="random_order">Nasumični redoslijed</string>
-    <string name="use_fade">Koristi animaciju izbljeđivanja</string>
     <string name="move_backwards">Pomakni unatrag</string>
     <string name="loop_slideshow">Prikaži dijaprojekciju kao petlju</string>
+    <string name="animation">Animation</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">Kraj dijaprojekcije</string>
     <string name="no_media_for_slideshow">Nema datoteka za dijaprojekciju</string>
-    <string name="use_crossfade_animation">Koristi prijelazne animacije</string>
 
     <!-- View types -->
     <string name="change_view_type">Promijeni vrstu prikaza</string>
@@ -131,7 +133,11 @@
     <string name="do_not_group_files">Nemoj grupirati ove datoteke</string>
     <string name="by_folder">Mapa</string>
     <string name="by_last_modified">Zadnje uređivano</string>
+    <string name="by_last_modified_daily">Last modified (daily)</string>
+    <string name="by_last_modified_monthly">Last modified (monthly)</string>
     <string name="by_date_taken">Datum snimanja</string>
+    <string name="by_date_taken_daily">Date taken (daily)</string>
+    <string name="by_date_taken_monthly">Date taken (monthly)</string>
     <string name="by_file_type">Tip datoteke</string>
     <string name="by_extension">Vrsta datoteke</string>
     <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>

@@ -139,10 +139,12 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         initTimeHolder()
         checkIfPanorama()
 
-        activity?.getVideoResolution(mMedium.path)?.apply {
-            mVideoSize.x = x
-            mVideoSize.y = y
-        }
+        Thread {
+            activity?.getVideoResolution(mMedium.path)?.apply {
+                mVideoSize.x = x
+                mVideoSize.y = y
+            }
+        }.start()
 
         if (mIsPanorama) {
             mView.apply {

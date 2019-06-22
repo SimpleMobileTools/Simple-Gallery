@@ -303,13 +303,13 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(SLIDESHOW_RANDOM_ORDER, false)
         set(slideshowRandomOrder) = prefs.edit().putBoolean(SLIDESHOW_RANDOM_ORDER, slideshowRandomOrder).apply()
 
-    var slideshowUseFade: Boolean
-        get() = prefs.getBoolean(SLIDESHOW_USE_FADE, false)
-        set(slideshowUseFade) = prefs.edit().putBoolean(SLIDESHOW_USE_FADE, slideshowUseFade).apply()
-
     var slideshowMoveBackwards: Boolean
         get() = prefs.getBoolean(SLIDESHOW_MOVE_BACKWARDS, false)
         set(slideshowMoveBackwards) = prefs.edit().putBoolean(SLIDESHOW_MOVE_BACKWARDS, slideshowMoveBackwards).apply()
+
+    var slideshowAnimation: Int
+        get() = prefs.getInt(SLIDESHOW_ANIMATION, SLIDESHOW_ANIMATION_SLIDE)
+        set(slideshowAnimation) = prefs.edit().putInt(SLIDESHOW_ANIMATION, slideshowAnimation).apply()
 
     var loopSlideshow: Boolean
         get() = prefs.getBoolean(SLIDESHOW_LOOP, false)
@@ -387,8 +387,8 @@ class Config(context: Context) : BaseConfig(context) {
 
     fun getLastVideoPosition(path: String) = prefs.getInt("$LAST_VIDEO_POSITION_PREFIX${path.toLowerCase()}", 0)
 
-    fun getAllLastVideoPositions() = prefs.all.filterKeys { 
-        it.startsWith(LAST_VIDEO_POSITION_PREFIX) 
+    fun getAllLastVideoPositions() = prefs.all.filterKeys {
+        it.startsWith(LAST_VIDEO_POSITION_PREFIX)
     }
 
     var rememberLastVideoPosition: Boolean

@@ -113,12 +113,14 @@
     <string name="include_videos">Videoları dahil et</string>
     <string name="include_gifs">GIF\'leri dahil et</string>
     <string name="random_order">Rastgele sırala</string>
-    <string name="use_fade">Soldurma animasyonlarını kullan</string>
     <string name="move_backwards">Geriye doğru git</string>
     <string name="loop_slideshow">Slayt gösterisini tekrarla</string>
+    <string name="animation">Animation</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">Slayt gösterisi sona erdi</string>
     <string name="no_media_for_slideshow">Slayt gösterisi için medya bulunamadı</string>
-    <string name="use_crossfade_animation">Çapraz geçiş animasyonlarını kullan</string>
 
     <!-- View types -->
     <string name="change_view_type">Görünüm türünü değiştir</string>
@@ -131,7 +133,11 @@
     <string name="do_not_group_files">Dosyaları gruplandırma</string>
     <string name="by_folder">Klasör</string>
     <string name="by_last_modified">Son değiştirilme</string>
+    <string name="by_last_modified_daily">Last modified (daily)</string>
+    <string name="by_last_modified_monthly">Last modified (monthly)</string>
     <string name="by_date_taken">Çekildiği tarih</string>
+    <string name="by_date_taken_daily">Date taken (daily)</string>
+    <string name="by_date_taken_monthly">Date taken (monthly)</string>
     <string name="by_file_type">Dosya türü</string>
     <string name="by_extension">Uzantı</string>
     <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>

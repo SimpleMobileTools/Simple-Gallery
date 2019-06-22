@@ -63,7 +63,7 @@
     <string name="manage_included_folders">Gerir pastas incluídas</string>
     <string name="add_folder">Adicionar pasta</string>
     <string name="included_activity_placeholder">Se possuir pastas com dados multimédia não reconhecidos pela aplicação, aqui pode adicioná-las manualmente.</string>
-    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
+    <string name="no_media_add_included">Não foram encontrados ficheiros multimédia. Pode adicionar manualmente as pastas que contenham esses ficheiros.</string>
 
     <!-- Resizing -->
     <string name="resize">Redimensionar</string>
@@ -113,12 +113,14 @@
     <string name="include_videos">Incluir vídeos</string>
     <string name="include_gifs">Incluir GIF</string>
     <string name="random_order">Ordem aleatória</string>
-    <string name="use_fade">Utilizar animações</string>
     <string name="move_backwards">Mover para trás</string>
     <string name="loop_slideshow">Apresentação em ciclo</string>
+    <string name="animation">Animation</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">Apresentação terminada</string>
     <string name="no_media_for_slideshow">Não foram encontrados ficheiros para a apresentação</string>
-    <string name="use_crossfade_animation">Utilizar animação de transição</string>
 
     <!-- View types -->
     <string name="change_view_type">Tipo de exibição</string>
@@ -131,10 +133,14 @@
     <string name="do_not_group_files">Não agrupar ficheiros</string>
     <string name="by_folder">Pasta</string>
     <string name="by_last_modified">Última modificação</string>
+    <string name="by_last_modified_daily">Last modified (daily)</string>
+    <string name="by_last_modified_monthly">Last modified (monthly)</string>
     <string name="by_date_taken">Data de obtenção</string>
+    <string name="by_date_taken_daily">Date taken (daily)</string>
+    <string name="by_date_taken_monthly">Date taken (monthly)</string>
     <string name="by_file_type">Tipo de ficheiro</string>
     <string name="by_extension">Extensão</string>
-    <string name="grouping_and_sorting">Tenha em atenção de que o agrupamento e a ordenação são campos independentes</string>
+    <string name="grouping_and_sorting">Tenha em atenção de que agrupamento e ordenação são campos independentes</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Pasta mostrada no widget:</string>
@@ -156,7 +162,7 @@
     <string name="black_background_at_fullscreen">Fundo escuro e barra de estado no modo de ecrã completo</string>
     <string name="scroll_thumbnails_horizontally">Deslocação horizontal de miniaturas</string>
     <string name="hide_system_ui_at_fullscreen">Ocultar interface do sistema se em ecrã completo</string>
-    <string name="delete_empty_folders">Apagar as pastas vazias depois de remover o seu conteúdo</string>
+    <string name="delete_empty_folders">Apagar pastas vazias depois de remover o seu conteúdo</string>
     <string name="allow_photo_gestures">Permitir controlo do brilho das fotos com gestos verticais</string>
     <string name="allow_video_gestures">Permitir controlo do volume e do brilho dos vídeos através de gestos verticais</string>
     <string name="show_media_count">Mostrar número de ficheiros na vista principal</string>
@@ -170,14 +176,14 @@
     <string name="show_recycle_bin">Mostrar reciclagem no ecrã de pastas</string>
     <string name="deep_zoomable_images">Ampliação de imagens</string>
     <string name="show_highest_quality">Mostrar fotos com a melhor qualidade possível</string>
-    <string name="show_recycle_bin_last">Mostrar a reciclagem como o último item do ecrã principal</string>
+    <string name="show_recycle_bin_last">Mostrar reciclagem como o último item do ecrã principal</string>
     <string name="allow_down_gesture">Sair de ecrã completo com um gesto para baixo</string>
     <string name="allow_one_to_one_zoom">Permitir ampliação 1:1 com dois toques</string>
     <string name="open_videos_on_separate_screen">Abrir vídeos em ecrã distinto com os novos toques horizontais</string>
     <string name="show_notch">Mostrar \"notch\", se disponível</string>
     <string name="allow_rotating_gestures">Permitir rotação de imagens com gestos</string>
     <string name="file_loading_priority">Prioridade de carregamento dos ficheiros</string>
-    <string name="speed">velocidade</string>
+    <string name="speed">Velocidade</string>
     <string name="compromise">Compromisso</string>
     <string name="avoid_showing_invalid_files">Não mostrar ficheiros inválidos</string>
 
@@ -226,16 +232,16 @@
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->
-    <string name="app_title">Simple Gallery Pro: Photo Manager &amp; Editor</string>
+    <string name="app_title">Simple Gallery Pro: Editor e gestor de fotos</string>
     <!-- Short description has to have less than 80 chars -->
-    <string name="app_short_description">Offline gallery without ads. Organize, edit, recover and protect photos &amp; videos</string>
+    <string name="app_short_description">Sem anúncios. Organize, edite, recupere e protega os seus vídeos e fotos</string>
     <string name="app_long_description">
-        Simple Gallery Pro is a highly customizable offline gallery. Organize &amp; edit your photos, recover deleted files with the recycle bin, protect &amp; hide files and view a huge variety of different photo &amp; video formats including RAW, SVG and much more.
+        Simple Gallery Pro é uma aplicação local para gerir fotos e vídeos. Pode organizar e editar as suas fotos, recuperar ficheiros através da reciclagem, proteger e ocultar ficheiros e ver imagens e vídeos disponíveis em vários formatos tais como RAW, SVG e muito mais.
 
-        The app contains no ads and unnecessary permissions. As the app doesn’t require internet access either, your privacy is protected.
+        A aplicação não tem anúncios nem pede permissões desnecessárias. uma vez que também não precisa de aceder à Internet, os seus ficheiros estão protegidos.
 
         -------------------------------------------------
-        <b>SIMPLE GALLERY PRO – FEATURES</b>
+        <b>SIMPLE GALLERY PRO – FUNCIONALIDADES</b>
         -------------------------------------------------
 
         • Offline gallery with no ads or popups

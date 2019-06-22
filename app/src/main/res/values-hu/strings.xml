@@ -63,7 +63,7 @@
     <string name="manage_included_folders">Befoglalt mappák kezelése</string>
     <string name="add_folder">Mappa hozzáadása</string>
     <string name="included_activity_placeholder">Ha vannak olyan mappák, amelyek média fájlokat tartalmaznak, de az alkalmazás nem ismerte fel, akkor kézzel is  hozzáadhatja ezeket.\n\nAz elemek hozzáadása nem zár ki más mappákat.</string>
-    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
+    <string name="no_media_add_included">Nem talált médiafájlokat. Ezt megoldhatja a médiafájlokat tartalmazó mappák manuális hozzáadásával.</string>
 
     <!-- Resizing -->
     <string name="resize">Átméretezés</string>
@@ -114,12 +114,14 @@
     <string name="include_videos">Videók befoglalása</string>
     <string name="include_gifs">GIF befoglalása</string>
     <string name="random_order">Véletlen sorrend</string>
-    <string name="use_fade">Halványuló animáció használat</string>
     <string name="move_backwards">Áthelyezés hátra</string>
     <string name="loop_slideshow">Diavetítés ismétlése</string>
+    <string name="animation">Animation</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">A diavetítés vége</string>
     <string name="no_media_for_slideshow">A diavetítéshez nem található média</string>
-    <string name="use_crossfade_animation">Animáció átmenet használat</string>
 
     <!-- View types -->
     <string name="change_view_type">Nézet típus változtatása</string>
@@ -132,10 +134,14 @@
     <string name="do_not_group_files">Nincs csoportosítás</string>
     <string name="by_folder">Mappa</string>
     <string name="by_last_modified">Utolsó módosítás</string>
+    <string name="by_last_modified_daily">Last modified (daily)</string>
+    <string name="by_last_modified_monthly">Last modified (monthly)</string>
     <string name="by_date_taken">Dátum</string>
+    <string name="by_date_taken_daily">Date taken (daily)</string>
+    <string name="by_date_taken_monthly">Date taken (monthly)</string>
     <string name="by_file_type">Fájl típus</string>
     <string name="by_extension">Kiterjesztés</string>
-    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
+    <string name="grouping_and_sorting">Kérjük, vegye figyelembe, hogy a csoportosítás és a rendezés 2 egymástól független mező</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Mappa mutatása a widgeten:</string>

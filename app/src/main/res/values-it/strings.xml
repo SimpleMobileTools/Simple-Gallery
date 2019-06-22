@@ -113,12 +113,14 @@
     <string name="include_videos">Includi video</string>
     <string name="include_gifs">Includi GIF</string>
     <string name="random_order">Ordine sparso</string>
-    <string name="use_fade">Usa animazioni a dissolvenza</string>
     <string name="move_backwards">Scorri al contrario</string>
     <string name="loop_slideshow">Ripeti presentazione</string>
+    <string name="animation">Animation</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">La presentazione è terminata</string>
     <string name="no_media_for_slideshow">Nessun file trovato per la presentazione</string>
-    <string name="use_crossfade_animation">Usa le animazioni in dissolvenza</string>
 
     <!-- View types -->
     <string name="change_view_type">Cambia modalità visualizzazione</string>
@@ -131,7 +133,11 @@
     <string name="do_not_group_files">Non raggruppare i file</string>
     <string name="by_folder">Cartella</string>
     <string name="by_last_modified">Ultima modifica</string>
+    <string name="by_last_modified_daily">Last modified (daily)</string>
+    <string name="by_last_modified_monthly">Last modified (monthly)</string>
     <string name="by_date_taken">Data creazione</string>
+    <string name="by_date_taken_daily">Date taken (daily)</string>
+    <string name="by_date_taken_monthly">Date taken (monthly)</string>
     <string name="by_file_type">Tipo di file</string>
     <string name="by_extension">Estensione</string>
     <string name="grouping_and_sorting">Notare che il raggruppamento e l\'ordinamento sono due campi indipendenti</string>

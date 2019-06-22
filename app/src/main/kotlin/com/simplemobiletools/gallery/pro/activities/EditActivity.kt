@@ -80,7 +80,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private var drawColor = 0
     private var lastOtherAspectRatio: Pair<Int, Int>? = null
     private var currPrimaryAction = PRIMARY_ACTION_NONE
-    private var currCropRotateAction = CROP_ROTATE_NONE
+    private var currCropRotateAction = CROP_ROTATE_ASPECT_RATIO
     private var currAspectRatio = ASPECT_RATIO_FREE
     private var isCropIntent = false
     private var isEditingWithThirdParty = false
@@ -189,6 +189,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             lastOtherAspectRatio = Pair(config.lastEditorCropOtherAspectRatioX, config.lastEditorCropOtherAspectRatioY)
         }
         updateAspectRatio(config.lastEditorCropAspectRatio)
+        crop_image_view.guidelines = CropImageView.Guidelines.ON
+        bottom_aspect_ratios.beVisible()
     }
 
     private fun loadDefaultImageView() {
@@ -627,8 +629,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         if (currPrimaryAction != PRIMARY_ACTION_CROP_ROTATE) {
             bottom_aspect_ratios.beGone()
             currCropRotateAction = CROP_ROTATE_NONE
-            updateCropRotateActionButtons()
         }
+        updateCropRotateActionButtons()
     }
 
     private fun applyFilter(filterItem: FilterItem) {
@@ -852,7 +854,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun scanFinalPath(path: String) {
-        scanPathRecursively(path) {
+        rescanPaths(arrayListOf(path)) {
             setResult(Activity.RESULT_OK, intent)
             toast(R.string.file_saved)
             finish()

@@ -108,7 +108,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
         if (mUri!!.scheme == "file") {
             if (filename.contains('.')) {
-                scanPathRecursively(mUri!!.path)
+                rescanPaths(arrayListOf(mUri!!.path))
                 sendViewPagerIntent(mUri!!.path)
                 finish()
                 return
@@ -116,7 +116,7 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         } else {
             val path = applicationContext.getRealPathFromURI(mUri!!) ?: ""
             if (path != mUri.toString() && path.isNotEmpty() && mUri!!.authority != "mms" && filename.contains('.') && File(path).exists()) {
-                scanPathRecursively(mUri!!.path)
+                rescanPaths(arrayListOf(mUri!!.path))
                 sendViewPagerIntent(path)
                 finish()
                 return

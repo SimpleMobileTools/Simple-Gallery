@@ -32,7 +32,7 @@
     <string name="fixing">Fixant…</string>
     <string name="dates_fixed_successfully">Data fixada correctament</string>
     <string name="share_resized">Comparteix una versió redimensionada</string>
-    <string name="upgraded_from_free">Hey,\n\nseems like you upgraded from the old free app. You can now uninstall the old version, which has an \'Upgrade to Pro\' button at the top of the app settings.\n\nYou will only have the Recycle bin items deleted, favorite items unmarked and you will also have to reset your app settings.\n\nThanks!</string>
+    <string name="upgraded_from_free">Hola,\n\nsembla que heu actualitzat des de l\'antiga aplicació gratuïta. Ara podeu desinstal·lar la versió antiga, que té un botó "Actualitza a Pro" a la part superior de la configuració de l’aplicació.\nNomés s’eliminaran els elements de la paperera, els elements preferits sense marcar i també caldrà restablirla configuració de la vostra aplicació.\n\nGràcies!</string>
 
     <!-- Filter -->
     <string name="filter_media">Filtre d’arxius</string>
@@ -63,7 +63,7 @@
     <string name="manage_included_folders">Gestionar carpetes incloses</string>
     <string name="add_folder">Agregar carpeta</string>
     <string name="included_activity_placeholder">Si tens alguna carpeta que contingui multimèdia però no ha estat reconeguda per la aplicació, pots agregar-les manualment aquí.</string>
-    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
+    <string name="no_media_add_included">No s’ha trobat cap fitxer multimèdia. Podeu resoldre-ho afegint manualment les carpetes que contenen fitxers multimèdia.</string>
 
     <!-- Resizing -->
     <string name="resize">Redimensionar</string>
@@ -113,12 +113,14 @@
     <string name="include_videos">Inclou vídeos</string>
     <string name="include_gifs">Inclou GIFs</string>
     <string name="random_order">Ordre aleatori</string>
-    <string name="use_fade">Utilitza animacions de desaparició</string>
     <string name="move_backwards">Moure cap enrere</string>
     <string name="loop_slideshow">Presentació de diapositives</string>
+    <string name="animation">Animació</string>
+    <string name="no_animation">Cap</string>
+    <string name="fade">Esvair</string>
+    <string name="slide">Lliscar</string>
     <string name="slideshow_ended">S’ha acabat la presentació de diapositives</string>
     <string name="no_media_for_slideshow">No s’han trobat mitjans per a la presentació de diapositives</string>
-    <string name="use_crossfade_animation">Utilitzeu animacions creuades</string>
 
     <!-- View types -->
     <string name="change_view_type">Canviar el tipus de vista</string>
@@ -131,7 +133,11 @@
     <string name="do_not_group_files">No agrupar fitxers</string>
     <string name="by_folder">Carpeta</string>
     <string name="by_last_modified">Darrer modificat</string>
+    <string name="by_last_modified_daily">Darrer modificat (diari)</string>
+    <string name="by_last_modified_monthly">Darrer modificat (mensual)</string>
     <string name="by_date_taken">Data de presa</string>
+    <string name="by_date_taken_daily">Data de presa (diari)</string>
+    <string name="by_date_taken_monthly">Data de presa (mensual)</string>
     <string name="by_file_type">Tipus de fitxer</string>
     <string name="by_extension">Extensió</string>
     <string name="grouping_and_sorting">Tingueu en compte que l’agrupació i la classificació són 2 camps independents</string>
@@ -217,12 +223,12 @@
     <string name="faq_11_text">Si, només heu d’utilitzar l’ítem del menú \"Agrupar per\" mentre es troba a la vista en miniatura. Podeu agrupar fitxers amb diversos criteris, inclòs data de presa. Si utilitzeu la funció \"Mostra el contingut de totes les carpetes\", també podeu agrupar-les per carpetes.</string>
     <string name="faq_12_title">L’ordenació per data que de presa no sembla funcionar correctament, com puc solucionar-ho?</string>
     <string name="faq_12_text">Probablement, els fitxers es copiïn en un lloc incorrecte. Podeu arreglar-ho si seleccioneu les miniatures del fitxer i seleccioneu \"Fixar data de presa\".</string>
-    <string name="faq_13_title">I see some color banding on the images. How can I improve the quality?</string>
-    <string name="faq_13_text">The current solution for displaying images works fine in the vast majority of cases, but if you want even better image quality, you can enable the \"Show images in the highest possible quality\" at the app settings, in the \"Deep zoomable images\" section.</string>
-    <string name="faq_14_title">I have hidden a file/folder. How can I unhide it?</string>
-    <string name="faq_14_text">You can either press the \"Temporarily show hidden items\" menu item at the main screen, or toggle \"Show hidden items\" in the app settings to see the hidden item. If you want to unhide it, just long press it and select \"Unhide\". Folders are hidden by adding a hidden \".nomedia\" file into them, you can delete the file with any file manager too.</string>
-    <string name="faq_15_title">Why does the app take up so much space?</string>
-    <string name="faq_15_text">App cache can take up to 250MB, it ensures quicker image loading. If the app is taking up even more space, it is most likely caused by you having items in the Recycle Bin. Those files count to the app size. You can clear the Recycle bin by opening it and deleting all files, or from the app settings. Every file in the Bin is deleted automatically after 30 days.</string>
+    <string name="faq_13_title">Veig algunes bandes de colors a les imatges. Com puc millorar la qualitat?</string>
+    <string name="faq_13_text">La solució actual per mostrar imatges funciona bé en la gran majoria dels casos, però si voleu obtenir una millor qualitat d\'imatge, podeu activar \"Mostra les imatges amb la màxima qualitat possible\" a la configuració de l’aplicació, a la secció \"Imatges ampliades a mida\".</string>
+    <string name="faq_14_title">He amagat un fitxer / carpeta. Com puc mostrar-la?</string>
+    <string name="faq_14_text">Podeu prémer l’element de menú \"Mostra temporalment elements ocults\" a la pantalla principal o canviar \"Mostra els elements ocults\" a la configuració de l’aplicació per veure l’element amagat. Si voleu mostrar-la sempre, premeu-la i seleccioneu \"Mostra\". Les carpetes s\'amaguen afegint un fitxer \".nomedia\" ocult en elles, també podeu eliminar el fitxer amb qualsevol gestor de fitxers.</string>
+    <string name="faq_15_title">Per què l’aplicació ocupa molt d’espai?</string>
+    <string name="faq_15_text">La memòria cau d’aplicacions pot ocupar fins a 250 MB, garanteix una càrrega de les imatges més ràpida. Si l’aplicació ocupa més espai, probablement sigui per tenir elements a la Paperera de reciclatge. Aquests fitxers compten a la mida de l’aplicació. Podeu esborrar la paperera de reciclatge obrint-la i suprimint tots els fitxers o des de la configuració de l’aplicació. Els fitxers de la paperera s’eliminen automàticament després de 30 dies.</string>
 
     <!-- Strings displayed only on Google Playstore. Optional, but good to have -->
     <!-- App title has to have less than 50 characters. If you cannot squeeze it, just remove a part of it -->

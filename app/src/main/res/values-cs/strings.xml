@@ -113,12 +113,14 @@
     <string name="include_videos">Zahrnout videa</string>
     <string name="include_gifs">Zahrnout GIFy</string>
     <string name="random_order">Náhodné pořadí</string>
-    <string name="use_fade">Použít animaci slábnutí</string>
     <string name="move_backwards">Jít opačným směrem</string>
     <string name="loop_slideshow">Opakovat prezentaci ve smyčce</string>
+    <string name="animation">Animation</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">Prezentace skončila</string>
     <string name="no_media_for_slideshow">Nebyla nalezena žádná média pro prezentaci</string>
-    <string name="use_crossfade_animation">Použít animaci prolnutí</string>
 
     <!-- View types -->
     <string name="change_view_type">Změnit typ zobrazení</string>
@@ -131,7 +133,11 @@
     <string name="do_not_group_files">Neseskupovat soubory</string>
     <string name="by_folder">Složky</string>
     <string name="by_last_modified">Data poslední úpravy</string>
+    <string name="by_last_modified_daily">Last modified (daily)</string>
+    <string name="by_last_modified_monthly">Last modified (monthly)</string>
     <string name="by_date_taken">Data pořízení</string>
+    <string name="by_date_taken_daily">Date taken (daily)</string>
+    <string name="by_date_taken_monthly">Date taken (monthly)</string>
     <string name="by_file_type">Typu souboru</string>
     <string name="by_extension">Přípony</string>
     <string name="grouping_and_sorting">Mějte prosím na paměti, že seskupování a řazení jsou 2 nezávislé hodnoty</string>

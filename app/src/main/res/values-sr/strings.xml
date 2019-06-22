@@ -113,12 +113,14 @@
     <string name="include_videos">Садржи видео снимке</string>
     <string name="include_gifs">Садржи ГИФове</string>
     <string name="random_order">Насумични редослед</string>
-    <string name="use_fade">Користи изблеђујуће анимације</string>
     <string name="move_backwards">Помери уназад</string>
     <string name="loop_slideshow">Понављај слајдшоу</string>
+    <string name="animation">Animation</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">Слајдшоу се завршио</string>
     <string name="no_media_for_slideshow">Нису пронађени медији за слајдшоу</string>
-    <string name="use_crossfade_animation">Користи анимације са унакрсним изблеђивањем</string>
 
     <!-- View types -->
     <string name="change_view_type">Промени тип прегледа</string>
@@ -131,7 +133,11 @@
     <string name="do_not_group_files">Не групиши датотеке</string>
     <string name="by_folder">Фасцикла</string>
     <string name="by_last_modified">Задње измењено</string>
+    <string name="by_last_modified_daily">Last modified (daily)</string>
+    <string name="by_last_modified_monthly">Last modified (monthly)</string>
     <string name="by_date_taken">Датум настанка</string>
+    <string name="by_date_taken_daily">Date taken (daily)</string>
+    <string name="by_date_taken_monthly">Date taken (monthly)</string>
     <string name="by_file_type">Тип датотеке</string>
     <string name="by_extension">Тип датотеке</string>
     <string name="grouping_and_sorting">Имајте на уму да су груписање и сортирање 2 различите ствари</string>

@@ -113,12 +113,14 @@
     <string name="include_videos">Inkluder videoer</string>
     <string name="include_gifs">Inkluder GIF-bilder</string>
     <string name="random_order">Tilfeldig rekkefølge</string>
-    <string name="use_fade">Bruk toningseffekt</string>
     <string name="move_backwards">Avspill bakover</string>
     <string name="loop_slideshow">Gjenta lysbildeshow</string>
+    <string name="animation">Animation</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">Lysbildeshowet er slutt</string>
     <string name="no_media_for_slideshow">Ingen media for lysbildeshowet er funnet</string>
-    <string name="use_crossfade_animation">Bruk krysstoningsanimasjon</string>
 
     <!-- View types -->
     <string name="change_view_type">Endre visningstype</string>
@@ -131,7 +133,11 @@
     <string name="do_not_group_files">Ikke grupper filer</string>
     <string name="by_folder">Mappe</string>
     <string name="by_last_modified">Sist endret</string>
+    <string name="by_last_modified_daily">Last modified (daily)</string>
+    <string name="by_last_modified_monthly">Last modified (monthly)</string>
     <string name="by_date_taken">Dato tatt</string>
+    <string name="by_date_taken_daily">Date taken (daily)</string>
+    <string name="by_date_taken_monthly">Date taken (monthly)</string>
     <string name="by_file_type">Filtype</string>
     <string name="by_extension">Endelse</string>
     <string name="grouping_and_sorting">Vær oppmerksom på at gruppering og sortering er to uavhengige områder</string>

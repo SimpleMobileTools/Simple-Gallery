@@ -18,7 +18,7 @@ class GetMediaAsynctask(val context: Context, val mPath: String, val isPickImage
 
     override fun doInBackground(vararg params: Void): ArrayList<ThumbnailItem> {
         val pathToUse = if (showAll) SHOW_ALL else mPath
-        val getProperDateTaken = context.config.getFileSorting(pathToUse) and SORT_BY_DATE_TAKEN != 0 || context.config.getFolderGrouping(pathToUse) and GROUP_BY_DATE_TAKEN != 0
+        val getProperDateTaken = context.config.getFileSorting(pathToUse) and SORT_BY_DATE_TAKEN != 0 || context.config.getFolderGrouping(pathToUse) and GROUP_BY_DATE_TAKEN_DAILY != 0
         val getProperFileSize = context.config.getFileSorting(pathToUse) and SORT_BY_SIZE != 0
         val favoritePaths = context.getFavoritePaths()
         val getVideoDurations = context.config.showThumbnailVideoDuration

@@ -113,12 +113,14 @@
     <string name="include_videos">Inkluder videoer</string>
     <string name="include_gifs">Inkluder GIF\'er</string>
     <string name="random_order">Tilfældig rækkefølge</string>
-    <string name="use_fade">Brug udtonende animationer</string>
     <string name="move_backwards">Kør baglæns</string>
     <string name="loop_slideshow">Endeløs kørsel</string>
+    <string name="animation">Animation</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">Slideshowet endte</string>
     <string name="no_media_for_slideshow">Der blev ikke funket nogen mediefiler til slideshowet</string>
-    <string name="use_crossfade_animation">Anvend crossfade-animationer</string>
 
     <!-- View types -->
     <string name="change_view_type">Skift visning</string>
@@ -131,7 +133,11 @@
     <string name="do_not_group_files">Gruppér ikke filer</string>
     <string name="by_folder">Mappe</string>
     <string name="by_last_modified">Sidst ændret</string>
+    <string name="by_last_modified_daily">Last modified (daily)</string>
+    <string name="by_last_modified_monthly">Last modified (monthly)</string>
     <string name="by_date_taken">Eksponeringsdato</string>
+    <string name="by_date_taken_daily">Date taken (daily)</string>
+    <string name="by_date_taken_monthly">Date taken (monthly)</string>
     <string name="by_file_type">Filtype</string>
     <string name="by_extension">Filendelse</string>
     <string name="grouping_and_sorting">Vær opmærksom på at gruppering og sortering er to individuelle felter</string>

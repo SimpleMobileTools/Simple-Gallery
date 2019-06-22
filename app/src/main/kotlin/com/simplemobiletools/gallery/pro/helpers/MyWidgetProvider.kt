@@ -10,12 +10,16 @@ import android.widget.RemoteViews
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
+import com.simplemobiletools.commons.extensions.getFileSignature
 import com.simplemobiletools.commons.extensions.setBackgroundColor
 import com.simplemobiletools.commons.extensions.setText
 import com.simplemobiletools.commons.extensions.setVisibleIf
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.MediaActivity
-import com.simplemobiletools.gallery.pro.extensions.*
+import com.simplemobiletools.gallery.pro.extensions.config
+import com.simplemobiletools.gallery.pro.extensions.directoryDB
+import com.simplemobiletools.gallery.pro.extensions.getFolderNameFromPath
+import com.simplemobiletools.gallery.pro.extensions.widgetsDB
 import com.simplemobiletools.gallery.pro.models.Widget
 
 class MyWidgetProvider : AppWidgetProvider() {
@@ -44,7 +48,12 @@ class MyWidgetProvider : AppWidgetProvider() {
                 val options = RequestOptions()
                         .signature(path.getFileSignature())
                         .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
-                if (context.config.cropThumbnails) options.centerCrop() else options.fitCenter()
+
+                if (context.config.cropThumbnails) {
+                    options.centerCrop()
+                } else {
+                    options.fitCenter()
+                }
 
                 val density = context.resources.displayMetrics.density
                 val appWidgetOptions = appWidgetManager.getAppWidgetOptions(appWidgetIds.first())

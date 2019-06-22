@@ -41,8 +41,10 @@ class ChangeGroupingDialog(val activity: BaseSimpleActivity, val path: String = 
 
         val groupBtn = when {
             currGrouping and GROUP_BY_NONE != 0 -> groupingRadio.grouping_dialog_radio_none
-            currGrouping and GROUP_BY_LAST_MODIFIED != 0 -> groupingRadio.grouping_dialog_radio_last_modified
-            currGrouping and GROUP_BY_DATE_TAKEN != 0 -> groupingRadio.grouping_dialog_radio_date_taken
+            currGrouping and GROUP_BY_LAST_MODIFIED_DAILY != 0 -> groupingRadio.grouping_dialog_radio_last_modified_daily
+            currGrouping and GROUP_BY_LAST_MODIFIED_MONTHLY != 0 -> groupingRadio.grouping_dialog_radio_last_modified_monthly
+            currGrouping and GROUP_BY_DATE_TAKEN_DAILY != 0 -> groupingRadio.grouping_dialog_radio_date_taken_daily
+            currGrouping and GROUP_BY_DATE_TAKEN_MONTHLY != 0 -> groupingRadio.grouping_dialog_radio_date_taken_monthly
             currGrouping and GROUP_BY_FILE_TYPE != 0 -> groupingRadio.grouping_dialog_radio_file_type
             currGrouping and GROUP_BY_EXTENSION != 0 -> groupingRadio.grouping_dialog_radio_extension
             else -> groupingRadio.grouping_dialog_radio_folder
@@ -64,8 +66,10 @@ class ChangeGroupingDialog(val activity: BaseSimpleActivity, val path: String = 
         val groupingRadio = view.grouping_dialog_radio_grouping
         var grouping = when (groupingRadio.checkedRadioButtonId) {
             R.id.grouping_dialog_radio_none -> GROUP_BY_NONE
-            R.id.grouping_dialog_radio_last_modified -> GROUP_BY_LAST_MODIFIED
-            R.id.grouping_dialog_radio_date_taken -> GROUP_BY_DATE_TAKEN
+            R.id.grouping_dialog_radio_last_modified_daily -> GROUP_BY_LAST_MODIFIED_DAILY
+            R.id.grouping_dialog_radio_last_modified_monthly -> GROUP_BY_LAST_MODIFIED_MONTHLY
+            R.id.grouping_dialog_radio_date_taken_daily -> GROUP_BY_DATE_TAKEN_DAILY
+            R.id.grouping_dialog_radio_date_taken_monthly -> GROUP_BY_DATE_TAKEN_MONTHLY
             R.id.grouping_dialog_radio_file_type -> GROUP_BY_FILE_TYPE
             R.id.grouping_dialog_radio_extension -> GROUP_BY_EXTENSION
             else -> GROUP_BY_FOLDER

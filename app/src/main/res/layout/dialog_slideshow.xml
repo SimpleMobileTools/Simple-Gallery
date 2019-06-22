@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/slideshow_scrollview"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -35,10 +36,42 @@
             android:textSize="@dimen/normal_text_size"/>
 
         <RelativeLayout
-            android:id="@+id/include_videos_holder"
+            android:id="@+id/animation_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/interval_label"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:background="?attr/selectableItemBackground"
+            android:paddingTop="@dimen/bigger_margin"
+            android:paddingBottom="@dimen/bigger_margin">
+
+            <com.simplemobiletools.commons.views.MyTextView
+                android:id="@+id/animation_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toStartOf="@+id/animation_value"
+                android:paddingLeft="@dimen/medium_margin"
+                android:paddingRight="@dimen/medium_margin"
+                android:text="@string/animation"/>
+
+            <com.simplemobiletools.commons.views.MyTextView
+                android:id="@+id/animation_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/medium_margin"
+                android:background="@null"
+                android:clickable="false"
+                tools:text="@string/slide"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/include_videos_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/animation_holder"
             android:background="?attr/selectableItemBackground"
             android:paddingStart="@dimen/medium_margin"
             android:paddingTop="@dimen/activity_margin"
@@ -95,31 +128,10 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/use_fade_holder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/random_order_holder"
-            android:background="?attr/selectableItemBackground"
-            android:paddingStart="@dimen/medium_margin"
-            android:paddingTop="@dimen/activity_margin"
-            android:paddingBottom="@dimen/activity_margin"
-            android:visibility="gone">
-
-            <com.simplemobiletools.commons.views.MySwitchCompat
-                android:id="@+id/use_fade"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:clickable="false"
-                android:text="@string/use_fade"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
             android:id="@+id/move_backwards_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/use_fade_holder"
+            android:layout_below="@+id/random_order_holder"
             android:background="?attr/selectableItemBackground"
             android:paddingStart="@dimen/medium_margin"
             android:paddingTop="@dimen/activity_margin"

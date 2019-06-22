@@ -113,12 +113,14 @@
     <string name="include_videos">Vključi videoposnetke</string>
     <string name="include_gifs">Vključi GIFe</string>
     <string name="random_order">Naključni vrstni red</string>
-    <string name="use_fade">Uporabi zameglitev animacij</string>
     <string name="move_backwards">Premik nazaj</string>
     <string name="loop_slideshow">Ponavljaj diaprojekcijo</string>
+    <string name="animation">Animation</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">Diaprojekcija se je zaključila</string>
     <string name="no_media_for_slideshow">Ne najdem datotek za diaprojekcijo</string>
-    <string name="use_crossfade_animation">Uporabi križanje animacij</string>
 
     <!-- View types -->
     <string name="change_view_type">Spremeni tip pogleda</string>
@@ -131,7 +133,11 @@
     <string name="do_not_group_files">Ne združuj datotek</string>
     <string name="by_folder">Mapa</string>
     <string name="by_last_modified">Zadnjič spremenjeno</string>
+    <string name="by_last_modified_daily">Last modified (daily)</string>
+    <string name="by_last_modified_monthly">Last modified (monthly)</string>
     <string name="by_date_taken">Posneto</string>
+    <string name="by_date_taken_daily">Date taken (daily)</string>
+    <string name="by_date_taken_monthly">Date taken (monthly)</string>
     <string name="by_file_type">Tip datoteke</string>
     <string name="by_extension">Končnica</string>
     <string name="grouping_and_sorting">Združevanje in sortiranje sta dve neodvisni polji.</string>

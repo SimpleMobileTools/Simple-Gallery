@@ -113,12 +113,14 @@
     <string name="include_videos">Incluir vídeos</string>
     <string name="include_gifs">Incluir GIFs</string>
     <string name="random_order">Orden aleatorio</string>
-    <string name="use_fade">Usar animaciones de desvanecimiento</string>
     <string name="move_backwards">Mover hacia atrás</string>
     <string name="loop_slideshow">Presentación de diapositivas</string>
+    <string name="animation">Animación</string>
+    <string name="no_animation">Ninguna</string>
+    <string name="fade">Fusión</string>
+    <string name="slide">Desplazamineto</string>
     <string name="slideshow_ended">La diapositiva terminó</string>
     <string name="no_media_for_slideshow">No se han encontrado medios para la presentación de diapositivas</string>
-    <string name="use_crossfade_animation">Usa animaciones de crossfade.</string>
 
     <!-- View types -->
     <string name="change_view_type">Cambiar tipo de vista</string>
@@ -131,7 +133,11 @@
     <string name="do_not_group_files">No agrupar ficheros</string>
     <string name="by_folder">Carpeta</string>
     <string name="by_last_modified">Último modificado</string>
-    <string name="by_date_taken">Data de toma</string>
+    <string name="by_last_modified_daily">Último modificado (diario)</string>
+    <string name="by_last_modified_monthly">Último modificado (mensual)</string>
+    <string name="by_date_taken">Fecha de toma</string>
+    <string name="by_date_taken_daily">Fecha de toma (diario)</string>
+    <string name="by_date_taken_monthly">Fecha de toma (mensual)</string>
     <string name="by_file_type">Tipo de fichero</string>
     <string name="by_extension">Extensión</string>
     <string name="grouping_and_sorting">Tenga en cuenta que la agrupación y la clasificación son 2 campos independientes</string>

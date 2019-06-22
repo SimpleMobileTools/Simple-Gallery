@@ -15,8 +15,8 @@ android {
         applicationId "com.simplemobiletools.gallery.pro"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 250
-        versionName "6.7.6"
+        versionCode 254
+        versionName "6.8.0"
         multiDexEnabled true
         setProperty("archivesBaseName", "gallery")
     }
@@ -61,12 +61,12 @@ android {
 }
 
 dependencies {
-    implementation 'com.simplemobiletools:commons:5.13.1'
+    implementation 'com.simplemobiletools:commons:5.14.0'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'it.sephiroth.android.exif:library:1.0.1'
-    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.17-SNAPSHOT'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta1'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.17'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
     implementation 'com.google.android.exoplayer:exoplayer-core:2.9.6'
     implementation 'com.google.vr:sdk-panowidget:1.180.0'
     implementation 'com.google.vr:sdk-videowidget:1.180.0'
@@ -74,11 +74,11 @@ dependencies {
     implementation 'info.androidhive:imagefilters:1.0.7'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.caverock:androidsvg-aar:1.3'
-    implementation 'com.github.tibbi:gestureviews:1506ec6156'
-    implementation 'com.github.tibbi:subsampling-scale-image-view:1df78cdfff'
+    implementation 'com.github.tibbi:gestureviews:4444214285'
+    implementation 'com.github.tibbi:subsampling-scale-image-view:55eb1ddd5b'
     kapt 'com.github.bumptech.glide:compiler:4.9.0' // keep it here too, not just in Commons, else loading SVGs wont work
 
-    kapt 'androidx.room:room-compiler:2.0.0'
-    implementation 'androidx.room:room-runtime:2.0.0'
-    annotationProcessor 'androidx.room:room-compiler:2.0.0'
+    kapt 'androidx.room:room-compiler:2.1.0'
+    implementation 'androidx.room:room-runtime:2.1.0'
+    annotationProcessor 'androidx.room:room-compiler:2.1.0'
 }

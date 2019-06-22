@@ -325,7 +325,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
         if (intent.action == "com.android.camera.action.REVIEW") {
             Thread {
-                if (galleryDB.MediumDao().getMediaFromPath(mPath).isEmpty()) {
+                val mediumDao = galleryDB.MediumDao()
+                if (mediumDao.getMediaFromPath(mPath).isEmpty()) {
                     val type = when {
                         mPath.isVideoFast() -> TYPE_VIDEOS
                         mPath.isGif() -> TYPE_GIFS
@@ -334,9 +335,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                         else -> TYPE_IMAGES
                     }
 
+                    val isFavorite = mediumDao.isFavorite(mPath)
                     val duration = if (type == TYPE_VIDEOS) mPath.getVideoDuration() else 0
-                    val medium = Medium(null, mPath.getFilenameFromPath(), mPath, mPath.getParentPath(), System.currentTimeMillis(), System.currentTimeMillis(), File(mPath).length(), type, duration, false, 0)
-                    galleryDB.MediumDao().insert(medium)
+                    val ts = System.currentTimeMillis()
+                    val medium = Medium(null, mPath.getFilenameFromPath(), mPath, mPath.getParentPath(), ts, ts, File(mPath).length(), type, duration, isFavorite, 0)
+                    mediumDao.insert(medium)
                 }
             }.start()
         }
@@ -393,6 +396,10 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         if (getMediaForSlideshow()) {
             view_pager.onGlobalLayout {
                 if (!isDestroyed) {
+                    if (config.slideshowAnimation == SLIDESHOW_ANIMATION_FADE) {
+                        view_pager.setPageTransformer(false, FadePageTransformer())
+                    }
+
                     hideSystemUI(true)
                     mSlideshowInterval = config.slideshowInterval
                     mSlideshowMoveBackwards = config.slideshowMoveBackwards
@@ -401,6 +408,16 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     scheduleSwipe()
                 }
             }
+        }
+    }
+
+    private fun goToNextMedium(forward: Boolean) {
+        val oldPosition = view_pager.currentItem
+        val newPosition = if (forward) oldPosition + 1 else oldPosition - 1
+        if (newPosition == -1 || newPosition > view_pager.adapter!!.count - 1) {
+            slideshowEnded(forward)
+        } else {
+            view_pager.setCurrentItem(newPosition, false)
         }
     }
 
@@ -433,7 +450,13 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         })
 
-        animator.interpolator = DecelerateInterpolator()
+        if (config.slideshowAnimation == SLIDESHOW_ANIMATION_SLIDE) {
+            animator.interpolator = DecelerateInterpolator()
+            animator.duration = SLIDESHOW_SLIDE_DURATION
+        } else {
+            animator.duration = SLIDESHOW_FADE_DURATION
+        }
+
         animator.addUpdateListener(object : ValueAnimator.AnimatorUpdateListener {
             var oldDragPosition = 0
             override fun onAnimationUpdate(animation: ValueAnimator) {
@@ -450,7 +473,6 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             }
         })
 
-        animator.duration = SLIDESHOW_SCROLL_DURATION
         view_pager.beginFakeDrag()
         animator.start()
     }
@@ -470,6 +492,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
 
     private fun stopSlideshow() {
         if (mIsSlideshowActive) {
+            view_pager.setPageTransformer(false, DefaultPageTransformer())
             mIsSlideshowActive = false
             showSystemUI(true)
             mSlideshowHandler.removeCallbacksAndMessages(null)
@@ -493,7 +516,11 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun swipeToNextMedium() {
-        animatePagerTransition(!mSlideshowMoveBackwards)
+        if (config.slideshowAnimation == SLIDESHOW_ANIMATION_NONE) {
+            goToNextMedium(!mSlideshowMoveBackwards)
+        } else {
+            animatePagerTransition(!mSlideshowMoveBackwards)
+        }
     }
 
     private fun getMediaForSlideshow(): Boolean {
@@ -1017,9 +1044,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         val fileDirItem = FileDirItem(mDirectory, mDirectory.getFilenameFromPath(), File(mDirectory).isDirectory)
         if (config.deleteEmptyFolders && !fileDirItem.isDownloadsFolder() && fileDirItem.isDirectory && fileDirItem.getProperFileCount(true) == 0) {
             tryDeleteFileDirItem(fileDirItem, true, true)
+            scanPathRecursively(mDirectory)
         }
-
-        scanPathRecursively(mDirectory)
     }
 
     private fun checkOrientation() {

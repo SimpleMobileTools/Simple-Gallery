@@ -113,12 +113,14 @@
     <string name="include_videos">Include videos</string>
     <string name="include_gifs">Include GIFs</string>
     <string name="random_order">Random order</string>
-    <string name="use_fade">Use fade animations</string>
     <string name="move_backwards">Move backwards</string>
     <string name="loop_slideshow">Loop slideshow</string>
+    <string name="animation">Animation</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">The slideshow ended</string>
     <string name="no_media_for_slideshow">No media for the slideshow have been found</string>
-    <string name="use_crossfade_animation">Use crossfade animations</string>
 
     <!-- View types -->
     <string name="change_view_type">Change view type</string>
@@ -131,7 +133,11 @@
     <string name="do_not_group_files">Do not group files</string>
     <string name="by_folder">Folder</string>
     <string name="by_last_modified">Last modified</string>
+    <string name="by_last_modified_daily">Last modified (daily)</string>
+    <string name="by_last_modified_monthly">Last modified (monthly)</string>
     <string name="by_date_taken">Date taken</string>
+    <string name="by_date_taken_daily">Date taken (daily)</string>
+    <string name="by_date_taken_monthly">Date taken (monthly)</string>
     <string name="by_file_type">File type</string>
     <string name="by_extension">Extension</string>
     <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
