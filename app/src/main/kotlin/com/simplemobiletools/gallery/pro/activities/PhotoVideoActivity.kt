@@ -97,9 +97,11 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             val realPath = intent.extras!!.getString(REAL_FILE_PATH)
             if (realPath != null && File(realPath).exists()) {
                 if (realPath.getFilenameFromPath().contains('.') || filename.contains('.')) {
-                    sendViewPagerIntent(realPath)
-                    finish()
-                    return
+                    if (isFileTypeVisible(realPath)) {
+                        sendViewPagerIntent(realPath)
+                        finish()
+                        return
+                    }
                 } else {
                     filename = realPath.getFilenameFromPath()
                 }
@@ -116,10 +118,12 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
         } else {
             val path = applicationContext.getRealPathFromURI(mUri!!) ?: ""
             if (path != mUri.toString() && path.isNotEmpty() && mUri!!.authority != "mms" && filename.contains('.') && File(path).exists()) {
-                rescanPaths(arrayListOf(mUri!!.path))
-                sendViewPagerIntent(path)
-                finish()
-                return
+                if (isFileTypeVisible(path)) {
+                    rescanPaths(arrayListOf(mUri!!.path))
+                    sendViewPagerIntent(path)
+                    finish()
+                    return
+                }
             }
         }
 
@@ -251,6 +255,15 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
     private fun showProperties() {
         PropertiesDialog(this, mUri!!.path)
+    }
+
+    private fun isFileTypeVisible(path: String): Boolean {
+        val filter = config.filterMedia
+        return !(path.isImageFast() && filter and TYPE_IMAGES == 0 ||
+                path.isVideoFast() && filter and TYPE_VIDEOS == 0 ||
+                path.isGif() && filter and TYPE_GIFS == 0 ||
+                path.isRawFast() && filter and TYPE_RAWS == 0 ||
+                path.isSvg() && filter and TYPE_SVGS == 0)
     }
 
     private fun initBottomActions() {
