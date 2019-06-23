@@ -846,6 +846,10 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             media_refresh_layout.isRefreshing = false
             media_empty_text_label.beVisibleIf(media.isEmpty() && !isFromCache)
             media_empty_text.beVisibleIf(media.isEmpty() && !isFromCache)
+
+            if (media_empty_text_label.isVisible()) {
+                media_empty_text_label.text = getString(R.string.no_media_with_filters)
+            }
             media_grid.beVisibleIf(media_empty_text_label.isGone())
 
             val viewType = config.getFolderViewType(if (mShowAll) SHOW_ALL else mPath)

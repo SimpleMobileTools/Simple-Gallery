@@ -1003,7 +1003,6 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         if (dirs.isEmpty() && config.filterMedia == TYPE_DEFAULT_FILTER) {
             directories_empty_text_label.text = getString(R.string.no_media_add_included)
             directories_empty_text.text = getString(R.string.add_folder)
-            directories_empty_text.underlineText()
 
             directories_empty_text.setOnClickListener {
                 showAddIncludedFolderDialog {
@@ -1013,11 +1012,13 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         } else {
             directories_empty_text_label.text = getString(R.string.no_media_with_filters)
             directories_empty_text.text = getString(R.string.change_filters_underlined)
+
             directories_empty_text.setOnClickListener {
                 showFilterMediaDialog()
             }
         }
 
+        directories_empty_text.underlineText()
         directories_grid.beVisibleIf(directories_empty_text_label.isGone())
     }
 
