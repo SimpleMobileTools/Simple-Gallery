@@ -67,7 +67,7 @@ dependencies {
     implementation 'it.sephiroth.android.exif:library:1.0.1'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.17'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta2'
-    implementation 'com.google.android.exoplayer:exoplayer-core:2.9.6'
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.10.2'
     implementation 'com.google.vr:sdk-panowidget:1.180.0'
     implementation 'com.google.vr:sdk-videowidget:1.180.0'
     implementation 'org.apache.sanselan:sanselan:0.97-incubator'
