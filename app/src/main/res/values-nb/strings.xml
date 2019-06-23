@@ -63,7 +63,7 @@
     <string name="manage_included_folders">Håndter inkluderte mapper</string>
     <string name="add_folder">Legg til mappe</string>
     <string name="included_activity_placeholder">Hvis du har noen mapper som inneholder media, men ikke ble gjenkjent av appen, kan du legge dem til manuelt her.\n\nÅ legge til noen elementer her, ekskluderer ikke noen annen mappe.</string>
-    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
+    <string name="no_media_add_included">Ingen mediafiler er funnet. Dette kan løses ved å legge til mapper som inneholder mediafiler manuelt.</string>
 
     <!-- Resizing -->
     <string name="resize">Endre størrelse</string>
@@ -115,8 +115,8 @@
     <string name="random_order">Tilfeldig rekkefølge</string>
     <string name="move_backwards">Avspill bakover</string>
     <string name="loop_slideshow">Gjenta lysbildeshow</string>
-    <string name="animation">Animation</string>
-    <string name="no_animation">None</string>
+    <string name="animation">Animasjon</string>
+    <string name="no_animation">Ingen</string>
     <string name="fade">Fade</string>
     <string name="slide">Slide</string>
     <string name="slideshow_ended">Lysbildeshowet er slutt</string>
@@ -133,11 +133,11 @@
     <string name="do_not_group_files">Ikke grupper filer</string>
     <string name="by_folder">Mappe</string>
     <string name="by_last_modified">Sist endret</string>
-    <string name="by_last_modified_daily">Last modified (daily)</string>
-    <string name="by_last_modified_monthly">Last modified (monthly)</string>
+    <string name="by_last_modified_daily">Sist endret (daglig)</string>
+    <string name="by_last_modified_monthly">Sist endret (månedlig)</string>
     <string name="by_date_taken">Dato tatt</string>
-    <string name="by_date_taken_daily">Date taken (daily)</string>
-    <string name="by_date_taken_monthly">Date taken (monthly)</string>
+    <string name="by_date_taken_daily">Dato tatt (daglig)</string>
+    <string name="by_date_taken_monthly">Dato tatt (månedlig)</string>
     <string name="by_file_type">Filtype</string>
     <string name="by_extension">Endelse</string>
     <string name="grouping_and_sorting">Vær oppmerksom på at gruppering og sortering er to uavhengige områder</string>
