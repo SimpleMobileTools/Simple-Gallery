@@ -333,6 +333,13 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 filtered.sortBy { it is Medium && !it.name.startsWith(text, true) }
                 val grouped = MediaFetcher(applicationContext).groupMedia(filtered as ArrayList<Medium>, mPath)
                 runOnUiThread {
+                    if (grouped.isEmpty()) {
+                        media_empty_text_label.text = getString(R.string.no_items_found)
+                        media_empty_text_label.beVisible()
+                    } else {
+                        media_empty_text_label.beGone()
+                    }
+
                     getMediaAdapter()?.updateMedia(grouped)
                     measureRecyclerViewContent(grouped)
                 }
