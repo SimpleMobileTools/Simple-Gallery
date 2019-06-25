@@ -115,10 +115,10 @@
     <string name="random_order">ランダムな順序</string>
     <string name="move_backwards">逆方向に進む</string>
     <string name="loop_slideshow">スライドショーをリピート再生する</string>
-    <string name="animation">Animation</string>
-    <string name="no_animation">None</string>
-    <string name="fade">Fade</string>
-    <string name="slide">Slide</string>
+    <string name="animation">アニメーション</string>
+    <string name="no_animation">なし</string>
+    <string name="fade">フェード</string>
+    <string name="slide">スライド</string>
     <string name="slideshow_ended">スライドショーが終了しました</string>
     <string name="no_media_for_slideshow">スライドショーに表示するメディアがありません</string>
 
@@ -133,11 +133,11 @@
     <string name="do_not_group_files">何もしない</string>
     <string name="by_folder">フォルダ</string>
     <string name="by_last_modified">更新日時</string>
-    <string name="by_last_modified_daily">Last modified (daily)</string>
-    <string name="by_last_modified_monthly">Last modified (monthly)</string>
+    <string name="by_last_modified_daily">更新日時 (毎日)</string>
+    <string name="by_last_modified_monthly">更新日時 (毎月)</string>
     <string name="by_date_taken">撮影日時</string>
-    <string name="by_date_taken_daily">Date taken (daily)</string>
-    <string name="by_date_taken_monthly">Date taken (monthly)</string>
+    <string name="by_date_taken_daily">撮影日時 (毎日)</string>
+    <string name="by_date_taken_monthly">撮影日時 (毎月)</string>
     <string name="by_file_type">ファイル形式</string>
     <string name="by_extension">拡張子</string>
     <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
