@@ -39,6 +39,9 @@ class SearchActivity : SimpleActivity() {
                 override fun onQueryTextSubmit(query: String) = false
 
                 override fun onQueryTextChange(newText: String): Boolean {
+                    if (mIsSearchOpen) {
+                        textChanged(newText)
+                    }
                     return true
                 }
             })
@@ -46,14 +49,23 @@ class SearchActivity : SimpleActivity() {
 
         MenuItemCompat.setOnActionExpandListener(mSearchMenuItem, object : MenuItemCompat.OnActionExpandListener {
             override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
+                mIsSearchOpen = true
                 return true
             }
 
             // this triggers on device rotation too, avoid doing anything
             override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
+                if (mIsSearchOpen) {
+                    mIsSearchOpen = false
+                    textChanged("")
+                }
                 return true
             }
         })
         mSearchMenuItem?.expandActionView()
+    }
+
+    private fun textChanged(text: String) {
+
     }
 }
