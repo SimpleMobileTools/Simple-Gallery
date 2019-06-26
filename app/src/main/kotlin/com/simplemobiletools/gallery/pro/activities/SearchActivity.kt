@@ -8,19 +8,30 @@ import android.view.MenuItem
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuItemCompat
 import com.simplemobiletools.gallery.pro.R
+import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
+import com.simplemobiletools.gallery.pro.extensions.getCachedMedia
+import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 
 class SearchActivity : SimpleActivity() {
     private var mIsSearchOpen = false
     private var mSearchMenuItem: MenuItem? = null
+    private var mCurrAsyncTask: GetMediaAsynctask? = null
+    private var mAllMedia = ArrayList<ThumbnailItem>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
+        getAllMedia()
     }
 
     override fun onStop() {
         super.onStop()
         mSearchMenuItem?.collapseActionView()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mCurrAsyncTask?.stopFetching()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -67,5 +78,23 @@ class SearchActivity : SimpleActivity() {
 
     private fun textChanged(text: String) {
 
+    }
+
+    private fun getAllMedia() {
+        getCachedMedia("") {
+            if (it.isNotEmpty()) {
+                mAllMedia = it
+            }
+            startAsyncTask()
+        }
+    }
+
+    private fun startAsyncTask() {
+        mCurrAsyncTask?.stopFetching()
+        mCurrAsyncTask = GetMediaAsynctask(applicationContext, "", showAll = true) {
+            mAllMedia = it
+        }
+
+        mCurrAsyncTask!!.execute()
     }
 }
