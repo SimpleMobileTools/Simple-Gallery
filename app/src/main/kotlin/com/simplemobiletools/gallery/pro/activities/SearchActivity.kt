@@ -18,15 +18,14 @@ import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.adapters.MediaAdapter
 import com.simplemobiletools.gallery.pro.asynctasks.GetMediaAsynctask
-import com.simplemobiletools.gallery.pro.extensions.config
-import com.simplemobiletools.gallery.pro.extensions.getCachedMedia
-import com.simplemobiletools.gallery.pro.extensions.openPath
+import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.interfaces.MediaOperationsListener
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.models.ThumbnailItem
 import com.simplemobiletools.gallery.pro.models.ThumbnailSection
 import kotlinx.android.synthetic.main.activity_search.*
+import java.io.File
 
 class SearchActivity : SimpleActivity(), MediaOperationsListener {
     private var mIsSearchOpen = false
@@ -126,7 +125,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
             }
             setupLayoutManager()
         } else {
-            (currAdapter as MediaAdapter).updateMedia(MediaActivity.mMedia)
+            (currAdapter as MediaAdapter).updateMedia(mAllMedia)
         }
 
         measureRecyclerViewContent(mAllMedia)
@@ -292,6 +291,47 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     override fun tryDeleteFiles(fileDirItems: ArrayList<FileDirItem>) {
+        val filtered = fileDirItems.filter { File(it.path).isFile && it.path.isMediaFile() } as ArrayList
+        if (filtered.isEmpty()) {
+            return
+        }
+
+        if (config.useRecycleBin && !filtered.first().path.startsWith(recycleBinPath)) {
+            val movingItems = resources.getQuantityString(R.plurals.moving_items_into_bin, filtered.size, filtered.size)
+            toast(movingItems)
+
+            movePathsInRecycleBin(filtered.map { it.path } as ArrayList<String>, galleryDB.MediumDao()) {
+                if (it) {
+                    deleteFilteredFiles(filtered)
+                } else {
+                    toast(R.string.unknown_error_occurred)
+                }
+            }
+        } else {
+            val deletingItems = resources.getQuantityString(R.plurals.deleting_items, filtered.size, filtered.size)
+            toast(deletingItems)
+            deleteFilteredFiles(filtered)
+        }
+    }
+
+    private fun deleteFilteredFiles(filtered: ArrayList<FileDirItem>) {
+        deleteFiles(filtered) {
+            if (!it) {
+                toast(R.string.unknown_error_occurred)
+                return@deleteFiles
+            }
+
+            mAllMedia.removeAll { filtered.map { it.path }.contains((it as? Medium)?.path) }
+
+            Thread {
+                val useRecycleBin = config.useRecycleBin
+                filtered.forEach {
+                    if (it.path.startsWith(recycleBinPath) || !useRecycleBin) {
+                        deleteDBPath(galleryDB.MediumDao(), it.path)
+                    }
+                }
+            }.start()
+        }
     }
 
     override fun selectedPaths(paths: ArrayList<String>) {
