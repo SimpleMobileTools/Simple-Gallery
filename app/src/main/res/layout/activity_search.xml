@@ -18,18 +18,6 @@
         android:textSize="@dimen/bigger_text_size"
         android:visibility="gone"/>
 
-    <com.simplemobiletools.commons.views.MyTextView
-        android:id="@+id/media_empty_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/media_empty_text_label"
-        android:layout_centerHorizontal="true"
-        android:background="?attr/selectableItemBackground"
-        android:padding="@dimen/activity_margin"
-        android:text="@string/change_filters_underlined"
-        android:textSize="@dimen/bigger_text_size"
-        android:visibility="gone"/>
-
     <com.simplemobiletools.commons.views.MyRecyclerView
         android:id="@+id/media_grid"
         android:layout_width="match_parent"
