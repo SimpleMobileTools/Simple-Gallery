@@ -46,7 +46,6 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     private var loadImageInstantly = false
     private var delayHandler = Handler(Looper.getMainLooper())
     private var currentMediaHash = media.hashCode()
-    private val hasOTGConnected = activity.hasOTGConnected()
 
     private var scrollHorizontally = config.scrollHorizontally
     private var animateGifs = config.animateGifs
