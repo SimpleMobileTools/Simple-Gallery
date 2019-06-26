@@ -30,6 +30,8 @@ import kotlinx.android.synthetic.main.activity_search.*
 
 class SearchActivity : SimpleActivity(), MediaOperationsListener {
     private var mIsSearchOpen = false
+    private var mLastSearchedText = ""
+
     private var mSearchMenuItem: MenuItem? = null
     private var mCurrAsyncTask: GetMediaAsynctask? = null
     private var mAllMedia = ArrayList<ThumbnailItem>()
@@ -63,6 +65,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
 
                 override fun onQueryTextChange(newText: String): Boolean {
                     if (mIsSearchOpen) {
+                        mLastSearchedText = newText
                         textChanged(newText)
                     }
                     return true
@@ -80,6 +83,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
             override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
                 if (mIsSearchOpen) {
                     mIsSearchOpen = false
+                    mLastSearchedText = ""
                 }
                 return true
             }
@@ -267,20 +271,24 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
             runOnUiThread {
                 setupAdapter()
             }
-            startAsyncTask()
+            startAsyncTask(false)
         }
     }
 
-    private fun startAsyncTask() {
+    private fun startAsyncTask(updateItems: Boolean) {
         mCurrAsyncTask?.stopFetching()
         mCurrAsyncTask = GetMediaAsynctask(applicationContext, "", showAll = true) {
             mAllMedia = it.clone() as ArrayList<ThumbnailItem>
+            if (updateItems) {
+                textChanged(mLastSearchedText)
+            }
         }
 
         mCurrAsyncTask!!.execute()
     }
 
     override fun refreshItems() {
+        startAsyncTask(true)
     }
 
     override fun tryDeleteFiles(fileDirItems: ArrayList<FileDirItem>) {
