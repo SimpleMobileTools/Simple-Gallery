@@ -293,11 +293,15 @@ fun BaseSimpleActivity.restoreRecycleBinPaths(paths: ArrayList<String>, mediumDa
 
 fun BaseSimpleActivity.emptyTheRecycleBin(callback: (() -> Unit)? = null) {
     Thread {
-        recycleBin.deleteRecursively()
-        galleryDB.MediumDao().clearRecycleBin()
-        galleryDB.DirectoryDao().deleteRecycleBin()
-        toast(R.string.recycle_bin_emptied)
-        callback?.invoke()
+        try {
+            recycleBin.deleteRecursively()
+            galleryDB.MediumDao().clearRecycleBin()
+            galleryDB.DirectoryDao().deleteRecycleBin()
+            toast(R.string.recycle_bin_emptied)
+            callback?.invoke()
+        } catch (e: Exception) {
+            toast(R.string.unknown_error_occurred)
+        }
     }.start()
 }
 
