@@ -583,18 +583,25 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         if (currPrimaryAction == PRIMARY_ACTION_FILTER && bottom_actions_filter_list.adapter == null) {
             Thread {
                 val thumbnailSize = resources.getDimension(R.dimen.bottom_filters_thumbnail_size).toInt()
-                val bitmap = Glide.with(this)
-                        .asBitmap()
-                        .load(uri).listener(object : RequestListener<Bitmap> {
-                            override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
-                                showErrorToast(e.toString())
-                                return false
-                            }
 
-                            override fun onResourceReady(resource: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean) = false
-                        })
-                        .submit(thumbnailSize, thumbnailSize)
-                        .get()
+                val bitmap = try {
+                    Glide.with(this)
+                            .asBitmap()
+                            .load(uri).listener(object : RequestListener<Bitmap> {
+                                override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
+                                    showErrorToast(e.toString())
+                                    return false
+                                }
+
+                                override fun onResourceReady(resource: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean) = false
+                            })
+                            .submit(thumbnailSize, thumbnailSize)
+                            .get()
+                } catch (e: GlideException) {
+                    showErrorToast(e)
+                    finish()
+                    return@Thread
+                }
 
                 runOnUiThread {
                     val filterThumbnailsManager = FilterThumbnailsManager()
