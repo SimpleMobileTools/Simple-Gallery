@@ -346,7 +346,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun checkOTGPath() {
-        Thread {
+        ensureBackgroundThread {
             if (!config.wasOTGHandled && hasPermission(PERMISSION_WRITE_STORAGE) && hasOTGConnected() && config.OTGPath.isEmpty()) {
                 getStorageDirectories().firstOrNull { it.trimEnd('/') != internalStoragePath && it.trimEnd('/') != sdCardPath }?.apply {
                     config.wasOTGHandled = true
@@ -364,7 +364,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     }
                 }
             }
-        }.start()
+        }
     }
 
     private fun checkDefaultSpamFolders() {
@@ -434,9 +434,9 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             if (config.directorySorting and SORT_BY_DATE_MODIFIED > 0 || config.directorySorting and SORT_BY_DATE_TAKEN > 0) {
                 getDirectories()
             } else {
-                Thread {
+                ensureBackgroundThread {
                     gotDirectories(getCurrentlyDisplayedDirs())
-                }.start()
+                }
             }
         }
     }
@@ -540,11 +540,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 refreshItems()
             }
 
-            Thread {
+            ensureBackgroundThread {
                 folders.filter { !it.exists() }.forEach {
                     mDirectoryDao.deleteDirPath(it.absolutePath)
                 }
-            }.start()
+            }
         }
     }
 
@@ -629,22 +629,22 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     private fun toggleRecycleBin(show: Boolean) {
         config.showRecycleBinAtFolders = show
         invalidateOptionsMenu()
-        Thread {
+        ensureBackgroundThread {
             var dirs = getCurrentlyDisplayedDirs()
             if (!show) {
                 dirs = dirs.filter { it.path != RECYCLE_BIN } as ArrayList<Directory>
             }
             gotDirectories(dirs)
-        }.start()
+        }
     }
 
     private fun createNewFolder() {
         FilePickerDialog(this, internalStoragePath, false, config.shouldShowHidden, false, true) {
             CreateNewFolderDialog(this, it) {
                 config.tempFolderPath = it
-                Thread {
+                ensureBackgroundThread {
                     gotDirectories(addTempFolderIfNeeded(getCurrentlyDisplayedDirs()))
-                }.start()
+                }
             }
         }
     }
@@ -1098,12 +1098,12 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
             ?: ""
 
     private fun setupLatestMediaId() {
-        Thread {
+        ensureBackgroundThread {
             if (hasPermission(PERMISSION_READ_STORAGE)) {
                 mLatestMediaId = getLatestMediaId()
                 mLatestMediaDateId = getLatestMediaByDateId()
             }
-        }.start()
+        }
     }
 
     private fun checkLastMediaChanged() {
@@ -1112,7 +1112,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         }
 
         mLastMediaHandler.postDelayed({
-            Thread {
+            ensureBackgroundThread {
                 val mediaId = getLatestMediaId()
                 val mediaDateId = getLatestMediaByDateId()
                 if (mLatestMediaId != mediaId || mLatestMediaDateId != mediaDateId) {
@@ -1125,7 +1125,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                     mLastMediaHandler.removeCallbacksAndMessages(null)
                     checkLastMediaChanged()
                 }
-            }.start()
+            }
         }, LAST_MEDIA_CHECK_PERIOD)
     }
 
@@ -1133,12 +1133,12 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
         if (config.useRecycleBin && config.lastBinCheck < System.currentTimeMillis() - DAY_SECONDS * 1000) {
             config.lastBinCheck = System.currentTimeMillis()
             Handler().postDelayed({
-                Thread {
+                ensureBackgroundThread {
                     try {
                         mMediumDao.deleteOldRecycleBinItems(System.currentTimeMillis() - MONTH_MILLISECONDS)
                     } catch (e: Exception) {
                     }
-                }.start()
+                }
             }, 3000L)
         }
     }
@@ -1147,7 +1147,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     // /storage/emulated/0/Android/data/com.facebook.orca/files/stickers/175139712676531/209575122566323
     // /storage/emulated/0/Android/data/com.facebook.orca/files/stickers/497837993632037/499671223448714
     private fun excludeSpamFolders() {
-        Thread {
+        ensureBackgroundThread {
             try {
                 val internalPath = internalStoragePath
                 val checkedPaths = ArrayList<String>()
@@ -1184,7 +1184,7 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
                 }
             } catch (e: Exception) {
             }
-        }.start()
+        }
     }
 
     override fun refreshItems() {
@@ -1192,16 +1192,16 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     override fun recheckPinnedFolders() {
-        Thread {
+        ensureBackgroundThread {
             gotDirectories(movePinnedDirectoriesToFront(getCurrentlyDisplayedDirs()))
-        }.start()
+        }
     }
 
     override fun updateDirectories(directories: ArrayList<Directory>) {
-        Thread {
+        ensureBackgroundThread {
             storeDirectoryItems(directories, mDirectoryDao)
             removeInvalidDBDirectories()
-        }.start()
+        }
     }
 
     private fun checkWhatsNewDialog() {

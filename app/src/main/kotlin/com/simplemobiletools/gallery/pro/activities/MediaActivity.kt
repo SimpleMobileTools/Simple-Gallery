@@ -27,6 +27,7 @@ import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
 import com.simplemobiletools.commons.helpers.REQUEST_EDIT_IMAGE
 import com.simplemobiletools.commons.helpers.SORT_BY_RANDOM
+import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -327,7 +328,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun searchQueryChanged(text: String) {
-        Thread {
+        ensureBackgroundThread {
             try {
                 val filtered = mMedia.filter { it is Medium && it.name.contains(text, true) } as ArrayList
                 filtered.sortBy { it is Medium && !it.name.startsWith(text, true) }
@@ -345,7 +346,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 }
             } catch (ignored: Exception) {
             }
-        }.start()
+        }
     }
 
     private fun tryLoadGallery() {
@@ -435,7 +436,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
         mLastMediaHandler.removeCallbacksAndMessages(null)
         mLastMediaHandler.postDelayed({
-            Thread {
+            ensureBackgroundThread {
                 val mediaId = getLatestMediaId()
                 val mediaDateId = getLatestMediaByDateId()
                 if (mLatestMediaId != mediaId || mLatestMediaDateId != mediaDateId) {
@@ -447,7 +448,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                 } else {
                     checkLastMediaChanged()
                 }
-            }.start()
+            }
         }, LAST_MEDIA_CHECK_PERIOD)
     }
 
@@ -487,9 +488,9 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private fun restoreAllFiles() {
         val paths = mMedia.filter { it is Medium }.map { (it as Medium).path } as ArrayList<String>
         restoreRecycleBinPaths(paths, mMediumDao) {
-            Thread {
+            ensureBackgroundThread {
                 mDirectoryDao.deleteDirPath(RECYCLE_BIN)
-            }.start()
+            }
             finish()
         }
     }
@@ -593,7 +594,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     private fun startAsyncTask() {
         mCurrAsyncTask?.stopFetching()
         mCurrAsyncTask = GetMediaAsynctask(applicationContext, mPath, mIsGetImageIntent, mIsGetVideoIntent, mShowAll) {
-            Thread {
+            ensureBackgroundThread {
                 val oldMedia = mMedia.clone() as ArrayList<ThumbnailItem>
                 val newMedia = it
                 gotMedia(newMedia, false)
@@ -603,7 +604,7 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
                     }
                 } catch (e: Exception) {
                 }
-            }.start()
+            }
         }
 
         mCurrAsyncTask!!.execute()
@@ -617,9 +618,9 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
             }
 
             if (mPath == FAVORITES) {
-                Thread {
+                ensureBackgroundThread {
                     mDirectoryDao.deleteDirPath(FAVORITES)
-                }.start()
+                }
             }
 
             finish()
@@ -630,9 +631,9 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun deleteDBDirectory() {
-        Thread {
+        ensureBackgroundThread {
             mDirectoryDao.deleteDirPath(mPath)
-        }.start()
+        }
     }
 
     private fun createNewFolder() {
@@ -910,14 +911,14 @@ class MediaActivity : SimpleActivity(), MediaOperationsListener {
 
             mMedia.removeAll { filtered.map { it.path }.contains((it as? Medium)?.path) }
 
-            Thread {
+            ensureBackgroundThread {
                 val useRecycleBin = config.useRecycleBin
                 filtered.forEach {
                     if (it.path.startsWith(recycleBinPath) || !useRecycleBin) {
                         deleteDBPath(mMediumDao, it.path)
                     }
                 }
-            }.start()
+            }
 
             if (mMedia.isEmpty()) {
                 deleteDirectoryIfEmpty()

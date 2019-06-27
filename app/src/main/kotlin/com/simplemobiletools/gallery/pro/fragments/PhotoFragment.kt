@@ -36,6 +36,7 @@ import com.davemorrissey.labs.subscaleview.ImageRegionDecoder
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.PanoramaPhotoActivity
 import com.simplemobiletools.gallery.pro.activities.PhotoActivity
@@ -241,10 +242,10 @@ class PhotoFragment : ViewPagerFragment() {
 
         mLoadZoomableViewHandler.removeCallbacksAndMessages(null)
         if (mCurrentRotationDegrees != 0) {
-            Thread {
+            ensureBackgroundThread {
                 val path = mMedium.path
                 (activity as? BaseSimpleActivity)?.saveRotatedImageToFile(path, path, mCurrentRotationDegrees, false) {}
-            }.start()
+            }
         }
     }
 

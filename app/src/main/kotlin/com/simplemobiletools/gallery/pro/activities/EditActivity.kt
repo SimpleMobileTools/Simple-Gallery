@@ -26,10 +26,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.simplemobiletools.commons.dialogs.ColorPickerDialog
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
-import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
-import com.simplemobiletools.commons.helpers.SIDELOADING_TRUE
-import com.simplemobiletools.commons.helpers.isNougatPlus
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.pro.BuildConfig
 import com.simplemobiletools.gallery.pro.R
@@ -259,9 +256,9 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         if (!wasDrawCanvasPositioned) {
             wasDrawCanvasPositioned = true
             editor_draw_canvas.onGlobalLayout {
-                Thread {
+                ensureBackgroundThread {
                     fillCanvasBackground()
-                }.start()
+                }
             }
         }
     }
@@ -336,7 +333,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 bottom_actions_filter_list.adapter = null
                 bottom_actions_filter_list.beGone()
 
-                Thread {
+                ensureBackgroundThread {
                     try {
                         val originalBitmap = Glide.with(applicationContext).asBitmap().load(uri).submit(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL).get()
                         currentFilter.filter.processFilter(originalBitmap)
@@ -344,23 +341,23 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     } catch (e: OutOfMemoryError) {
                         toast(R.string.out_of_memory_error)
                     }
-                }.start()
+                }
             }
         }
     }
 
     private fun shareImage() {
-        Thread {
+        ensureBackgroundThread {
             when {
                 default_image_view.isVisible() -> {
                     val currentFilter = getFiltersAdapter()?.getCurrentFilter()
                     if (currentFilter == null) {
                         toast(R.string.unknown_error_occurred)
-                        return@Thread
+                        return@ensureBackgroundThread
                     }
 
                     val originalBitmap = Glide.with(applicationContext).asBitmap().load(uri).submit(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL).get()
-                    currentFilter!!.filter.processFilter(originalBitmap)
+                    currentFilter.filter.processFilter(originalBitmap)
                     shareBitmap(originalBitmap)
                 }
                 crop_image_view.isVisible() -> {
@@ -371,12 +368,12 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 }
                 editor_draw_canvas.isVisible() -> shareBitmap(editor_draw_canvas.getBitmap())
             }
-        }.start()
+        }
     }
 
     private fun getTempImagePath(bitmap: Bitmap, callback: (path: String?) -> Unit) {
         val bytes = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.PNG, 0, bytes)
+        bitmap.compress(CompressFormat.PNG, 0, bytes)
 
         val folder = File(cacheDir, TEMP_FOLDER_NAME)
         if (!folder.exists()) {
@@ -581,7 +578,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         bottom_editor_draw_actions.beVisibleIf(currPrimaryAction == PRIMARY_ACTION_DRAW)
 
         if (currPrimaryAction == PRIMARY_ACTION_FILTER && bottom_actions_filter_list.adapter == null) {
-            Thread {
+            ensureBackgroundThread {
                 val thumbnailSize = resources.getDimension(R.dimen.bottom_filters_thumbnail_size).toInt()
 
                 val bitmap = try {
@@ -600,7 +597,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 } catch (e: GlideException) {
                     showErrorToast(e)
                     finish()
-                    return@Thread
+                    return@ensureBackgroundThread
                 }
 
                 runOnUiThread {
@@ -630,7 +627,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     bottom_actions_filter_list.adapter = adapter
                     adapter.notifyDataSetChanged()
                 }
-            }.start()
+            }
         }
 
         if (currPrimaryAction != PRIMARY_ACTION_CROP_ROTATE) {
@@ -811,7 +808,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     private fun saveBitmapToFile(bitmap: Bitmap, path: String, showSavingToast: Boolean) {
         try {
-            Thread {
+            ensureBackgroundThread {
                 val file = File(path)
                 val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
                 getFileOutputStream(fileDirItem, true) {
@@ -821,7 +818,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                         toast(R.string.image_editing_failed)
                     }
                 }
-            }.start()
+            }
         } catch (e: Exception) {
             showErrorToast(e)
         } catch (e: OutOfMemoryError) {

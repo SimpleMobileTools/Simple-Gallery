@@ -335,7 +335,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
         }
 
         if (intent.action == "com.android.camera.action.REVIEW") {
-            Thread {
+            ensureBackgroundThread {
                 val mediumDao = galleryDB.MediumDao()
                 if (mediumDao.getMediaFromPath(mPath).isEmpty()) {
                     val type = when {
@@ -352,7 +352,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     val medium = Medium(null, mPath.getFilenameFromPath(), mPath, mPath.getParentPath(), ts, ts, File(mPath).length(), type, duration, isFavorite, 0)
                     mediumDao.insert(medium)
                 }
-            }.start()
+            }
         }
     }
 
@@ -362,9 +362,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun initFavorites() {
-        Thread {
+        ensureBackgroundThread {
             mFavoritePaths = getFavoritePaths()
-        }.start()
+        }
     }
 
     private fun setupOrientation() {
@@ -635,14 +635,14 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
             val newPath = it
             handleSAFDialog(it) {
                 toast(R.string.saving)
-                Thread {
-                    val photoFragment = getCurrentPhotoFragment() ?: return@Thread
+                ensureBackgroundThread {
+                    val photoFragment = getCurrentPhotoFragment() ?: return@ensureBackgroundThread
                     saveRotatedImageToFile(currPath, newPath, photoFragment.mCurrentRotationDegrees, true) {
                         toast(R.string.file_saved)
                         getCurrentPhotoFragment()?.mCurrentRotationDegrees = 0
                         invalidateOptionsMenu()
                     }
-                }.start()
+                }
             }
         }
     }
@@ -874,7 +874,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     private fun toggleFavorite() {
         val medium = getCurrentMedium() ?: return
         medium.isFavorite = !medium.isFavorite
-        Thread {
+        ensureBackgroundThread {
             galleryDB.MediumDao().updateFavorite(medium.path, medium.isFavorite)
             if (medium.isFavorite) {
                 mFavoritePaths.add(medium.path)
@@ -882,7 +882,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 mFavoritePaths.remove(medium.path)
             }
             invalidateOptionsMenu()
-        }.start()
+        }
     }
 
     private fun printFile() {
@@ -1053,9 +1053,9 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                 name = it.getFilenameFromPath()
             }
 
-            Thread {
+            ensureBackgroundThread {
                 updateDBMediaPath(oldPath, it)
-            }.start()
+            }
             updateActionbarTitle()
         }
     }
@@ -1156,8 +1156,8 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     override fun launchViewVideoIntent(path: String) {
-        Thread {
-            val newUri = getFinalUriFromPath(path, BuildConfig.APPLICATION_ID) ?: return@Thread
+        ensureBackgroundThread {
+            val newUri = getFinalUriFromPath(path, BuildConfig.APPLICATION_ID) ?: return@ensureBackgroundThread
             val mimeType = getUriMimeType(path, newUri)
             Intent().apply {
                 action = Intent.ACTION_VIEW
@@ -1180,7 +1180,7 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
                     }
                 }
             }
-        }.start()
+        }
     }
 
     private fun checkSystemUI() {

@@ -17,6 +17,7 @@ import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
 import com.simplemobiletools.commons.dialogs.RenameItemsDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.helpers.isOreoPlus
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.FastScroller
@@ -170,10 +171,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                         tmb = File(it, tmb.getFilenameFromPath()).absolutePath
                     }
                     updateDirs(dirs)
-                    Thread {
+                    ensureBackgroundThread {
                         activity.galleryDB.DirectoryDao().updateDirectoryAfterRename(firstDir.tmb, firstDir.name, firstDir.path, sourcePath)
                         listener?.refreshItems()
-                    }.start()
+                    }
                 }
             }
         } else {
@@ -431,10 +432,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                     if (it.isRecycleBin()) {
                         tryEmptyRecycleBin(false)
                     } else {
-                        Thread {
+                        ensureBackgroundThread {
                             activity.galleryDB.MediumDao().clearFavorites()
                             listener?.refreshItems()
-                        }.start()
+                        }
                     }
 
                     if (selectedKeys.size == 1) {

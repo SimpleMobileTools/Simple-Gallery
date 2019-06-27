@@ -358,7 +358,7 @@ fun Context.updateSubfolderCounts(children: ArrayList<Directory>, parentDirs: Ar
 }
 
 fun Context.getNoMediaFolders(callback: (folders: ArrayList<String>) -> Unit) {
-    Thread {
+    ensureBackgroundThread {
         val folders = ArrayList<String>()
 
         val uri = MediaStore.Files.getContentUri("external")
@@ -384,20 +384,20 @@ fun Context.getNoMediaFolders(callback: (folders: ArrayList<String>) -> Unit) {
         }
 
         callback(folders)
-    }.start()
+    }
 }
 
 fun Context.rescanFolderMedia(path: String) {
-    Thread {
+    ensureBackgroundThread {
         rescanFolderMediaSync(path)
-    }.start()
+    }
 }
 
 fun Context.rescanFolderMediaSync(path: String) {
     getCachedMedia(path) {
         val cached = it
         GetMediaAsynctask(applicationContext, path, false, false, false) {
-            Thread {
+            ensureBackgroundThread {
                 val newMedia = it
                 val mediumDao = galleryDB.MediumDao()
                 val media = newMedia.filter { it is Medium } as ArrayList<Medium>
@@ -411,15 +411,15 @@ fun Context.rescanFolderMediaSync(path: String) {
                         }
                     }
                 }
-            }.start()
+            }
         }.execute()
     }
 }
 
 fun Context.storeDirectoryItems(items: ArrayList<Directory>, directoryDao: DirectoryDao) {
-    Thread {
+    ensureBackgroundThread {
         directoryDao.insertAll(items)
-    }.start()
+    }
 }
 
 fun Context.checkAppendingHidden(path: String, hidden: String, includedFolders: MutableSet<String>): String {
@@ -539,7 +539,7 @@ fun Context.loadSVG(path: String, target: MySquareImageView, cropThumbnails: Boo
 }
 
 fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, directoryDao: DirectoryDao = galleryDB.DirectoryDao(), forceShowHidden: Boolean = false, callback: (ArrayList<Directory>) -> Unit) {
-    Thread {
+    ensureBackgroundThread {
         val directories = try {
             directoryDao.getAll() as ArrayList<Directory>
         } catch (e: Exception) {
@@ -581,12 +581,12 @@ fun Context.getCachedDirectories(getVideosOnly: Boolean = false, getImagesOnly: 
         callback(clone.distinctBy { it.path.getDistinctPath() } as ArrayList<Directory>)
 
         removeInvalidDBDirectories(filteredDirectories, directoryDao)
-    }.start()
+    }
 }
 
 fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImagesOnly: Boolean = false, mediumDao: MediumDao = galleryDB.MediumDao(),
                            callback: (ArrayList<ThumbnailItem>) -> Unit) {
-    Thread {
+    ensureBackgroundThread {
         val mediaFetcher = MediaFetcher(this)
         val foldersToScan = if (path.isEmpty()) mediaFetcher.getFoldersToScan() else arrayListOf(path)
         var media = ArrayList<Medium>()
@@ -644,7 +644,7 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
             }
         } catch (ignored: Exception) {
         }
-    }.start()
+    }
 }
 
 fun Context.removeInvalidDBDirectories(dirs: ArrayList<Directory>? = null, directoryDao: DirectoryDao = galleryDB.DirectoryDao()) {
@@ -768,9 +768,9 @@ fun Context.parseFileChannel(path: String, fc: FileChannel, level: Int, start: L
 }
 
 fun Context.addPathToDB(path: String) {
-    Thread {
+    ensureBackgroundThread {
         if (!File(path).exists()) {
-            return@Thread
+            return@ensureBackgroundThread
         }
 
         val type = when {
@@ -791,7 +791,7 @@ fun Context.addPathToDB(path: String) {
             mediumDao.insert(medium)
         } catch (ignored: Exception) {
         }
-    }.start()
+    }
 }
 
 fun Context.createDirectoryFromMedia(path: String, curMedia: ArrayList<Medium>, albumCovers: ArrayList<AlbumCover>, hiddenString: String,

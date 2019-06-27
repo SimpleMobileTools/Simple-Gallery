@@ -13,6 +13,7 @@ import androidx.core.view.MenuItemCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.MyGridLayoutManager
 import com.simplemobiletools.gallery.pro.R
@@ -91,7 +92,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
     }
 
     private fun textChanged(text: String) {
-        Thread {
+        ensureBackgroundThread {
             try {
                 val filtered = mAllMedia.filter { it is Medium && it.name.contains(text, true) } as ArrayList
                 filtered.sortBy { it is Medium && !it.name.startsWith(text, true) }
@@ -109,7 +110,7 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
                 }
             } catch (ignored: Exception) {
             }
-        }.start()
+        }
     }
 
     private fun setupAdapter() {
@@ -323,14 +324,14 @@ class SearchActivity : SimpleActivity(), MediaOperationsListener {
 
             mAllMedia.removeAll { filtered.map { it.path }.contains((it as? Medium)?.path) }
 
-            Thread {
+            ensureBackgroundThread {
                 val useRecycleBin = config.useRecycleBin
                 filtered.forEach {
                     if (it.path.startsWith(recycleBinPath) || !useRecycleBin) {
                         deleteDBPath(galleryDB.MediumDao(), it.path)
                     }
                 }
-            }.start()
+            }
         }
     }
 
