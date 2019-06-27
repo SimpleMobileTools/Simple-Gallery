@@ -431,10 +431,6 @@ fun BaseSimpleActivity.saveRotatedImageToFile(oldPath: String, newPath: String, 
                 saveFile(tmpPath, bitmap, it as FileOutputStream, newDegrees)
             }
 
-            if (File(newPath).exists()) {
-                tryDeleteFileDirItem(FileDirItem(newPath, newPath.getFilenameFromPath()), false, true)
-            }
-
             copyFile(tmpPath, newPath)
             rescanPaths(arrayListOf(newPath))
             fileRotatedSuccessfully(newPath, oldLastModified)
