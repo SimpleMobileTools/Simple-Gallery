@@ -1,6 +1,14 @@
 Changelog
 ==========
 
+Version 6.8.1 *(2019-06-27)*
+----------------------------
+
+ * Improved Search on the main screen, allow using it for searching all files, not folders
+ * Added Print functionality at fullscreen images
+ * Fixed a glitch at PNGs getting deleted after rotating
+ * Other stability, translation and performance improvements
+
 Version 6.8.0 *(2019-06-21)*
 ----------------------------
 
