@@ -11,6 +11,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.simplemobiletools.commons.dialogs.RadioGroupDialog
 import com.simplemobiletools.commons.extensions.toast
+import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.helpers.isNougatPlus
 import com.simplemobiletools.commons.models.RadioItem
 import com.simplemobiletools.gallery.pro.R
@@ -117,7 +118,7 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
 
         if (result.error == null) {
             toast(R.string.setting_wallpaper)
-            Thread {
+            ensureBackgroundThread {
                 val bitmap = result.bitmap
                 val wantedHeight = wallpaperManager.desiredMinimumHeight
                 val ratio = wantedHeight / bitmap.height.toFloat()
@@ -135,7 +136,7 @@ class SetWallpaperActivity : SimpleActivity(), CropImageView.OnCropImageComplete
                     setResult(Activity.RESULT_CANCELED)
                 }
                 finish()
-            }.start()
+            }
         } else {
             toast("${getString(R.string.image_editing_failed)}: ${result.error.message}")
         }

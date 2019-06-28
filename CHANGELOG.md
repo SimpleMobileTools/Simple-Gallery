@@ -1,6 +1,87 @@
 Changelog
 ==========
 
+Version 6.8.1 *(2019-06-27)*
+----------------------------
+
+ * Improved Search on the main screen, allow using it for searching all files, not folders
+ * Added Print functionality at fullscreen images
+ * Fixed a glitch at PNGs getting deleted after rotating
+ * Other stability, translation and performance improvements
+
+Version 6.8.0 *(2019-06-21)*
+----------------------------
+
+ * Allow grouping files by date_taken or last_modified either daily, or monthly
+ * Allow selecting fade animation or no animation at all at slideshow transitions
+ * Improved the performance at loading fullscreen videos
+ * Use last_modified value at batch file renaming, if date_taken isn't available
+ * Some other stability and translation improvements
+
+Version 6.7.9 *(2019-06-12)*
+----------------------------
+
+ * Fixed a crash at zooming
+
+Version 6.7.8 *(2019-06-11)*
+----------------------------
+
+ * Improved the UX at zooming and panning at the fullscreen view
+ * Fixed unchecking Favorite items in some cases
+ * Show the available aspect ratios at the editor by default
+ * Couple stability, performance and translation improvements
+
+Version 6.7.7 *(2019-05-28)*
+----------------------------
+
+ * Fixed some file deleting related glitches
+ * Improved batch renaming, use the old file extension in case a new one is missing
+
+Version 6.7.6 *(2019-05-26)*
+----------------------------
+
+ * Improved batch renaming, allow using date time patterns in it
+ * Fixed empty folder deleting after deleting its content
+ * Improved new file cache updating in the background
+ * Improved the placeholder text in case no files are found
+ * Keep last_modified field at deleting and restoring files from the bin
+ * Increase the max image duration at slideshows
+ * Highlight the warning at deleting a folder
+ * Other stability, translation and performance improvements
+
+Version 6.7.5 *(2019-05-15)*
+----------------------------
+
+ * Hotfixing a glitch with opening third party intents
+
+Version 6.7.4 *(2019-05-15)*
+----------------------------
+
+ * Speeded up video deleting from fullscreen view
+ * Hotfixed some crashes
+
+Version 6.7.3 *(2019-05-14)*
+----------------------------
+
+ * Fixed folder sorting if used together with subfolder grouping
+ * Fixed some copy/move related progressbar issues
+ * Added many performance and stability improvements
+
+Version 6.7.2 *(2019-05-09)*
+----------------------------
+
+ * Allow creating file or folder shortcuts only from Android 8+
+
+Version 6.7.1 *(2019-05-08)*
+----------------------------
+
+ * Allow creating file or folder shortcuts on home screen on Android 7+
+ * Allow creating new folders on the file thumbnails screen too
+ * Added a checkbox at sorting by name/path to sort numbers by their actual numeric value
+ * Improve grouping direct subfolders, do not ignore parent folders without media files
+ * Show the Open Camera button at the menu on the main screen, instead of the Sort by button
+ * Other translation and stability improvements
+
 Version 6.7.0 *(2019-05-02)*
 ----------------------------
 

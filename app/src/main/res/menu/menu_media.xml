@@ -64,6 +64,10 @@
         android:title="@string/exclude"
         app:showAsAction="never"/>
     <item
+        android:id="@+id/create_new_folder"
+        android:title="@string/create_new_folder"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/temporarily_show_hidden"
         android:title="@string/temporarily_show_hidden"
         app:showAsAction="never"/>

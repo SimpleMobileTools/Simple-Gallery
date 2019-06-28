@@ -63,6 +63,7 @@
     <string name="manage_included_folders">管理包含資料夾</string>
     <string name="add_folder">增加資料夾</string>
     <string name="included_activity_placeholder">如果有些資料夾含有媒體檔案，卻沒被辨識到，您可以在此手動加入。</string>
+    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
 
     <!-- Resizing -->
     <string name="resize">縮放</string>
@@ -112,12 +113,14 @@
     <string name="include_videos">包含影片</string>
     <string name="include_gifs">包含GIF</string>
     <string name="random_order">隨機順序</string>
-    <string name="use_fade">使用淡入淡出動畫</string>
     <string name="move_backwards">反向播放</string>
     <string name="loop_slideshow">投影片循環</string>
+    <string name="animation">Animation</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">投影片結束</string>
     <string name="no_media_for_slideshow">找不到投影片的媒體檔案</string>
-    <string name="use_crossfade_animation">使用淡入淡出動畫</string>
 
     <!-- View types -->
     <string name="change_view_type">改變瀏覽類型</string>
@@ -130,7 +133,11 @@
     <string name="do_not_group_files">不歸類檔案</string>
     <string name="by_folder">資料夾</string>
     <string name="by_last_modified">最後修改</string>
+    <string name="by_last_modified_daily">Last modified (daily)</string>
+    <string name="by_last_modified_monthly">Last modified (monthly)</string>
     <string name="by_date_taken">拍照日期</string>
+    <string name="by_date_taken_daily">Date taken (daily)</string>
+    <string name="by_date_taken_monthly">Date taken (monthly)</string>
     <string name="by_file_type">檔案類型</string>
     <string name="by_extension">副檔名</string>
     <string name="grouping_and_sorting">請注意，歸類和排序是兩者是獨立的</string>

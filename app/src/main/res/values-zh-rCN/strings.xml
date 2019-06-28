@@ -63,6 +63,7 @@
     <string name="manage_included_folders">管理包含目录</string>
     <string name="add_folder">添加目录</string>
     <string name="included_activity_placeholder">如果您还有应用未扫描到的媒体文件，请添加所在目录路径。</string>
+    <string name="no_media_add_included">没有找到媒体文件。请手动添加包含媒体文件的文件夹。</string>
 
     <!-- Resizing -->
     <string name="resize">缩放</string>
@@ -112,12 +113,14 @@
     <string name="include_videos">包括视频</string>
     <string name="include_gifs">包括 GIFs</string>
     <string name="random_order">随机顺序</string>
-    <string name="use_fade">使用渐变动画</string>
     <string name="move_backwards">倒播</string>
     <string name="loop_slideshow">循环幻灯片</string>
+    <string name="animation">Animation</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">幻灯片结束</string>
     <string name="no_media_for_slideshow">未发现可用媒体</string>
-    <string name="use_crossfade_animation">使用淡入淡出动画</string>
 
     <!-- View types -->
     <string name="change_view_type">更改视图类型</string>
@@ -130,7 +133,11 @@
     <string name="do_not_group_files">禁用文件分组</string>
     <string name="by_folder">目录</string>
     <string name="by_last_modified">最近修改</string>
+    <string name="by_last_modified_daily">Last modified (daily)</string>
+    <string name="by_last_modified_monthly">Last modified (monthly)</string>
     <string name="by_date_taken">拍摄时间</string>
+    <string name="by_date_taken_daily">Date taken (daily)</string>
+    <string name="by_date_taken_monthly">Date taken (monthly)</string>
     <string name="by_file_type">文件类型</string>
     <string name="by_extension">扩展名</string>
     <string name="grouping_and_sorting">请注意，分组和排序是相互独立的</string>

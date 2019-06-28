@@ -6,11 +6,16 @@ import android.net.Uri
 import android.provider.MediaStore
 import android.view.WindowManager
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
+import com.simplemobiletools.commons.dialogs.FilePickerDialog
+import com.simplemobiletools.commons.extensions.getParentPath
 import com.simplemobiletools.commons.extensions.getRealPathFromURI
+import com.simplemobiletools.commons.extensions.scanPathRecursively
+import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.helpers.isPiePlus
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.addPathToDB
 import com.simplemobiletools.gallery.pro.extensions.config
+import com.simplemobiletools.gallery.pro.extensions.updateDirectoryPath
 
 open class SimpleActivity : BaseSimpleActivity() {
     val observer = object : ContentObserver(null) {
@@ -18,6 +23,7 @@ open class SimpleActivity : BaseSimpleActivity() {
             super.onChange(selfChange, uri)
             val path = getRealPathFromURI(uri)
             if (path != null) {
+                updateDirectoryPath(path.getParentPath())
                 addPathToDB(path)
             }
         }
@@ -74,6 +80,17 @@ open class SimpleActivity : BaseSimpleActivity() {
         try {
             contentResolver.unregisterContentObserver(observer)
         } catch (ignored: Exception) {
+        }
+    }
+
+    protected fun showAddIncludedFolderDialog(callback: () -> Unit) {
+        FilePickerDialog(this, config.lastFilepickerPath, false, config.shouldShowHidden, false, true) {
+            config.lastFilepickerPath = it
+            config.addIncludedFolder(it)
+            callback()
+            ensureBackgroundThread {
+                scanPathRecursively(it)
+            }
         }
     }
 }

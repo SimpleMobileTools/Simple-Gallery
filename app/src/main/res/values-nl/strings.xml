@@ -63,6 +63,7 @@
     <string name="manage_included_folders">Toegevoegde mappen beheren</string>
     <string name="add_folder">Map toevoegen</string>
     <string name="included_activity_placeholder">Als er mappen zijn die wel media bevatten, maar niet door de galerij worden herkend, voeg deze mappen dan hier handmatig toe.\n\nHet hier toevoegen van mappen zal andere mappen niet uitsluiten.</string>
+    <string name="no_media_add_included">Er zijn geen mediabestanden gevonden. Dit kan worden opgelost door de mappen met mediabestanden handmatig toe te voegen.</string>
 
     <!-- Resizing -->
     <string name="resize">Grootte aanpassen</string>
@@ -112,12 +113,14 @@
     <string name="include_videos">Video’s weergeven</string>
     <string name="include_gifs">GIF-bestanden weergeven</string>
     <string name="random_order">Willekeurige volgorde</string>
-    <string name="use_fade">Animaties gebruiken (vervagen)</string>
     <string name="move_backwards">Omgekeerde volgorde</string>
     <string name="loop_slideshow">Voorstelling herhalen</string>
+    <string name="animation">Overgangseffect</string>
+    <string name="no_animation">Geen</string>
+    <string name="fade">Overvloeien</string>
+    <string name="slide">Verschuiven</string>
     <string name="slideshow_ended">De diavoorstelling is beëindigd</string>
     <string name="no_media_for_slideshow">Geen media gevonden voor diavoorstelling</string>
-    <string name="use_crossfade_animation">Crossfade-animaties gebruiken</string>
 
     <!-- View types -->
     <string name="change_view_type">Weergave</string>
@@ -130,7 +133,11 @@
     <string name="do_not_group_files">Bestanden niet groeperen</string>
     <string name="by_folder">Map</string>
     <string name="by_last_modified">Laatst gewijzigd</string>
+    <string name="by_last_modified_daily">Laatst gewijzigd (per dag)</string>
+    <string name="by_last_modified_monthly">Laatst gewijzigd (per maand)</string>
     <string name="by_date_taken">Datum opname</string>
+    <string name="by_date_taken_daily">Datum opname (per dag)</string>
+    <string name="by_date_taken_monthly">Datum opname (per maand)</string>
     <string name="by_file_type">Bestandstype</string>
     <string name="by_extension">Extensie</string>
     <string name="grouping_and_sorting">Groeperen en sorteren zijn twee aparte opties</string>

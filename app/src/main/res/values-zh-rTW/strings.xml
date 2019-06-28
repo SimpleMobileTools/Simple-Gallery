@@ -28,7 +28,7 @@
     <string name="force_portrait">強制直向</string>
     <string name="force_landscape">強制橫向</string>
     <string name="use_default_orientation">使用預設方向</string>
-    <string name="fix_date_taken">修復拍照日期數值</string>
+    <string name="fix_date_taken">修復拍攝日期數值</string>
     <string name="fixing">修復中…</string>
     <string name="dates_fixed_successfully">日期修復成功</string>
     <string name="share_resized">分享調整大小的版本</string>
@@ -63,6 +63,7 @@
     <string name="manage_included_folders">管理包含資料夾</string>
     <string name="add_folder">增加資料夾</string>
     <string name="included_activity_placeholder">如果有些資料夾含有媒體檔案，卻沒被辨識到，您可以在此手動加入。</string>
+    <string name="no_media_add_included">未發現媒體檔案。您可以手動添加包含媒體檔案的資料夾來解決。</string>
 
     <!-- Resizing -->
     <string name="resize">縮放</string>
@@ -112,12 +113,14 @@
     <string name="include_videos">包含影片</string>
     <string name="include_gifs">包含GIF</string>
     <string name="random_order">隨機順序</string>
-    <string name="use_fade">使用淡入淡出動畫</string>
     <string name="move_backwards">反向播放</string>
     <string name="loop_slideshow">投影片循環</string>
+    <string name="animation">動畫</string>
+    <string name="no_animation">無</string>
+    <string name="fade">漸變</string>
+    <string name="slide">滑動</string>
     <string name="slideshow_ended">投影片結束</string>
     <string name="no_media_for_slideshow">找不到投影片的媒體檔案</string>
-    <string name="use_crossfade_animation">使用淡入淡出動畫</string>
 
     <!-- View types -->
     <string name="change_view_type">改變瀏覽類型</string>
@@ -130,7 +133,11 @@
     <string name="do_not_group_files">不歸類檔案</string>
     <string name="by_folder">資料夾</string>
     <string name="by_last_modified">最後修改</string>
-    <string name="by_date_taken">拍照日期</string>
+    <string name="by_last_modified_daily">最後修改 (按日)</string>
+    <string name="by_last_modified_monthly">最後修改 (按月)</string>
+    <string name="by_date_taken">拍攝日期</string>
+    <string name="by_date_taken_daily">拍攝日期 (按日)</string>
+    <string name="by_date_taken_monthly">拍攝日期 (按月)</string>
     <string name="by_file_type">檔案類型</string>
     <string name="by_extension">副檔名</string>
     <string name="grouping_and_sorting">請注意，歸類和排序是兩者是獨立的</string>
@@ -213,9 +220,9 @@
     <string name="faq_10_title">我可以用這程式裁減圖片嗎?</string>
     <string name="faq_10_text">是的，你能夠在編輯器內拉動圖片角落來裁剪圖片。要進入編輯器，你可以長按圖片縮圖然後選擇[編輯]，或是在全螢幕檢視下選擇[編輯]。</string>
     <string name="faq_11_title">我可以歸類媒體檔案的縮圖嗎?</string>
-    <string name="faq_11_text">當然，只要在縮圖瀏覽中使用[歸類]選單項目就可以了。你能依多種條件歸類檔案，包含拍照日期。如果你使用了[資料夾內容全部顯示]功能，你還能以資料夾來歸類。</string>
-    <string name="faq_12_title">依拍照日期排序似乎沒正確運作，我該如何修復?</string>
-    <string name="faq_12_text">那很可能是由於檔案從某處複製過來所造成的。你可以選擇檔案縮圖，然後選擇\"修復拍照日期數值\"來進行修復。</string>
+    <string name="faq_11_text">當然，只要在縮圖瀏覽中使用[歸類]選單項目就可以了。你能依多種條件歸類檔案，包含拍攝日期。如果你使用了[資料夾內容全部顯示]功能，你還能以資料夾來歸類。</string>
+    <string name="faq_12_title">依拍攝日期排序似乎沒正確運作，我該如何修復?</string>
+    <string name="faq_12_text">那很可能是由於檔案從某處複製過來所造成的。你可以選擇檔案縮圖，然後選擇\"修復拍攝日期數值\"來進行修復。</string>
     <string name="faq_13_title">我在圖片上看到一些色彩條紋。我如何提升品質?</string>
     <string name="faq_13_text">目前顯示圖片的處理方法，在大部分情況下都能正常運行。但如果你想要更好的圖片品質，你可以在程式設定中[可深度縮放的圖片]部分，啟用[以最高品質顯示圖片]。</string>
     <string name="faq_14_title">我隱藏了一個檔案/資料夾。我如何取消隱藏?</string>

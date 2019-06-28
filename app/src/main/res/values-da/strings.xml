@@ -63,6 +63,7 @@
     <string name="manage_included_folders">Administrer inkluderede mapper</string>
     <string name="add_folder">Tilføj mappe</string>
     <string name="included_activity_placeholder">Hvis du har mapper med mediefiler som appen ikke har fundet, kan du manuelt tilføje dem her.\n\nDet vil ikke ekskludere andre mapper.</string>
+    <string name="no_media_add_included">Ingen mediefiler er fundet. Dette kan løses ved manuelt at tilføje mapper som indeholder mediefiler.</string>
 
     <!-- Resizing -->
     <string name="resize">Skaler</string>
@@ -112,12 +113,14 @@
     <string name="include_videos">Inkluder videoer</string>
     <string name="include_gifs">Inkluder GIF\'er</string>
     <string name="random_order">Tilfældig rækkefølge</string>
-    <string name="use_fade">Brug udtonende animationer</string>
     <string name="move_backwards">Kør baglæns</string>
     <string name="loop_slideshow">Endeløs kørsel</string>
+    <string name="animation">Animation</string>
+    <string name="no_animation">Ingen</string>
+    <string name="fade">Udton</string>
+    <string name="slide">Glid</string>
     <string name="slideshow_ended">Slideshowet endte</string>
     <string name="no_media_for_slideshow">Der blev ikke funket nogen mediefiler til slideshowet</string>
-    <string name="use_crossfade_animation">Anvend crossfade-animationer</string>
 
     <!-- View types -->
     <string name="change_view_type">Skift visning</string>
@@ -130,7 +133,11 @@
     <string name="do_not_group_files">Gruppér ikke filer</string>
     <string name="by_folder">Mappe</string>
     <string name="by_last_modified">Sidst ændret</string>
+    <string name="by_last_modified_daily">Sidst ændret (daglig)</string>
+    <string name="by_last_modified_monthly">Sidst ændret (månedlig)</string>
     <string name="by_date_taken">Eksponeringsdato</string>
+    <string name="by_date_taken_daily">Eksponeringsdato (daglig)</string>
+    <string name="by_date_taken_monthly">Eksponeringsdato (månedlig)</string>
     <string name="by_file_type">Filtype</string>
     <string name="by_extension">Filendelse</string>
     <string name="grouping_and_sorting">Vær opmærksom på at gruppering og sortering er to individuelle felter</string>

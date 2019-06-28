@@ -26,10 +26,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.simplemobiletools.commons.dialogs.ColorPickerDialog
 import com.simplemobiletools.commons.extensions.*
-import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
-import com.simplemobiletools.commons.helpers.REAL_FILE_PATH
-import com.simplemobiletools.commons.helpers.SIDELOADING_TRUE
-import com.simplemobiletools.commons.helpers.isNougatPlus
+import com.simplemobiletools.commons.helpers.*
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.gallery.pro.BuildConfig
 import com.simplemobiletools.gallery.pro.R
@@ -80,7 +77,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     private var drawColor = 0
     private var lastOtherAspectRatio: Pair<Int, Int>? = null
     private var currPrimaryAction = PRIMARY_ACTION_NONE
-    private var currCropRotateAction = CROP_ROTATE_NONE
+    private var currCropRotateAction = CROP_ROTATE_ASPECT_RATIO
     private var currAspectRatio = ASPECT_RATIO_FREE
     private var isCropIntent = false
     private var isEditingWithThirdParty = false
@@ -189,6 +186,8 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
             lastOtherAspectRatio = Pair(config.lastEditorCropOtherAspectRatioX, config.lastEditorCropOtherAspectRatioY)
         }
         updateAspectRatio(config.lastEditorCropAspectRatio)
+        crop_image_view.guidelines = CropImageView.Guidelines.ON
+        bottom_aspect_ratios.beVisible()
     }
 
     private fun loadDefaultImageView() {
@@ -257,9 +256,9 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         if (!wasDrawCanvasPositioned) {
             wasDrawCanvasPositioned = true
             editor_draw_canvas.onGlobalLayout {
-                Thread {
+                ensureBackgroundThread {
                     fillCanvasBackground()
-                }.start()
+                }
             }
         }
     }
@@ -334,7 +333,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 bottom_actions_filter_list.adapter = null
                 bottom_actions_filter_list.beGone()
 
-                Thread {
+                ensureBackgroundThread {
                     try {
                         val originalBitmap = Glide.with(applicationContext).asBitmap().load(uri).submit(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL).get()
                         currentFilter.filter.processFilter(originalBitmap)
@@ -342,23 +341,23 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     } catch (e: OutOfMemoryError) {
                         toast(R.string.out_of_memory_error)
                     }
-                }.start()
+                }
             }
         }
     }
 
     private fun shareImage() {
-        Thread {
+        ensureBackgroundThread {
             when {
                 default_image_view.isVisible() -> {
                     val currentFilter = getFiltersAdapter()?.getCurrentFilter()
                     if (currentFilter == null) {
                         toast(R.string.unknown_error_occurred)
-                        return@Thread
+                        return@ensureBackgroundThread
                     }
 
                     val originalBitmap = Glide.with(applicationContext).asBitmap().load(uri).submit(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL).get()
-                    currentFilter!!.filter.processFilter(originalBitmap)
+                    currentFilter.filter.processFilter(originalBitmap)
                     shareBitmap(originalBitmap)
                 }
                 crop_image_view.isVisible() -> {
@@ -369,12 +368,12 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                 }
                 editor_draw_canvas.isVisible() -> shareBitmap(editor_draw_canvas.getBitmap())
             }
-        }.start()
+        }
     }
 
     private fun getTempImagePath(bitmap: Bitmap, callback: (path: String?) -> Unit) {
         val bytes = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.PNG, 0, bytes)
+        bitmap.compress(CompressFormat.PNG, 0, bytes)
 
         val folder = File(cacheDir, TEMP_FOLDER_NAME)
         if (!folder.exists()) {
@@ -579,20 +578,27 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
         bottom_editor_draw_actions.beVisibleIf(currPrimaryAction == PRIMARY_ACTION_DRAW)
 
         if (currPrimaryAction == PRIMARY_ACTION_FILTER && bottom_actions_filter_list.adapter == null) {
-            Thread {
+            ensureBackgroundThread {
                 val thumbnailSize = resources.getDimension(R.dimen.bottom_filters_thumbnail_size).toInt()
-                val bitmap = Glide.with(this)
-                        .asBitmap()
-                        .load(uri).listener(object : RequestListener<Bitmap> {
-                            override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
-                                showErrorToast(e.toString())
-                                return false
-                            }
 
-                            override fun onResourceReady(resource: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean) = false
-                        })
-                        .submit(thumbnailSize, thumbnailSize)
-                        .get()
+                val bitmap = try {
+                    Glide.with(this)
+                            .asBitmap()
+                            .load(uri).listener(object : RequestListener<Bitmap> {
+                                override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Bitmap>?, isFirstResource: Boolean): Boolean {
+                                    showErrorToast(e.toString())
+                                    return false
+                                }
+
+                                override fun onResourceReady(resource: Bitmap?, model: Any?, target: Target<Bitmap>?, dataSource: DataSource?, isFirstResource: Boolean) = false
+                            })
+                            .submit(thumbnailSize, thumbnailSize)
+                            .get()
+                } catch (e: GlideException) {
+                    showErrorToast(e)
+                    finish()
+                    return@ensureBackgroundThread
+                }
 
                 runOnUiThread {
                     val filterThumbnailsManager = FilterThumbnailsManager()
@@ -621,14 +627,14 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                     bottom_actions_filter_list.adapter = adapter
                     adapter.notifyDataSetChanged()
                 }
-            }.start()
+            }
         }
 
         if (currPrimaryAction != PRIMARY_ACTION_CROP_ROTATE) {
             bottom_aspect_ratios.beGone()
             currCropRotateAction = CROP_ROTATE_NONE
-            updateCropRotateActionButtons()
         }
+        updateCropRotateActionButtons()
     }
 
     private fun applyFilter(filterItem: FilterItem) {
@@ -802,7 +808,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
 
     private fun saveBitmapToFile(bitmap: Bitmap, path: String, showSavingToast: Boolean) {
         try {
-            Thread {
+            ensureBackgroundThread {
                 val file = File(path)
                 val fileDirItem = FileDirItem(path, path.getFilenameFromPath())
                 getFileOutputStream(fileDirItem, true) {
@@ -812,7 +818,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
                         toast(R.string.image_editing_failed)
                     }
                 }
-            }.start()
+            }
         } catch (e: Exception) {
             showErrorToast(e)
         } catch (e: OutOfMemoryError) {
@@ -852,7 +858,7 @@ class EditActivity : SimpleActivity(), CropImageView.OnCropImageCompleteListener
     }
 
     private fun scanFinalPath(path: String) {
-        scanPathRecursively(path) {
+        rescanPaths(arrayListOf(path)) {
             setResult(Activity.RESULT_OK, intent)
             toast(R.string.file_saved)
             finish()

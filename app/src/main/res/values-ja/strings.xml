@@ -63,6 +63,7 @@
     <string name="manage_included_folders">追加フォルダの管理</string>
     <string name="add_folder">フォルダを追加</string>
     <string name="included_activity_placeholder">メディア入りのフォルダがアプリで認識されない場合は手動で追加します。</string>
+    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
 
     <!-- Resizing -->
     <string name="resize">リサイズ</string>
@@ -112,12 +113,14 @@
     <string name="include_videos">ビデオを含める</string>
     <string name="include_gifs">GIFを含める</string>
     <string name="random_order">ランダムな順序</string>
-    <string name="use_fade">フェードアニメーションを使用する</string>
     <string name="move_backwards">逆方向に進む</string>
     <string name="loop_slideshow">スライドショーをリピート再生する</string>
+    <string name="animation">アニメーション</string>
+    <string name="no_animation">なし</string>
+    <string name="fade">フェード</string>
+    <string name="slide">スライド</string>
     <string name="slideshow_ended">スライドショーが終了しました</string>
     <string name="no_media_for_slideshow">スライドショーに表示するメディアがありません</string>
-    <string name="use_crossfade_animation">クロスフェードアニメーションを使用する</string>
 
     <!-- View types -->
     <string name="change_view_type">表示形式の変更</string>
@@ -130,7 +133,11 @@
     <string name="do_not_group_files">何もしない</string>
     <string name="by_folder">フォルダ</string>
     <string name="by_last_modified">更新日時</string>
+    <string name="by_last_modified_daily">更新日時 (毎日)</string>
+    <string name="by_last_modified_monthly">更新日時 (毎月)</string>
     <string name="by_date_taken">撮影日時</string>
+    <string name="by_date_taken_daily">撮影日時 (毎日)</string>
+    <string name="by_date_taken_monthly">撮影日時 (毎月)</string>
     <string name="by_file_type">ファイル形式</string>
     <string name="by_extension">拡張子</string>
     <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>

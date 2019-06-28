@@ -63,6 +63,7 @@
     <string name="manage_included_folders">포함된 폴더 관리</string>
     <string name="add_folder">폴더 추가</string>
     <string name="included_activity_placeholder">미디어가 포함되어 있지만 앱에서 인식하지 못하는 폴더가있는 경우 여기에서 수동으로 추가 할 수 있습니다. \n\n여기에 항목을 추가해도 원본 폴더에서 제외되지 않습니다.</string>
+    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
 
     <!-- Resizing -->
     <string name="resize">크기 변경</string>
@@ -112,12 +113,14 @@
     <string name="include_videos">포함된 비디오</string>
     <string name="include_gifs">포함된 GIFs</string>
     <string name="random_order">랜덤 순서</string>
-    <string name="use_fade">페이드 애니메이션 사용</string>
     <string name="move_backwards">뒤로 이동</string>
     <string name="loop_slideshow">슬라이드 쇼 반복</string>
+    <string name="animation">Animation</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">슬라이드 쇼 종료</string>
     <string name="no_media_for_slideshow">슬라이드 쇼를 위한 미디어를 찾을 수 없음</string>
-    <string name="use_crossfade_animation">Use crossfade animations</string>
 
     <!-- View types -->
     <string name="change_view_type">보기방식 변경</string>
@@ -130,7 +133,11 @@
     <string name="do_not_group_files">Do not group files</string>
     <string name="by_folder">Folder</string>
     <string name="by_last_modified">Last modified</string>
+    <string name="by_last_modified_daily">Last modified (daily)</string>
+    <string name="by_last_modified_monthly">Last modified (monthly)</string>
     <string name="by_date_taken">Date taken</string>
+    <string name="by_date_taken_daily">Date taken (daily)</string>
+    <string name="by_date_taken_monthly">Date taken (monthly)</string>
     <string name="by_file_type">File type</string>
     <string name="by_extension">Extension</string>
     <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>

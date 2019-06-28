@@ -29,20 +29,36 @@
                 android:text="@string/do_not_group_files"/>
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
-                android:id="@+id/grouping_dialog_radio_last_modified"
+                android:id="@+id/grouping_dialog_radio_last_modified_daily"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/medium_margin"
                 android:paddingBottom="@dimen/medium_margin"
-                android:text="@string/by_last_modified"/>
+                android:text="@string/by_last_modified_daily"/>
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
-                android:id="@+id/grouping_dialog_radio_date_taken"
+                android:id="@+id/grouping_dialog_radio_last_modified_monthly"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/medium_margin"
                 android:paddingBottom="@dimen/medium_margin"
-                android:text="@string/by_date_taken"/>
+                android:text="@string/by_last_modified_monthly"/>
+
+            <com.simplemobiletools.commons.views.MyCompatRadioButton
+                android:id="@+id/grouping_dialog_radio_date_taken_daily"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/medium_margin"
+                android:paddingBottom="@dimen/medium_margin"
+                android:text="@string/by_date_taken_daily"/>
+
+            <com.simplemobiletools.commons.views.MyCompatRadioButton
+                android:id="@+id/grouping_dialog_radio_date_taken_monthly"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/medium_margin"
+                android:paddingBottom="@dimen/medium_margin"
+                android:text="@string/by_date_taken_monthly"/>
 
             <com.simplemobiletools.commons.views.MyCompatRadioButton
                 android:id="@+id/grouping_dialog_radio_file_type"

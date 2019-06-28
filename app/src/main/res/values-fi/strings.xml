@@ -63,6 +63,7 @@
     <string name="manage_included_folders">Hallitse sisällettyjä kansioita</string>
     <string name="add_folder">Lisää kansio</string>
     <string name="included_activity_placeholder">Jos sinulla on kansioita, jotka sisältää mediaa, mutta sovellus ei tunnistanut, voit lisätä ne manuaalisesti tähän.\n\Lisääminen ei poissulje muita kansioita.</string>
+    <string name="no_media_add_included">No media files have been found. You can solve it by adding the folders containing media files manually.</string>
 
     <!-- Resizing -->
     <string name="resize">Rajaa</string>
@@ -112,12 +113,14 @@
     <string name="include_videos">Sisällytä Videot</string>
     <string name="include_gifs">Sisällytä GIFit</string>
     <string name="random_order">Satunnainen järjestys</string>
-    <string name="use_fade">Käytä häivitys-animaatiota</string>
     <string name="move_backwards">Liiku takaisinpäin</string>
     <string name="loop_slideshow">Jatkuva diaesitys</string>
+    <string name="animation">Animation</string>
+    <string name="no_animation">None</string>
+    <string name="fade">Fade</string>
+    <string name="slide">Slide</string>
     <string name="slideshow_ended">Diaesitys päättyi</string>
     <string name="no_media_for_slideshow">Mediaa diaesitykseen ei löytynyt</string>
-    <string name="use_crossfade_animation">Use crossfade animations</string>
 
     <!-- View types -->
     <string name="change_view_type">Vaihda näkymää</string>
@@ -130,7 +133,11 @@
     <string name="do_not_group_files">Do not group files</string>
     <string name="by_folder">Folder</string>
     <string name="by_last_modified">Last modified</string>
+    <string name="by_last_modified_daily">Last modified (daily)</string>
+    <string name="by_last_modified_monthly">Last modified (monthly)</string>
     <string name="by_date_taken">Date taken</string>
+    <string name="by_date_taken_daily">Date taken (daily)</string>
+    <string name="by_date_taken_monthly">Date taken (monthly)</string>
     <string name="by_file_type">File type</string>
     <string name="by_extension">Extension</string>
     <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>

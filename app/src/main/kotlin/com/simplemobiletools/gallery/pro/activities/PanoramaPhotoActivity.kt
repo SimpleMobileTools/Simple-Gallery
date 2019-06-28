@@ -15,6 +15,7 @@ import com.simplemobiletools.commons.extensions.onGlobalLayout
 import com.simplemobiletools.commons.extensions.showErrorToast
 import com.simplemobiletools.commons.extensions.toast
 import com.simplemobiletools.commons.helpers.PERMISSION_WRITE_STORAGE
+import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.extensions.*
 import com.simplemobiletools.gallery.pro.helpers.PATH
@@ -94,7 +95,7 @@ open class PanoramaPhotoActivity : SimpleActivity() {
         try {
             val options = VrPanoramaView.Options()
             options.inputType = VrPanoramaView.Options.TYPE_MONO
-            Thread {
+            ensureBackgroundThread {
                 val bitmap = getBitmapToLoad(path)
                 runOnUiThread {
                     panorama_view.apply {
@@ -120,7 +121,7 @@ open class PanoramaPhotoActivity : SimpleActivity() {
                         })
                     }
                 }
-            }.start()
+            }
         } catch (e: Exception) {
             showErrorToast(e)
         }

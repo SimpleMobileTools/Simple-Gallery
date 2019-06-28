@@ -24,14 +24,12 @@ import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DataSpec
 import com.google.android.exoplayer2.upstream.FileDataSource
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.PanoramaVideoActivity
 import com.simplemobiletools.gallery.pro.activities.VideoActivity
 import com.simplemobiletools.gallery.pro.extensions.*
-import com.simplemobiletools.gallery.pro.helpers.Config
-import com.simplemobiletools.gallery.pro.helpers.MEDIUM
-import com.simplemobiletools.gallery.pro.helpers.MIN_SKIP_LENGTH
-import com.simplemobiletools.gallery.pro.helpers.PATH
+import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.views.MediaSideScroll
 import kotlinx.android.synthetic.main.bottom_video_time_holder.view.*
@@ -77,6 +75,7 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     private lateinit var mSeekBar: SeekBar
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        mMedium = arguments!!.getSerializable(MEDIUM) as Medium
         mConfig = context!!.config
         mView = inflater.inflate(R.layout.pager_video_item, container, false).apply {
             instant_prev_item.setOnClickListener { listener?.goToPrevItem() }
@@ -125,8 +124,11 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
             }
         }
 
+        if (!arguments!!.getBoolean(SHOULD_INIT_FRAGMENT, true)) {
+            return mView
+        }
+
         storeStateVariables()
-        mMedium = arguments!!.getSerializable(MEDIUM) as Medium
         Glide.with(context!!).load(mMedium.path).into(mView.video_preview)
 
         // setMenuVisibility is not called at VideoActivity (third party intent)
@@ -138,9 +140,11 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
         initTimeHolder()
         checkIfPanorama()
 
-        activity?.getVideoResolution(mMedium.path)?.apply {
-            mVideoSize.x = x
-            mVideoSize.y = y
+        ensureBackgroundThread {
+            activity?.getVideoResolution(mMedium.path)?.apply {
+                mVideoSize.x = x
+                mVideoSize.y = y
+            }
         }
 
         if (mIsPanorama) {
@@ -654,10 +658,10 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
 
     private fun releaseExoPlayer() {
         mExoPlayer?.stop()
-        Thread {
+        ensureBackgroundThread {
             mExoPlayer?.release()
             mExoPlayer = null
-        }.start()
+        }
     }
 
     override fun onSurfaceTextureSizeChanged(surface: SurfaceTexture?, width: Int, height: Int) {}
@@ -667,9 +671,9 @@ class VideoFragment : ViewPagerFragment(), TextureView.SurfaceTextureListener, S
     override fun onSurfaceTextureDestroyed(surface: SurfaceTexture?) = false
 
     override fun onSurfaceTextureAvailable(surface: SurfaceTexture?, width: Int, height: Int) {
-        Thread {
+        ensureBackgroundThread {
             mExoPlayer?.setVideoSurface(Surface(mTextureView.surfaceTexture))
-        }.start()
+        }
     }
 
     private fun setVideoSize() {

@@ -11,8 +11,9 @@ import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.PropertiesDialog
 import com.simplemobiletools.commons.dialogs.RenameItemDialog
-import com.simplemobiletools.commons.dialogs.RenameItemsDialog
+import com.simplemobiletools.commons.dialogs.RenameItemsPatternDialog
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.models.FileDirItem
 import com.simplemobiletools.commons.views.FastScroller
 import com.simplemobiletools.commons.views.MyRecyclerView
@@ -46,7 +47,6 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     private var loadImageInstantly = false
     private var delayHandler = Handler(Looper.getMainLooper())
     private var currentMediaHash = media.hashCode()
-    private val hasOTGConnected = activity.hasOTGConnected()
 
     private var scrollHorizontally = config.scrollHorizontally
     private var animateGifs = config.animateGifs
@@ -109,8 +109,12 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
         val isOneItemSelected = isOneItemSelected()
         val selectedPaths = selectedItems.map { it.path } as ArrayList<String>
+        val isInRecycleBin = selectedItems.firstOrNull()?.getIsInRecycleBin() == true
         menu.apply {
-            findItem(R.id.cab_rename).isVisible = selectedItems.firstOrNull()?.getIsInRecycleBin() == false
+            findItem(R.id.cab_rename).isVisible = !isInRecycleBin
+            findItem(R.id.cab_add_to_favorites).isVisible = !isInRecycleBin
+            findItem(R.id.cab_fix_date_taken).isVisible = !isInRecycleBin
+            findItem(R.id.cab_move_to).isVisible = !isInRecycleBin
             findItem(R.id.cab_open_with).isVisible = isOneItemSelected
             findItem(R.id.cab_confirm_selection).isVisible = isAGetIntent && allowMultiplePicks && selectedKeys.isNotEmpty()
             findItem(R.id.cab_restore_recycle_bin_files).isVisible = selectedPaths.all { it.startsWith(activity.recycleBinPath) }
@@ -178,8 +182,8 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     }
 
     private fun checkFavoriteBtnVisibility(menu: Menu, selectedItems: ArrayList<Medium>) {
-        menu.findItem(R.id.cab_add_to_favorites).isVisible = selectedItems.any { !it.isFavorite }
-        menu.findItem(R.id.cab_remove_from_favorites).isVisible = selectedItems.any { it.isFavorite }
+        menu.findItem(R.id.cab_add_to_favorites).isVisible = selectedItems.none { it.getIsInRecycleBin() } && selectedItems.any { !it.isFavorite }
+        menu.findItem(R.id.cab_remove_from_favorites).isVisible = selectedItems.none { it.getIsInRecycleBin() } && selectedItems.any { it.isFavorite }
     }
 
     private fun confirmSelection() {
@@ -200,7 +204,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
         if (selectedKeys.size == 1) {
             val oldPath = getFirstSelectedItemPath() ?: return
             RenameItemDialog(activity, oldPath) {
-                Thread {
+                ensureBackgroundThread {
                     activity.updateDBMediaPath(oldPath, it)
 
                     activity.runOnUiThread {
@@ -208,10 +212,10 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                         listener?.refreshItems()
                         finishActMode()
                     }
-                }.start()
+                }
             }
         } else {
-            RenameItemsDialog(activity, getSelectedPaths()) {
+            RenameItemsPatternDialog(activity, getSelectedPaths()) {
                 enableInstantLoad()
                 listener?.refreshItems()
                 finishActMode()
@@ -235,7 +239,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     }
 
     private fun toggleFileVisibility(hide: Boolean) {
-        Thread {
+        ensureBackgroundThread {
             getSelectedItems().forEach {
                 activity.toggleFileVisibility(it.path, hide)
             }
@@ -243,11 +247,11 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                 listener?.refreshItems()
                 finishActMode()
             }
-        }.start()
+        }
     }
 
     private fun toggleFavorites(add: Boolean) {
-        Thread {
+        ensureBackgroundThread {
             val mediumDao = activity.galleryDB.MediumDao()
             getSelectedItems().forEach {
                 it.isFavorite = add
@@ -257,7 +261,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                 listener?.refreshItems()
                 finishActMode()
             }
-        }.start()
+        }
     }
 
     private fun restoreFiles() {
@@ -277,7 +281,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
 
     private fun rotateSelection(degrees: Int) {
         activity.toast(R.string.saving)
-        Thread {
+        ensureBackgroundThread {
             val paths = getSelectedPaths().filter { it.isImageFast() }
             var fileCnt = paths.size
             rotatedImagePaths.clear()
@@ -293,7 +297,7 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
                     }
                 }
             }
-        }.start()
+        }
     }
 
     private fun moveFilesTo() {
@@ -330,12 +334,12 @@ class MediaAdapter(activity: BaseSimpleActivity, var media: MutableList<Thumbnai
     }
 
     private fun fixDateTaken() {
-        Thread {
-            activity.fixDateTaken(getSelectedPaths()) {
+        ensureBackgroundThread {
+            activity.fixDateTaken(getSelectedPaths(), true) {
                 listener?.refreshItems()
                 finishActMode()
             }
-        }.start()
+        }
     }
 
     private fun checkDeleteConfirmation() {

@@ -16,9 +16,12 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_star_off"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bottom_edit"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"/>
 
     <ImageView
         android:id="@+id/bottom_edit"
@@ -27,9 +30,12 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_edit"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bottom_share"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bottom_favorite"/>
+        app:layout_constraintStart_toEndOf="@+id/bottom_favorite"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"/>
 
     <ImageView
         android:id="@+id/bottom_share"
@@ -38,9 +44,12 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_share"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bottom_delete"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bottom_edit"/>
+        app:layout_constraintStart_toEndOf="@+id/bottom_edit"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"/>
 
     <ImageView
         android:id="@+id/bottom_delete"
@@ -49,9 +58,12 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_delete"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bottom_rotate"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bottom_share"/>
+        app:layout_constraintStart_toEndOf="@+id/bottom_share"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"/>
 
     <ImageView
         android:id="@+id/bottom_rotate"
@@ -60,9 +72,12 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_rotate_right"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bottom_properties"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bottom_delete"/>
+        app:layout_constraintStart_toEndOf="@+id/bottom_delete"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"/>
 
     <ImageView
         android:id="@+id/bottom_properties"
@@ -71,9 +86,12 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_properties"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bottom_change_orientation"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bottom_rotate"/>
+        app:layout_constraintStart_toEndOf="@+id/bottom_rotate"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"/>
 
     <ImageView
         android:id="@+id/bottom_change_orientation"
@@ -82,9 +100,12 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_orientation_auto"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bottom_slideshow"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bottom_properties"/>
+        app:layout_constraintStart_toEndOf="@+id/bottom_properties"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"/>
 
     <ImageView
         android:id="@+id/bottom_slideshow"
@@ -93,9 +114,12 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_slideshow"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bottom_show_on_map"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bottom_change_orientation"/>
+        app:layout_constraintStart_toEndOf="@+id/bottom_change_orientation"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"/>
 
     <ImageView
         android:id="@+id/bottom_show_on_map"
@@ -104,9 +128,12 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_place"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bottom_toggle_file_visibility"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bottom_slideshow"/>
+        app:layout_constraintStart_toEndOf="@+id/bottom_slideshow"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"/>
 
     <ImageView
         android:id="@+id/bottom_toggle_file_visibility"
@@ -115,9 +142,12 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_hide"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bottom_rename"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bottom_show_on_map"/>
+        app:layout_constraintStart_toEndOf="@+id/bottom_show_on_map"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"/>
 
     <ImageView
         android:id="@+id/bottom_rename"
@@ -126,9 +156,12 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_rename_new"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/bottom_set_as"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bottom_toggle_file_visibility"/>
+        app:layout_constraintStart_toEndOf="@+id/bottom_toggle_file_visibility"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"/>
 
     <ImageView
         android:id="@+id/bottom_set_as"
@@ -137,9 +170,12 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_set_as"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/bottom_copy"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bottom_rename"/>
+        app:layout_constraintStart_toEndOf="@+id/bottom_rename"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"/>
 
     <ImageView
         android:id="@+id/bottom_copy"
@@ -148,9 +184,12 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_copy"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/bottom_move"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bottom_set_as"/>
+        app:layout_constraintStart_toEndOf="@+id/bottom_set_as"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"/>
 
     <ImageView
         android:id="@+id/bottom_move"
@@ -159,8 +198,11 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/medium_margin"
         android:src="@drawable/ic_move"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bottom_copy"/>
+        app:layout_constraintStart_toEndOf="@+id/bottom_copy"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

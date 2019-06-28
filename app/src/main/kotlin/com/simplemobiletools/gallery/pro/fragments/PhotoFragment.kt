@@ -21,6 +21,7 @@ import android.view.ViewGroup
 import com.alexvasilkov.gestures.GestureController
 import com.alexvasilkov.gestures.State
 import com.bumptech.glide.Glide
+import com.bumptech.glide.Priority
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -35,14 +36,12 @@ import com.davemorrissey.labs.subscaleview.ImageRegionDecoder
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.gallery.pro.R
 import com.simplemobiletools.gallery.pro.activities.PanoramaPhotoActivity
 import com.simplemobiletools.gallery.pro.activities.PhotoActivity
 import com.simplemobiletools.gallery.pro.extensions.*
-import com.simplemobiletools.gallery.pro.helpers.MEDIUM
-import com.simplemobiletools.gallery.pro.helpers.PATH
-import com.simplemobiletools.gallery.pro.helpers.PicassoDecoder
-import com.simplemobiletools.gallery.pro.helpers.PicassoRegionDecoder
+import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.models.Medium
 import com.simplemobiletools.gallery.pro.svg.SvgSoftwareLayerSetter
 import com.squareup.picasso.Callback
@@ -89,7 +88,14 @@ class PhotoFragment : ViewPagerFragment() {
     private lateinit var mMedium: Medium
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        mView = (inflater.inflate(R.layout.pager_photo_item, container, false) as ViewGroup).apply {
+        mView = (inflater.inflate(R.layout.pager_photo_item, container, false) as ViewGroup)
+        if (!arguments!!.getBoolean(SHOULD_INIT_FRAGMENT, true)) {
+            return mView
+        }
+
+        mMedium = arguments!!.getSerializable(MEDIUM) as Medium
+
+        mView.apply {
             subsampling_view.setOnClickListener { photoClicked() }
             gestures_view.setOnClickListener { photoClicked() }
             gif_view.setOnClickListener { photoClicked() }
@@ -146,7 +152,6 @@ class PhotoFragment : ViewPagerFragment() {
             mIsFragmentVisible = true
         }
 
-        mMedium = arguments!!.getSerializable(MEDIUM) as Medium
         if (mMedium.path.startsWith("content://") && !mMedium.path.startsWith("content://mms/")) {
             val originalPath = mMedium.path
             mMedium.path = context!!.getRealPathFromURI(Uri.parse(originalPath)) ?: mMedium.path
@@ -226,19 +231,30 @@ class PhotoFragment : ViewPagerFragment() {
         super.onDestroyView()
         if (activity?.isDestroyed == false) {
             mView.subsampling_view.recycle()
+
+            try {
+                if (context != null) {
+                    Glide.with(context!!).clear(mView.gestures_view)
+                }
+            } catch (ignored: Exception) {
+            }
         }
 
         mLoadZoomableViewHandler.removeCallbacksAndMessages(null)
         if (mCurrentRotationDegrees != 0) {
-            Thread {
+            ensureBackgroundThread {
                 val path = mMedium.path
                 (activity as? BaseSimpleActivity)?.saveRotatedImageToFile(path, path, mCurrentRotationDegrees, false) {}
-            }.start()
+            }
         }
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
+
+        if (!mWasInit) {
+            return
+        }
 
         // avoid GIFs being skewed, played in wrong aspect ratio
         if (mMedium.isGIF()) {
@@ -359,9 +375,11 @@ class PhotoFragment : ViewPagerFragment() {
     }
 
     private fun loadBitmap(addZoomableView: Boolean = true) {
+        val priority = if (mIsFragmentVisible) Priority.IMMEDIATE else Priority.NORMAL
         val options = RequestOptions()
                 .signature(mMedium.path.getFileSignature())
                 .format(DecodeFormat.PREFER_ARGB_8888)
+                .priority(priority)
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                 .fitCenter()
 
@@ -540,7 +558,7 @@ class PhotoFragment : ViewPagerFragment() {
                 tag?.getValueAsInt(defaultOrientation) ?: defaultOrientation
             } else {
                 val exif = android.media.ExifInterface(path)
-                exif.getAttributeInt(android.media.ExifInterface.TAG_ORIENTATION, defaultOrientation)
+                exif.getAttributeInt(TAG_ORIENTATION, defaultOrientation)
             }
 
             if (orient == defaultOrientation || context!!.isPathOnOTG(mMedium.path)) {
@@ -641,6 +659,7 @@ class PhotoFragment : ViewPagerFragment() {
 
             if (mIsPanorama) {
                 panorama_outline.animate().alpha(if (isFullscreen) 0f else 1f).start()
+                panorama_outline.isClickable = !isFullscreen
             }
         }
     }

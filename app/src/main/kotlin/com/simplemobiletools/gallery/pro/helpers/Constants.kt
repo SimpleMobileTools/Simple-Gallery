@@ -84,12 +84,18 @@ const val SLIDESHOW_INTERVAL = "slideshow_interval"
 const val SLIDESHOW_INCLUDE_VIDEOS = "slideshow_include_videos"
 const val SLIDESHOW_INCLUDE_GIFS = "slideshow_include_gifs"
 const val SLIDESHOW_RANDOM_ORDER = "slideshow_random_order"
-const val SLIDESHOW_USE_FADE = "slideshow_use_fade"
 const val SLIDESHOW_MOVE_BACKWARDS = "slideshow_move_backwards"
+const val SLIDESHOW_ANIMATION = "slideshow_animation"
 const val SLIDESHOW_LOOP = "loop_slideshow"
 const val SLIDESHOW_DEFAULT_INTERVAL = 5
-const val SLIDESHOW_SCROLL_DURATION = 500L
+const val SLIDESHOW_SLIDE_DURATION = 500L
+const val SLIDESHOW_FADE_DURATION = 1500L
 const val SLIDESHOW_START_ON_ENTER = "slideshow_start_on_enter"
+
+// slideshow animations
+const val SLIDESHOW_ANIMATION_NONE = 0
+const val SLIDESHOW_ANIMATION_SLIDE = 1
+const val SLIDESHOW_ANIMATION_FADE = 2
 
 const val NOMEDIA = ".nomedia"
 const val FAVORITES = "favorites"
@@ -109,6 +115,7 @@ const val DRAG_THRESHOLD = 8
 const val MONTH_MILLISECONDS = MONTH_SECONDS * 1000L
 const val MIN_SKIP_LENGTH = 2000
 const val HIDE_SYSTEM_UI_DELAY = 500L
+const val MAX_PRINT_SIDE_SIZE = 4096
 
 const val DIRECTORY = "directory"
 const val MEDIUM = "medium"
@@ -119,6 +126,7 @@ const val GET_ANY_INTENT = "get_any_intent"
 const val SET_WALLPAPER_INTENT = "set_wallpaper_intent"
 const val IS_VIEW_INTENT = "is_view_intent"
 const val PICKED_PATHS = "picked_paths"
+const val SHOULD_INIT_FRAGMENT = "should_init_fragment"
 
 // rotations
 const val ROTATE_BY_SYSTEM_SETTING = 0
@@ -153,17 +161,20 @@ const val TYPE_VIDEOS = 2
 const val TYPE_GIFS = 4
 const val TYPE_RAWS = 8
 const val TYPE_SVGS = 16
+const val TYPE_DEFAULT_FILTER = TYPE_IMAGES or TYPE_VIDEOS or TYPE_GIFS or TYPE_RAWS or TYPE_SVGS
 
 const val LOCATION_INTERNAL = 1
 const val LOCATION_SD = 2
 const val LOCATION_OTG = 3
 
 const val GROUP_BY_NONE = 1
-const val GROUP_BY_LAST_MODIFIED = 2
-const val GROUP_BY_DATE_TAKEN = 4
+const val GROUP_BY_LAST_MODIFIED_DAILY = 2
+const val GROUP_BY_DATE_TAKEN_DAILY = 4
 const val GROUP_BY_FILE_TYPE = 8
 const val GROUP_BY_EXTENSION = 16
 const val GROUP_BY_FOLDER = 32
+const val GROUP_BY_LAST_MODIFIED_MONTHLY = 64
+const val GROUP_BY_DATE_TAKEN_MONTHLY = 128
 const val GROUP_DESCENDING = 1024
 
 // bottom actions
