@@ -116,9 +116,9 @@
     <string name="move_backwards">Spela upp i omvänd ordning</string>
     <string name="loop_slideshow">Spela upp i en slinga</string>
     <string name="animation">Animation</string>
-    <string name="no_animation">None</string>
-    <string name="fade">Fade</string>
-    <string name="slide">Slide</string>
+    <string name="no_animation">Ingen</string>
+    <string name="fade">Tona</string>
+    <string name="slide">Glid</string>
     <string name="slideshow_ended">Bildspelet har avslutats</string>
     <string name="no_media_for_slideshow">Ingen media hittades för bildspelet</string>
 
@@ -133,14 +133,14 @@
     <string name="do_not_group_files">Gruppera inte filer</string>
     <string name="by_folder">Mapp</string>
     <string name="by_last_modified">Senast ändrad</string>
-    <string name="by_last_modified_daily">Last modified (daily)</string>
-    <string name="by_last_modified_monthly">Last modified (monthly)</string>
+    <string name="by_last_modified_daily">Senast ändrad (dag)</string>
+    <string name="by_last_modified_monthly">Senast ändrad (månad)</string>
     <string name="by_date_taken">Fotodatum</string>
-    <string name="by_date_taken_daily">Date taken (daily)</string>
-    <string name="by_date_taken_monthly">Date taken (monthly)</string>
+    <string name="by_date_taken_daily">Fotodatum (dag)</string>
+    <string name="by_date_taken_monthly">Fotodatum (månad)</string>
     <string name="by_file_type">Filtyp</string>
     <string name="by_extension">Filnamnstillägg</string>
-    <string name="grouping_and_sorting">Please note that grouping and sorting are 2 independent fields</string>
+    <string name="grouping_and_sorting">Observera att gruppering och sortering är två oberoende funktioner</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Mapp som visas i widgeten:</string>
