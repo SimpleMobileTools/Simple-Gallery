@@ -133,14 +133,14 @@
     <string name="do_not_group_files">Ne pas grouper les fichiers</string>
     <string name="by_folder">Dossier</string>
     <string name="by_last_modified">Date de modification</string>
-    <string name="by_last_modified_daily">Last modified (daily)</string>
-    <string name="by_last_modified_monthly">Last modified (monthly)</string>
+    <string name="by_last_modified_daily">Date de modification (par jour)</string>
+    <string name="by_last_modified_monthly">Date de modification (par mois)</string>
     <string name="by_date_taken">Date de prise de vue</string>
-    <string name="by_date_taken_daily">Date taken (daily)</string>
-    <string name="by_date_taken_monthly">Date taken (monthly)</string>
+    <string name="by_date_taken_daily">Date de prise de vue (par jour)</string>
+    <string name="by_date_taken_monthly">Date de prise de vue (par mois)</string>
     <string name="by_file_type">Type de fichier</string>
     <string name="by_extension">Extension</string>
-    <string name="grouping_and_sorting">Notez que grouper et trier sont 2 modes de tri indépendants</string>
+    <string name="grouping_and_sorting">Notez que \'Grouper par\' et \'Trier par\' sont 2 modes indépendants</string>
 
     <!-- Widgets -->
     <string name="folder_on_widget">Dossier affiché sur le widget :</string>
