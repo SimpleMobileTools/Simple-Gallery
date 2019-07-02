@@ -616,7 +616,7 @@ fun Context.getCachedMedia(path: String, getVideosOnly: Boolean = false, getImag
         }
 
         val shouldShowHidden = config.shouldShowHidden
-        foldersToScan.forEach {
+        foldersToScan.filter { path.isNotEmpty() || !config.isFolderProtected(it) }.forEach {
             try {
                 val currMedia = mediumDao.getMediaFromPath(it)
                 media.addAll(currMedia)
