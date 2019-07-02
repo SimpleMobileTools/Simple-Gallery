@@ -1,6 +1,15 @@
 Changelog
 ==========
 
+Version 6.8.2 *(2019-07-02)*
+----------------------------
+
+ * Allow password protecting individual folders
+ * Let's try using dark theme menu
+ * Fixed the performance of scrolling GIF thumbnails
+ * Fixed some video stucking issues
+ * Some other stability and translation improvements
+
 Version 6.8.1 *(2019-06-27)*
 ----------------------------
 
