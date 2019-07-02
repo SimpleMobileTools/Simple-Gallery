@@ -12,10 +12,7 @@ import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
-import com.simplemobiletools.commons.dialogs.ConfirmationDialog
-import com.simplemobiletools.commons.dialogs.PropertiesDialog
-import com.simplemobiletools.commons.dialogs.RenameItemDialog
-import com.simplemobiletools.commons.dialogs.RenameItemsDialog
+import com.simplemobiletools.commons.dialogs.*
 import com.simplemobiletools.commons.extensions.*
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.helpers.isOreoPlus
@@ -81,6 +78,9 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             findItem(R.id.cab_rename).isVisible = !selectedPaths.contains(FAVORITES) && !selectedPaths.contains(RECYCLE_BIN)
             findItem(R.id.cab_change_cover_image).isVisible = isOneItemSelected
 
+            findItem(R.id.cab_lock).isVisible = selectedPaths.any { !config.isFolderProtected(it) }
+            findItem(R.id.cab_unlock).isVisible = selectedPaths.any { config.isFolderProtected(it) }
+
             findItem(R.id.cab_empty_recycle_bin).isVisible = isOneItemSelected && selectedPaths.first() == RECYCLE_BIN
             findItem(R.id.cab_empty_disable_recycle_bin).isVisible = isOneItemSelected && selectedPaths.first() == RECYCLE_BIN
 
@@ -106,6 +106,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             R.id.cab_hide -> toggleFoldersVisibility(true)
             R.id.cab_unhide -> toggleFoldersVisibility(false)
             R.id.cab_exclude -> tryExcludeFolder()
+            R.id.cab_lock -> tryLockFolder()
+            R.id.cab_unlock -> unlockFolder()
             R.id.cab_copy_to -> copyMoveTo(true)
             R.id.cab_move_to -> moveFilesTo()
             R.id.cab_select_all -> selectAll()
@@ -308,6 +310,24 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             listener?.refreshItems()
             finishActMode()
         }
+    }
+
+    private fun tryLockFolder() {
+        if (config.wasFolderLockingNoticeShown) {
+            lockFolder()
+        } else {
+            FolderLockingNoticeDialog(activity) {
+                lockFolder()
+            }
+        }
+    }
+
+    private fun lockFolder() {
+
+    }
+
+    private fun unlockFolder() {
+
     }
 
     private fun pinFolders(pin: Boolean) {
