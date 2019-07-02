@@ -487,7 +487,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         }
 
         activity.handleSAFDialog(SAFPath) {
-            val foldersToDelete = ArrayList<File>(selectedKeys.size)
+            var foldersToDelete = ArrayList<File>(selectedKeys.size)
             selectedDirs.forEach {
                 if (it.areFavorites() || it.isRecycleBin()) {
                     if (it.isRecycleBin()) {
@@ -507,7 +507,14 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 }
             }
 
-            listener?.deleteFolders(foldersToDelete)
+            if (foldersToDelete.size == 1) {
+                activity.handleLockedFolderOpening(foldersToDelete.first().absolutePath) {
+                    listener?.deleteFolders(foldersToDelete)
+                }
+            } else {
+                foldersToDelete = foldersToDelete.filter { !activity.config.isFolderProtected(it.absolutePath) }.toMutableList() as ArrayList<File>
+                listener?.deleteFolders(foldersToDelete)
+            }
         }
     }
 
