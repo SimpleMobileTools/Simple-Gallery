@@ -769,9 +769,11 @@ class MainActivity : SimpleActivity(), DirectoryOperationsListener {
     }
 
     private fun itemClicked(path: String) {
-        Intent(this, MediaActivity::class.java).apply {
-            putExtra(DIRECTORY, path)
-            handleMediaIntent(this)
+        handleLockedFolderOpening(path) {
+            Intent(this, MediaActivity::class.java).apply {
+                putExtra(DIRECTORY, path)
+                handleMediaIntent(this)
+            }
         }
     }
 
