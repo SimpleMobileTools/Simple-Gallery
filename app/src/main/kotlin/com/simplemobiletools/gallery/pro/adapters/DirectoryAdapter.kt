@@ -257,15 +257,19 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     }
 
     private fun emptyRecycleBin() {
-        activity.emptyTheRecycleBin {
-            listener?.refreshItems()
+        activity.handleLockedFolderOpening(RECYCLE_BIN) {
+            activity.emptyTheRecycleBin {
+                listener?.refreshItems()
+            }
         }
     }
 
     private fun emptyAndDisableRecycleBin() {
-        activity.showRecycleBinEmptyingDialog {
-            activity.emptyAndDisableTheRecycleBin {
-                listener?.refreshItems()
+        activity.handleLockedFolderOpening(RECYCLE_BIN) {
+            activity.showRecycleBinEmptyingDialog {
+                activity.emptyAndDisableTheRecycleBin {
+                    listener?.refreshItems()
+                }
             }
         }
     }
