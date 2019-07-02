@@ -115,10 +115,10 @@
     <string name="random_order">Ordem aleatória</string>
     <string name="move_backwards">Mover para trás</string>
     <string name="loop_slideshow">Apresentação em ciclo</string>
-    <string name="animation">Animation</string>
-    <string name="no_animation">None</string>
-    <string name="fade">Fade</string>
-    <string name="slide">Slide</string>
+    <string name="animation">Animação</string>
+    <string name="no_animation">Nenhuma</string>
+    <string name="fade">Desvanecer</string>
+    <string name="slide">Deslizar</string>
     <string name="slideshow_ended">Apresentação terminada</string>
     <string name="no_media_for_slideshow">Não foram encontrados ficheiros para a apresentação</string>
 
@@ -133,11 +133,11 @@
     <string name="do_not_group_files">Não agrupar ficheiros</string>
     <string name="by_folder">Pasta</string>
     <string name="by_last_modified">Última modificação</string>
-    <string name="by_last_modified_daily">Last modified (daily)</string>
-    <string name="by_last_modified_monthly">Last modified (monthly)</string>
+    <string name="by_last_modified_daily">Última modificação (diária)</string>
+    <string name="by_last_modified_monthly">Última modificação (mensal)</string>
     <string name="by_date_taken">Data de obtenção</string>
-    <string name="by_date_taken_daily">Date taken (daily)</string>
-    <string name="by_date_taken_monthly">Date taken (monthly)</string>
+    <string name="by_date_taken_daily">Data de obtenção (diária)</string>
+    <string name="by_date_taken_monthly">Data de obtenção (mensal)</string>
     <string name="by_file_type">Tipo de ficheiro</string>
     <string name="by_extension">Extensão</string>
     <string name="grouping_and_sorting">Tenha em atenção de que agrupamento e ordenação são campos independentes</string>
@@ -238,7 +238,7 @@
     <string name="app_long_description">
         Simple Gallery Pro é uma aplicação local para gerir fotos e vídeos. Pode organizar e editar as suas fotos, recuperar ficheiros através da reciclagem, proteger e ocultar ficheiros e ver imagens e vídeos disponíveis em vários formatos tais como RAW, SVG e muito mais.
 
-        A aplicação não tem anúncios nem pede permissões desnecessárias. uma vez que também não precisa de aceder à Internet, os seus ficheiros estão protegidos.
+        A aplicação não tem anúncios nem pede permissões desnecessárias. Uma vez que também não precisa de aceder à Internet, os seus ficheiros estão protegidos.
 
         -------------------------------------------------
         <b>SIMPLE GALLERY PRO – FUNCIONALIDADES</b>
@@ -279,7 +279,7 @@
         <b>PROTECT &amp; HIDE PHOTOS, VIDEOS &amp; FILES</b>
         Using pin, pattern or your device’s fingerprint scanner you can protect and hide photos, videos &amp; entire albums. You can protect the app itself or place locks on specific functions of the app. For example, you can’t delete a file without a fingerprint scan, helping to protect your files from accidental deletion.
 
-        <b>Check out the full suite of Simple Tools here:</b>
+        <b>Consulte todas as aplicações Simple Tools aqui:</b>
         https://www.simplemobiletools.com
 
         <b>Facebook:</b>
