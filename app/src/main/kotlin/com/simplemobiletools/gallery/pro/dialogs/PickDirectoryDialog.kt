@@ -76,7 +76,9 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
 
     private fun showOtherFolder() {
         FilePickerDialog(activity, sourcePath, false, showHidden, true, true) {
-            callback(it)
+            activity.handleLockedFolderOpening(it) {
+                callback(it)
+            }
         }
     }
 
@@ -100,7 +102,9 @@ class PickDirectoryDialog(val activity: BaseSimpleActivity, val sourcePath: Stri
                     activity.toast(R.string.source_and_destination_same)
                     return@DirectoryAdapter
                 } else {
-                    callback(path)
+                    activity.handleLockedFolderOpening(path) {
+                        callback(path)
+                    }
                     dialog.dismiss()
                 }
             } else {
