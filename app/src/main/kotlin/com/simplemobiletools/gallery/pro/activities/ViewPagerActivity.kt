@@ -702,31 +702,31 @@ class ViewPagerActivity : SimpleActivity(), ViewPager.OnPageChangeListener, View
     }
 
     private fun showOnMap() {
-        val exif: ExifInterface
-        try {
-            exif = ExifInterface(getCurrentPath())
+        val exif = try {
+            ExifInterface(getCurrentPath())
         } catch (e: Exception) {
             showErrorToast(e)
             return
         }
-        val lat = exif.getAttribute(ExifInterface.TAG_GPS_LATITUDE)
-        val lat_ref = exif.getAttribute(ExifInterface.TAG_GPS_LATITUDE_REF)
-        val lon = exif.getAttribute(ExifInterface.TAG_GPS_LONGITUDE)
-        val lon_ref = exif.getAttribute(ExifInterface.TAG_GPS_LONGITUDE_REF)
 
-        if (lat == null || lat_ref == null || lon == null || lon_ref == null) {
+        val lat = exif.getAttribute(ExifInterface.TAG_GPS_LATITUDE)
+        val latRef = exif.getAttribute(ExifInterface.TAG_GPS_LATITUDE_REF)
+        val lon = exif.getAttribute(ExifInterface.TAG_GPS_LONGITUDE)
+        val lonRef = exif.getAttribute(ExifInterface.TAG_GPS_LONGITUDE_REF)
+
+        if (lat == null || latRef == null || lon == null || lonRef == null) {
             toast(R.string.unknown_location)
         } else {
-            val geoLat = if (lat_ref == "N") {
+            val geoLat = if (latRef == "N") {
                 convertToDegree(lat)
             } else {
-                0 - convertToDegree(lat)
+                -convertToDegree(lat)
             }
 
-            val geoLon = if (lon_ref == "E") {
+            val geoLon = if (lonRef == "E") {
                 convertToDegree(lon)
             } else {
-                0 - convertToDegree(lon)
+                -convertToDegree(lon)
             }
 
             val uriBegin = "geo:$geoLat,$geoLon"
