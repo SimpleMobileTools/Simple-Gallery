@@ -14,6 +14,7 @@ import com.simplemobiletools.commons.activities.BaseSimpleActivity
 import com.simplemobiletools.commons.adapters.MyRecyclerViewAdapter
 import com.simplemobiletools.commons.dialogs.*
 import com.simplemobiletools.commons.extensions.*
+import com.simplemobiletools.commons.helpers.SHOW_ALL_TABS
 import com.simplemobiletools.commons.helpers.ensureBackgroundThread
 import com.simplemobiletools.commons.helpers.isOreoPlus
 import com.simplemobiletools.commons.models.FileDirItem
@@ -323,11 +324,33 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     }
 
     private fun lockFolder() {
+        SecurityDialog(activity, "", SHOW_ALL_TABS) { hash, type, success ->
+            if (success) {
+                getSelectedPaths().filter { !config.isFolderProtected(it) }.forEach {
+                    config.addFolderProtection(it, hash, type)
+                }
 
+                listener?.refreshItems()
+                finishActMode()
+            }
+        }
     }
 
     private fun unlockFolder() {
+        val paths = getSelectedPaths()
+        val firstPath = paths.first()
+        val tabToShow = config.getFolderProtectionType(firstPath)
+        val hashToCheck = config.getFolderProtectionHash(firstPath)
+        SecurityDialog(activity, hashToCheck, tabToShow) { hash, type, success ->
+            if (success) {
+                paths.filter { config.isFolderProtected(it) && config.getFolderProtectionType(it) == tabToShow && config.getFolderProtectionHash(it) == hashToCheck }.forEach {
+                    config.removeFolderProtection(it)
+                }
 
+                listener?.refreshItems()
+                finishActMode()
+            }
+        }
     }
 
     private fun pinFolders(pin: Boolean) {
