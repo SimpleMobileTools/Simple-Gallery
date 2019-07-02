@@ -159,8 +159,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         if (selectedKeys.size <= 1) {
             val path = getFirstSelectedItemPath() ?: return
             if (path != FAVORITES && path != RECYCLE_BIN) {
-                activity.handleLockedFolderOpening(path) {
-                    PropertiesDialog(activity, path, config.shouldShowHidden)
+                activity.handleLockedFolderOpening(path) { success ->
+                    if (success) {
+                        PropertiesDialog(activity, path, config.shouldShowHidden)
+                    }
                 }
             }
         } else {
@@ -180,18 +182,20 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 return
             }
 
-            activity.handleLockedFolderOpening(sourcePath) {
-                RenameItemDialog(activity, dir.absolutePath) {
-                    activity.runOnUiThread {
-                        firstDir.apply {
-                            path = it
-                            name = it.getFilenameFromPath()
-                            tmb = File(it, tmb.getFilenameFromPath()).absolutePath
-                        }
-                        updateDirs(dirs)
-                        ensureBackgroundThread {
-                            activity.galleryDB.DirectoryDao().updateDirectoryAfterRename(firstDir.tmb, firstDir.name, firstDir.path, sourcePath)
-                            listener?.refreshItems()
+            activity.handleLockedFolderOpening(sourcePath) { success ->
+                if (success) {
+                    RenameItemDialog(activity, dir.absolutePath) {
+                        activity.runOnUiThread {
+                            firstDir.apply {
+                                path = it
+                                name = it.getFilenameFromPath()
+                                tmb = File(it, tmb.getFilenameFromPath()).absolutePath
+                            }
+                            updateDirs(dirs)
+                            ensureBackgroundThread {
+                                activity.galleryDB.DirectoryDao().updateDirectoryAfterRename(firstDir.tmb, firstDir.name, firstDir.path, sourcePath)
+                                listener?.refreshItems()
+                            }
                         }
                     }
                 }
@@ -218,26 +222,32 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             val path = it
             if (hide) {
                 if (config.wasHideFolderTooltipShown) {
-                    activity.handleLockedFolderOpening(path) {
-                        hideFolder(path)
+                    activity.handleLockedFolderOpening(path) { success ->
+                        if (success) {
+                            hideFolder(path)
+                        }
                     }
                 } else {
                     config.wasHideFolderTooltipShown = true
                     ConfirmationDialog(activity, activity.getString(R.string.hide_folder_description)) {
-                        activity.handleLockedFolderOpening(path) {
-                            hideFolder(path)
+                        activity.handleLockedFolderOpening(path) { success ->
+                            if (success) {
+                                hideFolder(path)
+                            }
                         }
                     }
                 }
             } else {
-                activity.handleLockedFolderOpening(path) {
-                    activity.removeNoMedia(path) {
-                        if (activity.config.shouldShowHidden) {
-                            updateFolderNames()
-                        } else {
-                            activity.runOnUiThread {
-                                listener?.refreshItems()
-                                finishActMode()
+                activity.handleLockedFolderOpening(path) { success ->
+                    if (success) {
+                        activity.removeNoMedia(path) {
+                            if (activity.config.shouldShowHidden) {
+                                updateFolderNames()
+                            } else {
+                                activity.runOnUiThread {
+                                    listener?.refreshItems()
+                                    finishActMode()
+                                }
                             }
                         }
                     }
@@ -257,18 +267,22 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     }
 
     private fun emptyRecycleBin() {
-        activity.handleLockedFolderOpening(RECYCLE_BIN) {
-            activity.emptyTheRecycleBin {
-                listener?.refreshItems()
+        activity.handleLockedFolderOpening(RECYCLE_BIN) { success ->
+            if (success) {
+                activity.emptyTheRecycleBin {
+                    listener?.refreshItems()
+                }
             }
         }
     }
 
     private fun emptyAndDisableRecycleBin() {
-        activity.handleLockedFolderOpening(RECYCLE_BIN) {
-            activity.showRecycleBinEmptyingDialog {
-                activity.emptyAndDisableTheRecycleBin {
-                    listener?.refreshItems()
+        activity.handleLockedFolderOpening(RECYCLE_BIN) { success ->
+            if (success) {
+                activity.showRecycleBinEmptyingDialog {
+                    activity.emptyAndDisableTheRecycleBin {
+                        listener?.refreshItems()
+                    }
                 }
             }
         }
@@ -424,8 +438,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     }
 
     private fun tryCreateShortcut() {
-        activity.handleLockedFolderOpening(getFirstSelectedItemPath() ?: "") {
-            createShortcut()
+        activity.handleLockedFolderOpening(getFirstSelectedItemPath() ?: "") { success ->
+            if (success) {
+                createShortcut()
+            }
         }
     }
 
@@ -524,8 +540,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             }
 
             if (foldersToDelete.size == 1) {
-                activity.handleLockedFolderOpening(foldersToDelete.first().absolutePath) {
-                    listener?.deleteFolders(foldersToDelete)
+                activity.handleLockedFolderOpening(foldersToDelete.first().absolutePath) { success ->
+                    if (success) {
+                        listener?.deleteFolders(foldersToDelete)
+                    }
                 }
             } else {
                 foldersToDelete = foldersToDelete.filter { !activity.config.isFolderProtected(it.absolutePath) }.toMutableList() as ArrayList<File>
@@ -535,8 +553,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     }
 
     private fun tryChangeAlbumCover(useDefault: Boolean) {
-        activity.handleLockedFolderOpening(getFirstSelectedItemPath() ?: "") {
-            changeAlbumCover(useDefault)
+        activity.handleLockedFolderOpening(getFirstSelectedItemPath() ?: "") { success ->
+            if (success) {
+                changeAlbumCover(useDefault)
+            }
         }
     }
 

@@ -98,8 +98,13 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
             if (realPath != null && File(realPath).exists()) {
                 if (realPath.getFilenameFromPath().contains('.') || filename.contains('.')) {
                     if (isFileTypeVisible(realPath)) {
-                        sendViewPagerIntent(realPath)
-                        finish()
+                        bottom_actions.beGone()
+                        handleLockedFolderOpening(realPath.getParentPath()) { success ->
+                            if (success) {
+                                sendViewPagerIntent(realPath)
+                            }
+                            finish()
+                        }
                         return
                     }
                 } else {
@@ -110,18 +115,28 @@ open class PhotoVideoActivity : SimpleActivity(), ViewPagerFragment.FragmentList
 
         if (mUri!!.scheme == "file") {
             if (filename.contains('.')) {
-                rescanPaths(arrayListOf(mUri!!.path))
-                sendViewPagerIntent(mUri!!.path)
-                finish()
-                return
+                bottom_actions.beGone()
+                handleLockedFolderOpening(mUri!!.path.getParentPath()) { success ->
+                    if (success) {
+                        rescanPaths(arrayListOf(mUri!!.path))
+                        sendViewPagerIntent(mUri!!.path)
+                    }
+                    finish()
+                }
             }
+            return
         } else {
             val path = applicationContext.getRealPathFromURI(mUri!!) ?: ""
             if (path != mUri.toString() && path.isNotEmpty() && mUri!!.authority != "mms" && filename.contains('.') && File(path).exists()) {
                 if (isFileTypeVisible(path)) {
-                    rescanPaths(arrayListOf(mUri!!.path))
-                    sendViewPagerIntent(path)
-                    finish()
+                    bottom_actions.beGone()
+                    handleLockedFolderOpening(path.getParentPath()) { success ->
+                        if (success) {
+                            rescanPaths(arrayListOf(mUri!!.path))
+                            sendViewPagerIntent(path)
+                        }
+                        finish()
+                    }
                     return
                 }
             }
