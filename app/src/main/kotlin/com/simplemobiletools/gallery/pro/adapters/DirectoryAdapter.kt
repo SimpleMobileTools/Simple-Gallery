@@ -122,10 +122,10 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             R.id.cab_copy_to -> copyMoveTo(true)
             R.id.cab_move_to -> moveFilesTo()
             R.id.cab_select_all -> selectAll()
-            R.id.cab_create_shortcut -> createShortcut()
+            R.id.cab_create_shortcut -> tryCreateShortcut()
             R.id.cab_delete -> askConfirmDelete()
-            R.id.cab_select_photo -> changeAlbumCover(false)
-            R.id.cab_use_default -> changeAlbumCover(true)
+            R.id.cab_select_photo -> tryChangeAlbumCover(false)
+            R.id.cab_use_default -> tryChangeAlbumCover(true)
         }
     }
 
@@ -407,6 +407,12 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         }
     }
 
+    private fun tryCreateShortcut() {
+        activity.handleLockedFolderOpening(getFirstSelectedItemPath() ?: "") {
+            createShortcut()
+        }
+    }
+
     @SuppressLint("NewApi")
     private fun createShortcut() {
         val manager = activity.getSystemService(ShortcutManager::class.java)
@@ -502,6 +508,12 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             }
 
             listener?.deleteFolders(foldersToDelete)
+        }
+    }
+
+    private fun tryChangeAlbumCover(useDefault: Boolean) {
+        activity.handleLockedFolderOpening(getFirstSelectedItemPath() ?: "") {
+            changeAlbumCover(useDefault)
         }
     }
 
