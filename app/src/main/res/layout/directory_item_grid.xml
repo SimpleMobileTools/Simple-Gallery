@@ -14,6 +14,20 @@
         android:layout_height="match_parent"/>
 
     <ImageView
+        android:id="@+id/dir_lock"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignStart="@+id/dir_thumbnail"
+        android:layout_alignTop="@+id/dir_thumbnail"
+        android:layout_alignEnd="@+id/dir_thumbnail"
+        android:layout_alignBottom="@+id/dir_thumbnail"
+        android:layout_centerInParent="true"
+        android:background="@color/default_background_color"
+        android:padding="@dimen/lock_padding"
+        android:src="@drawable/ic_lock_huge"
+        android:visibility="gone"/>
+
+    <ImageView
         android:id="@+id/dir_check"
         android:layout_width="@dimen/selection_check_size"
         android:layout_height="@dimen/selection_check_size"

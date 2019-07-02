@@ -30,7 +30,14 @@ import com.simplemobiletools.gallery.pro.helpers.*
 import com.simplemobiletools.gallery.pro.interfaces.DirectoryOperationsListener
 import com.simplemobiletools.gallery.pro.models.AlbumCover
 import com.simplemobiletools.gallery.pro.models.Directory
+import kotlinx.android.synthetic.main.directory_item_grid.view.*
 import kotlinx.android.synthetic.main.directory_item_list.view.*
+import kotlinx.android.synthetic.main.directory_item_list.view.dir_check
+import kotlinx.android.synthetic.main.directory_item_list.view.dir_location
+import kotlinx.android.synthetic.main.directory_item_list.view.dir_name
+import kotlinx.android.synthetic.main.directory_item_list.view.dir_pin
+import kotlinx.android.synthetic.main.directory_item_list.view.dir_thumbnail
+import kotlinx.android.synthetic.main.directory_item_list.view.photo_cnt
 import java.io.File
 
 class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directory>, val listener: DirectoryOperationsListener?, recyclerView: MyRecyclerView,
@@ -46,9 +53,11 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
     private var cropThumbnails = config.cropThumbnails
     private var groupDirectSubfolders = config.groupDirectSubfolders
     private var currentDirectoriesHash = dirs.hashCode()
+    private var lockedFolderPaths = ArrayList<String>()
 
     init {
         setupDragListener(true)
+        fillLockedFolders()
     }
 
     override fun getActionMenuId() = R.menu.cab_directories
@@ -328,6 +337,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             if (success) {
                 getSelectedPaths().filter { !config.isFolderProtected(it) }.forEach {
                     config.addFolderProtection(it, hash, type)
+                    lockedFolderPaths.add(it)
                 }
 
                 listener?.refreshItems()
@@ -345,6 +355,7 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             if (success) {
                 paths.filter { config.isFolderProtected(it) && config.getFolderProtectionType(it) == tabToShow && config.getFolderProtectionHash(it) == hashToCheck }.forEach {
                     config.removeFolderProtection(it)
+                    lockedFolderPaths.remove(it)
                 }
 
                 listener?.refreshItems()
@@ -538,11 +549,19 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
     private fun getItemWithKey(key: Int): Directory? = dirs.firstOrNull { it.path.hashCode() == key }
 
+    private fun fillLockedFolders() {
+        lockedFolderPaths.clear()
+        dirs.map { it.path }.filter { config.isFolderProtected(it) }.forEach {
+            lockedFolderPaths.add(it)
+        }
+    }
+
     fun updateDirs(newDirs: ArrayList<Directory>) {
         val directories = newDirs.clone() as ArrayList<Directory>
         if (directories.hashCode() != currentDirectoriesHash) {
             currentDirectoriesHash = directories.hashCode()
             dirs = directories
+            fillLockedFolders()
             notifyDataSetChanged()
             finishActMode()
         }
@@ -582,7 +601,13 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 dir_check.background?.applyColorFilter(primaryColor)
             }
 
-            activity.loadImage(thumbnailType, directory.tmb, dir_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
+            if (lockedFolderPaths.contains(directory.path)) {
+                dir_lock.beVisible()
+            } else {
+                dir_lock.beGone()
+                activity.loadImage(thumbnailType, directory.tmb, dir_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
+            }
+
             dir_pin.beVisibleIf(pinnedFolders.contains(directory.path))
             dir_location.beVisibleIf(directory.location != LOCATION_INTERNAL)
             if (dir_location.isVisible()) {
