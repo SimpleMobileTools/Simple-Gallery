@@ -452,20 +452,21 @@ fun Context.loadImage(type: Int, path: String, target: MySquareImageView, horizo
             loadJpg(path, target, cropThumbnails, skipMemoryCacheAtPaths)
         }
     } else if (type == TYPE_GIFS) {
+        if (!animateGifs) {
+            loadStaticGIF(path, target, cropThumbnails, skipMemoryCacheAtPaths)
+            return
+        }
+
         try {
             val gifDrawable = GifDrawable(path)
             target.setImageDrawable(gifDrawable)
-            if (animateGifs) {
-                gifDrawable.start()
-            } else {
-                gifDrawable.stop()
-            }
+            gifDrawable.start()
 
             target.scaleType = if (cropThumbnails) ImageView.ScaleType.CENTER_CROP else ImageView.ScaleType.FIT_CENTER
         } catch (e: Exception) {
-            loadJpg(path, target, cropThumbnails, skipMemoryCacheAtPaths)
+            loadStaticGIF(path, target, cropThumbnails, skipMemoryCacheAtPaths)
         } catch (e: OutOfMemoryError) {
-            loadJpg(path, target, cropThumbnails, skipMemoryCacheAtPaths)
+            loadStaticGIF(path, target, cropThumbnails, skipMemoryCacheAtPaths)
         }
     } else if (type == TYPE_SVGS) {
         loadSVG(path, target, cropThumbnails)
@@ -522,6 +523,22 @@ fun Context.loadJpg(path: String, target: MySquareImageView, cropThumbnails: Boo
     if (cropThumbnails) options.centerCrop() else options.fitCenter()
     builder.apply(options)
             .transition(DrawableTransitionOptions.withCrossFade())
+            .into(target)
+}
+
+fun Context.loadStaticGIF(path: String, target: MySquareImageView, cropThumbnails: Boolean, skipMemoryCacheAtPaths: ArrayList<String>? = null) {
+    val options = RequestOptions()
+            .signature(path.getFileSignature())
+            .skipMemoryCache(skipMemoryCacheAtPaths?.contains(path) == true)
+            .priority(Priority.LOW)
+            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+
+    val builder = Glide.with(applicationContext)
+            .asBitmap() // make sure the GIF wont animate
+            .load(path)
+
+    if (cropThumbnails) options.centerCrop() else options.fitCenter()
+    builder.apply(options)
             .into(target)
 }
 
