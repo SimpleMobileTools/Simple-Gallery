@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.ShortcutInfo
 import android.content.pm.ShortcutManager
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Icon
 import android.view.Menu
 import android.view.View
@@ -603,6 +604,8 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
 
             if (lockedFolderPaths.contains(directory.path)) {
                 dir_lock.beVisible()
+                dir_lock.background = ColorDrawable(config.backgroundColor)
+                dir_lock.applyColorFilter(config.backgroundColor.getContrastColor())
             } else {
                 dir_lock.beGone()
                 activity.loadImage(thumbnailType, directory.tmb, dir_thumbnail, scrollHorizontally, animateGifs, cropThumbnails)
