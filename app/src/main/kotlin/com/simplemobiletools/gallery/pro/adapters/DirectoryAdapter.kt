@@ -159,10 +159,14 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
         if (selectedKeys.size <= 1) {
             val path = getFirstSelectedItemPath() ?: return
             if (path != FAVORITES && path != RECYCLE_BIN) {
-                PropertiesDialog(activity, path, config.shouldShowHidden)
+                activity.handleLockedFolderOpening(path) {
+                    PropertiesDialog(activity, path, config.shouldShowHidden)
+                }
             }
         } else {
-            PropertiesDialog(activity, getSelectedPaths().filter { it != FAVORITES && it != RECYCLE_BIN }.toMutableList(), config.shouldShowHidden)
+            PropertiesDialog(activity, getSelectedPaths().filter {
+                it != FAVORITES && it != RECYCLE_BIN && !activity.config.isFolderProtected(it)
+            }.toMutableList(), config.shouldShowHidden)
         }
     }
 
@@ -176,22 +180,24 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
                 return
             }
 
-            RenameItemDialog(activity, dir.absolutePath) {
-                activity.runOnUiThread {
-                    firstDir.apply {
-                        path = it
-                        name = it.getFilenameFromPath()
-                        tmb = File(it, tmb.getFilenameFromPath()).absolutePath
-                    }
-                    updateDirs(dirs)
-                    ensureBackgroundThread {
-                        activity.galleryDB.DirectoryDao().updateDirectoryAfterRename(firstDir.tmb, firstDir.name, firstDir.path, sourcePath)
-                        listener?.refreshItems()
+            activity.handleLockedFolderOpening(sourcePath) {
+                RenameItemDialog(activity, dir.absolutePath) {
+                    activity.runOnUiThread {
+                        firstDir.apply {
+                            path = it
+                            name = it.getFilenameFromPath()
+                            tmb = File(it, tmb.getFilenameFromPath()).absolutePath
+                        }
+                        updateDirs(dirs)
+                        ensureBackgroundThread {
+                            activity.galleryDB.DirectoryDao().updateDirectoryAfterRename(firstDir.tmb, firstDir.name, firstDir.path, sourcePath)
+                            listener?.refreshItems()
+                        }
                     }
                 }
             }
         } else {
-            val paths = getSelectedPaths().filter { !activity.isAStorageRootFolder(it) } as ArrayList<String>
+            val paths = getSelectedPaths().filter { !activity.isAStorageRootFolder(it) && !activity.config.isFolderProtected(it) } as ArrayList<String>
             RenameItemsDialog(activity, paths) {
                 listener?.refreshItems()
             }
@@ -208,25 +214,31 @@ class DirectoryAdapter(activity: BaseSimpleActivity, var dirs: ArrayList<Directo
             }
         }
 
-        selectedPaths.filter { it != FAVORITES && it != RECYCLE_BIN }.forEach {
+        selectedPaths.filter { it != FAVORITES && it != RECYCLE_BIN && (selectedPaths.size == 1 || !activity.config.isFolderProtected(it)) }.forEach {
             val path = it
             if (hide) {
                 if (config.wasHideFolderTooltipShown) {
-                    hideFolder(path)
+                    activity.handleLockedFolderOpening(path) {
+                        hideFolder(path)
+                    }
                 } else {
                     config.wasHideFolderTooltipShown = true
                     ConfirmationDialog(activity, activity.getString(R.string.hide_folder_description)) {
-                        hideFolder(path)
+                        activity.handleLockedFolderOpening(path) {
+                            hideFolder(path)
+                        }
                     }
                 }
             } else {
-                activity.removeNoMedia(path) {
-                    if (activity.config.shouldShowHidden) {
-                        updateFolderNames()
-                    } else {
-                        activity.runOnUiThread {
-                            listener?.refreshItems()
-                            finishActMode()
+                activity.handleLockedFolderOpening(path) {
+                    activity.removeNoMedia(path) {
+                        if (activity.config.shouldShowHidden) {
+                            updateFolderNames()
+                        } else {
+                            activity.runOnUiThread {
+                                listener?.refreshItems()
+                                finishActMode()
+                            }
                         }
                     }
                 }
