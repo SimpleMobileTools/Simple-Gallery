@@ -17,9 +17,9 @@
     <string name="unknown_location">Position inconnue</string>
     <string name="increase_column_count">Ajouter une colonne</string>
     <string name="reduce_column_count">Supprimer une colonne</string>
-    <string name="change_cover_image">Changer l\'image de vignette</string>
-    <string name="select_photo">Sélectionner une image</string>
-    <string name="use_default">Utiliser par défaut</string>
+    <string name="change_cover_image">Changer l\'image du dossier</string>
+    <string name="select_photo">Choisir une image</string>
+    <string name="use_default">Image par défaut</string>
     <string name="volume">Volume</string>
     <string name="brightness">Luminosité</string>
     <string name="lock_orientation">Verrouiller la rotation</string>
