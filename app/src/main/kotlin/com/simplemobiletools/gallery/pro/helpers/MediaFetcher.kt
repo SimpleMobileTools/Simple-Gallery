@@ -2,6 +2,7 @@ package com.simplemobiletools.gallery.pro.helpers
 
 import android.content.Context
 import android.database.Cursor
+import android.os.Environment
 import android.provider.MediaStore
 import android.text.format.DateFormat
 import com.simplemobiletools.commons.extensions.*
@@ -45,7 +46,20 @@ class MediaFetcher(val context: Context) {
 
         return try {
             val cursor = context.contentResolver.query(uri, projection, selection, selectionArgs, null)
-            parseCursor(cursor)
+            val folders = parseCursor(cursor)
+
+            val priorityFolders = arrayListOf(
+                    Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString(),
+                    "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM)}/Camera",
+                    Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString()
+            ).filter { File(it).exists() }
+
+            folders.sortBy {
+                val folder = it
+                !priorityFolders.any { it.equals(folder, true) }
+            }
+
+            folders
         } catch (e: Exception) {
             ArrayList()
         }
