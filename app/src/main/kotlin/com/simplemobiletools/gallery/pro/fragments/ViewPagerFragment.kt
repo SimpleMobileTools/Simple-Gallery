@@ -64,15 +64,15 @@ abstract class ViewPagerFragment : Fragment() {
         }
 
         if (detailsFlag and EXT_DATE_TAKEN != 0) {
-            path.getExifDateTaken(exif, context!!).let { if (it.isNotEmpty()) details.appendln(it) }
+            exif.getExifDateTaken(context!!).let { if (it.isNotEmpty()) details.appendln(it) }
         }
 
         if (detailsFlag and EXT_CAMERA_MODEL != 0) {
-            path.getExifCameraModel(exif).let { if (it.isNotEmpty()) details.appendln(it) }
+            exif.getExifCameraModel().let { if (it.isNotEmpty()) details.appendln(it) }
         }
 
         if (detailsFlag and EXT_EXIF_PROPERTIES != 0) {
-            path.getExifProperties(exif).let { if (it.isNotEmpty()) details.appendln(it) }
+            exif.getExifProperties().let { if (it.isNotEmpty()) details.appendln(it) }
         }
 
         if (detailsFlag and EXT_GPS != 0) {
